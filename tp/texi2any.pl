@@ -358,7 +358,7 @@ my $main_program_default_options = {
 # determine configuration directories.
 
 # used as part of binary strings
-my $conf_file_name = 'Config' ;
+my $conf_file_name = 'texi2any-config.pm';
 
 # directories for texinfo configuration files, used as part of binary strings.
 my @language_config_dirs = File::Spec->catdir($curdir, '.texinfo');

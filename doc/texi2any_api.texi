@@ -91,18 +91,18 @@ conversion of tree elements can be fully customized.
 @cindex Initialization files, loading
 @cindex Search paths, for initialization files
 
-@c @pindex Config @r{init files loaded}
-@cindex @file{Config} init files loaded
+@c @pindex texi2any-config.pm @r{init files loaded}
+@cindex @file{texi2any-config.pm} init files loaded
 
 @quotation Warning
-The @file{Config} file related paths and even the use
-of @file{Config} files is not definitive.
+The @file{texi2any-config.pm} file related paths and even the use
+of @file{texi2any-config.pm} files is not definitive.
 @end quotation
 
 You can write so-called @dfn{initialization files}, or @dfn{init
 files} for short, to modify almost every aspect of output formatting.
-The program loads init files named @file{Config} each time it is run.
-Those files are looked for in the following directories:
+The program loads init files named @file{texi2any-config.pm} each time it
+is run.  Those files are looked for in the following directories:
 
 @table @file
 @item @var{datadir}/texi2any/
@@ -122,9 +122,9 @@ compile-time, e.g., @file{/usr/local/share})
 (the current directory)
 @end table
 
-All @file{Config} files found are loaded, in the above order.  Thus,
-@file{./Config} can override entries in, say,
-@file{/usr/local/share/makeinfo/Config}.
+All @file{texi2any-config.pm} files found are loaded, in the above order.
+Thus, @file{./texi2any-config.pm} can override entries in, say,
+@file{/usr/local/share/makeinfo/texi2any-config.pm}.
 
 @c @opindex --init-file
 @cindex @option{--init-file}

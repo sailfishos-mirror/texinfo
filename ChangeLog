@@ -1,3 +1,14 @@
+2023-06-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Rename texi2any config file
+
+	* tp/texi2any.pl ($conf_file_name): Rename config file from
+	'Config' to 'texi2any-config.pm', as 'Config' is too generic
+	and can clash with other uses.
+	* doc/texi2any_api.texi (Loading Init Files): Update.
+
+	Report from Jun T <takimoto-j@kba.biglobe.ne.jp>.
+
 2023-06-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	@link for LaTeX
