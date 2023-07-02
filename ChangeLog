@@ -1,3 +1,10 @@
+2023-07-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\link): Call \unsepspaces in case
+	@link is used in @example environment, to stop the label
+	in e.g. @link{One, Three} being taken as " Three" with a
+	extra leading space.  Report from Andreas Falkenhahn.
+
 2023-06-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Rename texi2any config file
