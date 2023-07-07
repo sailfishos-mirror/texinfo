@@ -425,6 +425,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/def_groupings_args.pl \
   t/results/def/defblock_no_defline.pl \
   t/results/def/defline_no_params.pl \
+  t/results/def/deftypeline.pl \
   t/results/def/defx_after_comment.pl \
   t/results/def/defx_after_comment_in_example.pl \
   t/results/def/defx_after_empty_line.pl \
@@ -1206,6 +1207,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/no_monolithic_only_toc_out.pl \
   t/results/layout/no_monolithic_only_toc_out/res_html \
   t/results/linemacro/api_doc_with_linemacro.pl \
+  t/results/linemacro/blockitem_no_item.pl \
   t/results/linemacro/brace_command_not_closed.pl \
   t/results/linemacro/braces_after_text.pl \
   t/results/linemacro/empty_last_argument.pl \

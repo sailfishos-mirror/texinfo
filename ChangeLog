@@ -1,3 +1,8 @@
+2023-07-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/65linemacro.t, tp/Makefile.tres: add blockitem_no_item
+	test.
+
 2023-07-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\link): Call \unsepspaces in case

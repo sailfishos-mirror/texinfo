@@ -41,6 +41,18 @@ Some text @mycommand {a
  call}
 and after.
 '],
+# FIXME currently incorrect output, probably because @end is handled
+# when the linemacro is processed.
+['blockitem_no_item',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@itemize
+AA
+@mycommand d e f @
+@end itemize
+'],
 ['missing_formal_arg',
 '@linemacro mymacro {a, , b}
 \a\ and \b\.
