@@ -1903,7 +1903,7 @@ end_line (ELEMENT *current)
   if (last_contents_child (current)
       && last_contents_child (current)->type == ET_empty_line)
     {
-      debug ("END EMPTY LINE");
+      debug ("END EMPTY LINE in %s", print_element_debug (current, 0));
       if (current->type == ET_paragraph)
         {
           ELEMENT *e;

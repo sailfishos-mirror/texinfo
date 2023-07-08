@@ -102,6 +102,7 @@ push_context (enum context c, enum command_id cmd)
     context_stack = realloc (context_stack,
                              (space += 5) * sizeof (enum context));
 
+  /* debug not in perl parser
   debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s @%s", top,
          c == ct_preformatted ? "preformatted"
          : c == ct_line ? "line"
@@ -109,6 +110,7 @@ push_context (enum context c, enum command_id cmd)
          : c == ct_brace_command ? "brace_command"
          : c == ct_linecommand ? "linemacro_command"
          : "", command_name(cmd));
+   */
   context_stack[top] = c;
   top++;
 
@@ -123,7 +125,9 @@ pop_context ()
 
   (void) pop_command (&command_stack);
 
+  /* debug not in perl parser
   debug (">>>>>>>>>>>>>POPPING STACK AT %d", top - 1);
+   */
   return context_stack[--top];
 }
 

@@ -120,6 +120,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
   line += strspn (line, whitespace_chars);
   name = read_command_name (&line);
 
+  debug ("MACRO @%s %s", command_name (cmd), name);
+
   if (*line && *line != '{' && !strchr (whitespace_chars, *line))
     {
       line_error ("bad name for @%s", command_name (cmd));

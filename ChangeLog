@@ -1,3 +1,16 @@
+2023-07-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (debug_print_element),
+	tp/Texinfo/ParserNonXS.pm (_merge_text, _abort_empty_line)
+	(_isolate_last_space, _end_line_misc_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/context_stack.c (push_context, pop_context),
+	tp/Texinfo/XS/parsetexi/debug.c (print_element_debug),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text, abort_empty_line)
+	(parse_texi): shorten debug messages, synchronize debug messages of
+	perl and XS parsers to some extent.
+
 2023-07-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/65linemacro.t, tp/Makefile.tres: add blockitem_no_item

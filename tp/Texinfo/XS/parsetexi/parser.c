@@ -701,7 +701,9 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
           transfer_marks_element->source_mark_list.number = 0;
         }
       /* Append text */
-      debug ("MERGED TEXT: %s|||", text);
+      debug ("MERGED TEXT: %s||| in %s last of %s", text,
+             print_element_debug (last_child, 0),
+             print_element_debug (current, 0));
       text_append (&last_child->text, text);
     }
   else
@@ -739,9 +741,11 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
     {
       retval = 1;
 
-      debug ("ABORT EMPTY %s additional text |%s| "
-             "current |%s|",
-             element_type_name(last_child),
+      debug ("ABORT EMPTY in %s(p:%d): %s; add |%s| "
+             "to |%s|",
+             print_element_debug (current, 0),
+             in_paragraph_context (current_context ()),
+             element_type_name (last_child),
              additional_spaces,
              last_child->text.text);
       text_append (&last_child->text, additional_spaces);
@@ -2495,11 +2499,18 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         {
           status = process_remaining_on_line (&current, &line);
           if (status == GET_A_NEW_LINE)
-            break;
+            {
+              debug ("GET_A_NEW_LINE");
+              break;
+            }
           if (status == FINISHED_TOTALLY)
-            goto finished_totally;
+            {
+              debug ("FINISHED_TOTALLY");
+              goto finished_totally;
+            }
           if (!line)
             {
+              debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
               abort_empty_line (&current, NULL);
               current = end_line (current);
               break;

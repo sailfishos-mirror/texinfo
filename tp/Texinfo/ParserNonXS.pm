@@ -2197,12 +2197,12 @@ sub _merge_text {
       and scalar(@{$current->{'contents'}})
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
-    my $merged_to = $current->{'contents'}->[-1];
+    my $last_child = $current->{'contents'}->[-1];
     # Transfer source marks
     if ($transfer_marks_element
         and $transfer_marks_element->{'source_marks'}) {
-      $merged_to->{'source_marks'} = []
-        if (!defined($merged_to->{'source_marks'}));
+      $last_child->{'source_marks'} = []
+        if (!defined($last_child->{'source_marks'}));
       my $additional_length = length($current->{'contents'}->[-1]->{'text'});
       while (scalar(@{$transfer_marks_element->{'source_marks'}})) {
         my $source_mark = shift @{$transfer_marks_element->{'source_marks'}};
@@ -2211,16 +2211,16 @@ sub _merge_text {
             if (not defined($source_mark->{'position'}));
           $source_mark->{'position'} += $additional_length;
         }
-        push @{$merged_to->{'source_marks'}}, $source_mark;
+        push @{$last_child->{'source_marks'}}, $source_mark;
       }
       delete $transfer_marks_element->{'source_marks'};
     }
     # Append text
-    print STDERR "MERGED TEXT: $text|||in "
-      .Texinfo::Common::debug_print_element($merged_to)
-      ." last of: ".Texinfo::Common::debug_print_element($current)."\n"
+    print STDERR "MERGED TEXT: $text||| in "
+      .Texinfo::Common::debug_print_element($last_child)
+      ." last of ".Texinfo::Common::debug_print_element($current)."\n"
          if ($self->{'DEBUG'});
-    $merged_to->{'text'} .= $text;
+    $last_child->{'text'} .= $text;
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
     _transfer_source_marks($transfer_marks_element, $new_element)
@@ -2728,8 +2728,8 @@ sub _abort_empty_line {
       .Texinfo::Common::debug_print_element($current)."(p:".
        (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
       .$spaces_element->{'type'}
-      ." additional text |$additional_spaces|,"
-      ." current |$spaces_element->{'text'}|\n"
+      ."; add |$additional_spaces|"
+      ." to |$spaces_element->{'text'}|\n"
         if ($self->{'DEBUG'});
 
     $spaces_element->{'text'} .= $additional_spaces;
@@ -2823,7 +2823,7 @@ sub _isolate_last_space
 
   my $debug_str;
   if ($self->{'DEBUG'}) {
-    $debug_str = 'p: '
+    $debug_str = 'p '
          .Texinfo::Common::debug_print_element($current)."; c ";
     if (scalar(@{$current->{'contents'}})) {
       if ($current->{'contents'}->[-1]->{'type'}) {
@@ -2851,8 +2851,8 @@ sub _isolate_last_space
 
   my $last_element = $current->{'contents'}->[-1];
 
-  print STDERR "ISOLATE SPACE ".$debug_str
-    if ($self->{'DEBUG'});
+  #print STDERR "ISOLATE SPACE ".$debug_str
+  #  if ($self->{'DEBUG'});
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
     _isolate_trailing_space($current, 'space_at_end_menu_node');
@@ -3331,7 +3331,7 @@ sub _end_line_misc_line($$$)
 
   my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
 
-  print STDERR "MISC END \@$command: $arg_spec\n"
+  print STDERR "MISC END $command\n" #: $arg_spec"
      if ($self->{'DEBUG'});
 
   if ($arg_spec eq 'specific') {
@@ -7024,12 +7024,12 @@ sub _process_remaining_on_line($$$$)
     $current = _merge_text($self, $current, $menu_only_separator);
   # Misc text except end of line
   } elsif (defined $misc_text) {
-    print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
+    #print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
     substr ($line, 0, length ($misc_text)) = '';
     $current = _merge_text($self, $current, $misc_text);
   # end of line
   } else {
-    print STDERR "END LINE: "
+    print STDERR "END LINE "
         .Texinfo::Common::debug_print_element($current, 1)."\n"
           if ($self->{'DEBUG'});
     if ($line =~ s/^(\n)//) {
@@ -7078,13 +7078,16 @@ sub _parse_texi($$$)
     #if ($self->{'nesting_context'} and $self->{'nesting_context'}->{'basic_inline_stack_on_line'});
 
     if ($self->{'DEBUG'}) {
-      my $source_info_text = '';
-      $source_info_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
-         if ($source_info);
-      my @cond_commands = map {$_->[0]} @{$self->{'conditional_stack'}};
-      print STDERR "NEW LINE("
-         .join('|', $self->_get_context_stack())
-         .":@cond_commands:$source_info_text): $line";
+      my $additional_debug = '';
+      if (0) {
+        my $source_info_text = '';
+        $source_info_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
+          if ($source_info);
+        my @cond_commands = map {$_->[0]} @{$self->{'conditional_stack'}};
+        $additional_debug = '('.join('|', $self->_get_context_stack())
+          .":@cond_commands:$source_info_text)";
+      }
+      print STDERR "NEW LINE${additional_debug} $line";
       #print STDERR "  $current: "
       #             .Texinfo::Common::debug_print_element($current)."\n";
     }
