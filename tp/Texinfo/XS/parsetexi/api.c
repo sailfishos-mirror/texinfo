@@ -466,7 +466,6 @@ store_source_mark_list (ELEMENT *e)
             {
               SAVE_S_M_STATUS (start)
               SAVE_S_M_STATUS (end)
-              SAVE_S_M_STATUS (fail)
             }
 
 #define SAVE_S_M_TYPE(X) \

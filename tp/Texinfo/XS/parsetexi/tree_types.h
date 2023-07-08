@@ -36,23 +36,36 @@ enum extra_type {
 
 /* the *_none enums are not necessarily used, they may also
    be there to avoid using 0, for a code easier to debug */
-enum source_mark_type { SM_type_none,
-                        SM_type_include,
-                        SM_type_setfilename,
-                        SM_type_delcomment,
-                        SM_type_defline_continuation,
-                        SM_type_macro_expansion,
-                        SM_type_linemacro_expansion,
-                        SM_type_value_expansion,
-                        SM_type_ignored_conditional_block,
-                        SM_type_expanded_conditional_command
+
+#define SM_TYPES_LIST \
+   sm_type(none) \
+   sm_type(include) \
+   sm_type(setfilename) \
+   sm_type(delcomment) \
+   sm_type(defline_continuation) \
+   sm_type(macro_expansion) \
+   sm_type(linemacro_expansion) \
+   sm_type(value_expansion) \
+   sm_type(ignored_conditional_block) \
+   sm_type(expanded_conditional_command) \
+
+enum source_mark_type {
+  #define sm_type(name) SM_type_ ## name,
+    SM_TYPES_LIST
+  #undef sm_type
+};
+
+static char *source_marks_names[SM_type_expanded_conditional_command + 1] =
+{
+  #define sm_type(name) [SM_type_ ## name] = #name,
+    SM_TYPES_LIST
+  #undef sm_type
 };
 
 enum source_mark_status {
     SM_status_none,
     SM_status_start,
     SM_status_end,
-    SM_status_fail,
 };
 
 typedef struct KEY_PAIR {

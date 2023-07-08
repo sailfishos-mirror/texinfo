@@ -31,6 +31,12 @@ int value_expansion_counter = 0;
 int ignored_conditional_block_counter = 0;
 int expanded_conditional_command_counter = 0;
 
+char *
+source_mark_name(enum source_mark_type type)
+{
+  return source_marks_names[type];
+}
+
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
 {
@@ -81,6 +87,8 @@ void
 place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   ELEMENT *mark_element;
+  /* for debug string */
+  char *add_element_string = "no-add";
 
   source_mark->position = 0;
   if (e->contents.number > 0)
@@ -97,13 +105,16 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       /* set empty text to have merge_text work as expected */
       text_append (&mark_element->text, "");
       add_to_element_contents (e, mark_element);
+      add_element_string = "add";
     }
 
-  debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
-              source_mark->counter, source_mark->position,
-              source_mark->status);
-  debug_print_element (mark_element, 1);
-  debug("");
+  debug ("MARK %s c: %d p: %d %s %s %s %s", source_mark_name(source_mark->type),
+         source_mark->counter, source_mark->position,
+         source_mark->status == SM_status_start ? "start"
+          : source_mark->status == SM_status_end ? "end"
+          : "SM_status UNKNOWN", add_element_string,
+         print_element_debug(mark_element, 0),
+         print_element_debug(e, 0));
   add_source_mark (source_mark, mark_element);
 }
 
@@ -244,3 +255,4 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
     }
   return end_position;
 }
+

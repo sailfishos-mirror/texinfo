@@ -1171,8 +1171,8 @@ sub _debug_show_source_mark
   my $source_mark = shift;
   return "$source_mark->{'sourcemark_type'} c: "
    .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
-    .", ".(defined($source_mark->{'position'})
-             ? $source_mark->{'position'}: 'UNDEF')." "
+    ." p: ".(defined($source_mark->{'position'})
+             ? $source_mark->{'position'}: 0)." "
      .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF');
 }
 
@@ -1181,8 +1181,8 @@ sub _place_source_mark
   my ($self, $element, $source_mark) = @_;
 
   # for debug
-  my $add_element = 'no-add';
-  delete $source_mark->{'position'};
+  my $add_element_string = 'no-add';
+  $source_mark->{'position'} = 0;
   # the element that holds the source mark
   my $mark_element;
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
@@ -1197,11 +1197,14 @@ sub _place_source_mark
     $mark_element = {'parent' => $element, 'text' => ''};
     $element->{'contents'} = [] unless (defined($element->{'contents'}));
     push @{$element->{'contents'}}, $mark_element;
-    $add_element = 'add';
+    $add_element_string = 'add';
+  }
+  if ($source_mark->{'position'} == 0) {
+    delete $source_mark->{'position'};
   }
 
-  print STDERR "MARK: "._debug_show_source_mark($source_mark)
-     ." $add_element ".Texinfo::Common::debug_print_element($mark_element)
+  print STDERR "MARK "._debug_show_source_mark($source_mark)
+   ." $add_element_string ".Texinfo::Common::debug_print_element($mark_element)
       .' '.Texinfo::Common::debug_print_element($element)."\n"
         if ($self->{'DEBUG'});
         ;
@@ -2203,8 +2206,6 @@ sub _merge_text {
       while (scalar(@{$transfer_marks_element->{'source_marks'}})) {
         my $source_mark = shift @{$transfer_marks_element->{'source_marks'}};
         if ($additional_length) {
-          $source_mark->{'position'} = 0
-            if (not defined($source_mark->{'position'}));
           $source_mark->{'position'} += $additional_length;
         }
         push @{$last_child->{'source_marks'}}, $source_mark;
