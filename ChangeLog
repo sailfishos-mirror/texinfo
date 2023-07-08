@@ -1,5 +1,14 @@
 2023-07-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (debug_command_name, debug_print_element),
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/debug.c (debug_command_name)
+	(print_element_debug), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line): escape \n and \t in command name in
+	debug messages for better readability.
+
+2023-07-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_debug_show_source_mark)
 	(_place_source_mark, _merge_text),
 	tp/Texinfo/XS/parsetexi/source_marks.c (source_mark_name)

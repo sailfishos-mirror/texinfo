@@ -6813,7 +6813,8 @@ sub _process_remaining_on_line($$$$)
       substr($line, 0, $at_command_length) = '';
     }
 
-    print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
+    print STDERR "COMMAND \@".Texinfo::Common::debug_command_name($command)
+                  ."\n" if ($self->{'DEBUG'});
 
     # @value not expanded (expansion is done above), and @txiinternalvalue
     if ($command eq 'value' or $command eq 'txiinternalvalue') {

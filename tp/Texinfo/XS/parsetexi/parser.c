@@ -2027,7 +2027,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       enum command_id data_cmd = cmd;
       ELEMENT *command_element;
 
-      debug ("COMMAND %s", command_name(cmd));
+      debug ("COMMAND @%s", debug_command_name(cmd));
 
       line = line_after_command;
 

@@ -2472,6 +2472,18 @@ sub _parent_string($)
   return $parent_string
 }
 
+sub debug_command_name($)
+{
+  my $cmdname = shift;
+  if ($cmdname eq "\n") {
+    return '\n';
+  } elsif ($cmdname eq "\t") {
+    return '\t';
+  } else {
+    return $cmdname;
+  }
+}
+
 # informations on a tree element, short version
 sub debug_print_element($;$)
 {
@@ -2492,7 +2504,9 @@ sub debug_print_element($;$)
   $type .= '{'.$current->{'extra'}->{'special_element_type'}.'}'
     if (defined($current->{'extra'})
       and defined($current->{'extra'}->{'special_element_type'}));
-  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
+  if (defined($current->{'cmdname'})) {
+    $cmd = '@' . debug_command_name($current->{'cmdname'});
+  }
   if (defined($current->{'text'}) and $current->{'text'} ne '') {
     my $text_str = $current->{'text'};
     $text_str =~ s/\n/\\n/g;

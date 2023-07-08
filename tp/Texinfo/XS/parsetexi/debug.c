@@ -48,6 +48,17 @@ debug_nonl (char *s, ...)
 }
 
 char *
+debug_command_name (enum command_id cmd)
+{
+  if (cmd == CM_TAB)
+    return "\\t";
+  else if (cmd == CM_NEWLINE)
+    return "\\n";
+  else
+    return command_name(cmd);
+}
+
+char *
 print_element_debug (ELEMENT *e, int print_parent)
 {
   TEXT text;
@@ -56,7 +67,7 @@ print_element_debug (ELEMENT *e, int print_parent)
   text_init (&text);
   text_append (&text, "");
   if (e->cmd)
-    text_printf (&text, "@%s", command_name(e->cmd));
+    text_printf (&text, "@%s", debug_command_name(e->cmd));
   if (e->type)
     text_printf (&text, "(%s)", element_type_names[e->type]);
   if (e->text.end > 0)
