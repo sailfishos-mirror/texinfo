@@ -1549,7 +1549,7 @@ sub _remove_empty_content($$)
       _transfer_source_marks($child_element, $current);
       print STDERR "REMOVE empty child "
          .Texinfo::Common::debug_print_element($child_element)
-          .' '.Texinfo::Common::debug_print_element($current)."\n"
+          .' from '.Texinfo::Common::debug_print_element($current)."\n"
             if ($self->{'DEBUG'});
       _pop_element_from_contents($self, $current);
     }
@@ -1573,6 +1573,9 @@ sub _close_container($$)
       delete $current->{'type'} if ($current->{'type'} ne 'before_item');
     } else {
       $element_to_remove = $current;
+      print STDERR "CONTAINER EMPTY "
+        .Texinfo::Common::debug_print_element($current, 1)."\n"
+          if ($self->{'DEBUG'});
     }
   }
   $current = $current->{'parent'};
@@ -1585,7 +1588,7 @@ sub _close_container($$)
       and scalar(@{$current->{'contents'}})
       and $current->{'contents'}->[-1] eq $element_to_remove) {
     print STDERR "REMOVE empty type "
-      .Texinfo::Common::debug_print_element($element_to_remove)."\n"
+      .Texinfo::Common::debug_print_element($element_to_remove, 1)."\n"
         if ($self->{'DEBUG'});
     _pop_element_from_contents($self, $current);
   }

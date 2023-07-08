@@ -1,5 +1,13 @@
 2023-07-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_remove_empty_content, _close_container),
+	tp/Texinfo/XS/parsetexi/close.c (remove_empty_content)
+	(close_container): synchronize debug messages across the parsers.
+	Use more print_element_debug instead of debug_print_element in XS
+	parser.
+
+2023-07-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (debug_command_name, debug_print_element),
 	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/debug.c (debug_command_name)

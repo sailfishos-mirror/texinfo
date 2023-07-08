@@ -124,8 +124,9 @@ remove_empty_content (ELEMENT *current)
         {
           transfer_source_marks (child_element, current);
 
-          debug_nonl ("REMOVE empty child ");
-          debug_print_element (child_element, 1); debug ("");
+          debug ("REMOVE empty child %s from %s",
+                 print_element_debug(child_element, 0),
+                 print_element_debug(current, 0));
           destroy_element (pop_element_from_contents (current));
         }
     }
@@ -154,8 +155,8 @@ close_container (ELEMENT *current)
       else
         {
           element_to_remove = current;
-          debug_nonl ("CONTAINER EMPTY ");
-          debug_print_element (current, 1); debug ("");
+          debug ("CONTAINER EMPTY %s",
+                 print_element_debug(current, 1));
         }
     }
 
@@ -168,8 +169,8 @@ close_container (ELEMENT *current)
          a manual */
       if (last_child == element_to_remove)
         {
-          debug_nonl ("REMOVE empty type ");
-          debug_print_element (last_child, 1); debug ("");
+          debug ("REMOVE empty type %s",
+                 print_element_debug(last_child, 1));
           destroy_element (pop_element_from_contents (current));
         }
     }
