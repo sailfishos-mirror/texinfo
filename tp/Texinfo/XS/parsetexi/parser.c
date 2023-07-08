@@ -914,7 +914,7 @@ isolate_last_space (ELEMENT *current)
     }
 
   if (current->contents.number == 0)
-    return;
+    goto no_isolate_space;
 
   last_elt = last_contents_child (current);
   text = element_text (last_elt);
@@ -922,17 +922,27 @@ isolate_last_space (ELEMENT *current)
       || (last_elt->type && (!current->type
                              || (current->type != ET_line_arg
                                  && current->type != ET_block_line_arg))))
-    return;
+    goto no_isolate_space;
 
   text_len = last_elt->text.end;
   /* Does the text end in whitespace? */
   if (!strchr (whitespace_chars, text[text_len - 1]))
-    return;
+    goto no_isolate_space;
 
   if (current->type == ET_menu_entry_node)
     isolate_trailing_space (current, ET_space_at_end_menu_node);
   else
     isolate_last_space_internal (current);
+
+  debug ("ISOLATE SPACE p %s; c %s", print_element_debug (current, 0),
+   current->contents.number == 0 ? "" : print_element_debug (last_elt, 0));
+
+  return;
+
+no_isolate_space:
+  debug ("NOT ISOLATING p %s; c %s", print_element_debug (current, 0),
+   current->contents.number == 0 ? "" : print_element_debug (last_elt, 0));
+  return;
 }
 
 
@@ -2140,6 +2150,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
       def_line_continuation = (current_context() == ct_def
                                && cmd == CM_NEWLINE);
+
       /* warn on not appearing at line beginning.  Need to do before closing
          paragraph as it also closes the empty line */
       if (!def_line_continuation

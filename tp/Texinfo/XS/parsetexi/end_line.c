@@ -665,6 +665,11 @@ end_line_def_line (ELEMENT *current)
       def_command = top_cmd;
     }
 
+  debug ("END DEF LINE %s %s; current %s",
+     top_context == ct_def ? "ct_def"
+     : top_context == ct_linecommand ? "ct_linecommand" : "",
+     command_name(def_command), print_element_debug (current, 1));
+
   def_info = parse_def (def_command, current);
 
   /* def_line or linemacro_call */
@@ -898,6 +903,9 @@ end_line_starting_block (ELEMENT *current)
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
+  debug ("END BLOCK LINE: %s", print_element_debug (current, 1));
+
+  /* @multitable args */
   if (command == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
     {

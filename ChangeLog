@@ -1,5 +1,20 @@
 2023-07-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization, _next_text)
+	(_handle_macro): register the number of expanded macros in a scalar
+	and go through input to check if a macro is being expanded instead
+	of keeping a stack of expanded macros, also to be more similar with
+	XS parser.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space),
+	tp/Texinfo/XS/parsetexi/close.c (close_current),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line)
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/macro.c
+	(handle_macro), tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space):
+	add debug messages in XS parser to match better perl parser.
+
+2023-07-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (debug_print_element),
 	tp/Texinfo/ParserNonXS.pm (_merge_text, _abort_empty_line)
 	(_isolate_last_space, _end_line_misc_line, _parse_texi),

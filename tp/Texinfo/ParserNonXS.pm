@@ -123,9 +123,6 @@ $VERSION = '7.0dev';
 # are not configurable/implemented in the XS parser, so they are best
 # left internal.  In general they are dynamically modified during parsing.
 my %parser_state_initialization = (
-  # these are the user-added indices.  May be an array reference on names
-  # or an hash reference in the same format than %index_names below
-  'indices' => [],
   'aliases' => {},            # key is a command name value is the alias
   'commands_info' => {},      # keys are @-commands names (without @) and
                               # values are arrays for global multiple
@@ -143,8 +140,7 @@ my %parser_state_initialization = (
   'macros' => {},             # the key is the user-defined macro name.  The
                               # value is the reference on a macro element
                               # as obtained by parsing the @macro
-  'macro_stack' => [],        # stack of macros being expanded (more recent
-                              # first)
+  'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_stack' => [],        # stack of values being expanded (more recent
                               # first)
   'merged_indices' => {},     # the key is merged in the value
@@ -2386,10 +2382,7 @@ sub _next_text($;$)
       }
       delete $input->{'th'};
       if ($input->{'input_source_info'}->{'macro'} ne '') {
-        my $top_macro = shift @{$self->{'macro_stack'}};
-        print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
-          ." $top_macro->{'args'}->[0]->{'text'}\n"
-            if ($self->{'DEBUG'});
+        $self->{'macro_expansion_nr'}--;
       } elsif (defined($input->{'value_flag'})) {
         my $top_value = shift @{$self->{'value_stack'}};
         print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
@@ -2823,17 +2816,11 @@ sub _isolate_last_space
 
   my $debug_str;
   if ($self->{'DEBUG'}) {
-    $debug_str = 'p '
-         .Texinfo::Common::debug_print_element($current)."; c ";
-    if (scalar(@{$current->{'contents'}})) {
-      if ($current->{'contents'}->[-1]->{'type'}) {
-        $debug_str .= "($current->{'contents'}->[-1]->{'type'})";
-      }
-      if (defined($current->{'contents'}->[-1]->{'text'})) {
-        $debug_str .= "[T: $current->{'contents'}->[-1]->{'text'}]";
-      }
+    $debug_str = 'p '.Texinfo::Common::debug_print_element($current).'; c ';
+    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+      $debug_str .=
+         Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
     }
-    $debug_str .= "\n";
   }
 
   if (!$current->{'contents'}
@@ -2844,15 +2831,15 @@ sub _isolate_last_space
                         or ($current->{'type'} ne 'line_arg'
                             and $current->{'type'} ne 'block_line_arg')))
             or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/) {
-    print STDERR "NOT ISOLATING ".$debug_str
+    print STDERR "NOT ISOLATING $debug_str\n"
        if ($self->{'DEBUG'});
     return;
   }
 
   my $last_element = $current->{'contents'}->[-1];
 
-  #print STDERR "ISOLATE SPACE ".$debug_str
-  #  if ($self->{'DEBUG'});
+  print STDERR "ISOLATE SPACE $debug_str\n"
+    if ($self->{'DEBUG'});
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
     _isolate_trailing_space($current, 'space_at_end_menu_node');
@@ -3682,7 +3669,7 @@ sub _end_line_def_line($$$)
     # $def_command = $current->{'parent'}->{'extra'}->{'name'};
   }
 
-  print STDERR "END DEF LINE $top_context $def_command; current: "
+  print STDERR "END DEF LINE $top_context $def_command; current "
     .Texinfo::Common::debug_print_element($current, 1)."\n"
       if ($self->{'DEBUG'});
 
@@ -4852,7 +4839,7 @@ sub _handle_macro($$$$$)
 
   # FIXME same stack for linemacro?
   if ($self->{'MAX_MACRO_CALL_NESTING'}
-      and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
+      and $self->{'macro_expansion_nr'} >= $self->{'MAX_MACRO_CALL_NESTING'}) {
     $self->_line_warn(sprintf(__(
   "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                           $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
@@ -4861,8 +4848,9 @@ sub _handle_macro($$$$$)
   }
 
   if ($expanded_macro->{'cmdname'} ne 'rmacro') {
-    foreach my $macro (@{$self->{'macro_stack'}}) {
-      if ($macro->{'args'}->[0]->{'text'} eq $command) {
+    foreach my $input (@{$self->{'input'}}[0..$#{$self->{'input'}}-1]) {
+      if (defined($input->{'input_source_info'}->{'macro'})
+          and $input->{'input_source_info'}->{'macro'} eq $command) {
         # FIXME different message for linemacro?
         $self->_line_error(sprintf(__(
        "recursive call of macro %s is not allowed; use \@rmacro if needed"),
@@ -4873,8 +4861,8 @@ sub _handle_macro($$$$$)
     }
   }
 
-  unshift @{$self->{'macro_stack'}}, $expanded_macro;
-  print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
+  $self->{'macro_expansion_nr'}++;
+  print STDERR "MACRO NUMBER $self->{'macro_expansion_nr'} $command\n"
     if ($self->{'DEBUG'});
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {

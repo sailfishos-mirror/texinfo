@@ -423,6 +423,9 @@ close_current (ELEMENT *current,
     {
       enum context c;
       ELEMENT *close_brace;
+
+      debug ("CLOSING type %s", element_type_name (current));
+
       switch (current->type)
         {
         case ET_balanced_braces:
