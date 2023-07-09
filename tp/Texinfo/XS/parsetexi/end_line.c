@@ -791,6 +791,7 @@ end_line_def_line (ELEMENT *current)
       /* remove the linemacro_call container from the main tree.
          The container holds the arguments Texinfo elements tree */
       popped = pop_element_from_contents (current);
+      popped->parent = 0;
 
       register_source_mark (current, macro_source_mark);
       set_input_source_mark (macro_source_mark);

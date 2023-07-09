@@ -109,15 +109,6 @@ $result_errors{'bye_on_end_command_line'} = [
     'macro' => '',
     'text' => '@bye should not appear in @end',
     'type' => 'warning'
-  },
-  {
-    'error_line' => '@bye seen before @end cartouche
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@bye seen before @end cartouche',
-    'type' => 'error'
   }
 ];
 

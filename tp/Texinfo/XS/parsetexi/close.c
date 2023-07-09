@@ -144,6 +144,9 @@ close_container (ELEMENT *current)
   /* remove element without contents nor associated information */
   if (is_container_empty (current))
     {
+      debug ("CONTAINER EMPTY %s (%d source marks)",
+             print_element_debug(current, 1),
+             current->source_mark_list.number);
       if (current->source_mark_list.number > 0)
         {
           /* Keep the element to keep the source mark, but remove some types.
@@ -153,11 +156,7 @@ close_container (ELEMENT *current)
             current->type = ET_NONE;
         }
       else
-        {
-          element_to_remove = current;
-          debug ("CONTAINER EMPTY %s",
-                 print_element_debug(current, 1));
-        }
+        element_to_remove = current;
     }
 
   current = current->parent;
@@ -438,6 +437,7 @@ close_current (ELEMENT *current,
           /* current = merge_text (current, "}", 0); */
           text_append (&close_brace->text, "}");
           add_to_element_contents (current, close_brace);
+          current = current->parent;
           break;
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
@@ -448,19 +448,18 @@ close_current (ELEMENT *current,
               /* remove spaces element from tree and update extra values */
               abort_empty_line (&current, 0);
             }
+          current = current->parent;
           break;
         case ET_line_arg:
-          /* We ignore the current returned, to be sure that
-             we close the command too. */
-          end_line_misc_line (current);
+          current = end_line_misc_line (current);
           break;
         case ET_block_line_arg:
-          end_line_starting_block (current);
+          current = end_line_starting_block (current);
           break;
         default:
+          current = close_container (current);
           break;
         }
-      current = close_container(current);
     }
   else
     {
@@ -509,9 +508,16 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
         /* In ignored conditional. */
         close_ignored_block_conditional (current);
     }
-  else if (closed_block_command)
+  else
     {
-      line_error ("unmatched `@end %s'", command_name(closed_block_command));
+      if (closed_block_command)
+        line_error ("unmatched `@end %s'", command_name(closed_block_command));
+      if (! ((current->cmd && command_flags(current) & CF_root)
+             || (current->type == ET_before_node_section)))
+        {
+          debug ("close_commands unexpectedly stopped %s",
+                 print_element_debug (current, 1));
+        }
     }
 
   return current;

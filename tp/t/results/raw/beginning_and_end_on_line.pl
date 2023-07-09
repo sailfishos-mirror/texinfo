@@ -33,9 +33,6 @@ $result_trees{'beginning_and_end_on_line'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'rawpreformatted'
-            },
-            {
               'args' => [
                 {
                   'contents' => [

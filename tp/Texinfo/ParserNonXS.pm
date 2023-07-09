@@ -1566,6 +1566,11 @@ sub _close_container($$)
   # remove element without contents nor associated information
   my $element_to_remove;
   if (_is_container_empty($current)) {
+    print STDERR "CONTAINER EMPTY "
+      .Texinfo::Common::debug_print_element($current, 1)
+      .' ('.($current->{'source_marks'}
+            ? scalar(@{$current->{'source_marks'}}) : 0)." source marks)\n"
+        if ($self->{'DEBUG'});
     if ($current->{'source_marks'}) {
       # Keep the element to keep the source mark, but remove some types.
       # Keep before_item in order not to add empty table definition in
@@ -1573,9 +1578,6 @@ sub _close_container($$)
       delete $current->{'type'} if ($current->{'type'} ne 'before_item');
     } else {
       $element_to_remove = $current;
-      print STDERR "CONTAINER EMPTY "
-        .Texinfo::Common::debug_print_element($current, 1)."\n"
-          if ($self->{'DEBUG'});
     }
   }
   $current = $current->{'parent'};
@@ -2063,6 +2065,7 @@ sub _close_current($$$;$$)
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
+      $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'balanced_braces') {
       # unclosed braces in contexts accepting lone braces
       $self->_command_error($current, $source_info, __("misplaced {"));
@@ -2072,20 +2075,15 @@ sub _close_current($$$;$$)
       #$current = _merge_text($self, $current, '}');
       my $close_brace = {'text' => '}', 'parent' => $current};
       push @{$current->{'contents'}}, $close_brace;
+      $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'line_arg') {
-      #$current = _end_line_misc_line($self, $current, $source_info);
-      # We ignore the current returned $current, to be sure that
-      # we close the command too.
-      # TODO if returned $current is used, tests fails, should
-      # investigate why, maybe because it is redundant
-      # with _close_container below?
-      _end_line_misc_line($self, $current, $source_info);
+      $current = _end_line_misc_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'block_line_arg') {
-      _end_line_starting_block($self, $current, $source_info);
+      $current = _end_line_starting_block($self, $current, $source_info);
     } else {
+      $current = _close_container($self, $current);
       print STDERR "No need of type closing function\n" if ($self->{'DEBUG'});
     }
-    $current = _close_container($self, $current);
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
     $self->_bug_message("No type nor cmdname when closing",
