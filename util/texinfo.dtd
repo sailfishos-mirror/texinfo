@@ -1299,7 +1299,7 @@
           %spacesattr;>
 
 <!ELEMENT link (linknodename?, linkrefname?, linkinfofile?)>
-<!ATTLIST inforef
+<!ATTLIST link
           %xref.attr;>
 <!ELEMENT linknodename (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST linknodename
