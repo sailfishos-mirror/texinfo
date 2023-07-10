@@ -1,5 +1,14 @@
 2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@link for "Texinfo XML"
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (%commands_args_elements):
+	Add 'link'.
+	(_convert): Handle @link like @inforef.
+	* util/texinfo.dtd: Add link element and its subelements.
+
+2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@link), NEWS: Document @link.
 	* doc/texinfo.texi (Info Format FAQ): Mention possibility of @link.
 
