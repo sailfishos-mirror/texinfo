@@ -716,22 +716,22 @@ $result_converted{'xml'}->{'link'} = '<node name="One" spaces=" "><nodename>One<
 <para>xrefautomaticsectiontitle off
 <xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
 </para>
-<para><link>One</link>
+<para><link label="One"><linknodename>One</linknodename></link>
 </para>
-<para><link>One</link>
+<para><link label="One"><linknodename>One</linknodename><linkrefname spaces=" ">label</linkrefname></link>
 </para>
 <para>xrefautomaticsectiontitle on
 <xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
 </para>
-<para><link>One</link>
+<para><link label="One"><linknodename>One</linknodename></link>
 </para>
-<para><link>One</link>
+<para><link label="One"><linknodename>One</linknodename><linkrefname spaces=" ">label</linkrefname></link>
 </para>
 <para>external link
 </para>
-<para><link>Introduction</link>
+<para><link label="Introduction" manual="bash"><linknodename>Introduction</linknodename><linkinfofile>bash</linkinfofile></link>
 </para>
-<para><link>Introduction</link>
+<para><link label="Introduction" manual="bash"><linknodename>Introduction</linknodename><linkrefname>Bash</linkrefname><linkinfofile>bash</linkinfofile></link>
 </para>';
 
 

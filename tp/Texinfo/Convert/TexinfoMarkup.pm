@@ -184,6 +184,7 @@ our %commands_args_elements = (
   'email' => ['emailaddress', 'emailname'],
   'uref' => ['urefurl', 'urefdesc', 'urefreplacement'],
   'url' => ['urefurl', 'urefdesc', 'urefreplacement'],
+  'link' => ['linknodename', 'linkrefname', 'linkinfofile'],
   'inforef' => ['inforefnodename', 'inforefrefname', 'inforefinfoname'],
   'image' => ['imagefile', 'imagewidth', 'imageheight',
               'alttext', 'imageextension'],
@@ -1196,7 +1197,8 @@ sub _convert($$;$)
           }
           my $manual;
           my $manual_arg_index = 3;
-          if ($element->{'cmdname'} eq 'inforef') {
+          if ($element->{'cmdname'} eq 'link'
+                or $element->{'cmdname'} eq 'inforef') {
             $manual_arg_index = 2;
           }
           if (defined($element->{'args'}->[$manual_arg_index])
