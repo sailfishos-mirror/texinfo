@@ -1059,6 +1059,9 @@ sub _convert($$;$)
           if ($element->{'cmdname'} eq 'inforef') {
             $manual_file_index = 2;
             $cmdname = 'xref';
+          } elsif ($element->{'cmdname'} eq 'link') {
+            $manual_file_index = 2;
+            $cmdname = 'ref';
           } else {
             if (scalar(@{$element->{'args'}}) == 5
                 and defined($element->{'args'}->[-1])
@@ -1221,7 +1224,8 @@ sub _convert($$;$)
             my $link_text = $section_name;
             $link_text = $node_name if (! defined($link_text));
             my $argument = "<link${linkend}>".$link_text."</link>";
-            if ($element->{'cmdname'} eq 'ref') {
+            if ($element->{'cmdname'} eq 'ref'
+                  or $element->{'cmdname'} eq 'link') {
               $result = $self->_convert(
                       $self->gdt('{title_ref}', {'title_ref' =>
                            {'type' => '_converted',
