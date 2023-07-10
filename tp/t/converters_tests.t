@@ -345,6 +345,34 @@ $top_in_ref_text
 @section @xref{,,,filename}. xref filename only, no spaces
 
 '],
+['link',
+'@node One
+@chapter ONEX
+
+target node
+
+@node Two
+
+xrefautomaticsectiontitle off
+@xrefautomaticsectiontitle off
+
+@link{One}
+
+@link{One, label}
+
+xrefautomaticsectiontitle on
+@xrefautomaticsectiontitle on
+
+@link{One}
+
+@link{One, label}
+
+external link
+
+@link{Introduction,,bash}
+
+@link{Introduction,Bash,bash}
+'],
 ['unknown_value',
 '@value{unknown}'],
 ['test_sp',

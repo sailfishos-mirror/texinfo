@@ -1,5 +1,9 @@
 2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/converters_tests.t (link): New test.
+
+2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@link for DocBook
 
 	* tp/Texinfo/Convert/DocBook.pm (_convert): Handle @link.
