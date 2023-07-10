@@ -1,5 +1,10 @@
 2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@link), NEWS: Document @link.
+	* doc/texinfo.texi (Info Format FAQ): Mention possibility of @link.
+
+2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/texinfo.dtd: Add 'link'.
 
 2023-07-10  Gavin Smith <gavinsmith0123@gmail.com>

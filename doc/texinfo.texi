@@ -254,6 +254,7 @@ Cross-references
 * @code{@@ref}::                        A reference for the last part of a sentence.
 * @code{@@pxref}::                      How to write a parenthetical cross-reference.
 * @code{@@anchor}::                     Defining arbitrary cross-reference targets
+* @code{@@link}::                       How to make a plain link.
 * @code{@@inforef}::                    How to refer to an Info-only file.
 * @code{@@url}::                        How to refer to a uniform resource locator.
 * @code{@@cite}::                       How to refer to books not in the Info system.
@@ -4266,6 +4267,7 @@ cross-references.
 * @code{@@ref}::                        A reference for the last part of a sentence.
 * @code{@@pxref}::                      How to write a parenthetical cross-reference.
 * @code{@@anchor}::                     Defining arbitrary cross-reference targets
+* @code{@@link}::                       How to make a plain link.
 * @code{@@inforef}::                    How to refer to an Info-only file.
 * @code{@@url}::                        How to refer to a uniform resource locator.
 * @code{@@cite}::                       How to refer to books not in the Info system.
@@ -4965,6 +4967,42 @@ Because of this duality, when you delete or rename a node, it is
 usually a good idea to define an @code{@@anchor} with the old name.
 That way, any links to the old node, whether from other Texinfo
 manuals or general web pages, keep working.
+
+
+@node @code{@@link}
+@section @code{@@link}: Plain, unadorned hyperlink
+@findex link
+@cindex Cross-references using @code{@@link}
+@cindex Plain link
+@cindex Plain hyperlink
+
+@code{@@link} produces a plain hyperlink in output formats that
+support it, including in HTML, DocBook, @LaTeX{} and online PDF@.
+The template is:
+
+@example
+@@link@{@var{node-name}, @var{label}, @var{manual-name}@}
+@end example
+
+@var{node-name} is the name of the target node or anchor.
+Either or both of @var{label} and @var{manual-name} can
+be omitted.  @var{label}, if given, is the text to use for the
+link.  @var{manual-name} is the name of the external manual that the
+target appears within; if not given, the reference is to the current
+manual.
+
+@code{@@link} has similar output to @code{@@ref}, except that it does
+produce any extra text around the link label in Info or printed output
+that would mark it as a cross-reference.
+
+Be careful about using @code{@@link} to produce links that are
+necessary for a user to move around a manual, as these links will do
+nothing in these output formats.  @code{@@link} is best used to add
+convenience links that are nonetheless not essential for a reader
+to understand the text of the manual.  For example, you might use
+@code{@@link} in a code sample to reference documentation of a symbol
+in a programming library.
+
 
 
 @node @code{@@inforef}
@@ -18302,13 +18340,13 @@ output, and the `see' text is only appropriate for @code{@@pxref}.
 
 You can't.  Info is a plain text format that is displayed mostly as-is
 in the viewers, and without the @samp{*note} text there would be nothing
-to mark text as a link.  Additionally, in printed output there is no
-such thing as a plain link, as the page number of the target would have
-to be printed somewhere.
+to mark text as a link.
 
-If you really want a plain link in HTML output without affecting other
-output formats, you could create a macro with conditional definitions for
-each output format.
+For output formats such as HTML, you can use the @code{@@link} command
+to produce a plain link.  @xref{@code{@@link}}.  This does not produce
+a working cross-reference in Info output or in a printed copy of the
+manual, though.
+
 
 @item Why do lines containing links appear mysteriously short?
 
