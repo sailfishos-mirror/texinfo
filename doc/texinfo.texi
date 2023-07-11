@@ -451,6 +451,7 @@ Definition Commands
 * No Space After Definition Name::  How to omit space after name.
 * @code{@@deffnx}::                     Group two or more `first' lines.
 * Def Cmds in Detail::          Reference for all the definition commands.
+* Generic Definition Commands:: Without automatic index entries.
 * Def Cmd Conventions::         Conventions for writing definitions.
 * Sample Function Definition::  An example.
 
@@ -549,8 +550,10 @@ Customization Variables
 * Customization Variables for @@-Commands::
 * Customization Variables and Options::
 * HTML Customization Variables::
-* @command{latex2html} Customization Variables::
 * MathJax Customization Variables::
+* @command{latex2html} Customization Variables::
+* @command{tex4ht} Customization Variables::
+* @LaTeX{} Customization Variables::
 * Other Customization Variables::
 
 Invoking @command{pod2texi}: Convert Pod to Texinfo
@@ -581,6 +584,7 @@ Generating HTML
 * HTML CSS::               Influencing HTML output with Cascading Style Sheets.
 * @code{@@documentdescription}::   Document summary for the HTML output.
 * Generating EPUB::        Details on the EPUB output.
+* Syntax Highlighting::    Use syntax highlighting in code excerpts.
 * HTML Xref::              Cross-references in HTML output.
 
 Generating EPUB
@@ -11240,6 +11244,7 @@ definition commands.
 * No Space After Definition Name::  How to omit space after name.
 * @code{@@deffnx}::                     Group two or more `first' lines.
 * Def Cmds in Detail::          Reference for all the definition commands.
+* Generic Definition Commands:: Without automatic index entries.
 * Def Cmd Conventions::         Conventions for writing definitions.
 * Sample Function Definition::  An example.
 @end menu
@@ -16263,6 +16268,8 @@ The sections below give the details for each of these.
 * HTML:     HTML Customization Variables.
 * MathJax:  MathJax Customization Variables.
 * latex2html:  @command{latex2html} Customization Variables.
+* tex4ht:      @command{tex4ht} Customization Variables.
+* LaTeX:    @LaTeX{} Customization Variables.
 * Other:    Other Customization Variables.
 @end menu
 
@@ -18405,6 +18412,7 @@ Texinfo @command{texi2any} Output Customization}.
 * HTML CSS::               Influencing HTML output with Cascading Style Sheets.
 * @code{@@documentdescription}::   Document summary for the HTML output.
 * Generating EPUB::        Details on the EPUB output.
+* Syntax Highlighting::    Use syntax highlighting in code excerpts.
 * HTML Xref::              Cross-references in HTML output.
 @end menu
 
