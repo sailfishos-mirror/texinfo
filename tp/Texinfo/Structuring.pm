@@ -752,8 +752,7 @@ sub complete_node_tree_with_menus($$$$)
     }
 
     # check for node up / menu up mismatch
-    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-        and $node->{'structure'}->{'node_up'}
+    if ($node->{'structure'}->{'node_up'}
         # No check if node up is an external manual
         and (!$node->{'structure'}->{'node_up'}->{'extra'}->{'manual_content'})
         and (!$node->{'structure'}->{'menu_up_hash'}

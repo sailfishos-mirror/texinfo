@@ -1337,6 +1337,15 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => 'node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `node between part and chapter\' unreferenced
 ',
     'file_name' => '',

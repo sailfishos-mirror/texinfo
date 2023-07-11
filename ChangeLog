@@ -1,5 +1,15 @@
 2023-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Warnings for missing menu entries
+
+	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus):
+	Give a warning for missing menu entries even if
+	CHECK_NORMAL_MENU_STRUCTURE is not set.
+
+	Report from Bruno Haible.
+
+2023-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Fix structuring errors revealed by
 	CHECK_NORMAL_MENU_STRUCTURE=1.
 
