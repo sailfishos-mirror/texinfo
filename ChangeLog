@@ -1,3 +1,14 @@
+2023-07-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/close.c (remove_empty_content)
+	(close_container, close_commands), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_def_line, end_line_starting_block, end_line),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text, abort_empty_line)
+	(isolate_last_space), tp/Texinfo/XS/parsetexi/source_marks.c
+	(place_source_mark): do not use print_element_debug without free'ing
+	the result string, instead use debug_print_element more to avoid
+	memory leaks.  Report and idea of fix from Gavin.
+
 2023-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	NEWS: Mention CHECK_NORMAL_MENU_STRUCTURE change.

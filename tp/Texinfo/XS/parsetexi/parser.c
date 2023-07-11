@@ -700,10 +700,13 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
             }
           transfer_marks_element->source_mark_list.number = 0;
         }
+
+      debug_nonl ("MERGED TEXT: %s||| in ", text);
+      debug_print_element (last_child, 0);
+      debug_nonl (" last of ");
+      debug_print_element (current, 0); debug ("");
+
       /* Append text */
-      debug ("MERGED TEXT: %s||| in %s last of %s", text,
-             print_element_debug (last_child, 0),
-             print_element_debug (current, 0));
       text_append (&last_child->text, text);
     }
   else
@@ -741,13 +744,14 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
     {
       retval = 1;
 
-      debug ("ABORT EMPTY in %s(p:%d): %s; add |%s| "
-             "to |%s|",
-             print_element_debug (current, 0),
+      debug_nonl ("ABORT EMPTY in ");
+      debug_print_element (current, 0);
+      debug_nonl ("(p:%d): %s; add |%s| to |%s|",
              in_paragraph_context (current_context ()),
              element_type_name (last_child),
              additional_spaces,
-             last_child->text.text);
+             last_child->text.text); debug ("");
+
       text_append (&last_child->text, additional_spaces);
 
       /* Remove element altogether if it's empty. */
@@ -897,6 +901,7 @@ void
 isolate_last_space (ELEMENT *current)
 {
   char *text;
+  char *debug_last_elt_str = "";
   ELEMENT *last_elt;
   int text_len;
 
@@ -929,19 +934,27 @@ isolate_last_space (ELEMENT *current)
   if (!strchr (whitespace_chars, text[text_len - 1]))
     goto no_isolate_space;
 
+  debug_nonl ("ISOLATE SPACE p ");
+  debug_print_element (current, 0);
+  debug_nonl ("; c ");
+  debug_print_element (last_elt, 0); debug ("");
+
   if (current->type == ET_menu_entry_node)
     isolate_trailing_space (current, ET_space_at_end_menu_node);
   else
     isolate_last_space_internal (current);
 
-  debug ("ISOLATE SPACE p %s; c %s", print_element_debug (current, 0),
-   current->contents.number == 0 ? "" : print_element_debug (last_elt, 0));
-
   return;
 
 no_isolate_space:
-  debug ("NOT ISOLATING p %s; c %s", print_element_debug (current, 0),
-   current->contents.number == 0 ? "" : print_element_debug (last_elt, 0));
+  debug_nonl ("NOT ISOLATING p ");
+  debug_print_element (current, 0);
+  if (current->contents.number != 0)
+    debug_last_elt_str = print_element_debug (last_elt, 0);
+  debug_nonl ("; c %s", debug_last_elt_str); debug ("");
+  if (current->contents.number != 0)
+    free (debug_last_elt_str);
+
   return;
 }
 

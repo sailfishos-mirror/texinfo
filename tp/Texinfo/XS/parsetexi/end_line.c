@@ -665,10 +665,11 @@ end_line_def_line (ELEMENT *current)
       def_command = top_cmd;
     }
 
-  debug ("END DEF LINE %s %s; current %s",
+  debug_nonl ("END DEF LINE %s %s; current ",
      top_context == ct_def ? "ct_def"
      : top_context == ct_linecommand ? "ct_linecommand" : "",
-     command_name(def_command), print_element_debug (current, 1));
+     command_name(def_command));
+  debug_print_element (current, 1); debug ("");
 
   def_info = parse_def (def_command, current);
 
@@ -904,7 +905,8 @@ end_line_starting_block (ELEMENT *current)
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
-  debug ("END BLOCK LINE: %s", print_element_debug (current, 1));
+  debug_nonl ("END BLOCK LINE: ");
+  debug_print_element (current, 1); debug ("");
 
   /* @multitable args */
   if (command == CM_multitable
@@ -1912,7 +1914,8 @@ end_line (ELEMENT *current)
   if (last_contents_child (current)
       && last_contents_child (current)->type == ET_empty_line)
     {
-      debug ("END EMPTY LINE in %s", print_element_debug (current, 0));
+      debug_nonl ("END EMPTY LINE in ");
+      debug_print_element (current, 0); debug ("");
       if (current->type == ET_paragraph)
         {
           ELEMENT *e;

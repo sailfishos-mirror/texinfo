@@ -108,13 +108,14 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       add_element_string = "add";
     }
 
-  debug ("MARK %s c: %d p: %d %s %s %s %s", source_mark_name(source_mark->type),
+  debug_nonl ("MARK %s c: %d p: %d %s %s ", source_mark_name(source_mark->type),
          source_mark->counter, source_mark->position,
          source_mark->status == SM_status_start ? "start"
           : source_mark->status == SM_status_end ? "end"
-          : "SM_status UNKNOWN", add_element_string,
-         print_element_debug(mark_element, 0),
-         print_element_debug(e, 0));
+          : "SM_status UNKNOWN", add_element_string);
+  debug_print_element(mark_element, 0); debug_nonl (" ");
+  debug_print_element(e, 0); debug ("");
+
   add_source_mark (source_mark, mark_element);
 }
 

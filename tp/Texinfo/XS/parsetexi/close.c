@@ -124,9 +124,9 @@ remove_empty_content (ELEMENT *current)
         {
           transfer_source_marks (child_element, current);
 
-          debug ("REMOVE empty child %s from %s",
-                 print_element_debug(child_element, 0),
-                 print_element_debug(current, 0));
+          debug_nonl ("REMOVE empty child ");
+          debug_print_element (child_element, 0); debug_nonl (" from ");
+          debug_print_element (current, 0); debug ("");
           destroy_element (pop_element_from_contents (current));
         }
     }
@@ -144,9 +144,10 @@ close_container (ELEMENT *current)
   /* remove element without contents nor associated information */
   if (is_container_empty (current))
     {
-      debug ("CONTAINER EMPTY %s (%d source marks)",
-             print_element_debug(current, 1),
-             current->source_mark_list.number);
+      debug_nonl ("CONTAINER EMPTY ");
+      debug_print_element (current, 1);
+      debug_nonl (" %d source marks)",
+                  current->source_mark_list.number); debug ("");
       if (current->source_mark_list.number > 0)
         {
           /* Keep the element to keep the source mark, but remove some types.
@@ -168,8 +169,8 @@ close_container (ELEMENT *current)
          a manual */
       if (last_child == element_to_remove)
         {
-          debug ("REMOVE empty type %s",
-                 print_element_debug(last_child, 1));
+          debug_nonl ("REMOVE empty type ");
+          debug_print_element (last_child, 1); debug ("");
           destroy_element (pop_element_from_contents (current));
         }
     }
@@ -515,8 +516,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
       if (! ((current->cmd && command_flags(current) & CF_root)
              || (current->type == ET_before_node_section)))
         {
-          debug ("close_commands unexpectedly stopped %s",
-                 print_element_debug (current, 1));
+          debug_nonl ("close_commands unexpectedly stopped ");
+          debug_print_element (current, 1); debug ("");
         }
     }
 
