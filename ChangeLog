@@ -1,5 +1,22 @@
 2023-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No space for @ def line continuation
+
+	* doc/texinfo.texi (\argremovespace): Remove macro handling
+	@(newline).  This should only occur in line arguments on @def*
+	lines and we do not need the complicated handling of it generally.
+	Handling @(newline) in here makes it very hard to make any changes
+	that just affect @def*.
+	(\argremovespace): Reinstate definition from 2003-11-22 to handle
+	stripping a space token from the end of an argument, which is
+	simpler and all that is needed for most calls.
+	(\printname, \defunargs): Make @<newline> sequence expand to
+	nothing.  This matches the behaviour of texi2any.
+
+	bug-texinfo discussion, 7 Apr 2023.
+
+2023-07-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	XS file copyright notices
 
 	* tp/Texinfo/XS/MiscXS.xs
