@@ -366,7 +366,8 @@ including:
   pod2html $txi/Pod-Simple-Texinfo/pod2texi.pl \
   | grep -Fv 'rev="made"' >manual/pod2texi.html
 
-Build web documentation with
+Make sure texi2any and texinfo.tex are both installed, then build
+web documentation with
   make -C doc wwwdoc-build
 
 Copy documentation files to web checkout with, e.g.

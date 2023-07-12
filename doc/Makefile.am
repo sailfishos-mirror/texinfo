@@ -64,7 +64,6 @@ EXTRA_DIST = epsf.tex texinfo.tex \
              fdl.texi \
 	     $(man_MANS) $(TXI_XLATE) \
              $(refcard_files) \
-             gendocs.chapter/gendocs_template \
 	     texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
              texinfo-ja.tex short-sample-ja.texi \
              texinfo-zh.tex short-sample-zh.texi
@@ -126,10 +125,6 @@ gendocs_options = --email $(gendocs_email) --html '$(gendocs_mathjax) \
 # otherwise, we could use gendocs_template_min.
 #
 gendocs_invoke = env $(gendocs_envvars) $(gendocs) $(gendocs_options)
-gendocs_invoke_chap = env $(gendocs_envvars) \
-            GENDOCS_TEMPLATE_DIR=$(abs_top_srcdir)/doc/gendocs.chapter \
-            $(gendocs) $(gendocs_options)
-
 
 manual1 = info-stnd
 manual1_title = "GNU standalone info manual"
@@ -168,7 +163,7 @@ wwwdoc-build:
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
 	&& $(gendocs_invoke) $(manual3_flags) \
 	                     -o $(manual3) $(manual3) $(manual3_title) \
-	&& $(gendocs_invoke_chap) $(manual4_flags) \
+	&& $(gendocs_invoke) $(manual4_flags) \
 	                     -o $(manual4) $(manual4) $(manual4_title) \
 	&& pod2html --podpath . --htmldir='.' --quiet $(pod2texi_pl) --outfile=./pod2texi.html \
 	&& pod2html --quiet Pod/Simple/Texinfo.pm >Pod/Simple/Texinfo.html \
