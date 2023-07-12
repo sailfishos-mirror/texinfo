@@ -44,6 +44,7 @@ enum context pop_context (void);
 enum context current_context (void);
 void reset_context_stack (void);
 int in_context (enum context context);
+char *context_name (enum context c);
 
 
 

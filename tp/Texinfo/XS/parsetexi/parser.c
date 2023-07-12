@@ -154,6 +154,7 @@ check_space_element (ELEMENT *e)
   return 1;
 }
 
+int in_parsing_only = 0;
 
 
 /* Current node, section and part. */
@@ -1024,7 +1025,7 @@ parent_of_command_as_argument (ELEMENT *current)
 void
 register_command_as_argument (ELEMENT *cmd_as_arg)
 {
-  debug ("FOR PARENT @%s command_as_argument @%s",
+  debug ("FOR PARENT @%s command_as_argument %s",
          command_name(cmd_as_arg->parent->parent->cmd),
          command_name(cmd_as_arg->cmd));
   if (!cmd_as_arg->type)
@@ -1659,7 +1660,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   while (*line == '\0')
     {
       static char *allocated_text;
-      debug ("EMPTY TEXT");
+      debug_nonl ("EMPTY TEXT in: ");
+      debug_print_element (current, 0); debug ("");
 
       /* Each place we supply Texinfo input we store the supplied
          input in a static variable like allocated_text, to prevent
@@ -2126,6 +2128,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
           add_to_element_contents (current, macro_call_element);
           push_context (ct_linecommand, cmd);
+          in_parsing_only++;
           current = macro_call_element;
           add_to_element_args (current, line_arg);
           current = line_arg;

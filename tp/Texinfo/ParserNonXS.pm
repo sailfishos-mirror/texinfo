@@ -141,11 +141,12 @@ my %parser_state_initialization = (
                               # value is the reference on a macro element
                               # as obtained by parsing the @macro
   'macro_expansion_nr' => 0,  # number of macros being expanded
-  'value_stack' => [],        # stack of values being expanded (more recent
-                              # first)
+  'value_expansion_nr' => 0,  # number of values being expanded
   'merged_indices' => {},     # the key is merged in the value
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
+  'in_parsing_only' => 0,     # if set, parse only, no error message, no
+                              # rearranging...
   # initialization of information returned by global_information()
   'info' => {
     'input_encoding_name' => 'utf-8',
@@ -1497,7 +1498,7 @@ sub _close_all_style_commands($$$;$$)
                                       ->{$current->{'parent'}->{'cmdname'}})
           and $self->{'brace_commands'}
                            ->{$current->{'parent'}->{'cmdname'}} ne 'context') {
-    print STDERR "CLOSING(_close_all_style_commands) "
+    print STDERR "CLOSING(all_style_commands) "
       ."\@$current->{'parent'}->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
@@ -2386,10 +2387,7 @@ sub _next_text($;$)
       if ($input->{'input_source_info'}->{'macro'} ne '') {
         $self->{'macro_expansion_nr'}--;
       } elsif (defined($input->{'value_flag'})) {
-        my $top_value = shift @{$self->{'value_stack'}};
-        print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
-          . "$top_value\n"
-            if ($self->{'DEBUG'});
+        $self->{'value_expansion_nr'}--;
       }
     } elsif ($input->{'fh'}) {
       # Don't close STDIN
@@ -3557,8 +3555,7 @@ sub _end_line_misc_line($$$)
       # case of a conditional not ignored
       my $cond_info = pop @{$self->{'conditional_stack'}};
       my ($cond_command, $cond_source_mark) = @$cond_info;
-      print STDERR "POP END COND $end_command $cond_command "
-           ._debug_show_source_mark($cond_source_mark)." $cond_source_mark\n"
+      print STDERR "POP END COND $end_command $cond_command\n"
         if ($self->{'DEBUG'});
       my $end_source_mark = {'sourcemark_type' =>
                                  $cond_source_mark->{'sourcemark_type'},
@@ -3666,6 +3663,7 @@ sub _end_line_def_line($$$)
   if ($top_context eq 'ct_def') {
     $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
   } else {
+    $self->{'in_parsing_only'}--;
     $def_command = $context_command;
     # or
     # $def_command = $current->{'parent'}->{'extra'}->{'name'};
@@ -4129,8 +4127,7 @@ sub _end_line_starting_block($$$)
                          'status' => 'start',
                          'element' => $conditional_command};
       _register_source_mark($self, $current, $source_mark);
-      print STDERR "PUSH BEGIN COND $command, "
-        ._debug_show_source_mark($source_mark)." $source_mark\n"
+      print STDERR "PUSH BEGIN COND $command\n"
           if ($self->{'DEBUG'});
       push @{$self->{'conditional_stack'}}, [$command, $source_mark];
     }
@@ -4368,13 +4365,13 @@ sub _end_line($$$)
       # if in a linemacro command call nested on a line, we do not close
       # the preceding commands yet, as they might use the expansion
       print STDERR "Expanded \@$in_macro_expansion still line/block"
-       ." command $top_context:"
-       .Texinfo::Common::debug_print_element($current)."\n"
+       ." command $top_context: "
+       .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'DEBUG'});
       return $current;
     }
-    print STDERR "Still opened line/block command $top_context:"
-      .Texinfo::Common::debug_print_element($current)."\n"
+    print STDERR "Still opened line/block command $top_context: "
+      .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'DEBUG'});
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'} and !($current->{'parent'}->{'type'}
@@ -5114,7 +5111,7 @@ sub _handle_other_command($$$$$)
       # @itemize or @enumerate
       if ($parent = _item_container_parent($current)) {
         if ($command eq 'item') {
-          print STDERR "ITEM_CONTAINER\n" if ($self->{'DEBUG'});
+          print STDERR "ITEM CONTAINER\n" if ($self->{'DEBUG'});
           $parent->{'items_count'}++;
           $command_e = { 'cmdname' => $command, 'parent' => $parent,
                          'extra' =>
@@ -5802,8 +5799,8 @@ sub _handle_open_brace($$$$)
     }
     print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
       .(defined($current->{'parent'}->{'remaining_args'})
-          ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
-      .($current->{'type'} ? "type: $current->{'type'}" : '')."\n"
+          ? $current->{'parent'}->{'remaining_args'} : '0')
+      .' '.Texinfo::Common::debug_print_element($current)."\n"
        if ($self->{'DEBUG'});
   } elsif ($current->{'parent'}
             and (($current->{'parent'}->{'cmdname'}
@@ -6599,7 +6596,7 @@ sub _process_remaining_on_line($$$$)
         my $value = $1;
         if (exists($self->{'values'}->{$value})) {
           if ($self->{'MAX_MACRO_CALL_NESTING'}
-             and scalar(@{$self->{'value_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
+             and $self->{'value_expansion_nr'} >= $self->{'MAX_MACRO_CALL_NESTING'}) {
             $self->_line_warn(sprintf(__(
   "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                               $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
@@ -6607,7 +6604,7 @@ sub _process_remaining_on_line($$$$)
             return ($current, $line, $source_info, $retval);
             # goto funexit;  # used in XS code
           }
-          unshift @{$self->{'value_stack'}}, $value;
+          $self->{'value_expansion_nr'}++;
           _input_push_text($self, $remaining_line, $source_info->{'line_nr'},
                            $source_info->{'macro'});
           _input_push_text($self, $self->{'values'}->{$value},
@@ -6853,6 +6850,7 @@ sub _process_remaining_on_line($$$$)
       push @{$current->{'contents'}}, $macro_call_element;
       $macro_call_element->{'parent'} = $current;
       $self->_push_context('ct_linecommand', $command);
+      $self->{'in_parsing_only'}++;
       $current = $macro_call_element;
       $current->{'args'} = [];
       my $line_arg = { 'type' => 'line_arg',
@@ -7312,16 +7310,11 @@ sub _parse_line_command_args($$$)
 
   if ($self->{'DEBUG'}) {
     print STDERR "MISC ARGS \@$command\n";
-    if ($arg->{'contents'} and @{$arg->{'contents'}}) {
+    if ($arg->{'contents'}) {
       my $idx = 0;
       foreach my $content (@{$arg->{'contents'}}) {
-        my $name = '';
-        $name = '@' . $content->{'cmdname'} if ($content->{'cmdname'});
-        my $type = ', t: ';
-        $type .= $content->{'type'} if ($content->{'type'});
-        my $text = ', ';
-        $type .= $content->{'text'} if ($content->{'text'});
-        print STDERR "   -> $idx $name $type $text\n";
+        print STDERR "   -> $idx "
+           .Texinfo::Common::debug_print_element($content, 0)."\n";
         $idx++;
       }
     }

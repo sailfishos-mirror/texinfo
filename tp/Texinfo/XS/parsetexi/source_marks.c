@@ -112,7 +112,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
          source_mark->counter, source_mark->position,
          source_mark->status == SM_status_start ? "start"
           : source_mark->status == SM_status_end ? "end"
-          : "SM_status UNKNOWN", add_element_string);
+          : "UNDEF", add_element_string);
   debug_print_element(mark_element, 0); debug_nonl (" ");
   debug_print_element(e, 0); debug ("");
 

@@ -163,7 +163,11 @@ handle_open_brace (ELEMENT *current, char **line_inout)
                 push_context (ct_inlineraw, command);
             }
         }
-      debug ("OPENED");
+      debug_nonl ("OPENED @%s, remaining: %d ",
+                  command_name (current->parent->cmd),
+                  counter_value (&count_remaining_args, current->parent) > 0 ?
+                   counter_value (&count_remaining_args, current->parent) : 0);
+      debug_print_element (current, 0); debug ("");
     }
   else if (current->parent && (current->parent->cmd == CM_multitable
                                || current->parent->type == ET_def_line
@@ -274,7 +278,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
         isolate_last_space (current);
 
       closed_command = current->parent->cmd;
-      debug ("CLOSING(brace) %s", command_data(closed_command).cmdname);
+      debug ("CLOSING(brace) @%s", command_data(closed_command).cmdname);
       counter_pop (&count_remaining_args);
 
       if (current->contents.number > 0

@@ -95,6 +95,17 @@ reset_context_stack (void)
   reset_command_stack (&command_stack);
 }
 
+char *
+context_name (enum context c)
+{
+  return c == ct_preformatted ? "ct_preformatted"
+         : c == ct_line ? "ct_line"
+         : c == ct_def ? "ct_def"
+         : c == ct_brace_command ? "ct_brace_command"
+         : c == ct_linecommand ? "ct_linemacro_command"
+         : "";
+}
+
 void
 push_context (enum context c, enum command_id cmd)
 {
@@ -104,12 +115,7 @@ push_context (enum context c, enum command_id cmd)
 
   /* debug not in perl parser
   debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s @%s", top,
-         c == ct_preformatted ? "preformatted"
-         : c == ct_line ? "line"
-         : c == ct_def ? "def"
-         : c == ct_brace_command ? "brace_command"
-         : c == ct_linecommand ? "linemacro_command"
-         : "", command_name(cmd));
+         context_name (c), command_name(cmd));
    */
   context_stack[top] = c;
   top++;

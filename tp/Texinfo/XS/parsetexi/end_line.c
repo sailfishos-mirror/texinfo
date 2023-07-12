@@ -219,6 +219,7 @@ parse_line_command_args (ELEMENT *line_command)
         /* Remember it. */
         new_cmd = add_texinfo_command (new_command);
         add_infoenclose (new_cmd, start, end);
+        debug ("DEFINFOENCLOSE @%s: %s, %s", new_command, start, end);
         new_cmd &= ~USER_COMMAND_BIT;
 
         user_defined_command_data[new_cmd].flags
@@ -658,6 +659,7 @@ end_line_def_line (ELEMENT *current)
     }
   else
     {
+      in_parsing_only--;
       /* The following also works
       k = lookup_extra (current->parent, "name");
       def_command = lookup_command ((char *) k->value);
@@ -1225,6 +1227,8 @@ end_line_starting_block (ELEMENT *current)
                               if (command == CM_ifcommandnotdefined)
                                 iftrue = !iftrue;
                             }
+                          debug ("CONDITIONAL @%s %s: %d",
+                                 command_name(command), flag, iftrue);
                         }
                       free (flag);
                     }
@@ -1257,11 +1261,12 @@ end_line_starting_block (ELEMENT *current)
             }
           if (!memcmp (command_name(command), "ifnot", 5))
             iftrue = !iftrue;
+          debug ("CONDITIONAL @%s format %s: %d", command_name(command),
+                 p, iftrue);
         }
       else
         bug_message ("unknown conditional command @%s", command_name(command));
 
-      debug ("CONDITIONAL %s %d", command_name(command), iftrue);
       if (iftrue)
         {
           ELEMENT *e;
@@ -1272,8 +1277,9 @@ end_line_starting_block (ELEMENT *current)
           source_mark = new_source_mark (SM_type_expanded_conditional_command);
           source_mark->status = SM_status_start;
           source_mark->element = e;
-          push_conditional_stack (command, source_mark);
           register_source_mark (current, source_mark);
+          debug ("PUSH BEGIN COND %s", command_name(command));
+          push_conditional_stack (command, source_mark);
         }
     }
 
@@ -1807,6 +1813,10 @@ end_line_misc_line (ELEMENT *current)
           CONDITIONAL_STACK_ITEM *cond_info = pop_conditional_stack ();
           SOURCE_MARK *end_source_mark;
           SOURCE_MARK *cond_source_mark = cond_info->source_mark;
+
+          debug ("POP END COND %s %s", command_name(end_id),
+                 command_name(cond_info->command));
+
           end_source_mark = new_source_mark (cond_source_mark->type);
           end_source_mark->counter = cond_source_mark->counter;
           end_source_mark->status = SM_status_end;
@@ -1996,12 +2006,13 @@ end_line (ELEMENT *current)
         /* if in a linemacro command call nested on a line, we do not close
            the preceding commands yet, as they might use the expansion */
         {
-          debug ("Expanded @%s still line/block %d:", in_macro_expansion,
-                 current_context ());
+          debug_nonl ("Expanded @%s still line/block %s: ", in_macro_expansion,
+                      context_name (current_context ()));
           debug_print_element (current, 1); debug("");
           return current;
         }
-      debug_nonl ("Still opened line command %d:", current_context ());
+      debug_nonl ("Still opened line/block command %s: ",
+                  context_name (current_context ()));
       debug_print_element (current, 1); debug("");
       if (current_context () == ct_def)
         {

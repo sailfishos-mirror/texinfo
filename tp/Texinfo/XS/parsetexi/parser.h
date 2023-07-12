@@ -196,6 +196,8 @@ void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 extern const char *whitespace_chars, *whitespace_chars_except_newline;
 extern const char *digit_chars;
 
+extern int in_parsing_only;
+
 extern ELEMENT *current_node;
 extern ELEMENT *current_section;
 extern ELEMENT *current_part;

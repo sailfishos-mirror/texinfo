@@ -381,7 +381,7 @@ close_current (ELEMENT *current,
   if (current->cmd)
     {
       enum command_id cmd = current->cmd;
-      debug ("CLOSING (close_current) %s", command_name(cmd));
+      debug ("CLOSING(close_current) @%s", command_name(cmd));
       if (command_flags(current) & CF_brace)
         {
           current = close_brace_command (current, closed_block_command,
@@ -514,7 +514,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
       if (closed_block_command)
         line_error ("unmatched `@end %s'", command_name(closed_block_command));
       if (! ((current->cmd && command_flags(current) & CF_root)
-             || (current->type == ET_before_node_section)))
+             || (current->type == ET_before_node_section)
+             || (current->type == ET_root_line)))
         {
           debug_nonl ("close_commands unexpectedly stopped ");
           debug_print_element (current, 1); debug ("");

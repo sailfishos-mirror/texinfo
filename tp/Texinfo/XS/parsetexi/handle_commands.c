@@ -1143,6 +1143,8 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
   char *line = *line_inout;
   ELEMENT *command_e;
 
+  debug ("OPEN BRACE @%s", command_name(cmd));
+
   command_e = new_element (ET_NONE);
   command_e->cmd = cmd;
 

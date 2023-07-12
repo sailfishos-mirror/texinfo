@@ -148,6 +148,7 @@ reset_parser_except_conf (void)
 
   reset_obstacks ();
 
+  in_parsing_only = 0;
   current_node = current_section = current_part = 0;
 }
 
