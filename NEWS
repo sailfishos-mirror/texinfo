@@ -14,7 +14,6 @@ See the manual for detailed information.
    automatically create index entries
  . new command @link to create plain links in output formats which support
    this
- . index commands end paragraphs (revert this change)
  . @cartouche takes an argument to specify the cartouche title
 
 * texi2any
