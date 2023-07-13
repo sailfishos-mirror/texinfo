@@ -106,7 +106,7 @@ HV *
 build_global_info2 ()
 
 void
-reset_parser ()
+reset_parser (int debug_output)
 
 void
 clear_expanded_formats ()

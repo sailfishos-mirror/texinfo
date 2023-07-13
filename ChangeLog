@@ -1,5 +1,15 @@
 2023-07-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (reset_parser),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser): pass directly DEBUG
+	configuration value to reset_parser() to override previous parser
+	configuration, as the configuration isn't already reset and the new
+	configuration is set afterwards.  Do not call debug() in reset_parser()
+	but use directly the debugging configuration input value.
+
+2023-07-13  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Error Reporting in User Defined Functions),
 	tp/Texinfo/Report.pm (line_warn, line_error),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_errors), 

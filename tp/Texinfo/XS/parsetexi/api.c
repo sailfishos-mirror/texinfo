@@ -153,14 +153,23 @@ reset_parser_except_conf (void)
 }
 
 void
-reset_parser (void)
+reset_parser (int debug_output)
 {
   /* NOTE: Do not call 'malloc' or 'free' in this function or in any function
      called in this file.  Since this file (api.c) includes the Perl headers,
      we get the Perl redefinitions, which we do not want, as we don't use
      them throughout the rest of the program. */
 
+  /* We cannot call debug() here, because the configuration of the previous
+     parser invokation has not been reset already, and new configuration has
+     not been read, so we need to pass the configuration information
+     directly */
+  /*
   debug ("!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
+  */
+  if (debug_output)
+    fprintf (stderr,
+          "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
   reset_parser_except_conf ();
   wipe_values ();

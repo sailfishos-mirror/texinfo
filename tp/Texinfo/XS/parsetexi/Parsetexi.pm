@@ -94,7 +94,6 @@ sub parser (;$$)
 
   my $parser = dclone(\%parser_default_configuration);
 
-  reset_parser ();
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
       # Copy conf to parser object.
@@ -104,7 +103,18 @@ sub parser (;$$)
       } else {
         $parser->{$key} = $conf->{$key};
       }
+    }
+  }
 
+  # pass directly DEBUG configuration to reset_parser to override previous
+  # parser configuration, as the configuration isn't already reset and the new
+  # configuration is set afterwards.
+  my $debug = 0;
+  $debug = $parser->{'DEBUG'} if ($parser->{'DEBUG'});
+  reset_parser ($debug);
+
+  if (defined($conf)) {
+    foreach my $key (keys (%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
         foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
           add_include_directory ($d);
