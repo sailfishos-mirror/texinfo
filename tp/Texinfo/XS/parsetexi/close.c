@@ -146,7 +146,7 @@ close_container (ELEMENT *current)
     {
       debug_nonl ("CONTAINER EMPTY ");
       debug_print_element (current, 1);
-      debug_nonl (" %d source marks)",
+      debug_nonl (" (%d source marks)",
                   current->source_mark_list.number); debug ("");
       if (current->source_mark_list.number > 0)
         {

@@ -70,13 +70,14 @@ sub errors($)
 }
 
 # format a line warning
-sub line_warn($$$$;$)
+sub line_warn($$$$;$$)
 {
   my $self = shift;
   my $configuration_information = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
+  my $silent = shift;
 
   return if (!defined($error_location_info));
 
@@ -95,7 +96,8 @@ sub line_warn($$$$;$)
                          $text);
   }
   warn $warn_line if (defined($configuration_information)
-                      and $configuration_information->get_conf('DEBUG'));
+                      and $configuration_information->get_conf('DEBUG')
+                      and not $silent);
   my %location_info = %{$error_location_info};
   delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
                                   and not defined($location_info{'file_name'}));
@@ -114,6 +116,7 @@ sub line_error($$$$;$)
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
+  my $silent = shift;
 
   chomp ($text);
 
@@ -123,7 +126,8 @@ sub line_error($$$$;$)
        if ($error_location_info->{'macro'} ne '');
     my $error_text = "$text$macro_text\n";
     warn $error_text if (defined($configuration_information)
-                         and $configuration_information->get_conf('DEBUG'));
+                         and $configuration_information->get_conf('DEBUG')
+                         and not $silent);
     my %location_info = %{$error_location_info};
     delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
                                   and not defined($location_info{'file_name'}));
@@ -287,9 +291,9 @@ the error or warning.
 
 =back
 
-=item $registrar->line_warn($text, $configuration_information, $error_location_info, $continuation)
+=item $registrar->line_warn($text, $configuration_information, $error_location_info, $continuation, $silent)
 
-=item $registrar->line_error($text, $configuration_information, $error_location_info, $continuation)
+=item $registrar->line_error($text, $configuration_information, $error_location_info, $continuation, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
@@ -305,6 +309,9 @@ should be a binary string.
 
 The I<$continuation> optional arguments, if true, conveys that
 the line is a continuation line of a message.
+
+The I<$silent> optional arguments, if true, suppresses the output of
+a message that is output immediatly if debugging is set.
 
 The I<source_info> key of Texinfo tree elements is described
 in more details in L<Texinfo::Parser/source_info>.

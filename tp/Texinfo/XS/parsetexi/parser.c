@@ -1672,6 +1672,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (!line)
         {
           /* End of the file or of a text fragment. */
+          debug ("NO MORE LINE for empty text");
           goto funexit;
         }
     }
@@ -1912,6 +1913,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
      command container. */
   if (command_flags(current) & CF_brace && *line != '{')
     {
+      debug_nonl ("BRACE CMD: no brace after @%s||| ",
+                  command_name (current->cmd));
+      debug_print_protected_string (line); debug ("");
+
       if (strchr (whitespace_chars, *line)
                && ((command_flags(current) & CF_accent)
                    || conf.ignore_space_after_braced_command_name))
@@ -1967,11 +1972,17 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
            if (current->contents.number == 0)
              {
-               ELEMENT *spaces_after_cmd_before_arg
+               ELEMENT *e_spaces_after_cmd_before_arg
                  = new_element (ET_internal_spaces_after_cmd_before_arg);
-               text_append_n (&(spaces_after_cmd_before_arg->text),
+               text_append_n (&(e_spaces_after_cmd_before_arg->text),
                               line, whitespaces_len);
-               add_to_element_contents (current, spaces_after_cmd_before_arg);
+               add_to_element_contents (current, e_spaces_after_cmd_before_arg);
+
+               debug_nonl ("BRACE CMD before brace init spaces '");
+               debug_print_protected_string
+                                  (e_spaces_after_cmd_before_arg->text.text);
+               debug ("'");
+
                line += whitespaces_len;
              }
            else
@@ -1982,6 +1993,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                char *previous_value = current->contents.list[0]->text.text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
+                   debug ("BRACE CMD before brace second newline stops spaces");
                    line_error ("@%s expected braces",
                                command_name(current->cmd));
                    gather_spaces_after_cmd_before_arg (current);
@@ -1991,6 +2003,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                  {
                    text_append_n (&(current->contents.list[0]->text),
                                   line, whitespaces_len);
+                   debug ("BRACE CMD before brace add spaces '%s'",
+                          current->contents.list[0]->text.text
+                            + strlen(current->contents.list[0]->text.text)
+                                                         - whitespaces_len);
                    line += whitespaces_len;
                  }
              }
@@ -2001,13 +2017,15 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                && *line != '@')
         {
           ELEMENT *e, *e2;
-          debug ("ACCENT following_arg");
           if (current->contents.number > 0)
             gather_spaces_after_cmd_before_arg (current);
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
           e2 = new_element (ET_NONE);
+          /* FIXME what if the next character is not ASCII? */
           text_append_n (&e2->text, line, 1);
+          debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
+                 e2->text.text);
           add_to_element_contents (e, e2);
 
           if (current->cmd == CM_dotless
@@ -2467,6 +2485,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       line = allocated_line = next_text (current);
       if (!allocated_line)
         {
+          debug ("NEXT_LINE NO MORE");
           if (in_context (ct_linecommand))
             {
               /*

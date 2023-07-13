@@ -59,6 +59,25 @@ debug_command_name (enum command_id cmd)
 }
 
 char *
+debug_protect_eol (char *input_string, int *allocated)
+{
+  char *end_of_line = strchr (input_string, '\n');
+  char *protected_string = input_string;
+  *allocated = 0;
+  if (end_of_line) {
+    char *p;
+    protected_string = malloc ((strlen(input_string) + 2) * sizeof(char));
+    *allocated = 1;
+    memcpy (protected_string, input_string, strlen(input_string));
+    p = protected_string + (end_of_line - input_string);
+    *p = '\\';
+    *(p+1) = 'n';
+    *(p+2) = '\0';
+  }
+  return protected_string;
+}
+
+char *
 print_element_debug (ELEMENT *e, int print_parent)
 {
   TEXT text;
@@ -72,19 +91,10 @@ print_element_debug (ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", element_type_names[e->type]);
   if (e->text.end > 0)
     {
-      char *end_of_line = strchr (e->text.text, '\n');
-      char *element_text = e->text.text;
-      if (end_of_line) {
-        char *p;
-        element_text = malloc ((e->text.end + 2) * sizeof(char));
-        memcpy (element_text, e->text.text, e->text.end);
-        p = element_text + (end_of_line - e->text.text);
-        *p = '\\';
-        *(p+1) = 'n';
-        *(p+2) = '\0';
-      }
+      int allocated = 0;
+      char *element_text = debug_protect_eol (e->text.text, &allocated);
       text_printf (&text, "[T: %s]", element_text);
-      if (end_of_line)
+      if (allocated)
         free (element_text);
     }
   if (e->args.number)
@@ -115,3 +125,17 @@ debug_print_element (ELEMENT *e, int print_parent)
       free (result);
     }
 }
+
+void
+debug_print_protected_string (char *input_string)
+{
+  if (debug_output)
+    {
+      int allocated = 0;
+      char *result = debug_protect_eol (input_string, &allocated);
+      debug_nonl (result);
+      if (allocated)
+        free (result);
+    }
+}
+

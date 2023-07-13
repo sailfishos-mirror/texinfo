@@ -564,6 +564,9 @@ sub parser(;$$)
   bless $parser;
 
   _setup_conf($parser, $conf);
+  # This is not very useful in perl, but mimics the XS parser
+  print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
+    if ($parser->{'DEBUG'});
 
   # Initialize command hash that are dynamically modified, notably
   # those for index commands, and definoenclose, based on defaults
@@ -624,6 +627,9 @@ sub simple_parser(;$)
   bless $parser;
 
   _setup_conf($parser, $conf);
+  # This is not very useful in perl, but mimics the XS parser
+  print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
+    if ($parser->{'DEBUG'});
 
   $parser->{'line_commands'} = $simple_parser_line_commands;
   $parser->{'brace_commands'} = $simple_parser_brace_commands;
@@ -6684,7 +6690,6 @@ sub _process_remaining_on_line($$$$)
   # it by replacing the array content.
   my @current_array_for_ref = ($current);
 
-  # this situation arises when after the $current->{'cmdname'}
   # Brace commands not followed immediately by a brace
   # opening.  In particular cases that may lead to "command closing"
   # or following character association with an @-command, for accent
@@ -6696,9 +6701,12 @@ sub _process_remaining_on_line($$$$)
   if ($current->{'cmdname'}
         and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
         and !$open_brace) {
-    print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: '$line'"
-     . ($line =~ /\n/ ? '' : "\n")
-      if $self->{'DEBUG'};
+    if ($self->{'DEBUG'}) {
+      my $line_str = $line;
+      $line_str =~ s/\n/\\n/g;
+      print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}"
+          ."||| $line_str\n";
+    }
     # Note that non ascii spaces do not count as spaces
     if ($line =~ /^(\s+)/
         and ($accent_commands{$current->{'cmdname'}}
@@ -6731,6 +6739,7 @@ sub _process_remaining_on_line($$$$)
       }
       if (!$current->{'contents'}) {
         $line =~ s/^(\s+)//;
+        my $spaces_after_command = $1;
         # The added element is only transiently present, it is removed
         # by calls of gather_spaces_after_cmd_before_arg, which transfer
         # the element to the info hash.  The contents allow to have source
@@ -6740,12 +6749,16 @@ sub _process_remaining_on_line($$$$)
         # appear anywhere in the tree.
         # Note that contents is transiently set for brace commands, which in
         # general only have args.
-        my $spaces_after_cmd_before_arg
+        my $e_spaces_after_cmd_before_arg
            = {'type' => 'internal_spaces_after_cmd_before_arg',
-              'text' => $1, 'parent' => $current};
-        $current->{'contents'} = [$spaces_after_cmd_before_arg];
-        print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
-          if $self->{'DEBUG'};
+              'text' => $spaces_after_command, 'parent' => $current};
+        $current->{'contents'} = [$e_spaces_after_cmd_before_arg];
+        if ($self->{'DEBUG'}) {
+          my $spaces_after_command_str = $spaces_after_command;
+          $spaces_after_command_str =~ s/\n/\\n/g;
+          print STDERR "BRACE CMD before brace init spaces ".
+                 "'$spaces_after_command_str'\n";
+        }
       } else {
         # contents, at this point can only be for spaces_after_cmd_before_arg
         if ($additional_newline
@@ -6772,7 +6785,7 @@ sub _process_remaining_on_line($$$$)
     } elsif ($accent_commands{$current->{'cmdname'}}
              and $line =~ s/^([^@])//) {
       my $arg_char = $1;
-      print STDERR "ACCENT following_arg $arg_char \@$current->{'cmdname'}\n"
+      print STDERR "ACCENT \@$current->{'cmdname'} following_arg: $arg_char\n"
         if ($self->{'DEBUG'});
       if ($current->{'contents'}) {
         _gather_spaces_after_cmd_before_arg($self, $current);

@@ -545,6 +545,7 @@ next_text (ELEMENT *current)
         }
       input_number--;
     }
+  debug ("INPUT FINISHED");
   return 0;
 }
 

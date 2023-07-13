@@ -291,12 +291,17 @@ sub _get_errors($)
   my $ERRORS = get_errors ();
 
   for my $error (@{$ERRORS}) {
+    # The message output in case of debugging set is already issued by
+    # the parser, therefore we set the optional argument to silence
+    # the same message that could be output here.
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
-                              $error->{'message'}, $error->{'source_info'});
+                              $error->{'message'}, $error->{'source_info'},
+                              undef, 1);
     } else {
       $registrar->line_warn ($configuration_information,
-                             $error->{'message'}, $error->{'source_info'});
+                             $error->{'message'}, $error->{'source_info'},
+                             undef, 1);
     }
   }
 }

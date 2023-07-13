@@ -1,3 +1,24 @@
+2023-07-13  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Error Reporting in User Defined Functions),
+	tp/Texinfo/Report.pm (line_warn, line_error),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_errors), 
+	tp/Texinfo/XS/parsetexi/errors.c (debug_error_warning_message)
+	(line_error_internal): output directly some messages for
+	warning/errors in XS parser as is done in perl parser, using
+	the debug_error_warning_message function.  To avoid a redundant
+	message being output when calling Texinfo::Report::line_warn or
+	line_error from Parsetexi.pm _get_errors, add an argument to
+	line_warn/line_error to silence the messages output normally when
+	DEBUG is set.
+
+	* tp/Texinfo/ParserNonXS.pm (parser, simple_parser)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c
+	(close_container), tp/Texinfo/XS/parsetexi/debug.c (debug_protect_eol)
+	(debug_print_protected_string), tp/Texinfo/XS/parsetexi/input.c
+	(next_text), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line, parse_texi): synchronize debug messages.
+
 2023-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo-tex-test.texi (Definitions): Add a needed
@@ -39,7 +60,7 @@
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs:
 	Move or add copyright notice further up in files.
 
-2023-07-10  Patrice Dumas  <pertusus@free.fr>
+2023-07-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
 	(_end_line_def_line, _process_remaining_on_line),
@@ -73,7 +94,7 @@
 	synchronize debug messages across both parsers.
 
 
-2023-07-10  Patrice Dumas  <pertusus@free.fr>
+2023-07-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/close.c (remove_empty_content)
 	(close_container, close_commands), tp/Texinfo/XS/parsetexi/end_line.c

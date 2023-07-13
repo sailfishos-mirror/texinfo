@@ -1386,14 +1386,19 @@ as the second argument.
 
 To report a warning or an error in element conversion, use
 @code{line_warn} or @code{line_error}
-@defun @var{$converter}->line_error ($text, $converter, $location_info)
-@defunx @var{$converter}->line_warn ($text, $converter, $location_info)
+@defun @var{$converter}->line_error ($text, $converter, $location_info, $continuation, $silent)
+@defunx @var{$converter}->line_warn ($text, $converter, $location_info, $continuation, $silent)
 Register a warning or an error.  @var{$text} is the text of the
 error or warning.  The @var{$converter} object should be given
 as the second argument.  The optional
-@var{$error_location_info} holds the information on the error or
-warning location.  The @var{$error_location_info} reference on hash may be
+@var{$location_info} holds the information on the error or
+warning location.  The @var{$location_info} reference on hash may be
 obtained from Texinfo elements @code{source_info} keys.
+
+The optional @var{$continuation} argument, if set, conveys that the message
+is a continuation of the previous registered message.  The optional
+@var{$silent} argument, if set, suppresses the immediate output of a message
+if the @code{DEBUG} customization variable is set.
 @end defun
 
 In general, registering an error does not stop the processing, in
@@ -1844,6 +1849,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 @menu
 * File: Customizing Output File Names.
 * Target: Customizing Output Target Names.
+* Special Elements: Customizing Special Elements Output Names.
 @end menu
 
 
