@@ -2546,7 +2546,7 @@ sub _expand_macro_arguments($$$$$)
         }
       } elsif ($separator eq ',') {
         if ($braces_level > 1) {
-          $argument_content->{'text'} .= ',';
+          $argument_content->{'text'} .= $separator;
         } else {
           if (scalar(@{$current->{'args'}}) < $args_total) {
             _remove_empty_content($self, $argument);
@@ -2571,7 +2571,7 @@ sub _expand_macro_arguments($$$$$)
                                      "macro `%s' called with too many args"),
                                         $name), $source_info);
             }
-            $argument_content->{'text'} .= ',';
+            $argument_content->{'text'} .= $separator;
           }
         }
       } elsif ($separator eq '}') {

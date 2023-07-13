@@ -352,30 +352,25 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
         case '}':
           braces_level--;
           if (braces_level > 0)
-            {
-              text_append_n (arg, sep, 1);
-              pline = sep + 1;
-              break;
-            }
-
-          /* Fall through to add argument. */
+            text_append_n (arg, sep, 1);
+          else
+            /* end of arguments */
+            remove_empty_content (argument);
+          pline = sep + 1;
+          break;
         case ',':
+          pline = sep + 1;
           if (braces_level > 1)
+            text_append_n (arg, sep, 1);
+          else
             {
-              text_append_n (arg, sep, 1);
-              pline = sep + 1;
-              break;
-            }
-
-          if (*sep == '}' || current->args.number < args_total)
-            {
-              pline = sep + 1;
-
-              remove_empty_content (argument);
-              if (*sep == ',')
-                /* new argument */
+              if (current->args.number < args_total)
                 {
                   char *p = pline;
+
+                  remove_empty_content (argument);
+
+                  /* new argument */
                   argument = new_element (ET_brace_command_arg);
                   argument_content = new_element (ET_NONE);
                   add_to_element_args (current, argument);
@@ -392,15 +387,14 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
                     }
                   debug ("MACRO NEW ARG");
                 }
-            }
-          else
-            /* too many args */
-            {
-              if (args_total != 1)
-                line_error ("macro `%s' called with too many args",
-                            command_name(cmd));
-              text_append_n (arg, ",", 1);
-              pline = sep + 1;
+              else
+                /* too many args */
+                {
+                  if (args_total != 1)
+                    line_error ("macro `%s' called with too many args",
+                                command_name(cmd));
+                  text_append_n (arg, sep, 1);
+                }
             }
           break;
         }
