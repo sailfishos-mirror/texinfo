@@ -198,7 +198,6 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
       char menu_separator = *line;
       line++;
 
-      debug ("MENU SEPARATOR %c\n", menu_separator);
       current = current->parent;
       e = new_element (ET_menu_entry_separator);
       text_append_n (&e->text, &menu_separator, 1);
@@ -216,6 +215,8 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
 
       last_child = last_contents_child (current);
       separator = last_child->text.text;
+
+      debug ("AFTER menu_entry_separator %s", separator);
 
       /* Separator is "::". */
       if (!strcmp (separator, ":") && *line == ':')

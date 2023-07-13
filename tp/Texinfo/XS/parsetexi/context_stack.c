@@ -102,7 +102,7 @@ context_name (enum context c)
          : c == ct_line ? "ct_line"
          : c == ct_def ? "ct_def"
          : c == ct_brace_command ? "ct_brace_command"
-         : c == ct_linecommand ? "ct_linemacro_command"
+         : c == ct_linecommand ? "ct_linecommand"
          : "";
 }
 

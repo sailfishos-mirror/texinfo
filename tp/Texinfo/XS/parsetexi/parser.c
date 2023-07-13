@@ -748,10 +748,10 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       debug_nonl ("ABORT EMPTY in ");
       debug_print_element (current, 0);
       debug_nonl ("(p:%d): %s; add |%s| to |%s|",
-             in_paragraph_context (current_context ()),
-             element_type_name (last_child),
-             additional_spaces,
-             last_child->text.text); debug ("");
+                  in_paragraph_context (current_context ()),
+                  element_type_name (last_child), additional_spaces,
+                  last_child->text.end > 0 ? last_child->text.text : "");
+      debug ("");
 
       text_append (&last_child->text, additional_spaces);
 
@@ -1604,13 +1604,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
            && command_data(current->cmd).data == BLOCK_format_raw
            && !format_expanded_p (command_name(current->cmd)))
     {
-      ELEMENT *e;
+      ELEMENT *e_elided_rawpreformatted;
+      ELEMENT *e_empty_line;
       enum command_id dummy;
       char *line_dummy;
       int n;
 
-      e = new_element (ET_elided_rawpreformatted);
-      add_to_element_contents (current, e);
+      e_elided_rawpreformatted = new_element (ET_elided_rawpreformatted);
+      add_to_element_contents (current, e_elided_rawpreformatted);
       line_dummy = line;
       while (1)
         {
@@ -1624,25 +1625,29 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               line_dummy = line;
               if (is_end_current_command (current, &line_dummy,
                                           &dummy))
-                break;
+                {
+                  debug ("CLOSED ignored raw preformated %s",
+                         command_name(current->cmd));
+                  break;
+                }
               else
                 {
                   ELEMENT *raw_text = new_element (ET_raw);
                   text_append (&(raw_text->text), line);
-                  add_to_element_contents (e, raw_text);
+                  add_to_element_contents (e_elided_rawpreformatted, raw_text);
                 }
             }
-          line = new_line (e);
+          line = new_line (e_elided_rawpreformatted);
         }
 
       /* start a new line for the @end line, this is normally done
          at the beginning of a line, but not here, as we directly
          got the lines. */
-      e = new_element (ET_empty_line);
-      add_to_element_contents (current, e);
+      e_empty_line = new_element (ET_empty_line);
+      add_to_element_contents (current, e_empty_line);
 
       n = strspn (line, whitespace_chars_except_newline);
-      text_append_n (&e->text, line, n);
+      text_append_n (&e_empty_line->text, line, n);
       line += n;
       /* It is important to let the processing continue from here, such that
          the @end is catched and handled below, as the condition has not changed */
@@ -1889,12 +1894,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (cmd)
         {
           unknown_cmd = command_name (cmd);
+          /* Would there be something similar in the perl parser?
           debug ("COMMAND (REGISTERED UNKNOWN) %d %s", cmd, unknown_cmd);
+          */
         }
       else
         {
           unknown_cmd = command;
+          /* Would there be something similar in the perl parser?
           debug ("COMMAND (UNKNOWN) %s", command);
+          */
         }
       line_error ("unknown command `%s'", unknown_cmd);
       if (!cmd)
@@ -2600,6 +2609,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
     ELEMENT *element_after_bye;
     element_after_bye = new_element (ET_postamble_after_end);
 
+    debug ("GATHER AFTER BYE");
+
     while (1)
       {
         ELEMENT *e;
@@ -2613,13 +2624,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         add_to_element_contents (element_after_bye, e);
       }
     if (element_after_bye->contents.number == 0)
-      {
-        destroy_element (element_after_bye);
-      }
+      destroy_element (element_after_bye);
     else
-      {
-        add_to_element_contents (current, element_after_bye);
-      }
+      add_to_element_contents (current, element_after_bye);
   }
 
   if (macro_expansion_nr > 0)

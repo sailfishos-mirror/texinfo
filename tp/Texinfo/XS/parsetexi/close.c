@@ -96,8 +96,12 @@ close_all_style_commands (ELEMENT *current,
   while (current->parent
          && (command_flags(current->parent) & CF_brace)
          && !(command_data(current->parent->cmd).data == BRACE_context))
-    current = close_brace_command (current->parent,
+    {
+      debug ("CLOSING(all_style_commands) @%s",
+             command_name(current->parent->cmd));
+      current = close_brace_command (current->parent,
                            closed_block_command, interrupting_command, 1);
+    }
 
   return current;
 }
@@ -515,7 +519,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
         line_error ("unmatched `@end %s'", command_name(closed_block_command));
       if (! ((current->cmd && command_flags(current) & CF_root)
              || (current->type == ET_before_node_section)
-             || (current->type == ET_root_line)))
+             || (current->type == ET_root_line)
+             || (current->type == ET_document_root)))
         {
           debug_nonl ("close_commands unexpectedly stopped ");
           debug_print_element (current, 1); debug ("");

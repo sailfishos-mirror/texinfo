@@ -254,6 +254,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       && current->type == ET_paragraph)
     {
       abort_empty_line (&current, NULL);
+      debug ("IN BRACE_COMMAND_CONTEXT end paragraph");
       current = end_paragraph (current, 0, 0);
     }
 

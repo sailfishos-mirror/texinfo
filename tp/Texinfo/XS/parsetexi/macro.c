@@ -367,14 +367,13 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
               break;
             }
 
-          // check for too many args
           if (*sep == '}' || current->args.number < args_total)
             {
-              debug ("MACRO NEW ARG");
               pline = sep + 1;
 
               remove_empty_content (argument);
               if (*sep == ',')
+                /* new argument */
                 {
                   char *p = pline;
                   argument = new_element (ET_brace_command_arg);
@@ -391,9 +390,11 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
                       add_info_element_oot (argument, "spaces_before_argument",
                                             spaces_element);
                     }
+                  debug ("MACRO NEW ARG");
                 }
             }
           else
+            /* too many args */
             {
               if (args_total != 1)
                 line_error ("macro `%s' called with too many args",

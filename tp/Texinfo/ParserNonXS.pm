@@ -2089,7 +2089,6 @@ sub _close_current($$$;$$)
       $current = _end_line_starting_block($self, $current, $source_info);
     } else {
       $current = _close_container($self, $current);
-      print STDERR "No need of type closing function\n" if ($self->{'DEBUG'});
     }
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
@@ -2546,7 +2545,9 @@ sub _expand_macro_arguments($$$$$)
           print STDERR "MACRO ARG: $separator\n" if ($self->{'DEBUG'});
         }
       } elsif ($separator eq ',') {
-        if ($braces_level == 1) {
+        if ($braces_level > 1) {
+          $argument_content->{'text'} .= ',';
+        } else {
           if (scalar(@{$current->{'args'}}) < $args_total) {
             _remove_empty_content($self, $argument);
 
@@ -2572,8 +2573,6 @@ sub _expand_macro_arguments($$$$$)
             }
             $argument_content->{'text'} .= ',';
           }
-        } else {
-          $argument_content->{'text'} .= ',';
         }
       } elsif ($separator eq '}') {
         $braces_level--;
@@ -2606,8 +2605,7 @@ sub _expand_macro_arguments($$$$$)
                "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
   }
-  print STDERR "END MACRO ARGS EXPANSION(".scalar(@{$current->{'args'}}).") "
-                 ."line: '$line'\n" if ($self->{'DEBUG'});
+  print STDERR "END MACRO ARGS EXPANSION\n" if ($self->{'DEBUG'});
   return ($line, $source_info);
 }
 
@@ -5009,8 +5007,9 @@ sub _handle_menu_entry_separators($$$$$$)
   } elsif ($current->{'contents'} and @{$current->{'contents'}}
            and $current->{'contents'}->[-1]->{'type'}
            and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
-    print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
     my $separator = $current->{'contents'}->[-1]->{'text'};
+    print STDERR "AFTER menu_entry_separator $separator\n"
+       if ($self->{'DEBUG'});
     # Separator is ::.
     if ($separator eq ':' and $$line_ref =~ s/^(:)//) {
       $current->{'contents'}->[-1]->{'text'} .= $1;
@@ -5878,9 +5877,8 @@ sub _handle_close_brace($$$)
       and $current->{'parent'}->{'type'} eq 'brace_command_context'
       and $current->{'type'} eq 'paragraph') {
     _abort_empty_line($self, $current);
-    print STDERR "IN BRACE_COMMAND_CONTEXT "
-       .Texinfo::Common::debug_print_element($current, 1)."\n"
-          if ($self->{'DEBUG'});
+    print STDERR "IN BRACE_COMMAND_CONTEXT end paragraph\n"
+      if ($self->{'DEBUG'});
     $current = _end_paragraph($self, $current, $source_info);
   }
 
@@ -6471,26 +6469,25 @@ sub _process_remaining_on_line($$$$)
            and $block_commands{$current->{'cmdname'}}
            and $block_commands{$current->{'cmdname'}} eq 'format_raw'
            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
-    my $elided_rawpreformatted = { 'type' => 'elided_rawpreformatted',
+    my $e_elided_rawpreformatted = { 'type' => 'elided_rawpreformatted',
                                    'parent' => $current };
-    push @{$current->{'contents'}}, $elided_rawpreformatted;
+    push @{$current->{'contents'}}, $e_elided_rawpreformatted;
     while (1) {
     # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
-      print STDERR "IGNORED RAW_PREFORMATTED $current->{'cmdname'}"
-        .(defined($line) ? ": $line" : "\n")
-          if ($self->{'DEBUG'});
       if (!defined($line)) {
         # unclosed block
         return ($current, $line, $source_info, $retval);
         # goto funexit;  # used in XS code
       } elsif ($line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+        print STDERR "CLOSED ignored raw preformated $current->{'cmdname'}\n"
+          if ($self->{'DEBUG'});
         last;
       } else {
         my $raw_text = {'type' => 'raw', 'text' => $line,
-                        'parent' => $elided_rawpreformatted};
-        push @{$elided_rawpreformatted->{'contents'}}, $raw_text;
+                        'parent' => $e_elided_rawpreformatted};
+        push @{$e_elided_rawpreformatted->{'contents'}}, $raw_text;
       }
-      ($line, $source_info) = _new_line($self, $elided_rawpreformatted);
+      ($line, $source_info) = _new_line($self, $e_elided_rawpreformatted);
     }
     # start a new line for the @end line, this is normally done
     # at the beginning of a line, but not here, as we directly
@@ -7321,17 +7318,19 @@ sub _parse_line_command_args($$$)
   my $command = $line_command->{'cmdname'};
   my $arg = $line_command->{'args'}->[0];
 
-  if ($self->{'DEBUG'}) {
-    print STDERR "MISC ARGS \@$command\n";
-    if ($arg->{'contents'}) {
-      my $idx = 0;
-      foreach my $content (@{$arg->{'contents'}}) {
-        print STDERR "   -> $idx "
-           .Texinfo::Common::debug_print_element($content, 0)."\n";
-        $idx++;
-      }
-    }
-  }
+  # Not in XS parser.  Could be added if deemded interesting, but
+  # arguments are already checked below.
+  #if ($self->{'DEBUG'}) {
+  #  print STDERR "MISC ARGS \@$command\n";
+  #  if ($arg->{'contents'}) {
+  #    my $idx = 0;
+  #    foreach my $content (@{$arg->{'contents'}}) {
+  #      print STDERR "   -> $idx "
+  #         .Texinfo::Common::debug_print_element($content, 0)."\n";
+  #      $idx++;
+  #    }
+  #  }
+  #}
 
   if (!$arg->{'contents'}) {
     $self->_command_error($line_command, $source_info,
