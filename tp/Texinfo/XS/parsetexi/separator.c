@@ -54,6 +54,9 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       if (command == CM_verb)
         {
           current->type = ET_brace_command_arg;
+          /* the delimiter may be in macro expansion */
+          if (!*line)
+            line = new_line (current);
           /* Save the deliminating character in 'type'. */
           if (!*line || *line == '\n')
             {

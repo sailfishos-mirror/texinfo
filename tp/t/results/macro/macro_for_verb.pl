@@ -104,11 +104,10 @@ $result_trees{'macro_for_verb'} = {
                           'status' => 'end'
                         }
                       ],
-                      'text' => '',
-                      'type' => 'raw'
+                      'text' => ''
                     },
                     {
-                      'text' => '@ some text
+                      'text' => ' some text
 ',
                       'type' => 'raw'
                     },
@@ -121,10 +120,6 @@ $result_trees{'macro_for_verb'} = {
                       'text' => '@code
 ',
                       'type' => 'raw'
-                    },
-                    {
-                      'text' => '@',
-                      'type' => 'raw'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -132,7 +127,7 @@ $result_trees{'macro_for_verb'} = {
               ],
               'cmdname' => 'verb',
               'info' => {
-                'delimiter' => ''
+                'delimiter' => '@'
               },
               'source_info' => {
                 'file_name' => '',
@@ -166,23 +161,13 @@ $result_texis{'macro_for_verb'} = '@macro verbopen {}
 
 
 $result_texts{'macro_for_verb'} = '
-@ some text
+ some text
 
 @code
-@
+
 ';
 
-$result_errors{'macro_for_verb'} = [
-  {
-    'error_line' => '@verb without associated character (possibly involving @verbopen)
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => 'verbopen',
-    'text' => '@verb without associated character',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_for_verb'} = [];
 
 
 $result_floats{'macro_for_verb'} = {};

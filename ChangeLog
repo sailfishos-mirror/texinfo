@@ -1,5 +1,12 @@
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): call
+	new_line after verb opening brace if the line is an empty string
+	in case the delimiter is in macro expansion.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/60macro.t: add macro_for_verb test.
 
 2023-07-14  Patrice Dumas  <pertusus@free.fr>

@@ -695,7 +695,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   macro_expansion_nr++;
 
-  debug ("MACRO NUMBER %d %s", macro_expansion_nr, command_name(cmd));
+  debug ("MACRO EXPANSION NUMBER %d %s", macro_expansion_nr, command_name(cmd));
 
   if (macro->cmd == CM_linemacro)
     goto funexit;

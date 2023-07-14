@@ -4874,7 +4874,7 @@ sub _handle_macro($$$$$)
   }
 
   $self->{'macro_expansion_nr'}++;
-  print STDERR "MACRO NUMBER $self->{'macro_expansion_nr'} $command\n"
+  print STDERR "MACRO EXPANSION NUMBER $self->{'macro_expansion_nr'} $command\n"
     if ($self->{'DEBUG'});
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
@@ -6456,6 +6456,10 @@ sub _process_remaining_on_line($$$$)
     $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
     # collect the first character if not already done
     if (!defined($current->{'parent'}->{'info'}->{'delimiter'})) {
+      if ($line eq '') {
+        # the delimiter may be in macro expansion
+        ($line, $source_info) = _new_line($self, $current);
+      }
       if ($line =~ /^$/) {
         $current->{'parent'}->{'info'}->{'delimiter'} = '';
         $self->_line_error(
