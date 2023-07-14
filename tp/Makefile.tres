@@ -210,6 +210,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/inlineifsetifclearspaces.pl \
   t/results/converters_tests/inlinerawspaces.pl \
   t/results/converters_tests/line_breaks.pl \
+  t/results/converters_tests/link.pl \
   t/results/converters_tests/minimal_empty_empty.pl \
   t/results/converters_tests/minimal_empty_empty/res_docbook \
   t/results/converters_tests/minimal_empty_empty/res_html \
@@ -1211,6 +1212,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/brace_command_not_closed.pl \
   t/results/linemacro/braces_after_text.pl \
   t/results/linemacro/empty_last_argument.pl \
+  t/results/linemacro/end_conditional_in_linemacro.pl \
   t/results/linemacro/last_argument_with_braces.pl \
   t/results/linemacro/missing_formal_arg.pl \
   t/results/linemacro/nested_linemacro_calls.pl \

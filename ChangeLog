@@ -1,5 +1,10 @@
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/65linemacro.t: add
+	end_conditional_in_linemacro test.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line, _handle_macro)
 	(_handle_menu_entry_separators, _handle_open_brace)
 	(_process_remaining_on_line, _parse_texi): use exactly the

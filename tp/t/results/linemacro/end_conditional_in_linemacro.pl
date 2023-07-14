@@ -128,7 +128,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                         ],
                         'info' => {
                           'spaces_after_argument' => {
-                            'text' => ' 
+                            'text' => '
 '
                           }
                         },
@@ -158,7 +158,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
         {
           'contents' => [
             {
-              'text' => 'text 
+              'text' => 'text
 '
             }
           ],
@@ -232,13 +232,13 @@ $result_texis{'end_conditional_in_linemacro'} = '@linemacro lm {a}
 \\a\\
 @end linemacro
 
-text 
+text
 
   ';
 
 
 $result_texts{'end_conditional_in_linemacro'} = '
-text 
+text
 
 ';
 

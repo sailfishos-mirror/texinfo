@@ -244,6 +244,16 @@ inside {\a\ operator \b\}
 @outside {type} {@inside {X} {Y}} ( remaining, type typed )
 @end defblock
 '],
+# FIXME this construct is ok in Texinfo TeX, should be valid
+['end_conditional_in_linemacro',
+'@linemacro lm {a}
+\a\
+@end linemacro
+
+@ifclear aa
+@lm {text
+  @end ifclear}
+']
 # TODO
 # add recursive linemacro call
 # add macro call in linemacro
