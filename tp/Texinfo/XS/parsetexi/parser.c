@@ -32,7 +32,8 @@
 const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
-// [^\S\r\n] in Perl
+/* in the perl parser, comments including whitespace_chars_except_newline
+   show where code should be changed if the list of characters changes here */
 const char *whitespace_chars_except_newline = " \t\v\f";
 
 /* count characters, not bytes. */
@@ -1333,6 +1334,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* remains set only if command is unknown, otherwise cmd is used */
   char *command = 0;
 
+  /*
+  debug_nonl("PROCESS "); debug_print_protected_string (line); debug ("");
+  */
+
   /********* BLOCK_raw ******************/
   if (command_flags(current) & CF_block
       && (command_data(current->cmd).data == BLOCK_raw))
@@ -2358,6 +2363,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (*line == '\f')
     {
       char separator = *line++;
+      debug_nonl ("FORM FEED in "); debug_print_element (current, 1);
+      debug_nonl (": "); debug_print_protected_string (line); debug ("");
       if (current->type == ET_paragraph)
         {
           ELEMENT *e;

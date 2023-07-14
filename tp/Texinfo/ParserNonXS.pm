@@ -1238,6 +1238,13 @@ sub _transfer_source_marks($$)
   }
 }
 
+sub _debug_protect_eol($)
+{
+  my $line = shift;
+  $line =~ s/\n/\\n/g;
+  return $line;
+}
+
 # parse a @macro line
 sub _parse_macro_command_line($$$$$;$)
 {
@@ -4422,7 +4429,8 @@ sub _end_line($$$)
 sub _start_empty_line_after_command($$$) {
   my ($line, $current, $command) = @_;
 
-  $line =~ s/^([^\S\r\n]*)//;
+  # based on whitespace_chars_except_newline in XS parser
+  $line =~ s/^([ \t\cK\f]*)//;
   my $spaces_after_command = { 'type' => 'ignorable_spaces_after_command',
                                'text' => $1,
                                'parent' => $current,
@@ -4817,7 +4825,8 @@ sub _handle_macro($$$$$)
             last;
           }
         } else {
-          if (not $arg_elt->{'contents'} and $line =~ s/^([^\S\r\n]+)//) {
+          # based on whitespace_chars_except_newline in XS parser
+          if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
             my $internal_space = {'type' => 'internal_spaces_before_argument',
                                   'text' => $1,
                                   'parent' => $arg_elt,
@@ -5021,7 +5030,8 @@ sub _handle_menu_entry_separators($$$$$$)
       $current = $current->{'contents'}->[-1];
       $current = _merge_text($self, $current, $separator, $popped_element);
     # here we collect spaces following separators.
-    } elsif ($$line_ref =~ s/^([^\S\r\n]+)//) {
+    # based on whitespace_chars_except_newline in XS parser
+    } elsif ($$line_ref =~ s/^([ \t\cK\f]+)//) {
       # NOTE a trailing end of line could be considered to be part
       # of the separator. Right now it is part of the description,
       # since it is catched (in the next while) as one of the case below
@@ -5774,7 +5784,8 @@ sub _handle_open_brace($$$$)
       } else {
         $self->_push_context('ct_brace_command', $command);
       }
-      $line =~ s/([^\S\f\n]*)//;
+      # based on whitespace_chars_except_newline in XS parser
+      $line =~ s/([ \t\cK\f]*)//;
       $current->{'type'} = 'brace_command_context';
       # internal_spaces_before_argument is a transient internal type,
       # which should end up in info spaces_before_argument.
@@ -6307,6 +6318,8 @@ sub _process_remaining_on_line($$$$)
 
   my $retval = $STILL_MORE_TO_PROCESS;
 
+  #print STDERR "PROCESS "._debug_protect_eol($line)."\n" if ($self->{'DEBUG'});
+
   # in a 'raw' (verbatim, ignore, (r)macro)
   if ($current->{'cmdname'}
       and $block_commands{$current->{'cmdname'}}
@@ -6492,7 +6505,8 @@ sub _process_remaining_on_line($$$$)
     # start a new line for the @end line, this is normally done
     # at the beginning of a line, but not here, as we directly
     # got the lines.
-    $line =~ s/^([^\S\r\n]*)//;
+    # based on whitespace_chars_except_newline in XS parser
+    $line =~ s/^([ \t\cK\f]*)//;
     push @{$current->{'contents'}}, { 'type' => 'empty_line',
                                       'text' => $1,
                                       'parent' => $current };
@@ -6698,12 +6712,11 @@ sub _process_remaining_on_line($$$$)
   if ($current->{'cmdname'}
         and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
         and !$open_brace) {
-    if ($self->{'DEBUG'}) {
-      my $line_str = $line;
-      $line_str =~ s/\n/\\n/g;
-      print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}"
-          ."||| $line_str\n";
-    }
+
+    print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}"
+       ."||| "._debug_protect_eol($line)."\n"
+           if ($self->{'DEBUG'});
+
     # Note that non ascii spaces do not count as spaces
     if ($line =~ /^(\s+)/
         and ($accent_commands{$current->{'cmdname'}}
@@ -7000,6 +7013,10 @@ sub _process_remaining_on_line($$$$)
     }
   } elsif ($form_feed) {
     substr ($line, 0, 1) = '';
+    print STDERR "FORM FEED in "
+          .Texinfo::Common::debug_print_element($current, 1).": "
+           ._debug_protect_eol($line)."\n"
+      if ($self->{'DEBUG'});
     if ($current->{'type'}
         and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
@@ -7126,7 +7143,8 @@ sub _parse_texi($$$)
         # Remove this element and update 'extra' values.
         _abort_empty_line($self, $current);
       }
-      $line =~ s/^([^\S\r\n]*)//;
+      # based on whitespace_chars_except_newline in XS parser
+      $line =~ s/^([ \t\cK\f]*)//;
       push @{$current->{'contents'}}, { 'type' => 'empty_line',
                                         'text' => $1,
                                         'parent' => $current };
