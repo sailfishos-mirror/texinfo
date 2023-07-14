@@ -14,6 +14,12 @@
 
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): set up a
+	reproducible order following the tree units order for the call
+	of set_file_path.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element)
 	(debug_print_protected_string): use fputs instead of debug_nonl to
 	output a string when there is no need for formats.
