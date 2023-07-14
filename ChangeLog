@@ -1,5 +1,9 @@
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/60macro.t: add macro_for_verb test.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/65linemacro.t: add
 	end_conditional_in_linemacro test.
 

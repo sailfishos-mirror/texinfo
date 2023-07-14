@@ -536,6 +536,16 @@ a
 @emptymacro{}@item fc @tab sc
 @end multitable
 '],
+['macro_for_verb',
+'@macro verbopen {}
+@verb{
+@end macro
+
+@verbopen{}@ some text
+
+@code
+@}
+'],
 # tests a source mark on empty line after paragraph transfer in a focused way
 ['macro_after_paragraph',
 '@macro mymacro
