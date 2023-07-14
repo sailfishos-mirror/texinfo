@@ -1,5 +1,11 @@
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element)
+	(debug_print_protected_string): use fputs instead of debug_nonl to
+	output a string when there is no need for formats.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_open_brace)
 	(_process_remaining_on_line): handle @verb delimiter determination
 	in handle_open_brace to do the same as in the XS parser.

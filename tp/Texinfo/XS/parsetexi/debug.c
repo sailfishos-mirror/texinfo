@@ -121,7 +121,7 @@ debug_print_element (ELEMENT *e, int print_parent)
     {
       char *result;
       result = print_element_debug (e, print_parent);
-      debug_nonl (result);
+      fputs (result, stderr);
       free (result);
     }
 }
@@ -133,7 +133,7 @@ debug_print_protected_string (char *input_string)
     {
       int allocated = 0;
       char *result = debug_protect_eol (input_string, &allocated);
-      debug_nonl (result);
+      fputs (result, stderr);
       if (allocated)
         free (result);
     }
