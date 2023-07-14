@@ -1,3 +1,8 @@
+2023-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Generic Definition Commands), NEWS:
+	Document @deftypeline.
+
 2023-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: remove reverted change about index commands ending

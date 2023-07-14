@@ -12172,32 +12172,38 @@ index entries.
 
 @findex defblock
 @findex defline
+@findex deftypeline
 You create a generic definition environment with @samp{@@defblock}
 paired with @samp{@@end defblock}.  Within this environment, use a
-@code{@@defline} line for each symbol you document.  For example:
+@code{@@defline} or @code{@@deftypeline} line for each symbol you
+document.  For example:
 
 @example
 @@defblock
-@@defline Builtin foo (bar)
-Description of foo.
 @@defline Macro mac (arg1, arg2)
 Description of mac.
+@@deftypeline Builtin int foo (int @@var@{bar@})
+Description of foo.
 @@end defblock
 @end example
 
 @noindent This produces the output:
 
 @defblock
-@defline Builtin foo (bar)
-Description of foo.
 @defline Macro mac (arg1, arg2)
 Description of mac.
+@deftypeline Builtin int foo (int @var{bar})
+Description of foo.
 @end defblock
 
 The syntax of @code{@@defline} is similar to that of @code{@@deffn}.
 The first argument gives a category for the definition.  Follow this
 with the symbol name, followed by any parameters.  You should surround
 any arguments containing spaces with braces.
+
+You use @code{@@deftypeline} in a similar way to @code{@@deftypefn},
+following the category with a data type, and marking any parameters
+with @code{@@var}. (@xref{Typed Functions}).)
 
 To share the same description for multiple symbols, you can put several
 @code{@@defline} lines together.  For example:
