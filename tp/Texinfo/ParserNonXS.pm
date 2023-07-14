@@ -5739,7 +5739,22 @@ sub _handle_open_brace($$$$)
     push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
       if ($self->{'basic_inline_commands'}
           and $self->{'basic_inline_commands'}->{$command});
-    if ($self->{'brace_commands'}->{$command} eq 'context') {
+    if ($command eq 'verb') {
+      $current->{'type'} = 'brace_command_arg';
+      $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
+      if ($line eq '') {
+        # the delimiter may be in macro expansion
+        ($line, $source_info) = _new_line($self, $current);
+      }
+      if ($line =~ /^$/) {
+        $current->{'parent'}->{'info'}->{'delimiter'} = '';
+        $self->_line_error(
+            __("\@verb without associated character"), $source_info);
+      } else {
+        $line =~ s/^(.)//;
+        $current->{'parent'}->{'info'}->{'delimiter'} = $1;
+      }
+    } elsif ($self->{'brace_commands'}->{$command} eq 'context') {
       if ($command eq 'caption' or $command eq 'shortcaption') {
         my $float;
         $self->{'nesting_context'}->{'caption'} += 1;
@@ -6453,22 +6468,6 @@ sub _process_remaining_on_line($$$$)
   # in @verb. type should be 'brace_command_arg'
   } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
          and $current->{'parent'}->{'cmdname'} eq 'verb') {
-    $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
-    # collect the first character if not already done
-    if (!defined($current->{'parent'}->{'info'}->{'delimiter'})) {
-      if ($line eq '') {
-        # the delimiter may be in macro expansion
-        ($line, $source_info) = _new_line($self, $current);
-      }
-      if ($line =~ /^$/) {
-        $current->{'parent'}->{'info'}->{'delimiter'} = '';
-        $self->_line_error(
-            __("\@verb without associated character"), $source_info);
-      } else {
-        $line =~ s/^(.)//;
-        $current->{'parent'}->{'info'}->{'delimiter'} = $1;
-      }
-    }
     my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
     if ($line =~ s/^(.*?)$char\}/\}/) {
       push @{$current->{'contents'}},
