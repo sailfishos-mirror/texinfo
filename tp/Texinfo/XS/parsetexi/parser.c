@@ -1380,6 +1380,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
       if (cmd)
         {
+          debug ("RAW SECOND LEVEL %s in @%s", command_name(cmd),
+                 command_name(current->cmd));
           push_raw_block_stack (cmd);
         }
       /* Else check if line is "@end ..." for current command. */

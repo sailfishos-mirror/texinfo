@@ -285,9 +285,17 @@ parse_rawline_command (char *line, enum command_id cmd,
       r = skip_to_comment_if_comment_or_spaces (q, has_comment);
       if (!r || r != q)
         {
+          char *end_line;
+          char *line_nonl;
           q += strspn (q, whitespace_chars);
+          /* remove new line for the message */
+          line_nonl = strdup (q);
+          end_line = strchr (line_nonl, '\n');
+          if (end_line)
+            *end_line = '\0';
           line_warn ("remaining argument on @%s line: %s",
-                     command_name(cmd), q);
+                     command_name(cmd), line_nonl);
+          free (line_nonl);
         }
       break;
     clickstyle_invalid:
@@ -713,7 +721,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
           ELEMENT *parent;
           if ((parent = item_line_parent (current)))
             {
-              debug ("ITEM_LINE");
+              debug ("ITEM LINE %s", command_name(cmd));
               current = parent;
               gather_previous_item (current, cmd);
             }

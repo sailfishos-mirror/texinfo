@@ -3552,7 +3552,7 @@ sub _end_line_misc_line($$$)
           and $block_commands{$closed_command->{'cmdname'}} eq 'menu'
           and defined($self->_top_context_command())
           and $block_commands{$self->_top_context_command()} eq 'menu') {
-        print STDERR "CLOSE MENU but still in menu context\n"
+        print STDERR "CLOSE menu but still in menu context\n"
           if ($self->{'DEBUG'});
         push @{$current->{'contents'}}, {'type' => 'menu_comment',
                                          'parent' => $current,
@@ -4949,7 +4949,8 @@ sub _handle_menu_entry_separators($$$$$$)
            and $current->{'contents'}->[-1]->{'type'}
            and $current->{'contents'}->[-1]->{'type'} eq 'internal_menu_star') {
     if ($$line_ref !~ /^\s+/) {
-      print STDERR "ABORT MENU STAR ($$line_ref)\n" if ($self->{'DEBUG'});
+      print STDERR "ABORT MENU STAR before: "
+          ._debug_protect_eol($$line_ref)."\n" if ($self->{'DEBUG'});
       delete $current->{'contents'}->[-1]->{'type'};
     } else {
       print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
@@ -5378,8 +5379,8 @@ sub _handle_line_command($$$$$$)
     # @item or @itemx in @table
     if ($command eq 'item' or $command eq 'itemx') {
       my $parent;
-      print STDERR "ITEM_LINE\n" if ($self->{'DEBUG'});
       if ($parent = _item_line_parent($current)) {
+        print STDERR "ITEM LINE $command\n" if ($self->{'DEBUG'});
         $current = $parent;
         _gather_previous_item($self, $current, $command, $source_info);
       } else {
@@ -5861,10 +5862,10 @@ sub _handle_open_brace($$$$)
   # lone braces accepted right in a rawpreformatted
   } elsif ($current->{'type'}
            and $current->{'type'} eq 'rawpreformatted') {
-    # this can happen in an expanded rawpreformatted
-    $current = _merge_text($self, $current, '{');
     print STDERR "LONE OPEN BRACE in rawpreformatted\n"
        if ($self->{'DEBUG'});
+    # this can happen in an expanded rawpreformatted
+    $current = _merge_text($self, $current, '{');
   # matching braces accepted in a rawpreformatted, inline raw or
   # math.  Note that for rawpreformatted, it can only happen
   # within an @-command as { is simply added as seen just above.
@@ -6186,21 +6187,24 @@ sub _handle_comma($$$$)
         # condition is missing for some reason
         print STDERR "INLINE COND MISSING\n"
           if ($self->{'DEBUG'});
-      } elsif ($inline_format_commands{$current->{'cmdname'}}) {
-        if ($self->{'expanded_formats_hash'}->{$inline_type}) {
+      } else {
+        print STDERR "INLINE: $inline_type\n" if ($self->{'DEBUG'});
+        if ($inline_format_commands{$current->{'cmdname'}}) {
+          if ($self->{'expanded_formats_hash'}->{$inline_type}) {
+            $expandp = 1;
+            $current->{'extra'}->{'expand_index'} = 1;
+          } else {
+            $expandp = 0;
+          }
+        } elsif (($current->{'cmdname'} eq 'inlineifset'
+                  and exists($self->{'values'}->{$inline_type}))
+                 or ($current->{'cmdname'} eq 'inlineifclear'
+                     and ! exists($self->{'values'}->{$inline_type}))) {
           $expandp = 1;
           $current->{'extra'}->{'expand_index'} = 1;
         } else {
           $expandp = 0;
         }
-      } elsif (($current->{'cmdname'} eq 'inlineifset'
-                and exists($self->{'values'}->{$inline_type}))
-               or ($current->{'cmdname'} eq 'inlineifclear'
-                   and ! exists($self->{'values'}->{$inline_type}))) {
-        $expandp = 1;
-        $current->{'extra'}->{'expand_index'} = 1;
-      } else {
-        $expandp = 0;
       }
       $current->{'extra'}->{'format'} = $inline_type;
 

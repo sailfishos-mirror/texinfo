@@ -184,7 +184,9 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
   else if (current->contents.number > 0
            && last_contents_child(current)->type == ET_internal_menu_star)
     {
-      debug ("ABORT MENU STAR");
+      debug_nonl ("ABORT MENU STAR before: ");
+      debug_print_protected_string (line); debug ("");
+
       last_contents_child(current)->type = ET_NONE;
     }
   /* After a separator in a menu, end of menu entry node or menu entry name
