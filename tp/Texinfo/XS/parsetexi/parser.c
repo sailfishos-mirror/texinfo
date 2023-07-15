@@ -1808,11 +1808,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                         }
 
                       input_push_text (strdup (remaining_line),
-                                       current_source_info.line_nr,
-                                       current_source_info.macro, 0);
+                                       current_source_info.line_nr, 0, 0);
                       input_push_text (strdup (value),
-                                       current_source_info.line_nr,
-                                       current_source_info.macro,
+                                       current_source_info.line_nr, 0,
                                        strdup (flag));
 
                       value_source_mark

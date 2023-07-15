@@ -1,3 +1,14 @@
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
+	Distinguish input text macro context and input text macro expansion
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push_text, _next_text)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/input.c
+	(next_text, input_push_text), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line): the macro name passed to
+	input_push_text means that the text comes from macro expansion.
+	The input stack is used to determine if alreay in macro context.
+
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)

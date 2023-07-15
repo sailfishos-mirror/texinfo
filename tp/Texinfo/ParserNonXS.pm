@@ -686,6 +686,13 @@ sub _new_text_input($$)
           'input_source_info' => $input_source_info};
 }
 
+# Store $TEXT as a source for Texinfo content.
+# $MACRO_name is the name of the macro expanded as text.  It should only
+# be given if this is the text corresponds to a new macro expansion.
+# If already within a macro expansion, but not from a macro expansion
+# (from a value expansion, for instance), the macro name will be taken
+# from the input stack.
+# $VALUE_FLAG is the name of the value flag expanded as text.
 sub _input_push_text($$$;$$)
 {
   my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
@@ -698,16 +705,23 @@ sub _input_push_text($$$;$$)
   if (scalar(@{$self->{'input'}})) {
     $input_source_info->{'file_name'}
       = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
+    # context macro expansion
+    $input_source_info->{'macro'}
+      = $self->{'input'}->[0]->{'input_source_info'}->{'macro'};
   }
   if (defined($macro_name) and $macro_name ne '') {
+    # new macro expansion
     $input_source_info->{'macro'} = $macro_name;
-  } elsif (not defined($value_name)) {
+  }
+  if (not defined($value_name) and $input_source_info->{'macro'} eq '') {
     # this counteracts the increment that would follow from the next
     # call to _next_text.
     $input_source_info->{'line_nr'} -= 1;
   }
   my $text_input = _new_text_input($text, $input_source_info);
   $text_input->{'value_flag'} = $value_name if (defined($value_name));
+  # only set for new macro expansion
+  $text_input->{'macro_name'} = $macro_name if (defined($macro_name));
   unshift @{$self->{'input'}}, $text_input;
 }
 
@@ -2397,10 +2411,10 @@ sub _next_text($;$)
         warn "BUG? close text reference failed: $error_message\n";
       }
       delete $input->{'th'};
-      if ($input->{'input_source_info'}->{'macro'} ne '') {
-        $self->{'macro_expansion_nr'}--;
-      } elsif (defined($input->{'value_flag'})) {
+      if (defined($input->{'value_flag'})) {
         $self->{'value_expansion_nr'}--;
+      } elsif (defined($input->{'macro_name'})) {
+        $self->{'macro_expansion_nr'}--;
       }
     } elsif ($input->{'fh'}) {
       # Don't close STDIN
@@ -6653,11 +6667,9 @@ sub _process_remaining_on_line($$$$)
             # goto funexit;  # used in XS code
           }
           $self->{'value_expansion_nr'}++;
-          _input_push_text($self, $remaining_line, $source_info->{'line_nr'},
-                           $source_info->{'macro'});
+          _input_push_text($self, $remaining_line, $source_info->{'line_nr'});
           _input_push_text($self, $self->{'values'}->{$value},
-                           $source_info->{'line_nr'},
-                           $source_info->{'macro'}, $value);
+                           $source_info->{'line_nr'}, undef, $value);
           my $sm_value_element = _new_value_element($command, $value);
           my $value_source_mark = {'sourcemark_type' => 'value_expansion',
                                    'status' => 'start',

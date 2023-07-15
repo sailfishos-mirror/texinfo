@@ -53,6 +53,8 @@ typedef struct {
                     into lines. */
     char *value_flag; /* value flag if the input text is a @value
                          expansion */
+    char *macro_name; /* macro name if the input text is a user-defined
+                        macro expansion */
     SOURCE_MARK *input_source_mark;
 } INPUT;
 
@@ -517,8 +519,10 @@ next_text (ELEMENT *current)
               value_expansion_nr--;
               free (input->value_flag);
             }
-          else if (input->source_info.macro)
-            macro_expansion_nr--;
+          else if (input->macro_name)
+            {
+              macro_expansion_nr--;
+            }
         }
 
       if (input->input_source_mark)
@@ -551,11 +555,20 @@ next_text (ELEMENT *current)
 
 /* Store TEXT as a source for Texinfo content.  TEXT should be a UTF-8
    string.  TEXT will be later free'd and must be allocated on the heap.
-   MACRO is the name of a macro that the text came from. */
+   MACRO_NAME is the name of the macro expanded as text.  It should only be
+   given if this is the text corresponds to a new macro expansion.
+   If already within a macro expansion, but not from a macro expansion
+   (from a value expansion, for instance), the macro name will be taken
+   from the input stack.
+   VALUE_FLAG is the name of the value flag expanded as text.
+   VALUE_FLAG will be later free'd, but not MACRO_NAME.
+ */
 void
-input_push_text (char *text, int line_number, char *macro, char *value_flag)
+input_push_text (char *text, int line_number, char *macro_name,
+                 char *value_flag)
 {
   char *filename = 0;
+  char *in_macro = 0;
 
   if (!text)
     return;
@@ -574,17 +587,24 @@ input_push_text (char *text, int line_number, char *macro, char *value_flag)
   input_stack[input_number].text = text;
   input_stack[input_number].ptext = text;
 
-  if (!macro && !value_flag)
-    line_number--;
-  input_stack[input_number].source_info.line_nr = line_number;
   if (input_number > 0)
     {
       filename = input_stack[input_number - 1].source_info.file_name;
+      /* context macro expansion */
+      in_macro = input_stack[input_number - 1].source_info.macro;
     }
+  if (macro_name) {
+    /* new macro expansion */
+    in_macro = macro_name;
+  }
+  if (!in_macro && !value_flag)
+    line_number--;
+  input_stack[input_number].source_info.line_nr = line_number;
   input_stack[input_number].source_info.file_name = save_string (filename);
-  input_stack[input_number].source_info.macro = save_string (macro);
-  input_stack[input_number].input_source_mark = 0;
+  input_stack[input_number].source_info.macro = save_string (in_macro);
+  input_stack[input_number].macro_name = save_string (macro_name);
   input_stack[input_number].value_flag = value_flag;
+  input_stack[input_number].input_source_mark = 0;
   input_number++;
 }
 
