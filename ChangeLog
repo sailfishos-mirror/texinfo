@@ -1,3 +1,12 @@
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/60macro.t: add spaces after bad macro specification argument.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (run_stage_handlers): do not output the
+	code handler reference, instead use an index to determine the handler.
+
 2023-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: mention @linemacro

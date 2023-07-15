@@ -65,7 +65,7 @@ in macro
 in
 @end rmacro
 
-@macro aftername {ggg} more
+@macro aftername {ggg} more  
 in macro
 @end macro
 

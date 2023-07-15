@@ -188,7 +188,7 @@ $result_trees{'bad_argument'} = {
             'invalid_syntax' => 1
           },
           'info' => {
-            'arg_line' => ' aftername {ggg} more
+            'arg_line' => ' aftername {ggg} more  
 '
           },
           'source_info' => {
@@ -271,7 +271,7 @@ in macro
 in
 @end rmacro
 
-@macro aftername {ggg} more
+@macro aftername {ggg} more  
 in macro
 @end macro
 
@@ -306,12 +306,12 @@ $result_errors{'bad_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'bad syntax for @macro argument: more
+    'error_line' => 'bad syntax for @macro argument: more  
 ',
     'file_name' => '',
     'line_nr' => 9,
     'macro' => '',
-    'text' => 'bad syntax for @macro argument: more',
+    'text' => 'bad syntax for @macro argument: more  ',
     'type' => 'error'
   },
   {
