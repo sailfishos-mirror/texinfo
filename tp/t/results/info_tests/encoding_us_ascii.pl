@@ -34,7 +34,6 @@ $result_trees{'encoding_us_ascii'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'us-ascii',
-            'input_perl_encoding' => 'ascii',
             'text_arg' => 'US-ASCII'
           },
           'info' => {

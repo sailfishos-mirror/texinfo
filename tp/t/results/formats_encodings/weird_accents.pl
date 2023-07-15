@@ -31,7 +31,6 @@ $result_trees{'weird_accents'} = {
               'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
-                'input_perl_encoding' => 'iso-8859-1',
                 'text_arg' => 'ISO-8859-1'
               },
               'info' => {

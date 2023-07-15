@@ -29,7 +29,6 @@ $result_trees{'uref_accented_letter_ascii'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'us-ascii',
-            'input_perl_encoding' => 'ascii',
             'text_arg' => 'US-ASCII'
           },
           'info' => {

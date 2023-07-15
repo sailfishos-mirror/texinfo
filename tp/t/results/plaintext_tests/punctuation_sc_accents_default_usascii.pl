@@ -46,7 +46,6 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'us-ascii',
-                'input_perl_encoding' => 'ascii',
                 'text_arg' => 'US-ASCII'
               },
               'info' => {

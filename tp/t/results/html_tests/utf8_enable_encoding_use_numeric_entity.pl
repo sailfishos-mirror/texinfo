@@ -29,7 +29,6 @@ $result_trees{'utf8_enable_encoding_use_numeric_entity'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
             'text_arg' => 'utf-8'
           },
           'info' => {

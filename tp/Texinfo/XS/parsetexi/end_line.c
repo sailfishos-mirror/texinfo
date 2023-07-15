@@ -1545,8 +1545,6 @@ end_line_misc_line (ELEMENT *current)
                           break;
                         }
                     }
-                  add_extra_string_dup (current, "input_perl_encoding",
-                                        perl_encoding);
                   free (global_info.input_perl_encoding);
                   global_info.input_perl_encoding = strdup (perl_encoding);
                 }

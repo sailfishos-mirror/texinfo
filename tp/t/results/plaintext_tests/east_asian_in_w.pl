@@ -31,7 +31,6 @@ $result_trees{'east_asian_in_w'} = {
               'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
-                'input_perl_encoding' => 'utf-8-strict',
                 'text_arg' => 'utf-8'
               },
               'info' => {

@@ -29,7 +29,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
             'text_arg' => 'utf-8'
           },
           'info' => {

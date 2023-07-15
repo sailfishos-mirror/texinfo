@@ -29,7 +29,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
             'text_arg' => 'utf-8'
           },
           'info' => {

@@ -1,5 +1,11 @@
 2023-07-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): remove
+	input_perl_encoding from documentencoding extra hash.
+
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
 	Replace extra input_perl_encoding by input_encoding_name in elements
 
 	* tp/Texinfo/Common.pm (element_extra_encoding_for_perl),

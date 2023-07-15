@@ -3446,7 +3446,6 @@ sub _end_line_misc_line($$$)
           $self->_command_warn($current, $source_info,
                __("unrecognized encoding name `%s'"), $text);
         } else {
-          $current->{'extra'}->{'input_perl_encoding'} = $perl_encoding;
           $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
           foreach my $input (@{$self->{'input'}}) {
             binmode($input->{'fh'}, ":encoding($perl_encoding)")

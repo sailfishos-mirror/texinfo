@@ -41,7 +41,6 @@ $result_trees{'japanese_shift_jis'} = {
               'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'shift_jis',
-                'input_perl_encoding' => 'shiftjis',
                 'text_arg' => 'shift_jis'
               },
               'info' => {

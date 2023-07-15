@@ -46,7 +46,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-2',
-                'input_perl_encoding' => 'iso-8859-2',
                 'text_arg' => 'ISO-8859-2'
               },
               'info' => {

@@ -29,7 +29,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
           'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
             'text_arg' => 'utf-8'
           },
           'info' => {
