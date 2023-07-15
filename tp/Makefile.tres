@@ -508,6 +508,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formats_encodings/char_latin2_latin2_in_refs/res_html \
   t/results/formats_encodings/char_latin2_latin2_in_refs/res_info \
   t/results/formats_encodings/documentencoding_utf8_and_insertions.pl \
+  t/results/formats_encodings/dotless_argument_non_ascii.pl \
   t/results/formats_encodings/japanese_shift_jis.pl \
   t/results/formats_encodings/japanese_shift_jis/res_html \
   t/results/formats_encodings/japanese_shift_jis/res_info \

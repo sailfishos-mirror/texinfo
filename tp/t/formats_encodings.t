@@ -335,6 +335,14 @@ $accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 '."\@'{\x{00EA}}
 \@'\x{00EA}
 "],
+['dotless_argument_non_ascii',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+'."\@dotless \x{00EA}
+"],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
 $at_commands_in_refs_text, 

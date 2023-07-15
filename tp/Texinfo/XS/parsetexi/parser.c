@@ -2053,7 +2053,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               && *line != 'i' && *line != 'j')
             {
               line_error ("@dotless expects `i' or `j' as argument, "
-                          "not `%c'", *line);
+                          "not `%s'", e2->text.text);
             }
           line += char_len;
           current = current->parent;
