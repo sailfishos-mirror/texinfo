@@ -1553,24 +1553,24 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* Check if parent element is 'verb' */
   else if (current->parent && current->parent->cmd == CM_verb)
     {
-      char c;
+      char *delimiter;
       char *q;
       KEY_PAIR *k;
 
       k = lookup_info (current->parent, "delimiter");
 
-      c = *(char *)k->value;
-      if (c)
+      delimiter = (char *)k->value;
+      if (strcmp (delimiter, ""))
         {
           /* Look forward for the delimiter character followed by a close
              brace. */
           q = line;
           while (1)
             {
-              q = strchr (q, c);
-              if (!q || q[1] == '}')
+              q = strstr (q, delimiter);
+              if (!q || q[strlen(delimiter)] == '}')
                 break;
-              q++;
+              q += strlen(delimiter);
             }
         }
       else
@@ -1589,8 +1589,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               add_to_element_contents (current, e);
             }
           debug ("END VERB");
-          if (c)
-            line = q + 1;
+          if (strcmp (delimiter, ""))
+            line = q + strlen (delimiter);
           else
             line = q;
           /* The '}' will close the @verb command in handle_separator below. */

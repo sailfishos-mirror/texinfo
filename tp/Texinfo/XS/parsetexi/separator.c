@@ -66,9 +66,15 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             }
           else
             {
-              static char c[2];
-              c[0] = *line++;
-              add_info_string_dup (current->parent, "delimiter", c);
+              /* Count any UTF-8 continuation bytes. */
+              int char_len = 1;
+              char *delimiter_character;
+              while ((line[char_len] & 0xC0) == 0x80)
+                char_len++;
+              delimiter_character = strndup (line, char_len);
+              add_info_string (current->parent, "delimiter",
+                               delimiter_character);
+              line += char_len;
             }
         }
       else if (command_data(command).data == BRACE_context)

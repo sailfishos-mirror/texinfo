@@ -522,6 +522,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formats_encodings/sample_utf8.pl \
   t/results/formats_encodings/sample_utf8/res_html \
   t/results/formats_encodings/sample_utf8/res_info \
+  t/results/formats_encodings/verb_delimiter_not_ascii.pl \
   t/results/formats_encodings/weird_accents.pl \
   t/results/formats_encodings/weird_accents_disable_encoding.pl \
   t/results/heading/heading_in_copying.pl \

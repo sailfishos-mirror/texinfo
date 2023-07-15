@@ -344,6 +344,14 @@ $accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 '."\@dotless{\x{00EA}}
 \@dotless \x{00EA}
 "],
+['verb_delimiter_not_ascii',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+'."\@verb{\x{00EA} some text \x{00EA}}
+"],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
 $at_commands_in_refs_text, 

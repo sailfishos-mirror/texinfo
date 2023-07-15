@@ -1,5 +1,15 @@
 2023-07-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace) <verb>:
+	handle a non-ascii verb delimiter.
+
+	* tp/Makefile.tres, tp/t/formats_encodings.t
+	(verb_delimiter_not_ascii): new test to test non ascii @verb
+	delimiters.
+
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/formats_encodings.t (dotless_argument_non_ascii): add the
 	test of braced non-ascii argument of @dotless.
 
