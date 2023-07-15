@@ -1417,8 +1417,6 @@ end_line_misc_line (ELEMENT *current)
               int status;
               char *fullpath, *sys_filename;
 
-              debug ("Include %s", text);
-
               sys_filename = encode_file_name (text);
               fullpath = locate_include_file (sys_filename);
 
@@ -1443,6 +1441,8 @@ end_line_misc_line (ELEMENT *current)
                   else
                     {
                       included_file = 1;
+                      debug ("Included %s", fullpath);
+
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);

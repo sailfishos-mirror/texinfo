@@ -114,13 +114,9 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
   macro->source_info = current_source_info;
 
   add_info_string_dup (macro, "arg_line", line);
-  /* Note this extra value isn't used much, so it might be possible
-     to get rid of it. */
 
   line += strspn (line, whitespace_chars);
   name = read_command_name (&line);
-
-  debug ("MACRO @%s %s", command_name (cmd), name);
 
   if (*line && *line != '{' && !strchr (whitespace_chars, *line))
     {
@@ -134,6 +130,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       add_extra_integer (macro, "invalid_syntax", 1);
       return macro;
     }
+
+  debug ("MACRO @%s %s", command_name (cmd), name);
 
   macro_name = new_element (ET_macro_name);
   text_append (&macro_name->text, name);
@@ -222,13 +220,20 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       index++;
     }
 
-check_trailing:
+ check_trailing:
   line = args_ptr;
   line += strspn (line, whitespace_chars);
   if (*line && *line != '@')
     {
+      char *argument_str = strdup (line);
+      /* remove new line for the message */
+      char *end_line = strchr (argument_str, '\n');
+
+      if (end_line)
+            *end_line = '\0';
       line_error ("bad syntax for @%s argument: %s",
-                  command_name(cmd), line);
+                  command_name(cmd), argument_str);
+      free (argument_str);
       add_extra_integer (macro, "invalid_syntax", 1);
     }
   //line += strlen (line); /* Discard rest of line. */
@@ -400,7 +405,6 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
         }
     }
 
-  debug ("END MACRO ARGS EXPANSION");
   line = pline;
 
   if (args_total == 0
@@ -411,6 +415,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
         ("macro `%s' declared without argument called with an argument",
          command_name(cmd));
     }
+  debug ("END MACRO ARGS EXPANSION");
 
 funexit:
   *line_inout = line;
@@ -701,29 +706,37 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     goto funexit;
 
   expand_macro_body (macro_record, macro_call_element, &expanded);
-  debug ("MACROBODY: %s||||||", expanded.text);
 
-  if (expanded.end > 0 && expanded.text[expanded.end - 1] == '\n')
-    expanded.text[--expanded.end] = '\0';
+  if (expanded.text)
+    {
+      if (expanded.text[expanded.end - 1] == '\n')
+        expanded.text[--expanded.end] = '\0';
+      expanded_macro_text = expanded.text;
+    }
+  else
+    /* we want to always have a text for the source mark */
+    expanded_macro_text = strdup ("");
+
+  debug ("MACROBODY: %s||||||", expanded_macro_text);
 
   macro_source_mark = new_source_mark (SM_type_macro_expansion);
   macro_source_mark->status = SM_status_start;
   macro_source_mark->element = macro_call_element;
   register_source_mark (current, macro_source_mark);
 
-  /* Put expansion in front of the current line. */
+  /* first put the line that was interrupted by the macro call
+     on the input pending text stack */
   input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
+
+  /* Put expansion in front of the current line. */
+  input_push_text (expanded_macro_text, current_source_info.line_nr,
+                   command_name(cmd), 0);
+
+  set_input_source_mark (macro_source_mark);
+
   /* not really important as line is ignored by the caller if there
      was no macro expansion error */
   line = strchr (line, '\0');
-  if (expanded.text)
-    expanded_macro_text = expanded.text;
-  else
-    /* we want to always have a text for the source mark */
-    expanded_macro_text = strdup ("");
-  input_push_text (expanded_macro_text, current_source_info.line_nr,
-                   command_name(cmd), 0);
-  set_input_source_mark (macro_source_mark);
 
  funexit:
 

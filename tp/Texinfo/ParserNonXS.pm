@@ -1258,15 +1258,16 @@ sub _parse_macro_command_line($$$$$;$)
     my $args_def = $2;
     my @args;
 
-    if ($args_def =~ s/^\s*{\s*(.*?)\s*}\s*//) {
-      @args = split(/\s*,\s*/, $1);
-    }
-
     print STDERR "MACRO \@$command $macro_name\n" if ($self->{'DEBUG'});
 
     $macro->{'args'} = [
       { 'type' => 'macro_name', 'text' => $macro_name,
           'parent' => $macro } ];
+
+    if ($args_def =~ s/^\s*{\s*(.*?)\s*}\s*//) {
+      @args = split(/\s*,\s*/, $1);
+    }
+
     foreach my $formal_arg (@args) {
       push @{$macro->{'args'}},
         { 'type' => 'macro_arg', 'text' => $formal_arg,
@@ -2545,11 +2546,8 @@ sub _expand_macro_arguments($$$$$)
                 __("use %s instead of %s in macro arg"), '@comma{}', '\\,'),
               $source_info);
           }
-          print STDERR "MACRO ARG: $separator: $protected_char\n"
-            if ($self->{'DEBUG'});
         } else {
           $argument_content->{'text'} .= '\\';
-          print STDERR "MACRO ARG: $separator\n" if ($self->{'DEBUG'});
         }
       } elsif ($separator eq ',') {
         if ($braces_level > 1) {
@@ -2639,6 +2637,8 @@ sub _expand_macro_body($$$$) {
   my ($self, $macro, $args, $source_info) = @_;
 
   my $macrobody = $macro->{'macrobody'};
+
+  return undef if (!defined($macrobody));
 
   my $result = '';
   while ($macrobody ne '') {
@@ -4376,7 +4376,7 @@ sub _end_line($$$)
       # if in a linemacro command call nested on a line, we do not close
       # the preceding commands yet, as they might use the expansion
       print STDERR "Expanded \@$in_macro_expansion still line/block"
-       ." command $top_context: "
+       ." $top_context: "
        .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'DEBUG'});
       return $current;
@@ -4793,11 +4793,13 @@ sub _handle_macro($$$$$)
   my $command = shift;
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
-  my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
+
   my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
                             'extra' => {'name' => $command},
                             'args' => []};
+
   if ($expanded_macro->{'cmdname'} ne 'linemacro') {
+    my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
     if ($line =~ s/^\s*{(\s*)//) { # } macro with args
       if ($1 ne '') {
         $macro_call_element->{'info'}
@@ -4884,28 +4886,41 @@ sub _handle_macro($$$$$)
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
                             $macro_call_element->{'args'}, $source_info);
-  print STDERR "MACROBODY: $expanded".'||||||'."\n"
-    if ($self->{'DEBUG'});
 
-  chomp($expanded);
-
-  # first put the line that was interrupted by the macro call
-  # on the input pending text with information stack
-  _input_push_text($self, $line, $source_info->{'line_nr'});
-  # then put the following macro expansion lines with information on the
-  # pending text
-  _input_push_text($self, $expanded, $source_info->{'line_nr'},
-                   $expanded_macro->{'args'}->[0]->{'text'});
-  my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
-                           'status' => 'start'};
   delete $macro_call_element->{'args'}
      if (scalar(@{$macro_call_element->{'args'}}) == 0);
+
+  my $expanded_macro_text;
+  if (defined($expanded)) {
+    chomp($expanded);
+    $expanded_macro_text = $expanded;
+  } else {
+    # we want to always have a text for the source mark
+    $expanded_macro_text = "";
+  }
+
+  print STDERR "MACROBODY: $expanded_macro_text".'||||||'."\n"
+    if ($self->{'DEBUG'});
+
+  my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
+                           'status' => 'start'};
   $macro_source_mark->{'element'} = $macro_call_element;
   _register_source_mark($self, $current, $macro_source_mark);
+
+  # first put the line that was interrupted by the macro call
+  # on the input pending text stack
+  _input_push_text($self, $line, $source_info->{'line_nr'});
+
+  # Put expansion in front of the current line.
+  _input_push_text($self, $expanded_macro_text, $source_info->{'line_nr'},
+                   $expanded_macro->{'args'}->[0]->{'text'});
+
   $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
+
   # not really important as line is ignored by the caller if there
   # was no macro expansion error
   $line = '';
+
  #funexit:
   return ($macro_call_element, $line, $source_info);
 }
@@ -6160,8 +6175,6 @@ sub _handle_comma($$$$)
   my $line = shift;
   my $source_info = shift;
 
-  my $retval = $STILL_MORE_TO_PROCESS;
-
   _abort_empty_line($self, $current);
   _isolate_last_space($self, $current);
   # type corresponds to three possible containers: in brace commands,
@@ -6256,7 +6269,7 @@ sub _handle_comma($$$$)
           # Second argument is missing.
           $current = $current->{'args'}->[-1];
           $line = '}' . $line;
-          return ($current, $line, $source_info, $retval);
+          return ($current, $line, $source_info);
           # goto funexit;  # used in XS code
         } else {
           $current->{'remaining_args'}--;
@@ -6309,7 +6322,7 @@ sub _handle_comma($$$$)
       $current->{'remaining_args'}--;
       $current = $current->{'args'}->[-1];
       $line = '}' . $line;
-      return ($current, $line, $source_info, $retval);
+      return ($current, $line, $source_info);
       # goto funexit;  # used in XS code
     }
   }
@@ -6325,7 +6338,29 @@ sub _handle_comma($$$$)
                      };
   push @{$current->{'contents'}}, $space_before;
 
-  return ($current, $line, $source_info, $retval);
+  return ($current, $line, $source_info);
+}
+
+sub _new_macro($$$)
+{
+  my $self = shift;
+  my $name = shift;
+  my $current = shift;
+
+  my $macrobody;
+  if (defined($current->{'contents'})) {
+    $macrobody =
+       Texinfo::Convert::Texinfo::convert_to_texinfo(
+                    { 'contents' => $current->{'contents'} });
+  }
+  $self->{'macros'}->{$name} = {
+    'element' => $current,
+    'macrobody' => $macrobody
+  };
+  delete $self->{'aliases'}->{$name};
+  # FIXME check that this is still true with linemacro
+  # could be cleaner to delete definfoenclose'd too, but macros
+  # are expanded earlier
 }
 
 sub _process_remaining_on_line($$$$)
@@ -6371,10 +6406,6 @@ sub _process_remaining_on_line($$$$)
         if ($current->{'cmdname'} eq 'macro'
             or $current->{'cmdname'} eq 'rmacro'
             or $current->{'cmdname'} eq 'linemacro') {
-          # store toplevel macro specification
-          my $macrobody =
-             Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                 { 'contents' => $current->{'contents'} });
           if ($current->{'args'} and $current->{'args'}->[0]) {
             my $name = $current->{'args'}->[0]->{'text'};
             if (exists($self->{'macros'}->{$name})) {
@@ -6393,14 +6424,7 @@ sub _process_remaining_on_line($$$$)
             }
             if (!($current->{'extra'}
                   and $current->{'extra'}->{'invalid_syntax'})) {
-              $self->{'macros'}->{$name} = {
-                'element' => $current,
-                'macrobody' => $macrobody
-              };
-              delete $self->{'aliases'}->{$name};
-              # FIXME check that this is still true with linemacro
-              # could be cleaner to delete definfoenclose'd too, but macros
-              # are expanded earlier
+              _new_macro($self, $name, $current);
             }
           }
         }
@@ -6854,12 +6878,14 @@ sub _process_remaining_on_line($$$$)
         if ($command eq 'value') {
           if (not exists($self->{'values'}->{$value})) {
             _abort_empty_line($self, $current);
+
+            $self->_line_warn(
+               sprintf(__("undefined flag: %s"), $value), $source_info);
+
             # caller should expand something along
             # gdt($self, '@{No value for `{value}\'@}', {'value' => $value});
             my $new_element = _new_value_element($command, $value, $current);
             push @{$current->{'contents'}}, $new_element;
-            $self->_line_warn(
-               sprintf(__("undefined flag: %s"), $value), $source_info);
           # expansion of value already done above
           #} else {
           }
@@ -7008,7 +7034,7 @@ sub _process_remaining_on_line($$$$)
     substr ($line, 0, 1) = '';
     if ($current->{'parent'}
         and $current->{'parent'}->{'remaining_args'}) {
-      ($current, $line, $source_info, $retval)
+      ($current, $line, $source_info)
          = _handle_comma($self, $current, $line, $source_info);
     } elsif ($current->{'type'}
              and $current->{'type'} eq 'line_arg'

@@ -1,5 +1,25 @@
 2023-07-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_expand_macro_arguments, _end_line, _handle_macro)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/macro.c
+	(parse_macro_command_line, expand_macro_arguments, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	synchronize debug messages, move code around to be more consistent
+	across parsers, 
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_comma): remove retval return
+	value, it is only set to the same value as the default in the caller.
+
+	* tp/Texinfo/ParserNonXS.pm (_new_macro, _process_remaining_on_line):
+	add _new_macro function to be more in line with XS parser.
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_body, _handle_macro): allow
+	macrobody to be undef if there is no content, similar to XS parser.
+
+2023-07-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/60macro.t: add spaces after bad macro specification argument.
 
 2023-07-14  Patrice Dumas  <pertusus@free.fr>

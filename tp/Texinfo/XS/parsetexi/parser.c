@@ -2116,9 +2116,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                        for the converters to handle */
                       ELEMENT *value_elt;
 
-                      line_warn ("undefined flag: %s", flag);
-
                       abort_empty_line (&current, NULL);
+
+                      line_warn ("undefined flag: %s", flag);
 
                       value_elt = new_value_element (cmd, flag);
                       add_to_element_contents (current, value_elt);
