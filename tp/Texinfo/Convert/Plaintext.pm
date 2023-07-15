@@ -1923,7 +1923,7 @@ sub _convert($$)
         if ($accented_text ne '');
       return $result;
     } elsif (exists($brace_commands{$command})
-         or ($type and $type eq 'definfoenclose_command')) {
+             or ($type and $type eq 'definfoenclose_command')) {
       if ($self->{'style_map'}->{$command}
            or ($type and $type eq 'definfoenclose_command')) {
         if ($brace_code_commands{$command}) {
@@ -1932,7 +1932,8 @@ sub _convert($$)
           } else {
             $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
           }
-        } elsif ($brace_commands{$command} eq 'style_no_code') {
+        } elsif (exists($brace_commands{$command})
+                 and $brace_commands{$command} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 0,
                                                       'normal' => 1};
@@ -1943,7 +1944,7 @@ sub _convert($$)
         if ($no_punctation_munging_commands{$command}) {
           push @{$formatter->{'frenchspacing_stack'}}, 'on';
           set_space_protection($formatter->{'container'}, undef,
-            undef,undef,1);
+                               undef, undef, 1);
         }
         if ($upper_case_commands{$command}) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
@@ -1952,12 +1953,12 @@ sub _convert($$)
         }
         if ($command eq 'w') {
           $formatter->{'w'}++;
-          set_space_protection($formatter->{'container'}, 1,undef)
+          set_space_protection($formatter->{'container'}, 1, undef)
             if ($formatter->{'w'} == 1);
         }
         my ($text_before, $text_after);
         if ($element->{'type'}
-              and $element->{'type'} eq 'definfoenclose_command') {
+            and $element->{'type'} eq 'definfoenclose_command') {
           $text_before = $element->{'extra'}->{'begin'};
           $text_after = $element->{'extra'}->{'end'};
         } elsif ($non_quoted_commands_when_nested{$command}
@@ -1978,7 +1979,7 @@ sub _convert($$)
           $formatter->{'font_type_stack'}->[-1]->{'code_command'}++;
         }
         $result .= _count_added($self, $formatter->{'container'},
-                 add_next($formatter->{'container'}, $text_before, 1))
+                       add_next($formatter->{'container'}, $text_before, 1))
            if ($text_before ne '');
         if ($element->{'args'}) {
           $result .= _convert($self, $element->{'args'}->[0]);
@@ -1996,11 +1997,11 @@ sub _convert($$)
           }
         }
         $result .= _count_added($self, $formatter->{'container'},
-                 add_next($formatter->{'container'}, $text_after, 1))
+                       add_next($formatter->{'container'}, $text_after, 1))
            if ($text_after ne '');
         if ($command eq 'w') {
           $formatter->{'w'}--;
-          set_space_protection($formatter->{'container'},0,undef)
+          set_space_protection($formatter->{'container'}, 0, undef)
             if ($formatter->{'w'} == 0);
         }
         if ($brace_code_commands{$command}) {
@@ -2008,7 +2009,8 @@ sub _convert($$)
           allow_end_sentence($formatter->{'container'});
           pop @{$formatter->{'font_type_stack'}}
             if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
-        } elsif ($brace_commands{$command} eq 'style_no_code') {
+        } elsif (exists($brace_commands{$command})
+                 and $brace_commands{$command} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'normal'}) {
             $formatter->{'font_type_stack'}->[-1]->{'normal'}--;
             pop @{$formatter->{'font_type_stack'}}
@@ -2016,7 +2018,6 @@ sub _convert($$)
           }
         }
         if ($non_quoted_commands_when_nested{$command}) {
-          #$formatter->{'code_command'}--;
           $formatter->{'font_type_stack'}->[-1]->{'code_command'}--;
         }
         if ($no_punctation_munging_commands{$command}) {
@@ -2025,7 +2026,7 @@ sub _convert($$)
           $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1]
                                  eq 'on');
           set_space_protection($formatter->{'container'}, undef,
-            undef, undef, $frenchspacing);
+                               undef, undef, $frenchspacing);
         }
         if ($upper_case_commands{$command}) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
