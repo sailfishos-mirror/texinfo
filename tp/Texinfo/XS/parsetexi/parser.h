@@ -32,7 +32,6 @@
 typedef struct GLOBAL_INFO {
     char *input_file_name;
     char *input_encoding_name;
-    char *input_perl_encoding;
     int sections_level;
     ELEMENT dircategory_direntry; /* an array of elements */
 

@@ -1,5 +1,14 @@
 2023-07-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/api.c (build_global_info),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line)
+	<documentencoding>, tp/Texinfo/XS/parsetexi/parser.c
+	(wipe_global_info): do not set input_perl_encoding in the XS parser,
+	set in perl code in Parsetexi.pm get_parser_info.
+
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): remove
 	input_perl_encoding from documentencoding extra hash.

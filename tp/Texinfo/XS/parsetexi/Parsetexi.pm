@@ -250,6 +250,30 @@ sub get_parser_info {
   $self->{'info'} = $GLOBAL_INFO;
   $self->{'commands_info'} = $GLOBAL_INFO2;
 
+  $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
+
+  if (defined($self->{'commands_info'}->{'documentencoding'})) {
+    foreach my $element (@{$self->{'commands_info'}->{'documentencoding'}}) {
+      my $perl_encoding
+        = Texinfo::Common::element_extra_encoding_for_perl($element);
+      # Note that the following condition cannot happen as long as
+      # the encodings handled in the XS parser are all known by perl.
+      if (!$perl_encoding) {
+        my $encoding = $element->{'extra'}->{'input_encoding_name'}
+          if ($element->{'extra'});
+        if ($encoding) {
+          my ($registrar, $configuration_information)
+            = _get_error_registrar($self);
+          $registrar->line_warn($configuration_information,
+                     sprintf(__("unrecognized encoding name `%s'"), $encoding),
+                                          $element->{'source_info'});
+        }
+      } else {
+        $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
+      }
+    }
+  }
+
   _set_errors_node_lists_labels_indices($self);
 }
 

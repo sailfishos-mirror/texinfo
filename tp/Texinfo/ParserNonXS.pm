@@ -3434,11 +3434,9 @@ sub _end_line_misc_line($$$)
                __("encoding `%s' is not a canonical texinfo encoding"),
                              $text)
           if (!$texinfo_encoding or $texinfo_encoding ne lc($text));
-        if ($input_encoding) {
-          $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
-        }
 
         if ($input_encoding) {
+          $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
           $self->{'info'}->{'input_encoding_name'} = $input_encoding;
         }
 
@@ -8838,8 +8836,7 @@ I<end> holds the string ending the C<@definfoenclose>.
 
 =item C<@documentencoding>
 
-The argument, normalized is in I<input_encoding_name> if it is recognized.
-The corresponding Perl encoding name is in I<input_perl_encoding>.
+The argument, normalized is in I<input_encoding_name>.
 
 =item C<@enumerate>
 
