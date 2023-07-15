@@ -2031,13 +2031,20 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                && *line != '@')
         {
           ELEMENT *e, *e2;
+          int char_len;
+
           if (current->contents.number > 0)
             gather_spaces_after_cmd_before_arg (current);
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
+
+          /* Count any UTF-8 continuation bytes. */
+          char_len = 1;
+          while ((line[char_len] & 0xC0) == 0x80)
+            char_len++;
+
           e2 = new_element (ET_NONE);
-          /* FIXME what if the next character is not ASCII? */
-          text_append_n (&e2->text, line, 1);
+          text_append_n (&e2->text, line, char_len);
           debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
                  e2->text.text);
           add_to_element_contents (e, e2);
@@ -2045,11 +2052,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (current->cmd == CM_dotless
               && *line != 'i' && *line != 'j')
             {
-              /* TODO may show a partial character if non-ascii */
               line_error ("@dotless expects `i' or `j' as argument, "
                           "not `%c'", *line);
             }
-          line++;
+          line += char_len;
           current = current->parent;
         }
       else
