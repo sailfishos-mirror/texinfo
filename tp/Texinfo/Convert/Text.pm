@@ -729,11 +729,11 @@ sub converter($)
         my $element = $converter->{'global_commands'}->{$global_command}->[0];
         if ($global_command eq 'documentencoding'
             and defined($element->{'extra'})
-            and defined($element->{'extra'}->{'input_perl_encoding'})) {
+            and defined($element->{'extra'}->{'input_encoding_name'})) {
           $converter->{'OUTPUT_ENCODING_NAME'}
              = $element->{'extra'}->{'input_encoding_name'};
           $converter->{'OUTPUT_PERL_ENCODING'}
-             = $element->{'extra'}->{'input_perl_encoding'};
+             = Texinfo::Common::element_extra_encoding_for_perl($element);
         }
       }
     }

@@ -383,7 +383,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_perl_encoding' => 'utf-8',
+            'input_encoding_name' => 'utf-8',
             'text_arg' => 'verb.txt'
           },
           'info' => {
@@ -444,7 +444,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               ],
               'cmdname' => 'verbatiminclude',
               'extra' => {
-                'input_perl_encoding' => 'utf-8',
+                'input_encoding_name' => 'utf-8',
                 'text_arg' => 'verb.txt'
               },
               'info' => {
@@ -530,7 +530,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_perl_encoding' => 'utf-8',
+            'input_encoding_name' => 'utf-8',
             'text_arg' => 'verb.txt'
           },
           'info' => {

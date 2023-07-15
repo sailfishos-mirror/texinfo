@@ -420,9 +420,9 @@ handle_close_brace (ELEMENT *current, char **line_inout)
             {
               line_error ("@image missing filename argument");
             }
-          if (global_info.input_perl_encoding)
-            add_extra_string_dup (image, "input_perl_encoding",
-                                  global_info.input_perl_encoding);
+          if (global_info.input_encoding_name)
+            add_extra_string_dup (image, "input_encoding_name",
+                                  global_info.input_encoding_name);
         }
       else if (closed_command == CM_dotless)
         {

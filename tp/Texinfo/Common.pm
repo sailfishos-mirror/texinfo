@@ -1222,6 +1222,27 @@ sub parse_node_manual($;$)
 
 # misc functions used in diverse contexts and useful in converters
 
+# FIXME document
+sub element_extra_encoding_for_perl($)
+{
+  my $element = shift;
+
+  my $perl_encoding;
+
+  my $encoding = $element->{'extra'}->{'input_encoding_name'}
+    if ($element->{'extra'});
+
+  if ($encoding) {
+    my $Encode_encoding_object = Encode::find_encoding($encoding);
+    if (defined($Encode_encoding_object)) {
+      $perl_encoding = $Encode_encoding_object->name();
+      $perl_encoding = undef if (!$perl_encoding);
+    }
+  }
+
+  return $perl_encoding;
+}
+
 # Reverse the decoding of the file name from the input encoding.  When
 # dealing with file names, we want Perl strings representing sequences of
 # bytes, not Unicode codepoints.

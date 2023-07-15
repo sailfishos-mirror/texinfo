@@ -3424,9 +3424,9 @@ sub _end_line_misc_line($$$)
                            $command, $text);
         }
       } elsif ($command eq 'verbatiminclude') {
-        $current->{'extra'}->{'input_perl_encoding'}
-                        = $self->{'info'}->{'input_perl_encoding'}
-          if defined $self->{'info'}->{'input_perl_encoding'};
+        $current->{'extra'}->{'input_encoding_name'}
+                        = $self->{'info'}->{'input_encoding_name'}
+          if defined $self->{'info'}->{'input_encoding_name'};
       } elsif ($command eq 'documentencoding') {
         my ($texinfo_encoding, $perl_encoding, $input_encoding)
            = _encoding_alias($text);
@@ -3437,16 +3437,16 @@ sub _end_line_misc_line($$$)
         if ($input_encoding) {
           $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
         }
+
+        if ($input_encoding) {
+          $self->{'info'}->{'input_encoding_name'} = $input_encoding;
+        }
+
         if (!$perl_encoding) {
           $self->_command_warn($current, $source_info,
                __("unrecognized encoding name `%s'"), $text);
         } else {
           $current->{'extra'}->{'input_perl_encoding'} = $perl_encoding;
-
-          if ($input_encoding) {
-            $self->{'info'}->{'input_encoding_name'} = $input_encoding;
-          }
-
           $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
           foreach my $input (@{$self->{'input'}}) {
             binmode($input->{'fh'}, ":encoding($perl_encoding)")
@@ -6058,10 +6058,10 @@ sub _handle_close_brace($$$)
         $self->_line_error(
            __("\@image missing filename argument"), $source_info);
       }
-      if (defined $self->{'info'}->{'input_perl_encoding'}) {
+      if (defined $self->{'info'}->{'input_encoding_name'}) {
         $image->{'extra'} = {} if (!$image->{'extra'});
-        $image->{'extra'}->{'input_perl_encoding'}
-           = $self->{'info'}->{'input_perl_encoding'};
+        $image->{'extra'}->{'input_encoding_name'}
+           = $self->{'info'}->{'input_encoding_name'};
       }
     } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
       my $dotless = $current->{'parent'};

@@ -233,14 +233,11 @@ sub expand_verbatiminclude($$$)
   my $customization_information = shift;
   my $current = shift;
 
-  my $input_encoding;
-
   return unless ($current->{'extra'}
                  and defined($current->{'extra'}->{'text_arg'}));
   my $file_name_text = $current->{'extra'}->{'text_arg'};
-  $input_encoding = $current->{'extra'}->{'input_perl_encoding'}
-        if ($current->{'extra'}
-            and defined($current->{'extra'}->{'input_perl_encoding'}));
+
+  my $input_encoding = Texinfo::Common::element_extra_encoding_for_perl($current);
 
   my $encoding;
   my $input_file_name_encoding

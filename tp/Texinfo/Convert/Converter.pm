@@ -1215,11 +1215,10 @@ sub txt_image_text($$$)
   } else {
     my $filehandle = do { local *FH };
     if (open ($filehandle, $txt_file)) {
-      my $enc;
-      $enc = $element->{'extra'}->{'input_perl_encoding'}
-         if ($element->{'extra'});
-      binmode($filehandle, ":encoding($enc)")
-        if ($enc);
+      my $perl_encoding = Texinfo::Common::element_extra_encoding_for_perl($element);
+      if ($perl_encoding) {
+        binmode($filehandle, ":encoding($perl_encoding)");
+      }
       my $result = '';
       my $max_width = 0;
       while (<$filehandle>) {

@@ -688,7 +688,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_perl_encoding' => 'utf-8',
+            'input_encoding_name' => 'utf-8',
             'text_arg' => 'inc_@f--ile.texi'
           },
           'info' => {

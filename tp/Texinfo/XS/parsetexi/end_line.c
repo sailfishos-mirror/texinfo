@@ -1451,9 +1451,9 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_verbatiminclude)
             {
-              if (global_info.input_perl_encoding)
-                add_extra_string_dup (current, "input_perl_encoding",
-                                      global_info.input_perl_encoding);
+              if (global_info.input_encoding_name)
+                add_extra_string_dup (current, "input_encoding_name",
+                                      global_info.input_encoding_name);
             }
           else if (current->cmd == CM_documentencoding)
             {

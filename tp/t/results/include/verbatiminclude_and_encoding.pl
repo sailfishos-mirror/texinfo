@@ -67,7 +67,7 @@ $result_trees{'verbatiminclude_and_encoding'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_perl_encoding' => 'utf-8-strict',
+            'input_encoding_name' => 'utf-8',
             'text_arg' => 'verbatim_encoded.texi'
           },
           'info' => {

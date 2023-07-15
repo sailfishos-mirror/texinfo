@@ -127,7 +127,7 @@ $result_trees{'xml_protected_in_verb'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_perl_encoding' => 'utf-8',
+            'input_encoding_name' => 'utf-8',
             'text_arg' => 'file_with_xml_chars.texi'
           },
           'info' => {
