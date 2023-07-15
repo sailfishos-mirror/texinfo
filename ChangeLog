@@ -1,5 +1,9 @@
 2023-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/formats_encodings.t (accent_argument_non_ascii): Enable.
+
+2023-07-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
 	<accent commands>: Count UTF-8 continuation bytes for character
 	following accent command.  Report from Patrice.

@@ -334,7 +334,7 @@ $accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 @chapter Chapter
 '."\@'{\x{00EA}}
 \@'\x{00EA}
-", {'skip' => 'without braces malformed utf8 in XS parser see FIXME what if the next character is not ASCII?'}],
+"],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
 $at_commands_in_refs_text, 
