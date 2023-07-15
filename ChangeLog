@@ -1,5 +1,11 @@
 2023-07-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/formats_encodings.t: add
+	accent_argument_non_ascii test.  Set it to be skipped as the result is
+	incorrect with the XS parser for now.
+
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): avoid undef warning
 	with definfoenclose by checking that $brace_commands{} exists.
 	Change in spaces.

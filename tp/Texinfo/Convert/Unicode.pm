@@ -1300,6 +1300,8 @@ sub unicode_accent($$)
   if (defined($unicode_diacritics{$accent})) {
     my $diacritic = chr(hex($unicode_diacritics{$accent}));
     if ($accent ne 'tieaccent') {
+      # FIXME with a malformed string, there can be an infinite loop
+      # in Unicode::Normalize::NFC.
       return Unicode::Normalize::NFC($text . $diacritic);
     } else {
       # tieaccent diacritic is naturally and correctly composed
