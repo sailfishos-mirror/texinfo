@@ -341,7 +341,8 @@ $accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 
 @node chap
 @chapter Chapter
-'."\@dotless \x{00EA}
+'."\@dotless{\x{00EA}}
+\@dotless \x{00EA}
 "],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',

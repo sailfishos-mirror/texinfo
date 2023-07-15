@@ -1,5 +1,10 @@
 2023-07-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/formats_encodings.t (dotless_argument_non_ascii): add the
+	test of braced non-ascii argument of @dotless.
+
+2023-07-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
 	<accent commands>: use an element string to get a whole UTF-8
 	character in error message on dotless argument.

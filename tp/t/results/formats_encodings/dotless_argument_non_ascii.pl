@@ -146,6 +146,28 @@ $result_trees{'dotless_argument_non_ascii'} = {
                       'text' => "\x{ea}"
                     }
                   ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'dotless',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => "\x{ea}"
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -157,7 +179,7 @@ $result_trees{'dotless_argument_non_ascii'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 7,
                 'macro' => ''
               }
             },
@@ -190,6 +212,7 @@ $result_texis{'dotless_argument_non_ascii'} = '@node Top
 
 @node chap
 @chapter Chapter
+@dotless{ê}
 @dotless ê
 ';
 
@@ -199,6 +222,7 @@ $result_texts{'dotless_argument_non_ascii'} = 'top
 
 1 Chapter
 *********
+ê
 ê
 ';
 
@@ -301,6 +325,15 @@ $result_errors{'dotless_argument_non_ascii'} = [
     'macro' => '',
     'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
     'type' => 'error'
+  },
+  {
+    'error_line' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'
+",
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
+    'type' => 'error'
   }
 ];
 
@@ -315,7 +348,7 @@ $result_converted{'plaintext'}->{'dotless_argument_non_ascii'} = 'top
 1 Chapter
 *********
 
-ê
+ê ê
 ';
 
 
@@ -337,6 +370,7 @@ $result_converted{'html_text'}->{'dotless_argument_non_ascii'} = '<div class="to
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 <p>ê
+ê
 </p></div>
 </div>
 ';
@@ -348,7 +382,8 @@ $result_converted{'xml'}->{'dotless_argument_non_ascii'} = '<node name="Top" spa
 </top>
 <node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
-<para><dotless spacesaftercmd=" ">ê</dotless>
+<para><dotless>ê</dotless>
+<dotless spacesaftercmd=" ">ê</dotless>
 </para></chapter>
 ';
 
@@ -356,6 +391,7 @@ $result_converted{'xml'}->{'dotless_argument_non_ascii'} = '<node name="Top" spa
 $result_converted{'docbook'}->{'dotless_argument_non_ascii'} = '<chapter label="1" id="chap">
 <title>Chapter</title>
 <para>ê
+ê
 </para></chapter>
 ';
 
@@ -364,6 +400,7 @@ $result_converted{'latex_text'}->{'dotless_argument_non_ascii'} = '\\begin{docum
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
+ê
 ê
 ';
 
