@@ -10640,25 +10640,28 @@ sub run_stage_handlers($$$)
 
   my @sorted_priorities = sort keys(%{$stage_handlers->{$stage}});
   foreach my $priority (@sorted_priorities) {
+    my $handler_idx = 1;
     foreach my $handler (@{$stage_handlers->{$stage}->{$priority}}) {
       if ($converter->get_conf('DEBUG')) {
-        print STDERR "HANDLER($stage) , priority $priority: $handler\n";
+        print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
       }
       my $status = &{$handler}($converter, $root, $stage);
       if ($status != 0) {
         if ($status < 0) {
           $converter->document_error($converter,
-             sprintf(__("handler %s of stage %s priority %s failed"),
-                        $handler, $stage, $priority));
+             sprintf(__("handler %d of stage %s priority %s failed"),
+                        $handler_idx, $stage, $priority));
         } else {
           # the handler is supposed to have output an error message
           # already if $status > 0
           if ($converter->get_conf('VERBOSE') or $converter->get_conf('DEBUG')) {
-            print STDERR "Handler $handler of $stage($priority) failed\n";
+            print STDERR "FAIL handler $handler_idx: stage $stage, "
+                                       ."priority $priority\n";
           }
         }
         return $status;
       }
+      $handler_idx++;
     }
   }
   return 0;
