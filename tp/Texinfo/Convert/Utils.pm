@@ -472,7 +472,7 @@ translated.
 X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
 
 Encode I<$character_string_name> in the same way as other file names are
-encoded in the converter, based on customization variables, and possibly
+encoded in converters, based on customization variables, and possibly
 on the input file encoding.  Return the encoded name and the encoding
 used to encode the name.  The C<encoded_input_file_name> and
 C<encoded_output_file_name> functions use different customization variables to
@@ -488,7 +488,7 @@ on the input file encoding where the file name appeared.
 X<C<expand_today>>
 
 Expand today's date, as a texinfo tree with translations.  The I<$converter>
-argument is not optional and is used both to retreive customization information
+argument is not optional and is used both to retrieve customization information
 and to translate strings.
 
 =item $tree = expand_verbatiminclude($registrar, $customization_information, $verbatiminclude)
@@ -499,7 +499,7 @@ argument is required and is used to retrieve customization information
 L<Texinfo::Convert::Converter/Getting and setting customization variables>.
 I<$verbatiminclude> is a C<@verbatiminclude> tree element.  This function
 returns a C<@verbatim> tree elements after finding the included file and
-reading it.  If I<$registrar> is not defined, errors messages are not
+reading it.  If I<$registrar> is not defined, error messages are not
 registered.
 
 =item (\@contents, \@accent_commands) = find_innermost_accent_contents($element)
