@@ -1441,10 +1441,6 @@ while(@input_files) {
   my $main_configuration = Texinfo::MainConfig::new();
 
   my $parser_information = $parser->global_information();
-  my $input_perl_encoding;
-  if (defined($parser_information->{'input_perl_encoding'})) {
-    $input_perl_encoding = $parser_information->{'input_perl_encoding'};
-  }
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
@@ -1626,9 +1622,9 @@ while(@input_files) {
                             %$file_cmdline_options,
                           };
 
-  # NOTE nothing set in $main_configuration is passed, which is
-  # clean, the Converters can find that information in $converter_options,
-  # determine it themselves or use their defaults.
+  # NOTE nothing set in $main_configuration is passed directly, which is
+  # clean, the Converters already have that information in $converter_options,
+  # can determine it themselves or use their defaults.
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.
@@ -1711,27 +1707,45 @@ while(@input_files) {
   }
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
     require Texinfo::Convert::TextContent;
+    my $sort_element_converter_options = { %$main_program_default_options,
+                                           %$init_files_options,
+                                           %$file_cmdline_options,
+                                         };
+
+    $sort_element_converter_options->{'parser'} = $parser;
+    $sort_element_converter_options->{'structuring'} = $structure_information;
+    # This is not clear that this is correct.  On the one hand it could
+    # be more consistent with the formatting to have nothing here or a
+    # format corresponding to Texinfo::Convert::TextContent.  On the other
+    # hand, the information of the format could be useful.  Not very
+    # important as long as this information is not used.
+    $sort_element_converter_options->{'converted_format'} = $converted_format;
+    $sort_element_converter_options->{'language_config_dirs'} = \@language_config_dirs;
+    unshift @{$sort_element_converter_options->{'INCLUDE_DIRECTORIES'}},
+            @prepended_include_directories;
+
     my $converter_element_count
-      = Texinfo::Convert::TextContent->converter($converter_options);
+      = Texinfo::Convert::TextContent->converter($sort_element_converter_options);
+
     # here could be $format or $converted_format.  Since $converted_format
     # is used above for ->{'nodes_tree'}, use it here again.
-    my $use_sections = (! $formats_table{$converted_format}->{'nodes_tree'}
-                        or (defined($converter->get_conf('USE_NODES'))
-                            and !$converter->get_conf('USE_NODES')));
+    my $use_sections
+        = (! $formats_table{$converted_format}->{'nodes_tree'}
+           or (defined($converter_element_count->get_conf('USE_NODES'))
+                       and !$converter_element_count->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)
-        = Texinfo::Convert::Converter::sort_element_counts(
-               $converter_element_count, $tree, $use_sections,
-                             get_conf('SORT_ELEMENT_COUNT_WORDS'));
+        = $converter_element_count->sort_element_counts($tree, $use_sections,
+                                             get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
     my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');
     my ($encoded_sort_element_count_file_name, $path_encoding)
-       = Texinfo::Common::encode_file_name($sort_element_count_file_name,
-                                           $input_perl_encoding);
+       = $converter_element_count->encoded_output_file_name(
+                                             $sort_element_count_file_name);
     my $sort_elem_files_information = Texinfo::Common::output_files_initialize();
     my ($sort_element_count_fh, $error_message)
                 = Texinfo::Common::output_files_open_out(
-                             $sort_elem_files_information, $main_configuration,
-                                    $encoded_sort_element_count_file_name);
+                        $sort_elem_files_information, $converter_element_count,
+                                          $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;
     if (defined ($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;

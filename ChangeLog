@@ -1,5 +1,20 @@
 2023-07-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (encoded_input_file_name),
+	tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude)
+	(encoded_input_file_name): put encoded_input_file_name in
+	Texinfo::Convert::Utils, and make encoded_input_file_name in
+	Texinfo::Convert::Converter a wrapper around it.  Add an optional
+	argument to encoded_input_file_name to specify the input file
+	encoding.  Use encoded_input_file_name in expand_verbatiminclude
+	with the optional argument.
+
+	* tp/texi2any.pl: initialize correctly the converter used when
+	SORT_ELEMENT_COUNT is set.  Use the converter more consistently to
+	find customization variables and methods.
+
+2023-07-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): OUTPUT_PERL_ENCODING should always be set
 	in converters, so use nly that variables to set output encoding.
 

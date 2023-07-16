@@ -1176,24 +1176,16 @@ sub present_bug_message($$;$)
 }
 
 # Reverse the decoding of the file name from the input encoding.
-sub encoded_input_file_name($$)
+# A wrapper around Texinfo::Utils::encoded_input_file_name() that
+# can be called in converters through an objet oriented syntax.
+sub encoded_input_file_name($$;$)
 {
   my $self = shift;
   my $file_name = shift;
+  my $input_file_encoding = shift;
 
-  my $encoding;
-  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
-  if ($input_file_name_encoding) {
-    $encoding = $input_file_name_encoding;
-  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-      if ($self->{'parser_info'}
-        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-  } else {
-    $encoding = $self->get_conf('LOCALE_ENCODING');
-  }
-
-  return Texinfo::Common::encode_file_name($file_name, $encoding);
+  return Texinfo::Convert::Utils::encoded_input_file_name($self, $file_name,
+                                                          $input_file_encoding);
 }
 
 # A wrapper around Texinfo::Utils::encoded_output_file_name() that
@@ -2065,20 +2057,26 @@ with the file name portion only (without directory).
 
 The strings returned are text strings.
 
-=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name)
+=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding)
 
 =item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
 X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
 
-Encode I<$character_string_name> in the same way as other file name are
+Encode I<$character_string_name> in the same way as other file names are
 encoded in the converter, based on customization variables, and possibly
 on the input file encoding.  Return the encoded name and the encoding
 used to encode the name.  The C<encoded_input_file_name> and
 C<encoded_output_file_name> functions use different customization variables to
 determine the encoding.
 
+The <$input_file_encoding> argument is optional.  If set, it is used for
+the input file encoding.  It is useful if there is more precise information
+on the input file encoding where the file name appeared.
+
 Note that C<encoded_output_file_name> is a wrapper around the
-function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name) >>>.
+function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name) >>>,
+and C<encoded_input_file_name> is a wrapper around the
+function with the same name in L<<< Texinfo::Convert::Utils::encoded_input_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($converter, $character_string_name, $input_file_encoding) >>>.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>

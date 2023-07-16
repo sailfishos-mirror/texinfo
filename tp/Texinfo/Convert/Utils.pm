@@ -239,19 +239,9 @@ sub expand_verbatiminclude($$$)
 
   my $input_encoding = Texinfo::Common::element_extra_encoding_for_perl($current);
 
-  my $encoding;
-  my $input_file_name_encoding
-     = $customization_information->get_conf('INPUT_FILE_NAME_ENCODING');
-  if ($input_file_name_encoding) {
-    $encoding = $input_file_name_encoding;
-  } elsif ($customization_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    $encoding = $input_encoding;
-  } else {
-    $encoding = $customization_information->get_conf('LOCALE_ENCODING');
-  }
-
   my ($file_name, $file_name_encoding)
-      = Texinfo::Common::encode_file_name($file_name_text, $encoding);
+      = encoded_input_file_name($customization_information,
+                                $file_name_text, $input_encoding);
 
   my $file = Texinfo::Common::locate_include_file($customization_information,
                                                   $file_name);
@@ -366,6 +356,33 @@ sub encoded_output_file_name($$)
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
+# this requires a converter argument
+# Reverse the decoding of the file name from the input encoding.
+sub encoded_input_file_name($$;$)
+{
+  my $self = shift;
+  my $file_name = shift;
+  my $input_file_encoding = shift;
+
+  my $encoding;
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    if (defined($input_file_encoding)) {
+      $encoding = $input_file_encoding;
+    } else {
+      $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+        if ($self->{'parser_info'}
+          and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    }
+  } else {
+    $encoding = $self->get_conf('LOCALE_ENCODING');
+  }
+
+  return Texinfo::Common::encode_file_name($file_name, $encoding);
+}
+
 # this requires a converter argument.  It is defined here, in order
 # to hide from the caller the 'translated_commands' converter key
 # that is set by Texinfo::Convert::Converter.  This is especially
@@ -449,15 +466,23 @@ I<$def_line> taking the class into account, if there is one.
 If I<$converter> is not defined, the resulting string won't be
 translated.
 
-=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name)
-X<C<encoded_output_file_name>>
+=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($converter, $character_string_name, $input_file_encoding)
 
-Encode I<$character_string_name> in the same way as other file name are
-encoded in converters, based on customization variables, and possibly
+=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name)
+X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
+
+Encode I<$character_string_name> in the same way as other file names are
+encoded in the converter, based on customization variables, and possibly
 on the input file encoding.  Return the encoded name and the encoding
-used to encode the name.  The I<$converter> argument is not optional
+used to encode the name.  The C<encoded_input_file_name> and
+C<encoded_output_file_name> functions use different customization variables to
+determine the encoding.  The I<$converter> argument is not optional
 and is used both to access to customization variables and to access to parser
 information.
+
+The <$input_file_encoding> argument is optional.  If set, it is used for
+the input file encoding.  It is useful if there is more precise information
+on the input file encoding where the file name appeared.
 
 =item $tree = expand_today($converter)
 X<C<expand_today>>
