@@ -46,6 +46,15 @@ For converter writers,
 Delayed bugs
 ============
 
+Change the implementation, in the XS parser, of encoding support.  Instead of a
+fixed list of supported encodings, which all have their conversion initialized,
+the input encoding actually used could simply be used to initialize iconv (for
+instance when encountering @documentencoding), using a list of initialized
+conversion (which would only have two elements, one for utf-8 and one for
+another documentencoding in general as there is no more than one
+documentencoding in most manuals).  See input.c set_input_encoding and
+convert_to_utf8.
+
 See message/thread from Reißner Ernst: Feature request: api docs
 
 hyphenation: should only appear in toplevel.
