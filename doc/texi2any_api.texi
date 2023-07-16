@@ -215,7 +215,7 @@ In the @code{Texinfo::Config} namespace, the functions names beginning with
 functions in init files should never begin with those prefixes.
 
 The HTML converter is not available directly in the init files namespace,
-instead it is passed to functions defined in init files and registered as
+instead it is passed to functions defined in init files that are registered as
 functions to be called from the converter. @xref{User Defined Functions}.
 
 
@@ -229,8 +229,14 @@ retrieve their values.  New variables can also be added.
 
 The customization variables also valid in the main program out of the HTML
 converter are handled differently if they are strings or
-arrays.  The customization variables only relevant for the conversion phase
-are always set like string variables, in particular array or hash references.
+arrays.  Conversely, customization variables only relevant for the conversion
+phase set in the main program are always set like string variables, in
+particular by associating array or hash references to customization variables.
+
+This section describes customization variables set in the main program.  These
+variables are in general passed to converters.  It is also possible to set
+customization variables in the converters only, not in the main program.
+This is explained later on (@pxref{Conversion Customization Variables}).
 
 @node Setting Main Program String Variables
 @subsection Setting Main Program String Variables
@@ -320,11 +326,11 @@ list associated with the variable with @code{texinfo_add_to_option_list}, and re
 @subsection Setting Converter Variables in Main Program
 
 Array and hash references customization variables values relevant in converters
-only (not in main program) can be set through the main program in init files.
-These variables cannot be set on the command-line.  They are documented in the
-customization documentation, not in the main Texinfo manual.  Such arrays or
-hashes references can be passed through @code{texinfo_set_from_init_file}.  For
-example:
+only (not in main program, but in the HTML converter) can be set through the
+main program in init files.  These variables cannot be set on the command-line.
+They are documented in the customization documentation, not in the main Texinfo
+manual.  Such arrays or hashes references can be passed through
+@code{texinfo_set_from_init_file}.  For example:
 
 @example
 my @@SECTION_BUTTONS =
@@ -1627,10 +1633,11 @@ converter. Some variables are also set in the converter based on the main
 program customization variables.  Finally, some variables should be set or reset
 during conversion, in particular when converting the tree representing the
 Texinfo document, when expanding the tree element corresponding to @@-commands
-associated with customization variables.
+associated with customization variables
+(@pxref{Customization Variables for @@-Commands,,, texinfo, Texinfo}).
 
 The functions described here should be used in user defined functions, but
-should not be used out of functions. Conversly, the similar functions used to
+should not be used out of functions. Conversely, the similar functions used to
 set customization variables from init files without a converter should not be
 used in functions, but should be used out of functions in init files
 (@pxref{Managing Customization Variables}).

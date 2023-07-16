@@ -35,6 +35,7 @@ $VERSION = '7.0dev';
 
 
 my %defaults = (
+  # Customization option variables
   'EXTENSION'            => 'texi',
   # different from the default, which is undef
   'OUTFILE'              => '-',

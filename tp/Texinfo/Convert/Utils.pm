@@ -408,16 +408,22 @@ Texinfo to other formats.  There is no promise of API stability.
 
 miscellaneous methods that may be useful for backends converting texinfo
 trees.  This module contains the methods that can be used in converters
-that do not inherit L<Texinfo::Convert::Converter>.
+which do not inherit from L<Texinfo::Convert::Converter>.
 
 =head1 METHODS
 
 No method is exported in the default case.
 
-Most methods takes a I<$converter> as argument, in general optionally,
-to get some information and use methods for error reporting,
-see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
-On strings translations, see L<Texinfo::Translations>.
+Most methods takes a I<$converter> as argument, in some cases optionally,
+to get some information, see
+L<Texinfo::Convert::Converter/Getting and setting customization variables>
+and use methods for error reporting, see L<Texinfo::Convert::Converter>
+and L<Texinfo::Report>, and for
+strings translations, see L<Texinfo::Translations>.
+
+Even when the caller does not inherit from L<Texinfo::Convert::Converter>, it
+could implement the required interfaces and could also have a converter
+available in some cases, to call the functions which require a converter.
 
 =over
 
@@ -426,7 +432,7 @@ X<C<definition_arguments_content>>
 
 I<$element> should be a C<@def*> Texinfo tree element.  The
 I<$category>, I<$class>, I<$type>, I<$name> are elements corresponding
-to the definition command line.  Texinfo elements
+to the definition @-command line.  Texinfo elements
 on the @-command line corresponding to arguments in the function
 definition are returned in the I<$arguments> array reference.
 Arguments correspond to text following the other elements
@@ -456,22 +462,26 @@ information.
 =item $tree = expand_today($converter)
 X<C<expand_today>>
 
-Expand today's date, as a texinfo tree with translations.
+Expand today's date, as a texinfo tree with translations.  The I<$converter>
+argument is not optional and is used both to retreive customization information
+and to translate strings.
 
 =item $tree = expand_verbatiminclude($registrar, $customization_information, $verbatiminclude)
 X<C<expand_verbatiminclude>>
 
-The I<$registrar> argument may be undef.  I<$verbatiminclude> is a
-C<@verbatiminclude> tree element.  This function returns a
-C<@verbatim> tree elements after finding the included file and
-reading it.  If I<$registrar> is not defined, errors messages are
-not registered.
+The I<$registrar> argument may be undef.  The I<$customization_information>
+argument is required and is used to retrieve customization information
+L<Texinfo::Convert::Converter/Getting and setting customization variables>.
+I<$verbatiminclude> is a C<@verbatiminclude> tree element.  This function
+returns a C<@verbatim> tree elements after finding the included file and
+reading it.  If I<$registrar> is not defined, errors messages are not
+registered.
 
 =item (\@contents, \@accent_commands) = find_innermost_accent_contents($element)
 X<C<find_innermost_accent_contents>>
 
 I<$element> should be an accent command Texinfo tree element.  Returns
-an array reference containing the innermost accent command contents,
+an array reference containing the innermost accent @-command contents,
 normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
 I<$element>).

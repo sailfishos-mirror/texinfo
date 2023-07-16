@@ -59,6 +59,7 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 my %defaults = (
+  # Customization option variables
   'FORMAT_MENU'          => 'menu',
   # different from the default, which is undef
   'OUTFILE'              => '-',

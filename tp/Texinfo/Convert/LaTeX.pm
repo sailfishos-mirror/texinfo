@@ -777,23 +777,25 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
 
 
 my %defaults = (
-  'OUTPUT_CHARACTERS'    => 0,
-  'FORMAT_MENU'          => 'nomenu',
-  'EXTENSION'            => 'tex',
-
-  'documentlanguage'     => undef,
-  'paragraphindent'      => undef, # global default is for Info/Plaintext
-
+  # Not customization option variables
   'converted_format'     => 'latex',
 
   # FIXME this sets an option that is not a customization variable
   # and will not be documented anywhere.  It should probably be better
-  # to add and document a customization in the Texinfo manual if needed.
+  # to add and document a customization variable in the Texinfo manual
+  # if needed.
   # For LaTeX in general, it could make sense to have some customization,
   # for example of packages, fonts, document type, to be discussed/though
   # about how to setup this customization.
   # FIXME any idea what could be used?
   'floats_extension'     => 'tfl',
+
+  # Customization option variables
+  'OUTPUT_CHARACTERS'    => 0,
+  'FORMAT_MENU'          => 'nomenu',
+  'EXTENSION'            => 'tex',
+  'documentlanguage'     => undef,
+  'paragraphindent'      => undef, # global default is for Info/Plaintext
 );
 
 

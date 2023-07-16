@@ -1661,6 +1661,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
 
   use Texinfo::Convert::Unicode qw(unicode_accent encoded_accents
                                    unicode_text);
+  use Texinfo::Convert::Text qw(convert_to_text);
 
   my ($innermost_contents, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
@@ -1682,10 +1683,11 @@ C<Texinfo::Convert::Unicode> provides methods dealing with Unicode representatio
 and conversion of Unicode code points, to be used in converters.
 
 When an encoding supported in Texinfo is given as argument of a method of the
-module, the accented letters or characters should only be represented by Unicode
-code points if it is known that Perl should manage to convert the Unicode code
-points to encoded characters in the encoding character set.  Note that the
-actual conversion is done by Perl, not by the module.
+module, the accented letters or characters returned by the method should only
+be represented by Unicode code points if it is known that Perl should manage
+to convert the Unicode code points to encoded characters in the encoding
+character set.  Note that the actual conversion is done by Perl, not by the
+module.
 
 =head1 METHODS
 

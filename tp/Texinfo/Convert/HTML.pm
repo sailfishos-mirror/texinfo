@@ -1860,6 +1860,10 @@ sub convert_tree_new_formatting_context($$;$$$)
 }
 
 my %defaults = (
+  # Not a customization option variable
+  'converted_format'   => 'html',
+
+  # Customization option variables
   'AVOID_MENU_REDUNDANCY' => 0,
   'BIG_RULE'              => '<hr>',
   'BODYTEXT'              => undef,
@@ -1943,8 +1947,6 @@ my %defaults = (
                               'Toc_Frame' => '_toc_frame',
                               },
 
-  # non-customization variable converter defaults
-  'converted_format'   => 'html',
 );
 
 foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {

@@ -1627,7 +1627,8 @@ while(@input_files) {
                           };
 
   # NOTE nothing set in $main_configuration is passed, which is
-  # clean, the Converters can find that information their way.
+  # clean, the Converters can find that information in $converter_options,
+  # determine it themselves or use their defaults.
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.

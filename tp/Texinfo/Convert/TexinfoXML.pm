@@ -40,10 +40,13 @@ $VERSION = '7.0dev';
 
 # TexinfoXML specific
 my %defaults = (
+  # Not a customization option variable
+  'converted_format'     => 'xml',
+
+  # Customization option variables
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'converted_format'     => 'xml',
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
 );

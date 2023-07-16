@@ -36,10 +36,13 @@ $VERSION = '7.0dev';
 
 # SXML specific
 my %defaults = (
+  # Not a customization option variable
+  'converted_format'     => 'texinfosxml',
+
+  # Customization option variables
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'sxml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'converted_format'     => 'texinfosxml',
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
 );

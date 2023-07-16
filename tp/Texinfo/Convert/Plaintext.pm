@@ -358,6 +358,10 @@ foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
 }
 
 my %defaults = (
+  # Not a customization option variable
+  'converted_format'     => '',
+
+  # Customization options
   'ENABLE_ENCODING'      => 1,
   'ASCII_DASHES_AND_QUOTES' => 1,
   'ASCII_GLYPH'          => 0,
@@ -369,8 +373,6 @@ my %defaults = (
   # different from the default, which is undef
   'OUTFILE'              => '-',
   'documentlanguage'     => undef,
-
-  'converted_format'     => '',
   'USE_NODES'            => 1,
 );
 
