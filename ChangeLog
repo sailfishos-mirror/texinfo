@@ -4695,7 +4695,7 @@
 	* tp/Texinfo/ParserNonXS.pm (_register_source_mark),
 	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
 	tp/Texinfo/XS/parsetexi/source_marks. (register_source_mark):
-	remove the source mark location informatio, it is not useful.
+	remove the source mark location information, it is not useful.
 	Do not set the position if the element text is the empty string.
 
 2023-01-31  Patrice Dumas  <pertusus@free.fr>
@@ -4719,6 +4719,10 @@
 	* tp/Texinfo/XS/parsetexi/source_marks.c (count_convert_u8)
 	(register_source_mark): set the mark source position in text
 	as an index in characters, not bytes.
+
+2023-01-30  Patrice Dumas  <pertusus@free.fr>
+
+	in tp/Texinfo/XS gnulib-tool --add-import uniconv/u8-strconv-from-enc unistr/u8-mbsnlen.
 
 2023-01-29  Patrice Dumas  <pertusus@free.fr>
 
