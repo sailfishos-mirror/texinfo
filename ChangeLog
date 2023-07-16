@@ -1,5 +1,10 @@
 2023-07-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): OUTPUT_PERL_ENCODING should always be set
+	in converters, so use nly that variables to set output encoding.
+
+2023-07-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/08misc_commands.t (comment_space_command_on_line): remove
 	redundant xml test.
 
