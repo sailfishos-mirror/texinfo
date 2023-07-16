@@ -45,7 +45,7 @@
 
 package Texinfo::Parser;
 
-use 5.00405;
+use 5.008;
 use strict;
 use warnings;
 
@@ -54,6 +54,7 @@ use warnings;
 
 use Storable qw(dclone); # standard in 5.007003
 use Encode qw(decode);
+use File::Basename; # for fileparse
 
 use Texinfo::Common;
 use Texinfo::Report;
@@ -187,18 +188,18 @@ sub _find_menus_of_node {
   }
 }
 
-# Set 'menus' array for each node.  This accounts for malformed input where
-# the number of sectioning commands between @node and @menu is not exactly 1.
+# Set 'menus' array for each node.  This accounts for input where
+# the number of sectioning commands between @node and @menu is not 1.
 sub _associate_node_menus {
   my $self = shift;
   my $root = shift;
 
-  my $node;
+  my $current_node;
   foreach my $child (@{$root->{'contents'}}) {
     if ($child->{'cmdname'} and $child->{'cmdname'} eq 'node') {
-      $node = $child;
+      $current_node = $child;
     }
-    _find_menus_of_node ($node, $child) unless !defined $node;
+    _find_menus_of_node ($current_node, $child) if (defined($current_node));
   }
 }
 
@@ -276,8 +277,6 @@ sub get_parser_info {
 
   _set_errors_node_lists_labels_indices($self);
 }
-
-use File::Basename; # for fileparse
 
 sub parse_texi_file ($$)
 {
