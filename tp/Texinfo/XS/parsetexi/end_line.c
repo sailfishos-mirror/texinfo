@@ -1458,23 +1458,16 @@ end_line_misc_line (ELEMENT *current)
           else if (current->cmd == CM_documentencoding)
             {
               int i; char *p, *text2;
-              char *texinfo_encoding = 0;
               char *input_encoding = 0;
-              /* See tp/Texinfo/Encoding.pm (whole file) */
-
-              /* Two concepts of encoding:
-                 texinfo_encoding -- one of the encodings supported as an
-                                     argument to @documentencoding, documented 
-                                     in Texinfo manual
-                 input_encoding -- for output within an HTML file, used
-                                   in most output formats */
 
               text2 = strdup (text);
               for (p = text2; *p; p++)
                 *p = tolower (*p);
 
-              /* Get texinfo_encoding from what was in the document */
+            /* Warn if the encoding is not one of the encodings supported as an
+               argument to @documentencoding, documented in Texinfo manual */
               {
+                char *texinfo_encoding = 0;
                 static char *canonical_encodings[] = {
                   "us-ascii", "utf-8", "iso-8859-1",
                   "iso-8859-15","iso-8859-2","koi8-r", "koi8-u",
@@ -1496,12 +1489,14 @@ end_line_misc_line (ELEMENT *current)
                   }
               }
 
+              /* Set input_encoding -- for output within an HTML file, used
+                                       in most output formats */
               {
                 struct encoding_map {
                     char *from; char *to;
                 };
 
-              /* Set input_encoding.  In the perl parser,
+              /* In the perl parser,
                  lc(Encode::find_encoding()->mime_name()) is used */
                 static struct encoding_map map[] = {
                       "utf-8", "utf-8",
@@ -1545,10 +1540,10 @@ end_line_misc_line (ELEMENT *current)
 
                   /* the Perl Parser calls Encode::find_encoding, so knows
                      about more encodings than what we know about here.
-                     TODO: Check when perl_encoding could be defined when
-                     texinfo_encoding isn't.
-                     Maybe we should check if an iconv conversion is possible
-                     from this encoding to UTF-8. */
+                     TODO: accept encoding not in encoding_map as long as
+                     an iconv conversion to UTF-8 is possible?
+                     Maybe we should check if an iconv conversion is
+                     possible from this encoding to UTF-8. */
                 }
             }
           else if (current->cmd == CM_documentlanguage)

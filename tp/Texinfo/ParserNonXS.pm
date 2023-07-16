@@ -987,34 +987,6 @@ sub _setup_conf($$)
 # _next_text:                 present the next text fragment, from
 #                             pending text or line.
 
-# Taking an encoding name $ENCODING as argument, the function returns
-# $canonical_texinfo_encoding: the corresponding canonical Texinfo encoding,
-#                              as described in the Texinfo manual (or undef);
-# $perl_encoding:              an encoding name suitable for perl;
-# $canonical_output_encoding:  an encoding name suitable for most
-#                              output formats, especially HTML.
-sub _encoding_alias($)
-{
-  my $encoding = shift;
-  my $Encode_encoding_object = find_encoding($encoding);
-  my ($perl_encoding, $canonical_output_encoding);
-  if (defined($Encode_encoding_object)) {
-    $perl_encoding = $Encode_encoding_object->name();
-    # mime_name() is upper-case, our keys are lower case, set to lower case
-    $canonical_output_encoding = lc($Encode_encoding_object->mime_name());
-  }
-  my $canonical_texinfo_encoding;
-  foreach my $possible_encoding ($encoding, $canonical_output_encoding,
-                                            $perl_encoding) {
-    if (defined($possible_encoding)
-        and $canonical_texinfo_encodings{lc($possible_encoding)}) {
-      $canonical_texinfo_encoding = $possible_encoding;
-    }
-  }
-  return ($canonical_texinfo_encoding, $perl_encoding,
-          $canonical_output_encoding);
-}
-
 # context stack functions
 sub _init_context_stack($)
 {
@@ -3428,12 +3400,25 @@ sub _end_line_misc_line($$$)
                         = $self->{'info'}->{'input_encoding_name'}
           if defined $self->{'info'}->{'input_encoding_name'};
       } elsif ($command eq 'documentencoding') {
-        my ($texinfo_encoding, $perl_encoding, $input_encoding)
-           = _encoding_alias($text);
-        $self->_command_warn($current, $source_info,
-               __("encoding `%s' is not a canonical texinfo encoding"),
-                             $text)
-          if (!$texinfo_encoding or $texinfo_encoding ne lc($text));
+
+        # Warn if the encoding is not one of the encodings supported as an
+        # argument to @documentencoding, documented in Texinfo manual
+        unless ($canonical_texinfo_encodings{lc($text)}) {
+          $self->_command_warn($current, $source_info,
+                   __("encoding `%s' is not a canonical texinfo encoding"),
+                               $text)
+        }
+
+        # Set $perl_encoding  -- an encoding name suitable for perl;
+        #     $input_encoding -- for output within an HTML file, used
+        #                        in most output formats
+        my ($perl_encoding, $input_encoding);
+        my $Encode_encoding_object = find_encoding($text);
+        if (defined($Encode_encoding_object)) {
+          $perl_encoding = $Encode_encoding_object->name();
+          # mime_name() is upper-case, our keys are lower case, set to lower case
+          $input_encoding = lc($Encode_encoding_object->mime_name());
+        }
 
         if ($input_encoding) {
           $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
