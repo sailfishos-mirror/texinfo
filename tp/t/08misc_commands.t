@@ -576,6 +576,7 @@ in example
 '],
 );
 
+# info and xml
 my %info_tests = (
   'comment_space_command_on_line' => 1,
   'setfilename' => 1,
@@ -583,7 +584,6 @@ my %info_tests = (
 
 my %xml_tests = (
   'codequoteundirected_codequotebacktick' => 1,
-  'comment_space_command_on_line' => 1,
   'definfoenclose_with_empty_arg' => 1,
   'vskip' => 1,
 );
