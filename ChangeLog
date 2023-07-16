@@ -1,5 +1,10 @@
 2023-07-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/IXIN.pm (output_ixin): take encoding information
+	from image element.
+
+2023-07-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (encoded_input_file_name),
 	tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude)
 	(encoded_input_file_name): put encoded_input_file_name in
