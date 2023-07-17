@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-12.13}
+\def\texinfoversion{2023-07-17.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -5554,6 +5554,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \newdimen\entryrightmargin
 \entryrightmargin=0pt
 
+% amount to indent subsequent lines in an entry when it spans more than
+% one line.
+\newdimen\entrycontskip
+\entrycontskip=1em
+
 % for PDF output, whether to make the text of the entry a link to the page
 % number.  set for @contents and @shortcontents where there is only one
 % page number.
@@ -5663,25 +5668,30 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \advance\dimen@ii by 1\dimen@i
       \ifdim\wd\boxA > \dimen@ii % If the entry doesn't fit in one line
       \ifdim\dimen@ > 0.8\dimen@ii   % due to long index text
+        % Undo changes above
+        \advance \parfillskip by 0pt minus -1\dimen@i
+        \advance\dimen@ii by -1\dimen@i
+        %
         % Try to split the text roughly evenly.  \dimen@ will be the length of 
         % the first line.
         \dimen@ = 0.7\dimen@
         \dimen@ii = \hsize
         \ifnum\dimen@>\dimen@ii
           % If the entry is too long (for example, if it needs more than
-          % two lines), use all the space in the first line.
+          % two lines), use the same line length for all lines.
           \dimen@ = \dimen@ii
+        \else
+          \advance \dimen@ by 1\rightskip
         \fi
         \advance\leftskip by 0pt plus 1fill % ragged right
-        \advance \dimen@ by 1\rightskip
         \parshape = 2 0pt \dimen@ 0em \dimen@ii
         % Ideally we'd add a finite glue at the end of the first line only,
         % instead of using \parshape with explicit line lengths, but TeX
         % doesn't seem to provide a way to do such a thing.
         %
         % Indent all lines but the first one.
-        \advance\leftskip by 1em
-        \advance\parindent by -1em
+        \advance\leftskip by \entrycontskip
+        \advance\parindent by -\entrycontskip
       \fi\fi
       \indent % start paragraph
       \unhbox\boxA
@@ -6807,8 +6817,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   % This space should be enough, since a single number is .5em, and the
   % widest letter (M) is 1em, at least in the Computer Modern fonts.
   % But use \hss just in case.
-  % (This space doesn't include the extra space that gets added after
-  % the label; that gets put in by \shortchapentry above.)
   %
   % We'd like to right-justify chapter numbers, but that looks strange
   % with appendix letters.  And right-justifying numbers and
@@ -6818,10 +6826,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \hbox to 1em{#1\hss}%
 }
 
-% These macros generate individual entries in the table of contents.
-% The first argument is the chapter or section name.
-% The last argument is the page number.
-% The arguments in between are the chapter number, section number, ...
+% These macros generate individual entries in the table of contents,
+% and are read in from the *.toc file.
+%
+% The arguments are like:
+% \def\numchapentry#1#2#3#4
+%   #1 - the chapter or section name.
+%   #2 - section number
+%   #3 - level of section (e.g "chap", "sec")
+%   #4 - page number
 
 % Parts, in the main contents.  Replace the part number, which doesn't
 % exist, with an empty box.  Let's hope all the numbers have the same width.
@@ -6834,7 +6847,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \vskip 0pt plus 5\baselineskip
   \penalty-300
   \vskip 0pt plus -5\baselineskip
-  \dochapentry{\numeralbox\labelspace#1}{}%
+  \dochapentry{#1}{\numeralbox}{}%
 }
 %
 % Parts, in the short toc.
@@ -6845,12 +6858,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 % Chapters, in the main contents.
-\def\numchapentry#1#2#3#4{\dochapentry{#2\labelspace#1}{#4}}
+\def\numchapentry#1#2#3#4{\dochapentry{#1}{#2}{#4}}
 
 % Chapters, in the short toc.
 % See comments in \dochapentry re vbox and related settings.
 \def\shortchapentry#1#2#3#4{%
-  \tocentry{\shortchaplabel{#2}\labelspace #1}{#4}%
+  \tocentry{#1}{\shortchaplabel{#2}}{#4}%
 }
 
 % Appendices, in the main contents.
@@ -6861,26 +6874,26 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \setbox0 = \hbox{\putwordAppendix{} M}%
   \hbox to \wd0{\putwordAppendix{} #1\hss}}
 %
-\def\appentry#1#2#3#4{\dochapentry{\appendixbox{#2}\hskip.7em#1}{#4}}
+\def\appentry#1#2#3#4{\dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#4}}
 
 % Unnumbered chapters.
-\def\unnchapentry#1#2#3#4{\dochapentry{#1}{#4}}
-\def\shortunnchapentry#1#2#3#4{\tocentry{#1}{#4}}
+\def\unnchapentry#1#2#3#4{\dochapentry{#1}{}{#4}}
+\def\shortunnchapentry#1#2#3#4{\tocentry{#1}{}{#4}}
 
 % Sections.
-\def\numsecentry#1#2#3#4{\dosecentry{#2\labelspace#1}{#4}}
+\def\numsecentry#1#2#3#4{\dosecentry{#1}{#2}{#4}}
 \let\appsecentry=\numsecentry
-\def\unnsecentry#1#2#3#4{\dosecentry{#1}{#4}}
+\def\unnsecentry#1#2#3#4{\dosecentry{#1}{}{#4}}
 
 % Subsections.
-\def\numsubsecentry#1#2#3#4{\dosubsecentry{#2\labelspace#1}{#4}}
+\def\numsubsecentry#1#2#3#4{\dosubsecentry{#1}{#2}{#4}}
 \let\appsubsecentry=\numsubsecentry
-\def\unnsubsecentry#1#2#3#4{\dosubsecentry{#1}{#4}}
+\def\unnsubsecentry#1#2#3#4{\dosubsecentry{#1}{}{#4}}
 
 % And subsubsections.
-\def\numsubsubsecentry#1#2#3#4{\dosubsubsecentry{#2\labelspace#1}{#4}}
+\def\numsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{#2}{#4}}
 \let\appsubsubsecentry=\numsubsubsecentry
-\def\unnsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{#4}}
+\def\unnsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{}{#4}}
 
 % This parameter controls the indentation of the various levels.
 % Same as \defaultparindent.
@@ -6891,34 +6904,44 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 % If the toc has to be broken over pages, we want it to be at chapters
 % if at all possible; hence the \penalty.
-\def\dochapentry#1#2{%
+\def\dochapentry#1#2#3{%
    \penalty-300 \vskip1\baselineskip plus.33\baselineskip minus.25\baselineskip
    \begingroup
      % Move the page numbers slightly to the right
      \advance\entryrightmargin by -0.05em
      \chapentryfonts
-     \tocentry{#1}{#2}%
+     \tocentry{#1}{#2}{#3}%
    \endgroup
    \nobreak\vskip .25\baselineskip plus.1\baselineskip
 }
 
-\def\dosecentry#1#2{\begingroup
+\def\dosecentry#1#2#3{\begingroup
   \secentryfonts \leftskip=\tocindent
-  \tocentry{#1}{#2}%
+  \tocentry{#1}{#2}{#3}%
 \endgroup}
 
-\def\dosubsecentry#1#2{\begingroup
+\def\dosubsecentry#1#2#3{\begingroup
   \subsecentryfonts \leftskip=2\tocindent
-  \tocentry{#1}{#2}%
+  \tocentry{#1}{#2}{#3}%
 \endgroup}
 
-\def\dosubsubsecentry#1#2{\begingroup
+\def\dosubsubsecentry#1#2#3{\begingroup
   \subsubsecentryfonts \leftskip=3\tocindent
-  \tocentry{#1}{#2}%
+  \tocentry{#1}{#2}{#3}%
 \endgroup}
 
-% We use the same \entry macro as for the index entries.
-\let\tocentry = \entry
+% \tocentry{TITLE}{SEC NO}{PAGE}
+%
+\def\tocentry#1#2#3{%
+  \def\secno{#2}%
+  \ifx\empty\secno
+    \entry{#1}{#3}%
+  \else
+    \setbox0=\hbox{#2\labelspace}%
+    \entrycontskip=\wd0
+    \entry{#2\labelspace#1}{#3}%
+  \fi
+}
 
 % Space between chapter (or whatever) number and the title.
 \def\labelspace{\hskip1em \relax}

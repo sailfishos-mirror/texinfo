@@ -1,3 +1,29 @@
+2023-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Multi-line TOC entry alignment
+
+	* doc/texinfo.tex (\entrycontskip): new dimen.
+	(\entry): Use \entrycontskip for indentation of continuation lines.
+	When splitting across several lines, cancel adjustments
+	made to allow a slightly longer, single line.  When entry text could
+	cross over more than two lines, use the same line length for all
+	lines.
+
+	(\tocentry): New macro.  Handle concatenation of section
+	number, space and section title, before calling \entry.
+	When a TOC entry has a section number, set \entrycontskip
+	to the width of the number and a following space so that any
+	continuation lines in the entry will be aligned.
+
+	(\partentry, \numchapentry, \shortchaptentry, \appentry)
+	(\unnchapentry, \shortunnchapentry, \numsecentry, \unsecentry)
+	(\numsubsecentry, \unnsubsecentry, \numsubsubsecentry)
+	(\unnsubsubsecentry, \dochapentry, \dosecentry, \dosubsecentry)
+	(\dosubsubsecentry):
+	Calls to \tocentry (previously alias for \entry) updated.
+
+	Report from Karl.
+
 2023-07-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): inline and remove
