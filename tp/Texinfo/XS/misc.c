@@ -284,15 +284,56 @@ xs_entity_text (char *text)
   return new;
 }
 
+void xs_parse_command_name (SV *text_in,
+                            char **at_command,
+                            char **single_letter_command)
+{
+  char *text;
+
+  dTHX;
+
+  /* Make sure the input is in UTF8. */
+  if (!SvUTF8 (text_in))
+    sv_utf8_upgrade (text_in);
+  text = SvPV_nolen (text_in);
+
+  *at_command = *single_letter_command = 0;
+
+  if (isalnum(text[0]))
+    {
+      char *p, *q;
+      static char *s;
+
+      p = text;
+      q = text + 1;
+      while (isalnum (*q) || *q == '-' || *q == '_')
+        q++;
+
+      s = realloc (s, q - p + 1);
+      memcpy (s, p, q - p);
+      s[q - p] = '\0';
+      *at_command = s;
+    }
+  else if (text[0] && strchr ("([\"'~@&}{,.!?"
+                              " \t\n"
+                              "*-^`=:|/\\",
+                              text[0]))
+    {
+      static char a[2];
+      *single_letter_command = a;
+      a[0] = text[0];
+      a[1] = '\0';
+    }
+  return;
+}
+
 /* Return list ($at_command, $open_brace, ....) */
 void xs_parse_texi_regex (SV *text_in,
-                          char **at_command,
+                          char **arobase,
                           char **open_brace,
                           char **close_brace,
                           char **comma,
                           char **asterisk,
-                          char **single_letter_command,
-                          char **arobase,
                           char **form_feed,
                           char **menu_only_separator,
                           char **new_text)
@@ -306,83 +347,53 @@ void xs_parse_texi_regex (SV *text_in,
     sv_utf8_upgrade (text_in);
   text = SvPV_nolen (text_in);
 
-  *at_command = *open_brace = *close_brace = *comma = *asterisk
-     = *single_letter_command = *arobase = *form_feed
-          = *menu_only_separator = *new_text = 0;
+  *arobase = *open_brace = *close_brace = *comma = *asterisk
+     = *form_feed = *menu_only_separator = *new_text = 0;
 
-  if (*text == '@' && isalnum(text[1]))
+  if (*text == '@')
     {
-      char *p, *q;
-      static char *s;
+      *arobase = "@";
+    }
+  else if (*text == '{')
+    {
+      *open_brace = "{";
+    }
+  else if (*text == '}')
+    {
+      *close_brace = "}";
+    }
 
-      p = text + 1;
-      q = text + 2;
-      while (isalnum (*q) || *q == '-' || *q == '_')
-        q++;
-      
-      s = realloc (s, q - p + 1);
-      memcpy (s, p, q - p);
-      s[q - p] = '\0';
-      *at_command = s;
+  else if (*text == ',')
+    {
+      *comma = ",";
+    }
+  else if (strchr (":\t.", *text))
+    {
+      static char a[2];
+      *menu_only_separator = a;
+      a[0] = *text;
+      a[1] = '\0';
+    }
+  else if (*text == '\f')
+    {
+      *form_feed = "\f";
     }
   else
     {
-      if (*text == '{')
-        {
-          *open_brace = "{";
-        }
-      else if (*text == '}')
-        {
-          *close_brace = "}";
-        }
+      char *p;
 
-      else if (*text == ',')
-        {
-          *comma = ",";
-        }
-      else if (*text == '@'
-                 && text[1] && strchr ("([\"'~@&}{,.!?"
-                                       " \t\n"
-                                       "*-^`=:|/\\",
-                                       text[1]))
-        {
-          static char a[2];
-          *single_letter_command = a;
-          a[0] = text[1];
-          a[1] = '\0';
-        }
-      else if (strchr (":\t.", *text))
-        {
-          static char a[2];
-          *menu_only_separator = a;
-          a[0] = *text;
-          a[1] = '\0';
-        }
-      else if (*text == '\f')
-        {
-          *form_feed = "\f";
-        }
-      else if (*text == '@')
-        {
-          *arobase = "@";
-        }
-      else
-        {
-          char *p;
+      if (*text == '*')
+        *asterisk = "*";
 
-          if (*text == '*')
-            *asterisk = "*";
-
-          p = text;
-          p += strcspn (p, "{}@,:\t.\n\f");
-          if (p > text)
-            {
-              static char *s;
-              s = realloc (s, p - text + 1);
-              memcpy (s, text, p - text);
-              s[p - text] = '\0';
-              *new_text = s;
-            }
+      p = text;
+      p += strcspn (p, "{}@,:\t.\n\f");
+      if (p > text)
+        {
+          static char *s;
+          s = realloc (s, p - text + 1);
+          memcpy (s, text, p - text);
+          s[p - text] = '\0';
+          *new_text = s;
         }
     }
 

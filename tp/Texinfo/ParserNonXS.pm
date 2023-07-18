@@ -98,6 +98,8 @@ sub import {
   if (!$module_loaded) {
     Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
       "Texinfo::MiscXS::parse_texi_regex");
+    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
+      "Texinfo::MiscXS::parse_command_name");
     $module_loaded = 1;
   }
   # The usual import method
@@ -4585,6 +4587,18 @@ sub _is_index_element {
   return 1;
 }
 
+# NOTE - this sub has an XS override
+sub _parse_command_name {
+  my ($line) = @_;
+  # REMACRO
+  my ($at_command, $single_letter_command)
+   = ($line =~ /^([[:alnum:]][[:alnum:]-]*)
+                |^(["'~\@&\}\{,\.!\? \t\n\*\-\^`=:\|\/\\])
+                /x);
+
+  return ($at_command, $single_letter_command);
+}
+
 # This combines several regular expressions used in '_parse_texi' to
 # look at what is next on the remaining part of the line.
 # NOTE - this sub has an XS override
@@ -4592,16 +4606,13 @@ sub _parse_texi_regex {
   my ($line) = @_;
 
   # REMACRO
-  my ($at_command, $open_brace, $close_brace, $comma,
-      $asterisk, $single_letter_command, $arobase,
-      $form_feed, $menu_only_separator, $misc_text)
-    = ($line =~ /^\@([[:alnum:]][[:alnum:]-]*)
+  my ($arobase, $open_brace, $close_brace, $comma,
+      $asterisk, $form_feed, $menu_only_separator, $misc_text)
+    = ($line =~ /^(@)
                 |^(\{)
                 |^(\})
                 |^(,)
                 |^(\*)
-                |^\@(["'~\@&\}\{,\.!\? \t\n\*\-\^`=:\|\/\\])
-                |^(@)
                 |^(\f)
                 |^([:\t.])
                 |^([^{}@,:\t.\n\f]+)
@@ -4611,9 +4622,8 @@ sub _parse_texi_regex {
     ($misc_text) = ($line =~ /^([^{}@,:\t.\n\f]+)/);
   }
 
-  return ($at_command, $open_brace, $close_brace, $comma,
-    $asterisk, $single_letter_command, $arobase,
-    $form_feed, $menu_only_separator, $misc_text);
+  return ($arobase, $open_brace, $close_brace, $comma,
+    $asterisk, $form_feed, $menu_only_separator, $misc_text);
 }
 
 sub _check_line_directive {
@@ -5065,6 +5075,7 @@ sub _handle_menu_entry_separators($$$$$$)
     # anything else corresponds to a separator that does not contain
     # : and is after a menu node (itself following a menu_entry_name)
     } else {
+      # NOTE $$line_ref can start with an @-command in that case
       print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
       $current = _enter_menu_entry_node($self, $current, $source_info);
     }
@@ -6569,9 +6580,9 @@ sub _process_remaining_on_line($$$$)
 
   my $at_command_length;
   my @line_parsing = _parse_texi_regex($line);
-  my ($at_command, $open_brace, $close_brace, $comma, $asterisk,
-      $single_letter_command, $arobase, $form_feed, $menu_only_separator,
-      $misc_text) = @line_parsing;
+  my ($arobase, $open_brace, $close_brace, $comma,
+      $asterisk, $form_feed, $menu_only_separator, $misc_text)
+        = @line_parsing;
   my $menu_separator = $comma;
   $menu_separator = $menu_only_separator if (!$comma);
   print STDERR "PARSED: "
@@ -6580,90 +6591,108 @@ sub _process_remaining_on_line($$$$)
 
   my $macro_call_element;
   my $command;
+  my $at_command;
   my $from_alias;
-  if ($single_letter_command) {
-    $command = $single_letter_command;
-  } elsif ($at_command) {
-    $at_command_length = length($at_command) + 1;
-    $command = $at_command;
+  if ($arobase) {
 
-    if (exists($self->{'aliases'}->{$command})) {
-      $from_alias = $command;
-      $command = $self->{'aliases'}->{$from_alias};
-    }
+    my $single_letter_command;
+    my $command_string = $line;
+    substr($command_string, 0, 1) = '';
+    ($at_command, $single_letter_command) = _parse_command_name($command_string);
 
-    # handle user defined macros before anything else since
-    # their expansion may lead to changes in the line
-    if ($self->{'macros'}->{$command}) {
-      my $arg_line = $line;
-      substr($arg_line, 0, $at_command_length) = '';
+    if ($single_letter_command) {
+      $command = $single_letter_command;
+      $at_command_length = 2;
+    } elsif (defined($at_command) and $at_command ne '') {
+      $at_command_length = length($at_command) +1;
+      $command = $at_command;
 
-      ($macro_call_element, $arg_line, $source_info)
-        = _handle_macro($self, $current, $arg_line, $source_info, $command);
-      if ($macro_call_element) {
-        if ($from_alias) {
-          $macro_call_element->{'info'} = {}
-             if (!$macro_call_element->{'info'});
-          $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
-        }
+      if (exists($self->{'aliases'}->{$command})) {
+        $from_alias = $command;
+        $command = $self->{'aliases'}->{$from_alias};
       }
-      if ($macro_call_element
-          and $macro_call_element->{'type'} eq 'linemacro_call') {
-        # do nothing, the linemacro defined command call is done at the
-        # end of the line after parsing the line similarly as for @def*
-      } else {
-        $line = $arg_line;
+
+      # handle user defined macros before anything else since
+      # their expansion may lead to changes in the line
+      if ($self->{'macros'}->{$command}) {
+        my $arg_line = $line;
+        substr($arg_line, 0, $at_command_length) = '';
+
+        ($macro_call_element, $arg_line, $source_info)
+          = _handle_macro($self, $current, $arg_line, $source_info, $command);
         if ($macro_call_element) {
-          # directly get the following input (macro expansion text) instead
-          # of going through the next call of process_remaining_on_line and
-          # the processing of empty text.  No difference in output, more
-          # efficient.
-
-          ($line, $source_info) = _next_text($self, $current);
-
-        }
-        return ($current, $line, $source_info, $retval);
-        # goto funexit;  # used in XS code
-      }
-    }
-    # expand value if it can change the line.  It considered again
-    # together with other commands below for all the other cases
-    # which may need a well formed tree, which is not needed here, and
-    # early value expansion may be needed to provide with an argument.
-    if ($command eq 'value') {
-      my $remaining_line = $line;
-      substr($remaining_line, 0, $at_command_length) = '';
-      $remaining_line =~ s/^\s*//
-         if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
-      # REVALUE
-      if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
-        my $value = $1;
-        if (exists($self->{'values'}->{$value})) {
-          if ($self->{'MAX_MACRO_CALL_NESTING'}
-             and $self->{'value_expansion_nr'} >= $self->{'MAX_MACRO_CALL_NESTING'}) {
-            $self->_line_warn(sprintf(__(
-  "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
-                              $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-            $line = $remaining_line;
-            return ($current, $line, $source_info, $retval);
-            # goto funexit;  # used in XS code
+          if ($from_alias) {
+            $macro_call_element->{'info'} = {}
+               if (!$macro_call_element->{'info'});
+            $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
           }
-          $self->{'value_expansion_nr'}++;
-          _input_push_text($self, $remaining_line, $source_info->{'line_nr'});
-          _input_push_text($self, $self->{'values'}->{$value},
-                           $source_info->{'line_nr'}, undef, $value);
-          my $sm_value_element = _new_value_element($command, $value);
-          my $value_source_mark = {'sourcemark_type' => 'value_expansion',
-                                   'status' => 'start',
-                                   'line' => $self->{'values'}->{$value},
-                                   'element' => $sm_value_element};
-          _register_source_mark($self, $current, $value_source_mark);
-          $self->{'input'}->[0]->{'input_source_mark'} = $value_source_mark;
-          $line = '';
+        }
+        if ($macro_call_element
+            and $macro_call_element->{'type'} eq 'linemacro_call') {
+          # do nothing, the linemacro defined command call is done at the
+          # end of the line after parsing the line similarly as for @def*
+        } else {
+          $line = $arg_line;
+          if ($macro_call_element) {
+            # directly get the following input (macro expansion text) instead
+            # of going through the next call of process_remaining_on_line and
+            # the processing of empty text.  No difference in output, more
+            # efficient.
+
+            ($line, $source_info) = _next_text($self, $current);
+
+          }
           return ($current, $line, $source_info, $retval);
           # goto funexit;  # used in XS code
         }
       }
+      # expand value if it can change the line.  It considered again
+      # together with other commands below for all the other cases
+      # which may need a well formed tree, which is not needed here, and
+      # early value expansion may be needed to provide with an argument.
+      if ($command eq 'value') {
+        my $remaining_line = $line;
+        substr($remaining_line, 0, $at_command_length) = '';
+        $remaining_line =~ s/^\s*//
+           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+        # REVALUE
+        if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
+          my $value = $1;
+          if (exists($self->{'values'}->{$value})) {
+            if ($self->{'MAX_MACRO_CALL_NESTING'}
+                and $self->{'value_expansion_nr'}
+                         >= $self->{'MAX_MACRO_CALL_NESTING'}) {
+              $self->_line_warn(sprintf(__(
+ "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
+                                $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+              $line = $remaining_line;
+              return ($current, $line, $source_info, $retval);
+              # goto funexit;  # used in XS code
+            }
+            $self->{'value_expansion_nr'}++;
+            _input_push_text($self, $remaining_line, $source_info->{'line_nr'});
+            _input_push_text($self, $self->{'values'}->{$value},
+                             $source_info->{'line_nr'}, undef, $value);
+            my $sm_value_element = _new_value_element($command, $value);
+            my $value_source_mark = {'sourcemark_type' => 'value_expansion',
+                                     'status' => 'start',
+                                     'line' => $self->{'values'}->{$value},
+                                     'element' => $sm_value_element};
+            _register_source_mark($self, $current, $value_source_mark);
+            $self->{'input'}->[0]->{'input_source_mark'} = $value_source_mark;
+            $line = '';
+            return ($current, $line, $source_info, $retval);
+            # goto funexit;  # used in XS code
+          }
+        }
+      }
+    } else {
+      substr($line, 0, 1) = '';
+      # @ was followed by gibberish or by nothing, for instance at the
+      # very end of a string/file.
+      $self->_line_error(__("unexpected \@"), $source_info);
+      return ($current, $line, $source_info, $retval);
+      # goto funexit;  # used in XS code
     }
   }
 
@@ -6853,11 +6882,7 @@ sub _process_remaining_on_line($$$$)
     $current = $current_array_for_ref[0];
   # Any other @-command.
   } elsif ($command) {
-    if (!$at_command) {
-      substr($line, 0, 2) = '';
-    } else {
-      substr($line, 0, $at_command_length) = '';
-    }
+    substr($line, 0, $at_command_length) = '';
 
     print STDERR "COMMAND \@".Texinfo::Common::debug_command_name($command)
                   ."\n" if ($self->{'DEBUG'});
@@ -7057,11 +7082,6 @@ sub _process_remaining_on_line($$$$)
     } else {
       $current = _merge_text($self, $current, $form_feed);
     }
-  } elsif ($arobase) {
-    substr ($line, 0, 1) = '';
-    # this may happen with a @ at the very end of a file, therefore
-    # not followed by anything.
-    $self->_line_error(__("unexpected \@"), $source_info);
   } elsif ($menu_only_separator) {
     substr ($line, 0, 1) = '';
     $current = _merge_text($self, $current, $menu_only_separator);

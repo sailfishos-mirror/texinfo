@@ -1,3 +1,15 @@
+2023-07-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_command_name, _parse_texi_regex)
+	(_process_remaining_on_line), tp/Texinfo/XS/MiscXS.xs
+	(xs_parse_command_name, xs_parse_texi_regex), tp/Texinfo/XS/misc.c
+	(xs_parse_command_name, xs_parse_texi_regex),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_command_name)
+	(process_remaining_on_line): process text starting with @ in one
+	place.  Determine first if starting by @ (in _parse_texi_regex in the
+	perl parser) and afterwards determine the command name, with a new
+	function parse_command_name.
+
 2023-07-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Multi-line TOC entry alignment

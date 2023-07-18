@@ -80,6 +80,38 @@ read_command_name (char **ptr)
   return ret;
 }
 
+/* look for a command name.  Return value to be freed by caller.
+   *PTR is advanced past the read name. *SINGLE_CHAR is set to 1
+   if the command is a single character command.
+   Return 0 if name is invalid or the empty string */
+char *
+parse_command_name (char **ptr, int *single_char)
+{
+  char *p = *ptr;
+  char *ret = 0;
+  *single_char = 0;
+
+  if (*p
+      /* List of single character Texinfo commands. */
+      && strchr ("([\"'~@&}{,.!?"
+                 " \f\n\r\t"
+                 "*-^`=:|/\\",
+                 *p))
+    {
+      char single_char_str[2];
+      single_char_str[0] = *p++;
+      single_char_str[1] = '\0';
+      ret = strdup (single_char_str);
+      *single_char = 1;
+      *ptr = p;
+    }
+  else
+    {
+      ret = read_command_name (ptr);
+    }
+  return ret;
+}
+
 /* Read a name used for @set and @value. */
 char *
 read_flag_name (char **ptr)
@@ -1689,39 +1721,25 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
   if (*line == '@')
     {
+      int single_char;
       line_after_command = line + 1;
 
-      /* List of single character Texinfo commands. */
-      if (strchr ("([\"'~@&}{,.!?"
-                  " \f\n\r\t"
-                  "*-^`=:|/\\",
-              *line_after_command))
+      command = parse_command_name (&line_after_command, &single_char);
+      if (command)
         {
-          char single_char[2];
-          single_char[0] = *line_after_command++;
-          single_char[1] = '\0';
-          cmd = lookup_command (single_char);
+          cmd = lookup_command (command);
+          /* known command */
+          if (cmd)
+            free (command);
+          /* command holds the unknown command name if !cmd && command */
         }
       else
         {
-          command = read_command_name (&line_after_command);
-
-          cmd = 0;
-          if (command)
-            {
-              cmd = lookup_command (command);
-              /* known command */
-              if (cmd)
-                {
-                  free (command);
-                }
-              /* command holds the unknown command name if !cmd && command */
-            }
-          else
-            {
-              /* @ was followed by gibberish.  "unexpected @" is printed
-                 below. */
-            }
+          /* @ was followed by gibberish or by nothing, for instance at the
+             very end of a string/file. */
+          line_error ("unexpected @");
+          line = line_after_command;
+          goto funexit;
         }
       if (cmd && (command_data(cmd).flags & CF_ALIAS))
         {
@@ -2359,11 +2377,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       t[1] = '\0';
       current = merge_text (current, t, 0);
     }
-  else if (*line == '@')
-    {
-      char separator = *line++;
-      line_error ("unexpected @");
-    }
   else if (*line == '\f')
     {
       char separator = *line++;
@@ -2384,7 +2397,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       else
        current = merge_text (current, "\f", 0);
     }
-  /* "Misc text except end of line." */
+  /* Misc text except end of line. */
   else if (*line != '\n')
     {
       size_t len;
