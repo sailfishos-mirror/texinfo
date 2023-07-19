@@ -1059,34 +1059,4 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 <bye line=" @c bye"></bye>
 ';
 
-
-$result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=" ">Settitle <spacecmd type="spc"/></settitle><!-- c settittle -->
-
-<node name="Top" spaces=" "><nodename trailingspaces="  ">Top</nodename><nodenext automatic="on">chap</nodenext></node><!-- comment @node Top -->
-<top spaces=" "><sectiontitle>top element<spacecmd type="spc"/> </sectiontitle><!-- comment @top -->
-
-</top>
-<node name="chap" spaces=" "><nodename trailingspaces=" ">chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node><!-- comment @node chap -->
-<chapter spaces=" "><sectiontitle>Chapter<spacecmd type="spc"/> </sectiontitle><!-- comment @chapter -->
-
-<frenchspacing spaces=" " value="on" line="on @c comment frenchspacing"></frenchspacing><!-- c comment frenchspacing -->
-
-<microtype spaces=" " value="off" line="off@c comment microtype"></microtype><!-- c comment microtype -->
-
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex> <!-- c index entry -->
-
-<heading spaces=" ">Heading <spacecmd type="spc"/>    </heading><!-- c heading -->
-
-<printindex spaces=" " value="cp" line="cp @c printindex "></printindex><!-- c printindex  -->
-
-<float name="label" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">label</floatname>
-<para>float
-</para></float> <!-- c end -->
-
-<listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
-
-</chapter>
-<bye line=" @c bye"></bye>
-';
-
 1;
