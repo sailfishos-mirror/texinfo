@@ -3,7 +3,7 @@ char *xs_entity_text (char *);
 char *xs_process_text (char *text);
 void xs_parse_command_name (SV *text,
                             char **,
-                            char **);
+                            int*);
 void xs_parse_texi_regex (SV *text,
                           char **,
                           char **,

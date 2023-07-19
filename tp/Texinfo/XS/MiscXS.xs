@@ -106,16 +106,16 @@ void
 xs_parse_command_name (text)
      SV *text
   PREINIT:
-     char *at_command;
-     char *single_letter_command;
+     char *command;
+     int is_single_letter;
   PPCODE:
-     xs_parse_command_name(text, &at_command, &single_letter_command);
+     xs_parse_command_name(text, &command, &is_single_letter);
      EXTEND(SP,2);
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(0), at_command);
+     sv_setpv((SV*)ST(0), command);
      SvUTF8_on(ST(0));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(1), single_letter_command);
+     sv_setiv((SV*)ST(1), (IV)is_single_letter);
      SvUTF8_on(ST(1));
 
 

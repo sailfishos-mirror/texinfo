@@ -4596,7 +4596,15 @@ sub _parse_command_name {
                 |^(["'~\@&\}\{,\.!\? \t\n\*\-\^`=:\|\/\\])
                 /x);
 
-  return ($at_command, $single_letter_command);
+  my $command;
+  my $is_single_letter = 0;
+  if ($single_letter_command) {
+    $command = $single_letter_command;
+    $is_single_letter = 1;
+  } elsif (defined($at_command) and $at_command ne '') {
+    $command = $at_command;
+  }
+  return ($command, $is_single_letter);
 }
 
 # This combines several regular expressions used in '_parse_texi' to
@@ -6578,7 +6586,7 @@ sub _process_remaining_on_line($$$$)
     #}
   }
 
-  my $at_command_length;
+  my $command_length;
   my @line_parsing = _parse_texi_regex($line);
   my ($arobase, $open_brace, $close_brace, $comma,
       $asterisk, $form_feed, $menu_only_separator, $misc_text)
@@ -6595,18 +6603,23 @@ sub _process_remaining_on_line($$$$)
   my $from_alias;
   if ($arobase) {
 
-    my $single_letter_command;
+    my $is_single_letter;
     my $command_string = $line;
     substr($command_string, 0, 1) = '';
-    ($at_command, $single_letter_command) = _parse_command_name($command_string);
+    ($command, $is_single_letter) = _parse_command_name($command_string);
 
-    if ($single_letter_command) {
-      $command = $single_letter_command;
-      $at_command_length = 2;
-    } elsif (defined($at_command) and $at_command ne '') {
-      $at_command_length = length($at_command) +1;
-      $command = $at_command;
+    if (defined($command)) {
+      $command_length = length($command) +1;
+    } else {
+      substr($line, 0, 1) = '';
+      # @ was followed by gibberish or by nothing, for instance at the
+      # very end of a string/file.
+      $self->_line_error(__("unexpected \@"), $source_info);
+      return ($current, $line, $source_info, $retval);
+      # goto funexit;  # used in XS code
+    }
 
+    if (! $is_single_letter) {
       if (exists($self->{'aliases'}->{$command})) {
         $from_alias = $command;
         $command = $self->{'aliases'}->{$from_alias};
@@ -6616,7 +6629,7 @@ sub _process_remaining_on_line($$$$)
       # their expansion may lead to changes in the line
       if ($self->{'macros'}->{$command}) {
         my $arg_line = $line;
-        substr($arg_line, 0, $at_command_length) = '';
+        substr($arg_line, 0, $command_length) = '';
 
         ($macro_call_element, $arg_line, $source_info)
           = _handle_macro($self, $current, $arg_line, $source_info, $command);
@@ -6652,7 +6665,7 @@ sub _process_remaining_on_line($$$$)
       # early value expansion may be needed to provide with an argument.
       if ($command eq 'value') {
         my $remaining_line = $line;
-        substr($remaining_line, 0, $at_command_length) = '';
+        substr($remaining_line, 0, $command_length) = '';
         $remaining_line =~ s/^\s*//
            if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
         # REVALUE
@@ -6686,13 +6699,6 @@ sub _process_remaining_on_line($$$$)
           }
         }
       }
-    } else {
-      substr($line, 0, 1) = '';
-      # @ was followed by gibberish or by nothing, for instance at the
-      # very end of a string/file.
-      $self->_line_error(__("unexpected \@"), $source_info);
-      return ($current, $line, $source_info, $retval);
-      # goto funexit;  # used in XS code
     }
   }
 
@@ -6746,7 +6752,7 @@ sub _process_remaining_on_line($$$$)
       and !$macro_call_element) {
     $self->_line_error(sprintf(__("unknown command `%s'"),
                                   $command), $source_info);
-    substr($line, 0, $at_command_length) = '';
+    substr($line, 0, $command_length) = '';
     return ($current, $line, $source_info, $retval);
     # goto funexit;  # used in XS code
   }
@@ -6882,7 +6888,7 @@ sub _process_remaining_on_line($$$$)
     $current = $current_array_for_ref[0];
   # Any other @-command.
   } elsif ($command) {
-    substr($line, 0, $at_command_length) = '';
+    substr($line, 0, $command_length) = '';
 
     print STDERR "COMMAND \@".Texinfo::Common::debug_command_name($command)
                   ."\n" if ($self->{'DEBUG'});

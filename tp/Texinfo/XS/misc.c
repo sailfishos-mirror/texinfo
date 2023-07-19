@@ -285,8 +285,8 @@ xs_entity_text (char *text)
 }
 
 void xs_parse_command_name (SV *text_in,
-                            char **at_command,
-                            char **single_letter_command)
+                            char **command,
+                            int *is_single_letter)
 {
   char *text;
 
@@ -297,7 +297,8 @@ void xs_parse_command_name (SV *text_in,
     sv_utf8_upgrade (text_in);
   text = SvPV_nolen (text_in);
 
-  *at_command = *single_letter_command = 0;
+  *command = 0;
+  *is_single_letter = 0;
 
   if (isalnum(text[0]))
     {
@@ -312,7 +313,7 @@ void xs_parse_command_name (SV *text_in,
       s = realloc (s, q - p + 1);
       memcpy (s, p, q - p);
       s[q - p] = '\0';
-      *at_command = s;
+      *command = s;
     }
   else if (text[0] && strchr ("([\"'~@&}{,.!?"
                               " \t\n"
@@ -320,9 +321,10 @@ void xs_parse_command_name (SV *text_in,
                               text[0]))
     {
       static char a[2];
-      *single_letter_command = a;
+      *command = a;
       a[0] = text[0];
       a[1] = '\0';
+      *is_single_letter = 1;
     }
   return;
 }
