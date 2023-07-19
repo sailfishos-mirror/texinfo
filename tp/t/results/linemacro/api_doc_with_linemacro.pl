@@ -498,34 +498,29 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'contents' => [
                                       {
                                         'text' => 'a'
-                                      },
-                                      {
-                                        'extra' => {
-                                          'def_role' => 'spaces'
-                                        },
-                                        'text' => ' ',
-                                        'type' => 'spaces'
-                                      },
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
+                                  },
+                                  {
+                                    'contents' => [
                                       {
                                         'text' => 'array_like'
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
                                       }
-                                    },
-                                    'type' => 'line_arg'
+                                    }
                                   }
                                 ],
                                 'extra' => {
                                   'name' => 'param'
-                                },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -533,8 +528,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'status' => 'start'
                             }
                           ],
-                          'text' => '',
-                          'type' => 'empty_line'
+                          'text' => ''
                         }
                       ],
                       'type' => 'def_item'
@@ -603,7 +597,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                                 'file_name' => '',
                                 'line_nr' => 19,
                                 'macro' => 'param'
-                              }
+                              },
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ]
                             }
                           ],
                           'info' => {
@@ -632,13 +633,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                         'line_nr' => 19,
                         'macro' => 'param'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
                       'type' => 'def_line'
                     },
                     {
@@ -653,11 +647,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
                           'source_marks' => [
                             {
                               'counter' => 2,
@@ -667,57 +656,39 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'contents' => [
                                       {
                                         'text' => 'n'
-                                      },
-                                      {
-                                        'extra' => {
-                                          'def_role' => 'spaces'
-                                        },
-                                        'text' => ' ',
-                                        'type' => 'spaces'
-                                      },
-                                      {
-                                        'contents' => [
-                                          {
-                                            'text' => 'int,'
-                                          },
-                                          {
-                                            'extra' => {
-                                              'def_role' => 'spaces'
-                                            },
-                                            'text' => ' ',
-                                            'type' => 'spaces'
-                                          },
-                                          {
-                                            'text' => 'optional'
-                                          }
-                                        ],
-                                        'type' => 'def_aggregate'
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
                                       }
-                                    },
-                                    'type' => 'line_arg'
+                                    }
+                                  },
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'int, optional'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
                                   }
                                 ],
                                 'extra' => {
                                   'name' => 'param'
                                 },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
                                 'type' => 'linemacro_call'
                               },
+                              'position' => 1,
                               'sourcemark_type' => 'linemacro_expansion',
                               'status' => 'start'
                             }
                           ],
-                          'text' => '',
+                          'text' => '
+',
                           'type' => 'empty_line'
                         }
                       ],
@@ -787,7 +758,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                                 'file_name' => '',
                                 'line_nr' => 22,
                                 'macro' => 'param'
-                              }
+                              },
+                              'source_marks' => [
+                                {
+                                  'counter' => 2,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ]
                             }
                           ],
                           'info' => {
@@ -816,13 +794,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                         'line_nr' => 22,
                         'macro' => 'param'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
                       'type' => 'def_line'
                     },
                     {
@@ -862,11 +833,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
                           'source_marks' => [
                             {
                               'counter' => 3,
@@ -876,57 +842,39 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'contents' => [
                                       {
                                         'text' => 'axis'
-                                      },
-                                      {
-                                        'extra' => {
-                                          'def_role' => 'spaces'
-                                        },
-                                        'text' => ' ',
-                                        'type' => 'spaces'
-                                      },
-                                      {
-                                        'contents' => [
-                                          {
-                                            'text' => 'int,'
-                                          },
-                                          {
-                                            'extra' => {
-                                              'def_role' => 'spaces'
-                                            },
-                                            'text' => ' ',
-                                            'type' => 'spaces'
-                                          },
-                                          {
-                                            'text' => 'optional'
-                                          }
-                                        ],
-                                        'type' => 'def_aggregate'
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
                                       }
-                                    },
-                                    'type' => 'line_arg'
+                                    }
+                                  },
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'int, optional'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
                                   }
                                 ],
                                 'extra' => {
                                   'name' => 'param'
                                 },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
                                 'type' => 'linemacro_call'
                               },
+                              'position' => 1,
                               'sourcemark_type' => 'linemacro_expansion',
                               'status' => 'start'
                             }
                           ],
-                          'text' => '',
+                          'text' => '
+',
                           'type' => 'empty_line'
                         }
                       ],
@@ -996,7 +944,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                                 'file_name' => '',
                                 'line_nr' => 26,
                                 'macro' => 'param'
-                              }
+                              },
+                              'source_marks' => [
+                                {
+                                  'counter' => 3,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ]
                             }
                           ],
                           'info' => {
@@ -1025,13 +980,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                         'line_nr' => 26,
                         'macro' => 'param'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
                       'type' => 'def_line'
                     },
                     {
@@ -1046,11 +994,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
                           'source_marks' => [
                             {
                               'counter' => 4,
@@ -1060,57 +1003,39 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'contents' => [
                                       {
                                         'text' => 'out'
-                                      },
-                                      {
-                                        'extra' => {
-                                          'def_role' => 'spaces'
-                                        },
-                                        'text' => ' ',
-                                        'type' => 'spaces'
-                                      },
-                                      {
-                                        'contents' => [
-                                          {
-                                            'text' => 'complex'
-                                          },
-                                          {
-                                            'extra' => {
-                                              'def_role' => 'spaces'
-                                            },
-                                            'text' => ' ',
-                                            'type' => 'spaces'
-                                          },
-                                          {
-                                            'text' => 'ndarray'
-                                          }
-                                        ],
-                                        'type' => 'def_aggregate'
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
                                       }
-                                    },
-                                    'type' => 'line_arg'
+                                    }
+                                  },
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'complex ndarray'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
                                   }
                                 ],
                                 'extra' => {
                                   'name' => 'returns'
                                 },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
                                 'type' => 'linemacro_call'
                               },
+                              'position' => 1,
                               'sourcemark_type' => 'linemacro_expansion',
                               'status' => 'start'
                             }
                           ],
-                          'text' => '',
+                          'text' => '
+',
                           'type' => 'empty_line'
                         }
                       ],
@@ -1190,7 +1115,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                                 'file_name' => '',
                                 'line_nr' => 29,
                                 'macro' => 'returns'
-                              }
+                              },
+                              'source_marks' => [
+                                {
+                                  'counter' => 4,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ]
                             }
                           ],
                           'info' => {
@@ -1219,13 +1151,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                         'line_nr' => 29,
                         'macro' => 'returns'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
                       'type' => 'def_line'
                     },
                     {
@@ -1240,11 +1165,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
                           'source_marks' => [
                             {
                               'counter' => 5,
@@ -1257,29 +1177,24 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
                                       }
-                                    },
-                                    'type' => 'line_arg'
+                                    }
                                   }
                                 ],
                                 'extra' => {
                                   'name' => 'raises'
                                 },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
                                 'type' => 'linemacro_call'
                               },
+                              'position' => 1,
                               'sourcemark_type' => 'linemacro_expansion',
                               'status' => 'start'
                             }
                           ],
-                          'text' => '',
+                          'text' => '
+',
                           'type' => 'empty_line'
                         }
                       ],
@@ -1316,6 +1231,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
+                              'source_marks' => [
+                                {
+                                  'counter' => 5,
+                                  'position' => 10,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
                               'text' => 'IndexError'
                             }
                           ],
@@ -1345,13 +1268,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                         'line_nr' => 32,
                         'macro' => 'raises'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
                       'type' => 'def_line'
                     },
                     {

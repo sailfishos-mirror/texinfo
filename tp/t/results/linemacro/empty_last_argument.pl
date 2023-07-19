@@ -144,34 +144,30 @@ $result_trees{'empty_last_argument'} = {
                             'contents' => [
                               {
                                 'text' => 'foo'
-                              },
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
                               {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
+                                'text' => '',
                                 'type' => 'bracketed_arg'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -179,8 +175,7 @@ $result_trees{'empty_last_argument'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 },
                 {
                   'args' => [
@@ -247,6 +242,14 @@ $result_trees{'empty_last_argument'} = {
                   ],
                   'info' => {
                     'spaces_after_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ' 
 '
                     }
@@ -270,22 +273,10 @@ $result_trees{'empty_last_argument'} = {
                 'line_nr' => 8,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {
               'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
                 {
                   'source_marks' => [
                     {
@@ -299,29 +290,24 @@ $result_trees{'empty_last_argument'} = {
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
                         },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
                         'type' => 'linemacro_call'
                       },
+                      'position' => 1,
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
+                  'text' => '
+',
                   'type' => 'empty_line'
                 },
                 {
@@ -389,6 +375,14 @@ $result_trees{'empty_last_argument'} = {
                   ],
                   'info' => {
                     'spaces_after_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ' 
 '
                     }
@@ -412,22 +406,10 @@ $result_trees{'empty_last_argument'} = {
                 'line_nr' => 10,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {
               'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
                 {
                   'source_marks' => [
                     {
@@ -438,57 +420,40 @@ $result_trees{'empty_last_argument'} = {
                             'contents' => [
                               {
                                 'text' => 'foo'
-                              },
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
                               {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => '{}'
-                                      }
-                                    ],
-                                    'source_info' => {
-                                      'file_name' => '',
-                                      'line_nr' => 12,
-                                      'macro' => ''
-                                    },
-                                    'type' => 'balanced_braces'
-                                  }
-                                ],
+                                'text' => '{}',
                                 'type' => 'bracketed_arg'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
                         },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
                         'type' => 'linemacro_call'
                       },
+                      'position' => 1,
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
+                  'text' => '
+',
                   'type' => 'empty_line'
                 },
                 {
@@ -569,6 +534,13 @@ $result_trees{'empty_last_argument'} = {
                         'line_nr' => 12,
                         'macro' => 'defbuiltin'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'type' => 'bracketed_arg'
                     }
                   ],
@@ -597,13 +569,6 @@ $result_trees{'empty_last_argument'} = {
                 'line_nr' => 12,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {

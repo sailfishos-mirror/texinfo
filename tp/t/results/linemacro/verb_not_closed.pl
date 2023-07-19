@@ -79,11 +79,6 @@ $result_trees{'verb_not_closed'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -92,52 +87,30 @@ $result_trees{'verb_not_closed'} = {
                   {
                     'contents' => [
                       {
-                        'args' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => ' in verb
-',
-                                'type' => 'raw'
-                              },
-                              {
-                                'text' => '
-',
-                                'type' => 'raw'
-                              }
-                            ],
-                            'type' => 'brace_command_arg'
-                          }
-                        ],
-                        'cmdname' => 'verb',
-                        'info' => {
-                          'delimiter' => ':'
-                        },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 5,
-                          'macro' => ''
-                        }
+                        'text' => '@verb{: in verb
+
+'
                       }
                     ],
-                    'type' => 'line_arg'
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'mycommand'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -155,6 +128,18 @@ $result_trees{'verb_not_closed'} = {
                       'text' => '
 ',
                       'type' => 'raw'
+                    },
+                    {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 3,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
+                      'text' => ',  ',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -169,18 +154,6 @@ $result_trees{'verb_not_closed'} = {
                 'line_nr' => 6,
                 'macro' => 'mycommand'
               }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 4,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ',  
-'
             }
           ],
           'type' => 'paragraph'
@@ -198,23 +171,30 @@ $result_texis{'verb_not_closed'} = '@linemacro mycommand {a, b, c}
 
 @verb{: in verb
 
-:},  
-';
+,  :}';
 
 
 $result_texts{'verb_not_closed'} = '
  in verb
 
-,  
-';
+,  ';
 
 $result_errors{'verb_not_closed'} = [
   {
-    'error_line' => '@verb missing closing delimiter sequence: :}
+    'error_line' => '@mycommand missing closing brace
 ',
     'file_name' => '',
-    'line_nr' => 5,
+    'line_nr' => 6,
     'macro' => '',
+    'text' => '@mycommand missing closing brace',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@verb missing closing delimiter sequence: :} (possibly involving @mycommand)
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => 'mycommand',
     'text' => '@verb missing closing delimiter sequence: :}',
     'type' => 'error'
   }

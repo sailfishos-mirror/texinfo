@@ -106,14 +106,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
               'position' => 1,
               'sourcemark_type' => 'expanded_conditional_command',
               'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
+            },
             {
               'counter' => 1,
               'element' => {
@@ -121,9 +114,56 @@ $result_trees{'end_conditional_in_linemacro'} = {
                   {
                     'contents' => [
                       {
+                        'text' => 'text
+  @end ifclear',
+                        'type' => 'bracketed_arg'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
+                  }
+                ],
+                'extra' => {
+                  'name' => 'lm'
+                },
+                'type' => 'linemacro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'linemacro_expansion',
+              'status' => 'start'
+            }
+          ],
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'text
+'
+            },
+            {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
                         'contents' => [
                           {
-                            'text' => 'text'
+                            'source_marks' => [
+                              {
+                                'counter' => 1,
+                                'position' => 7,
+                                'sourcemark_type' => 'linemacro_expansion',
+                                'status' => 'end'
+                              }
+                            ],
+                            'text' => 'ifclear'
                           }
                         ],
                         'info' => {
@@ -132,94 +172,33 @@ $result_trees{'end_conditional_in_linemacro'} = {
 '
                           }
                         },
-                        'type' => 'bracketed_arg'
+                        'type' => 'line_arg'
                       }
                     ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'lm'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'text
-'
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifclear'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 7,
+                      'macro' => 'lm'
+                    }
+                  },
+                  'position' => 2,
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'end'
+                }
+              ],
+              'text' => '  '
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'ifclear'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'cmdname' => 'end',
-                'extra' => {
-                  'text_arg' => 'ifclear'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
-                }
-              },
-              'position' => 2,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'end'
-            }
-          ],
-          'text' => '  ',
-          'type' => 'spaces_before_paragraph'
         }
       ],
       'type' => 'before_node_section'
@@ -233,35 +212,14 @@ $result_texis{'end_conditional_in_linemacro'} = '@linemacro lm {a}
 @end linemacro
 
 text
-
   ';
 
 
 $result_texts{'end_conditional_in_linemacro'} = '
 text
+  ';
 
-';
-
-$result_errors{'end_conditional_in_linemacro'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'file_name' => '',
-    'line_nr' => 6,
-    'macro' => '',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_conditional_in_linemacro'} = [];
 
 
 $result_floats{'end_conditional_in_linemacro'} = {};

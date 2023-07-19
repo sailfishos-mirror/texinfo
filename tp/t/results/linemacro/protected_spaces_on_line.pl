@@ -85,11 +85,6 @@ $result_trees{'protected_spaces_on_line'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -99,81 +94,40 @@ $result_trees{'protected_spaces_on_line'} = {
                     'contents' => [
                       {
                         'text' => 'foo'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '(bar,'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'baz)'
-                          },
-                          {
-                            'cmdname' => '
-'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'continuation'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'line'
-                          }
-                        ],
-                        'type' => 'def_aggregate'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => '(bar, baz)@
+ continuation line'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'test'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -327,6 +281,14 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 5,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'deffn'
                     }
                   ],
@@ -364,19 +326,7 @@ $result_trees{'protected_spaces_on_line'} = {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => 'test'
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
+          }
         },
         {
           'source_marks' => [
@@ -387,95 +337,40 @@ $result_trees{'protected_spaces_on_line'} = {
                   {
                     'contents' => [
                       {
-                        'contents' => [
-                          {
-                            'text' => 'foo'
-                          },
-                          {
-                            'cmdname' => ' '
-                          },
-                          {
-                            'text' => 'b'
-                          }
-                        ],
-                        'type' => 'def_aggregate'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '(bar,'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'baz)'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'rest'
-                          },
-                          {
-                            'cmdname' => ' '
-                          },
-                          {
-                            'text' => 'and'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'more'
-                          }
-                        ],
-                        'type' => 'def_aggregate'
+                        'text' => 'foo@ b'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => '(bar, baz) rest@ and more'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'test'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -645,6 +540,14 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'position' => 5,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'deffn'
                     }
                   ],
@@ -682,19 +585,7 @@ $result_trees{'protected_spaces_on_line'} = {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => 'test'
-          },
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
+          }
         },
         {
           'source_marks' => [
@@ -706,60 +597,39 @@ $result_trees{'protected_spaces_on_line'} = {
                     'contents' => [
                       {
                         'text' => 'foo'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '(bar,'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'text' => 'baz)'
-                          },
-                          {
-                            'cmdname' => '@'
-                          }
-                        ],
-                        'type' => 'def_aggregate'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => '(bar, baz)@@'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'test'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -886,6 +756,14 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'position' => 5,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'deffn'
                     }
                   ],
@@ -923,14 +801,7 @@ $result_trees{'protected_spaces_on_line'} = {
             'file_name' => '',
             'line_nr' => 12,
             'macro' => 'test'
-          },
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ]
+          }
         },
         {
           'text' => ' ',
@@ -956,9 +827,9 @@ $result_trees{'protected_spaces_on_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'protected_spaces_on_line'} = '@linemacro test {first, rest}
 @deffn Function \\first\\ \\rest\\

@@ -89,11 +89,6 @@ $result_trees{'spaces_in_call'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -102,42 +97,9 @@ $result_trees{'spaces_in_call'} = {
                   {
                     'contents' => [
                       {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'a b'
-                              }
-                            ],
-                            'type' => 'bracketed_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'c d'
-                              }
-                            ],
-                            'type' => 'bracketed_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'rest'
-                              }
-                            ],
-                            'type' => 'bracketed_arg'
-                          }
-                        ],
-                        'type' => 'def_aggregate'
+                        'text' => '{a b}{c d}{rest}'
                       }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
+                    ]
                   }
                 ],
                 'extra' => {
@@ -145,11 +107,13 @@ $result_trees{'spaces_in_call'} = {
                 },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -289,6 +253,14 @@ $result_trees{'spaces_in_call'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 8,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'defblock'
                     }
                   ],
@@ -321,14 +293,7 @@ $result_trees{'spaces_in_call'} = {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => 'mylinecommand'
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ]
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -336,7 +301,7 @@ $result_trees{'spaces_in_call'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_in_call'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_in_call'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'spaces_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'spaces_in_call'} = '@linemacro mylinecommand {first, second, rest}
 @defblock

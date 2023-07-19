@@ -79,11 +79,6 @@ $result_trees{'brace_command_not_closed'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -92,43 +87,30 @@ $result_trees{'brace_command_not_closed'} = {
                   {
                     'contents' => [
                       {
-                        'args' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'in code
+                        'text' => '@code{in code
+
 '
-                              }
-                            ],
-                            'type' => 'brace_command_arg'
-                          }
-                        ],
-                        'cmdname' => 'code',
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 5,
-                          'macro' => ''
-                        }
                       }
                     ],
-                    'type' => 'line_arg'
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'mycommand'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -140,6 +122,11 @@ $result_trees{'brace_command_not_closed'} = {
                     {
                       'text' => 'in code
 '
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -148,29 +135,28 @@ $result_trees{'brace_command_not_closed'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 6,
                 'macro' => 'mycommand'
               }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 4,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ',  
-'
             }
           ],
           'type' => 'paragraph'
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
+          'contents' => [
+            {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'position' => 3,
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'end'
+                }
+              ],
+              'text' => ',  '
+            }
+          ],
+          'type' => 'paragraph'
         }
       ],
       'type' => 'before_node_section'
@@ -184,24 +170,31 @@ $result_texis{'brace_command_not_closed'} = '@linemacro mycommand {a, b, c}
 @end linemacro
 
 @code{in code
-},  
 
-';
+},  ';
 
 
 $result_texts{'brace_command_not_closed'} = '
 in code
-,  
 
-';
+,  ';
 
 $result_errors{'brace_command_not_closed'} = [
   {
-    'error_line' => '@code missing closing brace
+    'error_line' => '@mycommand missing closing brace
 ',
     'file_name' => '',
-    'line_nr' => 5,
+    'line_nr' => 6,
     'macro' => '',
+    'text' => '@mycommand missing closing brace',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@code missing closing brace (possibly involving @mycommand)
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => 'mycommand',
     'text' => '@code missing closing brace',
     'type' => 'error'
   }

@@ -147,8 +147,6 @@ my %parser_state_initialization = (
   'merged_indices' => {},     # the key is merged in the value
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
-  'in_parsing_only' => 0,     # if set, parse only, no error message, no
-                              # rearranging...
   # initialization of information returned by global_information()
   'info' => {
     'input_encoding_name' => 'utf-8',
@@ -1183,6 +1181,8 @@ sub _place_source_mark
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
     $mark_element = $current;
+    # if there is no text, the source mark is supposed to be
+    # at the end of/after the element
     if (defined($current->{'text'}) and $current->{'text'} ne '') {
       $source_mark->{'position'} = length($current->{'text'});
     }
@@ -2512,7 +2512,6 @@ sub _expand_macro_arguments($$$$$)
   my $argument_content = {'text' => '',
                           'parent' => $argument};
   push @{$argument->{'contents'}}, $argument_content;
-  my $arg_nr = 0;
   my $args_total = scalar(@{$macro->{'args'}}) -1;
   my $name = $macro->{'args'}->[0]->{'text'};
 
@@ -2599,6 +2598,125 @@ sub _expand_macro_arguments($$$$$)
                                 $name), $source_info);
   }
   print STDERR "END MACRO ARGS EXPANSION\n" if ($self->{'DEBUG'});
+  return ($line, $source_info);
+}
+
+sub _expand_linemacro_arguments($$$$$)
+{
+  my ($self, $macro, $line, $source_info, $current) = @_;
+
+  my $braces_level = 0;
+  my $argument = {'contents' => [],
+                  'parent' => $current};
+  push @{$current->{'args'}}, $argument;
+  my $argument_content = {'text' => '',
+                          'parent' => $argument};
+  push @{$argument->{'contents'}}, $argument_content;
+  # based on whitespace_chars_except_newline in XS parser
+  if ($line =~ s/^([ \t\cK\f]+)//) {
+    $argument->{'info'}
+      = {'spaces_before_argument' => {'text' => $1}};
+  }
+  my $args_total = scalar(@{$macro->{'args'}}) -1;
+  my $name = $macro->{'args'}->[0]->{'text'};
+
+  while (1) {
+    # spaces based on whitespace_chars_except_newline in XS parser
+    if ($line =~ s/([^{}\@ \t\cK\f]*)([{}\@]|[ \t\cK\f]+)//) {
+      my $separator = $2;
+      $argument_content->{'text'} .= $1;
+      if ($separator eq '@') {
+        $argument_content->{'text'} .= '@';
+        my ($cmdname, $is_single_letter) = _parse_command_name($line);
+        if (defined($cmdname)) {
+          $argument_content->{'text'} .= $cmdname;
+          substr($line, 0, length($cmdname)) = '';
+          if ((defined($self->{'brace_commands'}->{$cmdname})
+               and $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})
+              or $accent_commands{$cmdname}) {
+            $line =~ s/^(\s*)//;
+            $argument_content->{'text'} .= $1;
+          }
+        }
+      } elsif ($separator eq '}') {
+        $braces_level--;
+        $argument_content->{'text'} .= $separator;
+        if ($braces_level == 0) {
+          if (! $argument_content->{'extra'}) {
+            $argument_content->{'extra'} = {'toplevel_braces_nr' => 0};
+          }
+          $argument_content->{'extra'}->{'toplevel_braces_nr'}++;
+        }
+      } elsif ($separator eq '{') {
+        $braces_level++;
+        $argument_content->{'text'} .= $separator;
+      # spaces
+      } else {
+        if ($braces_level > 0
+            or scalar(@{$current->{'args'}}) >= $args_total) {
+          $argument_content->{'text'} .= $separator;
+        } else {
+          $argument = {'contents' => [],
+                       'parent' => $current};
+          push @{$current->{'args'}}, $argument;
+          $argument_content = {'text' => '',
+                               'parent' => $argument};
+          push @{$argument->{'contents'}}, $argument_content;
+          $argument->{'info'}
+            = {'spaces_before_argument' => {'text' => $separator}};
+          print STDERR "LINEMACRO NEW ARG\n" if ($self->{'DEBUG'});
+        }
+      }
+    } else {
+      print STDERR "LINEMACRO ARG end of line $braces_level\n" if ($self->{'DEBUG'});
+      if ($braces_level > 0) {
+        $argument_content->{'text'} .= $line;
+
+        ($line, $source_info) = _new_line($self, $argument);
+        if (!defined($line)) {
+          $self->_line_error(sprintf(__("\@%s missing closing brace"),
+             $name), $source_info);
+          $line = '';
+          last;
+        }
+      } else {
+        $line =~ s/(.*)//;
+        $argument_content->{'text'} .= $1;
+        if ($line =~ /\n/) {
+          last;
+        } else {
+          # happens when @ protects the end of line, at the very end
+          # of a text fragment and probably with macro expansion
+          ($line, $source_info) = _new_line($self, $argument);
+          if (!defined($line)) {
+            $line = '';
+            last;
+          }
+        }
+      }
+    }
+  }
+  my $arg_idx = 0;
+  foreach my $argument (@{$current->{'args'}}) {
+    my $argument_content = $argument->{'contents'}->[0];
+    if ($argument_content->{'extra'}
+        and defined($argument_content->{'extra'}->{'toplevel_braces_nr'})) {
+      my $toplevel_braces_nr = $argument_content->{'extra'}->{'toplevel_braces_nr'};
+      delete $argument_content->{'extra'};
+      # FIXME relocate source marks
+      if ($toplevel_braces_nr == 1 and $argument_content->{'text'} =~ /^\{(.*)\}$/s) {
+        print STDERR "TURN to bracketed $arg_idx "
+          .Texinfo::Common::debug_print_element($argument_content)."\n"
+            if ($self->{'DEBUG'});
+        $argument_content->{'text'} = $1;
+        $argument_content->{'type'} = 'bracketed_arg';
+      }
+    }
+    # do that?
+    #_remove_empty_content($self, $argument);
+    $arg_idx++;
+  }
+  print STDERR "END LINEMACRO ARGS EXPANSION\n" if ($self->{'DEBUG'});
   return ($line, $source_info);
 }
 
@@ -3280,12 +3398,6 @@ sub _end_line_misc_line($$$)
   my $source_info = shift;
 
   my $command = $current->{'parent'}->{'cmdname'};
-  if (!defined($command)) {
-    if (!defined($current->{'parent'}->{'extra'}->{'name'})) {
-      confess("No command and not linecommand");
-    }
-    $command = $current->{'parent'}->{'extra'}->{'name'};
-  }
   my $data_cmdname = $command;
 
   # we are in a command line context, so the @item command information is
@@ -3301,8 +3413,7 @@ sub _end_line_misc_line($$$)
   _isolate_last_space($self, $current);
 
   if ($current->{'parent'}->{'type'}
-      and ($current->{'parent'}->{'type'} eq 'def_line'
-           or $current->{'parent'}->{'type'} eq 'linemacro_call')) {
+      and $current->{'parent'}->{'type'} eq 'def_line') {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
@@ -3668,17 +3779,10 @@ sub _end_line_def_line($$$)
   my $top_context = $self->_top_context();
 
   my $context_command
-   = $self->_pop_context(['ct_def', 'ct_linecommand'], $source_info, $current);
-  if ($top_context eq 'ct_def') {
-    $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
-  } else {
-    $self->{'in_parsing_only'}--;
-    $def_command = $context_command;
-    # or
-    # $def_command = $current->{'parent'}->{'extra'}->{'name'};
-  }
+   = $self->_pop_context(['ct_def'], $source_info, $current);
+  $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
 
-  print STDERR "END DEF LINE $top_context $def_command; current "
+  print STDERR "END DEF LINE $def_command; current "
     .Texinfo::Common::debug_print_element($current, 1)."\n"
       if ($self->{'DEBUG'});
 
@@ -3686,73 +3790,6 @@ sub _end_line_def_line($$$)
 
   # now $current is the arguments container in case of linemacro
   $current = $current->{'parent'};
-
-  if ($top_context ne 'ct_def') {
-    # convert arguments back to Texinfo and substitute
-    my $macro_args = [];
-    my $macro = $self->{'macros'}->{$def_command}->{'element'};
-    my $args_total = scalar(@{$macro->{'args'}}) -1;
-    if ($args_total > 0) {
-      my $arg_index;
-      # the first argument is the macro name
-      for ($arg_index=1; $arg_index<=$args_total; $arg_index++) {
-        if (defined($macro->{'args'}->[$arg_index])) {
-          my $arg_name = $macro->{'args'}->[$arg_index]->{'text'};
-          if (exists($arguments->{$arg_name})) {
-            my $arg = $arguments->{$arg_name};
-            my $argument_text = '';
-            if ($arg->{'type'} and $arg->{'type'} eq 'bracketed_arg') {
-              if ($arg->{'contents'} or $arg->{'info'}) {
-                my $arg_element = {};
-                $arg_element->{'contents'}
-                  = $arg->{'contents'} if ($arg->{'contents'});
-                $arg_element->{'info'} = $arg->{'info'} if ($arg->{'info'});
-                $argument_text
-                 = Texinfo::Convert::Texinfo::convert_to_texinfo($arg_element);
-                #print STDERR "BBB '$argument_text' ".join('|', keys(%{$arg->{'info'}}))."\n";
-              }
-            } else {
-              $argument_text = Texinfo::Convert::Texinfo::convert_to_texinfo($arg);
-            }
-            push @$macro_args, {'contents' => [{'text' => $argument_text}]};
-          }
-        }
-      }
-    }
-    my $expanded = _expand_macro_body($self,
-                            $self->{'macros'}->{$def_command},
-                            $macro_args, $source_info);
-    print STDERR "LINEMACROBODY: $expanded".'||||||'."\n"
-      if ($self->{'DEBUG'});
-
-    # macro expansion lines with information on the
-    # pending text
-    _input_push_text($self, $expanded, $source_info->{'line_nr'},
-                     $def_command);
-    my $macro_source_mark = {'sourcemark_type' => 'linemacro_expansion',
-                             'status' => 'start'};
-    delete $current->{'args'}
-       if (scalar(@{$current->{'args'}}) == 0);
-    $macro_source_mark->{'element'} = $current;
-    $current = $current->{'parent'};
-    # remove linemacro call from the tree, it remains associated
-    # to the source mark
-    my $popped = _pop_element_from_contents($self, $current);
-    #if ($popped ne $macro_source_mark->{'element'}) {
-    #  $self->_bug_message("popped $popped ne $macro_source_mark->{'element'}"
-    #            ." in linemacro command call\n", $source_info, $current);
-    #}
-    #if (!$popped->{'type'} or $popped->{'type'} ne 'linemacro_call') {
-    #  $self->_bug_message("unexpected linemacro popped in parse_def "
-    #         .Texinfo::Common::debug_print_element($popped, 1),
-    #            $source_info, $current);
-    #}
-    delete $popped->{'parent'};
-    _register_source_mark($self, $current, $macro_source_mark);
-    $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
-    return $current;
-  }
-
 
   if (scalar(keys(%$arguments)) == 0) {
     $self->_command_warn($current, $source_info,
@@ -4286,8 +4323,6 @@ sub _end_line($$$)
 
   my $current_old = $current;
 
-  my $in_macro_expansion;
-
   # a line consisting only of spaces.
   if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
@@ -4357,39 +4392,19 @@ sub _end_line($$$)
   # misc command line arguments
   # Never go here if lineraw/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
-    if ($current->{'parent'}->{'type'}
-        and $current->{'parent'}->{'type'} eq 'linemacro_call') {
-      # we could have checked the context too
-      $in_macro_expansion = $current->{'parent'}->{'extra'}->{'name'};
-    }
     $current = _end_line_misc_line($self, $current, $source_info);
   }
 
   # this happens if there is a nesting of line @-commands on a line.
   # they are reprocessed here.
   my $top_context = $self->_top_context();
-  if ($top_context eq 'ct_line' or $top_context eq 'ct_def'
-      or $top_context eq 'ct_linecommand') {
-    if (defined($in_macro_expansion)) {
-      # if in a linemacro command call nested on a line, we do not close
-      # the preceding commands yet, as they might use the expansion
-      print STDERR "Expanded \@$in_macro_expansion still line/block"
-       ." $top_context: "
-       .Texinfo::Common::debug_print_element($current, 1)."\n"
-        if ($self->{'DEBUG'});
-      return $current;
-    }
+  if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
     print STDERR "Still opened line/block command $top_context: "
       .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'DEBUG'});
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'} and !($current->{'parent'}->{'type'}
             and $current->{'parent'}->{'type'} eq 'def_line')) {
-        $current = _close_current($self, $current, $source_info);
-      }
-    } elsif ($top_context eq 'ct_linecommand') {
-      while ($current->{'parent'} and !($current->{'parent'}->{'type'}
-              and $current->{'parent'}->{'type'} eq 'linemacro_call')) {
         $current = _close_current($self, $current, $source_info);
       }
     } else {
@@ -4812,7 +4827,11 @@ sub _handle_macro($$$$$)
                             'extra' => {'name' => $command},
                             'args' => []};
 
-  if ($expanded_macro->{'cmdname'} ne 'linemacro') {
+  if ($expanded_macro->{'cmdname'} eq 'linemacro') {
+    ($line, $source_info)
+     = _expand_linemacro_arguments($self, $expanded_macro, $line, $source_info,
+                                   $macro_call_element);
+  } else {
     my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
     if ($line =~ s/^\s*{(\s*)//) { # } macro with args
       if ($1 ne '') {
@@ -4893,10 +4912,6 @@ sub _handle_macro($$$$$)
   print STDERR "MACRO EXPANSION NUMBER $self->{'macro_expansion_nr'} $command\n"
     if ($self->{'DEBUG'});
 
-  if ($expanded_macro->{'cmdname'} eq 'linemacro') {
-    return ($macro_call_element, $line, $source_info);
-  }
-
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
                             $macro_call_element->{'args'}, $source_info);
@@ -4916,7 +4931,13 @@ sub _handle_macro($$$$$)
   print STDERR "MACROBODY: $expanded_macro_text".'||||||'."\n"
     if ($self->{'DEBUG'});
 
-  my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
+  my $sourcemark_type;
+  if ($expanded_macro->{'cmdname'} eq 'linemacro') {
+    $sourcemark_type = 'linemacro_expansion';
+  } else {
+    $sourcemark_type = 'macro_expansion';
+  }
+  my $macro_source_mark = {'sourcemark_type' => $sourcemark_type,
                            'status' => 'start'};
   $macro_source_mark->{'element'} = $macro_call_element;
   _register_source_mark($self, $current, $macro_source_mark);
@@ -5868,9 +5889,7 @@ sub _handle_open_brace($$$$)
             and (($current->{'parent'}->{'cmdname'}
                   and $current->{'parent'}->{'cmdname'} eq 'multitable')
                  or ($current->{'parent'}->{'type'}
-                     and ($current->{'parent'}->{'type'} eq 'def_line'
-                          or $current->{'parent'}->{'type'}
-                               eq 'linemacro_call')))) {
+                     and $current->{'parent'}->{'type'} eq 'def_line'))) {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
          { 'type' => 'bracketed_arg',
@@ -5901,8 +5920,7 @@ sub _handle_open_brace($$$$)
   # within an @-command as { is simply added as seen just above.
   } elsif ($self->_top_context() eq 'ct_math'
            or $self->_top_context() eq 'ct_rawpreformatted'
-           or $self->_top_context() eq 'ct_inlineraw'
-           or $self->_top_context() eq 'ct_linecommand') {
+           or $self->_top_context() eq 'ct_inlineraw') {
     _abort_empty_line($self, $current);
     my $balanced_braces = {'type' => 'balanced_braces',
                            'contents' => [],
@@ -6640,24 +6658,18 @@ sub _process_remaining_on_line($$$$)
             $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
           }
         }
-        if ($macro_call_element
-            and $macro_call_element->{'type'} eq 'linemacro_call') {
-          # do nothing, the linemacro defined command call is done at the
-          # end of the line after parsing the line similarly as for @def*
-        } else {
-          $line = $arg_line;
-          if ($macro_call_element) {
-            # directly get the following input (macro expansion text) instead
-            # of going through the next call of process_remaining_on_line and
-            # the processing of empty text.  No difference in output, more
-            # efficient.
+        $line = $arg_line;
+        if ($macro_call_element) {
+          # directly get the following input (macro expansion text) instead
+          # of going through the next call of process_remaining_on_line and
+          # the processing of empty text.  No difference in output, more
+          # efficient.
 
-            ($line, $source_info) = _next_text($self, $current);
+          ($line, $source_info) = _next_text($self, $current);
 
-          }
-          return ($current, $line, $source_info, $retval);
-          # goto funexit;  # used in XS code
         }
+        return ($current, $line, $source_info, $retval);
+        # goto funexit;  # used in XS code
       }
       # expand value if it can change the line.  It considered again
       # together with other commands below for all the other cases
@@ -6788,9 +6800,7 @@ sub _process_remaining_on_line($$$$)
            __("command `\@%s' must not be followed by new line"),
            $current->{'cmdname'}), $source_info);
         my $top_context = $self->_top_context();
-        if ($top_context eq 'ct_line' or $top_context eq 'ct_def'
-            # FIXME check that it is correct and add a test case
-            or $top_context eq 'ct_linecommand') {
+        if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
           # do not consider the end of line to be possibly between
           # the @-command and the argument if at the end of a
           # line or block @-command.
@@ -6926,22 +6936,6 @@ sub _process_remaining_on_line($$$$)
       }
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
-    } elsif ($macro_call_element) {
-      # linemacro defined command call
-      push @{$current->{'contents'}}, $macro_call_element;
-      $macro_call_element->{'parent'} = $current;
-      $self->_push_context('ct_linecommand', $command);
-      $self->{'in_parsing_only'}++;
-      $current = $macro_call_element;
-      $current->{'args'} = [];
-      my $line_arg = { 'type' => 'line_arg',
-                        'parent' => $current };
-      push @{$current->{'args'}}, $line_arg;
-      $current = $line_arg;
-      $line = _start_empty_line_after_command($line, $current,
-                                              $macro_call_element);
-      return ($current, $line, $source_info, $retval);
-      # goto funexit;  # used in XS code
     }
 
     if (defined($deprecated_commands{$command})) {
@@ -6950,13 +6944,7 @@ sub _process_remaining_on_line($$$$)
     }
 
     # special case with @ followed by a newline protecting end of lines
-    # in linemacro invokations and @def*
-    if ($self->_top_context() eq 'ct_linecommand' and $command eq "\n") {
-      my $command_e = {'cmdname' => $command, 'parent' => $current};
-      push @{$current->{'contents'}}, $command_e;
-      $retval = $GET_A_NEW_LINE;
-      return ($current, $line, $source_info, $retval);
-    }
+    # in @def*
     my $def_line_continuation
       = ($self->_top_context() eq 'ct_def' and $command eq "\n");
 
@@ -7131,16 +7119,6 @@ sub _parse_texi($$$)
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
       print STDERR "NEXT_LINE NO MORE\n" if ($self->{'DEBUG'});
-      # if we are in a linemacro command expansion and at the end
-      # of input, there may actually be more input after the expansion.
-      # So we call _end_line to trigger the expansion.
-      my @context_stack = $self->_get_context_stack;
-      foreach my $context (@context_stack) {
-        if ($context eq 'ct_linecommand') {
-          $current = _end_line($self, $current, $source_info);
-          next NEXT_LINE;
-        }
-      }
       last;
     }
     #print STDERR "@{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}}|$line"
@@ -7183,8 +7161,7 @@ sub _parse_texi($$$)
             and $current->{'parent'}->{'cmdname'} eq 'verb')
           )
         # not def line
-        and $self->_top_context() ne 'ct_def'
-        and $self->_top_context() ne 'ct_linecommand') {
+        and $self->_top_context() ne 'ct_def') {
       next NEXT_LINE if _check_line_directive ($self, $line, $source_info);
       print STDERR "BEGIN LINE\n" if ($self->{'DEBUG'});
 

@@ -108,71 +108,43 @@ $result_trees{'braces_after_text'} = {
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'text'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'in paren'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
-                              },
+                                'text' => 'text{in paren}'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
                               {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
+                                'text' => 'rest{in paren}'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'rest'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'in paren'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
+                                'text' => '',
                                 'type' => 'bracketed_arg'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'mymacro'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -180,8 +152,7 @@ $result_trees{'braces_after_text'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 }
               ],
               'type' => 'def_item'
@@ -248,6 +219,14 @@ $result_trees{'braces_after_text'} = {
                   ],
                   'info' => {
                     'spaces_after_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ' 
 '
                     }
@@ -271,13 +250,6 @@ $result_trees{'braces_after_text'} = {
                 'line_nr' => 6,
                 'macro' => 'mymacro'
               },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {

@@ -41,8 +41,6 @@ Some text @mycommand {a
  call}
 and after.
 '],
-# FIXME currently incorrect output, probably because @end is handled
-# when the linemacro is processed.
 ['blockitem_no_item',
 '@linemacro mycommand {a, b, c}
 \a\, \b\ \c\
@@ -227,9 +225,8 @@ inside {\a\ operator \b\} \rest\
 @outside {type} {a function} @inside {X} {Y} ( remaining, type typed )
 @end defblock
 '],
-# following example has incorrect braces in many places and
-# in particular the bracketed opened with @inside in it is
-# not closed, this makes it an interesting case.
+# note that the bracketed in @inside ends up on the @cindex line where
+# it is not valid
 ['nested_linemacro_calls',
 '@linemacro inside {a, b}
 inside {\a\ operator \b\}
@@ -244,7 +241,6 @@ inside {\a\ operator \b\}
 @outside {type} {@inside {X} {Y}} ( remaining, type typed )
 @end defblock
 '],
-# FIXME this construct is ok in Texinfo TeX, should be valid
 ['end_conditional_in_linemacro',
 '@linemacro lm {a}
 \a\

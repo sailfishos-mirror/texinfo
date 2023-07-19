@@ -34,7 +34,12 @@ const char *digit_chars = "0123456789";
 
 /* in the perl parser, comments including whitespace_chars_except_newline
    show where code should be changed if the list of characters changes here */
-const char *whitespace_chars_except_newline = " \t\v\f";
+#define WHITESPACE_CHARS_EXCEPT_NEWLINE " \t\v\f"
+const char *whitespace_chars_except_newline = WHITESPACE_CHARS_EXCEPT_NEWLINE;
+
+const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
+                                               "{}@";
+#undef WHITESPACE_CHARS_EXCEPT_NEWLINE
 
 /* count characters, not bytes. */
 size_t
@@ -186,8 +191,6 @@ check_space_element (ELEMENT *e)
     }
   return 1;
 }
-
-int in_parsing_only = 0;
 
 
 /* Current node, section and part. */
@@ -1761,14 +1764,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (from_alias != CM_NONE)
             add_info_string_dup (macro_call_element, "alias_of",
                                  command_name (from_alias));
-        }
-      if (macro_call_element && macro_call_element->type == ET_linemacro_call)
-       /* do nothing, the linemacro defined command call is done at the
-          end of the line after parsing the line similarly as for @def* */
-        {
-        }
-      else if (macro_call_element)
-        {
+
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
              the processing of empty text.  No difference in output, more
@@ -1964,9 +1960,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->cmd));
                    if (current_context() == ct_def
-                       || current_context() == ct_line
-                     /* FIXME check that it is correct and add a test case */
-                       || current_context() == ct_linecommand)
+                       || current_context() == ct_line)
                      {
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
@@ -2176,19 +2170,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               goto funexit;
             }
         }
-      else if (macro_call_element)
-        {
-          ELEMENT *line_arg = new_element (ET_line_arg);
-
-          add_to_element_contents (current, macro_call_element);
-          push_context (ct_linecommand, cmd);
-          in_parsing_only++;
-          current = macro_call_element;
-          add_to_element_args (current, line_arg);
-          current = line_arg;
-          start_empty_line_after_command (current, &line, macro_call_element);
-          goto funexit;
-        }
 
       /* Warn on deprecated command */
       if (command_data(cmd).flags & CF_deprecated)
@@ -2209,15 +2190,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
 
       /* special case with @ followed by a newline protecting end of lines
-         in linemacro invokations and @def* */
-      if (current_context () == ct_linecommand && cmd == CM_NEWLINE)
-        {
-          ELEMENT *command_e = new_element (ET_NONE);
-          command_e->cmd = cmd;
-          add_to_element_contents (current, command_e);
-          retval = GET_A_NEW_LINE;
-          goto funexit;
-        }
+         in  @def* */
       def_line_continuation = (current_context() == ct_def
                                && cmd == CM_NEWLINE);
 
@@ -2519,16 +2492,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       if (!allocated_line)
         {
           debug ("NEXT_LINE NO MORE");
-          if (in_context (ct_linecommand))
-            {
-              /*
-              if we are in a linemacro command expansion and at the end
-              of input, there may actually be more input after the expansion.
-              So we call end_line to trigger the expansion.
-              */
-              current = end_line (current);
-              continue;
-            }
           break; /* Out of input. */
         }
 
@@ -2545,8 +2508,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                  || (command_data(current->cmd).data == BLOCK_format_raw
                      && !format_expanded_p (command_name(current->cmd)))))
             || current->parent && current->parent->cmd == CM_verb)
-          && current_context () != ct_def
-          && current_context () != ct_linecommand)
+          && current_context () != ct_def)
         {
           ELEMENT *e;
           int n;

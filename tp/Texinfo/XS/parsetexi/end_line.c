@@ -649,161 +649,20 @@ end_line_def_line (ELEMENT *current)
   enum command_id top_cmd = current_context_command ();
   enum context top_context = pop_context ();
 
-  if (top_context != ct_def && top_context != ct_linecommand)
-    fatal ("def or linecommand context expected");
+  if (top_context != ct_def)
+    fatal ("def context expected");
 
-  if (top_context == ct_def)
-    {
-      k = lookup_extra (current->parent, "def_command");
-      def_command = lookup_command ((char *) k->value);
-    }
-  else
-    {
-      in_parsing_only--;
-      /* The following also works
-      k = lookup_extra (current->parent, "name");
-      def_command = lookup_command ((char *) k->value);
-      */
-      def_command = top_cmd;
-    }
+  k = lookup_extra (current->parent, "def_command");
+  def_command = lookup_command ((char *) k->value);
 
-  debug_nonl ("END DEF LINE %s %s; current ",
-     top_context == ct_def ? "ct_def"
-     : top_context == ct_linecommand ? "ct_linecommand" : "",
-     command_name(def_command));
+  debug_nonl ("END DEF LINE %s; current ",
+               command_name(def_command));
   debug_print_element (current, 1); debug ("");
 
   def_info = parse_def (def_command, current);
 
-  /* def_line or linemacro_call */
+  /* def_line */
   current = current->parent;
-
-  if (top_context != ct_def)
-    {
-      /* convert arguments tree elements back to Texinfo text and substitute */
-      int args_number;
-      MACRO *macro_record = lookup_macro (def_command);
-      ELEMENT *macro;
-      ELEMENT *macro_args = 0;
-      ELEMENT *popped;
-      TEXT expanded;
-      SOURCE_MARK *macro_source_mark;
-      char *expanded_macro_text;
-
-      if (!macro_record)
-        fatal ("no linemacro record for expansion");
-
-      text_init (&expanded);
-
-      macro = macro_record->element;
-      args_number = macro->args.number - 1;
-
-      if (args_number > 0)
-        {
-          int def_info_index;
-          macro_args = new_element (ET_NONE);
-          for (def_info_index = 0; def_info_index < args_number; def_info_index++)
-            {
-              char *argument_text;
-              ELEMENT *macro_arg_text;
-              ELEMENT *macro_arg_element;
-
-              if (!def_info[def_info_index])
-                break;
-              /* convert the argument to a Texinfo string */
-              if (def_info[def_info_index]->element)
-                {
-                  ELEMENT *arg = def_info[def_info_index]->element;
-                  if (arg->type == ET_bracketed_arg)
-                    {
-                      /* duplicate leading and trailing spaces info */
-                      ELEMENT *spaces_before
-                        = lookup_info_element (arg, "spaces_before_argument");
-                      ELEMENT *spaces_after
-                        = lookup_info_element (arg, "spaces_after_argument");
-
-                      if (arg->contents.number > 0
-                          || spaces_before || spaces_after)
-                        {
-                          ELEMENT *tmp_element = new_element (ET_NONE);
-                          tmp_element->contents = arg->contents;
-                          if (spaces_before)
-                            {
-                              ELEMENT *spaces_element = new_element (ET_NONE);
-                              text_append (&spaces_element->text,
-                                           (char *)spaces_before->text.text);
-                              add_info_element_oot (tmp_element,
-                                                    "spaces_before_argument",
-                                                    spaces_element);
-                            }
-                          if (spaces_after)
-                            {
-                              ELEMENT *spaces_element = new_element (ET_NONE);
-                              text_append (&spaces_element->text,
-                                           (char *)spaces_after->text.text);
-                              add_info_element_oot (tmp_element,
-                                                    "spaces_after_argument",
-                                                    spaces_element);
-                            }
-                          argument_text = convert_to_texinfo (tmp_element);
-                          tmp_element->contents.list = 0;
-                          destroy_element (tmp_element);
-                        }
-                      else
-                        argument_text = strdup("");
-                    }
-                  else
-                    argument_text = convert_to_texinfo (arg);
-                }
-              else
-                argument_text = strdup("");
-
-              free (def_info[def_info_index]->arg_type);
-              free (def_info[def_info_index]);
-
-              /* setup an argument suitable for expand_macro_body and
-                 add it to macro_args */
-              macro_arg_text = new_element (ET_NONE);
-              text_append (&macro_arg_text->text, argument_text);
-              free (argument_text);
-              macro_arg_element = new_element (ET_NONE);
-              add_to_element_contents (macro_arg_element, macro_arg_text);
-              add_to_element_args (macro_args, macro_arg_element);
-            }
-        }
-      free (def_info);
-
-      expand_macro_body (macro_record, macro_args, &expanded);
-      debug ("LINEMACROBODY: %s||||||", expanded.text);
-
-      if (expanded.text)
-        expanded_macro_text = expanded.text;
-      else
-        /* we want to always have a text for the source mark */
-        expanded_macro_text = strdup ("");
-      input_push_text (expanded_macro_text, current_source_info.line_nr,
-                       command_name(def_command), 0);
-
-      macro_source_mark = new_source_mark (SM_type_linemacro_expansion);
-      macro_source_mark->status = SM_status_start;
-      /* at this point current is the linemacro_call container,
-         associate it to the source mark */
-      macro_source_mark->element = current;
-
-      current = current->parent;
-      /* remove the linemacro_call container from the main tree.
-         The container holds the arguments Texinfo elements tree */
-      popped = pop_element_from_contents (current);
-      popped->parent = 0;
-
-      register_source_mark (current, macro_source_mark);
-      set_input_source_mark (macro_source_mark);
-
-      if (macro_args)
-        destroy_element_and_children (macro_args);
-
-      return current;
-    }
 
   /* Record the index entry if def_info is not empty. */
 
@@ -1327,16 +1186,11 @@ end_line_misc_line (ELEMENT *current)
   if (cmd == CM_item)
     data_cmd = CM_item_LINE;
 
-  if (!cmd && !current->parent->type == ET_linemacro_call)
-    fatal ("command name unknown for line command end");
-
-  /* FIXME add a condition to avoid linecommands? */
   if (command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
   isolate_last_space (current);
 
-  if (current->parent->type == ET_def_line
-      || current->parent->type == ET_linemacro_call)
+  if (current->parent->type == ET_def_line)
     return end_line_def_line (current);
 
   current = current->parent;
@@ -1859,7 +1713,6 @@ ELEMENT *
 end_line (ELEMENT *current)
 {
   ELEMENT *current_old = current; /* Used at very end of function */
-  char *in_macro_expansion = 0;
 
   /* If empty line, start a new paragraph. */
   if (last_contents_child (current)
@@ -1930,28 +1783,13 @@ end_line (ELEMENT *current)
 
   else if (current->type == ET_line_arg)
     {
-      if (current->parent->type == ET_linemacro_call)
-        {
-          KEY_PAIR *k = lookup_extra (current->parent, "name");
-          in_macro_expansion = (char *)k->value;
-        }
       current = end_line_misc_line (current);
     }
 
   /* 'line' or 'def' at top of "context stack" - this happens when
      line commands are nested (always incorrectly?) */
-  if (current_context () == ct_line || current_context () == ct_def
-       || current_context () == ct_linecommand)
+  if (current_context () == ct_line || current_context () == ct_def)
     {
-      if (in_macro_expansion)
-        /* if in a linemacro command call nested on a line, we do not close
-           the preceding commands yet, as they might use the expansion */
-        {
-          debug_nonl ("Expanded @%s still line/block %s: ", in_macro_expansion,
-                      context_name (current_context ()));
-          debug_print_element (current, 1); debug("");
-          return current;
-        }
       debug_nonl ("Still opened line/block command %s: ",
                   context_name (current_context ()));
       debug_print_element (current, 1); debug("");
@@ -1959,14 +1797,6 @@ end_line (ELEMENT *current)
         {
           while (current->parent
                  && current->parent->type != ET_def_line)
-            {
-              current = close_current (current, 0, 0);
-            }
-        }
-      else if (current_context () == ct_linecommand)
-        {
-          while (current->parent
-                 && current->parent->type != ET_linemacro_call)
             {
               current = close_current (current, 0, 0);
             }

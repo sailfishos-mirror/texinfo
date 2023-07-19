@@ -89,11 +89,6 @@ $result_trees{'spaces_in_args'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -102,89 +97,55 @@ $result_trees{'spaces_in_args'} = {
                   {
                     'contents' => [
                       {
-                        'contents' => [
-                          {
-                            'text' => 'a'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => ' '
-                          },
-                          'spaces_before_argument' => {
-                            'text' => '  '
-                          }
-                        },
-                        'type' => 'bracketed_arg'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'd'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '  '
-                          },
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'bracketed_arg'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'rest'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => '   '
-                          }
-                        },
+                        'text' => '  a ',
                         'type' => 'bracketed_arg'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => ' d  ',
+                        'type' => 'bracketed_arg'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => '   rest',
+                        'type' => 'bracketed_arg'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'mylinecommand'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -309,6 +270,14 @@ $result_trees{'spaces_in_args'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 8,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'defblock'
                     }
                   ],
@@ -341,14 +310,7 @@ $result_trees{'spaces_in_args'} = {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => 'mylinecommand'
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ]
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -356,7 +318,7 @@ $result_trees{'spaces_in_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'spaces_in_args'} = '@linemacro mylinecommand {first, second, rest}
 @defblock

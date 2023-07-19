@@ -186,6 +186,7 @@ void set_accept_internalvalue (void);
 char *element_type_name (ELEMENT *e);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);
+char *parse_command_name (char **ptr, int *single_char);
 
 /* Return values */
 #define GET_A_NEW_LINE 0
@@ -193,9 +194,8 @@ void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 #define FINISHED_TOTALLY 2
 
 extern const char *whitespace_chars, *whitespace_chars_except_newline;
+extern const char *linecommand_expansion_delimiters;
 extern const char *digit_chars;
-
-extern int in_parsing_only;
 
 extern ELEMENT *current_node;
 extern ELEMENT *current_section;

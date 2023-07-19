@@ -109,83 +109,31 @@ $result_trees{'last_argument_with_braces'} = {
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'my foo'
-                                  }
-                                ],
+                                'text' => 'my foo',
                                 'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'a'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'last'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'type' => 'bracketed_arg'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'arg'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'ument'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'a last {} arg{ument}'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -193,8 +141,7 @@ $result_trees{'last_argument_with_braces'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 }
               ],
               'type' => 'def_item'
@@ -383,6 +330,13 @@ $result_trees{'last_argument_with_braces'} = {
                         'line_nr' => 7,
                         'macro' => 'defbuiltin'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'type' => 'bracketed_arg'
                     }
                   ],
@@ -411,22 +365,10 @@ $result_trees{'last_argument_with_braces'} = {
                 'line_nr' => 7,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {
               'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
                 {
                   'source_marks' => [
                     {
@@ -436,63 +378,41 @@ $result_trees{'last_argument_with_braces'} = {
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'my foo'
-                                  }
-                                ],
+                                'text' => 'my foo',
                                 'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'type' => 'bracketed_arg'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'type' => 'bracketed_arg'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '{} {}'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
                         },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
                         'type' => 'linemacro_call'
                       },
+                      'position' => 1,
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
+                  'text' => '
+',
                   'type' => 'empty_line'
                 }
               ],
@@ -645,6 +565,13 @@ $result_trees{'last_argument_with_braces'} = {
                         'line_nr' => 9,
                         'macro' => 'defbuiltin'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'type' => 'bracketed_arg'
                     }
                   ],
@@ -673,22 +600,10 @@ $result_trees{'last_argument_with_braces'} = {
                 'line_nr' => 9,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {
               'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
                 {
                   'source_marks' => [
                     {
@@ -698,93 +613,41 @@ $result_trees{'last_argument_with_braces'} = {
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'my foo'
-                                  }
-                                ],
+                                'text' => 'my foo',
                                 'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'second arg'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'remaining'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'on'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'line'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '{second arg} remaining on {line}'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'defbuiltin'
                         },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
                         'type' => 'linemacro_call'
                       },
+                      'position' => 1,
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
+                  'text' => '
+',
                   'type' => 'empty_line'
                 }
               ],
@@ -973,6 +836,13 @@ $result_trees{'last_argument_with_braces'} = {
                         'line_nr' => 11,
                         'macro' => 'defbuiltin'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'type' => 'bracketed_arg'
                     }
                   ],
@@ -1001,13 +871,6 @@ $result_trees{'last_argument_with_braces'} = {
                 'line_nr' => 11,
                 'macro' => 'defbuiltin'
               },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {

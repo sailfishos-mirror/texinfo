@@ -206,241 +206,50 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                 {
                   'source_marks' => [
                     {
-                      'counter' => 2,
+                      'counter' => 1,
                       'element' => {
                         'args' => [
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'type'
-                                  }
-                                ],
+                                'text' => 'type',
                                 'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'a function'
-                                  }
-                                ],
-                                'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'source_marks' => [
-                                  {
-                                    'counter' => 1,
-                                    'element' => {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'X'
-                                                }
-                                              ],
-                                              'type' => 'bracketed_arg'
-                                            },
-                                            {
-                                              'extra' => {
-                                                'def_role' => 'spaces'
-                                              },
-                                              'text' => ' ',
-                                              'type' => 'spaces'
-                                            },
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'Y'
-                                                }
-                                              ],
-                                              'type' => 'bracketed_arg'
-                                            },
-                                            {
-                                              'extra' => {
-                                                'def_role' => 'spaces'
-                                              },
-                                              'text' => ' ',
-                                              'type' => 'spaces'
-                                            },
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => '('
-                                                },
-                                                {
-                                                  'extra' => {
-                                                    'def_role' => 'spaces'
-                                                  },
-                                                  'text' => ' ',
-                                                  'type' => 'spaces'
-                                                },
-                                                {
-                                                  'text' => 'remaining,'
-                                                },
-                                                {
-                                                  'extra' => {
-                                                    'def_role' => 'spaces'
-                                                  },
-                                                  'text' => ' ',
-                                                  'type' => 'spaces'
-                                                },
-                                                {
-                                                  'text' => 'type'
-                                                },
-                                                {
-                                                  'extra' => {
-                                                    'def_role' => 'spaces'
-                                                  },
-                                                  'text' => ' ',
-                                                  'type' => 'spaces'
-                                                },
-                                                {
-                                                  'text' => 'typed'
-                                                },
-                                                {
-                                                  'extra' => {
-                                                    'def_role' => 'spaces'
-                                                  },
-                                                  'text' => ' ',
-                                                  'type' => 'spaces'
-                                                },
-                                                {
-                                                  'text' => ')'
-                                                }
-                                              ],
-                                              'type' => 'def_aggregate'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'name' => 'inside'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'type' => 'linemacro_call'
-                                    },
-                                    'position' => 1,
-                                    'sourcemark_type' => 'linemacro_expansion',
-                                    'status' => 'start'
-                                  }
-                                ],
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'inside'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'X operator Y'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => '('
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'remaining,'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'type'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'typed'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => ')'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'a function',
+                                'type' => 'bracketed_arg'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '@inside {X} {Y} ( remaining, type typed )'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'outside'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -448,8 +257,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 }
               ],
               'type' => 'def_item'
@@ -491,6 +299,60 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'element' => {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'X',
+                                    'type' => 'bracketed_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'Y',
+                                    'type' => 'bracketed_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => '( remaining, type typed )'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'inside'
+                            },
+                            'type' => 'linemacro_call'
+                          },
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -519,7 +381,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 13,
-                        'macro' => 'outside'
+                        'macro' => 'inside'
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -594,6 +456,14 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ')',
                       'type' => 'delimiter'
                     }
@@ -632,6 +502,14 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'position' => 10,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
                           'text' => 'a function'
                         }
                       ],
@@ -662,18 +540,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     'line_nr' => 13,
                     'macro' => 'outside'
                   },
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 1,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
                   'type' => 'index_entry_command'
                 }
               ],

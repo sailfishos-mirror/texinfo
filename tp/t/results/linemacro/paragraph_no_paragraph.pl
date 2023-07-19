@@ -95,93 +95,42 @@ $result_trees{'paragraph_no_paragraph'} = {
                   {
                     'contents' => [
                       {
-                        'args' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'aa'
-                              }
-                            ],
-                            'type' => 'brace_command_arg'
-                          }
-                        ],
-                        'cmdname' => 'anchor',
-                        'extra' => {
-                          'normalized' => 'aa'
-                        },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 5,
-                          'macro' => ''
-                        }
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'text' => 'definite'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'and'
-                          },
-                          {
-                            'extra' => {
-                              'def_role' => 'spaces'
-                            },
-                            'text' => ' ',
-                            'type' => 'spaces'
-                          },
-                          {
-                            'args' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'more'
-                                  }
-                                ],
-                                'type' => 'brace_command_arg'
-                              }
-                            ],
-                            'cmdname' => 'code',
-                            'source_info' => {
-                              'file_name' => '',
-                              'line_nr' => 5,
-                              'macro' => ''
-                            }
-                          }
-                        ],
-                        'type' => 'def_aggregate'
+                        'text' => '@anchor{aa}'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'definite'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'and @code{more}'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'mycommand'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -204,6 +153,9 @@ $result_trees{'paragraph_no_paragraph'} = {
             }
           ],
           'cmdname' => 'anchor',
+          'extra' => {
+            'normalized' => 'aa'
+          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -231,17 +183,16 @@ $result_trees{'paragraph_no_paragraph'} = {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'mycommand'
-              }
-            },
-            {
+              },
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'position' => 1,
                   'sourcemark_type' => 'linemacro_expansion',
                   'status' => 'end'
                 }
-              ],
+              ]
+            },
+            {
               'text' => '
 '
             }
@@ -264,30 +215,45 @@ $result_trees{'paragraph_no_paragraph'} = {
                       {
                         'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'a'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
+                            'text' => 'a
+  protected',
                             'type' => 'bracketed_arg'
                           }
                         ],
-                        'type' => 'line_arg'
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        }
+                      },
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'in'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        }
+                      },
+                      {
+                        'contents' => [
+                          {
+                            'text' => '@var{the
+ call}'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        }
                       }
                     ],
                     'extra' => {
                       'name' => 'mycommand'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
                     },
                     'type' => 'linemacro_call'
                   },
@@ -300,19 +266,7 @@ $result_trees{'paragraph_no_paragraph'} = {
 '
             },
             {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 4,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ',  
-'
-            },
-            {
-              'text' => '  protected in '
+              'text' => '  protected, in '
             },
             {
               'args' => [
@@ -332,9 +286,16 @@ $result_trees{'paragraph_no_paragraph'} = {
               'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
-              }
+                'line_nr' => 9,
+                'macro' => 'mycommand'
+              },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -361,8 +322,7 @@ $result_texis{'paragraph_no_paragraph'} = '@linemacro mycommand {a, b, c}
 @* @anchor{aa}, definite and @code{more}
 
 Some text a
-,  
-  protected in @var{the
+  protected, in @var{the
  call}
 and after.
 ';
@@ -373,51 +333,12 @@ $result_texts{'paragraph_no_paragraph'} = '
  , definite and more
 
 Some text a
-,  
-  protected in the
+  protected, in the
  call
 and after.
 ';
 
-$result_errors{'paragraph_no_paragraph'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor `aa\' previously defined (possibly involving @mycommand)
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => 'mycommand',
-    'text' => '@anchor `aa\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @anchor
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  }
-];
+$result_errors{'paragraph_no_paragraph'} = [];
 
 
 $result_floats{'paragraph_no_paragraph'} = {};

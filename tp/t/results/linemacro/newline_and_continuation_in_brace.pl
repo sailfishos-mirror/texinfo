@@ -113,110 +113,45 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'a'
-                                  },
-                                  {
-                                    'args' => [
-                                      {
-                                        'contents' => [
-                                          {
-                                            'text' => 'b c'
-                                          }
-                                        ],
-                                        'type' => 'brace_command_arg'
-                                      }
-                                    ],
-                                    'cmdname' => 'code',
-                                    'source_info' => {
-                                      'file_name' => '',
-                                      'line_nr' => 7,
-                                      'macro' => ''
-                                    }
-                                  },
-                                  {
-                                    'text' => 'd'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'some arg '
-                                  },
-                                  {
-                                    'cmdname' => '
-'
-                                  },
-                                  {
-                                    'text' => '   b'
-                                  }
-                                ],
-                                'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'next '
-                                      },
-                                      {
-                                        'cmdname' => '
-'
-                                      },
-                                      {
-                                        'text' => '   last'
-                                      }
-                                    ],
-                                    'type' => 'bracketed_arg'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'line'
-                                  }
-                                ],
-                                'type' => 'def_aggregate'
+                                'text' => 'a@code{b c}d'
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
+                              'spaces_before_argument' => {
+                                'text' => ' '
                               }
-                            },
-                            'type' => 'line_arg'
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'some arg @
+   b',
+                                'type' => 'bracketed_arg'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '{next @
+   last} line'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'mylinecommand'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -224,8 +159,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 }
               ],
               'type' => 'def_item'
@@ -366,6 +300,14 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 4,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'line'
                     }
                   ],
@@ -394,13 +336,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                 'line_nr' => 9,
                 'macro' => 'mylinecommand'
               },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
               'type' => 'def_line'
             },
             {

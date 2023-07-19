@@ -108,10 +108,6 @@ $result_trees{'blockitem_no_item'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'AA
-'
-                    },
-                    {
                       'source_marks' => [
                         {
                           'counter' => 1,
@@ -121,63 +117,59 @@ $result_trees{'blockitem_no_item'} = {
                                 'contents' => [
                                   {
                                     'text' => 'd'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'text' => 'e'
-                                  },
-                                  {
-                                    'extra' => {
-                                      'def_role' => 'spaces'
-                                    },
-                                    'text' => ' ',
-                                    'type' => 'spaces'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'f'
-                                      },
-                                      {
-                                        'extra' => {
-                                          'def_role' => 'spaces'
-                                        },
-                                        'text' => ' ',
-                                        'type' => 'spaces'
-                                      },
-                                      {
-                                        'cmdname' => '
-'
-                                      }
-                                    ],
-                                    'type' => 'def_aggregate'
                                   }
                                 ],
-                                'type' => 'line_arg'
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'e'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'f @
+@end itemize'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
                               }
                             ],
                             'extra' => {
                               'name' => 'mycommand'
                             },
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
                             'type' => 'linemacro_call'
                           },
+                          'position' => 3,
                           'sourcemark_type' => 'linemacro_expansion',
                           'status' => 'start'
                         }
                       ],
-                      'text' => '',
-                      'type' => 'empty_line'
+                      'text' => 'AA
+'
+                    },
+                    {
+                      'text' => 'd, e f '
+                    },
+                    {
+                      'cmdname' => '
+'
                     }
                   ],
                   'type' => 'paragraph'
@@ -190,6 +182,14 @@ $result_trees{'blockitem_no_item'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 7,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'itemize'
                     }
                   ],
@@ -214,7 +214,7 @@ $result_trees{'blockitem_no_item'} = {
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
-                'macro' => ''
+                'macro' => 'mycommand'
               }
             }
           ],
@@ -226,31 +226,6 @@ $result_trees{'blockitem_no_item'} = {
             'line_nr' => 5,
             'macro' => ''
           }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'd, e f '
-            },
-            {
-              'cmdname' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -266,27 +241,16 @@ $result_texis{'blockitem_no_item'} = '@linemacro mycommand {a, b, c}
 
 @itemize
 AA
-@end itemize
 d, e f @
-
+@end itemize
 ';
 
 
 $result_texts{'blockitem_no_item'} = '
 AA
-d, e f  
-';
+d, e f  ';
 
 $result_errors{'blockitem_no_item'} = [
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
   {
     'error_line' => 'warning: @itemize has text but no @item
 ',

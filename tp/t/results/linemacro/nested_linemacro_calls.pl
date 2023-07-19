@@ -177,192 +177,50 @@ $result_trees{'nested_linemacro_calls'} = {
                 {
                   'source_marks' => [
                     {
-                      'counter' => 2,
+                      'counter' => 1,
                       'element' => {
                         'args' => [
                           {
                             'contents' => [
                               {
-                                'contents' => [
-                                  {
-                                    'text' => 'type'
-                                  }
-                                ],
-                                'type' => 'bracketed_arg'
-                              },
-                              {
-                                'extra' => {
-                                  'def_role' => 'spaces'
-                                },
-                                'text' => ' ',
-                                'type' => 'spaces'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'source_marks' => [
-                                      {
-                                        'counter' => 1,
-                                        'element' => {
-                                          'args' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'contents' => [
-                                                    {
-                                                      'text' => 'X'
-                                                    }
-                                                  ],
-                                                  'type' => 'bracketed_arg'
-                                                },
-                                                {
-                                                  'extra' => {
-                                                    'def_role' => 'spaces'
-                                                  },
-                                                  'text' => ' ',
-                                                  'type' => 'spaces'
-                                                },
-                                                {
-                                                  'contents' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'Y'
-                                                        }
-                                                      ],
-                                                      'type' => 'bracketed_arg'
-                                                    },
-                                                    {
-                                                      'extra' => {
-                                                        'def_role' => 'spaces'
-                                                      },
-                                                      'text' => ' ',
-                                                      'type' => 'spaces'
-                                                    },
-                                                    {
-                                                      'text' => '('
-                                                    },
-                                                    {
-                                                      'extra' => {
-                                                        'def_role' => 'spaces'
-                                                      },
-                                                      'text' => ' ',
-                                                      'type' => 'spaces'
-                                                    },
-                                                    {
-                                                      'text' => 'remaining,'
-                                                    },
-                                                    {
-                                                      'extra' => {
-                                                        'def_role' => 'spaces'
-                                                      },
-                                                      'text' => ' ',
-                                                      'type' => 'spaces'
-                                                    },
-                                                    {
-                                                      'text' => 'type'
-                                                    },
-                                                    {
-                                                      'extra' => {
-                                                        'def_role' => 'spaces'
-                                                      },
-                                                      'text' => ' ',
-                                                      'type' => 'spaces'
-                                                    },
-                                                    {
-                                                      'text' => 'typed'
-                                                    },
-                                                    {
-                                                      'extra' => {
-                                                        'def_role' => 'spaces'
-                                                      },
-                                                      'text' => ' ',
-                                                      'type' => 'spaces'
-                                                    },
-                                                    {
-                                                      'text' => ')'
-                                                    }
-                                                  ],
-                                                  'type' => 'def_aggregate'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'spaces_after_argument' => {
-                                                  'text' => '
-'
-                                                }
-                                              },
-                                              'type' => 'line_arg'
-                                            }
-                                          ],
-                                          'extra' => {
-                                            'name' => 'inside'
-                                          },
-                                          'info' => {
-                                            'spaces_before_argument' => {
-                                              'text' => ' '
-                                            }
-                                          },
-                                          'type' => 'linemacro_call'
-                                        },
-                                        'sourcemark_type' => 'linemacro_expansion',
-                                        'status' => 'start'
-                                      }
-                                    ],
-                                    'text' => ''
-                                  },
-                                  {
-                                    'text' => 'inside '
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => '{X operator '
-                                      },
-                                      {
-                                        'contents' => [
-                                          {
-                                            'text' => '{Y}'
-                                          }
-                                        ],
-                                        'source_info' => {
-                                          'file_name' => '',
-                                          'line_nr' => 11,
-                                          'macro' => 'inside'
-                                        },
-                                        'type' => 'balanced_braces'
-                                      },
-                                      {
-                                        'text' => ' ( remaining, type typed )}'
-                                      }
-                                    ],
-                                    'source_info' => {
-                                      'file_name' => '',
-                                      'line_nr' => 11,
-                                      'macro' => 'inside'
-                                    },
-                                    'type' => 'balanced_braces'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
+                                'text' => 'type',
                                 'type' => 'bracketed_arg'
                               }
                             ],
-                            'type' => 'line_arg'
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '@inside {X} {Y}',
+                                'type' => 'bracketed_arg'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => '( remaining, type typed )'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            }
                           }
                         ],
                         'extra' => {
                           'name' => 'outside'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -370,8 +228,7 @@ $result_trees{'nested_linemacro_calls'} = {
                       'status' => 'start'
                     }
                   ],
-                  'text' => '',
-                  'type' => 'empty_line'
+                  'text' => ''
                 }
               ],
               'type' => 'def_item'
@@ -395,6 +252,49 @@ $result_trees{'nested_linemacro_calls'} = {
                     },
                     {
                       'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 2,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'X',
+                                        'type' => 'bracketed_arg'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
+                                  },
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => '{Y}} ( remaining, type typed )'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
+                                    }
+                                  }
+                                ],
+                                'extra' => {
+                                  'name' => 'inside'
+                                },
+                                'type' => 'linemacro_call'
+                              },
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
+                          'text' => ''
+                        },
                         {
                           'text' => 'inside X operator Y'
                         }
@@ -480,6 +380,14 @@ $result_trees{'nested_linemacro_calls'} = {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ')',
                       'type' => 'delimiter'
                     }
@@ -514,16 +422,19 @@ $result_trees{'nested_linemacro_calls'} = {
             {
               'contents' => [
                 {
-                  'text' => ' 
-',
-                  'type' => 'empty_line'
-                },
-                {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'text' => 'inside X operator Y ( remaining, type typed )'
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'position' => 19,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'inside X operator Y'
                         }
                       ],
                       'info' => {
@@ -544,6 +455,56 @@ $result_trees{'nested_linemacro_calls'} = {
                   },
                   'info' => {
                     'spaces_before_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'element' => {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'X',
+                                    'type' => 'bracketed_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'source_marks' => [
+                                      {
+                                        'counter' => 1,
+                                        'position' => 3,
+                                        'sourcemark_type' => 'linemacro_expansion',
+                                        'status' => 'end'
+                                      }
+                                    ],
+                                    'text' => 'Y',
+                                    'type' => 'bracketed_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                }
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'inside'
+                            },
+                            'type' => 'linemacro_call'
+                          },
+                          'position' => 1,
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => ' '
                     }
                   },
@@ -553,25 +514,6 @@ $result_trees{'nested_linemacro_calls'} = {
                     'macro' => 'outside'
                   },
                   'type' => 'index_entry_command'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'position' => 1,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 1,
-                      'position' => 1,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '
-',
-                  'type' => 'empty_line'
                 }
               ],
               'type' => 'def_item'
@@ -634,9 +576,7 @@ inside {\\a\\ operator \\b\\}
 
 @defblock
 @defline type {inside X operator Y} ( remaining, type typed )
- 
-@cindex inside X operator Y ( remaining, type typed )
-
+@cindex inside X operator Y
 @end defblock
 ';
 
@@ -644,17 +584,42 @@ inside {\\a\\ operator \\b\\}
 $result_texts{'nested_linemacro_calls'} = '
 
 type: inside X operator Y ( remaining, type typed )
- 
-
 ';
 
 $result_errors{'nested_linemacro_calls'} = [
   {
-    'error_line' => 'misplaced }
+    'error_line' => 'misplaced { (possibly involving @inside)
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
+    'macro' => 'inside',
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced { (possibly involving @inside)
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => 'inside',
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced } (possibly involving @inside)
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => 'inside',
+    'text' => 'misplaced }',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced } (possibly involving @inside)
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => 'inside',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -668,83 +633,20 @@ $result_errors{'nested_linemacro_calls'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'misplaced { (possibly involving @outside)
+    'error_line' => 'misplaced } (possibly involving @inside)
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
+    'macro' => 'inside',
     'text' => 'misplaced }',
     'type' => 'error'
   },
   {
-    'error_line' => 'misplaced } (possibly involving @outside)
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node (possibly involving @outside)
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => 'outside',
+    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }
@@ -756,7 +658,7 @@ $result_floats{'nested_linemacro_calls'} = {};
 
 $result_indices_sort_strings{'nested_linemacro_calls'} = {
   'cp' => [
-    'inside X operator Y ( remaining, type typed )'
+    'inside X operator Y'
   ]
 };
 

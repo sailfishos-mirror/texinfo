@@ -79,11 +79,6 @@ $result_trees{'text_arguments'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -93,52 +88,51 @@ $result_trees{'text_arguments'} = {
                     'contents' => [
                       {
                         'text' => 'X'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
+                  },
+                  {
+                    'contents' => [
                       {
                         'text' => 'Y'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    }
+                  },
+                  {
+                    'contents' => [
                       {
                         'text' => 'Z'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'nospace'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -179,7 +173,7 @@ $result_trees{'text_arguments'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'position' => 2,
+                  'position' => 1,
                   'sourcemark_type' => 'linemacro_expansion',
                   'status' => 'end'
                 }

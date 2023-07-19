@@ -1,3 +1,33 @@
+2023-07-19  Patrice Dumas  <pertusus@free.fr>
+
+	Reimplement linemacro arguments expansion in a separate function
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_linemacro_arguments)
+	(_end_line_misc_line, _end_line_def_line, _end_line, _handle_macro)
+	(_handle_open_brace, _process_remaining_on_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/context_stack.c (context_name),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line)
+	(end_line_misc_line, end_line), tp/Texinfo/XS/parsetexi/macro.c
+	(count_toplevel_braces, set_toplevel_braces_nr)
+	(expand_linemacro_arguments, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (linecommand_expansion_delimiters)
+	(process_remaining_on_line, parse_texi),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace):
+	use the expand_linemacro_arguments function directly in handle_macro
+	to parse the linemacro defined user commands arguments, such that they
+	are expanded in a second step only.  In the XS parser, use a specific
+	counter count_toplevel_braces, and use set_toplevel_braces_nr to count
+	closed braces.
+	Remove code related to the previous implementation.
+
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
+	(_end_line_def_line, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	remove global state in_parsing_only, which is not relevant with
+	the new implementation.
+
 2023-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_command_name)

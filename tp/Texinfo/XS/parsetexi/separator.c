@@ -210,8 +210,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
    */
   else if (current_context() == ct_math
            || current_context() == ct_rawpreformatted
-           || current_context() == ct_inlineraw
-           || current_context() == ct_linecommand)
+           || current_context() == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
       ELEMENT *open_brace = new_element (ET_NONE);

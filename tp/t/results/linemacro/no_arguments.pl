@@ -67,24 +67,17 @@ $result_trees{'no_arguments'} = {
           }
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 1,
               'element' => {
                 'args' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                    'contents' => [
+                      {
+                        'text' => ''
                       }
-                    },
-                    'type' => 'line_arg'
+                    ]
                   }
                 ],
                 'extra' => {
@@ -92,11 +85,13 @@ $result_trees{'no_arguments'} = {
                 },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -105,7 +100,7 @@ $result_trees{'no_arguments'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'position' => 6,
+                  'position' => 5,
                   'sourcemark_type' => 'linemacro_expansion',
                   'status' => 'end'
                 }
@@ -115,11 +110,6 @@ $result_trees{'no_arguments'} = {
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         },
         {
           'source_marks' => [
@@ -130,43 +120,28 @@ $result_trees{'no_arguments'} = {
                   {
                     'contents' => [
                       {
-                        'text' => 'A'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'text' => 'B'
+                        'text' => 'A B'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'noarg'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -175,7 +150,7 @@ $result_trees{'no_arguments'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'position' => 6,
+                  'position' => 5,
                   'sourcemark_type' => 'linemacro_expansion',
                   'status' => 'end'
                 }
@@ -187,11 +162,6 @@ $result_trees{'no_arguments'} = {
           'type' => 'paragraph'
         },
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
           'source_marks' => [
             {
               'counter' => 3,
@@ -200,38 +170,29 @@ $result_trees{'no_arguments'} = {
                   {
                     'contents' => [
                       {
-                        'contents' => [
-                          {
-                            'text' => 'in brace'
-                          }
-                        ],
+                        'text' => 'in brace',
                         'type' => 'bracketed_arg'
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
+                      'spaces_before_argument' => {
+                        'text' => ' '
                       }
-                    },
-                    'type' => 'line_arg'
+                    }
                   }
                 ],
                 'extra' => {
                   'name' => 'noarg'
                 },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
                 'type' => 'linemacro_call'
               },
+              'position' => 1,
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
           ],
-          'text' => '',
+          'text' => '
+',
           'type' => 'empty_line'
         },
         {
@@ -240,7 +201,7 @@ $result_trees{'no_arguments'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'position' => 6,
+                  'position' => 5,
                   'sourcemark_type' => 'linemacro_expansion',
                   'status' => 'end'
                 }
