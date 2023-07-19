@@ -15,9 +15,11 @@
 	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace):
 	use the expand_linemacro_arguments function directly in handle_macro
 	to parse the linemacro defined user commands arguments, such that they
-	are expanded in a second step only.  In the XS parser, use a specific
-	counter count_toplevel_braces, and use set_toplevel_braces_nr to count
-	closed braces.
+	are expanded in a second step only.  @-command are taken into account
+	to protect spaces or braces, braces are matched, spaces separate
+	arguments and what remains on the line is the last arrgument.  In the
+	XS parser, use a specific counter count_toplevel_braces, and use
+	set_toplevel_braces_nr to count closed braces.
 	Remove code related to the previous implementation.
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
