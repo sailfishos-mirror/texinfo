@@ -1,5 +1,13 @@
 2023-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/65linemacro.t (end_conditional_in_linemacro)
+	(begin_conditional_in_linemacro, block_begin_end_in_linemacro_call):
+	add another conditional test in end_conditional_in_linemacro, add
+	begin_conditional_in_linemacro and block_begin_end_in_linemacro_call
+	similar tests.
+
+2023-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/65linemacro.t (recursive_linemacro_in_call): new test.
 
 2023-07-20  Patrice Dumas  <pertusus@free.fr>

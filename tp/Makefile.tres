@@ -1212,6 +1212,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/no_monolithic_only_toc_out/res_html \
   t/results/linemacro/api_doc_with_linemacro.pl \
   t/results/linemacro/arobase_brace_in_linemacro_call.pl \
+  t/results/linemacro/begin_conditional_in_linemacro.pl \
+  t/results/linemacro/block_begin_end_in_linemacro_call.pl \
   t/results/linemacro/blockitem_no_item.pl \
   t/results/linemacro/brace_command_not_closed.pl \
   t/results/linemacro/braces_after_text.pl \

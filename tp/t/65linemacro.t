@@ -318,6 +318,68 @@ inside {\a\ operator \b\}
 @ifclear aa
 @lm {text
   @end ifclear}
+
+@ifset b
+@lm {text
+@end ifset}
+
+'],
+['begin_conditional_in_linemacro',
+'@linemacro lm {a}
+b \a\ a
+@end linemacro
+
+@lm {
+@ifset}
+in ifset
+@end ifset
+
+@lm {
+@ifclear}
+in ifclear
+@end ifclear
+'],
+['block_begin_end_in_linemacro_call',
+'@linemacro lm {a}
+b \a\ a
+@end linemacro
+
+@lm {
+@quotation aa
+in quotation
+}
+@end quotation
+
+@quotation hh
+@lm {
+@end quotation
+
+}
+
+@lm {
+@quotation}
+in quotation
+
+aa.
+@end quotation
+
+@lm {
+@ignore
+ignored }
+still ignored
+@end ignore
+
+@lm {
+@macro mymac {e, f}
+args \e\|\f\|
+@defline @lm {\e\} {\f\}
+}
+@end macro
+
+@defblock
+@mymac{arg1, arg2}
+@end defblock
+
 '],
 ['call_macro_in_linemacro_body',
 '@linemacro lm {a, b}
