@@ -471,14 +471,13 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
 
   while (1)
     {
-      /* At the beginning of this loop pline is at the start
-         of an argument. */
       char *sep;
 
       sep = pline + strcspn (pline, linecommand_expansion_delimiters);
       if (!*sep)
         {
-          debug ("LINEMACRO ARG end of line %d", braces_level);
+          debug_nonl ("LINEMACRO ARGS no separator %d '", braces_level);
+          debug_print_protected_string (pline); debug ("'");
           if (braces_level > 0)
             {
               text_append (arg, pline);
@@ -494,23 +493,24 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
           else
             {
               int text_len = strcspn (pline, "\n");
-              if (*(pline + text_len) == '\n')
+              line = pline + text_len;
+              text_append_n (arg, pline, text_len);
+              if (! *line)
                 {
-                  text_append_n (arg, pline, text_len);
-                  line = pline + text_len;
-                  goto funexit;
-                }
-              else
-                {
-                  text_append (arg, pline);
+                  /* happens when @ protects the end of line, at the very end
+                     of a text fragment and with macro expansion */
                   line = new_line (argument);
                   if (!line)
                     {
-                    /* happens when @ protects the end of line, at the very end
-                       of a text fragment and probably with macro expansion */
+                      debug ("LINEMACRO ARGS end no EOL");
                       line = "";
                       goto funexit;
                     }
+                }
+              else
+                {
+                  /* end of macro call with an end of line */
+                  goto funexit;
                 }
             }
           pline = line;
@@ -791,6 +791,35 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   add_extra_string_dup (macro_call_element, "name", command_name(cmd));
 
+  /* It is important to check for expansion before the expansion and
+     not after, as during the expansion, the text may go past the
+     call.  In particular for user defined linemacro which generally
+     get the final new line from following text.
+  */
+
+  macro_expansion_nr++;
+  debug ("MACRO EXPANSION NUMBER %d %s", macro_expansion_nr, command_name(cmd));
+
+  if (macro->cmd != CM_rmacro)
+    {
+      if (expanding_macro (command_name(cmd)))
+        {
+          line_error ("recursive call of macro %s is not allowed; "
+                      "use @rmacro if needed", command_name(cmd));
+          error = 1;
+        }
+    }
+
+  if (conf.max_macro_call_nesting
+      && macro_expansion_nr > conf.max_macro_call_nesting)
+    {
+      line_warn (
+         "macro call nested too deeply "
+         "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
+                conf.max_macro_call_nesting);
+      error = 1;
+    }
+
   if (macro->cmd == CM_linemacro)
     {
       expand_linemacro_arguments (macro, &line, cmd, macro_call_element);
@@ -887,31 +916,13 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
         }
     }
 
-  if (conf.max_macro_call_nesting
-      && macro_expansion_nr >= conf.max_macro_call_nesting)
+  if (error)
     {
-      line_warn (
-         "macro call nested too deeply "
-         "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
-                conf.max_macro_call_nesting);
-      error = 1;
+      macro_expansion_nr--;
+      destroy_element_and_children (macro_call_element);
+      macro_call_element = 0;
       goto funexit;
     }
-
-  if (macro->cmd != CM_rmacro)
-    {
-      if (expanding_macro (command_name(cmd)))
-        {
-          line_error ("recursive call of macro %s is not allowed; "
-                      "use @rmacro if needed", command_name(cmd));
-          error = 1;
-          goto funexit;
-        }
-    }
-
-  macro_expansion_nr++;
-
-  debug ("MACRO EXPANSION NUMBER %d %s", macro_expansion_nr, command_name(cmd));
 
   expand_macro_body (macro_record, macro_call_element, &expanded);
 
@@ -950,12 +961,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   line = strchr (line, '\0');
 
  funexit:
-
-  if (error)
-    {
-      destroy_element_and_children (macro_call_element);
-      macro_call_element = 0;
-    }
   *line_inout = line;
   return macro_call_element;
 }

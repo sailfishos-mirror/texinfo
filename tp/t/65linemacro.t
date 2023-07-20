@@ -249,10 +249,52 @@ inside {\a\ operator \b\}
 @ifclear aa
 @lm {text
   @end ifclear}
-']
+'],
+['call_macro_in_linemacro_body',
+'@linemacro lm {a, b}
+@mymacro{@code{}
+@var{\a\}
+now second arg: \b\}
+@end linemacro
+
+@macro mymacro {c, d}
+@table \c\
+@item \d\
+@end table
+@end macro
+
+@lm {something} {gg , yy 
+  zz}
+'],
+['call_macro_in_linemacro_call',
+'@linemacro lm {a, b}
+@quotation \a\
+now second arg: \b\
+@end linemacro
+
+@macro mymacro {c, d}
+@table \c\
+@item \d\
+@end table
+@end macro
+
+@lm {aa
+  @mymacro{@emph ,
+   ggg} } jj @var{T}
+ 
+
+@end quotation
+'],
+['recursive_linemacro_in_body',
+'@linemacro anorecurse {arg, other}
+@anorecurse {\arg\} d \other\
+@end linemacro
+
+@anorecurse {aa} b c
+', {'MAX_MACRO_CALL_NESTING' => 100}],
+
 # TODO
-# add recursive linemacro call
-# add macro call in linemacro
+# add more recursive linemacro call
 # test cases of line commands, including linemacros on the same
 # line to check commands closing in that context.
 # test @c in line macro command invokation, including in

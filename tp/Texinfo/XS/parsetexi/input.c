@@ -420,6 +420,10 @@ next_text (ELEMENT *current)
         {
           char *p, *new;
         case IN_text:
+          /*
+          debug_nonl ("IN_TEXT '"); debug_print_protected_string (input->ptext);
+          debug ("'");
+          */
           if (!*input->ptext)
             break;
           /* Split off a line of input. */
@@ -429,7 +433,11 @@ next_text (ELEMENT *current)
             input->ptext = p + 1;
           else
             input->ptext = p; /* The next time, we will pop the input source. */
-
+          /*
+          debug_nonl ("NEW IN_TEXT '"); debug_print_protected_string (new);
+          debug_nonl ("' next: '");
+          debug_print_protected_string (input->ptext); debug ("'");
+          */
           if (!input->source_info.macro && !input->value_flag)
             input->source_info.line_nr++;
 

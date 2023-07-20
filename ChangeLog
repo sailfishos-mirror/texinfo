@@ -1,3 +1,21 @@
+2023-07-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro): put checks related to
+	expansion before the expansion, as during the expansion, the text may
+	go past the call.  In particular for user defined linemacro which
+	generally get the final new line from following text.
+
+	* tp/t/65linemacro.t (call_macro_in_linemacro_body)
+	(call_macro_in_linemacro_call, recursive_linemacro_in_body),
+	tp/Makefile.tres: new @linemacro tests.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments):
+	change code to be more readable and compact.
+
+	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_protected_string):
+	special message if input_string is 0.
+
 2023-07-19  Patrice Dumas  <pertusus@free.fr>
 
 	Reimplement linemacro arguments expansion in a separate function

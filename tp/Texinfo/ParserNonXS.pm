@@ -2668,7 +2668,8 @@ sub _expand_linemacro_arguments($$$$$)
         }
       }
     } else {
-      print STDERR "LINEMACRO ARG end of line $braces_level\n" if ($self->{'DEBUG'});
+      print STDERR "LINEMACRO ARGS no separator $braces_level "
+                ._debug_protect_eol($line)."\n" if ($self->{'DEBUG'});
       if ($braces_level > 0) {
         $argument_content->{'text'} .= $line;
 
@@ -2683,12 +2684,15 @@ sub _expand_linemacro_arguments($$$$$)
         $line =~ s/(.*)//;
         $argument_content->{'text'} .= $1;
         if ($line =~ /\n/) {
+          # end of macro call with an end of line
           last;
         } else {
           # happens when @ protects the end of line, at the very end
           # of a text fragment and probably with macro expansion
           ($line, $source_info) = _new_line($self, $argument);
           if (!defined($line)) {
+            print STDERR "LINEMACRO ARGS end no EOL\n"
+               if ($self->{'DEBUG'});
             $line = '';
             last;
           }
@@ -4827,6 +4831,38 @@ sub _handle_macro($$$$$)
                             'extra' => {'name' => $command},
                             'args' => []};
 
+  # It is important to check for expansion before the expansion and
+  # not after, as during the expansion, the text may go past the
+  # call.  In particular for user defined linemacro which generally
+  # get the final new line from following text.
+  $self->{'macro_expansion_nr'}++;
+  print STDERR "MACRO EXPANSION NUMBER $self->{'macro_expansion_nr'} $command\n"
+    if ($self->{'DEBUG'});
+
+  my $error;
+  # FIXME same stack for linemacro?
+  if ($self->{'MAX_MACRO_CALL_NESTING'}
+      and $self->{'macro_expansion_nr'} > $self->{'MAX_MACRO_CALL_NESTING'}) {
+    $self->_line_warn(sprintf(__(
+  "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
+                          $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+    $error = 1;
+  }
+
+  if ($expanded_macro->{'cmdname'} ne 'rmacro') {
+    foreach my $input (@{$self->{'input'}}[0..$#{$self->{'input'}}-1]) {
+      if (defined($input->{'input_source_info'}->{'macro'})
+          and $input->{'input_source_info'}->{'macro'} eq $command) {
+        # FIXME different message for linemacro?
+        $self->_line_error(sprintf(__(
+       "recursive call of macro %s is not allowed; use \@rmacro if needed"),
+                                   $command), $source_info);
+        $error = 1;
+        last;
+      }
+    }
+  }
+
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
     ($line, $source_info)
      = _expand_linemacro_arguments($self, $expanded_macro, $line, $source_info,
@@ -4884,33 +4920,12 @@ sub _handle_macro($$$$$)
     }
   }
 
-  # FIXME same stack for linemacro?
-  if ($self->{'MAX_MACRO_CALL_NESTING'}
-      and $self->{'macro_expansion_nr'} >= $self->{'MAX_MACRO_CALL_NESTING'}) {
-    $self->_line_warn(sprintf(__(
-  "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
-                          $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+  if ($error) {
+    $self->{'macro_expansion_nr'}--;
     # goto funexit in XS parser
     return (undef, $line, $source_info);
   }
 
-  if ($expanded_macro->{'cmdname'} ne 'rmacro') {
-    foreach my $input (@{$self->{'input'}}[0..$#{$self->{'input'}}-1]) {
-      if (defined($input->{'input_source_info'}->{'macro'})
-          and $input->{'input_source_info'}->{'macro'} eq $command) {
-        # FIXME different message for linemacro?
-        $self->_line_error(sprintf(__(
-       "recursive call of macro %s is not allowed; use \@rmacro if needed"),
-                                   $command), $source_info);
-        # goto funexit in XS parser
-        return (undef, $line, $source_info);
-      }
-    }
-  }
-
-  $self->{'macro_expansion_nr'}++;
-  print STDERR "MACRO EXPANSION NUMBER $self->{'macro_expansion_nr'} $command\n"
-    if ($self->{'DEBUG'});
 
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},

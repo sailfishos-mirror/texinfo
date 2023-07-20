@@ -132,7 +132,11 @@ debug_print_protected_string (char *input_string)
   if (debug_output)
     {
       int allocated = 0;
-      char *result = debug_protect_eol (input_string, &allocated);
+      char *result;
+      if (!input_string)
+        result = "[NULL]";
+      else
+        result = debug_protect_eol (input_string, &allocated);
       fputs (result, stderr);
       if (allocated)
         free (result);
