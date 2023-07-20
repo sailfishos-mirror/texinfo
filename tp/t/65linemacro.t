@@ -21,6 +21,16 @@ my @test_cases = (
 @mycommand @code{in code
 
 '],
+['arobase_brace_in_linemacro_call',
+'@linemacro simplemac { arg1 , arg2 }
+first: \arg1\|
+second: \arg2\|
+@end linemacro
+
+@simplemac{ @{ } { @} }
+
+@simplemac{ @} } { @{ }
+'],
 ['verb_in_linemacro_call',
 '@linemacro mycommand {a, b, c, d}
 first \a\
@@ -171,7 +181,7 @@ something
    last} line
 @end defblock
 '],
-# arguments should be '@abc {d}' '@ringaccent b'
+# arguments should be '@code {d}' '@ringaccent b'
 ['spaces_after_command_in_call',
 '@linemacro mylinecommand {first, second, rest}
 @defblock
@@ -179,7 +189,36 @@ something
 @end defblock
 @end linemacro
 
+@mylinecommand @code {d} @ringaccent b rest
+'],
+['spaces_after_unknown_command_in_call',
+'@linemacro mylinecommand {first, second, rest}
+@defblock
+@defline category \first\ A \second\ B \rest\
+@end defblock
+@end linemacro
+
 @mylinecommand @abc {d} @ringaccent b rest
+'],
+['spaces_after_macro_linemacro_commands_in_call',
+'@linemacro mylinecommand {first, second, rest}
+@defblock
+@defline category {\first\} A \second\ B \rest\
+@end defblock
+@end linemacro
+
+@macro mymac {arg1}
+@samp{arg1}
+@end macro
+
+@linemacro mylinemac {name, rest}
+{\name\} \rest\
+@end linemacro
+
+@mylinecommand @mymac {aa} @mymac {bb}
+
+@mylinecommand @mylinemac {Fun} {other} and remaining
+
 '],
 # first argument should be {a b}{c d}{rest}
 ['spaces_in_call',

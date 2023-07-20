@@ -1,5 +1,20 @@
 2023-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/60macro.t (arobase_brace_in_macro_call), tp/t/65linemacro.t
+	(arobase_brace_in_linemacro_call): add tests with @{ and @} in macro
+	and linemacro calls.
+
+	* tp/t/65linemacro.t (spaces_after_command_in_call)
+	(spaces_after_unknown_command_in_call): rename
+	spaces_after_command_in_call as spaces_after_unknown_command_in_call
+	and use a known brace command in the new version of
+	spaces_after_command_in_call.
+
+	* tp/t/65linemacro.t (spaces_after_macro_linemacro_commands_in_call):
+	add test.
+
+2023-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/60macro.t (verb_with_arobase_in_macro_call)
 	(verb_with_brace_in_macro_call, tp/t/65linemacro.t
 	(verb_in_linemacro_call, verb_with_arobase_in_linemacro_call)

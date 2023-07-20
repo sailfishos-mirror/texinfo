@@ -1211,6 +1211,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/no_monolithic_only_toc_out.pl \
   t/results/layout/no_monolithic_only_toc_out/res_html \
   t/results/linemacro/api_doc_with_linemacro.pl \
+  t/results/linemacro/arobase_brace_in_linemacro_call.pl \
   t/results/linemacro/blockitem_no_item.pl \
   t/results/linemacro/brace_command_not_closed.pl \
   t/results/linemacro/braces_after_text.pl \
@@ -1231,6 +1232,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/recursive_linemacro_in_body.pl \
   t/results/linemacro/simple_nested_linemacro_calls.pl \
   t/results/linemacro/spaces_after_command_in_call.pl \
+  t/results/linemacro/spaces_after_macro_linemacro_commands_in_call.pl \
+  t/results/linemacro/spaces_after_unknown_command_in_call.pl \
   t/results/linemacro/spaces_in_args.pl \
   t/results/linemacro/spaces_in_call.pl \
   t/results/linemacro/text_arguments.pl \
@@ -1240,6 +1243,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/verb_with_brace_in_linemacro_call.pl \
   t/results/macro/arg_body_expansion_order.pl \
   t/results/macro/arg_not_closed.pl \
+  t/results/macro/arobase_brace_in_macro_call.pl \
   t/results/macro/backslash_in_arg.pl \
   t/results/macro/bad_argument.pl \
   t/results/macro/bad_formal_arg.pl \

@@ -269,6 +269,16 @@ second \bb\,
 @twoa{ ,l}
 
 '],
+['arobase_brace_in_macro_call',
+'@macro simplemac { arg1 , arg2 }
+first: \arg1\|
+second: \arg2\|
+@end macro
+
+@simplemac{ @{ , @} }
+
+@simplemac{ @} , @{ }
+'],
 ['protect_in_body',
 '@macro macroone { arg1 , arg2 }
 result: @emph{\arg1\} protected \\\\ -> \\\\arg1\\\\ @emph{\arg2\}

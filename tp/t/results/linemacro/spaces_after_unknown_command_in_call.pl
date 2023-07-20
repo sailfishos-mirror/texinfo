@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'spaces_after_command_in_call'} = {
+$result_trees{'spaces_after_unknown_command_in_call'} = {
   'contents' => [
     {
       'contents' => [
@@ -97,7 +97,7 @@ $result_trees{'spaces_after_command_in_call'} = {
                   {
                     'contents' => [
                       {
-                        'text' => '@code {d}'
+                        'text' => '@abc'
                       }
                     ],
                     'info' => {
@@ -109,7 +109,8 @@ $result_trees{'spaces_after_command_in_call'} = {
                   {
                     'contents' => [
                       {
-                        'text' => '@ringaccent b'
+                        'text' => 'd',
+                        'type' => 'bracketed_arg'
                       }
                     ],
                     'info' => {
@@ -121,7 +122,7 @@ $result_trees{'spaces_after_command_in_call'} = {
                   {
                     'contents' => [
                       {
-                        'text' => 'rest'
+                        'text' => '@ringaccent b rest'
                       }
                     ],
                     'info' => {
@@ -173,34 +174,14 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'text' => ' ',
+                      'text' => '  ',
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd'
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_cmd_before_arg' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => 'mylinecommand'
-                      }
+                      'text' => 'A'
                     },
                     {
                       'extra' => {
@@ -213,7 +194,20 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'A'
+                      'text' => 'd'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'text' => 'B'
                     },
                     {
                       'extra' => {
@@ -247,19 +241,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                         'line_nr' => 7,
                         'macro' => 'mylinecommand'
                       }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'text' => 'B'
                     },
                     {
                       'extra' => {
@@ -355,28 +336,38 @@ $result_trees{'spaces_after_command_in_call'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_after_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_after_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'spaces_after_unknown_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_after_unknown_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
-$result_texis{'spaces_after_command_in_call'} = '@linemacro mylinecommand {first, second, rest}
+$result_texis{'spaces_after_unknown_command_in_call'} = '@linemacro mylinecommand {first, second, rest}
 @defblock
 @defline category \\first\\ A \\second\\ B \\rest\\
 @end defblock
 @end linemacro
 
 @defblock
-@defline category @code {d} A @ringaccent b B rest
+@defline category  A d B @ringaccent b rest
 @end defblock
 ';
 
 
-$result_texts{'spaces_after_command_in_call'} = '
-category: d A b* B rest
+$result_texts{'spaces_after_unknown_command_in_call'} = '
+category: A d B b* rest
 ';
 
-$result_errors{'spaces_after_command_in_call'} = [];
+$result_errors{'spaces_after_unknown_command_in_call'} = [
+  {
+    'error_line' => 'unknown command `abc\' (possibly involving @mylinecommand)
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => 'mylinecommand',
+    'text' => 'unknown command `abc\'',
+    'type' => 'error'
+  }
+];
 
 
-$result_floats{'spaces_after_command_in_call'} = {};
+$result_floats{'spaces_after_unknown_command_in_call'} = {};
 
 
 1;
