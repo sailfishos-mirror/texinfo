@@ -361,6 +361,13 @@ now second arg: \b\
 
 @anorecurse {aa} b c
 ', {'MAX_MACRO_CALL_NESTING' => 100}],
+['recursive_linemacro_in_call',
+'@linemacro anorecurse {arg, other}
+\arg\ d \other\
+@end linemacro
+
+@anorecurse {@anorecurse a b} c
+'],
 ['comment_in_linemacro_call',
 '@linemacro lm {a, b}
 c \a\ d
@@ -394,11 +401,6 @@ c \a\ d
 after
 
 ']
-
-# TODO
-# add more recursive linemacro call
-# test cases of line commands, including linemacros on the same
-# line to check commands closing in that context.
 );
 
 
