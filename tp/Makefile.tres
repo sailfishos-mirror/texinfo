@@ -1216,6 +1216,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/braces_after_text.pl \
   t/results/linemacro/call_macro_in_linemacro_body.pl \
   t/results/linemacro/call_macro_in_linemacro_call.pl \
+  t/results/linemacro/comment_at_end_of_linemacro_call.pl \
+  t/results/linemacro/comment_in_linemacro_call.pl \
+  t/results/linemacro/comment_in_one_argument_linemacro_call.pl \
   t/results/linemacro/empty_last_argument.pl \
   t/results/linemacro/end_conditional_in_linemacro.pl \
   t/results/linemacro/last_argument_with_braces.pl \

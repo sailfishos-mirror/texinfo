@@ -1,5 +1,12 @@
 2023-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/65linemacro.t (comment_in_linemacro_call)
+	(comment_in_one_argument_linemacro_call)
+	(comment_at_end_of_linemacro_call): new tests with comments and
+	linemacro.
+
+2023-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_macro),
 	tp/Texinfo/XS/parsetexi/macro.c (handle_macro): put checks related to
 	expansion before the expansion, as during the expansion, the text may
@@ -35,7 +42,7 @@
 	to parse the linemacro defined user commands arguments, such that they
 	are expanded in a second step only.  @-command are taken into account
 	to protect spaces or braces, braces are matched, spaces separate
-	arguments and what remains on the line is the last arrgument.  In the
+	arguments and what remains on the line is the last argument.  In the
 	XS parser, use a specific counter count_toplevel_braces, and use
 	set_toplevel_braces_nr to count closed braces.
 	Remove code related to the previous implementation.

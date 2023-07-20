@@ -292,13 +292,44 @@ now second arg: \b\
 
 @anorecurse {aa} b c
 ', {'MAX_MACRO_CALL_NESTING' => 100}],
+['comment_in_linemacro_call',
+'@linemacro lm {a, b}
+c \a\ d
+\b\
+@end linemacro
+
+@lm @code{
+something @comment in} out
+}
+next
+'],
+['comment_in_one_argument_linemacro_call',
+'@linemacro lm {a}
+c \a\ d
+@end linemacro
+
+@lm @code{something @comment in} out
+}
+
+next
+'],
+['comment_at_end_of_linemacro_call',
+'@linemacro lm {a, b}
+c \a\ d
+\b\
+@end linemacro
+
+@math{
+@lm {something protected} something @c comment }
+}
+after
+
+']
 
 # TODO
 # add more recursive linemacro call
 # test cases of line commands, including linemacros on the same
 # line to check commands closing in that context.
-# test @c in line macro command invokation, including in
-# braces
 );
 
 
