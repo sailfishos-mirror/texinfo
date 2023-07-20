@@ -21,6 +21,36 @@ my @test_cases = (
 @mycommand @code{in code
 
 '],
+['verb_in_linemacro_call',
+'@linemacro mycommand {a, b, c, d}
+first \a\
+second \b\
+third \c\
+@defline \a\ \d\
+@end linemacro
+
+@defblock
+@mycommand {Name} @verb{: in verb :} {A @verb{| in bracketed |} } other {j}
+@end defblock
+'],
+# @ protects the closing brace, so there is an error of missing closing brace
+['verb_with_arobase_in_linemacro_call',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@mycommand @verb{@ in verb @} and next
+'],
+# the first argument is '@verb{: in }'.  The lone } is not flagged as an error,
+# so in teh end there is no error for this dubious construct
+['verb_with_brace_in_linemacro_call',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@mycommand @verb{: in } verb :} other last
+
+'],
 ['verb_not_closed',
 '@linemacro mycommand {a, b, c}
 \a\, \b\ \c\

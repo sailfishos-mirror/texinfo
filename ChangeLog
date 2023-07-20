@@ -1,5 +1,13 @@
 2023-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/60macro.t (verb_with_arobase_in_macro_call)
+	(verb_with_brace_in_macro_call, tp/t/65linemacro.t
+	(verb_in_linemacro_call, verb_with_arobase_in_linemacro_call)
+	(verb_with_brace_in_linemacro_call), tp/Makefile.tres: more tests for
+	@verb in macro and linemacro calls.
+
+2023-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/65linemacro.t (comment_in_linemacro_call)
 	(comment_in_one_argument_linemacro_call)
 	(comment_at_end_of_linemacro_call): new tests with comments and

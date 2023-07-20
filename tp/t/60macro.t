@@ -546,6 +546,23 @@ a
 @code
 @}
 '],
+['verb_with_arobase_in_macro_call',
+'@macro showarg {a, b}
+first: \a\
+second: \b\
+@end macro
+
+@showarg{@verb{, commas ,}, @verb{@ arobase @}}
+'],
+['verb_with_brace_in_macro_call',
+'
+@macro mycommand {a, b, c}
+\a\|\b\|\c\
+@end macro
+
+@mycommand {@verb{: in }, verb :}, other, last}
+
+'],
 # tests a source mark on empty line after paragraph transfer in a focused way
 ['macro_after_paragraph',
 '@macro mymacro

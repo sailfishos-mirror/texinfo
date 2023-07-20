@@ -2668,8 +2668,8 @@ sub _expand_linemacro_arguments($$$$$)
         }
       }
     } else {
-      print STDERR "LINEMACRO ARGS no separator $braces_level "
-                ._debug_protect_eol($line)."\n" if ($self->{'DEBUG'});
+      print STDERR "LINEMACRO ARGS no separator $braces_level '"
+                ._debug_protect_eol($line)."'\n" if ($self->{'DEBUG'});
       if ($braces_level > 0) {
         $argument_content->{'text'} .= $line;
 
