@@ -75,6 +75,7 @@ set_input_encoding (char *encoding)
   int encoding_set = 0;
   char *conversion_encoding = encoding;
 
+  /* synced with Texinfo::Common::encoding_name_conversion_map */
   if (!strcmp (encoding, "us-ascii"))
     conversion_encoding = "iso-8859-1";
 

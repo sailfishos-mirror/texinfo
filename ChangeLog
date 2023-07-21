@@ -1,5 +1,17 @@
 2023-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%encoding_name_conversion_map)
+	(element_extra_encoding_for_perl, set_output_encodings),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): add mapping of
+	encodings to encodings that extend them to use the extending encoding
+	for conversion, as is done for us-ascii to ISO-8859-1 in XS parser.
+
+	* tp/t/formats_encodings.t (char_us_ascii_latin1_in_refs),
+	tp/Makefile.tres: add test with @documentencoding us-ascii and
+	non-ascii ISO-8859-1 encoded characters.
+
+2023-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
 	(get_parser_info, _end_line_misc_line, _handle_close_brace):
 	set info information in get_parser_info, set input_encoding_name

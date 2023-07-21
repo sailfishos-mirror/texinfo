@@ -372,9 +372,9 @@ undef, {'test_file' => 'char_utf8_latin1_in_refs.texi'}
 ['char_latin1_latin1_in_refs',
 undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'}
 ],
-#['char_us_ascii_latin1_in_refs',
-#undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'}
-#],
+['char_us_ascii_latin1_in_refs',
+undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'}
+],
 ['char_latin2_latin2_in_refs',
 undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'}
 ],

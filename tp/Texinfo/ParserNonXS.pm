@@ -295,6 +295,8 @@ my %def_map                   = %Texinfo::Common::def_map;
 my %def_aliases               = %Texinfo::Common::def_aliases;
 my %all_commands              = %Texinfo::Common::all_commands;
 
+my %encoding_name_conversion_map
+                              = %Texinfo::Common::encoding_name_conversion_map;
 
 # Keys are commmands, values are names of indices.  User-defined
 # index commands are added dynamically.
@@ -3568,9 +3570,17 @@ sub _end_line_misc_line($$$)
           #     $input_encoding -- for output within an HTML file, used
           #                        in most output formats
           my ($perl_encoding, $input_encoding);
-          my $Encode_encoding_object = find_encoding($normalized_text);
+          my $conversion_encoding = $normalized_text;
+          if (defined($encoding_name_conversion_map{$normalized_text})) {
+            $conversion_encoding
+                = $encoding_name_conversion_map{$normalized_text};
+          }
+          my $Encode_encoding_object = find_encoding($conversion_encoding);
           if (defined($Encode_encoding_object)) {
             $perl_encoding = $Encode_encoding_object->name();
+            if ($normalized_text ne $conversion_encoding) {
+              $Encode_encoding_object = find_encoding($normalized_text);
+            }
             # mime_name() is upper-case, our keys are lower case, set to lower case
             $input_encoding = lc($Encode_encoding_object->mime_name());
           }
