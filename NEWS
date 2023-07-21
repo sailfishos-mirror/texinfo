@@ -9,10 +9,6 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
-* texi2any
- . use any input encoding known by iconv and Perl in the XS (default) parser.
-
-
 * Language
  . new generic definition commands, @defblock, @defline and @deftypeline,
    that do not automatically create index entries
@@ -31,6 +27,7 @@ See the manual for detailed information.
    encoded characters are output instead of entities or commands for
    HTML, XML, DocBook and LaTeX; instead, the value of the OUTPUT_CHARACTERS
    customization variable is used.
+ . use any input encoding known by iconv and Perl in the XS (default) parser.
  . An alias referring to another alias at definition time is resolved.
  . Add source marks in the tree for all Texinfo source information that
    is not in the final tree (location of macro, values and included files
