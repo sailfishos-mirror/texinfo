@@ -464,10 +464,12 @@ wipe_global_info (void)
     }
   global_kbdinputstyle = kbd_distinct;
 
-  free (global_info.input_encoding_name);
-
   free (global_info.dircategory_direntry.contents.list);
   free (global_info.footnotes.contents.list);
+
+  free (global_input_encoding_name);
+  /* set by set_input_encoding */
+  global_input_encoding_name = 0;
 
 #define GLOBAL_CASE(cmx) \
   free (global_info.cmx.contents.list)
@@ -505,8 +507,6 @@ wipe_global_info (void)
 
   /* clear the rest of the fields */
   memset (&global_info, 0, sizeof (global_info));
-
-  global_info.input_encoding_name = strdup ("utf-8");
 }
 
 ELEMENT *

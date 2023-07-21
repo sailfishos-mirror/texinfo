@@ -37,6 +37,7 @@ extern int value_expansion_nr;
 
 extern int doc_encoding_for_input_file_name;
 extern char *input_file_name_encoding;
+extern char *global_input_encoding_name;
 extern char *locale_encoding;
 
 void set_input_file_name_encoding (char *value);

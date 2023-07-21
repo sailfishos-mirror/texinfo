@@ -1,6 +1,6 @@
 \input texinfo
 
-@documentencoding ISO-8859-1
+@documentencoding US-ASCII
 
 @node Top
 @top accented char in latin1 in refs

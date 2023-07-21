@@ -50,19 +50,19 @@ typedef struct {
 
 static char *input_pushback_string;
 
-static char *input_encoding_name;
 static iconv_t reverse_iconv; /* used in encode_file_name */
 
 typedef struct {
   char *encoding_name;
   iconv_t iconv;
-} ENCODING;
+} ENCODING_CONVERSION;
 
-static ENCODING *encodings_list = 0;
+static ENCODING_CONVERSION *encodings_list = 0;
 int encoding_number = 0;
 int encoding_space = 0;
+char *global_input_encoding_name = 0;
 
-static ENCODING *current_encoding = 0;
+static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
 /* ENCODING should always be lower cased */
 /* WARNING: it is very important for the first call to
@@ -73,11 +73,11 @@ set_input_encoding (char *encoding)
 {
   int encoding_index = -1;
   int encoding_set = 0;
+  char *conversion_encoding = encoding;
 
   if (!strcmp (encoding, "us-ascii"))
-    encoding = "iso-8859-1";
+    conversion_encoding = "iso-8859-1";
 
-  free (input_encoding_name); input_encoding_name = strdup (encoding);
   if (reverse_iconv)
     {
       iconv_close (reverse_iconv);
@@ -107,22 +107,26 @@ set_input_encoding (char *encoding)
       if (encoding_number >= encoding_space)
         {
           encodings_list = realloc (encodings_list,
-                                    (encoding_space += 3) * sizeof (ENCODING));
+                   (encoding_space += 3) * sizeof (ENCODING_CONVERSION));
         }
-      encodings_list[encoding_number].encoding_name = strdup (encoding);
+      encodings_list[encoding_number].encoding_name
+           = strdup (conversion_encoding);
       /* Initialize conversions for the first time.  iconv_open returns
          (iconv_t) -1 on failure so these should only be called once. */
-      encodings_list[encoding_number].iconv = iconv_open ("UTF-8", encoding);
+      encodings_list[encoding_number].iconv
+           = iconv_open ("UTF-8", conversion_encoding);
       encoding_index = encoding_number;
       encoding_number++;
     }
 
   if (encodings_list[encoding_index].iconv == (iconv_t) -1)
-    current_encoding = 0;
+    current_encoding_conversion = 0;
   else
     {
-      current_encoding = &encodings_list[encoding_index];
+      current_encoding_conversion = &encodings_list[encoding_index];
       encoding_set = 1;
+      free (global_input_encoding_name);
+      global_input_encoding_name = strdup (encoding);
     }
 
   return encoding_set;
@@ -261,7 +265,7 @@ convert_to_utf8 (char *s)
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
-  if (current_encoding == 0)
+  if (current_encoding_conversion == 0)
     {
       /* In case the converter couldn't be initialised.
          Danger: this will cause problems if the input is not in UTF-8 as
@@ -269,7 +273,7 @@ convert_to_utf8 (char *s)
       return s;
     }
 
-  ret = encode_with_iconv (current_encoding->iconv, s);
+  ret = encode_with_iconv (current_encoding_conversion->iconv, s);
   free (s);
   return ret;
 }
@@ -307,9 +311,12 @@ encode_file_name (char *filename)
         }
       else if (doc_encoding_for_input_file_name)
         {
-          if (input_encoding_name && strcmp (input_encoding_name, "utf-8"))
+          if (current_encoding_conversion
+              && strcmp (global_input_encoding_name, "utf-8"))
             {
-              reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
+              char *conversion_encoding
+                = current_encoding_conversion->encoding_name;
+              reverse_iconv = iconv_open (conversion_encoding, "UTF-8");
             }
         }
       else if (locale_encoding)
@@ -672,18 +679,20 @@ reset_encoding_list (void)
 {
   int i;
   /* never reset the utf-8 encoding in position 0 */
-  for (i = 1; i < encoding_number; i++)
+  if (encoding_number > 1)
     {
-      free (encodings_list[i].encoding_name);
-      if (encodings_list[i].iconv != (iconv_t) -1)
-        iconv_close (encodings_list[i].iconv);
+      for (i = 1; i < encoding_number; i++)
+        {
+          free (encodings_list[i].encoding_name);
+          if (encodings_list[i].iconv != (iconv_t) -1)
+            iconv_close (encodings_list[i].iconv);
+        }
+      encoding_number = 1;
     }
-  /* in theory, it could also be 0, but the function is called right
-     after set_input_encoding ("utf-8"); */
-  encoding_number = 1;
-  current_encoding = 0;
-  free (input_encoding_name);
-  input_encoding_name = 0;
+  /* could be named global_encoding_conversion and reset in wipe_global_info,
+     but we prefer to keep it static as long as it is only used in one
+     file */
+  current_encoding_conversion = 0;
 }
 
 int

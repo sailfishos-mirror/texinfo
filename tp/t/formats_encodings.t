@@ -366,12 +366,15 @@ $latin1_accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 );
 
 my @file_tests = (
-['char_latin1_utf8_in_refs',
-undef, {'test_file' => 'char_latin1_utf8_in_refs.texi'}
+['char_utf8_latin1_in_refs',
+undef, {'test_file' => 'char_utf8_latin1_in_refs.texi'}
 ],
 ['char_latin1_latin1_in_refs',
 undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'}
 ],
+#['char_us_ascii_latin1_in_refs',
+#undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'}
+#],
 ['char_latin2_latin2_in_refs',
 undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'}
 ],

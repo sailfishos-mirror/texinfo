@@ -186,8 +186,9 @@ test_files = \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
  t/input_files/bib-example.texi \
- t/input_files/char_latin1_utf8_in_refs.texi \
+ t/input_files/char_utf8_latin1_in_refs.texi \
  t/input_files/char_latin1_latin1_in_refs.texi \
+ t/input_files/char_us_ascii_latin1_in_refs.texi \
  t/input_files/char_latin2_latin2_in_refs.texi \
  t/input_files/character_and_spaces_in_refs_text.texi \
  t/input_files/chinese_mixed_with_en.texi \

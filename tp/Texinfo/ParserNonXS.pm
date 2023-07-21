@@ -149,11 +149,10 @@ my %parser_state_initialization = (
   'targets' => [],            # array of elements used to build 'labels'
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
                                     # file
+  'input_encoding_name' => 'utf-8', # current input encoding name, based on
+                                    # mime type encoding names
   # initialization of information returned by global_information()
-  'info' => {
-    'input_encoding_name' => 'utf-8',
-    'input_perl_encoding' => 'utf-8'
-  },
+  'info' => {},
 );
 
 # configurable parser state
@@ -852,8 +851,16 @@ sub get_parser_info($)
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($self->{'commands_info'},
                                          $self->{'registrar'}, $self);
-  $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
-     if (defined($perl_encoding));
+  if (defined($perl_encoding)) {
+    $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
+  } else {
+    $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
+  }
+  if (defined($self->{'input_encoding_name'})) {
+    $self->{'info'}->{'input_encoding_name'} = $self->{'input_encoding_name'};
+  } else {
+    $self->{'info'}->{'input_encoding_name'} = 'utf-8';
+  }
 }
 
 # parse a texi file
@@ -3536,8 +3543,8 @@ sub _end_line_misc_line($$$)
         }
       } elsif ($command eq 'verbatiminclude') {
         $current->{'extra'}->{'input_encoding_name'}
-                        = $self->{'info'}->{'input_encoding_name'}
-          if defined $self->{'info'}->{'input_encoding_name'};
+                        = $self->{'input_encoding_name'}
+          if (defined($self->{'input_encoding_name'}));
       } elsif ($command eq 'documentencoding') {
         # lower case, trim non-ascii characters and keep only alphanumeric
         # characters, - and _.  iconv also seems to trim non alphanumeric
@@ -3574,7 +3581,7 @@ sub _end_line_misc_line($$$)
           } else {
             if ($input_encoding) {
               $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
-              $self->{'info'}->{'input_encoding_name'} = $input_encoding;
+              $self->{'input_encoding_name'} = $input_encoding;
             }
 
             $self->{'input_file_encoding'} = $perl_encoding;
@@ -6124,10 +6131,10 @@ sub _handle_close_brace($$$)
         $self->_line_error(
            __("\@image missing filename argument"), $source_info);
       }
-      if (defined $self->{'info'}->{'input_encoding_name'}) {
+      if (defined($self->{'input_encoding_name'})) {
         $image->{'extra'} = {} if (!$image->{'extra'});
         $image->{'extra'}->{'input_encoding_name'}
-           = $self->{'info'}->{'input_encoding_name'};
+           = $self->{'input_encoding_name'};
       }
     } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
       my $dotless = $current->{'parent'};

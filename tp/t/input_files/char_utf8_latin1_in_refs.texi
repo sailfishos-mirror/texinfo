@@ -3,7 +3,7 @@
 @documentencoding utf-8
 
 @node Top
-@top char latin1 utf8 in refs
+@top accented char in latin1 in refs
 
 @printindex cp
 

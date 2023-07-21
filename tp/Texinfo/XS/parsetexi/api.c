@@ -139,11 +139,11 @@ reset_parser_except_conf (void)
   memset (&nesting_context, 0, sizeof (nesting_context));
   reset_floats ();
   wipe_global_info ();
-  set_input_encoding ("utf-8");
   /* it is not totally obvious that is it better to reset the
      list to avoid memory leaks rather than reuse the iconv
      opened handlers */
   reset_encoding_list ();
+  set_input_encoding ("utf-8");
   reset_internal_xrefs ();
   reset_labels ();
   input_reset_input_stack ();
@@ -892,9 +892,9 @@ build_global_info (void)
   dTHX;
 
   hv = newHV ();
-  if (global_info.input_encoding_name)
+  if (global_input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
-              newSVpv (global_info.input_encoding_name, 0), 0);
+              newSVpv (global_input_encoding_name, 0), 0);
 
   if (global_info.dircategory_direntry.contents.number > 0)
     {
