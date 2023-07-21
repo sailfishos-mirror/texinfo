@@ -1668,12 +1668,12 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `US-ascii encoding name\'
+    'error_line' => 'warning: unhandled encoding name `US-ascii encoding name\'
 ',
     'file_name' => '',
     'line_nr' => 30,
     'macro' => '',
-    'text' => 'unrecognized encoding name `US-ascii encoding name\'',
+    'text' => 'unhandled encoding name `US-ascii encoding name\'',
     'type' => 'warning'
   },
   {

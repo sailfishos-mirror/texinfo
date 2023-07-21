@@ -1,5 +1,5 @@
-Mixed in UTF-8
-**************
+Mixed chinese and english
+*************************
 
 Example of english and chinese, chinese aligned or not.
 

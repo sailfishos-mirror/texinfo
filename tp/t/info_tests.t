@@ -278,7 +278,7 @@ ref to anchor1@footnote{another footnote}, which is before @@node Top: @ref{anch
 
 @image{text_only_image,,,alt}
 '],
-['image_quotes', 
+['image_quotes',
 '@node Top
 
 @image{f--ile,,,alt""\\}
@@ -1082,6 +1082,9 @@ text @* f     nl Something? @* After punct
 * what @* is: ankh p.
 @end menu
 '],
+['chinese_mixed_with_en_EUC_CN',
+undef, {'test_file' => 'chinese_mixed_with_en_EUC_CN.texi'}
+],
 );
 
 my $colons_in_index_entries_and_node = 
@@ -1114,7 +1117,7 @@ node one
 
 ';
 
-push @file_tests, 
+push @file_tests,
 ['colons_in_index_entries_and_node',
 $colons_in_index_entries_and_node,
 undef, {'INFO_SPECIAL_CHARS_QUOTE' => 1,

@@ -456,12 +456,12 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `YS-ASCII\'
+    'error_line' => 'warning: unhandled encoding name `YS-ASCII\'
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => 'unrecognized encoding name `YS-ASCII\'',
+    'text' => 'unhandled encoding name `YS-ASCII\'',
     'type' => 'warning'
   },
   {
@@ -483,12 +483,12 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `bad encoding name\'
+    'error_line' => 'warning: unhandled encoding name `bad encoding name\'
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
-    'text' => 'unrecognized encoding name `bad encoding name\'',
+    'text' => 'unhandled encoding name `bad encoding name\'',
     'type' => 'warning'
   },
   {
@@ -501,48 +501,30 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `1\'
+    'error_line' => 'warning: unhandled encoding name `1\'
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'unrecognized encoding name `1\'',
+    'text' => 'unhandled encoding name `1\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: encoding `%\' is not a canonical texinfo encoding
+    'error_line' => 'warning: bad encoding name `%\'
 ',
     'file_name' => '',
     'line_nr' => 8,
     'macro' => '',
-    'text' => 'encoding `%\' is not a canonical texinfo encoding',
+    'text' => 'bad encoding name `%\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `%\'
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => 'unrecognized encoding name `%\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `@\' is not a canonical texinfo encoding
+    'error_line' => 'warning: bad encoding name `@\'
 ',
     'file_name' => '',
     'line_nr' => 9,
     'macro' => '',
-    'text' => 'encoding `@\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unrecognized encoding name `@\'
-',
-    'file_name' => '',
-    'line_nr' => 9,
-    'macro' => '',
-    'text' => 'unrecognized encoding name `@\'',
+    'text' => 'bad encoding name `@\'',
     'type' => 'warning'
   },
   {

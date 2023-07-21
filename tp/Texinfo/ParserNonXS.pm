@@ -147,6 +147,8 @@ my %parser_state_initialization = (
   'merged_indices' => {},     # the key is merged in the value
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
+  'input_file_encoding' => 'utf-8', # perl encoding name used for the input
+                                    # file
   # initialization of information returned by global_information()
   'info' => {
     'input_encoding_name' => 'utf-8',
@@ -757,6 +759,8 @@ sub parse_texi_piece($$;$)
      = _setup_document_root_and_before_node_section();
   my $tree = $self->_parse_texi($document_root, $before_node_section);
 
+  get_parser_info($self);
+
   return $tree;
 }
 
@@ -789,7 +793,11 @@ sub parse_texi_text($$;$)
 
   _input_push_text($self, $text, $line_nr);
 
-  return $self->_parse_texi_document();
+  my $tree = $self->_parse_texi_document();
+
+  get_parser_info($self);
+
+  return $tree;
 }
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
@@ -803,8 +811,8 @@ sub _input_push_file
     return 0, undef, undef, $!;
   }
 
-  if (defined($self->{'info'}->{'input_perl_encoding'})) {
-    if ($self->{'info'}->{'input_perl_encoding'} eq 'utf-8') {
+  if (defined($self->{'input_file_encoding'})) {
+    if ($self->{'input_file_encoding'} eq 'utf-8') {
       binmode($filehandle, ":utf8");
       # Use :utf8 instead of :encoding(utf-8), as the latter does
       # error checking and has (unreliably) led to fatal errors
@@ -813,7 +821,7 @@ sub _input_push_file
       # Evidently Perl is checking ahead in the file.
     } else {
       binmode($filehandle,
-              ":encoding($self->{'info'}->{'input_perl_encoding'})");
+              ":encoding($self->{'input_file_encoding'})");
     }
   }
   my ($file_name, $directories, $suffix) = fileparse($input_file_path);
@@ -835,6 +843,17 @@ sub _input_push_file
   unshift @{$self->{'input'}}, $file_input;
 
   return 1, $file_name, $directories, undef;
+}
+
+sub get_parser_info($)
+{
+  my $self = shift;
+
+  my $perl_encoding
+    = Texinfo::Common::get_perl_encoding($self->{'commands_info'},
+                                         $self->{'registrar'}, $self);
+  $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
+     if (defined($perl_encoding));
 }
 
 # parse a texi file
@@ -862,7 +881,10 @@ sub parse_texi_file($$)
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
 
-  return $self->_parse_texi_document();
+  my $tree = $self->_parse_texi_document();
+  get_parser_info($self);
+
+  return $tree;
 }
 
 sub _parse_texi_document($)
@@ -2285,7 +2307,7 @@ sub _encode_file_name($$)
   if ($input_file_name_encoding) {
     $encoding = $input_file_name_encoding;
   } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    $encoding = $self->{'info'}->{'input_perl_encoding'};
+    $encoding = $self->{'input_file_encoding'};
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
@@ -3517,39 +3539,49 @@ sub _end_line_misc_line($$$)
                         = $self->{'info'}->{'input_encoding_name'}
           if defined $self->{'info'}->{'input_encoding_name'};
       } elsif ($command eq 'documentencoding') {
+        # lower case, trim non-ascii characters and keep only alphanumeric
+        # characters, - and _.  iconv also seems to trim non alphanumeric
+        # non - _ characters
+        my $normalized_text = lc($text);
+        $normalized_text =~ s/[^[:alnum:]_\-]//;
 
-        # Warn if the encoding is not one of the encodings supported as an
-        # argument to @documentencoding, documented in Texinfo manual
-        unless ($canonical_texinfo_encodings{lc($text)}) {
+        if ($normalized_text !~ /[[:alnum:]]/) {
           $self->_command_warn($current, $source_info,
-                   __("encoding `%s' is not a canonical texinfo encoding"),
-                               $text)
-        }
-
-        # Set $perl_encoding  -- an encoding name suitable for perl;
-        #     $input_encoding -- for output within an HTML file, used
-        #                        in most output formats
-        my ($perl_encoding, $input_encoding);
-        my $Encode_encoding_object = find_encoding($text);
-        if (defined($Encode_encoding_object)) {
-          $perl_encoding = $Encode_encoding_object->name();
-          # mime_name() is upper-case, our keys are lower case, set to lower case
-          $input_encoding = lc($Encode_encoding_object->mime_name());
-        }
-
-        if ($input_encoding) {
-          $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
-          $self->{'info'}->{'input_encoding_name'} = $input_encoding;
-        }
-
-        if (!$perl_encoding) {
-          $self->_command_warn($current, $source_info,
-               __("unrecognized encoding name `%s'"), $text);
+                               __("bad encoding name `%s'"), $text);
         } else {
-          $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
-          foreach my $input (@{$self->{'input'}}) {
-            binmode($input->{'fh'}, ":encoding($perl_encoding)")
-              if ($input->{'fh'});
+          # Warn if the encoding is not one of the encodings supported as an
+          # argument to @documentencoding, documented in Texinfo manual
+          unless ($canonical_texinfo_encodings{lc($text)}) {
+            $self->_command_warn($current, $source_info,
+                     __("encoding `%s' is not a canonical texinfo encoding"),
+                                 $text)
+          }
+
+          # Set $perl_encoding  -- an encoding name suitable for perl;
+          #     $input_encoding -- for output within an HTML file, used
+          #                        in most output formats
+          my ($perl_encoding, $input_encoding);
+          my $Encode_encoding_object = find_encoding($normalized_text);
+          if (defined($Encode_encoding_object)) {
+            $perl_encoding = $Encode_encoding_object->name();
+            # mime_name() is upper-case, our keys are lower case, set to lower case
+            $input_encoding = lc($Encode_encoding_object->mime_name());
+          }
+
+          if (!$perl_encoding) {
+            $self->_command_warn($current, $source_info,
+                 __("unhandled encoding name `%s'"), $text);
+          } else {
+            if ($input_encoding) {
+              $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
+              $self->{'info'}->{'input_encoding_name'} = $input_encoding;
+            }
+
+            $self->{'input_file_encoding'} = $perl_encoding;
+            foreach my $input (@{$self->{'input'}}) {
+              binmode($input->{'fh'}, ":encoding($perl_encoding)")
+                if ($input->{'fh'});
+            }
           }
         }
       } elsif ($command eq 'documentlanguage') {

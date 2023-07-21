@@ -108,12 +108,12 @@ $result_errors{'value_in_invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `bad\'
+    'error_line' => 'warning: unhandled encoding name `bad\'
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => 'unrecognized encoding name `bad\'',
+    'text' => 'unhandled encoding name `bad\'',
     'type' => 'warning'
   }
 ];

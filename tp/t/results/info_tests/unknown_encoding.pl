@@ -135,12 +135,12 @@ $result_errors{'unknown_encoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `ggg\'
+    'error_line' => 'warning: unhandled encoding name `ggg\'
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => 'unrecognized encoding name `ggg\'',
+    'text' => 'unhandled encoding name `ggg\'',
     'type' => 'warning'
   }
 ];

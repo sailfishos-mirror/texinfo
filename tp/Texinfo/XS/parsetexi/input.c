@@ -31,16 +31,6 @@
 
 enum input_type { IN_file, IN_text };
 
-enum character_encoding {
-    ce_latin1,
-    ce_latin2,
-    ce_latin15,
-    ce_utf8,
-    ce_shiftjis,
-    ce_koi8r,
-    ce_koi8u
-};
-
 typedef struct {
     enum input_type type;
 
@@ -60,14 +50,33 @@ typedef struct {
 
 static char *input_pushback_string;
 
-enum character_encoding input_encoding;
-
 static char *input_encoding_name;
 static iconv_t reverse_iconv; /* used in encode_file_name */
 
-void
+typedef struct {
+  char *encoding_name;
+  iconv_t iconv;
+} ENCODING;
+
+static ENCODING *encodings_list = 0;
+int encoding_number = 0;
+int encoding_space = 0;
+
+static ENCODING *current_encoding = 0;
+
+/* ENCODING should always be lower cased */
+/* WARNING: it is very important for the first call to
+   set_input_encoding to be for "utf-8" as the codes assume
+   a conversion to UTF-8 in encodings_list[0]. */
+int
 set_input_encoding (char *encoding)
 {
+  int encoding_index = -1;
+  int encoding_set = 0;
+
+  if (!strcmp (encoding, "us-ascii"))
+    encoding = "iso-8859-1";
+
   free (input_encoding_name); input_encoding_name = strdup (encoding);
   if (reverse_iconv)
     {
@@ -75,23 +84,48 @@ set_input_encoding (char *encoding)
       reverse_iconv = (iconv_t) 0;
     }
 
-  if (!strcasecmp (encoding, "utf-8"))
-    input_encoding = ce_utf8;
-  else if (!strcmp (encoding, "iso-8859-1")
-          || !strcmp (encoding, "us-ascii"))
-    input_encoding = ce_latin1;
-  else if (!strcmp (encoding, "iso-8859-2"))
-    input_encoding = ce_latin2;
-  else if (!strcmp (encoding, "iso-8859-15"))
-    input_encoding = ce_latin15;
-  else if (!strcmp (encoding, "shift_jis"))
-    input_encoding = ce_shiftjis;
-  else if (!strcmp (encoding, "koi8-r"))
-    input_encoding = ce_koi8r;
-  else if (!strcmp (encoding, "koi8-u"))
-    input_encoding = ce_koi8u;
+  if (!strcmp (encoding, "utf-8"))
+    {
+      if (encoding_number > 0)
+        encoding_index = 0;
+    }
+  else if (encoding_number > 1)
+    {
+      int i;
+      for (i = 1; i < encoding_number; i++)
+        {
+          if (!strcmp (encoding, encodings_list[i].encoding_name))
+            {
+              encoding_index = i;
+              break;
+            }
+        }
+    }
+
+  if (encoding_index == -1)
+    {
+      if (encoding_number >= encoding_space)
+        {
+          encodings_list = realloc (encodings_list,
+                                    (encoding_space += 3) * sizeof (ENCODING));
+        }
+      encodings_list[encoding_number].encoding_name = strdup (encoding);
+      /* Initialize conversions for the first time.  iconv_open returns
+         (iconv_t) -1 on failure so these should only be called once. */
+      encodings_list[encoding_number].iconv = iconv_open ("UTF-8", encoding);
+      encoding_index = encoding_number;
+      encoding_number++;
+    }
+
+  if (encodings_list[encoding_index].iconv == (iconv_t) -1)
+    current_encoding = 0;
   else
-    fprintf (stderr, "warning: unhandled encoding %s\n", encoding);
+    {
+      current_encoding = &encodings_list[encoding_index];
+      encoding_set = 1;
+    }
+
+  return encoding_set;
 }
 
 
@@ -138,14 +172,6 @@ new_line (ELEMENT *current)
     return 0;
 }
 
-
-static iconv_t iconv_from_latin1;
-static iconv_t iconv_from_latin2;
-static iconv_t iconv_from_latin15;
-static iconv_t iconv_from_shiftjis;
-static iconv_t iconv_from_koi8u;
-static iconv_t iconv_from_koi8r;
-static iconv_t iconv_validate_utf8;
 
 /* Run iconv using text buffer as output buffer. */
 size_t
@@ -235,49 +261,7 @@ convert_to_utf8 (char *s)
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
-  /* Initialize conversions for the first time.  iconv_open returns
-     (iconv_t) -1 on failure so these should only be called once. */
-  if (iconv_validate_utf8 == (iconv_t) 0)
-    iconv_validate_utf8 = iconv_open ("UTF-8", "UTF-8");
-  if (iconv_from_latin1 == (iconv_t) 0)
-    iconv_from_latin1 = iconv_open ("UTF-8", "ISO-8859-1");
-  if (iconv_from_latin2 == (iconv_t) 0)
-    iconv_from_latin2 = iconv_open ("UTF-8", "ISO-8859-2");
-  if (iconv_from_latin15 == (iconv_t) 0)
-    iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
-  if (iconv_from_shiftjis == (iconv_t) 0)
-    iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
-  if (iconv_from_koi8r == (iconv_t) 0)
-    iconv_from_koi8r = iconv_open ("UTF-8", "KOI8-R");
-  if (iconv_from_koi8u == (iconv_t) 0)
-    iconv_from_koi8u = iconv_open ("UTF-8", "KOI8-U");
-
-  switch (input_encoding)
-    {
-    case ce_utf8:
-      our_iconv = iconv_validate_utf8;
-      break;
-    case ce_latin1:
-      our_iconv = iconv_from_latin1;
-      break;
-    case ce_latin2:
-      our_iconv = iconv_from_latin2;
-      break;
-    case ce_latin15:
-      our_iconv = iconv_from_latin15;
-      break;
-    case ce_shiftjis:
-      our_iconv = iconv_from_shiftjis;
-      break;
-    case ce_koi8r:
-      our_iconv = iconv_from_koi8r;
-      break;
-    case ce_koi8u:
-      our_iconv = iconv_from_koi8u;
-      break;
-    }
-
-  if (our_iconv == (iconv_t) -1)
+  if (current_encoding == 0)
     {
       /* In case the converter couldn't be initialised.
          Danger: this will cause problems if the input is not in UTF-8 as
@@ -285,7 +269,7 @@ convert_to_utf8 (char *s)
       return s;
     }
 
-  ret = encode_with_iconv (our_iconv, s);
+  ret = encode_with_iconv (current_encoding->iconv, s);
   free (s);
   return ret;
 }
@@ -323,7 +307,7 @@ encode_file_name (char *filename)
         }
       else if (doc_encoding_for_input_file_name)
         {
-          if (input_encoding != ce_utf8 && input_encoding_name)
+          if (input_encoding_name && strcmp (input_encoding_name, "utf-8"))
             {
               reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
             }
@@ -681,6 +665,25 @@ input_reset_input_stack (void)
   input_number = 0;
   macro_expansion_nr = 0;
   value_expansion_nr = 0;
+}
+
+void
+reset_encoding_list (void)
+{
+  int i;
+  /* never reset the utf-8 encoding in position 0 */
+  for (i = 1; i < encoding_number; i++)
+    {
+      free (encodings_list[i].encoding_name);
+      if (encodings_list[i].iconv != (iconv_t) -1)
+        iconv_close (encodings_list[i].iconv);
+    }
+  /* in theory, it could also be 0, but the function is called right
+     after set_input_encoding ("utf-8"); */
+  encoding_number = 1;
+  current_encoding = 0;
+  free (input_encoding_name);
+  input_encoding_name = 0;
 }
 
 int

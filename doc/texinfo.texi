@@ -12535,7 +12535,11 @@ if your document encoding is not the default encoding.
 
 UTF-8 should always be the best choice for the encoding.
 Texinfo still supports additional encodings, mainly for compatibility with
-older manuals:
+older manuals@footnote{@command{texi2any} supports more encodings for Texinfo
+manuals, potentially all the encodings supported by both Perl and iconv
+(@pxref{Generic Charset Conversion,,, libc, The GNU C Library}).
+The support in output formats may be lacking, however, especially for @LaTeX{}
+output.}:
 
 @table @code
 @item US-ASCII

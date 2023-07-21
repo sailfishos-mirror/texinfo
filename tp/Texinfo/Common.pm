@@ -923,6 +923,32 @@ sub _add_preamble_before_content($)
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
+sub get_perl_encoding($$$)
+{
+  my $commands_info = shift;
+  my $registrar = shift;
+  my $configuration_information = shift;
+
+  my $result;
+  if (defined($commands_info->{'documentencoding'})) {
+    foreach my $element (@{$commands_info->{'documentencoding'}}) {
+      my $perl_encoding = element_extra_encoding_for_perl($element);
+      if (!defined($perl_encoding)) {
+        my $encoding = $element->{'extra'}->{'input_encoding_name'}
+          if ($element->{'extra'});
+        if (defined($encoding)) {
+          $registrar->line_warn($configuration_information,
+                     sprintf(__("unrecognized encoding name `%s'"), $encoding),
+                                          $element->{'source_info'});
+        }
+      } else {
+        $result = $perl_encoding;
+      }
+    }
+  }
+  return $result;
+}
+
 # for Parser and main program
 sub warn_unknown_language($) {
   my $lang = shift;
@@ -1232,7 +1258,7 @@ sub element_extra_encoding_for_perl($)
   my $encoding = $element->{'extra'}->{'input_encoding_name'}
     if ($element->{'extra'});
 
-  if ($encoding) {
+  if (defined($encoding) and $encoding ne '') {
     my $Encode_encoding_object = Encode::find_encoding($encoding);
     if (defined($Encode_encoding_object)) {
       $perl_encoding = $Encode_encoding_object->name();

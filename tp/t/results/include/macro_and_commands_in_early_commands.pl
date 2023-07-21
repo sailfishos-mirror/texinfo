@@ -231,6 +231,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
+            'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'ISO-8859-1@'
           },
           'info' => {
@@ -688,7 +689,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           ],
           'cmdname' => 'verbatiminclude',
           'extra' => {
-            'input_encoding_name' => 'utf-8',
+            'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'inc_@f--ile.texi'
           },
           'info' => {
@@ -834,15 +835,6 @@ $result_errors{'macro_and_commands_in_early_commands'} = [
     'line_nr' => 11,
     'macro' => '',
     'text' => 'encoding `ISO-8859-1@\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unrecognized encoding name `ISO-8859-1@\'
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => '',
-    'text' => 'unrecognized encoding name `ISO-8859-1@\'',
     'type' => 'warning'
   }
 ];

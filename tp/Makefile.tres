@@ -884,6 +884,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/anchor_in_command.pl \
   t/results/info_tests/before_node_and_section.pl \
   t/results/info_tests/center_flush.pl \
+  t/results/info_tests/chinese_mixed_with_en_EUC_CN.pl \
+  t/results/info_tests/chinese_mixed_with_en_EUC_CN/res_info \
   t/results/info_tests/colon_in_index_entry.pl \
   t/results/info_tests/colons_in_index_entries_and_node.pl \
   t/results/info_tests/colons_in_index_entries_and_node/res_info \
@@ -1422,6 +1424,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/definfoenclose.pl \
   t/results/misc_commands/definfoenclose_nestings.pl \
   t/results/misc_commands/definfoenclose_with_empty_arg.pl \
+  t/results/misc_commands/documentencoding_zero.pl \
   t/results/misc_commands/double_exdent.pl \
   t/results/misc_commands/empty_center.pl \
   t/results/misc_commands/empty_center_with_arg.pl \

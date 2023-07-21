@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'chinese_mixed_with_en'} = {
+$result_trees{'chinese_mixed_with_en_EUC_CN'} = {
   'contents' => [
     {
       'contents' => [
@@ -26,7 +26,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'utf-8'
+                      'text' => 'EUC-CN'
                     }
                   ],
                   'info' => {
@@ -40,8 +40,8 @@ $result_trees{'chinese_mixed_with_en'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'utf-8'
+                'input_encoding_name' => 'euc-cn',
+                'text_arg' => 'EUC-CN'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -49,7 +49,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'chinese_mixed_with_en.texi',
+                'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
                 'line_nr' => 2,
                 'macro' => ''
               }
@@ -78,7 +78,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'chinese_mixed_with_en.texi',
+                'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
                 'line_nr' => 3,
                 'macro' => ''
               }
@@ -121,7 +121,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         }
       },
       'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
+        'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
         'line_nr' => 5,
         'macro' => ''
       }
@@ -172,7 +172,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         }
       },
       'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
+        'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
         'line_nr' => 6,
         'macro' => ''
       }
@@ -204,7 +204,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         }
       },
       'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
+        'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
         'line_nr' => 10,
         'macro' => ''
       }
@@ -394,7 +394,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         }
       },
       'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
+        'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
         'line_nr' => 11,
         'macro' => ''
       }
@@ -413,8 +413,8 @@ $result_trees{'chinese_mixed_with_en'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'chinese_mixed_with_en'} = '\\input texinfo
-@documentencoding utf-8
+$result_texis{'chinese_mixed_with_en_EUC_CN'} = '\\input texinfo
+@documentencoding EUC-CN
 @settitle chinese mixed with english
 
 @node Top
@@ -455,7 +455,7 @@ overlap。
 ';
 
 
-$result_texts{'chinese_mixed_with_en'} = '
+$result_texts{'chinese_mixed_with_en_EUC_CN'} = '
 Mixed chinese and english
 *************************
 
@@ -492,7 +492,7 @@ overlap。
 
 ';
 
-$result_sectioning{'chinese_mixed_with_en'} = {
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -536,12 +536,12 @@ $result_sectioning{'chinese_mixed_with_en'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en'};
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'};
 
-$result_nodes{'chinese_mixed_with_en'} = {
+$result_nodes{'chinese_mixed_with_en_EUC_CN'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -571,10 +571,10 @@ $result_nodes{'chinese_mixed_with_en'} = {
     }
   }
 };
-$result_nodes{'chinese_mixed_with_en'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'chinese_mixed_with_en'};
-$result_nodes{'chinese_mixed_with_en'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'chinese_mixed_with_en'};
+$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
+$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
 
-$result_menus{'chinese_mixed_with_en'} = {
+$result_menus{'chinese_mixed_with_en_EUC_CN'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -582,10 +582,20 @@ $result_menus{'chinese_mixed_with_en'} = {
   'structure' => {}
 };
 
-$result_errors{'chinese_mixed_with_en'} = [];
+$result_errors{'chinese_mixed_with_en_EUC_CN'} = [
+  {
+    'error_line' => 'warning: encoding `EUC-CN\' is not a canonical texinfo encoding
+',
+    'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
+    'type' => 'warning'
+  }
+];
 
 
-$result_floats{'chinese_mixed_with_en'} = {};
+$result_floats{'chinese_mixed_with_en_EUC_CN'} = {};
 
 
 1;

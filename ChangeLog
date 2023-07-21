@@ -1,3 +1,46 @@
+2023-07-21  Patrice Dumas  <pertusus@free.fr>
+
+	Use any input encoding known by iconv in the XS parser 
+
+	* doc/texinfo.texi (@code{@@documentencoding}),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
+	(convert_to_utf8, encode_file_name, reset_encoding_list):
+	use a list of encodings and iconv handlers based on the
+	@documentencoding found in the manual.  Always set utf-8 at
+	the first position in the list.  Use any encoding known by iconv
+	instead of a fixed list of known encodings.  Remove enum
+	character_encoding.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line)
+	<documentencoding>: trim non-ascii characters and keep only
+	alphanumeric characters, - and _ in encoding names. iconv also seems
+	to trim non alphanumeric non - _ characters.  Consider an encoding not
+	handled by iconv or not found in perl parser during parsing to be
+	unhandled.
+
+	* tp/Texinfo/Common.pm (get_perl_encoding)
+	(element_extra_encoding_for_perl), tp/Texinfo/ParserNonXS.pm
+	(%parser_state_initialization, parse_texi_text, _input_push_file)
+	(get_parser_info, parse_texi_file, _encode_file_name),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info): add
+	get_perl_encoding function in Texinfo::Common to set
+	{'info'}->{'input_perl_encoding'} based on XS parser code.  Use this
+	function in both parsers.  In the perl parser, add get_parser_info
+	function to call get_perl_encoding instead of doing it while parsing,
+	and call get_parser_info in parse_* functions as required, similar to
+	code in the XS parser.  Consider an encoding not found by perl to
+	be unrecognized.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/08misc_commands.t (documentencoding_zero), tp/t/info_tests.t
+	(chinese_mixed_with_en_EUC_CN),
+	tp/t/input_files/chinese_mixed_with_en_EUC_CN.texi: two new tests
+	related to encodings, one using EUC-CN an ascii compatible encodding
+	that was not available before in the XS parser.
+
 2023-07-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/65linemacro.t (end_conditional_in_linemacro)

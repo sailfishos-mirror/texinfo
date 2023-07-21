@@ -54,6 +54,9 @@ Test text after finalout
 @finalout a word after finalout
 Line after finalout
 '],
+['documentencoding_zero',
+'@documentencoding 0
+'],
 ['also_not_line',
 '
 

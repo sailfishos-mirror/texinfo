@@ -1,5 +1,5 @@
 \input texinfo
-@documentencoding utf-8
+@documentencoding EUC-CN
 @settitle chinese mixed with english
 
 @node Top
@@ -20,20 +20,20 @@ standard Emacs features when programming in Ada.
 
 2. chinese already aligned in source(this result)
 
-这常用于修饰多个线程会访问或修改的全局变量，让编译器保证每次都从内存读取
-变量的值，而不是作某些优化。（这些优化有可能导致程序不能获得正确的值）
+�ⳣ�������ζ���̻߳���ʻ��޸ĵ�ȫ�ֱ������ñ�������֤ÿ�ζ����ڴ��ȡ
+������ֵ����������ĳЩ�Ż�������Щ�Ż��п��ܵ��³����ܻ����ȷ��ֵ��
 
 3. chinese not aligned in source
 
-这常用于修饰多个线程会访问或修改的全局变量，让编译器保证每次都从内存
-读取
-变量的值，而不是作某些优化。
-（这些优化有可能导致程序不能获得正确的值）
+�ⳣ�������ζ���̻߳���ʻ��޸ĵ�ȫ�ֱ������ñ�������֤ÿ�ζ����ڴ�
+��ȡ
+������ֵ����������ĳЩ�Ż���
+����Щ�Ż��п��ܵ��³����ܻ����ȷ��ֵ��
 
 4. a mix of chinese and english
 
-restrict 表示在当前 scope 内不允许其它变量指向它。用处，比如防止 memory
-overlap。
+restrict ��ʾ�ڵ�ǰ scope �ڲ�������������ָ�������ô��������ֹ memory
+overlap��
 
 
 @bye

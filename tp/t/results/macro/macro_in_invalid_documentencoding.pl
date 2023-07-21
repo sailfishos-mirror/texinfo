@@ -152,12 +152,12 @@ $result_errors{'macro_in_invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: unrecognized encoding name `badm\'
+    'error_line' => 'warning: unhandled encoding name `badm\'
 ',
     'file_name' => '',
     'line_nr' => 4,
     'macro' => '',
-    'text' => 'unrecognized encoding name `badm\'',
+    'text' => 'unhandled encoding name `badm\'',
     'type' => 'warning'
   }
 ];
