@@ -31,6 +31,8 @@ our $top_srcdir;
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
 our $pkgdatadir;
 
+our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
+
 # If $LIB_DIR and $LIBEXEC_DIR are given,
 # (likely the installation directories)
 # use them to add directories

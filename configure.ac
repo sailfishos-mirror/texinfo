@@ -100,6 +100,63 @@ gl_EARLY
 # Rest of Gnulib.
 gl_INIT
 
+ICONV_CONVERTS_EUC_CN=no
+# partly based on gnulib/m4/iconv.m4
+if test "x$am_func_iconv" = "xyes" ; then
+   AC_CACHE_CHECK([whether iconv converts EUC-CN to UTF-8], [texinfo_cv_sys_iconv_converts_euc_cn], [
+      euc_cn_save_LIBS="$LIBS"
+      #if test $am_cv_lib_iconv = yes; then
+        LIBS="$LIBS $LIBICONV"
+      #fi
+      texinfo_cv_sys_iconv_converts_euc_cn=no
+      for euc_cn_iconv_const in '' 'const'; do
+  AC_RUN_IFELSE(
+   [AC_LANG_PROGRAM(
+                  [[
+#include <iconv.h>
+#include <string.h>
+
+#ifndef ICONV_CONST
+# define ICONV_CONST $euc_cn_iconv_const
+#endif
+             ]],
+             [[int result = 0;
+  {
+    iconv_t cd_euc_cn_to_utf8 = iconv_open ("UTF-8", "EUC-CN");
+    if (cd_euc_cn_to_utf8 != (iconv_t)(-1))
+      {
+        static ICONV_CONST char input[] = "abc";
+        char buf[10];
+        ICONV_CONST char *inptr = input;
+        size_t inbytesleft = strlen (input);
+        char *outptr = buf;
+        size_t outbytesleft = sizeof (buf);
+        size_t res = iconv (cd_euc_cn_to_utf8,
+                            &inptr, &inbytesleft,
+                            &outptr, &outbytesleft);
+        if (res != 0)
+          result |= 2;
+        if (strcmp(buf, input))
+          result |= 4;
+        iconv_close (cd_euc_cn_to_utf8);
+      }
+    else
+      result |= 1;
+  }
+  return result;
+]])],
+          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,)
+        test "$texinfo_cv_sys_iconv_converts_euc_cn" = no || break
+      done
+      LIBS="$euc_cn_save_LIBS"
+   ])
+  if test "$texinfo_cv_sys_iconv_converts_euc_cn" = yes; then
+    ICONV_CONVERTS_EUC_CN=yes
+  fi
+fi
+
+AC_SUBST([ICONV_CONVERTS_EUC_CN])
+
 # To generate man pages.
 AM_MISSING_PROG(HELP2MAN, help2man)
 AM_MISSING_PROG(POD2MAN, pod2man)
@@ -319,7 +376,7 @@ AC_SUBST([USE_UNICODE])
 AC_SUBST([USE_EXTERNAL_UNIDECODE])
 
 # i18n support.  To update to a new version of gettext, run:
-#   gettextize -f --po-dir=po --po-dir=po_document 
+#   gettextize -f --po-dir=po --po-dir=po_document
 # See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
 AM_GNU_GETTEXT_VERSION([0.21])
 AM_GNU_GETTEXT([external])
@@ -349,7 +406,7 @@ case $srcdir in
     xs_srcdir=../../../$srcdir/tp ;;
 esac
 
-# Pass on all the options we were given to the subsidiary configure 
+# Pass on all the options we were given to the subsidiary configure
 # script.
 # Don't use AC_CONFIG_SUBDIRS for this because it isn't done right away,
 # and we need it for the check that follows.
@@ -437,7 +494,7 @@ AC_ARG_ENABLE([tp-tests],
      elif $PERL -e "use 5.007_003; use Encode; use Test::More; use File::Basename; use File::Copy; use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone); use Getopt::Long qw(GetOptions);" > /dev/null 2>&1;
      then
        tp_tests='yes'
-     else  
+     else
        tp_tests='no'
      fi
     ])
@@ -458,7 +515,7 @@ AC_ARG_ENABLE([perl-api-texi-build],
      if $PERL -e "use 5.007_003; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
      then
        build_perl_api_texi='yes'
-     else  
+     else
        build_perl_api_texi='no'
      fi
     ])
@@ -503,7 +560,7 @@ AM_CONDITIONAL([POD_SIMPLE_TEXINFO_TESTS], [test "z$pod_simple_texinfo_tests" = 
 host_is_windows=no
 case "$host" in
    *-mingw32 | *-mingw64 | *-msdosdjgpp )  host_is_windows=yes ;;
-esac     
+esac
 AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
 HOST_IS_WINDOWS_VARIABLE=
 if test "x$host_is_windows" = "xyes" ; then

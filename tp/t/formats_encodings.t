@@ -391,7 +391,9 @@ undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
 undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
 ],
 ['multiple_include_encodings',
-undef, {'test_file' => 'multiple_include_encodings.texi'}
+undef, {'test_file' => 'multiple_include_encodings.texi',
+        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+                   ? 'No conversion from UEC-CN' : undef, }
 ],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info

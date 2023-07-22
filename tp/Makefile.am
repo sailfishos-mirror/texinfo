@@ -333,6 +333,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	sed -e 's|[@]USE_EXTERNAL_LIBINTL[@]|$(USE_EXTERNAL_LIBINTL)|' \
 	    -e 's|[@]USE_EXTERNAL_EASTASIANWIDTH[@]|$(USE_EXTERNAL_EASTASIANWIDTH)|' \
 	    -e 's|[@]USE_EXTERNAL_UNIDECODE[@]|$(USE_EXTERNAL_UNIDECODE)|' \
+	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 Texinfo/Commands.pm: Texinfo/command_data.txt

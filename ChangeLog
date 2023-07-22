@@ -1,5 +1,15 @@
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	autoconf test for conversion from EUC-CN to UTF-8 by iconv
+
+	* configure.ac, tp/Makefile.am, tp/Texinfo/ModulePath.pm.in,
+	tp/t/formats_encodings.t (multiple_include_encodings),
+	tp/t/info_tests.t (chinese_mixed_with_en_EUC_CN): add a runtime check
+	whether iconv converts EUC-CN to UTF-8.  Pass the result through
+	Makefile.am and Texinfo::ModulePath.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (parse_file),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line),

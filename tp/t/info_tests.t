@@ -1083,7 +1083,9 @@ text @* f     nl Something? @* After punct
 @end menu
 '],
 ['chinese_mixed_with_en_EUC_CN',
-undef, {'test_file' => 'chinese_mixed_with_en_EUC_CN.texi'}
+undef, {'test_file' => 'chinese_mixed_with_en_EUC_CN.texi',
+        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+                   ? 'No conversion from UEC-CN' : undef, }
 ],
 );
 
