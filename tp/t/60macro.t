@@ -170,7 +170,9 @@ second arg: \second\
 @end macro
 
 @parenbr'."\x{00e8}".'ve{e}
-'],
+',
+{'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+],
 ['macro_expansion','
 @macro macroone {arg1, arg2 }
 result of a macro with \arg1\ and 

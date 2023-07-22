@@ -1,5 +1,10 @@
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/60macro.t (non_ascii_in_macro_name): skip test if /a regex flag
+	is not available.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	autoconf test for conversion from EUC-CN to UTF-8 by iconv
 
 	* configure.ac, tp/Makefile.am, tp/Texinfo/ModulePath.pm.in,
