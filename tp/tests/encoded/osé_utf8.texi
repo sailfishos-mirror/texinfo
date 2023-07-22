@@ -19,6 +19,8 @@ value vùr @value{vùr}.
 @image{an_ïmage,,,öld}
 @image{an_@"{@dotless{i}}mage,,,@"old}
 
+@image{txt_çimage}
+
 @image{dîrectory/imàge,,,âlt,.êxt}
 
 @include not_existïng.téxi

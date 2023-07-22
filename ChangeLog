@@ -1,3 +1,24 @@
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push_file, _next_text)
+	(_end_line_misc_line), tp/Texinfo/Convert/HTML.pm (_process_css_file):
+	do not use binmode to reset input encoding, as with buffering in
+	input the file content is read ahead with the previous encoding.
+	Instead set binary mode and decode upon getting the line.
+
+	* tp/Makefile.am (test_files), t/include/chapter_*.texi,
+	t/include/documentdescription_EUC_CN.texi,
+	t/input_files/multiple_include_encodings.texi, tp/Makefile.tres,
+	tp/t/formats_encodings.t (multiple_include_encodings): new test
+	to test multiple encodings in a Texinfo manual with included files
+	using different encodings.
+
+	* tp/tests/encoded/Makefile.am (EXTRA_DIST), tp/tests/Makefile.onetst,
+	tp/tests/encoded/list-of-tests (non_ascii_test_info),
+	tp/tests/encoded/osé_utf8.texi, tp/tests/encoded/txt_çimage.txt:
+	add image text file to osé_utf8.texi.  Add an info output test
+	for osé_utf8.texi.
+
 2023-07-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%encoding_name_conversion_map)

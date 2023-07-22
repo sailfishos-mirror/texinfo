@@ -14,6 +14,8 @@ non_ascii_test_rawtext osé_utf8.texi -D 'needcommandlineunicode Need command-li
 # check that the output is right when based on input file name
 non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
 
+non_ascii_test_info osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --info
+
 non_ascii_test_latex osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --latex
 
 # test of non utf8 encoded file name in non utf8 document

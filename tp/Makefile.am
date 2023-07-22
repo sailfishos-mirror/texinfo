@@ -130,10 +130,14 @@ test_files = \
  t/README \
  t/include/a.txt \
  t/include/aa.txt \
- t/include/my-bib-macros.texi \
+ t/include/chapter_char_latin2_latin2_in_refs.texi \
+ t/include/chapter_chinese_mixed_with_en.texi \
+ t/include/chapter_chinese_mixed_with_en_EUC_CN.texi \
+ t/include/chapter_japanese_shift_jis.texi \
  t/include/count_image.png \
  t/include/count_image.txt \
  t/include/count_image_text.txt \
+ t/include/documentdescription_EUC_CN.texi \
  t/include/f.txt \
  t/include/fdotext.ext \
  t/include/fdotext.png \
@@ -149,6 +153,7 @@ test_files = \
  t/include/image_encoded.txt \
  t/include/inc_@f--ile.texi \
  t/include/included_file_with_setfilename.texi \
+ t/include/my-bib-macros.texi \
  t/include/text_only_image.txt \
  t/include/this_is_a_long_unknown_file.png \
  t/include/verbatim_encoded.texi \
@@ -234,6 +239,7 @@ test_files = \
  t/input_files/minimal_empty_empty.texi \
  t/input_files/minimal_empty_with_bye.texi \
  t/input_files/minimal_empty_with_input.texi \
+ t/input_files/multiple_include_encodings.texi \
  t/input_files/navigation.texi \
  t/input_files/nodequote.texi \
  t/input_files/nodes_before_top.texi \

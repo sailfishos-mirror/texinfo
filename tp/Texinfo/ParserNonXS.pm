@@ -812,19 +812,21 @@ sub _input_push_file
     return 0, undef, undef, $!;
   }
 
-  if (defined($self->{'input_file_encoding'})) {
-    if ($self->{'input_file_encoding'} eq 'utf-8') {
-      binmode($filehandle, ":utf8");
-      # Use :utf8 instead of :encoding(utf-8), as the latter does
-      # error checking and has (unreliably) led to fatal errors
-      # when reading the first few lines of e.g. Latin-1 or Shift-JIS
-      # files, even though @documentencoding is given early on in the file.
-      # Evidently Perl is checking ahead in the file.
-    } else {
-      binmode($filehandle,
-              ":encoding($self->{'input_file_encoding'})");
-    }
-  }
+  # to be able to change the encoding in the midst of reading a file,
+  # the file is opened in binary mode, no decoding is done on the file
+  # descriptor, but decoding is done after reading.
+  #
+  # The reason why it must be done so is that there is no possibility
+  # to avoid buffering for the input.  Therefore some of the input file
+  # is always read in advance.  Decoding using layers on the input file
+  # descriptor by setting, each time @documentencoding is seen
+  #   binmode($filehandle, ":encoding($encoding)")
+  # will fail, as the input file has already been read and the previous
+  # layer has already been used to decode when the encoding is changed.
+  # This is tested in the formats_encodings multiple_include_encodings
+  # test.
+  binmode($filehandle);
+
   my ($file_name, $directories, $suffix) = fileparse($input_file_path);
 
   my $file_input = {
@@ -837,6 +839,8 @@ sub _input_push_file
        'fh' => $filehandle,
        'input_file_path' => $input_file_path,
     };
+  $file_input->{'file_input_encoding'} = $self->{'input_file_encoding'}
+    if (defined($self->{'input_file_encoding'}));
 
   $file_input->{'file_name_encoding'} = $file_name_encoding
        if (defined($file_name_encoding));
@@ -2369,7 +2373,8 @@ sub _next_text($;$)
         $input_error = 1;
       };
       my $fh = $input->{'fh'};
-      my $line = <$fh>;
+      my $input_line = <$fh>;
+      my $line = Encode::decode($input->{'file_input_encoding'}, $input_line);
       if (defined($line)) {
         if ($input_error) {
           # possible encoding error.  attempt to recover by stripping out
@@ -3596,8 +3601,9 @@ sub _end_line_misc_line($$$)
 
             $self->{'input_file_encoding'} = $perl_encoding;
             foreach my $input (@{$self->{'input'}}) {
-              binmode($input->{'fh'}, ":encoding($perl_encoding)")
-                if ($input->{'fh'});
+              if ($input->{'fh'}) {
+                $input->{'file_input_encoding'} = $perl_encoding;
+              }
             }
           }
         }

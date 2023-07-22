@@ -390,6 +390,9 @@ undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
 ['manual_simple_latin1_with_error',
 undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
 ],
+['multiple_include_encodings',
+undef, {'test_file' => 'multiple_include_encodings.texi'}
+],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info
 @documentencoding utf-8

@@ -8222,29 +8222,26 @@ sub _process_css_file($$$)
   my $rules = [];
   my $imports = [];
   my $line_nr = 0;
-  while (my $line = <$fh>) {
+  # the rule is to assume utf-8.  There could also be a BOM, and
+  # the Content-Type: HTTP header but it is not relevant here.
+  # https://developer.mozilla.org/en-US/docs/Web/CSS/@charset
+  my $input_perl_encoding = 'utf-8';
+  while (my $input_line = <$fh>) {
+    my $line = Encode::decode($input_perl_encoding, $input_line);
     $line_nr++;
     if ($line_nr == 1) {
-      # the rule is to assume utf-8.  There could also be a BOM, and
-      # the Content-Type: HTTP header but it is not relevant here.
-      # https://developer.mozilla.org/en-US/docs/Web/CSS/@charset
-      my $charset = 'utf-8';
-      my $charset_line;
       # should always be the first line
       if ($line =~ /^\@charset  *"([^"]+)" *; *$/) {
-        $charset = $1;
-        $charset_line = 1;
-      }
-      my $Encode_encoding_object = find_encoding($charset);
-      if (defined($Encode_encoding_object)) {
-        my $input_perl_encoding = $Encode_encoding_object->name();
-        if ($input_perl_encoding eq 'utf-8') {
-          binmode($fh, ":utf8");
-        } else {
-          binmode($fh, ":encoding($input_perl_encoding)");
+        my $charset = $1;
+        my $Encode_encoding_object = find_encoding($charset);
+        if (defined($Encode_encoding_object)) {
+          my $perl_encoding = $Encode_encoding_object->name();
+          if (defined($perl_encoding) and $perl_encoding ne '') {
+            $input_perl_encoding = $perl_encoding;
+          }
         }
+        next;
       }
-      next if ($charset_line);
     }
     #print STDERR "Line: $line";
     if ($in_rules) {
@@ -8356,6 +8353,9 @@ sub _prepare_css($)
       }
       $css_file_fh = \*CSSFILE;
     }
+    # FIXME set binary mode?  Or set explicitly text mode?
+    # Would need some testing on windows
+    # binmode($css_file_fh)
     my ($import_lines, $rules_lines);
     ($import_lines, $rules_lines)
       = $self->_process_css_file($css_file_fh, $css_file);

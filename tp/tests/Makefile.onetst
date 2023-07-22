@@ -40,6 +40,7 @@ type_base_one_test_files_generated_list =  \
     test_scripts/encoded_non_ascii_test_epub.sh \
     test_scripts/encoded_non_ascii_test_rawtext.sh \
     test_scripts/encoded_non_ascii_no_setfilename_test_rawtext.sh \
+    test_scripts/encoded_non_ascii_test_info.sh \
     test_scripts/encoded_non_ascii_test_latex.sh \
     test_scripts/encoded_manual_include_accented_file_name_latin1.sh \
     test_scripts/encoded_manual_include_accented_file_name_latin1_explicit_encoding.sh \
