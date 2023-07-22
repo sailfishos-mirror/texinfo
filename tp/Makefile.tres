@@ -1347,6 +1347,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_zero.pl \
   t/results/macro/nested_macro_call.pl \
   t/results/macro/no_macrobody.pl \
+  t/results/macro/non_ascii_in_macro_name.pl \
   t/results/macro/paragraph_and_macro.pl \
   t/results/macro/protect_comma_macro_line.pl \
   t/results/macro/protect_in_body.pl \
@@ -1368,6 +1369,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/verb_with_arobase_in_macro_call.pl \
   t/results/macro/verb_with_brace_in_macro_call.pl \
   t/results/macro/zero_argument.pl \
+  t/results/macro/zero_argument_comment.pl \
   t/results/menu/bad_beginning.pl \
   t/results/menu/block_commands_in_menu_description.pl \
   t/results/menu/comment_on_menu_line.pl \

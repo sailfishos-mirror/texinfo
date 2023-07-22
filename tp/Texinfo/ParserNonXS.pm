@@ -1276,18 +1276,32 @@ sub _parse_macro_command_line($$$$$;$)
   my $macro = { 'cmdname' => $command, 'parent' => $parent,
                'info' => {'arg_line' => $line}, 'source_info' => $source_info };
   # REMACRO
-  if ($line =~ /^\s+([[:alnum:]][[:alnum:]_-]*)\s*(.*)/) {
-    my $macro_name = $1;
-    my $args_def = $2;
-    my @args;
+  my $macro_name;
+  if ($line =~ s/^\s+([[:alnum:]][[:alnum:]_-]*)//) {
+    $macro_name = $1;
+  } else {
+    $self->_line_error(sprintf(
+               __("\@%s requires a name"), $command), $source_info);
+    $macro->{'extra'} = {'invalid_syntax' => 1};
+    return $macro;
+  }
 
+  if ($line ne '' and $line !~ /^([{@]|\s)/) {
+    $self->_line_error(sprintf(
+                    __("bad name for \@%s"), $command), $source_info);
+    $macro->{'extra'} = {'invalid_syntax' => 1};
+  } else {
     print STDERR "MACRO \@$command $macro_name\n" if ($self->{'DEBUG'});
 
     $macro->{'args'} = [
       { 'type' => 'macro_name', 'text' => $macro_name,
           'parent' => $macro } ];
 
-    if ($args_def =~ s/^\s*{\s*(.*?)\s*}\s*//) {
+    my $args_def = $line;
+    $args_def =~ s/^\s*//;
+
+    my @args;
+    if ($args_def =~ s/^{\s*(.*?)\s*}\s*//) {
       @args = split(/\s*,\s*/, $1);
     }
 
@@ -1309,14 +1323,6 @@ sub _parse_macro_command_line($$$$$;$)
                          $source_info);
       $macro->{'extra'} = {'invalid_syntax' => 1};
     }
-  } elsif ($line !~ /\S/) {
-    $self->_line_error(sprintf(
-               __("\@%s requires a name"), $command), $source_info);
-    $macro->{'extra'} = {'invalid_syntax' => 1};
-  } else {
-    $self->_line_error(sprintf(
-                    __("bad name for \@%s"), $command), $source_info);
-    $macro->{'extra'} = {'invalid_syntax' => 1};
   }
   return $macro;
 }

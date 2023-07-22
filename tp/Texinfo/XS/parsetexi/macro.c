@@ -121,15 +121,17 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
   line += strspn (line, whitespace_chars);
   name = read_command_name (&line);
 
-  if (*line && *line != '{' && !strchr (whitespace_chars, *line))
+  if (!name)
     {
-      line_error ("bad name for @%s", command_name (cmd));
+      line_error ("@%s requires a name", command_name (cmd));
       add_extra_integer (macro, "invalid_syntax", 1);
       return macro;
     }
-  else if (!name)
+
+  if (*line && *line != '{' && *line != '@'
+      && !strchr (whitespace_chars, *line))
     {
-      line_error ("@%s requires a name", command_name (cmd));
+      line_error ("bad name for @%s", command_name (cmd));
       add_extra_integer (macro, "invalid_syntax", 1);
       return macro;
     }

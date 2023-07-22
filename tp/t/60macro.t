@@ -14,6 +14,14 @@ in foo
 @macro abar
 in bar
 @end macro'],
+['zero_argument_comment',
+'@macro foo {}@c foo c
+in foo
+@end macro
+
+@macro abar@comment bar comment
+in bar
+@end macro'],
 ['text_before_after',
 'before @macro mymacro
 in macro
@@ -155,6 +163,13 @@ second arg: \second\
 @end macro
 
 @twoargs{one, two, three}.
+'],
+['non_ascii_in_macro_name',
+'@macro parenbr'."\x{00e8}".'ve {a}
+(@`{\a\})
+@end macro
+
+@parenbr'."\x{00e8}".'ve{e}
 '],
 ['macro_expansion','
 @macro macroone {arg1, arg2 }

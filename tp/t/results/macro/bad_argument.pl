@@ -315,12 +315,12 @@ $result_errors{'bad_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'bad name for @macro
+    'error_line' => '@macro requires a name
 ',
     'file_name' => '',
     'line_nr' => 13,
     'macro' => '',
-    'text' => 'bad name for @macro',
+    'text' => '@macro requires a name',
     'type' => 'error'
   }
 ];

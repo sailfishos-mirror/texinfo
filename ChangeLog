@@ -1,5 +1,18 @@
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	Same parsing of @macro line for both parsers
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line),
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line): use
+	the same code to parse @macro line for both parsers to get the
+	same parsing and same errors message.
+
+	* tp/Makefile.tres, tp/t/60macro.t (zero_argument_comment)
+	(non_ascii_in_macro_name): new tests, with comment on zero arguments
+	@macro line and non ascii character in macro name.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (element_extra_encoding_for_perl)
 	(set_output_encodings), tp/Texinfo/Convert/Converter.pm
 	(txt_image_text), tp/Texinfo/Convert/IXIN.pm (output_ixin),
