@@ -1275,7 +1275,8 @@ sub element_extra_encoding_for_perl($)
     my $Encode_encoding_object = Encode::find_encoding($encoding);
     if (defined($Encode_encoding_object)) {
       $perl_encoding = $Encode_encoding_object->name();
-      $perl_encoding = undef if (!$perl_encoding);
+      $perl_encoding = undef if (defined($perl_encoding)
+                                 and $perl_encoding eq '');
     }
   }
 
@@ -1513,8 +1514,8 @@ sub set_output_encodings($$)
                $parser_information->{'input_encoding_name'})
      if ($parser_information
          and $parser_information->{'input_encoding_name'});
-  if (!$customization_information->get_conf('OUTPUT_PERL_ENCODING')
-       and $customization_information->get_conf('OUTPUT_ENCODING_NAME')) {
+  if (not defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))
+      and defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))) {
     my $conversion_encoding
        = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($encoding_name_conversion_map{$conversion_encoding})) {
@@ -1522,7 +1523,7 @@ sub set_output_encodings($$)
          = $encoding_name_conversion_map{$conversion_encoding};
     }
     my $perl_encoding = Encode::resolve_alias($conversion_encoding);
-    if ($perl_encoding) {
+    if (defined($perl_encoding) and $perl_encoding ne '') {
       $customization_information->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
     }
   }

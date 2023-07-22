@@ -922,7 +922,7 @@ sub output_ixin($$)
             if ($extension eq 'txt') {
               my $perl_encoding
                  = Texinfo::Common::element_extra_encoding_for_perl($command);
-              if ($perl_encoding) {
+              if (defined($perl_encoding)) {
                 binmode($filehandle, ":encoding($perl_encoding)");
               }
             }
@@ -932,6 +932,7 @@ sub output_ixin($$)
             } else {
               $file_content = <$filehandle>;
             }
+            # FIXME error on close should be tested here
             my $encoded_file = encode_base64($file_content);
             $blobs .= $encoded_file;
             my $blob_len = $self->_count_bytes($encoded_file);
@@ -944,7 +945,7 @@ sub output_ixin($$)
             $blobs_index .= $self->ixin_element('blobentry',
              [['bloblen', $blob_len], ['encoding', 'base64'],
               ['mimetype', $mime_type], ['filename', $file_name_text]]) ."\n";
-          }
+          } # FIXME error on open should be tested here
         }
       }
       #print STDERR "$basefile\n";

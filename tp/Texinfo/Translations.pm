@@ -132,7 +132,7 @@ sub gdt($$;$$$$)
     if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
       $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
     }
-    if ($self->get_conf('OUTPUT_PERL_ENCODING')) {
+    if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
       $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
     }
   } else {

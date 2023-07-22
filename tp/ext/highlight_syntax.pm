@@ -448,7 +448,12 @@ sub highlight_process($$)
       $highlight_lang_in_line_nr += 2 + $text_lines_nr;
       $counter ++;
     }
-    close(HIGHLIGHT_LANG_IN);
+    if (! close(HIGHLIGHT_LANG_IN)) {
+      $self->document_warn($self,
+             sprintf(__("highlight_syntax.pm: error on closing %s: %s"),
+                                      $input_language_path_name, $!));
+      return 1;
+    }
 
     # call source highlighting program
     my $version_option='';
@@ -541,7 +546,11 @@ sub highlight_process($$)
          "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"),
                             $language, $got_count, $language_fragments_nr));
     }
-    close (HIGHLIGHT_LANG_OUT);
+    if (!close (HIGHLIGHT_LANG_OUT)) {
+      $self->document_warn($self,
+             sprintf(__("highlight_syntax.pm: error on closing %s: %s"),
+                                      $html_result_path_name, $!));
+    }
   }
   return 0;
 }

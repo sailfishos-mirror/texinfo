@@ -1261,8 +1261,9 @@ sub test($$)
           } else {
             # Texinfo::Convert::Converter::converter() calls
             # Texinfo::Common::set_output_encodings, so OUTPUT_PERL_ENCODING
-            # should be set in all the formats converters.
-            my $output_file_encoding = $converter->get_conf('OUTPUT_PERL_ENCODING');
+            # should be set if possible in all the formats converters.
+            my $output_file_encoding
+                      = $converter->get_conf('OUTPUT_PERL_ENCODING');
             if (defined($output_file_encoding)
                    and $output_file_encoding ne '') {
               binmode(OUTFILE, ":encoding($output_file_encoding)");

@@ -732,6 +732,7 @@ sub converter($)
             and defined($element->{'extra'}->{'input_encoding_name'})) {
           $converter->{'OUTPUT_ENCODING_NAME'}
              = $element->{'extra'}->{'input_encoding_name'};
+          # can be undef
           $converter->{'OUTPUT_PERL_ENCODING'}
              = Texinfo::Common::element_extra_encoding_for_perl($element);
         }

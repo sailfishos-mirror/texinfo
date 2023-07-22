@@ -1281,8 +1281,11 @@ sub _convert($$;$)
                .$self->xml_protect_text($file->[0])
                ."\" format=\"$file->[1]\"></imagedata></imageobject>";
           }
-          my ($image_text, $image_width) = $self->txt_image_text($element, $basefile);
+          my ($image_text, $image_width)
+                = $self->txt_image_text($element, $basefile);
           if (defined($image_text)) {
+            # remove last end of line
+            chomp($image_text);
             $result .= "<textobject><literallayout>"
                .$self->_protect_text($image_text)
                .'</literallayout></textobject>';

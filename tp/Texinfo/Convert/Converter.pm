@@ -1206,12 +1206,13 @@ sub txt_image_text($$$)
 
   my $txt_file = Texinfo::Common::locate_include_file($self, $text_file_name);
   if (!defined($txt_file)) {
-    return undef;
+    return undef, undef;
   } else {
     my $filehandle = do { local *FH };
     if (open ($filehandle, $txt_file)) {
-      my $perl_encoding = Texinfo::Common::element_extra_encoding_for_perl($element);
-      if ($perl_encoding) {
+      my $perl_encoding
+               = Texinfo::Common::element_extra_encoding_for_perl($element);
+      if (defined($perl_encoding)) {
         binmode($filehandle, ":encoding($perl_encoding)");
       }
       my $result = '';
@@ -1223,8 +1224,6 @@ sub txt_image_text($$$)
         }
         $result .= $_;
       }
-      # remove last end of line
-      chomp ($result);
       if (!close ($filehandle)) {
         my $decoded_file = $txt_file;
         $decoded_file = Encode::decode($file_name_encoding, $txt_file)
@@ -1233,7 +1232,7 @@ sub txt_image_text($$$)
            sprintf(__("error on closing image text file %s: %s"),
                                      $decoded_file, $!));
       }
-      return ($result, $max_width);
+      return $result, $max_width;
     } else {
       my $decoded_file = $txt_file;
       $decoded_file = Encode::decode($file_name_encoding, $txt_file)
@@ -1243,7 +1242,7 @@ sub txt_image_text($$$)
                              $decoded_file, $!), $element->{'source_info'});
     }
   }
-  return undef;
+  return undef, undef;
 }
 
 

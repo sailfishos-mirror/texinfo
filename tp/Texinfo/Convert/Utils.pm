@@ -237,7 +237,8 @@ sub expand_verbatiminclude($$$)
                  and defined($current->{'extra'}->{'text_arg'}));
   my $file_name_text = $current->{'extra'}->{'text_arg'};
 
-  my $input_encoding = Texinfo::Common::element_extra_encoding_for_perl($current);
+  my $input_encoding
+         = Texinfo::Common::element_extra_encoding_for_perl($current);
 
   my ($file_name, $file_name_encoding)
       = encoded_input_file_name($customization_information,

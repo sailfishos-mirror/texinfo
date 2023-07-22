@@ -575,6 +575,8 @@ sub format_image($$)
       }
     }
     my ($text, $width) = $self->txt_image_text($element, $basefile);
+    # remove last end of line
+    chomp($text) if (defined($text));
     my $alt;
     if (defined($element->{'args'}->[3])
         and $element->{'args'}->[3]->{'contents'}

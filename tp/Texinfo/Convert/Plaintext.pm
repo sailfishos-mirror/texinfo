@@ -517,7 +517,7 @@ sub converter_initialize($)
   # This needs to be here to take into account $self->{'fillcolumn'}.
   $self->push_top_formatter('_Root_context');
   # some caching to avoid calling get_conf
-  if ($self->get_conf('OUTPUT_PERL_ENCODING')) {
+  if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
     $self->{'output_perl_encoding'} = $self->get_conf('OUTPUT_PERL_ENCODING');
   } else {
     $self->{'output_perl_encoding'} = '';
@@ -1688,6 +1688,8 @@ sub format_image($$)
      {'contents' => $element->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
     my ($text, $width) = $self->txt_image_text($element, $basefile);
+    # remove last end of line
+    chomp($text) if (defined($text));
     my $result = $self->image_formatted_text($element, $basefile, $text);
     my $lines_count = ($result =~ tr/\n/\n/);
     if (!defined($width)) {
