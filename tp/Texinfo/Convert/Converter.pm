@@ -1226,15 +1226,21 @@ sub txt_image_text($$$)
       # remove last end of line
       chomp ($result);
       if (!close ($filehandle)) {
+        my $decoded_file = $txt_file;
+        $decoded_file = Encode::decode($file_name_encoding, $txt_file)
+          if (defined($file_name_encoding));
         $self->document_warn($self,
            sprintf(__("error on closing image text file %s: %s"),
-                                     $txt_file, $!));
+                                     $decoded_file, $!));
       }
       return ($result, $max_width);
     } else {
+      my $decoded_file = $txt_file;
+      $decoded_file = Encode::decode($file_name_encoding, $txt_file)
+        if (defined($file_name_encoding));
       $self->line_warn($self,
                   sprintf(__("\@image file `%s' unreadable: %s"),
-                               $txt_file, $!), $element->{'source_info'});
+                             $decoded_file, $!), $element->{'source_info'});
     }
   }
   return undef;
