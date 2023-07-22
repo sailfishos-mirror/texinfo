@@ -4028,7 +4028,7 @@ sub _end_line_starting_block($$$)
         }
         my $arg = $current->{'args'}->[0]->{'contents'}->[0];
         if (!defined($arg->{'text'})
-            or $arg->{'text'} !~ /^(([[:digit:]]+)|([[:alpha:]]))$/) {
+            or $arg->{'text'} !~ /^((\d+)|([[:alpha:]]))$/) {
           $self->_command_error($current, $source_info,
                       __("bad argument to \@%s"), $command);
         } else {
@@ -7547,7 +7547,7 @@ sub _parse_line_command_args($$$)
       }
     }
   } elsif ($command eq 'sp') {
-    if ($line =~ /^([0-9]+)$/) {
+    if ($line =~ /^(\d+)$/) {
       $args = [$1];
     } else {
       $self->_line_error(sprintf(__("\@sp arg must be numeric, not `%s'"),
@@ -7692,8 +7692,8 @@ sub _parse_line_command_args($$$)
                                  $line), $source_info);
     }
   } elsif ($command eq 'need') { # only a warning
-    if (($line =~ /^([0-9]+(\.[0-9]*)?)$/) or
-             ($line =~ /^(\.[0-9]+)$/)) {
+    if (($line =~ /^(\d+(\.\d*)?)$/) or
+             ($line =~ /^(\.\d+)$/)) {
       $args = [$1];
     } else {
       $self->_line_error(sprintf(__("bad argument to \@need: %s"),
@@ -7702,7 +7702,7 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'paragraphindent') {
     if ($line =~ /^([\w\-]+)$/) {
       my $value = $1;
-      if ($value =~ /^([0-9]+)$/ or $value eq 'none' or $value eq 'asis') {
+      if ($value =~ /^(\d+)$/ or $value eq 'none' or $value eq 'asis') {
         $args = [$1];
       } else {
         $self->_line_error(sprintf(__(
@@ -7723,7 +7723,7 @@ sub _parse_line_command_args($$$)
                                            $line), $source_info);
     }
   } elsif ($command eq 'exampleindent') {
-    if ($line =~ /^([0-9]+)$/) {
+    if ($line =~ /^(\d+)$/) {
       $args = [$1];
     } elsif ($line =~ /^(asis)$/) {
       $args = [$1];

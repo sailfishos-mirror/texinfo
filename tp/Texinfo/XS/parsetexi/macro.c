@@ -204,7 +204,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
               char *p;
               for (p = args_ptr; p < q2; p++)
                 {
-                  if (!isalnum (*p) && *p != '_' && *p != '-')
+                  if (!isascii_alnum (*p) && *p != '_' && *p != '-')
                     {
                       char c = *q2; *q2 = 0;
                       line_error ("bad or empty @%s formal argument: %s",

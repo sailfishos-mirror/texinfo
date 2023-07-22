@@ -177,7 +177,7 @@ parse_rawline_command (char *line, enum command_id cmd,
       p += strspn (p, whitespace_chars);
       if (!*p)
         goto set_no_name;
-      if (!isalnum (*p) && *p != '-' && *p != '_')
+      if (!isascii_alnum (*p) && *p != '-' && *p != '_')
         goto set_invalid;
       q = strpbrk (p,
                    " \t\f\r\n"       /* whitespace */

@@ -32,6 +32,12 @@
 #include "handle_commands.h"
 
 static int
+isascii_alpha (int c)
+{
+  return (((c & ~0x7f) == 0) && isalpha(c));
+}
+
+static int
 is_decimal_number (char *string)
 {
   char *p = string;
@@ -124,7 +130,7 @@ parse_line_command_args (ELEMENT *line_command)
         line++;
         line += strspn (line, whitespace_chars);
 
-        if (!isalnum (*line))
+        if (!isascii_alnum (*line))
           goto alias_invalid;
         existing = read_command_name (&line);
         if (!existing)
@@ -341,7 +347,7 @@ parse_line_command_args (ELEMENT *line_command)
         INDEX *from_index, *to_index;
         char *p = line;
 
-        if (!isalnum (*p))
+        if (!isascii_alnum (*p))
           goto synindex_invalid;
         from = read_command_name (&p);
         if (!from)
@@ -349,7 +355,7 @@ parse_line_command_args (ELEMENT *line_command)
 
         p += strspn (p, whitespace_chars);
 
-        if (!isalnum (*p))
+        if (!isascii_alnum (*p))
           goto synindex_invalid;
         to = read_command_name (&p);
         if (!to)
@@ -881,10 +887,10 @@ end_line_starting_block (ELEMENT *current)
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->text.end == 1
-                    && isalpha ((unsigned char) g->text.text[0])
+                    && isascii_alpha ((unsigned char) g->text.text[0])
                   || (g->text.end > 0
                       && !*(g->text.text
-                            + strspn (g->text.text, "0123456789"))))
+                            + strspn (g->text.text, digit_chars))))
                 {
                   spec = g->text.text;
                 }
@@ -1324,20 +1330,17 @@ end_line_misc_line (ELEMENT *current)
                  non - _ characters */
               for (p = text; *p; p++)
                 {
-                  /* check if ascii */
-                  if ((*p & ~0x7f) == 0)
+                  /* check if ascii and alphanumeric */
+                  if (isascii_alnum(*p))
                     {
-                      if (isalnum (*p))
-                        {
-                          possible_encoding = 1;
-                          *q = tolower (*p);
-                          q++;
-                        }
-                      else if (*p == '_' || *p == '-')
-                        {
-                          *q = *p;
-                          q++;
-                        }
+                      possible_encoding = 1;
+                      *q = tolower (*p);
+                      q++;
+                    }
+                  else if (*p == '_' || *p == '-')
+                    {
+                      *q = *p;
+                      q++;
                     }
                 }
               *q = '\0';
@@ -1361,7 +1364,8 @@ end_line_misc_line (ELEMENT *current)
 
                     text_lc = strdup (text);
                     for (p = text_lc; *p; p++)
-                      *p = tolower (*p);
+                      if (isascii_alpha (*p))
+                        *p = tolower (*p);
 
                     for (i = 0; (canonical_encodings[i]); i++)
                       {
@@ -1444,7 +1448,7 @@ end_line_misc_line (ELEMENT *current)
                  just check if the language code looks right. */
 
               p = text;
-              while (isalpha ((unsigned char) *p))
+              while (isascii_alpha ((unsigned char) *p))
                 p++;
               if (*p && *p != '_')
                 {
@@ -1469,7 +1473,7 @@ end_line_misc_line (ELEMENT *current)
                       p = q;
                       /* Language code should be of the form LL_CC,
                          language code followed by country code. */
-                      while (isalpha ((unsigned char) *p))
+                      while (isascii_alpha ((unsigned char) *p))
                         p++;
                       if (*p || p - q > 4)
                         {
@@ -1489,14 +1493,14 @@ end_line_misc_line (ELEMENT *current)
           p = convert_to_texinfo (args_child_by_index(current, 0));
 
           texi_line = p;
-          while (isspace ((unsigned char) *texi_line))
-            texi_line++;
+
+          texi_line += strspn (texi_line, whitespace_chars);
 
           /* Trim leading and trailing whitespace. */
           p1 = strchr (texi_line, '\0');
           if (p1 > texi_line)
             {
-              while (p1 > texi_line && isspace ((unsigned char) p1[-1]))
+              while (p1 > texi_line && strchr (whitespace_chars, p1[-1]))
                 p1--;
               *p1 = '\0';
             }

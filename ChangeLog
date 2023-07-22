@@ -1,5 +1,27 @@
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (isascii_alpha)
+	(parse_line_command_args, end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(parse_rawline_command), tp/Texinfo/XS/parsetexi/macro.c
+	(parse_macro_command_line), tp/Texinfo/XS/parsetexi/parser.c
+	(isascii_alnum, read_command_name, read_flag_name): add isascii_alpha
+	to replace isalpha and isascii_alnum to replace isalnum to make sure
+	that the character is also ascii, both because we want to select ascii
+	characters only, and because we do not want to depend on the locale.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): replace
+	uses of isspace by other str* functions applied on whitespace_chars
+	to avoid being dependent on the locale as isspace is.
+
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/parser.c: use more consistently \d instead
+	of [0-9] or [[:digit:]] in the perl parser, and use consistently
+	digit_chars in the XS parser for a more consistent code and easier
+	comparison between the two codes.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	Same parsing of @macro line for both parsers
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line),

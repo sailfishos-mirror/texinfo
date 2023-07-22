@@ -62,6 +62,12 @@ looking_at (char *s1, char *s2)
   return !strncmp (s1, s2, strlen (s2));
 }
 
+int
+isascii_alnum (int c)
+{
+  return (((c & ~0x7f) == 0) && isalnum(c));
+}
+
 /* Look for a sequence of alphanumeric characters or hyphens, where the
    first isn't a hyphen.  This is the format of (non-single-character) Texinfo 
    commands, but is also used elsewhere.  Return value to be freed by caller.
@@ -73,10 +79,10 @@ read_command_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isalnum ((unsigned char) *q))
+  if (!isascii_alnum ((unsigned char) *q))
     return 0; /* Invalid. */
 
-  while (isalnum ((unsigned char) *q) || *q == '-' || *q == '_')
+  while (isascii_alnum ((unsigned char) *q) || *q == '-' || *q == '_')
     q++;
   ret = strndup (p, q - p);
   p = q;
@@ -125,7 +131,7 @@ read_flag_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isalnum ((unsigned char) *q) && *q != '-' && *q != '_')
+  if (!isascii_alnum ((unsigned char) *q) && *q != '-' && *q != '_')
     return 0; /* Invalid. */
 
   while (!strchr (whitespace_chars, *q)
@@ -2444,7 +2450,7 @@ check_line_directive (char *line)
   p += strspn (p, " \t");
 
   /* p should now be at the line number */
-  if (!strchr ("0123456789", *p))
+  if (!strchr (digit_chars, *p))
     return 0;
   line_no = strtoul (p, &p, 10);
 
@@ -2463,7 +2469,7 @@ check_line_directive (char *line)
       p = q + 1;
       p += strspn (p, " \t");
 
-      p += strspn (p, "0123456789");
+      p += strspn (p, digit_chars);
       p += strspn (p, " \t");
     }
   if (*p && *p != '\n')
