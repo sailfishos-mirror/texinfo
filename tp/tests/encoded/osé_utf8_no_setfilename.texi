@@ -15,6 +15,9 @@ value vùr @value{vùr}.
 @include included_akçentêd.texi
 
 @image{an_ïmage,,,öld}
+@image{an_@"{@dotless{i}}mage,,,@"old}
+
+@image{txt_çimage}
 
 @image{dîrectory/imàge,,,âlt,.êxt}
 
