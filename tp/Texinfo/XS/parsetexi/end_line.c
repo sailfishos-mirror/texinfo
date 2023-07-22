@@ -1461,11 +1461,11 @@ end_line_misc_line (ELEMENT *current)
                   if (p - text > 4)
                     {
                       /* looks too long */
-                      char c = *p;
+                      char saved = *p;
                       *p = 0;
                       command_warn (current, "%s is not a valid language code",
                                     text);
-                      *p = c;
+                      *p = saved;
                     }
                   if (*p == '_')
                     {

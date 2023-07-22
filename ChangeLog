@@ -1,5 +1,23 @@
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (parse_file),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line),
+	tp/Texinfo/XS/parsetexi/parser.c (check_line_directive): rename
+	char variables used as a temporary placeholder for a character
+	replaced by an end of string as saved to be more explicit and
+	consistent.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/XS/parsetexi/input.c: explain
+	the mapping of US-ASCII encoding to ISO-8859-1 for compatibility
+	with old manuals in which US-ASCII could have been considered to
+	be an alias for ISO-8859-1.  Based on Gavin input and looking at
+	old Texinfo releases code and manuals.
+
+2023-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (isascii_alpha)
 	(parse_line_command_args, end_line_starting_block)
 	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c

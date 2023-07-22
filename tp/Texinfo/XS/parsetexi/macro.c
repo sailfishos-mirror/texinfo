@@ -206,10 +206,10 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
                 {
                   if (!isascii_alnum (*p) && *p != '_' && *p != '-')
                     {
-                      char c = *q2; *q2 = 0;
+                      char saved = *q2; *q2 = 0;
                       line_error ("bad or empty @%s formal argument: %s",
                                   command_name(cmd), args_ptr);
-                      *q2 = c;
+                      *q2 = saved;
                       add_extra_integer (macro, "invalid_syntax", 1);
                       break;
                     }

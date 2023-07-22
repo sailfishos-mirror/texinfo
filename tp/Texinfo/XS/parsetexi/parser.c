@@ -2457,15 +2457,15 @@ check_line_directive (char *line)
   p += strspn (p, " \t");
   if (*p == '"')
     {
-      char c;
+      char saved;
       p++;
       q = strchr (p, '"');
       if (!q)
         return 0;
-      c = *q;
+      saved = *q;
       *q = 0;
       filename = save_string (p);
-      *q = c;
+      *q = saved;
       p = q + 1;
       p += strspn (p, " \t");
 

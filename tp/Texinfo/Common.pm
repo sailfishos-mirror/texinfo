@@ -547,11 +547,26 @@ sub valid_tree_transformation ($)
 
 # information on encodings
 
-# map encodings to encodings that extends them in a compatible way
-# to use the extending encoding to do the conversion and avoid errors.
+# in Texinfo up to 5.2, we presume that ISO-8859-1 was considered as
+# the default encoding (although it had never been said explicitly in
+# the manual, it is consistent with HTML output without encoding
+# being the default for makeinfo output in earlier versions and being,
+# at that time, considered as ISO-8859-1).  The wording in the Texinfo
+# manual implied that setting US-ASCII had no effect, a possible
+# interpretation being that it was an alias for ISO-8859-1.  Since
+# ISO-8859-1 extends US-ASCII in a compatible way, this interpretation
+# is valid.  Also, as long as the same 8bit encoding is used for input and
+# output, the precise 8bit encoding used to extend US-ASCII has no
+# practical consequence, something consistent with past makeinfo supporting
+# any 8bit encoding without documentencoding and also when US-ASCII was
+# specified as encoding.
+#
+# To support old manuals in which US-ASCII can be specified although
+# the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
+# we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
+# ISO-8859-1 but not in US-ASCII.
 our %encoding_name_conversion_map;
 %encoding_name_conversion_map = (
-  # mapping used in HTML in the past
   'us-ascii' => 'iso-8859-1',
 );
 

@@ -200,7 +200,6 @@ parse_file (char *filename)
   debug_output = 0;
   */
   char *p, *q;
-  char c;
 
   int status;
   
@@ -220,10 +219,10 @@ parse_file (char *filename)
 
   if (p)
     {
-      c = *p;
+      char saved = *p;
       *p = '\0';
       add_include_directory (filename);
-      *p = c;
+      *p = saved;
     }
 
   Root = parse_texi_document ();
