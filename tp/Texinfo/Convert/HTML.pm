@@ -340,7 +340,7 @@ sub html_image_file_location_name($$$$)
         $image_extension = $extension;
       } else {
         $image_file = "$image_basefile.jpg";
-        $image_extension = 'jpg';
+        $image_extension = '.jpg';
       }
     }
   }
