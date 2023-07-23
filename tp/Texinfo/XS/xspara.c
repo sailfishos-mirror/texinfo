@@ -1061,4 +1061,25 @@ xspara_add_text (char *text, int len)
   return result;
 }
 
+TEXT
+xspara_set_unfilled_indent (int unfilled, int indent_length,
+                            int indent_length_next)
+{
+  static TEXT result;
+  text_reset (&result);
 
+  if (unfilled != -1)
+    {
+      if (unfilled && !state.unfilled)
+        xspara__add_pending_word (&result, 1);
+      state.unfilled = unfilled;
+    }
+
+  if (indent_length != -1)
+    state.indent_length = indent_length;
+
+  if (indent_length_next != -1)
+    state.indent_length_next = indent_length_next;
+
+  return result;
+}

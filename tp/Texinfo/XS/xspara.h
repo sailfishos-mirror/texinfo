@@ -18,3 +18,5 @@ void xspara_allow_end_sentence (void);
 void xspara_remove_end_sentence (void);
 void xspara_add_end_sentence (int value);
 int xspara_end_line_count (void);
+TEXT xspara_set_unfilled_indent (int unfilled, int indent_length,
+                                int indent_length_next);

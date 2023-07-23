@@ -228,7 +228,7 @@ xspara_allow_end_sentence (paragraph)
     CODE:
         xspara_set_state (paragraph);
         xspara_allow_end_sentence ();
-  
+
 # Optional parameters are IGNORE_COLUMNS, KEEP_END_LINES, FRENCHSPACING,
 # DOUBLE_WIDTH_NO_BREAK.
 # Pass them to the C function as -1 if not given or undef.
@@ -282,3 +282,45 @@ xspara_set_space_protection (paragraph, space_protection_in, ...)
           (space_protection, ignore_columns, keep_end_lines,
            french_spacing, double_width_no_break);
 
+SV *
+xspara_set_unfilled_indent (paragraph, ...)
+        SV *paragraph
+    PREINIT:
+        int unfilled = -1;
+        int indent_length = -1;
+        int indent_length_next = -1;
+        TEXT retval;
+        SV *arg_in;
+    CODE:
+        /* Get optional arguments from stack. */
+        items -= 1;
+        if (items > 0)
+          {
+            items--;
+            arg_in = ST(1);
+            if (SvOK(arg_in))
+              unfilled = (int)SvIV(arg_in);
+          }
+        if (items > 0)
+          {
+            items--;
+            arg_in = ST(2);
+            if (SvOK(arg_in))
+              indent_length = (int)SvIV(arg_in);
+          }
+        if (items > 0)
+          {
+            items--;
+            arg_in = ST(3);
+            if (SvOK(arg_in))
+              indent_length_next = (int)SvIV(arg_in);
+          }
+
+        xspara_set_state (paragraph);
+        retval = xspara_set_unfilled_indent (unfilled, indent_length,
+                                             indent_length_next);
+
+        RETVAL = newSVpv (retval.text ? retval.text : "", retval.end);
+        SvUTF8_on (RETVAL);
+    OUTPUT:
+        RETVAL

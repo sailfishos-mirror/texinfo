@@ -291,6 +291,28 @@ sub set_space_protection($$;$$$$)
   }
 }
 
+sub set_unfilled_indent($;$$$)
+{
+  my $paragraph = shift;
+  my $unfilled = shift;
+  my $indent_length = shift;
+  my $indent_length_next = shift;
+
+  my $result = '';
+
+  if (defined($unfilled)) {
+    if (!$paragraph->{'unfilled'} and $unfilled) {
+      $result .= _add_pending_word($paragraph, 1);
+    }
+    $paragraph->{'unfilled'} = $unfilled;
+  }
+  $paragraph->{'indent_length'} = $indent_length
+      if defined($indent_length);
+  $paragraph->{'indent_length_next'} = $indent_length_next
+      if defined($indent_length_next);
+  return $result;
+}
+
 # Wrap $TEXT, returning the wrapped text, taking into account the current state 
 # of $PARAGRAPH.  Any end of sentence punctuation in $TEXT that should be 
 # allowed to end a sentence but which would otherwise be preceded by an 
