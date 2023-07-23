@@ -1,5 +1,13 @@
 2023-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_new_value_element)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/parser.c
+	(new_value_element, process_remaining_on_line) <value>: add space
+	before brace to "spaces_after_cmd_before_arg" info key as an element,
+	similar to other brace commands.
+
+2023-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/65linemacro.t
 	(protection_of_end_of_line_by_command): add specific test of
 	protection of end of line by @ in linemacro call.  From Gavin.

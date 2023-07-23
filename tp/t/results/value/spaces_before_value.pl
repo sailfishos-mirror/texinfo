@@ -36,7 +36,12 @@ $result_trees{'spaces_before_value'} = {
                     'text' => 'var'
                   }
                 ],
-                'cmdname' => 'value'
+                'cmdname' => 'value',
+                'info' => {
+                  'spaces_after_cmd_before_arg' => {
+                    'text' => '  '
+                  }
+                }
               },
               'line' => 'val',
               'position' => 1,

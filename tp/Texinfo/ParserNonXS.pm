@@ -4847,11 +4847,12 @@ sub _setup_document_root_and_before_node_section()
   return ($document_root, $before_node_section);
 }
 
-sub _new_value_element($$;$)
+sub _new_value_element($$;$$)
 {
   my $command = shift;
   my $flag = shift;
   my $current = shift;
+  my $spaces_element = shift;
 
   my $value_elt = { 'cmdname' => $command,
                       'args' => [] };
@@ -4863,6 +4864,10 @@ sub _new_value_element($$;$)
   # now requires that structure, but it could easily be changed too.
   push @{$value_elt->{'args'}}, {'text' => $flag,
                                  'parent' => $value_elt};
+  if ($spaces_element) {
+    $value_elt->{'info'} = {} if (!$value_elt->{'info'});
+    $value_elt->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
+  }
   return $value_elt;
 }
 
@@ -6754,8 +6759,11 @@ sub _process_remaining_on_line($$$$)
       if ($command eq 'value') {
         my $remaining_line = $line;
         substr($remaining_line, 0, $command_length) = '';
-        $remaining_line =~ s/^\s*//
-           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+        my $spaces_element;
+        if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
+            and $remaining_line =~ s/^(\s+)//) {
+          $spaces_element = {'text' => $1};
+        }
         # REVALUE
         if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
           my $value = $1;
@@ -6774,7 +6782,8 @@ sub _process_remaining_on_line($$$$)
             _input_push_text($self, $remaining_line, $source_info->{'line_nr'});
             _input_push_text($self, $self->{'values'}->{$value},
                              $source_info->{'line_nr'}, undef, $value);
-            my $sm_value_element = _new_value_element($command, $value);
+            my $sm_value_element = _new_value_element($command, $value, undef,
+                                                      $spaces_element);
             my $value_source_mark = {'sourcemark_type' => 'value_expansion',
                                      'status' => 'start',
                                      'line' => $self->{'values'}->{$value},
@@ -6981,8 +6990,11 @@ sub _process_remaining_on_line($$$$)
 
     # @value not expanded (expansion is done above), and @txiinternalvalue
     if ($command eq 'value' or $command eq 'txiinternalvalue') {
-      $line =~ s/^\s*//
-         if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+      my $spaces_element;
+      if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
+          and $line =~ s/^(\s+)//) {
+        $spaces_element = {'text' => $1};
+      }
       # REVALUE
       if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
         my $value = $1;
@@ -6995,7 +7007,8 @@ sub _process_remaining_on_line($$$$)
 
             # caller should expand something along
             # gdt($self, '@{No value for `{value}\'@}', {'value' => $value});
-            my $new_element = _new_value_element($command, $value, $current);
+            my $new_element = _new_value_element($command, $value, $current,
+                                                 $spaces_element);
             push @{$current->{'contents'}}, $new_element;
           # expansion of value already done above
           #} else {
@@ -7003,7 +7016,8 @@ sub _process_remaining_on_line($$$$)
         } else {
           # txiinternalvalue
           _abort_empty_line($self, $current);
-          my $new_element = _new_value_element($command, $value, $current);
+          my $new_element = _new_value_element($command, $value, $current,
+                                               $spaces_element);
           push @{$current->{'contents'}}, $new_element;
         }
       } else {

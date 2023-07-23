@@ -1089,7 +1089,7 @@ gather_spaces_after_cmd_before_arg(ELEMENT *current)
 }
 
 ELEMENT *
-new_value_element (enum command_id cmd, char *flag)
+new_value_element (enum command_id cmd, char *flag, ELEMENT *spaces_element)
 {
   ELEMENT *value_elt = new_element (ET_NONE);
   ELEMENT *value_arg = new_element (ET_NONE);
@@ -1098,7 +1098,9 @@ new_value_element (enum command_id cmd, char *flag)
 
   text_append (&value_arg->text, flag);
   add_to_element_args (value_elt, value_arg);
-
+  if (spaces_element)
+    add_info_element_oot (value_elt, "spaces_after_cmd_before_arg",
+                                     spaces_element);
   return value_elt;
 }
 
@@ -1792,8 +1794,18 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (cmd == CM_value)
     {
       char *remaining_line = line_after_command;
+      ELEMENT *spaces_element = 0;
       if (conf.ignore_space_after_braced_command_name)
-        remaining_line += strspn (remaining_line, whitespace_chars);
+        {
+          int whitespaces_len = strspn (remaining_line, whitespace_chars);
+          if (whitespaces_len > 0)
+            {
+              spaces_element = new_element (ET_NONE);
+              text_append_n (&(spaces_element->text),
+                             remaining_line, whitespaces_len);
+              remaining_line += whitespaces_len;
+            }
+        }
       if (*remaining_line == '{')
         {
           char *flag;
@@ -1821,6 +1833,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                             "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
                              conf.max_macro_call_nesting);
                           free (flag);
+                          if (spaces_element)
+                            destroy_element (spaces_element);
                           line = remaining_line;
                           goto funexit;
                         }
@@ -1835,7 +1849,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                           = new_source_mark (SM_type_value_expansion);
                       value_source_mark->status = SM_status_start;
                       value_source_mark->line = strdup(value);
-                      sm_value_element = new_value_element (cmd, flag);
+                      sm_value_element = new_value_element (cmd, flag, spaces_element);
                       value_source_mark->element = sm_value_element;
 
                       register_source_mark (current, value_source_mark);
@@ -1856,6 +1870,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               free (flag);
             }
         }
+      if (spaces_element)
+        destroy_element (spaces_element);
     }
 
   /* special case for @-command as argument of @itemize or @*table.
@@ -2105,8 +2121,18 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         {
           char *arg_start;
           char *flag;
+          ELEMENT *spaces_element = 0;
           if (conf.ignore_space_after_braced_command_name)
-            line += strspn (line, whitespace_chars);
+            {
+              int whitespaces_len = strspn (line, whitespace_chars);
+              if (whitespaces_len > 0)
+                {
+                  spaces_element = new_element (ET_NONE);
+                  text_append_n (&(spaces_element->text),
+                                 line, whitespaces_len);
+                  line += whitespaces_len;
+                }
+            }
           if (*line != '{')
             goto value_invalid;
 
@@ -2140,15 +2166,19 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
                       line_warn ("undefined flag: %s", flag);
 
-                      value_elt = new_value_element (cmd, flag);
+                      value_elt = new_value_element (cmd, flag, spaces_element);
                       add_to_element_contents (current, value_elt);
 
                       line++; /* past '}' */
                     }
-                   /* expansion of value already done above
                   else
-                    value is set
+                    {
+                      if (spaces_element)
+                        destroy_element (spaces_element);
+                   /* expansion of value already done above
+                       value is set
                     */
+                    }
                   free (flag);
                   goto funexit;
                 }
@@ -2158,7 +2188,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
                   abort_empty_line (&current, NULL);
 
-                  txiinternalvalue_elt = new_value_element (cmd, flag);
+                  txiinternalvalue_elt = new_value_element (cmd, flag, spaces_element);
 
 
                   add_to_element_contents (current, txiinternalvalue_elt);
@@ -2173,6 +2203,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             {
           value_invalid:
               line_error ("bad syntax for @%s", command_name(cmd));
+              if (spaces_element)
+                destroy_element (spaces_element);
               goto funexit;
             }
         }
