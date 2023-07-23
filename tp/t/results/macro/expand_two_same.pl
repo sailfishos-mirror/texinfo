@@ -98,6 +98,9 @@ arg}
                       'name' => 'macrotwo'
                     },
                     'info' => {
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => ' '
+                      },
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
@@ -212,6 +215,9 @@ arg}
                       'name' => 'macrotwo'
                     },
                     'info' => {
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => ' '
+                      },
                       'spaces_before_argument' => {
                         'text' => ' '
                       }

@@ -2547,6 +2547,7 @@ sub _expand_macro_arguments($$$$$)
   my ($self, $macro, $line, $source_info, $current) = @_;
 
   my $braces_level = 1;
+
   my $argument = {'type' => 'brace_command_arg',
                   'contents' => [],
                   'parent' => $current};
@@ -2554,10 +2555,17 @@ sub _expand_macro_arguments($$$$$)
   my $argument_content = {'text' => '',
                           'parent' => $argument};
   push @{$argument->{'contents'}}, $argument_content;
+
   my $args_total = scalar(@{$macro->{'args'}}) -1;
   my $name = $macro->{'args'}->[0]->{'text'};
 
   my $source_info_orig = $source_info;
+
+  $line =~ s/^{(\s*)//;
+  if ($1 ne '') {
+    $current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'}->{'spaces_before_argument'} = {'text' => $1};
+  }
 
   while (1) {
     if ($line =~ s/([^\\{},]*)([\\{},])//) {
@@ -4935,10 +4943,12 @@ sub _handle_macro($$$$$)
                                    $macro_call_element);
   } else {
     my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-    if ($line =~ s/^\s*{(\s*)//) { # } macro with args
-      if ($1 ne '') {
-        $macro_call_element->{'info'}
-            = {'spaces_before_argument' => {'text' => $1}};
+    if ($line =~ /^\s*{/) { # } macro with args
+      if ($line =~ s/^(\s+)//) {
+        my $spaces_element = {'text' => $1};
+        $macro_call_element->{'info'} = {} if (!$macro_call_element->{'info'});
+        $macro_call_element->{'info'}->{'spaces_after_cmd_before_arg'}
+          = $spaces_element;
       }
       ($line, $source_info)
        = _expand_macro_arguments($self, $expanded_macro, $line, $source_info,

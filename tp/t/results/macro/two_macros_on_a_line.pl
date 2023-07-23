@@ -432,6 +432,11 @@ in macro'
                     'extra' => {
                       'name' => 'mymacrowithargs'
                     },
+                    'info' => {
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => ' '
+                      }
+                    },
                     'type' => 'macro_call'
                   },
                   'position' => 10,

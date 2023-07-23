@@ -114,6 +114,11 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
                 'extra' => {
                   'name' => 'mycommand'
                 },
+                'info' => {
+                  'spaces_after_cmd_before_arg' => {
+                    'text' => ' '
+                  }
+                },
                 'type' => 'macro_call'
               },
               'position' => 1,

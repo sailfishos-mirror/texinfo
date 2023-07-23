@@ -856,6 +856,11 @@ $result_trees{'glossary'} = {
                     'extra' => {
                       'name' => 'expandglossary'
                     },
+                    'info' => {
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => ' '
+                      }
+                    },
                     'type' => 'macro_call'
                   },
                   'sourcemark_type' => 'macro_expansion',
@@ -1290,6 +1295,11 @@ $result_trees{'glossary'} = {
                     ],
                     'extra' => {
                       'name' => 'expandglossary'
+                    },
+                    'info' => {
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },

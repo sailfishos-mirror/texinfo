@@ -93,6 +93,9 @@ $result_trees{'protect_in_body_one_arg'} = {
                   'name' => 'macroone'
                 },
                 'info' => {
+                  'spaces_after_cmd_before_arg' => {
+                    'text' => ' '
+                  },
                   'spaces_before_argument' => {
                     'text' => ' '
                   }

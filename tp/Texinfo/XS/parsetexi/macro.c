@@ -291,9 +291,9 @@ remove_empty_arg (ELEMENT *argument)
   return current;
 }
 
-/* LINE points the first non-whitespace character after the opening brace in a
-   macro invocation.  CMD is the command identifier of the macro command.
-   Return array of the arguments.  Return value to be freed by caller.  */
+/* LINE points the opening brace in a macro invocation.  CMD is the command
+   identifier of the macro command.  Return array of the arguments.  Return
+   value to be freed by caller.  */
 void
 expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
                         ELEMENT *current)
@@ -303,6 +303,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
   TEXT *arg;
   int braces_level = 1;
   int args_total;
+  int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_command_arg);
   ELEMENT *argument_content = new_element (ET_NONE);
 
@@ -312,6 +313,18 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
   arg = &(argument_content->text);
 
   args_total = macro->args.number - 1;
+
+  /* *pline is '{', advance past the open brace, start at braces_level = 1 */
+  pline++;
+  whitespaces_len = strspn (pline, whitespace_chars);
+  if (whitespaces_len > 0)
+    {
+      ELEMENT *spaces_element = new_element (ET_NONE);
+      text_append_n (&spaces_element->text, pline, whitespaces_len);
+      add_info_element_oot (current, "spaces_before_argument",
+                            spaces_element);
+      pline += whitespaces_len;
+    }
 
   while (braces_level > 0)
     {
@@ -834,16 +847,15 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')
         {
-          p++;
-          line = p;
-          line += strspn (line, whitespace_chars);
-          if (line - p)
+          if (p - line > 0)
             {
               ELEMENT *spaces_element = new_element (ET_NONE);
-              text_append_n (&spaces_element->text, p, line - p);
-              add_info_element_oot (macro_call_element, "spaces_before_argument",
+              text_append_n (&spaces_element->text, line, p - line);
+              add_info_element_oot (macro_call_element, "spaces_after_cmd_before_arg",
                                     spaces_element);
+
             }
+          line = p;
           expand_macro_arguments (macro, &line, cmd, macro_call_element);
         }
       /* Warning depending on the number of arguments this macro

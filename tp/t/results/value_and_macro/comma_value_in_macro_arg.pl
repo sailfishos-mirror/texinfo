@@ -115,6 +115,9 @@ $result_trees{'comma_value_in_macro_arg'} = {
                   'name' => 'macro1'
                 },
                 'info' => {
+                  'spaces_after_cmd_before_arg' => {
+                    'text' => ' '
+                  },
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
