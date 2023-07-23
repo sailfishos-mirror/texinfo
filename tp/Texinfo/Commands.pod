@@ -119,6 +119,31 @@ C<@titlepage>, C<@copying>, C<@documentdescription>.
 
 =back
 
+=item %blockitem_commands
+X<C<%blockitem_commands>>
+
+Block commands containing C<@item> with possible content before an C<@item>,
+like C<@itemize>, C<@table> or C<@multitable>.
+
+=item %brace_code_commands
+X<C<%brace_code_commands>>
+
+Brace commands that have their argument in code style, like
+C<@code>.
+
+=item %brace_commands
+X<C<%brace_commands>>
+
+The commands that take braces. Value is I<noarg> for brace commands without
+argument such as C<@AA>, C<@TeX>, or C<@equiv>.  Other values include
+I<accent>, I<arguments>, I<context> and other values.
+
+=item %close_paragraph_commands
+X<C<%close_paragraph_commands>>
+
+Commands that stop a paragraph.  Root commands are not specified here,
+but they also close paragraphs.
+
 =item %commands_args_number
 X<C<%commands_args_number>>
 
@@ -134,18 +159,17 @@ number of arguments, and the number of arguments may not be set if it
 corresponds to the default (0 for block commands, 1 for other commands
 that take arguments).
 
-=item %brace_code_commands
-X<C<%brace_code_commands>>
+=item %contain_basic_inline_commands
+X<C<%contain_basic_inline_commands>>
 
-Brace commands that have their argument in code style, like
-C<@code>.
+Commands containing simple text only, much like paragraph text, but
+without C<@ref>, C<@footnote>, C<@titlefont>, C<@anchor> nor C<@verb>.
 
-=item %brace_commands
-X<C<%brace_commands>>
+=item %contain_plain_text_commands
+X<C<%contain_plain_text>>
 
-The commands that take braces. Value is I<noarg> for brace commands without
-argument such as C<@AA>, C<@TeX>, or C<@equiv>.  Other values include
-I<accent>, I<arguments>, I<context> and other values.
+Commands accepting only plain text with accent, symbol and glyph
+commands.
 
 =item %def_commands
 X<C<%def_commands>>
@@ -229,13 +253,18 @@ X<C<%math_commands>>
 =item %line_commands
 X<C<%line_commands>>
 
-Command that do not take braces, take arguments on the command line and are
+Commands that do not take braces, take arguments on the command line and are
 not block commands either, like C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>,
 C<@end>, C<@footnotestyle>, C<@set>, C<@settitle>, C<@itemx>,
 C<@definfoenclose>, C<@comment> and many others.
 
 Note that C<@item> is in C<%line_commands> for its role in C<@table> and
 similar @-commands.
+
+=item %no_paragraph_commands
+X<C<%no_paragraph_commands>>
+
+Commands that do not start a paragraph.
 
 =item %nobrace_commands
 X<C<%nobrace_commands>>
@@ -271,7 +300,7 @@ for code, it is also in I<%preformatted_code_commands>, like C<@example>.
 =item %ref_commands
 X<C<%ref_commands>>
 
-Cross reference @-command referencing nodes, like C<@xref>.
+Cross reference @-command referencing nodes, like C<@xref> or C<@link>.
 
 =item %root_commands
 X<C<%root_commands>>
@@ -294,7 +323,7 @@ Commands with unlimited arguments, like C<@example>.
 
 =head1 SEE ALSO
 
-L<Texinfo::Parser>, L<Texinfo::Common>.
+L<Texinfo::Parser>.
 
 =head1 AUTHOR
 
