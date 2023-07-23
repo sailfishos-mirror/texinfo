@@ -743,7 +743,22 @@ handle_line_command (ELEMENT *current, char **line_inout,
           command_e->cmd = cmd;
           command_e->source_info = current_source_info;
 
-          if (cmd == CM_subentry)
+          if (cmd == CM_nodedescription)
+            {
+              if (current_node)
+                {
+                  KEY_PAIR *k = lookup_extra (current_node, "node_description");
+                  if (k && k->value)
+                    line_warn ("multiple node descriptions");
+                  else
+                    add_extra_element (current_node, "node_description",
+                                       command_e);
+                  add_extra_element (command_e, "element_node", current_node);
+                }
+              else
+                line_warn ("@nodedescription outside of any node");
+            }
+          else if (cmd == CM_subentry)
             {
               long level = 1;
               ELEMENT *parent = current->parent;

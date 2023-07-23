@@ -1188,7 +1188,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || outer == CM_center
            || outer == CM_exdent
            || outer == CM_item
-           || outer == CM_itemx)
+           || outer == CM_itemx
+           || outer == CM_nodedescription)
     {
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */

@@ -9,6 +9,22 @@
 
 2023-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	@nodedescription parsing in texi1any
+
+	* tp/Texinfo/ParserNonXS.pm (%contain_full_text_commands)
+	(_handle_line_command), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command), tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting), tp/Texinfo/command_data.txt: parse
+	@nodedescription, adding extra information about the current node in
+	and in the current node too in extra node_description.
+
+	* tp/t/test_utils.pl (@contents_keys): add node_description.
+
+	* tp/Makefile.tres, tp/t/08misc_commands.t (nodedescription): test
+	parsing of @nodedescription.
+
+2023-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tp_api/Makefile.am (AM_MAKEINFOFLAGS): add the
 	TREE_TRANSFORMATIONS complete_tree_nodes_menus, otherwise the Index
 	appendix node in texi2any_internals_indices.texi concatenated file

@@ -455,7 +455,8 @@ foreach my $brace_command (keys (%brace_commands)) {
     $contain_full_text_commands{$brace_command} = 1;
   }
 }
-foreach my $line_command ('center', 'exdent', 'item', 'itemx') {
+foreach my $line_command ('center', 'exdent', 'item', 'itemx',
+                          'nodedescription') {
   $contain_full_text_commands{$line_command} = 1;
 }
 
@@ -3410,12 +3411,14 @@ sub _in_include($)
   return 0;
 }
 
-# Used for file names and index sort strings to allow including the special
-# Texinfo characters but not other command nor element type.
+# Convert the contents of $E to plain text.  Suitable for specifying a file
+# name containing an at sign or braces, but no other commands nor element
+# types.  Returns $SUPERFLUOUS_ARG if the $E contains other commands or element
+# types.
 sub _convert_to_text {
   my $e = shift;
 
-  my ($text,  $superfluous_arg) = ('', 0);
+  my ($text, $superfluous_arg) = ('', 0);
 
   return ($text, $superfluous_arg)
     unless($e->{'contents'});
@@ -5535,7 +5538,24 @@ sub _handle_line_command($$$$$$)
       $command_e->{'source_info'} = $source_info;
     } else {
       $command_e = { 'cmdname' => $command, 'source_info' => $source_info };
-      if ($command eq 'subentry') {
+      if ($command eq 'nodedescription') {
+        if ($self->{'current_node'}) {
+          $command_e->{'extra'} = {} if (!defined($command_e->{'extra'}));
+          $command_e->{'extra'}->{'element_node'} = $self->{'current_node'};
+          if ($self->{'current_node'}->{'extra'}
+              and $self->{'current_node'}->{'extra'}->{'node_description'}) {
+            $self->_line_warn(__("multiple node descriptions"), $source_info);
+          } else {
+            $self->{'current_node'}->{'extra'} = {}
+              if (!$self->{'current_node'}->{'extra'});
+            $self->{'current_node'}->{'extra'}->{'node_description'}
+              = $command_e;
+          }
+        } else {
+          $self->_line_warn(__("\@nodedescription outside of any node"),
+                            $source_info);
+        }
+      } elsif ($command eq 'subentry') {
         my $parent = $current->{'parent'};
         if (!_is_index_element($self, $parent)) {
           $self->_line_warn(
@@ -8811,7 +8831,7 @@ X<Texinfo tree element extra key>
 
 The node element in the parsed tree containing the element.
 Set for @-commands elements that have an associated
-index entry.
+index entry and for C<@nodedescription>.
 
 =item element_region
 
@@ -9030,6 +9050,8 @@ An I<associated_section> key holds the tree element of the
 sectioning command that follows the node.  An I<node_preceding_part>
 key holds the tree element of the C<@part> that precedes the node,
 if there is no sectioning command between the C<@part> and the node.
+A I<node_description> key holds the first C<@nodedescription> associated
+to the node.
 
 A node containing a menu have a I<menus> key which refers to an array of
 references to menu elements occuring in the node.

@@ -1451,6 +1451,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/kbdinputstyle_in_table.pl \
   t/results/misc_commands/many_lines.pl \
   t/results/misc_commands/no_empty_line_between_headings.pl \
+  t/results/misc_commands/nodedescription.pl \
   t/results/misc_commands/noindent_after_smallexample.pl \
   t/results/misc_commands/noindent_empty_para.pl \
   t/results/misc_commands/noindent_in_paragraph.pl \

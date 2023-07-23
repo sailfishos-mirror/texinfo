@@ -342,6 +342,20 @@ aaa
 @center @ref{Top, ,title
 very long}
 ', {'full_document' => 1}],
+['nodedescription',
+'@nodedescription out of any node
+
+@node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@nodedescription @emph{first description} of chapter
+
+@nodedescription second description @
+  of chapter
+'],
 ['footnote_in_center',
 '@center Centered text with a footnote@footnote{This footnote
 shows an important feature of the centered text.

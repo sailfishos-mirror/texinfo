@@ -226,10 +226,11 @@ convert_contents_to_texinfo (ELEMENT *e)
   return result;
 }
 
-/* Very stripped-down version of Texinfo::Convert::Text.
+/*
    Convert the contents of E to plain text.  Suitable for specifying a file
-   name containing an at sign or braces.  Set *SUPERFLUOUS_ARG if the contents
-   of E are too complicated to convert properly. */
+   name containing an at sign or braces, but no other commands nor element
+   types.  Set *SUPERFLUOUS_ARG if the E contains other commands or element
+   types. */
 char *
 convert_to_text (ELEMENT *e, int *superfluous_arg)
 {
