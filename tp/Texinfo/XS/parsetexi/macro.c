@@ -536,10 +536,11 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
 
       switch (*sep)
         {
-        case '@':
           int single_char;
           char *command;
           enum command_id cmd;
+          int whitespaces_len;
+        case '@':
           text_append_n (arg, sep, 1);
           pline = sep + 1;
           command = parse_command_name (&pline, &single_char);
@@ -572,7 +573,6 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
           break;
         /* spaces */
         default:
-          int whitespaces_len;
           pline = sep;
           whitespaces_len = strspn (pline, whitespace_chars_except_newline);
 
