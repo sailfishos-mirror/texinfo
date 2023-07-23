@@ -1,3 +1,9 @@
+2023-07-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/65linemacro.t
+	(protection_of_end_of_line_by_command): add specific test of
+	protection of end of line by @ in linemacro call.  From Gavin.
+
 2023-07-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/60macro.t (non_ascii_in_macro_name): skip test if /a regex flag

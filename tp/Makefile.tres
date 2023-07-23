@@ -1239,6 +1239,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/no_arguments.pl \
   t/results/linemacro/paragraph_no_paragraph.pl \
   t/results/linemacro/protected_spaces_on_line.pl \
+  t/results/linemacro/protection_of_end_of_line_by_command.pl \
   t/results/linemacro/recursive_linemacro_in_body.pl \
   t/results/linemacro/recursive_linemacro_in_call.pl \
   t/results/linemacro/simple_nested_linemacro_calls.pl \

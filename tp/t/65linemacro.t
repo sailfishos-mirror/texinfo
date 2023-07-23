@@ -81,6 +81,14 @@ Some text @mycommand {a
  call}
 and after.
 '],
+['protection_of_end_of_line_by_command',
+'@linemacro lm {one}
+\one\bullet{}
+@end linemacro
+
+@lm @
+
+'],
 ['blockitem_no_item',
 '@linemacro mycommand {a, b, c}
 \a\, \b\ \c\
