@@ -10,7 +10,9 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
+# Without menus completed the Index appendix node in
+# texi2any_internals_indices.texi soes not appear in any menu.
+AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=complete_tree_nodes_menus
 
 # Use the programs built in our distribution, taking account of possible
 # cross-compiling.  The first -I is there to find Texinfo::ModulePath in
