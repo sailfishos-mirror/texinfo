@@ -7,7 +7,7 @@ use File::Basename;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
-BEGIN { plan tests => 120 ; }
+BEGIN { plan tests => 119 ; }
 
 use Texinfo::Convert::Paragraph;
 
@@ -688,35 +688,5 @@ set_space_protection($line, 0,0);
 $result .= add_text($line, "  after");
 $result .= Texinfo::Convert::Paragraph::end($line);
 is ($result, "protected after", 'line 2 spaces after end space protection with dot');
-
-$para = Texinfo::Convert::Paragraph->new();
-$result = '';
-$result .= add_text($para, 'As para');
-$result .= set_unfilled_indent($para, 1, 30, 60);
-$result .= add_text($para, "uuuuuuuuuuuuu uuu uu uu uuuuuuuuuu uu uu uuuuu\n");
-$result .= add_text($para, "ttttttttttttu ttu tt tt tttttttttt tt tt ttttu tt\n");
-$result .= set_unfilled_indent($para, 0, 0, 20);
-$result .= add_text($para, 'Now the description which we make long to test better if things are going our way');
-$result .= add_text($para, "\n");
-$result .= add_text($para, "and more text going on");
-$result .= set_unfilled_indent($para, 1, 0, 0);
-$result .= add_text($para, "mmmmmmmmmmmmmmmmmmmmmmm m m m mmmmmmmmmmmmmmmmmmm m mmmmmmmmmmmmm");
-$result .= add_text($para, "\n");
-$result .= add_text($para, "* more text unfilled");
-$result .= add_text($para, "\n");
-$result .= Texinfo::Convert::Paragraph::end($para);
-
-is ($result, 'As para                       uuuuuuuuuuuuu uuu uu uu uuuuuuuuuu uu uu
-                                                            uuuuu
-                                                            ttttttttttttu
-                                                            ttu tt tt
-                                                            tttttttttt
-                                                            tt tt ttttu
-                                                            tt
-Now the description which we make long to test better if things are
-                    going our way and more text going on
-mmmmmmmmmmmmmmmmmmmmmmm m m m mmmmmmmmmmmmmmmmmmm m mmmmmmmmmmmmm
-* more text unfilled
-', 'test set_unfilled_indent');
 
 1;

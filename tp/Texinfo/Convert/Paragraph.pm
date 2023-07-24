@@ -39,7 +39,6 @@ sub import {
     end_line 
     add_pending_word 
     get_pending 
-    set_unfilled_indent
   );
 
   my ($callpkg, $filename, $line) = caller(0);
