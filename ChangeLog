@@ -1,3 +1,13 @@
+2023-07-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/xspara.c (xspara__add_pending_word): reset
+	state.space_counter too when indent and !state.unfilled.
+
+	* tp/Texinfo/XS/xspara.c (xspara__print_escaped_spaces)
+	(xspara__add_pending_word, xspara_end, xspara__add_next)
+	(xspara_add_text): add debug similar to the perl Paragraph module.
+	Enabled by changing a variable in the source file and recompiling.
+
 2023-07-23  Patrice Dumas  <pertusus@free.fr>
 
 	Complete Plaintext/Info menus with nodedescription

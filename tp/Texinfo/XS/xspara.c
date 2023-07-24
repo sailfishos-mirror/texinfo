@@ -48,6 +48,8 @@
 
 #include "text.h"
 
+int debug = 0;
+
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
     TEXT word; /* Pending word.  If outputting this would have led to
@@ -233,6 +235,32 @@ iswupper (wint_t wi)
 #endif
 
 #endif
+
+char *
+print_escaped_spaces (char *string)
+{
+  static TEXT t;
+  char *p = string;
+  text_reset (&t);
+  while (*p)
+    {
+      if (*p == ' ')
+        text_append_n (&t, p, 1);
+      else if (*p == '\n')
+        text_append_n (&t, "\\n", 2);
+      else if (*p == '\f')
+        text_append_n (&t, "\\f", 2);
+      else if (isspace(*p))
+        {
+          char *protected_string = malloc (7 * sizeof (char));
+          sprintf (protected_string, "\\x%04x", *p);
+          text_append (&t, protected_string);
+          free (protected_string);
+        }
+      p++;
+    }
+  return t.text;
+}
 
 int
 xspara_init (int unused, char *unused2)
@@ -582,10 +610,16 @@ xspara__add_pending_word (TEXT *result, int add_spaces)
         text_append (result, " ");
       state.counter = state.indent_length;
 
+      if (debug)
+        fprintf (stderr, "INDENT(%d+%d)\n", state.counter, state.word_counter);
+
       /* Do not output leading spaces after the indent, unless 'unfilled'
          is on.  */
       if (!state.unfilled)
-        state.space.end = 0;
+        {
+          state.space.end = 0;
+          state.space_counter = 0;
+        }
     }
 
   if (state.space.end > 0)
@@ -593,6 +627,11 @@ xspara__add_pending_word (TEXT *result, int add_spaces)
       text_append_n (result, state.space.text, state.space.end);
 
       state.counter += state.space_counter;
+
+      if (debug)
+        fprintf (stderr, "ADD_SPACES(%d+%d)\n", state.counter,
+                                                state.word_counter);
+
       state.space.end = 0;
       state.space_counter = 0;
     }
@@ -601,6 +640,10 @@ xspara__add_pending_word (TEXT *result, int add_spaces)
     {
       text_append_n (result, state.word.text, state.word.end);
       state.counter += state.word_counter;
+
+      if (debug)
+        fprintf (stderr, "ADD_WORD[%s]+%d (%d)\n", state.word.text,
+                 state.word_counter, state.counter);
 
       state.word.end = 0;
       state.word_counter = 0;
@@ -630,6 +673,10 @@ xspara_end (void)
   static TEXT ret;
   text_reset (&ret);
   state.end_line_count = 0;
+
+  if (debug)
+    fprintf (stderr, "PARA END\n");
+
   xspara__add_pending_word (&ret, state.add_final_space);
   if (!state.no_final_newline && state.counter != 0)
     {
@@ -770,6 +817,9 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           xspara__cut_line (result);
         }
     }
+  if (debug)
+    fprintf (stderr, "WORD+ %s -> %s\n", word, state.word.space == 0 ?
+                "UNDEF" : state.word.text);
 }
 
 /* Like _add_next but zero end_line_count at beginning. */
@@ -864,9 +914,28 @@ xspara_add_text (char *text, int len)
 
   while (len > 0)
     {
+      if (debug)
+        {
+          char *word = "UNDEF";
+          if (state.word.end > 0)
+            word = state.word.text;
+          fprintf(stderr, "p (%d+%d) s `%s', w `%s'\n", state.counter,
+                  state.word_counter, state.space.end == 0 ? ""
+                   : print_escaped_spaces (state.space.text),
+                  word);
+        }
       if (isspace ((unsigned char) *p))
         {
           state.last_letter = L'\0';
+
+          if (debug)
+            {
+              char t[2];
+              t[0] = *p;
+              t[1] = '\0';
+              fprintf(stderr, "SPACES(%d) `%s'\n", state.counter,
+                      print_escaped_spaces (t));
+            }
 
           if (state.unfilled)
             {
@@ -1066,5 +1135,4 @@ xspara_add_text (char *text, int len)
 
   return result;
 }
-
 
