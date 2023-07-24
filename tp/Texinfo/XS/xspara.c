@@ -236,8 +236,9 @@ iswupper (wint_t wi)
 
 #endif
 
+/* for debug */
 char *
-print_escaped_spaces (char *string)
+xspara__print_escaped_spaces (char *string)
 {
   static TEXT t;
   char *p = string;
@@ -921,7 +922,7 @@ xspara_add_text (char *text, int len)
             word = state.word.text;
           fprintf(stderr, "p (%d+%d) s `%s', w `%s'\n", state.counter,
                   state.word_counter, state.space.end == 0 ? ""
-                   : print_escaped_spaces (state.space.text),
+                   : xspara__print_escaped_spaces (state.space.text),
                   word);
         }
       if (isspace ((unsigned char) *p))
@@ -934,7 +935,7 @@ xspara_add_text (char *text, int len)
               t[0] = *p;
               t[1] = '\0';
               fprintf(stderr, "SPACES(%d) `%s'\n", state.counter,
-                      print_escaped_spaces (t));
+                      xspara__print_escaped_spaces (t));
             }
 
           if (state.unfilled)
