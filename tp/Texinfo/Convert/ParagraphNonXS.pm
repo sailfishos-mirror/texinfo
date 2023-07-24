@@ -78,6 +78,12 @@ sub end_line_count($)
   return $paragraph->{'end_line_count'};
 }
 
+sub counter($)
+{
+  my $paragraph = shift;
+  return $paragraph->{'counter'};
+}
+
 sub end_line($)
 {
   my $paragraph = shift;

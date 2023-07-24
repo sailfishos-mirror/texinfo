@@ -517,6 +517,12 @@ xspara_end_line_count (void)
   return state.end_line_count;
 }
 
+int
+xspara_counter (void)
+{
+  return state.counter;
+}
+
 /* End a line (throwing away a pending space, which we don't need)
    Note _end_line in Paragraph.pm returned "\n". */
 void

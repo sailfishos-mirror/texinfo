@@ -78,6 +78,15 @@ xspara_end_line_count (paragraph)
     OUTPUT:
         RETVAL
 
+int
+xspara_counter (paragraph)
+        SV *paragraph
+    CODE:
+        xspara_set_state (paragraph);
+        RETVAL = xspara_counter ();
+    OUTPUT:
+        RETVAL
+
 void
 xspara__end_line (paragraph)
         SV *paragraph

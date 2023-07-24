@@ -513,6 +513,38 @@ Text
 @node chap @: b
 @chapter Chap
 '],
+['nodedescription_descriptions',
+'@node Top
+@top test of nodedescription used in menu
+
+@menu
+* toto::   
+* titi::  desc of titi
+* name of other: other.
+
+* name of last: last. desc of last
+@end menu
+
+@node toto
+@chapter Toto
+
+@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @ver{:vv somewhat:} @ringaccent anexpected
+
+@node titi
+@chapter Titi
+
+@nodedescription this describes titi
+
+@node other
+@chapter Other
+
+@nodedescription other comes here
+
+@node last
+@chapter Last
+
+@nodedescription we are last
+']
 );
 
 my @test_invalid = (
@@ -592,8 +624,6 @@ my @test_invalid = (
 * Example: Examples of Login Verification Functions
 @end menu
 '],
-
-
 );
 
 foreach my $test (@test_cases) {

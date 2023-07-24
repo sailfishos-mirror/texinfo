@@ -1408,6 +1408,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/missing_detailmenu_on_subnodes.pl \
   t/results/menu/multiple_menus.pl \
   t/results/menu/no_colon_in_menu.pl \
+  t/results/menu/nodedescription_descriptions.pl \
   t/results/menu/reference_to_external_manual.pl \
   t/results/menu/sc_in_menu.pl \
   t/results/menu/simple.pl \

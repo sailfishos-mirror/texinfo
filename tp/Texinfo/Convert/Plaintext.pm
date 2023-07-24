@@ -739,7 +739,8 @@ sub new_formatter($$;$)
     set_space_protection($container, undef, 1, 1);
   }
 
-  my $formatter = {'container' => $container, 'upper_case_stack' => [{}],
+  my $formatter = {'container' => $container,
+                   'upper_case_stack' => [{}],
                    'font_type_stack' => [{}],
                    'w' => 0, 'type' => $type,
               'frenchspacing_stack' => [$self->{'conf'}->{'frenchspacing'}],
@@ -1711,6 +1712,8 @@ sub _get_form_feeds($)
   $form_feeds =~ s/[^\f]$//;
   return $form_feeds;
 }
+
+my $description_indent_length = 31;
 
 sub _convert($$);
 
@@ -3371,8 +3374,10 @@ sub _convert($$)
       }
     } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
+      my $menu_entry_node;
       foreach my $content (@{$element->{'contents'}}) {
         if ($content->{'type'} eq 'menu_entry_node') {
+          $menu_entry_node = $content;
           my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
@@ -3438,6 +3443,46 @@ sub _convert($$)
             }
           }
           $result .= $pre_quote . $entry_name . $post_quote;
+
+        # empty description
+        } elsif ($content->{'type'} eq 'menu_entry_description'
+                 and $content->{'contents'}
+                 and scalar(@{$content->{'contents'}}) == 1
+                 # preformatted inside menu_entry_description
+                 and $content->{'contents'}->[0]->{'contents'}
+                 and scalar(@{$content->{'contents'}->[0]->{'contents'}}) == 1
+                 and defined($content->{'contents'}->[0]->{'contents'}->[0]->{'text'})
+                 and $content->{'contents'}->[0]->{'contents'}->[0]->{'text'} !~ /\S/) {
+          if ($menu_entry_node and $menu_entry_node->{'extra'}
+              and defined($menu_entry_node->{'extra'}->{'normalized'})
+              and $self->{'labels'}
+                ->{$menu_entry_node->{'extra'}->{'normalized'}}
+              and $self->{'labels'}
+                ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
+              and $self->{'labels'}
+                ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
+                                                       ->{'node_description'}) {
+            my $description_element = $self->{'labels'}
+                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
+                                                       ->{'node_description'};
+            # flush the current unfilled container
+            $result .= _count_added($self,
+                         $formatter->{'container'},
+                         add_pending_word($formatter->{'container'}, 1));
+            # push a paragraph container to format the description.
+            my $description_para = $self->new_formatter('paragraph',
+                { 'indent_length' => $description_indent_length,
+                  'counter'
+             => Texinfo::Convert::Paragraph::counter($formatter->{'container'}),
+                });
+            push @{$self->{'formatters'}}, $description_para;
+            $result .= _convert($self, $description_element->{'args'}->[0]);
+            $result .= _count_added($self, $description_para->{'container'},
+               Texinfo::Convert::Paragraph::end($description_para->{'container'}));
+            pop @{$self->{'formatters'}};
+          } else {
+            $result .= _convert($self, $content);
+          }
         } else {
           $result .= _convert($self, $content);
         }
@@ -3456,7 +3501,7 @@ sub _convert($$)
                          $formatter->{'container'},
                          add_pending_word($formatter->{'container'}));
         end_line($formatter->{'container'});
-        $result = $self->ensure_end_of_line($result) ;
+        $result = $self->ensure_end_of_line($result);
       }
 
       return $result;

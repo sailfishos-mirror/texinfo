@@ -1,3 +1,17 @@
+2023-07-23  Patrice Dumas  <pertusus@free.fr>
+
+	Complete Plaintext/Info menus with nodedescription
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): use nodedescription
+	if a menu_entry_description is empty, using a new paragraph container.
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (counter),
+	tp/Texinfo/XS/XSParagraph.xs (xspara_counter), tp/Texinfo/XS/xspara.c
+	(xspara_counter): add counter() to get the current column counter value.
+
+	* tp/Makefile.tres, tp/t/10menu.t (nodedescription_descriptions): new
+	test to test @nodedescription added descriptions.
+
 2023-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix parsetexi compilation errors
@@ -9,7 +23,7 @@
 
 2023-07-23  Patrice Dumas  <pertusus@free.fr>
 
-	@nodedescription parsing in texi1any
+	@nodedescription parsing in texi2any
 
 	* tp/Texinfo/ParserNonXS.pm (%contain_full_text_commands)
 	(_handle_line_command), tp/Texinfo/XS/parsetexi/handle_commands.c
