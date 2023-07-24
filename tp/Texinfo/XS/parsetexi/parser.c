@@ -79,10 +79,10 @@ read_command_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isascii_alnum ((unsigned char) *q))
+  if (!isascii_alnum (*q))
     return 0; /* Invalid. */
 
-  while (isascii_alnum ((unsigned char) *q) || *q == '-' || *q == '_')
+  while (isascii_alnum (*q) || *q == '-' || *q == '_')
     q++;
   ret = strndup (p, q - p);
   p = q;
@@ -131,7 +131,7 @@ read_flag_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isascii_alnum ((unsigned char) *q) && *q != '-' && *q != '_')
+  if (!isascii_alnum (*q) && *q != '-' && *q != '_')
     return 0; /* Invalid. */
 
   while (!strchr (whitespace_chars, *q)

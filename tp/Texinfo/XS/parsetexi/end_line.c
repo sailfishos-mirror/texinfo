@@ -887,7 +887,7 @@ end_line_starting_block (ELEMENT *current)
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->text.end == 1
-                    && isascii_alpha ((unsigned char) g->text.text[0])
+                    && isascii_alpha (g->text.text[0])
                   || (g->text.end > 0
                       && !*(g->text.text
                             + strspn (g->text.text, digit_chars))))
@@ -1448,7 +1448,7 @@ end_line_misc_line (ELEMENT *current)
                  just check if the language code looks right. */
 
               p = text;
-              while (isascii_alpha ((unsigned char) *p))
+              while (isascii_alpha (*p))
                 p++;
               if (*p && *p != '_')
                 {
@@ -1473,7 +1473,7 @@ end_line_misc_line (ELEMENT *current)
                       p = q;
                       /* Language code should be of the form LL_CC,
                          language code followed by country code. */
-                      while (isascii_alpha ((unsigned char) *p))
+                      while (isascii_alpha (*p))
                         p++;
                       if (*p || p - q > 4)
                         {

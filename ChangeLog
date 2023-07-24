@@ -1,3 +1,13 @@
+2023-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No casts in isascii_* calls
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (isascii_alpha),
+	* tp/Texinfo/XS/parsetexi/parser.c (isascii_alnum):
+	Remove casts to 'unsigned char' from call sites.  These should
+	not be necessary as we check in the functions that the argument
+	is in the ASCII range.
+
 2023-07-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): add a space after
