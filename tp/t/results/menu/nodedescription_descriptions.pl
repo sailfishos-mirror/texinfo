@@ -304,6 +304,144 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'menu_entry'
             },
             {
+              'contents' => [
+                {
+                  'text' => '* ',
+                  'type' => 'menu_entry_leading_text'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'a somewhat long node without description nor following space'
+                    }
+                  ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
+                  },
+                  'type' => 'menu_entry_node'
+                },
+                {
+                  'text' => '::',
+                  'type' => 'menu_entry_separator'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '
+'
+                        }
+                      ],
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'type' => 'menu_entry_description'
+                }
+              ],
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
+              'type' => 'menu_entry'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '* ',
+                  'type' => 'menu_entry_leading_text'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'a very long node without description with little space left for'
+                    }
+                  ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'a-very-long-node-without-description-with-little-space-left-for'
+                  },
+                  'type' => 'menu_entry_node'
+                },
+                {
+                  'text' => '::',
+                  'type' => 'menu_entry_separator'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '
+'
+                        }
+                      ],
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'type' => 'menu_entry_description'
+                }
+              ],
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => ''
+              },
+              'type' => 'menu_entry'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '* ',
+                  'type' => 'menu_entry_leading_text'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'very very long node extending past the max columns and without description'
+                    }
+                  ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
+                  },
+                  'type' => 'menu_entry_node'
+                },
+                {
+                  'text' => '::',
+                  'type' => 'menu_entry_separator'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '
+'
+                        }
+                      ],
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'type' => 'menu_entry_description'
+                }
+              ],
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 12,
+                'macro' => ''
+              },
+              'type' => 'menu_entry'
+            },
+            {
               'args' => [
                 {
                   'contents' => [
@@ -331,7 +469,7 @@ $result_trees{'nodedescription_descriptions'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 13,
                 'macro' => ''
               }
             }
@@ -400,7 +538,7 @@ $result_trees{'nodedescription_descriptions'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -418,7 +556,7 @@ $result_trees{'nodedescription_descriptions'} = {
                   'cmdname' => 'w',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -444,7 +582,7 @@ $result_trees{'nodedescription_descriptions'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -472,7 +610,7 @@ $result_trees{'nodedescription_descriptions'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 18,
             'macro' => ''
           }
         },
@@ -485,7 +623,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
+        'line_nr' => 15,
         'macro' => ''
       }
     },
@@ -528,7 +666,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
+        'line_nr' => 16,
         'macro' => ''
       }
     },
@@ -579,7 +717,7 @@ $result_trees{'nodedescription_descriptions'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 23,
             'macro' => ''
           }
         },
@@ -592,7 +730,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
+        'line_nr' => 20,
         'macro' => ''
       }
     },
@@ -635,7 +773,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 18,
+        'line_nr' => 21,
         'macro' => ''
       }
     },
@@ -686,7 +824,7 @@ $result_trees{'nodedescription_descriptions'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
+            'line_nr' => 28,
             'macro' => ''
           }
         },
@@ -699,7 +837,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
+        'line_nr' => 25,
         'macro' => ''
       }
     },
@@ -742,7 +880,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 23,
+        'line_nr' => 26,
         'macro' => ''
       }
     },
@@ -793,7 +931,7 @@ $result_trees{'nodedescription_descriptions'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 30,
+            'line_nr' => 33,
             'macro' => ''
           }
         },
@@ -806,7 +944,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 27,
+        'line_nr' => 30,
         'macro' => ''
       }
     },
@@ -816,6 +954,327 @@ $result_trees{'nodedescription_descriptions'} = {
           'contents' => [
             {
               'text' => 'Last'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {},
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 31,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'a somewhat long node without description nor following space'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_description' => {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'not as long as the node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'nodedescription',
+          'extra' => {
+            'element_node' => {}
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 38,
+            'macro' => ''
+          }
+        },
+        'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 35,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Somewhat long'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {},
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 36,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'a very long node without description with little space left for'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_description' => {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'starting the desciption with a somewhat long word'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'nodedescription',
+          'extra' => {
+            'element_node' => {}
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 43,
+            'macro' => ''
+          }
+        },
+        'normalized' => 'a-very-long-node-without-description-with-little-space-left-for'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 40,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Very long'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {},
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 41,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'very very long node extending past the max columns and without description'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_description' => {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Not long'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'nodedescription',
+          'extra' => {
+            'element_node' => {}
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 48,
+            'macro' => ''
+          }
+        },
+        'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 45,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Past max columns'
             }
           ],
           'info' => {
@@ -844,7 +1303,7 @@ $result_trees{'nodedescription_descriptions'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 28,
+        'line_nr' => 46,
         'macro' => ''
       }
     }
@@ -855,6 +1314,9 @@ $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'con
 $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[0];
 $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodedescription_descriptions'}{'contents'}[3]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[3];
 $result_trees{'nodedescription_descriptions'}{'contents'}[4]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[3]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[5]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[5];
@@ -863,6 +1325,12 @@ $result_trees{'nodedescription_descriptions'}{'contents'}[7]{'extra'}{'node_desc
 $result_trees{'nodedescription_descriptions'}{'contents'}[8]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[7]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[9]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[9];
 $result_trees{'nodedescription_descriptions'}{'contents'}[10]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[9]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[11]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[11];
+$result_trees{'nodedescription_descriptions'}{'contents'}[12]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[11]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[13]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[13];
+$result_trees{'nodedescription_descriptions'}{'contents'}[14]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[13]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[15]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[15];
+$result_trees{'nodedescription_descriptions'}{'contents'}[16]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[15]{'extra'}{'node_description'};
 
 $result_texis{'nodedescription_descriptions'} = '@node Top
 @top test of nodedescription used in menu
@@ -873,6 +1341,9 @@ $result_texis{'nodedescription_descriptions'} = '@node Top
 * name of other: other.
 
 * name of last: last. desc of last
+* a somewhat long node without description nor following space::
+* a very long node without description with little space left for::
+* very very long node extending past the max columns and without description::
 @end menu
 
 @node toto
@@ -894,6 +1365,21 @@ $result_texis{'nodedescription_descriptions'} = '@node Top
 @chapter Last
 
 @nodedescription we are last
+
+@node a somewhat long node without description nor following space
+@chapter Somewhat long
+
+@nodedescription not as long as the node
+
+@node a very long node without description with little space left for
+@chapter Very long
+
+@nodedescription starting the desciption with a somewhat long word
+
+@node very very long node extending past the max columns and without description
+@chapter Past max columns
+
+@nodedescription Not long
 ';
 
 
@@ -905,6 +1391,9 @@ $result_texts{'nodedescription_descriptions'} = 'test of nodedescription used in
 * name of other: other.
 
 * name of last: last. desc of last
+* a somewhat long node without description nor following space::
+* a very long node without description with little space left for::
+* very very long node extending past the max columns and without description::
 
 1 Toto
 ******
@@ -920,6 +1409,18 @@ $result_texts{'nodedescription_descriptions'} = 'test of nodedescription used in
 
 4 Last
 ******
+
+
+5 Somewhat long
+***************
+
+
+6 Very long
+***********
+
+
+7 Past max columns
+******************
 
 ';
 
@@ -1017,6 +1518,66 @@ $result_sectioning{'nodedescription_descriptions'} = {
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
+            },
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
+                  },
+                  'structure' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 5,
+                'section_prev' => {},
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            },
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'a-very-long-node-without-description-with-little-space-left-for'
+                  },
+                  'structure' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 6,
+                'section_prev' => {},
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            },
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
+                  },
+                  'structure' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 7,
+                'section_prev' => {},
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
             }
           ],
           'section_level' => 0,
@@ -1042,6 +1603,18 @@ $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'
 $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
 $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'section_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'section_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'toplevel_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[6]{'structure'}{'section_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[6]{'structure'}{'section_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[6]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5];
+$result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[6]{'structure'}{'toplevel_up'} = $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'nodedescription_descriptions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodedescription_descriptions'};
 
 $result_nodes{'nodedescription_descriptions'} = {
@@ -1112,6 +1685,57 @@ $result_nodes{'nodedescription_descriptions'} = {
                     'normalized' => 'last'
                   },
                   'structure' => {
+                    'node_next' => {
+                      'cmdname' => 'node',
+                      'extra' => {
+                        'associated_section' => {
+                          'cmdname' => 'chapter',
+                          'extra' => {},
+                          'structure' => {
+                            'section_number' => 5
+                          }
+                        },
+                        'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
+                      },
+                      'structure' => {
+                        'node_next' => {
+                          'cmdname' => 'node',
+                          'extra' => {
+                            'associated_section' => {
+                              'cmdname' => 'chapter',
+                              'extra' => {},
+                              'structure' => {
+                                'section_number' => 6
+                              }
+                            },
+                            'normalized' => 'a-very-long-node-without-description-with-little-space-left-for'
+                          },
+                          'structure' => {
+                            'node_next' => {
+                              'cmdname' => 'node',
+                              'extra' => {
+                                'associated_section' => {
+                                  'cmdname' => 'chapter',
+                                  'extra' => {},
+                                  'structure' => {
+                                    'section_number' => 7
+                                  }
+                                },
+                                'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
+                              },
+                              'structure' => {
+                                'node_prev' => {},
+                                'node_up' => {}
+                              }
+                            },
+                            'node_prev' => {},
+                            'node_up' => {}
+                          }
+                        },
+                        'node_prev' => {},
+                        'node_up' => {}
+                      }
+                    },
                     'node_prev' => {},
                     'node_up' => {}
                   }
@@ -1131,6 +1755,12 @@ $result_nodes{'nodedescription_descriptions'} = {
     'node_next' => {}
   }
 };
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodedescription_descriptions'};
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodedescription_descriptions'};
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
+$result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodedescription_descriptions'};
 $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'};
 $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodedescription_descriptions'};
 $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
@@ -1171,6 +1801,45 @@ $result_menus{'nodedescription_descriptions'} = {
                     'normalized' => 'last'
                   },
                   'structure' => {
+                    'menu_next' => {
+                      'cmdname' => 'node',
+                      'extra' => {
+                        'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
+                      },
+                      'structure' => {
+                        'menu_next' => {
+                          'cmdname' => 'node',
+                          'extra' => {
+                            'normalized' => 'a-very-long-node-without-description-with-little-space-left-for'
+                          },
+                          'structure' => {
+                            'menu_next' => {
+                              'cmdname' => 'node',
+                              'extra' => {
+                                'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
+                              },
+                              'structure' => {
+                                'menu_prev' => {},
+                                'menu_up' => {},
+                                'menu_up_hash' => {
+                                  'Top' => 1
+                                }
+                              }
+                            },
+                            'menu_prev' => {},
+                            'menu_up' => {},
+                            'menu_up_hash' => {
+                              'Top' => 1
+                            }
+                          }
+                        },
+                        'menu_prev' => {},
+                        'menu_up' => {},
+                        'menu_up_hash' => {
+                          'Top' => 1
+                        }
+                      }
+                    },
                     'menu_prev' => {},
                     'menu_up' => {},
                     'menu_up_hash' => {
@@ -1200,6 +1869,12 @@ $result_menus{'nodedescription_descriptions'} = {
     }
   }
 };
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
+$result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
 $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
 $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
 $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'};
@@ -1213,7 +1888,7 @@ $result_errors{'nodedescription_descriptions'} = [
     'error_line' => 'unknown command `ver\'
 ',
     'file_name' => '',
-    'line_nr' => 15,
+    'line_nr' => 18,
     'macro' => '',
     'text' => 'unknown command `ver\'',
     'type' => 'error'
@@ -1222,7 +1897,7 @@ $result_errors{'nodedescription_descriptions'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => '',
-    'line_nr' => 15,
+    'line_nr' => 18,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -1231,7 +1906,7 @@ $result_errors{'nodedescription_descriptions'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => '',
-    'line_nr' => 15,
+    'line_nr' => 18,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -1255,6 +1930,13 @@ $result_converted{'plaintext'}->{'nodedescription_descriptions'} = 'test of node
 * name of other: other.        other comes here
 
 * name of last: last. desc of last
+* a somewhat long node without description nor following space:: not as
+                               long as the node
+* a very long node without description with little space left for::
+                               starting the desciption with a somewhat
+                               long word
+* very very long node extending past the max columns and without description::
+                               Not long
 
 1 Toto
 ******
@@ -1267,6 +1949,15 @@ $result_converted{'plaintext'}->{'nodedescription_descriptions'} = 'test of node
 
 4 Last
 ******
+
+5 Somewhat long
+***************
+
+6 Very long
+***********
+
+7 Past max columns
+******************
 
 ';
 
@@ -1318,6 +2009,12 @@ Next: <a href="#toto" accesskey="n" rel="next">Toto</a> &nbsp; </p>
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#last" accesskey="4">name of last</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">desc of last
 </td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="5">a somewhat long node without description nor following space</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#a-very-long-node-without-description-with-little-space-left-for" accesskey="6">a very long node without description with little space left for</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#very-very-long-node-extending-past-the-max-columns-and-without-description" accesskey="7">very very long node extending past the max columns and without description</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</td></tr>
 </table>
 
 <hr>
@@ -1354,9 +2051,39 @@ Next: <a href="#last" accesskey="n" rel="next">Last</a>, Previous: <a href="#tit
 <div class="chapter-level-extent" id="last">
 <div class="nav-panel">
 <p>
-Previous: <a href="#other" accesskey="p" rel="prev">Other</a>, Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a> &nbsp; </p>
+Next: <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="n" rel="next">Somewhat long</a>, Previous: <a href="#other" accesskey="p" rel="prev">Other</a>, Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="Last"><span>4 Last<a class="copiable-link" href="#Last"> &para;</a></span></h2>
+
+
+<hr>
+</div>
+<div class="chapter-level-extent" id="a-somewhat-long-node-without-description-nor-following-space">
+<div class="nav-panel">
+<p>
+Next: <a href="#a-very-long-node-without-description-with-little-space-left-for" accesskey="n" rel="next">Very long</a>, Previous: <a href="#last" accesskey="p" rel="prev">Last</a>, Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="Somewhat-long"><span>5 Somewhat long<a class="copiable-link" href="#Somewhat-long"> &para;</a></span></h2>
+
+
+<hr>
+</div>
+<div class="chapter-level-extent" id="a-very-long-node-without-description-with-little-space-left-for">
+<div class="nav-panel">
+<p>
+Next: <a href="#very-very-long-node-extending-past-the-max-columns-and-without-description" accesskey="n" rel="next">Past max columns</a>, Previous: <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="p" rel="prev">Somewhat long</a>, Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="Very-long"><span>6 Very long<a class="copiable-link" href="#Very-long"> &para;</a></span></h2>
+
+
+<hr>
+</div>
+<div class="chapter-level-extent" id="very-very-long-node-extending-past-the-max-columns-and-without-description">
+<div class="nav-panel">
+<p>
+Previous: <a href="#a-very-long-node-without-description-with-little-space-left-for" accesskey="p" rel="prev">Very long</a>, Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="Past-max-columns"><span>7 Past max columns<a class="copiable-link" href="#Past-max-columns"> &para;</a></span></h2>
 
 </div>
 </div>
@@ -1377,6 +2104,9 @@ $result_converted{'xml'}->{'nodedescription_descriptions'} = '<node name="Top" s
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name of other</menutitle><menuseparator>: </menuseparator><menunode>other</menunode><menuseparator>.</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name of last</menutitle><menuseparator>: </menuseparator><menunode>last</menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">desc of last
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>a somewhat long node without description nor following space</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>a very long node without description with little space left for</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>very very long node extending past the max columns and without description</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>
@@ -1398,10 +2128,28 @@ $result_converted{'xml'}->{'nodedescription_descriptions'} = '<node name="Top" s
 <nodedescription spaces=" ">other comes here</nodedescription>
 
 </chapter>
-<node name="last" spaces=" "><nodename>last</nodename><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="last" spaces=" "><nodename>last</nodename><nodenext automatic="on">a somewhat long node without description nor following space</nodenext><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Last</sectiontitle>
 
 <nodedescription spaces=" ">we are last</nodedescription>
+
+</chapter>
+<node name="a-somewhat-long-node-without-description-nor-following-space" spaces=" "><nodename>a somewhat long node without description nor following space</nodename><nodenext automatic="on">a very long node without description with little space left for</nodenext><nodeprev automatic="on">last</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Somewhat long</sectiontitle>
+
+<nodedescription spaces=" ">not as long as the node</nodedescription>
+
+</chapter>
+<node name="a-very-long-node-without-description-with-little-space-left-for" spaces=" "><nodename>a very long node without description with little space left for</nodename><nodenext automatic="on">very very long node extending past the max columns and without description</nodenext><nodeprev automatic="on">a somewhat long node without description nor following space</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Very long</sectiontitle>
+
+<nodedescription spaces=" ">starting the desciption with a somewhat long word</nodedescription>
+
+</chapter>
+<node name="very-very-long-node-extending-past-the-max-columns-and-without-description" spaces=" "><nodename>very very long node extending past the max columns and without description</nodename><nodeprev automatic="on">a very long node without description with little space left for</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Past max columns</sectiontitle>
+
+<nodedescription spaces=" ">Not long</nodedescription>
 </chapter>
 ';
 

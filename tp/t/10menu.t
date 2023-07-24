@@ -523,6 +523,9 @@ Text
 * name of other: other.
 
 * name of last: last. desc of last
+* a somewhat long node without description nor following space::
+* a very long node without description with little space left for::
+* very very long node extending past the max columns and without description::
 @end menu
 
 @node toto
@@ -544,7 +547,22 @@ Text
 @chapter Last
 
 @nodedescription we are last
-']
+
+@node a somewhat long node without description nor following space
+@chapter Somewhat long
+
+@nodedescription not as long as the node
+
+@node a very long node without description with little space left for
+@chapter Very long
+
+@nodedescription starting the desciption with a somewhat long word
+
+@node very very long node extending past the max columns and without description
+@chapter Past max columns
+
+@nodedescription Not long
+'],
 );
 
 my @test_invalid = (

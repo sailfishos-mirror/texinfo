@@ -1141,8 +1141,8 @@ sub _align_lines($$$$$$)
       } else {
         my $spaces_prepended
          = _compute_spaces_align_line($line_width, $max_column, $direction);
-        $result .= ' ' x$spaces_prepended . $line ."\n";
-        $line_bytes_begin += count_bytes($self, ' ' x$spaces_prepended);
+        $result .= ' ' x $spaces_prepended . $line ."\n";
+        $line_bytes_begin += count_bytes($self, ' ' x $spaces_prepended);
         $line_bytes_end += count_bytes($self, "\n");
         $bytes_count += $line_bytes_begin + $line_bytes_end
                         + count_bytes($self, $line);
@@ -1160,8 +1160,8 @@ sub _align_lines($$$$$$)
             - $image->{'image_width'};
         $prepended_spaces = 0 if ($prepended_spaces < 0);
       }
-      $result .= ' ' x$prepended_spaces . $line;
-      $line_bytes_begin += count_bytes($self, ' ' x$prepended_spaces);
+      $result .= ' ' x $prepended_spaces . $line;
+      $line_bytes_begin += count_bytes($self, ' ' x $prepended_spaces);
       $bytes_count += $line_bytes_begin + count_bytes($self, $line);
       if ($new_image) {
         $image = $new_image;
@@ -2175,7 +2175,7 @@ sub _convert($$)
                   {'text' => "$post_quote: "}]});
             $name_text =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
             $result .= $name_text;
-            _count_added($self,$self->{'formatters'}[-1]{'container'},
+            _count_added($self, $self->{'formatters'}[-1]{'container'},
                          $pre_quote)
               if $pre_quote;
           }
@@ -3475,6 +3475,10 @@ sub _convert($$)
                   'counter'
              => Texinfo::Convert::Paragraph::counter($formatter->{'container'}),
                 });
+            if ($result !~ /\s$/) {
+              $result .= _count_added($self, $description_para->{'container'},
+                               add_text($description_para->{'container'}, ' '));
+            }
             push @{$self->{'formatters'}}, $description_para;
             $result .= _convert($self, $description_element->{'args'}->[0]);
             $result .= _count_added($self, $description_para->{'container'},
@@ -3640,7 +3644,7 @@ sub _convert($$)
       if ($self->{'format_context'}->[-1]->{'item_command'} eq 'headitem') {
         # at this point cell_beginning is at the beginning of
         # the cell following the end of the table -> full width
-        my $line = ' ' x $indent_len . '-' x $cell_beginning . "\n";
+        my $line = (' ' x $indent_len) . ('-' x $cell_beginning) . "\n";
         $bytes_count += count_bytes($self, $line);
         $result .= $line;
         $self->{'empty_lines_count'} = 0;
