@@ -1,5 +1,10 @@
 2023-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (_add_pending_word, _add_next):
+	rearrange code to be more similar to XS Paragraph.
+
+2023-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/xspara.c (xspara__print_escaped_spaces): really
 	add this function (rename from print_escaped_spaces).
 

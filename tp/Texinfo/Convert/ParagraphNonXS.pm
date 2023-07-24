@@ -135,31 +135,32 @@ sub _add_pending_word($;$)
   my $add_spaces = shift;
   my $result = '';
 
-  if (defined($paragraph->{'word'}) or $add_spaces) {
-    if ($paragraph->{'indent_length'} > $paragraph->{'counter'}) {
-      $result .= ' ' x ($paragraph->{'indent_length'} - $paragraph->{'counter'});
-      $paragraph->{'counter'} = $paragraph->{'indent_length'};
-      print STDERR "INDENT($paragraph->{'counter'}+$paragraph->{'word_counter'})\n" 
-                   if ($paragraph->{'DEBUG'});
-      delete $paragraph->{'space'} unless $paragraph->{'unfilled'};
-    }
-    if ($paragraph->{'space'}) {
-      $result .= $paragraph->{'space'};
-      $paragraph->{'counter'} += length($paragraph->{'space'});
-      print STDERR "ADD_SPACES($paragraph->{'counter'}+$paragraph->{'word_counter'})\n" 
-         if ($paragraph->{'DEBUG'});
-      
-    }
-    if (defined($paragraph->{'word'})) {
-      $result .= $paragraph->{'word'};
-      $paragraph->{'counter'} += $paragraph->{'word_counter'};
-      print STDERR "ADD_WORD[$paragraph->{'word'}]+$paragraph->{'word_counter'} ($paragraph->{'counter'})\n"
-        if ($paragraph->{'DEBUG'});
-      $paragraph->{'word'} = undef;
-      $paragraph->{'last_char'} = undef;
-      $paragraph->{'word_counter'} = 0;
-    }
-    $paragraph->{'space'} = '';
+  if (not defined($paragraph->{'word'}) and not $add_spaces) {
+    return $result;
+  }
+
+  if ($paragraph->{'indent_length'} > $paragraph->{'counter'}) {
+    $result .= ' ' x ($paragraph->{'indent_length'} - $paragraph->{'counter'});
+    $paragraph->{'counter'} = $paragraph->{'indent_length'};
+    print STDERR "INDENT($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
+                 if ($paragraph->{'DEBUG'});
+    delete $paragraph->{'space'} unless $paragraph->{'unfilled'};
+  }
+  if ($paragraph->{'space'}) {
+    $result .= $paragraph->{'space'};
+    $paragraph->{'counter'} += length($paragraph->{'space'});
+    print STDERR "ADD_SPACES($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
+       if ($paragraph->{'DEBUG'});
+  }
+  $paragraph->{'space'} = '';
+  if (defined($paragraph->{'word'})) {
+    $result .= $paragraph->{'word'};
+    $paragraph->{'counter'} += $paragraph->{'word_counter'};
+    print STDERR "ADD_WORD[$paragraph->{'word'}]+$paragraph->{'word_counter'} ($paragraph->{'counter'})\n"
+      if ($paragraph->{'DEBUG'});
+    $paragraph->{'word'} = undef;
+    $paragraph->{'last_char'} = undef;
+    $paragraph->{'word_counter'} = 0;
   }
   return $result;
 }
@@ -182,9 +183,9 @@ sub end($)
 my $end_sentence_character = quotemeta('.?!');
 my $after_punctuation_characters = quotemeta('"\')]');
 
-# Add $WORD to paragraph, returning the text to be added to the paragraph. 
-# Any end of sentence punctuation in $WORD that should be allowed to end a 
-# sentence but which would otherwise be preceded by an upper-case letter should 
+# Add $WORD to paragraph, returning the text to be added to the paragraph.
+# Any end of sentence punctuation in $WORD that should be allowed to end a
+# sentence but which would otherwise be preceded by an upper-case letter should
 # instead by preceded by a backspace character.
 sub add_next($;$$)
 {
@@ -204,53 +205,56 @@ sub _add_next($;$$$)
   my $newlines_impossible = shift;
   my $result = '';
 
-  if (defined($word)) {
-    my $disinhibit = 0;
-    # Reverse the insertion of any control characters in Plaintext.pm.
-    if ($word =~ /\x08$/) {
-      $disinhibit = 1;
-    }
-    $word =~ s/\x08//g;
+  if (!defined($word)) {
+    return '';
+  }
 
-    $paragraph->{'word'} .= $word;
+  my $disinhibit = 0;
+  # Reverse the insertion of any control characters in Plaintext.pm.
+  if ($word =~ /\x08$/) {
+    $disinhibit = 1;
+  }
+  $word =~ s/\x08//g;
 
-    if (!$transparent) {
-      if ($disinhibit) {
-        $paragraph->{'last_char'} = 'a';
-      } elsif ($word =~
-           /([^$end_sentence_character$after_punctuation_characters])
-            [$end_sentence_character$after_punctuation_characters]*$/ox) {
-        # Save the last character in $word before punctuation
-        $paragraph->{'last_char'} = $1;
-      }
-    }
+  $paragraph->{'word'} .= $word;
 
-    if (!$newlines_impossible and $word =~ /\n/) {
-      $result .= _add_pending_word ($paragraph);
-      _end_line($paragraph);
-      $paragraph->{'word_counter'} = 0;
-      $paragraph->{'word'} = undef;
-      $paragraph->{'last_char'} = undef;
-    } else {
-      $paragraph->{'word_counter'}
-        += Texinfo::Convert::Unicode::string_width($word);
-
-      # The $paragraph->{'counter'} != 0 is here to avoid having an
-      # additional line output when the text is longer than the max.
-      if ($paragraph->{'counter'} != 0 and
-          $paragraph->{'counter'} + $paragraph->{'word_counter'} +
-             length($paragraph->{'space'}) > $paragraph->{'max'}) {
-        $result .= _cut_line($paragraph);
-      }
-    }
-    if ($paragraph->{'DEBUG'}) {
-      my $para_word = 'UNDEF';;
-      if (defined($paragraph->{'word'})) {
-        $para_word = $paragraph->{'word'};
-      }
-      print STDERR "WORD+ $word -> $para_word\n";
+  if (!$transparent) {
+    if ($disinhibit) {
+      $paragraph->{'last_char'} = 'a';
+    } elsif ($word =~
+         /([^$end_sentence_character$after_punctuation_characters])
+          [$end_sentence_character$after_punctuation_characters]*$/ox) {
+      # Save the last character in $word before punctuation
+      $paragraph->{'last_char'} = $1;
     }
   }
+
+  if (!$newlines_impossible and $word =~ /\n/) {
+    $result .= _add_pending_word ($paragraph);
+    _end_line($paragraph);
+    $paragraph->{'word_counter'} = 0;
+    $paragraph->{'word'} = undef;
+    $paragraph->{'last_char'} = undef;
+  } else {
+    $paragraph->{'word_counter'}
+      += Texinfo::Convert::Unicode::string_width($word);
+
+    # The $paragraph->{'counter'} != 0 is here to avoid having an
+    # additional line output when the text is longer than the max.
+    if ($paragraph->{'counter'} != 0 and
+        $paragraph->{'counter'} + $paragraph->{'word_counter'} +
+           length($paragraph->{'space'}) > $paragraph->{'max'}) {
+      $result .= _cut_line($paragraph);
+    }
+  }
+  if ($paragraph->{'DEBUG'}) {
+    my $para_word = 'UNDEF';;
+    if (defined($paragraph->{'word'})) {
+      $para_word = $paragraph->{'word'};
+    }
+    print STDERR "WORD+ $word -> $para_word\n";
+  }
+
   return $result;
 }
 
@@ -297,9 +301,9 @@ sub set_space_protection($$;$$$$)
   }
 }
 
-# Wrap $TEXT, returning the wrapped text, taking into account the current state 
-# of $PARAGRAPH.  Any end of sentence punctuation in $TEXT that should be 
-# allowed to end a sentence but which would otherwise be preceded by an 
+# Wrap $TEXT, returning the wrapped text, taking into account the current state
+# of $PARAGRAPH.  Any end of sentence punctuation in $TEXT that should be
+# allowed to end a sentence but which would otherwise be preceded by an
 # upper-case letter should instead by preceded by a backspace character.
 sub add_text($$)
 {
