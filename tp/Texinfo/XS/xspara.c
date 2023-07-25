@@ -570,6 +570,8 @@ xspara__end_line (void)
 
   state.lines_counter++;
   state.end_line_count++;
+  /* could be set to other values, anything that is not upper case. */
+  state.last_letter = L'\n';
 }
 
 char *
@@ -678,6 +680,9 @@ xspara_end (void)
   if (debug)
     fprintf (stderr, "PARA END\n");
 
+  /* probably not really useful, but cleaner */
+  state.last_letter = L'\0';
+
   xspara__add_pending_word (&ret, state.add_final_space);
   if (!state.no_final_newline && state.counter != 0)
     {
@@ -701,6 +706,12 @@ xspara_end (void)
 
 /* check if a byte is in the printable ASCII range */
 #define PRINTABLE_ASCII(c) (0x20 <= (c) && (c) <= 0x7E)
+
+/* ignored after end sentence character to determine if
+   at the end of a sentence */
+#define after_punctuation_characters "\"')]"
+/* characters triggering an end of sentence */
+#define end_sentence_characters ".?!"
 
 /* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end 
    of the line start a new one.  TRANSPARENT means that the letters in WORD
@@ -743,7 +754,8 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
                 }
               while ((*p & 0xC0) == 0x80 && p > word);
 
-              if (!strchr (".?!\"')", *p))
+              if (!strchr (end_sentence_characters
+                           after_punctuation_characters, *p))
                 {
                   if (!PRINTABLE_ASCII(*p))
                     {
@@ -917,18 +929,13 @@ xspara_add_text (char *text, int len)
     {
       if (debug)
         {
-          char *word = "UNDEF";
-          if (state.word.end > 0)
-            word = state.word.text;
-          fprintf(stderr, "p (%d+%d) s `%s', w `%s'\n", state.counter,
-                  state.word_counter, state.space.end == 0 ? ""
-                   : xspara__print_escaped_spaces (state.space.text),
-                  word);
+          fprintf(stderr, "p (%d+%d) s `%s', l `%lc', w `%s'\n", state.counter,
+              state.word_counter, state.last_letter, state.space.end == 0 ? ""
+               : xspara__print_escaped_spaces (state.space.text),
+              state.word.end > 0 ? state.word.text : "UNDEF");
         }
       if (isspace ((unsigned char) *p))
         {
-          state.last_letter = L'\0';
-
           if (debug)
             {
               char t[2];
@@ -968,7 +975,6 @@ xspara_add_text (char *text, int len)
                       text_append_n (&state.word, " ", 1);
                       state.word_counter += 1;
                     }
-                  state.last_letter = ' ';
 
                   if (state.counter != 0
                       && state.counter + state.word_counter
@@ -1027,6 +1033,7 @@ xspara_add_text (char *text, int len)
               text_append (&result, "\n");
             }
           p++; len--;
+          state.last_letter = ' ';
           continue;
         }
 
@@ -1054,16 +1061,19 @@ xspara_add_text (char *text, int len)
       /*************** Double width character. *********************/
       if (width == 2)
         {
-          state.last_letter = L'\0';
+          if (debug)
+            fprintf (stderr, "FULLWIDTH\n");
+
+          text_append_n (&state.word, p, char_len);
+          state.word_counter += 2;
+
+          /* fullwidth latin letters can be upper case, so it is important to
+             use the actual characters here. */
+          state.last_letter = wc;
 
           /* We allow a line break in between Chinese characters even if
              there was no space between them, unlike single-width
              characters. */
-
-          /* Append wc to state.word. */
-          text_append_n (&state.word, p, char_len);
-
-          state.word_counter += 2;
 
           if (state.counter != 0
               && state.counter + state.word_counter > state.max)
@@ -1075,8 +1085,8 @@ xspara_add_text (char *text, int len)
           if (!state.no_break && !state.double_width_no_break)
             {
               xspara__add_pending_word (&result, 0);
-              state.end_sentence = -2;
             }
+          state.end_sentence = -2;
         }
       else if (wc == L'\b')
         {
@@ -1099,7 +1109,7 @@ xspara_add_text (char *text, int len)
           /* Now check if it is considered as an end of sentence, and
              set state.end_sentence if it is. */
 
-          if (strchr (".?!", *p) && !state.unfilled)
+          if (strchr (end_sentence_characters, *p) && !state.unfilled)
             {
               /* Doesn't count if preceded by an upper-case letter. */
               if (!iswupper (state.last_letter))
@@ -1108,9 +1118,11 @@ xspara_add_text (char *text, int len)
                     state.end_sentence = -1;
                   else
                     state.end_sentence = 1;
+                  if (debug)
+                    fprintf (stderr, "END_SENTENCE\n");
                 }
             }
-          else if (strchr ("\"')]", *p))
+          else if (strchr (after_punctuation_characters, *p))
             {
               /* '"', '\'', ']' and ')' are ignored for the purpose
                of deciding whether a full stop ends a sentence. */
@@ -1120,8 +1132,11 @@ xspara_add_text (char *text, int len)
               /* Otherwise reset the end of sentence marker: a full stop in
                  a string like "aaaa.bbbb" doesn't mark an end of
                  sentence. */
-              state.end_sentence = -2;
               state.last_letter = wc;
+              if (debug && state.end_sentence != -2)
+                fprintf (stderr, "delete END_SENTENCE(%d)\n",
+                                  state.end_sentence);
+              state.end_sentence = -2;
             }
         }
       else

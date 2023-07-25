@@ -12,8 +12,6 @@ Before next release
 
 comment on linemacro call at top level comments until end of line.
 
-ParagraphNonXS different from XS for punctuation, check if bug/difference.
-
 Bugs
 ====
 

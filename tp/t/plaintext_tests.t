@@ -84,6 +84,10 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 @exdent before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 @end quotation
 '],
+# This tests all the possibilities for end sentence related characters
+# ans splitting by commands (also tested in other tests)
+['split_punctuation_detection_in_commands',
+'Before @asis{B}@asis{)}@asis{.}]]? Afte@strong{R}@emph{"!}\'? Last'],
 ['html_expanded',
 'Before
 @html
@@ -383,6 +387,10 @@ and in emph.}
 'Text.@asis{)
 follows}.
 '],
+# tests that upper case letter in code ends a sentence
+['code_commands_and_punctuation',
+'@code{AA}. @samp{aa}. After.
+'],
 ['sc_with_utf8_enable_encoding',
 '@documentencoding utf-8
 @sc{in sc}.
@@ -458,9 +466,6 @@ end footnote}
 '],
 ['command_brace_no_arg_punctuation',
 '@TeX{}. And @LaTeX{}. @copyright{}. @registeredsymbol{}. End.
-'],
-['code_commands_and_punctuation',
-'@code{AA}. @samp{aa}. After.
 '],
 ['sp_with_text_before_in_example',
 '

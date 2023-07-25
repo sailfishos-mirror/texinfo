@@ -7,7 +7,7 @@ use File::Basename;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
-BEGIN { plan tests => 119 ; }
+BEGIN { plan tests => 122 ; }
 
 use Texinfo::Convert::Paragraph;
 
@@ -21,8 +21,8 @@ sub test_para($$$;$)
   my $conf = shift;
 
   my $result = '';
-  #$conf = {'DEBUG' => 1} if (!defined($conf));
   $conf = {} if (!defined($conf));
+  $conf->{'DEBUG'} = 1;
   my $para = Texinfo::Convert::Paragraph->new($conf);
   foreach my $arg (@$args) {
     $result .= add_text($para, $arg);
@@ -70,6 +70,14 @@ test_para(['word',' other'], "word\nother\n", 'two_elements_space_max', {'max' =
 test_para(["\x{7b2c}\x{4e00} ",'other'], "\x{7b2c}\n\x{4e00}\nother\n", 'east_asian', {'max' => 2});
 test_para(['word.  other'], "word. other\n", 'two_words_dot_frenchspacing', {'frenchspacing' => 1});
 test_para(["aa.)\x{7b2c} b"], "aa.)\x{7b2c} b\n", 'end_sentence_east_asian');
+test_para(["B\x{7b2c}. After\x{7b2c}. Last"], "B\x{7b2c}.  After\x{7b2c}.  Last\n",
+          'east_asian_before_end_sentence');
+# uses a fullwidth b
+test_para(["B\x{ff42}. After\x{ff42}. Last"], "B\x{ff42}.  After\x{ff42}.  Last\n",
+          'fullwidth_lower_case_latin_before_end_sentence');
+# uses a fullwidth R
+test_para(["B\x{ff32}. After\x{ff32}. Last"], "B\x{ff32}. After\x{ff32}. Last\n",
+           'fullwidth_upper_case_latin_before_end_sentence');
 test_para(["aaaa bbbbbbb cccccccc dddddddddddd eeeeeeeeeeee fffffffff ggggggg"],
 "   aaaa
  bbbbbbb

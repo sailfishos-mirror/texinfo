@@ -18,7 +18,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # this module has nothing Texinfo specific.  In contrast with existing
-# modules Text::Wrap, Text::Format, it keeps a state of the paragraph 
+# modules Text::Wrap, Text::Format, it keeps a state of the paragraph
 # and waits for text to be fed into it.
 
 package Texinfo::Convert::Paragraph;
@@ -43,7 +43,7 @@ sub new($;$)
   my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0, 
               'word_counter' => 0, 'space' => '', 'frenchspacing' => 0,
               'lines_counter' => 0, 'end_line_count' => 0,
-              'unfilled' => 0 };
+              'unfilled' => 0, 'last_letter' => '' };
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       $self->{$key} = $conf->{$key};
@@ -56,13 +56,11 @@ sub new($;$)
 sub dump($)
 {
   my $self = shift;
-  my $word = 'UNDEF';
-  if (defined($self->{'word'})) {
-    $word = $self->{'word'};
-  }
-  my $end_sentence = 'UNDEF';
-  $end_sentence = $self->{'end_sentence'} if (defined($self->{'end_sentence'}));
-  print STDERR "para ($self->{'counter'}+$self->{'word_counter'}) word: $word, space `$self->{'space'}' end_sentence: $end_sentence\n"; 
+  print STDERR "para ($self->{'counter'}+$self->{'word_counter'}) "
+    ."word: ".(defined($self->{'word'}) ? $self->{'word'} : 'UNDEF')
+    .", space `$self->{'space'}' "
+    ."end_sentence: ".(defined($self->{'end_sentence'})
+                                ? $self->{'end_sentence'} : 'UNDEF')."\n";
 }
 
 sub _cut_line($)
@@ -103,6 +101,8 @@ sub _end_line($)
   }
   $paragraph->{'lines_counter'}++;
   $paragraph->{'end_line_count'}++;
+  # could be set to other values, anything that is not upper case.
+  $paragraph->{'last_letter'} = "\n";
   print STDERR "END_LINE\n" if ($paragraph->{'DEBUG'});
   return "\n";
 }
@@ -156,10 +156,10 @@ sub _add_pending_word($;$)
   if (defined($paragraph->{'word'})) {
     $result .= $paragraph->{'word'};
     $paragraph->{'counter'} += $paragraph->{'word_counter'};
-    print STDERR "ADD_WORD[$paragraph->{'word'}]+$paragraph->{'word_counter'} ($paragraph->{'counter'})\n"
-      if ($paragraph->{'DEBUG'});
+    print STDERR "ADD_WORD[$paragraph->{'word'}]+$paragraph->{'word_counter'}"
+      ." ($paragraph->{'counter'})\n"
+        if ($paragraph->{'DEBUG'});
     $paragraph->{'word'} = undef;
-    $paragraph->{'last_char'} = undef;
     $paragraph->{'word_counter'} = 0;
   }
   return $result;
@@ -172,6 +172,8 @@ sub end($)
   $paragraph->{'end_line_count'} = 0;
   print STDERR "PARA END\n" if ($paragraph->{'DEBUG'});
   my $result = _add_pending_word($paragraph, $paragraph->{'add_final_space'});
+  # probably not really useful, but cleaner
+  $paragraph->{'last_letter'} = '';
   if (!$paragraph->{'no_final_newline'} and $paragraph->{'counter'} != 0) {
     $result .= "\n"; 
     $paragraph->{'lines_counter'}++;
@@ -180,7 +182,7 @@ sub end($)
   return $result;
 }
 
-my $end_sentence_character = quotemeta('.?!');
+my $end_sentence_characters = quotemeta('.?!');
 my $after_punctuation_characters = quotemeta('"\')]');
 
 # Add $WORD to paragraph, returning the text to be added to the paragraph.
@@ -220,21 +222,18 @@ sub _add_next($;$$$)
 
   if (!$transparent) {
     if ($disinhibit) {
-      $paragraph->{'last_char'} = 'a';
+      $paragraph->{'last_letter'} = 'a';
     } elsif ($word =~
-         /([^$end_sentence_character$after_punctuation_characters])
-          [$end_sentence_character$after_punctuation_characters]*$/ox) {
+         /([^$end_sentence_characters$after_punctuation_characters])
+          [$end_sentence_characters$after_punctuation_characters]*$/ox) {
       # Save the last character in $word before punctuation
-      $paragraph->{'last_char'} = $1;
+      $paragraph->{'last_letter'} = $1;
     }
   }
 
   if (!$newlines_impossible and $word =~ /\n/) {
     $result .= _add_pending_word ($paragraph);
     _end_line($paragraph);
-    $paragraph->{'word_counter'} = 0;
-    $paragraph->{'word'} = undef;
-    $paragraph->{'last_char'} = undef;
   } else {
     $paragraph->{'word_counter'}
       += Texinfo::Convert::Unicode::string_width($word);
@@ -248,11 +247,8 @@ sub _add_next($;$$$)
     }
   }
   if ($paragraph->{'DEBUG'}) {
-    my $para_word = 'UNDEF';;
-    if (defined($paragraph->{'word'})) {
-      $para_word = $paragraph->{'word'};
-    }
-    print STDERR "WORD+ $word -> $para_word\n";
+    print STDERR "WORD+ $word -> "
+      .(defined($paragraph->{'word'}) ? $paragraph->{'word'} : 'UNDEF')."\n";
   }
 
   return $result;
@@ -274,7 +270,7 @@ sub allow_end_sentence($)
 {
   my $paragraph = shift;
   printf STDERR "ALLOW END SENTENCE\n" if $paragraph->{'DEBUG'};
-  $paragraph->{'last_char'} = 'a'; # lower-case
+  $paragraph->{'last_letter'} = 'a'; # lower-case
 }
 
 sub set_space_protection($$;$$$$)
@@ -329,11 +325,11 @@ sub add_text($$)
      = splice (@segments, 0, 4);
 
     if ($debug_flag) {
-      my $word = 'UNDEF';
-      $word = $paragraph->{'word'} if (defined($paragraph->{'word'}));
-      print STDERR "p ($paragraph->{'counter'}+$paragraph->{'word_counter'}) s `"
-          ._print_escaped_spaces($paragraph->{'space'})."', w `$word'\n";
-      #print STDERR "TEXT: "._print_escaped_spaces($text)."|\n"
+      print STDERR "p ($paragraph->{'counter'}+$paragraph->{'word_counter'}) "
+       ."s `" . _print_escaped_spaces($paragraph->{'space'})."', "
+       ."l `$paragraph->{'last_letter'}', "
+       ."w `".(defined($paragraph->{'word'}) ? $paragraph->{'word'}
+                                 : 'UNDEF')."'\n";
     }
     if (defined $spaces) {
       print STDERR "SPACES($paragraph->{'counter'}) `"
@@ -354,7 +350,6 @@ sub add_text($$)
           if (substr($paragraph->{'word'}, -1) ne ' ') {
             my $new_spaces = $at_end_sentence ? '  ' : ' ';
             $paragraph->{'word'} .= $new_spaces;
-            $paragraph->{'last_char'} = ' ';
             $paragraph->{'word_counter'} += length($new_spaces);
 
             # The $paragraph->{'counter'} != 0 is here to avoid having an
@@ -385,9 +380,6 @@ sub add_text($$)
           }
         }
       }
-      #print STDERR "delete END_SENTENCE($paragraph->{'end_sentence'}): spaces\n" 
-      #  if (defined($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
-      #delete $paragraph->{'end_sentence'};
       if ($paragraph->{'counter'} + length($paragraph->{'space'}) 
                       > $paragraph->{'max'}) {
         $result .= _cut_line($paragraph);
@@ -396,12 +388,16 @@ sub add_text($$)
           and $paragraph->{'keep_end_lines'} and $spaces =~ /\n/) {
         $result .= _end_line($paragraph);
       }
+      $paragraph->{'last_letter'} = ' ';
     } elsif (defined $added_word) {
       my $tmp = $added_word;
-      if (defined $paragraph->{'last_char'}) {
-        # Use 'last_char' here because _add_next overwrites it.
-        $tmp = $paragraph->{'last_char'} . $tmp;
-      }
+      # Prepend 'last_letter' to add the information on the last
+      # letter even if it was read as part of a previous string
+      # Add it here because _add_next overwrites it.  Note that
+      # if _add_next overwrited it, it wouldn't lead to an invalid
+      # result, as the wrong prepended 'last_letter' would not match
+      # at the end of the $added_word in the regex below anyway.
+      $tmp = $paragraph->{'last_letter'} . $tmp;
 
       $result .= _add_next($paragraph, $added_word, undef,
                            !$newline_possible_flag);
@@ -414,9 +410,9 @@ sub add_text($$)
         # do nothing in the case of a continuation of after_punctuation_characters
       } elsif (!$paragraph->{'unfilled'}
           and $tmp =~
-        /(^|[^\p{Upper}$after_punctuation_characters$end_sentence_character])
-         [$after_punctuation_characters]*[$end_sentence_character]
-         [$end_sentence_character\x08$after_punctuation_characters]*$/ox) {
+        /(^|[^\p{Upper}$after_punctuation_characters$end_sentence_characters])
+         [$after_punctuation_characters]*[$end_sentence_characters]
+         [$end_sentence_characters\x08$after_punctuation_characters]*$/ox) {
         if ($paragraph->{'frenchspacing'}) {
           $paragraph->{'end_sentence'} = -1;
         } else {
@@ -424,27 +420,34 @@ sub add_text($$)
         }
         print STDERR "END_SENTENCE\n" if ($paragraph->{'DEBUG'});
       } else {
-        delete $paragraph->{'end_sentence'};
-        print STDERR "delete END_SENTENCE($paragraph->{'end_sentence'}): text\n" 
+        print STDERR "delete END_SENTENCE($paragraph->{'end_sentence'})\n"
           if (defined($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
+        delete $paragraph->{'end_sentence'};
       }
     } elsif (defined $fullwidth_segment) {
-      print STDERR "EAST_ASIAN\n" if ($paragraph->{'DEBUG'});
+      print STDERR "FULLWIDTH\n" if ($paragraph->{'DEBUG'});
+
       if (!defined($paragraph->{'word'})) {
         $paragraph->{'word'} = '';
       }
       $paragraph->{'word'} .= $fullwidth_segment;
-      $paragraph->{'last_char'} = $fullwidth_segment;
       $paragraph->{'word_counter'} += 2;
+
+      # fullwidth latin letters can be upper case, so it is important to
+      # use the actual characters here.
+      $paragraph->{'last_letter'} = $fullwidth_segment;
+
+      # We allow a line break in between Chinese characters even if
+      # there was no space between them, unlike single-width
+      # characters.
       if ($paragraph->{'counter'} != 0 and
-          $paragraph->{'counter'} + $paragraph->{'word_counter'} 
+          $paragraph->{'counter'} + $paragraph->{'word_counter'}
                                > $paragraph->{'max'}) {
         $result .= _cut_line($paragraph);
       }
       if (!$paragraph->{'no_break'}
           and !$paragraph->{'double_width_no_break'}) {
         $result .= _add_pending_word($paragraph);
-        $paragraph->{'space'} = '';
       }
       delete $paragraph->{'end_sentence'};
     }

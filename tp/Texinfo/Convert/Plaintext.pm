@@ -621,6 +621,8 @@ sub _protect_sentence_ends ($) {
   my $text = shift;
   # Avoid suppressing end of sentence, by inserting a control character
   # in front of the full stop.  The choice of BS for this is arbitrary.
+  # Note that the use of ?: is not crucial but since we do not use the
+  # grouping value, setting no backtracking could be more efficient.
   $text =~ s/(?<=[^\p{Upper}])
              (?=[$end_sentence][$after_punctuation]*(?:\s|$))
              /\x08/xg;

@@ -1664,6 +1664,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/sc_with_utf8_enable_encoding.pl \
   t/results/plaintext_tests/settitle_and_empty_top.pl \
   t/results/plaintext_tests/sp_with_text_before_in_example.pl \
+  t/results/plaintext_tests/split_punctuation_detection_in_commands.pl \
   t/results/plaintext_tests/star_at_command_formatting.pl \
   t/results/plaintext_tests/tab_in_table_in_example.pl \
   t/results/plaintext_tests/tab_item_in_example.pl \

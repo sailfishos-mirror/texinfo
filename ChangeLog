@@ -1,3 +1,32 @@
+2023-07-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (new): rename 'last_char'
+	as 'last_letter'. a Always set 'last_letter', to an empty string
+	when it was previously undef.
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (end, _add_next, add_text),
+	tp/Texinfo/XS/xspara.c (xspara__end_line, xspara_end)
+	(xspara_add_text): set last_letter to the last character when it is
+	space or end of line, or fullwidth character.  Do not unset
+	last_letter in _add_pending_word.  Unset last_letter in end.
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm ($end_sentence_characters):
+	rename $end_sentence_character as $end_sentence_characters.
+
+	* tp/Texinfo/XS/xspara.c (after_punctuation_characters)
+	(end_sentence_characters): use defin for the strings to be sure to
+	avoid errors in code (] was missing in one place).
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm: try to have all debug messages
+	as one string.
+
+	* tp/t/paragraph.t: more tests with fullwidth characters, including
+	latin fullwidth characters that can be upper case.
+
+	* tp/Makefile.tres, tp/t/plaintext_tests.t
+	(split_punctuation_detection_in_commands): new test with all the
+	puctuation related character tested and with @-commands.
+
 2023-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No casts in isascii_* calls
