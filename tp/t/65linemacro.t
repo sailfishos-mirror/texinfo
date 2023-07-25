@@ -470,7 +470,35 @@ c \a\ d
 }
 after
 
-']
+'],
+['comment_on_linemacro_call_out_of_braces',
+'@linemacro lm {a, b, c}
+first |\a\|
+second |\b\|
+third |\c\|
+@end linemacro
+
+@lm {something protected} @c comment {in braces}
+
+@lm@c comment early n l m
+
+@lm {aaa
+  } rest @comment on second {line comment}
+'],
+['comment_on_linemacro_call_macro_expansion',
+'@linemacro lm {a, b}
+first |\a\|
+second |\b\|
+@end linemacro
+
+@macro mymacro {a}
+macro \a\ text
+after arg
+@end macro
+
+@mymacro {
+@lm {a} @c in comment}
+'],
 );
 
 

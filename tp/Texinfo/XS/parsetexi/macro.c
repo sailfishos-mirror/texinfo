@@ -541,12 +541,18 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
           enum command_id cmd;
           int whitespaces_len;
         case '@':
-          text_append_n (arg, sep, 1);
           pline = sep + 1;
           command = parse_command_name (&pline, &single_char);
           if (command)
             {
               enum command_id cmd = lookup_command (command);
+              if (braces_level <= 0 && cmd
+                  && (cmd == CM_comment || cmd == CM_c))
+                {
+                  line = sep;
+                  goto funexit;
+                }
+              text_append_n (arg, sep, 1);
               text_append (arg, command);
               if (cmd && (command_data(cmd).flags & CF_brace)
                   && strchr (whitespace_chars, *pline)
@@ -557,6 +563,10 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                   text_append_n (arg, pline, whitespaces_len);
                   pline += whitespaces_len;
                 }
+            }
+          else
+            {
+              text_append_n (arg, sep, 1);
             }
           break;
         case '{':

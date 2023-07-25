@@ -2677,9 +2677,15 @@ sub _expand_linemacro_arguments($$$$$)
       my $separator = $2;
       $argument_content->{'text'} .= $1;
       if ($separator eq '@') {
-        $argument_content->{'text'} .= '@';
         my ($cmdname, $is_single_letter) = _parse_command_name($line);
         if (defined($cmdname)) {
+          # a comment is not part of the arguments
+          if ($braces_level <= 0
+              and ($cmdname eq 'c' or $cmdname eq 'comment')) {
+            $line = $separator.$line;
+            last;
+          }
+          $argument_content->{'text'} .= '@';
           $argument_content->{'text'} .= $cmdname;
           substr($line, 0, length($cmdname)) = '';
           if ((defined($self->{'brace_commands'}->{$cmdname})
@@ -2688,6 +2694,8 @@ sub _expand_linemacro_arguments($$$$$)
             $line =~ s/^(\s*)//;
             $argument_content->{'text'} .= $1;
           }
+        } else {
+          $argument_content->{'text'} .= '@';
         }
       } elsif ($separator eq '}') {
         $braces_level--;

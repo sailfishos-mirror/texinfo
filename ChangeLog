@@ -1,5 +1,18 @@
 2023-07-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_expand_linemacro_arguments),
+	tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments):
+	a comment on a linemacro defined command invokation (not in braces) is
+	not part of the arguments, and is left after the expansion as
+	agreed with Gavin.
+
+	* tp/Makefile.tres, tp/t/65linemacro.t
+	(comment_on_linemacro_call_out_of_braces)
+	(comment_on_linemacro_call_macro_expansion): more tests of comments on
+	linemacro call lines.
+
+2023-07-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (new): rename 'last_char'
 	as 'last_letter'. a Always set 'last_letter', to an empty string
 	when it was previously undef.
