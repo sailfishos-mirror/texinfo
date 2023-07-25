@@ -12,6 +12,8 @@ Before next release
 
 comment on linemacro call at top level comments until end of line.
 
+add @nodedescriptionblock command (if no more input from the mailing list)..
+
 Bugs
 ====
 
@@ -47,6 +49,18 @@ For converter writers,
 
 Delayed bugs
 ============
+
+For Paragraph, not bugs but improvements and synchronizations of
+the two implementations.  It would be nice to change the XS code
+to operate on multiple spans of characters at once when relevant,
+we'd have an extra step of keeping track of how long each span of
+text is, and then processing that span of text together (in the loop
+in xspara_add_text).  It could potentiall have performance benefits
+(e.g. reducing the number of function calls) and be easier to debug,
+with fewer steps in the processing to trace.  The XS code is easier
+to read for the ens of sentence handling part, so for that part, it
+could be relevant to use the XS code as reference and change the perl
+Paragraph.
 
 See message/thread from Reißner Ernst: Feature request: api docs
 
