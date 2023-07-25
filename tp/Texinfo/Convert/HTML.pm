@@ -6533,6 +6533,25 @@ sub _convert_menu_entry_type($$$)
         # http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions
         $rel = ' rel="index"';
       }
+      if ($node->{'extra'} and $node->{'extra'}->{'node_description'}) {
+        # not menu_description probably cannot happen
+        if (not $menu_description
+            # empty description
+            or (not $menu_description->{'contents'}
+                or (scalar(@{$menu_description->{'contents'}}) == 1
+                    # preformatted inside menu_entry_description
+                    and (not ($menu_description->{'contents'}->[0]->{'contents'})
+                         or (scalar(@{$menu_description->{'contents'}->[0]
+                                                         ->{'contents'}}) == 1)
+                             and defined($menu_description->{'contents'}->[0]
+                                                 ->{'contents'}->[0]->{'text'})
+                             and $menu_description->{'contents'}->[0]
+                                  ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
+
+          $menu_description
+            = $node->{'extra'}->{'node_description'}->{'args'}->[0];
+        }
+      }
     }
   }
 

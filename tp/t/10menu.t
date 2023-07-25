@@ -531,7 +531,7 @@ Text
 @node toto
 @chapter Toto
 
-@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @ver{:vv somewhat:} @ringaccent anexpected
+@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
 
 @node titi
 @chapter Titi

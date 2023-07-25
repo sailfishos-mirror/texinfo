@@ -561,7 +561,32 @@ $result_trees{'nodedescription_descriptions'} = {
                   }
                 },
                 {
-                  'text' => ' and :vv somewhat: '
+                  'text' => ' and '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vv somewhat',
+                          'type' => 'raw'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'verb',
+                  'info' => {
+                    'delimiter' => ':'
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 18,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => ' '
                 },
                 {
                   'args' => [
@@ -1349,7 +1374,7 @@ $result_texis{'nodedescription_descriptions'} = '@node Top
 @node toto
 @chapter Toto
 
-@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and :vv somewhat: @ringaccent anexpected
+@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
 
 @node titi
 @chapter Titi
@@ -1883,35 +1908,7 @@ $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'struct
 $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
 $result_menus{'nodedescription_descriptions'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'nodedescription_descriptions'};
 
-$result_errors{'nodedescription_descriptions'} = [
-  {
-    'error_line' => 'unknown command `ver\'
-',
-    'file_name' => '',
-    'line_nr' => 18,
-    'macro' => '',
-    'text' => 'unknown command `ver\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'file_name' => '',
-    'line_nr' => 18,
-    'macro' => '',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'file_name' => '',
-    'line_nr' => 18,
-    'macro' => '',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'nodedescription_descriptions'} = [];
 
 
 $result_floats{'nodedescription_descriptions'} = {};
@@ -1924,8 +1921,8 @@ $result_converted{'plaintext'}->{'nodedescription_descriptions'} = 'test of node
 * Menu:
 
 * toto::                       toto is there:: and the _is a
-                               description_slightly long and :vv
-                               somewhat: ånexpected
+                               description_slightly long and vv somewhat
+                               ånexpected
 * titi::  desc of titi
 * name of other: other.        other comes here
 
@@ -1999,22 +1996,17 @@ Next: <a href="#toto" accesskey="n" rel="next">Toto</a> &nbsp; </p>
 <h1 class="top" id="test-of-nodedescription-used-in-menu"><span>test of nodedescription used in menu<a class="copiable-link" href="#test-of-nodedescription-used-in-menu"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td class="menu-entry-destination">&bull; <a href="#toto" accesskey="1">toto</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#toto" accesskey="1">toto</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">toto is there:: and the <em class="emph">is a description</em>slightly&nbsp;long<!-- /@w --> and <code class="verb">vv&nbsp;somewhat</code> &aring;nexpected</td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#titi" accesskey="2">titi</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">desc of titi
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#other" accesskey="3">name of other</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#other" accesskey="3">name of other</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">other comes here</td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#last" accesskey="4">name of last</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">desc of last
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="5">a somewhat long node without description nor following space</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#a-very-long-node-without-description-with-little-space-left-for" accesskey="6">a very long node without description with little space left for</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#very-very-long-node-extending-past-the-max-columns-and-without-description" accesskey="7">very very long node extending past the max columns and without description</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="5">a somewhat long node without description nor following space</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">not as long as the node</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#a-very-long-node-without-description-with-little-space-left-for" accesskey="6">a very long node without description with little space left for</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">starting the desciption with a somewhat long word</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#very-very-long-node-extending-past-the-max-columns-and-without-description" accesskey="7">very very long node extending past the max columns and without description</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Not long</td></tr>
 </table>
 
 <hr>
@@ -2113,7 +2105,7 @@ $result_converted{'xml'}->{'nodedescription_descriptions'} = '<node name="Top" s
 <node name="toto" spaces=" "><nodename>toto</nodename><nodenext automatic="on">titi</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Toto</sectiontitle>
 
-<nodedescription spaces=" ">toto is there:: and the <emph>is a description</emph><w>slightly long</w> and :vv somewhat: <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
+<nodedescription spaces=" ">toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
 
 </chapter>
 <node name="titi" spaces=" "><nodename>titi</nodename><nodenext automatic="on">other</nodenext><nodeprev automatic="on">toto</nodeprev><nodeup automatic="on">Top</nodeup></node>

@@ -10,9 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-comment on linemacro call at top level comments until end of line.
-
-add @nodedescriptionblock command (if no more input from the mailing list)..
+add @nodedescriptionblock command (if no more input from the mailing list).
 
 Bugs
 ====

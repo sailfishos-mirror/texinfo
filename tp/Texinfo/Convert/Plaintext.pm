@@ -3448,13 +3448,16 @@ sub _convert($$)
 
         # empty description
         } elsif ($content->{'type'} eq 'menu_entry_description'
-                 and $content->{'contents'}
-                 and scalar(@{$content->{'contents'}}) == 1
-                 # preformatted inside menu_entry_description
-                 and $content->{'contents'}->[0]->{'contents'}
-                 and scalar(@{$content->{'contents'}->[0]->{'contents'}}) == 1
-                 and defined($content->{'contents'}->[0]->{'contents'}->[0]->{'text'})
-                 and $content->{'contents'}->[0]->{'contents'}->[0]->{'text'} !~ /\S/) {
+                 and (not $content->{'contents'}
+                      or (scalar(@{$content->{'contents'}}) == 1
+                          # preformatted inside menu_entry_description
+                          and (not ($content->{'contents'}->[0]->{'contents'})
+                               or (scalar(@{$content->{'contents'}->[0]
+                                                         ->{'contents'}}) == 1)
+                                   and defined($content->{'contents'}->[0]
+                                                 ->{'contents'}->[0]->{'text'})
+                                   and $content->{'contents'}->[0]
+                                  ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
           if ($menu_entry_node and $menu_entry_node->{'extra'}
               and defined($menu_entry_node->{'extra'}->{'normalized'})
               and $self->{'labels'}
