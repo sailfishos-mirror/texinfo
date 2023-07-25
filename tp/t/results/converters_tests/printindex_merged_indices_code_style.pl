@@ -885,7 +885,7 @@ $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = 'top
 $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+[<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -896,7 +896,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+[<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

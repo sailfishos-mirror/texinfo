@@ -790,7 +790,7 @@ $result_converted_errors{'plaintext'}->{'double_seeentry_seealso'} = [
 $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
+[<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -801,7 +801,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <div class="chapter-level-extent" id="node-index">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
+[<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Chapter-Index"><span>1 Chapter Index<a class="copiable-link" href="#Chapter-Index"> &para;</a></span></h2>
 

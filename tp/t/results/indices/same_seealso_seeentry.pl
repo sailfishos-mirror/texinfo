@@ -822,7 +822,7 @@ $result_converted{'plaintext'}->{'same_seealso_seeentry'} = 'top
 $result_converted{'html_text'}->{'same_seealso_seeentry'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+[<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -833,7 +833,7 @@ $result_converted{'html_text'}->{'same_seealso_seeentry'} = '<div class="top-lev
 <div class="chapter-level-extent" id="node">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+[<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 

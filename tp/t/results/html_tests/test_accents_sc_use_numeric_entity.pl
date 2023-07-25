@@ -1280,8 +1280,6 @@ $result_floats{'test_accents_sc_use_numeric_entity'} = {};
 
 $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &#160; </p>
 </div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &#182;</a></span></h1>
 
@@ -1291,8 +1289,6 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 <hr>
 <div class="chapter-level-extent" id="node-chap">
 <div class="nav-panel">
-<p>
- &#160; </p>
 </div>
 <h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &#182;</a></span></h2>
 

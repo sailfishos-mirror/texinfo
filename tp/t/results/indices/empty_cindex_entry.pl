@@ -187,14 +187,10 @@ $result_converted{'plaintext'}->{'empty_cindex_entry'} = '';
 
 
 $result_converted{'html_text'}->{'empty_cindex_entry'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
 <a class="node-id" id="chap"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 ';

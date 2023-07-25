@@ -536,8 +536,6 @@ element: @node chap
 
 $result_converted{'html_text'}->{'split_html_text'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <hr>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
@@ -549,8 +547,6 @@ $result_converted{'html_text'}->{'split_html_text'} = '<div class="top-level-ext
 <hr>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <hr>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>

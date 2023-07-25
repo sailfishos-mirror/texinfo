@@ -639,8 +639,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 

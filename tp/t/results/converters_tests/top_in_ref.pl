@@ -3101,15 +3101,11 @@ name)Top::
 
 
 $result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="chap-refs-node"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="node"><span>chap refs node<a class="copiable-link" href="#chap-refs-node"> &para;</a></span></h4>
 

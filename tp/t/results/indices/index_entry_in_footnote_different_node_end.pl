@@ -672,7 +672,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 
 $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
+[<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -680,7 +680,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <hr>
 <a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
+[<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
@@ -689,7 +689,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <hr>
 <a class="node-id" id="First"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
+[<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node"><span>First<a class="copiable-link" href="#First"> &para;</a></span></h4>
 

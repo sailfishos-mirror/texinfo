@@ -1362,8 +1362,6 @@ $result_floats{'non_empty_part_no_top_node_output'} = {};
 
 
 $result_converted{'html_text'}->{'non_empty_part_no_top_node_output'} = '<a class="part" id="part-before"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <a class="node" id="Top"></a><a class="top" id="top"></a><div class="part-level-extent" id="part-I">
 <h1 class="part"><span>part I<a class="copiable-link" href="#part-I"> &para;</a></span></h1>
@@ -1382,8 +1380,6 @@ $result_converted{'html_text'}->{'non_empty_part_no_top_node_output'} = '<a clas
 </div>
 <div class="part-level-extent" id="Part-II">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="part"><span>Part II<a class="copiable-link" href="#Part-II"> &para;</a></span></h1>
 <hr>
@@ -1429,8 +1425,6 @@ $result_converted{'html_text'}->{'non_empty_part_no_top_node_output'} = '<a clas
 </div>
 <div class="part-level-extent" id="Part-VI">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="part"><span>Part VI<a class="copiable-link" href="#Part-VI"> &para;</a></span></h1>
 <hr>

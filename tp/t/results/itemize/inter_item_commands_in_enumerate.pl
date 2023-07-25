@@ -1238,8 +1238,6 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'top
 
 $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -1249,8 +1247,6 @@ $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '<div cla
 <hr>
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 

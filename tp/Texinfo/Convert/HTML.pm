@@ -3879,31 +3879,20 @@ sub _default_format_navigation_panel($$$$;$)
   my $source_command = shift;
   my $vertical = shift;
 
-  # if VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical table which
-  # is itself in the first column of a table opened in header_navigation
-  #my $vertical = $self->get_conf('VERTICAL_HEAD_NAVIGATION');
-
-  my $result = '';
-  if ($self->get_conf('HEADER_IN_TABLE')) {
-    $result .= $self->html_attribute_class('table', ['nav-panel'])
-        .' cellpadding="1" cellspacing="1" border="0">'."\n";
-    $result .= "<tr>" unless $vertical;
-  } else {
-    $result .= $self->html_attribute_class('div', ['nav-panel']).">\n<p>\n";
-  }
-
-  my $first_button = 1;
+  # do the buttons first in case they are formatteed as an empty string
+  my $nr_of_buttons_shown = 0;
+  my $result_buttons = '';
   foreach my $button (@$buttons) {
-    if ($self->get_conf('HEADER_IN_TABLE')) {
-      $result .= '<tr>'."\n" if $vertical;
-      $result .=  '<td>';
-    }
     my $direction;
     if (ref($button) eq 'ARRAY'
         and defined($button->[0]) and ref($button->[0]) eq '') {
       $direction = $button->[0];
     } elsif (defined($button) and ref($button) eq '') {
       $direction = $button;
+      # if the first button is an empty button, pass
+      if ($direction eq ' ' and $nr_of_buttons_shown == 0) {
+        next;
+      }
     }
 
     my ($active, $passive, $need_delimiter)
@@ -3913,28 +3902,56 @@ sub _default_format_navigation_panel($$$$;$)
        = &{$self->{'formatting_function'}->{'format_button'}}($self, $button,
                                                               $source_command);
     if ($self->get_conf('HEADER_IN_TABLE')) {
+      $result_buttons .= '<tr>'."\n" if $vertical;
+      $result_buttons .=  '<td>';
+
       if (defined($active)) {
-        $result .= $active;
+        $result_buttons .= $active;
       } elsif (defined($passive)) {
-        $result .= $passive;
+        $result_buttons .= $passive;
       }
-      $result .= "</td>\n";
-      $result .= "</tr>\n" if $vertical;
-      $first_button = 0 if ($first_button);
+
+      $result_buttons .= "</td>\n";
+      $result_buttons .= "</tr>\n" if $vertical;
+
+      $nr_of_buttons_shown++;
     } elsif (defined($active)) {
       # only active buttons are print out when not in table
-      if ($need_delimiter and !$first_button) {
-        $active = ', ' .$active;
+      if ($need_delimiter and $nr_of_buttons_shown > 0) {
+        $result_buttons .= ', ';
       }
-      $result .= $active;
-      $first_button = 0 if ($first_button);
+      $result_buttons .= $active;
+      $nr_of_buttons_shown++;
     }
   }
+
+  my $result = '';
+
+  # if VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical table which
+  # is itself in the first column of a table opened in header_navigation
+  #my $vertical = $self->get_conf('VERTICAL_HEAD_NAVIGATION');
+
+  if ($self->get_conf('HEADER_IN_TABLE')) {
+    $result .= $self->html_attribute_class('table', ['nav-panel'])
+        .' cellpadding="1" cellspacing="1" border="0">'."\n";
+    $result .= "<tr>" unless $vertical;
+  } else {
+    $result .= $self->html_attribute_class('div', ['nav-panel']).">\n";
+    if ($result_buttons ne '') {
+      $result .= "<p>\n";
+    }
+  }
+
+  $result .= $result_buttons;
+
   if ($self->get_conf('HEADER_IN_TABLE')) {
     $result .= "</tr>" unless $vertical;
     $result .= "</table>\n";
   } else {
-     $result .= "</p>\n</div>\n";
+    if ($result_buttons ne '') {
+      $result .= "</p>\n";
+    }
+    $result .= "</div>\n";
   }
   return $result;
 }

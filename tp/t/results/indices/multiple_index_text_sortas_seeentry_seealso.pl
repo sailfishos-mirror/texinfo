@@ -633,7 +633,7 @@ $result_converted{'plaintext'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
+[<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
@@ -643,7 +643,7 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 <div class="chapter-level-extent" id="chapter-index">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
+[<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href="#Index"> &para;</a></span></h2>
 

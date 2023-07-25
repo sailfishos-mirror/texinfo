@@ -1948,8 +1948,6 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -1960,8 +1958,6 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 <hr>
 <div class="chapter-level-extent" id="chapter-frenchspacing">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chap-frenchspacing"><span>1 Chap frenchspacing<a class="copiable-link" href="#Chap-frenchspacing"> &para;</a></span></h2>
 
@@ -1987,8 +1983,6 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 </div>
 <div class="chapter-level-extent" id="chap-no">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chap-no"><span>2 Chap no<a class="copiable-link" href="#Chap-no"> &para;</a></span></h2>
 

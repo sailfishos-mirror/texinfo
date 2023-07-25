@@ -350,8 +350,6 @@ $result_floats{'footnotestyle_separate_html_text_no_monolithic'} = {};
 $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 <p>In top<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
@@ -362,8 +360,6 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <hr>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
@@ -372,8 +368,6 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -381,8 +375,6 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <p>Additional text</p>
 </div><hr>
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 ';
 

@@ -4420,8 +4420,6 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="test-quotes"><span>test quotes<a class="copiable-link" href="#test-quotes"> &para;</a></span></h1>
 
@@ -4431,8 +4429,6 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 <hr>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

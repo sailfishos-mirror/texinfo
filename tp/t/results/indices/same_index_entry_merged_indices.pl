@@ -765,7 +765,7 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+[<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
@@ -775,7 +775,7 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+[<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

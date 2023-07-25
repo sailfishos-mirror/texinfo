@@ -620,7 +620,7 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 
 $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
+[<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -628,7 +628,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <hr>
 <a class="node-id" id="chap-first"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
+[<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node"><span>chap first<a class="copiable-link" href="#chap-first"> &para;</a></span></h4>
 
@@ -639,7 +639,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <hr>
 <a class="node-id" id="second"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
+[<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h4>
 

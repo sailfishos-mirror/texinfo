@@ -489,7 +489,7 @@ Appendix A index
 $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+[<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="index_005fentry_005fin_005ffootnote"><span>index_entry_in_footnote<a class="copiable-link" href="#index_005fentry_005fin_005ffootnote"> &para;</a></span></h1>
 
@@ -502,7 +502,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <div class="appendix-level-extent" id="Index">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+[<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="appendix" id="index"><span>Appendix A index<a class="copiable-link" href="#index"> &para;</a></span></h2>
 
@@ -521,7 +521,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+[<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 

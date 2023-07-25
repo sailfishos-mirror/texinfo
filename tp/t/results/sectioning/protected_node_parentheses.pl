@@ -555,8 +555,6 @@ span:hover a.copiable-link {visibility: visible}
 
 <div class="top-level-extent" id="first">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 

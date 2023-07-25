@@ -461,7 +461,7 @@ in index node node, with the same name than index entry.
 $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#index-node" title="Index" rel="index">Index</a>]</p>
+[<a href="#index-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="Test-index-entry-with-node-name-clash"><span>Test index entry with node name clash<a class="copiable-link" href="#Test-index-entry-with-node-name-clash"> &para;</a></span></h1>
 
@@ -476,7 +476,7 @@ $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-
 <div class="chapter-level-extent" id="index-node">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#index-node" title="Index" rel="index">Index</a>]</p>
+[<a href="#index-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="index-node-1"><span>1 index node<a class="copiable-link" href="#index-node-1"> &para;</a></span></h2>
 

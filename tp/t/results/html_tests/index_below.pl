@@ -489,7 +489,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <div class="top-level-extent" id="top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+[<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 

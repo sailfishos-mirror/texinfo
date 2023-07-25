@@ -721,23 +721,17 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <a class="node-id" id="node1"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="node"><span>node1<a class="copiable-link" href="#node1"> &para;</a></span></h4>
 
 <hr>
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 
 
 <a class="anchor" id="anchor1"></a>
 <hr>
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 
 <div class="float">
@@ -748,8 +742,6 @@ span:hover a.copiable-link {visibility: visible}
 <div class="type-number-float"><p><strong class="strong">Text 1</strong></p></div></div>
 <hr>
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 
 

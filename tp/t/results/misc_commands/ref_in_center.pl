@@ -435,8 +435,6 @@ $result_converted{'plaintext'}->{'ref_in_center'} = 'top
 
 $result_converted{'html_text'}->{'ref_in_center'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -446,8 +444,6 @@ $result_converted{'html_text'}->{'ref_in_center'} = '<div class="top-level-exten
 <hr>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

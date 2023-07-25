@@ -852,7 +852,7 @@ $result_converted{'plaintext'}->{'printindex_between_part_chapter'} = 'top
 $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
+[<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -866,7 +866,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <div class="part-level-extent" id="Part-1">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
+[<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="part"><span>Part 1<a class="copiable-link" href="#Part-1"> &para;</a></span></h1>
 <hr>
@@ -916,7 +916,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <div class="chapter-level-extent" id="node-chap2">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
+[<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href="#chapter-2"> &para;</a></span></h2>
 

@@ -872,8 +872,6 @@ $result_converted_errors{'plaintext'}->{'commands_in_var'} = [
 
 $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="top" id="commands-in-var"><span>commands in var<a class="copiable-link" href="#commands-in-var"> &para;</a></span></h1>
 
@@ -883,8 +881,6 @@ $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-ext
 <hr>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 

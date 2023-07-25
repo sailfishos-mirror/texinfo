@@ -307,8 +307,6 @@ Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 
 <hr>
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 
 <p>.

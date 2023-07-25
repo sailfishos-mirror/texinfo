@@ -737,8 +737,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 

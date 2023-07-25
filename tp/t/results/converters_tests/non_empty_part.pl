@@ -1397,8 +1397,6 @@ Content VI
 
 $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-extent" id="part-before">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="part"><span>part before<a class="copiable-link" href="#part-before"> &para;</a></span></h1>
 <hr>
@@ -1428,8 +1426,6 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 </div>
 <div class="part-level-extent" id="Part-II">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="part"><span>Part II<a class="copiable-link" href="#Part-II"> &para;</a></span></h1>
 <hr>
@@ -1475,8 +1471,6 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 </div>
 <div class="part-level-extent" id="Part-VI">
 <div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="part"><span>Part VI<a class="copiable-link" href="#Part-VI"> &para;</a></span></h1>
 <hr>

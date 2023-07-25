@@ -902,8 +902,6 @@ th.menu-comment {text-align:left}
 <body lang="en">
 
 <a class="node-id" id="first"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 

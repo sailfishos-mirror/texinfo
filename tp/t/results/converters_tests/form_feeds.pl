@@ -1434,15 +1434,11 @@ type 1
 
 
 $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="chap-node"></a><div class="nav-panel">
-<p>
- &nbsp; </p>
 </div>
 <h4 class="node"><span>chap&#12;node<a class="copiable-link" href="#chap-node"> &para;</a></span></h4>
 
