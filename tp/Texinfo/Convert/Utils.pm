@@ -47,8 +47,10 @@ require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
+# There is no specific reason to export those functions and not
+# other functions of the module.  It could be possible not to
+# export any function.
 %EXPORT_TAGS = ( 'all' => [ qw(
-definition_category
 expand_today
 expand_verbatiminclude
 add_heading_number
@@ -489,11 +491,12 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::Utils qw(expand_today expand_verbatiminclude);
+  use Texinfo::Convert::Utils;
   
-  my $today_tree = expand_today($converter);
+  my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
   my $verbatiminclude_tree
-     = expand_verbatiminclude(undef, $converter, $verbatiminclude);
+     = Texinfo::Convert::Utils::expand_verbatiminclude(undef, $converter,
+                                                       $verbatiminclude);
 
 =head1 NOTES
 
@@ -522,6 +525,17 @@ could implement the required interfaces and could also have a converter
 available in some cases, to call the functions which require a converter.
 
 =over
+
+=item $result = add_heading_number($converter, $heading_element, $heading_text, $do_number)
+X<C<add_heading_number>>
+
+The I<$converter> argument may be undef.  I<$heading_element> is
+a heading command tree element.  I<$heading_text> is the already
+formatted heading text.  if the I<$do_number> optional argument is
+defined and false, no number is used and the text is returned as is.
+This function returns the heading with a number and the appendix
+part if needed.  If I<$converter> is not defined, the resulting
+string won't be translated.
 
 =item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>
@@ -604,17 +618,6 @@ are considered to be formatted.
 Only heading elements corresponding to C<@heading>, C<@subheading> and similar
 @-commands that are not associated to nodes in general are found, not
 sectioning commands.
-
-=item $result = add_heading_number($converter, $heading_element, $heading_text, $do_number)
-X<C<add_heading_number>>
-
-The I<$converter> argument may be undef.  I<$heading_element> is
-a heading command tree element.  I<$heading_text> is the already
-formatted heading text.  if the I<$do_number> optional argument is
-defined and false, no number is used and the text is returned as is.
-This function returns the heading with a number and the appendix
-part if needed.  If I<$converter> is not defined, the resulting
-string won't be translated.
 
 =back
 
