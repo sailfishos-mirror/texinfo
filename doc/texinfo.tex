@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-26.18}
+\def\texinfoversion{2023-07-26.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -6725,6 +6725,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \let\appentry\numchapentry
   %
   \def\numsecentry##1##2##3##4{%
+    \def\cursecname{secnowidth-##2}%
+    \cursecmax=0pt
+    %
     \setbox0=\hbox{##2}%
     \ifdim\wd0>\curchapmax
       \curchapmax=\wd0
@@ -6732,6 +6735,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \fi
   }%
   \let\appsecentry\numsecentry
+  %
+  \def\numsubsecentry##1##2##3##4{%
+    \setbox0=\hbox{##2}%
+    \ifdim\wd0>\cursecmax
+      \cursecmax=\wd0
+      \expandafter\xdef\csname\cursecname\endcsname{\the\wd0}%
+    \fi
+  }%
+  \let\appsubsecentry\numsubsecentry
   %
   % Discard any output by outputting to dummy vbox, in case the toc file
   % contains macros that we have not redefined above.
@@ -6741,19 +6753,22 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \endgroup
 }
 \newdimen\curchapmax
+\newdimen\cursecmax
 
 
-% set \secnowidthchap to the maximum section width for the chapter
-\def\retrievesecnowidth#1{%
-  \expandafter\let\expandafter\savedsecnowidth \csname secnowidth-#1\endcsname
+% set #1 to the maximum section width for #2
+\def\retrievesecnowidth#1#2{%
+  \expandafter\let\expandafter\savedsecnowidth \csname secnowidth-#2\endcsname
   \ifx\savedsecnowidth\relax
-    \secnowidthchap=0pt
+    #1=0pt
   \else
-    \secnowidthchap=\savedsecnowidth
+    #1=\savedsecnowidth
   \fi
 }
 \newdimen\secnowidthchap
 \secnowidthchap=0pt
+\newdimen\secnowidthsec
+\secnowidthsec=0pt
 
 
 \newskip\contentsrightmargin \contentsrightmargin=1in
@@ -6907,7 +6922,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % Chapters, in the main contents.
 \def\numchapentry#1#2#3#4{%
-  \retrievesecnowidth{#2}%
+  \retrievesecnowidth\secnowidthchap{#2}%
   \dochapentry{#1}{#2}{#4}%
 }
 
@@ -6925,7 +6940,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \hbox to \wd0{\putwordAppendix{} #1\hss}}
 %
 \def\appentry#1#2#3#4{%
-  \retrievesecnowidth{#2}%
+  \retrievesecnowidth\secnowidthchap{#2}%
   \dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#4}%
 }
 
@@ -6935,8 +6950,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % Sections.
 \def\numsecentry#1#2#3#4{\dosecentry{#1}{#2}{#4}}
+
+\def\numsecentry#1#2#3#4{%
+  \retrievesecnowidth\secnowidthsec{#2}%
+  \dosecentry{#1}{#2}{#4}%
+}
 \let\appsecentry=\numsecentry
-\def\unnsecentry#1#2#3#4{\dosecentry{#1}{}{#4}}
+\def\unsecentry#1#2#3#4{%
+  \retrievesecnowidth\secnowidthsec{#2}%
+  \dosecentry{#1}{}{#4}%
+}
 
 % Subsections.
 \def\numsubsecentry#1#2#3#4{\dosubsecentry{#1}{#2}{#4}}
@@ -6976,6 +6999,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \endgroup}
 
 \def\dosubsecentry#1#2#3{\begingroup
+  \secnowidth=\secnowidthsec
   \subsecentryfonts \leftskip=2\tocindent
   \tocentry{#1}{#2}{#3}%
 \endgroup}

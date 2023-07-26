@@ -1,3 +1,14 @@
+2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	TOC @subsection number alignment
+
+	* doc/texinfo.tex (\findsecnowidths): Also collect information
+	on the widths of subsection numbers.
+	(\retrievesecnowidth): Take an argument, being the dimension
+	register to assign to.
+	(\numsecentry, \unsecentry): Call \retrievesecnowidth.
+	(\dosubsubsecentry): Assign \secnowidth based on result.
+
 2023-07-26  Patrice Dumas  <pertusus@free.fr>
 
 	Simpler more consistent UTF-8 and unicode handling, stricter UTF-8 conversion
@@ -58,12 +69,12 @@
 	width of section numbers for each chapter.
 	(\contents): Call it.
 
-	(\retrievesecnowidths): New macro to get the maximum widths.
+	(\retrievesecnowidth): New macro to get the maximum widths.
 	(\numchapentry, \appentry): Call it.
 
 	(\tocentry, \secnowidth): Use \secnowdith for alignment if set to
 	a non-zero value.
-	(\dosecentry): Set \secnowidth based on result of \retrievesecnowidths.
+	(\dosecentry): Set \secnowidth based on result of \retrievesecnowidth.
 
 	This aligns section titles in the table of contents if there are
 	10 or more sections in a chapter.  Report from Karl.
