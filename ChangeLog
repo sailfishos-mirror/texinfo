@@ -1,5 +1,10 @@
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\summarycontents): Set \extrasecnoskip to
+	restore extra space in the summary contents.
+
+2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	TOC section number spacing
 
 	* doc/texinfo.tex (\labelspace): Narrow from 1em to 0.6em.  This

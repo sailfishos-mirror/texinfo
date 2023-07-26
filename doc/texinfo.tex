@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-26.17}
+\def\texinfoversion{2023-07-26.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -6829,6 +6829,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \rm
     \hyphenpenalty = 10000
     \advance\baselineskip by 1pt % Open it up a little.
+    \extrasecnoskip=0.4pt
     \def\numsecentry##1##2##3##4{}
     \let\appsecentry = \numsecentry
     \let\unnsecentry = \numsecentry
@@ -6911,7 +6912,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 % Chapters, in the short toc.
-% See comments in \dochapentry re vbox and related settings.
 \def\shortchapentry#1#2#3#4{%
   \tocentry{#1}{\shortchaplabel{#2}}{#4}%
 }
