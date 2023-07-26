@@ -16799,6 +16799,13 @@ Use entities for doubled single-quote characters
 Generate @code{<link>} elements in the HTML @code{<head>}
 output; default true.
 
+@item USE_NEXT_HEADING_FOR_LONE_NODE
+If set, a node not associated to a sectioning command but
+followed by a heading command not usually associated to node
+such as @code{@@heading} before other formatted contents
+do not have its name output as a heading, under the assumption
+that the command found provides the heading.  Default true.
+
 @item USE_NODE_DIRECTIONS
 If true, use nodes to determine where next, up and prev
 link to in node headers.  If false, use sections.  If undefined, use

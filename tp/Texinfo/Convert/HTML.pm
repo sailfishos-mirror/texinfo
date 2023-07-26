@@ -1908,6 +1908,7 @@ my %defaults = (
   'TOP_FILE'              => 'index.html', # ignores EXTENSION
   'TOP_NODE_FILE_TARGET'  => 'index.html', # ignores EXTENSION
   'USE_ACCESSKEY'         => 1,
+  'USE_NEXT_HEADING_FOR_LONE_NODE' => 1,
   'USE_ISO'               => 1,
   'USE_LINKS'             => 1,
   'USE_NODES'             => 1,
@@ -4236,7 +4237,32 @@ sub _convert_heading_command($$$$$)
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
-        $heading_level = 3;
+        my $use_next_heading = 0;
+        if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
+          my $expanded_format_raw
+             = $self->shared_conversion_state('expanded_format_raw', {});
+          # if no format is expanded, the formats will be checked each time
+          # but this is very unlikely, as html is always expanded.
+          if (length(keys(%$expanded_format_raw)) == 0) {
+            foreach my $output_format_command
+                (keys(%Texinfo::Comon::texinfo_output_formats)) {
+              if ($self->is_format_expanded($output_format_command)) {
+                $expanded_format_raw->{$output_format_command} = 1;
+              }
+            }
+          }
+          my $next_heading
+            = Texinfo::Convert::Utils::find_root_command_next_heading_command(
+                     $element, $expanded_format_raw,
+                     ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'));
+          if ($next_heading) {
+            $use_next_heading = 1;
+          }
+        }
+        if (!$use_next_heading) {
+          # use node
+          $heading_level = 3;
+        }
       }
     }
   } elsif ($element->{'structure'}

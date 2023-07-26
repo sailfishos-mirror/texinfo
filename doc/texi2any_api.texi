@@ -3955,7 +3955,8 @@ formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 
 The customization variables
 @code{CONTENTS_OUTPUT_LOCATION},
-@code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS} and @code{FORMAT_MENU}
+@code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS},
+@code{USE_NEXT_HEADING_FOR_LONE_NODE} and @code{FORMAT_MENU}
 may be used to change the sectioning commands conversion.
 @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 

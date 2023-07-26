@@ -336,6 +336,84 @@ sub add_heading_number($$$;$)
   return $result;
 }
 
+# Similar to Texinfo::Common::is_content_empty
+sub find_root_command_next_heading_command($$;$$)
+{
+  my $root = shift;
+  my $expanded_format_raw = shift;
+  my $do_not_ignore_contents = shift;
+  my $do_not_ignore_index_entries = shift;
+
+  return undef if (!$root->{'contents'});
+
+  $expanded_format_raw = {} if (!defined($expanded_format_raw));
+
+  foreach my $content (@{$root->{'contents'}}) {
+    #print STDERR Texinfo::Common::debug_print_element($content)."\n";
+    if ($content->{'cmdname'}) {
+      if ($Texinfo::Commands::sectioning_heading_commands{$content->{'cmdname'}}) {
+        #print STDERR "HEADING FOUND ASSOCIATED $content->{'cmdname'}\n";
+        return $content;
+      }
+      if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
+        if ($do_not_ignore_index_entries) {
+          return undef;
+        } else {
+          next;
+        }
+      }
+      if (exists($Texinfo::Commands::line_commands{$content->{'cmdname'}})) {
+        if ($Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}}
+            or $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}}
+            or ($do_not_ignore_contents
+                and ($content->{'cmdname'} eq 'contents'
+                     or $content->{'cmdname'} eq 'shortcontents'
+                     or $content->{'cmdname'} eq 'summarycontents'))) {
+          return undef;
+        } else {
+          next;
+        }
+      } elsif (exists($Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
+        if ($Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}}) {
+          return undef;
+        } else {
+          next;
+        }
+      } elsif (exists($Texinfo::Commands::block_commands{$content->{'cmdname'}})) {
+        if ($Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}}
+            or $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'region'
+            # ignored conditional
+            or $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'conditional'
+            or ($Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'format_raw'
+                and !$expanded_format_raw->{$content->{'cmdname'}})) {
+          next;
+        } else {
+          return undef;
+        }
+      # brace commands
+      } else {
+        if ($Texinfo::Common::non_formatted_brace_commands{$content->{'cmdname'}}) {
+          next;
+        } else {
+          return undef;
+        }
+      }
+    }
+    if ($content->{'type'}) {
+      if ($content->{'type'} eq 'paragraph') {
+        return undef;
+      }
+    }
+    # normally should not happen at the top level as text at top
+    # level should only contain spaces (empty lines, text before
+    # paragraphs).
+    if ($content->{'text'} and $content->{'text'} =~ /\S/) {
+      return undef;
+    }
+  }
+  return undef;
+}
+
 # this requires a converter argument
 sub encoded_output_file_name($$)
 {
@@ -511,6 +589,21 @@ an array reference containing the innermost accent @-command contents,
 normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
 I<$element>).
+
+=item $heading_element = find_root_command_next_heading_command($element, $expanded_format_raw, $do_not_ignore_contents, $do_not_ignore_index_entries)
+
+Return an heading element found in the I<$element> contents if it
+appears before contents that could be formatted.  I<$expanded_format_raw>
+is a hash reference with raw output formats (html, docbook, xml...) as
+keys, associated value should be set for expanded raw output formats.
+I<$do_not_ignore_contents> is optional.  If set, C<@contents> and
+C<@shortcontents> are considered to be formatted.
+I<$do_not_ignore_index_entries> is optional.  If set, index entries
+are considered to be formatted.
+
+Only heading elements corresponding to C<@heading>, C<@subheading> and similar
+@-commands that are not associated to nodes in general are found, not
+sectioning commands.
 
 =item $result = add_heading_number($converter, $heading_element, $heading_text, $do_number)
 X<C<add_heading_number>>

@@ -545,6 +545,83 @@ in <b>html</b> in copying ``
 @top top
 
 '],
+['headings_after_lone_nodes',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@node Qt
+@subheading heading Qt
+
+Some text
+
+@node Other
+
+@anchor{toto}
+
+@nodedescription Describe Other
+
+@c comment
+
+@contents
+
+@frenchspacing on
+
+@tex
+tex format raw
+@end tex
+
+@ignore
+in ignore
+@end ignore
+
+@iftex
+in iftex
+@end iftex
+
+@subsubheading Finally!
+
+@node Not associated
+
+Some para
+
+@heading should not be associated
+
+@node 2 not
+
+@quotation
+in quotation
+@end quotation
+
+@heading should not be associated
+
+@node 3 not
+
+@html
+in html
+@end html
+
+@heading should not be associated
+
+@node 4 not
+
+@sp 2
+
+@heading should not be associated
+
+@node 5 not
+
+@menu
+* subnode::
+@end menu
+
+@heading should not be associated
+
+@node subnode
+
+', {'FORMAT_MENU' => 'sectiontoc'},],
 ['mathjax_with_texinfo',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',

@@ -41,6 +41,11 @@ See the manual for detailed information.
     . Change @point expansion to U+22C6 in HTML Cross-references.
     . omit colons after index entries by default.  this can still be
       configured with INDEX_ENTRY_COLON.
+    . if a @node is not associated to a sectioning command but is
+      followed by a heading command not usually associated to nodes,
+      such as @heading, and this command appears before other formatted
+      contents, the heading command is assumed to supply the node heading.
+      This can be customized with USE_NEXT_HEADING_FOR_LONE_NODE.
     . add @example syntax highlighting as a texi2any extension.
  . Info output:
     . new variable ASCII_DASHES_AND_QUOTES, on by default,

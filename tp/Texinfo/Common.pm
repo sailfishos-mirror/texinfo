@@ -449,6 +449,7 @@ our @variable_string_settables = (
 'USE_ACCESSKEY',
 'USE_ISO',
 'USE_LINKS',
+'USE_NEXT_HEADING_FOR_LONE_NODE',
 'USE_NODES',
 'USE_NODE_DIRECTIONS',
 'USE_NUMERIC_ENTITY',
@@ -734,9 +735,10 @@ foreach my $command (
 }
 
 
-# used only in this file in a function,
 # brace commands that are not replaced with text.
-my %non_formatted_brace_commands;
+our %non_formatted_brace_commands;
+# FIXME add seealso, seeentry, sortas?  Not so important as they
+# are in within index commands.
 foreach my $non_formatted_brace_command ('anchor', 'shortcaption',
     'caption', 'hyphenation', 'errormsg') {
   $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
@@ -2769,6 +2771,11 @@ X<C<%nobrace_symbol_text>>
 
 Values are ASCII representation of single character non-alphabetical commands
 without brace such as C<*> or C<:>.  The value may be an empty string.
+
+=item %non_formatted_brace_commands
+
+Brace commands that are not immediately replaced with text, such as
+C<anchor>, C<caption>, C<errormsg> and others.
 
 =item %small_block_associated_command
 X<C<%small_block_associated_command>>

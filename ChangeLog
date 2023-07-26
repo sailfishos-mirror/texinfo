@@ -1,3 +1,21 @@
+2023-07-26  Patrice Dumas  <pertusus@free.fr>
+
+	in HTML associate node without section to following heading command
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults, _convert_heading_command),
+	NEWS, doc/texinfo.texi (HTML Customization Variables),
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/Utils.pm (find_root_command_next_heading_command):
+	add find_root_command_next_heading_command() to return a heading
+	command found before contents that could be formatted.  Use that
+	in HTML heading formating such as not to output a heading if there
+	is a node not associated to sectioning command but followed by
+	a @*heading command.  Use USE_NEXT_HEADING_FOR_LONE_NODE to customize
+	that, set in the default case.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (headings_after_lone_nodes):
+	new test to test association of lone node with next @*heading command.
+
 2023-07-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel): do
