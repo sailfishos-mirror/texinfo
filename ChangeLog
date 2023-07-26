@@ -1,5 +1,16 @@
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	TOC section number spacing
+
+	* doc/texinfo.tex (\labelspace): Narrow from 1em to 0.6em.  This
+	is used after section numbers in the table of contents.
+	(\tocentry, \extrasecnoskip): Add an extra skip of \extrasecnoskip
+	after the section number.
+	(\dochapentry): Set \extrasecnoskip so to maintain the same space
+	after chapter numbers in the table of contents.
+
+2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\tocentry): Fix setting of \entrycontskip
 	to work with last change.
 
