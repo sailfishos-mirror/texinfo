@@ -1,5 +1,14 @@
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	TOC @subsubsection number alignment
+
+	* doc/texinfo.tex (\findsecnowidths): Also collect information
+	on the widths of subsubsection numbers.
+	(\numsubsecentry, \unsubsecentry): Call \retrievesecnowidth.
+	(\dosubsubsecentry): Assign \secnowidth based on result.
+
+2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	TOC @subsection number alignment
 
 	* doc/texinfo.tex (\findsecnowidths): Also collect information
@@ -7,7 +16,7 @@
 	(\retrievesecnowidth): Take an argument, being the dimension
 	register to assign to.
 	(\numsecentry, \unsecentry): Call \retrievesecnowidth.
-	(\dosubsubsecentry): Assign \secnowidth based on result.
+	(\dosubsecentry): Assign \secnowidth based on result.
 
 2023-07-26  Patrice Dumas  <pertusus@free.fr>
 

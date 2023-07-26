@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-26.21}
+\def\texinfoversion{2023-07-26.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -6737,6 +6737,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \let\appsecentry\numsecentry
   %
   \def\numsubsecentry##1##2##3##4{%
+    \def\curssecname{secnowidth-##2}%
+    \curssecmax=0pt
+    %
     \setbox0=\hbox{##2}%
     \ifdim\wd0>\cursecmax
       \cursecmax=\wd0
@@ -6744,6 +6747,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \fi
   }%
   \let\appsubsecentry\numsubsecentry
+  %
+  \def\numsubsubsecentry##1##2##3##4{%
+    \setbox0=\hbox{##2}%
+    \ifdim\wd0>\curssecmax
+      \curssecmax=\wd0
+      \expandafter\xdef\csname\curssecname\endcsname{\the\wd0}%
+    \fi
+  }%
+  \let\appsubsubsecentry\numsubsubsecentry
   %
   % Discard any output by outputting to dummy vbox, in case the toc file
   % contains macros that we have not redefined above.
@@ -6754,6 +6766,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 \newdimen\curchapmax
 \newdimen\cursecmax
+\newdimen\curssecmax
 
 
 % set #1 to the maximum section width for #2
@@ -6769,6 +6782,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \secnowidthchap=0pt
 \newdimen\secnowidthsec
 \secnowidthsec=0pt
+\newdimen\secnowidthssec
+\secnowidthssec=0pt
 
 
 \newskip\contentsrightmargin \contentsrightmargin=1in
@@ -6962,9 +6977,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 % Subsections.
-\def\numsubsecentry#1#2#3#4{\dosubsecentry{#1}{#2}{#4}}
+\def\numsubsecentry#1#2#3#4{%
+  \retrievesecnowidth\secnowidthssec{#2}%
+  \dosubsecentry{#1}{#2}{#4}%
+}
 \let\appsubsecentry=\numsubsecentry
-\def\unnsubsecentry#1#2#3#4{\dosubsecentry{#1}{}{#4}}
+\def\unsubsecentry#1#2#3#4{%
+  \retrievesecnowidth\secnowidthssec{#2}%
+  \dosubsecentry{#1}{}{#4}%
+}
 
 % And subsubsections.
 \def\numsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{#2}{#4}}
@@ -7005,6 +7026,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \endgroup}
 
 \def\dosubsubsecentry#1#2#3{\begingroup
+  \secnowidth=\secnowidthssec
   \subsubsecentryfonts \leftskip=3\tocindent
   \tocentry{#1}{#2}{#3}%
 \endgroup}
