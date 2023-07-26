@@ -678,7 +678,7 @@ sub _new_text_input($$)
   my $texthandle = do { local *FH };
   # In-memory scalar strings are considered a stream of bytes, so need
   # to encode/decode.
-  $text = Encode::encode("utf8", $text);
+  $text = Encode::encode('utf-8', $text);
   # Could fail with error like
   # Strings with code points over 0xFF may not be mapped into in-memory file handles
   if (!open ($texthandle, '<', \$text)) {
@@ -2364,7 +2364,7 @@ sub _next_text($;$)
       my $next_line = <$texthandle>;
       if (defined($next_line)) {
         # need to decode to characters
-        $next_line = Encode::decode('utf8', $next_line);
+        $next_line = Encode::decode('utf-8', $next_line);
         $input->{'input_source_info'}->{'line_nr'} += 1
           unless ($input->{'input_source_info'}->{'macro'} ne ''
                   or defined($input->{'value_flag'}));

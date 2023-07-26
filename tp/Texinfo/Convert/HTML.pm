@@ -31,7 +31,8 @@
 
 package Texinfo::Convert::HTML;
 
-use 5.00405;
+# charnames::vianame is not documented in 5.6.0.
+use 5.008;
 
 # See 'The "Unicode Bug"' under 'perlunicode' man page.  This means
 # that regular expressions will treat characters 128-255 in a Perl string
@@ -54,6 +55,7 @@ use File::Copy qw(copy);
 use Storable;
 
 use Encode qw(find_encoding decode encode);
+use charnames ();
 
 use Texinfo::Commands;
 use Texinfo::Common;
@@ -7765,7 +7767,8 @@ sub converter_initialize($)
     if ($self->get_conf('OUTPUT_CHARACTERS')
         and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
                                          $output_encoding, $unicode_point)) {
-      $special_characters_set{$special_character} = chr(hex($unicode_point));
+      $special_characters_set{$special_character}
+                                    = charnames::vianame("U+$unicode_point");
     } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
       $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
     } else {

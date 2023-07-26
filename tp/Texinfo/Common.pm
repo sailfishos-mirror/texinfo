@@ -32,7 +32,7 @@ use 5.008001;
 # to determine the null file
 use Config;
 use File::Spec;
-# for find_encoding, resolve_alias and maybe utf8 related functions
+# for find_encoding, resolve_alias
 use Encode;
 
 # debugging
@@ -569,6 +569,16 @@ sub valid_tree_transformation ($)
 our %encoding_name_conversion_map;
 %encoding_name_conversion_map = (
   'us-ascii' => 'iso-8859-1',
+  # The mapping to utf-8 is important for perl code, as it means using a strict
+  # conversion to utf-8 and not a lax conversion:
+  # https://perldoc.perl.org/perlunifaq#What's-the-difference-between-UTF-8-and-utf8?
+  # In more detail, we want to use utf-8 only for two different reasons
+  # 1) if input is malformed it is better to error out it as soon as possible
+  # 2) we do not want to have different behaviour and hard to find bugs
+  #    depending on whether the user used @documentencoding utf-8
+  #    or @documentencoding utf8.  There is a warning with utf8, but
+  #    we want to be clear in any case.
+  'utf8' => 'utf-8',
 );
 
 
@@ -1318,12 +1328,11 @@ sub encode_file_name($$)
     if (not defined($input_encoding));
 
   if ($input_encoding eq 'utf-8' or $input_encoding eq 'utf-8-strict') {
-    utf8::encode($file_name);
     $encoding = 'utf-8';
   } else {
-    $file_name = Encode::encode($input_encoding, $file_name);
     $encoding = $input_encoding;
   }
+  $file_name = Encode::encode($encoding, $file_name);
   return ($file_name, $encoding);
 }
 
@@ -1752,23 +1761,7 @@ sub count_bytes($$;$)
     $encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
   }
 
-  if ($encoding eq 'utf-8'
-      or $encoding eq 'utf-8-strict') {
-    if (Encode::is_utf8($string)) {
-      # Get the number of bytes in the underlying storage.  This may
-      # be slightly faster than calling Encode::encode_utf8.
-      use bytes;
-      return length($string);
-
-      # Here's another way of doing it.
-      #Encode::_utf8_off($string);
-      #my $length = length($string);
-      #Encode::_utf8_on($string);
-      #return $length
-    } else {
-      return length(Encode::encode_utf8($string));
-    }
-  } elsif ($encoding and $encoding ne 'ascii') {
+  if ($encoding and $encoding ne 'ascii') {
     if (!defined($last_encoding) or $last_encoding ne $encoding) {
       # Look up and save encoding object for next time.  This is
       # slightly faster than calling Encode::encode.
@@ -1781,11 +1774,6 @@ sub count_bytes($$;$)
     return length($Encode_encoding_object->encode($string));
   } else {
     return length($string);
-    #my $length = length($string);
-    #$string =~ s/\n/\\n/g;
-    #$string =~ s/\f/\\f/g;
-    #print STDERR "Count($length): $string\n";
-    #return $length;
   }
 }
 

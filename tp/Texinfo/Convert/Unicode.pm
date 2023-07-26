@@ -19,10 +19,9 @@
 
 package Texinfo::Convert::Unicode;
 
-# Seems to be the Perl version required for Encode:
-# http://cpansearch.perl.org/src/DANKOGAI/Encode-2.47/Encode/README.e2x
-# http://coding.derkeiler.com/Archive/Perl/comp.lang.perl.misc/2005-12/msg00833.html
-use 5.007_003;
+# Documentation of earlier releases for perluniintro is missing.
+# charnames::vianame is not documented in 5.6.0.
+use 5.008;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -33,6 +32,9 @@ use Carp qw(cluck);
 use Encode;
 use Unicode::Normalize;
 use Unicode::EastAsianWidth;
+# To obtain unicode characters based on code points represented as
+# strings
+use charnames ();
 
 use Texinfo::MiscXS;
 
@@ -563,19 +565,12 @@ our %extra_unicode_map = (
 %unicode_map = (%unicode_map, %extra_unicode_map);
 
 # set the %unicode_character_brace_no_arg_commands value to the character
-# corresponding to the hex value in %unicode_map.
+# corresponding to the textual hex value in %unicode_map.
 our %unicode_character_brace_no_arg_commands;
 foreach my $command (keys(%unicode_map)) {
   if ($unicode_map{$command} ne '') {
-    my $char_nr = hex($unicode_map{$command});
-    if ($char_nr > 126 and $char_nr < 255) {
-      # this is very strange, indeed.  The reason lies certainly in the
-      # magic backward compatibility support in Perl for 8bit encodings.
-      $unicode_character_brace_no_arg_commands{$command} =
-         Encode::decode("iso-8859-1", chr($char_nr));
-    } else {
-      $unicode_character_brace_no_arg_commands{$command} = chr($char_nr);
-    }
+    $unicode_character_brace_no_arg_commands{$command}
+      = charnames::vianame("U+$unicode_map{$command}");
   }
 }
 
@@ -697,6 +692,12 @@ foreach my $command (keys(%unicode_accented_letters)) {
   }
 }
 
+# Note that the values are not actually used anywhere, they are there
+# to mark unicode codepoints that exist in the encoding.  It is important
+# to get them right, though, as the values are shown when debugging.
+# Also note that values below A0, which correspond to the ascii range
+# are not in the values and therefore should be handled differently by the
+# codes using the hash.
 my %unicode_to_eight_bit = (
    'iso-8859-1' => {
       '00A0' => 'A0',
@@ -1332,7 +1333,7 @@ sub unicode_text {
   return $text;
 }
 
-# return the 8 bit, if it exists, and the unicode codepoint
+# return the hexadecimal 8 bit string, if it exists, and the unicode codepoint
 sub _eight_bit_and_unicode_point($$)
 {
   my $char = shift;
@@ -1428,36 +1429,36 @@ sub _format_eight_bit_accents_stack($$$$$;$)
       my $command = 'TEXT';
       $command = $partial_result->[1]->{'cmdname'} if ($partial_result->[1]);
       if (defined($partial_result->[0])) {
-        print STDERR "   -> ".Encode::encode('utf8', $partial_result->[0])
+        print STDERR "   -> ".Encode::encode('utf-8', $partial_result->[0])
                             ."|$command\n";
       } else {
-        print STDERR "   -> NO UTF8 |$command\n";
+        print STDERR "   -> NO accented character |$command\n";
       }
     }
   }
 
-  # At this point we have the utf8 encoded results for the accent
+  # At this point we have the unicode character results for the accent
   # commands stack, with all the intermediate results.
   # For each one we'll check if it is possible to encode it in the
   # current eight bit output encoding table and, if so set the result
   # to the character.
 
-  my $eight_bit = '';
+  my $prev_eight_bit = '';
 
   while (@results_stack) {
     my $char = $results_stack[0]->[0];
     last if (!defined($char));
 
-    my ($new_eight_bit, $new_codepoint)
+    my ($new_eight_bit, $codepoint)
       = _eight_bit_and_unicode_point($char, $encoding);
     if ($debug) {
       my $command = 'TEXT';
       $command = $results_stack[0]->[1]->{'cmdname'}
         if ($results_stack[0]->[1]);
-      my $new_eight_bit_txt = 'UNDEF';
-      $new_eight_bit_txt = $new_eight_bit if (defined($new_eight_bit));
-      print STDERR "" . Encode::encode('utf8', $char)
-        . " ($command) new_codepoint: $new_codepoint 8bit: $new_eight_bit_txt old: $eight_bit\n";
+      print STDERR "" . Encode::encode('utf-8', $char) . " ($command) "
+        . "codepoint: $codepoint "
+        ."8bit: ". (defined($new_eight_bit) ? $new_eight_bit : 'UNDEF')
+        . " prev: $prev_eight_bit\n";
     }
 
     # no corresponding eight bit character found for a composed character
@@ -1472,7 +1473,7 @@ sub _format_eight_bit_accents_stack($$$$$;$)
     #    appending or prepending a character. For example this happens for
     #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to a 2 character:
     #    n with a tilde, followed by a ,
-    #    In that case, the additional utf8 diacritic is appended, which
+    #    In that case, the additional diacritic is appended, which
     #    means that it is composed with the , and leaves n with a tilde
     #    untouched.
     # -> the diacritic is appended but the normal form doesn't lead
@@ -1480,11 +1481,11 @@ sub _format_eight_bit_accents_stack($$$$$;$)
     #    of the string is unchanged. This, for example, happens for
     #    @ubaraccent{a} since there is no composed accent with a and an
     #    underbar.
-    last if ($new_eight_bit eq $eight_bit
+    last if ($new_eight_bit eq $prev_eight_bit
              and !($results_stack[0]->[1]->{'cmdname'} eq 'dotless'
                    and $char eq 'i'));
     $result = $results_stack[0]->[0];
-    $eight_bit = $new_eight_bit;
+    $prev_eight_bit = $new_eight_bit;
     shift @results_stack;
   }
 
@@ -1545,7 +1546,8 @@ sub unicode_point_decoded_in_encoding($$) {
 
     return 1 if ($encoding eq 'utf-8'
                     or ($unicode_to_eight_bit{$encoding}
-                        and $unicode_to_eight_bit{$encoding}->{$unicode_point}));
+                        and ($unicode_to_eight_bit{$encoding}->{$unicode_point}
+                             or hex($unicode_point) < 128)));
   }
   return 0;
 }

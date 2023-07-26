@@ -228,6 +228,13 @@ my @converted_test_cases = (
 @setfilename @ @verb{: name :}@ 
 
 ', {'full_document' => 1}],
+# this tests seems somewhat pointless, but it is not, as in perl
+# utf8 may mean a lax handling of UTF-8.  We want to avoid using
+# that lax handling of UTF-8, better get errors early.
+['documentencoding_utf8',
+'@documentencoding utf8
+
+'],
 ['definfoenclose',
 '
 definfoenclose phoo,//,\\  @definfoenclose phoo,//,\\
@@ -597,6 +604,7 @@ in example
 my %info_tests = (
   'comment_space_command_on_line' => 1,
   'setfilename' => 1,
+  'documentencoding_utf8' => 1,
 );
 
 my %xml_tests = (

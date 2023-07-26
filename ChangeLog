@@ -1,3 +1,34 @@
+2023-07-26  Patrice Dumas  <pertusus@free.fr>
+
+	Simpler more consistent UTF-8 and unicode handling, stricter UTF-8 conversion
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): map utf8 to
+	utf-8 for input_encoding, to get the same output as the perl parser
+	with mime_name and also because it is better.
+
+	* tp/Texinfo/Common.pm (%encoding_name_conversion_map): map utf8 to
+	utf-8 to always use the same conversion in perl, and prefer the strict
+	conversion.
+
+	* tp/Texinfo/Common.pm (encode_file_name, count_bytes): do not use
+	utf-8 specific conversion, always use Encode encode and also use the
+	strict conversion.
+
+	* tp/Texinfo/Convert/Unicode.pm (_format_eight_bit_accents_stack),
+	tp/Texinfo/ParserNonXS.pm (_new_text_input, _next_text): use the
+	utf-8 encoding not utf8 for Encode encode strict conversion.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/Convert/Unicode.pm: use charnames::vianame to obtain
+	characters based on a string representation of unicode codepoints, as
+	it is simple and this is what is described in the documentation.
+
+	* tp/Texinfo/Convert/Unicode.pm (unicode_point_decoded_in_encoding):
+	handle hex strings in the ascii range for 8bit encodings.
+
+	* tp/Makefile.tres, tp/t/08misc_commands.t (documentencoding_utf8):
+	new test with documentencoding utf8.
+
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\summarycontents): Set \extrasecnoskip to

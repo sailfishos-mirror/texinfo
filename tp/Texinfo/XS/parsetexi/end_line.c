@@ -1397,6 +1397,7 @@ end_line_misc_line (ELEMENT *current)
                    */
                     static struct encoding_map map[] = {
                           "utf-8", "utf-8",
+                          "utf8", "utf-8",
                           "ascii",  "us-ascii",
                           "shiftjis", "shift_jis",
                           "latin1", "iso-8859-1",
