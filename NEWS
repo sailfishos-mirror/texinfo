@@ -42,9 +42,9 @@ See the manual for detailed information.
     . omit colons after index entries by default.  this can still be
       configured with INDEX_ENTRY_COLON.
     . if a @node is not associated to a sectioning command but is
-      followed by a heading command not usually associated to nodes,
-      such as @heading, and this command appears before other formatted
-      contents, the heading command is assumed to supply the node heading.
+      followed by a heading command not usually associated to nodes
+      such as @heading and this command appears before other formatted
+      content, the heading command is assumed to supply the node heading.
       This can be customized with USE_NEXT_HEADING_FOR_LONE_NODE.
     . add @example syntax highlighting as a texi2any extension.
  . Info output:
