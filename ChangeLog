@@ -1,5 +1,10 @@
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\tocentry): Fix setting of \entrycontskip
+	to work with last change.
+
+2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	TOC section number alignment
 
 	* doc/texinfo.tex (\findsecnowidths): New macro, to get maximum
