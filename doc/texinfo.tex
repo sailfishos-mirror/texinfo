@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-17.15}
+\def\texinfoversion{2023-07-26.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -6710,6 +6710,52 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \input \tocreadfilename
 }
 
+% process toc file to find the maximum width of the section numbers for
+% each chapter
+\def\findsecnowidths{%
+  \begingroup
+  \setupdatafile
+  \activecatcodes
+  \secentryfonts
+  % Redefinitions
+  \def\numchapentry##1##2##3##4{%
+    \def\curchapname{secnowidth-##2}%
+    \curchapmax=0pt
+  }%
+  \let\appentry\numchapentry
+  %
+  \def\numsecentry##1##2##3##4{%
+    \setbox0=\hbox{##2}%
+    \ifdim\wd0>\curchapmax
+      \curchapmax=\wd0
+      \expandafter\xdef\csname\curchapname\endcsname{\the\wd0}%
+    \fi
+  }%
+  \let\appsecentry\numsecentry
+  %
+  % Discard any output by outputting to dummy vbox, in case the toc file
+  % contains macros that we have not redefined above.
+  \setbox\dummybox\vbox\bgroup
+    \input \tocreadfilename\relax
+  \egroup
+  \endgroup
+}
+\newdimen\curchapmax
+
+
+% set \secnowidthchap to the maximum section width for the chapter
+\def\retrievesecnowidth#1{%
+  \expandafter\let\expandafter\savedsecnowidth \csname secnowidth-#1\endcsname
+  \ifx\savedsecnowidth\relax
+    \secnowidthchap=0pt
+  \else
+    \secnowidthchap=\savedsecnowidth
+  \fi
+}
+\newdimen\secnowidthchap
+\secnowidthchap=0pt
+
+
 \newskip\contentsrightmargin \contentsrightmargin=1in
 \newcount\savepageno
 \newcount\lastnegativepageno \lastnegativepageno = -1
@@ -6755,6 +6801,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \startcontents{\putwordTOC}%
     \openin 1 \tocreadfilename\space
     \ifeof 1 \else
+      \findsecnowidths
       \readtocfile
     \fi
     \vfill \eject
@@ -6858,7 +6905,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 % Chapters, in the main contents.
-\def\numchapentry#1#2#3#4{\dochapentry{#1}{#2}{#4}}
+\def\numchapentry#1#2#3#4{%
+  \retrievesecnowidth{#2}%
+  \dochapentry{#1}{#2}{#4}%
+}
 
 % Chapters, in the short toc.
 % See comments in \dochapentry re vbox and related settings.
@@ -6874,7 +6924,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \setbox0 = \hbox{\putwordAppendix{} M}%
   \hbox to \wd0{\putwordAppendix{} #1\hss}}
 %
-\def\appentry#1#2#3#4{\dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#4}}
+\def\appentry#1#2#3#4{%
+  \retrievesecnowidth{#2}%
+  \dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#4}%
+}
 
 % Unnumbered chapters.
 \def\unnchapentry#1#2#3#4{\dochapentry{#1}{}{#4}}
@@ -6899,8 +6952,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Same as \defaultparindent.
 \newdimen\tocindent \tocindent = 15pt
 
-% Now for the actual typesetting. In all these, #1 is the text and #2 is the
-% page number.
+% Now for the actual typesetting. In all these, #1 is the text, #2 is
+% a section number if present, and #3 is the page number.
 %
 % If the toc has to be broken over pages, we want it to be at chapters
 % if at all possible; hence the \penalty.
@@ -6916,6 +6969,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 \def\dosecentry#1#2#3{\begingroup
+  \secnowidth=\secnowidthchap
   \secentryfonts \leftskip=\tocindent
   \tocentry{#1}{#2}{#3}%
 \endgroup}
@@ -6930,6 +6984,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \tocentry{#1}{#2}{#3}%
 \endgroup}
 
+% Used for the maximum width of a section number so we can align
+% section titles.
+\newdimen\secnowidth
+\secnowidth=0pt
+
 % \tocentry{TITLE}{SEC NO}{PAGE}
 %
 \def\tocentry#1#2#3{%
@@ -6939,7 +6998,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \else
     \setbox0=\hbox{#2\labelspace}%
     \entrycontskip=\wd0
-    \entry{#2\labelspace#1}{#3}%
+    \entry{%
+      \ifdim 0pt=\secnowidth
+        #2%
+      \else
+        \hbox to \secnowidth{#2\hfill}%
+      \fi
+      \labelspace#1%
+    }{#3}%
   \fi
 }
 
