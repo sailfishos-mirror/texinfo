@@ -1,5 +1,13 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands, More Node Commands):
+	Split off 'More Node Commands' node with the less important
+	commands in it.
+	(Cursor Commands, Node Commands): Move description of M-x, C-u
+	and keystroke notation earlier in manual.
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands): Reduce duplication in
 	discussion of 'l' command and talk less about 'discarding nodes'.
 
