@@ -771,12 +771,8 @@ In addition, a node may contain a @dfn{menu}, as well as
 the text of the node.  Cross-references may possibly refer to a node in
 another Info file.
 
-@menu
-* Parts of an Xref::            What a cross-reference is made of.
-* Selecting Xrefs::             Commands for selecting menu or note items.
-@end menu
-
 @node Parts of an Xref
+@nodedescription What a cross-reference is made of.
 @section Parts of an Xref
 
 Here is a sample menu entry showing the parts of a cross-reference:
@@ -825,6 +821,7 @@ Manual}, for more information on creating your own Texinfo
 cross-references.
 
 @node Selecting Xrefs
+@nodedescription Commands for selecting menu or note items.
 @section Selecting Xrefs
 
 The following table lists the Info commands which operate on menu items.
