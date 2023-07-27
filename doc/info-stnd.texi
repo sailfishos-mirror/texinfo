@@ -149,7 +149,7 @@ structure; for example, the `Next' pointer in a section of a chapter
 takes you to the next section in the same chapter, while the `Up' pointer
 takes you to the higher-level node for the chapter as a whole.
 
-You can select a node that you have already viewed in this window
+You can select a node that you have already viewed
 by using the @samp{l} command---this stands for ``last'':
 
 @table @asis
@@ -179,6 +179,7 @@ Select the node @samp{Top} in the current Info file.
 Select the directory node (i.e., the node @samp{(dir)}).
 @end table
 
+@findex execute-command
 In the command descriptions in this manual,
 the @kbd{M-x} command names are displayed in parentheses.
 @kbd{M-x} is itself a command (@code{execute-command})
@@ -238,13 +239,11 @@ Move backward through the node structure.  If the node that you are
 currently viewing has a @samp{Prev} pointer, that node is selected.
 Otherwise, if the node has an @samp{Up} pointer, that node is selected,
 and if it has a menu, the last item in the menu is selected.
-@end table
 
 You can get the same behavior as @code{global-next-node} and
 @code{global-prev-node} while simply scrolling through the file with
 @key{SPC} and @key{DEL} (@pxref{scroll-behavior}).
 
-@table @asis
 @anchor{goto-node}
 @item @kbd{g} (@code{goto-node})
 @kindex g

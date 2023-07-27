@@ -1,5 +1,12 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands): Remove reference to "this
+	window".  Add index entry for 'execute-command'.
+	(More Node Commands): Subordinate comment about 'global-next-node'
+	and 'global-prev-node' to one of the items in the table.
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Xref Commands): Mention menus in this node.
 	(Parts of an Xref): Change two cases of "cross reference" to
 	"cross-reference".   Place example earlier in node.
