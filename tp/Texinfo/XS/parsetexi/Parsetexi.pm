@@ -337,11 +337,9 @@ sub parse_texi_piece($$;$)
 
   $self = parser() if (!defined($self));
 
-  # make sure that internal byte buffer is in UTF-8 before we pass
-  # it in to the XS code.
-  utf8::upgrade($text);
-
-  parse_piece($text, $line_nr);
+  # pass a binary UTF-8 encoded string to C code
+  my $utf8_bytes = Encode::encode('utf-8', $text);
+  parse_piece($utf8_bytes, $line_nr);
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
@@ -361,11 +359,9 @@ sub parse_texi_text($$;$)
 
   $self = parser() if (!defined($self));
 
-  # make sure that internal byte buffer is in UTF-8 before we pass
-  # it in to the XS code.
-  utf8::upgrade($text);
-
-  parse_text($text, $line_nr);
+  # pass a binary UTF-8 encoded string to C code
+  my $utf8_bytes = Encode::encode('utf-8', $text);
+  parse_text($utf8_bytes, $line_nr);
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
@@ -387,8 +383,10 @@ sub parse_texi_line($$;$)
   $line_nr = 1 if (not defined($line_nr));
 
   $self = parser() if (!defined($self));
-  utf8::upgrade($text);
-  parse_string($text, $line_nr);
+
+  # pass a binary UTF-8 encoded string to C code
+  my $utf8_bytes = Encode::encode('utf-8', $text);
+  parse_string($utf8_bytes, $line_nr);
   my $tree = build_texinfo_tree ();
 
   _set_errors_node_lists_labels_indices($self);

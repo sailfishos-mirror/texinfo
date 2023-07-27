@@ -53,17 +53,17 @@ parse_file(filename)
 
 void
 parse_piece(string, line_nr)
-        char * string
+        char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
 void
 parse_string(string, line_nr)
-        char * string
+        char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
 void
 parse_text(string, line_nr)
-        char * string
+        char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
 void

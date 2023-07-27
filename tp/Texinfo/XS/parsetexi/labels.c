@@ -91,7 +91,7 @@ check_register_target_element_label (ELEMENT *label_element,
    @anchor first argument, float second argument) mainly to check that
    the syntax for an external node is not used.  In that case modify_node
    is set to 0 and the node is not modified, and added elements are
-   collected in a thirs field of the returned object,
+   collected in a third field of the returned object,
      out_of_tree_elements - elements collected in manual_content or
                             node_content and not in the node
  */
