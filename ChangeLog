@@ -1,5 +1,13 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands): Do not link to emacs manual
+	for explanation of M-x, as this contains much irrelevant material.
+	State that M-x is 'execute-command'.  Give example using previously
+	documented command.  Change ALT to Alt and CTRL to Ctrl, as well
+	as META to Meta.
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands): Edit.  Do not talk about
 	'the current window' as this is an unnecessary complication.  Say
 	more about the hierarchical structure of an Info file.

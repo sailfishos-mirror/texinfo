@@ -164,6 +164,7 @@ to read about a related issue, and would like then to resume
 reading at the same place where you started.
 @end table
 
+@noindent
 Two additional commands, @samp{t} and @samp{d}, select special nodes:
 
 @table @asis
@@ -178,21 +179,19 @@ Select the node @samp{Top} in the current Info file.
 Select the directory node (i.e., the node @samp{(dir)}).
 @end table
 
-The notation used in this manual to describe keystrokes
-is the same as the notation used within the Emacs manual
-(@pxref{User Input,,, emacs, The GNU Emacs Manual}).
-@kbd{C-@var{x}} means press the @key{CTRL} key and the
-key @var{x}.  @kbd{M-@var{x}} means press the @key{META} key and
-the key @var{x}.  On many terminals the @key{META} key is known as
-the @key{ALT} key.  @key{SPC} is the space bar.  The other keys are
-usually called by the names printed on them.
-
 In the command descriptions in this manual,
-the @kbd{M-x} command name is displayed in parentheses.
-@kbd{M-x} is itself a command
-letting you run a command
-by name.  @xref{M-x, , Executing an extended command, emacs, The GNU
-Emacs Manual}, for more detailed information.
+the @kbd{M-x} command names are displayed in parentheses.
+@kbd{M-x} is itself a command (@code{execute-command})
+letting you run a command by name. For example, you could
+select the next node with @kbd{M-x next-node}.
+
+@kbd{C-@var{x}} means press the @key{Ctrl} key and
+the key @var{x}.  @kbd{M-@var{x}} means press the @key{Meta} key
+and the key @var{x}.  (@key{Meta} is usually labeled as @key{Alt}).
+@key{SPC} is the space bar.  The other keys are usually called by
+the names printed on them.  This notation to describe keystrokes is
+the same as that used within the Emacs manual (@pxref{User Input,,,
+emacs, The GNU Emacs Manual}).
 
 Many Info commands can take a @dfn{numeric argument};
 see @ref{Miscellaneous Commands, @code{universal-argument}} to find
@@ -362,8 +361,6 @@ See also @ref{--raw-escapes}.
 
 GNU Info has several commands which allow you to move the cursor about
 the screen.
-
-The following table lists the basic cursor movement commands in Info.
 
 With a numeric argument, the motion commands
 are simply executed that many times; for example, a numeric argument
