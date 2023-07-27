@@ -273,7 +273,11 @@ static void element_to_perl_hash (ELEMENT *e);
 /* Return reference to Perl array built from e.  If any of
    the elements in E don't have 'hv' set, set it to an empty
    hash table, or create it if there is no parent element, indicating the 
-   element is not in the tree. */
+   element is not in the tree.
+   Note that not having 'hv' set should be rare (actually never happen),
+   as the contents and args children are processed before the extra
+   information where build_perl_array is called.
+ */
 static SV *
 build_perl_array (ELEMENT_LIST *e)
 {
@@ -347,14 +351,24 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
             {
             case extra_element:
               /* For references to other parts of the tree, create the hash so 
-                 we can point to it.  */
+                 we can point to it. */
+              /* Note that this does not happen much, as the contents
+                 and args are processed before the extra information.  It only
+                 happens for root commands (sections, nodes) and associated
+                 commands, and could also happen for subentry as it is not
+                 a children of the associated index command */
               if (!f->hv)
                 f->hv = newHV ();
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_element_oot:
-              if (!f->hv)
-                element_to_perl_hash (f);
+              /* Note that this is only used for info hash, with simple
+                 elements that are associated to one element only, should
+                 not be referred to elsewhere (and should not contain other
+                 commands or containers) */
+              if (f->hv)
+                fatal ("element_to_perl_hash extra_element_oot twice\n");
+              element_to_perl_hash (f);
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_contents:
@@ -449,17 +463,19 @@ store_source_mark_list (ELEMENT *e)
               a warning on MinGW ("cast from pointer to integer of
               different size"). */
           source_mark_counter = (IV) (intptr_t) s_mark->counter;
-          STORE ("counter", newSViv (source_mark_counter));
+          STORE("counter", newSViv (source_mark_counter));
           if (s_mark->position > 0)
             {
               source_mark_position = (IV) (intptr_t) s_mark->position;
-              STORE ("position", newSViv (source_mark_position));
+              STORE("position", newSViv (source_mark_position));
             }
           if (s_mark->element)
             {
               ELEMENT *e = s_mark->element;
-              if (!e->hv)
-                element_to_perl_hash (e);
+              /* should only be referred to in one source mark */
+              if (e->hv)
+                fatal ("element_to_perl_hash source mark elt twice");
+              element_to_perl_hash (e);
               STORE("element", newRV_inc ((SV *)e->hv));
             }
           if (s_mark->line)
@@ -471,7 +487,7 @@ store_source_mark_list (ELEMENT *e)
 #define SAVE_S_M_STATUS(X) \
            case SM_status_ ## X: \
            sv = newSVpv_utf8 (#X, 0);\
-           STORE ("status", sv); \
+           STORE("status", sv); \
            break;
 
           switch (s_mark->status)
@@ -556,7 +572,7 @@ element_to_perl_hash (ELEMENT *e)
   if (e->parent)
     {
       if (!e->parent->hv)
-        e->parent->hv = newHV ();
+        fatal ("parent hv not already set\n");
       sv = newRV_inc ((SV *) e->parent->hv);
       hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
