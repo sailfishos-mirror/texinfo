@@ -122,16 +122,8 @@ sent to @email{bug-gnu-emacs@@gnu.org}.
 @chapter Selecting a Node
 @cindex nodes, selection of
 
-This section details the Info commands which select a new node
-to view in the current window.
-
-The most basic node commands are @samp{n}, @samp{p}, @samp{u}, and
-@samp{l}.
-
-When you are viewing a node, the top line of the node contains some Info
-@dfn{pointers} which describe where the next, previous, and up nodes
-are.  Info uses this line to move about the node structure of the file
-when you use the following commands:
+The most basic node commands are @samp{n}, @samp{p}, and @samp{u}.
+These move you around the node structure of the file:
 
 @table @asis
 @item @kbd{n} (@code{next-node})
@@ -149,6 +141,13 @@ Select the `Prev' node.
 @findex up-node
 Select the `Up' node.
 @end table
+
+The top line of each Info node contains @dfn{pointers} which describe
+where the next, previous, and up nodes are.
+The nodes in an Info file are conventionally arranged in a hierarchical
+structure; for example, the `Next' pointer in a section of a chapter
+takes you to the next section in the same chapter, while the `Up' pointer
+takes you to the higher-level node for the chapter as a whole.
 
 You can select a node that you have already viewed in this window
 by using the @samp{l} command---this stands for ``last'':
