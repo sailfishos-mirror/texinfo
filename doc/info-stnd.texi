@@ -764,10 +764,13 @@ your system.  It can also be invoked from the command line; see
 @chapter Selecting Cross-references
 
 We have already discussed the @samp{Next}, @samp{Prev}, and @samp{Up}
-pointers which appear at the top of a node.  In addition to these
-pointers, a node may contain other pointers which refer you to a
-different node, perhaps in another Info file.  Such pointers are called
-@dfn{cross-references}, or @dfn{xrefs} for short.
+pointers which appear at the top of a node, referring you to a
+different node.
+
+In addition, a node may contain a @dfn{menu}, as well as
+@dfn{cross-references} (@dfn{xrefs} for short) interspersed through
+the text of the node.  Cross-references may possibly refer to a node in
+another Info file.
 
 @menu
 * Parts of an Xref::            What a cross-reference is made of.
@@ -777,21 +780,21 @@ different node, perhaps in another Info file.  Such pointers are called
 @node Parts of an Xref
 @section Parts of an Xref
 
-Cross-references have two major parts: the first part is called the
-@dfn{label}; it is the name that you can use to refer to the cross
-reference, and the second is the @dfn{target}; it is the full name of
-the node that the cross-reference points to.
-
-The target is separated from the label by a colon @samp{:}; first the
-label appears, and then the target.  For example, in the sample menu
-cross-reference below, the single colon separates the label from the
-target.
+Here is a sample menu entry showing the parts of a cross-reference:
 
 @example
 * Foo Label: Foo Target.        More information about Foo.
 @end example
 
-Note the @samp{.} which ends the name of the target.  The @samp{.} is
+@noindent
+The reference has two parts: the first part is called the
+@dfn{label}; it is the name that you can use to refer to the
+cross-reference, and the second is the @dfn{target}; it is the full
+name of the node that the cross-reference points to.  The target is
+separated from the label by a single colon @samp{:}; first the
+label appears, and then the target.
+
+The @samp{.} ends the name of the target.  The @samp{.} is
 not part of the target; it serves only to let Info know where the target
 name ends.
 
@@ -818,9 +821,9 @@ Like @samp{Next}, @samp{Prev}, and @samp{Up} pointers, cross-references
 can point to any valid node.  They are used to refer you to a place
 where more detailed information can be found on a particular subject.
 Here is a cross-reference which points to a node within the Texinfo
-documentation:  @xref{xref, , Writing an Xref, texinfo, the Texinfo
-Manual}, for more information on creating your own texinfo cross
-references.
+documentation:  @xref{Cross References,, Cross-refrences, texinfo, the Texinfo
+Manual}, for more information on creating your own Texinfo
+cross-references.
 
 @node Selecting Xrefs
 @section Selecting Xrefs

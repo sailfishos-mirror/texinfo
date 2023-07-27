@@ -1,5 +1,14 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Xref Commands): Mention menus in this node.
+	(Parts of an Xref): Change two cases of "cross reference" to
+	"cross-reference".   Place example earlier in node.
+	Refer to a menu entry as an "entry".  Link
+	to different node in Texinfo manual.  Fix capitalisation of
+	"Texinfo".
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands): Do not link to emacs manual
 	for explanation of M-x, as this contains much irrelevant material.
 	State that M-x is 'execute-command'.  Give example using previously
