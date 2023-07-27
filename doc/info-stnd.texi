@@ -150,22 +150,18 @@ Select the `Up' node.
 @end table
 
 You can select a node that you have already viewed in this window
-by using the @samp{l} command---this stands for ``last'', and
-moves backwards through the history of visited nodes for this
-window.  This is useful when you follow a reference to another node
-to read about a related issue, and would like then to resume
-reading at the same place where you started.
-
-Each node where you press @samp{l} is discarded from the history.  Thus,
-by the time you get to the first node you visited in a window, the
-entire history of that window is discarded.
+by using the @samp{l} command---this stands for ``last'':
 
 @table @asis
 @item @kbd{l} (@code{history-node})
 @kindex l
 @findex history-node
-Pop the most recently selected node in this window from the node
-history.
+Move backwards through the history of visited nodes for this
+window.  The current node is discarded from the history.
+
+This is useful when you follow a reference to another node
+to read about a related issue, and would like then to resume
+reading at the same place where you started.
 @end table
 
 Two additional commands, @samp{t} and @samp{d}, select special nodes:

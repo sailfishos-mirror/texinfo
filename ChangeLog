@@ -1,5 +1,10 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands): Reduce duplication in
+	discussion of 'l' command and talk less about 'discarding nodes'.
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands) <goto-invocation>:
 	Fix example to use the right key.
 	(Stand-alone Info, Miscellaneous Commands):
