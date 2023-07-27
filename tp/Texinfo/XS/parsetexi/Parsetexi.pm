@@ -121,22 +121,22 @@ sub parser (;$$)
           add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
-        for my $v (keys %{$conf->{'values'}}) {
-          if (ref($conf->{'values'}->{$v}) eq '') {
-            store_value ($v, $conf->{'values'}->{$v});
-          } else {
-            warn "bug: non-scalar \@value\n";
-          }
+        for my $flag (keys %{$conf->{'values'}}) {
+          my $bytes_flag = Encode::encode('utf-8', $flag);
+          my $bytes_value = Encode::encode('utf-8', $conf->{'values'}->{$flag});
+          store_value ($bytes_flag, $bytes_value);
         }
       } elsif ($key eq 'EXPANDED_FORMATS') {
         clear_expanded_formats ();
 
         for my $f (@{$conf->{$key}}) {
-          add_expanded_format ($f);
+          my $utf8_bytes = Encode::encode('utf-8', $f);
+          add_expanded_format ($utf8_bytes);
         }
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
-          conf_set_documentlanguage_override ($conf->{$key});
+          my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
+          conf_set_documentlanguage_override ($utf8_bytes);
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} eq 'menu') {
@@ -155,9 +155,11 @@ sub parser (;$$)
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
         set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING' and defined($conf->{$key})) {
-        conf_set_input_file_name_encoding ($conf->{$key});
+        my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
+        conf_set_input_file_name_encoding ($utf8_bytes);
       } elsif ($key eq 'LOCALE_ENCODING' and defined($conf->{$key})) {
-        conf_set_locale_encoding ($conf->{$key});
+        my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
+        conf_set_locale_encoding ($utf8_bytes);
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
