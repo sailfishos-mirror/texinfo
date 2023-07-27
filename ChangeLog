@@ -1,3 +1,8 @@
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@verbatim): Change [tab] to <tab> as is
+	more usual in other parts of the manual.
+
 2023-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	TOC @subsubsection number alignment

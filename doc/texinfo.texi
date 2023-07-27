@@ -6737,14 +6737,14 @@ For example:
 @example
 @@verbatim
 @{
-@var{[tab]}@@command with strange characters: @@'e
-expand@var{[tab]}me
+@var{<tab>}@@command with strange characters: @@'e
+expand@var{<tab>}me
 @}
 @@end verbatim
 @end example
 
 @noindent
-(where @var{[tab]} stands for a literal tab character).  This produces:
+(where @var{<tab>} stands for a literal tab character).  This produces:
 
 @verbatim
 {
