@@ -929,10 +929,12 @@ xspara_add_text (char *text, int len)
     {
       if (debug)
         {
-          fprintf(stderr, "p (%d+%d) s `%s', l `%lc', w `%s'\n", state.counter,
-              state.word_counter, state.last_letter, state.space.end == 0 ? ""
-               : xspara__print_escaped_spaces (state.space.text),
-              state.word.end > 0 ? state.word.text : "UNDEF");
+          fprintf(stderr, "p (%d+%d) s `%s', l `%lc', w `%s'\n",
+                    state.counter, state.word_counter,
+                    state.space.end == 0 ? ""
+                      : xspara__print_escaped_spaces (state.space.text),
+                    state.last_letter,
+                    state.word.end > 0 ? state.word.text : "UNDEF");
         }
       if (isspace ((unsigned char) *p))
         {
