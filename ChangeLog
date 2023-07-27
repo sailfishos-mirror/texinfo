@@ -1,5 +1,12 @@
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands) <goto-invocation>:
+	Fix example to use the right key.
+	(Stand-alone Info, Miscellaneous Commands):
+	Change 'makeinfo' to 'texi2any'.
+
+2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@verbatim): Change [tab] to <tab> as is
 	more usual in other parts of the manual.
 

@@ -89,7 +89,7 @@ and @key{Backspace}) to move forwards and backwards in it.
 The @dfn{Info} program described here is a stand-alone program, part
 of the Texinfo distribution, which is used to view Info files on a
 text terminal.  @dfn{Info files} are typically the result of
-processing Texinfo files with the program @code{makeinfo} (also in the
+processing Texinfo files with the program @code{texi2any} (also in the
 Texinfo distribution).
 
 Texinfo itself (@pxref{Top,,, texinfo, Texinfo}) is a documentation
@@ -260,8 +260,8 @@ manuals which describe several programs.
 If you need to find the Invocation node of a program that is documented
 in another Info file, you need to visit that file before invoking
 @samp{O}.  For example, if you are reading the Emacs manual and want to
-see the command-line options of the @code{makeinfo} program, type @kbd{g
-(texinfo) @key{RET}} and then @kbd{I makeinfo @key{RET}}.  If you don't
+see the command-line options of the @code{texi2any} program, type @kbd{g
+(texinfo) @key{RET}} and then @kbd{O texi2any @key{RET}}.  If you don't
 know what Info file documents the command, or if invoking @samp{O}
 doesn't display the right node, go to the @samp{(dir)} node (using the
 @samp{d} command) and invoke @samp{O} from there.
@@ -1311,7 +1311,7 @@ the most concise information about GNU Info available.
 Try hard to visit the node @code{(info)Help}.  The Info file
 @file{info.texi} distributed with GNU Emacs contains
 this node.  Of course, the file must first be processed with
-@code{makeinfo}, and then placed into the location of your Info directory.
+@code{texi2any}, and then placed into the location of your Info directory.
 
 @item @kbd{=} (@code{display-file-info})
 @cindex current file, information about
