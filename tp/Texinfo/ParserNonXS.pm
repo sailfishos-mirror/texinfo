@@ -371,7 +371,7 @@ foreach my $begin_line_command (keys(%line_commands)) {
 }
 
 foreach my $not_begin_line_command ('comment', 'c', 'columnfractions',
-                                 'item', 'subentry') {
+                                    'item', 'subentry') {
   delete $begin_line_commands{$not_begin_line_command};
 }
 
@@ -3469,8 +3469,6 @@ sub _end_line_misc_line($$$)
   # associated to CM_item_LINE
   $data_cmdname = 'item_LINE' if ($command eq 'item');
 
-  # FIXME add a condition to avoid this check in linemacro defined
-  # commands calls?
   if ($self->{'basic_inline_commands'}
       and $self->{'basic_inline_commands'}->{$data_cmdname}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
@@ -3872,7 +3870,6 @@ sub _end_line_def_line($$$)
 
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
 
-  # now $current is the arguments container in case of linemacro
   $current = $current->{'parent'};
 
   if (scalar(keys(%$arguments)) == 0) {
@@ -5585,8 +5582,6 @@ sub _handle_line_command($$$$$$)
         # Do not make the @subentry element a child of the index
         # command.  This means that spaces are preserved properly
         # when converting back to Texinfo.
-        # FIXME check that it is correct to end the line if in a
-        # linemacro command invokation
         $current = _end_line($self, $current, $source_info);
       } elsif ($sectioning_heading_commands{$data_cmdname}) {
         if ($self->{'sections_level'}) {
@@ -6510,7 +6505,6 @@ sub _new_macro($$$)
     'macrobody' => $macrobody
   };
   delete $self->{'aliases'}->{$name};
-  # FIXME check that this is still true with linemacro
   # could be cleaner to delete definfoenclose'd too, but macros
   # are expanded earlier
 }
