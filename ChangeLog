@@ -1,5 +1,10 @@
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: use # comments, not C
+	comments.
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	Set 'no utf8' in texi2any as we substitute file names in byte strings
 
 	* tp/texi2any.pl: set 'no utf8'.  Through rules in Makefile.am
