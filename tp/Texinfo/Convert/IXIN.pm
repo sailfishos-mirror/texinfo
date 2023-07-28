@@ -920,10 +920,10 @@ sub output_ixin($$)
           if (open ($filehandle, $file)) {
             $blob_nr++;
             if ($extension eq 'txt') {
-              my $perl_encoding
-                 = Texinfo::Common::element_extra_encoding_for_perl($command);
-              if (defined($perl_encoding)) {
-                binmode($filehandle, ":encoding($perl_encoding)");
+              my $encoding
+                 = Texinfo::Common::element_associated_processing_encoding($command);
+              if (defined($encoding)) {
+                binmode($filehandle, ":encoding($encoding)");
               }
             }
             my $file_content;

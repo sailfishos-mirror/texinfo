@@ -1,5 +1,11 @@
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (element_associated_processing_encoding):
+	rename element_extra_encoding_for_perl as
+	element_associated_processing_encoding.  Update callers.
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%non_formatted_brace_commands): add sortas.
 
 2023-07-28  Patrice Dumas  <pertusus@free.fr>

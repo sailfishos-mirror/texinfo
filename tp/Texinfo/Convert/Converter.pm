@@ -1210,10 +1210,10 @@ sub txt_image_text($$$)
   } else {
     my $filehandle = do { local *FH };
     if (open ($filehandle, $txt_file)) {
-      my $perl_encoding
-               = Texinfo::Common::element_extra_encoding_for_perl($element);
-      if (defined($perl_encoding)) {
-        binmode($filehandle, ":encoding($perl_encoding)");
+      my $encoding
+          = Texinfo::Common::element_associated_processing_encoding($element);
+      if (defined($encoding)) {
+        binmode($filehandle, ":encoding($encoding)");
       }
       my $result = '';
       my $max_width = 0;
@@ -1225,21 +1225,21 @@ sub txt_image_text($$$)
         $result .= $_;
       }
       if (!close ($filehandle)) {
-        my $decoded_file = $txt_file;
-        $decoded_file = Encode::decode($file_name_encoding, $txt_file)
+        my $decoded_file_name = $txt_file;
+        $decoded_file_name = Encode::decode($file_name_encoding, $txt_file)
           if (defined($file_name_encoding));
         $self->document_warn($self,
            sprintf(__("error on closing image text file %s: %s"),
-                                     $decoded_file, $!));
+                                     $decoded_file_name, $!));
       }
       return $result, $max_width;
     } else {
-      my $decoded_file = $txt_file;
-      $decoded_file = Encode::decode($file_name_encoding, $txt_file)
+      my $decoded_file_name = $txt_file;
+      $decoded_file_name = Encode::decode($file_name_encoding, $txt_file)
         if (defined($file_name_encoding));
       $self->line_warn($self,
-                  sprintf(__("\@image file `%s' unreadable: %s"),
-                             $decoded_file, $!), $element->{'source_info'});
+               sprintf(__("\@image file `%s' unreadable: %s"),
+                          $decoded_file_name, $!), $element->{'source_info'});
     }
   }
   return undef, undef;

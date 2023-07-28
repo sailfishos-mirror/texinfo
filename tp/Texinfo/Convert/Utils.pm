@@ -240,11 +240,11 @@ sub expand_verbatiminclude($$$)
   my $file_name_text = $current->{'extra'}->{'text_arg'};
 
   my $input_encoding
-         = Texinfo::Common::element_extra_encoding_for_perl($current);
+    = Texinfo::Common::element_associated_processing_encoding($current);
 
   my ($file_name, $file_name_encoding)
-      = encoded_input_file_name($customization_information,
-                                $file_name_text, $input_encoding);
+    = encoded_input_file_name($customization_information,
+                              $file_name_text, $input_encoding);
 
   my $file = Texinfo::Common::locate_include_file($customization_information,
                                                   $file_name);
@@ -264,7 +264,7 @@ sub expand_verbatiminclude($$$)
       }
     } else {
       if (defined($input_encoding)) {
-        binmode(VERBINCLUDE, ":encoding(" . $input_encoding . ")");
+        binmode(VERBINCLUDE, ":encoding($input_encoding)");
       }
       $verbatiminclude = { 'cmdname' => 'verbatim',
                            'parent' => $current->{'parent'},

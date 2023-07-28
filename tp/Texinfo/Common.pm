@@ -968,7 +968,7 @@ sub get_perl_encoding($$$)
   my $result;
   if (defined($commands_info->{'documentencoding'})) {
     foreach my $element (@{$commands_info->{'documentencoding'}}) {
-      my $perl_encoding = element_extra_encoding_for_perl($element);
+      my $perl_encoding = element_associated_processing_encoding($element);
       if (!defined($perl_encoding)) {
         my $encoding = $element->{'extra'}->{'input_encoding_name'}
           if ($element->{'extra'});
@@ -1284,8 +1284,7 @@ sub parse_node_manual($;$)
 
 # misc functions used in diverse contexts and useful in converters
 
-# FIXME document
-sub element_extra_encoding_for_perl($)
+sub element_associated_processing_encoding($)
 {
   my $element = shift;
 
@@ -2822,6 +2821,12 @@ Return a list reference containing the tree elements corresponding
 to the @-commands names specified in the I<$commands_list> found
 in I<$tree> by traversing the tree.  The order of the @-commands
 should be kept.
+
+=item $encoding_name = element_associated_processing_encoding($element)
+X<C<element_associated_processing_encoding>>
+
+Returns the encoding name that can be used for decoding derived
+from the encoding that was set where I<$element> appeared.
 
 =item $result = element_is_inline($element, $check_current)
 X<C<element_is_inline>>
