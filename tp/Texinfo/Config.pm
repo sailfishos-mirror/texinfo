@@ -121,6 +121,7 @@ sub _GNUT_document_warn($) {
                    "%s: warning: %s"), $real_command_name, $text)."\n"));
 }
 
+# used to register messages by the user with texinfo_register_init_loading_*
 my @init_file_loading_messages;
 # called from texi2any.pl main program and t/test_utils.pl.
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
@@ -170,7 +171,7 @@ sub texinfo_register_init_loading_error($) {
                                             'text' => $message};
 }
 
-# called from init files in case for warnings during loading.
+# called from init files in case of warnings at loading.
 sub texinfo_register_init_loading_warning($) {
   my $message = shift;
   push @{$init_file_loading_messages[-1]}, {'type' => 'warning',
@@ -353,7 +354,7 @@ my @possible_stages = ('setup', 'structure', 'init', 'finish');
 
 my $default_priority = 'default';
 
-# FIXME add another level with format?  Not needed now as HTML is
+# TODO add another level with format?  Not needed now as HTML is
 # the only customizable format for now.
 my $GNUT_stage_handlers;
 
