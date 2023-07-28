@@ -2146,8 +2146,10 @@ sub modify_tree($$;$)
   my $argument = shift;
   #print STDERR "modify_tree tree: $tree\n";
 
-  # TODO warn?
-  return undef if (!$tree or ref($tree) ne 'HASH');
+  if (!defined($tree) or ref($tree) ne 'HASH') {
+    cluck "tree ".(!defined($tree) ? 'UNDEF' : "not a hash: $tree");
+    return undef;
+  }
 
   if ($tree->{'args'}) {
     my @args = @{$tree->{'args'}};

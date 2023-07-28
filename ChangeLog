@@ -5,6 +5,15 @@
 
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/60macro.t
+	(line_end_accent_command_macro_call): add test for a command with
+	braces expanded in a macro followed by end of line one line command.
+
+	* tp/Texinfo/Common.pm (modify_tree): error out if argument not
+	defined or not a HASH.
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (element_associated_processing_encoding):
 	rename element_extra_encoding_for_perl as
 	element_associated_processing_encoding.  Update callers.

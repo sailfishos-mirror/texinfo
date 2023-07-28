@@ -6922,7 +6922,11 @@ sub _process_remaining_on_line($$$$)
           # the @-command and the argument if at the end of a
           # line or block @-command.
           if ($current->{'contents'}) {
-            # TODO specific case not tested
+            # this can only happen if the spaces gathered after the command
+            # before the braces were interrupted before the end of line, which
+            # can happen if there is a macro expansion that ends before the end
+            # of line.
+            # Tested in macro line_end_accent_command_macro_call
             _gather_spaces_after_cmd_before_arg($self, $current);
           }
           $current = $current->{'parent'};

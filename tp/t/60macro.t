@@ -590,6 +590,22 @@ second: \b\
 @mycommand {@verb{: in }, verb :}, other, last}
 
 '],
+['line_end_accent_command_macro_call',
+'@macro expand {}
+@center A @ringaccent 
+@end macro
+
+@expand{}
+ a
+
+@macro nospace {}
+@center B @ringaccent
+@end macro
+
+@nospace{}
+ A
+
+'],
 # tests a source mark on empty line after paragraph transfer in a focused way
 ['macro_after_paragraph',
 '@macro mymacro
