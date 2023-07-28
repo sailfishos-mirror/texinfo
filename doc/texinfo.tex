@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-27.21}
+\def\texinfoversion{2023-07-28.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7709,9 +7709,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\deflineheader#1 #2 #3\endheader{%
   \printdefname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
 }
+
 \def\deftypeline{%
   \doingtypefntrue
-  \parseargusing\activeparens{\printdefunline\deflineheader}%
+  \parseargusing\activeparens{\printdefunline\deftypelineheader}%
+}
+\def\deftypelineheader#1 #2 #3 #4\endheader{%
+  \printdefname{#1}{#2}{#3}\magicamp\defunargs{#4\unskip}%
 }
 
 % \makedefun{deffoo} (\deffooheader parameters) { (\deffooheader expansion) }
