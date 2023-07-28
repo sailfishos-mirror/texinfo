@@ -1606,7 +1606,7 @@ sub check_unicode_point_conversion($;$)
     use warnings FATAL => qw(all);
     my ($fh, $string);
     open($fh, ">", \$string) || die "open(U string eval) failed: $!";
-    binmode($fh, ":utf8") || die "binmode(U string eval) failed: $!";
+    binmode($fh, ":encoding(utf-8)") || die "binmode(U string eval) failed: $!";
     print $fh chr(hex("$arg"));
   };
   if ($@) {

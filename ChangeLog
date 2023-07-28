@@ -1,5 +1,12 @@
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (check_unicode_point_conversion):
+	check that the codepoint expands to valid UTF-8, by using
+	:encoding(utf-8) instead of :utf8 on the stream, consistently with the
+	conversion used to output UTF-8.
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Unicode.pm
 	(%unicode_character_brace_no_arg_commands): add a comment to described
 	the failure with charnames::vianame.
