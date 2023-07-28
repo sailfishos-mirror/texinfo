@@ -1,3 +1,7 @@
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: use $curdir from File::Spec->curdir() instead of '.'.
+
 2023-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\unnsecentry, \unnsubsecentry): Correct

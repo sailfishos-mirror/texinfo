@@ -1387,9 +1387,9 @@ while(@input_files) {
   # are modified
   my $parser_file_options = Storable::dclone($parser_options);
 
-  my @prepended_include_directories = ('.');
+  my @prepended_include_directories = ($curdir);
   push @prepended_include_directories, $input_directory
-      if ($input_directory ne '.');
+      if ($input_directory ne $curdir);
   @prepended_include_directories =
     (@prepend_dirs, @prepended_include_directories);
 
