@@ -47,12 +47,12 @@ PROTOTYPES: ENABLE
 # encodings, they are never decoded/encoded but used as is
 # and passed as byte strings.
 
-# Called from Texinfo::XSLoader.pm.  The arguments are not actually used
+# Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
 # file path, can be in any encoding
 int
 init (texinfo_uninstalled, srcdir)
      int texinfo_uninstalled
-     char *srcdir
+     char *srcdir = (char *)SvPVbyte_nolen($arg);
 
 void
 wipe_errors ()
