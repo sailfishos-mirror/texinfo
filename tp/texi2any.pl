@@ -25,6 +25,14 @@ require 5.00405;
 
 use strict;
 
+# Through rules in Makefile.am directory paths set through configure are
+# substituted directly in strings in the code, for example
+#   my $datadir = '@datadir@';
+# We always use these strings as byte string, therefore we explicitly
+# set no utf8 to be sure that strings in code will never be considered as
+# character strings by Perl.
+no utf8;
+
 # to decode command line arguments
 use Encode qw(decode encode find_encoding);
 # for file names portability

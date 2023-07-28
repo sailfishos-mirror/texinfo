@@ -1,5 +1,15 @@
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	Set 'no utf8' in texi2any as we substitute file names in byte strings
+
+	* tp/texi2any.pl: set 'no utf8'.  Through rules in Makefile.am
+	directory paths set through configure are substituted directly in
+	strings in the code and we always use these strings as byte string,
+	therefore we explicitly set no utf8 to be sure that strings in code
+	will never be considered as character strings by Perl.
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm,
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_file)
 	(add_include_directory): use macro corresponding to bytes to get
