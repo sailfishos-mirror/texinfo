@@ -747,10 +747,8 @@ foreach my $command (
 
 # brace commands that are not replaced with text.
 our %non_formatted_brace_commands;
-# FIXME add seealso, seeentry, sortas?  Not so important as they
-# are in within index commands.
-foreach my $non_formatted_brace_command ('anchor', 'shortcaption',
-    'caption', 'hyphenation', 'errormsg') {
+foreach my $non_formatted_brace_command ('anchor', 'caption',
+               'errormsg', 'hyphenation', 'shortcaption', 'sortas') {
   $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
 }
 
