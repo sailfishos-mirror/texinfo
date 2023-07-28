@@ -39,6 +39,16 @@ MODULE = Texinfo::Parser	PACKAGE = Texinfo::Parser
 
 PROTOTYPES: ENABLE
 
+/* Except for file paths, strings should be UTF-8 encoded.
+   In the declarations below, a comment shows that input string
+   is a file path, other input strings should be UTF-8 encoded.
+
+   There is no need for the parser to know the file paths
+   encodings, they are never decoded/encoded but used as is
+   and passed as byte strings.
+ */
+
+/* FIXME file path? */
 int
 init (texinfo_uninstalled, srcdir)
      int texinfo_uninstalled
@@ -47,9 +57,10 @@ init (texinfo_uninstalled, srcdir)
 void
 wipe_errors ()
 
+/* file path, can be in any encoding */
 int
 parse_file(filename)
-        char * filename
+        char *filename = (char *)SvPVbyte_nolen($arg);
 
 void
 parse_piece(string, line_nr)
@@ -80,9 +91,10 @@ reset_context_stack ()
 void
 init_index_commands ()
 
+/* file path, can be in any encoding */
 void
 add_include_directory (filename)
-        char *filename
+        char *filename = (char *)SvPVbyte_nolen($arg);
 
 HV *
 build_texinfo_tree ()

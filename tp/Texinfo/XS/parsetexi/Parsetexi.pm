@@ -117,6 +117,9 @@ sub parser (;$$)
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
+        # the directories from the command line or the input file name
+        # are already byte strings (or ascii).  The encoding was detected
+        # as COMMAND_LINE_ENCODING, but it is not useful for the XS parser.
         foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
           add_include_directory ($d);
         }
@@ -272,6 +275,9 @@ sub parse_texi_file ($$)
   my $input_file_path = shift;
   my $tree_stream;
 
+  # the file is already a byte string, taken as is from the command
+  # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
+  # it is not useful for the XS parser.
   my $status = parse_file ($input_file_path);
   if ($status) {
     my ($registrar, $configuration_information) = _get_error_registrar($self);
