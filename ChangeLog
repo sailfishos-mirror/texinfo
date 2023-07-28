@@ -1,5 +1,12 @@
 2023-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm
+	(%unicode_character_brace_no_arg_commands): revert use of
+	charnames::vianame as an attempt to fix tests of @sc{@aa{}} in
+	perl 5.10.1 (on solaris).
+
+2023-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs (init): use macro corresponding
 	to bytes to get file paths in the C parser.  The file path comes from
 	Texinfo::ModulePath through Texinfo::XSLoader and is a byte string.

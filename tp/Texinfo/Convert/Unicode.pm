@@ -569,8 +569,17 @@ our %extra_unicode_map = (
 our %unicode_character_brace_no_arg_commands;
 foreach my $command (keys(%unicode_map)) {
   if ($unicode_map{$command} ne '') {
-    $unicode_character_brace_no_arg_commands{$command}
-      = charnames::vianame("U+$unicode_map{$command}");
+    my $char_nr = hex($unicode_map{$command});
+    if ($char_nr > 126 and $char_nr < 255) {
+      # this is very strange, indeed.  The reason lies certainly in the
+      # magic backward compatibility support in Perl for 8bit encodings.
+      $unicode_character_brace_no_arg_commands{$command} =
+         Encode::decode("iso-8859-1", chr($char_nr));
+    } else {
+      $unicode_character_brace_no_arg_commands{$command} = chr($char_nr);
+    }
+#    $unicode_character_brace_no_arg_commands{$command}
+#      = charnames::vianame("U+$unicode_map{$command}");
   }
 }
 
