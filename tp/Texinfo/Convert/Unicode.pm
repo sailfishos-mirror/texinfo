@@ -569,6 +569,13 @@ our %extra_unicode_map = (
 our %unicode_character_brace_no_arg_commands;
 foreach my $command (keys(%unicode_map)) {
   if ($unicode_map{$command} ne '') {
+# FIXME Using charnames::vianame as in the following is the clean documented
+# way to create an unicode character at runtime.  However, in tests of perl
+# 5.10.1 (on solaris), if charnames::vianame is used for @aa{} '00E5', uc()
+# on the resulting character does not leads to \x{00C5} (@AA{}) (when
+# formatting @sc{@aa{}} or @var{@aa{}} in plaintext).
+#    $unicode_character_brace_no_arg_commands{$command}
+#      = charnames::vianame("U+$unicode_map{$command}");
     my $char_nr = hex($unicode_map{$command});
     if ($char_nr > 126 and $char_nr < 255) {
       # this is very strange, indeed.  The reason lies certainly in the
@@ -578,8 +585,6 @@ foreach my $command (keys(%unicode_map)) {
     } else {
       $unicode_character_brace_no_arg_commands{$command} = chr($char_nr);
     }
-#    $unicode_character_brace_no_arg_commands{$command}
-#      = charnames::vianame("U+$unicode_map{$command}");
   }
 }
 
@@ -1349,8 +1354,9 @@ sub _eight_bit_and_unicode_point($$)
   my $encoding = shift;
 
   my ($eight_bit, $codepoint);
-  if (ord($char) <= 128) {
-    # 7bit ascii characters, the same in every 8bit encodings
+  if (ord($char) < 127) {
+    # 7bit ascii characters (excluding 127, \x{7F}, DEL), the same in every
+    # 8bit encodings
     $eight_bit = uc(sprintf("%02x",ord($char)));
     $codepoint = uc(sprintf("%04x",ord($char)));
   } elsif (ord($char) <= hex(0xFFFF)) {
@@ -1556,7 +1562,8 @@ sub unicode_point_decoded_in_encoding($$) {
     return 1 if ($encoding eq 'utf-8'
                     or ($unicode_to_eight_bit{$encoding}
                         and ($unicode_to_eight_bit{$encoding}->{$unicode_point}
-                             or hex($unicode_point) < 128)));
+                             # excludes 127 \x{7F} DEL
+                             or hex($unicode_point) < 127)));
   }
   return 0;
 }
