@@ -29,3 +29,10 @@ manual_include_accented_file_name_latin1_explicit_encoding manual_include_accent
 # fails to find the latin1 encoded include file as the locale encoding
 # of the test suite is utf8
 manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -D 'needrecodedfilenames Need recoded file names' -c MESSAGE_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8
+
+# test that a file with some latin1 characters, typically used for person names
+# but no declared encoding does not give a result that is too bad, and lead
+# to a warning.  This corresponds to an actual practice when latin1 was a
+# de-facto default encoding for Texinfo manuals, before UTF-8.
+# Not enabled because perl parser and XS parser lead to different output
+#test_latin1_no_documentencoding test_latin1_no_documentencoding.texi

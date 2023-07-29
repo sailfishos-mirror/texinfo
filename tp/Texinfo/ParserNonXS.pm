@@ -2371,24 +2371,33 @@ sub _next_text($;$)
         return ($next_line, { %{$input->{'input_source_info'}} });
       }
     } elsif ($input->{'fh'}) {
-      my $input_error = 0;
-      local $SIG{__WARN__} = sub {
-        my $message = shift;
-        print STDERR "$input->{'input_source_info'}->{'file_name'}" . ":"
-               . ($input->{'input_source_info'}->{'line_nr'} + 1)
-               . ": input error: $message";
-        $input_error = 1;
-      };
       my $fh = $input->{'fh'};
       my $input_line = <$fh>;
+      # Encode::decode tends to consume the input line, so duplicate it
+      my $duplicate_input_line = $input_line;
+      # Encode::encode with default check argument does not give a
+      # warning on incorrect output, contrary to what the documentation says.
+      # So we call it with FB_CROAK in an eval to get the message first
+      # before calling it again to get the result.
+      # This suits us as we try to output the same message as the XS parser
+      eval { Encode::decode($input->{'file_input_encoding'},
+                            $duplicate_input_line, Encode::FB_CROAK); };
+      if ($@) {
+        # determine the first problematic byte to show it in the error
+        # message, like the XS parser
+        $duplicate_input_line = $input_line;
+        my $partially_decoded = Encode::decode($input->{'file_input_encoding'},
+                                      $duplicate_input_line, Encode::FB_QUIET);
+        my $error_byte = substr($duplicate_input_line, 0, 1);
+        warn("$input->{'input_source_info'}->{'file_name'}:"
+            . ($input->{'input_source_info'}->{'line_nr'} + 1).
+               sprintf(": encoding error at byte 0x%2x\n", ord($error_byte)));
+        # show perl message but only with debugging
+        print STDERR "input error: $@\n" if ($self->{'DEBUG'});
+      }
+      # do the decoding
       my $line = Encode::decode($input->{'file_input_encoding'}, $input_line);
       if (defined($line)) {
-        if ($input_error) {
-          # possible encoding error.  attempt to recover by stripping out
-          # non-ASCII bytes.  there may not be that many in the file.
-          Encode::_utf8_off($line);
-          $line =~ s/[\x80-\xFF]//g;
-        }
         # add an end of line if there is none at the end of file
         if (eof($fh) and $line !~ /\n/) {
           $line .= "\n";
@@ -2768,15 +2777,26 @@ sub _expand_linemacro_arguments($$$$$)
       delete $argument_content->{'extra'};
       # FIXME relocate source marks
       if ($toplevel_braces_nr == 1 and $argument_content->{'text'} =~ /^\{(.*)\}$/s) {
+        #if ($argument_content->{'source_marks'}) {
+        #  print STDERR "TODO: relocate source mark?\n";
+        #}
         print STDERR "TURN to bracketed $arg_idx "
           .Texinfo::Common::debug_print_element($argument_content)."\n"
             if ($self->{'DEBUG'});
         $argument_content->{'text'} = $1;
         $argument_content->{'type'} = 'bracketed_arg';
+      # this message could be added to see all the arguments
+      #} else {
+      #  print STDERR "NOT bracketed with bracket $arg_idx "
+      #    .Texinfo::Common::debug_print_element($argument_content)."\n"
+      #      if ($self->{'DEBUG'});
       }
+    # this message could be added to see all the arguments
+    #} else {
+    #  print STDERR "LVL0 no brace $arg_idx "
+    #     .Texinfo::Common::debug_print_element($argument_content)."\n"
+    #        if ($self->{'DEBUG'});
     }
-    # do that?
-    #_remove_empty_content($self, $argument);
     $arg_idx++;
   }
   print STDERR "END LINEMACRO ARGS EXPANSION\n" if ($self->{'DEBUG'});
@@ -4922,7 +4942,7 @@ sub _handle_macro($$$$$)
     if ($self->{'DEBUG'});
 
   my $error;
-  # FIXME same stack for linemacro?
+  # FIXME use a different counter for linemacro?
   if ($self->{'MAX_MACRO_CALL_NESTING'}
       and $self->{'macro_expansion_nr'} > $self->{'MAX_MACRO_CALL_NESTING'}) {
     $self->_line_warn(sprintf(__(

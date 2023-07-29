@@ -12,6 +12,26 @@
 
 2023-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text): do not try to modify the
+	output when there was an encoding error.  Do not use Encode::decode
+	to emit a warning in case of decoding error, as it may not, and it
+	would not be the same message as the XS parser.
+	Instead call Encode::decode with check argument set to
+	Encode::FB_CROAK in an eval to get the perl message and the
+	information that there was an error.  Get the erroneous byte using
+	Encode::decode with Encode::FB_QUIET.  Then call Encode::decode
+	again with the default check argument to get the decoded string.
+	Based on Gavin input.
+
+	* tp/tests/encoded/Makefile.am (EXTRA_DIST),
+	tp/tests/encoded/list-of-tests (test_latin1_no_documentencoding):
+	prepare a test with a letter in latin1 but no documentencoding to
+	test for manuals that assumed latin1, especially for accented letters
+	in person names.  Do not set it because the XS and perl parsers lead
+	to different outputs.
+
+2023-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: mention stricter checks of input encoding, with more errors
 	and warnings, especially for UTF-8.
 
