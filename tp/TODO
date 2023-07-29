@@ -48,20 +48,6 @@ For converter writers,
 Delayed bugs
 ============
 
-For Paragraph, not bugs but improvements and synchronizations of
-the two implementations.  It would be nice to change the XS code
-to operate on multiple spans of characters at once when relevant,
-we'd have an extra step of keeping track of how long each span of
-text is, and then processing that span of text together (in the loop
-in xspara_add_text).  It could potentiall have performance benefits
-(e.g. reducing the number of function calls) and be easier to debug,
-with fewer steps in the processing to trace.  The XS code is easier
-to read for the ens of sentence handling part, so for that part, it
-could be relevant to use the XS code as reference and change the perl
-Paragraph.
-
-See message/thread from Reißner Ernst: Feature request: api docs
-
 hyphenation: should only appear in toplevel.
 
 
@@ -140,7 +126,35 @@ anchor in flushright, on an empty line, with a current byte offset.
 Future features
 ===============
 
-Add in_math (for \) as flag in command_data.txt?
+For converters in C, agreed with Gavin that it is better not to
+translate a perl tree in input, but access directly the C tree that
+was setup by the XS parser.
+
+
+It would probably be good and maybe ease C converters to have a
+Texinfo::Document package which encapsulates the information associated
+to a document, the tree, and all the other information given by
+the parser, indices_information, floats_information,
+internal_references_information, global_commands_information,
+global_information and labels_information as they are a property of a Texinfo
+Document, in addition to being, in general, states of a parser.  The
+information set by some calls to Structuring would also probably fit there
+naturally.  A member of the package/class would be initialized after the
+parsing, but not necessarily for all the function, maybe only parse_texi_text
+and parse_texi_file.
+
+
+For Paragraph, improvements and synchronizations of
+the two implementations.  It would be nice to change the XS code
+to operate on multiple spans of characters at once when relevant,
+we'd have an extra step of keeping track of how long each span of
+text is, and then processing that span of text together (in the loop
+in xspara_add_text).  It could potentiall have performance benefits
+(e.g. reducing the number of function calls) and be easier to debug,
+with fewer steps in the processing to trace.  The XS code is easier
+to read for the ens of sentence handling part, so for that part, it
+could be relevant to use the XS code as reference and change the perl
+Paragraph.
 
 
 From Gavin on the preamble_before_beginning implementation:
@@ -156,6 +170,10 @@ regenerated.  If that's the case, maybe the input code could return
 all the text in this preamble as one long string - it wouldn't have to be
 line by line.
 
+
+See message/thread from Reißner Ernst: Feature request: api docs
+
+Add in_math (for \) as flag in command_data.txt?
 
 Right now VERBOSE is almost not used.
 
