@@ -563,6 +563,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                   text_append_n (arg, pline, whitespaces_len);
                   pline += whitespaces_len;
                 }
+              free (command);
             }
           else
             {
