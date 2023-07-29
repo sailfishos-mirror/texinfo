@@ -254,6 +254,8 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
       if (indices_to_remove[j] == 1)
         remove_from_source_mark_list (source_mark_list, j);
     }
+
+  free (indices_to_remove);
   return end_position;
 }
 

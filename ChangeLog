@@ -1,5 +1,10 @@
 2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/source_marks.c (relocate_source_marks):
+	Free malloc-allocated int array at end of function.
+
+2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line) <@include>:
 	Call free on return value of locate_include_file once done with value.
 
