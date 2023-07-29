@@ -1,5 +1,12 @@
 2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (unset_macro_record):
+	Set 'macro_name' field of MACRO to null rather than an empty
+	string.  This prevents a memory leak if the macro record is
+	reused and the pointer to the empty string is not freed.
+
+2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
 	<@value>: Free a string in one case where it was not freed.
 

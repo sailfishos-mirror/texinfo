@@ -752,7 +752,7 @@ unset_macro_record (MACRO *m)
 
   m->cmd = 0;
   free (m->macro_name);
-  m->macro_name = strdup ("");
+  m->macro_name = 0;
   free (m->macrobody);
   m->macrobody = 0;
   m->element = 0;
