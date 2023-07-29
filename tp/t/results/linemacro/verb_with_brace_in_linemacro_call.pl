@@ -121,8 +121,8 @@ $result_trees{'verb_with_brace_in_linemacro_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mycommand'
+                'info' => {
+                  'command_name' => 'mycommand'
                 },
                 'type' => 'linemacro_call'
               },

@@ -109,8 +109,8 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'spaces'
+                            'info' => {
+                              'command_name' => 'spaces'
                             },
                             'type' => 'macro_call'
                           },

@@ -85,8 +85,8 @@ $result_trees{'redefine_texinfo_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'code'
+                'info' => {
+                  'command_name' => 'code'
                 },
                 'type' => 'macro_call'
               },

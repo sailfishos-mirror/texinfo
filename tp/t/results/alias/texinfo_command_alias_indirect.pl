@@ -165,11 +165,9 @@ $result_trees{'texinfo_command_alias_indirect'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mystrong'
-                },
                 'info' => {
-                  'alias_of' => 'new'
+                  'alias_of' => 'new',
+                  'command_name' => 'mystrong'
                 },
                 'type' => 'macro_call'
               },

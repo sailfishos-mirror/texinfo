@@ -116,7 +116,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                       {
                         'text' => 'text
   @end ifclear',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -126,8 +126,8 @@ $result_trees{'end_conditional_in_linemacro'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },

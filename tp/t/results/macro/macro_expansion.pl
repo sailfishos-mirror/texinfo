@@ -129,10 +129,8 @@ $result_trees{'macro_expansion'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
-                    },
                     'info' => {
+                      'command_name' => 'macroone',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       }
@@ -238,8 +236,8 @@ $result_trees{'macro_expansion'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
+                    'info' => {
+                      'command_name' => 'macroone'
                     },
                     'type' => 'macro_call'
                   },
@@ -353,8 +351,8 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'extra' => {
-                      'name' => 'macroone'
+                    'info' => {
+                      'command_name' => 'macroone'
                     },
                     'type' => 'macro_call'
                   },
@@ -470,8 +468,8 @@ $result_trees{'macro_expansion'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
+                    'info' => {
+                      'command_name' => 'macroone'
                     },
                     'type' => 'macro_call'
                   },
@@ -587,8 +585,8 @@ $result_trees{'macro_expansion'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
+                    'info' => {
+                      'command_name' => 'macroone'
                     },
                     'type' => 'macro_call'
                   },
@@ -708,8 +706,8 @@ now'
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
+                    'info' => {
+                      'command_name' => 'macroone'
                     },
                     'type' => 'macro_call'
                   },

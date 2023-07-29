@@ -79,8 +79,8 @@ $result_trees{'line_after_recursive_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'mac'
+                'info' => {
+                  'command_name' => 'mac'
                 },
                 'type' => 'macro_call'
               },

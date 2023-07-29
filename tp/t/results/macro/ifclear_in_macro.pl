@@ -96,10 +96,8 @@ $result_trees{'ifclear_in_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'note'
-                },
                 'info' => {
+                  'command_name' => 'note',
                   'spaces_before_argument' => {
                     'text' => '
 '

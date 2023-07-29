@@ -71,8 +71,8 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'testone'
+                'info' => {
+                  'command_name' => 'testone'
                 },
                 'type' => 'macro_call'
               },

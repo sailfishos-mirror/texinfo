@@ -76,8 +76,8 @@ $result_trees{'macro_for_ignored_line_command'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'pagemacro'
+                'info' => {
+                  'command_name' => 'pagemacro'
                 },
                 'type' => 'macro_call'
               },

@@ -85,8 +85,8 @@ $result_trees{'macro_expands_to_empty'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'foo'
+                'info' => {
+                  'command_name' => 'foo'
                 },
                 'type' => 'macro_call'
               },
@@ -111,8 +111,8 @@ $result_trees{'macro_expands_to_empty'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'foo'
+                'info' => {
+                  'command_name' => 'foo'
                 },
                 'type' => 'macro_call'
               },

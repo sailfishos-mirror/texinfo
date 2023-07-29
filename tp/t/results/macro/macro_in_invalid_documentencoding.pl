@@ -106,8 +106,8 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'badmacro'
+                    'info' => {
+                      'command_name' => 'badmacro'
                     },
                     'type' => 'macro_call'
                   },

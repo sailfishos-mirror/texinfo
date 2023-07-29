@@ -181,8 +181,8 @@ $result_trees{'macro_in_brace_command'} = {
                                         'type' => 'brace_command_arg'
                                       }
                                     ],
-                                    'extra' => {
-                                      'name' => 'foo'
+                                    'info' => {
+                                      'command_name' => 'foo'
                                     },
                                     'type' => 'macro_call'
                                   },
@@ -214,8 +214,8 @@ $result_trees{'macro_in_brace_command'} = {
                                         'type' => 'brace_command_arg'
                                       }
                                     ],
-                                    'extra' => {
-                                      'name' => 'abar'
+                                    'info' => {
+                                      'command_name' => 'abar'
                                     },
                                     'type' => 'macro_call'
                                   },

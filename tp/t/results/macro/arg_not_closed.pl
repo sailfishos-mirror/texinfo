@@ -93,10 +93,8 @@ $result_trees{'arg_not_closed'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'foo'
-                    },
                     'info' => {
+                      'command_name' => 'foo',
                       'spaces_before_argument' => {
                         'text' => ' '
                       }

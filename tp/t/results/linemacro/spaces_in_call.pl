@@ -102,8 +102,8 @@ $result_trees{'spaces_in_call'} = {
                     ]
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },

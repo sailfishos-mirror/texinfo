@@ -98,7 +98,7 @@ $result_trees{'spaces_in_args'} = {
                     'contents' => [
                       {
                         'text' => '  a ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -111,7 +111,7 @@ $result_trees{'spaces_in_args'} = {
                     'contents' => [
                       {
                         'text' => ' d  ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -124,7 +124,7 @@ $result_trees{'spaces_in_args'} = {
                     'contents' => [
                       {
                         'text' => '   rest',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -134,8 +134,8 @@ $result_trees{'spaces_in_args'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },

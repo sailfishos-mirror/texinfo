@@ -125,11 +125,9 @@ $result_trees{'alias_of_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
-                },
                 'info' => {
-                  'alias_of' => 'new'
+                  'alias_of' => 'new',
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

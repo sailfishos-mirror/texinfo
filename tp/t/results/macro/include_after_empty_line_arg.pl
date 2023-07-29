@@ -85,8 +85,8 @@ $result_trees{'include_after_empty_line_arg'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

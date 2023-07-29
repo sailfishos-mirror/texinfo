@@ -109,10 +109,8 @@ $result_trees{'protect_in_body'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroone'
-                    },
                     'info' => {
+                      'command_name' => 'macroone',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       },

@@ -90,8 +90,8 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },

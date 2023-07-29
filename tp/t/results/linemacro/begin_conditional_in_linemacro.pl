@@ -81,7 +81,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                       {
                         'text' => '
 @ifset',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -91,8 +91,8 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -208,7 +208,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                       {
                         'text' => '
 @ifclear',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -218,8 +218,8 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },

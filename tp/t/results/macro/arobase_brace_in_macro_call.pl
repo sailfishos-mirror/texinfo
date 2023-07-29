@@ -94,10 +94,8 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'simplemac'
-                },
                 'info' => {
+                  'command_name' => 'simplemac',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -161,10 +159,8 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'simplemac'
-                },
                 'info' => {
+                  'command_name' => 'simplemac',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }

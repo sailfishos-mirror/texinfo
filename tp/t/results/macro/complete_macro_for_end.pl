@@ -95,8 +95,8 @@ $result_trees{'complete_macro_for_end'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'theend'
+                    'info' => {
+                      'command_name' => 'theend'
                     },
                     'type' => 'macro_call'
                   },

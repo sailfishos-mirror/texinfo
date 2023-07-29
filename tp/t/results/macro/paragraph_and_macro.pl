@@ -200,8 +200,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aempty'
+                'info' => {
+                  'command_name' => 'aempty'
                 },
                 'type' => 'macro_call'
               },
@@ -233,8 +233,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aempty'
+                'info' => {
+                  'command_name' => 'aempty'
                 },
                 'type' => 'macro_call'
               },
@@ -268,8 +268,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aempty'
+                'info' => {
+                  'command_name' => 'aempty'
                 },
                 'type' => 'macro_call'
               },
@@ -309,8 +309,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aspace'
+                'info' => {
+                  'command_name' => 'aspace'
                 },
                 'type' => 'macro_call'
               },
@@ -343,8 +343,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aspace'
+                'info' => {
+                  'command_name' => 'aspace'
                 },
                 'type' => 'macro_call'
               },
@@ -378,8 +378,8 @@ $result_trees{'paragraph_and_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'aspace'
+                'info' => {
+                  'command_name' => 'aspace'
                 },
                 'type' => 'macro_call'
               },

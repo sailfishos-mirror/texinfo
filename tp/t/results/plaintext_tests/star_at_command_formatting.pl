@@ -131,8 +131,8 @@ $result_trees{'star_at_command_formatting'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },
@@ -404,8 +404,8 @@ $result_trees{'star_at_command_formatting'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mymacro'
+                        'info' => {
+                          'command_name' => 'mymacro'
                         },
                         'type' => 'macro_call'
                       },
@@ -708,8 +708,8 @@ $result_trees{'star_at_command_formatting'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mymacro'
+                        'info' => {
+                          'command_name' => 'mymacro'
                         },
                         'type' => 'macro_call'
                       },

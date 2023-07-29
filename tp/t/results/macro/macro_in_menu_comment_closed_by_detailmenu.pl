@@ -95,8 +95,8 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'emptystring'
+                    'info' => {
+                      'command_name' => 'emptystring'
                     },
                     'type' => 'macro_call'
                   },

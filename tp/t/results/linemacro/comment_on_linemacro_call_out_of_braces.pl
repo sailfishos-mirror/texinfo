@@ -98,7 +98,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                     'contents' => [
                       {
                         'text' => 'something protected',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -120,8 +120,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -182,8 +182,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                     ]
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -241,7 +241,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                       {
                         'text' => 'aaa
   ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -275,8 +275,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },

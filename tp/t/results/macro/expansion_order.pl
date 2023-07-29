@@ -152,8 +152,8 @@ $result_trees{'expansion_order'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'bidule'
+                'info' => {
+                  'command_name' => 'bidule'
                 },
                 'type' => 'macro_call'
               },
@@ -169,8 +169,8 @@ $result_trees{'expansion_order'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'machin'
+                'info' => {
+                  'command_name' => 'machin'
                 },
                 'type' => 'macro_call'
               },

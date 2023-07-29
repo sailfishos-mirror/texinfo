@@ -2776,16 +2776,17 @@ sub _expand_linemacro_arguments($$$$$)
         and defined($argument_content->{'extra'}->{'toplevel_braces_nr'})) {
       my $toplevel_braces_nr = $argument_content->{'extra'}->{'toplevel_braces_nr'};
       delete $argument_content->{'extra'};
-      # FIXME relocate source marks
+      # this is not the same as bracketed_arg type, as bracketed_arg type
+      # is a container that contains other elements.  The
+      # bracketed_linemacro_arg contains text directly.  In
+      # bracketed_linemacro_arg, source mark locations are relative to the
+      # beginning of the string with an opening brace prepended.
       if ($toplevel_braces_nr == 1 and $argument_content->{'text'} =~ /^\{(.*)\}$/s) {
-        #if ($argument_content->{'source_marks'}) {
-        #  print STDERR "TODO: relocate source mark?\n";
-        #}
         print STDERR "TURN to bracketed $arg_idx "
           .Texinfo::Common::debug_print_element($argument_content)."\n"
             if ($self->{'DEBUG'});
         $argument_content->{'text'} = $1;
-        $argument_content->{'type'} = 'bracketed_arg';
+        $argument_content->{'type'} = 'bracketed_linemacro_arg';
       # this message could be added to see all the arguments
       #} else {
       #  print STDERR "NOT bracketed with bracket $arg_idx "
@@ -4931,7 +4932,7 @@ sub _handle_macro($$$$$)
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
 
   my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
-                            'extra' => {'name' => $command},
+                            'info' => {'command_name' => $command},
                             'args' => []};
 
   # It is important to check for expansion before the expansion and
@@ -8672,6 +8673,13 @@ are present as elements in the tree.
 
 Bracketed argument.  On definition command and on C<@multitable> line.
 
+=item bracketed_linemacro_arg
+
+Argument of a user defined linemacro call in bracket.  It holds directly the
+argument text (which does not contain the braces) and does not contain other
+elements.  It should not appear directly in the tree as the user defined
+linemacro call is replaced by the linemacro body.
+
 =item def_aggregate
 
 Contains several elements that together are a single unit on a @def* line.
@@ -8688,6 +8696,17 @@ like C<@deffnx>, or C<@defline>.  It holds the definition line arguments.
 The container with type I<def_item> holds the definition text content.
 Content appearing before a definition command with a x form is in
 an I<inter_def_item> container.
+
+=item macro_call
+
+=item rmacro_call
+
+=item linemacro_call
+
+Container holding the arguments of a user defined macro, linemacro
+or rmacro.  It should not appear directly in the tree as the user defined
+call is expanded.  The name of the macro, rmacro or linemacro is the
+the info I<command_name> value.
 
 =item macro_name
 
@@ -8808,18 +8827,24 @@ The string correspond to the line after the @-command
 for @-commands that have special arguments on their line,
 and for C<@macro> line.
 
+=item command_name
+
+The name of the user defined macro, rmacro or linemacro called
+associated with the element holding the arguments of the user defined command
+call.
+
 =item delimiter
 
 C<@verb> delimiter is in I<delimiter>.
 
 =item spaces_after_argument
 
-A reference to spaces after @-command arguments before a comma, a closing
-brace or at end of line, for some @-commands and bracketed content type
-with opening brace, and line commands and block command lines taking Texinfo
-as argument and comma delimited arguments.  Depending on the @-command,
-the I<spaces_after_argument> is associated with the @-command element, or
-with each argument element.
+A reference to an element containing the spaces after @-command arguments
+before a comma, a closing brace or at end of line, for some @-commands and
+bracketed content type with opening brace, and line commands and block command
+lines taking Texinfo as argument and comma delimited arguments.  Depending on
+the @-command, the I<spaces_after_argument> is associated with the @-command
+element, or with each argument element.
 
 =item spaces_after_cmd_before_arg
 
@@ -8837,13 +8862,13 @@ to leave space between an @-command name and its opening brace.
 
 =item spaces_before_argument
 
-A reference to spaces following the opening brace of some @-commands with braces
-and bracketed content type, spaces following @-commands for line commands and
-block command taking Texinfo as argument, and spaces following comma delimited
-arguments.  For context brace commands, line commands and block commands,
-I<spaces_before_argument> is associated with the @-command element, for other
-brace commands and for spaces after comma, it is associated with each argument
-element.
+A reference to an element containing the spaces following the opening brace of
+some @-commands with braces and bracketed content type, spaces following
+@-commands for line commands and block command taking Texinfo as argument, and
+spaces following comma delimited arguments.  For context brace commands, line
+commands and block commands, I<spaces_before_argument> is associated with the
+@-command element, for other brace commands and for spaces after comma, it is
+associated with each argument element.
 
 =back
 

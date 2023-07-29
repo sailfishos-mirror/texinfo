@@ -156,8 +156,8 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macrothree'
+                'info' => {
+                  'command_name' => 'macrothree'
                 },
                 'type' => 'macro_call'
               },
@@ -173,8 +173,8 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macrooneone'
+                'info' => {
+                  'command_name' => 'macrooneone'
                 },
                 'type' => 'macro_call'
               },

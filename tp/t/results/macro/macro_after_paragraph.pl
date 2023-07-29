@@ -95,8 +95,8 @@ $result_trees{'macro_after_paragraph'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

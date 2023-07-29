@@ -96,10 +96,8 @@ $result_trees{'ifset_in_macro_set'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'note'
-                },
                 'info' => {
+                  'command_name' => 'note',
                   'spaces_before_argument' => {
                     'text' => '
 '

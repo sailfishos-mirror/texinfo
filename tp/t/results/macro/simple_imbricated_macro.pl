@@ -91,8 +91,8 @@ $result_trees{'simple_imbricated_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'truc'
+                'info' => {
+                  'command_name' => 'truc'
                 },
                 'type' => 'macro_call'
               },
@@ -189,8 +189,8 @@ $result_trees{'simple_imbricated_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'bidule'
+                'info' => {
+                  'command_name' => 'bidule'
                 },
                 'type' => 'macro_call'
               },

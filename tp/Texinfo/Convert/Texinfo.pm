@@ -130,7 +130,8 @@ sub convert_to_texinfo($)
       $result .= _expand_cmd_args_to_texi($element);
     } else {
       if ($element->{'type'}
-          and $element->{'type'} eq 'bracketed_arg') {
+          and ($element->{'type'} eq 'bracketed_arg'
+               or $element->{'type'} eq 'bracketed_linemacro_arg')) {
         $result .= '{';
       }
       if ($element->{'info'}
@@ -150,7 +151,8 @@ sub convert_to_texinfo($)
       $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if ($element->{'type'}
-                       and $element->{'type'} eq 'bracketed_arg');
+                       and ($element->{'type'} eq 'bracketed_arg'
+                            or $element->{'type'} eq 'bracketed_linemacro_arg'));
   }
   return $result;
 }

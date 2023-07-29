@@ -126,8 +126,8 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'phoo'
+                'info' => {
+                  'command_name' => 'phoo'
                 },
                 'type' => 'macro_call'
               },

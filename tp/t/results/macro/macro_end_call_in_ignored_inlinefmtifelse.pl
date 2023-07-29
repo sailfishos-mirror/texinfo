@@ -76,8 +76,8 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'inlinefirstfmt'
+                'info' => {
+                  'command_name' => 'inlinefirstfmt'
                 },
                 'type' => 'macro_call'
               },

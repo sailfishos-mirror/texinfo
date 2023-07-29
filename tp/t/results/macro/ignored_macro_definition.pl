@@ -130,8 +130,8 @@ in inlinefmt tex
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

@@ -158,8 +158,8 @@ $result_trees{'macro_in_accent'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aletter'
+                        'info' => {
+                          'command_name' => 'aletter'
                         },
                         'type' => 'macro_call'
                       },
@@ -211,8 +211,8 @@ $result_trees{'macro_in_accent'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aletter'
+                        'info' => {
+                          'command_name' => 'aletter'
                         },
                         'type' => 'macro_call'
                       },
@@ -263,8 +263,8 @@ $result_trees{'macro_in_accent'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aletter'
+                        'info' => {
+                          'command_name' => 'aletter'
                         },
                         'type' => 'macro_call'
                       },
@@ -306,8 +306,8 @@ $result_trees{'macro_in_accent'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'aletter'
+                            'info' => {
+                              'command_name' => 'aletter'
                             },
                             'type' => 'macro_call'
                           },
@@ -371,8 +371,8 @@ $result_trees{'macro_in_accent'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aspace'
+                        'info' => {
+                          'command_name' => 'aspace'
                         },
                         'type' => 'macro_call'
                       },
@@ -393,8 +393,8 @@ $result_trees{'macro_in_accent'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aletter'
+                        'info' => {
+                          'command_name' => 'aletter'
                         },
                         'type' => 'macro_call'
                       },

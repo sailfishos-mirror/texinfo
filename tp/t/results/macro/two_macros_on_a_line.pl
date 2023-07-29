@@ -191,8 +191,8 @@ $result_trees{'two_macros_on_a_line'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -220,8 +220,8 @@ $result_trees{'two_macros_on_a_line'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -272,8 +272,8 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -301,8 +301,8 @@ $result_trees{'two_macros_on_a_line'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -358,8 +358,8 @@ $result_trees{'two_macros_on_a_line'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -382,8 +382,8 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -429,10 +429,8 @@ in macro'
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacrowithargs'
-                    },
                     'info' => {
+                      'command_name' => 'mymacrowithargs',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       }
@@ -489,8 +487,8 @@ in macro'
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },

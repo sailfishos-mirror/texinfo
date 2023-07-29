@@ -90,8 +90,8 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'inlinefirstarg'
+                            'info' => {
+                              'command_name' => 'inlinefirstarg'
                             },
                             'type' => 'macro_call'
                           },

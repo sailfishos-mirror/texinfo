@@ -107,8 +107,8 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'showarg'
+                'info' => {
+                  'command_name' => 'showarg'
                 },
                 'type' => 'macro_call'
               },

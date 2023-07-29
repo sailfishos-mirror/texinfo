@@ -110,7 +110,7 @@ $result_trees{'last_argument_with_braces'} = {
                             'contents' => [
                               {
                                 'text' => 'my foo',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -132,8 +132,8 @@ $result_trees{'last_argument_with_braces'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },
@@ -379,7 +379,7 @@ $result_trees{'last_argument_with_braces'} = {
                             'contents' => [
                               {
                                 'text' => 'my foo',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -401,8 +401,8 @@ $result_trees{'last_argument_with_braces'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },
@@ -614,7 +614,7 @@ $result_trees{'last_argument_with_braces'} = {
                             'contents' => [
                               {
                                 'text' => 'my foo',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -636,8 +636,8 @@ $result_trees{'last_argument_with_braces'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },

@@ -85,8 +85,8 @@ $result_trees{'recursive_call_in_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'anorecurse'
+                'info' => {
+                  'command_name' => 'anorecurse'
                 },
                 'type' => 'macro_call'
               },

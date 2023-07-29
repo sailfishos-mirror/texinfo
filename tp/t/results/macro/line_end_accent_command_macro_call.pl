@@ -76,8 +76,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'expand'
+                'info' => {
+                  'command_name' => 'expand'
                 },
                 'type' => 'macro_call'
               },
@@ -225,8 +225,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'nospace'
+                'info' => {
+                  'command_name' => 'nospace'
                 },
                 'type' => 'macro_call'
               },

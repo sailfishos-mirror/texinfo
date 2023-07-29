@@ -171,7 +171,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                         'text' => 'aa
   @mymacro{@emph ,
    ggg} ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -193,8 +193,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -255,8 +255,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },

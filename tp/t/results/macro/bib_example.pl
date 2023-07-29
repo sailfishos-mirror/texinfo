@@ -2480,8 +2480,8 @@ $result_trees{'bib_example'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mybibuselist'
+                    'info' => {
+                      'command_name' => 'mybibuselist'
                     },
                     'type' => 'macro_call'
                   },
@@ -2592,8 +2592,8 @@ $result_trees{'bib_example'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mybibsetrefnode'
+                    'info' => {
+                      'command_name' => 'mybibsetrefnode'
                     },
                     'type' => 'macro_call'
                   },
@@ -2789,8 +2789,8 @@ $result_trees{'bib_example'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'mybibnode'
+                            'info' => {
+                              'command_name' => 'mybibnode'
                             },
                             'type' => 'macro_call'
                           },
@@ -3010,8 +3010,8 @@ $result_trees{'bib_example'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mybibcite'
+                    'info' => {
+                      'command_name' => 'mybibcite'
                     },
                     'type' => 'macro_call'
                   },
@@ -3165,8 +3165,8 @@ $result_trees{'bib_example'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mybibmakeref'
+                    'info' => {
+                      'command_name' => 'mybibmakeref'
                     },
                     'type' => 'macro_call'
                   },
@@ -3192,8 +3192,8 @@ $result_trees{'bib_example'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'mybibnode'
+                            'info' => {
+                              'command_name' => 'mybibnode'
                             },
                             'type' => 'macro_call'
                           },
@@ -3396,8 +3396,8 @@ $result_trees{'bib_example'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mybibnode'
+                'info' => {
+                  'command_name' => 'mybibnode'
                 },
                 'type' => 'macro_call'
               },
@@ -3501,8 +3501,8 @@ $result_trees{'bib_example'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mybibitem'
+                        'info' => {
+                          'command_name' => 'mybibitem'
                         },
                         'type' => 'macro_call'
                       },

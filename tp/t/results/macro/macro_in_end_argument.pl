@@ -125,8 +125,8 @@ $result_trees{'macro_in_end_argument'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'acartouche'
+                        'info' => {
+                          'command_name' => 'acartouche'
                         },
                         'type' => 'macro_call'
                       },

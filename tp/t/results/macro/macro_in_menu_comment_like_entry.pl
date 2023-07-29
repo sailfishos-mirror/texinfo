@@ -104,8 +104,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'emptystring'
+                            'info' => {
+                              'command_name' => 'emptystring'
                             },
                             'type' => 'macro_call'
                           },
@@ -127,8 +127,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'emptystring'
+                            'info' => {
+                              'command_name' => 'emptystring'
                             },
                             'type' => 'macro_call'
                           },
@@ -159,8 +159,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                                         'type' => 'brace_command_arg'
                                       }
                                     ],
-                                    'extra' => {
-                                      'name' => 'emptystring'
+                                    'info' => {
+                                      'command_name' => 'emptystring'
                                     },
                                     'type' => 'macro_call'
                                   },
@@ -196,8 +196,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'emptystring'
+                            'info' => {
+                              'command_name' => 'emptystring'
                             },
                             'type' => 'macro_call'
                           },

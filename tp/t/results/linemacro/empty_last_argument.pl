@@ -156,7 +156,7 @@ $result_trees{'empty_last_argument'} = {
                             'contents' => [
                               {
                                 'text' => '',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -166,8 +166,8 @@ $result_trees{'empty_last_argument'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },
@@ -296,8 +296,8 @@ $result_trees{'empty_last_argument'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },
@@ -432,7 +432,7 @@ $result_trees{'empty_last_argument'} = {
                             'contents' => [
                               {
                                 'text' => '{}',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -442,8 +442,8 @@ $result_trees{'empty_last_argument'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'defbuiltin'
+                        'info' => {
+                          'command_name' => 'defbuiltin'
                         },
                         'type' => 'linemacro_call'
                       },

@@ -151,8 +151,8 @@ $result_trees{'blockitem_no_item'} = {
                                 }
                               }
                             ],
-                            'extra' => {
-                              'name' => 'mycommand'
+                            'info' => {
+                              'command_name' => 'mycommand'
                             },
                             'type' => 'linemacro_call'
                           },

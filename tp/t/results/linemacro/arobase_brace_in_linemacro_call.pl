@@ -89,7 +89,7 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     'contents' => [
                       {
                         'text' => ' @{ ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ]
                   },
@@ -97,7 +97,7 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     'contents' => [
                       {
                         'text' => ' @} ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -107,8 +107,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'simplemac'
+                'info' => {
+                  'command_name' => 'simplemac'
                 },
                 'type' => 'linemacro_call'
               },
@@ -164,7 +164,7 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     'contents' => [
                       {
                         'text' => ' @} ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ]
                   },
@@ -172,7 +172,7 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     'contents' => [
                       {
                         'text' => ' @{ ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -182,8 +182,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'simplemac'
+                'info' => {
+                  'command_name' => 'simplemac'
                 },
                 'type' => 'linemacro_call'
               },

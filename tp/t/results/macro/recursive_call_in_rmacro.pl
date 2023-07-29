@@ -86,8 +86,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -102,8 +102,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -118,8 +118,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -134,8 +134,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -150,8 +150,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -166,8 +166,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -182,8 +182,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -198,8 +198,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -214,8 +214,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -230,8 +230,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -246,8 +246,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -262,8 +262,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -278,8 +278,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -294,8 +294,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -310,8 +310,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -326,8 +326,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -342,8 +342,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -358,8 +358,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -374,8 +374,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -390,8 +390,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -406,8 +406,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -422,8 +422,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -438,8 +438,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -454,8 +454,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -470,8 +470,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -486,8 +486,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -502,8 +502,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -518,8 +518,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -534,8 +534,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -550,8 +550,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -566,8 +566,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -582,8 +582,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -598,8 +598,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -614,8 +614,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -630,8 +630,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -646,8 +646,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -662,8 +662,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -678,8 +678,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -694,8 +694,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -710,8 +710,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -726,8 +726,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -742,8 +742,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -758,8 +758,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -774,8 +774,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -790,8 +790,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -806,8 +806,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -822,8 +822,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -838,8 +838,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -854,8 +854,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -870,8 +870,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -886,8 +886,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -902,8 +902,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -918,8 +918,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -934,8 +934,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -950,8 +950,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -966,8 +966,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -982,8 +982,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -998,8 +998,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1014,8 +1014,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1030,8 +1030,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1046,8 +1046,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1062,8 +1062,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1078,8 +1078,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1094,8 +1094,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1110,8 +1110,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1126,8 +1126,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1142,8 +1142,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1158,8 +1158,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1174,8 +1174,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1190,8 +1190,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1206,8 +1206,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1222,8 +1222,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1238,8 +1238,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1254,8 +1254,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1270,8 +1270,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1286,8 +1286,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1302,8 +1302,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1318,8 +1318,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1334,8 +1334,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1350,8 +1350,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1366,8 +1366,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1382,8 +1382,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1398,8 +1398,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1414,8 +1414,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1430,8 +1430,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1446,8 +1446,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1462,8 +1462,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1478,8 +1478,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1494,8 +1494,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1510,8 +1510,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1526,8 +1526,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1542,8 +1542,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1558,8 +1558,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1574,8 +1574,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1590,8 +1590,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1606,8 +1606,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1622,8 +1622,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1638,8 +1638,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1654,8 +1654,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },
@@ -1670,8 +1670,8 @@ $result_trees{'recursive_call_in_rmacro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'rec'
+                'info' => {
+                  'command_name' => 'rec'
                 },
                 'type' => 'rmacro_call'
               },

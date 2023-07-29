@@ -107,8 +107,8 @@ $result_trees{'too_much_args'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoargs'
+                'info' => {
+                  'command_name' => 'twoargs'
                 },
                 'type' => 'macro_call'
               },

@@ -1022,8 +1022,8 @@ $result_trees{'at_commands_in_raw'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'othermacro'
+                    'info' => {
+                      'command_name' => 'othermacro'
                     },
                     'type' => 'macro_call'
                   },

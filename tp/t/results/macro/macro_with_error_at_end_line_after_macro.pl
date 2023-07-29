@@ -85,8 +85,8 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'witherror'
+                'info' => {
+                  'command_name' => 'witherror'
                 },
                 'type' => 'macro_call'
               },

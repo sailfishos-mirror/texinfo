@@ -85,8 +85,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'setargendignored'
+                            'info' => {
+                              'command_name' => 'setargendignored'
                             },
                             'type' => 'macro_call'
                           },
@@ -158,8 +158,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'setargendignored'
+                            'info' => {
+                              'command_name' => 'setargendignored'
                             },
                             'type' => 'macro_call'
                           },

@@ -86,8 +86,8 @@ $result_trees{'leading_spaces_no_ignore'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

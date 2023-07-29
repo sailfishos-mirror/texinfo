@@ -132,8 +132,8 @@ $result_trees{'macro_definition_in_include'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'themacro'
+                    'info' => {
+                      'command_name' => 'themacro'
                     },
                     'type' => 'macro_call'
                   },

@@ -71,8 +71,8 @@ $result_trees{'empty_macro_no_arg'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'foo'
+                'info' => {
+                  'command_name' => 'foo'
                 },
                 'type' => 'macro_call'
               },
@@ -104,8 +104,8 @@ $result_trees{'empty_macro_no_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'foo'
+                'info' => {
+                  'command_name' => 'foo'
                 },
                 'type' => 'macro_call'
               },

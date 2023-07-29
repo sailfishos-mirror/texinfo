@@ -565,8 +565,8 @@ $result_trees{'glossary'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'gentry'
+                    'info' => {
+                      'command_name' => 'gentry'
                     },
                     'type' => 'macro_call'
                   },
@@ -853,10 +853,8 @@ $result_trees{'glossary'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'expandglossary'
-                    },
                     'info' => {
+                      'command_name' => 'expandglossary',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       }
@@ -1004,8 +1002,8 @@ $result_trees{'glossary'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'gentry'
+                    'info' => {
+                      'command_name' => 'gentry'
                     },
                     'type' => 'macro_call'
                   },
@@ -1293,10 +1291,8 @@ $result_trees{'glossary'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'expandglossary'
-                    },
                     'info' => {
+                      'command_name' => 'expandglossary',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       }
@@ -1489,8 +1485,8 @@ $result_trees{'glossary'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'glossary'
+                'info' => {
+                  'command_name' => 'glossary'
                 },
                 'type' => 'macro_call'
               },
@@ -1500,8 +1496,8 @@ $result_trees{'glossary'} = {
             {
               'counter' => 6,
               'element' => {
-                'extra' => {
-                  'name' => 'glossarytext'
+                'info' => {
+                  'command_name' => 'glossarytext'
                 },
                 'type' => 'macro_call'
               },

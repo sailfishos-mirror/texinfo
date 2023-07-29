@@ -94,10 +94,8 @@ arg}
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macrotwo'
-                    },
                     'info' => {
+                      'command_name' => 'macrotwo',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       },
@@ -211,10 +209,8 @@ arg}
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macrotwo'
-                    },
                     'info' => {
+                      'command_name' => 'macrotwo',
                       'spaces_after_cmd_before_arg' => {
                         'text' => ' '
                       },

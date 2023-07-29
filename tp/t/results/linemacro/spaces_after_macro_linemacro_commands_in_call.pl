@@ -246,7 +246,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     'contents' => [
                       {
                         'text' => 'aa',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -268,8 +268,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },
@@ -330,8 +330,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                     'type' => 'line_arg'
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'mymac'
+                                'info' => {
+                                  'command_name' => 'mymac'
                                 },
                                 'type' => 'macro_call'
                               },
@@ -474,7 +474,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     'contents' => [
                       {
                         'text' => 'Fun',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -496,8 +496,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },
@@ -569,8 +569,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'mylinemac'
+                                'info' => {
+                                  'command_name' => 'mylinemac'
                                 },
                                 'type' => 'linemacro_call'
                               },

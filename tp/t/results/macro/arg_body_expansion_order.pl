@@ -172,8 +172,8 @@ $result_trees{'arg_body_expansion_order'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'redefineothermacro'
+                'info' => {
+                  'command_name' => 'redefineothermacro'
                 },
                 'type' => 'macro_call'
               },
@@ -264,8 +264,8 @@ $result_trees{'arg_body_expansion_order'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'othermacro'
+                'info' => {
+                  'command_name' => 'othermacro'
                 },
                 'type' => 'macro_call'
               },

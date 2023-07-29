@@ -111,10 +111,8 @@ $result_trees{'comma_value_in_macro_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macro1'
-                },
                 'info' => {
+                  'command_name' => 'macro1',
                   'spaces_after_cmd_before_arg' => {
                     'text' => ' '
                   },

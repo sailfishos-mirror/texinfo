@@ -1,3 +1,21 @@
+2023-07-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_linemacro_arguments),
+	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo),
+	tp/Texinfo/XS/parsetexi/convert.c (convert_to_texinfo_internal),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments):
+	use a new type, bracketed_linemacro_arg instead of bracketed_arg for
+	the linemacro call element holding text.  It is indeed different from
+	bracketed_arg, which contains other elements and not directly text.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro): rename name extra macro
+	call key as command_name and put it in info instead of extra.
+
+	* tp/t/60macro.t (macro_expansion_in_multitable_prototype): add test
+	of macro expansion in bracketed_arg in multitable prototypes.
+
 2023-07-29  John Wheeler <wheelerwjx9@runbox.com>  (tiny change)
 
 	* install-info/install-info.c (output_dirfile):

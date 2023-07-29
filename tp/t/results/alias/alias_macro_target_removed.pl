@@ -125,11 +125,9 @@ $result_trees{'alias_macro_target_removed'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mystrong'
-                },
                 'info' => {
-                  'alias_of' => 'new'
+                  'alias_of' => 'new',
+                  'command_name' => 'mystrong'
                 },
                 'type' => 'macro_call'
               },

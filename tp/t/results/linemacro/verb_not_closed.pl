@@ -99,8 +99,8 @@ $result_trees{'verb_not_closed'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mycommand'
+                'info' => {
+                  'command_name' => 'mycommand'
                 },
                 'type' => 'linemacro_call'
               },

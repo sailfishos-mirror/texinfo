@@ -212,8 +212,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'codekbdmacro'
+                'info' => {
+                  'command_name' => 'codekbdmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -842,8 +842,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'codekbdmacro'
+                'info' => {
+                  'command_name' => 'codekbdmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -1464,8 +1464,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'codekbdmacro'
+                'info' => {
+                  'command_name' => 'codekbdmacro'
                 },
                 'type' => 'macro_call'
               },

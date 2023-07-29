@@ -254,8 +254,8 @@ $result_trees{'macro_in_ifset_set'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'truc'
+                'info' => {
+                  'command_name' => 'truc'
                 },
                 'type' => 'macro_call'
               },

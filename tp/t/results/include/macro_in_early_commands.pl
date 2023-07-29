@@ -157,8 +157,8 @@ $result_trees{'macro_in_early_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'end-file-name'
+                        'info' => {
+                          'command_name' => 'end-file-name'
                         },
                         'type' => 'macro_call'
                       },
@@ -200,8 +200,8 @@ $result_trees{'macro_in_early_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'begin-file'
+                    'info' => {
+                      'command_name' => 'begin-file'
                     },
                     'type' => 'macro_call'
                   },
@@ -348,8 +348,8 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'counter' => 3,
               'element' => {
-                'extra' => {
-                  'name' => 'documentencoding-command'
+                'info' => {
+                  'command_name' => 'documentencoding-command'
                 },
                 'type' => 'macro_call'
               },
@@ -408,8 +408,8 @@ $result_trees{'macro_in_early_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'latin1'
+                    'info' => {
+                      'command_name' => 'latin1'
                     },
                     'type' => 'macro_call'
                   },
@@ -621,8 +621,8 @@ $result_trees{'macro_in_early_commands'} = {
                       {
                         'counter' => 5,
                         'element' => {
-                          'extra' => {
-                            'name' => 'multiinclude'
+                          'info' => {
+                            'command_name' => 'multiinclude'
                           },
                           'type' => 'macro_call'
                         },
@@ -785,8 +785,8 @@ $result_trees{'macro_in_early_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'themacro'
+                'info' => {
+                  'command_name' => 'themacro'
                 },
                 'type' => 'macro_call'
               },
@@ -850,8 +850,8 @@ $result_trees{'macro_in_early_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'end-file-name'
+                    'info' => {
+                      'command_name' => 'end-file-name'
                     },
                     'type' => 'macro_call'
                   },

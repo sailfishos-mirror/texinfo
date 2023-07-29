@@ -127,7 +127,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                               {
                                 'text' => 'some arg @
    b',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -150,8 +150,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mylinecommand'
+                        'info' => {
+                          'command_name' => 'mylinecommand'
                         },
                         'type' => 'linemacro_call'
                       },

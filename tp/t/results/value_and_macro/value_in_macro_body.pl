@@ -107,8 +107,8 @@ $result_trees{'value_in_macro_body'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'testvaluebody'
+                'info' => {
+                  'command_name' => 'testvaluebody'
                 },
                 'type' => 'macro_call'
               },

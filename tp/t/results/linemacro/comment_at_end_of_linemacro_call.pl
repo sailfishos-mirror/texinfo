@@ -100,7 +100,7 @@ $result_trees{'comment_at_end_of_linemacro_call'} = {
                                 'contents' => [
                                   {
                                     'text' => 'something protected',
-                                    'type' => 'bracketed_arg'
+                                    'type' => 'bracketed_linemacro_arg'
                                   }
                                 ],
                                 'info' => {
@@ -122,8 +122,8 @@ $result_trees{'comment_at_end_of_linemacro_call'} = {
                                 }
                               }
                             ],
-                            'extra' => {
-                              'name' => 'lm'
+                            'info' => {
+                              'command_name' => 'lm'
                             },
                             'type' => 'linemacro_call'
                           },

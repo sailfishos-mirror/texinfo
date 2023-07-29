@@ -150,8 +150,8 @@ $result_trees{'nested_macro_call'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'truc'
+                    'info' => {
+                      'command_name' => 'truc'
                     },
                     'type' => 'macro_call'
                   },
@@ -167,8 +167,8 @@ $result_trees{'nested_macro_call'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'machin'
+                    'info' => {
+                      'command_name' => 'machin'
                     },
                     'type' => 'macro_call'
                   },

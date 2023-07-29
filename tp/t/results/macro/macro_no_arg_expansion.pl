@@ -76,8 +76,8 @@ $result_trees{'macro_no_arg_expansion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'testone'
+                'info' => {
+                  'command_name' => 'testone'
                 },
                 'type' => 'macro_call'
               },

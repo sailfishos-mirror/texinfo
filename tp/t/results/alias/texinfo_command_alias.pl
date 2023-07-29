@@ -125,11 +125,9 @@ $result_trees{'texinfo_command_alias'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mystrong'
-                },
                 'info' => {
-                  'alias_of' => 'strong'
+                  'alias_of' => 'strong',
+                  'command_name' => 'mystrong'
                 },
                 'type' => 'macro_call'
               },

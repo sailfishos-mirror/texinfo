@@ -174,7 +174,7 @@ $result_trees{'call_macro_in_linemacro_body'} = {
                     'contents' => [
                       {
                         'text' => 'something',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -188,7 +188,7 @@ $result_trees{'call_macro_in_linemacro_body'} = {
                       {
                         'text' => 'gg , yy 
   zz',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -198,8 +198,8 @@ $result_trees{'call_macro_in_linemacro_body'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -244,8 +244,8 @@ now second arg: gg '
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },

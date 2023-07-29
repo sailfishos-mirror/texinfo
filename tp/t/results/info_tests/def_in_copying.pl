@@ -172,8 +172,8 @@ $result_trees{'def_in_copying'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mymacro'
+                        'info' => {
+                          'command_name' => 'mymacro'
                         },
                         'type' => 'macro_call'
                       },
@@ -445,8 +445,8 @@ $result_trees{'def_in_copying'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
+                    'info' => {
+                      'command_name' => 'mymacro'
                     },
                     'type' => 'macro_call'
                   },

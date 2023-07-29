@@ -204,8 +204,8 @@ $result_trees{'table_nested'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'myvtable'
+                    'info' => {
+                      'command_name' => 'myvtable'
                     },
                     'type' => 'macro_call'
                   },
@@ -791,8 +791,8 @@ $result_trees{'table_nested'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'myvtable'
+                    'info' => {
+                      'command_name' => 'myvtable'
                     },
                     'type' => 'macro_call'
                   },
@@ -1391,8 +1391,8 @@ $result_trees{'table_nested'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'myvtable'
+                        'info' => {
+                          'command_name' => 'myvtable'
                         },
                         'type' => 'macro_call'
                       },

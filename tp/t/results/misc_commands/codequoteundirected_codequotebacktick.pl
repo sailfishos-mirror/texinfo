@@ -264,8 +264,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'allquotes'
+                        'info' => {
+                          'command_name' => 'allquotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -280,8 +280,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -678,8 +678,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -1099,8 +1099,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -1634,8 +1634,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'allquotes'
+                'info' => {
+                  'command_name' => 'allquotes'
                 },
                 'type' => 'macro_call'
               },
@@ -1651,8 +1651,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'quotes'
+                'info' => {
+                  'command_name' => 'quotes'
                 },
                 'type' => 'macro_call'
               },
@@ -2052,8 +2052,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'quotes'
+                'info' => {
+                  'command_name' => 'quotes'
                 },
                 'type' => 'macro_call'
               },
@@ -2473,8 +2473,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'quotes'
+                'info' => {
+                  'command_name' => 'quotes'
                 },
                 'type' => 'macro_call'
               },
@@ -2777,8 +2777,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'allquotes'
+                        'info' => {
+                          'command_name' => 'allquotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -2793,8 +2793,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -3188,8 +3188,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },
@@ -3609,8 +3609,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'quotes'
+                        'info' => {
+                          'command_name' => 'quotes'
                         },
                         'type' => 'macro_call'
                       },

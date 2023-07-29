@@ -413,8 +413,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'openbrace'
+                            'info' => {
+                              'command_name' => 'openbrace'
                             },
                             'type' => 'macro_call'
                           },
@@ -488,8 +488,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'openbracetext'
+                            'info' => {
+                              'command_name' => 'openbracetext'
                             },
                             'type' => 'macro_call'
                           },
@@ -565,8 +565,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'openbracetext'
+                            'info' => {
+                              'command_name' => 'openbracetext'
                             },
                             'type' => 'macro_call'
                           },
@@ -649,8 +649,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'openbracetext'
+                            'info' => {
+                              'command_name' => 'openbracetext'
                             },
                             'type' => 'macro_call'
                           },
@@ -676,8 +676,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'manualnameend'
+                            'info' => {
+                              'command_name' => 'manualnameend'
                             },
                             'type' => 'macro_call'
                           },
@@ -752,8 +752,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'manualnameendbrace'
+                            'info' => {
+                              'command_name' => 'manualnameendbrace'
                             },
                             'type' => 'macro_call'
                           },
@@ -837,8 +837,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'openbracetext'
+                            'info' => {
+                              'command_name' => 'openbracetext'
                             },
                             'type' => 'macro_call'
                           },
@@ -885,8 +885,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'manualnameendbrace'
+                            'info' => {
+                              'command_name' => 'manualnameendbrace'
                             },
                             'type' => 'macro_call'
                           },
@@ -966,8 +966,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'manualnameendbracespace'
+                            'info' => {
+                              'command_name' => 'manualnameendbracespace'
                             },
                             'type' => 'macro_call'
                           },
@@ -1054,8 +1054,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'manualnameendbracespacetext'
+                            'info' => {
+                              'command_name' => 'manualnameendbracespacetext'
                             },
                             'type' => 'macro_call'
                           },

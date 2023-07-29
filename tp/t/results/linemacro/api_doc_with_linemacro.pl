@@ -519,8 +519,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'param'
+                                'info' => {
+                                  'command_name' => 'param'
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -677,8 +677,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'param'
+                                'info' => {
+                                  'command_name' => 'param'
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -863,8 +863,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'param'
+                                'info' => {
+                                  'command_name' => 'param'
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -1024,8 +1024,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'returns'
+                                'info' => {
+                                  'command_name' => 'returns'
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -1183,8 +1183,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'raises'
+                                'info' => {
+                                  'command_name' => 'raises'
                                 },
                                 'type' => 'linemacro_call'
                               },

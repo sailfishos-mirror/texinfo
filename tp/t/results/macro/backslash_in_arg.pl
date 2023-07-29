@@ -142,10 +142,8 @@ $result_trees{'backslash_in_arg'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'funindex'
-                },
                 'info' => {
+                  'command_name' => 'funindex',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -218,8 +216,8 @@ $result_trees{'backslash_in_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'funindex'
+                'info' => {
+                  'command_name' => 'funindex'
                 },
                 'type' => 'macro_call'
               },
@@ -286,10 +284,8 @@ $result_trees{'backslash_in_arg'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'funindex'
-                },
                 'info' => {
+                  'command_name' => 'funindex',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -359,8 +355,8 @@ $result_trees{'backslash_in_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'funindex'
+                'info' => {
+                  'command_name' => 'funindex'
                 },
                 'type' => 'macro_call'
               },

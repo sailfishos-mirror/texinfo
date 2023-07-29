@@ -115,8 +115,8 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'macrodot'
+                            'info' => {
+                              'command_name' => 'macrodot'
                             },
                             'type' => 'macro_call'
                           },
@@ -138,8 +138,8 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'macrodot'
+                            'info' => {
+                              'command_name' => 'macrodot'
                             },
                             'type' => 'macro_call'
                           },

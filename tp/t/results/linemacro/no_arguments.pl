@@ -80,8 +80,8 @@ $result_trees{'no_arguments'} = {
                     ]
                   }
                 ],
-                'extra' => {
-                  'name' => 'noarg'
+                'info' => {
+                  'command_name' => 'noarg'
                 },
                 'type' => 'linemacro_call'
               },
@@ -130,8 +130,8 @@ $result_trees{'no_arguments'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'noarg'
+                'info' => {
+                  'command_name' => 'noarg'
                 },
                 'type' => 'linemacro_call'
               },
@@ -171,7 +171,7 @@ $result_trees{'no_arguments'} = {
                     'contents' => [
                       {
                         'text' => 'in brace',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -181,8 +181,8 @@ $result_trees{'no_arguments'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'noarg'
+                'info' => {
+                  'command_name' => 'noarg'
                 },
                 'type' => 'linemacro_call'
               },

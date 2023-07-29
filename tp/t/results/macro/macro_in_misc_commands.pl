@@ -176,8 +176,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'Top'
+                'info' => {
+                  'command_name' => 'Top'
                 },
                 'type' => 'macro_call'
               },
@@ -209,8 +209,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'text'
+                    'info' => {
+                      'command_name' => 'text'
                     },
                     'type' => 'macro_call'
                   },
@@ -253,8 +253,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'text'
+                        'info' => {
+                          'command_name' => 'text'
                         },
                         'type' => 'macro_call'
                       },
@@ -495,8 +495,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'en'
+                        'info' => {
+                          'command_name' => 'en'
                         },
                         'type' => 'macro_call'
                       },
@@ -534,8 +534,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'documentlanguagecommand'
+                    'info' => {
+                      'command_name' => 'documentlanguagecommand'
                     },
                     'type' => 'macro_call'
                   },
@@ -759,8 +759,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'pagesizesarg'
+                    'info' => {
+                      'command_name' => 'pagesizesarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -786,8 +786,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'afourpapermacro'
+                'info' => {
+                  'command_name' => 'afourpapermacro'
                 },
                 'type' => 'macro_call'
               },
@@ -830,8 +830,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'text'
+                        'info' => {
+                          'command_name' => 'text'
                         },
                         'type' => 'macro_call'
                       },
@@ -884,8 +884,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'text'
+                        'info' => {
+                          'command_name' => 'text'
                         },
                         'type' => 'macro_call'
                       },
@@ -938,8 +938,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'text'
+                        'info' => {
+                          'command_name' => 'text'
                         },
                         'type' => 'macro_call'
                       },
@@ -1087,8 +1087,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'needarg'
+                    'info' => {
+                      'command_name' => 'needarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -1176,8 +1176,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'raisesectionsmacro'
+                'info' => {
+                  'command_name' => 'raisesectionsmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -1266,8 +1266,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'lowersectionsmacro'
+                'info' => {
+                  'command_name' => 'lowersectionsmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -1486,8 +1486,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'definfoenclosename'
+                    'info' => {
+                      'command_name' => 'definfoenclosename'
                     },
                     'type' => 'macro_call'
                   },
@@ -1671,8 +1671,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'strongmacro'
+                'info' => {
+                  'command_name' => 'strongmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -1749,8 +1749,8 @@ $result_trees{'macro_in_misc_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'strongname'
+                        'info' => {
+                          'command_name' => 'strongname'
                         },
                         'type' => 'macro_call'
                       },
@@ -1796,8 +1796,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'strongname'
+                    'info' => {
+                      'command_name' => 'strongname'
                     },
                     'type' => 'macro_call'
                   },
@@ -1825,8 +1825,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'strongmacro'
+                'info' => {
+                  'command_name' => 'strongmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -2019,8 +2019,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'kbdinputstylearg'
+                    'info' => {
+                      'command_name' => 'kbdinputstylearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -2498,8 +2498,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'asisarg'
+                    'info' => {
+                      'command_name' => 'asisarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -2559,8 +2559,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'zero'
+                    'info' => {
+                      'command_name' => 'zero'
                     },
                     'type' => 'macro_call'
                   },
@@ -2620,8 +2620,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'nonearg'
+                    'info' => {
+                      'command_name' => 'nonearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -2681,8 +2681,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'four'
+                    'info' => {
+                      'command_name' => 'four'
                     },
                     'type' => 'macro_call'
                   },
@@ -2742,8 +2742,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'nonearg'
+                    'info' => {
+                      'command_name' => 'nonearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -2803,8 +2803,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'six'
+                    'info' => {
+                      'command_name' => 'six'
                     },
                     'type' => 'macro_call'
                   },
@@ -2983,8 +2983,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'endarg'
+                    'info' => {
+                      'command_name' => 'endarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3044,8 +3044,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'separatearg'
+                    'info' => {
+                      'command_name' => 'separatearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3224,8 +3224,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'onarg'
+                    'info' => {
+                      'command_name' => 'onarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3285,8 +3285,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'offarg'
+                    'info' => {
+                      'command_name' => 'offarg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3418,8 +3418,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'ten'
+                    'info' => {
+                      'command_name' => 'ten'
                     },
                     'type' => 'macro_call'
                   },
@@ -3603,8 +3603,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'falsearg'
+                    'info' => {
+                      'command_name' => 'falsearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3669,8 +3669,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'truearg'
+                    'info' => {
+                      'command_name' => 'truearg'
                     },
                     'type' => 'macro_call'
                   },
@@ -3884,8 +3884,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'pagemacro'
+                    'info' => {
+                      'command_name' => 'pagemacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -3931,8 +3931,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'noindentmacro'
+                    'info' => {
+                      'command_name' => 'noindentmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -3975,8 +3975,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'refillmacro'
+                    'info' => {
+                      'command_name' => 'refillmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4014,8 +4014,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'noindentmacro'
+                'info' => {
+                  'command_name' => 'noindentmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -4059,8 +4059,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'noindentmacro'
+                    'info' => {
+                      'command_name' => 'noindentmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4106,8 +4106,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'noindentmacro'
+                    'info' => {
+                      'command_name' => 'noindentmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4147,8 +4147,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'pagemacro'
+                    'info' => {
+                      'command_name' => 'pagemacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4191,8 +4191,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'pagemacro'
+                'info' => {
+                  'command_name' => 'pagemacro'
                 },
                 'type' => 'macro_call'
               },
@@ -4245,8 +4245,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'pagemacro'
+                    'info' => {
+                      'command_name' => 'pagemacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4295,8 +4295,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'noindentmacro'
+                    'info' => {
+                      'command_name' => 'noindentmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4339,8 +4339,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'refillmacro'
+                    'info' => {
+                      'command_name' => 'refillmacro'
                     },
                     'type' => 'macro_call'
                   },
@@ -4438,8 +4438,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'contentsmacro'
+                'info' => {
+                  'command_name' => 'contentsmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -4553,8 +4553,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'exdentmacro'
+                'info' => {
+                  'command_name' => 'exdentmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -4703,8 +4703,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'two'
+                    'info' => {
+                      'command_name' => 'two'
                     },
                     'type' => 'macro_call'
                   },
@@ -4844,8 +4844,8 @@ $result_trees{'macro_in_misc_commands'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'text'
+                            'info' => {
+                              'command_name' => 'text'
                             },
                             'type' => 'macro_call'
                           },
@@ -4968,8 +4968,8 @@ $result_trees{'macro_in_misc_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'text'
+                    'info' => {
+                      'command_name' => 'text'
                     },
                     'type' => 'macro_call'
                   },
@@ -5040,8 +5040,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'contentsmacro'
+                'info' => {
+                  'command_name' => 'contentsmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -5145,8 +5145,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'shortcontentsmacro'
+                'info' => {
+                  'command_name' => 'shortcontentsmacro'
                 },
                 'type' => 'macro_call'
               },
@@ -5247,8 +5247,8 @@ $result_trees{'macro_in_misc_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'byemacro'
+                'info' => {
+                  'command_name' => 'byemacro'
                 },
                 'type' => 'macro_call'
               },

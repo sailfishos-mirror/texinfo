@@ -111,10 +111,8 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mycommand'
-                },
                 'info' => {
+                  'command_name' => 'mycommand',
                   'spaces_after_cmd_before_arg' => {
                     'text' => ' '
                   }

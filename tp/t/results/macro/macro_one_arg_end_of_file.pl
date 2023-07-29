@@ -80,8 +80,8 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'onearg'
+                'info' => {
+                  'command_name' => 'onearg'
                 },
                 'type' => 'macro_call'
               },

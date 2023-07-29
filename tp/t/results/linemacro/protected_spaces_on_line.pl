@@ -116,8 +116,8 @@ $result_trees{'protected_spaces_on_line'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'test'
+                'info' => {
+                  'command_name' => 'test'
                 },
                 'type' => 'linemacro_call'
               },
@@ -359,8 +359,8 @@ $result_trees{'protected_spaces_on_line'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'test'
+                'info' => {
+                  'command_name' => 'test'
                 },
                 'type' => 'linemacro_call'
               },
@@ -618,8 +618,8 @@ $result_trees{'protected_spaces_on_line'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'test'
+                'info' => {
+                  'command_name' => 'test'
                 },
                 'type' => 'linemacro_call'
               },

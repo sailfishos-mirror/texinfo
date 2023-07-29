@@ -160,8 +160,8 @@ $result_trees{'cpp_directives_after_macros'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'noargsspaces'
+                    'info' => {
+                      'command_name' => 'noargsspaces'
                     },
                     'type' => 'macro_call'
                   },
@@ -210,8 +210,8 @@ $result_trees{'cpp_directives_after_macros'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'emptyexpansion'
+                'info' => {
+                  'command_name' => 'emptyexpansion'
                 },
                 'type' => 'macro_call'
               },

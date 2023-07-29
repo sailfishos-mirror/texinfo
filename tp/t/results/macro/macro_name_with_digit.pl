@@ -147,10 +147,8 @@ $result_trees{'macro_name_with_digit'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macro11'
-                },
                 'info' => {
+                  'command_name' => 'macro11',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -178,8 +176,8 @@ $result_trees{'macro_name_with_digit'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macro1'
+                    'info' => {
+                      'command_name' => 'macro1'
                     },
                     'type' => 'macro_call'
                   },

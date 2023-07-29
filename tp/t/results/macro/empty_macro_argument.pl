@@ -76,8 +76,8 @@ $result_trees{'empty_macro_argument'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
+                'info' => {
+                  'command_name' => 'mymacro'
                 },
                 'type' => 'macro_call'
               },
@@ -108,10 +108,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
                     'info' => {
+                      'command_name' => 'mymacro',
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
@@ -136,10 +134,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
                     'info' => {
+                      'command_name' => 'mymacro',
                       'spaces_before_argument' => {
                         'text' => '  '
                       }
@@ -169,10 +165,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
                     'info' => {
+                      'command_name' => 'mymacro',
                       'spaces_before_argument' => {
                         'text' => '  '
                       }
@@ -272,8 +266,8 @@ $result_trees{'empty_macro_argument'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mytwo'
+                'info' => {
+                  'command_name' => 'mytwo'
                 },
                 'type' => 'macro_call'
               },
@@ -304,10 +298,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mytwo'
-                    },
                     'info' => {
+                      'command_name' => 'mytwo',
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
@@ -332,10 +324,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mytwo'
-                    },
                     'info' => {
+                      'command_name' => 'mytwo',
                       'spaces_before_argument' => {
                         'text' => '  '
                       }
@@ -365,10 +355,8 @@ $result_trees{'empty_macro_argument'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mytwo'
-                    },
                     'info' => {
+                      'command_name' => 'mytwo',
                       'spaces_before_argument' => {
                         'text' => '  '
                       }

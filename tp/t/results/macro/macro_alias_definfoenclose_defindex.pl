@@ -210,8 +210,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'phooindex'
+                'info' => {
+                  'command_name' => 'phooindex'
                 },
                 'type' => 'macro_call'
               },
@@ -608,10 +608,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'phooindex'
-                },
                 'info' => {
+                  'command_name' => 'phooindex',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -795,10 +793,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'phooindex'
-                },
                 'info' => {
+                  'command_name' => 'phooindex',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -1195,8 +1191,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'phooindex'
+                'info' => {
+                  'command_name' => 'phooindex'
                 },
                 'type' => 'macro_call'
               },

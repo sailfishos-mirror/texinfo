@@ -128,7 +128,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                             'contents' => [
                               {
                                 'text' => 'Name',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -153,7 +153,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                             'contents' => [
                               {
                                 'text' => 'A @verb{| in bracketed |} ',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -175,8 +175,8 @@ $result_trees{'verb_in_linemacro_call'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mycommand'
+                        'info' => {
+                          'command_name' => 'mycommand'
                         },
                         'type' => 'linemacro_call'
                       },

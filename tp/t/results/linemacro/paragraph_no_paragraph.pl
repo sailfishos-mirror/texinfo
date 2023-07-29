@@ -129,8 +129,8 @@ $result_trees{'paragraph_no_paragraph'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mycommand'
+                'info' => {
+                  'command_name' => 'mycommand'
                 },
                 'type' => 'linemacro_call'
               },
@@ -217,7 +217,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                           {
                             'text' => 'a
   protected',
-                            'type' => 'bracketed_arg'
+                            'type' => 'bracketed_linemacro_arg'
                           }
                         ],
                         'info' => {
@@ -252,8 +252,8 @@ $result_trees{'paragraph_no_paragraph'} = {
                         }
                       }
                     ],
-                    'extra' => {
-                      'name' => 'mycommand'
+                    'info' => {
+                      'command_name' => 'mycommand'
                     },
                     'type' => 'linemacro_call'
                   },

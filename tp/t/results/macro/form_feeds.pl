@@ -168,10 +168,8 @@ $result_trees{'form_feeds'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
-                },
                 'info' => {
+                  'command_name' => 'mymacro',
                   'spaces_after_cmd_before_arg' => {
                     'text' => '  '
                   },
@@ -238,10 +236,8 @@ $result_trees{'form_feeds'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'oneargmacro'
-                },
                 'info' => {
+                  'command_name' => 'oneargmacro',
                   'spaces_before_argument' => {
                     'text' => '   '
                   }

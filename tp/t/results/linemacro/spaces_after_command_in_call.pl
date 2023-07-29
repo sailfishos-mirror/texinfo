@@ -131,8 +131,8 @@ $result_trees{'spaces_after_command_in_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },

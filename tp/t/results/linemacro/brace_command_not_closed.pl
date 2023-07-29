@@ -99,8 +99,8 @@ $result_trees{'brace_command_not_closed'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mycommand'
+                'info' => {
+                  'command_name' => 'mycommand'
                 },
                 'type' => 'linemacro_call'
               },

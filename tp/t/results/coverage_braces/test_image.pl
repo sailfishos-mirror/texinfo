@@ -107,8 +107,8 @@ $result_trees{'test_image'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'files-char'
+                        'info' => {
+                          'command_name' => 'files-char'
                         },
                         'type' => 'macro_call'
                       },
@@ -664,8 +664,8 @@ $result_trees{'test_image'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'files-char'
+                'info' => {
+                  'command_name' => 'files-char'
                 },
                 'type' => 'macro_call'
               },
@@ -1171,8 +1171,8 @@ $result_trees{'test_image'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'files-char'
+                        'info' => {
+                          'command_name' => 'files-char'
                         },
                         'type' => 'macro_call'
                       },
@@ -1697,8 +1697,8 @@ $result_trees{'test_image'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'files-char'
+                    'info' => {
+                      'command_name' => 'files-char'
                     },
                     'type' => 'macro_call'
                   },
@@ -2160,8 +2160,8 @@ $result_trees{'test_image'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'files-char'
+                            'info' => {
+                              'command_name' => 'files-char'
                             },
                             'type' => 'macro_call'
                           },

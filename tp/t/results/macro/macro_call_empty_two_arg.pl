@@ -89,8 +89,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -134,10 +134,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
-                },
                 'info' => {
+                  'command_name' => 'twoa',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -192,8 +190,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -240,10 +238,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
-                },
                 'info' => {
+                  'command_name' => 'twoa',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -298,10 +294,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
-                },
                 'info' => {
+                  'command_name' => 'twoa',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -361,8 +355,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -414,8 +408,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -472,8 +466,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -530,10 +524,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
-                },
                 'info' => {
+                  'command_name' => 'twoa',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -588,8 +580,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
+                'info' => {
+                  'command_name' => 'twoa'
                 },
                 'type' => 'macro_call'
               },
@@ -641,10 +633,8 @@ $result_trees{'macro_call_empty_two_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'twoa'
-                },
                 'info' => {
+                  'command_name' => 'twoa',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }

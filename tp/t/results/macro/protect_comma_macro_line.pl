@@ -100,10 +100,8 @@ $result_trees{'protect_comma_macro_line'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macrotwo'
-                },
                 'info' => {
+                  'command_name' => 'macrotwo',
                   'spaces_before_argument' => {
                     'text' => '  '
                   }

@@ -121,8 +121,8 @@ $result_trees{'text_arguments'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'nospace'
+                'info' => {
+                  'command_name' => 'nospace'
                 },
                 'type' => 'linemacro_call'
               },

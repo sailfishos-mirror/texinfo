@@ -79,8 +79,8 @@ $result_trees{'protect_in_body_line_arg'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'macroone'
+                'info' => {
+                  'command_name' => 'macroone'
                 },
                 'type' => 'macro_call'
               },

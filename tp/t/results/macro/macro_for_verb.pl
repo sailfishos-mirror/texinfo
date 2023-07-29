@@ -76,8 +76,8 @@ $result_trees{'macro_for_verb'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'verbopen'
+                'info' => {
+                  'command_name' => 'verbopen'
                 },
                 'type' => 'macro_call'
               },

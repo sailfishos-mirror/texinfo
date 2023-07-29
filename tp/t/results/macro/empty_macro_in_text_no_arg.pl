@@ -77,8 +77,8 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'extra' => {
-                      'name' => 'texnl'
+                    'info' => {
+                      'command_name' => 'texnl'
                     },
                     'type' => 'macro_call'
                   },
@@ -168,8 +168,8 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'extra' => {
-                      'name' => 'texnltwo'
+                    'info' => {
+                      'command_name' => 'texnltwo'
                     },
                     'type' => 'macro_call'
                   },

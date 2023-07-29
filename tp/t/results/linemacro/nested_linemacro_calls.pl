@@ -184,7 +184,7 @@ $result_trees{'nested_linemacro_calls'} = {
                             'contents' => [
                               {
                                 'text' => 'type',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -197,7 +197,7 @@ $result_trees{'nested_linemacro_calls'} = {
                             'contents' => [
                               {
                                 'text' => '@inside {X} {Y}',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -219,8 +219,8 @@ $result_trees{'nested_linemacro_calls'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'outside'
+                        'info' => {
+                          'command_name' => 'outside'
                         },
                         'type' => 'linemacro_call'
                       },
@@ -262,7 +262,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                     'contents' => [
                                       {
                                         'text' => 'X',
-                                        'type' => 'bracketed_arg'
+                                        'type' => 'bracketed_linemacro_arg'
                                       }
                                     ],
                                     'info' => {
@@ -284,8 +284,8 @@ $result_trees{'nested_linemacro_calls'} = {
                                     }
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'inside'
+                                'info' => {
+                                  'command_name' => 'inside'
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -464,7 +464,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                 'contents' => [
                                   {
                                     'text' => 'X',
-                                    'type' => 'bracketed_arg'
+                                    'type' => 'bracketed_linemacro_arg'
                                   }
                                 ],
                                 'info' => {
@@ -485,7 +485,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                       }
                                     ],
                                     'text' => 'Y',
-                                    'type' => 'bracketed_arg'
+                                    'type' => 'bracketed_linemacro_arg'
                                   }
                                 ],
                                 'info' => {
@@ -495,8 +495,8 @@ $result_trees{'nested_linemacro_calls'} = {
                                 }
                               }
                             ],
-                            'extra' => {
-                              'name' => 'inside'
+                            'info' => {
+                              'command_name' => 'inside'
                             },
                             'type' => 'linemacro_call'
                           },

@@ -101,8 +101,8 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'emptymacro'
+                    'info' => {
+                      'command_name' => 'emptymacro'
                     },
                     'type' => 'macro_call'
                   },

@@ -71,8 +71,8 @@ $result_trees{'user_defined_txiinternalvalue'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'txiinternalvalue'
+                'info' => {
+                  'command_name' => 'txiinternalvalue'
                 },
                 'type' => 'macro_call'
               },

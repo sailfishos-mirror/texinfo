@@ -114,8 +114,8 @@ $result_trees{'macro_before_specific_line_command_args'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'cpfn'
+                    'info' => {
+                      'command_name' => 'cpfn'
                     },
                     'type' => 'macro_call'
                   },

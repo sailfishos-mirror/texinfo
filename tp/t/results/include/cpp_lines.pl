@@ -347,8 +347,8 @@ $result_trees{'cpp_lines'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macr'
+                'info' => {
+                  'command_name' => 'macr'
                 },
                 'type' => 'macro_call'
               },
@@ -519,8 +519,8 @@ $result_trees{'cpp_lines'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macrtwo'
+                'info' => {
+                  'command_name' => 'macrtwo'
                 },
                 'type' => 'macro_call'
               },

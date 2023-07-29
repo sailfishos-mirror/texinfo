@@ -110,7 +110,7 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                     'contents' => [
                       {
                         'text' => 'd',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -132,8 +132,8 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'mylinecommand'
+                'info' => {
+                  'command_name' => 'mylinecommand'
                 },
                 'type' => 'linemacro_call'
               },

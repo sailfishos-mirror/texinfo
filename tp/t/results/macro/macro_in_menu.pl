@@ -410,8 +410,8 @@ $result_trees{'macro_in_menu'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'starspaces'
+                    'info' => {
+                      'command_name' => 'starspaces'
                     },
                     'type' => 'macro_call'
                   },
@@ -443,8 +443,8 @@ $result_trees{'macro_in_menu'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'twocolon'
+                            'info' => {
+                              'command_name' => 'twocolon'
                             },
                             'type' => 'macro_call'
                           },
@@ -512,8 +512,8 @@ $result_trees{'macro_in_menu'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'spaces'
+                            'info' => {
+                              'command_name' => 'spaces'
                             },
                             'type' => 'macro_call'
                           },
@@ -541,8 +541,8 @@ $result_trees{'macro_in_menu'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'astar'
+                            'info' => {
+                              'command_name' => 'astar'
                             },
                             'type' => 'macro_call'
                           },
@@ -606,8 +606,8 @@ $result_trees{'macro_in_menu'} = {
                                     'type' => 'brace_command_arg'
                                   }
                                 ],
-                                'extra' => {
-                                  'name' => 'astar'
+                                'info' => {
+                                  'command_name' => 'astar'
                                 },
                                 'type' => 'macro_call'
                               },
@@ -651,8 +651,8 @@ $result_trees{'macro_in_menu'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aspace'
+                        'info' => {
+                          'command_name' => 'aspace'
                         },
                         'type' => 'macro_call'
                       },
@@ -729,8 +729,8 @@ $result_trees{'macro_in_menu'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'acolon'
+                            'info' => {
+                              'command_name' => 'acolon'
                             },
                             'type' => 'macro_call'
                           },
@@ -766,8 +766,8 @@ $result_trees{'macro_in_menu'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'acolon'
+                        'info' => {
+                          'command_name' => 'acolon'
                         },
                         'type' => 'macro_call'
                       },
@@ -789,8 +789,8 @@ $result_trees{'macro_in_menu'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aspace'
+                        'info' => {
+                          'command_name' => 'aspace'
                         },
                         'type' => 'macro_call'
                       },
@@ -872,8 +872,8 @@ $result_trees{'macro_in_menu'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'aspace'
+                        'info' => {
+                          'command_name' => 'aspace'
                         },
                         'type' => 'macro_call'
                       },

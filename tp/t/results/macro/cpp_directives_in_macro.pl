@@ -100,10 +100,8 @@ $result_trees{'cpp_directives_in_macro'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'simplemacro'
-                    },
                     'info' => {
+                      'command_name' => 'simplemacro',
                       'spaces_before_argument' => {
                         'text' => '
 '

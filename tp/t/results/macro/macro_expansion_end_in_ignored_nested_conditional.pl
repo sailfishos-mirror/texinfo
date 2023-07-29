@@ -86,8 +86,8 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'beginnestedcond'
+                'info' => {
+                  'command_name' => 'beginnestedcond'
                 },
                 'type' => 'macro_call'
               },

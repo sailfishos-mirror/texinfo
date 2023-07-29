@@ -108,8 +108,8 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'beginendcond'
+                'info' => {
+                  'command_name' => 'beginendcond'
                 },
                 'type' => 'macro_call'
               },

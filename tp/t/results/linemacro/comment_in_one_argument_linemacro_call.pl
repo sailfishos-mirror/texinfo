@@ -89,8 +89,8 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },

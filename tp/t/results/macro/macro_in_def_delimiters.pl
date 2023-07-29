@@ -130,8 +130,8 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'string'
+                            'info' => {
+                              'command_name' => 'string'
                             },
                             'type' => 'macro_call'
                           },
@@ -216,8 +216,8 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'string'
+                            'info' => {
+                              'command_name' => 'string'
                             },
                             'type' => 'macro_call'
                           },
@@ -296,8 +296,8 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'string'
+                            'info' => {
+                              'command_name' => 'string'
                             },
                             'type' => 'macro_call'
                           },
@@ -362,8 +362,8 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'string'
+                            'info' => {
+                              'command_name' => 'string'
                             },
                             'type' => 'macro_call'
                           },

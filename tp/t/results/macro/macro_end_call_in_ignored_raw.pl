@@ -81,8 +81,8 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'startraw'
+                'info' => {
+                  'command_name' => 'startraw'
                 },
                 'type' => 'macro_call'
               },

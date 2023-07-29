@@ -205,8 +205,8 @@ $result_trees{'macro_in_index_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'fn'
+                        'info' => {
+                          'command_name' => 'fn'
                         },
                         'type' => 'macro_call'
                       },
@@ -251,8 +251,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'cp'
+                    'info' => {
+                      'command_name' => 'cp'
                     },
                     'type' => 'macro_call'
                   },
@@ -278,8 +278,8 @@ $result_trees{'macro_in_index_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'syncodeindexcommand'
+                'info' => {
+                  'command_name' => 'syncodeindexcommand'
                 },
                 'type' => 'macro_call'
               },
@@ -445,8 +445,8 @@ $result_trees{'macro_in_index_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'truc'
+                        'info' => {
+                          'command_name' => 'truc'
                         },
                         'type' => 'macro_call'
                       },
@@ -642,8 +642,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'codeidx'
+                    'info' => {
+                      'command_name' => 'codeidx'
                     },
                     'type' => 'macro_call'
                   },
@@ -792,8 +792,8 @@ $result_trees{'macro_in_index_commands'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'trucindexcommand'
+                'info' => {
+                  'command_name' => 'trucindexcommand'
                 },
                 'type' => 'macro_call'
               },
@@ -973,8 +973,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'defcodeindexentry'
+                    'info' => {
+                      'command_name' => 'defcodeindexentry'
                     },
                     'type' => 'macro_call'
                   },
@@ -1042,8 +1042,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'truc'
+                    'info' => {
+                      'command_name' => 'truc'
                     },
                     'type' => 'macro_call'
                   },
@@ -1076,8 +1076,8 @@ $result_trees{'macro_in_index_commands'} = {
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'codeidx'
+                        'info' => {
+                          'command_name' => 'codeidx'
                         },
                         'type' => 'macro_call'
                       },
@@ -1180,8 +1180,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'truc'
+                    'info' => {
+                      'command_name' => 'truc'
                     },
                     'type' => 'macro_call'
                   },
@@ -1255,8 +1255,8 @@ $result_trees{'macro_in_index_commands'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'cp'
+                    'info' => {
+                      'command_name' => 'cp'
                     },
                     'type' => 'macro_call'
                   },

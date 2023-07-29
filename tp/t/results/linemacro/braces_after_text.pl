@@ -133,7 +133,7 @@ $result_trees{'braces_after_text'} = {
                             'contents' => [
                               {
                                 'text' => '',
-                                'type' => 'bracketed_arg'
+                                'type' => 'bracketed_linemacro_arg'
                               }
                             ],
                             'info' => {
@@ -143,8 +143,8 @@ $result_trees{'braces_after_text'} = {
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mymacro'
+                        'info' => {
+                          'command_name' => 'mymacro'
                         },
                         'type' => 'linemacro_call'
                       },

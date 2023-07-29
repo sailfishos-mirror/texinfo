@@ -59,6 +59,7 @@ char *element_type_names[] = {
 "row",
 "balanced_braces",
 "bracketed_arg",
+"bracketed_linemacro_arg",
 "def_aggregate",
 "bracketed_inserted",
 "elided_rawpreformatted",

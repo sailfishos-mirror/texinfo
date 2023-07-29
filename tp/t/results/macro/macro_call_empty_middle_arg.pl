@@ -129,8 +129,8 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'threea'
+                'info' => {
+                  'command_name' => 'threea'
                 },
                 'type' => 'macro_call'
               },
@@ -204,8 +204,8 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'threea'
+                'info' => {
+                  'command_name' => 'threea'
                 },
                 'type' => 'macro_call'
               },
@@ -269,8 +269,8 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'threea'
+                'info' => {
+                  'command_name' => 'threea'
                 },
                 'type' => 'macro_call'
               },

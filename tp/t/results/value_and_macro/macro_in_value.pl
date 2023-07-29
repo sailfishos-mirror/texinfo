@@ -125,8 +125,8 @@ $result_trees{'macro_in_value'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'extra' => {
-                      'name' => 'ab'
+                    'info' => {
+                      'command_name' => 'ab'
                     },
                     'type' => 'macro_call'
                   },

@@ -257,8 +257,8 @@ $result_trees{'test_allowcodebreaks'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'testallowcodebreakspara'
+                    'info' => {
+                      'command_name' => 'testallowcodebreakspara'
                     },
                     'type' => 'macro_call'
                   },
@@ -591,8 +591,8 @@ $result_trees{'test_allowcodebreaks'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'testallowcodebreaksexample'
+                'info' => {
+                  'command_name' => 'testallowcodebreaksexample'
                 },
                 'type' => 'macro_call'
               },
@@ -748,8 +748,8 @@ $result_trees{'test_allowcodebreaks'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'testallowcodebreakspara'
+                    'info' => {
+                      'command_name' => 'testallowcodebreakspara'
                     },
                     'type' => 'macro_call'
                   },
@@ -1082,8 +1082,8 @@ $result_trees{'test_allowcodebreaks'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'testallowcodebreaksexample'
+                'info' => {
+                  'command_name' => 'testallowcodebreaksexample'
                 },
                 'type' => 'macro_call'
               },
@@ -1213,8 +1213,8 @@ $result_trees{'test_allowcodebreaks'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'testallowcodebreakspara'
+                            'info' => {
+                              'command_name' => 'testallowcodebreakspara'
                             },
                             'type' => 'macro_call'
                           },
@@ -1703,8 +1703,8 @@ $result_trees{'test_allowcodebreaks'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'testallowcodebreakspara'
+                    'info' => {
+                      'command_name' => 'testallowcodebreakspara'
                     },
                     'type' => 'macro_call'
                   },
@@ -2037,8 +2037,8 @@ $result_trees{'test_allowcodebreaks'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'testallowcodebreaksexample'
+                'info' => {
+                  'command_name' => 'testallowcodebreaksexample'
                 },
                 'type' => 'macro_call'
               },

@@ -90,8 +90,8 @@ $result_trees{'implicit_quoting_one_arg'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'FIXAME'
+                'info' => {
+                  'command_name' => 'FIXAME'
                 },
                 'type' => 'macro_call'
               },

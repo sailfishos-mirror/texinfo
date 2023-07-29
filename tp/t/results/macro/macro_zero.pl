@@ -83,8 +83,8 @@ $result_trees{'macro_zero'} = {
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'zero'
+                    'info' => {
+                      'command_name' => 'zero'
                     },
                     'type' => 'macro_call'
                   },

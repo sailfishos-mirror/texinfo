@@ -133,8 +133,8 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'beginifset'
+                'info' => {
+                  'command_name' => 'beginifset'
                 },
                 'type' => 'macro_call'
               },

@@ -153,8 +153,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'conditionals'
+                'info' => {
+                  'command_name' => 'conditionals'
                 },
                 'type' => 'macro_call'
               },
@@ -442,8 +442,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'conditionals'
+                'info' => {
+                  'command_name' => 'conditionals'
                 },
                 'type' => 'macro_call'
               },
@@ -730,8 +730,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'conditionals'
+                'info' => {
+                  'command_name' => 'conditionals'
                 },
                 'type' => 'macro_call'
               },
@@ -920,8 +920,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'conditionals'
+                'info' => {
+                  'command_name' => 'conditionals'
                 },
                 'type' => 'macro_call'
               },

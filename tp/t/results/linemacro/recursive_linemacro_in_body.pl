@@ -89,7 +89,7 @@ $result_trees{'recursive_linemacro_in_body'} = {
                     'contents' => [
                       {
                         'text' => 'aa',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -111,8 +111,8 @@ $result_trees{'recursive_linemacro_in_body'} = {
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'anorecurse'
+                'info' => {
+                  'command_name' => 'anorecurse'
                 },
                 'type' => 'linemacro_call'
               },

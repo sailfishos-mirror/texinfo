@@ -165,10 +165,8 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mymacro'
-                },
                 'info' => {
+                  'command_name' => 'mymacro',
                   'spaces_after_cmd_before_arg' => {
                     'text' => ' '
                   },
@@ -200,7 +198,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                         'contents' => [
                           {
                             'text' => 'a',
-                            'type' => 'bracketed_arg'
+                            'type' => 'bracketed_linemacro_arg'
                           }
                         ],
                         'info' => {
@@ -222,8 +220,8 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                         }
                       }
                     ],
-                    'extra' => {
-                      'name' => 'lm'
+                    'info' => {
+                      'command_name' => 'lm'
                     },
                     'type' => 'linemacro_call'
                   },

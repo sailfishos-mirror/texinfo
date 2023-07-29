@@ -86,8 +86,8 @@ $result_trees{'bye_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'extra' => {
-                  'name' => 'byeinmacro'
+                'info' => {
+                  'command_name' => 'byeinmacro'
                 },
                 'type' => 'macro_call'
               },

@@ -156,8 +156,8 @@ $result_trees{'double_recursive_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'mactwo'
+                'info' => {
+                  'command_name' => 'mactwo'
                 },
                 'type' => 'macro_call'
               },
@@ -172,8 +172,8 @@ $result_trees{'double_recursive_macro_call'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macone'
+                'info' => {
+                  'command_name' => 'macone'
                 },
                 'type' => 'macro_call'
               },

@@ -102,8 +102,8 @@ $result_trees{'macro_name_with_hyphen'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macro-one'
+                'info' => {
+                  'command_name' => 'macro-one'
                 },
                 'type' => 'macro_call'
               },

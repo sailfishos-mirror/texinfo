@@ -258,8 +258,8 @@ macroseven defined
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'macrothree'
+                'info' => {
+                  'command_name' => 'macrothree'
                 },
                 'type' => 'macro_call'
               },
@@ -324,8 +324,8 @@ macroseven defined
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'macrofour'
+                            'info' => {
+                              'command_name' => 'macrofour'
                             },
                             'type' => 'macro_call'
                           },
@@ -392,8 +392,8 @@ macroseven defined
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'macrofour'
+                            'info' => {
+                              'command_name' => 'macrofour'
                             },
                             'type' => 'macro_call'
                           },
@@ -764,8 +764,8 @@ macroseven defined
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macrofour'
+                    'info' => {
+                      'command_name' => 'macrofour'
                     },
                     'type' => 'macro_call'
                   },
@@ -848,8 +848,8 @@ macroseven defined
                         'type' => 'brace_command_arg'
                       }
                     ],
-                    'extra' => {
-                      'name' => 'macroseven'
+                    'info' => {
+                      'command_name' => 'macroseven'
                     },
                     'type' => 'macro_call'
                   },

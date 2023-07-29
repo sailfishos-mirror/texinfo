@@ -97,8 +97,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },
@@ -132,8 +132,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },
@@ -167,8 +167,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },
@@ -202,8 +202,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },
@@ -237,8 +237,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },
@@ -272,8 +272,8 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'cat'
+                'info' => {
+                  'command_name' => 'cat'
                 },
                 'type' => 'rmacro_call'
               },

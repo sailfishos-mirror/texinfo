@@ -81,8 +81,8 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'beginifsetcontent'
+                'info' => {
+                  'command_name' => 'beginifsetcontent'
                 },
                 'type' => 'macro_call'
               },

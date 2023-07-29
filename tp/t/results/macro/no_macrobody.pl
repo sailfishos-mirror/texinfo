@@ -85,10 +85,8 @@ $result_trees{'no_macrobody'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'nomacrobody'
-                },
                 'info' => {
+                  'command_name' => 'nomacrobody',
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
@@ -123,8 +121,8 @@ $result_trees{'no_macrobody'} = {
                     'type' => 'brace_command_arg'
                   }
                 ],
-                'extra' => {
-                  'name' => 'nomacrobody'
+                'info' => {
+                  'command_name' => 'nomacrobody'
                 },
                 'type' => 'macro_call'
               },

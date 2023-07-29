@@ -641,7 +641,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                   text_append_n (&argument_content->text,
                                  braced_text+1, text_len -2);
                   free(braced_text);
-                  argument_content->type = ET_bracketed_arg;
+                  argument_content->type = ET_bracketed_linemacro_arg;
                 }
             }
 
@@ -814,7 +814,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   else if (macro->cmd == CM_linemacro)
     macro_call_element->type = ET_linemacro_call;
 
-  add_extra_string_dup (macro_call_element, "name", command_name(cmd));
+  add_info_string_dup (macro_call_element, "command_name", command_name(cmd));
 
   /* It is important to check for expansion before the expansion and
      not after, as during the expansion, the text may go past the

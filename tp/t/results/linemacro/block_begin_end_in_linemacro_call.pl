@@ -83,7 +83,7 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
 @quotation aa
 in quotation
 ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -93,8 +93,8 @@ in quotation
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -237,7 +237,7 @@ in quotation
 @end quotation
 
 ',
-                            'type' => 'bracketed_arg'
+                            'type' => 'bracketed_linemacro_arg'
                           }
                         ],
                         'info' => {
@@ -247,8 +247,8 @@ in quotation
                         }
                       }
                     ],
-                    'extra' => {
-                      'name' => 'lm'
+                    'info' => {
+                      'command_name' => 'lm'
                     },
                     'type' => 'linemacro_call'
                   },
@@ -348,7 +348,7 @@ in quotation
                       {
                         'text' => '
 @quotation',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -358,8 +358,8 @@ in quotation
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -487,7 +487,7 @@ in quotation
                         'text' => '
 @ignore
 ignored ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -497,8 +497,8 @@ ignored ',
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -609,7 +609,7 @@ ignored ',
 args \\e\\|\\f\\|
 @defline @lm {\\e\\} {\\f\\}
 ',
-                        'type' => 'bracketed_arg'
+                        'type' => 'bracketed_linemacro_arg'
                       }
                     ],
                     'info' => {
@@ -619,8 +619,8 @@ args \\e\\|\\f\\|
                     }
                   }
                 ],
-                'extra' => {
-                  'name' => 'lm'
+                'info' => {
+                  'command_name' => 'lm'
                 },
                 'type' => 'linemacro_call'
               },
@@ -778,8 +778,8 @@ args \\e\\|\\f\\|
                             'type' => 'brace_command_arg'
                           }
                         ],
-                        'extra' => {
-                          'name' => 'mymac'
+                        'info' => {
+                          'command_name' => 'mymac'
                         },
                         'type' => 'macro_call'
                       },
@@ -914,8 +914,8 @@ args \\e\\|\\f\\|
                             }
                           }
                         ],
-                        'extra' => {
-                          'name' => 'lm'
+                        'info' => {
+                          'command_name' => 'lm'
                         },
                         'type' => 'linemacro_call'
                       },

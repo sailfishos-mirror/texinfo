@@ -95,8 +95,8 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
                                 'type' => 'brace_command_arg'
                               }
                             ],
-                            'extra' => {
-                              'name' => 'closebrace'
+                            'info' => {
+                              'command_name' => 'closebrace'
                             },
                             'type' => 'macro_call'
                           },

@@ -169,7 +169,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
           expand_cmd_args_to_texi (e, result);
         }
 
-      if (e->type == ET_bracketed_arg)
+      if (e->type == ET_bracketed_arg || e->type == ET_bracketed_linemacro_arg)
         ADD("{");
       elt = lookup_info_element (e, "spaces_before_argument");
       if (elt)
@@ -191,7 +191,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
       if (elt)
         convert_to_texinfo_internal (elt, result);
 
-      if (e->type == ET_bracketed_arg)
+      if (e->type == ET_bracketed_arg || e->type == ET_bracketed_linemacro_arg)
         ADD("}");
     }
 
