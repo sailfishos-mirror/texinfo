@@ -250,6 +250,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
             break;
         }
       destroy_element (remove_from_contents (current, i--));
+      free (u8_text);
     }
 }
 

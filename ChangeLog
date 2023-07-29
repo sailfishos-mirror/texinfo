@@ -1,5 +1,10 @@
 2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/def.c (split_delimiters):
+	Free return value from u8_strconv_from_encoding.
+
+2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (expandline_macro_arguments):
 	Free return value from parse_command_name.
 
