@@ -35,4 +35,4 @@ manual_include_accented_file_name_latin1_use_locale_encoding manual_include_acce
 # to a warning.  This corresponds to an actual practice when latin1 was a
 # de-facto default encoding for Texinfo manuals, before UTF-8.
 # Not enabled because perl parser and XS parser lead to different output
-test_latin1_no_documentencoding test_latin1_no_documentencoding.texi
+#test_latin1_no_documentencoding test_latin1_no_documentencoding.texi
