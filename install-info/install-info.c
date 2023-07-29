@@ -1021,7 +1021,9 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
                 {
                   int k;
 
-                  putc ('\n', output);
+                  /* If the preceding line is not blank, add a blank line */
+                  if (i >= 1 && dir_lines[i - 1].size > 0)
+                    putc ('\n', output);
                   fputs (spec->name, output);
                   putc ('\n', output);
                   spec->missing = 0;

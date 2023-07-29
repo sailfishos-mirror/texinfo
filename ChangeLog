@@ -1,3 +1,10 @@
+2023-07-29  John Wheeler <wheelerwjx9@runbox.com>  (tiny change)
+
+	* install-info/install-info.c (output_dirfile):
+	Do not insert a blank line before a new section if one is there
+	already.  This prevents the number of blank lines continually
+	increasing if a section is repeatedly deleted and inserted.
+
 2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo-tex-test.texi (Index and paragraphs): Remove section
