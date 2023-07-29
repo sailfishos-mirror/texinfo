@@ -133,6 +133,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
     {
       line_error ("bad name for @%s", command_name (cmd));
       add_extra_integer (macro, "invalid_syntax", 1);
+      free (name);
       return macro;
     }
 

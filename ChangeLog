@@ -1,5 +1,11 @@
 2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line):
+	Free return value of read_command_name in the case that the name
+	is bad.
+
+2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (unset_macro_record):
 	Set 'macro_name' field of MACRO to null rather than an empty
 	string.  This prevents a memory leak if the macro record is
