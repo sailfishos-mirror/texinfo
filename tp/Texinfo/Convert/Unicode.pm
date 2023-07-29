@@ -1627,7 +1627,7 @@ sub check_unicode_point_conversion($;$)
       }
     };
     if ($@) {
-      warn "(hex($arg) eval failed: $@\n" if ($output_debug);
+      warn "Unicode hex($arg) eval failed: $@\n" if ($output_debug);
       return 0;
     } elsif (hex($arg) > 0x10FFFF) {
       return 0;
