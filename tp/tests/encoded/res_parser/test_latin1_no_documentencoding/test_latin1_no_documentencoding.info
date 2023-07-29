@@ -1,0 +1,21 @@
+This is test_latin1_no_documentencoding.info, produced by texi2any
+version from test_latin1_no_documentencoding.texi.
+
+\include texinfo
+
+
+File: test_latin1_no_documentencoding.info,  Node: Top,  Up: (dir)
+
+This manual is by Tommy Mller.
+
+
+
+Tag Table:
+Node: Top137
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
