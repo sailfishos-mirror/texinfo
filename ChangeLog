@@ -1,3 +1,8 @@
+2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
+	<@value>: Free a string in one case where it was not freed.
+
 2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: hints on valgrind for tp/t tests

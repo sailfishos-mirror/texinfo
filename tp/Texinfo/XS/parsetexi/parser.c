@@ -2146,6 +2146,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (*line != '}')
             {
               line = arg_start - 1;
+              free (flag);
               goto value_invalid;
             }
 
