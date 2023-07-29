@@ -1,5 +1,9 @@
 2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: hints on valgrind for tp/t tests
+
+2023-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/def.c (split_delimiters):
 	Free return value from u8_strconv_from_encoding.
 

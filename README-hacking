@@ -225,7 +225,17 @@ run all tests with valgrind:
 * XS modules memory leak check checking with valgrind
   Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
   when running 'valgrind --leak-check=full' to make perl clean it
-  its allocations.
+  its allocations.  Run e.g.
+      valgrind --log-file=val.log --leak-check=full \
+        perl ../tp/texi2any.pl ../doc/info-stnd.texi
+  and other input files.
+
+  Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
+  Check tests with e.g.
+    for f in t/*.t ; do valgrind --log-file=val.log-${f#t/} --leak-check=full \
+          perl -w $f ; done
+ (could take 1-2 hours to finish).  check log files one by one afterwards.
+
 
 
 NYTProf profiling for Perl code
