@@ -1289,6 +1289,7 @@ end_line_misc_line (ELEMENT *current)
               else
                 {
                   status = input_push_file (fullpath);
+                  free (fullpath);
                   if (status)
                     {
                       char *decoded_file_path
