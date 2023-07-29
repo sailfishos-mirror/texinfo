@@ -5415,7 +5415,7 @@ sub _handle_line_command($$$$$$)
         die;
       } else {
         # TODO do we want to error out if there is a root command in
-        # Texinfo fragment processed with parse_texi_text (and therefore
+        # Texinfo fragment processed with parse_texi_line (and therefore
         # here in root_line)?
         # $self->_line_error(sprintf(__(
         #  "\@%s should not appear in Texinfo parsed as a short fragment"),

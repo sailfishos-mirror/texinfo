@@ -5685,7 +5685,7 @@ sub _convert_printindex_command($$$$)
           }
           $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
-          # TODO add the information that it is associated with see also?
+          # TODO add the information that the entry is associated with see also?
           $entry_class = "$cmdname-index-entry";
           $section_class = "$cmdname-index-see-also";
         }
