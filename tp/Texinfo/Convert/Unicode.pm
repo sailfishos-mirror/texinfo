@@ -1597,8 +1597,32 @@ sub check_unicode_point_conversion($;$)
   # The warning about non-characters is only given when the code
   # point is attempted to be output, not just manipulated.
   # http://stackoverflow.com/questions/5127725/how-could-i-catch-an-unicode-non-character-warning
+  # In perl 5.36.0, Encoding and printing also do not give a warning, so
+  # no warning for:
   #
-  # Therefore, we have to try to output it within an eval.
+  # my ($fh, $string);
+  # open($fh, ">", \$string);
+  # my $char = chr(hex("110000"));
+  # print $fh Encode::encode("utf-8", $char);
+  #
+  # but there is a warning if going through an encoding layer as below.
+  #
+  # In perl 5.10.1 on solaris 11, but not on solaris 10, the warning all does
+  # not catch the nonchar warning (this warning seems to be defined on
+  # 5.13.10 or newer).  This may be a consequence of what is described in
+  # http://stackoverflow.com/questions/5127725/how-could-i-catch-an-unicode-non-character-warning
+  # as a compiler bug, but it is unclear.  This does not happen with the
+  # lax conversion to utf8, but we prefer to use a strict conversion.
+  #
+  # To avoid outputting a warning, we do not even try the eval for perls
+  # in the 5.10.0 5.13.8 range
+  if ($] >= 5.010 and $] <= 5.013008) {
+    if (hex($arg) > 0x10FFFF) {
+      return 0;
+    }
+  }
+  #
+  # For the other cases, we have to try to output it within an eval.
   # Since opening /dev/null or a temporary file means
   # more system-dependent checks, use a string as our
   # filehandle.

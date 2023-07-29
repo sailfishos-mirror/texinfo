@@ -1,3 +1,11 @@
+2023-07-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Unicode.pm (check_unicode_point_conversion): with
+	strict encoding, there is a warning for nonchar with perl 5.10.1 on
+	solaris 11, though not on solaris 10.  So for a range of perl versions,
+	5.10.0 to 5.13.8 we do not attempt the eval and check for the
+	codepoints to be below 0x10FFFF early.
+
 2023-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\deftypeline): Read arguments correctly, in
