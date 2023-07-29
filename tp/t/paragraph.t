@@ -22,7 +22,7 @@ sub test_para($$$;$)
 
   my $result = '';
   $conf = {} if (!defined($conf));
-  $conf->{'DEBUG'} = 1;
+  #$conf->{'DEBUG'} = 1;
   my $para = Texinfo::Convert::Paragraph->new($conf);
   foreach my $arg (@$args) {
     $result .= add_text($para, $arg);
