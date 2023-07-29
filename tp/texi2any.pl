@@ -989,7 +989,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
                        # output format is known, to be the default for that
                        # format, or 'menu'
                        set_from_cmdline('FORMAT_MENU',
-                                        'set_format_menu_from_cmdline_header');
+                                  'set_format_menu_from_cmdline_header_option');
                      }
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
@@ -1283,17 +1283,24 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
 
 # in general the format name is the format being converted.  If this is
 # not the case, the converted format is set here.  For example, for
-# the epub3 format, the converted format is html.
+# the epub3 format, the converted format is html.  The converted format
+# should be the format actually used for conversion, in practice
+# this means that the module associated to the converted format in
+# $format_table will be used to find the converter methods.
 my $converted_format = $format;
 if ($formats_table{$format}->{'converted_format'}) {
   $converted_format = $formats_table{$format}->{'converted_format'};
 }
 
-# TODO distinguish format and converted_format in message?
 if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
-  #document_warn(sprintf(__('ignoring splitting for converted format %s'),
-  document_warn(sprintf(__('ignoring splitting for format %s'),
-                        format_name($converted_format)));
+  if ($converted_format ne $format) {
+    document_warn(sprintf(
+              __('ignoring splitting for converted format %s (for %s)'),
+                      format_name($converted_format), format_name($format)));
+  } else {
+    document_warn(sprintf(__('ignoring splitting for format %s'),
+                          format_name($converted_format)));
+  }
   set_from_cmdline('SPLIT', '');
 }
 
@@ -1325,7 +1332,7 @@ if (defined($formats_table{$converted_format}->{'module'})) {
 
 # Specific variable for 'FORMAT_MENU' to keep the converter information
 # even if the command line higher precedence option is set in case
-# command line is set_format_menu_from_cmdline_header.
+# command line is set_format_menu_from_cmdline_header_option.
 my $conversion_format_menu_default;
 if (defined($formats_table{$converted_format}->{'module'})) {
   $converter_class = $formats_table{$converted_format}->{'module'};
@@ -1338,7 +1345,7 @@ if (defined($formats_table{$converted_format}->{'module'})) {
     # could be done for other customization options
     set_main_program_default('FORMAT_MENU', $converter_defaults{'FORMAT_MENU'});
     # for FORMAT_MENU need in addition to have the value if
-    # command-line set to 'set_format_menu_from_cmdline_header'
+    # command-line set to 'set_format_menu_from_cmdline_header_option'
     $conversion_format_menu_default = $converter_defaults{'FORMAT_MENU'};
   } else {
     # this happens for the plaintexinfo format for which nothing
@@ -1349,7 +1356,8 @@ if (defined($formats_table{$converted_format}->{'module'})) {
 # special case for FORMAT_MENU of delayed setting based in
 # some case on converter
 if (defined(get_conf('FORMAT_MENU'))
-    and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
+    and get_conf('FORMAT_MENU')
+                      eq 'set_format_menu_from_cmdline_header_option') {
    # set FORMAT_MENU to the output format default, if not nomenu
   if (defined($conversion_format_menu_default)
       and $conversion_format_menu_default ne 'nomenu') {
