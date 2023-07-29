@@ -2377,6 +2377,7 @@ sub _next_text($;$)
       my $duplicate_input_line = $input_line;
       # Encode::encode with default check argument does not give a
       # warning on incorrect output, contrary to what the documentation says.
+      # This has been seen on perl 5.10.1 and 5.36.0.
       # So we call it with FB_CROAK in an eval to get the message first
       # before calling it again to get the result.
       # This suits us as we try to output the same message as the XS parser
