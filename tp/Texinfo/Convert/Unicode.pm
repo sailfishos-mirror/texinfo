@@ -1614,10 +1614,22 @@ sub check_unicode_point_conversion($;$)
   # as a compiler bug, but it is unclear.  This does not happen with the
   # lax conversion to utf8, but we prefer to use a strict conversion.
   #
-  # To avoid outputting a warning, we do not even try the eval for perls
-  # in the 5.10.0 5.13.8 range
+  # To avoid outputting a warning, we do not even try to encode the string
+  # in the 5.10.0 5.13.8 range.
+  #
+  # We still use an eval to catch $arg that are illegal for hex
   if ($] >= 5.010 and $] <= 5.013008) {
-    if (hex($arg) > 0x10FFFF) {
+    eval {
+      use warnings FATAL => qw(all);
+      my $var;
+      if (hex($arg) > 0x10FFFF) {
+        $var = 1;
+      }
+    };
+    if ($@) {
+      warn "(hex($arg) eval failed: $@\n" if ($output_debug);
+      return 0;
+    } elsif (hex($arg) > 0x10FFFF) {
       return 0;
     }
   }
