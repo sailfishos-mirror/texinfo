@@ -1281,6 +1281,16 @@
 
 2023-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_text), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser_except_conf, parse_file, parse_text),
+	tp/Texinfo/XS/parsetexi/document.c (register_document)
+	(remove_document): add register_document in document.c to register the
+	document tree.  Register the tree with parse_file and parse_text
+	and pass the document descriptor through an extra key.
+
+2023-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	Add Texinfo::Document to represent a parsed Texinfo manual
 
 	* tp/Texinfo/Document.pm, tp/Texinfo/ParserNonXS.pm (parse_texi_text)

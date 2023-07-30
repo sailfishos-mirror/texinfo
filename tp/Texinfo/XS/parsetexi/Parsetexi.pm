@@ -311,6 +311,11 @@ sub parse_texi_file ($$)
   my $document = Texinfo::Document::register($TREE,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
      $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+  $document->{'document_descriptor'} = $TREE->{'extra'}->{'document_descriptor'};
+  delete $TREE->{'extra'}->{'document_descriptor'};
+  delete $TREE->{'extra'} if (scalar(keys(%{$TREE->{'extra'}})) == 0);
+
+  return $document;
 }
 
 # Copy the errors into the error list in Texinfo::Report.
@@ -387,6 +392,12 @@ sub parse_texi_text($$;$)
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
      $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+
+  $document->{'document_descriptor'} = $tree->{'extra'}->{'document_descriptor'};
+  delete $tree->{'extra'}->{'document_descriptor'};
+  delete $tree->{'extra'} if (scalar(keys(%{$tree->{'extra'}})) == 0);
+
+  return $document;
 }
 
 sub parse_texi_line($$;$)

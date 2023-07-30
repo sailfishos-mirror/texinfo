@@ -9,5 +9,6 @@ typedef struct DOCUMENT {
 } DOCUMENT;
 
 DOCUMENT *get_document (int document_descriptor);
+size_t register_document (ELEMENT *root);
 
 #endif
