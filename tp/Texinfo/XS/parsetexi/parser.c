@@ -27,6 +27,11 @@
 #include "text.h"
 #include "input.h"
 #include "source_marks.h"
+#include "element_types.h"
+/* for conf */
+#include "conf.h"
+/* for nesting_context */
+#include "context_stack.h"
 
 
 const char *whitespace_chars = " \t\v\f\r\n";

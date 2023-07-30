@@ -19,8 +19,14 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "parser.h"
+#include "tree_types.h"
 #include "text.h"
+/* for lookup_info* */
+#include "parser.h"
+/* new_element and destroy_element for convert_contents_to_texinfo */
+#include "tree.h"
+#include "commands.h"
+#include "element_types.h"
 #include "convert.h"
 
 
