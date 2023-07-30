@@ -143,7 +143,9 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/counter.c \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
-		      parsetexi/source_marks.h
+		      parsetexi/source_marks.h \
+		      parsetexi/document.c \
+		      parsetexi/document.h
 EXTRA_DIST += $(p)/command_data.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
@@ -170,4 +172,19 @@ $(srcdir)/$(p)/element_types.c $(srcdir)/$(p)/element_types.h: $(p)/element_type
 $(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: ../command_data.txt $(p)/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/command_data.awk \
 	     $(srcdir)/../command_data.txt
+
+xs_LTLIBRARIES += ConvertXS.la
+
+ConvertXS_la_SOURCES = \
+                       convert/ConvertXS.c \
+                       convert/plain_texinfo.h \
+                       convert/plain_texinfo.c
+
+EXTRA_DIST += convert/ConvertXS.xs
+
+ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la Parsetexi.la
+ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL)
+
+# To locate include files under out-of-source builds.
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS)
 

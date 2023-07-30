@@ -45,6 +45,7 @@
 #include "labels.h"
 #include "indices.h"
 #include "errors.h"
+#include "document.h"
 #include "api.h"
 
 #ifdef ENABLE_NLS

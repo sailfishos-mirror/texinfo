@@ -1281,6 +1281,26 @@
 
 2023-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	Basic XS converters support
+
+	* Texinfo/Convert/ConvertXS.pm, Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/Makefile.am (xs_LTLIBRARIES, ConvertXS_la*):
+	basic support for XS converters.
+
+	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/Makefile.am
+	(Parsetexi_la_SOURCES), Texinfo/XS/parsetexi/document.c,
+	Texinfo/XS/parsetexi/document.h: prepare interface for documents
+	in XS.  Incomplete and does nothing for now, only definitions
+	needed to compile.
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (import),
+	Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert),
+	Texinfo/XS/convert/plain_texinfo.c (plain_texinfo_convert):
+	preliminary interface for XS version of
+	Texinfo::Conver::PlainTexinfo::convert.
+
+2023-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/convert.c, tp/Texinfo/XS/parsetexi/parser.c:
 	more directly included files which symbols are used.
 

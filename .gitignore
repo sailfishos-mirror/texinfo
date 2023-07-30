@@ -323,6 +323,12 @@ tp/Texinfo/XS/parsetexi/.libs
 tp/Texinfo/XS/parsetexi/*.la
 tp/Texinfo/XS/parsetexi/*.lo
 
+tp/Texinfo/XS/convert/ConvertXS.c
+
+tp/Texinfo/XS/convert/.libs
+tp/Texinfo/XS/convert/*.la
+tp/Texinfo/XS/convert/*.lo
+
 texindex/texindex.awk
 texindex/texindex.awk.in
 texindex/ti.aux

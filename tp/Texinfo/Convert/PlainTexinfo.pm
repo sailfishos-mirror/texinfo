@@ -25,6 +25,8 @@ package Texinfo::Convert::PlainTexinfo;
 use 5.00405;
 use strict;
 
+use Texinfo::Convert::ConvertXS;
+
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Converter;
 
@@ -32,6 +34,22 @@ use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
 $VERSION = '7.1';
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+      Texinfo::XSLoader::override(
+        "Texinfo::Convert::PlainTexinfo::convert",
+        "Texinfo::ConvertXS::plain_texinfo_convert"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 
 my %defaults = (
