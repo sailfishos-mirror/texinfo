@@ -14,8 +14,11 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+#include <stdio.h>
+
 #include "tree.h"
 #include "errors.h"
+#include "debug.h"
 #include "document.h"
 
 static DOCUMENT *document_list;
@@ -23,7 +26,7 @@ static size_t document_number;
 static size_t document_space;
 
 DOCUMENT *
-get_document (int document_descriptor)
+retrieve_document (int document_descriptor)
 {
   if (document_descriptor <= document_number)
     return &document_list[document_descriptor -1];

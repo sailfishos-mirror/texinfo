@@ -33,7 +33,7 @@
 #include "plain_texinfo.h"
 #include "document.h"
 
-MODULE = Texinfo::ConvertXS	PACKAGE = Texinfo::ConvertXS
+MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 
 # ?
 PROTOTYPES: ENABLE
@@ -44,13 +44,18 @@ plain_texinfo_convert (converter, document_in)
         HV *document_in
     PREINIT:
         char *result;
-        SV** document_descriptor;
+        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
+        int document_descriptor;
     CODE:
-        document_descriptor = hv_fetch(document_in, "descriptor",
-                                       strlen ("descriptor"), 0);
-        if (document_descriptor)
-          document = get_document (SvIV (*document_descriptor));
+        document_descriptor_sv = hv_fetch (document_in, "document_descriptor",
+                                           strlen ("document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
         result = plain_texinfo_convert (document);
         RETVAL = newSVpv (result, strlen(result));
         SvUTF8_on (RETVAL);

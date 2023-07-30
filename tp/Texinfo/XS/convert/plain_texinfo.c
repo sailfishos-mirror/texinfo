@@ -34,6 +34,7 @@ char *
 plain_texinfo_convert (DOCUMENT *document)
 {
   char *result;
+  /* FIXME warn/error?  Or in the .xs code (a FIXME there too)?  */
   if (!document)
     {
       return "";

@@ -8,7 +8,7 @@ typedef struct DOCUMENT {
   ELEMENT *tree;
 } DOCUMENT;
 
-DOCUMENT *get_document (int document_descriptor);
+DOCUMENT *retrieve_document (int document_descriptor);
 size_t register_document (ELEMENT *root);
 
 #endif

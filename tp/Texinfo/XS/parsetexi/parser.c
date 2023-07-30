@@ -789,7 +789,6 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           || last_child->type == ET_spaces_after_close_brace))
     {
       retval = 1;
-
       debug_nonl ("ABORT EMPTY in ");
       debug_print_element (current, 0);
       debug_nonl ("(p:%d): %s; add |%s| to |%s|",

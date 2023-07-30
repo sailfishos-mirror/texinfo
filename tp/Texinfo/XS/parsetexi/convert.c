@@ -27,6 +27,7 @@
 #include "tree.h"
 #include "commands.h"
 #include "element_types.h"
+#include "debug.h"
 #include "convert.h"
 
 

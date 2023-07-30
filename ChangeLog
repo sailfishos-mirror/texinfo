@@ -1281,6 +1281,24 @@
 
 2023-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/PlainTexinfo.pm (import, _convert_with_XS):
+	do not simply override convert, we must check at runtime that the
+	document tree was stored by the XS parser.  Therefore override
+	_convert_with_XS, which is used if document_descriptor is set for the
+	document.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs: fix MODULE and PACKAGE names.
+	cosmetic changes to code.
+
+	* tp/Texinfo/XS/parsetexi/document.c (retrieve_document): rename
+	get_document as retrieve_document.
+
+	* tp/t/test_utils.pl (test): use Texinfo::Convert::PlainTexinfo
+	converter instead of Texinfo::Convert::Texinfo::convert_to_texinfo
+	to test the XS converter.
+
+2023-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/DebugTexinfo/DebugTree.pm, tp/Texinfo/Convert/Converter.pm,
 	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/Texinfo/Convert/IXINSXML.pm, tp/Texinfo/Convert/Info.pm,

@@ -65,6 +65,7 @@ use Texinfo::Config;
 use Texinfo::Parser;
 use Texinfo::Convert::Text;
 use Texinfo::Structuring;
+use Texinfo::Convert::PlainTexinfo;
 use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
 use Texinfo::Convert::LaTeX;
@@ -1416,6 +1417,8 @@ sub test($$)
                                          ['$result_trees{\''.$test_name.'\'}']);
       }
     }
+    #my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
+    #my $texi_string_result = $converter_to_texinfo->convert($document);
     my $texi_string_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
@@ -1514,7 +1517,11 @@ sub test($$)
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
-    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+    # We use the converter to be able to test the XS part (though only if
+    # parse_texi_text or parse_texi_file is used to parse).
+    my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
+    my $texi_result = $converter_to_texinfo->convert($document);
+    #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
