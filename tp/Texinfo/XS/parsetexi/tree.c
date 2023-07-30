@@ -388,6 +388,7 @@ destroy_node_spec (NODE_SPEC_EXTRA *nse)
       for (i = 0; i < 3; i++)
         if (nse->out_of_tree_elements[i])
           destroy_element (nse->out_of_tree_elements[i]);
+      free (nse->out_of_tree_elements);
     }
   if (nse->manual_content)
     destroy_element (nse->manual_content);

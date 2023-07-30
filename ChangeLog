@@ -1,5 +1,10 @@
 2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/tree.c (destroy_node_spec):
+	Free 'out_of_tree_elements' array.
+
+2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line):
 	Free return value of read_command_name in the case that the name
 	is bad.
