@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Texinfo::ConvertXS;
+package Texinfo::Convert::ConvertXS;
 
 # This package loads XS implementations of converter functions.
 
@@ -28,8 +28,8 @@ use Texinfo::XSLoader;
 
 BEGIN {
   Texinfo::XSLoader::init (
-    "Texinfo::ConvertXS",
-    "Texinfo::ConvertXS",
+    "Texinfo::Convert::ConvertXS",
+    "Texinfo::Convert::ConvertXS",
     "ConvertXS",
     undef,
     0,

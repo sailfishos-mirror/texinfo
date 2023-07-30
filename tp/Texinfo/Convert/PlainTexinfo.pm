@@ -42,7 +42,7 @@ sub import {
         and $ENV{TEXINFO_XS_CONVERT} eq '1') {
       Texinfo::XSLoader::override(
         "Texinfo::Convert::PlainTexinfo::convert",
-        "Texinfo::ConvertXS::plain_texinfo_convert"
+        "Texinfo::Convert::ConvertXS::plain_texinfo_convert"
       );
     }
     $module_loaded = 1;
