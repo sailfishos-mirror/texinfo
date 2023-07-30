@@ -656,6 +656,7 @@ handle_comma (ELEMENT *current, char **line_inout)
               /* Scan forward to get the next argument. */
               while (brace_count > 0)
                 {
+                  static char *alloc_line;
                   size_t non_separator_len = strcspn (line, "{},");
                   if (non_separator_len > 0)
                     text_append_n (&arg->text, line, non_separator_len);
@@ -681,7 +682,8 @@ handle_comma (ELEMENT *current, char **line_inout)
                       break;
                     default:
                       /* at the end of line */
-                      line = next_text (e);
+                      free (alloc_line);
+                      line = alloc_line = next_text (e);
                       if (!line)
                         goto funexit;
                       continue;
