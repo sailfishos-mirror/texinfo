@@ -1007,6 +1007,10 @@ sub test($$)
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
       $tree = $parser->parse_texi_piece($test_text);
+      # since we need a document because convert and output are
+      # called by converters, we set one, but only with the tree, as
+      # the tree comes from parse_texi_piece.
+      $document = Texinfo::Document::register($tree);
     }
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that
@@ -1110,11 +1114,6 @@ sub test($$)
 
   my $floats = $parser->floats_information();
 
-  if (!defined($document)) {
-    $document = Texinfo::Document::register($tree, $parser_information,
-                      $indices_information, $floats, $refs, $global_commands,
-                      $labels, $targets_list, $nodes_list);
-  }
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $parser_information,

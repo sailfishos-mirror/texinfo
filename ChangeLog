@@ -1281,6 +1281,11 @@
 
 2023-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): setup a minimal parsed document with
+	the tree only when the parsing was done by parse_texi_piece.
+
+2023-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/PlainTexinfo.pm (import, _convert_with_XS):
 	do not simply override convert, we must check at runtime that the
 	document tree was stored by the XS parser.  Therefore override
