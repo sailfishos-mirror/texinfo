@@ -22,7 +22,7 @@ sub run_test($$$)
 
   my $tree = parse_texi_piece(undef, $in);
 
-#print STDERR DebugTexinfo::DebugTree::convert(undef, $tree)."\n";
+#print STDERR DebugTexinfo::DebugTree::convert_tree(undef, $tree)."\n";
 
   my $corrected_tree = move_index_entries_after_items_in_tree($tree);
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);

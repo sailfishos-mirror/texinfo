@@ -75,7 +75,9 @@ sub convert_tree($$)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   return $self->_convert($root);
 }

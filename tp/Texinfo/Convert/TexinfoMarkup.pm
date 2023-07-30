@@ -283,7 +283,9 @@ sub converter_initialize($)
 sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
        = $self->determine_files_and_directory();
@@ -430,7 +432,9 @@ sub _accent($$;$$$)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   return $self->convert_tree($root);
 }

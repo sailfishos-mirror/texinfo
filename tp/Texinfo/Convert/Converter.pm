@@ -297,7 +297,9 @@ sub convert_document_nodes($$;$)
 sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my $tree_units;
 
@@ -391,13 +393,7 @@ sub output($$)
       # Texinfo::Structuring::split_by_node or split_by_page always return
       # an array containing at least one unit.  But this was not the case
       # in the past and could change again in the future.
-      #
-      # FIXME this is in general better to use convert(), for instance
-      # to have the converter output footnotes when it is not done
-      # as part of tree units formatting (th case here).
-      # However, this breaks the promise that only convert_tree is used
-      # in generic Converter code.
-      $output .= $self->write_or_return($self->convert($root), $fh);
+      $output .= $self->write_or_return($self->convert($document), $fh);
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
     # FIXME is it still true that there is such a warning?
@@ -1795,7 +1791,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
 
   my $converter = Texinfo::Convert::MyConverter->converter(
                                                {'parser' => $parser});
-  $converter->output($texinfo_tree);
+  $converter->output($texinfo_parsed_document);
 
 =head1 NOTES
 
@@ -1817,9 +1813,13 @@ The C<convert_tree> method is mandatory and should convert portions of Texinfo
 tree.  The C<output> method is used by converters as entry point for conversion
 to a file with headers and so on.  Although it is is not called from other
 modules, it should in general be implemented by converters. C<output> is called
-from C<texi2any>.  C<convert> is not required, but customarily used by
-converters as entry point for a conversion of a whole Texinfo tree without
-the headers done when outputting to a file.
+from C<texi2any>.  C<convert> is not mandatory, but it is recommended to implement
+it as it is used by converters as entry point for a conversion of a Texinfo
+parsed document without the headers done when outputting to a file, and can
+also be used to output simple documents.  It could be called from the
+C<Texinfo::Convert::Converter> C<output> implementation. C<convert> and
+C<output> take a Texinfo parsed document C<Texinfo::Document> in argument,
+while C<convert_tree> takes a Texinfo tree in argument.
 
 Existing backends may be used as examples that implement those
 methods.  C<Texinfo::Convert::Texinfo> together with

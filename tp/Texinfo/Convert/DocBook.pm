@@ -295,7 +295,9 @@ sub converter_initialize($)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   if (! defined($self->{'lang_stack'})) {
     $self->{'lang_stack'} = [''];
@@ -326,7 +328,9 @@ my $DEFAULT_LANG = 'en';
 sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory();
@@ -1812,8 +1816,8 @@ Texinfo::Convert::DocBook - Convert Texinfo tree to DocBook
   my $converter
     = Texinfo::Convert::DocBook->converter({'parser' => $parser});
 
-  $converter->output($tree);
-  $converter->convert($tree);
+  $converter->output($document);
+  $converter->convert($document);
   $converter->convert_tree($tree);
 
 =head1 NOTES
@@ -1844,14 +1848,14 @@ after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more information.
 
-=item $converter->output($tree)
+=item $converter->output($document)
 
-Convert a Texinfo tree I<$tree> and output the result in files as
+Convert a Texinfo parsed document I<$document> and output the result in files as
 described in the Texinfo manual.
 
-=item $result = $converter->convert($tree)
+=item $result = $converter->convert($document)
 
-Convert a Texinfo tree I<$tree> and return the resulting output.
+Convert a Texinfo parsed document I<$document> and return the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 

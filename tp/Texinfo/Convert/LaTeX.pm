@@ -1051,7 +1051,10 @@ my $latex_document_type = 'preamble_before_content';
 
 sub output($$)
 {
-  my ($self, $root) = @_;
+  my $self = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory();
@@ -1156,7 +1159,9 @@ sub output($$)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   $self->_prepare_conversion($root);
 

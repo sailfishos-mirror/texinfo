@@ -10679,7 +10679,9 @@ sub _initialize_output_state($)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my $result = '';
 
@@ -10860,7 +10862,9 @@ sub _reset_info()
 sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   $self->{'current_filename'} = undef;
 
@@ -12072,8 +12076,8 @@ Texinfo::Convert::HTML - Convert Texinfo tree to HTML
   my $converter
     = Texinfo::Convert::HTML->converter({'parser' => $parser});
 
-  $converter->output($tree);
-  $converter->convert($tree);
+  $converter->output($document);
+  $converter->convert($document);
   $converter->convert_tree($tree);
   $converter->output_internal_links(); # HTML only
 
@@ -12105,14 +12109,14 @@ after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more information.
 
-=item $converter->output($tree)
+=item $converter->output($document)
 
-Convert a Texinfo tree I<$tree> and output the result in files as
+Convert a Texinfo parsed document I<$document> and output the result in files as
 described in the Texinfo manual.
 
-=item $result = $converter->convert($tree)
+=item $result = $converter->convert($document)
 
-Convert a Texinfo tree I<$tree> and return the resulting output.
+Convert a Texinfo parsed document I<$document> and return the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 

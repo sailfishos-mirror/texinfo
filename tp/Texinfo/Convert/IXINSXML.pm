@@ -84,10 +84,12 @@ sub converter_initialize($) { my $self = shift;
   $self->SUPER::converter_initialize(@_);
 }
 
-sub output($)
+sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   return $self->output_ixin($root);
 }

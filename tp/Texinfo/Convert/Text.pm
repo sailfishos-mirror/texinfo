@@ -776,9 +776,11 @@ sub convert_tree($$)
 sub convert($$)
 {
   my $self = shift;
-  my $element = shift;
+  my $document = shift;
 
-  return _convert($element);
+  my $root = $document->tree();
+
+  return _convert($root);
 }
 
 # determine outfile and output to that file
@@ -786,7 +788,10 @@ my $STDIN_DOCU_NAME = 'stdin';
 sub output($$)
 {
   my $self = shift;
-  my $tree = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
+
   #print STDERR "OUTPUT\n";
   my $input_basename;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
@@ -880,7 +885,7 @@ sub output($$)
   # reference, merge specific Text options with $self (possibly
   # overwriting/ignoring but values should be the same).
   %$self = (%$self, %options);
-  my $result = _convert($tree, $self);
+  my $result = _convert($root, $self);
   if ($fh) {
     print $fh $result;
     Texinfo::Common::output_files_register_closed(

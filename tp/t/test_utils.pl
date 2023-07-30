@@ -547,7 +547,7 @@ sub convert_to_plaintext($$$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
@@ -574,9 +574,9 @@ sub convert_to_plaintext($$$$$$;$)
   my $result;
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
-    $result = $converter->convert($tree);
+    $result = $converter->convert($document);
   } else {
-    $result = $converter->output($tree);
+    $result = $converter->output($document);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
@@ -589,7 +589,7 @@ sub convert_to_info($$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
@@ -597,13 +597,13 @@ sub convert_to_info($$$$$;$)
   $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, $format);
-  
+
   my $converter =
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
                                          'converted_format' => 'info',
                                           %$converter_options });
-  my $result = $converter->output($tree);
+  my $result = $converter->output($document);
   close_files($converter);
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
   my ($errors, $error_nrs) = $converter->errors();
@@ -615,14 +615,14 @@ sub convert_to_html($$$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'html');
-  
+
   $converter_options->{'SPLIT'} = 0
     if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
@@ -633,9 +633,9 @@ sub convert_to_html($$$$$$;$)
                                           %$converter_options });
   my $result;
   if ($format eq 'html_text') {
-    $result = $converter->convert($tree);
+    $result = $converter->convert($document);
   } else {
-    $result = $converter->output($tree);
+    $result = $converter->output($document);
     close_files($converter);
   }
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
@@ -648,14 +648,14 @@ sub convert_to_xml($$$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'xml');
-  
+
   my $converter =
      Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
@@ -665,9 +665,9 @@ sub convert_to_xml($$$$$$;$)
   my $result;
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
-    $result = $converter->convert($tree);
+    $result = $converter->convert($document);
   } else {
-    $result = $converter->output($tree);
+    $result = $converter->output($document);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
@@ -680,21 +680,22 @@ sub convert_to_docbook($$$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'docbook');
-  
+
   my $converter =
      Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
                                          'converted_format' => 'docbook',
                                           %$converter_options });
   my $result;
-  my $tree_for_conversion;
+  my $tree = $document->tree();
+  my $document_for_conversion;
   # 'before_node_section' is ignored in conversion to DocBook and it is
   # the type, in 'document_root' that holds content that appear out of any
   # @node and sectioning command.  To be able to have tests of simple
@@ -703,19 +704,21 @@ sub convert_to_docbook($$$$$$;$)
   # as a tree with an element without type replacing the 'before_node_section'
   # type element, with the same contents.
   if ($tree->{'contents'} and scalar(@{$tree->{'contents'}}) == 1) {
-    $tree_for_conversion = {
+    my $tree_for_conversion = {
       'type' => $tree->{'type'},
       'contents' => [{'contents' => $tree->{'contents'}->[0]->{'contents'}}]
-    }
+    };
+    $document_for_conversion = dclone($document);
+    $document_for_conversion->{'tree'} = $tree_for_conversion;
   } else {
-    $tree_for_conversion = $tree;
+    $document_for_conversion = $document;
   }
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq ''
       and $format ne 'docbook_doc') {
-    $result = $converter->convert($tree_for_conversion);
+    $result = $converter->convert($document_for_conversion);
   } else {
-    $result = $converter->output($tree_for_conversion);
+    $result = $converter->output($document_for_conversion);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
@@ -728,14 +731,14 @@ sub convert_to_latex($$$$$$;$)
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
-  my $tree = shift;
+  my $document = shift;
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'latex');
-  
+
   my $converter =
      Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
@@ -743,9 +746,9 @@ sub convert_to_latex($$$$$$;$)
                                           %$converter_options });
   my $result;
   if ($format eq 'latex_text') {
-    $result = $converter->convert($tree);
+    $result = $converter->convert($document);
   } else {
-    $result = $converter->output($tree);
+    $result = $converter->output($document);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
@@ -994,10 +997,11 @@ sub test($$)
   # do a copy to compare the values and not the references
   my $initial_index_names = dclone(\%Texinfo::Commands::index_names);
   my $tree;
+  my $document;
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      my $document = $parser->parse_texi_text($test_text);
+      $document = $parser->parse_texi_text($test_text);
       $tree = $document->tree();
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
@@ -1010,7 +1014,7 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    my $document = $parser->parse_texi_file($test_file);
+    $document = $parser->parse_texi_file($test_file);
     $tree = $document->tree();
   }
   my $registrar = $parser->registered_errors();
@@ -1104,6 +1108,12 @@ sub test($$)
   }
 
   my $floats = $parser->floats_information();
+
+  if (!defined($document)) {
+    $document = Texinfo::Document::register($tree, $parser_information,
+                      $indices_information, $floats, $refs, $global_commands,
+                      $labels, $targets_list, $nodes_list);
+  }
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $parser_information,
@@ -1215,8 +1225,8 @@ sub test($$)
                                           $srcdir.'t/include/'];
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
-           = &{$formats{$format}}($self, $test_name, $format_type,
-                                  $tree, $parser, $main_configuration,
+           = &{$formats{$format}}($self, $test_name, $format_type, $document,
+                                  $parser, $main_configuration,
                                   $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 

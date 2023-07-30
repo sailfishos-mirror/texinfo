@@ -1692,7 +1692,7 @@ while(@input_files) {
 
   my $converter = &{$formats_table{$converted_format}
         ->{'converter'}}($converter_options);
-  $converter->output($tree);
+  $converter->output($document);
   push @opened_files, Texinfo::Common::output_files_opened_files(
                               $converter->output_files_information());
   handle_errors($converter, $error_count, \@opened_files);

@@ -55,7 +55,9 @@ sub converter_defaults($$)
 sub output($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my ($output_file, $destination_directory) = $self->determine_files_and_directory();
   # REMARK for this format SPLIT does not means diverse files created
@@ -127,7 +129,9 @@ sub output($$)
 sub convert($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   return _print_tree($self, $root);
 }
