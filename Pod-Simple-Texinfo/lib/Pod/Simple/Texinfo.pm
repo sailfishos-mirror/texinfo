@@ -370,7 +370,9 @@ sub _protect_hashchar($)
   my $texinfo = shift;
   # protect # first in line
   if ($texinfo =~ /#/) {
-    my $tree = parse_texi_text(undef, $texinfo);
+    # FIXME use parse_texi_piece?
+    my $document = parse_texi_text(undef, $texinfo);
+    my $tree = $document->tree();
     protect_hashchar_at_line_beginning(undef, undef, $tree);
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
@@ -381,7 +383,9 @@ sub _protect_hashchar($)
 sub _reference_to_text_in_texi($)
 {
   my $texinfo = shift;
-  my $tree = parse_texi_text(undef, $texinfo);
+  # FIXME use parse_texi_piece?
+  my $document = parse_texi_text(undef, $texinfo);
+  my $tree = $document->tree();
   reference_to_arg_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }

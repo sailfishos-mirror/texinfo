@@ -24,7 +24,8 @@ sub test($$$;$$)
   my $use_sections = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_text($in);
+  my $document = $parser->parse_texi_text($in);
+  my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $parser_information = $parser->global_information();

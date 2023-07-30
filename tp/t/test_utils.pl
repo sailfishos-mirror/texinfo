@@ -997,7 +997,8 @@ sub test($$)
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      $tree = $parser->parse_texi_text($test_text);
+      my $document = $parser->parse_texi_text($test_text);
+      $tree = $document->tree();
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
       $tree = $parser->parse_texi_piece($test_text);
@@ -1009,7 +1010,8 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    $tree = $parser->parse_texi_file($test_file);
+    my $document = $parser->parse_texi_file($test_file);
+    $tree = $document->tree();
   }
   my $registrar = $parser->registered_errors();
 

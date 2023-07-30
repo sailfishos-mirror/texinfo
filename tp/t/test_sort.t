@@ -30,7 +30,7 @@ $result = Texinfo::Convert::Text::convert_to_text($tree, {'sort_string' => 1,
 is ($result, "\x{00A9} ,,", 'sort iso-8859-1');
 
 my $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_text('@node Top
+my $document = $parser->parse_texi_text('@node Top
 
 @cindex !
 @cindex e
@@ -41,6 +41,7 @@ $tree = $parser->parse_texi_text('@node Top
 @cindex aaaaaaaaaaaa
 @cindex @l{}
 ');
+$tree = $document->tree();
 
 my $registrar = $parser->registered_errors();
 my ($indices_information, $merged_indices) = $parser->indices_information();
@@ -104,7 +105,7 @@ local $Data::Dumper::Indent = 1;
 cmp_deeply (\@letter_entries, \@letter_entries_ref, 'by letter index entries');
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_text('@node Top
+$document = $parser->parse_texi_text('@node Top
 
 @cindex hhh @subentry jjj @subentry lll
 @cindex hhh @subentry jjj
@@ -119,6 +120,7 @@ $tree = $parser->parse_texi_text('@node Top
 @cindex @subentry aa
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 ');
+$tree = $document->tree();
 
 $registrar = $parser->registered_errors();
 ($indices_information, $merged_indices) = $parser->indices_information();

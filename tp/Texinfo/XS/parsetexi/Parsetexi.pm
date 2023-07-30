@@ -60,6 +60,8 @@ use Texinfo::Common;
 use Texinfo::Report;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
+# to return a resulting document
+use Texinfo::Document;
 
 require Exporter;
 
@@ -306,7 +308,9 @@ sub parse_texi_file ($$)
   $self->{'info'}->{'input_file_name'} = $basename;
   $self->{'info'}->{'input_directory'} = $directories;
 
-  return $TREE;
+  my $document = Texinfo::Document::register($TREE,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
 }
 
 # Copy the errors into the error list in Texinfo::Report.
@@ -379,7 +383,10 @@ sub parse_texi_text($$;$)
   my $before_node_section = $tree->{'contents'}->[0];
 
   Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
-  return $tree;
+
+  my $document = Texinfo::Document::register($tree,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
 }
 
 sub parse_texi_line($$;$)

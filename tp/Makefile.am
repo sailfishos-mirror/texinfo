@@ -65,17 +65,18 @@ makeinfo: texi2any
 modulesdir = $(pkgdatadir)/Texinfo
 dist_modules_DATA = \
  Texinfo/Config.pm \
+ Texinfo/Common.pm \
+ Texinfo/Commands.pod \
+ Texinfo/Document.pm \
+ Texinfo/Documentlanguages.pm \
+ Texinfo/MiscXS.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/Report.pm \
- Texinfo/Common.pm \
- Texinfo/Commands.pod \
  Texinfo/Structuring.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
- Texinfo/MiscXS.pm \
- Texinfo/XSLoader.pm \
- Texinfo/Documentlanguages.pm
+ Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \
  Texinfo/ModulePath.pm.in
@@ -87,6 +88,7 @@ modules_DATA = \
 convertersdir = $(pkgdatadir)/Texinfo/Convert
 dist_converters_DATA = \
  Texinfo/Convert/Converter.pm \
+ Texinfo/Convert/ConvertXS.pm \
  Texinfo/Convert/DocBook.pm \
  Texinfo/Convert/HTML.pm \
  Texinfo/Convert/IXIN.pm \

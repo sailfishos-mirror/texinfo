@@ -52,6 +52,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tp/Texinfo/Commands.pod \
   $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/ParserNonXS.pm \
+  $(top_srcdir)/tp/Texinfo/Document.pm \
   $(top_srcdir)/tp/Texinfo/Structuring.pm \
   $(top_srcdir)/tp/Texinfo/Report.pm \
   $(top_srcdir)/tp/Texinfo/Translations.pm \

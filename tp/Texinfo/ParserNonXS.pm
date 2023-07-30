@@ -80,6 +80,9 @@ use Texinfo::Commands;
 # Error reporting and counting
 use Texinfo::Report;
 
+# register the parsed manual and associated information
+use Texinfo::Document;
+
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
 
@@ -799,7 +802,9 @@ sub parse_texi_text($$;$)
 
   get_parser_info($self);
 
-  return $tree;
+  my $document = Texinfo::Document::register($tree,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
 }
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
@@ -898,7 +903,9 @@ sub parse_texi_file($$)
   my $tree = $self->_parse_texi_document();
   get_parser_info($self);
 
-  return $tree;
+  my $document = Texinfo::Document::register($tree,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
 }
 
 sub _parse_texi_document($)
@@ -7918,7 +7925,8 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
 
   use Texinfo::Parser;
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_texi_file("somefile.texi");
+  my $tree = $document->tree();
   # a Texinfo::Report object in which the errors and warnings
   # encountered while parsing are registered.
   my $registrar = $parser->registered_errors();

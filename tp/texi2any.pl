@@ -1447,7 +1447,11 @@ while(@input_files) {
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
-  my $tree = $parser->parse_texi_file($input_file_name);
+  my $document = $parser->parse_texi_file($input_file_name);
+  my $tree;
+  if (defined($document)) {
+    $tree = $document->tree();
+  }
 
   if (defined($tree)
       and (defined(get_conf('DUMP_TREE'))

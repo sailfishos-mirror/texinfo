@@ -156,7 +156,8 @@ Text.
 @bye';
 
   $parser = Texinfo::Parser::parser();
-  $tree = $parser->parse_texi_text($sections_text);
+  my $document = $parser->parse_texi_text($sections_text);
+  $tree = $document->tree();
   $registrar = $parser->registered_errors();
   ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   $parser_information = $parser->global_information();
@@ -172,7 +173,7 @@ Text.
   #print STDERR "$result";
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_text('@node Top
+$document = $parser->parse_texi_text('@node Top
 @top top
 
 @chapter chap
@@ -183,6 +184,7 @@ $tree = $parser->parse_texi_text('@node Top
 * (some_manual)::
 @end menu
 ');
+  $tree = $document->tree();
 $registrar = $parser->registered_errors();
 ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 $parser_information = $parser->global_information();

@@ -249,7 +249,8 @@ sub _parsed_manual_tree($$$$$)
   my $do_node_menus = shift;
 
   my $texi_parser = Texinfo::Parser::parser();
-  my $tree = $texi_parser->parse_texi_text($manual_texi);
+  my $document = $texi_parser->parse_texi_text($manual_texi);
+  my $tree = $document->tree();
   my $registrar = $texi_parser->registered_errors();
   
   my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
