@@ -328,6 +328,7 @@ parse_line_command_args (ELEMENT *line_command)
         add_index (name, cmd == CM_defcodeindex ? 1 : 0);
         ADD_ARG(name);
 
+        free (name);
         break;
       defindex_invalid:
         line_error ("bad argument to @%s: %s",

@@ -121,7 +121,7 @@ add_index (char *name, int in_code)
   char *cmdname;
 
   if (!idx)
-    idx = add_index_internal (name, in_code);
+    idx = add_index_internal (strdup (name), in_code);
 
   /* For example, "rq" -> "rqindex". */
   xasprintf (&cmdname, "%s%s", name, "index");

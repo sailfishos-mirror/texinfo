@@ -1,5 +1,12 @@
 2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	<@defindex>: Free index name when finished.
+	* tp/Texinfo/XS/parsetexi/indices.c (add_index): Call strdup on
+	argument to add_index_internal.
+
+2023-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/tree.c (destroy_node_spec):
 	Free 'out_of_tree_elements' array.
 
