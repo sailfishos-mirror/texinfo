@@ -121,8 +121,8 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/context_stack.h \
 		      parsetexi/debug.c \
 		      parsetexi/debug.h \
-		      parsetexi/convert.c \
-		      parsetexi/convert.h \
+		      parsetexi/convert_to_texinfo.c \
+		      parsetexi/convert_to_texinfo.h \
 		      parsetexi/end_line.c \
 		      parsetexi/separator.c \
 		      parsetexi/multitable.c \

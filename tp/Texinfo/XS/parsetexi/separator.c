@@ -21,7 +21,7 @@
 #include "parser.h"
 #include "debug.h"
 #include "text.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "input.h"
 #include "labels.h"
 

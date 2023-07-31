@@ -21,7 +21,7 @@
 #include "debug.h"
 #include "input.h"
 #include "text.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "labels.h"
 #include "source_marks.h"
 

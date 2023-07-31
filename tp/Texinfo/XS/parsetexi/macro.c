@@ -24,7 +24,7 @@
 #include "tree.h"
 #include "text.h"
 #include "input.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "source_marks.h"
 #include "macro.h"
 

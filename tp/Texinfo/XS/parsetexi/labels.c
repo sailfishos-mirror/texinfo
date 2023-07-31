@@ -17,7 +17,7 @@
 #include <string.h>
 
 #include "parser.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "source_marks.h"
 #include "labels.h"
 

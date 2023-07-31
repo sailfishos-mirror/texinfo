@@ -27,7 +27,7 @@
 #include "ppport.h"
 
 #include "plain_texinfo.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "document.h"
 
 char *

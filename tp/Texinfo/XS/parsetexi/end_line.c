@@ -24,7 +24,7 @@
 #include "debug.h"
 #include "text.h"
 #include "input.h"
-#include "convert.h"
+#include "convert_to_texinfo.h"
 #include "labels.h"
 #include "indices.h"
 #include "def.h"
