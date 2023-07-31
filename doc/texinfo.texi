@@ -17043,6 +17043,18 @@ output.  Implies both @code{ASCII_DASHES_AND_QUOTES} and @code{ASCII_GLYPH}
 and additionally affects the output of commands such as @code{@@samp} which
 output quotation marks.
 
+@item AUTO_MENU_DESCRIPTION_FILLCOLUMN
+Maximum number of columns in a line for @code{@@nodedescription} or
+@code{@@nodedescriptionblock} menu entry description formatting in Info.
+Undefined by default, in that case the fill column value is used
+(@pxref{Invoking @command{texi2any}}).
+
+@item AUTO_MENU_DESCRIPTION_INDENT_LENGTH
+Indentation for @code{@@nodedescription} or @code{@@nodedescriptionblock}
+menu entry description formatting in Info.  Undefined by default, in that case
+the fill column value divided by 2.32 is used (@pxref{Invoking
+@command{texi2any}}).
+
 @item CHECK_NORMAL_MENU_STRUCTURE
 Warn if the nodes pointers (either explicitly or automatically set)
 are not consistent with the order of node menu entries.

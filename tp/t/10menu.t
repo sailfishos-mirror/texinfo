@@ -643,7 +643,8 @@ block desc 2
 @nodedescriptionblock
 @anchor{in nodescription}
 
-@ref{node2}. Footnote@footnote{in footnote}.
+@ref{node2}. Footnote@footnote{in footnote}. Some text to see
+where the max column could be. @w{in w}.
 @cindex in nodedescriptionblock
 
 @float tfloat, f1
@@ -667,7 +668,9 @@ block desc 2
 
 @listoffloats tfloat
 
-'],);
+',{},{'AUTO_MENU_DESCRIPTION_INDENT_LENGTH' => 15,
+       'AUTO_MENU_DESCRIPTION_FILLCOLUMN' => 90}],
+);
 
 my @test_invalid = (
 ['bad_beginning',

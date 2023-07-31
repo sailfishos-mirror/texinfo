@@ -3478,9 +3478,16 @@ sub _convert($$)
               and $self->{'labels'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'}) {
-            my $description_indent_length
-              = int($self->{'text_element_context'}->[-1]->{'max'}
+            my $description_indent_length;
+            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_INDENT_LENGTH'))) {
+              $description_indent_length
+                 = $self->get_conf('AUTO_MENU_DESCRIPTION_INDENT_LENGTH');
+            } else {
+              $description_indent_length
+               = int($self->{'text_element_context'}->[-1]->{'max'}
                     / $description_indent_length_factor);
+            }
+
             my $description_element = $self->{'labels'}
                  ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'};
@@ -3489,6 +3496,7 @@ sub _convert($$)
               $self->{'seen_node_descriptions'}->{$description_element} = 0;
             }
             $self->{'seen_node_descriptions'}->{$description_element}++;
+
             # flush the current unfilled container
             $result .= _count_added($self,
                          $formatter->{'container'},
@@ -3500,12 +3508,20 @@ sub _convert($$)
                          'counter'
                 => Texinfo::Convert::Paragraph::counter($formatter->{'container'})
             };
+
+            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN'))) {
+              $text_element_context->{'max'}
+                 = $self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN');
+            }
+
             push @{$self->{'text_element_context'}}, $text_element_context;
-            # FIXME set max
+
+            # avoid messages if formatting the node description more than once
             if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
               $self->{'silent'} = 0 if (!defined($self->{'silent'}));
               $self->{'silent'}++;
             }
+
             if ($description_element->{'cmdname'} eq 'nodedescription') {
               # push a paragraph container to format the description.
               $description_para = $self->new_formatter('paragraph',

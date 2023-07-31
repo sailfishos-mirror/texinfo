@@ -411,6 +411,31 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   }
                 },
                 {
+                  'text' => '. Some text to see
+'
+                },
+                {
+                  'text' => 'where the max column could be. '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'in w'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'w',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 18,
+                    'macro' => ''
+                  }
+                },
+                {
                   'text' => '.
 '
                 },
@@ -446,7 +471,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 19,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -506,7 +531,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 21,
+                    'line_nr' => 22,
                     'macro' => ''
                   }
                 },
@@ -536,7 +561,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 22,
+                    'line_nr' => 23,
                     'macro' => ''
                   }
                 },
@@ -573,7 +598,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 23,
+                    'line_nr' => 24,
                     'macro' => ''
                   }
                 }
@@ -633,7 +658,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -675,7 +700,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 27,
                 'macro' => ''
               }
             }
@@ -733,7 +758,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 28,
+        'line_nr' => 29,
         'macro' => ''
       }
     },
@@ -783,7 +808,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             },
@@ -810,7 +835,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             },
@@ -881,7 +906,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 34,
+                'line_nr' => 35,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -914,14 +939,14 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
+                'line_nr' => 36,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 33,
+            'line_nr' => 34,
             'macro' => ''
           }
         },
@@ -960,7 +985,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 37,
+            'line_nr' => 38,
             'macro' => ''
           }
         },
@@ -997,7 +1022,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 39,
+            'line_nr' => 40,
             'macro' => ''
           }
         },
@@ -1015,7 +1040,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 29,
+        'line_nr' => 30,
         'macro' => ''
       }
     }
@@ -1027,7 +1052,7 @@ $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2]{'extra'}{'float'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'caption'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'float_section'}{'contents'}[1] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'};
@@ -1054,7 +1079,8 @@ $result_texis{'commands_in_nodedescriptionblock'} = '@node Top
 @nodedescriptionblock
 @anchor{in nodescription}
 
-@ref{node2}. Footnote@footnote{in footnote}.
+@ref{node2}. Footnote@footnote{in footnote}. Some text to see
+where the max column could be. @w{in w}.
 @cindex in nodedescriptionblock
 
 @float tfloat, f1
@@ -1333,11 +1359,12 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 * Menu:
 
 * node1:: 
-                               *note node2::.  Footnote(1).
+               *note node2::.  Footnote(1).  Some text to see where the max column could
+               be.  in w.
 
 [float_image]
 
-                              tfloat 1.1: Cap1
+               tfloat 1.1: Cap1
 
 
 * node2::
@@ -1359,17 +1386,18 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 * Menu:
 
 * node1:: 
-                               *note node2::.  Footnote(1).
+               *note node2::.  Footnote(1).  Some text to see where the max column could
+               be.  in w.
 
 [float_image]
 
-                              tfloat 1.1: Cap1
+               tfloat 1.1: Cap1
 
 
 
 * Menu:
 
-* in nodedescriptionblock:               node2.                (line 32)
+* in nodedescriptionblock:               node2.                (line 34)
 
 * Menu:
 
@@ -1386,7 +1414,7 @@ $result_converted_errors{'plaintext'}->{'commands_in_nodedescriptionblock'} = [
     'error_line' => 'warning: could not find @image file `float_image.txt\' nor alternate text
 ',
     'file_name' => '',
-    'line_nr' => 21,
+    'line_nr' => 22,
     'macro' => '',
     'text' => 'could not find @image file `float_image.txt\' nor alternate text',
     'type' => 'warning'
@@ -1437,7 +1465,8 @@ Next: <a href="#node1" accesskey="n" rel="next">chap1</a> &nbsp; [<a href="#node
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><a class="anchor" id="in-nodescription"></a>
-<a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+<a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>. Some text to see
+where the max column could be. in&nbsp;w<!-- /@w -->.
 <a class="index-entry-id" id="index-in-nodedescriptionblock"></a>
 
 <div class="float" id="f1">
@@ -1473,7 +1502,8 @@ Previous: <a href="#node1" accesskey="p" rel="prev">chap1</a>, Up: <a href="#Top
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-<a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="t_fnode-description-2_DOCF1_2" href="#t_fnode-description-2_FOOT1_2"><sup>2</sup></a>.
+<a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="t_fnode-description-2_DOCF1_2" href="#t_fnode-description-2_FOOT1_2"><sup>2</sup></a>. Some text to see
+where the max column could be. in&nbsp;w<!-- /@w -->.
 
 <div class="float" id="f1">
 <img class="image" src="float_image.jpg" alt="float_image">
@@ -1519,7 +1549,7 @@ $result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = [
     'error_line' => 'warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
 ',
     'file_name' => '',
-    'line_nr' => 21,
+    'line_nr' => 22,
     'macro' => '',
     'text' => '@image file `float_image\' (for HTML) not found, using `float_image.jpg\'',
     'type' => 'warning'
@@ -1545,7 +1575,8 @@ $result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node name="To
 <nodedescriptionblock endspaces=" ">
 <anchor name="in-nodescription">in nodescription</anchor>
 
-<para><ref label="node2"><xrefnodename>node2</xrefnodename></ref>. Footnote<footnote><para>in footnote</para></footnote>.
+<para><ref label="node2"><xrefnodename>node2</xrefnodename></ref>. Footnote<footnote><para>in footnote</para></footnote>. Some text to see
+where the max column could be. <w>in w</w>.
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">in nodedescriptionblock</indexterm></cindex>
 </para>
 <float name="f1" type="tfloat" number="1.1" spaces=" " endspaces=" "><floattype>tfloat</floattype><floatname spaces=" ">f1</floatname>
