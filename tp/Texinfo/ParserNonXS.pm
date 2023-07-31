@@ -5571,7 +5571,16 @@ sub _handle_line_command($$$$$$)
           $command_e->{'extra'}->{'element_node'} = $self->{'current_node'};
           if ($self->{'current_node'}->{'extra'}
               and $self->{'current_node'}->{'extra'}->{'node_description'}) {
-            $self->_line_warn(__("multiple node descriptions"), $source_info);
+            my $set_description
+              = $self->{'current_node'}->{'extra'}->{'node_description'};
+            if ($set_description->{'cmdname'} eq $command) {
+              $self->_line_warn(__("multiple node \@nodedescription"),
+                                $source_info);
+            } else {
+              # silently replace nodedescriptionblock
+              $self->{'current_node'}->{'extra'}->{'node_description'}
+                = $command_e;
+            }
           } else {
             $self->{'current_node'}->{'extra'} = {}
               if (!$self->{'current_node'}->{'extra'});
@@ -5833,6 +5842,30 @@ sub _handle_block_command($$$$$)
     $current->{'items_count'} = 0
        if ($block_commands{$command}
            and $block_commands{$command} eq 'item_container');
+
+    if ($command eq 'nodedescriptionblock') {
+      if ($self->{'current_node'}) {
+        $block->{'extra'} = {} if (!defined($block->{'extra'}));
+        $block->{'extra'}->{'element_node'} = $self->{'current_node'};
+        if ($self->{'current_node'}->{'extra'}
+            and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
+          $self->_line_warn(__("multiple node \@nodedescriptionblock"),
+                            $source_info);
+        } else {
+          $self->{'current_node'}->{'extra'} = {}
+            if (!$self->{'current_node'}->{'extra'});
+          $self->{'current_node'}->{'extra'}->{'node_long_description'}
+            = $block;
+          if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
+            $self->{'current_node'}->{'extra'}->{'node_description'}
+              = $block;
+          }
+        }
+      } else {
+        $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
+                          $source_info);
+      }
+    }
 
     $current->{'args'} = [ {
        'type' => 'block_line_arg',

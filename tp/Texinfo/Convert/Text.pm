@@ -66,7 +66,7 @@ foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
 my %ignored_block_commands;
 foreach my $ignored_command ('titlepage', 'copying', 'documentdescription',
   'html', 'tex', 'xml', 'docbook', 'latex', 'ignore', 'macro', 'rmacro',
-  'linemacro') {
+  'linemacro', 'nodedescriptionblock') {
   $ignored_block_commands{$ignored_command} = 1;
 }
 

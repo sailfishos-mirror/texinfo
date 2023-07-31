@@ -265,7 +265,8 @@ foreach my $advancing_para('center', 'verbatim', 'listoffloats') {
 }
 
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
-  'copying', 'documentdescription', 'titlepage', 'direntry') {
+   'copying', 'documentdescription', 'titlepage', 'direntry',
+   'nodedescriptionblock') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 

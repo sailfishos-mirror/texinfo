@@ -563,6 +563,69 @@ Text
 
 @nodedescription Not long
 '],
+['nodedescriptionblock_descriptions',
+'@node Top
+@top test of nodedescriptionblock used in menu
+
+@menu
+* toto::
+* titi::  desc of titi
+* name of other: other.
+
+* a somewhat long node without description nor following space::
+* node double nodedescriptionblock::
+@end menu
+
+@node toto
+@chapter Toto
+
+@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
+
+@nodedescriptionblock
+Block along line node description for toto
+@end nodedescriptionblock
+
+@node titi
+@chapter Titi
+
+@nodedescriptionblock
+description of titi in block
+@end nodedescriptionblock
+
+@node other
+@chapter Other
+
+@nodedescriptionblock
+Long description of other
+
+Para2
+
+@quotation
+a quotation in description
+@end quotation
+@end nodedescriptionblock
+
+@node a somewhat long node without description nor following space
+@chapter Somewhat long
+
+@nodedescriptionblock
+Block description before, not as long as the node
+@end nodedescriptionblock
+
+@nodedescription not as long as the node
+
+@node node double nodedescriptionblock
+@chapter test double
+
+@nodedescriptionblock
+block desc 1
+@end nodedescriptionblock
+
+@nodedescriptionblock
+block desc 2
+@end nodedescriptionblock
+
+'],
 );
 
 my @test_invalid = (

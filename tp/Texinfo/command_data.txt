@@ -538,6 +538,8 @@ smallindentedblock      block,close_paragraph
 cartouche               block,close_paragraph             BLOCK_other    1
 group                   block,close_paragraph
 
+nodedescriptionblock    block,close_paragraph,non_formatted_block
+
 # region commands
 titlepage               block,close_paragraph,global_unique,preamble     BLOCK_region
 copying                 block,close_paragraph,global_unique,preamble     BLOCK_region

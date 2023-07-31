@@ -749,7 +749,15 @@ handle_line_command (ELEMENT *current, char **line_inout,
                 {
                   KEY_PAIR *k = lookup_extra (current_node, "node_description");
                   if (k && k->value)
-                    line_warn ("multiple node descriptions");
+                    {
+                      ELEMENT *e_description = (ELEMENT *) k->value;
+                      if (e_description->cmd == cmd)
+                        line_warn ("multiple node @nodedescription");
+                      else
+                        /* silently replace nodedescriptionblock */
+                        add_extra_element (current_node, "node_description",
+                                           command_e);
+                    }
                   else
                     add_extra_element (current_node, "node_description",
                                        command_e);
@@ -1121,6 +1129,31 @@ handle_block_command (ELEMENT *current, char **line_inout,
                      done in Perl code. */
                 }
             }
+        }
+
+      if (cmd == CM_nodedescriptionblock)
+        {
+          if (current_node)
+            {
+              KEY_PAIR *k = lookup_extra (current_node, "node_long_description");
+              if (k && k->value)
+                line_warn ("multiple node @nodedescriptionblock");
+               else
+                {
+                  KEY_PAIR *kn = lookup_extra (current_node, "node_description");
+
+                  if (!kn || !kn->value)
+                    add_extra_element (current_node, "node_description",
+                                       block);
+
+                  add_extra_element (current_node, "node_long_description",
+                                     block);
+                }
+              add_extra_element (block, "element_node", current_node);
+            }
+          else
+            line_warn ("@nodedescriptionblock outside of any node");
+
         }
 
       if (cmd == CM_itemize || cmd == CM_enumerate)

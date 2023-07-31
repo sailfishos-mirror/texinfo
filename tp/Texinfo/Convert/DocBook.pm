@@ -220,7 +220,8 @@ my %def_argument_types_docbook = (
 );
 
 my %ignored_block_commands;
-foreach my $block_command ('copying', 'titlepage', 'documentdescription') {
+foreach my $block_command ('copying', 'titlepage', 'documentdescription',
+    'nodedescriptionblock') {
   $ignored_block_commands{$block_command} = 1;
 }
 

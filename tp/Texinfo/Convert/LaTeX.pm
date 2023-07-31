@@ -472,7 +472,7 @@ foreach my $ignored_brace_commands (
 
 # titlepage content is directly formatted at document begin
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
-  'copying', 'documentdescription', 'titlepage') {
+  'copying', 'documentdescription', 'titlepage', 'nodedescriptionblock') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 
