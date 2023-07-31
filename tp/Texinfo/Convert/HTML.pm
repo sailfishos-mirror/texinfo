@@ -1052,8 +1052,8 @@ sub command_text($$;$)
                  'contents' => [$tree]};
       }
       my $result = $self->convert_tree_new_formatting_context(
-        # FIXME check if $document_global_context argument is really needed
-            $tree, $command->{'cmdname'}, 'command_text manual_content');
+        # FIXME check if $document_global_context argument would be needed?
+            $tree, $command->{'cmdname'}, 'command_text-manual_content');
       return $result;
     }
   }
@@ -1829,17 +1829,19 @@ sub get_info($$)
 
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
-sub convert_tree_new_formatting_context($$;$$$)
+sub convert_tree_new_formatting_context($$;$$$$)
 {
   my $self = shift;
   my $tree = shift;
   my $context_string = shift;
   my $multiple_pass = shift;
   my $document_global_context = shift;
+  my $block_command = shift;
 
   my $context_string_str = '';
   if (defined($context_string)) {
-    $self->_new_document_context($context_string, $document_global_context);
+    $self->_new_document_context($context_string, $document_global_context,
+                                 $block_command);
     $context_string_str = "C($context_string)";
   }
   my $multiple_pass_str = '';
@@ -5657,7 +5659,7 @@ sub _convert_printindex_command($$$$)
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($result_tree,
                  "index $index_name l $letter index entry $entry_nr seenentry",
-                 "index formatted $formatted_index_entries->{$index_entry_ref}")
+                 "index-formatted-$formatted_index_entries->{$index_entry_ref}")
           } else {
             $entry = $self->convert_tree($result_tree,
                   "index $index_name l $letter index entry $entry_nr seenentry");
@@ -5672,11 +5674,11 @@ sub _convert_printindex_command($$$$)
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_ref_tree,
                "index $index_name l $letter index entry $entry_nr (with seealso)",
-               "index formatted $formatted_index_entries->{$index_entry_ref}");
+               "index-formatted-$formatted_index_entries->{$index_entry_ref}");
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
                 "index $index_name l $letter index entry $entry_nr seealso",
-                 "index formatted $formatted_index_entries->{$index_entry_ref}");
+                 "index-formatted-$formatted_index_entries->{$index_entry_ref}");
           } else {
             $entry = $self->convert_tree($entry_ref_tree,
              "index $index_name l $letter index entry $entry_nr (with seealso)");
@@ -5768,7 +5770,7 @@ sub _convert_printindex_command($$$$)
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_trees[$level],
                    "index $index_name l $letter index entry $entry_nr subentry $level",
-                   "index formatted $formatted_index_entries->{$index_entry_ref}")
+                   "index-formatted-$formatted_index_entries->{$index_entry_ref}")
           } else {
             $entry = $self->convert_tree($entry_trees[$level],
                   "index $index_name l $letter index entry $entry_nr subentry $level");
@@ -5796,7 +5798,7 @@ sub _convert_printindex_command($$$$)
         # call with multiple_pass argument
         $entry = $self->convert_tree_new_formatting_context($entry_tree,
                        "index $index_name l $letter index entry $entry_nr",
-                   "index formatted $formatted_index_entries->{$index_entry_ref}")
+                   "index-formatted-$formatted_index_entries->{$index_entry_ref}")
       } else {
         $entry = $self->convert_tree($entry_tree,
                             "index $index_name l $letter index entry $entry_nr");
@@ -6161,7 +6163,10 @@ sub _convert_paragraph_type($$$$)
       # no first paragraph in those environment to avoid extra spacing
       if ($in_format eq 'itemize'
           or $in_format eq 'enumerate'
-          or $in_format eq 'multitable') {
+          or $in_format eq 'multitable'
+          # this should only happen if in @nodedescriptionblock, otherwise
+          # there are no paragraphs, but preformatted
+          or $in_format eq 'menu') {
         return $content;
       }
     }
@@ -6554,6 +6559,9 @@ sub _convert_menu_entry_type($$$)
   my $section;
   my $label_info = $menu_entry_node->{'extra'};
 
+  my $formatted_nodedescriptions
+    = $self->shared_conversion_state('formatted_nodedescriptions', {});
+  my $use_nodedescription;
   # external node
   my $external_node;
   if ($label_info and $label_info->{'manual_content'}) {
@@ -6593,9 +6601,20 @@ sub _convert_menu_entry_type($$$)
                                                  ->{'contents'}->[0]->{'text'})
                              and $menu_description->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
-
-          $menu_description
-            = $node->{'extra'}->{'node_description'}->{'args'}->[0];
+          my $node_description = $node->{'extra'}->{'node_description'};
+          if ($node->{'extra'}->{'node_description'}->{'cmdname'}
+                eq 'nodedescription') {
+            $menu_description = $node_description->{'args'}->[0];
+          } else {
+            $menu_description = {'contents' => $node_description->{'contents'}};
+          }
+          # update the number of time the node description was formatted
+          if (!$formatted_nodedescriptions->{$node_description}) {
+            $formatted_nodedescriptions->{$node_description} = 1;
+          } else {
+            $formatted_nodedescriptions->{$node_description}++;
+          }
+          $use_nodedescription = $formatted_nodedescriptions->{$node_description};
         }
       }
     }
@@ -6656,8 +6675,21 @@ sub _convert_menu_entry_type($$$)
 
     my $description = '';
     if ($menu_description) {
-      $description .= $self->convert_tree($menu_description,
-                                          "menu_arg description preformatted");
+      if ($use_nodedescription) {
+        my $multiple_formatted;
+        if ($use_nodedescription > 1) {
+          $multiple_formatted
+            = 'preformatted-node-description-'.$use_nodedescription;
+        }
+        $description .= $self->convert_tree_new_formatting_context(
+                                  $menu_description,
+                                  'menu_arg node description preformatted',
+                                  $multiple_formatted, undef,
+                                  'menu');
+      } else {
+        $description .= $self->convert_tree($menu_description,
+                                          'menu_arg description preformatted');
+      }
     }
 
     return $result_name_node . $description;
@@ -6696,8 +6728,19 @@ sub _convert_menu_entry_type($$$)
   }
   my $description = '';
   if ($menu_description) {
-    $description = $self->convert_tree($menu_description,
-                                       'menu_arg description');
+    if ($use_nodedescription) {
+      my $multiple_formatted;
+      if ($use_nodedescription > 1) {
+        $multiple_formatted
+          = 'node-description-'.$use_nodedescription;
+      }
+      $description = $self->convert_tree_new_formatting_context(
+                              $menu_description, 'menu_arg node description',
+                              $multiple_formatted, undef, 'menu');
+    } else {
+      $description = $self->convert_tree($menu_description,
+                                         'menu_arg description');
+    }
     if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
       $description = '' if (_simplify_text_for_comparison($name_no_number)
                            eq _simplify_text_for_comparison($description));
@@ -7324,6 +7367,7 @@ sub _new_document_context($;$$)
   my $self = shift;
   my $context = shift;
   my $document_global_context = shift;
+  my $block_command = shift;
 
   push @{$self->{'document_context'}},
           {'context' => $context,
@@ -7336,6 +7380,10 @@ sub _new_document_context($;$$)
           };
   if (defined($document_global_context)) {
     $self->{'document_global_context'}++;
+  }
+  if (defined($block_command)) {
+    push @{$self->{'document_context'}->[-1]->{'block_commands'}},
+            $block_command;
   }
 }
 

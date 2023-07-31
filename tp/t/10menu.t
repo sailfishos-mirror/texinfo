@@ -626,7 +626,48 @@ block desc 2
 @end nodedescriptionblock
 
 '],
-);
+['commands_in_nodedescriptionblock',
+'@node Top
+@top test commands in nodedescriptionblock
+
+@menu
+* node1::
+* node2::
+@end menu
+
+@ref{in nodescription}, @ref{f1}.
+
+@node node1
+@chapter chap1
+
+@nodedescriptionblock
+@anchor{in nodescription}
+
+@ref{node2}. Footnote@footnote{in footnote}.
+@cindex in nodedescriptionblock
+
+@float tfloat, f1
+@image{float_image}
+@caption{Cap1}
+@end float
+
+
+@end nodedescriptionblock
+
+@node node2
+@chapter chap2
+
+@ref{in nodescription}, @ref{f1}.
+
+@menu
+* node1::
+@end menu
+
+@printindex cp
+
+@listoffloats tfloat
+
+'],);
 
 my @test_invalid = (
 ['bad_beginning',

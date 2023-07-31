@@ -428,6 +428,7 @@ sub converter_initialize($)
   $self->{'pending_footnotes'} = [];
   $self->{'index_entry_node_colon'} = {};
   $self->{'index_entries_no_node'} = {};
+  $self->{'seen_node_descriptions'} = {};
 
   foreach my $format (keys(%format_raw_commands)) {
     $self->{'ignored_commands'}->{$format} = 1
@@ -691,6 +692,11 @@ sub new_formatter($$;$)
          'max'           => $self->{'text_element_context'}->[-1]->{'max'},
          'indent_level'  => $self->{'format_context'}->[-1]->{'indent_level'},
   };
+
+  $container_conf->{'indent_length'}
+    = $self->{'format_context'}->[-1]->{'indent_length'}
+      if (defined($self->{'format_context'}->[-1]->{'indent_length'}));
+
   $container_conf->{'frenchspacing'} = 1
     if ($self->{'conf'}->{'frenchspacing'} eq 'on');
     #if ($self->get_conf('frenchspacing') eq 'on');
@@ -700,11 +706,13 @@ sub new_formatter($$;$)
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
   $container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
+
   if ($conf) {
     foreach my $key (keys(%$conf)) {
       $container_conf->{$key} = $conf->{$key};
     }
   }
+
   my $indent = $container_conf->{'indent_length'};
   $indent = $indent_length*$container_conf->{'indent_level'}
     if (!defined($indent));
@@ -1716,7 +1724,9 @@ sub _get_form_feeds($)
   return $form_feeds;
 }
 
-my $description_indent_length = 31;
+#my $description_indent_length = 31;
+# computed as 72/31
+my $description_indent_length_factor = 2.32;
 
 sub _convert($$);
 
@@ -3468,28 +3478,74 @@ sub _convert($$)
               and $self->{'labels'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'}) {
+            my $description_indent_length
+              = int($self->{'text_element_context'}->[-1]->{'max'}
+                    / $description_indent_length_factor);
             my $description_element = $self->{'labels'}
                  ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'};
+            if (! exists($self->{'seen_node_descriptions'}
+                                            ->{$description_element})) {
+              $self->{'seen_node_descriptions'}->{$description_element} = 0;
+            }
+            $self->{'seen_node_descriptions'}->{$description_element}++;
             # flush the current unfilled container
             $result .= _count_added($self,
                          $formatter->{'container'},
                          add_pending_word($formatter->{'container'}, 1));
-            # push a paragraph container to format the description.
-            my $description_para = $self->new_formatter('paragraph',
-                { 'indent_length' => $description_indent_length,
-                  'counter'
-             => Texinfo::Convert::Paragraph::counter($formatter->{'container'}),
-                });
-            if ($result !~ /\s$/) {
-              $result .= _count_added($self, $description_para->{'container'},
-                               add_text($description_para->{'container'}, ' '));
+            my $formatted_elt;
+            my $description_para;
+            my $text_element_context = {
+                         'max' => $self->{'text_element_context'}->[-1]->{'max'},
+                         'counter'
+                => Texinfo::Convert::Paragraph::counter($formatter->{'container'})
+            };
+            push @{$self->{'text_element_context'}}, $text_element_context;
+            # FIXME set max
+            if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
+              $self->{'silent'} = 0 if (!defined($self->{'silent'}));
+              $self->{'silent'}++;
             }
-            push @{$self->{'formatters'}}, $description_para;
-            $result .= _convert($self, $description_element->{'args'}->[0]);
-            $result .= _count_added($self, $description_para->{'container'},
-               Texinfo::Convert::Paragraph::end($description_para->{'container'}));
-            pop @{$self->{'formatters'}};
+            if ($description_element->{'cmdname'} eq 'nodedescription') {
+              # push a paragraph container to format the description.
+              $description_para = $self->new_formatter('paragraph',
+                  { 'indent_length' => $description_indent_length });
+              if ($result !~ /\s$/) {
+                $result .= _count_added($self, $description_para->{'container'},
+                                 add_text($description_para->{'container'}, ' '));
+              }
+              push @{$self->{'formatters'}}, $description_para;
+              $formatted_elt = $description_element->{'args'}->[0];
+            } else {
+              if ($result !~ /\s$/) {
+                $result .= _count_added($self, $formatter->{'container'},
+                                 add_text($formatter->{'container'}, ' '));
+                $result .= _count_added($self,
+                               $formatter->{'container'},
+                               add_pending_word($formatter->{'container'}, 1));
+              }
+              push @{$self->{'format_context'}},
+               { 'cmdname' => $description_element->{'cmdname'},
+                 'paragraph_count' => 0,
+                 'indent_length' => $description_indent_length,
+                 # for block commands.  Not an exact value
+                 'indent_level' => int($description_indent_length / $indent_length),
+               };
+
+              $formatted_elt = {'contents' => $description_element->{'contents'}};
+            }
+            $result .= _convert($self, $formatted_elt);
+            if ($description_element->{'cmdname'} eq 'nodedescription') {
+              $result .= _count_added($self, $description_para->{'container'},
+                 Texinfo::Convert::Paragraph::end($description_para->{'container'}));
+              pop @{$self->{'formatters'}};
+            } else {
+              pop @{$self->{'format_context'}};
+            }
+            pop @{$self->{'text_element_context'}};
+            if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
+              $self->{'silent'}--;
+            }
           } else {
             $result .= _convert($self, $content);
           }

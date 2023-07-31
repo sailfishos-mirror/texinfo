@@ -417,12 +417,12 @@ $result_errors{'nodedescription'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: multiple node descriptions
+    'error_line' => 'warning: multiple node @nodedescription
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => '',
-    'text' => 'multiple node descriptions',
+    'text' => 'multiple node @nodedescription',
     'type' => 'warning'
   }
 ];

@@ -1,5 +1,33 @@
 2023-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	@nodedescriptionblock output
+
+	* tp/Texinfo/Convert/HTML.pm (convert_tree_new_formatting_context)
+	(_convert_paragraph_type, _convert_menu_entry_type): add formatting
+	of @nodedescriptionblock. Check if node description was formatted more
+	than once, and use convert_tree_new_formatting_context in that case.
+	pass block_command to convert_tree_new_formatting_context to be able
+	tp avoid paragraph markup for the first nodedescriptionblock
+	paragraph.
+
+	* tp/Texinfo/Convert/Plaintext.pm (converter_initialize)
+	(new_formatter, _convert): formatting of @nodedescriptionblock. Add
+	'indent_length' to format_context considered variables for
+	new_formatter. Use text_element_context to set the counter for
+	nodedescription and nodedescriptionblock. Add seen_node_descriptions
+	to the converter state to be able to be silent if a node description
+	is formatted more than once. Determine $description_indent_length
+	by applying a factor on text_element_context max.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): multiple
+	pass argument of convert_tree_new_formatting_context usable as
+	identifier.
+
+	* tp/Makefile.tres, tp/t/10menu.t (commands_in_nodedescriptionblock):
+	test multiple @nodedescriptionblock with commands in it.
+
+2023-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	@nodedescriptionblock parsing
 
 	* tp/Texinfo/Convert/*.pm, tp/Texinfo/ParserNonXS.pm

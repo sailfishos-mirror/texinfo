@@ -1909,11 +1909,15 @@ $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of
                                description_slightly long and vv somewhat
                                ånexpected
 * titi::  desc of titi
-* name of other: other.
+* name of other: other.         Long description of other
+
+                               Para2
+
+                                   a quotation in description
 
 * a somewhat long node without description nor following space:: not as
                                long as the node
-* node double nodedescriptionblock::
+* node double nodedescriptionblock:: block desc 1
 
 1 Toto
 ******
@@ -1973,11 +1977,19 @@ Next: <a href="#toto" accesskey="n" rel="next">Toto</a> &nbsp; </p>
 <tr><td class="menu-entry-destination">&bull; <a href="#toto" accesskey="1">toto</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">toto is there:: and the <em class="emph">is a description</em>slightly&nbsp;long<!-- /@w --> and <code class="verb">vv&nbsp;somewhat</code> &aring;nexpected</td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#titi" accesskey="2">titi</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">desc of titi
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#other" accesskey="3">name of other</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#other" accesskey="3">name of other</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Long description of other
+
+<p>Para2
+</p>
+<blockquote class="quotation">
+<p>a quotation in description
+</p></blockquote>
+</td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="4">a somewhat long node without description nor following space</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">not as long as the node</td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#node-double-nodedescriptionblock" accesskey="5">node double nodedescriptionblock</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#node-double-nodedescriptionblock" accesskey="5">node double nodedescriptionblock</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">block desc 1
+</td></tr>
 </table>
 
 <hr>

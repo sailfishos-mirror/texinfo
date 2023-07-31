@@ -1378,6 +1378,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/zero_argument_comment.pl \
   t/results/menu/bad_beginning.pl \
   t/results/menu/block_commands_in_menu_description.pl \
+  t/results/menu/commands_in_nodedescriptionblock.pl \
   t/results/menu/comment_on_menu_line.pl \
   t/results/menu/dash_in_menu.pl \
   t/results/menu/detailmenu.pl \

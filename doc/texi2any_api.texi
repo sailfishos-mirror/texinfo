@@ -1352,7 +1352,8 @@ For such cases, the function is
 @code{convert_tree_new_formatting_context} ultimately calls @code{convert_tree}.
 
 @deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_new_formatting_context @
-      (@var{\%element}, @var{$context}, @var{$multiple_pass}, @var{$global_context})
+      (@var{\%element}, @var{$context}, @var{$multiple_pass}, @var{$global_context}, @
+       @var{$block_command_name})
 @var{\%element} is a Texinfo tree element.  @var{$context} is an optional
 string describing the new context to be setup to format out of the main
 conversion flow.  If not defined, the conversion is done in the main document
@@ -1360,7 +1361,9 @@ flow.  @var{$multiple_pass} is an optional string that marks that the
 conversion is done more than once.  It should be unique and suitable for
 inclusion in targets and identifiers.  @var{$global_context} is an optional
 string that marks that the formatting may be done in advance, and can be
-redone.
+redone.  @var{$block_command_name} is an optional block command name that is
+used to initialized the new context.  It can be useful, in particular, to propagate
+the topmost block command in the new context.
 
 The function returns @var{\%element} converted, setting the conversion context
 according to the arguments.

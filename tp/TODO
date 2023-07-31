@@ -10,7 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-add @nodedescriptionblock command (if no more input from the mailing list).
+add @nodedescription customization
 
 Bugs
 ====
@@ -28,6 +28,8 @@ Some private function used in conversion
 
 Missing documentation
 =====================
+
+HTML API ignore_notice _noticed_line_warn.  Add to API before?
 
 Tree documentation in ParserNonXS.pm
 ------------------------------------
