@@ -20,7 +20,6 @@ $result_trees{'ftable_vtable'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

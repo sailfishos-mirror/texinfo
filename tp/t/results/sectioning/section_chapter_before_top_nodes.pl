@@ -10,7 +10,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

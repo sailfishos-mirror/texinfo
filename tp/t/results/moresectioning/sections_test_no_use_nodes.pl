@@ -10,7 +10,6 @@ $result_trees{'sections_test_no_use_nodes'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

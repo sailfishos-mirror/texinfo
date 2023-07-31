@@ -10,7 +10,6 @@ $result_trees{'section_below_unnumbered_no_top'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

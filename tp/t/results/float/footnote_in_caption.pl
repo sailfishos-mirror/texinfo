@@ -10,7 +10,6 @@ $result_trees{'footnote_in_caption'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

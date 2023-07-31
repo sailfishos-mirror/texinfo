@@ -10,7 +10,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

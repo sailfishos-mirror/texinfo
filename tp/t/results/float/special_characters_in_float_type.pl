@@ -10,7 +10,6 @@ $result_trees{'special_characters_in_float_type'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

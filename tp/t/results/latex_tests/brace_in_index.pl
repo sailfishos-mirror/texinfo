@@ -10,7 +10,6 @@ $result_trees{'brace_in_index'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

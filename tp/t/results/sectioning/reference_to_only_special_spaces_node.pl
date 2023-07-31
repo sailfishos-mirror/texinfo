@@ -20,7 +20,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

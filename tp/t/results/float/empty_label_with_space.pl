@@ -10,7 +10,6 @@ $result_trees{'empty_label_with_space'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

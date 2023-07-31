@@ -10,7 +10,6 @@ $result_trees{'numbering_captions_listoffloats'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

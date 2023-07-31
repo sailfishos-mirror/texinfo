@@ -10,7 +10,6 @@ $result_trees{'cindex_in_caption'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

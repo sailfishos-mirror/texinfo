@@ -55,8 +55,7 @@ void wipe_user_commands (void);
 /* sectioning and heading commands */
 #define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
-/* CF_letter_no_arg is not used in XS parser, used in perl */
-#define CF_letter_no_arg	        0x0020
+#define CF_preamble		        0x0020
 #define CF_accent		        0x0040
 /* CF_math is not used in XS parser, used in perl */
 #define CF_math			        0x0080

@@ -19,7 +19,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
           "type" => "preamble_before_beginning"
         },
         {
-          "contents" => [],
           "type" => "preamble_before_content"
         }
       ],

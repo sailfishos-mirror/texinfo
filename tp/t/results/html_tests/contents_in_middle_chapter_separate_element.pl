@@ -25,7 +25,6 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

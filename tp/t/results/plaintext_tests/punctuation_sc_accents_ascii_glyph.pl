@@ -25,7 +25,6 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

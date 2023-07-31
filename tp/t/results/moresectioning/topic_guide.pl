@@ -25,7 +25,6 @@ $result_trees{'topic_guide'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

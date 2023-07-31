@@ -25,7 +25,6 @@ $result_trees{'nodes_before_top_and_sections_chapter_no_node'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

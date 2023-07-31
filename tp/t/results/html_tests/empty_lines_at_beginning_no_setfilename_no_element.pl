@@ -30,7 +30,6 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

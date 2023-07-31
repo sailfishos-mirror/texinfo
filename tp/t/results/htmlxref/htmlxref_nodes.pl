@@ -25,7 +25,6 @@ $result_trees{'htmlxref_nodes'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

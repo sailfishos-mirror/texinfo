@@ -10,7 +10,6 @@ $result_trees{'informative_commands_in_top_node'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

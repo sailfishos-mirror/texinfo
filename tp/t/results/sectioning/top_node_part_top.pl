@@ -11,7 +11,6 @@ $result_trees{'top_node_part_top'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

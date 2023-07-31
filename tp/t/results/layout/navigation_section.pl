@@ -25,7 +25,6 @@ $result_trees{'navigation_section'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

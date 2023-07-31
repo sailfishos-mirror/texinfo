@@ -10,7 +10,6 @@ $result_trees{'verbatim_in_smallformat'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

@@ -10,7 +10,6 @@ $result_trees{'sorted_subentries'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

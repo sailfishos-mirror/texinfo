@@ -10,7 +10,6 @@ $result_trees{'double_seeentry_seealso'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

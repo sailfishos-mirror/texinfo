@@ -10,7 +10,6 @@ $result_trees{'loop_nodes'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

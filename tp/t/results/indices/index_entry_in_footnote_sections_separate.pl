@@ -10,7 +10,6 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

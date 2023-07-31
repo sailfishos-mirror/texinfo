@@ -20,7 +20,6 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

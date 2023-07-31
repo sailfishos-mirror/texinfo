@@ -20,7 +20,6 @@ $result_trees{'section_in_unnumbered_info'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

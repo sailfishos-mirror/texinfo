@@ -298,10 +298,6 @@ sub parse_texi_file ($$)
 
   _associate_node_menus ($self, $TREE);
 
-  my $before_node_section = $TREE->{'contents'}->[0];
-
-  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
-
   ############################################################
 
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
@@ -384,10 +380,6 @@ sub parse_texi_text($$;$)
   get_parser_info($self);
 
   _associate_node_menus ($self, $tree);
-
-  my $before_node_section = $tree->{'contents'}->[0];
-
-  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},

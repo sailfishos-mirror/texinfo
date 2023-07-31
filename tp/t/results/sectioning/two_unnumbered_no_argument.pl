@@ -10,7 +10,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

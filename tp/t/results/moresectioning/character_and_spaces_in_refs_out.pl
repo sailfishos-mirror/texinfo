@@ -11,7 +11,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

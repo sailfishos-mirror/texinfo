@@ -25,7 +25,6 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

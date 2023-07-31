@@ -10,7 +10,6 @@ $result_trees{'backslash_math'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

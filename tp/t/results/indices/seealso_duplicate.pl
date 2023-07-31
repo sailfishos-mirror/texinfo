@@ -10,7 +10,6 @@ $result_trees{'seealso_duplicate'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

@@ -25,7 +25,6 @@ $result_trees{'index_no_node_no_top'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

@@ -10,7 +10,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

@@ -10,7 +10,6 @@ $result_trees{'ref_in_center'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

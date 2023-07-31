@@ -25,7 +25,6 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

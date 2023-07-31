@@ -10,7 +10,6 @@ $result_trees{'printindex_between_node_section'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

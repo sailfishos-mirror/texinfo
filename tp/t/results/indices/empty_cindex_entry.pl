@@ -10,7 +10,6 @@ $result_trees{'empty_cindex_entry'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

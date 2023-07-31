@@ -11,7 +11,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

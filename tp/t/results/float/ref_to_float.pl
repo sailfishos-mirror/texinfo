@@ -10,7 +10,6 @@ $result_trees{'ref_to_float'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

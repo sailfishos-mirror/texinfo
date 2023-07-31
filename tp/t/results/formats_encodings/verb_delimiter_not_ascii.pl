@@ -10,7 +10,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

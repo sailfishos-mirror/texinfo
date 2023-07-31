@@ -25,7 +25,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

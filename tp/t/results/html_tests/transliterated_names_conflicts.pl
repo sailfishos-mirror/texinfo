@@ -26,7 +26,6 @@ $result_trees{'transliterated_names_conflicts'} = [
             'type' => 'preamble_before_beginning'
           },
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

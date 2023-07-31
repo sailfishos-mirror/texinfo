@@ -25,7 +25,6 @@ $result_trees{'split_nocopying_split'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

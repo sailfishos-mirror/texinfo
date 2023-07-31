@@ -25,7 +25,6 @@ $result_trees{'simplest_test_date_in_header'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

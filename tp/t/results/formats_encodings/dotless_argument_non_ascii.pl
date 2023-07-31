@@ -10,7 +10,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

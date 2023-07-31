@@ -10,7 +10,6 @@ $result_trees{'listoffloats_with_commands'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

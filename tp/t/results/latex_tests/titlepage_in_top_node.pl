@@ -10,7 +10,6 @@ $result_trees{'titlepage_in_top_node'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

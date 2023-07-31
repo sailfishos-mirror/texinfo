@@ -10,7 +10,6 @@ $result_trees{'subentry_and_sortas_spaces'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

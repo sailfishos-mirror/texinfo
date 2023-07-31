@@ -10,7 +10,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

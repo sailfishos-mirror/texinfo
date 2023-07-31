@@ -10,7 +10,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

@@ -10,7 +10,6 @@ $result_trees{'quote_node_names_info'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

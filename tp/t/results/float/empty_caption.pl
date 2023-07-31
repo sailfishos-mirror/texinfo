@@ -10,7 +10,6 @@ $result_trees{'empty_caption'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

@@ -10,7 +10,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

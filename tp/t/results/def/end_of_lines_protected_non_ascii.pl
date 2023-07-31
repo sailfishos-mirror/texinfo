@@ -20,7 +20,6 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

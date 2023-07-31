@@ -10,7 +10,6 @@ $result_trees{'chapter_between_nodes'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

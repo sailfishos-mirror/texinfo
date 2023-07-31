@@ -25,7 +25,6 @@ $result_trees{'no_content_do_contents_inline'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

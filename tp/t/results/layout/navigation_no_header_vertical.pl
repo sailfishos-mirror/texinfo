@@ -25,7 +25,6 @@ $result_trees{'navigation_no_header_vertical'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

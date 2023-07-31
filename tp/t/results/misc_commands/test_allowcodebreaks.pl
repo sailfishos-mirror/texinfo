@@ -10,7 +10,6 @@ $result_trees{'test_allowcodebreaks'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

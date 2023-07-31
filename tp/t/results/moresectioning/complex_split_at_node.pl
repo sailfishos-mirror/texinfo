@@ -11,7 +11,6 @@ $result_trees{'complex_split_at_node'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

@@ -25,7 +25,6 @@ $result_trees{'manual_simple_utf8_with_error'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

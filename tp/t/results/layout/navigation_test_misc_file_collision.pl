@@ -25,7 +25,6 @@ $result_trees{'navigation_test_misc_file_collision'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

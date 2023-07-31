@@ -25,7 +25,6 @@ $result_trees{'contents_at_end_separate_element'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

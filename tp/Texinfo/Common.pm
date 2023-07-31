@@ -946,8 +946,7 @@ sub _add_preamble_before_content($)
 
   # add a preamble for informational commands
   my $informational_preamble = {'type' => 'preamble_before_content',
-                                'parent' => $before_node_section,
-                                'contents' => []};
+                                'parent' => $before_node_section,};
   my @first_types;
   if ($before_node_section->{'contents'}) {
     while (@{$before_node_section->{'contents'}}) {
@@ -964,6 +963,8 @@ sub _add_preamble_before_content($)
       } else {
         my $content = shift @{$before_node_section->{'contents'}};
         $content->{'parent'} = $informational_preamble;
+        $informational_preamble->{'contents'} = []
+            if (!$informational_preamble->{'contents'});
         push @{$informational_preamble->{'contents'}}, $content;
       }
     }

@@ -10,7 +10,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node_menu'} = {
     {
       "contents" => [
         {
-          "contents" => [],
           "type" => "preamble_before_content"
         }
       ],

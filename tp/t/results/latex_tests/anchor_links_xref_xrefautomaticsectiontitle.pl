@@ -10,7 +10,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

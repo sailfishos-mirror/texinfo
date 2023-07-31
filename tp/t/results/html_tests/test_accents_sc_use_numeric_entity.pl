@@ -25,7 +25,6 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

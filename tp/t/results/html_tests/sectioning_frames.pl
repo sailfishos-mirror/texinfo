@@ -25,7 +25,6 @@ $result_trees{'sectioning_frames'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

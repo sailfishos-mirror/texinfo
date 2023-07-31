@@ -10,7 +10,6 @@ $result_trees{'enumerate_arguments'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

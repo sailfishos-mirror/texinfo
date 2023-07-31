@@ -10,7 +10,6 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

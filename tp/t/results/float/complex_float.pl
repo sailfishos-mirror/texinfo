@@ -10,7 +10,6 @@ $result_trees{'complex_float'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

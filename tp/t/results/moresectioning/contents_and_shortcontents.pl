@@ -10,7 +10,6 @@ $result_trees{'contents_and_shortcontents'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

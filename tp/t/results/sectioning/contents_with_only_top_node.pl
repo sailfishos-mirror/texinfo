@@ -20,7 +20,6 @@ $result_trees{'contents_with_only_top_node'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

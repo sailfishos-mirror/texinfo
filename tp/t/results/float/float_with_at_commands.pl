@@ -10,7 +10,6 @@ $result_trees{'float_with_at_commands'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

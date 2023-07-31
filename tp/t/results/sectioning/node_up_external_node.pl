@@ -11,7 +11,6 @@ $result_trees{'node_up_external_node'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

@@ -10,7 +10,6 @@ $result_trees{'inter_item_commands_in_table'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

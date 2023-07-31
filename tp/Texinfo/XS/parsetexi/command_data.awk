@@ -169,8 +169,7 @@ END {
                     && flags_array[flag_idx] != "formatted_line" \
                     && flags_array[flag_idx] != "formatted_nobrace" \
                     && flags_array[flag_idx] != "formattable_line" \
-                    && flags_array[flag_idx] != "non_formatted_block" \
-                    && flags_array[flag_idx] != "preamble") {
+                    && flags_array[flag_idx] != "non_formatted_block") {
                   old_str = flags_str
                   flags_str = old_str "," flags_array[flag_idx]
                 }

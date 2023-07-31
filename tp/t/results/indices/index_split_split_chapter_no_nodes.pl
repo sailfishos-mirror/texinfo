@@ -25,7 +25,6 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

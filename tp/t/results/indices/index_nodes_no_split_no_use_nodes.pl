@@ -25,7 +25,6 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'type' => 'preamble_before_beginning'
         },
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

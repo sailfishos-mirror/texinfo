@@ -10,7 +10,6 @@ $result_trees{'nested_itemize'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         },
         {

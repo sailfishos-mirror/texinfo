@@ -11,7 +11,6 @@ $result_trees{'double_part'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

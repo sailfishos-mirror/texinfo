@@ -10,7 +10,6 @@ $result_trees{'comment_space_comand_in_float'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

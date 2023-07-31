@@ -11,7 +11,6 @@ $result_trees{'two_nodes_at_the_end'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

@@ -10,7 +10,6 @@ $result_trees{'top_no_sectioning_command'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

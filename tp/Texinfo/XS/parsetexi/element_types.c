@@ -24,6 +24,7 @@ char *element_type_names[] = {
 "postamble_after_end",
 "preamble_before_beginning",
 "preamble_before_setfilename",
+"preamble_before_content",
 "paragraph",
 "preformatted",
 "rawpreformatted",

@@ -10,7 +10,6 @@ $result_trees{'contents'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

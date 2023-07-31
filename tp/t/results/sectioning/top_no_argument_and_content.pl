@@ -10,7 +10,6 @@ $result_trees{'top_no_argument_and_content'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

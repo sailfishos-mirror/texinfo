@@ -11,7 +11,6 @@ $result_trees{'two_nodes_between_chapters'} = [
       {
         'contents' => [
           {
-            'contents' => [],
             'type' => 'preamble_before_content'
           }
         ],

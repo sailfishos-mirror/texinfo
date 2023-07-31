@@ -529,11 +529,70 @@ setup_document_root_and_before_node_section ()
   return before_node_section;
 }
 
+void
+rearrange_tree_beginning (ELEMENT *before_node_section)
+{
+  ELEMENT *informational_preamble;
+  /* temporary placeholder */
+  ELEMENT *first_types = new_element (ET_NONE);
+
+  /* Put everything before @setfilename in a special type.  This allows to
+     ignore everything before @setfilename. */
+  if (global_info.setfilename
+      && global_info.setfilename->parent == before_node_section)
+    {
+      ELEMENT *before_setfilename
+         = new_element (ET_preamble_before_setfilename);
+      while (before_node_section->contents.number > 0
+             && before_node_section->contents.list[0]->cmd != CM_setfilename)
+        {
+          ELEMENT *e = remove_from_contents (before_node_section, 0);
+          add_to_element_contents (before_setfilename, e);
+        }
+      if (before_setfilename->contents.number > 0)
+        insert_into_contents (before_node_section, before_setfilename, 0);
+    }
+
+  /* _add_preamble_before_content */
+
+  /* add a preamble for informational commands */
+  informational_preamble = new_element (ET_preamble_before_content);
+  if (before_node_section->contents.number > 0)
+    {
+      while (before_node_section->contents.number > 0)
+        {
+          ELEMENT *next_content = before_node_section->contents.list[0];
+          if (next_content->type == ET_preamble_before_beginning
+              || next_content->type == ET_preamble_before_setfilename)
+            add_to_element_contents (first_types,
+                            remove_from_contents (before_node_section, 0));
+          else if (next_content->type == ET_paragraph
+                   || (next_content->cmd
+                       && !(command_data(next_content->cmd).flags
+                                                      & CF_preamble)))
+            break;
+          else
+            {
+              ELEMENT *e = remove_from_contents (before_node_section, 0);
+              add_to_element_contents (informational_preamble, e);
+            }
+        }
+    }
+  add_to_element_contents (first_types, informational_preamble);
+  while (first_types->contents.number > 0)
+    {
+      ELEMENT *e = pop_element_from_contents (first_types);
+      insert_into_contents (before_node_section, e, 0);
+    }
+  destroy_element (first_types);
+}
+
 
 ELEMENT *
 parse_texi_document (void)
 {
   char *linep, *line = 0;
+  ELEMENT *result;
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = before_node_section->parent;
@@ -570,7 +629,11 @@ parse_texi_document (void)
   if (preamble_before_beginning)
     add_to_element_contents (before_node_section, preamble_before_beginning);
 
-  return parse_texi (document_root, before_node_section);
+  result = parse_texi (document_root, before_node_section);
+
+  rearrange_tree_beginning (before_node_section);
+
+  return result;
 }
 
 

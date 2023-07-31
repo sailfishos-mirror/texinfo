@@ -10,7 +10,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

@@ -10,7 +10,6 @@ $result_trees{'recursive_self_section_reference'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],

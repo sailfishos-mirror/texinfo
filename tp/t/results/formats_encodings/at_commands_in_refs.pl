@@ -10,7 +10,6 @@ $result_trees{'at_commands_in_refs'} = {
     {
       'contents' => [
         {
-          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
