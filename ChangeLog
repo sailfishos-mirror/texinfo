@@ -1,5 +1,31 @@
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	Set floats list from XS parser, fix related bugs
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(_set_errors_node_lists_labels_indices, get_parser_info),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): do not
+	call NodeNameNormalization::set_float_types, instead call
+	build_float_list.  Uncomment the code in end_line_starting_block
+	that calls parse_float_type and append to the floats list.  Uncomment
+	the call of parse_float_type for listoffloats in end_line_misc_line.
+
+	* tp/Texinfo/XS/parsetexi/api.c (build_float_list): use newSVpv_utf8
+	on float type and use hv_fetch_ent to fetch the hash value to handle
+	UTF-8 encoded key.
+
+	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(convert_to_normalized): return an empty string instead of 0 to avoid
+	an undef value.
+
+	* tp/Texinfo/XS/parsetexi/unicode.c (normalize_NFC): add +1 to the
+	length in u8_normalize input to have the NUL byte considered.
+
+	* tp/maintain/setup_converters_code_tables.pl: output UTF-8 encoded
+	diacritic.
+
+2023-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	in tp/Texinfo/XS gnulib-tool --add-import uninorm/nfc
 
 	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_LDFLAGS): add

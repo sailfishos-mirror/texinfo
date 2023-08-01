@@ -121,7 +121,7 @@ foreach my $command_name (@commands_order) {
   #print UNIC "$command; ";
 
   if (defined($unicode_diacritics{$command_name})) {
-    my $result = $unicode_diacritics{$command_name};
+    my $result = chr(hex($unicode_diacritics{$command_name}));
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
     print UNIC "\"$protected\",\n";
   } else {

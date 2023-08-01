@@ -186,6 +186,8 @@ convert_to_normalized (ELEMENT *e)
   if (!e)
     return strdup ("");
   text_init (&result);
+  /* FIXME this is needed for a test result with empty listoffloats */
+  text_append (&result, "");
   convert_to_normalized_internal (e, &result);
   return result.text;
 }

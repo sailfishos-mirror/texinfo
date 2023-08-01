@@ -30,6 +30,7 @@
 #include "def.h"
 #include "source_marks.h"
 #include "handle_commands.h"
+#include "node_name_normalization.h"
 
 static int
 isascii_alpha (int c)
@@ -632,11 +633,7 @@ parse_float_type (ELEMENT *current)
 {
   char *normalized;
   if (current->args.number > 0)
-    {
-      /* TODO convert_to_texinfo is incorrect here, conversion should follow
-         code of Texinfo::Convert::NodeNameNormalization::convert_to_normalized */
-      normalized = convert_to_texinfo (current->args.list[0]);
-    }
+    normalized = convert_to_normalized (current->args.list[0]);
   else
     normalized = strdup ("");
   add_extra_string (current, "float_type", normalized);
@@ -852,13 +849,9 @@ end_line_starting_block (ELEMENT *current)
           float_label_element = args_child_by_index (current, 1);
         }
       check_register_target_element_label (float_label_element, current);
-      /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
-         good to do in Parser/XS */
-      /*
       float_type = parse_float_type (current);
-      */
+
       /* add to global 'floats' array */
-      /*
       if (floats_number == floats_space)
         {
           floats_list = realloc (floats_list,
@@ -866,7 +859,7 @@ end_line_starting_block (ELEMENT *current)
         }
       floats_list[floats_number].type = float_type;
       floats_list[floats_number++].element = current;
-      */
+
       if (current_section)
         add_extra_element (current, "float_section", current_section);
     }
@@ -1547,9 +1540,7 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (current->cmd == CM_listoffloats)
     {
-      /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
-         good to do in Parser/XS */
-      /* parse_float_type (current); */
+      parse_float_type (current);
     }
   else
     {
