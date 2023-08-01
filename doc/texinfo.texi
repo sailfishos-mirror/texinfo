@@ -2019,13 +2019,9 @@ released under the GNU FDL@.  It is helpful to state the license of
 the software of the manual, but giving the complete text of the
 software license is not necessarily required.
 
-@menu
-* @code{@@copying}::                    Declare the document's copying permissions.
-* @code{@@insertcopying}::              Where to insert the permissions.
-@end menu
-
 
 @node @code{@@copying}
+@nodedescription Declare the document's copying permissions.
 @subsection @code{@@copying}: Declare Copying Permissions
 
 @anchor{copying}@c old name
@@ -2105,6 +2101,7 @@ distributed.
 
 
 @node @code{@@insertcopying}
+@nodedescription Where to insert the permissions.
 @subsection @code{@@insertcopying}: Include Permissions Text
 
 @anchor{insertcopying}@c old name
@@ -4246,28 +4243,11 @@ and not used online, you must nonetheless write @code{@@node} lines (or
 @code{@@anchor} anchors) in order to name the places to which you make
 cross-references.
 
-@menu
-* Cross Reference Commands::    A summary of the different commands.
-* Cross Reference Parts::       A cross-reference has several parts.
-* One Argument::                @code{@@xref} with one argument.
-* Two Arguments::               @code{@@xref} with two arguments.
-* Three Arguments::             @code{@@xref} with three arguments.
-* Four and Five Arguments::     @code{@@xref} with four and five arguments.
-* Referring to a Manual as a Whole::   Refer to an entire manual.
-* @code{@@xref}::                       Begin a reference with `See' @dots{}
-* @code{@@ref}::                        A reference for the last part of a sentence.
-* @code{@@pxref}::                      How to write a parenthetical cross-reference.
-* @code{@@anchor}::                     Defining arbitrary cross-reference targets
-* @code{@@link}::                       How to make a plain link.
-* @code{@@inforef}::                    How to refer to an Info-only file.
-* @code{@@url}::                        How to refer to a uniform resource locator.
-* @code{@@cite}::                       How to refer to books not in the Info system.
-@end menu
-
 
 
 
 @node Cross Reference Commands
+@nodedescription A summary of the different commands.
 @section Different Cross-reference Commands
 @cindex Different cross-reference commands
 
@@ -4300,6 +4280,7 @@ Wide Web.
 
 
 @node Cross Reference Parts
+@nodedescription A cross-reference has several parts.
 @section Parts of a Cross-reference
 @cindex Cross-reference parts
 @cindex Parts of a cross-reference
@@ -4395,6 +4376,7 @@ interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
 @raisesections
 @node One Argument
+@nodedescription @code{@@xref} with one argument.
 @subsection @code{@@xref} with One Argument
 @cindex One-argument form of cross-references
 
@@ -4428,6 +4410,7 @@ in a printed manual.
 
 
 @node Two Arguments
+@nodedescription @code{@@xref} with two arguments.
 @subsection @code{@@xref} with Two Arguments
 @cindex Two-argument form of cross-references
 
@@ -4472,6 +4455,7 @@ context is the colon.  @xref{Info Node Names Constraints}.
 
 
 @node Three Arguments
+@nodedescription @code{@@xref} with three arguments.
 @subsection @code{@@xref} with Three Arguments
 @cindex Three-argument form of cross-references
 
@@ -4573,6 +4557,7 @@ in node headers instead of the node names when possible.
 
 
 @node Four and Five Arguments
+@nodedescription @code{@@xref} with four and five arguments.
 @subsection @code{@@xref} with Four and Five Arguments
 @cindex Four- and five argument forms of cross-references
 
@@ -4708,6 +4693,7 @@ whole.  See the next section.
 
 
 @node Referring to a Manual as a Whole
+@nodedescription Refer to an entire manual.
 @section Referring to a Manual as a Whole
 @cindex Manual, referring to as a whole
 @cindex Referring to an entire manual
@@ -4781,6 +4767,7 @@ third argument in whole-manual cross-references is preferable.
 
 
 @node @code{@@xref}
+@nodedescription Begin a reference with `See' @dots{}
 @section @code{@@xref}
 
 @anchor{xref}@c old name
@@ -4794,6 +4781,7 @@ in previous sections.
 
 
 @node @code{@@ref}
+@nodedescription A reference for the last part of a sentence.
 @section @code{@@ref}
 
 @anchor{ref}@c old name
@@ -4853,6 +4841,7 @@ Sea surges are described in *note Hurricanes::.
 
 
 @node @code{@@pxref}
+@nodedescription How to write a parenthetical cross-reference.
 @section @code{@@pxref}
 
 @anchor{pxref}@c old name
@@ -4904,6 +4893,7 @@ the word ``see'' should be present.
 
 
 @node @code{@@anchor}
+@nodedescription Defining arbitrary cross-reference targets
 @section @code{@@anchor}: Defining Arbitrary Cross-reference Targets
 
 @anchor{anchor}@c old name
@@ -4961,6 +4951,7 @@ manuals or general web pages, keep working.
 
 
 @node @code{@@link}
+@nodedescription How to make a plain link.
 @section @code{@@link}: Plain, unadorned hyperlink
 @findex link
 @cindex Cross-references using @code{@@link}
@@ -4997,6 +4988,7 @@ in a programming library.
 
 
 @node @code{@@inforef}
+@nodedescription How to refer to an Info-only file.
 @section @code{@@inforef}: Cross-references to Info-only Material
 
 @anchor{inforef}@c old name
@@ -5035,6 +5027,7 @@ The template is:
 
 
 @node @code{@@url}
+@nodedescription How to refer to a uniform resource locator.
 @section @code{@@url}, @code{@@uref@{@var{url}[, @var{text}][, @var{replacement}]@}}
 
 @anchor{uref}@c old name
@@ -5267,6 +5260,7 @@ specific reason to use colors, best to skip it.
 
 
 @node @code{@@cite}
+@nodedescription How to refer to books not in the Info system.
 @section @code{@@cite}@{@var{reference}@}
 
 @anchor{cite}@c old name
