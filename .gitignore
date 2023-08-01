@@ -287,6 +287,8 @@ tp/Texinfo/XS/gnulib/lib/.libs
 tp/Texinfo/XS/gnulib/lib/*.lo
 tp/Texinfo/XS/gnulib/lib/libgnu.la
 tp/Texinfo/XS/gnulib/lib/uniconv/*.lo
+tp/Texinfo/XS/gnulib/lib/unictype/*.lo
+tp/Texinfo/XS/gnulib/lib/uninorm/*.lo
 tp/Texinfo/XS/gnulib/lib/unistr/*.lo
 tp/Texinfo/XS/gnulib/lib/uniwidth/*.lo
 
@@ -296,6 +298,8 @@ tp/Texinfo/XS/gnulib/lib/stddef.h
 tp/Texinfo/XS/gnulib/lib/stdint.h
 tp/Texinfo/XS/gnulib/lib/stdio.h
 tp/Texinfo/XS/gnulib/lib/string.h
+tp/Texinfo/XS/gnulib/lib/unictype.h
+tp/Texinfo/XS/gnulib/lib/uninorm.h
 tp/Texinfo/XS/gnulib/lib/unitypes.h
 tp/Texinfo/XS/gnulib/lib/uniwidth.h
 tp/Texinfo/XS/gnulib/lib/wchar.h

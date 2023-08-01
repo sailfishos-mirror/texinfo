@@ -159,6 +159,19 @@ parsing, but not necessarily for all the function, maybe only parse_texi_text
 and parse_texi_file.
 
 
+
+You may need to add #include directives for the following .h files.
+  #include <stdio.h>
+  #include <string.h>
+  #include <wchar.h>
+  #include "obstack.h"
+  #include "uniconv.h"
+  #include "uninorm.h"
+  #include "unistr.h"
+  #if HAVE_ICONV
+  # include <iconv.h>
+  #endif
+
 For Paragraph, improvements and synchronizations of
 the two implementations.  It would be nice to change the XS code
 to operate on multiple spans of characters at once when relevant,

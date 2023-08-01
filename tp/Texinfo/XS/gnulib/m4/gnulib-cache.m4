@@ -44,6 +44,7 @@
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
+#  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
 #  vasprintf \
 #  wcwidth
@@ -58,6 +59,7 @@ gl_MODULES([
   strchrnul
   strndup
   uniconv/u8-strconv-from-enc
+  uninorm/u8-normalize
   unistr/u8-mbsnlen
   vasprintf
   wcwidth

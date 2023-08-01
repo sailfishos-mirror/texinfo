@@ -46,6 +46,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module alignasof:
   # Code from module alignof:
   # Code from module alloca-opt:
+  # Code from module array-mergesort:
   # Code from module assert-h:
   # Code from module attribute:
   # Code from module c-ctype:
@@ -105,9 +106,15 @@ AC_DEFUN([gl_EARLY],
   # Code from module uniconv/base:
   # Code from module uniconv/u8-conv-from-enc:
   # Code from module uniconv/u8-strconv-from-enc:
+  # Code from module unictype/base:
+  # Code from module unictype/combining-class:
+  # Code from module uninorm/base:
+  # Code from module uninorm/decompose-internal:
+  # Code from module uninorm/u8-normalize:
   # Code from module unistd:
   # Code from module unistr/base:
   # Code from module unistr/u8-check:
+  # Code from module unistr/u8-cpy:
   # Code from module unistr/u8-mblen:
   # Code from module unistr/u8-mbsnlen:
   # Code from module unistr/u8-mbtouc:
@@ -311,12 +318,24 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-conv-from-enc])
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-strconv-from-enc])
+  gl_LIBUNISTRING_LIBHEADER([1.2], [unictype.h])
+  gl_UNICTYPE_H
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([1.1], [unictype/combining-class])
+  gl_LIBUNISTRING_LIBHEADER([1.2], [uninorm.h])
+  gl_UNINORM_H
+  gl_UNINORM_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u8-normalize])
+  gl_LIBUNISTRING_MODULE([1.1], [uninorm/u8-normalize])
   gl_UNISTD_H
   gl_UNISTD_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_LIBHEADER([1.2], [unistr.h])
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-check])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-cpy])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mblen])
   gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbsnlen])
   gl_MODULE_INDICATOR([unistr/u8-mbtouc])
@@ -544,6 +563,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/alignof.h
   lib/alloca.in.h
   lib/arg-nonnull.h
+  lib/array-mergesort.h
   lib/asnprintf.c
   lib/asprintf.c
   lib/assert.in.h
@@ -620,11 +640,22 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uniconv/u-strconv-from-enc.h
   lib/uniconv/u8-conv-from-enc.c
   lib/uniconv/u8-strconv-from-enc.c
+  lib/unictype.in.h
   lib/unictype/bitmap.h
+  lib/unictype/combiningclass.c
+  lib/unictype/combiningclass.h
+  lib/uninorm.in.h
+  lib/uninorm/decompose-internal.c
+  lib/uninorm/decompose-internal.h
+  lib/uninorm/normalize-internal.h
+  lib/uninorm/u-normalize-internal.h
+  lib/uninorm/u8-normalize.c
   lib/unistd.c
   lib/unistd.in.h
   lib/unistr.in.h
+  lib/unistr/u-cpy.h
   lib/unistr/u8-check.c
+  lib/unistr/u8-cpy.c
   lib/unistr/u8-mblen.c
   lib/unistr/u8-mbsnlen.c
   lib/unistr/u8-mbtouc-aux.c
@@ -716,6 +747,8 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/strndup.m4
   m4/strnlen.m4
   m4/sys_types_h.m4
+  m4/unictype_h.m4
+  m4/uninorm_h.m4
   m4/unistd_h.m4
   m4/vararrays.m4
   m4/vasnprintf.m4
