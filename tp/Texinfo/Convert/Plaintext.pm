@@ -3512,6 +3512,10 @@ sub _convert($$)
             if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN'))) {
               $text_element_context->{'max'}
                  = $self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN');
+            } else {
+              # e.g. 72 -> 79
+              $text_element_context->{'max'}
+                 = int($text_element_context->{'max'} * 1.1);
             }
 
             push @{$self->{'text_element_context'}}, $text_element_context;
