@@ -105,7 +105,7 @@ unicode_accent (const char *text, ELEMENT *e)
                   int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
-                  first_char_u8[first_char_len+1] = 0;
+                  first_char_u8[first_char_len] = 0;
                   first_char_text = u8_strconv_to_encoding (first_char_u8, "UTF-8",
                                                             iconveh_question_mark);
                   free (first_char_u8);

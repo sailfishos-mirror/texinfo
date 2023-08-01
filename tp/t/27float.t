@@ -67,6 +67,13 @@ Ceci est notre premi@`ere entr@\'ee.
 
 @listoffloats entr@\'ee
 '],
+['float_type_with_tieaccent',
+'@float A @tieaccent{1a} @tieaccent{'."\x{7b2c}".'H} @tieaccent{@^e'."\x{4e00}".' and text}, label
+inside
+@end float
+
+@listoffloats A @tieaccent{1a} @tieaccent{'."\x{7b2c}H}".' @tieaccent{@^e'."\x{4e00}".' and text}
+'],
 ['footnote_in_caption',
 '@node Top
 @node chap

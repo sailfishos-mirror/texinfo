@@ -1,5 +1,14 @@
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/unicode.c (unicode_accent): fix a one off
+	NUL byte location.
+
+	* tp/Makefile.tres, tp/t/27float.t (float_type_with_tieaccent):
+	new test with tieaccent if float type, with diverse type of letters or
+	digits in tieaccent.
+
+2023-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	in tp/Texinfo/XS gnulib-tool --add-import unistr/u8-next
 
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
