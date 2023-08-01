@@ -7202,16 +7202,9 @@ Texinfo has several ways of making lists and tables.  Lists can be
 bulleted or numbered; two-column tables can highlight the items in
 the first column; multi-column tables are also supported.
 
-@menu
-* Introducing Lists::           Texinfo formats lists for you.
-* @code{@@itemize}::                    How to construct a simple list.
-* @code{@@enumerate}::                  How to construct a numbered list.
-* Two-column Tables::           How to construct a two-column table.
-* Multi-column Tables::         How to construct generalized tables.
-@end menu
-
 
 @node Introducing Lists
+@nodedescription Texinfo formats lists for you.
 @section Introducing Lists
 
 Texinfo automatically indents the text in lists or tables, and numbers
@@ -7283,6 +7276,7 @@ Two-column tables, optionally with indexing.
 
 
 @node @code{@@itemize}
+@nodedescription How to construct a simple list.
 @section @code{@@itemize}: Making an Itemized List
 
 @anchor{itemize}@c old name
@@ -7403,6 +7397,7 @@ Second outer item.
 
 
 @node @code{@@enumerate}
+@nodedescription How to construct a numbered list.
 @section @code{@@enumerate}: Making a Numbered or Lettered List
 
 @anchor{enumerate}@c old name
@@ -7522,6 +7517,7 @@ You can also nest enumerated lists, as in an outline.
 
 
 @node Two-column Tables
+@nodedescription How to construct a two-column table.
 @section Making a Two-column Table
 
 @cindex Tables, making two-column
@@ -7710,6 +7706,7 @@ a two-column table.)
 
 
 @node Multi-column Tables
+@nodedescription How to construct generalized tables.
 @section @code{@@multitable}: Multi-column Tables
 
 @findex multitable
@@ -7723,13 +7720,9 @@ write each row of the actual table following an @code{@@item} command,
 with columns separated by a @code{@@tab} command.  Finally, @code{@@end
 multitable} completes the table.  Details in the sections below.
 
-@menu
-* Multitable Column Widths::    Defining multitable column widths.
-* Multitable Rows::             Defining multitable rows, with examples.
-@end menu
-
 
 @node Multitable Column Widths
+@nodedescription Defining multitable column widths.
 @subsection Multitable Column Widths
 @cindex Multitable column widths
 @cindex Column widths, defining for multitables
@@ -7786,6 +7779,7 @@ Prototype rows have no effect in HTML output.
 
 
 @node Multitable Rows
+@nodedescription Defining multitable rows, with examples.
 @subsection Multitable Rows
 
 @cindex Multitable rows
@@ -7872,14 +7866,9 @@ are often included in these displays.
 
 Another group of commands is for creating footnotes in Texinfo.
 
-@menu
-* Floats::                      Figures, tables, and the like.
-* Images::                      Including graphics and images.
-* Footnotes::                   Writing footnotes.
-@end menu
-
 
 @node Floats
+@nodedescription Figures, tables, and the like.
 @section Floats
 @cindex Floats
 
@@ -7896,14 +7885,9 @@ this floating is unfortunately not yet implemented.  Instead, the
 floating material is simply output at the current location, more
 or less as if it were an @code{@@group} (@pxref{@code{@@group}}).
 
-@menu
-* @code{@@float}::                      Producing floating material.
-* @code{@@caption @@shortcaption}::      Specifying descriptions for floats.
-* @code{@@listoffloats}::               A table of contents for floats.
-@end menu
-
 
 @node @code{@@float}
+@nodedescription Producing floating material.
 @subsection @code{@@float} [@var{type}][,@var{label}]: Floating Material
 
 @anchor{float}@c old name
@@ -7981,6 +7965,7 @@ These numbering conventions are not, at present, changeable.
 
 
 @node @code{@@caption @@shortcaption}
+@nodedescription Specifying descriptions for floats.
 @subsection @code{@@caption} & @code{@@shortcaption}
 
 @anchor{caption shortcaption}@c old name
@@ -8040,6 +8025,7 @@ when formatted, unless there is a @code{@@shortcaption}.
 
 
 @node @code{@@listoffloats}
+@nodedescription A table of contents for floats.
 @subsection @code{@@listoffloats}: Tables of Contents for Floats
 
 @anchor{listoffloats}@c old name
@@ -8098,6 +8084,7 @@ specific @code{\listof} command is output.
 
 
 @node Images
+@nodedescription Including graphics and images.
 @section Inserting Images
 
 @cindex Images
@@ -8329,6 +8316,7 @@ any other sort of output.
 
 
 @node Footnotes
+@nodedescription Writing footnotes.
 @section Footnotes
 @cindex Footnotes
 @findex footnote
