@@ -524,7 +524,7 @@ Text
 
 * name of last: last. desc of last
 * a somewhat long node without description nor following space::
-* a very long node without description with little space left for::
+* a very long node without description with very little space left for::
 * very very long node extending past the max columns and without description::
 @end menu
 
@@ -553,7 +553,7 @@ Text
 
 @nodedescription not as long as the node
 
-@node a very long node without description with little space left for
+@node a very long node without description with very little space left for
 @chapter Very long
 
 @nodedescription starting the desciption with a somewhat long word
