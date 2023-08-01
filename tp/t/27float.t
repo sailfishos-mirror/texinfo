@@ -49,6 +49,13 @@ In foat 2.
 
 @ref{Label2}
 '],
+['multiple_spaces_in_float_type',
+'@float Type  of  '."\f".'  Float, myfloat
+inside
+@end float
+
+@listoffloats Type of Float
+'],
 ['float_with_at_commands',
 '@float entr@\'ee, premi@`ere entr@\'ee
 
