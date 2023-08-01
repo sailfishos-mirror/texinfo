@@ -1725,8 +1725,8 @@ sub _get_form_feeds($)
 }
 
 #my $description_indent_length = 31;
-# computed as 72/31
-my $description_indent_length_factor = 2.32;
+# computed as 31/72
+my $description_indent_length_factor = 0.44;
 
 sub _convert($$);
 
@@ -3485,7 +3485,7 @@ sub _convert($$)
             } else {
               $description_indent_length
                = int($self->{'text_element_context'}->[-1]->{'max'}
-                    / $description_indent_length_factor);
+                    * $description_indent_length_factor);
             }
 
             my $description_element = $self->{'labels'}

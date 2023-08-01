@@ -1,5 +1,11 @@
 2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <menu entry description>:
+	Multiply by 0.44 instead of dividing by 2.32 as this is easier
+	to understand.
+
+2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi: Remove remaining @menu blocks and
 	use @nodedescription where needed.
 
