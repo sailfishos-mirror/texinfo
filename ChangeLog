@@ -1,5 +1,10 @@
 2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (PDF Colors): Move up a level as the section is not
+	just related to @link.
+
+2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Start removing @menu throughout.
 
 2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>

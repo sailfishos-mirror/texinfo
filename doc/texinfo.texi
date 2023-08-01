@@ -258,13 +258,13 @@ Cross-references
 * @code{@@inforef}::                    How to refer to an Info-only file.
 * @code{@@url}::                        How to refer to a uniform resource locator.
 * @code{@@cite}::                       How to refer to books not in the Info system.
+* PDF Colors::                  Colorizing URLs and other links in PDF output.
 
 @code{@@url}, @code{@@uref@{@var{url}[, @var{text}][, @var{replacement}]@}}
 
 * @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
 * URL Line Breaking::       How lines are broken within @code{@@url} text.
 * @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-* PDF Colors::              Colorizing URLs and other links in PDF output.
 
 Marking Text, Words and Phrases
 
@@ -5064,7 +5064,6 @@ the third argument is given, the second argument is ignored.
 * @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
 * URL Line Breaking::       How lines are broken within @code{@@url} text.
 * @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-* PDF Colors::              Colorizing URLs and other links in PDF output.
 @end menu
 
 
@@ -5219,8 +5218,25 @@ option unconditionally within @code{@@tex}, as shown above.  It is
 ignored when DVI is being produced.
 
 
+@node @code{@@cite}
+@nodedescription How to refer to books not in the Info system.
+@section @code{@@cite}@{@var{reference}@}
+
+@anchor{cite}@c old name
+@findex cite
+
+Use the @code{@@cite} command for the name of a book that lacks a
+companion Info file.  For example, we could refer to @cite{A Book}.
+The command selects a slanted font in the printed
+manual, and generates quotation marks in the Info file.
+
+If a book is written in Texinfo, it is better to use a cross-reference
+command since a reader can easily follow such a reference in Info.
+@xref{@code{@@xref}}.
+
 @node PDF Colors
-@subsection PDF Colors
+@nodedescription Colorizing URLs and other links in PDF output.
+@section PDF Colors
 
 @cindex Colored links, in PDF output
 @cindex Links, coloring in PDF output
@@ -5259,21 +5275,6 @@ We do not recommend colorizing just for fun; unless you have a
 specific reason to use colors, best to skip it.
 
 
-@node @code{@@cite}
-@nodedescription How to refer to books not in the Info system.
-@section @code{@@cite}@{@var{reference}@}
-
-@anchor{cite}@c old name
-@findex cite
-
-Use the @code{@@cite} command for the name of a book that lacks a
-companion Info file.  For example, we could refer to @cite{A Book}.
-The command selects a slanted font in the printed
-manual, and generates quotation marks in the Info file.
-
-If a book is written in Texinfo, it is better to use a cross-reference
-command since a reader can easily follow such a reference in Info.
-@xref{@code{@@xref}}.
 
 
 @node Marking Text
