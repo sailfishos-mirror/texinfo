@@ -158,8 +158,6 @@ naturally.  A member of the package/class would be initialized after the
 parsing, but not necessarily for all the function, maybe only parse_texi_text
 and parse_texi_file.
 
-
-
 You may need to add #include directives for the following .h files.
   #include <stdio.h>
   #include <string.h>
@@ -171,6 +169,61 @@ You may need to add #include directives for the following .h files.
   #if HAVE_ICONV
   # include <iconv.h>
   #endif
+
+For NodeNameNormalization Unicode::Normalize::NFC:
+uint8_t * u8_normalize (uninorm_t nf, const uint8_t *s, size_t n, uint8_t *resultbuf, size_t *lengthp)
+Macro: uninorm_t UNINORM_NFC
+Functions returning a string result take a (resultbuf, lengthp) argument pair. If resultbuf is not NULL and the result fits into *lengthp units, it is put in resultbuf, and resultbuf is returned. Otherwise, a freshly allocated string is returned. In both cases, *lengthp is set to the length (number of units) of the returned string. In case of error, NULL is returned and errno is set. 
+Some info missing on s and n, logically and from other functions: 
+  Converts the string s of length n 
+gnulib: uninorm/u8-normalize
+
+Function: int u8_strmbtouc (ucs4_t *puc, const uint8_t *s)
+Returns the length (number of units) of the first character in s, putting its ucs4_t representation in *puc. Returns 0 if it is the NUL character. Returns -1 upon failure. 
+or
+Function: const uint8_t * u8_next (ucs4_t *puc, const uint8_t *s)
+    Forward iteration step. Advances the pointer past the next character, or returns NULL if the end of the string has been reached. Puts the character’s ucs4_t representation in *puc. 
+ucs4_t is actually uint32_t
+To print the hex:
+%06lx or %06lX
+hex(0xFFFF)
+uint32_t toto = 65535 ;
+if (toto < 0xFFFF)
+{
+  fprintf(stderr, "%04lx\n", toto);
+} else {
+  fprintf(stderr, "%04lx - %06lx\n", toto, toto);
+}
+}
+For transliteration, use in iconv ascii//TRANSLIT?
+
+\p{L} Macro: uc_general_category_t UC_LETTER
+
+The UC_CATEGORY_* constants reflect the systematic general category values assigned by the Unicode Consortium. Whereas the other UC_* macros are aliases, for use when readable code is preferred. 
+    This represents the general category “Letter”. 
+Constant: uc_general_category_t UC_CATEGORY_L
+Macro: uc_general_category_t UC_LETTER
+
+Function: uc_general_category_t uc_general_category (ucs4_t uc)
+or
+Function: bool uc_is_general_category (ucs4_t uc, uc_general_category_t category)
+
+(probablement pas nécessaire)
+ucs4_t back to uint8_t; ptrdiff_t >= 6
+Function: int u8_uctomb (uint8_t *s, ucs4_t uc, ptrdiff_t n)
+
+convert back to string:
+Function: char * u8_strconv_to_encoding (const uint8_t *string, const char *tocode, enum iconv_ilseq_handler handler)
+tocode = "UTF-8"
+iconv_ilseq_handler? iconveh_question_replacement_character or iconveh_escape_sequence?
+
+For nodenormalization
+Constant: uc_property_t UC_PROPERTY_DIACRITIC
+Function: bool uc_is_property (ucs4_t uc, uc_property_t property)
+
+add_extra_string_dup (command_e, "clickstyle", global_clickstyle);
+
+
 
 For Paragraph, improvements and synchronizations of
 the two implementations.  It would be nice to change the XS code

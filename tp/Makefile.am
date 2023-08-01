@@ -305,6 +305,7 @@ maintenance_files = \
   maintain/regenerate_documentlanguages-loc.pl \
   maintain/regenerate_file_lists.pl \
   maintain/regenerate_commands_perl_info.pl \
+  maintain/setup_converters_code_tables.pl \
   maintain/template.pod \
   maintain/catalog.xml.in
 

@@ -149,7 +149,7 @@ typedef struct {
     SOURCE_MARK *source_mark;
 } CONDITIONAL_STACK_ITEM;
 
-size_t count_convert_u8 (char *text);
+size_t count_convert_u8 (const char *text);
 int isascii_alnum (int c);
 ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);

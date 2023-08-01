@@ -93,6 +93,8 @@ foreach my $diacritic(keys(%unicode_diacritics)) {
   $diacritics_accent_commands{$unicode_diacritics{$diacritic}} = $diacritic;
 }
 
+# dotless in unicode_accented_letters not in diacritics,
+# tieaccent in diacritics not in unicode_accented_letters.
 our %unicode_accented_letters = (
     'dotaccent' => { # dot above
         'A' => '0226',
@@ -1304,7 +1306,7 @@ sub unicode_accent($$)
         and (!$command->{'parent'}
              or !$command->{'parent'}->{'parent'}
              or !$command->{'parent'}->{'parent'}->{'cmdname'}
-             or !$unicode_accented_letters{$command->{'parent'}
+             or !$unicode_diacritics{$command->{'parent'}
                                         ->{'parent'}->{'cmdname'}})) {
       return chr(hex($unicode_accented_letters{$accent}->{$text}));
     } else {
@@ -1322,6 +1324,7 @@ sub unicode_accent($$)
       # tieaccent diacritic is naturally and correctly composed
       # between two characters
       my $remaining_text = $text;
+      # \p{L} matches a single code point in the category "letter".
       if ($remaining_text =~ s/^([\p{L}\d])([\p{L}\d])(.*)$/$3/) {
         return Unicode::Normalize::NFC($1.$diacritic.$2 . $remaining_text);
       } else {

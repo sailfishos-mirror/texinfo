@@ -48,7 +48,7 @@ const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
 
 /* count characters, not bytes. */
 size_t
-count_convert_u8 (char *text)
+count_convert_u8 (const char *text)
 {
   /* FIXME error checking? */
   uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",

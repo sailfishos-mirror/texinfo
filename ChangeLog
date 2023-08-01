@@ -1,5 +1,28 @@
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	Preliminary incomplete implementation of NodeNameNormalization in XS
+
+	* tp/Makefile.am (maintenance_files),
+	tp/maintain/setup_converters_code_tables.pl,
+	tp/Texinfo/XS/Makefile.am: setup C tables based on perl hashes, for
+	tables used in Unicode.pm and NodeNameNormalization.pm.
+
+	* tp/Texinfo/Convert/Unicode.pm (unicode_accent): use
+	%unicode_diacritics to determine if within an accent command, to
+	get tieaccent and avoid needing unicode_accented_letters in XS.
+
+	* tp/Texinfo/XS/Makefile.am, tp/Texinfo/XS/parsetexi/unicode.c
+	(normalize_NFC, unicode_accent),
+	tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(convert_to_normalized_internal, convert_to_normalized): partial
+	implementations in XS of Texinfo::Convert::Unicode and
+	Texinfo::Convert::NodeNameNormalization.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (count_convert_u8): set input to
+	be const.
+
+2023-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	Run 'gnulib-tool --add-import uninorm/u8-normalize' under tp/Texinfo/XS.
 
 	* tp/Texinfo/XS/parsetexi/labels.c,

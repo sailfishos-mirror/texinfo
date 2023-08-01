@@ -123,6 +123,10 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/debug.h \
 		      parsetexi/convert_to_texinfo.c \
 		      parsetexi/convert_to_texinfo.h \
+		      parsetexi/node_name_normalization.c \
+		      parsetexi/node_name_normalization.h \
+		      parsetexi/unicode.c \
+		      parsetexi/unicode.h \
 		      parsetexi/end_line.c \
 		      parsetexi/separator.c \
 		      parsetexi/multitable.c \
@@ -147,6 +151,8 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/document.c \
 		      parsetexi/document.h
 EXTRA_DIST += $(p)/command_data.c
+EXTRA_DIST += $(p)/command_tables.c
+EXTRA_DIST += $(p)/unicode_tables.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
@@ -159,6 +165,8 @@ Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
 BUILT_SOURCES=parsetexi/element_types.c \
               parsetexi/element_types.h \
               parsetexi/command_data.c \
+              parsetexi/command_tables.c \
+              parsetexi/unicode_tables.c \
 	      parsetexi/command_ids.h
 
 # Need to be distributed
@@ -172,6 +180,11 @@ $(srcdir)/$(p)/element_types.c $(srcdir)/$(p)/element_types.h: $(p)/element_type
 $(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: ../command_data.txt $(p)/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/command_data.awk \
 	     $(srcdir)/../command_data.txt
+
+$(srcdir)/$(p)/command_tables.c: $(srcdir)/$(p)/command_data.c
+	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
+           < $(srcdir)/$(p)/command_data.c \
+              $(srcdir)/$(p)/command_tables.c $(srcdir)/$(p)/unicode_tables.c
 
 xs_LTLIBRARIES += ConvertXS.la
 
