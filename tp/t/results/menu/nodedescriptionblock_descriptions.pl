@@ -1909,7 +1909,7 @@ $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of
                                description_slightly long and vv somewhat
                                ånexpected
 * titi::  desc of titi
-* name of other: other.         Long description of other
+* name of other: other.        Long description of other
 
                                Para2
 

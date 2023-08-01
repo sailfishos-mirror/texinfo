@@ -1358,7 +1358,7 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 
 * Menu:
 
-* node1:: 
+* node1::
                *note node2::.  Footnote(1).  Some text to see where the max column could
                be.  in w.
 
@@ -1385,7 +1385,7 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 
 * Menu:
 
-* node1:: 
+* node1::
                *note node2::.  Footnote(1).  Some text to see where the max column could
                be.  in w.
 

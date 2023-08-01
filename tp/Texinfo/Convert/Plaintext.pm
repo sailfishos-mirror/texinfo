@@ -3503,10 +3503,10 @@ sub _convert($$)
                          add_pending_word($formatter->{'container'}, 1));
             my $formatted_elt;
             my $description_para;
+            my $text_count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
             my $text_element_context = {
-                         'max' => $self->{'text_element_context'}->[-1]->{'max'},
-                         'counter'
-                => Texinfo::Convert::Paragraph::counter($formatter->{'container'})
+                     'max' => $self->{'text_element_context'}->[-1]->{'max'},
+                     'counter' => $text_count
             };
 
             if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN'))) {
@@ -3537,7 +3537,7 @@ sub _convert($$)
               push @{$self->{'formatters'}}, $description_para;
               $formatted_elt = $description_element->{'args'}->[0];
             } else {
-              if ($result !~ /\s$/) {
+              if ($text_count >= $description_indent_length) {
                 $result .= _count_added($self, $formatter->{'container'},
                                  add_text($formatter->{'container'}, ' '));
                 $result .= _count_added($self,

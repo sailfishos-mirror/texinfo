@@ -1,5 +1,15 @@
 2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove extra space for @nodedescriptionblock
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@nodedescriptionblock>:
+	Check if space is needed before adding space with current paragraph
+	formatter, as the existing check would always be true and the space
+	would be added, leading @nodedescriptionblock descriptions to be
+	indented by an extra space compared with @nodedescription descriptions.
+
+2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/10menu.t (nodedescription_descriptions): Adjust test so
 	it tests what was tested before with a node description only fitting
 	on the next line in a menu.
