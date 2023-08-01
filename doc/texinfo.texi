@@ -22273,15 +22273,9 @@ sequentially updates all the nodes in the region.
 Texinfo mode provides several commands for formatting part or all of a
 Texinfo file for Info.
 
-@menu
-* @command{texi2any} in Emacs::        How to run @command{texi2any} from Emacs.
-* @code{texinfo-format} commands::     Two Info formatting commands written
-                                 in Emacs Lisp are an alternative
-                                 to @command{texi2any}.
-@end menu
-
 
 @node @command{texi2any} in Emacs
+@nodedescription How to run @command{texi2any} from Emacs.
 @subsection Running @command{texi2any}/@command{makeinfo} Within Emacs
 
 @c anchor{makeinfo in Emacs}@c prev name
@@ -22391,6 +22385,10 @@ For more information, see@*
 
 
 @node @code{texinfo-format} commands
+@nodedescriptionblock
+Two Info formatting commands written in Emacs Lisp are an alternative
+to @command{texi2any}.
+@end nodedescriptionblock
 @subsection The @code{texinfo-format@dots{}} Commands
 
 @c anchor{texinfo-format commands}@c prev name
@@ -22698,13 +22696,9 @@ for a nonsplit file lacking one.  This function is also useful for Info
 file validation (@pxref{Running @code{Info-validate}}).  It is
 also possible to split a nonsplit Info file with @code{Info-split}.
 
-@menu
-* Tagifying::                   How to tagify a file.
-* Splitting::                   How to split a file manually.
-@end menu
-
 
 @node Tagifying
+@nodedescription How to tagify a file.
 @subsection Tagifying a File
 @cindex Making a tag table manually
 @cindex Tag table, making manually
@@ -22732,6 +22726,7 @@ or split the Info file.
 
 
 @node Splitting
+@nodedescription How to split a file manually.
 @subsection Splitting a File Manually
 @cindex Splitting an Info file manually
 @cindex Info files @subentry splitting manually
@@ -22792,15 +22787,9 @@ For finding problems with the structure of nodes and chapters, you can use
 @kbd{C-c C-s} (@code{texinfo-show-structure}) and the related @code{occur}
 command and you can use the @kbd{M-x Info-validate} command.
 
-@menu
-* @command{texi2any} Preferred::          @command{texi2any} finds errors.
-* Debugging with Info::         How to catch errors with Info formatting.
-* Debugging with @TeX{}::          How to catch errors with @TeX{} formatting.
-* Running @code{Info-validate}::       How to find badly referenced nodes.
-@end menu
-
 
 @node @command{texi2any} Preferred
+@nodedescription @command{texi2any} finds errors.
 @subsection @command{texi2any} Preferred
 
 @c anchor{makeinfo Preferred}@c prev name
@@ -22821,6 +22810,7 @@ in this section.
 
 
 @node Debugging with Info
+@nodedescription How to catch errors with Info formatting.
 @subsection Catching Errors with Info Formatting
 @cindex Catching errors with Info formatting
 @cindex Debugging with Info formatting
@@ -22926,6 +22916,7 @@ from the `Catching Mistakes' node by typing @kbd{l}
 
 
 @node Debugging with @TeX{}
+@nodedescription How to catch errors with @TeX{} formatting.
 @subsection Debugging with @TeX{}
 @cindex Catching errors with @TeX{} formatting
 @cindex Debugging with @TeX{} formatting
@@ -23055,6 +23046,7 @@ directly with @TeX{}, not with Texinfo.)
 
 
 @node Running @code{Info-validate}
+@nodedescription How to find badly referenced nodes.
 @subsection Finding Badly Referenced Nodes
 
 @anchor{Running Info-Validate}@c old name
