@@ -128,8 +128,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u8-mbtouc:
   # Code from module unistr/u8-mbtouc-unsafe:
   # Code from module unistr/u8-mbtoucr:
+  # Code from module unistr/u8-next:
   # Code from module unistr/u8-prev:
   # Code from module unistr/u8-strlen:
+  # Code from module unistr/u8-strmbtouc:
   # Code from module unistr/u8-uctomb:
   # Code from module unitypes:
   # Code from module uniwidth/base:
@@ -364,8 +366,10 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9.4], [unistr/u8-mbtouc-unsafe])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mbtoucr])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-next])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-prev])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strlen])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strmbtouc])
   gl_MODULE_INDICATOR([unistr/u8-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
@@ -696,8 +700,10 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u8-mbtouc-unsafe.c
   lib/unistr/u8-mbtouc.c
   lib/unistr/u8-mbtoucr.c
+  lib/unistr/u8-next.c
   lib/unistr/u8-prev.c
   lib/unistr/u8-strlen.c
+  lib/unistr/u8-strmbtouc.c
   lib/unistr/u8-uctomb-aux.c
   lib/unistr/u8-uctomb.c
   lib/unitypes.in.h

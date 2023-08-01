@@ -50,6 +50,7 @@
 #  uninorm/nfc \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
+#  unistr/u8-next \
 #  unistr/u8-uctomb \
 #  vasprintf \
 #  wcwidth
@@ -70,6 +71,7 @@ gl_MODULES([
   uninorm/nfc
   uninorm/u8-normalize
   unistr/u8-mbsnlen
+  unistr/u8-next
   unistr/u8-uctomb
   vasprintf
   wcwidth

@@ -45,6 +45,7 @@
 #  uninorm/nfc \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
+#  unistr/u8-next \
 #  unistr/u8-uctomb \
 #  vasprintf \
 #  wcwidth
@@ -1780,6 +1781,14 @@ endif
 
 ## end   gnulib module unistr/u8-mbtoucr
 
+## begin gnulib module unistr/u8-next
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_NEXT
+libgnu_la_SOURCES += unistr/u8-next.c
+endif
+
+## end   gnulib module unistr/u8-next
+
 ## begin gnulib module unistr/u8-prev
 
 if LIBUNISTRING_COMPILE_UNISTR_U8_PREV
@@ -1795,6 +1804,14 @@ libgnu_la_SOURCES += unistr/u8-strlen.c
 endif
 
 ## end   gnulib module unistr/u8-strlen
+
+## begin gnulib module unistr/u8-strmbtouc
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_STRMBTOUC
+libgnu_la_SOURCES += unistr/u8-strmbtouc.c
+endif
+
+## end   gnulib module unistr/u8-strmbtouc
 
 ## begin gnulib module unistr/u8-uctomb
 
