@@ -1,5 +1,10 @@
 2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi: Remove remaining @menu blocks and
+	use @nodedescription where needed.
+
+2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm <AUTO_MENU_DESCRIPTION_FILLCOLUMN>
 	If AUTO_MENU_DESCRIPTION_FILLCOLUMN not set, increase the text width
 	by 10% as existing Info menus often go beyond 72 columns in width.

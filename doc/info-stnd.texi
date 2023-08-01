@@ -909,13 +909,8 @@ appears.  There are commands available for creating windows, changing
 the size of windows, selecting which window is active, and for deleting
 windows.
 
-@menu
-* The Mode Line::               What appears in the mode line?
-* Basic Windows::               Manipulating windows in Info.
-* The Echo Area::               Used for displaying errors and reading input.
-@end menu
-
 @node The Mode Line
+@nodedescription What appears in the mode line?
 @section The Mode Line
 
 A @dfn{mode line} is a line of inverse video which appears at the bottom
@@ -954,6 +949,7 @@ showing possible completions:
 @end example
 
 @node Basic Windows
+@nodedescription Manipulating windows in Info.
 @section Window Commands
 
 It can be convenient to view more than one node at a time.  To allow
@@ -1029,6 +1025,7 @@ display its contents.  The variable @code{automatic-tiling} can cause
 @end table
 
 @node The Echo Area
+@nodedescription Used for displaying errors and reading input.
 @section The Echo Area
 @cindex echo area
 
@@ -2315,10 +2312,6 @@ Variables may also be set on the command line with the
 @option{--variable} option (@pxref{variable-assignment}).  Variable
 settings on the command line override settings from the @file{.infokey}
 file.
-
-@menu
-* @t{infokey} format::
-@end menu
 
 @node @t{infokey} format
 @section @command{infokey} format
