@@ -17,7 +17,7 @@ See the manual for detailed information.
    this
  . @cartouche takes an argument to specify the cartouche title
  . new commands @nodedescription and @nodedescriptionblock can be used
-   for giving menu descriptions in Info output
+   for giving menu descriptions in Info and HTML output
 
 * texi2any
  . @itemx at the beginning of a @table is now an error, not a warning
