@@ -818,17 +818,9 @@ Texinfo is the official documentation format of the GNU project.
 More information, including manuals for GNU packages, is available
 at the @uref{http://www.gnu.org/doc/, GNU documentation web page}.
 
-@menu
-* Reporting Bugs::              Submitting effective bug reports.
-* Output Formats::              Overview of the supported output formats.
-* Info Files::                  What is an Info file?
-* Printed Books::               Characteristics of a printed book or manual.
-* Adding Output Formats::       Man pages and implementing new formats.
-* History::                     Acknowledgements, contributors and genesis.
-@end menu
-
 
 @node Reporting Bugs
+@nodedescription Submitting effective bug reports.
 @section Reporting Bugs
 
 @cindex Bugs, reporting
@@ -869,6 +861,7 @@ standards, GNU Coding Standards}), and follow the existing coding style.
 
 
 @node Output Formats
+@nodedescription Overview of the supported output formats.
 @section Output Formats
 @cindex Output formats
 @cindex Back-end output formats
@@ -1012,6 +1005,7 @@ and conditionals).
 
 
 @node Info Files
+@nodedescription What is an Info file?
 @section Info Files
 @cindex Info files
 
@@ -1058,6 +1052,7 @@ The @command{info} program itself does not follow URIs of any kind.
 
 
 @node Printed Books
+@nodedescription Characteristics of a printed book or manual.
 @section Printed Books
 @cindex Printed book and manual characteristics
 @cindex Manual characteristics, printed
@@ -1091,6 +1086,7 @@ manual with @TeX{}.
 
 
 @node Adding Output Formats
+@nodedescription Man pages and implementing new formats.
 @section Adding Output Formats
 @cindex Additional output formats
 
@@ -1146,6 +1142,7 @@ It is GNU software written by Brendan O'Dea, available from
 
 
 @node History
+@nodedescription Acknowledgements, contributors and genesis.
 @section History
 
 @cindex Stallman, Richard M.
@@ -1320,23 +1317,9 @@ forward, we ask authors of Texinfo documents to use only
 This chapter describes Texinfo syntax and what is required in a Texinfo 
 file, and gives a short sample file.
 
-@menu
-* Conventions::                 General rules for writing a Texinfo file.
-* Comments::                    Writing comments and ignored text in general.
-* Minimum::                     What a Texinfo file must have.
-* Short Sample Texinfo File::   A short sample Texinfo file.
-* Texinfo File Header::         The first lines.
-* Directory Category::          A category for a manual.
-* Document Permissions::        Ensuring your manual is free.
-* Titlepage & Copyright Page::  Creating the title and copyright pages.
-* Contents::                    How to create a table of contents.
-* The Top Node::                Creating the `Top' node and master menu.
-* The Body of the Document::    The rest of the nodes.
-* Ending a File::               What is at the end of a Texinfo file?
-@end menu
-
 
 @node Conventions
+@nodedescription General rules for writing a Texinfo file.
 @section General Syntactic Conventions
 @cindex General syntactic conventions
 @cindex Syntactic conventions
@@ -1470,6 +1453,7 @@ formats, it's not possible to use form feeds completely portably.
 
 
 @node Comments
+@nodedescription Writing comments and ignored text in general.
 @section Comments
 
 @cindex Comments
@@ -1514,6 +1498,7 @@ regarding nesting of such commands, @pxref{Conditional Nesting}.)
 
 
 @node Minimum
+@nodedescription What a Texinfo file must have.
 @section What a Texinfo File Must Have
 @cindex Minimal Texinfo file (requirements)
 @cindex Required in Texinfo file
@@ -1572,6 +1557,7 @@ ASCII.
 
 
 @node Short Sample Texinfo File
+@nodedescription A short sample Texinfo file.
 @anchor{Short Sample}@c
 @anchor{Sample Beginning}@c
 @section Short Sample
@@ -1653,6 +1639,7 @@ Second section of first chapter.
 
 
 @node Texinfo File Header
+@nodedescription The first lines.
 @section Texinfo File Header
 @cindex Header for Texinfo files
 @cindex Texinfo file header
@@ -1957,6 +1944,7 @@ specification, which is why they are implemented with comments.
 
 
 @node Directory Category
+@nodedescription A category for a manual.
 @section Directory Category
 
 @findex dircategory
@@ -1997,6 +1985,7 @@ for following @code{@@direntry} blocks only.
 
 
 @node Document Permissions
+@nodedescription Ensuring your manual is free.
 @anchor{Software Copying Permissions}@c old node name
 @section Document Permissions
 @cindex Document permissions
@@ -2156,6 +2145,7 @@ to output the permission text within normal text.
 
 
 @node Titlepage & Copyright Page
+@nodedescription Creating the title and copyright pages.
 @section Title and Copyright Pages
 
 In hard copy output, the manual's name and author are usually printed on
@@ -2518,6 +2508,7 @@ Or, you may specify your own page heading and footing format.
 
 
 @node Contents
+@nodedescription How to create a table of contents.
 @section Generating a Table of Contents
 @cindex Table of contents
 @cindex Contents, table of
@@ -2573,6 +2564,7 @@ main text of the document.
 
 
 @node The Top Node
+@nodedescription Creating the `Top' node and master menu.
 @section The `Top' Node and Master Menu
 @cindex Top node
 @cindex Node, @samp{Top}
@@ -2685,6 +2677,7 @@ Beginning a Texinfo File
 
 
 @node The Body of the Document
+@nodedescription The rest of the nodes.
 @section The Body of the Document
 
 @cindex Frontmatter, text in
@@ -2765,6 +2758,7 @@ into nodes.)
 
 
 @node Ending a File
+@nodedescription What is at the end of a Texinfo file?
 @section Ending a Texinfo File
 @cindex Ending a Texinfo file
 @cindex Texinfo file ending
@@ -2820,19 +2814,8 @@ references and will only be printed, not transformed into Info, HTML, or
 other formats.
 
 
-@menu
-* Writing a Node::              How to write a @code{@@node} line.
-* Node Names::                  How to choose node names.
-* Node Line Requirements::      Keep names unique.
-* First Node::                  How to write a `Top' node.
-* @code{@@top} Command::                How to use the @code{@@top} command.
-* Texinfo Document Structure::  Double structure of documents.
-* Node Menu Illustration::      A diagram, and sample nodes and menus.
-* Menus::                       Listing subordinate nodes.
-@end menu
-
-
 @node Writing a Node
+@nodedescription How to write a @code{@@node} line.
 @section Writing a @code{@@node} Line
 @cindex Writing a @code{@@node} line
 @cindex @code{@@node} line writing
@@ -2908,6 +2891,7 @@ of which arguments are for which pointers.
 
 
 @node Node Names
+@nodedescription How to choose node names.
 @section Choosing Node Names
 
 @cindex Node names, choosing
@@ -2968,6 +2952,7 @@ for all of Info.
 
 
 @node Node Line Requirements
+@nodedescription Keep names unique.
 @section @code{@@node} Line Requirements
 
 @cindex Node line requirements
@@ -3096,6 +3081,7 @@ names or some versions of some Info readers will not find the node.
 
 
 @node First Node
+@nodedescription How to write a `Top' node.
 @section The First Node
 @cindex Top node is first
 @cindex First node
@@ -3164,6 +3150,7 @@ tools implicitly define them, with this simple result:
 
 
 @node @code{@@top} Command
+@nodedescription How to use the @code{@@top} command.
 @section The @code{@@top} Sectioning Command
 
 @anchor{top command}@c old name
@@ -3201,6 +3188,7 @@ for printed output.  The @samp{Top} node is not output for DocBook either.
 
 
 @node Texinfo Document Structure
+@nodedescription Double structure of documents.
 @section Texinfo Document Structure
 @cindex Texinfo document structure
 @cindex Document structure, of Texinfo
@@ -3264,6 +3252,7 @@ follow the conventional parallel structure.
 
 
 @node Node Menu Illustration
+@nodedescription A diagram, and sample nodes and menus.
 @section Node and Menu Illustration
 
 Here is a diagram that illustrates a Texinfo file with three chapters,
@@ -3383,6 +3372,7 @@ Texinfo File''.  This shows a @code{@@node} line followed by a
 
 
 @node Menus
+@nodedescription Listing subordinate nodes.
 @section Menus
 @cindex Menus
 @findex menu
@@ -3399,17 +3389,9 @@ commands associated with nodes and with node pointers left out, you should
 only write menus if you want to have descriptions especially formatted
 in Info.
 
-@menu
-* Writing a Menu::              What is a menu?
-* Menu Example::                Two and three part menu entries.
-* Menu Location::               Menus go at the ends of nodes.
-* Menu Parts::                  A menu entry has three parts.
-* Less Cluttered Menu Entry::   Two part menu entry.
-* Other Info Files::            How to refer to a different Info file.
-@end menu
-
 
 @node Writing a Menu
+@nodedescription What is a menu?
 @subsection Writing a Menu
 @cindex Writing a menu
 @cindex Menu writing
@@ -3463,6 +3445,7 @@ entry.
 
 
 @node Menu Example
+@nodedescription Two and three part menu entries.
 @subsection A Menu Example
 @cindex Menu example
 @cindex Example menu
@@ -3535,6 +3518,7 @@ Since no file name is specified with either @samp{Files} or
 
 
 @node Menu Location
+@nodedescription Menus go at the ends of nodes.
 @subsection Menu Location
 @cindex Menu location
 @cindex Location of menus
@@ -3558,6 +3542,7 @@ Otherwise, it is easy for readers to miss the menu.
 
 
 @node Menu Parts
+@nodedescription A menu entry has three parts.
 @subsection The Parts of a Menu
 @cindex Parts of a menu
 @cindex Menu parts
@@ -3609,6 +3594,7 @@ could interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
 
 @node Less Cluttered Menu Entry
+@nodedescription Two part menu entry.
 @subsection Less Cluttered Menu Entry
 @cindex Two part menu entry
 @cindex Double-colon menu entries
@@ -3641,6 +3627,7 @@ possible, since it reduces visual clutter in the menu.
 
 
 @node Other Info Files
+@nodedescription How to refer to a different Info file.
 @subsection Referring to Other Info Files
 @cindex Referring to other Info files
 @cindex Nodes in other Info files
