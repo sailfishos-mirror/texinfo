@@ -106,7 +106,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module uniconv/base:
   # Code from module uniconv/u8-conv-from-enc:
   # Code from module uniconv/u8-strconv-from-enc:
+  # Code from module uniconv/u8-strconv-to-enc:
   # Code from module unictype/base:
+  # Code from module unictype/category-L:
+  # Code from module unictype/category-test:
   # Code from module unictype/combining-class:
   # Code from module uninorm/base:
   # Code from module uninorm/decompose-internal:
@@ -318,10 +321,15 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-conv-from-enc])
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-strconv-from-enc])
+  gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-strconv-to-enc])
   gl_LIBUNISTRING_LIBHEADER([1.2], [unictype.h])
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-L])
+  AC_REQUIRE([AC_C_INLINE])
+  gl_LIBUNISTRING_MODULE([0.9.8], [unictype/category-test])
   gl_LIBUNISTRING_MODULE([1.1], [unictype/combining-class])
   gl_LIBUNISTRING_LIBHEADER([1.2], [uninorm.h])
   gl_UNINORM_H
@@ -640,8 +648,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uniconv/u-strconv-from-enc.h
   lib/uniconv/u8-conv-from-enc.c
   lib/uniconv/u8-strconv-from-enc.c
+  lib/uniconv/u8-strconv-to-enc.c
   lib/unictype.in.h
   lib/unictype/bitmap.h
+  lib/unictype/categ_L.c
+  lib/unictype/categ_L.h
+  lib/unictype/categ_test.c
   lib/unictype/combiningclass.c
   lib/unictype/combiningclass.h
   lib/uninorm.in.h

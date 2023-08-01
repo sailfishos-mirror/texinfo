@@ -44,8 +44,12 @@
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
+#  uniconv/u8-strconv-to-enc \
+#  unictype/category-L \
+#  unictype/category-test \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
+#  unistr/u8-uctomb \
 #  vasprintf \
 #  wcwidth
 
@@ -59,8 +63,12 @@ gl_MODULES([
   strchrnul
   strndup
   uniconv/u8-strconv-from-enc
+  uniconv/u8-strconv-to-enc
+  unictype/category-L
+  unictype/category-test
   uninorm/u8-normalize
   unistr/u8-mbsnlen
+  unistr/u8-uctomb
   vasprintf
   wcwidth
 ])

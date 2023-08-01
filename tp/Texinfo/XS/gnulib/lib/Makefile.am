@@ -39,8 +39,12 @@
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
+#  uniconv/u8-strconv-to-enc \
+#  unictype/category-L \
+#  unictype/category-test \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
+#  unistr/u8-uctomb \
 #  vasprintf \
 #  wcwidth
 
@@ -1210,6 +1214,14 @@ EXTRA_DIST += uniconv/u-strconv-from-enc.h
 
 ## end   gnulib module uniconv/u8-strconv-from-enc
 
+## begin gnulib module uniconv/u8-strconv-to-enc
+
+if LIBUNISTRING_COMPILE_UNICONV_U8_STRCONV_TO_ENC
+libgnu_la_SOURCES += uniconv/u8-strconv-to-enc.c
+endif
+
+## end   gnulib module uniconv/u8-strconv-to-enc
+
 ## begin gnulib module unictype/base
 
 BUILT_SOURCES += $(LIBUNISTRING_UNICTYPE_H)
@@ -1356,6 +1368,26 @@ MOSTLYCLEANFILES += unictype.h unictype.h-t
 EXTRA_DIST += unictype.in.h
 
 ## end   gnulib module unictype/base
+
+## begin gnulib module unictype/category-L
+
+if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_L
+libgnu_la_SOURCES += unictype/categ_L.c
+endif
+
+EXTRA_DIST += unictype/categ_L.h
+
+## end   gnulib module unictype/category-L
+
+## begin gnulib module unictype/category-test
+
+if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_TEST
+libgnu_la_SOURCES += unictype/categ_test.c
+endif
+
+EXTRA_DIST += unictype/bitmap.h
+
+## end   gnulib module unictype/category-test
 
 ## begin gnulib module unictype/combining-class
 
