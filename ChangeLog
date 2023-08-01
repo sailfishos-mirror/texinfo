@@ -1,3 +1,9 @@
+2023-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\nodedescription, \nodedescriptionblock):
+	Add stub implementations.
+	* NEWS: Mention these new commands.
+
 2023-07-31  Patrice Dumas  <pertusus@free.fr>
 
 	nodedescription customization

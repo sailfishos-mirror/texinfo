@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-07-28.21}
+\def\texinfoversion{2023-08-01.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -8849,6 +8849,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \global\let\lastnode=\empty
   \fi
 }
+
+% @nodedescription, @nodedescriptionblock - do nothing for TeX
+\parseargdef\nodedescription{}
+\def\nodedescriptionblock{\doignore{nodedescriptionblock}}
+
 
 % @anchor{NAME} -- define xref target at arbitrary point.
 %
