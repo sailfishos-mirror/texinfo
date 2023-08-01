@@ -1679,17 +1679,10 @@ formatted, for example @ref{@code{@@copying}} output as a comment
 at the beginning of output files, or the language used in file headers.
 
 
-@menu
-* First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Give the name of the output file.
-* @code{@@settitle}::                   Create a title for the printed work.
-* Preamble::                    Start of the Texinfo file up to first content.
-* Start and End of Header::     Formatting a region in Emacs requires this.
-@end menu
-
 
 @node First Line
 @subsection The First Line of a Texinfo File
+@nodedescription The first line of a Texinfo file.
 @cindex First line of a Texinfo file
 @cindex Beginning line of a Texinfo file
 @cindex Header of a Texinfo file
@@ -1723,6 +1716,7 @@ from the file extension automatically.
 
 
 @node @code{@@setfilename}
+@nodedescription Give the name of the output file.
 @subsection @code{@@setfilename}: Set the Output File Name
 
 @anchor{setfilename}@c old name
@@ -1799,6 +1793,7 @@ alternative name.
 
 
 @node @code{@@settitle}
+@nodedescription Create a title for the printed work.
 @subsection @code{@@settitle}: Set the Document Title
 
 @anchor{settitle}@c old name
@@ -1836,6 +1831,7 @@ generally appears as a @code{@@subtitle} so it would be omitted from the
 
 
 @node Preamble
+@nodedescription Start of the Texinfo file up to first content.
 @subsection Preamble
 @cindex Preamble
 @cindex Texinfo Preamble
@@ -1905,6 +1901,7 @@ Text ending the preamble
 
 
 @node Start and End of Header
+@nodedescription Formatting a region in Emacs requires this.
 @subsection Start and End of Header for Emacs
 @anchor{Start of Header}@c old name
 @cindex Start of header line
@@ -5060,14 +5057,9 @@ case the URL is not output in any format.  This is useful when the
 text is already sufficiently referential, as in a man page.  Also, if
 the third argument is given, the second argument is ignored.
 
-@menu
-* @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
-* URL Line Breaking::       How lines are broken within @code{@@url} text.
-* @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-@end menu
-
 
 @node @code{@@url} Examples
+@nodedescription Examples of using all the forms of @code{@@url}.
 @subsection @code{@@url} Examples
 
 @cindex @code{@@url}, examples of using
@@ -5146,6 +5138,7 @@ already has to detect them without the @samp{<URL:}.
 
 
 @node URL Line Breaking
+@nodedescription How lines are broken within @code{@@url} text.
 @subsection URL Line Breaking
 
 @cindex Line breaks @subentry URLs
@@ -5188,6 +5181,7 @@ breaks must be manually inserted.
 
 
 @node @code{@@url} PDF Output Format
+@nodedescription A special option to hide links in PDF output.
 @subsection @code{@@url} PDF Output Format
 
 @cindex PDF output of URLs
@@ -5292,13 +5286,9 @@ You can specify, for example, whether a word or phrase is a
 defining occurrence, a metasyntactic variable, or a symbol used in a
 program.  Also, you can emphasize text, in several different ways.
 
-@menu
-* Indicating::                  How to indicate definitions, files, etc.
-* Emphasis::                    How to emphasize text.
-@end menu
-
 
 @node Indicating
+@nodedescription How to indicate definitions, files, etc.
 @section Indicating Definitions, Commands, etc.
 
 @cindex Highlighting text
@@ -5310,27 +5300,9 @@ of text refers to.  For example, email addresses are marked by
 when the output format supports it.  If the email address was simply
 marked as ``print in a typewriter font'', that would not be possible.
 
-@menu
-* Useful Highlighting::         Highlighting provides useful information.
-* @code{@@code}::                       Indicating program code.
-* @code{@@kbd}::                        Showing keyboard input.
-* @code{@@key}::                        Specifying keys.
-* @code{@@samp}::                       Indicating a literal sequence of characters.
-* @code{@@verb}::                       Indicating a verbatim sequence of characters.
-* @code{@@var}::                        Indicating metasyntactic variables.
-* @code{@@env}::                        Indicating environment variables.
-* @code{@@file}::                       Indicating file names.
-* @code{@@command}::                    Indicating command names.
-* @code{@@option}::                     Indicating option names.
-* @code{@@dfn}::                        Specifying definitions.
-* @code{@@abbr}::                       Indicating abbreviations.
-* @code{@@acronym}::                    Indicating acronyms.
-* @code{@@indicateurl}::                Indicating an example URL.
-* @code{@@email}::                      Indicating an electronic mail address.
-@end menu
-
 
 @node Useful Highlighting
+@nodedescription Highlighting provides useful information.
 @subsection Highlighting Commands are Useful
 
 The commands serve a variety of purposes:
@@ -5397,6 +5369,7 @@ Indicate an electronic mail address.  @xref{@code{@@email}}.
 
 
 @node @code{@@code}
+@nodedescription Indicating program code.
 @subsection @code{@@code}@{@var{sample-code}@}
 
 @anchor{code}@c old name
@@ -5501,6 +5474,7 @@ variables (@pxref{Other Customization Variables}).
 
 
 @node @code{@@kbd}
+@nodedescription Showing keyboard input.
 @subsection @code{@@kbd}@{@var{keyboard-characters}@}
 
 @anchor{kbd}@c old name
@@ -5583,6 +5557,7 @@ input, write @kbd{@@key@{SPC@}} for it.)
 
 
 @node @code{@@key}
+@nodedescription Specifying keys.
 @subsection @code{@@key}@{@var{key-name}@}
 
 @anchor{key}@c old name
@@ -5652,6 +5627,7 @@ example, write @samp{@@kbd@{Meta-a@}} to produce @kbd{Meta-a} and
 
 
 @node @code{@@samp}
+@nodedescription Indicating a literal sequence of characters.
 @subsection @code{@@samp}@{@var{text}@}
 
 @anchor{samp}@c old name
@@ -5708,6 +5684,7 @@ In English, the vowels are @samp{a}, @samp{e},
 
 
 @node @code{@@verb}
+@nodedescription Indicating a verbatim sequence of characters.
 @subsection @code{@@verb}@{@var{char}@var{text}@var{char}@}
 
 @anchor{verb}@c old name
@@ -5752,6 +5729,7 @@ figure captions.
 
 
 @node @code{@@var}
+@nodedescription Indicating metasyntactic variables.
 @subsection @code{@@var}@{@var{metasyntactic-variable}@}
 
 @anchor{var}@c old name
@@ -5842,6 +5820,7 @@ However, that is not the style that Texinfo uses.
 
 
 @node @code{@@env}
+@nodedescription Indicating environment variables.
 @subsection @code{@@env}@{@var{environment-variable}@}
 
 @anchor{env}@c old name
@@ -5865,6 +5844,7 @@ The @env{PATH} environment variable @dots{}
 
 
 @node @code{@@file}
+@nodedescription Indicating file names.
 @subsection @code{@@file}@{@var{file-name}@}
 
 @anchor{file}@c old name
@@ -5893,6 +5873,7 @@ the @file{/usr/local/emacs/lisp} directory.
 
 
 @node @code{@@command}
+@nodedescription Indicating command names.
 @subsection @code{@@command}@{@var{command-name}@}
 
 @anchor{command}@c old name
@@ -5923,6 +5904,7 @@ you should use either @code{@@samp} or @code{@@code} at your discretion.
 
 
 @node @code{@@option}
+@nodedescription Indicating option names.
 @subsection @code{@@option}@{@var{option-name}@}
 
 @anchor{option}@c old name
@@ -5945,6 +5927,7 @@ The option @option{-l} produces a long listing.
 
 
 @node @code{@@dfn}
+@nodedescription Specifying definitions.
 @subsection @code{@@dfn}@{@var{term}@}
 
 @anchor{dfn}@c old name
@@ -5976,6 +5959,7 @@ information of a definition---it should make the meaning clear.
 
 
 @node @code{@@abbr}
+@nodedescription Indicating abbreviations.
 @subsection @code{@@abbr}@{@var{abbreviation}[, @var{meaning}]@}
 
 @anchor{abbr}@c old name
@@ -6019,6 +6003,7 @@ more on the usage of these two commands.
 
 
 @node @code{@@acronym}
+@nodedescription Indicating acronyms.
 @subsection @code{@@acronym}@{@var{acronym}[, @var{meaning}]@}
 
 @anchor{acronym}@c old name
@@ -6102,6 +6087,7 @@ them.
 
 
 @node @code{@@indicateurl}
+@nodedescription Indicating an example URL.
 @subsection @code{@@indicateurl}@{@var{uniform-resource-locator}@}
 
 @anchor{indicateurl}@c old name
@@ -6130,6 +6116,7 @@ The output from @code{@@indicateurl} is usually like that of
 
 
 @node @code{@@email}
+@nodedescription Indicating an electronic mail address.
 @subsection @code{@@email}@{@var{email-address}[, @var{displayed-text}]@}
 
 @anchor{email}@c old name
@@ -6160,6 +6147,7 @@ suggestions to the @email{bug-texinfo@@gnu.org, same place}.
 
 
 @node Emphasis
+@nodedescription How to emphasize text.
 @section Emphasizing Text
 @cindex Emphasizing text
 
@@ -6172,14 +6160,9 @@ several commands that specify the font in which text will be output.
 These commands have no effect in Info and only one of them, the
 @code{@@r} command, has any regular use.
 
-@menu
-* @code{@@emph @@strong}::               How to emphasize text in Texinfo.
-* Smallcaps::                   How to use the small caps font.
-* Fonts::                       Various font commands for printed output.
-@end menu
-
 
 @node @code{@@emph @@strong}
+@nodedescription How to emphasize text in Texinfo.
 @subsection @code{@@emph}@{@var{text}@} and @code{@@strong}@{@var{text}@}
 
 @anchor{emph & strong}@c oldname
@@ -6224,6 +6207,7 @@ there.
 
 
 @node Smallcaps
+@nodedescription How to use the small caps font.
 @subsection @code{@@sc}@{@var{text}@}: The Small Caps Font
 @cindex Small caps font
 @findex sc
@@ -6262,6 +6246,7 @@ wherever possible.
 
 
 @node Fonts
+@nodedescription Various font commands for printed output.
 @subsection Fonts for Printing
 @cindex Fonts for printing
 
