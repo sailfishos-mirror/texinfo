@@ -6391,26 +6391,9 @@ example by writing @code{@@end example} on a line by itself, at the
 beginning of that line, and with only one space between the
 @code{@@end} and the @code{example}.
 
-@menu
-* Block Enclosing Commands::    Different constructs for different purposes.
-* @code{@@quotation}::                  Writing a quotation.
-* @code{@@indentedblock}::              Block of text indented on left.
-* @code{@@example}::                    Writing an example in a fixed-width font.
-* @code{@@verbatim}::                   Writing a verbatim example.
-* @code{@@lisp}::                       Illustrating Lisp code.
-* @code{@@display}::                    Writing an example in the current font.
-* @code{@@format}::                     Writing an example without narrowed margins.
-* @code{@@exdent}::                     Undo indentation on a line.
-* @code{@@flushleft @@flushright}::      Pushing text flush left or flush right.
-* @code{@@raggedright}::                Avoiding justification on the right.
-* @code{@@noindent}::                   Preventing paragraph indentation.
-* @code{@@indent}::                     Forcing paragraph indentation.
-* @code{@@cartouche}::                  Drawing rounded rectangles around text.
-* small::                       Examples in a smaller font.
-@end menu
-
 
 @node Block Enclosing Commands
+@nodedescription Different constructs for different purposes.
 @section Block Enclosing Commands
 
 Here is a summary of commands that enclose blocks of text, also known
@@ -6481,6 +6464,7 @@ following text from being indented as a new paragraph.
 
 
 @node @code{@@quotation}
+@nodedescription Writing a quotation.
 @section @code{@@quotation}: Block Quotations
 @anchor{quotation}@c old name
 
@@ -6580,6 +6564,7 @@ hacking.
 
 
 @node @code{@@indentedblock}
+@nodedescription Block of text indented on left.
 @section @code{@@indentedblock}: Indented text blocks
 @cindex Indented text block
 @findex indentedblock
@@ -6607,6 +6592,7 @@ This is an example ...
 
 
 @node @code{@@example}
+@nodedescription Writing an example in a fixed-width font.
 @section @code{@@example}: Example Text
 
 @anchor{example}@c old name
@@ -6675,6 +6661,7 @@ single spaces, and that is not what they look like.
 
 
 @node @code{@@verbatim}
+@nodedescription Writing a verbatim example.
 @section @code{@@verbatim}: Literal Text
 
 @anchor{verbatim}@c old name
@@ -6745,6 +6732,7 @@ See also @ref{@code{@@verbatiminclude}}.
 
 
 @node @code{@@lisp}
+@nodedescription Illustrating Lisp code.
 @section @code{@@lisp}: Marking a Lisp Example
 
 @anchor{lisp}@c old name
@@ -6774,6 +6762,7 @@ can use the Texinfo file as a Lisp library.
 
 
 @node @code{@@display}
+@nodedescription Writing an example in the current font.
 @section @code{@@display}: Examples Using the Text Font
 
 @anchor{display}@c old name
@@ -6793,6 +6782,7 @@ indents the text, but does not fill it.
 
 
 @node @code{@@format}
+@nodedescription Writing an example without narrowed margins.
 @section @code{@@format}: Examples Using the Full Line Width
 
 @anchor{format}@c old name
@@ -6827,6 +6817,7 @@ the @code{@@format} command does not fill the text.
 
 
 @node @code{@@exdent}
+@nodedescription Undo indentation on a line.
 @section @code{@@exdent}: Undoing a Line's Indentation
 
 @anchor{exdent}@c old name
@@ -6873,6 +6864,7 @@ normal width.
 
 
 @node @code{@@flushleft @@flushright}
+@nodedescription Pushing text flush left or flush right.
 @section @code{@@flushleft} and @code{@@flushright}
 
 @anchor{flushleft & flushright}@c old name
@@ -6937,6 +6929,7 @@ left end ragged.
 
 
 @node @code{@@raggedright}
+@nodedescription Avoiding justification on the right.
 @section @code{@@raggedright}: Ragged Right Text
 
 @anchor{raggedright}@c old name
@@ -6982,6 +6975,7 @@ Commands for double and single angle quotation marks:
 
 
 @node @code{@@noindent}
+@nodedescription Preventing paragraph indentation.
 @section @code{@@noindent}: Omitting Indentation
 
 @anchor{noindent}@c old name
@@ -7044,6 +7038,7 @@ used, since @code{@@noindent} is a command used outside of paragraphs
 
 
 @node @code{@@indent}
+@nodedescription Forcing paragraph indentation.
 @section @code{@@indent}: Forcing Indentation
 
 @anchor{indent}@c old name
@@ -7076,6 +7071,7 @@ since @code{@@indent} is a command used outside of paragraphs
 
 
 @node @code{@@cartouche}
+@nodedescription Drawing rounded rectangles around text.
 @section @code{@@cartouche}: Rounded Rectangles
 
 @anchor{cartouche}@c old name
@@ -7141,6 +7137,7 @@ A cartouche is output on a single page in printed output, similarly to
 
 
 @node small
+@nodedescription Examples in a smaller font.
 @section @code{@@small@dots{}} Block Commands
 
 @findex smallexample
