@@ -7,7 +7,7 @@
 extern char* unicode_diacritics[];
 
 char *normalize_NFC (const char *text);
-char *unicode_accent (char *text, ELEMENT *e);
+char *unicode_accent (const char *text, ELEMENT *e);
 
 #endif
 

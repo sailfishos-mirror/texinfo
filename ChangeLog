@@ -1,5 +1,18 @@
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/text.c (text_append, text_append_n): set
+	input to be const.
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (_convert): treat link
+	like inforef.
+
+	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(convert_to_normalized_internal), tp/Texinfo/XS/parsetexi/unicode.c
+	(unicode_accent): finish implementation of convert_to_normalized
+	and unicode_accent.
+
+2023-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	Preliminary incomplete implementation of NodeNameNormalization in XS
 
 	* tp/Makefile.am (maintenance_files),

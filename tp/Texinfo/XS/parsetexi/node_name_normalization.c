@@ -39,8 +39,11 @@ fprintf(stderr, "AAA %s\n", command_normalization_text[CM_click]);
 fprintf(stderr, "AAA %s\n", command_normalization_text[CM_error]);
 */
 
+int ref_3_args_order[] = {0, 1, 2, -1};
+int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
+
 #define ADD(x) text_append (result, x)
-char *
+void
 convert_to_normalized_internal (ELEMENT *e, TEXT *result)
 {
   if ((e->type == ET_ignorable_spaces_after_command
@@ -106,9 +109,11 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
           if (e->args.number > 0)
             {
               TEXT accent_text;
+              char *accented_char;
+
               text_init (&accent_text);
               convert_to_normalized_internal (e->args.list[0], &accent_text);
-              char *accented_char = unicode_accent (accent_text.text, e);
+              accented_char = unicode_accent (accent_text.text, e);
               if (!accented_char)
                 ADD(accent_text.text);
               /* TODO?  Should never happen
@@ -126,6 +131,48 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
               free (accent_text.text);
             }
         }
+      else if (command_data(e->cmd).flags & CF_ref)
+        {
+          int index = 0;
+          int *arguments_order = ref_5_args_order;
+          if (e->cmd == CM_inforef || e->cmd == CM_link)
+            arguments_order = ref_3_args_order;
+          while (arguments_order[index] > 0)
+            {
+              if (e->args.number > arguments_order[index])
+                {
+                  TEXT arg_text;
+
+                  text_init (&arg_text);
+                  convert_to_normalized_internal (
+                    e->args.list[arguments_order[index]], &arg_text);
+                  if (arg_text.end > 0)
+                    {
+                      int n = strcspn (arg_text.text, whitespace_chars);
+                      if (*(arg_text.text+n))
+                        {
+                          ADD (arg_text.text);
+                          free (arg_text.text);
+                          break;
+                        }
+                    }
+                }
+              index++;
+            }
+        }
+      else if (e->args.number > 0
+               && (e->args.list[0]->type == ET_brace_command_arg
+                   || e->cmd == CM_math))
+        {
+          convert_to_normalized_internal (e->args.list[0], result);
+          return;
+        }
+    }
+  if (e->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < e->contents.number; i++)
+        convert_to_normalized_internal (e->contents.list[i], result);
     }
 }
 #undef ADD

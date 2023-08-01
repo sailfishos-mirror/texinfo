@@ -52,7 +52,7 @@ text_printf (TEXT *t, char *format, ...)
 }
 
 void
-text_append_n (TEXT *t, char *s, size_t len)
+text_append_n (TEXT *t, const char *s, size_t len)
 {
   text_alloc (t, len + 1);
   memcpy (t->text + t->end, s, len);
@@ -61,7 +61,7 @@ text_append_n (TEXT *t, char *s, size_t len)
 }
 
 void
-text_append (TEXT *t, char *s)
+text_append (TEXT *t, const char *s)
 {
   size_t len = strlen (s);
   text_append_n (t, s, len);

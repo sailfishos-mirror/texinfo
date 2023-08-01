@@ -294,7 +294,8 @@ sub _convert($)
       return $accented_char;
     } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
       my @args_try_order;
-      if ($element->{'cmdname'} eq 'inforef') {
+      if ($element->{'cmdname'} eq 'inforef'
+          or $element->{'cmdname'} eq 'link') {
         @args_try_order = (0, 1, 2);
       } else {
         @args_try_order = (0, 1, 2, 4, 3);

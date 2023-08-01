@@ -19,11 +19,13 @@
 #include <string.h>
 #include <stdbool.h>
 #include "uniconv.h"
+#include "unictype.h"
 #include "unistr.h"
 #include "uninorm.h"
 
 #include "tree_types.h"
 #include "text.h"
+#include "errors.h"
 
 #include "unicode_tables.c"
 
@@ -45,7 +47,7 @@ normalize_NFC (const char *text)
 }
 
 char *
-unicode_accent (char *text, ELEMENT *e)
+unicode_accent (const char *text, ELEMENT *e)
 {
   char *result = 0;
 
@@ -71,17 +73,61 @@ unicode_accent (char *text, ELEMENT *e)
       /* also correct for dotless I as dotless I is I */
       return strdup(text);
     }
+
   if (unicode_diacritics[e->cmd])
     {
-      if (e->cmd != CM_tieaccent)
+      static TEXT accented_text;
+      if (e->cmd == CM_tieaccent)
         {
-          static TEXT accented_text;
-          text_init (&accented_text);
-          text_append (&accented_text, text);
-          text_append (&accented_text, unicode_diacritics[e->cmd]);
-          result = normalize_NFC (accented_text.text);
-          free (accented_text.text);
+          /* tieaccent diacritic is naturally and correctly composed
+             between two characters */
+          uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                  iconveh_question_mark);
+          const uint8_t *next;
+          ucs4_t first_char;
+          next = u8_next (&first_char, encoded_u8);
+          if (next && (uc_is_general_category (first_char, UC_CATEGORY_L)
+                       /* ASCII digits */
+                       || (first_char >= 0x0030 && first_char <= 0x0039)))
+            {
+              const uint8_t *remaining;
+              ucs4_t second_char;
+              remaining = u8_next (&second_char, next);
+              if (remaining && (uc_is_general_category (second_char, UC_CATEGORY_L)
+                                /* ASCII digits */
+                                || (second_char >= 0x0030 && second_char <= 0x0039)))
+                {
+                  char *first_char_text;
+                  char *next_text;
+                  uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+                  int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
+                  if (first_char_len < 0)
+                    fatal ("u8_uctomb returns negative value");
+                  first_char_u8[first_char_len+1] = 0;
+                  first_char_text = u8_strconv_to_encoding (first_char_u8, "UTF-8",
+                                                            iconveh_question_mark);
+                  free (first_char_u8);
+                  text_init (&accented_text);
+                  text_append (&accented_text, first_char_text);
+                  free (first_char_text);
+                  text_append (&accented_text, unicode_diacritics[e->cmd]);
+                  next_text = u8_strconv_to_encoding (next, "UTF-8",
+                                                      iconveh_question_mark);
+                  text_append (&accented_text, next_text);
+                  free (next_text);
+                  result = normalize_NFC (accented_text.text);
+                  free (accented_text.text);
+                }
+            }
+          free (encoded_u8);
+          if (result)
+            return result;
         }
+      text_init (&accented_text);
+      text_append (&accented_text, text);
+      text_append (&accented_text, unicode_diacritics[e->cmd]);
+      result = normalize_NFC (accented_text.text);
+      free (accented_text.text);
     }
 
   return result;
