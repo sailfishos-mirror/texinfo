@@ -42,6 +42,7 @@
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
 #  unictype/category-test \
+#  uninorm/nfc \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-uctomb \
@@ -1418,6 +1419,33 @@ EXTRA_DIST += uninorm.in.h
 
 ## end   gnulib module uninorm/base
 
+## begin gnulib module uninorm/canonical-decomposition
+
+if LIBUNISTRING_COMPILE_UNINORM_CANONICAL_DECOMPOSITION
+libgnu_la_SOURCES += uninorm/canonical-decomposition.c
+endif
+
+## end   gnulib module uninorm/canonical-decomposition
+
+## begin gnulib module uninorm/composition
+
+if LIBUNISTRING_COMPILE_UNINORM_COMPOSITION
+libgnu_la_SOURCES += uninorm/composition.c
+endif
+
+$(srcdir)/uninorm/composition-table.h: $(srcdir)/uninorm/composition-table.gperf
+	$(V_GPERF)$(GPERF) -m 1 $(srcdir)/uninorm/composition-table.gperf > $(srcdir)/uninorm/composition-table.h-t1 \
+	&& sed -e 's/^const/static const/' < $(srcdir)/uninorm/composition-table.h-t1 > $(srcdir)/uninorm/composition-table.h-t2 \
+	&& mv $(srcdir)/uninorm/composition-table.h-t2 $(srcdir)/uninorm/composition-table.h
+BUILT_SOURCES        += uninorm/composition-table.h
+MOSTLYCLEANFILES     += uninorm/composition-table.h-t1 uninorm/composition-table.h-t2
+MAINTAINERCLEANFILES += uninorm/composition-table.h
+EXTRA_DIST           += uninorm/composition-table.h
+
+EXTRA_DIST += uninorm/composition-table.gperf
+
+## end   gnulib module uninorm/composition
+
 ## begin gnulib module uninorm/decompose-internal
 
 libgnu_la_SOURCES += uninorm/decompose-internal.c
@@ -1425,6 +1453,34 @@ libgnu_la_SOURCES += uninorm/decompose-internal.c
 EXTRA_DIST += uninorm/decompose-internal.h
 
 ## end   gnulib module uninorm/decompose-internal
+
+## begin gnulib module uninorm/decomposition-table
+
+libgnu_la_SOURCES += uninorm/decomposition-table.c
+
+EXTRA_DIST += uninorm/decomposition-table.h uninorm/decomposition-table1.h uninorm/decomposition-table2.h
+
+## end   gnulib module uninorm/decomposition-table
+
+## begin gnulib module uninorm/nfc
+
+if LIBUNISTRING_COMPILE_UNINORM_NFC
+libgnu_la_SOURCES += uninorm/nfc.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h
+
+## end   gnulib module uninorm/nfc
+
+## begin gnulib module uninorm/nfd
+
+if LIBUNISTRING_COMPILE_UNINORM_NFD
+libgnu_la_SOURCES += uninorm/nfd.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h
+
+## end   gnulib module uninorm/nfd
 
 ## begin gnulib module uninorm/u8-normalize
 

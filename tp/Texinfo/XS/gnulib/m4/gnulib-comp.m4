@@ -112,7 +112,12 @@ AC_DEFUN([gl_EARLY],
   # Code from module unictype/category-test:
   # Code from module unictype/combining-class:
   # Code from module uninorm/base:
+  # Code from module uninorm/canonical-decomposition:
+  # Code from module uninorm/composition:
   # Code from module uninorm/decompose-internal:
+  # Code from module uninorm/decomposition-table:
+  # Code from module uninorm/nfc:
+  # Code from module uninorm/nfd:
   # Code from module uninorm/u8-normalize:
   # Code from module unistd:
   # Code from module unistr/base:
@@ -335,6 +340,13 @@ AC_DEFUN([gl_INIT],
   gl_UNINORM_H
   gl_UNINORM_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([1.1], [uninorm/canonical-decomposition])
+  gl_LIBUNISTRING_MODULE([0.9.11], [uninorm/composition])
+  AC_REQUIRE([AC_C_INLINE])
+  gl_UNINORM_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfc])
+  gl_UNINORM_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfd])
   gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u8-normalize])
   gl_LIBUNISTRING_MODULE([1.1], [uninorm/u8-normalize])
   gl_UNISTD_H
@@ -657,8 +669,17 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/combiningclass.c
   lib/unictype/combiningclass.h
   lib/uninorm.in.h
+  lib/uninorm/canonical-decomposition.c
+  lib/uninorm/composition-table.gperf
+  lib/uninorm/composition.c
   lib/uninorm/decompose-internal.c
   lib/uninorm/decompose-internal.h
+  lib/uninorm/decomposition-table.c
+  lib/uninorm/decomposition-table.h
+  lib/uninorm/decomposition-table1.h
+  lib/uninorm/decomposition-table2.h
+  lib/uninorm/nfc.c
+  lib/uninorm/nfd.c
   lib/uninorm/normalize-internal.h
   lib/uninorm/u-normalize-internal.h
   lib/uninorm/u8-normalize.c

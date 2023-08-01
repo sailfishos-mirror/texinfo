@@ -47,6 +47,7 @@
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
 #  unictype/category-test \
+#  uninorm/nfc \
 #  uninorm/u8-normalize \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-uctomb \
@@ -66,6 +67,7 @@ gl_MODULES([
   uniconv/u8-strconv-to-enc
   unictype/category-L
   unictype/category-test
+  uninorm/nfc
   uninorm/u8-normalize
   unistr/u8-mbsnlen
   unistr/u8-uctomb

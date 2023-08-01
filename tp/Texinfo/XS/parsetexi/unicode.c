@@ -20,8 +20,8 @@
 #include <stdbool.h>
 #include "uniconv.h"
 #include "unictype.h"
-#include "unistr.h"
 #include "uninorm.h"
+#include "unistr.h"
 
 #include "tree_types.h"
 #include "text.h"

@@ -1,5 +1,12 @@
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	in tp/Texinfo/XS gnulib-tool --add-import uninorm/nfc
+
+	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_LDFLAGS): add
+	$(LTLIBUNISTRING).
+
+2023-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	in tp/Texinfo/XS gnulib-tool --add-import unistr/u8-uctomb unictype/category-L unictype/category-test uniconv/u8-strconv-to-enc
 
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
