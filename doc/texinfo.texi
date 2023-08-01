@@ -2172,20 +2172,9 @@ most other output formats.  In HTML, the best way to get a title page
 similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
 customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
 
-@menu
-* @code{@@titlepage}::                  Create a title for the printed document.
-* @code{@@title @@subtitle @@author}::    The @code{@@title}, @code{@@subtitle},
-                                 and @code{@@author} commands.
-* @code{@@titlefont @@center @@sp}::      The @code{@@titlefont}, @code{@@center},
-                                 and @code{@@sp} commands.
-* Copyright::                   How to write the copyright notice and
-                                 include copying permissions.
-* Heading Generation::          Turn on page headings after the title and
-                                 copyright pages.
-@end menu
-
 
 @node @code{@@titlepage}
+@nodedescription Create a title for the printed document.
 @subsection @code{@@titlepage}
 
 @anchor{titlepage}@c old name
@@ -2247,6 +2236,9 @@ page.  In HTML, @code{@@shorttitlepage} can play the same role as
 
 
 @node @code{@@title @@subtitle @@author}
+@nodedescriptionblock
+The @code{@@title}, @code{@@subtitle}, and @code{@@author} commands.
+@end nodedescriptionblock
 @subsection @code{@@title}, @code{@@subtitle}, and @code{@@author}
 
 @anchor{title subtitle author}@c old name
@@ -2327,6 +2319,9 @@ A template for this method looks like this:
 
 
 @node @code{@@titlefont @@center @@sp}
+@nodedescriptionblock
+The @code{@@titlefont}, @code{@@center}, and @code{@@sp} commands.
+@end nodedescriptionblock
 @subsection @code{@@titlefont}, @code{@@center}, and @code{@@sp}
 
 @anchor{titlefont center sp}@c old name
@@ -2395,6 +2390,9 @@ The spacing of the example fits an 8.5 by 11 inch manual.
 
 
 @node Copyright
+@nodedescriptionblock
+How to write the copyright notice and include copying permissions.
+@end nodedescriptionblock
 @subsection Copyright Page
 @cindex Copyright page
 @cindex Printed permissions
@@ -2466,6 +2464,7 @@ output in the same place.
 
 
 @node Heading Generation
+@nodedescription Turn on page headings after the title and copyright pages.
 @subsection Heading Generation
 
 @anchor{end titlepage}@c old name
