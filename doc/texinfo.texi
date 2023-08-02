@@ -21702,13 +21702,9 @@ commands to move forward and backward by chapter, and to use the
 @xref{Pages, , , emacs, The GNU Emacs Manual}, for more information
 about the page commands.
 
-@menu
-* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
-* Using @code{occur}::                 How to list all lines containing a pattern.
-@end menu
-
 
 @node Using @code{texinfo-show-structure}
+@nodedescription How to use @code{texinfo-show-structure}.
 @subsection Using @code{texinfo-show-structure}
 
 @cindex Showing the structure of a file
@@ -21781,6 +21777,7 @@ or left out a section, you can correct the mistake.
 
 
 @node Using @code{occur}
+@nodedescription How to list all lines containing a pattern.
 @subsection Using @code{occur}
 
 @cindex Occurrences, listing with @code{@@occur}
@@ -21843,21 +21840,9 @@ Texinfo file after you have worked on it; but you can use them to insert the
 `Next', `Previous', and `Up' pointers into an @code{@@node} line that has none
 and to create menus in a file that has none.
 
-@menu
-* Updating Commands::           Five major updating commands.
-* Updating Requirements::       How to structure a Texinfo file for
-                                  using the updating command.
-* Update Multiple Files::       How to create and update nodes and
-                                  menus when using included files.
-* Include Files Requirements::  How to structure outer file and include
-                                  files for the updating command.
-* Other Updating Commands::     How to indent descriptions, insert
-                                  missing nodes lines, and update
-                                  nodes in sequence.
-@end menu
-
 
 @node Updating Commands
+@nodedescription Five major updating commands.
 @subsection The Updating Commands
 
 You can use the updating commands to:
@@ -22029,6 +22014,9 @@ especially important feature of a good Texinfo manual.
 
 
 @node Updating Requirements
+@nodedescriptionblock
+How to structure a Texinfo file for using the updating command.
+@end nodedescriptionblock
 @subsection Updating Requirements
 @cindex Updating requirements
 @cindex Requirements for updating commands
@@ -22091,6 +22079,9 @@ you must have a `Top' node if you want a menu of chapters.
 
 
 @node Update Multiple Files
+@nodedescriptionblock
+How to create and update nodes and menus when using included files.
+@end nodedescriptionblock
 @subsection Update Outer File and Include Files
 
 @anchor{@code{texinfo-multiple-files-update}}@c old node name
@@ -22179,6 +22170,9 @@ then inserts a master menu.
 
 
 @node Include Files Requirements
+@nodedescriptionblock
+How to structure outer file and include files for the updating command.
+@end nodedescriptionblock
 @subsection Include Files Requirements
 @cindex Include files requirements
 @cindex Requirements for include files
@@ -22206,6 +22200,10 @@ them.
 
 
 @node Other Updating Commands
+@nodedescriptionblock
+How to indent descriptions, insert missing nodes lines, and update
+nodes in sequence.
+@end nodedescriptionblock
 @subsection Other Updating Commands
 
 In addition to the major updating commands, Texinfo mode possesses several
