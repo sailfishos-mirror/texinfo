@@ -1,5 +1,10 @@
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Printing with Emacs): Move node and sub-nodes
+	to appendix.
+
+2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Edits to manual
 
 	* doc/texinfo.texi (Insertions): Remove @iftex block listing

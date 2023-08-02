@@ -519,7 +519,6 @@ Formatting and Printing with @TeX{}
 * Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
-* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
 
@@ -527,12 +526,6 @@ Format with @command{tex}/@command{texindex}
 
 * Formatting Partial Documents::
 * Details of @command{texindex}::
-
-Formatting and Printing with Emacs
-
-* Emacs Shell Printing::        How to format and print from an Emacs shell.
-* Texinfo Mode Printing::       How to format and print in Texinfo mode.
-* Compile-Command::             How to print using Emacs's compile command.
 
 @command{texi2any}: The Generic Translator for Texinfo
 
@@ -623,6 +616,7 @@ Using Texinfo Mode
 * Updating Nodes and Menus::    How to update or create new nodes and menus.
 * Info Formatting::             How to format for Info.
 * Printing::                    How to format and print part or all of a file.
+* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
 * Formatting Info files::       Processing directly Info files.
 * Catching Mistakes::           How to find mistakes in formatting.
@@ -657,6 +651,12 @@ Direct Formatting of Info files
 
 * Tagifying::                   How to tagify a file.
 * Splitting::                   How to split a file manually.
+
+Formatting and Printing with Emacs
+
+* Emacs Shell Printing::        How to format and print from an Emacs shell.
+* Texinfo Mode Printing::       How to format and print in Texinfo mode.
+* Compile-Command::             How to print using Emacs's compile command.
 
 Catching Mistakes
 
@@ -14519,7 +14519,8 @@ If you are using GNU Emacs, you can use commands provided by Texinfo
 mode instead of shell commands.  In addition to the three commands to
 format a file, sort the indices, and print the result, Texinfo mode
 offers key bindings for commands to recenter the output buffer, show the
-print queue, and delete a job from the print queue.
+print queue, and delete a job from the print queue.  @xref{Printing with
+Emacs}.
 
 In the United States, documents are most often printed on 8.5 inch by
 11 inch pages (216@dmn{mm} by 280@dmn{mm}); this is the default size.
@@ -14941,203 +14942,6 @@ absent on MS-DOS/MS-Windows.  If so, just create a PostScript or PDF
 or PCL file, whatever is most convenient, and print that in the usual
 way for your machine (e.g., by sending to the appropriate port,
 usually @samp{PRN}).
-
-
-@node Printing with Emacs
-@nodedescription How to format with @TeX{} and print with Emacs.
-@section Formatting and Printing with Emacs
-
-GNU Emacs can be used for formatting and printing with @TeX{},
-from an Emacs Shell.  Texinfo mode also provides predefined
-key commands for formatting and printing.
-
-
-@node Emacs Shell Printing
-@nodedescription How to format and print from an Emacs shell.
-@subsection Printing From an Emacs Shell
-
-@anchor{Within Emacs} @c old node name
-@cindex Print, format from Emacs shell
-@cindex Format, print from Emacs shell
-@cindex Shell, format, print from
-@cindex Emacs shell, format, print from
-@cindex GNU Emacs shell, format, print from
-
-You can give formatting and printing commands from a shell within GNU
-Emacs, just like any other shell command.  To create a shell within
-Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs
-Manual}).  In this shell, you can format and print the document.
-@xref{Hardcopy with @TeX{}, , Format and Print Hardcopy}, for details.
-
-You can switch to and from the shell buffer while @command{tex} is
-running and do other editing.  If you are formatting a long document
-on a slow machine, this can be very convenient.
-
-For example, you can use @command{texi2dvi} from an Emacs shell.  Here is
-one way to use @command{texi2dvi} to format and print @cite{Using and
-Porting GNU CC} from a shell within Emacs:
-
-@example
-@group
-texi2pdf gcc.texi
-lpr gcc.pdf
-@end group
-@end example
-
-See the next section for more information about formatting
-and printing in Texinfo mode.
-
-
-@node Texinfo Mode Printing
-@nodedescription How to format and print in Texinfo mode.
-@subsection Formatting and Printing in Texinfo Mode
-@cindex Region printing in Texinfo mode
-@cindex Format and print in Texinfo mode
-@cindex Print and format in Texinfo mode
-
-Texinfo mode provides several predefined key commands for @TeX{}
-formatting and printing.  These include commands for sorting indices,
-looking at the printer queue, killing the formatting job, and
-recentering the display of the buffer in which the operations
-occur.
-
-@table @kbd
-@item C-c C-t C-b
-@itemx M-x texinfo-tex-buffer
-Run @command{texi2dvi} on the current buffer.
-
-@item C-c C-t C-r
-@itemx M-x texinfo-tex-region
-Run @TeX{} on the current region.
-
-If @@-commands related to printed output are between the
-start-of-header and end-of-header lines, then
-@code{texinfo-tex-region} will format the
-region accordingly.  For example, if you write the @code{@@smallbook} command
-between the start-of-header and end-of-header lines, @code{texinfo-tex-region},
-will format the region in ``small'' book size.
-
-@item C-c C-t C-i
-@itemx M-x texinfo-texindex
-Sort the indices of a Texinfo file formatted with
-@code{texinfo-tex-region}.
-
-@item C-c C-t C-p
-@itemx M-x texinfo-tex-print
-Print a DVI file that was made with @code{texinfo-tex-region} or
-@code{texinfo-tex-buffer}.
-
-@item C-c C-t C-q
-@itemx M-x tex-show-print-queue
-Show the print queue.
-
-@item C-c C-t C-d
-@itemx M-x texinfo-delete-from-print-queue
-Delete a job from the print queue; you will be prompted for the job
-number shown by a preceding @kbd{C-c C-t C-q} command
-(@code{texinfo-show-tex-print-queue}).
-
-@item C-c C-t C-k
-@itemx M-x tex-kill-job
-Kill the currently running @TeX{} job started by either
-@code{texinfo-tex-region} or @code{texinfo-tex-buffer}, or any other
-process running in the Texinfo shell buffer.
-
-@item C-c C-t C-x
-@itemx M-x texinfo-quit-job
-Quit a @TeX{} formatting job that has stopped because of an error by
-sending an @key{x} to it.  When you do this, @TeX{} preserves a record
-of what it did in a @file{.log} file.
-
-@item C-c C-t C-l
-@itemx M-x tex-recenter-output-buffer
-Redisplay the shell buffer in which the @TeX{} printing and formatting
-commands are run to show its most recent output.
-@end table
-
-@need 1000
-Thus, the usual sequence of commands for formatting a buffer is as
-follows (with comments to the right):
-
-@example
-@group
-C-c C-t C-b             @r{Run @command{texi2dvi} on the buffer.}
-C-c C-t C-p             @r{Print the DVI file.}
-C-c C-t C-q             @r{Display the printer queue.}
-@end group
-@end example
-
-The Texinfo mode @TeX{} formatting commands start a subshell in Emacs
-called the @file{*tex-shell*}.  The @code{texinfo-tex-command},
-@code{texinfo-texindex-command}, and @code{tex-dvi-print-command}
-commands are all run in this shell.
-
-You can watch the commands operate in the @samp{*tex-shell*} buffer,
-and you can switch to and from and use the @samp{*tex-shell*} buffer
-as you would any other shell buffer.
-
-@need 1500
-The formatting and print commands depend on the values of several variables.
-The default values are:
-
-@example
-@group
-    @r{Variable}                              @r{Default value}
-
-texinfo-texi2dvi-command                  "texi2dvi"
-texinfo-tex-command                       "tex"
-texinfo-texindex-command                  "texindex"
-texinfo-delete-from-print-queue-command   "lprm"
-texinfo-tex-trailer                       "@@bye"
-tex-start-of-header                       "%**start"
-tex-end-of-header                         "%**end"
-tex-dvi-print-command                     "lpr -d"
-tex-show-queue-command                    "lpq"
-@end group
-@end example
-
-You can change the values of these variables with the @kbd{M-x
-set-variable} command (@pxref{Examining, , Examining and Setting
-Variables, emacs, The GNU Emacs Manual}), or with your @file{.emacs}
-initialization file (@pxref{Init File, , , emacs, The GNU Emacs
-Manual}).
-
-@cindex Customize Emacs package (@t{Development/Docs/Texinfo})
-Beginning with version 20, GNU Emacs offers a user-friendly interface,
-called @dfn{Customize}, for changing values of user-definable variables.
-@xref{Easy Customization, , Easy Customization Interface, emacs, The GNU
-Emacs Manual}, for more details about this.  The Texinfo variables can
-be found in the @samp{Development/Docs/Texinfo} group, once you invoke
-the @kbd{M-x customize} command.
-
-
-@node Compile-Command
-@nodedescription How to print using Emacs's compile command.
-@subsection Using the Local Variables List
-@cindex Local variables
-@cindex Compile command for formatting
-@cindex Format with the compile command
-
-Yet another way to apply the @TeX{} formatting command to a Texinfo file
-is to put that command in a @dfn{local variables list} at the end of the
-Texinfo file.  You can then specify the @command{tex} or @command{texi2dvi}
-commands as a @code{compile-command} and have Emacs run it by typing
-@kbd{M-x compile}.  This creates a special shell called the
-@file{*compilation*} buffer in which Emacs runs the compile command.
-For example, at the end of the @file{gdb.texi} file, after the
-@code{@@bye}, you could put the following:
-
-@example
-@group
-Local Variables:
-compile-command: "texi2dvi gdb.texi"
-End:
-@end group
-@end example
-
-@noindent
-This technique is most often used by programmers who also compile programs
-this way; see @ref{Compilation, , , emacs, The GNU Emacs Manual}.
 
 
 @node Preparing for @TeX{}
@@ -22325,8 +22129,207 @@ on a line by itself.  (When you use @code{texinfo-tex-region}, you must
 surround the @code{@@settitle} line with start-of-header and
 end-of-header lines.)
 
-@xref{Hardcopy with @TeX{}}, for a description of the other @TeX{} related
+See the next section for a description of the other @TeX{}-related
 commands, such as @code{tex-show-print-queue}.
+
+
+@node Printing with Emacs
+@nodedescription How to format with @TeX{} and print with Emacs.
+@section Formatting and Printing with Emacs
+
+GNU Emacs can be used for formatting and printing with @TeX{},
+from an Emacs Shell.  Texinfo mode also provides predefined
+key commands for formatting and printing.
+
+
+@node Emacs Shell Printing
+@nodedescription How to format and print from an Emacs shell.
+@subsection Printing From an Emacs Shell
+
+@anchor{Within Emacs} @c old node name
+@cindex Print, format from Emacs shell
+@cindex Format, print from Emacs shell
+@cindex Shell, format, print from
+@cindex Emacs shell, format, print from
+@cindex GNU Emacs shell, format, print from
+
+You can give formatting and printing commands from a shell within GNU
+Emacs, just like any other shell command.  To create a shell within
+Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs
+Manual}).  In this shell, you can format and print the document.
+@xref{Hardcopy with @TeX{}, , Format and Print Hardcopy}, for details.
+
+You can switch to and from the shell buffer while @command{tex} is
+running and do other editing.  If you are formatting a long document
+on a slow machine, this can be very convenient.
+
+For example, you can use @command{texi2dvi} from an Emacs shell.  Here is
+one way to use @command{texi2dvi} to format and print @cite{Using and
+Porting GNU CC} from a shell within Emacs:
+
+@example
+@group
+texi2pdf gcc.texi
+lpr gcc.pdf
+@end group
+@end example
+
+See the next section for more information about formatting
+and printing in Texinfo mode.
+
+
+@node Texinfo Mode Printing
+@nodedescription How to format and print in Texinfo mode.
+@subsection Formatting and Printing in Texinfo Mode
+@cindex Region printing in Texinfo mode
+@cindex Format and print in Texinfo mode
+@cindex Print and format in Texinfo mode
+
+Texinfo mode provides several predefined key commands for @TeX{}
+formatting and printing.  These include commands for sorting indices,
+looking at the printer queue, killing the formatting job, and
+recentering the display of the buffer in which the operations
+occur.
+
+@table @kbd
+@item C-c C-t C-b
+@itemx M-x texinfo-tex-buffer
+Run @command{texi2dvi} on the current buffer.
+
+@item C-c C-t C-r
+@itemx M-x texinfo-tex-region
+Run @TeX{} on the current region.
+
+If @@-commands related to printed output are between the
+start-of-header and end-of-header lines, then
+@code{texinfo-tex-region} will format the
+region accordingly.  For example, if you write the @code{@@smallbook} command
+between the start-of-header and end-of-header lines, @code{texinfo-tex-region},
+will format the region in ``small'' book size.
+
+@item C-c C-t C-i
+@itemx M-x texinfo-texindex
+Sort the indices of a Texinfo file formatted with
+@code{texinfo-tex-region}.
+
+@item C-c C-t C-p
+@itemx M-x texinfo-tex-print
+Print a DVI file that was made with @code{texinfo-tex-region} or
+@code{texinfo-tex-buffer}.
+
+@item C-c C-t C-q
+@itemx M-x tex-show-print-queue
+Show the print queue.
+
+@item C-c C-t C-d
+@itemx M-x texinfo-delete-from-print-queue
+Delete a job from the print queue; you will be prompted for the job
+number shown by a preceding @kbd{C-c C-t C-q} command
+(@code{texinfo-show-tex-print-queue}).
+
+@item C-c C-t C-k
+@itemx M-x tex-kill-job
+Kill the currently running @TeX{} job started by either
+@code{texinfo-tex-region} or @code{texinfo-tex-buffer}, or any other
+process running in the Texinfo shell buffer.
+
+@item C-c C-t C-x
+@itemx M-x texinfo-quit-job
+Quit a @TeX{} formatting job that has stopped because of an error by
+sending an @key{x} to it.  When you do this, @TeX{} preserves a record
+of what it did in a @file{.log} file.
+
+@item C-c C-t C-l
+@itemx M-x tex-recenter-output-buffer
+Redisplay the shell buffer in which the @TeX{} printing and formatting
+commands are run to show its most recent output.
+@end table
+
+@need 1000
+Thus, the usual sequence of commands for formatting a buffer is as
+follows (with comments to the right):
+
+@example
+@group
+C-c C-t C-b             @r{Run @command{texi2dvi} on the buffer.}
+C-c C-t C-p             @r{Print the DVI file.}
+C-c C-t C-q             @r{Display the printer queue.}
+@end group
+@end example
+
+The Texinfo mode @TeX{} formatting commands start a subshell in Emacs
+called the @file{*tex-shell*}.  The @code{texinfo-tex-command},
+@code{texinfo-texindex-command}, and @code{tex-dvi-print-command}
+commands are all run in this shell.
+
+You can watch the commands operate in the @samp{*tex-shell*} buffer,
+and you can switch to and from and use the @samp{*tex-shell*} buffer
+as you would any other shell buffer.
+
+@need 1500
+The formatting and print commands depend on the values of several variables.
+The default values are:
+
+@example
+@group
+    @r{Variable}                              @r{Default value}
+
+texinfo-texi2dvi-command                  "texi2dvi"
+texinfo-tex-command                       "tex"
+texinfo-texindex-command                  "texindex"
+texinfo-delete-from-print-queue-command   "lprm"
+texinfo-tex-trailer                       "@@bye"
+tex-start-of-header                       "%**start"
+tex-end-of-header                         "%**end"
+tex-dvi-print-command                     "lpr -d"
+tex-show-queue-command                    "lpq"
+@end group
+@end example
+
+You can change the values of these variables with the @kbd{M-x
+set-variable} command (@pxref{Examining, , Examining and Setting
+Variables, emacs, The GNU Emacs Manual}), or with your @file{.emacs}
+initialization file (@pxref{Init File, , , emacs, The GNU Emacs
+Manual}).
+
+@cindex Customize Emacs package (@t{Development/Docs/Texinfo})
+Beginning with version 20, GNU Emacs offers a user-friendly interface,
+called @dfn{Customize}, for changing values of user-definable variables.
+@xref{Easy Customization, , Easy Customization Interface, emacs, The GNU
+Emacs Manual}, for more details about this.  The Texinfo variables can
+be found in the @samp{Development/Docs/Texinfo} group, once you invoke
+the @kbd{M-x customize} command.
+
+
+@node Compile-Command
+@nodedescription How to print using Emacs's compile command.
+@subsection Using the Local Variables List
+@cindex Local variables
+@cindex Compile command for formatting
+@cindex Format with the compile command
+
+Yet another way to apply the @TeX{} formatting command to a Texinfo file
+is to put that command in a @dfn{local variables list} at the end of the
+Texinfo file.  You can then specify the @command{tex} or @command{texi2dvi}
+commands as a @code{compile-command} and have Emacs run it by typing
+@kbd{M-x compile}.  This creates a special shell called the
+@file{*compilation*} buffer in which Emacs runs the compile command.
+For example, at the end of the @file{gdb.texi} file, after the
+@code{@@bye}, you could put the following:
+
+@example
+@group
+Local Variables:
+compile-command: "texi2dvi gdb.texi"
+End:
+@end group
+@end example
+
+@noindent
+This technique is most often used by programmers who also compile programs
+this way; see @ref{Compilation, , , emacs, The GNU Emacs Manual}.
+
+
 
 
 @node Texinfo Mode Summary
