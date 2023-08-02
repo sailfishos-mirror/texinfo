@@ -17690,18 +17690,9 @@ read Info files using the standalone Info program or the Info reader
 built into Emacs.  (@xref{Top,,, info, Info}, for an introduction to
 Info.)
 
-@menu
-* Directory File::              The top-level menu for all Info files.
-* New Info File::               Listing a new Info file.
-* Other Info Directories::      How to specify Info files that are
-                                 located in other directories.
-* Installing Dir Entries::      How to specify what menu entry to add
-                                 to the Info directory.
-* Invoking @command{install-info}::       @code{install-info} options.
-@end menu
-
 
 @node Directory File
+@nodedescription The top-level menu for all Info files.
 @subsection The Directory File @file{dir}
 
 For Info to work, the @file{info} directory must contain a file that
@@ -17755,6 +17746,7 @@ a large sample @code{dir} file.
 
 
 @node New Info File
+@nodedescription Listing a new Info file.
 @subsection Listing a New Info File
 @cindex Adding a new Info file
 @cindex Listing a new Info file
@@ -17787,6 +17779,7 @@ name, not @samp{gdb.info}.
 
 
 @node Other Info Directories
+@nodedescription How to specify Info files that are located in other directories.
 @subsection Info Files in Other Directories
 @cindex Installing Info in another directory
 @cindex Info installed in another directory
@@ -17878,6 +17871,7 @@ change the @code{Info-directory-list} variable.  For example:
 
 
 @node Installing Dir Entries
+@nodedescription How to specify what menu entry to add to the Info directory.
 @subsection Installing Info Directory Files
 
 When you install an Info file onto your system, you can use the program
@@ -17948,6 +17942,7 @@ traditional @command{man} system.
 
 
 @node Invoking @command{install-info}
+@nodedescription @code{install-info} options.
 @subsection Invoking @command{install-info}
 
 @pindex install-info
@@ -18385,18 +18380,9 @@ The documentation of @command{texi2any} HTML output adaptation using
 customization files is in a separate manual.  @xref{,,, texi2any_api, GNU
 Texinfo @command{texi2any} Output Customization}.
 
-@menu
-* HTML Translation::       Details of the HTML output.
-* HTML Splitting::         How HTML output is split.
-* HTML CSS::               Influencing HTML output with Cascading Style Sheets.
-* @code{@@documentdescription}::   Document summary for the HTML output.
-* Generating EPUB::        Details on the EPUB output.
-* Syntax Highlighting::    Use syntax highlighting in code excerpts.
-* HTML Xref::              Cross-references in HTML output.
-@end menu
-
 
 @node HTML Translation
+@nodedescription Details of the HTML output.
 @section HTML Translation
 
 @cindex HTML translation
@@ -18448,6 +18434,7 @@ dropped@dots{}).
 
 
 @node HTML Splitting
+@nodedescription How HTML output is split.
 @section HTML Splitting
 @cindex Split HTML output
 @cindex HTML output, split
@@ -18497,6 +18484,7 @@ based on the input file name as a last resort
 
 
 @node HTML CSS
+@nodedescription Influencing HTML output with Cascading Style Sheets.
 @section HTML CSS
 @cindex HTML, and CSS
 @cindex CSS, and HTML output
@@ -18595,6 +18583,7 @@ influence the HTML output.  @xref{Customization Variables}.
 
 
 @node @code{@@documentdescription}
+@nodedescription Document summary for the HTML output.
 @section @code{@@documentdescription}: Summary Text
 @anchor{documentdescription}@c old name
 
@@ -18627,6 +18616,7 @@ This will produce the following output in the @samp{<head>} of the HTML:
 
 
 @node Generating EPUB
+@nodedescription Details on the EPUB output.
 @section Generating EPUB
 
 @cindex EPUB, generating
@@ -18655,6 +18645,7 @@ the files and directories needed for the EPUB file by setting the
 
 
 @node EPUB Output File and Directory
+@nodedescription Use syntax highlighting in code excerpts.
 @subsection Container Directory and Output Files
 
 @cindex Container directory for EPUB
@@ -18693,6 +18684,7 @@ is left after the final EPUB file has been generated if
 
 
 @node EPUB Cross-References
+@nodedescription Cross-references in HTML output.
 @subsection EPUB Cross-References
 
 The EPUB format does not support references from an EPUB file to
@@ -21397,23 +21389,9 @@ file is no different from any other ASCII file.  However, GNU Emacs
 comes with a special mode, called Texinfo mode, that provides Emacs
 commands and tools to help ease your work.
 
-@menu
-* Texinfo Mode Overview::       How Texinfo mode can help you.
-* Emacs Editing::               Texinfo mode adds to GNU Emacs' general
-                                  purpose editing features.
-* Inserting::                   How to insert frequently used @@-commands.
-* Showing the Structure::       How to show the structure of a file.
-* Updating Nodes and Menus::    How to update or create new nodes and menus.
-* Info Formatting::             How to format for Info.
-* Printing::                    How to format and print part or all of a file.
-* Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
-* Formatting Info files::       Processing directly Info files.
-* Catching Mistakes::           How to find mistakes in formatting.
-* Batch Formatting::            How to format for Info in Emacs batch mode.
-@end menu
-
 
 @node Texinfo Mode Overview
+@nodedescription How Texinfo mode can help you.
 @section Texinfo Mode Overview
 
 Texinfo mode provides special features for working with Texinfo files.
@@ -21451,6 +21429,7 @@ used @@-commands and for creating node pointers and menus.
 
 
 @node Emacs Editing
+@nodedescription Texinfo mode adds to GNU Emacs' general purpose editing features.
 @section The Usual GNU Emacs Editing Commands
 
 In most cases, the usual Text mode commands work the same in Texinfo
@@ -21488,6 +21467,7 @@ ones.
 
 
 @node Inserting
+@nodedescription How to insert frequently used @@-commands.
 @section Inserting Frequently Used Commands
 @cindex Inserting frequently used commands
 @cindex Frequently used commands, inserting
@@ -21642,6 +21622,7 @@ words.
 
 
 @node Showing the Structure
+@nodedescription How to show the structure of a file.
 @section Showing the Sectioning Structure of a File
 @cindex Showing the sectioning structure of a file
 @cindex Sectioning structure of a file, showing
@@ -21819,6 +21800,7 @@ for more information.
 
 
 @node Updating Nodes and Menus
+@nodedescription How to update or create new nodes and menus.
 @section Updating Nodes and Menus
 
 @cindex Updating nodes and menus
@@ -22263,6 +22245,7 @@ sequentially updates all the nodes in the region.
 
 
 @node Info Formatting
+@nodedescription How to format for Info.
 @section Formatting for Info
 @cindex Formatting for Info
 @cindex Running an Info formatter
@@ -22429,6 +22412,7 @@ fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
 
 @node Printing
 @section Printing
+@nodedescription How to format and print part or all of a file.
 @cindex Formatting for printing
 @cindex Printing a region or buffer
 @cindex Region formatting and printing
@@ -22493,6 +22477,7 @@ commands, such as @code{tex-show-print-queue}.
 
 
 @node Texinfo Mode Summary
+@nodedescription Summary of all the Texinfo mode commands.
 @section Texinfo Mode Summary
 
 In Texinfo mode, each set of commands has default keybindings that
@@ -22675,6 +22660,7 @@ M-x texinfo-sequential-node-update
 
 
 @node Formatting Info files
+@nodedescription Processing directly Info files.
 @section Direct Formatting of Info files
 
 @cindex Direct formatting of Info files
@@ -22763,6 +22749,7 @@ the tag table and a directory of subfiles.  @xref{Tag and Split Files}.
 
 
 @node Catching Mistakes
+@nodedescription How to find mistakes in formatting.
 @section Catching Mistakes
 @cindex Structure, catching mistakes in
 @cindex Nodes, catching mistakes
@@ -23212,6 +23199,7 @@ table and split the file manually (@pxref{Splitting}).
 
 
 @node Batch Formatting
+@nodedescription How to format for Info in Emacs batch mode.
 @section Batch Formatting
 @cindex Batch formatting for Info
 @cindex Info batch formatting

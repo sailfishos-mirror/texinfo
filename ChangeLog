@@ -1,5 +1,9 @@
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi: Continue removing @menu throughout.
+
+2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <node description>:
 	Use the same code for @nodedescription and @nodedescriptionblock
 	for adding extra spaces if needed to separate the description.
