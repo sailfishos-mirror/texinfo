@@ -1,5 +1,14 @@
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Edits to manual
+
+	* doc/texinfo.texi (Insertions): Remove @iftex block listing
+	contents of chapter.
+	(Requirements Summmary): Remove node as the content is covered
+	elsewhere.
+
+2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Continue removing @menu throughout.
 
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>

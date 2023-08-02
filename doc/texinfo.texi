@@ -520,7 +520,6 @@ Formatting and Printing with @TeX{}
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
 * Printing with Emacs::         How to format with @TeX{} and print with Emacs.
-* Requirements Summary::        @TeX{} formatting requirements summary.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
 
@@ -1521,6 +1520,9 @@ characters@footnote{@command{texi2any} can handle non ASCII characters
 in input file names, but non ASCII characters in output name will create
 problems for some output formats, especially for cross-references.}.
 
+@cindex Requirements for formatting
+@cindex Minimal requirements for formatting
+@cindex Formatting requirements
 In order to be made into a printed manual, a Texinfo file must begin
 with a line like this:
 
@@ -9064,24 +9066,6 @@ Texinfo provides several commands for inserting characters that have
 special meaning in Texinfo, such as braces, and for other graphic
 elements that do not correspond to simple characters you can type.
 
-@iftex
-These are:
-
-@itemize @bullet
-@item The Texinfo special characters: @samp{@@ @{@} , \ # &}.
-@item Whitespace within and around a sentence.
-@item Accents.
-@item Dots and bullets.
-@item The @TeX{} logo and the copyright symbol.
-@item The euro and pounds currency symbols.
-@item The degrees symbol.
-@item The minus sign.
-@item Mathematical expressions.
-@item Glyphs for examples of programming: evaluation, macros, errors, etc.
-@item Footnotes.
-@end itemize
-@end iftex
-
 
 @node Special Characters
 @nodedescription Inserting @@ @{@} , \ # &
@@ -15154,52 +15138,6 @@ End:
 @noindent
 This technique is most often used by programmers who also compile programs
 this way; see @ref{Compilation, , , emacs, The GNU Emacs Manual}.
-
-
-@node Requirements Summary
-@nodedescription @TeX{} formatting requirements summary.
-@section @TeX{} Formatting Requirements Summary
-@cindex Requirements for formatting
-@cindex Minimal requirements for formatting
-@cindex Formatting requirements
-
-Every Texinfo file that is to be input to @TeX{} must begin with a
-@code{\input} command:
-
-@example
-\input texinfo
-@end example
-
-@noindent
-This instructs @TeX{} to load the macros it needs to process a Texinfo
-file.
-
-Every Texinfo file must end with a line that terminates @TeX{}'s
-processing and forces out unfinished pages:
-
-@example
-@@bye
-@end example
-
-Strictly speaking, these two lines are all a Texinfo file needs to be
-processed successfully by @TeX{}.
-
-Usually, however, the beginning includes a @code{@@settitle} command
-to define the title of the printed manual, a title page, a copyright
-page, permissions, and a table of contents.  Besides @code{@@bye}, the
-end of a file usually includes indices.  (Not to mention that most
-manuals contain a body of text as well.)
-
-For more information, see:
-
-@itemize @bullet
-@item @ref{@code{@@settitle}}.
-@item @ref{@code{@@setchapternewpage}}.
-@item @ref{Headings}.
-@item @ref{Titlepage & Copyright Page}.
-@item @ref{Printing Indices & Menus}.
-@item @ref{Contents}.
-@end itemize
 
 
 @node Preparing for @TeX{}
