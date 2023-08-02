@@ -3504,6 +3504,18 @@ sub _convert($$)
             my $formatted_elt;
             my $description_para;
             my $text_count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+
+            if ($text_count >= $description_indent_length) {
+              my $inserted_space = '  ';
+              $result .= _count_added($self, $formatter->{'container'},
+                               add_text($formatter->{'container'},
+                                        $inserted_space));
+              $result .= _count_added($self,
+                             $formatter->{'container'},
+                             add_pending_word($formatter->{'container'}, 1));
+              $text_count += length($inserted_space);
+            }
+
             my $text_element_context = {
                      'max' => $self->{'text_element_context'}->[-1]->{'max'},
                      'counter' => $text_count
@@ -3524,14 +3536,6 @@ sub _convert($$)
             if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
               $self->{'silent'} = 0 if (!defined($self->{'silent'}));
               $self->{'silent'}++;
-            }
-
-            if ($text_count >= $description_indent_length) {
-              $result .= _count_added($self, $formatter->{'container'},
-                               add_text($formatter->{'container'}, '  '));
-              $result .= _count_added($self,
-                             $formatter->{'container'},
-                             add_pending_word($formatter->{'container'}, 1));
             }
 
             if ($description_element->{'cmdname'} eq 'nodedescription') {

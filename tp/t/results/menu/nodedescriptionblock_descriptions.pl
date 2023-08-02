@@ -1915,8 +1915,8 @@ $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of
 
                                    a quotation in description
 
-* a somewhat long node without description nor following space::  not as long as
-                               the node
+* a somewhat long node without description nor following space::  not as long
+                               as the node
 * node double nodedescriptionblock::  block desc 1
 
 1 Toto
