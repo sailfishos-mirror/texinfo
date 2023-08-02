@@ -3718,6 +3718,11 @@ sub _end_line_misc_line($$$)
           $arg->{'extra'}->{$label_info}
             = [@{$arg_label_manual_info->{$label_info}}];
         }
+        if ($arg->{'extra'}->{'node_content'}) {
+          my $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+            {'contents' => $arg->{'extra'}->{'node_content'}});
+          $arg->{'extra'}->{'normalized'} = $normalized;
+        }
       }
     }
     _check_register_target_element_label($self, $current->{'args'}->[0],

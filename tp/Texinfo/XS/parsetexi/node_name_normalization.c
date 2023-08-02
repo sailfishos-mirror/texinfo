@@ -18,8 +18,11 @@
 #include <config.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
+#include "uniconv.h"
+#include "unistr.h"
 
-/* for whitespace_chars */
+/* for whitespace_chars and isascii_alnum */
 #include "parser.h"
 #include "tree_types.h"
 #include "element_types.h"
@@ -30,14 +33,6 @@
 #include "command_tables.c"
 
 /* FIXME use directly builtin_command_data[] instead of command_data? */
-
-/*
-fprintf(stderr, "AAA %s\n", command_normalization_text[CM_EXCLAMATION_MARK]);
-fprintf(stderr, "AAA %s\n", command_normalization_text[CM_AA]);
-fprintf(stderr, "AAA %s\n", command_normalization_text[CM_arrow]);
-fprintf(stderr, "AAA %s\n", command_normalization_text[CM_click]);
-fprintf(stderr, "AAA %s\n", command_normalization_text[CM_error]);
-*/
 
 int ref_3_args_order[] = {0, 1, 2, -1};
 int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
@@ -65,7 +60,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
               || (e->args.number > 0
                   && (e->args.list[0]->type == ET_line_arg
                       || e->args.list[0]->type == ET_rawline_arg))))
-    {}
+    return;
   else if (e->text.end > 0)
     {
       char *p = e->text.text;
@@ -192,3 +187,111 @@ convert_to_normalized (ELEMENT *e)
   return result.text;
 }
 
+void
+protect_unicode_char (char *text, TEXT *result)
+{
+  uint8_t *encoded_u8;
+  const uint8_t *next;
+  ucs4_t next_char;
+  char *str;
+
+  /* determine unicode codepoint */
+  encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                         iconveh_question_mark);
+  next = u8_next (&next_char, encoded_u8);
+  if (next)
+    bug ("Something left on next_str/encoded_u8\n");
+  free (encoded_u8);
+
+  if (next_char < 0xFFFF)
+    {
+      xasprintf(&str, "%04lx", next_char);
+      text_append_n (result, "_", 1);
+    }
+  else
+    {
+      xasprintf(&str, "%06lx", next_char);
+      text_append_n (result, "__", 2);
+    }
+  text_append (result, str);
+  free (str);
+}
+
+char *unicode_to_protected (char *text)
+{
+  TEXT result;
+  char *p = text;
+
+  text_init (&result);
+
+  while (*p)
+    {
+      int n = strspn (p, " ");
+      if (n)
+        {
+          text_append_n (&result, "-", 1);
+          p += n;
+          if (!*p)
+            break;
+        }
+
+      if (isascii_alnum (*p))
+        {
+          text_append_n (&result, p, 1);
+          p++;
+        }
+      else
+        {
+          int char_len = 1;
+          char *next_str;
+
+          /* Count any UTF-8 continuation bytes. */
+          while ((p[char_len] & 0xC0) == 0x80)
+            char_len++;
+
+          next_str = strndup (p, char_len);
+          protect_unicode_char (next_str, &result);
+
+          free (next_str);
+          p += char_len;
+        }
+    }
+  return (result.text);
+}
+
+/* frees input if another string is returned */
+char *normalize_top_name (char *text)
+{
+  char *result = text;
+  if (strlen(text) == 3)
+    {
+      char *normalized = strdup (text);
+      char *p;
+
+      for (p = normalized; *p; p++)
+        if (isascii_alnum(*p))
+          *p = tolower (*p);
+
+      if (!strcmp (normalized, "top"))
+        {
+          result = strdup ("Top");
+          free (text);
+        }
+
+      free (normalized);
+    }
+  return result;
+}
+
+char *
+convert_to_identifier (ELEMENT *root)
+{
+  char *converted_name = convert_to_normalized (root);
+  char *normalized_name = normalize_NFC (converted_name);
+  char *protected = unicode_to_protected (normalized_name);
+  char *result = normalize_top_name (protected);
+
+  free (converted_name);
+  free (normalized_name);
+  return result;
+}

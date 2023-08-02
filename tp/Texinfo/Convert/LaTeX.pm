@@ -2401,7 +2401,7 @@ sub _finish_front_cover_page($)
 sub _tree_anchor_label {
   my $node_content = shift;
 
-  my $label = Texinfo::Convert::NodeNameNormalization::normalize_node
+  my $label = Texinfo::Convert::NodeNameNormalization::convert_to_identifier
     ({'contents' => $node_content});
   return "anchor:$label";
 }

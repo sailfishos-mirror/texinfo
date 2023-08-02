@@ -1,5 +1,25 @@
 2023-08-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (convert_to_identifier):
+	rename normalize_node as convert_to_identifier.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(protect_unicode_char, unicode_to_protected, normalize_top_name)
+	(convert_to_identifier): implement convert_to_identifier and
+	associated functions from Texinfo::Convert::NodeNameNormalization.
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): call
+	convert_to_identifier on node direction directly in parsers, not in
+	set_nodes_list_labels.
+
+	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(convert_to_normalized_internal): return directly when converting an
+	ignored element.
+
+2023-08-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_float_types),
 	tp/Texinfo/ParserNonXS.pm (_enter_index_entry, _end_line_misc_line)
 	(_end_line_starting_block, _parse_texi): set float list from

@@ -289,7 +289,7 @@ sub _parsed_manual_tree($$$$$)
           }
 
           my $normalized_node_name
-             = Texinfo::Convert::NodeNameNormalization::normalize_node(
+             = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                   { 'contents' => $node_arg->{'contents'} });
           $node->{'extra'}->{'normalized'} = $normalized_node_name;
           Texinfo::Common::register_label($targets_list, $node);

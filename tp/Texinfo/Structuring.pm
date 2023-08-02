@@ -1105,7 +1105,7 @@ sub _label_target_unit_element($)
       $external_node->{'extra'}->{'node_content'}
         = $label->{'extra'}->{'node_content'};
       $external_node->{'extra'}->{'normalized'}
-        = Texinfo::Convert::NodeNameNormalization::normalize_node(
+        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                    {'contents' => $label->{'extra'}->{'node_content'}});
     }
     return $external_node;
@@ -1498,7 +1498,7 @@ sub associate_internal_references($$$$$)
     if ($label_element->{'extra'}
         and $label_element->{'extra'}->{'node_content'}) {
       my $normalized =
-        Texinfo::Convert::NodeNameNormalization::normalize_node(
+        Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
             {'contents' => $label_element->{'extra'}->{'node_content'} });
       $label_element->{'extra'}->{'normalized'} = $normalized
         if (defined($normalized) and $normalized ne '');
@@ -1701,7 +1701,7 @@ sub new_node_menu_entry
 
       if ($label_info eq 'node_content') {
         $menu_entry_node->{'extra'}->{'normalized'}
-          = Texinfo::Convert::NodeNameNormalization::normalize_node(
+          = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
              {'contents' => $menu_entry_node->{'extra'}->{$label_info}});
       }
     }

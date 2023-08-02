@@ -48,7 +48,7 @@ use Pod::Simple::PullParser ();
 # for parselink()
 #use Pod::ParseLink;
 
-use Texinfo::Convert::NodeNameNormalization qw(normalize_node);
+use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier);
 use Texinfo::Parser qw(parse_texi_line parse_texi_text);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
@@ -497,7 +497,7 @@ sub _prepare_anchor($$)
   }
   # Now we know that we have something.
   my $node_tree = parse_texi_line(undef, $node);
-  my $normalized_base = normalize_node($node_tree);
+  my $normalized_base = convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
   my $number_appended = 0;
   while ($self->{'texinfo_nodes'}->{$normalized}) {

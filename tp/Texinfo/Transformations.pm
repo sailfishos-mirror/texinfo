@@ -268,7 +268,7 @@ sub _new_node($$$$)
       $content->{'parent'} = $node_line_arg;
     }
 
-    $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+    $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                        { 'contents' => $node_line_arg->{'contents'} });
 
     if ($normalized !~ /[^-]/) {

@@ -1514,8 +1514,20 @@ end_line_misc_line (ELEMENT *current)
           ELEMENT * arg = current->args.list[i];
           NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg, 1);
           if (direction_label_info->node_content)
-            add_extra_contents (arg, "node_content",
-                                direction_label_info->node_content);
+            {
+              ELEMENT *tmp = new_element (ET_NONE);
+              char *normalized;
+
+              add_extra_contents (arg, "node_content",
+                                  direction_label_info->node_content);
+
+              tmp->contents = direction_label_info->node_content->contents;
+              normalized = convert_to_identifier (tmp);
+              tmp->contents.list = 0;
+              destroy_element (tmp);
+
+              add_extra_string (arg, "normalized", normalized);
+            }
           if (direction_label_info->manual_content)
             add_extra_contents (arg, "manual_content",
                                 direction_label_info->manual_content);

@@ -3038,7 +3038,7 @@ sub _convert_explained_command($$$$)
   my $normalized_type = '';
   if ($command->{'args'}->[0]
       and $command->{'args'}->[0]->{'contents'}) {
-    $normalized_type = Texinfo::Convert::NodeNameNormalization::normalize_node(
+    $normalized_type = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
           {'contents' => $command->{'args'}->[0]->{'contents'}});
   }
 
@@ -8542,7 +8542,7 @@ sub _normalized_label_id_file($$$)
 
   my $target;
   if (!defined($normalized)) {
-    $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+    $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
       { 'contents' => $node_contents });
   }
 

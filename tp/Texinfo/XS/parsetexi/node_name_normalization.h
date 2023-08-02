@@ -5,6 +5,7 @@
 #include "tree_types.h"
 
 char *convert_to_normalized (ELEMENT *e);
+char *convert_to_identifier (ELEMENT *root);
 
 #endif
 

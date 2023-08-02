@@ -719,7 +719,7 @@ sub node_information_filename($$$)
       $filename = $normalized;
     }
   } elsif (defined($node_contents)) {
-    $filename = Texinfo::Convert::NodeNameNormalization::normalize_node(
+    $filename = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
              { 'contents' => $node_contents });
   } else {
     $filename = '';

@@ -49,7 +49,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
-  normalize_node
+  convert_to_identifier
   normalize_transliterate_texinfo
   transliterate_texinfo
   transliterate_protect_file_name
@@ -91,7 +91,7 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 
-sub normalize_node($)
+sub convert_to_identifier($)
 {
   my $root = shift;
   my $result = _convert($root);
@@ -338,20 +338,10 @@ sub set_nodes_list_labels($$$)
   my %labels = ();
   if (defined $self->{'targets'}) {
     for my $target (@{$self->{'targets'}}) {
-      if ($target->{'cmdname'} eq 'node') {
-        for (my $i = 1; $i < scalar(@{$target->{'args'}}); $i++) {
-          my $arg = $target->{'args'}->[$i];
-          if ($arg->{'extra'} and $arg->{'extra'}->{'node_content'}) {
-            my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-               {'contents' => $arg->{'extra'}->{'node_content'}});
-            $arg->{'extra'}->{'normalized'} = $normalized;
-          }
-        }
-      }
       my $label_element = Texinfo::Common::get_label_element($target);
       if ($label_element and $label_element->{'contents'}) {
         my $normalized
-            = Texinfo::Convert::NodeNameNormalization::normalize_node(
+            = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                                                            $label_element);
         if ($normalized !~ /[^-]/) {
           $registrar->line_error($configuration_information,
@@ -403,10 +393,10 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::NodeNameNormalization qw(normalize_node
+  use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
                                         normalize_transliterate_texinfo);
 
-  my $normalized = normalize_node({'contents' => $node_contents});
+  my $normalized = convert_to_identifier({'contents' => $node_contents});
 
   my $file_name = normalize_transliterate_texinfo({'contents'
                                             => $section_contents});
@@ -419,10 +409,10 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::Convert::NodeNameNormalization> allows to normalize node names,
-with C<normalize_node> following the specification described in the
+with C<convert_to_identifier> following the specification described in the
 Texinfo manual I<HTML Xref> node.  This is useful whenever one want a
 unique identifier for Texinfo content, which is only composed of letter,
-digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<normalize_node> is used
+digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<convert_to_identifier> is used
 for C<@node>, C<@float> and C<@anchor> names normalization, but also C<@float>
 types and C<@acronym> and C<@abbr> first argument.
 
@@ -445,8 +435,8 @@ normalized as described in the Texinfo manual I<HTML Xref> node.  ASCII
 7-bit characters other than spaces and non-ASCII characters are left as
 is in the resulting string.
 
-=item $normalized = normalize_node($tree)
-X<C<normalize_node>>
+=item $normalized = convert_to_identifier($tree)
+X<C<convert_to_identifier>>
 
 The Texinfo I<$tree> is returned as a string, normalized as described in the
 Texinfo manual I<HTML Xref> node.
@@ -459,7 +449,7 @@ C<@node> or block commands.
 X<C<normalize_transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non-ASCII letters
-transliterated as ASCII, but otherwise similar with C<normalize_node>
+transliterated as ASCII, but otherwise similar with C<convert_to_identifier>
 output.  If the optional I<$no_unidecode> argument is set, C<Text::Unidecode>
 is not used for characters whose transliteration is not built-in.
 
