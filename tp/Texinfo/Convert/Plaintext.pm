@@ -3526,24 +3526,21 @@ sub _convert($$)
               $self->{'silent'}++;
             }
 
+            if ($text_count >= $description_indent_length) {
+              $result .= _count_added($self, $formatter->{'container'},
+                               add_text($formatter->{'container'}, '  '));
+              $result .= _count_added($self,
+                             $formatter->{'container'},
+                             add_pending_word($formatter->{'container'}, 1));
+            }
+
             if ($description_element->{'cmdname'} eq 'nodedescription') {
               # push a paragraph container to format the description.
               $description_para = $self->new_formatter('paragraph',
                   { 'indent_length' => $description_indent_length });
-              if ($result !~ /\s$/) {
-                $result .= _count_added($self, $description_para->{'container'},
-                                 add_text($description_para->{'container'}, ' '));
-              }
               push @{$self->{'formatters'}}, $description_para;
               $formatted_elt = $description_element->{'args'}->[0];
             } else {
-              if ($text_count >= $description_indent_length) {
-                $result .= _count_added($self, $formatter->{'container'},
-                                 add_text($formatter->{'container'}, ' '));
-                $result .= _count_added($self,
-                               $formatter->{'container'},
-                               add_pending_word($formatter->{'container'}, 1));
-              }
               push @{$self->{'format_context'}},
                { 'cmdname' => $description_element->{'cmdname'},
                  'paragraph_count' => 0,

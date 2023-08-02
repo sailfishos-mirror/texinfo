@@ -1927,12 +1927,12 @@ $result_converted{'plaintext'}->{'nodedescription_descriptions'} = 'test of node
 * name of other: other.        other comes here
 
 * name of last: last. desc of last
-* a somewhat long node without description nor following space:: not as long as
+* a somewhat long node without description nor following space::  not as long as
                                the node
-* a very long node without description with very little space left for::
+* a very long node without description with very little space left for::  
                                starting the desciption with a somewhat long
                                word
-* very very long node extending past the max columns and without description::
+* very very long node extending past the max columns and without description::  
                                Not long
 
 1 Toto
