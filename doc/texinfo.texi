@@ -23588,7 +23588,7 @@ Header}.
 @cindex Size of printed book
 
 By default, @TeX{} typesets pages for printing in an 8.5 by 11 inch
-format, which is the ``letter'' commonly used in the United States.
+format, which is the ``letter'' size commonly used in the United States.
 However, you can direct @TeX{} or @LaTeX{} to typeset a document in a
 7 by 9.25 inch format that is suitable for bound books by inserting the
 following command on a line by itself at the beginning of the Texinfo file,
