@@ -14323,15 +14323,9 @@ file, it processes the contents of the file named by the
 created.  Include files thus let you keep a single large document as a
 collection of conveniently small parts.
 
-@menu
-* Using Include Files::         How to use the @code{@@include} command.
-* Sample Include File::         A sample outer file with included files
-                                     within it; and a sample included file.
-* @code{@@verbatiminclude}::            Including a file verbatim.
-@end menu
-
 
 @node Using Include Files
+@nodedescription How to use the @code{@@include} command.
 @section How to Use Include Files
 
 @findex include
@@ -14369,6 +14363,7 @@ to update node pointers and master menu with multiple include files.
 
 
 @node Sample Include File
+@nodedescription A sample outer file with included files within it; and a sample included file.
 @section Sample File with @code{@@include}
 @cindex Sample @code{@@include} file
 @cindex Include file sample
@@ -14428,6 +14423,7 @@ has already contained a master menu with 417 entries and a list of
 
 
 @node @code{@@verbatiminclude}
+@nodedescription Including a file verbatim.
 @section @code{@@verbatiminclude} @var{file}: Include a File Verbatim
 
 @anchor{verbatiminclude}@c old name
@@ -14551,19 +14547,9 @@ But you can also print for 7 inch by 9.25 inch pages (178@dmn{mm} by
 
 Details are in the following sections.
 
-@menu
-* Use @TeX{}::                     Use @TeX{} to format for hardcopy.
-* Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
-* Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
-* Print with @command{lpr}::              How to print.
-* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
-* Requirements Summary::        @TeX{} formatting requirements summary.
-* Preparing for @TeX{}::           What to do before you use @TeX{}.
-* Overfull hboxes::             What are and what to do with overfull hboxes.
-@end menu
-
 
 @node Use @TeX{}
+@nodedescription Use @TeX{} to format for hardcopy.
 @section Use @TeX{}
 
 The typesetting program called @TeX{} is used to format a Texinfo
@@ -14585,6 +14571,7 @@ and you can get it over the Internet or on physical media.  See
 
 
 @node Format with @command{texi2dvi} or @command{texi2pdf}
+@nodedescription The simplest way to format.
 @section Format with @command{texi2dvi} or @command{texi2pdf}
 
 @c previously in a separate node.  To be used when referring
@@ -14751,6 +14738,7 @@ for troubleshooting purposes, and may change or disappear in the future.
 
 
 @node Format with @command{tex}/@command{texindex}
+@nodedescription Formatting with explicit shell commands.
 @section Format with @command{tex}/@command{texindex}
 
 @cindex Shell formatting with @command{tex} and @command{texindex}
@@ -14855,11 +14843,6 @@ To generate PDF, you can run the @command{pdftex}
 program instead of plain @command{tex}.  That is, run @command{pdftex
 foo.texi} instead of @samp{tex foo.texi} in the examples above.
 
-@menu
-* Formatting Partial Documents::
-* Details of @command{texindex}::
-@end menu
-
 
 @node Formatting Partial Documents
 @subsection Formatting Partial Documents
@@ -14935,6 +14918,7 @@ coincidentally, he is also the long-time maintainer of @command{gawk}
 
 
 @node Print with @command{lpr}
+@nodedescription How to print.
 @section Print with @command{lpr} from Shell
 
 @pindex lpr @r{(DVI print command)}
@@ -14976,20 +14960,16 @@ usually @samp{PRN}).
 
 
 @node Printing with Emacs
+@nodedescription How to format with @TeX{} and print with Emacs.
 @section Formatting and Printing with Emacs
 
 GNU Emacs can be used for formatting and printing with @TeX{},
 from an Emacs Shell.  Texinfo mode also provides predefined
 key commands for formatting and printing.
 
-@menu
-* Emacs Shell Printing::        How to format and print from an Emacs shell.
-* Texinfo Mode Printing::       How to format and print in Texinfo mode.
-* Compile-Command::             How to print using Emacs's compile command.
-@end menu
-
 
 @node Emacs Shell Printing
+@nodedescription How to format and print from an Emacs shell.
 @subsection Printing From an Emacs Shell
 
 @anchor{Within Emacs} @c old node name
@@ -15025,6 +15005,7 @@ and printing in Texinfo mode.
 
 
 @node Texinfo Mode Printing
+@nodedescription How to format and print in Texinfo mode.
 @subsection Formatting and Printing in Texinfo Mode
 @cindex Region printing in Texinfo mode
 @cindex Format and print in Texinfo mode
@@ -15147,6 +15128,7 @@ the @kbd{M-x customize} command.
 
 
 @node Compile-Command
+@nodedescription How to print using Emacs's compile command.
 @subsection Using the Local Variables List
 @cindex Local variables
 @cindex Compile command for formatting
@@ -15175,6 +15157,7 @@ this way; see @ref{Compilation, , , emacs, The GNU Emacs Manual}.
 
 
 @node Requirements Summary
+@nodedescription @TeX{} formatting requirements summary.
 @section @TeX{} Formatting Requirements Summary
 @cindex Requirements for formatting
 @cindex Minimal requirements for formatting
@@ -15220,6 +15203,7 @@ For more information, see:
 
 
 @node Preparing for @TeX{}
+@nodedescription What to do before you use @TeX{}.
 @section Preparing for @TeX{}
 @cindex Preparing for @TeX{}
 @cindex @TeX{} input initialization
@@ -15310,6 +15294,7 @@ indicates searching the system directories at that point.)
 
 
 @node Overfull hboxes
+@nodedescription What are and what to do with overfull hboxes.
 @section Overfull ``hboxes''
 @cindex Overfull @samp{hboxes}
 @cindex @samp{hbox}, overfull
