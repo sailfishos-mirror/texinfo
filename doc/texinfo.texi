@@ -654,7 +654,6 @@ Direct Formatting of Info files
 
 Formatting and Printing with Emacs
 
-* Emacs Shell Printing::        How to format and print from an Emacs shell.
 * Texinfo Mode Printing::       How to format and print in Texinfo mode.
 * Compile-Command::             How to print using Emacs's compile command.
 
@@ -14515,6 +14514,21 @@ prints the formatted document.  When you use the shell commands, you
 can either work directly in the operating system shell or work within
 a shell inside GNU Emacs (or some other computing environment).
 
+@anchor{Within Emacs} @c old node name
+@anchor{Emacs Shell Printing} @c old node name
+@cindex Print, format from Emacs shell
+@cindex Format, print from Emacs shell
+@cindex Shell, format, print from
+@cindex Emacs shell, format, print from
+@cindex GNU Emacs shell, format, print from
+You can give formatting and printing commands from a shell within GNU
+Emacs, just like any other shell command.  To create a shell within
+Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs
+Manual}).
+You can switch to and from the shell buffer while @command{tex} is
+running and do other editing.  If you are formatting a long document
+on a slow machine, this can be very convenient.
+
 If you are using GNU Emacs, you can use commands provided by Texinfo
 mode instead of shell commands.  In addition to the three commands to
 format a file, sort the indices, and print the result, Texinfo mode
@@ -22140,42 +22154,6 @@ commands, such as @code{tex-show-print-queue}.
 GNU Emacs can be used for formatting and printing with @TeX{},
 from an Emacs Shell.  Texinfo mode also provides predefined
 key commands for formatting and printing.
-
-
-@node Emacs Shell Printing
-@nodedescription How to format and print from an Emacs shell.
-@subsection Printing From an Emacs Shell
-
-@anchor{Within Emacs} @c old node name
-@cindex Print, format from Emacs shell
-@cindex Format, print from Emacs shell
-@cindex Shell, format, print from
-@cindex Emacs shell, format, print from
-@cindex GNU Emacs shell, format, print from
-
-You can give formatting and printing commands from a shell within GNU
-Emacs, just like any other shell command.  To create a shell within
-Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs
-Manual}).  In this shell, you can format and print the document.
-@xref{Hardcopy with @TeX{}, , Format and Print Hardcopy}, for details.
-
-You can switch to and from the shell buffer while @command{tex} is
-running and do other editing.  If you are formatting a long document
-on a slow machine, this can be very convenient.
-
-For example, you can use @command{texi2dvi} from an Emacs shell.  Here is
-one way to use @command{texi2dvi} to format and print @cite{Using and
-Porting GNU CC} from a shell within Emacs:
-
-@example
-@group
-texi2pdf gcc.texi
-lpr gcc.pdf
-@end group
-@end example
-
-See the next section for more information about formatting
-and printing in Texinfo mode.
 
 
 @node Texinfo Mode Printing
