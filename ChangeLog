@@ -1,5 +1,10 @@
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Printing): Remove node, as it is duplicative
+	of "Texinfo Mode Printing".  Move a paragraph into "Hardcopy with TeX".
+
+2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Emacs Shell Printing): Remove node, moving
 	some material into "Hardcopy with TeX".
 
