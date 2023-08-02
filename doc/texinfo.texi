@@ -14507,21 +14507,13 @@ Running the @command{texi2dvi} or @command{texi2pdf} command is the
 simplest way to create printable output.  These commands are installed
 as part of the Texinfo package.
 
-Typesetting and printing a Texinfo file is a multi-step process in
-which you first create a file for printing (called a DVI file), and
-then print the file.  Optionally, you may also create indices.  To do
-this, you must run the @command{texindex} command after first running the
-@command{tex} typesetting command; and then you must run the
-@command{tex} command again.  Or else run the @command{texi2dvi}
-command which automatically creates indices as needed (@pxref{Format
-with @command{texi2dvi}}).
-
-In more detail, three major shell commands are used to print formatted
-output from a Texinfo manual: one converts the Texinfo source into
-something printable, a second sorts indices, and a third actually
-prints the formatted document.  When you use the shell commands, you
-can either work directly in the operating system shell or work within
-a shell inside GNU Emacs (or some other computing environment).
+In more detail, typesetting and printing a Texinfo file is a multi-step
+process in which you use the @TeX{} program to create a file for printing
+(called a DVI or PDF file), and then print the file.  Optionally,
+you may also create indices using the @command{texindex} command
+after first running @TeX{}; and then you must run @TeX{} again.
+@command{texi2dvi} takes care of all of this, running @TeX{} and
+@command{texindex} as needed (@pxref{Format with @command{texi2dvi}}).
 
 @anchor{Within Emacs} @c old node name
 @anchor{Emacs Shell Printing} @c old node name
@@ -14530,30 +14522,17 @@ a shell inside GNU Emacs (or some other computing environment).
 @cindex Shell, format, print from
 @cindex Emacs shell, format, print from
 @cindex GNU Emacs shell, format, print from
+When you use the shell commands, you
+can either work directly in the operating system shell or work within
+a shell inside GNU Emacs (or some other computing environment).
 You can give formatting and printing commands from a shell within GNU
 Emacs, just like any other shell command.  To create a shell within
-Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs
-Manual}).
-You can switch to and from the shell buffer while @command{tex} is
-running and do other editing.  If you are formatting a long document
-on a slow machine, this can be very convenient.
+Emacs, type @kbd{M-x shell} (@pxref{Shell,,, emacs, The GNU Emacs Manual}).
+If you are using GNU Emacs, you can also use commands provided by Texinfo
+mode instead of shell commands.  @xref{Printing with Emacs}.
 
-If you are using GNU Emacs, you can use commands provided by Texinfo
-mode instead of shell commands.  In addition to the three commands to
-format a file, sort the indices, and print the result, Texinfo mode
-offers key bindings for commands to recenter the output buffer, show the
-print queue, and delete a job from the print queue.  @xref{Printing with
-Emacs}.
-
-In the United States, documents are most often printed on 8.5 inch by
-11 inch pages (216@dmn{mm} by 280@dmn{mm}); this is the default size.
-But you can also print for 7 inch by 9.25 inch pages (178@dmn{mm} by
-235@dmn{mm}, the @code{@@smallbook} size; or on A4 or A5 size paper
-(@code{@@afourpaper}, @code{@@afivepaper}).
-@xref{@code{@@smallbook}}, and @ref{A4 Paper}.
-
-
-Details are in the following sections.
+For specifing details of the printed output such as paper size, see
+@ref{Global Document Commands}.
 
 
 @node Use @TeX{}
@@ -23609,7 +23588,8 @@ Header}.
 @cindex Size of printed book
 
 By default, @TeX{} typesets pages for printing in an 8.5 by 11 inch
-format.  However, you can direct @TeX{} or @LaTeX{} to typeset a document in a
+format, which is the ``letter'' commonly used in the United States.
+However, you can direct @TeX{} or @LaTeX{} to typeset a document in a
 7 by 9.25 inch format that is suitable for bound books by inserting the
 following command on a line by itself at the beginning of the Texinfo file,
 before the title page:

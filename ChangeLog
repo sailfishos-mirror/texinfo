@@ -1,5 +1,11 @@
 2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Hardcopy with TeX): Edit and condense.  Reference
+	another node for details of changing the paper size.
+	(@smallbook): Say that 8.5x11" paper is called letter size.
+
+2023-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Printing): Remove node, as it is duplicative
 	of "Texinfo Mode Printing".  Move a paragraph into "Hardcopy with TeX".
 
