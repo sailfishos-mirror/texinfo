@@ -3448,6 +3448,21 @@ sub _enter_index_entry($$$$)
   $element->{'extra'}->{'index_entry'} = [$index_name, $number];
 }
 
+sub _parse_float_type($)
+{
+  my $current = shift;
+
+  my $normalized = '';
+  if ($current->{'args'} and scalar(@{$current->{'args'}})) {
+    $normalized
+       = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                                                  $current->{'args'}->[0]);
+  }
+  $current->{'extra'} = {} if (!$current->{'extra'});
+  $current->{'extra'}->{'float_type'} = $normalized;
+  return $normalized;
+}
+
 sub _in_include($)
 {
   my $self = shift;
@@ -3723,9 +3738,7 @@ sub _end_line_misc_line($$$)
     }
     $self->{'current_node'} = $current;
   } elsif ($command eq 'listoffloats') {
-    # for now done in Texinfo::Convert::NodeNameNormalization, but could be
-    # good to do in Parser/XS
-    #_parse_float_type($current);
+    _parse_float_type($current);
   } else {
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top is allowed
@@ -4063,10 +4076,10 @@ sub _end_line_starting_block($$$)
       if ($current->{'args'} and scalar(@{$current->{'args'}}) > 2);
     _check_register_target_element_label($self, $float_label_element,
                                          $current, $source_info);
-    # for now done in Texinfo::Convert::NodeNameNormalization, but could be
-    # good to do in Parser/XS
-    #my $float_type = _parse_float_type($current);
-    #push @{$self->{'floats'}->{$float_type}}, $current;
+
+    my $float_type = _parse_float_type($current);
+    push @{$self->{'floats'}->{$float_type}}, $current;
+
     if (defined($self->{'current_section'})) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'float_section'} = $self->{'current_section'};
@@ -7467,7 +7480,6 @@ sub _parse_texi($$$)
   # Setup labels info and nodes list based on 'targets'
   Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
                                               $self->{'registrar'}, $self);
-  Texinfo::Convert::NodeNameNormalization::set_float_types($self);
   Texinfo::Translations::complete_indices($self);
   return $root;
 }

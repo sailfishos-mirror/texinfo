@@ -393,44 +393,6 @@ sub set_nodes_list_labels($$$)
   $self->{'labels'} = \%labels;
 }
 
-sub _parse_float_type($)
-{
-  my $current = shift;
-
-  my $normalized = '';
-  if ($current->{'args'} and scalar(@{$current->{'args'}})) {
-    $normalized = convert_to_normalized($current->{'args'}->[0]);
-  }
-  $current->{'extra'} = {} if (!$current->{'extra'});
-  $current->{'extra'}->{'float_type'} = $normalized;
-  return $normalized;
-}
-
-# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
-# This should be considered an internal function of the parsers for all
-# purposes, it is here to avoid code duplication.
-sub set_float_types
-{
-  my $self = shift;
-
-  $self->{'floats'} = {};
-
-  my $global_commands = $self->global_commands_information();
-  return unless ($global_commands);
-
-  if ($global_commands->{'float'}) {
-    foreach my $current (@{$global_commands->{'float'}}) {
-      my $float_type = _parse_float_type($current);
-      push @{$self->{'floats'}->{$float_type}}, $current;
-    }
-  }
-  if ($global_commands->{'listoffloats'}) {
-    foreach my $current (@{$global_commands->{'listoffloats'}}) {
-      _parse_float_type($current);
-    }
-  }
-}
-
 1;
 
 __END__

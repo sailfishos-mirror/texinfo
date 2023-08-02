@@ -1,3 +1,10 @@
+2023-08-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_float_types),
+	tp/Texinfo/ParserNonXS.pm (_enter_index_entry, _end_line_misc_line)
+	(_end_line_starting_block, _parse_texi): set float list from
+	perl parser.  Remove set_float_types function.
+
 2023-08-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/unicode.c (unicode_accent): fix a one off
