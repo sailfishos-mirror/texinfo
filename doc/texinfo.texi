@@ -10100,21 +10100,9 @@ in printed text but not available in ASCII@.  Of course, there are
 many thousands more.  It is possible to use Unicode characters as-is
 as far as @code{texi2any} is concerned, but @TeX{} is not so lucky.
 
-@menu
-* @code{@@TeX @@LaTeX}::                 The @TeX{} logos.
-* @code{@@copyright}::                  The copyright symbol (c in a circle).
-* @code{@@registeredsymbol}::           The registered symbol (R in a circle).
-* @code{@@dots}::                       How to insert ellipses: @dots{} and @enddots{}
-* @code{@@bullet}::                     How to insert a bullet: @bullet{}
-* @code{@@euro}::                       How to insert the euro currency symbol.
-* @code{@@pounds}::                     How to insert the pounds currency symbol.
-* @code{@@textdegree}::                 How to insert the degrees symbol.
-* @code{@@minus}::                      How to insert a minus sign.
-* @code{@@geq @@leq}::                   How to insert greater/less-than-or-equal signs.
-@end menu
-
 
 @node @code{@@TeX @@LaTeX}
+@nodedescription The @TeX{} logos.
 @subsection @code{@@TeX}@{@} (@TeX{}) and @code{@@LaTeX}@{@} (@LaTeX{})
 
 @anchor{tex}@c old name
@@ -10138,6 +10126,7 @@ use both uppercase and lowercase letters.
 
 
 @node @code{@@copyright}
+@nodedescription The copyright symbol (c in a circle).
 @subsection @code{@@copyright@{@}} (@copyright{})
 
 @anchor{copyright symbol}@c old name
@@ -10153,6 +10142,7 @@ word `Copyright' suffices, according to international treaty.
 
 
 @node @code{@@registeredsymbol}
+@nodedescription The registered symbol (R in a circle).
 @subsection @code{@@registeredsymbol@{@}} (@registeredsymbol{})
 
 @anchor{registered symbol}@c old name
@@ -10165,6 +10155,7 @@ registered symbol, `@registeredsymbol{}'.  Where possible, this is an
 
 
 @node @code{@@dots}
+@nodedescription How to insert ellipses: @dots{} and @enddots{}
 @subsection @code{@@dots} (@dots{}) and @code{@@enddots} (@enddots{})
 
 @anchor{dots}@c old name
@@ -10197,6 +10188,7 @@ much closer together than the dots in the ellipsis.
 
 
 @node @code{@@bullet}
+@nodedescription How to insert a bullet: @bullet{}
 @subsection @code{@@bullet} (@bullet{})
 
 @anchor{bullet}@c old name
@@ -10212,6 +10204,7 @@ type the braces, because @code{@@itemize} supplies them.
 
 
 @node @code{@@euro}
+@nodedescription How to insert the euro currency symbol.
 @subsection @code{@@euro} (@euro{}): Euro Currency Symbol
 
 @anchor{euro}@c old name
@@ -10233,6 +10226,7 @@ places.  The distribution includes installation instructions.
 
 
 @node @code{@@pounds}
+@nodedescription How to insert the pounds currency symbol.
 @subsection @code{@@pounds} (@pounds{}): Pounds Sterling
 
 @anchor{pounds}@c old name
@@ -10245,6 +10239,7 @@ Otherwise, it is @samp{#}.
 
 
 @node @code{@@textdegree}
+@nodedescription How to insert the degrees symbol.
 @subsection @code{@@textdegree} (@textdegree{}): Degrees Symbol
 
 @anchor{textdegree}@c old name
@@ -10257,6 +10252,7 @@ it is an @samp{o}.
 
 
 @node @code{@@minus}
+@nodedescription How to insert a minus sign.
 @subsection @code{@@minus} (@minus{}): Inserting a Minus Sign
 
 @anchor{minus}@c old name
@@ -10284,6 +10280,7 @@ Math}).
 
 
 @node @code{@@geq @@leq}
+@nodedescription How to insert greater/less-than-or-equal signs.
 @subsection @code{@@geq} (@geq{}) and @code{@@leq} (@leq{}): Inserting Relations
 
 @anchor{geq leq}@c old name
@@ -10316,19 +10313,9 @@ The glyph-insertion commands do not need to be used within an example,
 but most often they are.  All glyph-insertion commands are followed by
 empty braces.
 
-@menu
-* Glyphs Summary::
-* @code{@@result}::                     How to show the result of expression.
-* @code{@@expansion}::                  How to indicate an expansion.
-* @code{@@print}::                      How to indicate generated output.
-* @code{@@error}::                      How to indicate an error message.
-* @code{@@equiv}::                      How to indicate equivalence.
-* @code{@@point}::                      How to indicate the location of point.
-* Click Sequences::             Inserting GUI usage sequences.
-@end menu
-
 
 @node Glyphs Summary
+@nodedescription List of the glyph commands.
 @subsection Glyphs Summary
 
 Here is a summary of the glyph commands:
@@ -10360,6 +10347,7 @@ otherwise selecting it.
 
 
 @node @code{@@result}
+@nodedescription How to show the result of expression.
 @subsection @code{@@result@{@}} (@result{}): Result of an Expression
 
 @anchor{result}@c old name
@@ -10388,6 +10376,7 @@ may be read as ``@code{(cdr '(1 2 3))} evaluates to @code{(2 3)}''.
 
 
 @node @code{@@expansion}
+@nodedescription How to indicate an expansion.
 @subsection @code{@@expansion@{@}} (@expansion{}): Indicating an Expansion
 
 @anchor{expansion}@c old name
@@ -10441,6 +10430,7 @@ Often, as in this case, an example looks better if the
 
 
 @node @code{@@print}
+@nodedescription How to indicate generated output.
 @subsection @code{@@print@{@}} (@print{}): Indicating Generated Output
 
 @anchor{Print Glyph}@c old name
@@ -10484,6 +10474,7 @@ In a Texinfo source file, this example is written as follows:
 
 
 @node @code{@@error}
+@nodedescription How to indicate an error message.
 @subsection @code{@@error@{@}} (@error{}): Indicating an Error Message
 
 @anchor{Error Glyph}@c old name
@@ -10528,6 +10519,7 @@ The word @samp{@error{}} itself is not part of the error message.
 
 
 @node @code{@@equiv}
+@nodedescription How to indicate equivalence.
 @subsection @code{@@equiv@{@}} (@equiv{}): Indicating Equivalence
 
 @anchor{Equivalence}@c oldname
@@ -10562,6 +10554,7 @@ identical results to evaluating @code{(list 'keymap)}.
 
 
 @node @code{@@point}
+@nodedescription How to indicate the location of point.
 @subsection @code{@@point@{@}} (@point{}): Indicating Point in a Buffer
 
 @anchor{Point Glyph}@c old name
@@ -10623,6 +10616,7 @@ This is the changed @@point@{@}contents of foo.
 
 
 @node Click Sequences
+@nodedescription Inserting GUI usage sequences.
 @subsection Click Sequences
 
 @cindex Click sequences
@@ -10742,21 +10736,9 @@ would normally occur.
 You can use the break, break prevention, or pagination commands to fix
 problematic line and page breaks.
 
-@menu
-* Break Commands::              Summary of break-related commands.
-* Line Breaks::                 Forcing line breaks.
-* @code{@@- @@hyphenation}::             Helping @TeX{} with hyphenation points.
-* @code{@@allowcodebreaks}::            Controlling line breaks within @@code text.
-* @code{@@w}::                          Preventing unwanted line breaks in text.
-* @code{@@tie}::                        Inserting an unbreakable but varying space.
-* @code{@@sp}::                         Inserting blank lines.
-* @code{@@page}::                       Forcing the start of a new page.
-* @code{@@group}::                      Preventing unwanted page breaks.
-* @code{@@need}::                       Another way to prevent unwanted page breaks.
-@end menu
-
 
 @node Break Commands
+@nodedescription Summary of break-related commands.
 @section Break Commands
 
 The break commands create or allow line and paragraph breaks:
@@ -10801,6 +10783,7 @@ Start a new page if not enough space on this one.
 
 
 @node Line Breaks
+@nodedescription Forcing line breaks.
 @section @code{@@*} and @code{@@/}: Generate and Allow Line Breaks
 
 @findex * @r{(force line break)}
@@ -10842,6 +10825,7 @@ effect on the other output formats.
 
 
 @node @code{@@- @@hyphenation}
+@nodedescription Helping @TeX{} with hyphenation points.
 @section @code{@@-} and @code{@@hyphenation}: Hyphenation in Printed Output
 
 @anchor{- and hyphenation}@c old name
@@ -10885,6 +10869,7 @@ these commands have any effect in other output formats.
 
 
 @node @code{@@allowcodebreaks}
+@nodedescription Controlling line breaks within @@code text.
 @section @code{@@allowcodebreaks}: Control Line Breaks in @code{@@code}
 
 @anchor{allowcodebreaks}@c old name
@@ -10926,6 +10911,7 @@ This command has no effect except in @TeX{} output.
 
 
 @node @code{@@w}
+@nodedescription Preventing unwanted line breaks in text.
 @section @code{@@w}@{@var{text}@}: Prevent Line Breaks
 
 @anchor{w}@c old name
@@ -10971,6 +10957,7 @@ for output files in some output formats, though.
 
 
 @node @code{@@tie}
+@nodedescription Inserting an unbreakable but varying space.
 @section @code{@@tie@{@}}: Inserting an Unbreakable Space
 
 @anchor{tie}@c old name
@@ -11012,6 +10999,7 @@ reasons, namely that it produces an @samp{\hbox}).
 
 
 @node @code{@@sp}
+@nodedescription Inserting blank lines.
 @section @code{@@sp} @var{n}: Insert Blank Lines
 
 @anchor{sp}@c old name
@@ -11035,6 +11023,7 @@ The @code{@@sp} command is most often used in the title page.
 
 
 @node @code{@@page}
+@nodedescription Forcing the start of a new page.
 @section @code{@@page}: Start a New Page
 
 @anchor{page}@c old name
@@ -11049,6 +11038,7 @@ page.
 
 
 @node @code{@@group}
+@nodedescription Preventing unwanted page breaks.
 @section @code{@@group}: Prevent Page Breaks
 
 @anchor{group}@c old name
@@ -11101,6 +11091,7 @@ common is that each line of input produces a line of output.)
 
 
 @node @code{@@need}
+@nodedescription Another way to prevent unwanted page breaks.
 @section @code{@@need @var{mils}}: Prevent Page Breaks
 
 @anchor{need}@c old name
@@ -11148,20 +11139,9 @@ All the definition commands follow a similar format.  This chapter
 starts by describing @code{@@deffn} before detailing all the other
 definition commands.
 
-@menu
-* Def Cmd Template::            Writing descriptions using definition commands.
-* Def Cmd Continuation Lines::  Continuing the heading over source lines.
-* Optional Arguments::          Handling optional and repeated arguments.
-* No Space After Definition Name::  How to omit space after name.
-* @code{@@deffnx}::                     Group two or more `first' lines.
-* Def Cmds in Detail::          Reference for all the definition commands.
-* Generic Definition Commands:: Without automatic index entries.
-* Def Cmd Conventions::         Conventions for writing definitions.
-* Sample Function Definition::  An example.
-@end menu
-
 
 @node Def Cmd Template
+@nodedescription Writing descriptions using definition commands.
 @section The Template for a Definition
 @cindex Definition template
 @cindex Template for a definition
@@ -11245,6 +11225,7 @@ particular kinds of variables.
 
 
 @node Def Cmd Continuation Lines
+@nodedescription Continuing the heading over source lines.
 @section Definition Command Continuation Lines
 @cindex Continuation lines in definition commands
 @cindex Definition command headings, continuing
@@ -11299,6 +11280,7 @@ character (space, tab, newline) produces a normal interword space
 
 
 @node Optional Arguments
+@nodedescription Handling optional and repeated arguments.
 @section Optional and Repeated Arguments
 @cindex Optional and repeated arguments
 @cindex Repeated and optional arguments
@@ -11342,6 +11324,7 @@ this:
 
 
 @node No Space After Definition Name
+@nodedescription How to omit space after name.
 @section Omitting the Space After a Definition Name
 
 @vindex txidefnamenospace
@@ -11367,6 +11350,7 @@ flag (@pxref{@code{@@set @@value}}).  For example, this input
 
 
 @node @code{@@deffnx}
+@nodedescription Group two or more `first' lines.
 @section @code{@@deffnx}, et al.: Two or More `First' Lines
 
 @anchor{deffnx}@c old node
@@ -11426,6 +11410,7 @@ The `x' forms work similarly to @code{@@itemx}
 
 
 @node Def Cmds in Detail
+@nodedescription Reference for all the definition commands.
 @section The Definition Commands
 
 This section describes all the definition commands of Texinfo.
@@ -12076,6 +12061,7 @@ in Typed Languages}).
 
 
 @node Generic Definition Commands
+@nodedescription Without automatic index entries.
 @section Generic Definition Commands
 
 Texinfo provides commands for definitions that do not produce automatic
@@ -12141,6 +12127,7 @@ with these commands.
 
 
 @node Def Cmd Conventions
+@nodedescription Conventions for writing definitions.
 @section Conventions for Writing Definitions
 @cindex Definition conventions
 @cindex Conventions for writing definitions
@@ -12236,6 +12223,7 @@ important for the language, the following could be used:
 
 
 @node Sample Function Definition
+@nodedescription An example.
 @section A Sample Function Definition
 @cindex Sample function definition
 
