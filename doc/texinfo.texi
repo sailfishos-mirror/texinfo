@@ -11415,17 +11415,9 @@ The `x' forms work similarly to @code{@@itemx}
 
 This section describes all the definition commands of Texinfo.
 
-@menu
-* Functions Commands::          Commands for functions and similar entities.
-* Typed Functions::             Commands for functions in typed languages.
-* Variables Commands::          Commands for variables and similar entities.
-* Typed Variables::             Commands for variables in typed languages.
-* Data Types::                  The definition command for data types.
-* Abstract Objects::            Commands for object-oriented programming.
-@end menu
-
 
 @node Functions Commands
+@nodedescription Commands for functions and similar entities.
 @subsection Functions and Similar Entities
 
 @cindex Function definitions
@@ -11504,6 +11496,7 @@ All these commands create entries in the index of functions.
 
 
 @node Typed Functions
+@nodedescription Commands for functions in typed languages.
 @subsection Functions in Typed Languages
 
 @cindex Typed functions
@@ -11671,6 +11664,7 @@ Specifying @code{@@deftypefnnewline off} reverts to the default.
 
 
 @node Variables Commands
+@nodedescription Commands for variables and similar entities.
 @subsection Variables and Similar Entities
 
 Here are the commands for defining variables and similar
@@ -11739,6 +11733,7 @@ Option@} @dots{}}.
 
 
 @node Typed Variables
+@nodedescription Commands for variables in typed languages.
 @subsection Variables in Typed Languages
 
 @cindex Typed variables
@@ -11796,6 +11791,7 @@ These commands create entries in the index of variables.
 
 
 @node Data Types
+@nodedescription The definition command for data types.
 @subsection Data Types
 
 Here is the command for data types:
@@ -11831,6 +11827,7 @@ of a definition of @code{pair}.
 
 
 @node Abstract Objects
+@nodedescription Commands for object-oriented programming.
 @subsection Object-Oriented Programming
 
 @cindex Object-oriented programming
@@ -12325,13 +12322,9 @@ the one helping to translate the fixed strings written to documents,
 For a list of the various accented and special characters Texinfo
 supports, see @ref{Inserting Accents}.
 
-@menu
-* @code{@@documentlanguage}::           Declaring the current language.
-* @code{@@documentencoding}::           Declaring the input encoding.
-@end menu
-
 
 @node @code{@@documentlanguage}
+@nodedescription Declaring the current language.
 @section @code{@@documentlanguage @var{ll}[_@var{cc}]}: Set the Document Language
 @anchor{documentlanguage}
 
@@ -12409,6 +12402,7 @@ the official web site for ISO@tie{}3166 can be found via
 
 
 @node @code{@@documentencoding}
+@nodedescription Declaring the input encoding.
 @section @code{@@documentencoding @var{enc}}: Set Input Encoding
 
 @anchor{documentencoding}@c old name
@@ -12576,18 +12570,9 @@ is set or clear.
 
 @end itemize
 
-@menu
-* Conditional Commands::        Text for a given format.
-* Conditional Not Commands::    Text for any format other than a given one.
-* Raw Formatter Commands::      Using raw formatter commands.
-* Inline Conditionals::         Brace-delimited conditional text.
-* @code{@@set @@clear @@value}::          Variable tests and substitutions.
-* Testing for Texinfo Commands:: Testing if a Texinfo command is available.
-* Conditional Nesting::         Using conditionals inside conditionals.
-@end menu
-
 
 @node Conditional Commands
+@nodedescription Text for a given format.
 @section Conditional Commands
 
 Texinfo has an @code{@@if@var{format}} environment for each output
@@ -12706,6 +12691,7 @@ numbers which @code{@@errormsg} emits in @TeX{}.
 
 
 @node Conditional Not Commands
+@nodedescription Text for any format other than a given one.
 @section Conditional Not Commands
 @findex ifnotdocbook
 @findex ifnothtml
@@ -12754,6 +12740,7 @@ with @code{@@iftex}, not raw formatter source as with @code{@@tex}
 
 
 @node Raw Formatter Commands
+@nodedescription Using raw formatter commands.
 @section Raw Formatter Commands
 @cindex Raw formatter commands
 
@@ -12842,6 +12829,7 @@ The remedy is simple: don't do that.
 
 
 @node Inline Conditionals
+@nodedescription Brace-delimited conditional text.
 @section Inline Conditionals: @code{@@inline}, @code{@@inlineifelse}, @code{@@inlineraw}
 @findex inlinefmt
 @findex inlinefmtifelse
@@ -12915,6 +12903,7 @@ Two other @code{@@inline...} conditionals complement the
 
 
 @node @code{@@set @@clear @@value}
+@nodedescription Variable tests and substitutions.
 @section Flags: @code{@@set}, @code{@@clear}, conditionals, and @code{@@value}
 
 @anchor{set clear value}@c old name
@@ -13257,6 +13246,7 @@ do not need to edit the three sections.
 
 
 @node Testing for Texinfo Commands
+@nodedescription Testing if a Texinfo command is available.
 @section Testing for Texinfo Commands: @code{@@ifcommanddefined}, @code{@@ifcommandnotdefined}
 
 @cindex Testing for Texinfo commands
@@ -13331,6 +13321,7 @@ general, to avoid unnecessary dependencies between packages
 
 
 @node Conditional Nesting
+@nodedescription Using conditionals inside conditionals.
 @section Conditional Nesting
 @cindex Conditionals, nested
 @cindex Nesting conditionals
@@ -13423,18 +13414,9 @@ If you want to do simple text substitution, @code{@@set} and
 @code{@@value} is the simplest approach (@pxref{@code{@@set @@clear
 @@value}}).
 
-@menu
-* Defining Macros::             Defining and undefining new commands.
-* Invoking Macros::             Using a macro, once you've defined it.
-* Macro Details::               Limitations of Texinfo macros.
-* @code{@@alias}::                      Command aliases.
-* Line Macros::                 Macros using whole line for arguments.
-* @code{@@definfoenclose}::             Customized highlighting.
-* External Macro Processors::   @code{#line} directives.
-@end menu
-
 
 @node Defining Macros
+@nodedescription Defining and undefining new commands.
 @section Defining Macros
 @cindex Defining macros
 @cindex Macro definitions, Texinfo
@@ -13519,6 +13501,7 @@ For example:
 
 
 @node Invoking Macros
+@nodedescription Using a macro, once you've defined it.
 @section Invoking Macros
 
 @cindex Invoking macros
@@ -13692,6 +13675,7 @@ Both: a.
 
 
 @node Macro Details
+@nodedescription Limitations of Texinfo macros.
 @section Macro Details and Caveats
 @cindex Macro details
 @cindex Details of macro usage
@@ -13947,6 +13931,7 @@ the earlier implementation, it would have been parsed as this:
 
 
 @node @code{@@alias}
+@nodedescription Command aliases.
 @section @samp{@@alias @var{new}=@var{existing}}
 
 @anchor{alias}@c old name
@@ -13999,6 +13984,7 @@ letters.
 
 
 @node Line Macros
+@nodedescription Macros using whole line for arguments.
 @section Line Macros
 
 @findex linemacro
@@ -14098,6 +14084,7 @@ with @code{@@linemacro} than for those defined with @code{@@macro}.
 
 
 @node @code{@@definfoenclose}
+@nodedescription Customized highlighting.
 @section @code{@@definfoenclose}: Customized Highlighting
 
 @anchor{definfoenclose}@c old name
@@ -14168,6 +14155,7 @@ indirectly.
 
 
 @node External Macro Processors
+@nodedescription @code{#line} directives.
 @section External Macro Processors: Line Directives
 @cindex External macro processors
 @cindex Macro processors, external
