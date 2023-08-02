@@ -29,6 +29,7 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -167,6 +169,7 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section'
       },
       'info' => {

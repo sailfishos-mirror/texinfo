@@ -29,6 +29,7 @@ $result_trees{'no_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -88,6 +89,7 @@ $result_trees{'no_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'c1'
       },
       'info' => {
@@ -157,6 +159,7 @@ $result_trees{'no_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'c2'
       },
       'info' => {
@@ -226,6 +229,7 @@ $result_trees{'no_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'c3'
       },
       'info' => {

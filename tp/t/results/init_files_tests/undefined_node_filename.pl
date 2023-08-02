@@ -36,6 +36,7 @@ $result_trees{'undefined_node_filename'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -68,6 +69,7 @@ $result_trees{'undefined_node_filename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-Other'
       },
       'info' => {

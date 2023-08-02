@@ -164,6 +164,7 @@ $result_trees{'menu_in_style_command'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

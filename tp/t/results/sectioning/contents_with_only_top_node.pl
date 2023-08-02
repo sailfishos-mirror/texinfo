@@ -66,6 +66,7 @@ $result_trees{'contents_with_only_top_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

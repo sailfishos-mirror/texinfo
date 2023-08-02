@@ -49,6 +49,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -125,6 +126,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e9sseul_00e9'
       },
       'info' => {
@@ -157,6 +159,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapitr_00e9'
       },
       'info' => {

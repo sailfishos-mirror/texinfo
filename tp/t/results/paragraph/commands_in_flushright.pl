@@ -821,6 +821,7 @@ $result_trees{'commands_in_flushright'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'label',
+                'is_target' => 1,
                 'normalized' => 'type'
               },
               'info' => {

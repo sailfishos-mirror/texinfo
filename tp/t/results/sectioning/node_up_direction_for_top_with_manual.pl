@@ -61,6 +61,7 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

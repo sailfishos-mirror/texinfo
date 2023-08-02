@@ -86,6 +86,7 @@ $result_trees{'ref_to_float'} = {
           ],
           'extra' => {
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'Label1'
           },
           'info' => {
@@ -173,6 +174,7 @@ $result_trees{'ref_to_float'} = {
           ],
           'extra' => {
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'Label2'
           },
           'info' => {

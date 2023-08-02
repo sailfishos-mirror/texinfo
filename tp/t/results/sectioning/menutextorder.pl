@@ -181,6 +181,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'bar'
       },
       'info' => {
@@ -354,6 +355,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'onesub1'
       },
       'info' => {
@@ -423,6 +425,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'onesub2'
       },
       'info' => {
@@ -497,6 +500,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'foo'
       },
       'info' => {
@@ -762,6 +766,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sub1'
       },
       'info' => {
@@ -831,6 +836,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sub2'
       },
       'info' => {
@@ -900,6 +906,7 @@ $result_trees{'menutextorder'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sub3'
       },
       'info' => {

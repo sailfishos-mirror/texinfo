@@ -29,6 +29,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -189,6 +190,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'foo'
                       },
                       'source_info' => {
@@ -294,6 +296,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'Foo'
                       },
                       'source_info' => {

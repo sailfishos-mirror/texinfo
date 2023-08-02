@@ -30,6 +30,7 @@ $result_trees{'space_in_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'anchor-name'
           },
           'source_info' => {

@@ -139,6 +139,7 @@ $result_trees{'verbatim_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

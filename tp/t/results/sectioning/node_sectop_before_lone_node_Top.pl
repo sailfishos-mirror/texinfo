@@ -34,6 +34,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-before'
       },
       'info' => {
@@ -138,6 +139,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -170,6 +172,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

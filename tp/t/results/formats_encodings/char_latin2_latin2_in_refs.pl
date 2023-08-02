@@ -89,6 +89,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -350,6 +351,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
       'info' => {

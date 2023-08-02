@@ -68,6 +68,7 @@ $result_trees{'indices_disable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -137,6 +138,7 @@ $result_trees{'indices_disable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chapter'
       },

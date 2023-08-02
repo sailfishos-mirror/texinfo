@@ -68,6 +68,7 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -137,6 +138,7 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -238,6 +240,7 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-fr'
       },
       'info' => {
@@ -339,6 +342,7 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subnode-pt'
       },
       'info' => {
@@ -440,6 +444,7 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subnode-fr'
       },
       'info' => {

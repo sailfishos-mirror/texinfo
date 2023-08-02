@@ -57,6 +57,7 @@ $result_trees{'node_in_copying'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node'
       },
       'info' => {

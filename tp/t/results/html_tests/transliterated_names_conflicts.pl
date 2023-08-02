@@ -50,6 +50,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -127,6 +128,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Pr_00e9s'
         },
         'info' => {
@@ -204,6 +206,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Other-node'
         },
         'info' => {
@@ -254,6 +257,7 @@ $result_trees{'transliterated_names_conflicts'} = [
             ],
             'cmdname' => 'anchor',
             'extra' => {
+              'is_target' => 1,
               'normalized' => 'Pr_00eas'
             },
             'source_info' => {
@@ -347,6 +351,7 @@ $result_trees{'transliterated_names_conflicts'} = [
             'extra' => {
               'float_section' => {},
               'float_type' => 'Figure',
+              'is_target' => 1,
               'normalized' => 'Pr_00e8s'
             },
             'info' => {

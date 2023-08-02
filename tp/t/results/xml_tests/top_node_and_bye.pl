@@ -37,6 +37,7 @@ $result_trees{'top_node_and_bye'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {

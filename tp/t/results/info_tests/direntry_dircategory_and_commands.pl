@@ -389,6 +389,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

@@ -188,6 +188,7 @@ $result_trees{'detailmenu_unknown_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

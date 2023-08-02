@@ -29,6 +29,7 @@ $result_trees{'nodename_parentheses'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -306,6 +307,7 @@ $result_trees{'nodename_parentheses'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Node-_0028with-parentheses_0029'
       },
       'info' => {
@@ -389,6 +391,7 @@ $result_trees{'nodename_parentheses'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Other-node'
       },
       'info' => {
@@ -551,6 +554,7 @@ $result_trees{'nodename_parentheses'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0028manual_0029node'
       },
       'info' => {
@@ -615,6 +619,7 @@ $result_trees{'nodename_parentheses'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => '_0028manual_0029anchor'
           },
           'source_info' => {

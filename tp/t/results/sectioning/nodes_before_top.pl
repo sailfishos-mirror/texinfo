@@ -191,6 +191,7 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {
@@ -250,6 +251,7 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-in-menu-before-top'
       },
       'info' => {
@@ -299,6 +301,7 @@ $result_trees{'nodes_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -472,6 +475,7 @@ $result_trees{'nodes_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second-node'
       },
       'info' => {

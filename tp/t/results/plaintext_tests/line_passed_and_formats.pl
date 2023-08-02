@@ -2208,6 +2208,7 @@ $result_trees{'line_passed_and_formats'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

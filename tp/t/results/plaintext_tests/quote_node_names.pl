@@ -34,6 +34,7 @@ $result_trees{'quote_node_names'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1416,6 +1417,7 @@ $result_trees{'quote_node_names'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'blah_003ablah'
       },
       'info' => {
@@ -1499,6 +1501,7 @@ $result_trees{'quote_node_names'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'blumpty_002efump'
       },
       'info' => {
@@ -1695,6 +1698,7 @@ $result_trees{'quote_node_names'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'normal-node'
       },
       'info' => {
@@ -1779,6 +1783,7 @@ $result_trees{'quote_node_names'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'secret_002cnode'
       },
       'info' => {
@@ -1879,6 +1884,7 @@ $result_trees{'quote_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'top-secret-node'
       },
       'info' => {

@@ -303,6 +303,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'first-before-top'
       },
@@ -495,6 +496,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-in-menu-before-top'
       },
@@ -829,6 +831,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -1166,6 +1169,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap-first'
       },
@@ -1410,6 +1414,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'second'
       },
@@ -1610,6 +1615,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'another'
       },
       'info' => {
@@ -1884,6 +1890,7 @@ $result_trees{'nodes_before_top_split_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'a-node'
       },

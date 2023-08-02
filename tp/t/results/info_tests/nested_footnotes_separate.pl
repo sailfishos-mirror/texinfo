@@ -148,6 +148,7 @@ $result_trees{'nested_footnotes_separate'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

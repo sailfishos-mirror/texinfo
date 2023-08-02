@@ -401,6 +401,7 @@ $result_trees{'sc_in_menu'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {
@@ -721,6 +722,7 @@ $result_trees{'sc_in_menu'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node'
       },
       'info' => {

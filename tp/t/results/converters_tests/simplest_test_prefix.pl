@@ -76,6 +76,7 @@ $result_trees{'simplest_test_prefix'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

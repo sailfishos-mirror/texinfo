@@ -34,6 +34,7 @@ $result_trees{'footnote_in_caption'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -237,6 +238,7 @@ $result_trees{'footnote_in_caption'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'fl',
+            'is_target' => 1,
             'normalized' => 'label'
           },
           'info' => {
@@ -252,6 +254,7 @@ $result_trees{'footnote_in_caption'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

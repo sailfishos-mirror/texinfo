@@ -36,6 +36,7 @@ $result_trees{'protected_node_parentheses'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {
@@ -282,6 +283,7 @@ $result_trees{'protected_node_parentheses'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => '_0028manual2_0029-name2'
           },
           'source_info' => {
@@ -354,6 +356,7 @@ $result_trees{'protected_node_parentheses'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0028manual_0029-name'
       },
       'info' => {

@@ -34,6 +34,7 @@ $result_trees{'float_and_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -103,6 +104,7 @@ $result_trees{'float_and_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -273,6 +275,7 @@ $result_trees{'float_and_refs'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'no-type',
             'shortcaption' => {}
           },
@@ -430,6 +433,7 @@ $result_trees{'float_and_refs'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'Thing',
+            'is_target' => 1,
             'normalized' => 'with-type',
             'shortcaption' => {}
           },
@@ -587,6 +591,7 @@ $result_trees{'float_and_refs'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'Figure',
+            'is_target' => 1,
             'normalized' => 'my-figure',
             'shortcaption' => {}
           },

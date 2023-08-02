@@ -65,6 +65,7 @@ $result_trees{'ignored_text'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'before-ignore'
       },
       'info' => {

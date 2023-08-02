@@ -49,6 +49,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -118,6 +119,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -3691,6 +3693,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'printindex'
       },

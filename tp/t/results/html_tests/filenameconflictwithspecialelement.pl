@@ -29,6 +29,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -135,6 +136,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -199,6 +201,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'filenameconflictwithspecialelement-fot'
           },
           'source_info' => {

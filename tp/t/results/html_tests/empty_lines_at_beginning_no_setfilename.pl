@@ -71,6 +71,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

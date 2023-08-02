@@ -476,6 +476,7 @@ $result_trees{'simple_menu_in_example'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

@@ -29,6 +29,7 @@ $result_trees{'external_node_in_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -306,6 +307,7 @@ $result_trees{'external_node_in_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'nchapter1'
       },
       'info' => {
@@ -375,6 +377,7 @@ $result_trees{'external_node_in_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'nchapter2'
       },
       'info' => {

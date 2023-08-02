@@ -256,7 +256,7 @@ sub output($$)
   my %seen_anchors;
   foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
     next unless ($label->{'root'} and $label->{'root'}->{'extra'}
-                 and defined($label->{'root'}->{'extra'}->{'normalized'}));
+                 and $label->{'root'}->{'extra'}->{'is_target'});
     my $label_element = Texinfo::Common::get_label_element($label->{'root'});
     my $prefix;
     
@@ -438,7 +438,7 @@ sub format_node($$)
 
   my $result = '';
   return '' if (not $node->{'extra'}
-                or not defined($node->{'extra'}->{'normalized'}));
+                or not $node->{'extra'}->{'is_target'});
 
   my ($node_text, $byte_count) = $self->node_line($node);
   # check not needed most probably because of the test of 'normalized'.

@@ -65,6 +65,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -130,6 +131,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'Anchor-in-footnote'
                           },
                           'source_info' => {
@@ -304,6 +306,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

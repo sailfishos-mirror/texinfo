@@ -91,6 +91,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           ],
           'extra' => {
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'label1'
           },
           'info' => {
@@ -210,6 +211,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           'extra' => {
             'caption' => {},
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'label2'
           },
           'info' => {

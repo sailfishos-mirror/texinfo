@@ -284,6 +284,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -739,6 +740,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

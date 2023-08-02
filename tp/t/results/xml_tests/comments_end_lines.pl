@@ -785,6 +785,7 @@ $result_trees{'comments_end_lines'} = {
           ],
           'extra' => {
             'float_type' => 'f',
+            'is_target' => 1,
             'normalized' => 'g'
           },
           'info' => {

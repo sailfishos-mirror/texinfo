@@ -44,6 +44,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -113,6 +114,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_2002_2003_2002'
       },
       'info' => {
@@ -252,7 +254,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
+      'extra' => {
+        'normalized' => '_2002_2003_2002'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -493,7 +497,9 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {}
+                  'extra' => {
+                    'normalized' => '_2002_2003_2002'
+                  }
                 }
               },
               'structure' => {
@@ -556,7 +562,8 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
               'structure' => {
                 'section_number' => 2
               }
-            }
+            },
+            'normalized' => '_2002_2003_2002'
           }
         },
         'node_prev' => {},
@@ -625,7 +632,7 @@ top
 *    ::
 
 
-File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
+File: ,  Node:    ,  Next:    ,  Prev: Top,  Up: Top
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************

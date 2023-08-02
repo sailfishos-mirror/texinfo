@@ -256,6 +256,7 @@ $result_trees{'space_in_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -295,6 +296,7 @@ $result_trees{'space_in_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chap-first-here'
       },
       'info' => {
@@ -334,6 +336,7 @@ $result_trees{'space_in_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Test-title'
       },
       'info' => {
@@ -366,6 +369,7 @@ $result_trees{'space_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Last-with-spaces'
       },
       'info' => {

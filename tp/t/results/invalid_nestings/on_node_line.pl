@@ -138,6 +138,7 @@ $result_trees{'on_node_line'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'in-anchor'
               },
               'source_info' => {
@@ -224,6 +225,7 @@ $result_trees{'on_node_line'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a'
       },
       'info' => {

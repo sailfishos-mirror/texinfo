@@ -51,6 +51,7 @@ $result_trees{'ref_in_sectioning'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -382,6 +383,7 @@ $result_trees{'ref_in_sectioning'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node'
       },
       'info' => {
@@ -511,6 +513,7 @@ $result_trees{'ref_in_sectioning'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

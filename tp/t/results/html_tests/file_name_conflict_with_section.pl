@@ -29,6 +29,7 @@ $result_trees{'file_name_conflict_with_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -74,6 +75,7 @@ $result_trees{'file_name_conflict_with_section'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'Chap'
           },
           'source_info' => {

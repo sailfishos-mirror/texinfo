@@ -29,6 +29,7 @@ $result_trees{'chapter_between_nodes_with_appendix_nomenu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -240,6 +241,7 @@ $result_trees{'chapter_between_nodes_with_appendix_nomenu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Additional'
       },
       'info' => {

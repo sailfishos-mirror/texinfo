@@ -66,6 +66,7 @@ $result_trees{'section_below_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -258,6 +259,7 @@ $result_trees{'section_below_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Unn'
       },
       'info' => {
@@ -431,6 +433,7 @@ $result_trees{'section_below_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Sec'
       },
       'info' => {

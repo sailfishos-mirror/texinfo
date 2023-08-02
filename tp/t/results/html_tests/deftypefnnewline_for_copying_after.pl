@@ -310,6 +310,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -379,6 +380,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

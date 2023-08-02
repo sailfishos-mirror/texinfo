@@ -283,6 +283,7 @@ sub _new_node($$$$)
   }
 
   $node->{'extra'}->{'normalized'} = $normalized;
+  $node->{'extra'}->{'is_target'} = 1;
   $labels->{$node->{'extra'}->{'normalized'}} = $node;
   Texinfo::Common::register_label($targets_list, $node);
   push @{$nodes_list}, $node;
@@ -369,12 +370,12 @@ sub insert_nodes_for_sectioning_commands($$$$)
                                      [$new_node, $previous_node]);
       }
     }
-    # check normalized to avoid erroneous nodes, such as duplicates
+    # check is_target to avoid erroneous nodes, such as duplicates
     $previous_node = $content
       if ($content->{'cmdname'}
           and $content->{'cmdname'} eq 'node'
           and $content->{'extra'}
-          and defined($content->{'extra'}->{'normalized'}));
+          and $content->{'extra'}->{'is_target'});
     push @contents, $content;
   }
   return (\@contents, \@added_nodes);

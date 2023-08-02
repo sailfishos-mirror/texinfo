@@ -94,6 +94,7 @@ $result_trees{'non_break_spaces'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

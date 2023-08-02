@@ -34,6 +34,7 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -195,6 +196,7 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Index'
       },

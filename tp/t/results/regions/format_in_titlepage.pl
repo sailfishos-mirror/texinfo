@@ -166,6 +166,7 @@ $result_trees{'format_in_titlepage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -205,6 +206,7 @@ $result_trees{'format_in_titlepage'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

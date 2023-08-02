@@ -131,6 +131,7 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
+                'is_target' => 1,
                 'normalized' => 'in-example'
               },
               'info' => {
@@ -299,6 +300,7 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
+                'is_target' => 1,
                 'normalized' => 'in-quotation'
               },
               'info' => {
@@ -467,6 +469,7 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
+                'is_target' => 1,
                 'normalized' => 'in-cartouche'
               },
               'info' => {

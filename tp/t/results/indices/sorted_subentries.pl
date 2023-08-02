@@ -34,6 +34,7 @@ $result_trees{'sorted_subentries'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -93,6 +94,7 @@ $result_trees{'sorted_subentries'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-one'
       },
       'info' => {
@@ -954,6 +956,7 @@ $result_trees{'sorted_subentries'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chapter-second'
       },

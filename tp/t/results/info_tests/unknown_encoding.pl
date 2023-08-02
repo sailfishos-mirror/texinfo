@@ -80,6 +80,7 @@ $result_trees{'unknown_encoding'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

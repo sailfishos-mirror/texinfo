@@ -154,6 +154,7 @@ $result_trees{'menu_title_before_entries'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -186,6 +187,7 @@ $result_trees{'menu_title_before_entries'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-subnode'
       },
       'info' => {

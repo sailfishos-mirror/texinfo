@@ -49,6 +49,7 @@ $result_trees{'topic_guide'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -286,6 +287,7 @@ $result_trees{'topic_guide'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'guide1'
       },
       'info' => {
@@ -726,6 +728,7 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'topic1'
       },
       'info' => {
@@ -938,6 +941,7 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'topic2'
       },
       'info' => {
@@ -1104,6 +1108,7 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'topic3'
       },
       'info' => {
@@ -1280,6 +1285,7 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'topic4'
       },
       'info' => {
@@ -1527,6 +1533,7 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'topic5'
       },
       'info' => {
@@ -1559,6 +1566,7 @@ $result_trees{'topic_guide'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'guide2'
       },
       'info' => {

@@ -49,6 +49,7 @@ $result_trees{'contents_in_middle_section_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -236,6 +237,7 @@ $result_trees{'contents_in_middle_section_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -460,6 +462,7 @@ $result_trees{'contents_in_middle_section_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section'
       },
       'info' => {
@@ -558,6 +561,7 @@ $result_trees{'contents_in_middle_section_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section1'
       },
       'info' => {

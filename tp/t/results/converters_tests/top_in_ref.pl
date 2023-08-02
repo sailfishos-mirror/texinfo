@@ -36,6 +36,7 @@ $result_trees{'top_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -2849,6 +2850,7 @@ $result_trees{'top_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-refs-node'
       },
       'info' => {

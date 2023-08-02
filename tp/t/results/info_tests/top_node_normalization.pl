@@ -200,6 +200,7 @@ $result_trees{'top_node_normalization'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

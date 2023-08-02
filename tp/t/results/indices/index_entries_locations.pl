@@ -44,6 +44,7 @@ $result_trees{'index_entries_locations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -344,6 +345,7 @@ $result_trees{'index_entries_locations'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

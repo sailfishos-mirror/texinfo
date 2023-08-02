@@ -29,6 +29,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

@@ -73,6 +73,7 @@ $result_trees{'appendix_translated'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

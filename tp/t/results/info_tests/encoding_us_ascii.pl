@@ -81,6 +81,7 @@ $result_trees{'encoding_us_ascii'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

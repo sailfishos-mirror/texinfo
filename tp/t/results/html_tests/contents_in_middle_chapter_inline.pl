@@ -49,6 +49,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -236,6 +237,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -438,6 +440,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section'
       },
       'info' => {

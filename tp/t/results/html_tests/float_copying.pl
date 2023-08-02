@@ -175,6 +175,7 @@ $result_trees{'float_copying'} = {
                                               ],
                                               'cmdname' => 'anchor',
                                               'extra' => {
+                                                'is_target' => 1,
                                                 'normalized' => 'caption-copying-footnote-anchor'
                                               },
                                               'source_info' => {
@@ -361,6 +362,7 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'public-domain-anchor'
                               },
                               'source_info' => {
@@ -503,6 +505,7 @@ $result_trees{'float_copying'} = {
                   'extra' => {
                     'caption' => {},
                     'float_type' => 'Copyright notice',
+                    'is_target' => 1,
                     'normalized' => 'public-domain'
                   },
                   'info' => {
@@ -585,6 +588,7 @@ $result_trees{'float_copying'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -902,6 +906,7 @@ $result_trees{'float_copying'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Copying-and-floats'
       },

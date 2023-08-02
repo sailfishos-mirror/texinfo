@@ -49,6 +49,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -772,6 +773,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'first'
       },
@@ -1287,6 +1289,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'section-1'
       },
@@ -1639,6 +1642,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subsection-1'
       },
       'info' => {
@@ -1722,6 +1726,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'subsection-2'
       },
@@ -1929,6 +1934,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-2'
       },
       'info' => {
@@ -2012,6 +2018,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'section-3'
       },
@@ -2252,6 +2259,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-in-section-3'
       },
       'info' => {
@@ -2524,6 +2532,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-2-in-section-3'
       },
@@ -2626,6 +2635,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-3-in-section-3'
       },
       'info' => {
@@ -2658,6 +2668,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second-chapter'
       },
       'info' => {

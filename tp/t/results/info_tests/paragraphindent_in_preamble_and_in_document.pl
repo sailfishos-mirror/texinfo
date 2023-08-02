@@ -170,6 +170,7 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

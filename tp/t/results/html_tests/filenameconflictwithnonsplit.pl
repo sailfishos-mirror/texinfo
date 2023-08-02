@@ -29,6 +29,7 @@ $result_trees{'filenameconflictwithnonsplit'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -79,6 +80,7 @@ $result_trees{'filenameconflictwithnonsplit'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'filenameconflictwithnonsplit'
           },
           'source_info' => {

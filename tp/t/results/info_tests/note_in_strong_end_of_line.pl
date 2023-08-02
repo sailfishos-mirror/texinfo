@@ -105,6 +105,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

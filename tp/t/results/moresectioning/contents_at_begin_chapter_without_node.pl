@@ -51,6 +51,7 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

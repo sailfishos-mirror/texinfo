@@ -255,6 +255,7 @@ $result_trees{'menu_in_deffn'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

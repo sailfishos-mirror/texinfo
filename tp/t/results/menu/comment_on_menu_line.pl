@@ -151,6 +151,7 @@ $result_trees{'comment_on_menu_line'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -213,6 +214,7 @@ $result_trees{'comment_on_menu_line'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

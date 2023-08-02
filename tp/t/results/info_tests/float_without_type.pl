@@ -158,6 +158,7 @@ $result_trees{'float_without_type'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

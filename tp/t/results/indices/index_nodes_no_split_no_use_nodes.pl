@@ -328,6 +328,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -702,6 +703,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap-first'
       },
@@ -946,6 +948,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'second'
       },
@@ -1146,6 +1149,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'another'
       },
       'info' => {
@@ -1420,6 +1424,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'a-node'
       },

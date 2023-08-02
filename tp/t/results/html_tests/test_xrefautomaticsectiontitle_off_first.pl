@@ -75,6 +75,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -248,6 +249,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

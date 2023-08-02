@@ -154,6 +154,7 @@ $result_trees{'paragraph_no_paragraph'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'aa'
           },
           'source_info' => {

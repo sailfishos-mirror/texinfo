@@ -36,6 +36,7 @@ $result_trees{'anchor_and_empty_lines'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'in-anchor'
           },
           'source_info' => {

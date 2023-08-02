@@ -56,6 +56,7 @@ $result_trees{'image_not_found'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

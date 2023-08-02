@@ -31,6 +31,7 @@ $result_trees{'on_def_line'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'in-anchor'
                           },
                           'source_info' => {
@@ -189,6 +190,7 @@ $result_trees{'on_def_line'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'in-anchorx'
                           },
                           'source_info' => {

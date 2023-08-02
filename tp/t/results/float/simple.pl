@@ -117,6 +117,7 @@ $result_trees{'simple'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Type',
+            'is_target' => 1,
             'normalized' => 'Label'
           },
           'info' => {

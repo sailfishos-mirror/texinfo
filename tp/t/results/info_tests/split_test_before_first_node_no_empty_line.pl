@@ -77,6 +77,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -264,6 +265,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap1'
       },
       'info' => {

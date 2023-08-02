@@ -29,6 +29,7 @@ $result_trees{'anchor_and_spaces'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -74,6 +75,7 @@ $result_trees{'anchor_and_spaces'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'anchor-0'
           },
           'source_info' => {
@@ -110,6 +112,7 @@ $result_trees{'anchor_and_spaces'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anchor1'
               },
               'source_info' => {
@@ -148,6 +151,7 @@ $result_trees{'anchor_and_spaces'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anchor2'
               },
               'source_info' => {

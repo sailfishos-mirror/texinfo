@@ -170,6 +170,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               ],
                                               'cmdname' => 'anchor',
                                               'extra' => {
+                                                'is_target' => 1,
                                                 'normalized' => 'mark-inside'
                                               },
                                               'source_info' => {
@@ -387,6 +388,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'mark'
                               },
                               'source_info' => {
@@ -613,6 +615,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },

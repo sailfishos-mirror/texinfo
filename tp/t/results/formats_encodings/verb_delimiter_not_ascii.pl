@@ -34,6 +34,7 @@ $result_trees{'verb_delimiter_not_ascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -103,6 +104,7 @@ $result_trees{'verb_delimiter_not_ascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

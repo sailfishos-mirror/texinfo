@@ -80,6 +80,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -442,6 +443,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'part-chapter-node'
       },
       'info' => {
@@ -762,6 +764,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-between-part-and-chapter'
       },
       'info' => {

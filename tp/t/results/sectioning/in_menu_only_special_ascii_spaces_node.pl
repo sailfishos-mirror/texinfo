@@ -33,6 +33,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "Top"
       },
       "info" => {

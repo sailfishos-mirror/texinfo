@@ -99,6 +99,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'a-in-copying'
                       },
                       'source_info' => {
@@ -184,6 +185,7 @@ $result_trees{'references_to_top_no_top_output'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -248,6 +250,7 @@ $result_trees{'references_to_top_no_top_output'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'a-in-top'
           },
           'source_info' => {
@@ -284,6 +287,7 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'a-in-paragraph-in-top'
               },
               'source_info' => {
@@ -328,6 +332,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'a-in-footnote'
                           },
                           'source_info' => {
@@ -431,6 +436,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'a-in-float'
                   },
                   'source_info' => {
@@ -468,6 +474,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'a-in-caption'
                           },
                           'source_info' => {
@@ -535,6 +542,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'list',
+            'is_target' => 1,
             'normalized' => 'My-Flist'
           },
           'info' => {
@@ -641,6 +649,7 @@ $result_trees{'references_to_top_no_top_output'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chapter'
       },
@@ -1045,6 +1054,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'list',
+            'is_target' => 1,
             'normalized' => 'Main-Flist'
           },
           'info' => {

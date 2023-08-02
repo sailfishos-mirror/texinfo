@@ -91,6 +91,7 @@ $result_trees{'text_before_line_command'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'LD-Version-Scripts'
       },
       'info' => {

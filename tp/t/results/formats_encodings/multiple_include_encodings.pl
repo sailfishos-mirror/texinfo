@@ -341,6 +341,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -472,6 +473,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
       'info' => {
@@ -656,6 +658,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Preface'
       },
       'info' => {
@@ -758,6 +761,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Introduction'
       },
       'info' => {
@@ -932,6 +936,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'char-latin2-latin2'
       },
@@ -1193,6 +1198,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
       'info' => {
@@ -1395,6 +1401,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
       },
       'info' => {
@@ -1737,6 +1744,7 @@ $result_trees{'multiple_include_encodings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Mixed-chinese-and-english-utf_002d8'
       },
       'info' => {

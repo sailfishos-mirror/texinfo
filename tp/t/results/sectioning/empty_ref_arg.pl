@@ -283,6 +283,7 @@ $result_trees{'empty_ref_arg'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

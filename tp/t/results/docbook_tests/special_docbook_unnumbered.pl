@@ -29,6 +29,7 @@ $result_trees{'special_docbook_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -354,6 +355,7 @@ $result_trees{'special_docbook_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Dedication'
       },
       'info' => {
@@ -437,6 +439,7 @@ $result_trees{'special_docbook_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'preface'
       },
       'info' => {
@@ -520,6 +523,7 @@ $result_trees{'special_docbook_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'colophon'
       },
       'info' => {
@@ -603,6 +607,7 @@ $result_trees{'special_docbook_unnumbered'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'acknowledgements'
       },
       'info' => {

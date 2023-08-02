@@ -34,6 +34,7 @@ $result_trees{'contents_and_parts'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -336,6 +337,7 @@ $result_trees{'contents_and_parts'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-1-node'
       },
       'info' => {
@@ -407,6 +409,7 @@ $result_trees{'contents_and_parts'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-2-node'
       },
       'info' => {
@@ -513,6 +516,7 @@ $result_trees{'contents_and_parts'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-3-node'
       },
       'info' => {

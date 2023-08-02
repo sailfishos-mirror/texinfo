@@ -53,6 +53,7 @@ $result_trees{'double_top'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -133,6 +134,9 @@ $result_trees{'double_top'} = {
             }
           ],
           'cmdname' => 'anchor',
+          'extra' => {
+            'normalized' => 'Top'
+          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -149,6 +153,9 @@ $result_trees{'double_top'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {
+        'normalized' => 'Top'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

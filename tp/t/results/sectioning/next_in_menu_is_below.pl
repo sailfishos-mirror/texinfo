@@ -29,6 +29,7 @@ $result_trees{'next_in_menu_is_below'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -202,6 +203,7 @@ $result_trees{'next_in_menu_is_below'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -421,6 +423,7 @@ $result_trees{'next_in_menu_is_below'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section'
       },
       'info' => {
@@ -594,6 +597,7 @@ $result_trees{'next_in_menu_is_below'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subsection'
       },
       'info' => {

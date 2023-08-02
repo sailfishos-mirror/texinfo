@@ -82,6 +82,7 @@ $result_trees{'split_test_before_first_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -269,6 +270,7 @@ $result_trees{'split_test_before_first_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap1'
       },
       'info' => {

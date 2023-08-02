@@ -29,6 +29,7 @@ $result_trees{'backslash_in_arg'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -447,6 +448,7 @@ $result_trees{'backslash_in_arg'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

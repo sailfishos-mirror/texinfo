@@ -29,6 +29,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -668,6 +669,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-b'
       },
       'info' => {

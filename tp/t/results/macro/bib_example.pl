@@ -2674,6 +2674,7 @@ $result_trees{'bib_example'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -2952,6 +2953,7 @@ $result_trees{'bib_example'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Introduction'
       },
       'info' => {
@@ -3383,6 +3385,7 @@ $result_trees{'bib_example'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'References'
       },
       'info' => {
@@ -3693,6 +3696,7 @@ $result_trees{'bib_example'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'LaTeX2e'
                   },
                   'source_info' => {

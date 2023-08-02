@@ -175,6 +175,7 @@ $result_trees{'one_node_counted_elements'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'ref'
               },
               'source_info' => {
@@ -400,6 +401,7 @@ $result_trees{'one_node_counted_elements'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'one-node'
       },

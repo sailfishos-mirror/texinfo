@@ -178,6 +178,7 @@ $result_trees{'node_on_index_entry_line'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a'
       },
       'info' => {

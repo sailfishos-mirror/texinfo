@@ -275,6 +275,7 @@ $result_trees{'float_with_at_commands'} = {
           'extra' => {
             'caption' => {},
             'float_type' => "entr\x{e9}e",
+            'is_target' => 1,
             'normalized' => 'premi_00e8re-entr_00e9e'
           },
           'info' => {

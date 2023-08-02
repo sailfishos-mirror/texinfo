@@ -75,6 +75,7 @@ $result_trees{'frenchspacing_and_code'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -144,6 +145,7 @@ $result_trees{'frenchspacing_and_code'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-frenchspacing'
       },
       'info' => {
@@ -925,6 +927,7 @@ $result_trees{'frenchspacing_and_code'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-no'
       },
       'info' => {

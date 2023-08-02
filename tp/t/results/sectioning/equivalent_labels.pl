@@ -62,6 +62,7 @@ $result_trees{'equivalent_labels'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'anch'
           },
           'source_info' => {
@@ -158,6 +159,7 @@ $result_trees{'equivalent_labels'} = {
           ],
           'extra' => {
             'float_type' => 'truc',
+            'is_target' => 1,
             'normalized' => 'floa'
           },
           'info' => {
@@ -338,6 +340,7 @@ $result_trees{'equivalent_labels'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

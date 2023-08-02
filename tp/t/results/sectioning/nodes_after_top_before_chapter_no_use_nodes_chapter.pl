@@ -190,6 +190,7 @@ $result_trees{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -290,6 +291,7 @@ $result_trees{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second-node'
       },
       'info' => {
@@ -353,6 +355,7 @@ $result_trees{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'third-node'
       },
       'info' => {

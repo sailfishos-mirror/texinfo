@@ -71,6 +71,7 @@ $result_trees{'all_spaces'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "Top"
       },
       "info" => {
@@ -435,6 +436,7 @@ $result_trees{'all_spaces'} = {
         }
       ],
       "extra" => {
+        "is_target" => 1,
         "normalized" => "chap"
       },
       "info" => {

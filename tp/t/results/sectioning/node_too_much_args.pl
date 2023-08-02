@@ -63,6 +63,7 @@ $result_trees{'node_too_much_args'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

@@ -29,6 +29,7 @@ $result_trees{'commands_in_var'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'commands_in_var'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -406,6 +408,7 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'inanchor'
                       },
                       'source_info' => {

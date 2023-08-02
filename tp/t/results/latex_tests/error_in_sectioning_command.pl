@@ -56,6 +56,7 @@ $result_trees{'error_in_sectioning_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -168,6 +169,7 @@ $result_trees{'error_in_sectioning_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
       },
       'info' => {

@@ -29,6 +29,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -313,6 +314,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {
@@ -340,6 +342,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'in-nodescription'
               },
               'source_info' => {
@@ -649,6 +652,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   }
                 },
                 'float_type' => 'tfloat',
+                'is_target' => 1,
                 'normalized' => 'f1'
               },
               'info' => {
@@ -748,6 +752,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node2'
       },

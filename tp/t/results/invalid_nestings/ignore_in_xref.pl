@@ -138,6 +138,7 @@ $result_trees{'ignore_in_xref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

@@ -114,6 +114,7 @@ $result_trees{'anchor_in_command'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'anchor-in-emph'
                               },
                               'source_info' => {
@@ -153,6 +154,7 @@ $result_trees{'anchor_in_command'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

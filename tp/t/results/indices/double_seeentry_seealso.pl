@@ -34,6 +34,7 @@ $result_trees{'double_seeentry_seealso'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -103,6 +104,7 @@ $result_trees{'double_seeentry_seealso'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-index'
       },

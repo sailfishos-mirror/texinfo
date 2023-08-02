@@ -34,6 +34,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

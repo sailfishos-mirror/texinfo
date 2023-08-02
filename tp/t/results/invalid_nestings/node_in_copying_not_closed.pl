@@ -76,6 +76,7 @@ $result_trees{'node_in_copying_not_closed'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

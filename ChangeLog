@@ -1,5 +1,20 @@
 2023-08-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_output_anchor, _convert): add a
+	function to output anchor XML elements.
+
+	* tp/Texinfo/Convert/DocBook.pm (_output_anchor),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/Convert/Plaintext.pm (process_footnotes),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Structuring.pm (new_node_menu_entry),
+	tp/Texinfo/Transformations.pm (_new_node)
+	(insert_nodes_for_sectioning_commands), tp/t/test_utils.pl (new_test):
+	always set 'normalized' for elements that can be targets of cross
+	references.  Set is_target if they can actually be targets.
+
+2023-08-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (convert_to_identifier):
 	rename normalize_node as convert_to_identifier.  Update callers.
 

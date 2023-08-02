@@ -93,6 +93,7 @@ $result_trees{'split_chapter_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -322,6 +323,7 @@ $result_trees{'split_chapter_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'first'
       },
@@ -855,6 +857,7 @@ $result_trees{'split_chapter_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-1'
       },
       'info' => {
@@ -1112,6 +1115,7 @@ $result_trees{'split_chapter_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subsection-1'
       },
       'info' => {

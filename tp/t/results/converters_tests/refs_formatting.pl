@@ -29,6 +29,7 @@ $result_trees{'refs_formatting'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

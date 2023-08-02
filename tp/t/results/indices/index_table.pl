@@ -49,6 +49,7 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -309,6 +310,7 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-with-ftable-and-vtable'
       },
       'info' => {
@@ -904,6 +906,7 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-with-printindex'
       },
@@ -1081,6 +1084,7 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'indices-refs'
       },
@@ -6054,6 +6058,7 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node'
       },
       'info' => {

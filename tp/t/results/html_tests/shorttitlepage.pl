@@ -112,6 +112,7 @@ $result_trees{'shorttitlepage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

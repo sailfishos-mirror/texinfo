@@ -110,6 +110,7 @@ $result_trees{'customize_special_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -179,6 +180,7 @@ $result_trees{'customize_special_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -280,6 +282,7 @@ $result_trees{'customize_special_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter-fr'
       },
       'info' => {

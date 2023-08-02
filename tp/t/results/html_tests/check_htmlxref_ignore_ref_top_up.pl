@@ -101,6 +101,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -542,6 +543,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {
@@ -627,6 +629,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

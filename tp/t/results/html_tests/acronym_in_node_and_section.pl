@@ -29,6 +29,7 @@ $result_trees{'acronym_in_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'acronym_in_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -167,6 +169,7 @@ $result_trees{'acronym_in_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sec-define'
       },
       'info' => {
@@ -299,6 +302,7 @@ $result_trees{'acronym_in_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sec-here-is-GHJ'
       },
       'info' => {

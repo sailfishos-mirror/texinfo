@@ -58,6 +58,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anch_003a-in-node-before'
               },
               'source_info' => {
@@ -81,6 +82,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-before'
       },
       'info' => {
@@ -113,6 +115,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -169,6 +172,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anch_003a-in-node-top'
               },
               'source_info' => {
@@ -246,6 +250,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anch_003a-in-node-after'
               },
               'source_info' => {
@@ -269,6 +274,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'after'
       },
       'info' => {
@@ -301,6 +307,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -357,6 +364,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anch_003a-in-chap'
               },
               'source_info' => {

@@ -29,6 +29,7 @@ $result_trees{'file_name_conflict_with_Top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'file_name_conflict_with_Top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -148,6 +150,7 @@ $result_trees{'file_name_conflict_with_Top'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'index'
           },
           'source_info' => {

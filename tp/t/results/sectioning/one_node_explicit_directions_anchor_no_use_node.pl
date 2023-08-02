@@ -86,6 +86,7 @@ $result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'ref'
               },
               'source_info' => {
@@ -144,6 +145,7 @@ $result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'one-node'
       },
       'info' => {

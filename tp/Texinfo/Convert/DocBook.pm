@@ -662,6 +662,17 @@ sub _convert_argument_and_end_line($$)
   return ($converted, $end_line);
 }
 
+sub _output_anchor($)
+{
+  my $element = shift;
+
+  if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
+    return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
+  } else {
+    return '';
+  }
+}
+
 sub _new_document_context($)
 {
   my $self = shift;
@@ -846,9 +857,8 @@ sub _convert($$;$)
         if ($element->{'cmdname'} eq 'node'
             and (not $element->{'extra'}
                  or not $element->{'extra'}->{'associated_section'})) {
-          if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
-            $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
-          }
+          my $anchor = _output_anchor($element);
+          $result .= $anchor . "\n" if ($anchor ne '');
         } else {
           # start the section at the associated node or part, or at the sectioning
           # command if there is no associated node nor part
@@ -1053,11 +1063,7 @@ sub _convert($$;$)
         }
         return $result;
       } elsif ($element->{'cmdname'} eq 'anchor') {
-        if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
-          return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
-        } else {
-          return '';
-        }
+        return _output_anchor($element);
       } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
           my $cmdname;
@@ -1555,10 +1561,8 @@ sub _convert($$;$)
           }
         }
       } elsif ($element->{'cmdname'} eq 'float') {
-        if ($element->{'extra'}
-            and defined($element->{'extra'}->{'normalized'})) {
-          $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
-        }
+        my $anchor = _output_anchor($element);
+        $result .= $anchor . "\n" if ($anchor ne '');
       } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @format_elements, 'screen';
       } elsif ($element->{'cmdname'} eq 'displaymath') {

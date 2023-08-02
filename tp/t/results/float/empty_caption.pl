@@ -108,6 +108,7 @@ $result_trees{'empty_caption'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'a',
+            'is_target' => 1,
             'normalized' => 'b'
           },
           'info' => {
@@ -216,6 +217,7 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'c',
             'shortcaption' => {}
           },

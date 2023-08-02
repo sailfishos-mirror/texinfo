@@ -29,6 +29,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -110,6 +111,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap-f-nl-Something_003f-After-punct'
       },
@@ -167,6 +169,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'ankh-p'
           },
           'source_info' => {
@@ -330,6 +333,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'new-n'
       },
       'info' => {

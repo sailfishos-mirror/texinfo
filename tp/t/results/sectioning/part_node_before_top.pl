@@ -66,6 +66,7 @@ $result_trees{'part_node_before_top'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'part-node-before-top'
         },
         'info' => {
@@ -135,6 +136,7 @@ $result_trees{'part_node_before_top'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {

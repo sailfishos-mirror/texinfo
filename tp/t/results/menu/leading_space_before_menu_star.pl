@@ -103,6 +103,7 @@ $result_trees{'leading_space_before_menu_star'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a-node'
       },
       'info' => {

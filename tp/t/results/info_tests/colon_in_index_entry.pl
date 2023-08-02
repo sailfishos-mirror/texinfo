@@ -538,6 +538,7 @@ $result_trees{'colon_in_index_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },

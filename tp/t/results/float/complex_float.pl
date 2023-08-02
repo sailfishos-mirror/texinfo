@@ -34,6 +34,7 @@ $result_trees{'complex_float'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1139,6 +1140,7 @@ $result_trees{'complex_float'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'Anchor-in-caption'
                       },
                       'source_info' => {
@@ -2271,6 +2273,7 @@ $result_trees{'complex_float'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'text-with-a-lot-of-features',
             'shortcaption' => {}
           },
@@ -2322,6 +2325,7 @@ $result_trees{'complex_float'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -3041,6 +3045,7 @@ $result_trees{'complex_float'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'Anchor-in-caption-2'
                       },
                       'source_info' => {
@@ -3416,6 +3421,7 @@ $result_trees{'complex_float'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
           },
           'info' => {

@@ -33,6 +33,7 @@ $result_trees{'brace_opened_no_command'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'truc'
               },
               'source_info' => {

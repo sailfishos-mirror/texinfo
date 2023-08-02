@@ -239,6 +239,7 @@ $result_trees{'ref_in_preformatted'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -271,6 +272,7 @@ $result_trees{'ref_in_preformatted'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-nnn-the-node-name'
       },
       'info' => {

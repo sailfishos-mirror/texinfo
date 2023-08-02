@@ -49,6 +49,7 @@ $result_trees{'contents_at_end_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -236,6 +237,7 @@ $result_trees{'contents_at_end_separate_element'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

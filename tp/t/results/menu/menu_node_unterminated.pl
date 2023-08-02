@@ -135,6 +135,7 @@ $result_trees{'menu_node_unterminated'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

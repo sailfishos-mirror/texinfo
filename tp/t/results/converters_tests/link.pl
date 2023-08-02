@@ -29,6 +29,7 @@ $result_trees{'link'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'One'
       },
       'info' => {
@@ -503,6 +504,7 @@ $result_trees{'link'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Two'
       },
       'info' => {

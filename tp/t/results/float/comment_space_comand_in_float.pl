@@ -34,6 +34,7 @@ $result_trees{'comment_space_comand_in_float'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -157,6 +158,7 @@ $result_trees{'comment_space_comand_in_float'} = {
           ],
           'extra' => {
             'float_type' => 'Text  ',
+            'is_target' => 1,
             'normalized' => 'label-'
           },
           'info' => {
@@ -218,6 +220,7 @@ $result_trees{'comment_space_comand_in_float'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

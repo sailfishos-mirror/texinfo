@@ -147,6 +147,7 @@ $result_trees{'reference_to_external_manual'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

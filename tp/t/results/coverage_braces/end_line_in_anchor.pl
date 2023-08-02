@@ -26,6 +26,7 @@ $result_trees{'end_line_in_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'an-anchor'
           },
           'source_info' => {

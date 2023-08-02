@@ -227,6 +227,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -616,6 +617,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
       'info' => {
@@ -694,6 +696,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Concept-Index'
       },

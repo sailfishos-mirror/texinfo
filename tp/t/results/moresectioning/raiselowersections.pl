@@ -54,6 +54,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -258,6 +259,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -749,6 +751,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter-in-included-file'
       },
       'info' => {
@@ -924,6 +927,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Section'
       },
       'info' => {
@@ -1099,6 +1103,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Subsection'
       },
       'info' => {
@@ -1432,6 +1437,7 @@ $result_trees{'raiselowersections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Second-chapter'
       },
       'info' => {

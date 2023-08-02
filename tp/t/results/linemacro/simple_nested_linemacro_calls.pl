@@ -586,6 +586,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

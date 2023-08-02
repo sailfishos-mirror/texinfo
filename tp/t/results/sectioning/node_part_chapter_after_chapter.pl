@@ -30,6 +30,7 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -264,6 +265,7 @@ $result_trees{'node_part_chapter_after_chapter'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chapter-node'
         },
         'info' => {
@@ -341,6 +343,7 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'part-chapter-node'
         },
         'info' => {

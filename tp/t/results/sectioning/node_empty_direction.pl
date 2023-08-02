@@ -31,6 +31,7 @@ $result_trees{'node_empty_direction'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'name'
       },
       'info' => {

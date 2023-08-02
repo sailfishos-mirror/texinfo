@@ -212,6 +212,7 @@ $result_trees{'double_top_in_menu'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -285,6 +286,9 @@ $result_trees{'double_top_in_menu'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {
+        'normalized' => 'Top'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

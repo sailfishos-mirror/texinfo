@@ -191,6 +191,7 @@ $result_trees{'explicit_node_directions'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -299,6 +300,7 @@ $result_trees{'explicit_node_directions'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap-node'
         },
         'info' => {
@@ -370,6 +372,7 @@ $result_trees{'explicit_node_directions'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'third-node'
         },
         'info' => {

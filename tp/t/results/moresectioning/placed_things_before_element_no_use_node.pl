@@ -22,6 +22,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'An-anchor'
           },
           'source_info' => {
@@ -157,6 +158,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'Anchor-in-footnote'
                       },
                       'source_info' => {
@@ -304,6 +306,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
           ],
           'extra' => {
             'float_type' => '',
+            'is_target' => 1,
             'normalized' => 'float-anchor'
           },
           'info' => {

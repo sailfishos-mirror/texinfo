@@ -163,6 +163,7 @@ $result_trees{'macro_in_misc_commands'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -4998,6 +4999,7 @@ $result_trees{'macro_in_misc_commands'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-atext'
       },
       'info' => {

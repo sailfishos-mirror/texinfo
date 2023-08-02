@@ -128,6 +128,7 @@ $result_trees{'before_node_and_section'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'anchor1'
               },
               'source_info' => {
@@ -274,6 +275,7 @@ $result_trees{'before_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -530,6 +532,7 @@ $result_trees{'before_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node1'
       },

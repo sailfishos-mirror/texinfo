@@ -29,6 +29,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -413,6 +414,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {
@@ -681,6 +683,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {
@@ -822,6 +825,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {
@@ -1044,6 +1048,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {
@@ -1222,6 +1227,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'node_description' => {
           'args' => [
             {

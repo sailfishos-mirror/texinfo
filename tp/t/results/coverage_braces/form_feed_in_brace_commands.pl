@@ -45,6 +45,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'aa'
               },
               'source_info' => {

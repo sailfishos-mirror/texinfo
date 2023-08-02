@@ -113,6 +113,7 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -196,6 +197,7 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Mixed-english-and-chinese'
       },
       'info' => {

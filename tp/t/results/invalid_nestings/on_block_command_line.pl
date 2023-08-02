@@ -28,6 +28,7 @@ $result_trees{'on_block_command_line'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'in-anchor'
                       },
                       'source_info' => {
@@ -226,6 +227,7 @@ $result_trees{'on_block_command_line'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'in-quotation-anchor'
                   },
                   'source_info' => {

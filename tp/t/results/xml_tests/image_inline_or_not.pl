@@ -99,6 +99,7 @@ $result_trees{'image_inline_or_not'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1018,6 +1019,7 @@ $result_trees{'image_inline_or_not'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node_005fimage'
       },
       'info' => {
@@ -1390,6 +1392,7 @@ $result_trees{'image_inline_or_not'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'F',
+            'is_target' => 1,
             'normalized' => 'g'
           },
           'info' => {

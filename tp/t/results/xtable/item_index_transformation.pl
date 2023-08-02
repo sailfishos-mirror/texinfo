@@ -29,6 +29,7 @@ $result_trees{'item_index_transformation'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

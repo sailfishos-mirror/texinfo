@@ -81,6 +81,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'an-anchor'
                   },
                   'source_info' => {

@@ -1621,7 +1621,7 @@ sub new_node_menu_entry
   my ($node, $use_sections) = @_;
 
   my $node_contents;
-  if ($node->{'extra'} and defined($node->{'extra'}->{'normalized'})) {
+  if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
     $node_contents = $node->{'args'}->[0]->{'contents'};
   }
 

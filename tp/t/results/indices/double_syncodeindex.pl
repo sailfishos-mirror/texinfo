@@ -111,6 +111,7 @@ $result_trees{'double_syncodeindex'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -297,6 +298,7 @@ $result_trees{'double_syncodeindex'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

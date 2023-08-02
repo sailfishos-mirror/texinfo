@@ -178,6 +178,7 @@ $result_trees{'node_referenced_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -217,6 +218,7 @@ $result_trees{'node_referenced_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-first-level-node'
       },
       'info' => {
@@ -249,6 +251,7 @@ $result_trees{'node_referenced_in_ref'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second-level-node'
       },
       'info' => {

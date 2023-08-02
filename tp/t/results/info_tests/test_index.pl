@@ -29,6 +29,7 @@ $result_trees{'test_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -927,6 +928,7 @@ $result_trees{'test_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'name'
       },
       'info' => {
@@ -2334,6 +2336,7 @@ $result_trees{'test_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
       },
@@ -2831,6 +2834,7 @@ $result_trees{'test_index'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'a-counting-anchor'
           },
           'source_info' => {

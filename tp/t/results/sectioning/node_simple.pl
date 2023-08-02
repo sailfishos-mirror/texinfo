@@ -23,6 +23,7 @@ $result_trees{'node_simple'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

@@ -191,6 +191,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -291,6 +292,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap-node'
         },
         'info' => {
@@ -354,6 +356,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'third-node'
         },
         'info' => {

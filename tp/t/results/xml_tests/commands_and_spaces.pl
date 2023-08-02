@@ -741,6 +741,7 @@ $result_trees{'commands_and_spaces'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'ff',
+            'is_target' => 1,
             'normalized' => 'b',
             'shortcaption' => {}
           },
@@ -1667,6 +1668,7 @@ $result_trees{'commands_and_spaces'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a'
       },
       'info' => {

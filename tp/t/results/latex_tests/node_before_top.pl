@@ -41,6 +41,7 @@ $result_trees{'node_before_top'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'before-Top'
       },
       'info' => {
@@ -73,6 +74,7 @@ $result_trees{'node_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -142,6 +144,7 @@ $result_trees{'node_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {

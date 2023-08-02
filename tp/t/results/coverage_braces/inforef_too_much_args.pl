@@ -94,6 +94,7 @@ $result_trees{'inforef_too_much_args'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

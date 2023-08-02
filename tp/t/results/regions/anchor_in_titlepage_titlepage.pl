@@ -46,6 +46,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'in-titlepage'
                   },
                   'source_info' => {
@@ -164,6 +165,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -266,6 +268,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'nchap'
       },
       'info' => {

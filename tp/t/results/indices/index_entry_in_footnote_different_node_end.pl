@@ -191,6 +191,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -378,6 +379,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -451,6 +453,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'First'
       },

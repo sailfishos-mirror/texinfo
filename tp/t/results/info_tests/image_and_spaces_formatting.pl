@@ -712,6 +712,7 @@ $result_trees{'image_and_spaces_formatting'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

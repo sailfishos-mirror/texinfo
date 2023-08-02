@@ -30,6 +30,7 @@ $result_trees{'part_node_chapter_node_appendix'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -294,6 +295,7 @@ $result_trees{'part_node_chapter_node_appendix'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chapter-node'
         },
         'info' => {
@@ -373,6 +375,7 @@ $result_trees{'part_node_chapter_node_appendix'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'appendix-node'
         },
         'info' => {

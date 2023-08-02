@@ -112,6 +112,7 @@ $result_trees{'footnote_in_ref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

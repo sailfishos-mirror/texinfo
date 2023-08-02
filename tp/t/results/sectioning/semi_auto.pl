@@ -29,6 +29,7 @@ $result_trees{'semi_auto'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -248,6 +249,7 @@ $result_trees{'semi_auto'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chap1'
       },
       'info' => {
@@ -421,6 +423,7 @@ $result_trees{'semi_auto'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Sec-in-chapter'
       },
       'info' => {
@@ -529,6 +532,7 @@ $result_trees{'semi_auto'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Section-non-auto'
       },
       'info' => {

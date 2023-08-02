@@ -187,6 +187,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -312,7 +313,8 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
             }
           ],
           'extra' => {
-            'float_type' => 'Figure'
+            'float_type' => 'Figure',
+            'normalized' => 'chap'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -479,6 +481,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -636,7 +639,11 @@ $result_floats{'equivalent_nodes_defined_linked'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => 'Figure'
+        'float_type' => 'Figure',
+        'normalized' => 'chap'
+      },
+      'structure' => {
+        'float_number' => 1
       }
     }
   ]
@@ -658,10 +665,10 @@ File: ,  Node: chap,  Up: Top
 
 A figure
 
-Figure
+Figure 1
 * Menu:
 
-* Figure: ‘chap’.                        
+* Figure 1: ‘chap’.                      
 
    Ref to node *note chap::.
 
@@ -728,7 +735,7 @@ Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 
 <div class="float">
 <p>A figure
-</p><div class="type-number-float"><p><strong class="strong">Figure</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">Figure 1</strong></p></div></div>
 <dl class="listoffloats">
 </dl>
 

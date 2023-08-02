@@ -86,6 +86,7 @@ $result_trees{'multiple_spaces_in_float_type'} = {
           ],
           'extra' => {
             'float_type' => 'Type of Float',
+            'is_target' => 1,
             'normalized' => 'myfloat'
           },
           'info' => {

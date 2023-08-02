@@ -622,6 +622,7 @@ $result_trees{'test_image'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -2658,6 +2659,7 @@ $result_trees{'test_image'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Image',
+            'is_target' => 1,
             'normalized' => 'Image-with-commands'
           },
           'info' => {
@@ -2715,6 +2717,7 @@ $result_trees{'test_image'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

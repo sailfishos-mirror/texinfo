@@ -397,6 +397,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -466,6 +467,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

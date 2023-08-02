@@ -34,6 +34,7 @@ $result_trees{'special_characters_in_float_type'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -103,6 +104,7 @@ $result_trees{'special_characters_in_float_type'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -319,6 +321,7 @@ $result_trees{'special_characters_in_float_type'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
+            'is_target' => 1,
             'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
           },
           'info' => {

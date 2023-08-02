@@ -39,6 +39,7 @@ $result_trees{'things_before_setfilename'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'An-anchor'
               },
               'source_info' => {
@@ -174,6 +175,7 @@ $result_trees{'things_before_setfilename'} = {
                           ],
                           'cmdname' => 'anchor',
                           'extra' => {
+                            'is_target' => 1,
                             'normalized' => 'Anchor-in-footnote'
                           },
                           'source_info' => {
@@ -321,6 +323,7 @@ $result_trees{'things_before_setfilename'} = {
               ],
               'extra' => {
                 'float_type' => '',
+                'is_target' => 1,
                 'normalized' => 'float-anchor'
               },
               'info' => {
@@ -492,6 +495,7 @@ $result_trees{'things_before_setfilename'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
+                'is_target' => 1,
                 'normalized' => 'ta'
               },
               'info' => {
@@ -818,6 +822,7 @@ $result_trees{'things_before_setfilename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -887,6 +892,7 @@ $result_trees{'things_before_setfilename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

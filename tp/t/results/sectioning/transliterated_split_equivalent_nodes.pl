@@ -263,6 +263,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -318,6 +319,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => '_00e3'
         },
         'info' => {
@@ -417,6 +419,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'n'
         },
         'info' => {
@@ -472,6 +475,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => '_00e2'
         },
         'info' => {

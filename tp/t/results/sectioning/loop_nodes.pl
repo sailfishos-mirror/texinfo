@@ -34,6 +34,7 @@ $result_trees{'loop_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -338,6 +339,7 @@ $result_trees{'loop_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-node-up'
       },
       'info' => {
@@ -501,6 +503,7 @@ $result_trees{'loop_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-middle'
       },
       'info' => {
@@ -533,6 +536,7 @@ $result_trees{'loop_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-down'
       },
       'info' => {

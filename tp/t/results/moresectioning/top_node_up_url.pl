@@ -30,6 +30,7 @@ $result_trees{'top_node_up_url'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -211,6 +212,7 @@ $result_trees{'top_node_up_url'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap'
         },
         'info' => {

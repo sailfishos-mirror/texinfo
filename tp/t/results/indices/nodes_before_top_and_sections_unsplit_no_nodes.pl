@@ -338,6 +338,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'first-before-top'
       },
@@ -539,6 +540,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-in-menu-before-top'
       },
@@ -773,6 +775,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -1394,6 +1397,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'first'
       },
@@ -1638,6 +1642,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'second'
       },
@@ -1838,6 +1843,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'another'
       },
       'info' => {
@@ -2112,6 +2118,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'a-node'
       },
@@ -2176,6 +2183,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chapter'
       },
@@ -2370,6 +2378,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-in-chapter'
       },
       'info' => {

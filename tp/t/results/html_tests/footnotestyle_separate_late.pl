@@ -30,6 +30,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -107,6 +108,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap-f'
         },
         'info' => {
@@ -221,6 +223,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap-s'
         },
         'info' => {

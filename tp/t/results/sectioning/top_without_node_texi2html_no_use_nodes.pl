@@ -99,6 +99,7 @@ $result_trees{'top_without_node_texi2html_no_use_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second'
       },
       'info' => {

@@ -34,6 +34,7 @@ $result_trees{'double_recursive_self_section_reference'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'n1'
       },
       'info' => {
@@ -124,6 +125,7 @@ $result_trees{'double_recursive_self_section_reference'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'n2'
       },
       'info' => {

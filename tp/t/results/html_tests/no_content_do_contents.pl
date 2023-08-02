@@ -49,6 +49,7 @@ $result_trees{'no_content_do_contents'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -236,6 +237,7 @@ $result_trees{'no_content_do_contents'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

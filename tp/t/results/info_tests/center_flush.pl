@@ -131,6 +131,7 @@ $result_trees{'center_flush'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'anchor-in-flushleft'
                   },
                   'source_info' => {
@@ -283,6 +284,7 @@ $result_trees{'center_flush'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'anchor-in-flushright'
                   },
                   'source_info' => {
@@ -316,6 +318,7 @@ $result_trees{'center_flush'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'second-anchor-in-flushright'
                   },
                   'source_info' => {

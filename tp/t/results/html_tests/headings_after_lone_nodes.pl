@@ -29,6 +29,7 @@ $result_trees{'headings_after_lone_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'headings_after_lone_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -217,6 +219,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Qt'
       },
       'info' => {
@@ -267,6 +270,7 @@ $result_trees{'headings_after_lone_nodes'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'toto'
           },
           'source_info' => {
@@ -633,6 +637,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'node_description' => {},
         'normalized' => 'Other'
       },
@@ -721,6 +726,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Not-associated'
       },
       'info' => {
@@ -861,6 +867,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '2-not'
       },
       'info' => {
@@ -1001,6 +1008,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '3-not'
       },
       'info' => {
@@ -1113,6 +1121,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '4-not'
       },
       'info' => {
@@ -1290,6 +1299,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => '5-not'
       },
       'info' => {
@@ -1329,6 +1339,7 @@ $result_trees{'headings_after_lone_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subnode'
       },
       'info' => {

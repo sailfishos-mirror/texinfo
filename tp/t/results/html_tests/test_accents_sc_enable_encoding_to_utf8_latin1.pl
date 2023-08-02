@@ -89,6 +89,7 @@ $result_trees{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -158,6 +159,7 @@ $result_trees{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-chap'
       },
       'info' => {

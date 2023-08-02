@@ -36,6 +36,7 @@ $result_trees{'punctuation_in_line_commands'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node_0021-After-punc'
       },
@@ -402,6 +403,7 @@ $result_trees{'punctuation_in_line_commands'} = {
           'extra' => {
             'float_section' => {},
             'float_type' => 'float type! After punc',
+            'is_target' => 1,
             'normalized' => 'float-label_0021-After-punc',
             'shortcaption' => {}
           },
@@ -528,6 +530,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => 'float type! After punc',
+            'is_target' => 1,
             'normalized' => 'label-with-caption'
           },
           'info' => {

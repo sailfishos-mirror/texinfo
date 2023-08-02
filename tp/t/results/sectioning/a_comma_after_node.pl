@@ -81,6 +81,7 @@ $result_trees{'a_comma_after_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Commands'
       },
       'info' => {

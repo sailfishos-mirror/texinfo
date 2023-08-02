@@ -187,6 +187,7 @@ $result_trees{'japanese_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -584,6 +585,7 @@ $result_trees{'japanese_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Preface'
       },
       'info' => {
@@ -672,6 +674,7 @@ $result_trees{'japanese_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Introduction'
       },
       'info' => {

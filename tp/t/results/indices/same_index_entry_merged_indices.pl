@@ -76,6 +76,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -135,6 +136,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

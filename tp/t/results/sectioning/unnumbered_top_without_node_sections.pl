@@ -60,6 +60,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'a-node'
         },
         'info' => {
@@ -229,6 +230,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'second'
         },
         'info' => {

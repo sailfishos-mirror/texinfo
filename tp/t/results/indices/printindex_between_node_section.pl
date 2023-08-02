@@ -34,6 +34,7 @@ $result_trees{'printindex_between_node_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -256,6 +257,7 @@ $result_trees{'printindex_between_node_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-chap1'
       },
       'info' => {
@@ -440,6 +442,7 @@ $result_trees{'printindex_between_node_section'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'node-sec1'
       },

@@ -89,6 +89,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },
@@ -486,6 +487,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
       'info' => {
@@ -555,6 +557,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e9'
       },
       'info' => {
@@ -624,6 +627,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e0-_00e8-_00f9'
       },
       'info' => {
@@ -693,6 +697,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
       },
       'info' => {
@@ -762,6 +767,7 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_00e7'
       },
       'info' => {

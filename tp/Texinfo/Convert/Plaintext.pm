@@ -1006,7 +1006,8 @@ sub process_footnotes($;$)
         'cmdname' => 'node',
         'structure' => {'node_up' => $node_element},
         'args' => [{'contents' => $footnotes_node_contents}],
-        'extra' => {'normalized'
+        'extra' => {'is_target' => 1,
+                'normalized'
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes'}
       };
       $result .= $self->format_node($footnotes_node);
@@ -1027,7 +1028,8 @@ sub process_footnotes($;$)
             {'text' => $footnote_anchor_postfix}];
         $self->add_location({'cmdname' => 'anchor',
                     'args' => [{'contents' => $footnote_anchor_contents}],
-                    'extra' => {'normalized'
+                    'extra' => {'is_target' => 1,
+                        'normalized'
        => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
                             });
       }

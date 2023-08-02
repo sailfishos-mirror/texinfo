@@ -22,6 +22,7 @@ $result_trees{'verb_in_xref'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'point'
           },
           'source_info' => {

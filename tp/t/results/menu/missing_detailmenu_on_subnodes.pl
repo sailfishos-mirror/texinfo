@@ -29,6 +29,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -425,6 +426,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -598,6 +600,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section'
       },
       'info' => {
@@ -667,6 +670,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-2'
       },
       'info' => {
@@ -886,6 +890,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-chap-2'
       },
       'info' => {
@@ -955,6 +960,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec'
       },
       'info' => {

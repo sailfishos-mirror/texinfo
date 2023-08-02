@@ -39,6 +39,7 @@ $result_trees{'section_on_float_line'} = {
           'cmdname' => 'float',
           'extra' => {
             'float_type' => 't',
+            'is_target' => 1,
             'normalized' => 'l'
           },
           'info' => {

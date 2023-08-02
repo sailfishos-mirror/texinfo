@@ -29,6 +29,7 @@ $result_trees{'one_subsection_and_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'one-node'
       },
       'info' => {

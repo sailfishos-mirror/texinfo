@@ -41,6 +41,7 @@ $result_trees{'top_no_sectioning_command'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -73,6 +74,7 @@ $result_trees{'top_no_sectioning_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {

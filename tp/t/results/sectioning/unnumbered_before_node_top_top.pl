@@ -88,6 +88,7 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {

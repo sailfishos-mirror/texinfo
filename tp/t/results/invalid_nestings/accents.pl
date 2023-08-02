@@ -135,6 +135,7 @@ $result_trees{'accents'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'truc'
                       },
                       'source_info' => {

@@ -217,6 +217,7 @@ $result_trees{'novalidate'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

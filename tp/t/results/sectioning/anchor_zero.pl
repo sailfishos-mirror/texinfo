@@ -47,6 +47,7 @@ $result_trees{'anchor_zero'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => '0'
           },
           'source_info' => {
@@ -104,6 +105,7 @@ $result_trees{'anchor_zero'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

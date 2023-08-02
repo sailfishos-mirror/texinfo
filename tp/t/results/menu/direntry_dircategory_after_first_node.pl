@@ -29,6 +29,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

@@ -44,6 +44,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -435,6 +436,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -608,6 +610,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-in-chapter'
       },
       'info' => {
@@ -677,6 +680,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered'
       },
       'info' => {
@@ -850,6 +854,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-in-unnumbered'
       },
       'info' => {
@@ -919,6 +924,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-2'
       },
       'info' => {
@@ -1138,6 +1144,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-2'
       },
       'info' => {
@@ -1449,6 +1456,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub-2'
       },
       'info' => {
@@ -1518,6 +1526,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-2'
       },
       'info' => {
@@ -1587,6 +1596,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub2-2'
       },
       'info' => {
@@ -1656,6 +1666,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub2-2'
       },
       'info' => {
@@ -1725,6 +1736,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-2_002d1'
       },
       'info' => {
@@ -1898,6 +1910,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-2_002d1'
       },
       'info' => {
@@ -1972,6 +1985,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-3'
       },
       'info' => {
@@ -2329,6 +2343,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-3'
       },
       'info' => {
@@ -2640,6 +2655,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub-3'
       },
       'info' => {
@@ -2709,6 +2725,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-3'
       },
       'info' => {
@@ -2778,6 +2795,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub2-3'
       },
       'info' => {
@@ -2847,6 +2865,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub2-3'
       },
       'info' => {
@@ -2916,6 +2935,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-3_002d1'
       },
       'info' => {
@@ -2985,6 +3005,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-3_002d2'
       },
       'info' => {
@@ -3158,6 +3179,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-3_002d2'
       },
       'info' => {
@@ -3227,6 +3249,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'section-3_002d3'
       },
       'info' => {
@@ -3400,6 +3423,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'subsection-3_002d3'
       },
       'info' => {
@@ -3469,6 +3493,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-3_002d4'
       },
       'info' => {
@@ -3642,6 +3667,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-3_002d4'
       },
       'info' => {
@@ -3711,6 +3737,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-4'
       },
       'info' => {
@@ -3884,6 +3911,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumberedsec-4'
       },
       'info' => {
@@ -4195,6 +4223,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub-4'
       },
       'info' => {
@@ -4264,6 +4293,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub-4'
       },
       'info' => {
@@ -4333,6 +4363,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub2-4'
       },
       'info' => {
@@ -4402,6 +4433,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub2-4'
       },
       'info' => {

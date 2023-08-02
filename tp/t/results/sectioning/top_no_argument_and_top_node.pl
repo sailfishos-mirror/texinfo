@@ -29,6 +29,7 @@ $result_trees{'top_no_argument_and_top_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

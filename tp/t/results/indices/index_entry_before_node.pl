@@ -191,6 +191,7 @@ $result_trees{'index_entry_before_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -317,6 +318,7 @@ $result_trees{'index_entry_before_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-first'
       },
       'info' => {
@@ -421,6 +423,7 @@ $result_trees{'index_entry_before_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'second'
       },

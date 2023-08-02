@@ -29,6 +29,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -349,6 +350,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-1'
       },
       'info' => {
@@ -439,6 +441,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-after-chapter-1'
       },
       'info' => {
@@ -471,6 +474,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'last-node-in-chapter-1'
       },
       'info' => {

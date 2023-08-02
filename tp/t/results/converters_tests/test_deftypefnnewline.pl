@@ -107,6 +107,7 @@ $result_trees{'test_deftypefnnewline'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -176,6 +177,7 @@ $result_trees{'test_deftypefnnewline'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {

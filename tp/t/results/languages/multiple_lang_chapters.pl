@@ -258,6 +258,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -647,6 +648,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-ja'
       },
       'info' => {
@@ -940,6 +942,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-en'
       },
       'info' => {
@@ -1233,6 +1236,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-fr_005fFR'
       },
       'info' => {
@@ -1490,6 +1494,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-de'
       },
       'info' => {
@@ -1591,6 +1596,7 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter-pt_005fBR'
       },
       'info' => {

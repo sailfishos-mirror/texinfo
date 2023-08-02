@@ -59,6 +59,7 @@ $result_trees{'on_index_entry_line'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'in-anchor'
                   },
                   'source_info' => {

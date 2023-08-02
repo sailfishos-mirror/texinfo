@@ -34,6 +34,7 @@ $result_trees{'seealso_duplicate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -321,6 +322,7 @@ $result_trees{'seealso_duplicate'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

@@ -71,6 +71,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

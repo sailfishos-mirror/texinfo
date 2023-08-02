@@ -131,6 +131,7 @@ $result_trees{'float_long_captions'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'text1'
           },
           'info' => {
@@ -246,6 +247,7 @@ $result_trees{'float_long_captions'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'text2'
           },
           'info' => {
@@ -298,6 +300,7 @@ $result_trees{'float_long_captions'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

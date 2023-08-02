@@ -502,6 +502,7 @@ $result_trees{'invalid_info_menu_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

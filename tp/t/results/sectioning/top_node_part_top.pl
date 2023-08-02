@@ -42,6 +42,7 @@ $result_trees{'top_node_part_top'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {

@@ -84,6 +84,7 @@ $result_trees{'encoding_index_latin1_enable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -2624,6 +2625,7 @@ $result_trees{'encoding_index_latin1_enable_encoding'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

@@ -82,6 +82,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -622,6 +623,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'First-node'
       },
       'info' => {
@@ -911,6 +913,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered'
       },
       'info' => {
@@ -1222,6 +1225,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub'
       },
       'info' => {
@@ -1291,6 +1295,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub'
       },
       'info' => {
@@ -1360,6 +1365,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered-sub2'
       },
       'info' => {
@@ -1429,6 +1435,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub2'
       },
       'info' => {
@@ -1498,6 +1505,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'unnumbered2'
       },
       'info' => {
@@ -1671,6 +1679,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered-sub3'
       },
       'info' => {
@@ -1745,6 +1754,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'numbered'
       },
       'info' => {
@@ -1855,6 +1865,7 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'between-node'
       },
       'info' => {
@@ -1939,6 +1950,7 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Second-node'
       },
       'info' => {
@@ -2022,6 +2034,7 @@ $result_trees{'sectioning_frames'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Third-node-unnumbered'
       },
       'info' => {
@@ -2163,6 +2176,7 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Last-node-no-description'
       },
       'info' => {

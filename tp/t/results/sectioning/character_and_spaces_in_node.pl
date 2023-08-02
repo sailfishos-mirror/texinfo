@@ -36,6 +36,7 @@ $result_trees{'character_and_spaces_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -123,6 +124,7 @@ $result_trees{'character_and_spaces_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-nodes'
       },
       'info' => {
@@ -210,6 +212,7 @@ $result_trees{'character_and_spaces_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
       },
       'info' => {
@@ -287,6 +290,7 @@ $result_trees{'character_and_spaces_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
       },
       'info' => {
@@ -350,6 +354,7 @@ $result_trees{'character_and_spaces_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'local-node'
       },
       'info' => {

@@ -73,6 +73,7 @@ $result_trees{'setfilename_no_extension'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -158,6 +159,7 @@ $result_trees{'setfilename_no_extension'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

@@ -255,6 +255,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

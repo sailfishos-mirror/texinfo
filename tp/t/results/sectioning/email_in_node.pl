@@ -125,6 +125,7 @@ $result_trees{'email_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a-c-'
       },
       'info' => {

@@ -42,6 +42,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "Top"
       },
       "info" => {
@@ -460,6 +461,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "_2002_2003_2002"
       },
       "info" => {
@@ -634,6 +636,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "_0085_00a0_1680"
       },
       "info" => {
@@ -700,6 +703,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "_180e_2003"
       },
       "info" => {
@@ -766,6 +770,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
+        "is_target" => 1,
         "normalized" => "_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000"
       },
       "info" => {

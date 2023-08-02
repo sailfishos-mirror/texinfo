@@ -29,6 +29,7 @@ $result_trees{'index_entry_at_end_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -253,6 +254,7 @@ $result_trees{'index_entry_at_end_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -374,6 +376,7 @@ $result_trees{'index_entry_at_end_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'indices'
       },

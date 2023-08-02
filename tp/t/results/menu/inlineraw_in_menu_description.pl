@@ -29,6 +29,7 @@ $result_trees{'inlineraw_in_menu_description'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

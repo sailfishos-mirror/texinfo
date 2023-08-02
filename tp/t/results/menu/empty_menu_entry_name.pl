@@ -205,6 +205,7 @@ $result_trees{'empty_menu_entry_name'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {
@@ -237,6 +238,7 @@ $result_trees{'empty_menu_entry_name'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'aaa'
       },
       'info' => {

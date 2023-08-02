@@ -29,6 +29,7 @@ $result_trees{'space_in_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -216,6 +217,7 @@ $result_trees{'space_in_menu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node'
       },
       'info' => {

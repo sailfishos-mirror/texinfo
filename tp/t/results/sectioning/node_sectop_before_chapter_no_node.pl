@@ -34,6 +34,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

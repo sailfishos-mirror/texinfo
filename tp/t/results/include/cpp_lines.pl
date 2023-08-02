@@ -125,6 +125,7 @@ $result_trees{'cpp_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1180,6 +1181,7 @@ $result_trees{'cpp_lines'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

@@ -253,6 +253,7 @@ $result_trees{'error_in_footnote'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Text',
+            'is_target' => 1,
             'normalized' => 'label'
           },
           'info' => {
@@ -342,6 +343,7 @@ $result_trees{'error_in_footnote'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

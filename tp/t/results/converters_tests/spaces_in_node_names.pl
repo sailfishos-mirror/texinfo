@@ -267,6 +267,7 @@ $result_trees{'spaces_in_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -312,6 +313,7 @@ $result_trees{'spaces_in_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-'
       },
       'info' => {
@@ -373,6 +375,7 @@ $result_trees{'spaces_in_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'b-'
       },
       'info' => {
@@ -589,6 +592,7 @@ $result_trees{'spaces_in_node_names'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'c-'
       },
       'info' => {

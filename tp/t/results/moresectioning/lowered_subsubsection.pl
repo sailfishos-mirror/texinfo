@@ -29,6 +29,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -192,6 +193,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -365,6 +367,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Section'
       },
       'info' => {
@@ -538,6 +541,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Subsection'
       },
       'info' => {
@@ -757,6 +761,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Subsubsection'
       },
       'info' => {
@@ -836,6 +841,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Lowered-subsec'
       },
       'info' => {
@@ -1011,6 +1017,7 @@ $result_trees{'lowered_subsubsection'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Lowered-subsubsection'
       },
       'info' => {

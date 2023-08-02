@@ -423,6 +423,7 @@ $result_trees{'ref_tests'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

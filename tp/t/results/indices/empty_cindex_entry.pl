@@ -34,6 +34,7 @@ $result_trees{'empty_cindex_entry'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -90,6 +91,7 @@ $result_trees{'empty_cindex_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

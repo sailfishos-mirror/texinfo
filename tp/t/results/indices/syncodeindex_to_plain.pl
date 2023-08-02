@@ -76,6 +76,7 @@ $result_trees{'syncodeindex_to_plain'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -322,6 +323,7 @@ $result_trees{'syncodeindex_to_plain'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

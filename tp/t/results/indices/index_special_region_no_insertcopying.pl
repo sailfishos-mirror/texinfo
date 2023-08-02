@@ -98,6 +98,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'Copying-information'
                   },
                   'source_info' => {
@@ -145,6 +146,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'Public-domain-reference'
                               },
                               'source_info' => {
@@ -390,6 +392,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'Titlepage-anchor'
                   },
                   'source_info' => {
@@ -433,6 +436,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'Titlepage-footnote-anchor'
                               },
                               'source_info' => {
@@ -604,6 +608,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1275,6 +1280,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Copying-and-indices'
       },

@@ -36,6 +36,7 @@ $result_trees{'between_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -105,6 +106,7 @@ $result_trees{'between_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sec1'
       },
       'info' => {
@@ -187,6 +189,7 @@ $result_trees{'between_node_and_section'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'Old-name'
           },
           'source_info' => {
@@ -202,6 +205,7 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sec2'
       },
       'info' => {

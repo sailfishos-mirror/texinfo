@@ -123,6 +123,7 @@ $result_trees{'value_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -370,6 +371,7 @@ $result_trees{'value_in_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Node-1'
       },
       'info' => {
@@ -716,6 +718,7 @@ $result_trees{'value_in_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Section-1_002e1'
       },
       'info' => {

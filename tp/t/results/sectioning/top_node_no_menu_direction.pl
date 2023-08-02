@@ -186,6 +186,7 @@ $result_trees{'top_node_no_menu_direction'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -249,6 +250,7 @@ $result_trees{'top_node_no_menu_direction'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-node'
       },
       'info' => {

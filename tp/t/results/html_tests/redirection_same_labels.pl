@@ -30,6 +30,7 @@ $result_trees{'redirection_same_labels'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -297,6 +298,7 @@ $result_trees{'redirection_same_labels'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'umlaut'
         },
         'info' => {
@@ -583,6 +585,7 @@ $result_trees{'redirection_same_labels'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => '_00ef'
         },
         'info' => {
@@ -652,6 +655,7 @@ $result_trees{'redirection_same_labels'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => '_0129'
         },
         'info' => {
@@ -692,6 +696,7 @@ $result_trees{'redirection_same_labels'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'circumflex'
         },
         'info' => {
@@ -895,6 +900,7 @@ $result_trees{'redirection_same_labels'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => '_00ee'
         },
         'info' => {

@@ -94,6 +94,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-before'
       },
       'info' => {
@@ -126,6 +127,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -230,6 +232,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'after'
       },
       'info' => {
@@ -262,6 +265,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

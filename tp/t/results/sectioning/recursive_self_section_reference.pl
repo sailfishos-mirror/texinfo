@@ -34,6 +34,7 @@ $result_trees{'recursive_self_section_reference'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'sharp'
       },
       'info' => {

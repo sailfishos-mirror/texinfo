@@ -195,6 +195,7 @@ $result_trees{'rec_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -415,6 +416,7 @@ $result_trees{'rec_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-node'
       },
       'info' => {
@@ -578,6 +580,7 @@ $result_trees{'rec_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'other-node'
       },
       'info' => {
@@ -750,6 +753,7 @@ $result_trees{'rec_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-up-node-following-second'
       },
       'info' => {
@@ -917,6 +921,7 @@ $result_trees{'rec_nodes'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-following-second'
       },
       'info' => {

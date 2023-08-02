@@ -288,6 +288,7 @@ $result_trees{'block_commands'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'a float',
+            'is_target' => 1,
             'normalized' => 'b-float'
           },
           'info' => {

@@ -443,6 +443,7 @@ $result_trees{'sample_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -776,6 +777,7 @@ $result_trees{'sample_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
       'info' => {
@@ -1152,6 +1154,7 @@ $result_trees{'sample_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
       },
       'info' => {
@@ -1235,6 +1238,7 @@ $result_trees{'sample_utf8'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Index-node'
       },

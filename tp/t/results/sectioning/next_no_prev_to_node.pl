@@ -186,6 +186,7 @@ $result_trees{'next_no_prev_to_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -264,6 +265,7 @@ $result_trees{'next_no_prev_to_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-first-node'
       },
       'info' => {
@@ -319,6 +321,7 @@ $result_trees{'next_no_prev_to_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'no-return'
       },
       'info' => {

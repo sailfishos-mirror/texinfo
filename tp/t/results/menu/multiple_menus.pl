@@ -263,6 +263,7 @@ $result_trees{'multiple_menus'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

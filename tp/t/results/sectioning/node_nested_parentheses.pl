@@ -343,6 +343,7 @@ $result_trees{'node_nested_parentheses'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

@@ -34,6 +34,7 @@ $result_trees{'informative_commands_in_top_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -255,6 +256,7 @@ $result_trees{'informative_commands_in_top_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'next-node'
       },
       'info' => {

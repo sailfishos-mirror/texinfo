@@ -146,6 +146,7 @@ $result_trees{'node_up_external_node'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -259,6 +260,7 @@ $result_trees{'node_up_external_node'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chap-first'
         },
         'info' => {

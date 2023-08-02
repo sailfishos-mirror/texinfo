@@ -127,6 +127,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -196,6 +197,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Intro'
       },
       'info' => {
@@ -389,6 +391,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'GFDL'
       },
       'info' => {

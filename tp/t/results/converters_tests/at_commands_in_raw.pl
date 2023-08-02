@@ -29,6 +29,7 @@ $result_trees{'at_commands_in_raw'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -160,6 +161,7 @@ $result_trees{'at_commands_in_raw'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },
@@ -257,6 +259,7 @@ $result_trees{'at_commands_in_raw'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
+                    'is_target' => 1,
                     'normalized' => 'anchor-in-html'
                   },
                   'source_info' => {

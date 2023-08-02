@@ -139,6 +139,7 @@ $result_trees{'float_in_style_command'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'A',
+            'is_target' => 1,
             'normalized' => 'B'
           },
           'info' => {

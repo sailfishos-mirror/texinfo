@@ -89,6 +89,7 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -158,6 +159,7 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-chap'
       },
       'info' => {

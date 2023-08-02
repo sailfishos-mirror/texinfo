@@ -29,6 +29,7 @@ $result_trees{'contents_in_document'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

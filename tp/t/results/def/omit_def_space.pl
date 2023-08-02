@@ -36,6 +36,7 @@ $result_trees{'omit_def_space'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -350,6 +351,7 @@ $result_trees{'omit_def_space'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

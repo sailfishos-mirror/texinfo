@@ -69,6 +69,7 @@ $result_trees{'accentenc_enable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

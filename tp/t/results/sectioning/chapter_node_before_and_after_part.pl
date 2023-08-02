@@ -36,6 +36,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -246,6 +247,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'after'
       },
       'info' => {

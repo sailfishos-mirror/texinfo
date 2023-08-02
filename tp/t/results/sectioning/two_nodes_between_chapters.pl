@@ -35,6 +35,7 @@ $result_trees{'two_nodes_between_chapters'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'Top'
         },
         'info' => {
@@ -363,6 +364,7 @@ $result_trees{'two_nodes_between_chapters'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chapter-1'
         },
         'info' => {
@@ -439,6 +441,7 @@ $result_trees{'two_nodes_between_chapters'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'node-between-chapters'
         },
         'info' => {
@@ -479,6 +482,7 @@ $result_trees{'two_nodes_between_chapters'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'chapter-2'
         },
         'info' => {

@@ -801,7 +801,7 @@ sub _convert($$;$)
       } elsif ($type eq 'line') {
         if ($cmdname eq 'node') {
           my $nodename;
-          if (defined($element->{'extra'}->{'normalized'})) {
+          if ($element->{'extra'}->{'is_target'}) {
             $nodename = $element->{'extra'}->{'normalized'};
           } else {
             $nodename = '';
@@ -1070,7 +1070,7 @@ sub _convert($$;$)
         push @$attribute, ['delimiter', $element->{'info'}->{'delimiter'}];
       } elsif ($element->{'cmdname'} eq 'anchor') {
         my $anchor_name;
-        if (defined($element->{'extra'}->{'normalized'})) {
+        if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
           $anchor_name = $element->{'extra'}->{'normalized'};
         } else {
           $anchor_name = '';
@@ -1260,7 +1260,7 @@ sub _convert($$;$)
         push @$attribute, ['first',
                            $element->{'extra'}->{'enumerate_specification'}];
       } elsif ($element->{'cmdname'} eq 'float' and $element->{'extra'}) {
-        if (defined($element->{'extra'}->{'normalized'})) {
+        if ($element->{'extra'}->{'is_target'}) {
           push @$attribute, ['name', $element->{'extra'}->{'normalized'}];
         }
         push @$attribute, ['type',

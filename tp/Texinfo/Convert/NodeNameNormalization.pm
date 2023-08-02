@@ -351,6 +351,8 @@ sub set_nodes_list_labels($$$)
                                {'contents' => $label_element->{'contents'}})),
                                  $target->{'source_info'});
         } else {
+          $target->{'extra'} = {} if (!$target->{'extra'});
+          $target->{'extra'}->{'normalized'} = $normalized;
           if (defined $labels{$normalized}) {
             $registrar->line_error($configuration_information,
                                    sprintf(__("\@%s `%s' previously defined"),
@@ -364,11 +366,10 @@ sub set_nodes_list_labels($$$)
                                    $labels{$normalized}->{'source_info'}, 1);
           } else {
             $labels{$normalized} = $target;
-            $target->{'extra'} = {} if (!$target->{'extra'});
-            $target->{'extra'}->{'normalized'} = $normalized;
             if ($target->{'cmdname'} eq 'node') {
               push @{$self->{'nodes'}}, $target;
             }
+            $target->{'extra'}->{'is_target'} = 1;
           }
         }
       } else {

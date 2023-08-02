@@ -29,6 +29,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -280,6 +281,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'a-node'
       },
       'info' => {

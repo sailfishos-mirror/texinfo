@@ -423,6 +423,7 @@ $result_trees{'entry_after_detailmenu'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -455,6 +456,7 @@ $result_trees{'entry_after_detailmenu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-first'
       },
       'info' => {
@@ -487,6 +489,7 @@ $result_trees{'entry_after_detailmenu'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'second'
       },
       'info' => {

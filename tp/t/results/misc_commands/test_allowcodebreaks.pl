@@ -34,6 +34,7 @@ $result_trees{'test_allowcodebreaks'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -547,6 +548,7 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'A-node0'
                       },
                       'source_info' => {
@@ -1038,6 +1040,7 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'A-node1'
                       },
                       'source_info' => {
@@ -1498,6 +1501,7 @@ $result_trees{'test_allowcodebreaks'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'A-nodew'
                               },
                               'source_info' => {
@@ -1993,6 +1997,7 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'A-node2'
                       },
                       'source_info' => {
@@ -2139,6 +2144,7 @@ $result_trees{'test_allowcodebreaks'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {

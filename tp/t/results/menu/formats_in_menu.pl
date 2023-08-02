@@ -680,6 +680,7 @@ $result_trees{'formats_in_menu'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

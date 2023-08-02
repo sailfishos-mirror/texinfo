@@ -46,6 +46,7 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
+                        'is_target' => 1,
                         'normalized' => 'a-in-copying'
                       },
                       'source_info' => {
@@ -130,6 +131,7 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -199,6 +201,7 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {

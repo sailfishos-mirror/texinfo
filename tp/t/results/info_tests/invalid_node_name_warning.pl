@@ -314,6 +314,7 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -368,6 +369,7 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'nodename_002e-a'
       },
       'info' => {
@@ -423,6 +425,7 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node_002ccomma'
       },
       'info' => {
@@ -654,6 +657,7 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'bidule_003a'
       },
       'info' => {

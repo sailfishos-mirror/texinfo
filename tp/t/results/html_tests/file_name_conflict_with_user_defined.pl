@@ -29,6 +29,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -98,6 +99,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter-1'
       },
       'info' => {
@@ -148,6 +150,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'myanchor'
           },
           'source_info' => {
@@ -198,6 +201,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter-2'
       },
       'info' => {

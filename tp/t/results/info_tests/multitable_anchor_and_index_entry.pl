@@ -304,6 +304,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'anchor-in-multitable'
                               },
                               'source_info' => {
@@ -677,6 +678,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
+                                'is_target' => 1,
                                 'normalized' => 'mark'
                               },
                               'source_info' => {
@@ -880,6 +882,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'Top'
       },

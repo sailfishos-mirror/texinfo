@@ -381,6 +381,7 @@ $result_trees{'glossary'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1443,6 +1444,7 @@ $result_trees{'glossary'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'glossary'
       },
       'info' => {
@@ -1531,6 +1533,7 @@ $result_trees{'glossary'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
+                'is_target' => 1,
                 'normalized' => 'id2'
               },
               'source_info' => {

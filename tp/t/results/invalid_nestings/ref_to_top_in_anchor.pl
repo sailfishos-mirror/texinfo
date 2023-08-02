@@ -66,6 +66,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'TOP-Top'
           },
           'source_info' => {
@@ -76,6 +77,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

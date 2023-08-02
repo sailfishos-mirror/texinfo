@@ -243,6 +243,7 @@ $result_trees{'double_index_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -378,6 +379,7 @@ $result_trees{'double_index_entry'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap-other-node'
       },

@@ -209,6 +209,7 @@ $result_trees{'two_paragraphindent_in_preamble'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

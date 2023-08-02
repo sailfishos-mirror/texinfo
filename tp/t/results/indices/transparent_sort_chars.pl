@@ -58,6 +58,7 @@ $result_trees{'transparent_sort_chars'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -313,6 +314,7 @@ $result_trees{'transparent_sort_chars'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'chap'
       },

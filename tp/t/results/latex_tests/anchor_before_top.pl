@@ -35,6 +35,7 @@ $result_trees{'anchor_before_top'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
+            'is_target' => 1,
             'normalized' => 'a-before-Top'
           },
           'source_info' => {
@@ -75,6 +76,7 @@ $result_trees{'anchor_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -144,6 +146,7 @@ $result_trees{'anchor_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Chapter'
       },
       'info' => {

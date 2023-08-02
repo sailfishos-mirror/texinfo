@@ -74,6 +74,7 @@ $result_trees{'accentenc'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

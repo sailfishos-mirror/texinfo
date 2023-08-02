@@ -175,6 +175,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'first'
         },
         'info' => {
@@ -257,6 +258,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
           }
         ],
         'extra' => {
+          'is_target' => 1,
           'normalized' => 'second-node'
         },
         'info' => {

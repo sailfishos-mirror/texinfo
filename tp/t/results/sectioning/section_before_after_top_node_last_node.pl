@@ -71,6 +71,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -190,6 +191,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'node-after'
       },
       'info' => {

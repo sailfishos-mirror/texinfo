@@ -141,6 +141,7 @@ $result_trees{'index_and_node_same_name'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'isindex' => 1,
         'normalized' => 'index-node'
       },

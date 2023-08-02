@@ -29,6 +29,7 @@ $result_trees{'contents_at_end_document'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

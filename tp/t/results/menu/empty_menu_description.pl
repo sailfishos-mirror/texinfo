@@ -165,6 +165,7 @@ $result_trees{'empty_menu_description'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'first'
       },
       'info' => {

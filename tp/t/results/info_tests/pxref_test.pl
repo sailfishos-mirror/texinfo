@@ -236,6 +236,7 @@ $result_trees{'pxref_test'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {

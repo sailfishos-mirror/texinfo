@@ -36,6 +36,7 @@ $result_trees{'form_feeds'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -1144,6 +1145,7 @@ $result_trees{'form_feeds'} = {
           ],
           'extra' => {
             'float_type' => 'type',
+            'is_target' => 1,
             'normalized' => 'fl'
           },
           'info' => {
@@ -1201,6 +1203,7 @@ $result_trees{'form_feeds'} = {
         }
       ],
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap-node'
       },
       'info' => {
