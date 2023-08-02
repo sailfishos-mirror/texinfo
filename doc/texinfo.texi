@@ -9384,16 +9384,9 @@ and @code{@@clear} on the corresponding variables
 The following sections describe commands that control spacing of various
 kinds within and after sentences.
 
-@menu
-* Multiple Spaces::             Inserting multiple spaces.
-* Not Ending a Sentence::       Sometimes a . doesn't end a sentence.
-* Ending a Sentence::           Sometimes it does.
-* @code{@@frenchspacing}::              Specifying end-of-sentence spacing.
-* @code{@@dmn}::                        Formatting a dimension.
-@end menu
-
 
 @node Multiple Spaces
+@nodedescription Inserting multiple spaces.
 @subsection Multiple Spaces
 
 @cindex Multiple spaces
@@ -9436,6 +9429,7 @@ To produce a non-breakable space, see @ref{@code{@@tie}}.
 
 
 @node Not Ending a Sentence
+@nodedescription Sometimes a .@ doesn't end a sentence.
 @subsection Not Ending a Sentence
 
 @cindex Not ending a sentence
@@ -9501,6 +9495,7 @@ sentence, and no extra space is inserted.
 
 
 @node Ending a Sentence
+@nodedescription Sometimes it does.
 @subsection Ending a Sentence
 
 @cindex Ending a Sentence
@@ -9573,6 +9568,7 @@ the sentence; there is no need to use @code{@@.}.
 
 
 @node @code{@@frenchspacing}
+@nodedescription Specifying end-of-sentence spacing.
 @subsection @code{@@frenchspacing} @var{val}: Control Sentence Spacing
 
 @anchor{frenchspacing}@c old name
@@ -9616,6 +9612,7 @@ This is text. Two sentences. Three sentences. Non-French spacing.
 
 
 @node @code{@@dmn}
+@nodedescription Formatting a dimension.
 @subsection @code{@@dmn}@{@var{dimension}@}: Format a Dimension
 
 @anchor{dmn}@c old name
@@ -12936,15 +12933,9 @@ Brace-delimited version of @code{@@ifclear}.
 
 @end table
 
-@menu
-* @code{@@set @@value}::                 Expand a flag variable to a string.
-* @code{@@ifset @@ifclear}::             Format a region if a flag is set.
-* @code{@@inlineifset @@inlineifclear}:: Brace-delimited flag conditionals.
-* @code{@@value} Example::              An easy way to update edition information.
-@end menu
-
 
 @node @code{@@set @@value}
+@nodedescription Expand a flag variable to a string.
 @subsection @code{@@set} and @code{@@value}
 
 @anchor{set value}@c old name
@@ -13051,6 +13042,7 @@ command (@pxref{Inserting Accents}).  For example, this fails:
 
 
 @node @code{@@ifset @@ifclear}
+@nodedescription Format a region if a flag is set.
 @subsection @code{@@ifset} and @code{@@ifclear}
 
 @anchor{ifset ifclear}@c old name
@@ -13123,6 +13115,7 @@ command looks like this:
 
 
 @node @code{@@inlineifset @@inlineifclear}
+@nodedescription Brace-delimited flag conditionals.
 @subsection @code{@@inlineifset} and @code{@@inlineifclear}
 
 @findex inlineifset
@@ -13150,6 +13143,7 @@ section.
 
 
 @node @code{@@value} Example
+@nodedescription An easy way to update edition information.
 @subsection @code{@@value} Example
 
 @anchor{value Example}@c old name
