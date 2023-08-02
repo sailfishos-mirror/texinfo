@@ -3690,23 +3690,9 @@ also provide information for generating the table of contents
 Normally you put a @code{@@node} command immediately before each
 chapter structuring command.  @xref{Nodes}.
 
-@menu
-* Tree Structuring::            A manual is like an upside down tree @dots{}
-* Structuring Command Types::   How to divide a manual into parts.
-* @code{@@chapter}::                    Chapter structuring.
-* @code{@@unnumbered @@appendix}::
-* @code{@@majorheading @@chapheading}::
-* @code{@@section}::
-* @code{@@unnumberedsec @@appendixsec @@heading}::
-* @code{@@subsection}::
-* @code{@@unnumberedsubsec @@appendixsubsec @@subheading}::
-* @code{@@subsubsection}::              Commands for the lowest level sections.
-* @code{@@part}::                       Collections of chapters.
-* Raise/lower sections::        How to change commands' hierarchical level.
-@end menu
-
 
 @node Tree Structuring
+@nodedescription A manual is like an upside down tree @dots{}
 @section Tree Structure of Sections
 @cindex Tree structuring
 
@@ -4089,6 +4075,7 @@ subsections of @code{@@unnumbered} and @code{@@appendix} chapters
 
 
 @node @code{@@part}
+@nodedescription Collections of chapters.
 @section @code{@@part}: Groups of Chapters
 @findex part
 @cindex Part pages
@@ -4149,6 +4136,7 @@ section).  That is, it is never lowered and nothing can be raised to it.
 
 
 @node Raise/lower sections
+@nodedescription How to change commands' hierarchical level.
 @section Raise/lower Sections: @code{@@raisesections} and @code{@@lowersections}
 @findex raisesections
 @findex lowersections
@@ -7529,14 +7517,9 @@ heading line for each item.  The @code{@@table} command is used to
 produce two-column tables, and is especially useful for glossaries,
 explanatory exhibits, and command-line option summaries.
 
-@menu
-* @code{@@table}::                      How to construct a two-column table.
-* @code{@@ftable @@vtable}::             Automatic indexing for two-column tables.
-* @code{@@itemx}::                      How to put more entries in the first column.
-@end menu
-
 
 @node @code{@@table}
+@nodedescription How to construct a two-column table.
 @subsection Using the @code{@@table} Command
 
 @anchor{table}@c old name
@@ -7627,6 +7610,7 @@ table, try @code{@@quotation} (@pxref{@code{@@quotation}}) or
 
 
 @node @code{@@ftable @@vtable}
+@nodedescription Automatic indexing for two-column tables.
 @subsection @code{@@ftable} and @code{@@vtable}
 
 @anchor{ftable vtable}@c old name
@@ -7656,6 +7640,7 @@ See the example for @code{@@table} in the previous section.
 
 
 @node @code{@@itemx}
+@nodedescription How to put more entries in the first column.
 @subsection @code{@@itemx}: Second and Subsequent Items
 
 @anchor{itemx}@c old name
@@ -8096,11 +8081,6 @@ You can insert an image given in an external file with the
 including the middle of a paragraph, we describe them in this chapter
 since they are most often part of a displayed figure or example.
 
-@menu
-* Image Syntax::
-* Image Scaling::
-@end menu
-
 
 @node Image Syntax
 @subsection Image Syntax
@@ -8333,13 +8313,9 @@ to avoid them completely.  Standard bibliographical references are
 usually better placed in a bibliography at the end of a document
 instead of in footnotes throughout.
 
-@menu
-* Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear.
-@end menu
-
 
 @node Footnote Commands
+@nodedescription How to write a footnote in Texinfo.
 @subsection Footnote Commands
 
 In Texinfo, footnotes are created with the @code{@@footnote} command.
@@ -8396,6 +8372,7 @@ an @code{@@table} must be entirely on the same line as the
 
 
 @node Footnote Styles
+@nodedescription Controlling how footnotes appear.
 @subsection Footnote Styles
 
 Online formats have two footnote styles, which determine where
@@ -8503,20 +8480,9 @@ functions, an index for variables, an index for concepts, and so on.
 You can combine indices or use them for other than their canonical
 purpose.  Lastly, you can define your own new indices.
 
-@menu
-* Predefined Indices::          Use different indices for different kinds
-                                 of entries.
-* Indexing Commands::           How to make an index entry.
-* Advanced Indexing::           Advanced indexing commands.
-* Index Entries::               Choose different words for index entries.
-* Printing Indices & Menus::    How to print an index in hardcopy and
-                                 generate index menus in Info.
-* Combining Indices::           How to combine indices.
-* New Indices::                 How to define your own indices.
-@end menu
-
 
 @node Predefined Indices
+@nodedescription Use different indices for different kinds of entries.
 @section Predefined Indices
 
 Texinfo provides six predefined indices.  Here are their nominal
@@ -8589,6 +8555,7 @@ valid, for example @code{@@cpindex} can be used instead of @code{@@cindex}.
 
 
 @node Indexing Commands
+@nodedescription How to make an index entry.
 @section Defining the Entries of an Index
 
 @cindex Defining indexing entries
@@ -8683,6 +8650,7 @@ in the index entry.  For example:
 
 
 @node Advanced Indexing
+@nodedescription Advanced indexing commands.
 @section Advanced Indexing Commands
 @cindex Indexing, advanced
 @cindex Advanced indexing
@@ -8751,6 +8719,7 @@ when translating Texinfo to DocBook.
 
 
 @node Index Entries
+@nodedescription Choose different words for index entries.
 @section Making Index Entries
 @cindex Index entries, making
 @cindex Entries, making index
@@ -8808,6 +8777,7 @@ yourself.
 
 
 @node Printing Indices & Menus
+@nodedescription How to print an index in hardcopy and generate index menus in Info.
 @section Printing Indices and Menus
 @cindex Printing an index
 @cindex Indices, printing and menus
@@ -8890,6 +8860,7 @@ In DocBook and @LaTeX{} output, it simply records the index to be printed.
 
 
 @node Combining Indices
+@nodedescription How to combine indices.
 @section Combining Indices
 @cindex Combining indices
 @cindex Indices, combining them
@@ -8911,15 +8882,9 @@ function names appear in the right font in the concept index, you
 would need to enclose every one of them between the braces of
 @code{@@code}.
 
-@menu
-* @code{@@syncodeindex}::               How to merge two indices, using @code{@@code}
-                                 font for the merged-from index.
-* @code{@@synindex}::                   How to merge two indices, using the
-                                 roman font for the merged-from index.
-@end menu
-
 
 @node @code{@@syncodeindex}
+@nodedescription How to merge two indices, using @code{@@code} font for the merged-from index.
 @subsection @code{@@syncodeindex}: Combining Indices Using @code{@@code}
 
 @anchor{syncodeindex}@c old name
@@ -8992,6 +8957,7 @@ index into a concept index, all the function names are printed in the
 
 
 @node @code{@@synindex}
+@nodedescription How to merge two indices, using the roman font for the merged-from index.
 @subsection @code{@@synindex}: Combining Indices
 
 @anchor{synindex}@c old name
@@ -9008,6 +8974,7 @@ at the end of a book or creating an index menu in an Info file.
 
 
 @node New Indices
+@nodedescription How to define your own indices.
 @section Defining New Indices
 
 @cindex Defining new indices
@@ -9115,22 +9082,9 @@ These are:
 @end itemize
 @end iftex
 
-@menu
-* Special Characters::          Inserting @@ @{@} , \ # &
-* Inserting Quote Characters::  Inserting left and right quotes, in code.
-* Inserting Space::             Inserting the right amount of whitespace.
-* Inserting Accents::           Inserting accents and special characters.
-* Inserting Quotation Marks::   Inserting quotation marks.
-* Inserting Subscripts and Superscripts:: Inserting sub/superscripts.
-* Inserting Math::              Formatting mathematical expressions.
-* Glyphs for Text::             Inserting dots, bullets, currencies, etc.
-* Glyphs for Programming::      Indicating results of evaluation,
-                                 expansion of macros, errors, etc.
-* Inserting Unicode::           Inserting a Unicode character by code point.
-@end menu
-
 
 @node Special Characters
+@nodedescription Inserting @@ @{@} , \ # &
 @section Special Characters: Inserting @@ @{@} , \ # &
 @anchor{Braces Atsign}@c previous names for this node
 @anchor{Atsign Braces Comma}
@@ -9145,17 +9099,9 @@ misinterpreting them.  Alphabetic commands are also provided.
 The other characters (comma, backslash, hash, ampersand) are special 
 only in restricted contexts, as explained in the respective sections.
 
-@menu
-* Inserting an Atsign::         @code{@@@@}, @code{@@atchar@{@}}.
-* Inserting Braces::            @code{@@@{ @@@}}, @code{@@l rbracechar@{@}}.
-* Inserting a Comma::           , and @code{@@comma@{@}}.
-* Inserting a Backslash::       \ and @code{@@backslashchar@{@}}.
-* Inserting a Hashsign::        # and @code{@@hashchar@{@}}.
-* Inserting an Ampersand::      & and @code{@@ampchar@{@}}.
-@end menu
-
 
 @node Inserting an Atsign
+@nodedescription @code{@@@@}, @code{@@atchar@{@}}.
 @subsection Inserting `@@' with @code{@@@@} and @code{@@atchar@{@}}
 @cindex At sign, inserting
 @cindex Inserting @@ @r{(literal @samp{@@})}
@@ -9176,6 +9122,7 @@ source (and may be clearer in other contexts).
 
 
 @node Inserting Braces
+@nodedescription @code{@@@{ @@@}}, @code{@@l rbracechar@{@}}.
 @subsection Inserting `@{ `@}' with @code{@@@{ @@@}} and @code{@@l rbracechar@{@}}
 
 @findex @{ @r{(literal @samp{@{})}
@@ -9201,6 +9148,7 @@ may be clearer in other contexts).
 
 
 @node Inserting a Comma
+@nodedescription , and @code{@@comma@{@}}.
 @subsection Inserting `,' with @code{@@comma@{@}}
 
 @findex comma
@@ -9235,6 +9183,7 @@ important enough to define a synonym.)
 
 
 @node Inserting a Backslash
+@nodedescription \ and @code{@@backslashchar@{@}}.
 @subsection Inserting `\' with @code{@@backslashchar@{@}}
 
 @findex backslashchar
@@ -9273,6 +9222,7 @@ is no need for it except in these unusual cases.
 
 
 @node Inserting a Hashsign
+@nodedescription # and @code{@@hashchar@{@}}.
 @subsection Inserting `#' with @code{@@hashchar@{@}}
 
 @findex hashchar
@@ -9310,6 +9260,7 @@ is no need for it anywhere except this unusual case.
 
 
 @node Inserting an Ampersand
+@nodedescription & and @code{@@ampchar@{@}}.
 @subsection Inserting `&' with @code{@@&} and @code{@@ampchar@{@}}
 
 @findex ampchar
@@ -9362,6 +9313,7 @@ anywhere, there is no need for them anywhere except this unusual case.
 
 
 @node Inserting Quote Characters
+@nodedescription Inserting left and right quotes, in code.
 @section Inserting Quote Characters
 
 @cindex Inserting quote characters
@@ -9424,6 +9376,7 @@ and @code{@@clear} on the corresponding variables
 
 
 @node Inserting Space
+@nodedescription Inserting the right amount of whitespace.
 @section Inserting Space
 
 @cindex Inserting space
@@ -9701,6 +9654,7 @@ here.  @xref{Not Ending a Sentence}.
 
 
 @node Inserting Accents
+@nodedescription Inserting accents and special characters.
 @section Inserting Accents
 
 @cindex Inserting accents
@@ -9869,6 +9823,7 @@ commonly used in languages other than English.
 
 
 @node Inserting Quotation Marks
+@nodedescription Inserting quotation marks.
 @section Inserting Quotation Marks
 @cindex Inserting quotation marks
 @cindex Quotation marks, inserting
@@ -9999,6 +9954,7 @@ convenient:
 
 
 @node Inserting Subscripts and Superscripts
+@nodedescription Inserting sub/superscripts.
 @section @code{@@sub} and @code{@@sup}: Inserting Subscripts and Superscripts
 
 @findex sub
@@ -10033,6 +9989,7 @@ next section.
 
 
 @node Inserting Math
+@nodedescription Formatting mathematical expressions.
 @section @code{@@math} and @code{@@displaymath}: Formatting Mathematics
 
 @anchor{math}@c old name
@@ -10130,6 +10087,7 @@ processing with @TeX{}, not when outputting @LaTeX{} nor with any of the
 
 
 @node Glyphs for Text
+@nodedescription Inserting dots, bullets, currencies, etc.
 @section Glyphs for Text
 
 @anchor{Glyphs}@c old name
@@ -10339,6 +10297,7 @@ greater-than-or-equal and less-than-equal-signs, `@geq{}' and
 
 
 @node Glyphs for Programming
+@nodedescription Indicating results of evaluation, expansion of macros, errors, etc.
 @section Glyphs for Programming
 
 @cindex Glyphs for programming
@@ -10715,6 +10674,7 @@ now produces:
 
 
 @node Inserting Unicode
+@nodedescription Inserting a Unicode character by code point.
 @section Inserting Unicode: @code{@@U}
 
 @cindex Unicode character, inserting
