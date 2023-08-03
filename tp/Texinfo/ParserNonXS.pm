@@ -803,7 +803,8 @@ sub parse_texi_text($$;$)
   get_parser_info($self);
 
   my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 }
 
@@ -904,7 +905,8 @@ sub parse_texi_file($$)
   get_parser_info($self);
 
   my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 }
 

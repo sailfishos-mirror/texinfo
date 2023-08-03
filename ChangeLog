@@ -1,5 +1,11 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_text, parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_text): fix call of Texinfo::Document::register.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels):
 	rename %labels as %identifier_target.
 

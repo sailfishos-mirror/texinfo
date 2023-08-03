@@ -302,7 +302,8 @@ sub parse_texi_file ($$)
   $self->{'info'}->{'input_directory'} = $directories;
 
   my $document = Texinfo::Document::register($TREE,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
   $document->{'document_descriptor'} = $TREE->{'extra'}->{'document_descriptor'};
   delete $TREE->{'extra'}->{'document_descriptor'};
@@ -379,7 +380,8 @@ sub parse_texi_text($$;$)
   _associate_node_menus ($self, $tree);
 
   my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 
   $document->{'document_descriptor'} = $tree->{'extra'}->{'document_descriptor'};
