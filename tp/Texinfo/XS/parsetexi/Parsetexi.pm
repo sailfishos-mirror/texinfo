@@ -58,7 +58,6 @@ use File::Basename; # for fileparse
 
 use Texinfo::Common;
 use Texinfo::Report;
-use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 # to return a resulting document
 use Texinfo::Document;
@@ -232,7 +231,7 @@ sub _set_errors_node_lists_labels_indices($)
 
   _get_errors ($self);
   # Setup labels info and nodes list based on 'labels_list'
-  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+  Texinfo::Document::set_labels_identifiers_target($self,
                                            $self->{'registrar'}, $self);
 
   my $INDEX_NAMES = build_index_data ();

@@ -293,7 +293,8 @@ sub _parsed_manual_tree($$$$$)
                   { 'contents' => $node_arg->{'contents'} });
           $node->{'extra'}->{'normalized'} = $normalized_node_name;
 
-          Texinfo::Document::register_label_element($document, $node);
+          Texinfo::Document::register_label_element($document, $node,
+                                                    $registrar, $texi_parser);
         }
       }
     }

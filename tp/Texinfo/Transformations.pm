@@ -196,10 +196,12 @@ sub reference_to_arg_in_tree($)
 
 # prepare and add a new node as a possible cross reference targets
 # modifies $document
-sub _new_node($$)
+sub _new_node($$;$$)
 {
   my $node_tree = shift;
   my $document = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -284,7 +286,8 @@ sub _new_node($$)
   }
   $node->{'extra'}->{'normalized'} = $normalized;
 
-  Texinfo::Document::register_label_element($document, $node);
+  Texinfo::Document::register_label_element($document, $node, $registrar,
+                                            $customization_information);
 
   return $node;
 }

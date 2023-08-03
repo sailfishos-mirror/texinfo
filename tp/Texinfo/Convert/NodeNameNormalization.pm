@@ -324,43 +324,6 @@ sub _convert($)
   return $result;
 }
 
-# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
-# This should be considered an internal function of the parsers for all
-# purposes, it is here to avoid code duplication.
-# Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
-sub set_nodes_list_labels($$$)
-{
-  my $self = shift;
-  my $registrar = shift;
-  my $configuration_information = shift;
-
-  my %identifier_target = ();
-  if (defined $self->{'labels_list'}) {
-    for my $element (@{$self->{'labels_list'}}) {
-      if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
-        my $normalized = $element->{'extra'}->{'normalized'};
-        if (defined $identifier_target{$normalized}) {
-          my $label_element = Texinfo::Common::get_label_element($element);
-          $registrar->line_error($configuration_information,
-                                 sprintf(__("\@%s `%s' previously defined"),
-                                         $element->{'cmdname'},
-                        Texinfo::Convert::Texinfo::convert_to_texinfo(
-                             {'contents' => $label_element->{'contents'}})),
-                                  $element->{'source_info'});
-          $registrar->line_error($configuration_information,
-                       sprintf(__("here is the previous definition as \@%s"),
-                             $identifier_target{$normalized}->{'cmdname'}),
-                              $identifier_target{$normalized}->{'source_info'}, 1);
-        } else {
-          $identifier_target{$normalized} = $element;
-          $element->{'extra'}->{'is_target'} = 1;
-        }
-      }
-    }
-  }
-  $self->{'identifiers_target'} = \%identifier_target;
-}
-
 1;
 
 __END__

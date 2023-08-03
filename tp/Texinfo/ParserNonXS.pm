@@ -7505,7 +7505,7 @@ sub _parse_texi($$$)
   }
 
   # Setup labels info and nodes list based on 'labels_list'
-  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+  Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
   Texinfo::Translations::complete_indices($self);
   return $root;

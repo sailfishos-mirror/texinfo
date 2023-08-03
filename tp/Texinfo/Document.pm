@@ -24,6 +24,8 @@ use warnings;
 
 our $VERSION = '7.0dev';
 
+use Texinfo::Common;
+
 sub register
 {
   my $tree = shift;
@@ -93,25 +95,72 @@ sub labels_information($)
   return $self->{'identifiers_target'};
 }
 
-# TODO document when stabilized
-# FIXME add an argument to either not add if already existing,
-# or remove the preceding node with same identifier from identifiers_target
-# and from labels_list?  There could also be another method to unregister nodes.
-sub register_label_element($$)
+sub _add_element_to_identifiers_target($$;$$)
 {
   my $self = shift;
   my $element = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
 
-  if ($element->{'extra'} and $element->{'extra'}->{'normalized'}) {
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
-    # FIXME check if already in $self->{'identifiers_target'}
-    # using code in set_nodes_list_labels
-    $self->{'identifiers_target'}->{$normalized} = $element;
-    $element->{'extra'}->{'is_target'} = 1;
+    if (defined $self->{'identifiers_target'}->{$normalized}) {
+      if (defined($customization_information) and defined($registrar)) {
+        my $label_element = Texinfo::Common::get_label_element($element);
+        $registrar->line_error($customization_information,
+                               sprintf(__("\@%s `%s' previously defined"),
+                                       $element->{'cmdname'},
+                      Texinfo::Convert::Texinfo::convert_to_texinfo(
+                           {'contents' => $label_element->{'contents'}})),
+                                $element->{'source_info'});
+        $registrar->line_error($customization_information,
+            sprintf(__("here is the previous definition as \@%s"),
+             $self->{'identifiers_target'}->{$normalized}->{'cmdname'}),
+              $self->{'identifiers_target'}->{$normalized}->{'source_info'}, 1);
+      }
+    } else {
+      $self->{'identifiers_target'}->{$normalized} = $element;
+      $element->{'extra'}->{'is_target'} = 1;
+      return 1;
+    }
   }
+  return 0;
+}
+
+# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
+# This should be considered an internal function of the parsers for all
+# purposes, it is here to avoid code duplication.
+# Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
+sub set_labels_identifiers_target ($$$)
+{
+  my $self = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
+
+  $self->{'identifiers_target'} = {};
+  if (defined $self->{'labels_list'}) {
+    foreach my $element (@{$self->{'labels_list'}}) {
+      _add_element_to_identifiers_target($self, $element, $registrar,
+                                         $customization_information);
+    }
+  }
+}
+
+# TODO document when stabilized
+sub register_label_element($$;$$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
+
+  my $retval = _add_element_to_identifiers_target($self, $element, $registrar,
+                                         $customization_information);
   # FIXME do not push at the end but have the caller give the element it should be
   # after or before?
   push @{$self->{'labels_list'}}, $element;
+  return $retval;
 }
 
 1;
