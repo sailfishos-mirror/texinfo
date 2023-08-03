@@ -11,13 +11,12 @@ See the manual for detailed information.
 
 * Language
  . new generic definition commands, @defblock, @defline and @deftypeline,
-   that do not automatically create index entries
- . new @linemacro facility to ease use of generic definition commands
- . new command @link to create plain links in output formats which support
-   this
+   for definitions without automatic index entries
+ . new @linemacro facility eases use of generic definition commands
+ . new command @link creates plain links (supported output formats only)
  . @cartouche takes an argument to specify the cartouche title
- . new commands @nodedescription and @nodedescriptionblock can be used
-   for giving menu descriptions in Info and HTML output
+ . you can use the new commands @nodedescription and @nodedescriptionblock
+   to give text to be used in menu descriptions in Info and HTML output
 
 * texi2any
  . @itemx at the beginning of a @table is now an error, not a warning
