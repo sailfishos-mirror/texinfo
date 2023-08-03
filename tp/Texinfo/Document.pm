@@ -32,8 +32,8 @@ sub register
   my $floats_information = shift;
   my $internal_references_information = shift;
   my $global_commands_information = shift;
-  my $labels = shift;
-  my $targets = shift;
+  my $identifier_target = shift;
+  my $labels_list = shift;
   my $nodes = shift;
 
   my $document = {
@@ -43,8 +43,8 @@ sub register
     'internal_references' => $internal_references_information,
     'commands_information' => $global_commands_information,
     'info' => $global_information,
-    'labels' => $labels,
-    'targets' => $targets,
+    'identifiers_target' => $identifier_target,
+    'labels_list' => $labels_list,
     'nodes' => $nodes,
   };
 
@@ -92,7 +92,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
 }
 
 1;
@@ -111,9 +111,9 @@ Texinfo::Document - Texinfo document tree and information
   my $float_types_arrays = $document->floats_information();
   my $internal_references_array
     = $parser->internal_references_information();
-  # $labels_information is an hash reference on normalized
+  # $identifier_target is an hash reference on normalized
   # node/float/anchor names.
-  my ($labels_information, $targets_list, $nodes_list)
+  my ($identifier_target, $labels_list, $nodes_list)
           = $document->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
@@ -217,14 +217,13 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $labels_information, $targets_list, $nodes_list = labels_information($document)
+=item $identifier_target, $labels_list, $nodes_list = labels_information($document)
 X<C<labels_information>>
 
-I<$labels_information> is a hash reference whose keys are normalized
+I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$targets_list> is a list of labels @-command.  Using
-I<$labels_information> is preferred.  I<$nodes_list> is a list of all
-the nodes appearing in the document.
+I<$labels_list> is a list of labels @-command.  I<$nodes_list> is a
+list of all the nodes appearing in the document.
 
 =back
 
@@ -344,7 +343,7 @@ parsers codes.
 
 =over
 
-=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $labels, $targets, $nodes)
+=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $nodes)
 
 Setup a document. There is no reason to call this method out of parsers, as
 it is already done by the Texinfo parsers.  The arguments correspond to

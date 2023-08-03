@@ -1482,7 +1482,8 @@ while(@input_files) {
     }
   }
 
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my ($identifier_target, $labels_list, $nodes_list)
+                                         = $parser->labels_information();
   if ((get_conf('SIMPLE_MENU')
        and $formats_table{$converted_format}->{'simple_menu'})
       or $tree_transformations{'simple_menus'}) {
@@ -1567,7 +1568,7 @@ while(@input_files) {
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
      = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
-                              $tree, $nodes_list, $targets_list, $labels);
+                    $tree, $nodes_list, $labels_list, $identifier_target);
     if (!defined($modified_contents)) {
       document_warn(__(
    "insert_nodes_for_sectioning_commands transformation return no result. No section?"));
@@ -1578,10 +1579,10 @@ while(@input_files) {
 
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
-                                                      $main_configuration,
-                                        $parser_information, $labels, $refs);
+                                    $main_configuration, $parser_information,
+                                    $identifier_target, $refs);
   # information obtained through Texinfo::Structuring
-  # and usefull in converters.
+  # and useful in converters.
   # FIXME the keys are not documented anywhere.  It is unclear where they
   # should be documented.
   my $structure_information = {};
@@ -1607,7 +1608,7 @@ while(@input_files) {
 
   if ($tree_transformations{'regenerate_master_menu'}) {
     Texinfo::Transformations::regenerate_master_menu($main_configuration,
-                                                     $labels);
+                                                     $identifier_target);
   }
 
   # this can be done for every format, since information is already gathered
@@ -1628,10 +1629,11 @@ while(@input_files) {
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($registrar,
                $main_configuration, $parser_information, $global_commands,
-               $nodes_list, $labels);
+               $nodes_list, $identifier_target);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
-                                   $parser_information, $nodes_list, $labels);
+    $top_node = Texinfo::Structuring::nodes_tree($registrar,
+                         $main_configuration, $parser_information,
+                         $nodes_list, $identifier_target);
     if (defined($top_node)) {
       $structure_information->{'top_node'} = $top_node;
     }
@@ -1643,7 +1645,7 @@ while(@input_files) {
                                  $main_configuration, $nodes_list, $top_node);
         Texinfo::Structuring::check_nodes_are_referenced($registrar,
                                     $main_configuration, $nodes_list, $top_node,
-                                                     $labels, $refs);
+                                    $identifier_target, $refs);
       }
     }
   }

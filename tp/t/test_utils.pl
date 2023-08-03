@@ -1048,7 +1048,8 @@ sub test($$)
     }
   }
 
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my ($identifier_target, $labels_list, $nodes_list)
+                             = $parser->labels_information();
   if ($converter_options->{'SIMPLE_MENU'}) {
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
@@ -1076,7 +1077,7 @@ sub test($$)
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
      = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
-                              $tree, $nodes_list, $targets_list, $labels);
+                        $tree, $nodes_list, $labels_list, $identifier_target);
     if (!defined($modified_contents)) {
       warn
        "$test_name: insert_nodes_for_sectioning_commands transformation return no result. No section?\n";
@@ -1087,8 +1088,8 @@ sub test($$)
 
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
-                                        $main_configuration,
-                                        $parser_information, $labels, $refs);
+                          $main_configuration, $parser_information,
+                          $identifier_target, $refs);
   my $structure_information = {};
   my ($sectioning_root, $sections_list)
         = Texinfo::Structuring::sectioning_structure($registrar,
@@ -1109,7 +1110,7 @@ sub test($$)
 
   if ($tree_transformations{'regenerate_master_menu'}) {
     Texinfo::Transformations::regenerate_master_menu($main_configuration,
-                                                     $labels);
+                                                     $identifier_target);
   }
 
   my $floats = $parser->floats_information();
@@ -1117,10 +1118,10 @@ sub test($$)
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $parser_information,
-                      $global_commands, $nodes_list, $labels);
+                      $global_commands, $nodes_list, $identifier_target);
   my $top_node = Texinfo::Structuring::nodes_tree($registrar,
                          $main_configuration, $parser_information,
-                         $nodes_list, $labels);
+                         $nodes_list, $identifier_target);
   if (defined($top_node)) {
     $structure_information->{'top_node'} = $top_node;
   }
@@ -1131,8 +1132,8 @@ sub test($$)
     Texinfo::Structuring::complete_node_tree_with_menus($registrar,
                                 $main_configuration, $nodes_list, $top_node);
     Texinfo::Structuring::check_nodes_are_referenced($registrar,
-                                          $main_configuration, $nodes_list,
-                                          $top_node, $labels, $refs);
+                                      $main_configuration, $nodes_list,
+                                      $top_node, $identifier_target, $refs);
   }
 
   Texinfo::Structuring::number_floats($floats);
@@ -1353,7 +1354,8 @@ sub test($$)
     $elements = Texinfo::Structuring::split_by_section($tree);
   }
   if ($test_split) {
-    Texinfo::Structuring::elements_directions($parser, $labels, $elements);
+    Texinfo::Structuring::elements_directions($parser, $identifier_target,
+                                              $elements);
     $directions_text = '';
     foreach my $element (@$elements) {
       $directions_text .=

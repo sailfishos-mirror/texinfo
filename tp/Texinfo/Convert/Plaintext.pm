@@ -2107,10 +2107,12 @@ sub _convert($$)
           if ($node_arg and $node_arg->{'extra'}
               and !$node_arg->{'extra'}->{'manual_content'}
               and defined($node_arg->{'extra'}->{'normalized'})
-              and $self->{'labels'}
-              and $self->{'labels'}->{$node_arg->{'extra'}->{'normalized'}}) {
+              and $self->{'identifiers_target'}
+              and $self->{'identifiers_target'}->{
+                                    $node_arg->{'extra'}->{'normalized'}}) {
             $target_element
-              = $self->{'labels'}->{$node_arg->{'extra'}->{'normalized'}};
+              = $self->{'identifiers_target'}->{
+                                       $node_arg->{'extra'}->{'normalized'}};
             my $label_element
               = Texinfo::Common::get_label_element($target_element);
             if (defined($label_element) and $label_element->{'contents'}) {
@@ -3482,11 +3484,11 @@ sub _convert($$)
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
           if ($menu_entry_node and $menu_entry_node->{'extra'}
               and defined($menu_entry_node->{'extra'}->{'normalized'})
-              and $self->{'labels'}
+              and $self->{'identifiers_target'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}
-              and $self->{'labels'}
+              and $self->{'identifiers_target'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
-              and $self->{'labels'}
+              and $self->{'identifiers_target'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'}) {
             my $description_align_column;
@@ -3500,7 +3502,7 @@ sub _convert($$)
             }
             my $description_indent_length = $description_align_column - 1;
 
-            my $description_element = $self->{'labels'}
+            my $description_element = $self->{'identifiers_target'}
                  ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'};
             if (! exists($self->{'seen_node_descriptions'}

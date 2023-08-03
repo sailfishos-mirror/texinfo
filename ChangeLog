@@ -1,5 +1,9 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	Rename labels as identifier_target and targets/targets_list as labels_list
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
 	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
 	(_check_register_target_element_label),

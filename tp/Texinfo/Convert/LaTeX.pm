@@ -3191,12 +3191,12 @@ sub _convert($$)
             and $node_arg and $node_arg->{'extra'}
             and defined($node_arg->{'extra'}->{'normalized'})
             and !$node_arg->{'extra'}->{'manual_content'}
-            and $self->{'labels'}
-            and $self->{'labels'}
+            and $self->{'identifiers_target'}
+            and $self->{'identifiers_target'}
                    ->{$node_arg->{'extra'}->{'normalized'}}) {
           # internal reference
           my $reference
-           = $self->{'labels'}
+           = $self->{'identifiers_target'}
                    ->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element = Texinfo::Common::get_label_element($reference);
           my $reference_node_content = $label_element->{'contents'};

@@ -194,11 +194,12 @@ sub converter(;$)
          = $conf->{'parser'}->global_commands_information();
       $converter->{'parser_info'} = $conf->{'parser'}->global_information();
       my $floats = $conf->{'parser'}->floats_information();
-      my ($labels, $targets_list, $nodes_list)
+      my ($identifier_target, $labels_list, $nodes_list)
         = $conf->{'parser'}->labels_information();
 
       $converter->{'floats'} = $floats if ($floats);
-      $converter->{'labels'} = $labels if ($labels);
+      $converter->{'identifiers_target'} = $identifier_target
+                                             if ($identifier_target);
       $converter->{'indices_information'}
              = $conf->{'parser'}->indices_information();
       $converter->{'values'} = $conf->{'parser'}->{'values'};
@@ -930,7 +931,8 @@ sub _set_tree_units_files($$$$$$)
     }
   } else {
     my $node_top;
-    $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
+    $node_top = $self->{'identifiers_target'}->{'Top'}
+                            if ($self->{'identifiers_target'});
   
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
@@ -961,7 +963,7 @@ sub _set_tree_units_files($$$$$$)
             my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'labels'}->{
+                or !defined($self->{'identifiers_target'}->{
                                $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
             } else {

@@ -327,7 +327,8 @@ sub _convert($)
 # Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
 # This should be considered an internal function of the parsers for all
 # purposes, it is here to avoid code duplication.
-# Sets $self->{'nodes'} and $self->{'labels'} based on $self->{'targets'}.
+# Sets $self->{'nodes'} and $self->{'identifiers_target'} based on
+# $self->{'labels_list'}.
 sub set_nodes_list_labels($$$)
 {
   my $self = shift;
@@ -336,33 +337,33 @@ sub set_nodes_list_labels($$$)
 
   $self->{'nodes'} = [];
   my %labels = ();
-  if (defined $self->{'targets'}) {
-    for my $target (@{$self->{'targets'}}) {
-      if ($target->{'extra'} and defined($target->{'extra'}->{'normalized'})) {
-        my $normalized = $target->{'extra'}->{'normalized'};
+  if (defined $self->{'labels_list'}) {
+    for my $element (@{$self->{'labels_list'}}) {
+      if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
+        my $normalized = $element->{'extra'}->{'normalized'};
         if (defined $labels{$normalized}) {
-          my $label_element = Texinfo::Common::get_label_element($target);
+          my $label_element = Texinfo::Common::get_label_element($element);
           $registrar->line_error($configuration_information,
                                  sprintf(__("\@%s `%s' previously defined"),
-                                         $target->{'cmdname'},
+                                         $element->{'cmdname'},
                         Texinfo::Convert::Texinfo::convert_to_texinfo(
                              {'contents' => $label_element->{'contents'}})),
-                                  $target->{'source_info'});
+                                  $element->{'source_info'});
           $registrar->line_error($configuration_information,
                        sprintf(__("here is the previous definition as \@%s"),
                                $labels{$normalized}->{'cmdname'}),
                                  $labels{$normalized}->{'source_info'}, 1);
         } else {
-          $labels{$normalized} = $target;
-          if ($target->{'cmdname'} eq 'node') {
-            push @{$self->{'nodes'}}, $target;
+          $labels{$normalized} = $element;
+          if ($element->{'cmdname'} eq 'node') {
+            push @{$self->{'nodes'}}, $element;
           }
-          $target->{'extra'}->{'is_target'} = 1;
+          $element->{'extra'}->{'is_target'} = 1;
         }
       }
     }
   }
-  $self->{'labels'} = \%labels;
+  $self->{'identifiers_target'} = \%labels;
 }
 
 1;

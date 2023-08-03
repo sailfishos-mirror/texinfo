@@ -139,7 +139,7 @@ my %parser_state_initialization = (
   'floats' => {},             # key is the normalized float type, value is
                               # an array reference holding all the floats
                               # of that type.
-  'labels' => {},             # keys are normalized label names, as described
+  'identifiers_target' => {}, # keys are normalized label names, as described
                               # in the `HTML Xref' node.  Value should be
                               # a node/anchor or float in the tree.
   'macros' => {},             # the key is the user-defined macro name.  The
@@ -149,7 +149,7 @@ my %parser_state_initialization = (
   'value_expansion_nr' => 0,  # number of values being expanded
   'merged_indices' => {},     # the key is merged in the value
   'sections_level' => 0,      # modified by raise/lowersections
-  'targets' => [],            # array of elements used to build 'labels'
+  'labels_list' => [],            # array of elements associated with labels
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
                                     # file
   'input_encoding_name' => 'utf-8', # current input encoding name, based on
@@ -804,7 +804,7 @@ sub parse_texi_text($$;$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
 }
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
@@ -905,7 +905,7 @@ sub parse_texi_file($$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
 }
 
 sub _parse_texi_document($)
@@ -988,7 +988,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
 }
 
 sub registered_errors($)
@@ -4632,7 +4632,7 @@ sub _check_register_target_element_label($$$$)
       $target_element->{'extra'}->{'normalized'} = $normalized;
     }
   }
-  Texinfo::Common::register_label($self->{'targets'}, $target_element);
+  Texinfo::Common::register_label($self->{'labels_list'}, $target_element);
 }
 
 # Return 1 if an element is all whitespace.
@@ -4953,7 +4953,7 @@ sub _new_value_element($$;$$)
                       'args' => [] };
   $value_elt->{'parent'} = $current if (defined($current));
   # Add a 'brace_command_arg' container?  On the one hand it is
-  # not usefull, as there is no contents, only a flag, on the
+  # not useful, as there is no contents, only a flag, on the
   # other end, it is different from other similar commands, like 'U'.
   # Beware that it is also used for txiinternalvalue, which for
   # now requires that structure, but it could easily be changed too.
@@ -7057,7 +7057,7 @@ sub _process_remaining_on_line($$$$)
         # by calls of gather_spaces_after_cmd_before_arg, which transfer
         # the element to the info hash.  The contents allow to have source
         # marks easily associated.
-        # The type name is not used anywhere but can be usefull for
+        # The type name is not used anywhere but can be useful for
         # debugging, in particular to check that the element does not
         # appear anywhere in the tree.
         # Note that contents is transiently set for brace commands, which in
@@ -7502,7 +7502,7 @@ sub _parse_texi($$$)
     die;
   }
 
-  # Setup labels info and nodes list based on 'targets'
+  # Setup labels info and nodes list based on 'labels_list'
   Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
                                               $self->{'registrar'}, $self);
   Texinfo::Translations::complete_indices($self);
@@ -7976,8 +7976,8 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $float_types_arrays = $parser->floats_information();
   my $internal_references_array
     = $parser->internal_references_information();
-  # $labels_information is an hash reference on normalized node/float/anchor names.
-  my ($labels_information, $targets_list, $nodes_list) = $parser->labels_information();
+  # $identifier_target is an hash reference on normalized node/float/anchor names.
+  my ($identifier_target, $labels_list, $nodes_list) = $parser->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
@@ -8216,13 +8216,12 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $labels_information, $targets_list, $nodes_list = labels_information($parser)
+=item $identifier_target, $labels_list, $nodes_list = labels_information($parser)
 X<C<labels_information>>
 
-I<$labels_information> is a hash reference whose keys are normalized
+I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$targets_list> is a list of labels @-command.  Using
-I<$labels_information> is preferred.  I<$nodes_list> is a list of all
+I<$labels_list> is a list of labels @-command. I<$nodes_list> is a list of all
 the nodes appearing in the document.
 
 =back

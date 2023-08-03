@@ -647,9 +647,9 @@ sub output_ixin($$)
   my $non_node_labels_text = '';
   my $labels_nr = 0;
   my %floats_associated_node_id;
-  if ($self->{'labels'}) {
-    foreach my $label (sort(keys(%{$self->{'labels'}}))) {
-      my $command = $self->{'labels'}->{$label};
+  if ($self->{'identifiers_target'}) {
+    foreach my $label (sort(keys(%{$self->{'identifiers_target'}}))) {
+      my $command = $self->{'identifiers_target'}->{$label};
       next if ($command->{'cmdname'} eq 'node');
       $labels_nr++;
       my $associated_node_id = $self->_associated_node_id($command,

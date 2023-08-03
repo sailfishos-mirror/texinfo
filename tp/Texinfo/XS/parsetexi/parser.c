@@ -2111,7 +2111,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               by calls of gather_spaces_after_cmd_before_arg, which transfer
               the element to the info hash.  The contents allow to have source
               marks easily associated.
-              The type name is not used anywhere but can be usefull for
+              The type name is not used anywhere but can be useful for
               debugging, in particular to check that the element does not
               appear anywhere in the tree.
               Note that contents is transiently set for brace commands, which in

@@ -1160,8 +1160,8 @@ sub label_command($$)
   if (!defined($label)) {
     cluck;
   }
-  if ($self->{'labels'}) {
-    return $self->{'labels'}->{$label};
+  if ($self->{'identifiers_target'}) {
+    return $self->{'identifiers_target'}->{$label};
   }
   return undef;
 }
@@ -8649,7 +8649,7 @@ sub _new_sectioning_command_target($$)
 }
 
 # This set with two different codes
-#  * the target information, id and normalized filename of 'labels',
+#  * the target information, id and normalized filename of 'identifiers_target',
 #    ie everything that may be the target of a ref, @node, @float label,
 #    @anchor.
 #  * The target information of sectioning elements by going through tree units
@@ -8673,9 +8673,9 @@ sub _set_root_commands_targets_node_files($$)
   $extension = '.'.$self->get_conf('EXTENSION')
             if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
-  if ($self->{'labels'}) {
-    foreach my $label (sort(keys(%{$self->{'labels'}}))) {
-      my $target_element = $self->{'labels'}->{$label};
+  if ($self->{'identifiers_target'}) {
+    foreach my $label (sort(keys(%{$self->{'identifiers_target'}}))) {
+      my $target_element = $self->{'identifiers_target'}->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
       my ($node_filename, $target)
         = $self->_normalized_label_id_file($target_element->{'extra'}->{'normalized'},
@@ -8853,7 +8853,8 @@ sub _html_set_pages_files($$$$$$$$)
          'file_info_name' => 'non_split'};
   } else {
     my $node_top;
-    $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
+    $node_top = $self->{'identifiers_target'}->{'Top'}
+                               if ($self->{'identifiers_target'});
 
     my $top_node_filename = $self->top_node_filename($document_name);
     my $node_top_tree_unit;
@@ -8884,7 +8885,7 @@ sub _html_set_pages_files($$$$$$$$)
             my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'labels'}->{
+                or !defined($self->{'identifiers_target'}->{
                             $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
@@ -8893,8 +8894,8 @@ sub _html_set_pages_files($$$$$$$$)
               $files_source_info{$node_filename} = $file_source_info
                 unless ($files_source_info{$node_filename});
             } else {
-              # Nodes with {'extra'}->{'normalized'} should always be in
-              # 'labels', and thus in targets.  It is a bug otherwise.
+              # Nodes with {'extra'}->{'is_target'} should always be in
+              # 'identifiers_target', and thus in targets.  It is a bug otherwise.
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
               my $file_source_info = {'file_info_type' => 'node',
@@ -9379,9 +9380,11 @@ sub _prepare_tree_units_global_targets($$)
   }
 
   my $node_top;
-  $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
+  $node_top = $self->{'identifiers_target'}->{'Top'}
+                                    if ($self->{'identifiers_target'});
   my $section_top;
-  $section_top = $self->{'global_commands'}->{'top'} if ($self->{'global_commands'});
+  $section_top = $self->{'global_commands'}->{'top'}
+                                       if ($self->{'global_commands'});
   if ($section_top) {
     $self->{'global_target_elements_directions'}->{'Top'}
             = $section_top->{'structure'}->{'associated_unit'};
@@ -11011,7 +11014,8 @@ sub output($$)
   $self->_prepare_contents_elements();
 
   # do tree units directions.
-  Texinfo::Structuring::elements_directions($self, $self->{'labels'}, $tree_units);
+  Texinfo::Structuring::elements_directions($self,
+                                $self->{'identifiers_target'}, $tree_units);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that
@@ -11427,10 +11431,10 @@ sub output($$)
   # do node redirection pages
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES')
-      and $self->{'labels'} and $output_file ne '') {
+      and $self->{'identifiers_target'} and $output_file ne '') {
     my %redirection_filenames;
-    foreach my $label (sort(keys (%{$self->{'labels'}}))) {
-      my $target_element = $self->{'labels'}->{$label};
+    foreach my $label (sort(keys (%{$self->{'identifiers_target'}}))) {
+      my $target_element = $self->{'identifiers_target'}->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
       my $label_contents = $label_element->{'contents'};
       my $target = $self->_get_target($target_element);

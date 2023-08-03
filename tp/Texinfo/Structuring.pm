@@ -377,7 +377,7 @@ sub _check_menu_entry($$$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   my $command = shift;
   my $menu_content = shift;
   my $menu_entry_node = shift;
@@ -385,7 +385,7 @@ sub _check_menu_entry($$$$$$)
   if (defined($menu_entry_node->{'extra'}->{'normalized'})) {
     my $normalized_menu_node = $menu_entry_node->{'extra'}->{'normalized'};
 
-    my $menu_node = $labels->{$normalized_menu_node};
+    my $menu_node = $identifier_target->{$normalized_menu_node};
 
     if (!$menu_node) {
       $registrar->line_error($customization_information,
@@ -412,7 +412,7 @@ sub _check_menu_entry($$$$$$)
 sub check_nodes_are_referenced
 {
   my ($registrar, $customization_information, $nodes_list, $top_node,
-      $labels, $refs) = @_;
+      $identifier_target, $refs) = @_;
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -453,7 +453,7 @@ sub check_nodes_are_referenced
           and $ref->{'args'}->[0]->{'extra'}
           and defined($ref->{'args'}->[0]->{'extra'}->{'normalized'})) {
         my $normalized = $ref->{'args'}->[0]->{'extra'}->{'normalized'};
-        my $node_target = $labels->{$normalized};
+        my $node_target = $identifier_target->{$normalized};
         if ($node_target) {
           $referenced_nodes{$node_target} = 1;
         }
@@ -479,7 +479,7 @@ sub set_menus_node_directions($$$$$$)
   my $parser_information = shift;
   my $global_commands = shift;
   my $nodes_list = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -521,15 +521,18 @@ sub set_menus_node_directions($$$$$$)
                   if (!$arg->{'extra'}->{'manual_content'}) {
                     if ($check_menu_entries) {
                       _check_menu_entry($registrar, $customization_information,
-                                        $labels, 'menu', $menu_content, $arg);
+                                        $identifier_target, 'menu',
+                                        $menu_content, $arg);
                     }
                     if (defined($arg->{'extra'}->{'normalized'})) {
                       # this may happen more than once for a given node if the node
                       # is in more than one menu.  Therefore all the menu up node
                       # are kept in $menu_node->{'structure'}->{'menu_up_hash'}
-                      $menu_node = $labels->{$arg->{'extra'}->{'normalized'}};
+                      $menu_node
+                        = $identifier_target->{$arg->{'extra'}->{'normalized'}};
                       if ($menu_node) {
-                        $menu_node->{'structure'} = {} if (!$menu_node->{'structure'});
+                        $menu_node->{'structure'} = {}
+                                               if (!$menu_node->{'structure'});
                         $menu_node->{'structure'}->{'menu_up'} = $node;
                         $menu_node->{'structure'}->{'menu_up_hash'} = {}
                             if (!$menu_node->{'structure'}->{'menu_up_hash'});
@@ -578,7 +581,7 @@ sub set_menus_node_directions($$$$$$)
               if ($arg->{'type'} eq 'menu_entry_node' and $arg->{'extra'}
                   and !$arg->{'extra'}->{'node_manual'}) {
                 _check_menu_entry($registrar, $customization_information,
-                                  $labels, 'detailmenu', $menu_content, $arg);
+                      $identifier_target, 'detailmenu', $menu_content, $arg);
               }
             }
           }
@@ -786,7 +789,7 @@ sub nodes_tree($$$$$)
   my $customization_information = shift;
   my $parser_information = shift;
   my $nodes_list = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   return undef unless ($nodes_list and @{$nodes_list});
 
   my $top_node;
@@ -870,9 +873,9 @@ sub nodes_tree($$$$$)
           $node->{'structure'}->{'node_'.$direction}
                             = { 'extra' => $node_direction };
         } elsif (defined($node_direction->{'normalized'})) {
-          if ($labels->{$node_direction->{'normalized'}}) {
+          if ($identifier_target->{$node_direction->{'normalized'}}) {
             my $node_target
-               = $labels->{$node_direction->{'normalized'}};
+               = $identifier_target->{$node_direction->{'normalized'}};
             $node->{'structure'}->{'node_'.$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
@@ -1165,11 +1168,11 @@ sub _tree_unit_node($)
 sub elements_directions($$$)
 {
   my $customization_information = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   my $tree_units = shift;
   return if (!$tree_units or !@$tree_units);
 
-  my $node_top = $labels->{'Top'};
+  my $node_top = $identifier_target->{'Top'};
   foreach my $tree_unit (@$tree_units) {
     my $directions = {};
     $directions->{'This'} = $tree_unit;
@@ -1483,7 +1486,7 @@ sub associate_internal_references($$$$$)
   my $registrar = shift;
   my $customization_information = shift;
   my $parser_information = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   my $refs = shift;
 
   return if (!defined($refs));
@@ -1510,7 +1513,7 @@ sub associate_internal_references($$$$$)
     } elsif ($label_element->{'extra'}) {
       my $label_info = $label_element->{'extra'};
       if (!defined($label_info->{'normalized'})
-          or !defined($labels->{$label_info->{'normalized'}})) {
+          or !defined($identifier_target->{$label_info->{'normalized'}})) {
         if (!$customization_information->get_conf('novalidate')) {
           $registrar->line_error($customization_information,
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
@@ -1519,7 +1522,7 @@ sub associate_internal_references($$$$$)
                                  $ref->{'source_info'});
         }
       } else {
-        my $node_target = $labels->{$label_info->{'normalized'}};
+        my $node_target = $identifier_target->{$label_info->{'normalized'}};
         if (!$customization_information->get_conf('novalidate')
             and !_check_node_same_texinfo_code($node_target, $label_info)) {
           $registrar->line_warn($customization_information,
@@ -2353,19 +2356,20 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   # $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
   my $sections_root = sectioning_structure ($registrar, $config, $tree);
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my ($identifier_target, $labels_list, $nodes_list)
+                            = $parser->labels_information();
   my $parser_information = $parser->global_information();
   my $global_commands = $parser->global_commands_information();
   set_menus_node_directions($registrar, $config, $parser_information,
-                            $global_commands, $nodes_list, $labels);
+                            $global_commands, $nodes_list, $identifier_target);
   my $top_node = nodes_tree($registrar, $config, $parser_information,
-                            $nodes_list, $labels);
+                            $nodes_list, $identifier_target);
   complete_node_tree_with_menus($registrar, $config, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
-                             $labels, $refs);
+                             $identifier_target, $refs);
   associate_internal_references($registrar, $parser, $parser_information,
-                                $labels, $refs);
+                                $identifier_target, $refs);
   number_floats($parser->floats_information());
   my $tree_units;
   if ($split_at_nodes) {
@@ -2374,7 +2378,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     $tree_units = split_by_section($tree);
   }
   split_pages($tree_units, $split);
-  elements_directions($config, $labels, $tree_units);
+  elements_directions($config, $identifier_target, $tree_units);
   elements_file_directions($tree_units);
 
   my $indices_information = $parser->indices_information();
@@ -2445,7 +2449,7 @@ labels or refs are obtained from a parser, see L<Texinfo::Parser>.
 
 =over
 
-=item associate_internal_references($registrar, $customization_information, $parser_information, $labels, $refs)
+=item associate_internal_references($registrar, $customization_information, $parser_information, $identifier_target, $refs)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
@@ -2454,7 +2458,7 @@ Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash for
 menu entries and in the first argument C<extra> hash for internal
 references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
 
-=item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $top_node, $labels, $refs)
+=item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $top_node, $identifier_target, $refs)
 X<C<check_nodes_are_referenced>>
 
 Check that all the nodes are referenced (in menu, @*ref or node direction).
@@ -2470,7 +2474,7 @@ Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
 Register errors in I<$registrar>.
 
-=item elements_directions($customization_information, $labels, $tree_units)
+=item elements_directions($customization_information, $identifier_target, $tree_units)
 X<C<elements_directions>>
 
 Directions are set up for the tree unit elements in the array reference
@@ -2605,7 +2609,7 @@ Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $top_node = nodes_tree($registrar, $customization_information, $parser_information, $nodes_list, $labels)
+=item $top_node = nodes_tree($registrar, $customization_information, $parser_information, $nodes_list, $identifier_target)
 X<C<nodes_tree>>
 
 Goes through nodes and set directions.  Returns the top
@@ -2685,7 +2689,7 @@ account C<@part> elements.
 
 =back
 
-=item set_menus_node_directions($registrar, $customization_information, $parser_information, $global_commands, $nodes_list, $labels);
+=item set_menus_node_directions($registrar, $customization_information, $parser_information, $global_commands, $nodes_list, $identifier_target);
 X<C<set_menus_node_directions>>
 
 Goes through menu and set directions.  Register errors in I<$registrar>.

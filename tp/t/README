@@ -128,7 +128,7 @@ nor equivalent @-commands nor a node which names starts by chap.  This
 is because in some output formats, and in particular in LaTeX, Top node content
 is not output, so it is possible to have useless tests for such output formats.
 If there is no @chapter nor equivalent @-commands but there are nodes
-to stop the Top node to get a usefull test, prepend their name by 'chap'
+to stop the Top node to get a useful test, prepend their name by 'chap'
 such that they are recognized as chapter-like nodes.  Also note that it is
 not a problem if some tests cause this warning, as long as it is on purpose.
 

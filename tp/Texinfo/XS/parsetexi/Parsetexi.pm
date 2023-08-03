@@ -227,11 +227,11 @@ sub _set_errors_node_lists_labels_indices($)
 {
   my $self = shift;
 
-  my $TARGETS = build_target_elements_list ();
-  $self->{'targets'} = $TARGETS;
+  my $LABELS_LIST = build_target_elements_list ();
+  $self->{'labels_list'} = $LABELS_LIST;
 
   _get_errors ($self);
-  # Setup labels info and nodes list based on 'targets'
+  # Setup labels info and nodes list based on 'labels_list'
   Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
                                            $self->{'registrar'}, $self);
 
@@ -303,7 +303,7 @@ sub parse_texi_file ($$)
 
   my $document = Texinfo::Document::register($TREE,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
   $document->{'document_descriptor'} = $TREE->{'extra'}->{'document_descriptor'};
   delete $TREE->{'extra'}->{'document_descriptor'};
   delete $TREE->{'extra'} if (scalar(keys(%{$TREE->{'extra'}})) == 0);
@@ -380,7 +380,7 @@ sub parse_texi_text($$;$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'labels'}, $self->{'targets'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
 
   $document->{'document_descriptor'} = $tree->{'extra'}->{'document_descriptor'};
   delete $tree->{'extra'}->{'document_descriptor'};
@@ -444,7 +444,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
 }
 
 sub registered_errors($)
