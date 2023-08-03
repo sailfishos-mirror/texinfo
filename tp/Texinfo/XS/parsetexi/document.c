@@ -35,7 +35,7 @@ retrieve_document (int document_descriptor)
 
 /* descriptor starts at 1, 0 is an error */
 size_t
-register_document (ELEMENT *root)
+register_document (ELEMENT *root, INDEX **index_names)
 {
   size_t document_index;
   int slot_found = 0;
@@ -68,6 +68,7 @@ register_document (ELEMENT *root)
     }
   document = &document_list[document_index];
   document->tree = root;
+  document->index_names = index_names;
   return document_index +1;
 }
 

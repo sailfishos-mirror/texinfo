@@ -6,9 +6,10 @@
 
 typedef struct DOCUMENT {
   ELEMENT *tree;
+  INDEX **index_names;
 } DOCUMENT;
 
 DOCUMENT *retrieve_document (int document_descriptor);
-size_t register_document (ELEMENT *root);
+size_t register_document (ELEMENT *root, INDEX **index_names);
 
 #endif

@@ -149,6 +149,15 @@ wipe_indices (void)
   return;
 }
 
+/* reset indices without unallocating them */
+void
+reset_indices (void)
+{
+  index_names = 0;
+  number_of_indices = 0;
+  space_for_indices = 0;
+}
+
 void
 init_index_commands (void)
 {

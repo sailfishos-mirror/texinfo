@@ -35,13 +35,15 @@
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 
-# ?
+# there is always a check on prototypes in XSLoader.  So it is simpler if
+# they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
 SV *
-plain_texinfo_convert (converter, document_in)
+plain_texinfo_convert (converter, document_in, ...)
         HV *converter
         HV *document_in
+    PROTOTYPE: $$;$
     PREINIT:
         char *result;
         SV** document_descriptor_sv;

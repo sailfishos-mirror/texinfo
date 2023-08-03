@@ -10,6 +10,7 @@ void parse_string (char *, int line_nr);
 void parse_text (char *, int line_nr);
 void reset_parser (int debug_output);
 void reset_parser_except_conf (void);
+int store_document (void);
 void set_debug (int);
 void wipe_values (void);
 void reset_context_stack (void);

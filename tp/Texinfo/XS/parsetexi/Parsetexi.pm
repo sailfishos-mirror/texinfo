@@ -289,10 +289,10 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $TREE = build_texinfo_tree ();
+  my $tree = build_texinfo_tree ();
   get_parser_info ($self);
 
-  _associate_node_menus ($self, $TREE);
+  _associate_node_menus ($self, $tree);
 
   ############################################################
 
@@ -300,13 +300,15 @@ sub parse_texi_file ($$)
   $self->{'info'}->{'input_file_name'} = $basename;
   $self->{'info'}->{'input_directory'} = $directories;
 
-  my $document = Texinfo::Document::register($TREE,
+  my $document_descriptor = store_document();
+  $tree->{'document_descriptor'} = $document_descriptor;
+
+  my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'});
-  $document->{'document_descriptor'} = $TREE->{'extra'}->{'document_descriptor'};
-  delete $TREE->{'extra'}->{'document_descriptor'};
-  delete $TREE->{'extra'} if (scalar(keys(%{$TREE->{'extra'}})) == 0);
+
+  $document->{'document_descriptor'} = $document_descriptor;
 
   return $document;
 }
@@ -337,9 +339,9 @@ sub _get_errors($)
 
 
 # Used in tests under tp/t.
-sub parse_texi_piece($$;$)
+sub parse_texi_piece($$;$$)
 {
-  my ($self, $text, $line_nr) = @_;
+  my ($self, $text, $line_nr, $store) = @_;
 
   return undef if (!defined($text));
 
@@ -354,6 +356,11 @@ sub parse_texi_piece($$;$)
 
   get_parser_info($self);
   _associate_node_menus ($self, $tree);
+
+  if ($store) {
+    my $document_descriptor = store_document();
+    $tree->{'document_descriptor'} = $document_descriptor;
+  }
 
   return $tree;
 }
@@ -378,21 +385,22 @@ sub parse_texi_text($$;$)
 
   _associate_node_menus ($self, $tree);
 
+  my $document_descriptor = store_document();
+  $tree->{'document_descriptor'} = $document_descriptor;
+
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'});
 
-  $document->{'document_descriptor'} = $tree->{'extra'}->{'document_descriptor'};
-  delete $tree->{'extra'}->{'document_descriptor'};
-  delete $tree->{'extra'} if (scalar(keys(%{$tree->{'extra'}})) == 0);
+  $document->{'document_descriptor'} = $document_descriptor;
 
   return $document;
 }
 
-sub parse_texi_line($$;$)
+sub parse_texi_line($$;$$)
 {
-  my ($self, $text, $line_nr) = @_;
+  my ($self, $text, $line_nr, $store) = @_;
 
   return undef if (!defined($text));
 
@@ -406,6 +414,11 @@ sub parse_texi_line($$;$)
   my $tree = build_texinfo_tree ();
 
   _set_errors_node_lists_labels_indices($self);
+
+  if ($store) {
+    my $document_descriptor = store_document();
+    $tree->{'document_descriptor'} = $document_descriptor;
+  }
 
   return $tree;
 }

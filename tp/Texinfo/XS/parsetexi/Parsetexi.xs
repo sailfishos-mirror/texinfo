@@ -120,6 +120,9 @@ build_global_info2 ()
 void
 reset_parser (int debug_output)
 
+int
+store_document ()
+
 void
 clear_expanded_formats ()
 

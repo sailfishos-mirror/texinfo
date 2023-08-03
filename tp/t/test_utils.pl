@@ -443,7 +443,8 @@ sub new_test($;$$$)
 # keys under 'info' are not needed here.
 my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
-  'node_description', 'node_long_description', 'is_target');
+  'node_description', 'node_long_description', 'is_target',
+  'document_descriptor');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
@@ -462,7 +463,9 @@ my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
     'structure', 'menu_child', 'unit_next', 'directions', 'page_next',
-    'parent');
+    'parent',
+    # only set with the XS parser
+    'document_descriptor');
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;
 }

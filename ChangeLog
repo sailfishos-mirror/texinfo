@@ -1,5 +1,28 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_piece, parse_texi_text, parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (store_document),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf, parse_file)
+	(parse_text, store_document): add function store_document to store the
+	document and get the document_descriptor, called optionally for
+	parse_texi_piece and parse_texi_line.  Add the document_descriptor to
+	the tree too.
+
+	* tp/Texinfo/XS/parsetexi/api.c (store_document),
+	tp/Texinfo/XS/parsetexi/document.c (register_document),
+	tp/Texinfo/XS/parsetexi/indices.c (reset_indices):
+	Store the index_names table in the document.  Add reset_indices to
+	reset the indices without unallocating them.
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (output, _convert_with_XS),
+	tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert),
+	tp/Texinfo/XS/convert/plain_texinfo.c (plain_texinfo_convert):
+	simple implementation of output in XS, which outputs a string
+	on stderr.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (set_menus_node_directions, nodes_tree)
 	(associate_internal_references): remove unused parser_information
 	arguments.  Update callers.

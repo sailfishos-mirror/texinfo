@@ -125,15 +125,15 @@ reset_parser_except_conf (void)
 
   if (Root)
     {
-      KEY_PAIR *k = lookup_extra (Root, "document_descriptor");
-      intptr_t document_descriptor = 0;
-
-      if (k)
-        document_descriptor = (intptr_t) k->value;
-      if (document_descriptor == 0)
-        destroy_element_and_children (Root);
+      destroy_element_and_children (Root);
       Root = 0;
     }
+
+  reset_floats ();
+  wipe_global_info ();
+  reset_internal_xrefs ();
+  reset_labels ();
+
   wipe_user_commands ();
   wipe_macros ();
   init_index_commands ();
@@ -144,15 +144,11 @@ reset_parser_except_conf (void)
   reset_command_stack (&nesting_context.basic_inline_stack_block);
   reset_command_stack (&nesting_context.regions_stack);
   memset (&nesting_context, 0, sizeof (nesting_context));
-  reset_floats ();
-  wipe_global_info ();
   /* it is not totally obvious that is it better to reset the
      list to avoid memory leaks rather than reuse the iconv
      opened handlers */
   reset_encoding_list ();
   set_input_encoding ("utf-8");
-  reset_internal_xrefs ();
-  reset_labels ();
   input_reset_input_stack ();
   source_marks_reset_counters ();
   free_small_strings ();
@@ -236,10 +232,9 @@ parse_file (char *filename)
     }
 
   Root = parse_texi_document ();
+
   if (Root)
     {
-      int document_descriptor = register_document (Root);
-      add_extra_integer (Root, "document_descriptor", document_descriptor);
       return 0;
     }
   return 1;
@@ -249,14 +244,9 @@ parse_file (char *filename)
 void
 parse_text (char *string, int line_nr)
 {
-  int document_descriptor;
-
   reset_parser_except_conf ();
   input_push_text (strdup (string), line_nr, 0, 0);
   Root = parse_texi_document ();
-
-  document_descriptor = register_document (Root);
-  add_extra_integer (Root, "document_descriptor", document_descriptor);
 }
 
 /* Set ROOT to root of tree obtained by parsing the Texinfo code in STRING.
@@ -284,6 +274,16 @@ parse_piece (char *string, int line_nr)
 
   input_push_text (strdup (string), line_nr, 0, 0);
   Root = parse_texi (document_root, before_node_section);
+}
+
+int
+store_document (void)
+{
+  int document_descriptor;
+  document_descriptor = register_document (Root, index_names);
+  reset_indices();
+  Root = 0;
+  return document_descriptor;
 }
 
 
