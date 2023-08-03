@@ -1,5 +1,16 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree),
+	tp/Texinfo/Transformations.pm (insert_nodes_for_sectioning_commands),
+	tp/t/automatic_nodes.t, tp/t/test_utils.pl (test), tp/texi2any.pl:
+	add registrar and customization_information arguments for
+	insert_nodes_for_sectioning_commands.  This is in line with _new_name
+	arguments.  This is not very useful, right now, though, as we know
+	that there cannot be any error reported, since the node names are
+	adapted such as not to clash with existing label targets.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm, tp/Texinfo/Document.pm
 	(_add_element_to_identifiers_target, set_labels_identifiers_target)
 	(register_label_element), tp/Texinfo/ParserNonXS.pm (_parse_texi),
