@@ -1482,7 +1482,7 @@ while(@input_files) {
     }
   }
 
-  my ($identifier_target, $labels_list) = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
 
   # setup a configuration object which defines get_conf and gives the same as
   # get_conf() in main program.  It is for Structuring/Transformations methods

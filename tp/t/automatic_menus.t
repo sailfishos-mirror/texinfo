@@ -27,7 +27,7 @@ sub test($$$;$$)
   my $document = $parser->parse_texi_text($in);
   my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
-  my ($identifier_target, $labels_list) = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
   my $parser_information = $parser->global_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,

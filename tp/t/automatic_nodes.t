@@ -26,7 +26,7 @@ sub test_new_node($$$$)
   my $node_tree = $parser->parse_texi_line ($in);
   my $registrar = $parser->registered_errors();
   my $document = $parser->parse_texi_text ('');
-  my ($identifier_target, $labels_list) = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
   my $parser_information = $parser->global_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -82,7 +82,7 @@ my $document = $parser->parse_texi_text('@node a node
 my $tree = $document->tree();
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $registrar = $parser->registered_errors();
-my ($identifier_target, $labels_list) = $parser->labels_information();
+my $identifier_target = $parser->labels_information();
 my $parser_information = $parser->global_information();
 my $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -159,7 +159,7 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
 $tree = $document->tree();
 $registrar = $parser->registered_errors();
-($identifier_target, $labels_list) = $parser->labels_information();
+$identifier_target = $parser->labels_information();
 $parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -185,7 +185,7 @@ $document = $parser->parse_texi_text('@node Top
 ');
   $tree = $document->tree();
 $registrar = $parser->registered_errors();
-($identifier_target, $labels_list) = $parser->labels_information();
+$identifier_target = $parser->labels_information();
 $parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,

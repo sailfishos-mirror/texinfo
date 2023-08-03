@@ -1048,7 +1048,7 @@ sub test($$)
     }
   }
 
-  my ($identifier_target, $labels_list) = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
   my $parser_information = $parser->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,

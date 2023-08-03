@@ -2511,20 +2511,6 @@ sub relate_index_entries_to_table_items_in_tree($$)
 # Common to different module, but not meant to be used in user-defined
 # codes.
 
-# Register a target element associated to a label that may be the target of
-# a reference and must be unique in the document.  Corresponds to @node,
-# @anchor, and @float (float label corresponds to the second argument).
-#
-# $TARGET_ELEMENTS_LIST array reference for elements associated to a label
-# $TARGET_ELEMENT is the tree element associated to the label.
-sub register_label($$)
-{
-  my ($target_elements_list, $target_element) = @_;
-
-  # register the element in the list.
-  push @{$target_elements_list}, $target_element;
-}
-
 sub get_label_element($)
 {
   my $current = shift;

@@ -245,7 +245,7 @@ sub _new_node($$)
   my $appended_number = 0 +$empty_node;
   my ($node, $normalized);
 
-  my ($identifier_target, $labels_list) = $document->labels_information();
+  my $identifier_target = $document->labels_information();
   while (!defined($node)
          or ($identifier_target and $identifier_target->{$normalized})) {
 

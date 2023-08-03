@@ -1,5 +1,20 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (labels_information),
+	tp/Texinfo/ParserNonXS.pm (labels_information),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (labels_information): do not
+	return the labels_list.  Update callers.
+
+	* tp/Texinfo/Common.pm (register_label), tp/Texinfo/ParserNonXS.pm
+	(_check_register_target_element_label): remove
+	Texinfo::Common::register_label.
+
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree)
+	(_do_top_node_menu): update use of labels_information and use
+	Texinfo::Document::add_node.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (nodes_tree), tp/texi2any.pl,
 	tp/t/test_utils.pl (test): use tree in input of nodes_tree and return
 	the list of nodes.

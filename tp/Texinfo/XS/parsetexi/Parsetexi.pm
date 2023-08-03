@@ -446,7 +446,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'};
+  return $self->{'identifiers_target'};
 }
 
 sub registered_errors($)

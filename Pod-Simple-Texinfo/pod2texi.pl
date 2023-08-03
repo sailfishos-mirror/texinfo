@@ -253,7 +253,7 @@ sub _parsed_manual_tree($$$$$)
   my $tree = $document->tree();
   my $registrar = $texi_parser->registered_errors();
   
-  my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
+  my $identifier_target = $texi_parser->labels_information();
 
   if ($fill_gaps_in_sectioning) {
     my ($added_sections, $added_nodes);
@@ -268,7 +268,8 @@ sub _parsed_manual_tree($$$$$)
         # prepend the manual name
         foreach my $node (@$added_nodes) {
           # First remove the old normalized entry
-          delete $texi_parser->{'labels'}->{$node->{'extra'}->{'normalized'}};
+          # FIXME should go through an API
+          delete $identifier_target->{$node->{'extra'}->{'normalized'}};
 
           # prepare the new node Texinfo name and parse it to a Texinfo tree
           my $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -291,10 +292,8 @@ sub _parsed_manual_tree($$$$$)
              = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                   { 'contents' => $node_arg->{'contents'} });
           $node->{'extra'}->{'normalized'} = $normalized_node_name;
-          Texinfo::Common::register_label($targets_list, $node);
-          # Nothing should link to the added node, but we setup the label
-          # informations nonetheless.
-          $labels->{$normalized_node_name} = $node;
+
+          Texinfo::Document::add_node($document, $node);
         }
       }
     }
@@ -306,10 +305,10 @@ sub _parsed_manual_tree($$$$$)
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
   Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
-                                  $parser_information, $labels, $refs);
+                                  $parser_information, $identifier_target, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
-  return ($texi_parser, $tree, $labels);
+  return ($texi_parser, $tree, $identifier_target);
 }
 
 sub _fix_texinfo_tree($$$$;$$)
@@ -377,8 +376,8 @@ sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
   my ($texi_parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
-  my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
-  my $top_node_menu = $labels->{'Top'}->{'extra'}->{'menus'}->[0];
+  my $identifier_target = $texi_parser->labels_information();
+  my $top_node_menu = $identifier_target->{'Top'}->{'extra'}->{'menus'}->[0];
   if ($top_node_menu) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
   } else {

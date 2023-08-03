@@ -90,11 +90,14 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'};
+  return $self->{'identifiers_target'};
 }
 
 # TODO document when stabilized
 # FIXME more specific name, node added as a reference, not in document as such
+# FIXME add an argument to either not add if already existing,
+# or remove the preceding node with same identifier from identifiers_target
+# and from labels_list.  There could also be another method to unregister nodes.
 sub add_node($$)
 {
   my $self = shift;
@@ -130,8 +133,7 @@ Texinfo::Document - Texinfo document tree and information
     = $parser->internal_references_information();
   # $identifier_target is an hash reference on normalized
   # node/float/anchor names.
-  my ($identifier_target, $labels_list)
-          = $document->labels_information();
+  my $identifier_target = $document->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information
@@ -234,12 +236,11 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $identifier_target, $labels_list = labels_information($document)
+=item $identifier_target = labels_information($document)
 X<C<labels_information>>
 
 I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$labels_list> is a list of labels @-command.
 
 =back
 
@@ -359,7 +360,7 @@ parsers codes.
 
 =over
 
-=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $nodes)
+=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list)
 
 Setup a document. There is no reason to call this method out of parsers, as
 it is already done by the Texinfo parsers.  The arguments correspond to

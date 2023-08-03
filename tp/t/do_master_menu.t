@@ -125,7 +125,7 @@ my $no_detailmenu = _get_in('');
 my $parser = Texinfo::Parser::parser();
 my $tree = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
-my ($identifier_target, $labels_list) = $parser->labels_information();
+my $identifier_target = $parser->labels_information();
 my $parser_information = $parser->global_information();
 my $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -172,7 +172,7 @@ is ($out, $reference, 'master menu');
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
-($identifier_target, $labels_list) = $parser->labels_information();
+$identifier_target = $parser->labels_information();
 $parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -185,7 +185,7 @@ is ($out, $reference, 'master menu no detailmenu');
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($in_detailmenu);
 $registrar = $parser->registered_errors();
-($identifier_target, $labels_list) = $parser->labels_information();
+$identifier_target = $parser->labels_information();
 $parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
@@ -200,7 +200,7 @@ is ($out, _get_in($reference), 'regenerate with existing detailmenu');
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
-($identifier_target, $labels_list) = $parser->labels_information();
+$identifier_target = $parser->labels_information();
 $parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,

@@ -990,7 +990,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'});
+  return $self->{'identifiers_target'};
 }
 
 sub registered_errors($)
@@ -4634,7 +4634,7 @@ sub _check_register_target_element_label($$$$)
       $target_element->{'extra'}->{'normalized'} = $normalized;
     }
   }
-  Texinfo::Common::register_label($self->{'labels_list'}, $target_element);
+  push @{$self->{'labels_list'}}, $target_element;
 }
 
 # Return 1 if an element is all whitespace.
@@ -7979,7 +7979,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $internal_references_array
     = $parser->internal_references_information();
   # $identifier_target is an hash reference on normalized node/float/anchor names.
-  my ($identifier_target, $labels_list) = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
@@ -8218,12 +8218,11 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $identifier_target, $labels_list = labels_information($parser)
+=item $identifier_target = labels_information($parser)
 X<C<labels_information>>
 
 I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$labels_list> is a list of labels @-command.
 
 =back
 

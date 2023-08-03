@@ -2368,8 +2368,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   # $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
   my $sections_root = sectioning_structure ($registrar, $config, $tree);
-  my ($identifier_target, $labels_list)
-                            = $parser->labels_information();
+  my $identifier_target = $parser->labels_information();
   my $parser_information = $parser->global_information();
   my $global_commands = $parser->global_commands_information();
   my ($top_node, $nodes_list)
