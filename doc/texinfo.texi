@@ -2843,13 +2843,13 @@ commas as needed, as in: @samp{@@node mynode,,,uppernode}.
 Any spaces before or after each name on the @code{@@node} line are
 ignored.  However, if your Texinfo document is hierarchically organized,
 as virtually all are, we recommend leaving off all the pointers and 
-letting @code{makeinfo} determine them.
+letting @code{texi2any} determine them.
 
-@cindex Creating pointers with @code{makeinfo}
-@cindex Pointer creation with @code{makeinfo}
-@cindex Automatic pointer creation with @code{makeinfo}
-@cindex Implicit pointer creation with @code{makeinfo}
-The @code{makeinfo} program automatically determines node pointers
+@cindex Creating pointers with @code{texi2any}
+@cindex Pointer creation with @code{texi2any}
+@cindex Automatic pointer creation with @code{texi2any}
+@cindex Implicit pointer creation with @code{texi2any}
+The @code{texi2any} program automatically determines node pointers
 for a hierarchically organized document.  For it to do this, each
 @code{@@node} command should be followed immediately by a sectioning
 command such as @code{@@chapter} or @code{@@section} (except that
@@ -3420,7 +3420,7 @@ starting with @w{@samp{* }} are menu entries.
 @cindex Hierarchical documents, and menus
 Technically, menus can carry you to any node, regardless of the
 structure of the document; even to nodes in a different Info file.
-However, the @command{makeinfo} implicit pointer creation feature
+However, the @command{texi2any} implicit pointer creation feature
 (@pxref{Writing a Node}) and GNU Emacs Texinfo mode updating commands
 work only to create menus of subordinate nodes in a hierarchically
 structured document.  In a hierarchically structured document, it is
@@ -3581,7 +3581,7 @@ Unfortunately you must type
 node names without any extra spaces or some versions of some Info
 readers will not find the node (@pxref{Node Line Requirements}).
 
-@command{makeinfo} warns and protect names when the text of a menu item
+@command{texi2any} warns and protect names when the text of a menu item
 (and node names and cross-references) contains a problematic construct that
 could interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
@@ -4185,7 +4185,7 @@ hierarchical level a step at a time.  An attempt to raise above
 `chapter' reproduces chapter commands; an attempt to lower below
 `subsubsection' reproduces subsubsection commands.  Also, lowered
 subsubsections and raised chapters will not work with
-@command{makeinfo}'s feature of implicitly determining node pointers,
+@command{texi2any}'s feature of implicitly determining node pointers,
 since the menu structure cannot be represented correctly.
 
 Write each @code{@@raisesections} and @code{@@lowersections} command
@@ -4353,7 +4353,7 @@ See Hurricanes, page @var{ppp} --- for the details
 @noindent instead of
 @w{`See Hurricanes, page @var{ppp}, --- for the details'}.
 
-@command{makeinfo} warns and protect names when the text of a cross-reference
+@command{texi2any} warns and protect names when the text of a cross-reference
 (and node names and menu items) contains a problematic construct that could
 interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
