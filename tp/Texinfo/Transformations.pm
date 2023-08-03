@@ -284,7 +284,7 @@ sub _new_node($$)
   }
   $node->{'extra'}->{'normalized'} = $normalized;
 
-  Texinfo::Document::add_node($document, $node);
+  Texinfo::Document::register_label_element($document, $node);
 
   return $node;
 }

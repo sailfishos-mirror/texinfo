@@ -94,25 +94,24 @@ sub labels_information($)
 }
 
 # TODO document when stabilized
-# FIXME more specific name, node added as a reference, not in document as such
 # FIXME add an argument to either not add if already existing,
 # or remove the preceding node with same identifier from identifiers_target
-# and from labels_list.  There could also be another method to unregister nodes.
-sub add_node($$)
+# and from labels_list?  There could also be another method to unregister nodes.
+sub register_label_element($$)
 {
   my $self = shift;
-  my $node = shift;
+  my $element = shift;
 
-  if ($node->{'extra'} and $node->{'extra'}->{'normalized'}) {
-    my $normalized = $node->{'extra'}->{'normalized'};
+  if ($element->{'extra'} and $element->{'extra'}->{'normalized'}) {
+    my $normalized = $element->{'extra'}->{'normalized'};
     # FIXME check if already in $self->{'identifiers_target'}
     # using code in set_nodes_list_labels
-    $self->{'identifiers_target'}->{$normalized} = $node;
-    $node->{'extra'}->{'is_target'} = 1;
+    $self->{'identifiers_target'}->{$normalized} = $element;
+    $element->{'extra'}->{'is_target'} = 1;
   }
-  # FIXME do not push at the end but have the caller give the node it should be
+  # FIXME do not push at the end but have the caller give the element it should be
   # after or before?
-  push @{$self->{'labels_list'}}, $node;
+  push @{$self->{'labels_list'}}, $element;
 }
 
 1;

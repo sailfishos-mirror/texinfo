@@ -1,5 +1,10 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (register_label_element): rename add_node as
+	register_label_element. Update callers.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (labels_information),
 	tp/Texinfo/ParserNonXS.pm (labels_information),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (labels_information): do not
