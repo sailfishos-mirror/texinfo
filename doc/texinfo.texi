@@ -778,7 +778,7 @@ typesetting system) in PDF format, including chapters,
 sections, cross-references, and indices.  From the same Texinfo source
 file, you can create HTML output suitable for use with a web
 browser, you can create an Info file for use in GNU Emacs or other
-Info-reading programs, and also create DocBook, EPUB 3 or @LaTeX{} files.
+Info-reading programs, and also create DocBook, EPUB 3, or @LaTeX{} files.
 
 @cindex Source file format
 @cindex Semantic markup
@@ -852,7 +852,7 @@ the Emacs developers: see @ref{Bugs,,, emacs, The GNU Emacs Manual}.
 
 @cindex Patches, contributing
 Patches are welcome; if possible, please make them with @samp{@w{diff -c}},
-@samp{@w{diff -u}} (@pxref{,,, diffutils, Comparing and Merging Files})
+@samp{@w{diff -u}} (@pxref{,,, diffutils, Comparing and Merging Files}),
 or @samp{git diff} and include @file{ChangeLog} entries (@pxref{Change Log,,,
 standards, GNU Coding Standards}), and follow the existing coding style.
 
@@ -958,7 +958,7 @@ ubiquitous in academic literature. The current version of @LaTeX{}
 is under active development; more information is available online
 at @uref{https://www.latex-project.org/}.
 
-The @LaTeX{} output can be further processed into DVI, PostScript
+The @LaTeX{} output can be further processed into DVI, PostScript,
 or PDF@.  In theory, the @LaTeX{} output should allow for much more
 customizability of the output than would be possible with the plain
 @TeX{} implementation of Texinfo.
@@ -1509,7 +1509,7 @@ and recommended extension is @file{.texi}.  The name of a Texinfo
 file should only contain ASCII characters.
 
 The output name is based on the input file name, in the default case.
-First, any of the extensions @file{.texi}, @file{.tex}, @file{.txi}
+First, any of the extensions @file{.texi}, @file{.tex}, @file{.txi},
 or @file{.texinfo} is removed from the input file name; then,
 the output format specific extension is added---@file{.html} when
 generating HTML, @file{.info} when generating Info, etc.
@@ -8066,7 +8066,7 @@ example:
 
 The text for @code{@@shortcaption} may not contain comments
 (@code{@@c}), verbatim text (@code{@@verb}), environments such as
-@code{@@example}, footnotes (@code{@@footnote}), multiple paragraphs
+@code{@@example}, footnotes (@code{@@footnote}), multiple paragraphs,
 or other complex constructs.  The same constraints apply to
 @code{@@caption} unless there is a @code{@@shortcaption}.  In
 @LaTeX{} a multi-paragraph @code{@@caption} will lead to an error
