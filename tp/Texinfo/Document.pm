@@ -34,7 +34,7 @@ sub register
   my $global_commands_information = shift;
   my $identifier_target = shift;
   my $labels_list = shift;
-  my $nodes = shift;
+  my $nodes_list = shift;
 
   my $document = {
     'tree' => $tree,
@@ -45,7 +45,7 @@ sub register
     'info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
-    'nodes' => $nodes,
+    'nodes_list' => $nodes_list,
   };
 
   bless $document;
@@ -92,7 +92,8 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'},
+         $self->{'nodes_list'};
 }
 
 1;

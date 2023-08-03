@@ -327,7 +327,7 @@ sub _convert($)
 # Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
 # This should be considered an internal function of the parsers for all
 # purposes, it is here to avoid code duplication.
-# Sets $self->{'nodes'} and $self->{'identifiers_target'} based on
+# Sets $self->{'nodes_list'} and $self->{'identifiers_target'} based on
 # $self->{'labels_list'}.
 sub set_nodes_list_labels($$$)
 {
@@ -335,7 +335,7 @@ sub set_nodes_list_labels($$$)
   my $registrar = shift;
   my $configuration_information = shift;
 
-  $self->{'nodes'} = [];
+  $self->{'nodes_list'} = [];
   my %labels = ();
   if (defined $self->{'labels_list'}) {
     for my $element (@{$self->{'labels_list'}}) {
@@ -356,7 +356,7 @@ sub set_nodes_list_labels($$$)
         } else {
           $labels{$normalized} = $element;
           if ($element->{'cmdname'} eq 'node') {
-            push @{$self->{'nodes'}}, $element;
+            push @{$self->{'nodes_list'}}, $element;
           }
           $element->{'extra'}->{'is_target'} = 1;
         }

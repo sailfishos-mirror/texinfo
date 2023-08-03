@@ -804,7 +804,7 @@ sub parse_texi_text($$;$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 }
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
@@ -905,7 +905,7 @@ sub parse_texi_file($$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 }
 
 sub _parse_texi_document($)
@@ -988,7 +988,8 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'},
+         $self->{'nodes_list'};
 }
 
 sub registered_errors($)

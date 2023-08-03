@@ -1175,7 +1175,8 @@ $check_htmlxref_text
 ['double_contents_after_title_show_title_nodes',
   undef, {'test_file' => 'double_contents.texi'},
   {'CONTENTS_OUTPUT_LOCATION' => 'after_title', 'SHOW_TITLE' => 1,
-   'SPLIT' => 'nodes', 'BIG_RULE' => '<hr style="height: 6px;">'}
+   'SPLIT' => 'not a reference split spec, use node',
+   'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 # there is also a test in tests/ as texinfo_set_from_init_file
 # has no effect in the test suite, such that the following does not

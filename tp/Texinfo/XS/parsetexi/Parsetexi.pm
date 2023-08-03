@@ -303,7 +303,7 @@ sub parse_texi_file ($$)
 
   my $document = Texinfo::Document::register($TREE,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
   $document->{'document_descriptor'} = $TREE->{'extra'}->{'document_descriptor'};
   delete $TREE->{'extra'}->{'document_descriptor'};
   delete $TREE->{'extra'} if (scalar(keys(%{$TREE->{'extra'}})) == 0);
@@ -380,7 +380,7 @@ sub parse_texi_text($$;$)
 
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'});
+     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
 
   $document->{'document_descriptor'} = $tree->{'extra'}->{'document_descriptor'};
   delete $tree->{'extra'}->{'document_descriptor'};
@@ -444,7 +444,8 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'},
+         $self->{'nodes_list'};
 }
 
 sub registered_errors($)

@@ -8242,6 +8242,8 @@ sub converter_initialize($)
   $self->{'pending_closes'} = [];
   $self->_new_document_context('_toplevel_context');
 
+  # TODO warn if the split specification is not one known?  The main
+  # program warns if the specific command line option value is not known.
   if ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'chapter'
       and $self->get_conf('SPLIT') ne 'section'
       and $self->get_conf('SPLIT') ne 'node') {
