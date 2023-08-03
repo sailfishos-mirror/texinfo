@@ -414,6 +414,15 @@ $result_errors{'double_top_in_menu'} = [
     'macro' => '',
     'text' => 'Next pointer `top\' (for node `ToP\') different from node name `ToP\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: Up pointer `Top\' (for node `top\') different from node name `ToP\'
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => '',
+    'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
+    'type' => 'warning'
   }
 ];
 

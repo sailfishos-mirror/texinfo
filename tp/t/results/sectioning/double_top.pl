@@ -253,6 +253,15 @@ $result_errors{'double_top'} = [
     'macro' => '',
     'text' => 'Next pointer `top\' (for node `ToP\') different from node name `ToP\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: Up pointer `Top\' (for node `top\') different from node name `ToP\'
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
+    'type' => 'warning'
   }
 ];
 
@@ -314,6 +323,8 @@ Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 
 <hr>
 <div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">ToP</a>, Up: <a href="#Top" accesskey="u" rel="up">ToP</a> &nbsp; </p>
 </div>
 
 <p>.

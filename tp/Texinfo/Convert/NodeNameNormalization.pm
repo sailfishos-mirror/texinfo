@@ -340,6 +340,9 @@ sub set_nodes_list_labels($$$)
   if (defined $self->{'labels_list'}) {
     for my $element (@{$self->{'labels_list'}}) {
       if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
+        if ($element->{'cmdname'} eq 'node') {
+          push @{$self->{'nodes_list'}}, $element;
+        }
         my $normalized = $element->{'extra'}->{'normalized'};
         if (defined $identifier_target{$normalized}) {
           my $label_element = Texinfo::Common::get_label_element($element);
@@ -355,9 +358,6 @@ sub set_nodes_list_labels($$$)
                               $identifier_target{$normalized}->{'source_info'}, 1);
         } else {
           $identifier_target{$normalized} = $element;
-          if ($element->{'cmdname'} eq 'node') {
-            push @{$self->{'nodes_list'}}, $element;
-          }
           $element->{'extra'}->{'is_target'} = 1;
         }
       }

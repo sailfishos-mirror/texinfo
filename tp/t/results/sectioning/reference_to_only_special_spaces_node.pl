@@ -499,7 +499,8 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
-                  }
+                  },
+                  'structure' => {}
                 }
               },
               'structure' => {
@@ -564,6 +565,10 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
               }
             },
             'normalized' => '_2002_2003_2002'
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
           }
         },
         'node_prev' => {},
@@ -572,6 +577,8 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
     }
   }
 };
+$result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'};
+$result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'reference_to_only_special_spaces_node'};
 $result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'reference_to_only_special_spaces_node'};
 $result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'reference_to_only_special_spaces_node'};
 
@@ -709,6 +716,8 @@ Next: <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code>, Previou
 </div>
 <div class="chapter-level-extent">
 <div class="nav-panel">
+<p>
+Previous: <a href="#g_t_2002_2003_2002" accesskey="p" rel="prev">EN QUAD| | EM QUAD| | EN SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"><span>2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code><a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"> &para;</a></span></h2>
 

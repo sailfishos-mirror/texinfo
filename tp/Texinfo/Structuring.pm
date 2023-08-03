@@ -462,7 +462,9 @@ sub check_nodes_are_referenced
   }
 
   foreach my $node (@{$nodes_list}) {
-    if (not exists($referenced_nodes{$node})) {
+    if (not exists($referenced_nodes{$node})
+        # it is normal that a redundant node is not referenced
+        and $node->{'extra'}->{'is_target'}) {
       $registrar->line_warn($customization_information,
                             sprintf(__("node `%s' unreferenced"),
                                     target_element_to_texi_label($node)),
@@ -762,12 +764,15 @@ sub complete_node_tree_with_menus($$$$)
         and $node->{'structure'}->{'node_up'}
         # No check if node up is an external manual
         and (!$node->{'structure'}->{'node_up'}->{'extra'}->{'manual_content'})
+        # no check for a redundant node, the node registered in the menu
+        # was the main equivalent node
+        and $node->{'extra'}->{'is_target'}
         and (!$node->{'structure'}->{'menu_up_hash'}
           or !$node->{'structure'}->{'menu_up_hash'}->{$node->{'structure'}
                                    ->{'node_up'}->{'extra'}->{'normalized'}})) {
       # check if up node has a menu
       if ($node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}
-          and @{$node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}}) {
+          and scalar(@{$node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}})) {
         $registrar->line_warn($customization_information,
          sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"),
@@ -795,14 +800,15 @@ sub nodes_tree($$$$$)
   my $top_node;
   # Go through all the nodes and set directions.
   foreach my $node (@{$nodes_list}) {
-    if ($node->{'extra'}->{'normalized'} eq 'Top') {
+    if ($node->{'extra'}->{'normalized'} eq 'Top'
+        and $node->{'extra'}->{'is_target'}) {
       $top_node = $node;
     }
     my $automatic_directions
       = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
 
     if ($automatic_directions) {
-      if ($node->{'extra'}->{'normalized'} ne 'Top') {
+      if ($node ne $top_node) {
         foreach my $direction (@node_directions) {
           # prev already defined for the node first Top node menu entry
           if ($direction eq 'prev' and $node->{'node_'.$direction}
