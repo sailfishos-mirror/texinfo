@@ -336,12 +336,12 @@ sub set_nodes_list_labels($$$)
   my $configuration_information = shift;
 
   $self->{'nodes_list'} = [];
-  my %labels = ();
+  my %identifier_target = ();
   if (defined $self->{'labels_list'}) {
     for my $element (@{$self->{'labels_list'}}) {
       if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
         my $normalized = $element->{'extra'}->{'normalized'};
-        if (defined $labels{$normalized}) {
+        if (defined $identifier_target{$normalized}) {
           my $label_element = Texinfo::Common::get_label_element($element);
           $registrar->line_error($configuration_information,
                                  sprintf(__("\@%s `%s' previously defined"),
@@ -351,10 +351,10 @@ sub set_nodes_list_labels($$$)
                                   $element->{'source_info'});
           $registrar->line_error($configuration_information,
                        sprintf(__("here is the previous definition as \@%s"),
-                               $labels{$normalized}->{'cmdname'}),
-                                 $labels{$normalized}->{'source_info'}, 1);
+                             $identifier_target{$normalized}->{'cmdname'}),
+                              $identifier_target{$normalized}->{'source_info'}, 1);
         } else {
-          $labels{$normalized} = $element;
+          $identifier_target{$normalized} = $element;
           if ($element->{'cmdname'} eq 'node') {
             push @{$self->{'nodes_list'}}, $element;
           }
@@ -363,7 +363,7 @@ sub set_nodes_list_labels($$$)
       }
     }
   }
-  $self->{'identifiers_target'} = \%labels;
+  $self->{'identifiers_target'} = \%identifier_target;
 }
 
 1;

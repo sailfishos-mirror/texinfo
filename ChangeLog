@@ -1,5 +1,10 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels):
+	rename %labels as %identifier_target.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	Rename 'nodes' in labels information key as 'nodes_list'
 
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
