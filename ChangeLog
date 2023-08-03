@@ -1,5 +1,10 @@
 2023-08-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Menus): Advertise the benefits of not using
+	@menu in Texinfo sources.
+
+2023-08-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Descriptions): New node to document
 	@nodedescription and @nodedescriptionblock.
 	(Menus): Edit slightly.
