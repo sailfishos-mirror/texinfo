@@ -1077,7 +1077,7 @@ sub test($$)
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
      = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
-                        $tree, $nodes_list, $labels_list, $identifier_target);
+                                                             $document);
     if (!defined($modified_contents)) {
       warn
        "$test_name: insert_nodes_for_sectioning_commands transformation return no result. No section?\n";

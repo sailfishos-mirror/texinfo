@@ -96,6 +96,26 @@ sub labels_information($)
          $self->{'nodes_list'};
 }
 
+# TODO document when stabilized
+# FIXME more specific name, node added as a reference, not in document as such
+sub add_node($$)
+{
+  my $self = shift;
+  my $node = shift;
+
+  if ($node->{'extra'} and $node->{'extra'}->{'normalized'}) {
+    my $normalized = $node->{'extra'}->{'normalized'};
+    # FIXME check if already in $self->{'identifiers_target'}
+    # using code in set_nodes_list_labels
+    $self->{'identifiers_target'}->{$normalized} = $node;
+    $node->{'extra'}->{'is_target'} = 1;
+  }
+  # FIXME do not push at the end but have the caller give the node it should be
+  # after or before?
+  push @{$self->{'labels_list'}}, $node;
+  push @{$self->{'nodes_list'}}, $node;
+}
+
 1;
 __END__
 =head1 NAME

@@ -34,6 +34,7 @@ use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Translations;
 use Texinfo::Structuring;
+use Texinfo::Document;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -193,14 +194,12 @@ sub reference_to_arg_in_tree($)
   return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
 }
 
-# prepare a new node
-# modifies $nodes_list, $targets_list, $labels
-sub _new_node($$$$)
+# prepare and add a new node as a possible cross reference targets
+# modifies $document
+sub _new_node($$)
 {
   my $node_tree = shift;
-  my $nodes_list = shift;
-  my $targets_list = shift;
-  my $labels = shift;
+  my $document = shift;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -246,8 +245,11 @@ sub _new_node($$$$)
   my $appended_number = 0 +$empty_node;
   my ($node, $normalized);
 
+  my ($identifier_target, $labels_list, $nodes_list)
+    = $document->labels_information();
   while (!defined($node)
-         or ($labels and $labels->{$normalized})) {
+         or ($identifier_target and $identifier_target->{$normalized})) {
+
     $node = {'cmdname' => 'node',
              'args' => [
                {'type' => 'line_arg',}
@@ -281,12 +283,10 @@ sub _new_node($$$$)
     }
     $appended_number++;
   }
-
   $node->{'extra'}->{'normalized'} = $normalized;
-  $node->{'extra'}->{'is_target'} = 1;
-  $labels->{$node->{'extra'}->{'normalized'}} = $node;
-  Texinfo::Common::register_label($targets_list, $node);
-  push @{$nodes_list}, $node;
+
+  Texinfo::Document::add_node($document, $node);
+
   return $node;
 }
 
@@ -332,13 +332,11 @@ sub _reassociate_to_node($$$$)
   return ($current);
 }
 
-# modifies $nodes_list, $targets_list, $labels
-sub insert_nodes_for_sectioning_commands($$$$)
+sub insert_nodes_for_sectioning_commands($)
 {
-  my $root = shift;
-  my $nodes_list = shift;
-  my $targets_list = shift;
-  my $labels = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my @added_nodes;
   my @contents;
@@ -356,8 +354,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
         $new_node_tree = Texinfo::Common::copy_tree({'contents'
           => $content->{'args'}->[0]->{'contents'}});
       }
-      my $new_node = _new_node($new_node_tree, $nodes_list,
-                               $targets_list, $labels);
+      my $new_node = _new_node($new_node_tree, $document);
       if (defined($new_node)) {
         push @contents, $new_node;
         push @added_nodes, $new_node;
@@ -822,12 +819,11 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands($tree, $nodes_list, $targets_list, $labels)
+=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands($document)
 X<C<insert_nodes_for_sectioning_commands>>
 
-Insert nodes for sectioning commands without node in C<$tree>.
-Add nodes to the labels used as targets for references C<$labels>
-and C<$targets_list> and to C<$nodes_list>.
+Insert nodes for sectioning commands without node in C<$document>
+tree.
 
 An array reference is returned, containing the root contents
 with added nodes, as well as an array reference containing the

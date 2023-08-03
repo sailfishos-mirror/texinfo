@@ -1,5 +1,16 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (_new_node)
+	(insert_nodes_for_sectioning_commands),
+	tp/Texinfo/Document.pm (add_node), Pod-Simple-Texinfo/pod2texi.pl
+	(_parsed_manual_tree), tp/t/automatic_nodes.t (test_new_node),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: apply Texinfo::Transformations
+	insert_nodes_for_sectioning_commands on a Texinfo::Document.  Add
+	add_node in Texinfo::Document to add a node as a target for
+	references.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_text, parse_texi_file),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
 	(parse_texi_text): fix call of Texinfo::Document::register.
