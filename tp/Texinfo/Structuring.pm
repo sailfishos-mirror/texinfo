@@ -474,11 +474,10 @@ sub check_nodes_are_referenced
 }
 
 # set menu directions
-sub set_menus_node_directions($$$$$$)
+sub set_menus_node_directions($$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
-  my $parser_information = shift;
   my $global_commands = shift;
   my $nodes_list = shift;
   my $identifier_target = shift;
@@ -788,11 +787,10 @@ sub complete_node_tree_with_menus($$$$)
 
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($$$$$)
+sub nodes_tree($$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
-  my $parser_information = shift;
   my $root = shift;
   my $identifier_target = shift;
 
@@ -1493,11 +1491,10 @@ sub print_element_directions($)
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($$$$$)
+sub associate_internal_references($$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
-  my $parser_information = shift;
   my $identifier_target = shift;
   my $refs = shift;
 
@@ -2369,18 +2366,17 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   my $registrar = $parser->registered_errors();
   my $sections_root = sectioning_structure ($registrar, $config, $tree);
   my $identifier_target = $parser->labels_information();
-  my $parser_information = $parser->global_information();
   my $global_commands = $parser->global_commands_information();
   my ($top_node, $nodes_list)
-              = nodes_tree($registrar, $config, $parser_information,
+              = nodes_tree($registrar, $config,
                             $tree, $identifier_target);
-  set_menus_node_directions($registrar, $config, $parser_information,
-                            $global_commands, $nodes_list, $identifier_target);
+  set_menus_node_directions($registrar, $config, $global_commands,
+                            $nodes_list, $identifier_target);
   complete_node_tree_with_menus($registrar, $config, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
                              $identifier_target, $refs);
-  associate_internal_references($registrar, $parser, $parser_information,
+  associate_internal_references($registrar, $parser,
                                 $identifier_target, $refs);
   number_floats($parser->floats_information());
   my $tree_units;
@@ -2461,7 +2457,7 @@ labels or refs are obtained from a parser, see L<Texinfo::Parser>.
 
 =over
 
-=item associate_internal_references($registrar, $customization_information, $parser_information, $identifier_target, $refs)
+=item associate_internal_references($registrar, $customization_information, $identifier_target, $refs)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
@@ -2621,7 +2617,7 @@ Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $top_node, $nodes_list = nodes_tree($registrar, $customization_information, $parser_information, $tree, $identifier_target)
+=item $top_node, $nodes_list = nodes_tree($registrar, $customization_information, $tree, $identifier_target)
 X<C<nodes_tree>>
 
 Goes through nodes in I<$tree> and set directions.  Returns the top
@@ -2701,7 +2697,7 @@ account C<@part> elements.
 
 =back
 
-=item set_menus_node_directions($registrar, $customization_information, $parser_information, $global_commands, $nodes_list, $identifier_target);
+=item set_menus_node_directions($registrar, $customization_information, $global_commands, $nodes_list, $identifier_target);
 X<C<set_menus_node_directions>>
 
 Goes through menu and set directions.  Register errors in I<$registrar>.

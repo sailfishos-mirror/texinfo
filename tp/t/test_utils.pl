@@ -1083,8 +1083,7 @@ sub test($$)
 
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
-                          $main_configuration, $parser_information,
-                          $identifier_target, $refs);
+                          $main_configuration, $identifier_target, $refs);
   my $structure_information = {};
   my ($sectioning_root, $sections_list)
         = Texinfo::Structuring::sectioning_structure($registrar,
@@ -1113,16 +1112,15 @@ sub test($$)
 
   my ($top_node, $nodes_list)
           = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $parser_information,
-                         $tree, $identifier_target);
+                         $main_configuration, $tree, $identifier_target);
 
   if ($converter_options->{'SIMPLE_MENU'}) {
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
-                      $main_configuration, $parser_information,
-                      $global_commands, $nodes_list, $identifier_target);
+                      $main_configuration, $global_commands, $nodes_list,
+                                                      $identifier_target);
   if (defined($top_node)) {
     $structure_information->{'top_node'} = $top_node;
   }

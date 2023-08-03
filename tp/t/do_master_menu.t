@@ -126,10 +126,9 @@ my $parser = Texinfo::Parser::parser();
 my $tree = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
 my $identifier_target = $parser->labels_information();
-my $parser_information = $parser->global_information();
 my $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                 $parser_information, $identifier_target, $refs);
+                                                      $identifier_target, $refs);
 my $top_node = $labels->{'Top'};
 my $master_menu = Texinfo::Structuring::new_master_menu($parser, $identifier_target,
                     $top_node->{'extra'}->{'menus'});
@@ -173,10 +172,9 @@ $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
-$parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                 $parser_information, $identifier_target, $refs);
+                                                   $identifier_target, $refs);
 $master_menu = Texinfo::Structuring::new_master_menu($parser, $identifier_target,
                     $top_node->{'extra'}->{'menus'});
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
@@ -186,10 +184,9 @@ $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($in_detailmenu);
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
-$parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                 $parser_information, $identifier_target, $refs);
+                                                    $identifier_target, $refs);
 Texinfo::Transformations::regenerate_master_menu($parser, $identifier_target);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -201,10 +198,9 @@ $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
-$parser_information = $parser->global_information();
 $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                 $parser_information, $identifier_target, $refs);
+                                                    $identifier_target, $refs);
 Texinfo::Transformations::regenerate_master_menu($parser, $identifier_target);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

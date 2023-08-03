@@ -303,11 +303,10 @@ sub _parsed_manual_tree($$$$$)
   my ($sectioning_root, $sections_list)
     = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
   my $refs = $texi_parser->internal_references_information();
-  my $parser_information = $texi_parser->global_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
   Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
-                                  $parser_information, $identifier_target, $refs);
+                                                      $identifier_target, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
   return ($texi_parser, $tree, $identifier_target);

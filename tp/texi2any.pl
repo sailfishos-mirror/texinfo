@@ -1573,8 +1573,7 @@ while(@input_files) {
 
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
-                                    $main_configuration, $parser_information,
-                                    $identifier_target, $refs);
+                                $main_configuration, $identifier_target, $refs);
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # FIXME the keys are not documented anywhere.  It is unclear where they
@@ -1611,8 +1610,7 @@ while(@input_files) {
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
     my ($top_node, $nodes_list)
          = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $parser_information,
-                         $tree, $identifier_target);
+                         $main_configuration, $tree, $identifier_target);
 
     if ((get_conf('SIMPLE_MENU')
          and $formats_table{$converted_format}->{'simple_menu'})
@@ -1630,7 +1628,7 @@ while(@input_files) {
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($registrar,
-               $main_configuration, $parser_information, $global_commands,
+               $main_configuration, $global_commands,
                $nodes_list, $identifier_target);
     }
     if (defined($top_node)) {

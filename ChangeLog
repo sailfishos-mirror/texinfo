@@ -1,5 +1,11 @@
 2023-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (set_menus_node_directions, nodes_tree)
+	(associate_internal_references): remove unused parser_information
+	arguments.  Update callers.
+
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree),
 	tp/Texinfo/Transformations.pm (insert_nodes_for_sectioning_commands),
 	tp/t/automatic_nodes.t, tp/t/test_utils.pl (test), tp/texi2any.pl:
