@@ -1482,13 +1482,7 @@ while(@input_files) {
     }
   }
 
-  my ($identifier_target, $labels_list, $nodes_list)
-                                         = $parser->labels_information();
-  if ((get_conf('SIMPLE_MENU')
-       and $formats_table{$converted_format}->{'simple_menu'})
-      or $tree_transformations{'simple_menus'}) {
-    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
-  }
+  my ($identifier_target, $labels_list) = $parser->labels_information();
 
   # setup a configuration object which defines get_conf and gives the same as
   # get_conf() in main program.  It is for Structuring/Transformations methods
@@ -1613,9 +1607,17 @@ while(@input_files) {
   # this can be done for every format, since information is already gathered
   my $floats = $parser->floats_information();
 
-  my $top_node;
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
+    my ($top_node, $nodes_list)
+         = Texinfo::Structuring::nodes_tree($registrar,
+                         $main_configuration, $parser_information,
+                         $tree, $identifier_target);
 
+    if ((get_conf('SIMPLE_MENU')
+         and $formats_table{$converted_format}->{'simple_menu'})
+        or $tree_transformations{'simple_menus'}) {
+      Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
+    }
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if
     # 1) 'nodes_tree' is set for the converted format,
@@ -1630,9 +1632,6 @@ while(@input_files) {
                $main_configuration, $parser_information, $global_commands,
                $nodes_list, $identifier_target);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $parser_information,
-                         $nodes_list, $identifier_target);
     if (defined($top_node)) {
       $structure_information->{'top_node'} = $top_node;
     }

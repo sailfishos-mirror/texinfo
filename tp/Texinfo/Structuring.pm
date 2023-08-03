@@ -793,13 +793,19 @@ sub nodes_tree($$$$$)
   my $registrar = shift;
   my $customization_information = shift;
   my $parser_information = shift;
-  my $nodes_list = shift;
+  my $root = shift;
   my $identifier_target = shift;
-  return undef unless ($nodes_list and @{$nodes_list});
 
   my $top_node;
+  my @nodes_list = ();
   # Go through all the nodes and set directions.
-  foreach my $node (@{$nodes_list}) {
+  foreach my $node (@{$root->{'contents'}}) {
+    if (!$node->{'cmdname'} or $node->{'cmdname'} ne 'node'
+        or !$node->{'extra'}
+        or !defined($node->{'extra'}->{'normalized'})) {
+      next;
+    }
+    push @nodes_list, $node;
     if ($node->{'extra'}->{'normalized'} eq 'Top'
         and $node->{'extra'}->{'is_target'}) {
       $top_node = $node;
@@ -913,9 +919,9 @@ sub nodes_tree($$$$$)
       }
     }
   }
-  $top_node = $nodes_list->[0] if (!$top_node);
+  $top_node = $nodes_list[0] if (!$top_node and scalar(@nodes_list));
 
-  return $top_node;
+  return $top_node, \@nodes_list;
 }
 
 sub section_level_adjusted_command_name($)
@@ -2362,14 +2368,15 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   # $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
   my $sections_root = sectioning_structure ($registrar, $config, $tree);
-  my ($identifier_target, $labels_list, $nodes_list)
+  my ($identifier_target, $labels_list)
                             = $parser->labels_information();
   my $parser_information = $parser->global_information();
   my $global_commands = $parser->global_commands_information();
+  my ($top_node, $nodes_list)
+              = nodes_tree($registrar, $config, $parser_information,
+                            $tree, $identifier_target);
   set_menus_node_directions($registrar, $config, $parser_information,
                             $global_commands, $nodes_list, $identifier_target);
-  my $top_node = nodes_tree($registrar, $config, $parser_information,
-                            $nodes_list, $identifier_target);
   complete_node_tree_with_menus($registrar, $config, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
@@ -2556,7 +2563,7 @@ the file of each element.
 
 The API for association of pages/elements to files is not defined yet.
 
-=item @nodes_list = get_node_node_childs_from_sectioning($node)
+=item @children_nodes = get_node_node_childs_from_sectioning($node)
 X<C<get_node_node_childs_from_sectioning>>
 
 I<$node> is a node tree element.  Find the node I<$node> children based
@@ -2615,11 +2622,11 @@ Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $top_node = nodes_tree($registrar, $customization_information, $parser_information, $nodes_list, $identifier_target)
+=item $top_node, $nodes_list = nodes_tree($registrar, $customization_information, $parser_information, $tree, $identifier_target)
 X<C<nodes_tree>>
 
-Goes through nodes and set directions.  Returns the top
-node.  Register errors in I<$registrar>.
+Goes through nodes in I<$tree> and set directions.  Returns the top
+node and the list of nodes.  Register errors in I<$registrar>.
 
 This functions sets, in the C<structure> node element hash:
 

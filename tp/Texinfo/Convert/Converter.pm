@@ -194,8 +194,8 @@ sub converter(;$)
          = $conf->{'parser'}->global_commands_information();
       $converter->{'parser_info'} = $conf->{'parser'}->global_information();
       my $floats = $conf->{'parser'}->floats_information();
-      my ($identifier_target, $labels_list, $nodes_list)
-        = $conf->{'parser'}->labels_information();
+      my ($identifier_target, $labels_list)
+          = $conf->{'parser'}->labels_information();
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'identifiers_target'} = $identifier_target

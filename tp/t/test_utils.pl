@@ -1048,12 +1048,7 @@ sub test($$)
     }
   }
 
-  my ($identifier_target, $labels_list, $nodes_list)
-                             = $parser->labels_information();
-  if ($converter_options->{'SIMPLE_MENU'}) {
-    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
-  }
-
+  my ($identifier_target, $labels_list) = $parser->labels_information();
   my $parser_information = $parser->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
@@ -1116,12 +1111,18 @@ sub test($$)
   my $floats = $parser->floats_information();
 
 
+  my ($top_node, $nodes_list)
+          = Texinfo::Structuring::nodes_tree($registrar,
+                         $main_configuration, $parser_information,
+                         $tree, $identifier_target);
+
+  if ($converter_options->{'SIMPLE_MENU'}) {
+    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
+  }
+
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $parser_information,
                       $global_commands, $nodes_list, $identifier_target);
-  my $top_node = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $parser_information,
-                         $nodes_list, $identifier_target);
   if (defined($top_node)) {
     $structure_information->{'top_node'} = $top_node;
   }

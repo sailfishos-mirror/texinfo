@@ -34,7 +34,6 @@ sub register
   my $global_commands_information = shift;
   my $identifier_target = shift;
   my $labels_list = shift;
-  my $nodes_list = shift;
 
   my $document = {
     'tree' => $tree,
@@ -45,7 +44,6 @@ sub register
     'info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
-    'nodes_list' => $nodes_list,
   };
 
   bless $document;
@@ -92,8 +90,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'},
-         $self->{'nodes_list'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'};
 }
 
 # TODO document when stabilized
@@ -113,7 +110,6 @@ sub add_node($$)
   # FIXME do not push at the end but have the caller give the node it should be
   # after or before?
   push @{$self->{'labels_list'}}, $node;
-  push @{$self->{'nodes_list'}}, $node;
 }
 
 1;
@@ -134,7 +130,7 @@ Texinfo::Document - Texinfo document tree and information
     = $parser->internal_references_information();
   # $identifier_target is an hash reference on normalized
   # node/float/anchor names.
-  my ($identifier_target, $labels_list, $nodes_list)
+  my ($identifier_target, $labels_list)
           = $document->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
@@ -238,13 +234,12 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $identifier_target, $labels_list, $nodes_list = labels_information($document)
+=item $identifier_target, $labels_list = labels_information($document)
 X<C<labels_information>>
 
 I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$labels_list> is a list of labels @-command.  I<$nodes_list> is a
-list of all the nodes appearing in the document.
+I<$labels_list> is a list of labels @-command.
 
 =back
 

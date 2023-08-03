@@ -389,24 +389,6 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: @menu entry node name `top\' different from node name `ToP\'
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => '@menu entry node name `top\' different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `ToP\'
-',
-    'file_name' => '',
-    'line_nr' => 6,
-    'macro' => '',
-    'text' => '@menu entry node name `TOP\' different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
 ',
     'file_name' => '',
@@ -422,6 +404,24 @@ $result_errors{'double_top_in_menu'} = [
     'line_nr' => 9,
     'macro' => '',
     'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @menu entry node name `top\' different from node name `ToP\'
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@menu entry node name `top\' different from node name `ToP\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `ToP\'
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => '@menu entry node name `TOP\' different from node name `ToP\'',
     'type' => 'warning'
   }
 ];

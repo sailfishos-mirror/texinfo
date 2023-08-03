@@ -374,21 +374,21 @@ $result_errors{'equivalent_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@menu entry node name `@strong{node}\' different from node name `@samp{node}\'',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => 'Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@menu entry node name `@strong{node}\' different from node name `@samp{node}\'',
     'type' => 'warning'
   }
 ];

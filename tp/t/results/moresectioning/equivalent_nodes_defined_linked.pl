@@ -614,21 +614,21 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @menu entry node name `@strong{chap}\' different from node name `chap\'
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@menu entry node name `@strong{chap}\' different from node name `chap\'',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => 'Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @menu entry node name `@strong{chap}\' different from node name `chap\'
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@menu entry node name `@strong{chap}\' different from node name `chap\'',
     'type' => 'warning'
   }
 ];

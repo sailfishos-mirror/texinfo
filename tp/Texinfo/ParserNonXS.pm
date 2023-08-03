@@ -805,7 +805,7 @@ sub parse_texi_text($$;$)
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
+     $self->{'identifiers_target'}, $self->{'labels_list'});
 }
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
@@ -907,7 +907,7 @@ sub parse_texi_file($$)
   my $document = Texinfo::Document::register($tree,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'}, $self->{'nodes_list'});
+     $self->{'identifiers_target'}, $self->{'labels_list'});
 }
 
 sub _parse_texi_document($)
@@ -990,8 +990,7 @@ sub global_information($)
 sub labels_information($)
 {
   my $self = shift;
-  return $self->{'identifiers_target'}, $self->{'labels_list'},
-         $self->{'nodes_list'};
+  return $self->{'identifiers_target'}, $self->{'labels_list'});
 }
 
 sub registered_errors($)
@@ -7980,7 +7979,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $internal_references_array
     = $parser->internal_references_information();
   # $identifier_target is an hash reference on normalized node/float/anchor names.
-  my ($identifier_target, $labels_list, $nodes_list) = $parser->labels_information();
+  my ($identifier_target, $labels_list) = $parser->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
@@ -8219,13 +8218,12 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $identifier_target, $labels_list, $nodes_list = labels_information($parser)
+=item $identifier_target, $labels_list = labels_information($parser)
 X<C<labels_information>>
 
 I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
-I<$labels_list> is a list of labels @-command. I<$nodes_list> is a list of all
-the nodes appearing in the document.
+I<$labels_list> is a list of labels @-command.
 
 =back
 
