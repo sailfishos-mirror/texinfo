@@ -18,6 +18,7 @@
 
 #include "parser.h"
 #include "convert_to_texinfo.h"
+#include "node_name_normalization.h"
 #include "source_marks.h"
 #include "labels.h"
 
@@ -55,8 +56,10 @@ void
 check_register_target_element_label (ELEMENT *label_element,
                                      ELEMENT *target_element)
 {
-  if (label_element)
+  if (label_element && label_element->contents.number > 0)
     {
+      char *normalized;
+      char *non_hyphen_char;
       /* check that the label used as an anchor for link target has no
          external manual part */
       NODE_SPEC_EXTRA *label_info = parse_node_manual (label_element, 0);
@@ -68,6 +71,19 @@ check_register_target_element_label (ELEMENT *label_element,
           free (texi);
         }
       destroy_node_spec (label_info);
+      normalized = convert_to_identifier (label_element);
+      non_hyphen_char = normalized + strspn (normalized, "-");
+      if (!*non_hyphen_char)
+        {
+          line_error_ext (error, &target_element->source_info,
+                          "empty node name after expansion `%s'",
+                           convert_contents_to_texinfo (label_element));
+          free (normalized);
+        }
+      else
+        {
+          add_extra_string (target_element, "normalized", normalized);
+        }
     }
   register_label (target_element);
 }

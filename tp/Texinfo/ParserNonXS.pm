@@ -3725,8 +3725,15 @@ sub _end_line_misc_line($$$)
         }
       }
     }
-    _check_register_target_element_label($self, $current->{'args'}->[0],
+    my $label_element = $current->{'args'}->[0];
+    if (not $label_element or not $label_element->{'contents'}) {
+      $self->_line_error(
+        sprintf(__("empty argument in \@%s"),
+          $current->{'cmdname'}), $current->{'source_info'});
+    }
+    _check_register_target_element_label($self, $label_element,
                                          $current, $source_info);
+
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
       if (not $part->{'extra'}
@@ -4078,7 +4085,7 @@ sub _end_line_starting_block($$$)
     $current->{'source_info'} = $source_info;
     my $float_label_element;
     $float_label_element = $current->{'args'}->[1]
-      if ($current->{'args'} and scalar(@{$current->{'args'}}) > 2);
+      if ($current->{'args'} and scalar(@{$current->{'args'}}) >= 2);
     _check_register_target_element_label($self, $float_label_element,
                                          $current, $source_info);
 
@@ -4601,7 +4608,7 @@ sub _check_register_target_element_label($$$$)
 {
   my ($self, $label_element, $target_element, $source_info) = @_;
 
-  if ($label_element) {
+  if ($label_element and $label_element->{'contents'}) {
     my ($label_info, $modified_node_content)
       = Texinfo::Common::parse_node_manual($label_element);
     if ($label_info and $label_info->{'manual_content'}) {
@@ -4610,6 +4617,19 @@ sub _check_register_target_element_label($$$$)
        Texinfo::Convert::Texinfo::convert_to_texinfo(
                                     {'contents' => $label_element->{'contents'}})),
                          $source_info);
+    }
+    my $normalized
+         = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+             $label_element);
+    if ($normalized !~ /[^-]/) {
+      $self->_line_error(sprintf(__("empty node name after expansion `%s'"),
+                         # convert the contents only, to avoid spaces
+                              Texinfo::Convert::Texinfo::convert_to_texinfo(
+                               {'contents' => $label_element->{'contents'}})),
+                                 $target_element->{'source_info'});
+    } else {
+      $target_element->{'extra'} = {} if (!$target_element->{'extra'});
+      $target_element->{'extra'}->{'normalized'} = $normalized;
     }
   }
   Texinfo::Common::register_label($self->{'targets'}, $target_element);

@@ -68,9 +68,9 @@ unicode_accent (const char *text, ELEMENT *e)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */
-            return "\xc4\xb1";
+            return strdup("\xc4\xb1");
           else if (!strcmp (text, "j"))
-            return "\xc8\xb7";
+            return strdup("\xc8\xb7");
         }
       /* also correct for dotless I as dotless I is I */
       return strdup(text);

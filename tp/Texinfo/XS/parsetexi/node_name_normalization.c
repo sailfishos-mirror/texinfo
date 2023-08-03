@@ -132,7 +132,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
           int *arguments_order = ref_5_args_order;
           if (e->cmd == CM_inforef || e->cmd == CM_link)
             arguments_order = ref_3_args_order;
-          while (arguments_order[index] > 0)
+          while (arguments_order[index] >= 0)
             {
               if (e->args.number > arguments_order[index])
                 {
@@ -143,8 +143,9 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
                     e->args.list[arguments_order[index]], &arg_text);
                   if (arg_text.end > 0)
                     {
-                      int n = strcspn (arg_text.text, whitespace_chars);
-                      if (*(arg_text.text+n))
+                      char *non_space_char = arg_text.text
+                              + strspn (arg_text.text, whitespace_chars);
+                      if (*non_space_char)
                         {
                           ADD (arg_text.text);
                           free (arg_text.text);
@@ -199,7 +200,7 @@ protect_unicode_char (char *text, TEXT *result)
   encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
                                          iconveh_question_mark);
   next = u8_next (&next_char, encoded_u8);
-  if (next)
+  if (next && *next)
     bug ("Something left on next_str/encoded_u8\n");
   free (encoded_u8);
 
@@ -223,6 +224,7 @@ char *unicode_to_protected (char *text)
   char *p = text;
 
   text_init (&result);
+  text_append (&result, "");
 
   while (*p)
     {

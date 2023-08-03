@@ -1,3 +1,27 @@
+2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_check_register_target_element_label),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/labels.c
+	(check_register_target_element_label): warn for empty nodes in the
+	parsers and normalize target elements in the parsers, instead of in
+	set_nodes_list_labels.
+
+	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
+	(convert_to_normalized_internal): fix ref* conversion, fix 
+	check of empty ref argument.
+	(protect_unicode_char): avoid spurious error with empty next.
+	(unicode_to_protected): initialize to an empty line.
+
+	* tp/Texinfo/XS/parsetexi/unicode.c (unicode_accent): allocate dotless
+	accents strings such that they can be freed later.
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm
+	(_end_line_starting_block): really call
+	_check_register_target_element_label for float.
+
 2023-08-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (_output_anchor, _convert): add a

@@ -1508,6 +1508,7 @@ end_line_misc_line (ELEMENT *current)
   else if (current->cmd == CM_node)
     {
       int i;
+      ELEMENT *label_element;
 
       for (i = 1; i < current->args.number && i < 4; i++)
         {
@@ -1535,7 +1536,13 @@ end_line_misc_line (ELEMENT *current)
         }
 
       /* Now take care of the node itself */
-      check_register_target_element_label (current->args.list[0], current);
+      label_element = current->args.list[0];
+      if (label_element->contents.number == 0)
+        {
+          line_error_ext (error, &current->source_info,
+                          "empty argument in @%s", command_name (cmd));
+        }
+      check_register_target_element_label (label_element, current);
 
       if (current_part
           && !lookup_extra (current_part, "part_associated_section"))

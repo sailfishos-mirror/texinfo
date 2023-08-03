@@ -338,45 +338,26 @@ sub set_nodes_list_labels($$$)
   my %labels = ();
   if (defined $self->{'targets'}) {
     for my $target (@{$self->{'targets'}}) {
-      my $label_element = Texinfo::Common::get_label_element($target);
-      if ($label_element and $label_element->{'contents'}) {
-        my $normalized
-            = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                                                           $label_element);
-        if ($normalized !~ /[^-]/) {
+      if ($target->{'extra'} and defined($target->{'extra'}->{'normalized'})) {
+        my $normalized = $target->{'extra'}->{'normalized'};
+        if (defined $labels{$normalized}) {
+          my $label_element = Texinfo::Common::get_label_element($target);
           $registrar->line_error($configuration_information,
-                      sprintf(__("empty node name after expansion `%s'"),
-                         # convert the contents only, to avoid spaces
-                              Texinfo::Convert::Texinfo::convert_to_texinfo(
-                               {'contents' => $label_element->{'contents'}})),
-                                 $target->{'source_info'});
+                                 sprintf(__("\@%s `%s' previously defined"),
+                                         $target->{'cmdname'},
+                        Texinfo::Convert::Texinfo::convert_to_texinfo(
+                             {'contents' => $label_element->{'contents'}})),
+                                  $target->{'source_info'});
+          $registrar->line_error($configuration_information,
+                       sprintf(__("here is the previous definition as \@%s"),
+                               $labels{$normalized}->{'cmdname'}),
+                                 $labels{$normalized}->{'source_info'}, 1);
         } else {
-          $target->{'extra'} = {} if (!$target->{'extra'});
-          $target->{'extra'}->{'normalized'} = $normalized;
-          if (defined $labels{$normalized}) {
-            $registrar->line_error($configuration_information,
-                                   sprintf(__("\@%s `%s' previously defined"),
-                                           $target->{'cmdname'},
-                          Texinfo::Convert::Texinfo::convert_to_texinfo(
-                               {'contents' => $label_element->{'contents'}})),
-                                    $target->{'source_info'});
-            $registrar->line_error($configuration_information,
-                         sprintf(__("here is the previous definition as \@%s"),
-                                 $labels{$normalized}->{'cmdname'}),
-                                   $labels{$normalized}->{'source_info'}, 1);
-          } else {
-            $labels{$normalized} = $target;
-            if ($target->{'cmdname'} eq 'node') {
-              push @{$self->{'nodes'}}, $target;
-            }
-            $target->{'extra'}->{'is_target'} = 1;
+          $labels{$normalized} = $target;
+          if ($target->{'cmdname'} eq 'node') {
+            push @{$self->{'nodes'}}, $target;
           }
-        }
-      } else {
-        if ($target->{'cmdname'} eq 'node') {
-          $registrar->line_error($configuration_information,
-               sprintf(__("empty argument in \@%s"),
-                  $target->{'cmdname'}), $target->{'source_info'});
+          $target->{'extra'}->{'is_target'} = 1;
         }
       }
     }
