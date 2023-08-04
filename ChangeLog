@@ -1,5 +1,11 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm (%valid_tree_transformations):
+	Add 'complete_tree_nodes_missing_menu', which should have been in
+	this list as it is documented and implemented.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move new_master_menu
 
 	* tp/Texinfo/Transformations.pm

@@ -534,7 +534,9 @@ foreach my $valid_transformation ('simple_menus',
     'fill_gaps_in_sectioning', 'move_index_entries_after_items',
     'relate_index_entries_to_items',
     'insert_nodes_for_sectioning_commands',
-    'complete_tree_nodes_menus', 'regenerate_master_menu',
+    'complete_tree_nodes_menus',
+    'complete_tree_nodes_missing_menu',
+    'regenerate_master_menu',
     'indent_menu_descriptions') {
   $valid_tree_transformations{$valid_transformation} = 1;
 }
