@@ -25,7 +25,7 @@ require 5.00405;
 
 use strict;
 
-# Through rules in Makefile.am directory paths set through configure are
+# Through rules in Makefile.am, directory paths set through configure are
 # substituted directly in strings in the code, for example
 #   my $datadir = '@datadir@';
 # We always use these strings as byte string, therefore we explicitly
@@ -133,6 +133,7 @@ my $path_separator = $Config{'path_sep'};
 $path_separator = ':' if (!defined($path_separator));
 my $quoted_path_separator = quotemeta($path_separator);
 
+
 # Paths and file names
 my $curdir = File::Spec->curdir();
 my $updir = File::Spec->updir();
@@ -171,14 +172,6 @@ if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
   $pkgdatadir = File::Spec->catdir($datadir, 'texinfo');
 }
 
-# work-around in case libintl-perl do not do it itself
-# see http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html#The-LANGUAGE-variable
-
-if ((defined($ENV{"LC_ALL"}) and $ENV{"LC_ALL"} =~ /^(C|POSIX)$/)
-     or (defined($ENV{"LANG"}) and $ENV{"LANG"} =~ /^(C|POSIX)$/)) {
-  delete $ENV{"LANGUAGE"} if defined($ENV{"LANGUAGE"});
-}
-
 my $extensions_dir;
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir,
@@ -189,13 +182,22 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
 
 my $internal_extension_dirs = [$extensions_dir];
 
+
+# initial setup of messages internalisation framework
+# work-around in case libintl-perl do not do it itself
+# see http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html#The-LANGUAGE-variable
+
+if ((defined($ENV{"LC_ALL"}) and $ENV{"LC_ALL"} =~ /^(C|POSIX)$/)
+     or (defined($ENV{"LANG"}) and $ENV{"LANG"} =~ /^(C|POSIX)$/)) {
+  delete $ENV{"LANGUAGE"} if defined($ENV{"LANGUAGE"});
+}
+
 #my $messages_textdomain = 'texinfo';
 my $messages_textdomain = '@PACKAGE@';
 $messages_textdomain = 'texinfo' if ($messages_textdomain eq '@'.'PACKAGE@');
 my $strings_textdomain = '@PACKAGE@' . '_document';
 $strings_textdomain = 'texinfo_document'
    if ($strings_textdomain eq '@'.'PACKAGE@' . '_document');
-
 
 # we want a reliable way to switch locale, so we don't use the system
 # gettext.
@@ -218,6 +220,8 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
 Locale::Messages::bindtextdomain($messages_textdomain,
                                 File::Spec->catdir($datadir, 'locale'));
 
+
+# Set initial configuration
 
 # Version setting is complicated, because we cope with
 # * script with configure values substituted or not
@@ -271,7 +275,6 @@ if ($configured_version ne $Texinfo::Common::VERSION
        "for texi2any $Texinfo::Common::VERSION found!\n";
   die "Your installation of Texinfo is broken; aborting.\n";
 }
-
 
 my $configured_package = '@PACKAGE@';
 $configured_package = 'Texinfo' if ($configured_package eq '@' . 'PACKAGE@');
@@ -363,6 +366,7 @@ my $main_program_default_options = {
   %Texinfo::Common::default_main_program_customization_options,
 };
 
+
 # determine configuration directories.
 
 # used as part of binary strings
@@ -399,6 +403,7 @@ foreach my $texinfo_config_dir (@language_config_dirs) {
 # add texi2any extensions dir too, such as the init files there
 # can also be loaded as regular init files.
 push @program_init_dirs, $extensions_dir;
+
 
 sub _decode_i18n_string($$)
 {
@@ -493,15 +498,27 @@ sub remove_from_option_list($$) {
   return &Texinfo::Config::texinfo_remove_from_option_list(@_);
 }
 
-my @input_file_suffixes = ('.txi','.texinfo','.texi','.txinfo','');
+sub set_translations_encoding($)
+{
+  my $translations_encoding = shift;
 
-my @texi2dvi_args = ();
+  if (defined($translations_encoding)
+      and $translations_encoding ne 'us-ascii') {
+    my $Encode_encoding_object = find_encoding($translations_encoding);
+    my $perl_translations_encoding = $Encode_encoding_object->name();
 
-my %possible_split = (
-  'chapter' => 1,
-  'section' => 1,
-  'node' => 1,
-);
+    Locale::Messages::bind_textdomain_codeset($messages_textdomain,
+                                              $translations_encoding);
+    if (defined($perl_translations_encoding)) {
+      Locale::Messages::bind_textdomain_filter($messages_textdomain,
+                    \&_decode_i18n_string, $perl_translations_encoding);
+    }
+  }
+}
+
+
+# Setup customization and read customization files processed each time
+# the program is run
 
 # this associates the command line options to the arrays set during
 # command line parsing.
@@ -541,19 +558,9 @@ my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
       $real_command_name, $main_program_default_options, $cmdline_options);
 
-# FIXME should we reset the messages encoding if 'COMMAND_LINE_ENCODING'
-# is reset?
-my $messages_encoding = get_conf('COMMAND_LINE_ENCODING');
-if (defined($messages_encoding) and $messages_encoding ne 'us-ascii') {
-  my $Encode_encoding_object = find_encoding($messages_encoding);
-  my $perl_messages_encoding = $Encode_encoding_object->name();
-  Locale::Messages::bind_textdomain_codeset($messages_textdomain,
-                                            $messages_encoding);
-  if ($perl_messages_encoding) {
-    Locale::Messages::bind_textdomain_filter($messages_textdomain,
-                          \&_decode_i18n_string, $perl_messages_encoding);
-  }
-}
+# Need to do that early for early messages
+my $translations_encoding = get_conf('COMMAND_LINE_ENCODING');
+set_translations_encoding($translations_encoding);
 
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_config() in case loaded
@@ -562,6 +569,18 @@ foreach my $file (Texinfo::Common::locate_init_file($conf_file_name,
                   [ reverse(@program_config_dirs) ], 1)) {
   Texinfo::Config::GNUT_load_init_file($file);
 }
+
+# reset translations encodings if COMMAND_LINE_ENCODING was reset
+my $set_translations_encoding = get_conf('COMMAND_LINE_ENCODING');
+if (defined($set_translations_encoding)
+    and (not defined($translations_encoding)
+         or $set_translations_encoding ne $translations_encoding)) {
+  $translations_encoding = $set_translations_encoding;
+  set_translations_encoding($translations_encoding);
+}
+
+
+# Parse command line
 
 sub set_expansion($$) {
   my $region = shift;
@@ -575,6 +594,12 @@ sub set_expansion($$) {
        = grep {$_ ne $region} @{$default_expanded_format};
   }
 }
+
+my %possible_split = (
+  'chapter' => 1,
+  'section' => 1,
+  'node' => 1,
+);
 
 my $format_from_command_line = 0;
 
@@ -674,6 +699,7 @@ my %formats_table = (
 );
 
 my $call_texi2dvi = 0;
+my @texi2dvi_args = ();
 
 # previous_format should be in argument if there is a possibility of error.
 # as a fallback, the $format global variable is used.
@@ -720,58 +746,6 @@ sub set_format($;$$)
   }
   return $new_format;
 }
-
-sub _exit($$)
-{
-  my $error_count = shift;
-  my $opened_files = shift;
-
-  if ($error_count and $opened_files and !get_conf('FORCE')) {
-    while (@$opened_files) {
-      my $opened_file = shift (@$opened_files);
-      unlink ($opened_file);
-    }
-  }
-  exit (1) if ($error_count and (!get_conf('FORCE')
-     or $error_count > get_conf('ERROR_LIMIT')));
-}
-
-sub handle_errors($$$)
-{
-  my $self = shift;
-  my $error_count = shift;
-  my $opened_files = shift;
-
-  my ($errors, $new_error_count) = $self->errors();
-  $error_count += $new_error_count if ($new_error_count);
-  foreach my $error_message (@$errors) {
-    if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
-      my $s = '';
-      if ($error_message->{'file_name'}) {
-        my $file = $error_message->{'file_name'};
-
-        if (get_conf('TEST')) {
-          # otherwise out of source build fail since the file names
-          # are different
-          my ($directories, $suffix);
-          ($file, $directories, $suffix) = fileparse($file);
-        }
-        $s .= "$file:";
-      }
-      if (defined($error_message->{'line_nr'})) {
-        $s .= $error_message->{'line_nr'} . ':';
-      }
-      $s .= ' ' if ($s ne '');
-
-      $s .= _encode_message($error_message->{'error_line'});
-      warn $s;
-    }
-  }
-
-  _exit($error_count, $opened_files);
-  return $error_count;
-}
-
 
 sub _get_converter_default($)
 {
@@ -1124,13 +1098,21 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
                    push @texi2dvi_args, '--'.$_[0]; },
 );
 
-
 exit 1 if (!$result_options);
 
 # those are strings combined with output so decode
 my $ref_css_refs = get_conf('CSS_REFS');
 my @input_css_refs = @{$ref_css_refs};
 @$ref_css_refs = map {_decode_input($_)} @input_css_refs;
+
+# reset translations encoding if COMMAND_LINE_ENCODING was reset
+$set_translations_encoding = get_conf('COMMAND_LINE_ENCODING');
+if (defined($set_translations_encoding)
+    and (not defined($translations_encoding)
+         or $set_translations_encoding ne $translations_encoding)) {
+  $translations_encoding = $set_translations_encoding;
+  set_translations_encoding($translations_encoding);
+}
 
 # Change some options depending on the settings of other ones set formats
 sub process_config {
@@ -1180,6 +1162,7 @@ if (get_conf('TEST')) {
   }
 }
 
+my @input_file_suffixes = ('.txi','.texinfo','.texi','.txinfo','');
 
 my %format_names = (
  'info' => 'Info',
@@ -1226,6 +1209,57 @@ if ($call_texi2dvi) {
   }
 } elsif($Xopt_arg_nr) {
   document_warn(__('--Xopt option without printed output'));
+}
+
+sub _exit($$)
+{
+  my $error_count = shift;
+  my $opened_files = shift;
+
+  if ($error_count and $opened_files and !get_conf('FORCE')) {
+    while (@$opened_files) {
+      my $opened_file = shift (@$opened_files);
+      unlink ($opened_file);
+    }
+  }
+  exit (1) if ($error_count and (!get_conf('FORCE')
+     or $error_count > get_conf('ERROR_LIMIT')));
+}
+
+sub handle_errors($$$)
+{
+  my $self = shift;
+  my $error_count = shift;
+  my $opened_files = shift;
+
+  my ($errors, $new_error_count) = $self->errors();
+  $error_count += $new_error_count if ($new_error_count);
+  foreach my $error_message (@$errors) {
+    if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
+      my $s = '';
+      if ($error_message->{'file_name'}) {
+        my $file = $error_message->{'file_name'};
+
+        if (get_conf('TEST')) {
+          # otherwise out of source build fail since the file names
+          # are different
+          my ($directories, $suffix);
+          ($file, $directories, $suffix) = fileparse($file);
+        }
+        $s .= "$file:";
+      }
+      if (defined($error_message->{'line_nr'})) {
+        $s .= $error_message->{'line_nr'} . ':';
+      }
+      $s .= ' ' if ($s ne '');
+
+      $s .= _encode_message($error_message->{'error_line'});
+      warn $s;
+    }
+  }
+
+  _exit($error_count, $opened_files);
+  return $error_count;
 }
 
 require Texinfo::Parser;
