@@ -3240,65 +3240,48 @@ sub _parse_def($$$$)
   my $arg_type;
   my $arg_types_nr;
 
-  if ($self->{'macros'}->{$command}) {
-    my $macro = $self->{'macros'}->{$command}->{'element'};
-    my $args_total = scalar(@{$macro->{'args'}}) -1;
-    if ($args_total > 0) {
-      my $arg_index;
-      # the first argument is the macro name
-      for ($arg_index=1; $arg_index<=$args_total; $arg_index++) {
-        if (defined($macro->{'args'}->[$arg_index])) {
-          push @args, $macro->{'args'}->[$arg_index]->{'text'};
-        }
-      }
+  # could have used def_aliases, but use code more similar with the XS parser
+  if ($def_alias_commands{$command}) {
+    my $real_command = $def_aliases{$command};
+    my $category;
+    my $translation_context;
+    my $category_translation_context = $def_map{$command}->{$real_command};
+    # if the translation requires a context, $category_translation_context
+    # is an array reference, otherwise it is a string.
+    if (ref($category_translation_context) eq '') {
+      $category = $category_translation_context;
+    } else {
+      ($translation_context, $category) = @$category_translation_context;
     }
-    $arg_types_nr = $args_total;
-    if ($arg_types_nr > 0) {
-      # remove one for the rest of the line argument
-      $arg_types_nr--;
-    }
-  } else{
-    # could have used def_aliases, but use code more similar with the XS parser
-    if ($def_alias_commands{$command}) {
-      my $real_command = $def_aliases{$command};
-      my $category;
-      my $translation_context;
-      my $category_translation_context = $def_map{$command}->{$real_command};
-      # if the translation requires a context, $category_translation_context
-      # is an array reference, otherwise it is a string.
-      if (ref($category_translation_context) eq '') {
-        $category = $category_translation_context;
-      } else {
-        ($translation_context, $category) = @$category_translation_context;
-      }
-      my $bracketed = { 'type' => 'bracketed_inserted',
-                        'parent' => $current };
-      my $content = { 'text' => $category, 'parent' => $bracketed };
-      # the category string is an english string (such as Function).  If
-      # documentlanguage is set it needs to be translated during the conversion.
-      if (defined($self->{'documentlanguage'})) {
-        $content->{'type'} = 'untranslated';
-        $content->{'extra'} = {'documentlanguage' => $self->{'documentlanguage'}};
-        if (defined($translation_context)) {
-          $content->{'extra'}->{'translation_context'} = $translation_context;
-        }
-      }
-      @{$bracketed->{'contents'}} = ($content);
 
-      unshift @contents, $bracketed,
-                         { 'text' => ' ', 'type' => 'spaces_inserted',
-                           'parent' => $current,
-                           'extra' => {'def_role' => 'spaces'},
-                         };
-
-      $command = $def_aliases{$command};
+    my $bracketed = { 'type' => 'bracketed_inserted',
+                      'parent' => $current };
+    my $content = { 'text' => $category, 'parent' => $bracketed };
+    # the category string is an english string (such as Function).  If
+    # documentlanguage is set it needs to be translated during the conversion.
+    if (defined($self->{'documentlanguage'})) {
+      $content->{'type'} = 'untranslated';
+      $content->{'extra'} = {'documentlanguage' => $self->{'documentlanguage'}};
+      if (defined($translation_context)) {
+        $content->{'extra'}->{'translation_context'} = $translation_context;
+      }
     }
-    @args = @{$def_map{$command}};
-    $arg_type = pop @args if ($args[-1] eq 'arg' or $args[-1] eq 'argtype');
-    # If $arg_type is not set (for @def* commands that are not documented
-    # to take args), everything happens as if arg_type was set to 'arg'.
-    $arg_types_nr = scalar(@args);
+    @{$bracketed->{'contents'}} = ($content);
+
+    unshift @contents, $bracketed,
+                       { 'text' => ' ', 'type' => 'spaces_inserted',
+                         'parent' => $current,
+                         'extra' => {'def_role' => 'spaces'},
+                       };
+
+    $command = $def_aliases{$command};
   }
+  @args = @{$def_map{$command}};
+  $arg_type = pop @args if ($args[-1] eq 'arg' or $args[-1] eq 'argtype');
+  # If $arg_type is not set (for @def* commands that are not documented
+  # to take args), everything happens as if arg_type was set to 'arg'.
+  $arg_types_nr = scalar(@args);
+
   @contents = map (_split_def_args($self, $_, $current, $source_info),
                    @contents );
   @new_contents = @contents;
@@ -3318,33 +3301,6 @@ sub _parse_def($$$$)
     } else {
       last;
     }
-  }
-  if ($self->{'macros'}->{$command}) {
-    while ($contents_idx < scalar(@{$current->{'contents'}})
-           and $current->{'contents'}->[$contents_idx]->{'type'}
-           and $current->{'contents'}->[$contents_idx]->{'type'} eq 'spaces') {
-      $contents_idx++;
-    }
-    if ($contents_idx < scalar(@{$current->{'contents'}})
-        # should only happen if there is no argument at all for the linemacro
-        and $i < scalar(@args)) {
-      my $contents_nr = scalar(@{$current->{'contents'}}) - $contents_idx;
-      if ($contents_nr == 1) {
-        $result{$args[$i]} = $current->{'contents'}->[$contents_idx];
-      } else {
-        my @gathered_contents
-          = splice(@{$current->{'contents'}}, $contents_idx,
-                   $contents_idx + $contents_nr);
-        my $new = {'type' => 'def_aggregate', 'parent' => $current,
-                   'contents' => \@gathered_contents};
-        foreach my $content (@gathered_contents) {
-          $content->{'parent'} = $new;
-        }
-        splice (@{$current->{'contents'}}, $contents_idx, 0, ($new));
-        $result{$args[$i]} = $new;
-      }
-    }
-    return \%result;
   }
 
   foreach my $type (keys(%result)) {

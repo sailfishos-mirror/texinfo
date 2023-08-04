@@ -30,8 +30,6 @@
 #include "source_marks.h"
 #include "errors.h"
 #include "builtin_commands.h"
-/* FIXME remove */
-#include "macro.h"
 /*
 #include "debug.h"
 */
@@ -387,62 +385,30 @@ parse_def (enum command_id command, ELEMENT *current)
       insert_into_contents (current, e, contents_idx + 1);
     }
 
-  /* prepare the arguments numbers and list */
-  if (command_data(command).flags & CF_MACRO)
+ /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS]. */
+
+  for (i_def = 0; i_def < sizeof (def_maps) / sizeof (*def_maps); i_def++)
     {
-      int args_number;
-      MACRO *macro_record = lookup_macro (command);
-      ELEMENT *macro;
-      if (!macro_record)
-        fatal ("no linemacro record for arguments parsing");
-      macro = macro_record->element;
-      args_number = macro->args.number - 1;
-      arguments_list = malloc ((args_number + 1) * sizeof (char *));
-      arguments_list[args_number] = 0;
-      arg_types_nr = args_number;
-      if (args_number > 0)
-        {
-          int arg_index;
-          ELEMENT **args = macro->args.list;
-          for (arg_index = 1; arg_index <= args_number; arg_index++)
-            {
-              if (args[arg_index]->type == ET_macro_arg)
-                arguments_list[arg_index -1] = args[arg_index]->text.text;
-              else
-                arguments_list[arg_index -1] = 0;
-            }
-          /* remove one for the rest of the line argument */
-          arg_types_nr--;
-        }
-      result = malloc ((args_number+1) * sizeof (DEF_ARG *));
+      if (def_maps[i_def].command == command)
+        goto def_found;
     }
-  else
+  fatal ("no arguments for def command");
+ def_found:
+
+  /* determine non arg/argtype number of arguments */
+  arg_types_nr = 0;
+  arguments_list = def_maps[i_def].arguments;
+  while (arguments_list[arg_types_nr])
     {
-     /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS]. */
+      char *arg_type_name = arguments_list[arg_types_nr];
 
-      for (i_def = 0; i_def < sizeof (def_maps) / sizeof (*def_maps); i_def++)
-        {
-          if (def_maps[i_def].command == command)
-            goto def_found;
-        }
-      fatal ("no arguments for def command");
-     def_found:
-
-      /* determine non arg/argtype number of arguments */
-      arg_types_nr = 0;
-      arguments_list = def_maps[i_def].arguments;
-      while (arguments_list[arg_types_nr])
-        {
-          char *arg_type_name = arguments_list[arg_types_nr];
-
-          /* FIXME keep information about arg/argtype? */
-          if (!strcmp (arg_type_name, "arg")
-              || !strcmp (arg_type_name, "argtype"))
-            break;
-          arg_types_nr++;
-        }
-      result = malloc ((arg_types_nr+1) * sizeof (DEF_ARG *));
+      /* FIXME keep information about arg/argtype? */
+      if (!strcmp (arg_type_name, "arg")
+          || !strcmp (arg_type_name, "argtype"))
+        break;
+      arg_types_nr++;
     }
+  result = malloc ((arg_types_nr+1) * sizeof (DEF_ARG *));
 
   for (i = 0; i < arg_types_nr; i++)
     {
@@ -462,41 +428,6 @@ parse_def (enum command_id command, ELEMENT *current)
     }
 
   result[i] = 0;
-  if (command_data(command).flags & CF_MACRO)
-    {
-      while (contents_idx < current->contents.number
-             && current->contents.list[contents_idx]->type == ET_spaces)
-        contents_idx++;
-      /* note that element at contents_idx is not collected at that point */
-      /* arguments_list[i] NULL should only happen if there is no
-         argument at all for the linemacro */
-      if (contents_idx < current->contents.number && arguments_list[i])
-        {
-          DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
-          int contents_nr = current->contents.number - contents_idx;
-
-          result[i] = def_arg;
-          result[i+1] = 0;
-
-          def_arg->arg_type = strdup (arguments_list[i]);
-          if (contents_nr == 1)
-            def_arg->element = current->contents.list[contents_idx];
-          else
-            {
-              ELEMENT *new = new_element (ET_def_aggregate);
-              int j;
-              for (j = 0; j < contents_nr; j++)
-                {
-                  add_to_element_contents (new,
-                                           remove_from_contents (current,
-                                                                 contents_idx));
-                }
-              add_to_element_contents (current, new);
-              def_arg->element = new;
-            }
-        }
-      return result;
-    }
 
   for (i = 0; i < arg_types_nr; i++)
     {
