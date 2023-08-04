@@ -25,12 +25,12 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 	&& $(SHELL) ./maintain/regenerate_docstr.sh Makefile.docstr
 
 
-SUBDIRS = .
+SUBDIRS =
 if ! DISABLE_XS
 SUBDIRS += Texinfo/XS
 endif
 
-SUBDIRS += tests
+SUBDIRS += . tests
 
 DIST_SUBDIRS = Texinfo/XS tests
 

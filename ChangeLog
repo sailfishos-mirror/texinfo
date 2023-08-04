@@ -1,5 +1,11 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (SUBDIRS): revert previous change by removing again .
+	from the front, such that compilation in the XS directory proceeds
+	before checking in the current directory.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_def),
 	tp/Texinfo/XS/parsetexi/def.c (parse_def): remove obsolete code
 	corresponding to former design of linemacro args expansion.
