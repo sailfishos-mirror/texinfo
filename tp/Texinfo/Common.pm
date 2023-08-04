@@ -1946,7 +1946,8 @@ sub _collect_commands_list_in_tree($$$)
   }
 }
 
-# NB duplicated from Texinfo::Transformations
+# Return ($NORMALIZED_ENTRY_NODE, $NODE) where $NODE is the node referred to
+# by menu entry $ENTRY, and $NORMALIZED_ENTRY_NODE is the name of this node.
 sub _normalized_entry_associated_internal_node($;$)
 {
   my $entry = shift;

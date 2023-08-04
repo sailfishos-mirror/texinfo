@@ -412,7 +412,7 @@ sub complete_node_menu($;$)
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my ($normalized_entry_node, $node)
-              = _normalized_entry_associated_internal_node($entry);
+              = Texinfo::Common::_normalized_entry_associated_internal_node($entry);
             if (defined($normalized_entry_node)) {
               $existing_entries{$normalized_entry_node}
                 = [$menu, $entry];
@@ -520,29 +520,6 @@ sub complete_tree_nodes_missing_menu($;$)
       }
     }
   }
-}
-
-sub _normalized_entry_associated_internal_node($;$)
-{
-  my $entry = shift;
-  my $labels = shift;
-
-  foreach my $arg (@{$entry->{'contents'}}) {
-    if ($arg->{'type'} eq 'menu_entry_node') {
-      if (! $arg->{'extra'}->{'manual_content'}) {
-        my $normalized_entry_node = $arg->{'extra'}->{'normalized'};
-        if (defined($normalized_entry_node)) {
-          if ($labels) {
-            return ($normalized_entry_node, $labels->{$normalized_entry_node});
-          } else {
-            return ($normalized_entry_node, undef);
-          }
-        }
-      }
-      last;
-    }
-  }
-  return (undef, undef);
 }
 
 # self is used to pass down a translatable object with customization

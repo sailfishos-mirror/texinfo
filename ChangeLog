@@ -1,5 +1,12 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Structuring.pm,
+	* tp/Texinfo/Common.pm (_normalized_entry_associated_internal_node):
+	Remove duplicate definition in Structuring.pm, using the definition
+	in Common.pm instead.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (new_master_menu): Always take an array
 	reference as an argument with a list of menus to operate on, so
 	that there is only one way of calling this function.  Callers updated.
