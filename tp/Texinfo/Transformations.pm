@@ -522,71 +522,6 @@ sub complete_tree_nodes_missing_menu($;$)
   }
 }
 
-sub _print_down_menus($$);
-sub _print_down_menus($$)
-{
-  my $node = shift;
-  my $labels = shift;
-
-  my @master_menu_contents;
-
-  if ($node->{'extra'}->{'menus'} and scalar(@{$node->{'extra'}->{'menus'}})) {
-    my @node_children;
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
-      foreach my $entry (@{$menu->{'contents'}}) {
-        if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-          push @master_menu_contents, Texinfo::Common::copy_tree($entry);
-          # gather node children to recursively print their menus
-          my ($normalized_entry_node, $node)
-               = _normalized_entry_associated_internal_node($entry, $labels);
-          if (defined($node) and $node->{'extra'}) {
-            push @node_children, $node;
-          }
-        }
-      }
-    }
-    if (scalar(@master_menu_contents)) {
-      # Prepend node title
-      my $node_title_contents;
-      if ($node->{'extra'}->{'associated_section'}
-          and $node->{'extra'}->{'associated_section'}->{'args'}
-          and $node->{'extra'}->{'associated_section'}->{'args'}->[0]
-          and $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'}) {
-        $node_title_contents
-          = Texinfo::Common::copy_contents(
-                      $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'});
-      } else {
-        $node_title_contents
-           = Texinfo::Common::copy_contents($node->{'args'}->[0]->{'contents'});
-      }
-      my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
-      $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',
-                                          'parent' => $menu_comment};
-      $menu_comment->{'contents'}->[0]->{'contents'}
-        = [{'text' => "\n", 'type' => 'empty_line'}, @$node_title_contents,
-           {'text' => "\n", 'type' => 'empty_line'},
-           {'text' => "\n", 'type' => 'empty_line'}];
-      foreach my $content (@{$menu_comment->{'contents'}->[0]->{'contents'}}) {
-        $content->{'parent'} = $menu_comment->{'contents'}->[0];
-      }
-      unshift @master_menu_contents, $menu_comment;
-
-      # now recurse in the children
-      foreach my $child (@node_children) {
-        push @master_menu_contents, _print_down_menus($child, $labels);
-      }
-    }
-  }
-  return @master_menu_contents;
-}
-
-if (0) {
-  # it is needed to mark the translation as gdt is called like
-  # Texinfo::Translations::gdt($self, ' --- The Detailed Node Listing ---')
-  # and not like gdt(' --- The Detailed Node Listing ---')
-  gdt(' --- The Detailed Node Listing ---');
-}
-
 sub _normalized_entry_associated_internal_node($;$)
 {
   my $entry = shift;
@@ -610,46 +545,6 @@ sub _normalized_entry_associated_internal_node($;$)
   return (undef, undef);
 }
 
-sub new_master_menu($$)
-{
-  my $self = shift;
-  my $labels = shift;
-  my $node = $labels->{'Top'};
-  return undef if (!defined($node));
-
-  my @master_menu_contents;
-  if ($node->{'extra'}
-      and $node->{'extra'}->{'menus'}
-      and scalar(@{$node->{'extra'}->{'menus'}})) {
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
-      foreach my $entry (@{$menu->{'contents'}}) {
-        if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-          my ($normalized_entry_node, $node)
-               = _normalized_entry_associated_internal_node($entry, $labels);
-          if (defined($node) and $node->{'extra'}) {
-            push @master_menu_contents, _print_down_menus($node, $labels);
-          }
-        }
-      }
-    }
-  }
-  if (scalar(@master_menu_contents)) {
-    my $first_preformatted = $master_menu_contents[0]->{'contents'}->[0];
-    my $master_menu_title = Texinfo::Translations::gdt($self,
-                                      ' --- The Detailed Node Listing ---');
-    my @master_menu_title_contents;
-    foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
-      $content->{'parent'} = $first_preformatted;
-      push @master_menu_title_contents, $content;
-    }
-    unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
-    return Texinfo::Structuring::new_block_command(\@master_menu_contents, undef,
-                                                   'detailmenu');
-  } else {
-    return undef;
-  }
-}
-
 # self is used to pass down a translatable object with customization
 # information for the gdt() call.
 sub regenerate_master_menu($$)
@@ -659,7 +554,7 @@ sub regenerate_master_menu($$)
   my $top_node = $labels->{'Top'};
   return undef if (!defined($top_node));
 
-  my $new_master_menu = new_master_menu($self, $labels);
+  my $new_master_menu = Texinfo::Common::new_master_menu($self, $labels);
   return undef if (!defined($new_master_menu)
                    or !$top_node->{'extra'}
                    or !$top_node->{'extra'}->{'menus'}
@@ -972,13 +867,6 @@ menus of the nodes in C<$nodes_list>.
 A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
 container anymore, their content are merged directly in the menu in
 I<preformatted> container.
-
-=item $detailmenu = new_master_menu($translations, $labels)
-X<C<new_master_menu>>
-
-Returns a detailmenu tree element formatted as a master node.
-I<$translations>, if defined, should be a L<Texinfo::Translations> object and
-should also hold customization information.
 
 =item protect_hashchar_at_line_beginning($registrar, $customization_information, $tree)
 X<C<protect_hashchar_at_line_beginning>>
