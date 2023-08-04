@@ -1,5 +1,12 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Blank line before detailmenu
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <sectioning commands>:
+	Add a blank line before the inserted detailmenu block.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Structuring.pm,
 	* tp/Texinfo/Common.pm (_normalized_entry_associated_internal_node):
 	Remove duplicate definition in Structuring.pm, using the definition

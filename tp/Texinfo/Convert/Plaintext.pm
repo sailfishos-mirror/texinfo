@@ -3840,8 +3840,17 @@ sub _convert($$)
                                                         $self->{'labels'},
                                                         [ $menu_node ]);
           if ($detailmenu) {
-            # TODO: add a blank line before detailmenu, as in
-            # regenerate_master_menu.
+            # add a blank line before the detailed node listing
+            my $menu_comment = {'type' => 'menu_comment',
+                                'parent' => $menu_node};
+            push @{$menu_node->{'contents'}}, $menu_comment;
+            my $preformatted = {'type' => 'preformatted',
+                                'parent' => $menu_comment};
+            push @{$menu_comment->{'contents'}}, $preformatted;
+            my $empty_line = {'type' => 'after_menu_description_line',
+                              'text' => "\n", 'parent' => $preformatted};
+            push @{$preformatted->{'contents'}}, $empty_line;
+
             $detailmenu->{'parent'} = $menu_node;
             push @{$menu_node->{'contents'}}, $detailmenu;
           }

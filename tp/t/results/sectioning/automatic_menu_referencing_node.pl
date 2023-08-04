@@ -363,6 +363,7 @@ top
 * Menu:
 
 * Chapter::
+
  -- The Detailed Node Listing --
 
 chap
@@ -389,8 +390,8 @@ File: ,  Node: section,  Up: Chapter
 
 Tag Table:
 Node: Top27
-Node: Chapter160
-Node: section245
+Node: Chapter161
+Node: section246
 
 End Tag Table
 
