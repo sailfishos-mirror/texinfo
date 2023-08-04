@@ -31,4 +31,6 @@ typedef struct {
 extern ERROR_MESSAGE *error_list;
 extern size_t error_number;
 
+extern SOURCE_INFO current_source_info;
+
 #endif

@@ -21,6 +21,7 @@
 #include "node_name_normalization.h"
 #include "source_marks.h"
 #include "labels.h"
+#include "extra.h"
 
 /* Array of recorded elements with labels. */
 ELEMENT **target_elements_list = 0;

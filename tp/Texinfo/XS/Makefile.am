@@ -63,8 +63,9 @@ XSLIBS_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
 XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
 
 xs_LTLIBRARIES = XSParagraph.la TestXS.la
+# FIXME use main/text.*?
 XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
-			 text.c text.h ppport.h
+			 xspara_text.c xspara_text.h ppport.h
 TestXS_la_SOURCES = TestXS.c ppport.h
 TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
@@ -97,26 +98,33 @@ if HAVE_ICONV
 lib_LTLIBRARIES = libtexinfo.la
 endif
 
-# FIXME use a separate directory
 libtexinfo_la_SOURCES= \
-		      parsetexi/tree_types.h \
-		      parsetexi/tree.c \
-		      parsetexi/tree.h \
-		      parsetexi/element_types.c \
-		      parsetexi/element_types.h \
-		      parsetexi/commands.c \
-		      parsetexi/commands.h \
-		      parsetexi/command_ids.h \
-		      parsetexi/convert_to_texinfo.c \
-		      parsetexi/convert_to_texinfo.h \
-		      parsetexi/document.c \
-		      parsetexi/document.h
+		      main/tree_types.h \
+		      main/tree.c \
+		      main/tree.h \
+		      main/text.c \
+		      main/text.h \
+		      main/element_types.c \
+		      main/element_types.h \
+		      main/command_ids.h \
+		      main/builtin_commands.c \
+		      main/builtin_commands.h \
+		      main/debug.c \
+		      main/debug.h \
+		      main/errors.c \
+		      main/errors.h \
+		      main/extra.c \
+		      main/extra.h \
+		      main/convert_to_texinfo.c \
+		      main/convert_to_texinfo.h \
+		      main/document.c \
+		      main/document.h
 
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-libtexinfo_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
 
 
 ########################## parsetexi
@@ -138,14 +146,10 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/input.c \
 		      parsetexi/input.h \
 		      parsetexi/close.c \
-		      parsetexi/text.c \
-		      parsetexi/text.h \
 		      parsetexi/conf.c \
 		      parsetexi/conf.h \
 		      parsetexi/context_stack.c \
 		      parsetexi/context_stack.h \
-		      parsetexi/debug.c \
-		      parsetexi/debug.h \
 		      parsetexi/node_name_normalization.c \
 		      parsetexi/node_name_normalization.h \
 		      parsetexi/unicode.c \
@@ -155,23 +159,22 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/multitable.c \
 		      parsetexi/indices.c \
 		      parsetexi/indices.h \
+		      parsetexi/commands.c \
+		      parsetexi/commands.h \
 		      parsetexi/macro.c \
 		      parsetexi/macro.h \
 		      parsetexi/handle_commands.c \
 		      parsetexi/handle_commands.h \
 		      parsetexi/def.c \
 		      parsetexi/def.h \
-		      parsetexi/extra.c \
 		      parsetexi/menus.c \
 		      parsetexi/labels.c \
 		      parsetexi/labels.h \
-		      parsetexi/errors.c \
-		      parsetexi/errors.h \
 		      parsetexi/counter.c \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
 		      parsetexi/source_marks.h
-EXTRA_DIST += $(p)/command_data.c
+EXTRA_DIST += main/command_data.c
 EXTRA_DIST += $(p)/command_tables.c
 EXTRA_DIST += $(p)/unicode_tables.c
 
@@ -181,30 +184,30 @@ Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
 Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
-BUILT_SOURCES=parsetexi/element_types.c \
-              parsetexi/element_types.h \
-              parsetexi/command_data.c \
+BUILT_SOURCES=main/element_types.c \
+              main/element_types.h \
+              main/command_data.c \
               parsetexi/command_tables.c \
               parsetexi/unicode_tables.c \
-	      parsetexi/command_ids.h
+	      main/command_ids.h
 
 # Need to be distributed
-EXTRA_DIST+=$(p)/element_types.txt $(p)/element_types.awk \
-	   $(p)/command_data.awk
+EXTRA_DIST+=main/element_types.txt main/element_types.awk \
+	   main/command_data.awk
 
-$(srcdir)/$(p)/element_types.c $(srcdir)/$(p)/element_types.h: $(p)/element_types.txt $(p)/element_types.awk
-	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/element_types.awk \
-	     $(srcdir)/$(p)/element_types.txt
+$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
+	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
+	     $(srcdir)/main/element_types.txt
 
-$(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: ../command_data.txt $(p)/command_data.awk
-	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/command_data.awk \
+$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt main/command_data.awk
+	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
 
-$(srcdir)/$(p)/command_tables.c: $(srcdir)/$(p)/command_data.c
+$(srcdir)/$(p)/command_tables.c: $(srcdir)/main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
-           < $(srcdir)/$(p)/command_data.c \
+           < $(srcdir)/main/command_data.c \
               $(srcdir)/$(p)/command_tables.c $(srcdir)/$(p)/unicode_tables.c
 
 xs_LTLIBRARIES += ConvertXS.la
@@ -220,5 +223,5 @@ ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 

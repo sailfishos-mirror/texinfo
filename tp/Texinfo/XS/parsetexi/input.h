@@ -29,8 +29,6 @@ void clear_include_directories (void);
 char *save_string (char *string);
 void free_small_strings (void);
 
-extern SOURCE_INFO current_source_info;
-
 extern int input_number;
 extern int macro_expansion_nr;
 extern int value_expansion_nr;

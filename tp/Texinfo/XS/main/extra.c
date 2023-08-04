@@ -16,7 +16,9 @@
 #include <config.h>
 #include <string.h>
 
-#include "parser.h"
+#include "tree_types.h"
+#include "errors.h"
+#include "extra.h"
 
 static void
 add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,

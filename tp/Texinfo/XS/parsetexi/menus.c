@@ -24,6 +24,7 @@
 #include "convert_to_texinfo.h"
 #include "labels.h"
 #include "source_marks.h"
+#include "extra.h"
 
 /* Save 'menu_entry_node' extra keys. */
 ELEMENT *

@@ -30,6 +30,7 @@
 #include "def.h"
 #include "source_marks.h"
 #include "handle_commands.h"
+#include "extra.h"
 #include "node_name_normalization.h"
 
 static int

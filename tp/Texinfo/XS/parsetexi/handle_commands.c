@@ -25,6 +25,7 @@
 #include "tree.h"
 #include "input.h"
 #include "text.h"
+#include "extra.h"
 
 /* Return a containing @itemize or @enumerate if inside it. */
 ELEMENT *

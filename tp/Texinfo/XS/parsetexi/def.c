@@ -23,6 +23,7 @@
 #include "text.h"
 #include "source_marks.h"
 #include "debug.h"
+#include "extra.h"
 
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)

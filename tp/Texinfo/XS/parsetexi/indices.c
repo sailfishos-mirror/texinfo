@@ -18,6 +18,7 @@
 #include <stdio.h>
 
 #include "parser.h"
+#include "extra.h"
 #include "indices.h"
 
 INDEX **index_names = 0;

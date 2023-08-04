@@ -21,9 +21,9 @@
 
 #include "errors.h"
 #include "tree.h"
-#include "source_marks.h"
-/* for debug */
-#include "parser.h"
+/* for debug
+#include "debug.h"
+ */
 
 static struct obstack obs_element;
 static int *obs_element_first = 0;

@@ -144,9 +144,6 @@ int input_space = 0;
 int macro_expansion_nr = 0;
 int value_expansion_nr = 0;
 
-/* Current filename and line number.  Used for reporting. */
-SOURCE_INFO current_source_info;
-
 /* Collect text from the input sources until a newline is found.  This is used 
    instead of next_text when we need to be sure we get an entire line of 
    Texinfo input (for example as a line argument to a command), which might not 

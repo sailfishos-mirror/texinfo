@@ -1,4 +1,4 @@
-#include "text.h"
+#include "xspara_text.h"
 
 int xspara_new (HV *conf);
 void xspara_init_state (HV *hash);

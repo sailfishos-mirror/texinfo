@@ -24,6 +24,7 @@
 #include "convert_to_texinfo.h"
 #include "input.h"
 #include "labels.h"
+#include "extra.h"
 
 ELEMENT *
 handle_open_brace (ELEMENT *current, char **line_inout)

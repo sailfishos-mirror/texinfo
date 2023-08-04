@@ -21,7 +21,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "text.h"
+#include "xspara_text.h"
 
 /* Make sure there are LEN free bytes. */
 static void

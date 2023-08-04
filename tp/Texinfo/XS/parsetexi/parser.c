@@ -28,6 +28,7 @@
 #include "input.h"
 #include "source_marks.h"
 #include "element_types.h"
+#include "extra.h"
 /* for conf */
 #include "conf.h"
 /* for nesting_context */

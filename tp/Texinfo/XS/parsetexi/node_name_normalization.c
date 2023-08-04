@@ -27,6 +27,8 @@
 #include "tree_types.h"
 #include "element_types.h"
 #include "unicode.h"
+#include "extra.h"
+#include "builtin_commands.h"
 #include "text.h"
 
 /* put in another file? Add an extern declaration in the .h file?*/
@@ -94,7 +96,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
           if (k && k->value)
             {
               char *command_name = (char *) k->value;
-              cmd = lookup_command (command_name);
+              cmd = lookup_builtin_command (command_name);
               if (command_normalization_text[cmd])
                 ADD(command_normalization_text[cmd]);
             }

@@ -1,6 +1,6 @@
 /* parser.h - include many other header files.  type declarations.
    declarations for close.c, end_line.c, separator.c, parser.c,
-   multitable.c, extra.c and menu.c. */
+   multitable.c, and menu.c. */
 
 #ifndef PARSER_H
 #define PARSER_H
@@ -222,23 +222,6 @@ ELEMENT *setup_document_root_and_before_node_section (void);
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *item_multitable_parent (ELEMENT *current);
 void gather_previous_item (ELEMENT *current, enum command_id next_command);
-
-/* In extra.c */
-void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_contents (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_string (ELEMENT *e, char *key, char *value);
-void add_extra_string_dup (ELEMENT *e, char *key, char *value);
-void add_extra_integer (ELEMENT *e, char *key, long value);
-void add_info_string (ELEMENT *e, char *key, char *value);
-void add_info_string_dup (ELEMENT *e, char *key, char *value);
-void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
-KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
-KEY_PAIR *lookup_info (ELEMENT *e, char *key);
-ELEMENT *lookup_extra_element (ELEMENT *e, char *key);
-ELEMENT *lookup_info_element (ELEMENT *e, char *key);
 
 /* In menus.c */
 int handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout);

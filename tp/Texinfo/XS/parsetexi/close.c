@@ -22,6 +22,7 @@
 #include "def.h"
 #include "debug.h"
 #include "source_marks.h"
+#include "extra.h"
 
 /* Return CURRENT->parent.  The other arguments are used if an error message
    should be printed. */

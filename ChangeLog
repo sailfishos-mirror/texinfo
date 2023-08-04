@@ -1,5 +1,34 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (SUBDIRS): process . first, to be sure that
+	Texinfo/ModulePath.pm is created before going into Texinfo/XS.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(Parsetexi_la_SOURCES): put files used in libtexinfo in main from
+	parsetexi and generate files in main too.  Add debug.c, error.c,
+	extra.c, text.c to libtexinfo.  Move commands.c back to parsetexi.
+
+	* tp/Texinfo/XS/main/builtin_commands.c (lookup_builtin_command)
+	(compare_command_fn), tp/Texinfo/XS/parsetexi/commands.c
+	(lookup_command): split the code related to builtin commands out of
+	commands.c to builtin_commands.c.  Keep some information related to
+	user defined commands when needed for macros, for instance
+	command_name in builtin_commands.h.
+
+	* tp/Texinfo/XS/main/extra.h: split extra.h out of parser.h.
+
+	* tp/Texinfo/XS/Makefile.am (XSParagraph_la_SOURCES, xspara_text.c)
+	(xspara_text.h): rename text.c used in xspara.c as xspara_text.c,
+	similar for text.h, to avoid clash with the files in main/.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
+	search directly in builtin_command_data.
+
+	* tp/Texinfo/XS/main/errors.c (current_source_info),
+	tp/Texinfo/XS/parsetexi/input.c: move current_source_info to errors.c.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (XSLIBS_CFLAGS, XSLIBS_LDFLAGS): rename
 	xs_CFLAGS as XSLIBS_CFLAGS and xs_LDFLAGS as XSLIBS_LDFLAGS to avoid
 	an interpretation in which there would be eomthing special about those

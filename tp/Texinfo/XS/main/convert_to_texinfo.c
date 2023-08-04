@@ -24,10 +24,10 @@
 #include "tree_types.h"
 #include "text.h"
 /* for lookup_info* */
-#include "parser.h"
+#include "extra.h"
 /* new_element and destroy_element for convert_contents_to_texinfo */
 #include "tree.h"
-#include "commands.h"
+#include "builtin_commands.h"
 #include "element_types.h"
 #include "debug.h"
 #include "convert_to_texinfo.h"
@@ -117,12 +117,12 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
       if (spc_before_arg)
         ADD((char *)spc_before_arg->text.text);
 
-      if ((command_data(cmd).flags & CF_block
-           && ! (command_data(cmd).flags & CF_def
+      if ((builtin_command_data[cmd].flags & CF_block
+           && ! (builtin_command_data[cmd].flags & CF_def
                  || cmd == CM_multitable))
           || cmd == CM_node
-          || (command_data(cmd).flags & CF_brace)
-          || (command_data(cmd).flags & CF_INFOENCLOSE))
+          || (builtin_command_data[cmd].flags & CF_brace)
+          || (builtin_command_data[cmd].flags & CF_INFOENCLOSE))
         with_commas = 1;
 
       arg_nr = 0;

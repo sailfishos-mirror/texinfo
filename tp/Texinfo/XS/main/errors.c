@@ -25,7 +25,6 @@
 #include <stdio.h>
 
 #include "errors.h"
-#include "input.h"
 #include "text.h"
 #include "debug.h"
 
@@ -76,6 +75,9 @@ debug_error_warning_message (ERROR_MESSAGE *error_message)
   else
     fprintf (stderr, "%s\n", error_message->message);
 }
+
+/* Current filename and line number.  Used for reporting. */
+SOURCE_INFO current_source_info;
 
 ERROR_MESSAGE *error_list = 0;
 size_t error_number = 0;

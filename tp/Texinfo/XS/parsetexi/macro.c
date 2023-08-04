@@ -24,8 +24,10 @@
 #include "tree.h"
 #include "text.h"
 #include "input.h"
+#include "commands.h"
 #include "convert_to_texinfo.h"
 #include "source_marks.h"
+#include "extra.h"
 #include "macro.h"
 
 COUNTER count_toplevel_braces;

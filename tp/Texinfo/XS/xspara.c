@@ -46,7 +46,7 @@
 
 #include "xspara.h"
 
-#include "text.h"
+#include "xspara_text.h"
 
 int debug = 0;
 
