@@ -16132,9 +16132,16 @@ Indentation for @code{@@nodedescription} or @code{@@nodedescriptionblock}
 menu entry description formatting in Info.  Undefined by default, in which case
 44% of the fill column value is used (@pxref{Invoking @command{texi2any}}).
 
+@item CHECK_MISSING_MENU_ENTRY
+When a @code{@@menu} block occurs in a node, check if there is a menu
+entry for all subordinate nodes in the document sectioning structure.  On
+by default.
+
 @item CHECK_NORMAL_MENU_STRUCTURE
-Warn if the nodes pointers (either explicitly or automatically set)
-are not consistent with the order of node menu entries.
+Warn if the node pointers (either explicitly or automatically set)
+are not consistent with the order of node menu entries.  This is a more
+thorough structure check than that provided by
+@code{CHECK_MISSING_MENU_ENTRY}.  Off by default.
 
 @item CLOSE_QUOTE_SYMBOL
 When a closing quote is needed, use this character; default @code{&#8217;}

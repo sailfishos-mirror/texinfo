@@ -901,8 +901,10 @@ sub test($$)
     delete $parser_options->{'TREE_TRANSFORMATIONS'};
   }
 
-  # set FORMAT_MENU default to menu, which is the default for parser
-  my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
+  # set FORMAT_MENU default to menu, which is the default for the parser.
+  # get the same structuring warnings as texi2any.
+  my $added_main_configurations = {'FORMAT_MENU' => 'menu',
+                                   'CHECK_MISSING_MENU_ENTRY' => 1};
   
   # this is only used for index keys sorting in structuring
   foreach my $structuring_and_converter_option ('ENABLE_ENCODING') {

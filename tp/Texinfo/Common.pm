@@ -292,6 +292,7 @@ our %default_main_program_customization = (
             # automatic direction and directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
             # with menu directions.
+  'CHECK_MISSING_MENU_ENTRY'    => 1,
   'DUMP_TREE'                   => undef,
   'DUMP_TEXI'                   => undef,
   'SHOW_BUILTIN_CSS_RULES'      => 0,

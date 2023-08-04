@@ -22,7 +22,7 @@ See the manual for detailed information.
  . @itemx at the beginning of a @table is now an error, not a warning
  . better validity checking of deeply nested commands
  . warn about missing menu entries even if CHECK_NORMAL_MENU_STRUCTURE is
-   not set
+   not set.  you can turn this off by setting CHECK_MISSING_MENU_ENTRY to 0.
  . @set and @clear should only appear at the start of a line
  . --enable-encoding and --disable-encoding no longer determine whether
    encoded characters are output instead of entities or commands for
