@@ -122,6 +122,7 @@ BEGIN {
 }
 
 END {
+    print "#include \"commands.h\"" > CD
     print "COMMAND builtin_command_data[] = {" > CD
 
     print "0, 0, 0, 0," > CD
