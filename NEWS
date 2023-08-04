@@ -73,6 +73,7 @@ See the manual for detailed information.
  . microtype is off by default, for speed
 
 * info
+ . when going Up, position cursor on menu entry for current node
  . do not use "/index" as a possible file extension for Info files
 
 
