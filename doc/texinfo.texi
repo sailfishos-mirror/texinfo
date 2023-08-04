@@ -111,614 +111,8 @@ the menu lists all the lower-level nodes in the document.
 @end ifinfo
 
 
-@menu
-* Copying Conditions::          Your rights.
-* Overview::                    Texinfo in brief.
-* Writing a Texinfo File::      Format of a Texinfo source file.
-* Nodes::                       Writing nodes, the basic unit of Texinfo.
-* Chapter Structuring::         Creating chapters, sections, appendices, etc.
-* Cross References::            Writing cross-references.
-* Marking Text::                Marking words and phrases as code,
-                                    keyboard input, meta-syntactic
-                                    variables, and the like.
-* Quotations and Examples::     Block quotations, examples, etc.
-* Lists and Tables::            Itemized or numbered lists, and tables.
-* Special Displays::            Floating figures and footnotes.
-* Indices::                     Creating indices.
-* Insertions::                  Inserting @@-signs, braces, etc.
-* Breaks::                      Forcing or preventing line and page breaks.
-* Definition Commands::         Describing functions and the like uniformly.
-* Internationalization::        Supporting languages other than English.
-* Conditionals::                Specifying text for only some output cases.
-* Defining New Texinfo Commands:: User-defined macros and aliases.
-* Include Files::               How to incorporate other Texinfo files.
-* Hardcopy with @TeX{}::            Output for paper, with @TeX{}.
-* Generic Translator @command{texi2any}:: @command{texi2any}, an all-purpose converter.
-* Creating and Installing Info Files:: Details on Info output.
-* Generating HTML::             Details on HTML output.
-@c * texi2any Output Customization:: Fine tuning with initialization files.
-
-Appendices
-
-* @@-Command Details::           Details of the Texinfo @@-commands.
-* Tips::                        Hints on how to write a Texinfo document.
-* Sample Texinfo Files::        Complete examples, including full texts.
-* Texinfo Mode::                Using the GNU Emacs Texinfo mode.
-* Global Document Commands::    Affecting formatting throughout.
-* Info Format Specification::   Technical details of the Info file format.
-* GNU Free Documentation License:: Copying this manual.
-* Command and Variable Index::  A menu containing commands and variables.
-* General Index::               A menu covering many topics.
-
-@detailmenu
- --- The Detailed Node Listing ---
-
-Overview of Texinfo
-
-* Reporting Bugs::              Submitting effective bug reports.
-* Output Formats::              Overview of the supported output formats.
-* Info Files::                  What is an Info file?
-* Printed Books::               Characteristics of a printed book or manual.
-* Adding Output Formats::       Man pages and implementing new formats.
-* History::                     Acknowledgements, contributors and genesis.
-
-Writing a Texinfo File
-
-* Conventions::                 General rules for writing a Texinfo file.
-* Comments::                    Writing comments and ignored text in general.
-* Minimum::                     What a Texinfo file must have.
-* Short Sample Texinfo File::   A short sample Texinfo file.
-* Texinfo File Header::         The first lines.
-* Directory Category::          A category for a manual.
-* Document Permissions::        Ensuring your manual is free.
-* Titlepage & Copyright Page::  Creating the title and copyright pages.
-* Contents::                    How to create a table of contents.
-* The Top Node::                Creating the `Top' node and master menu.
-* The Body of the Document::    The rest of the nodes.
-* Ending a File::               What is at the end of a Texinfo file?
-
-Texinfo File Header
-
-* First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Give the name of the output file.
-* @code{@@settitle}::                   Create a title for the printed work.
-* Preamble::                    Start of the Texinfo file up to first content.
-* Start and End of Header::     Formatting a region in Emacs requires this.
-
-Document Permissions
-
-* @code{@@copying}::                    Declare the document's copying permissions.
-* @code{@@insertcopying}::              Where to insert the permissions.
-
-Title and Copyright Pages
-
-* @code{@@titlepage}::                  Create a title for the printed document.
-* @code{@@title @@subtitle @@author}::    The @code{@@title}, @code{@@subtitle},
-                                 and @code{@@author} commands.
-* @code{@@titlefont @@center @@sp}::      The @code{@@titlefont}, @code{@@center},
-                                 and @code{@@sp} commands.
-* Copyright::                   How to write the copyright notice and
-                                 include copying permissions.
-* Heading Generation::          Turn on page headings after the title and
-                                 copyright pages.
-
-The `Top' Node and Master Menu
-
-* Master Menu Parts::
-
-Nodes
-
-* Writing a Node::              How to write a @code{@@node} line.
-* Node Names::                  How to choose node names.
-* Node Line Requirements::      Keep names unique.
-* First Node::                  How to write a `Top' node.
-* @code{@@top} Command::                How to use the @code{@@top} command.
-* Texinfo Document Structure::  How Texinfo manuals are usually arranged.
-* Node Menu Illustration::      A diagram, and sample nodes and menus.
-* Menus::                       Listing subordinate nodes.
-
-Menus
-
-* Writing a Menu::              What is a menu?
-* Menu Example::                Two and three part menu entries.
-* Menu Location::               Menus go at the ends of nodes.
-* Menu Parts::                  A menu entry has three parts.
-* Less Cluttered Menu Entry::   Two part menu entry.
-* Other Info Files::            How to refer to a different Info file.
-
-Chapter Structuring
-
-* Tree Structuring::            A manual is like an upside down tree @dots{}
-* Structuring Command Types::   How to divide a manual into parts.
-* @code{@@chapter}::                    Chapter structuring.
-* @code{@@unnumbered @@appendix}::
-* @code{@@majorheading @@chapheading}::
-* @code{@@section}::
-* @code{@@unnumberedsec @@appendixsec @@heading}::
-* @code{@@subsection}::
-* @code{@@unnumberedsubsec @@appendixsubsec @@subheading}::
-* @code{@@subsubsection}::              Commands for the lowest level sections.
-* @code{@@part}::                       Collections of chapters.
-* Raise/lower sections::        How to change commands' hierarchical level.
-
-Cross-references
-
-* Cross Reference Commands::    A summary of the different commands.
-* Cross Reference Parts::       A cross-reference has several parts.
-* One Argument::                @code{@@xref} with one argument.
-* Two Arguments::               @code{@@xref} with two arguments.
-* Three Arguments::             @code{@@xref} with three arguments.
-* Four and Five Arguments::     @code{@@xref} with four and five arguments.
-* Referring to a Manual as a Whole::   Refer to an entire manual.
-* @code{@@xref}::                       Begin a reference with `See' @dots{}
-* @code{@@ref}::                        A reference for the last part of a sentence.
-* @code{@@pxref}::                      How to write a parenthetical cross-reference.
-* @code{@@anchor}::                     Defining arbitrary cross-reference targets
-* @code{@@link}::                       How to make a plain link.
-* @code{@@inforef}::                    How to refer to an Info-only file.
-* @code{@@url}::                        How to refer to a uniform resource locator.
-* @code{@@cite}::                       How to refer to books not in the Info system.
-* PDF Colors::                  Colorizing URLs and other links in PDF output.
-
-@code{@@url}, @code{@@uref@{@var{url}[, @var{text}][, @var{replacement}]@}}
-
-* @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
-* URL Line Breaking::       How lines are broken within @code{@@url} text.
-* @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-
-Marking Text, Words and Phrases
-
-* Indicating::                  How to indicate definitions, files, etc.
-* Emphasis::                    How to emphasize text.
-
-Indicating Definitions, Commands, etc.
-
-* Useful Highlighting::         Highlighting provides useful information.
-* @code{@@code}::                       Indicating program code.
-* @code{@@kbd}::                        Showing keyboard input.
-* @code{@@key}::                        Specifying keys.
-* @code{@@samp}::                       Indicating a literal sequence of characters.
-* @code{@@verb}::                       Indicating a verbatim sequence of characters.
-* @code{@@var}::                        Indicating metasyntactic variables.
-* @code{@@env}::                        Indicating environment variables.
-* @code{@@file}::                       Indicating file names.
-* @code{@@command}::                    Indicating command names.
-* @code{@@option}::                     Indicating option names.
-* @code{@@dfn}::                        Specifying definitions.
-* @code{@@abbr}::                       Indicating abbreviations.
-* @code{@@acronym}::                    Indicating acronyms.
-* @code{@@indicateurl}::                Indicating an example URL.
-* @code{@@email}::                      Indicating an electronic mail address.
-
-Emphasizing Text
-
-* @code{@@emph @@strong}::               How to emphasize text in Texinfo.
-* Smallcaps::                   How to use the small caps font.
-* Fonts::                       Various font commands for printed output.
-
-Quotations and Examples
-
-* Block Enclosing Commands::    Different constructs for different purposes.
-* @code{@@quotation}::                  Writing a quotation.
-* @code{@@indentedblock}::              Block of text indented on left.
-* @code{@@example}::                    Writing an example in a fixed-width font.
-* @code{@@verbatim}::                   Writing a verbatim example.
-* @code{@@verbatiminclude}::            Including a file verbatim.
-* @code{@@lisp}::                       Illustrating Lisp code.
-* small::                       Examples in a smaller font.
-* @code{@@display}::                    Writing an example in the current font.
-* @code{@@format}::                     Writing an example without narrowed margins.
-* @code{@@exdent}::                     Undo indentation on a line.
-* @code{@@flushleft @@flushright}::      Pushing text flush left or flush right.
-* @code{@@raggedright}::                Avoiding justification on the right.
-* @code{@@noindent}::                   Preventing paragraph indentation.
-* @code{@@indent}::                     Forcing paragraph indentation.
-* @code{@@cartouche}::                  Drawing rounded rectangles around text.
-
-Lists and Tables
-
-* Introducing Lists::           Texinfo formats lists for you.
-* @code{@@itemize}::                    How to construct a simple list.
-* @code{@@enumerate}::                  How to construct a numbered list.
-* Two-column Tables::           How to construct a two-column table.
-* Multi-column Tables::         How to construct generalized tables.
-
-Making a Two-column Table
-
-* @code{@@table}::                      How to construct a two-column table.
-* @code{@@ftable @@vtable}::             Automatic indexing for two-column tables.
-* @code{@@itemx}::                      How to put more entries in the first column.
-
-@code{@@multitable}: Multi-column Tables
-
-* Multitable Column Widths::    Defining multitable column widths.
-* Multitable Rows::             Defining multitable rows, with examples.
-
-Special Displays
-
-* Floats::                      Figures, tables, and the like.
-* Images::                      Including graphics and images.
-* Footnotes::                   Writing footnotes.
-
-Floats
-
-* @code{@@float}::                      Producing floating material.
-* @code{@@caption @@shortcaption}::      Specifying descriptions for floats.
-* @code{@@listoffloats}::               A table of contents for floats.
-
-Inserting Images
-
-* Image Syntax::
-* Image Scaling::
-
-Footnotes
-
-* Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear.
-
-Indices
-
-* Index Entries::               Choose different words for index entries.
-* Predefined Indices::          Use different indices for different kinds
-                                 of entries.
-* Indexing Commands::           How to make an index entry.
-* Advanced Indexing::           Advanced indexing commands.
-* Printing Indices & Menus::    How to print an index in hardcopy and
-                                 generate index menus in Info.
-* Combining Indices::           How to combine indices.
-* New Indices::                 How to define your own indices.
-
-Combining Indices
-
-* @code{@@syncodeindex}::               How to merge two indices, using @code{@@code}
-                                 font for the merged-from index.
-* @code{@@synindex}::                   How to merge two indices, using the
-                                 roman font for the merged-from index.
-
-Special Insertions
-
-* Special Characters::          Inserting @@ @{@} , \ # &
-* Inserting Quote Characters::  Inserting left and right quotes, in code.
-* Inserting Space::             Inserting the right amount of whitespace.
-* Inserting Accents::           Inserting accents and special characters.
-* Inserting Quotation Marks::   Inserting quotation marks.
-* Inserting Subscripts and Superscripts:: Inserting sub/superscripts.
-* Inserting Math::              Formatting mathematical expressions.
-* Glyphs for Text::             Inserting dots, bullets, currencies, etc.
-* Glyphs for Programming::      Indicating results of evaluation,
-                                 expansion of macros, errors, etc.
-* Inserting Unicode::           Inserting a Unicode character by code point.
-
-Special Characters: Inserting @@ @{@} , \ # &
-
-* Inserting an Atsign::         @code{@@@@}, @code{@@atchar@{@}}.
-* Inserting Braces::            @code{@@@{ @@@}}, @code{@@l rbracechar@{@}}.
-* Inserting a Comma::           , and @code{@@comma@{@}}.
-* Inserting a Backslash::       \ and @code{@@backslashchar@{@}}.
-* Inserting a Hashsign::        # and @code{@@hashchar@{@}}.
-* Inserting an Ampersand::      & and @code{@@ampchar@{@}}.
-
-Inserting Space
-
-* Multiple Spaces::             Inserting multiple spaces.
-* Not Ending a Sentence::       Sometimes a . doesn't end a sentence.
-* Ending a Sentence::           Sometimes it does.
-* @code{@@frenchspacing}::              Specifying end-of-sentence spacing.
-* @code{@@dmn}::                        Formatting a dimension.
-
-Glyphs for Text
-
-* @code{@@TeX @@LaTeX}::                 The @TeX{} logos.
-* @code{@@copyright}::                  The copyright symbol (c in a circle).
-* @code{@@registeredsymbol}::           The registered symbol (R in a circle).
-* @code{@@dots}::                       How to insert ellipses: @dots{} and @enddots{}
-* @code{@@bullet}::                     How to insert a bullet: @bullet{}
-* @code{@@euro}::                       How to insert the euro currency symbol.
-* @code{@@pounds}::                     How to insert the pounds currency symbol.
-* @code{@@textdegree}::                 How to insert the degrees symbol.
-* @code{@@minus}::                      How to insert a minus sign.
-* @code{@@geq @@leq}::                   How to insert greater/less-than-or-equal signs.
-
-Glyphs for Programming
-
-* Glyphs Summary::
-* @code{@@result}::                     How to show the result of expression.
-* @code{@@expansion}::                  How to indicate an expansion.
-* @code{@@print}::                      How to indicate generated output.
-* @code{@@error}::                      How to indicate an error message.
-* @code{@@equiv}::                      How to indicate equivalence.
-* @code{@@point}::                      How to indicate the location of point.
-* Click Sequences::             Inserting GUI usage sequences.
-
-Forcing and Preventing Breaks
-
-* Break Commands::              Summary of break-related commands.
-* Line Breaks::                 Forcing line breaks.
-* @code{@@- @@hyphenation}::             Helping @TeX{} with hyphenation points.
-* @code{@@allowcodebreaks}::            Controlling line breaks within @@code text.
-* @code{@@w}::                          Preventing unwanted line breaks in text.
-* @code{@@tie}::                        Inserting an unbreakable but varying space.
-* @code{@@sp}::                         Inserting blank lines.
-* @code{@@page}::                       Forcing the start of a new page.
-* @code{@@group}::                      Preventing unwanted page breaks.
-* @code{@@need}::                       Another way to prevent unwanted page breaks.
-
-Definition Commands
-
-* Def Cmd Template::            Writing descriptions using definition commands.
-* Def Cmd Continuation Lines::  Continuing the heading over source lines.
-* Optional Arguments::          Handling optional and repeated arguments.
-* No Space After Definition Name::  How to omit space after name.
-* @code{@@deffnx}::                     Group two or more `first' lines.
-* Def Cmds in Detail::          Reference for all the definition commands.
-* Generic Definition Commands:: Without automatic index entries.
-* Def Cmd Conventions::         Conventions for writing definitions.
-* Sample Function Definition::  An example.
-
-The Definition Commands
-
-* Functions Commands::          Commands for functions and similar entities.
-* Typed Functions::             Commands for functions in typed languages.
-* Variables Commands::          Commands for variables and similar entities.
-* Typed Variables::             Commands for variables in typed languages.
-* Data Types::                  The definition command for data types.
-* Abstract Objects::            Commands for object-oriented programming.
-
-Object-Oriented Programming
-
-* Variables: Object-Oriented Variables.
-* Methods:   Object-Oriented Methods.
-
-Internationalization
-
-* @code{@@documentlanguage}::           Declaring the current language.
-* @code{@@documentencoding}::           Declaring the input encoding.
-
-Conditionally Visible Text
-
-* Conditional Commands::        Text for a given format.
-* Conditional Not Commands::    Text for any format other than a given one.
-* Raw Formatter Commands::      Using raw formatter commands.
-* Inline Conditionals::         Brace-delimited conditional text.
-* @code{@@set @@clear @@value}::          Variable tests and substitutions.
-* Testing for Texinfo Commands:: Testing if a Texinfo command is available.
-* Conditional Nesting::         Using conditionals inside conditionals.
-
-Flags: @code{@@set}, @code{@@clear}, conditionals, and @code{@@value}
-
-* @code{@@set @@value}::                 Expand a flag variable to a string.
-* @code{@@ifset @@ifclear}::             Format a region if a flag is set.
-* @code{@@inlineifset @@inlineifclear}:: Brace-delimited flag conditionals.
-* @code{@@value} Example::              An easy way to update edition information.
-
-Defining New Texinfo Commands
-
-* Defining Macros::             Defining and undefining new commands.
-* Invoking Macros::             Using a macro, once you've defined it.
-* Macro Details::               Limitations of Texinfo macros.
-* @code{@@alias}::                      Command aliases.
-* Line Macros::                 Macros using whole line for arguments.
-* @code{@@definfoenclose}::             Customized highlighting.
-* External Macro Processors::   @code{#line} directives.
-
-External Macro Processors: Line Directives
-
-* @samp{#line} Directive::
-* TeX: @samp{#line} and @TeX{}.
-* Syntax: @samp{#line} Syntax Details.
-
-Include Files
-
-* Using Include Files::         How to use the @code{@@include} command.
-* Sample Include File::         A sample outer file with included files
-                                     within it; and a sample included file.
-
-Formatting and Printing with @TeX{}
-
-* Use @TeX{}::                     Use @TeX{} to format for hardcopy.
-* Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
-* Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
-* Print with @command{lpr}::              How to print.
-* Preparing for @TeX{}::           What to do before you use @TeX{}.
-* Overfull hboxes::             What are and what to do with overfull hboxes.
-
-Format with @command{tex}/@command{texindex}
-
-* Formatting Partial Documents::
-* Details of @command{texindex}::
-
-@command{texi2any}: The Generic Translator for Texinfo
-
-* Invoking @command{texi2any}::           Running the translator from a shell.
-* @command{texi2any} Environment Variables::
-* @command{texi2any} Printed Output::     Calling @command{texi2dvi}.
-* Customization Variables::     Configuring @command{texi2any}.
-* Internationalization of Document Strings:: Translating program-inserted text.
-* Invoking @command{pod2texi}::           Translating Perl Pod to Texinfo.
-* @command{texi2html}::                   An ancestor of @command{texi2any}.
-
-Customization Variables
-
-* Customization Variables for @@-Commands::
-* Customization Variables and Options::
-* HTML Customization Variables::
-* MathJax Customization Variables::
-* @command{latex2html} Customization Variables::
-* @command{tex4ht} Customization Variables::
-* @LaTeX{} Customization Variables::
-* Other Customization Variables::
-
-Invoking @command{pod2texi}: Convert Pod to Texinfo
-
-* pod2texi manual page::      @command{pod2texi} invocation in a manual page format.
-
-Creating and Installing Info Files
-
-* Installing an Info File::
-* Tag and Split Files::         How tagged and split files help Info
-                                 to run better.
-* Info Format FAQ::
-
-Installing an Info File
-
-* Directory File::              The top-level menu for all Info files.
-* New Info File::               Listing a new Info file.
-* Other Info Directories::      How to specify Info files that are
-                                 located in other directories.
-* Installing Dir Entries::      How to specify what menu entry to add
-                                 to the Info directory.
-* Invoking @command{install-info}::       @code{install-info} options.
-
-Generating HTML
-
-* HTML Translation::       Details of the HTML output.
-* HTML Splitting::         How HTML output is split.
-* HTML CSS::               Influencing HTML output with Cascading Style Sheets.
-* @code{@@documentdescription}::   Document summary for the HTML output.
-* Generating EPUB::        Details on the EPUB output.
-* Syntax Highlighting::    Use syntax highlighting in code excerpts.
-* HTML Xref::              Cross-references in HTML output.
-
-Generating EPUB
-
-* EPUB Output File and Directory::
-* EPUB HTML::
-
-HTML Cross-references
-
-* Link Basics:       HTML Xref Link Basics.
-* Node Expansion:    HTML Xref Node Name Expansion.
-* Command Expansion: HTML Xref Command Expansion.
-* 8-bit Expansion:   HTML Xref 8-bit Character Expansion.
-* Mismatch:          HTML Xref Mismatch.
-* Configuration:     HTML Xref Configuration. @file{htmlxref.cnf}.
-
-@@-Command Details
-
-* Command Syntax::         @@-commands are used for formatting.
-* Command List::           All the @@-commands short description.
-* Command Contexts::       Which @@-command can be used in which context.
-* Obsolete @@-Commands::
-
-Sample Texinfo Files
-
-* GNU Sample Texts::
-* Verbatim Copying License::
-* All-permissive Copying License::
-
-Using Texinfo Mode
-
-* Texinfo Mode Overview::       How Texinfo mode can help you.
-* Emacs Editing::               Texinfo mode adds to GNU Emacs' general
-                                  purpose editing features.
-* Inserting::                   How to insert frequently used @@-commands.
-* Showing the Structure::       How to show the structure of a file.
-* Updating Nodes and Menus::    How to update or create new nodes and menus.
-* Info Formatting::             How to format for Info.
-* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
-* Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
-* Formatting Info files::       Processing directly Info files.
-* Catching Mistakes::           How to find mistakes in formatting.
-* Batch Formatting::            How to format for Info in Emacs batch mode.
-
-Showing the Sectioning Structure of a File
-
-* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
-* Using @code{occur}::                 How to list all lines containing a pattern.
-
-Updating Nodes and Menus
-
-* Updating Commands::           Five major updating commands.
-* Updating Requirements::       How to structure a Texinfo file for
-                                  using the updating command.
-* Update Multiple Files::       How to create and update nodes and
-                                  menus when using included files.
-* Include Files Requirements::  How to structure outer file and include
-                                  files for the updating command.
-* Other Updating Commands::     How to indent descriptions, insert
-                                  missing nodes lines, and update
-                                  nodes in sequence.
-
-Formatting for Info
-
-* @command{texi2any} in Emacs::           How to run @command{texi2any} from Emacs.
-* @code{texinfo-format} commands::     Two Info formatting commands written
-                                 in Emacs Lisp are an alternative
-                                 to @command{texi2any}.
-
-Direct Formatting of Info files
-
-* Tagifying::                   How to tagify a file.
-* Splitting::                   How to split a file manually.
-
-Formatting and Printing with Emacs
-
-* Texinfo Mode Printing::       How to format and print in Texinfo mode.
-* Compile-Command::             How to print using Emacs's compile command.
-
-Catching Mistakes
-
-* @command{texi2any} Preferred::          @command{texi2any} finds errors.
-* Debugging with Info::         How to catch errors with Info formatting.
-* Debugging with @TeX{}::          How to catch errors with @TeX{} formatting.
-* Running @code{Info-validate}::       How to find badly referenced nodes.
-
-Finding Badly Referenced Nodes
-
-* Using @code{Info-validate}::         How to run @code{Info-validate}.
-* Unsplit and Tagify::          How to create an unsplit file and add
-                                  a tag table for validation.
-
-Global Document Commands
-
-* @code{@@setchapternewpage}::          Start chapters on right-hand pages.
-* @code{@@headings}::                   An option for turning headings on and off
-                                        and double or single sided printing.
-* Headings::                    Page headings
-* @code{@@paragraphindent}::            Specify paragraph indentation.
-* @code{@@firstparagraphindent}::       Suppressing first paragraph indentation.
-* @code{@@exampleindent}::              Specify environment indentation.
-* @code{@@smallbook}::                  How to print small format books and manuals.
-* A4 Paper::                    How to print on A4, A5 or B6 paper.
-* @code{@@pagesizes}::                  How to print with customized page sizes.
-* Microtypography::             Improving the appearance of paragraphs.
-* Magnification::               How to print scaled up output.
-
-Page Headings
-
-* @code{@@headings}::                   An option for turning headings on and off
-                                        and double or single sided printing.
-* Heading Format::              Standard page heading formats.
-* Custom Headings::             How to create your own headings and footings.
-
-Info Format Specification
-
-* Info Format Whole Manual::. Split vs.@: nonsplit manuals.
-* Info Format Preamble::
-* Info Format Indirect Table::
-* Info Format Tag Table::
-* Info Format Local Variables::
-* Info Format Regular Nodes::
-* Info Format Menu::
-* Info Format Image::
-* Info Format Printindex::
-* Info Format Cross Reference::
-
-@end detailmenu
-@end menu
-
-@ifinfo
-@c Reward readers for getting to the end of the menu :).
-@c Contributed by Arnold Robbins.
-@quotation
-Documentation is like sex: when it is good, it is very, very good; and
-when it is bad, it is better than nothing.
----Dick Brandon
-@end quotation
-@end ifinfo
-
-
 @node Copying Conditions
+@nodedescription Your rights.
 @unnumbered Texinfo Copying Conditions
 @cindex Copying conditions
 @cindex Conditions for copying Texinfo
@@ -760,6 +154,7 @@ License}).
 
 
 @node Overview
+@nodedescription Texinfo in brief.
 @chapter Overview of Texinfo
 @cindex Overview of Texinfo
 @cindex Texinfo overview
@@ -1309,6 +704,7 @@ forward, we ask authors of Texinfo documents to use only
 
 @node Writing a Texinfo File
 @anchor{Beginning and Ending a File}@c old name
+@nodedescription Format of a Texinfo source file.
 @chapter Writing a Texinfo File
 
 This chapter describes Texinfo syntax and what is required in a Texinfo 
@@ -2778,6 +2174,7 @@ ignored.
 
 
 @node Nodes
+@nodedescription Writing nodes, the basic unit of Texinfo.
 @chapter Nodes
 @anchor{node}@anchor{@@node} @c old names
 
@@ -3739,6 +3136,7 @@ refer to other files.  You must write such menus by hand.
 
 
 @node Chapter Structuring
+@nodedescription Creating chapters, sections, appendices, etc.
 @chapter Chapter Structuring
 @anchor{Structuring}@c old name
 @cindex Chapter structuring
@@ -4257,6 +3655,7 @@ on a line of its own.
 
 
 @node Cross References
+@nodedescription Writing cross-references.
 @chapter Cross-references
 @cindex Making cross-references
 @cindex Cross-references
@@ -5323,6 +4722,10 @@ specific reason to use colors, best to skip it.
 
 
 @node Marking Text
+@nodedescriptionblock
+Marking words and phrases as code, keyboard input, meta-syntactic
+variables, and the like.
+@end nodedescriptionblock
 @chapter Marking Text, Words and Phrases
 @cindex Paragraph, marking text within
 @cindex Marking words and phrases
@@ -6428,6 +5831,7 @@ specific font effects, such as in @TeX{} and related packages.
 
 
 @node Quotations and Examples
+@nodedescription Block quotations, examples, etc.
 @chapter Quotations and Examples
 
 Quotations and examples are blocks of text consisting of one or more
@@ -7245,6 +6649,7 @@ unless you have a good reason for it.
 
 
 @node Lists and Tables
+@nodedescription Itemized or numbered lists, and tables.
 @chapter Lists and Tables
 @cindex Making lists and tables
 @cindex Lists and tables, making
@@ -7901,6 +7306,7 @@ split that window.
 
 
 @node Special Displays
+@nodedescription Floating figures and footnotes.
 @chapter Special Displays
 @cindex Special displays
 
@@ -8529,6 +7935,7 @@ Write a @code{@@footnotestyle} command in the Texinfo file preamble.
 
 
 @node Indices
+@nodedescription Creating indices.
 @chapter Indices
 @cindex Indices
 
@@ -9120,6 +8527,7 @@ well-known extension name.
 
 
 @node Insertions
+@nodedescription Inserting @@-signs, braces, etc.
 @chapter Special Insertions
 @cindex Inserting special characters and symbols
 @cindex Special insertions
@@ -10758,6 +10166,7 @@ is the ASCII sequence @samp{U+@var{hex}}, as in the six ASCII characters
 
 
 @node Breaks
+@nodedescription Forcing or preventing line and page breaks.
 @chapter Forcing and Preventing Breaks
 
 @cindex Forcing line and page breaks
@@ -11166,6 +10575,7 @@ lines at the bottoms of printed pages.
 
 
 @node Definition Commands
+@nodedescription Describing functions and the like uniformly.
 @chapter Definition Commands
 @cindex Definition commands
 
@@ -12354,6 +11764,7 @@ Index under @code{apply}.
 
 
 @node Internationalization
+@nodedescription Supporting languages other than English.
 @chapter Internationalization
 
 @cindex Internationalization
@@ -12582,6 +11993,7 @@ in the destinations of cross-references.
 
 
 @node Conditionals
+@nodedescription Specifying text for only some output cases.
 @chapter Conditionally Visible Text
 @cindex Conditionally visible text
 @cindex Text, conditionally visible
@@ -13410,6 +12822,7 @@ these rules:
 
 
 @node Defining New Texinfo Commands
+@nodedescription User-defined macros and aliases.
 @chapter Defining New Texinfo Commands
 
 @cindex Macros
@@ -14353,6 +13766,7 @@ The possible solutions are described above (@pxref{@samp{#line} Directive}).
 
 
 @node Include Files
+@nodedescription How to incorporate other Texinfo files.
 @chapter Include Files
 
 @cindex Include files
@@ -14550,6 +13964,7 @@ Texinfo files.
 
 
 @node Hardcopy with @TeX{}
+@nodedescription Output for paper, with @TeX{}.
 @chapter Formatting and Printing with @TeX{}
 @anchor{Hardcopy} @c old name
 @anchor{Printing}
@@ -15166,6 +14581,7 @@ before the @code{@@titlepage} command:
 
 
 @node Generic Translator @command{texi2any}
+@nodedescription @command{texi2any}, an all-purpose converter.
 @chapter @command{texi2any}: The Translator for Texinfo
 
 @command{texi2any} is the generic translator for Texinfo that can
@@ -17371,6 +16787,7 @@ Texinfo source repository.
 
 
 @node Creating and Installing Info Files
+@nodedescription Details on Info output.
 @chapter Creating and Installing Info Files
 
 @anchor{Creating an Info File}@c removed, merged to this node and Emacs Info mode
@@ -18058,6 +17475,7 @@ If you want more, you are recommended to use the HTML output from
 
 
 @node Generating HTML
+@nodedescription Details on HTML output.
 @chapter Generating HTML
 
 @cindex Generating HTML
@@ -18973,6 +18391,7 @@ usual.  You can get the latest version from
 
 
 @node @@-Command Details
+@nodedescription Details of the Texinfo @@-commands.
 @appendix @@-Command Details
 
 Here are the details of @@-commands: information about their syntax, a 
@@ -20436,6 +19855,7 @@ command even if the @code{@@shortcontents} command was at the end.
 
 
 @node Tips
+@nodedescription Hints on how to write a Texinfo document.
 @appendix Tips and Hints
 
 Here are some tips for writing Texinfo documentation:
@@ -20861,6 +20281,7 @@ Write notes for yourself at the very end of a Texinfo file after the
 
 
 @node Sample Texinfo Files
+@nodedescription Complete examples, including full texts.
 @appendix Sample Texinfo Files
 @cindex Sample Texinfo files
 
@@ -21077,6 +20498,7 @@ notice and this notice are preserved.
 
 
 @node Texinfo Mode
+@nodedescription Using the GNU Emacs Texinfo mode.
 @appendix Using Texinfo Mode
 @cindex Texinfo mode
 @cindex Mode, using Texinfo
@@ -23054,6 +22476,7 @@ use that Emacs for anything else until the command finishes.)
 
 
 @node Global Document Commands
+@nodedescription Affecting formatting throughout.
 @appendix Global Document Commands
 @cindex Global Document Commands
 
@@ -23787,6 +23210,7 @@ magnifications.  Be prepared to experiment.
 
 
 @node Info Format Specification
+@nodedescription Technical details of the Info file format.
 @appendix Info Format Specification
 
 @cindex Info format specification
@@ -24287,6 +23711,7 @@ and the fifth example shows a period being quoted in a node name.
 
 
 @node GNU Free Documentation License
+@nodedescription Copying this manual.
 @appendix GNU Free Documentation License
 
 @include fdl.texi
@@ -24303,6 +23728,7 @@ commands are listed without their preceding @samp{@@}.
 
 
 @node General Index
+@nodedescription A menu covering many topics.
 @unnumbered General Index
 
 @printindex cp

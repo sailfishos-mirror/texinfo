@@ -1,5 +1,10 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Top): Remove @menu and @detailmenu, using
+	@nodedescription throughout.  Also remove joke after end of menu.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Blank line before detailmenu
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <sectioning commands>:
