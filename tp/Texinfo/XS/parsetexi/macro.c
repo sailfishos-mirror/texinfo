@@ -19,13 +19,15 @@
 #include <ctype.h>
 #include <stdio.h>
 
-/* for whitespace_chars_except_newline and? */
 #include "parser.h"
 /* for isascii_alnum and whitespace_chars */
 #include "utils.h"
-#include "debug.h"
 #include "tree.h"
+#include "tree_types.h"
+#include "debug.h"
+#include "errors.h"
 #include "text.h"
+#include "counter.h"
 #include "input.h"
 #include "commands.h"
 #include "convert_to_texinfo.h"

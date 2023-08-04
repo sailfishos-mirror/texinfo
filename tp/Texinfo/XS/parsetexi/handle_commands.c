@@ -20,10 +20,21 @@
 #include <ctype.h>
 
 #include "parser.h"
+#include "tree_types.h"
+#include "command_ids.h"
+#include "element_types.h"
 /* for isascii_alnum and whitespace_chars */
 #include "utils.h"
+#include "builtin_commands.h"
+#include "counter.h"
+#include "context_stack.h"
+/* for conf */
+#include "conf.h"
+/* lookup_infoenclose */
+#include "macro.h"
 #include "def.h"
 #include "debug.h"
+#include "errors.h"
 #include "tree.h"
 #include "input.h"
 #include "text.h"

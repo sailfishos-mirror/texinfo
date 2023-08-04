@@ -17,13 +17,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* for whitespace_chars_except_newline and? */
 #include "parser.h"
+#include "tree_types.h"
+#include "tree.h"
+#include "element_types.h"
 /* for whitespace_chars */
 #include "utils.h"
 #include "debug.h"
+#include "errors.h"
 #include "input.h"
 #include "text.h"
+/* for conf */
+#include "conf.h"
 #include "convert_to_texinfo.h"
 #include "labels.h"
 #include "source_marks.h"

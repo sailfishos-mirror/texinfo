@@ -19,12 +19,22 @@
 #include "uniconv.h"
 #include "unistr.h"
 
+/* for isolate_last_space and global_documentlanguage */
 #include "parser.h"
+#include "command_ids.h"
+#include "tree_types.h"
+#include "tree.h"
 /* for whitespace_chars */
 #include "utils.h"
 #include "text.h"
 #include "source_marks.h"
+#include "errors.h"
+#include "builtin_commands.h"
+/* FIXME remove */
+#include "macro.h"
+/*
 #include "debug.h"
+*/
 #include "extra.h"
 
 void

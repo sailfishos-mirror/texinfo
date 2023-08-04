@@ -22,17 +22,26 @@
 
 #include "parser.h"
 /* for isascii_alnum and whitespace_chars */
+#include "tree_types.h"
+#include "tree.h"
+#include "builtin_commands.h"
 #include "utils.h"
 #include "debug.h"
+#include "errors.h"
 #include "text.h"
 #include "input.h"
-#include "convert_to_texinfo.h"
+#include "counter.h"
+/* check_register_target_element_label and parse_node_manual */
 #include "labels.h"
+/* add_infoenclose */
+#include "macro.h"
 #include "indices.h"
+#include "context_stack.h"
 #include "def.h"
 #include "source_marks.h"
 #include "handle_commands.h"
 #include "extra.h"
+#include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 
 static int

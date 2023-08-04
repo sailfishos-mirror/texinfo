@@ -19,9 +19,17 @@
 #include <string.h>
 
 #include "parser.h"
+#include "command_ids.h"
+#include "element_types.h"
+#include "tree_types.h"
+#include "tree.h"
 #include "def.h"
 #include "debug.h"
+#include "errors.h"
+#include "counter.h"
+#include "builtin_commands.h"
 #include "source_marks.h"
+#include "context_stack.h"
 #include "extra.h"
 
 /* Return CURRENT->parent.  The other arguments are used if an error message

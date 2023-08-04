@@ -22,19 +22,25 @@
 #include "uniconv.h"
 #include "unistr.h"
 
-#include "parser.h"
+#include "element_types.h"
+#include "tree_types.h"
+#include "tree.h"
 /* for isascii_alnum and whitespace_chars */
 #include "utils.h"
 #include "debug.h"
+#include "errors.h"
 #include "text.h"
+#include "counter.h"
+#include "builtin_commands.h"
+#include "macro.h"
 #include "input.h"
 #include "source_marks.h"
-#include "element_types.h"
 #include "extra.h"
 /* for conf */
 #include "conf.h"
 /* for nesting_context */
 #include "context_stack.h"
+#include "parser.h"
 
 
 const char *digit_chars = "0123456789";

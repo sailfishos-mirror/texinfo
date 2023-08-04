@@ -16,14 +16,18 @@
 #include <config.h>
 #include <string.h>
 
+/* for count_convert_u8 */
 #include "parser.h"
+#include "tree_types.h"
+#include "tree.h"
 /* for whitespace_chars */
 #include "utils.h"
+#include "errors.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 #include "source_marks.h"
-#include "labels.h"
 #include "extra.h"
+#include "labels.h"
 
 /* Array of recorded elements with labels. */
 ELEMENT **target_elements_list = 0;

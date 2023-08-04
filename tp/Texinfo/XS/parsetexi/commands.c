@@ -18,9 +18,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* for global_accept_internalvalue */
 #include "parser.h"
 #include "command_ids.h"
 #include "builtin_commands.h"
+/* for lookup_macro and unset_macro_record */
 #include "macro.h"
 #include "errors.h"
 #include "commands.h"

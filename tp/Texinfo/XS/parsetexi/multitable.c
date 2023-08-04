@@ -14,7 +14,15 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
-#include "parser.h"
+
+#include "tree_types.h"
+#include "tree.h"
+#include "errors.h"
+#include "builtin_commands.h"
+/* check_no_text */
+#include "handle_commands.h"
+/* item_line_command */
+#include "commands.h"
 
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *

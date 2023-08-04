@@ -16,11 +16,13 @@
 #include <config.h>
 #include <string.h>
 
+/* for count_convert_u8 */
 #include "parser.h"
-#include "debug.h"
-#include "source_marks.h"
+#include "tree_types.h"
 #include "tree.h"
 #include "errors.h"
+#include "debug.h"
+#include "source_marks.h"
 
 int include_counter = 0;
 int setfilename_counter = 0;

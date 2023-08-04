@@ -18,15 +18,16 @@
 #include <string.h>
 #include <stdio.h>
 
-/* for whitespace_chars_except_newline and? */
 #include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
 #include "text.h"
+#include "counter.h"
 /* for command_name and others */
 #include "builtin_commands.h"
 #include "debug.h"
 #include "errors.h"
+#include "context_stack.h"
 #include "labels.h"
 #include "extra.h"
 #include "input.h"

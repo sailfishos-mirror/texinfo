@@ -18,7 +18,14 @@
 #include <stdio.h>
 
 #include "parser.h"
+#include "tree_types.h"
+#include "tree.h"
+#include "command_ids.h"
+#include "errors.h"
+#include "context_stack.h"
+#include "builtin_commands.h"
 #include "extra.h"
+#include "commands.h"
 #include "indices.h"
 
 INDEX **index_names = 0;

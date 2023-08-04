@@ -47,6 +47,16 @@
 #include "errors.h"
 #include "document.h"
 #include "extra.h"
+#include "builtin_commands.h"
+/* for wipe_user_commands */
+#include "commands.h"
+#include "context_stack.h"
+/* for clear_expanded_formats */
+#include "handle_commands.h"
+/* for wipe_macros */
+#include "macro.h"
+/* for reset_conf */
+#include "conf.h"
 #include "api.h"
 
 #ifdef ENABLE_NLS
