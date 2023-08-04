@@ -1,5 +1,14 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (XSLIBS_CFLAGS, XSLIBS_LDFLAGS): rename
+	xs_CFLAGS as XSLIBS_CFLAGS and xs_LDFLAGS as XSLIBS_LDFLAGS to avoid
+	an interpretation in which there would be eomthing special about those
+	variables in automake because they have the same prefix as the
+	xs_LTLIBRARIES.  From Gavin.
+	Add FIXMEs based on Gavin feedback.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (xs_CFLAGS, xs_LDFLAGS): split a regular
 	library, libtexinfo out of Parsetexi for the code common with
 	ConvertXS.  Add and use specific flags for XS objects.

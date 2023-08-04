@@ -46,9 +46,9 @@ EXTRA_DIST += TestXS.pm
 
 CLEANFILES =
 
-xs_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize)
-xs_CFLAGS += -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
-xs_CFLAGS += -I$(PERL_INC)
+XSLIBS_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize)
+XSLIBS_CFLAGS += -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
+XSLIBS_CFLAGS += -I$(PERL_INC)
 
 if HOST_NEEDS_NO_UNDEFINED
   PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
@@ -59,21 +59,21 @@ else
   PLATFORM_LDFLAGS =
 endif
 
-xs_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
-xs_LDFLAGS += $(PLATFORM_LDFLAGS)
+XSLIBS_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
+XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
 
 xs_LTLIBRARIES = XSParagraph.la TestXS.la
 XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
 			 text.c text.h ppport.h
 TestXS_la_SOURCES = TestXS.c ppport.h
-TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
-TestXS_la_LDFLAGS = $(xs_LDFLAGS)
+TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 xs_LTLIBRARIES += MiscXS.la
 MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
 MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
-MiscXS_la_LDFLAGS = $(xs_LDFLAGS)
+MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 # TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES, 
 # otherwise dynamic libraries aren't built (a libtool bug).  Work around 
@@ -84,17 +84,20 @@ install-data-hook:
 EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
 
 
-XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
+XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-XSParagraph_la_LDFLAGS = $(xs_LDFLAGS) $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
-########################## shared library
+########################## shared common library
 
+# FIXME this is an internal library.  Do not put it in lib?
+# it still needs to be found by the linker.
 if HAVE_ICONV
 lib_LTLIBRARIES = libtexinfo.la
 endif
 
+# FIXME use a separate directory
 libtexinfo_la_SOURCES= \
 		      parsetexi/tree_types.h \
 		      parsetexi/tree.c \
@@ -175,10 +178,10 @@ EXTRA_DIST += $(p)/unicode_tables.c
 EXTRA_DIST += $(p)/Parsetexi.xs
 
 Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
-Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(xs_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(xs_CFLAGS)
+Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 BUILT_SOURCES=parsetexi/element_types.c \
               parsetexi/element_types.h \
@@ -214,8 +217,8 @@ ConvertXS_la_SOURCES = \
 EXTRA_DIST += convert/ConvertXS.xs
 
 ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
-ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(xs_LDFLAGS) $(LTLIBINTL)
+ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(xs_CFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
