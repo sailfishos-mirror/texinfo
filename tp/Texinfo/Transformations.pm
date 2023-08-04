@@ -552,13 +552,15 @@ sub regenerate_master_menu($$)
   my $self = shift;
   my $labels = shift;
   my $top_node = $labels->{'Top'};
-  return undef if (!defined($top_node));
 
-  my $new_master_menu = Texinfo::Common::new_master_menu($self, $labels);
-  return undef if (!defined($new_master_menu)
+  return undef if (!defined($top_node)
                    or !$top_node->{'extra'}
                    or !$top_node->{'extra'}->{'menus'}
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
+
+  my $new_master_menu = Texinfo::Common::new_master_menu($self,
+                                 $labels, $top_node->{'extra'}->{'menus'});
+  return undef if (!defined($new_master_menu));
 
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
     my $detailmenu_index = 0;

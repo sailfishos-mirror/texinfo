@@ -3834,10 +3834,11 @@ sub _convert($$)
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node;
         $menu_node = Texinfo::Structuring::new_complete_node_menu($node);
-        if ($command eq 'top' and $menu_node) {
+        if ($command eq 'top' and $menu_node
+             and $node->{'extra'}->{'normalized'} eq 'Top') {
           my $detailmenu = Texinfo::Common::new_master_menu($self,
                                                         $self->{'labels'},
-                                                        $menu_node);
+                                                        [ $menu_node ]);
           if ($detailmenu) {
             # TODO: add a blank line before detailmenu, as in
             # regenerate_master_menu.

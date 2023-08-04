@@ -1,5 +1,13 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm (new_master_menu): Always take an array
+	reference as an argument with a list of menus to operate on, so
+	that there is only one way of calling this function.  Callers updated.
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <sectioning commands>:
+	Check that node name is actually "Top".
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Generate master menu in plaintext output
 
 	* tp/Texinfo/Common.pm (new_master_menu): Take extra optional
