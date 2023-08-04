@@ -29,6 +29,8 @@
 #include "errors.h"
 #include "context_stack.h"
 #include "labels.h"
+/* for close_preformatted_command */
+#include "commands.h"
 #include "extra.h"
 #include "input.h"
 #include "convert_to_texinfo.h"

@@ -32,6 +32,7 @@
 #include "conf.h"
 /* lookup_infoenclose */
 #include "macro.h"
+#include "commands.h"
 #include "def.h"
 #include "debug.h"
 #include "errors.h"

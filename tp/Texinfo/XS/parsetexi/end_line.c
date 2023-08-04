@@ -37,6 +37,7 @@
 #include "macro.h"
 #include "indices.h"
 #include "context_stack.h"
+#include "commands.h"
 #include "def.h"
 #include "source_marks.h"
 #include "handle_commands.h"
@@ -906,7 +907,7 @@ end_line_starting_block (ELEMENT *current)
             }
           add_extra_string_dup (current, "enumerate_specification", spec);
         }
-      else if (item_line_command (command))
+      else if (command_data(command).data == BLOCK_item_line)
         {
           KEY_PAIR *k;
           k = lookup_extra (current, "command_as_argument");
@@ -987,12 +988,13 @@ end_line_starting_block (ELEMENT *current)
       k = lookup_extra (current, "command_as_argument");
       if (k && k->value)
         {
-          enum command_id cmd = ((ELEMENT *) k->value)->cmd;
-          if (cmd && (command_data(cmd).flags & CF_accent))
+          enum command_id as_argument_cmd = ((ELEMENT *) k->value)->cmd;
+          if (as_argument_cmd
+              && (command_data(as_argument_cmd).flags & CF_accent))
             {
               command_warn (current, "accent command `@%s' "
                             "not allowed as @%s argument",
-                            command_name(cmd),
+                            command_name(as_argument_cmd),
                             command_name(command));
               k->key = "";
               k->value = 0;
@@ -1023,7 +1025,7 @@ end_line_starting_block (ELEMENT *current)
           insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
         }
-      else if (item_line_command (command)
+      else if (command_data(command).data == BLOCK_item_line
           && !lookup_extra (current, "command_as_argument"))
         {
           ELEMENT *e;

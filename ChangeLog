@@ -1,5 +1,19 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/commands.c,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/multitable.c (item_line_parent),
+	tp/Texinfo/XS/parsetexi/parser.c (parent_of_command_as_argument):
+	remove item_line_command, inline it in former callers.
+
+	* tp/Texinfo/XS/parsetexi/*.c: explicit include of commands.h when
+	close_preformatted_command is used.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): rename
+	cmd as as_argument_cmd in code block.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (SUBDIRS): revert previous change by removing again .
 	from the front, such that compilation in the XS directory proceeds
 	before checking in the current directory.

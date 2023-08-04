@@ -146,8 +146,3 @@ close_preformatted_command (enum command_id cmd_id)
           && !(command_data(cmd_id).flags & CF_index_entry_command);
 }
 
-int
-item_line_command (enum command_id cmd_id)
-{
-  return command_data(cmd_id).data == BLOCK_item_line;
-}

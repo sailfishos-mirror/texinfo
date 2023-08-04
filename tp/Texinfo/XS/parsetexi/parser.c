@@ -40,6 +40,7 @@
 #include "conf.h"
 /* for nesting_context */
 #include "context_stack.h"
+#include "commands.h"
 #include "parser.h"
 
 
@@ -1161,7 +1162,7 @@ parent_of_command_as_argument (ELEMENT *current)
 {
   return current->type == ET_block_line_arg
     && (current->parent->cmd == CM_itemize
-        || item_line_command (current->parent->cmd))
+        || command_data(current->parent->cmd).data == BLOCK_item_line)
     && (current->contents.number == 1);
 }
 

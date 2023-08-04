@@ -21,8 +21,6 @@
 #include "builtin_commands.h"
 /* check_no_text */
 #include "handle_commands.h"
-/* item_line_command */
-#include "commands.h"
 
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
@@ -31,7 +29,7 @@ item_line_parent (ELEMENT *current)
   if (current->type == ET_before_item && current->parent)
     current = current->parent;
 
-  if (item_line_command (current->cmd))
+  if (command_data(current->cmd).data == BLOCK_item_line)
     return current;
 
   return 0;
