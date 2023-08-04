@@ -19,7 +19,10 @@
 #include <ctype.h>
 #include <stdio.h>
 
+/* for whitespace_chars_except_newline and? */
 #include "parser.h"
+/* for isascii_alnum and whitespace_chars */
+#include "utils.h"
 #include "debug.h"
 #include "tree.h"
 #include "text.h"

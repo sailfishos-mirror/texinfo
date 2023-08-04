@@ -5,6 +5,7 @@
 #include "tree_types.h"
 #include <stdarg.h>
 
+/* FIXME #include "xvasprintf.h" */
 int xasprintf (char **ptr, const char *template, ...);
 int xvasprintf (char **ptr, const char *template, va_list ap);
 

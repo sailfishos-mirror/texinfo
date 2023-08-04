@@ -23,6 +23,8 @@
 #include "unistr.h"
 
 #include "parser.h"
+/* for isascii_alnum and whitespace_chars */
+#include "utils.h"
 #include "debug.h"
 #include "text.h"
 #include "input.h"
@@ -35,7 +37,6 @@
 #include "context_stack.h"
 
 
-const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
 /* in the perl parser, comments including whitespace_chars_except_newline
@@ -66,12 +67,6 @@ int
 looking_at (char *s1, char *s2)
 {
   return !strncmp (s1, s2, strlen (s2));
-}
-
-int
-isascii_alnum (int c)
-{
-  return (((c & ~0x7f) == 0) && isalnum(c));
 }
 
 /* Look for a sequence of alphanumeric characters or hyphens, where the

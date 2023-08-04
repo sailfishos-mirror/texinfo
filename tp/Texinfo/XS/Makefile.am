@@ -117,14 +117,45 @@ libtexinfo_la_SOURCES= \
 		      main/extra.h \
 		      main/convert_to_texinfo.c \
 		      main/convert_to_texinfo.h \
+		      main/node_name_normalization.c \
+		      main/node_name_normalization.h \
+		      main/unicode.c \
+		      main/unicode.h \
 		      main/document.c \
 		      main/document.h
+EXTRA_DIST += main/command_data.c
+EXTRA_DIST += main/command_tables.c
+EXTRA_DIST += main/unicode_tables.c
 
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
+
+BUILT_SOURCES=main/element_types.c \
+              main/element_types.h \
+              main/command_data.c \
+              main/command_tables.c \
+              main/unicode_tables.c \
+              main/command_ids.h
+
+# Need to be distributed
+EXTRA_DIST+=main/element_types.txt main/element_types.awk \
+	   main/command_data.awk
+
+$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
+	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
+	     $(srcdir)/main/element_types.txt
+
+$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt main/command_data.awk
+	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
+	     $(srcdir)/../command_data.txt
+
+$(srcdir)/main/command_tables.c: $(srcdir)/main/command_data.c
+	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
+           < $(srcdir)/main/command_data.c \
+              $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c
 
 
 ########################## parsetexi
@@ -150,10 +181,6 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/conf.h \
 		      parsetexi/context_stack.c \
 		      parsetexi/context_stack.h \
-		      parsetexi/node_name_normalization.c \
-		      parsetexi/node_name_normalization.h \
-		      parsetexi/unicode.c \
-		      parsetexi/unicode.h \
 		      parsetexi/end_line.c \
 		      parsetexi/separator.c \
 		      parsetexi/multitable.c \
@@ -174,9 +201,6 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
 		      parsetexi/source_marks.h
-EXTRA_DIST += main/command_data.c
-EXTRA_DIST += $(p)/command_tables.c
-EXTRA_DIST += $(p)/unicode_tables.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
@@ -185,30 +209,6 @@ Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
-
-BUILT_SOURCES=main/element_types.c \
-              main/element_types.h \
-              main/command_data.c \
-              parsetexi/command_tables.c \
-              parsetexi/unicode_tables.c \
-	      main/command_ids.h
-
-# Need to be distributed
-EXTRA_DIST+=main/element_types.txt main/element_types.awk \
-	   main/command_data.awk
-
-$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
-	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
-	     $(srcdir)/main/element_types.txt
-
-$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt main/command_data.awk
-	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
-	     $(srcdir)/../command_data.txt
-
-$(srcdir)/$(p)/command_tables.c: $(srcdir)/main/command_data.c
-	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
-           < $(srcdir)/main/command_data.c \
-              $(srcdir)/$(p)/command_tables.c $(srcdir)/$(p)/unicode_tables.c
 
 xs_LTLIBRARIES += ConvertXS.la
 
@@ -223,5 +223,5 @@ ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 

@@ -18,13 +18,19 @@
 #include <string.h>
 #include <stdio.h>
 
+/* for whitespace_chars_except_newline and? */
 #include "parser.h"
-#include "debug.h"
+#include "tree_types.h"
+#include "tree.h"
 #include "text.h"
-#include "convert_to_texinfo.h"
-#include "input.h"
+/* for command_name and others */
+#include "builtin_commands.h"
+#include "debug.h"
+#include "errors.h"
 #include "labels.h"
 #include "extra.h"
+#include "input.h"
+#include "convert_to_texinfo.h"
 
 ELEMENT *
 handle_open_brace (ELEMENT *current, char **line_inout)

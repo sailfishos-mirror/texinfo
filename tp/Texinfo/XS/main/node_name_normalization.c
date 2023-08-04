@@ -21,20 +21,23 @@
 #include <ctype.h>
 #include "uniconv.h"
 #include "unistr.h"
+/*
+#include "xvasprintf.h"
+*/
 
 /* for whitespace_chars and isascii_alnum */
-#include "parser.h"
+#include "utils.h"
 #include "tree_types.h"
 #include "element_types.h"
-#include "unicode.h"
+#include "errors.h"
+#include "text.h"
 #include "extra.h"
 #include "builtin_commands.h"
-#include "text.h"
+#include "unicode.h"
+#include "node_name_normalization.h"
 
 /* put in another file? Add an extern declaration in the .h file?*/
 #include "command_tables.c"
-
-/* FIXME use directly builtin_command_data[] instead of command_data? */
 
 int ref_3_args_order[] = {0, 1, 2, -1};
 int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
@@ -101,7 +104,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
                 ADD(command_normalization_text[cmd]);
             }
         }
-      else if (command_data(e->cmd).flags & CF_accent)
+      else if (builtin_command_data[e->cmd].flags & CF_accent)
         {
           if (e->args.number > 0)
             {
@@ -128,7 +131,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
               free (accent_text.text);
             }
         }
-      else if (command_data(e->cmd).flags & CF_ref)
+      else if (builtin_command_data[e->cmd].flags & CF_ref)
         {
           int index = 0;
           int *arguments_order = ref_5_args_order;

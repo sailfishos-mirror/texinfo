@@ -20,6 +20,8 @@
 #include "unistr.h"
 
 #include "parser.h"
+/* for whitespace_chars */
+#include "utils.h"
 #include "text.h"
 #include "source_marks.h"
 #include "debug.h"

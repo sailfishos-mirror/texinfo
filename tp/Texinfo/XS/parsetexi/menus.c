@@ -17,7 +17,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* for whitespace_chars_except_newline and? */
 #include "parser.h"
+/* for whitespace_chars */
+#include "utils.h"
 #include "debug.h"
 #include "input.h"
 #include "text.h"

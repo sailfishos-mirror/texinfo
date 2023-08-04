@@ -150,7 +150,6 @@ typedef struct {
 } CONDITIONAL_STACK_ITEM;
 
 size_t count_convert_u8 (const char *text);
-int isascii_alnum (int c);
 ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
 CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
@@ -194,7 +193,7 @@ char *parse_command_name (char **ptr, int *single_char);
 #define STILL_MORE_TO_PROCESS 1
 #define FINISHED_TOTALLY 2
 
-extern const char *whitespace_chars, *whitespace_chars_except_newline;
+extern const char *whitespace_chars_except_newline;
 extern const char *linecommand_expansion_delimiters;
 extern const char *digit_chars;
 

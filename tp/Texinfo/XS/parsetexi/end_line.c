@@ -21,6 +21,8 @@
 #include <stdio.h>
 
 #include "parser.h"
+/* for isascii_alnum and whitespace_chars */
+#include "utils.h"
 #include "debug.h"
 #include "text.h"
 #include "input.h"

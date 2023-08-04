@@ -17,6 +17,8 @@
 #include <string.h>
 
 #include "parser.h"
+/* for whitespace_chars */
+#include "utils.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 #include "source_marks.h"

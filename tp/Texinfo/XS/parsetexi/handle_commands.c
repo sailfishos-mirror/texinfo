@@ -20,6 +20,8 @@
 #include <ctype.h>
 
 #include "parser.h"
+/* for isascii_alnum and whitespace_chars */
+#include "utils.h"
 #include "def.h"
 #include "debug.h"
 #include "tree.h"
