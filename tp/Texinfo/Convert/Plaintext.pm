@@ -3832,7 +3832,19 @@ sub _convert($$)
       if ($node and $automatic_directions
             and !$self->{'seenmenus'}->{$node}) {
         $self->{'seenmenus'}->{$node} = 1;
-        my $menu_node = Texinfo::Structuring::new_complete_node_menu($node);
+        my $menu_node;
+        $menu_node = Texinfo::Structuring::new_complete_node_menu($node);
+        if ($command eq 'top' and $menu_node) {
+          my $detailmenu = Texinfo::Common::new_master_menu($self,
+                                                        $self->{'labels'},
+                                                        $menu_node);
+          if ($detailmenu) {
+            # TODO: add a blank line before detailmenu, as in
+            # regenerate_master_menu.
+            $detailmenu->{'parent'} = $menu_node;
+            push @{$menu_node->{'contents'}}, $detailmenu;
+          }
+        }
         if ($menu_node) {
           my $menu_text = $self->_convert($menu_node);
           if ($menu_text) {

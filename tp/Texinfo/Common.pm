@@ -1971,18 +1971,27 @@ sub _normalized_entry_associated_internal_node($;$)
 }
 
 # used in Plaintext converter and tree transformations
-sub new_master_menu($$)
+sub new_master_menu($$;$)
 {
   my $self = shift;
   my $labels = shift;
+  my $top_menu = shift;
+
   my $node = $labels->{'Top'};
   return undef if (!defined($node));
 
+  my @menus;
+  if (defined($top_menu)) {
+    @menus = ( $top_menu );
+  } elsif ($node->{'extra'}
+             and $node->{'extra'}->{'menus'}
+             and scalar(@{$node->{'extra'}->{'menus'}})) {
+    @menus = @{$node->{'extra'}->{'menus'}};
+  }
+
   my @master_menu_contents;
-  if ($node->{'extra'}
-      and $node->{'extra'}->{'menus'}
-      and scalar(@{$node->{'extra'}->{'menus'}})) {
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+  if (@menus) {
+    foreach my $menu (@menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           my ($normalized_entry_node, $node)

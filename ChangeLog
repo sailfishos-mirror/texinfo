@@ -1,5 +1,16 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Generate master menu in plaintext output
+
+	* tp/Texinfo/Common.pm (new_master_menu): Take extra optional
+	argument which is the menu in the Top node.
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <sectioning commands>:
+	At the Top node, call new_master_menu after calling
+	Texinfo::Structuring::new_complete_node_menu, so to also generate
+	a detailed menu.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (_print_down_menus):
 	Call Texinfo::Structuring:::new_complete_node_menu in order to output
 	part of the master menu when a node is missing a @menu block.

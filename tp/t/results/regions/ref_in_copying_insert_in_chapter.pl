@@ -634,6 +634,11 @@ top
 * Menu:
 
 * Intro::
+ -- The Detailed Node Listing --
+
+Introduction
+
+* GFDL::
 
 
 File: ,  Node: Intro,  Prev: Top,  Up: Top
@@ -657,8 +662,8 @@ File: ,  Node: GFDL,  Up: Intro
 
 Tag Table:
 Node: Top41
-Node: Intro118
-Node: GFDL228
+Node: Intro175
+Node: GFDL285
 
 End Tag Table
 

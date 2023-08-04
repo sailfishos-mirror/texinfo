@@ -668,6 +668,11 @@ top
 * Menu:
 
 * node chap1::
+ -- The Detailed Node Listing --
+
+chapter 1
+
+* node sec1::
 
 
 File: ,  Node: node chap1,  Prev: Top,  Up: Top
@@ -699,8 +704,8 @@ File: ,  Node: node sec1,  Up: node chap1
 
 Tag Table:
 Node: Top27
-Node: node chap1114
-Node: node sec1214
+Node: node chap1173
+Node: node sec1273
 
 End Tag Table
 
