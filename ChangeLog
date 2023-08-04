@@ -1,5 +1,11 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (xs_CFLAGS, xs_LDFLAGS): split a regular
+	library, libtexinfo out of Parsetexi for the code common with
+	ConvertXS.  Add and use specific flags for XS objects.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* p/Texinfo/XS/parsetexi/command_data.awk: add an include for
 	command.h in command_data.c.
 

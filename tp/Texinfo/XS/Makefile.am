@@ -46,28 +46,9 @@ EXTRA_DIST += TestXS.pm
 
 CLEANFILES =
 
-xs_LTLIBRARIES = XSParagraph.la TestXS.la
-XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
-			 text.c text.h ppport.h
-TestXS_la_SOURCES = TestXS.c ppport.h
-
-xs_LTLIBRARIES += MiscXS.la
-MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
-MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-
-
-# TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES, 
-# otherwise dynamic libraries aren't built (a libtool bug).  Work around 
-# this by deleting it after it's installed.
-install-data-hook:
-	rm -f $(DESTDIR)$(xsdir)/TestXS*
-
-EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
-
-
-AM_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize)
-AM_CFLAGS += -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
-AM_CFLAGS += -I$(PERL_INC)
+xs_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize)
+xs_CFLAGS += -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
+xs_CFLAGS += -I$(PERL_INC)
 
 if HOST_NEEDS_NO_UNDEFINED
   PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
@@ -78,12 +59,61 @@ else
   PLATFORM_LDFLAGS =
 endif
 
-AM_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
-AM_LDFLAGS += $(PLATFORM_LDFLAGS)
+xs_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
+xs_LDFLAGS += $(PLATFORM_LDFLAGS)
 
+xs_LTLIBRARIES = XSParagraph.la TestXS.la
+XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
+			 text.c text.h ppport.h
+TestXS_la_SOURCES = TestXS.c ppport.h
+TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
+TestXS_la_LDFLAGS = $(xs_LDFLAGS)
+
+xs_LTLIBRARIES += MiscXS.la
+MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
+MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
+MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
+MiscXS_la_LDFLAGS = $(xs_LDFLAGS)
+
+# TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES, 
+# otherwise dynamic libraries aren't built (a libtool bug).  Work around 
+# this by deleting it after it's installed.
+install-data-hook:
+	rm -f $(DESTDIR)$(xsdir)/TestXS*
+
+EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
+
+
+XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(xs_CFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+XSParagraph_la_LDFLAGS = $(xs_LDFLAGS) $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
+
+########################## shared library
+
+if HAVE_ICONV
+lib_LTLIBRARIES = libtexinfo.la
+endif
+
+libtexinfo_la_SOURCES= \
+		      parsetexi/tree_types.h \
+		      parsetexi/tree.c \
+		      parsetexi/tree.h \
+		      parsetexi/element_types.c \
+		      parsetexi/element_types.h \
+		      parsetexi/commands.c \
+		      parsetexi/commands.h \
+		      parsetexi/command_ids.h \
+		      parsetexi/convert_to_texinfo.c \
+		      parsetexi/convert_to_texinfo.h \
+		      parsetexi/document.c \
+		      parsetexi/document.h
+
+libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
+libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+# To locate include files under out-of-source builds.
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
 
 
 ########################## parsetexi
@@ -102,16 +132,8 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
 		      parsetexi/parser.h \
-		      parsetexi/tree_types.h \
-		      parsetexi/element_types.c \
-		      parsetexi/element_types.h \
-		      parsetexi/commands.c \
-		      parsetexi/commands.h \
-		      parsetexi/command_ids.h \
 		      parsetexi/input.c \
 		      parsetexi/input.h \
-		      parsetexi/tree.c \
-		      parsetexi/tree.h \
 		      parsetexi/close.c \
 		      parsetexi/text.c \
 		      parsetexi/text.h \
@@ -121,8 +143,6 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/context_stack.h \
 		      parsetexi/debug.c \
 		      parsetexi/debug.h \
-		      parsetexi/convert_to_texinfo.c \
-		      parsetexi/convert_to_texinfo.h \
 		      parsetexi/node_name_normalization.c \
 		      parsetexi/node_name_normalization.h \
 		      parsetexi/unicode.c \
@@ -147,20 +167,18 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/counter.c \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
-		      parsetexi/source_marks.h \
-		      parsetexi/document.c \
-		      parsetexi/document.h
+		      parsetexi/source_marks.h
 EXTRA_DIST += $(p)/command_data.c
 EXTRA_DIST += $(p)/command_tables.c
 EXTRA_DIST += $(p)/unicode_tables.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
-Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(xs_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
+Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(xs_CFLAGS)
 
 BUILT_SOURCES=parsetexi/element_types.c \
               parsetexi/element_types.h \
@@ -195,9 +213,9 @@ ConvertXS_la_SOURCES = \
 
 EXTRA_DIST += convert/ConvertXS.xs
 
-ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la Parsetexi.la
-ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL)
+ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(xs_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(xs_CFLAGS)
 

@@ -134,10 +134,12 @@ reset_parser_except_conf (void)
   reset_internal_xrefs ();
   reset_labels ();
 
+  wipe_errors ();
+  free_small_strings ();
+
   wipe_user_commands ();
   wipe_macros ();
   init_index_commands ();
-  wipe_errors ();
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
@@ -151,7 +153,6 @@ reset_parser_except_conf (void)
   set_input_encoding ("utf-8");
   input_reset_input_stack ();
   source_marks_reset_counters ();
-  free_small_strings ();
 
   reset_obstacks ();
 
@@ -384,7 +385,8 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               /* Note that this is only used for info hash, with simple
                  elements that are associated to one element only, should
                  not be referred to elsewhere (and should not contain other
-                 commands or containers) */
+                 commands or containers)
+               */
               if (f->hv)
                 fatal ("element_to_perl_hash extra_element_oot twice\n");
               element_to_perl_hash (f);
@@ -776,7 +778,7 @@ build_float_list (void)
          not a char to be able to signal that it is UTF-8 encoded.  In recent
          perlapi, it is said that a negative len can be used to specify
          that the key is UTF-8 encoded, but it is not clear in which
-         perl version this was added, it does not seems to be documented
+         perl version this was added, it does not seem to be documented
          in 5.10.0.
       */
       HE *type_array_entry = hv_fetch_ent (float_hash,
