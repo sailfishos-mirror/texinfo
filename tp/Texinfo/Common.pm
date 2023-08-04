@@ -2016,12 +2016,25 @@ sub _print_down_menus($$)
 {
   my $node = shift;
   my $labels = shift;
+  my @menus;
+
+  if ($node->{'extra'}->{'menus'}
+        and scalar(@{$node->{'extra'}->{'menus'}})) {
+    @menus = @{$node->{'extra'}->{'menus'}};
+  } else {
+    my $section = $node->{'extra'}->{'associated_section'};
+    my $current_menu
+      = Texinfo::Structuring::new_complete_node_menu($node, undef);
+    if (defined($current_menu)) {
+      @menus = ( $current_menu );
+    }
+  }
 
   my @master_menu_contents;
 
-  if ($node->{'extra'}->{'menus'} and scalar(@{$node->{'extra'}->{'menus'}})) {
+  if (@menus) {
     my @node_children;
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+    foreach my $menu (@menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           push @master_menu_contents, Texinfo::Common::copy_tree($entry);

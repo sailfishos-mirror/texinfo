@@ -1,5 +1,11 @@
 2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm (_print_down_menus):
+	Call Texinfo::Structuring:::new_complete_node_menu in order to output
+	part of the master menu when a node is missing a @menu block.
+
+2023-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (%valid_tree_transformations):
 	Add 'complete_tree_nodes_missing_menu', which should have been in
 	this list as it is documented and implemented.
