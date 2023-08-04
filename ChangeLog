@@ -1,5 +1,20 @@
 2023-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(Parsetexi_la_SOURCES): move node_name_normalization and
+	unicode to main.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/utils.c (whitespace_chars, isascii_alnum),
+	tp/Texinfo/XS/parsetexi/parser.c: move whitespace_chars and
+	isascii_alnum to main, to a new file, utils.c, for code that does not
+	fit anywhere else.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal): use builtin_command_data directly.
+
+2023-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (SUBDIRS): process . first, to be sure that
 	Texinfo/ModulePath.pm is created before going into Texinfo/XS.
 
