@@ -1,5 +1,13 @@
 2023-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_find_menus_of_node)
+	(_associate_node_menus), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command): associate menus to nodes in the XS parser
+	instead of as postprocessing in perl.  Remove _find_menus_of_node
+	and _associate_node_menus in Parsetexi.pm.
+
+2023-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	Renaming of labels as identifier_target for code coming from master
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert), tp/t/do_master_menu.t:

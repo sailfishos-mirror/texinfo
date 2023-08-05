@@ -1141,8 +1141,19 @@ handle_block_command (ELEMENT *current, char **line_inout,
                 {
                   if (!(command_flags(current->parent) & CF_root))
                     line_warn ("@menu in invalid context");
-                  /* Add to array of menus for current node.  Currently
-                     done in Perl code. */
+                  else
+                    {
+                      KEY_PAIR *k; ELEMENT *e;
+                      k = lookup_extra (current_node, "menus");
+                      if (k)
+                        e = (ELEMENT *) k->value;
+                      else
+                        {
+                          e = new_element (ET_NONE);
+                          add_extra_contents (current_node, "menus", e);
+                        }
+                      add_to_contents_as_array (e, block);
+                    }
                 }
             }
         }

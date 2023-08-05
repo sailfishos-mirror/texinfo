@@ -179,36 +179,6 @@ sub parser (;$$)
   return $parser;
 }
 
-# Record any @menu elements under $root in the extra 'menus' array of $node.
-sub _find_menus_of_node {
-  my $node = shift;
-  my $root = shift;
-
-  if ($root->{'contents'}) {
-    my $contents = $root->{'contents'};
-    foreach my $child (@{$contents}) {
-      if ($child->{'cmdname'} and $child->{'cmdname'} eq 'menu') {
-        push @{$node->{'extra'}->{'menus'}}, $child;
-      }
-    }
-  }
-}
-
-# Set 'menus' array for each node.  This accounts for input where
-# the number of sectioning commands between @node and @menu is not 1.
-sub _associate_node_menus {
-  my $self = shift;
-  my $root = shift;
-
-  my $current_node;
-  foreach my $child (@{$root->{'contents'}}) {
-    if ($child->{'cmdname'} and $child->{'cmdname'} eq 'node') {
-      $current_node = $child;
-    }
-    _find_menus_of_node ($current_node, $child) if (defined($current_node));
-  }
-}
-
 sub _get_error_registrar($)
 {
   my $self = shift;
@@ -294,8 +264,6 @@ sub parse_texi_file ($$)
   my $tree = build_texinfo_tree ();
   get_parser_info ($self);
 
-  _associate_node_menus ($self, $tree);
-
   ############################################################
 
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
@@ -357,7 +325,6 @@ sub parse_texi_piece($$;$$)
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
-  _associate_node_menus ($self, $tree);
 
   if ($store) {
     my $document_descriptor = store_document();
@@ -384,8 +351,6 @@ sub parse_texi_text($$;$)
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
-
-  _associate_node_menus ($self, $tree);
 
   my $document_descriptor = store_document();
   $tree->{'document_descriptor'} = $document_descriptor;
