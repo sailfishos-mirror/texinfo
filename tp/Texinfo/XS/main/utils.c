@@ -16,6 +16,7 @@
 /* code that does not fit anywhere else */
 
 #include <config.h>
+#include <ctype.h>
 
 const char *whitespace_chars = " \t\v\f\r\n";
 
