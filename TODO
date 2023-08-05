@@ -40,6 +40,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - HTML: support thumbnails.
   - HTML: have a library of different CSS styles.
     http://mail.gnu.org/archive/html/bug-texinfo/2004-01/msg00025.html
+  - output comment lines in generated Info detailed menus for the start of
+    the appendices or @part's.
   - Support output formats retaining the tree structure of Texinfo documents
     as parsed by the Parser.  A lisp-like format for GUILE? Maybe JSON?
   - Support other graphical documentation browsers like GNOME DevHelp

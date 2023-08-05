@@ -1,3 +1,7 @@
+2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* TODO: add outputting detailmenu comment lines
+
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Translations.pm (gdt): have the gettext framework convert
