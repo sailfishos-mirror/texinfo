@@ -190,46 +190,33 @@ sub _get_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-# done after all the parsings.  Part may not make much sense for parse_texi_line,
-# we nevertheless do it in any case to do the same as in ParserNonXS
-sub _set_errors_node_lists_labels_indices($)
-{
-  my $self = shift;
-
-  my $LABELS_LIST = build_target_elements_list ();
-  $self->{'labels_list'} = $LABELS_LIST;
-
-  my $identifier_targets = build_identifiers_target ();
-  $self->{'identifiers_target'} = $identifier_targets;
-  _get_errors ($self);
-  # Setup labels info and nodes list based on 'labels_list'
-  #Texinfo::Document::set_labels_identifiers_target($self,
-  #                                         $self->{'registrar'}, $self);
-
-  my $INDEX_NAMES = build_index_data ();
-  $self->{'index_names'} = $INDEX_NAMES;
-  Texinfo::Translations::complete_indices ($self);
-}
-
 sub get_parser_info {
   my $self = shift;
 
-  my ($INTL_XREFS, $FLOATS, $ERRORS, $GLOBAL_INFO, $GLOBAL_INFO2);
-
-  $INTL_XREFS = build_internal_xref_list ();
-  $FLOATS = build_float_list ();
-  $GLOBAL_INFO = build_global_info ();
-  $GLOBAL_INFO2 = build_global_info2 ();
-
-  $self->{'internal_references'} = $INTL_XREFS;
-  $self->{'floats'} = $FLOATS;
-  $self->{'info'} = $GLOBAL_INFO;
-  $self->{'commands_info'} = $GLOBAL_INFO2;
-
-  _set_errors_node_lists_labels_indices($self);
-
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
+
+  _get_errors ($self, $registrar, $configuration_information);
+
+  my $internal_refs = build_internal_xref_list ();
+  my $floats = build_float_list ();
+  my $global_info = build_global_info ();
+  my $global_commands_info = build_global_info2 ();
+
+  $self->{'internal_references'} = $internal_refs;
+  $self->{'floats'} = $floats;
+  $self->{'info'} = $global_info;
+  $self->{'commands_info'} = $global_commands_info;
+
+  my $labels_list = build_target_elements_list ();
+  $self->{'labels_list'} = $labels_list;
+
+  my $identifier_targets = build_identifiers_target ();
+  $self->{'identifiers_target'} = $identifier_targets;
+
+  my $index_names = build_index_data ();
+  $self->{'index_names'} = $index_names;
+  Texinfo::Translations::complete_indices ($self);
 
   $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
@@ -266,10 +253,6 @@ sub parse_texi_file ($$)
 
   ############################################################
 
-  my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  $self->{'info'}->{'input_file_name'} = $basename;
-  $self->{'info'}->{'input_directory'} = $directories;
-
   my $document_descriptor = store_document();
   $tree->{'document_descriptor'} = $document_descriptor;
 
@@ -280,18 +263,23 @@ sub parse_texi_file ($$)
 
   $document->{'document_descriptor'} = $document_descriptor;
 
+  my ($basename, $directories, $suffix) = fileparse($input_file_path);
+  $self->{'info'}->{'input_file_name'} = $basename;
+  $self->{'info'}->{'input_directory'} = $directories;
+
   return $document;
 }
 
 # Copy the errors into the error list in Texinfo::Report.
-sub _get_errors($)
+sub _get_errors($$$)
 {
   my $self = shift;
-  my ($registrar, $configuration_information) = _get_error_registrar($self);
+  my $registrar = shift;
+  my $configuration_information = shift;
 
-  my $ERRORS = get_errors ();
+  my $errors = get_errors ();
 
-  for my $error (@{$ERRORS}) {
+  for my $error (@{$errors}) {
     # The message output in case of debugging set is already issued by
     # the parser, therefore we set the optional argument to silence
     # the same message that could be output here.
@@ -380,7 +368,10 @@ sub parse_texi_line($$;$$)
   parse_string($utf8_bytes, $line_nr);
   my $tree = build_texinfo_tree ();
 
-  _set_errors_node_lists_labels_indices($self);
+  my ($registrar, $configuration_information)
+     = _get_error_registrar($self);
+
+  _get_errors ($self, $registrar, $configuration_information);
 
   if ($store) {
     my $document_descriptor = store_document();

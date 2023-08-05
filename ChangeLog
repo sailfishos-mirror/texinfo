@@ -1,5 +1,14 @@
 2023-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(_set_errors_node_lists_labels_indices, _get_errors, parse_texi_file)
+	(parse_texi_line): do not call _set_errors_node_lists_labels_indices
+	in parse_texi_line, only _get_errors.  Inline
+	_set_errors_node_lists_labels_indices in get_parser_info.  Cosmetic
+	changes to the code to be more consistent.
+
+2023-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_find_menus_of_node)
 	(_associate_node_menus), tp/Texinfo/XS/parsetexi/handle_commands.c
 	(handle_block_command): associate menus to nodes in the XS parser
