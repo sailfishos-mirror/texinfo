@@ -3848,7 +3848,7 @@ sub _convert($$)
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                             $self->{'labels'}, $node);
+                                     $self->{'identifiers_target'}, $node);
         if ($menu_node) {
           my $menu_text = $self->_convert($menu_node);
           if ($menu_text) {

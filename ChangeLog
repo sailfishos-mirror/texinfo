@@ -1,5 +1,22 @@
 2023-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	Renaming of labels as identifier_target for code coming from master
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert), tp/t/do_master_menu.t:
+	rename labels as identifier_target.
+
+	Note that the renaming had already been done on 2023-08-03, but on
+	a branch.  Rebased code with use of the old names from the master
+	branch did not show up as conflict, although this code is
+	incompatible.  Therefore, this fix would have been needed since
+	this commit:
+
+	2023-08-03  Patrice Dumas  <pertusus@free.fr>
+
+		Rename labels as identifier_target and targets/targets_list as labels_list
+
+2023-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	Determine elements used as targets in C
 
 	* tp/Texinfo/XS/main/document.c (register_document, compare_labels)

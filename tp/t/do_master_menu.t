@@ -129,7 +129,7 @@ my $identifier_target = $parser->labels_information();
 my $refs = $parser->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                       $identifier_target, $refs);
-my $top_node = $labels->{'Top'};
+my $top_node = $identifier_target->{'Top'};
 my $master_menu = Texinfo::Structuring::new_master_menu($parser, $identifier_target,
                     $top_node->{'extra'}->{'menus'});
 my $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
