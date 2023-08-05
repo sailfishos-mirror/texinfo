@@ -15,10 +15,18 @@
 
 #include <config.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+#include "tree_types.h"
 #include "tree.h"
+/* for get_label_element */
+#include "utils.h"
 #include "errors.h"
 #include "debug.h"
+#include "builtin_commands.h"
+#include "extra.h"
+#include "convert_to_texinfo.h"
 #include "document.h"
 
 static DOCUMENT *document_list;
@@ -35,7 +43,8 @@ retrieve_document (int document_descriptor)
 
 /* descriptor starts at 1, 0 is an error */
 size_t
-register_document (ELEMENT *root, INDEX **index_names)
+register_document (ELEMENT *root, INDEX **index_names,
+                   LABEL_LIST *labels_list)
 {
   size_t document_index;
   int slot_found = 0;
@@ -69,6 +78,7 @@ register_document (ELEMENT *root, INDEX **index_names)
   document = &document_list[document_index];
   document->tree = root;
   document->index_names = index_names;
+  document->labels_list = labels_list;
   return document_index +1;
 }
 
@@ -86,3 +96,121 @@ remove_document (int document_descriptor)
     destroy_element_and_children (document->tree);
   document->tree = 0;
 }
+
+int
+compare_labels (const void *a, const void *b)
+{
+  const LABEL *label_a = (const LABEL *) a;
+  const LABEL *label_b = (const LABEL *) b;
+
+  if (label_a->identifier != 0 && label_b->identifier != 0)
+    {
+      int result = strcmp (label_a->identifier, label_b->identifier);
+      if (result != 0)
+        return result;
+    }
+  else if (label_a->identifier)
+    return -1;
+  else if (label_b->identifier)
+    return 1;
+
+  if (label_a->label_number < label_b->label_number)
+    return -1;
+  else
+    return 1;
+/*
+  return (*da > *db) - (*da < *db);
+*/
+}
+
+/*
+some_fun (LABEL_LIST *labels_list)
+{
+  LABEL *list_of_labels = labels_list->list;
+  set_labels_identifiers_target (list_of_labels, labels_list->number);
+}
+ */
+
+/* returns a LABEL_LIST that is sorted with unique identifiers such that
+   elements are easy to find */
+LABEL_LIST *
+set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
+{
+  LABEL *targets = malloc (labels_number * sizeof(LABEL));
+  LABEL_LIST *result = malloc (sizeof(LABEL_LIST));
+  size_t targets_number = labels_number;
+
+  int i;
+
+  /*
+  for (i = 0; i < labels_number; i++)
+    fprintf(stderr, "LL %d %p '%s' %d\n", i, &list_of_labels[i], list_of_labels[i].identifier, list_of_labels[i].label_number);
+   */
+  memcpy (targets, list_of_labels, labels_number * sizeof(LABEL));
+  qsort (targets, labels_number, sizeof(LABEL), compare_labels);
+  /*
+  for (i = 0; i < labels_number; i++)
+    fprintf(stderr, "TT %d %p '%s' %d\n", i, &targets[i], targets[i].identifier, targets[i].label_number);
+   */
+  i = 0;
+  while (i < targets_number)
+    {
+      /* reached the end of the labels with identifiers */
+      if (targets[i].identifier == 0)
+        {
+          targets_number = i;
+          break;
+        }
+      add_extra_integer (targets[i].element, "is_target", 1);
+      if (i < targets_number - 1)
+        {
+          /* find redundant labels with the same identifiers and
+             eliminate them */
+          size_t j = i;
+          while (j < targets_number - 1 && targets[j+1].identifier
+                 && !strcmp (targets[i].identifier, targets[j+1].identifier))
+            {
+              j++;
+            }
+          if (j > i)
+            {
+              size_t n;
+              for (n = i+1; n < j + 1; n++)
+                {
+                  ELEMENT *label_element
+                     = get_label_element (targets[n].element);
+                  char *texi_str = convert_contents_to_texinfo (label_element);
+                  line_error_ext (error, 0, &targets[n].element->source_info,
+                                  "@%s `%s' previously defined",
+                                  command_name (targets[n].element->cmd),
+                                  texi_str);
+                  free (texi_str);
+                  line_error_ext (error, 1, &targets[i].element->source_info,
+                                 "here is the previous definition as @%s",
+                                  command_name (targets[i].element->cmd));
+
+                }
+              if (j < targets_number - 1)
+                {
+                  memmove (&targets[i+1], &targets[j+1],
+                         (targets_number - (j + 1))* sizeof(LABEL));
+                }
+              targets_number -= (j - i);
+              if (j >= targets_number)
+                break;
+            }
+          i++;
+        }
+      else
+        break;
+    }
+  /*
+  for (i = 0; i < targets_number; i++)
+    fprintf (stderr, "RR %d %p '%s' %d\n", i, &targets[i], targets[i].identifier, targets[i].label_number);
+   */
+  result->list = targets;
+  result->number = targets_number;
+  result->space = labels_number;
+  return result;
+}
+

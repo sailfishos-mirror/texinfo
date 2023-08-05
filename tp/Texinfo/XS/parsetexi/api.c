@@ -292,9 +292,23 @@ int
 store_document (void)
 {
   int document_descriptor;
-  document_descriptor = register_document (Root, index_names);
-  reset_indices();
+  LABEL_LIST *labels;
+
+  labels = malloc (sizeof (LABEL_LIST));
+
+  /* this is actually used to deallocate above labels_number */
+  labels_list = realloc (labels_list,
+                         labels_number * sizeof (LABEL));
+
+  labels->list = labels_list;
+  labels->number = labels_number;
+  labels->space = labels_number;
+
+  document_descriptor = register_document (Root, index_names,
+                                           labels);
   Root = 0;
+  reset_indices ();
+  unallocate_labels ();
   return document_descriptor;
 }
 
@@ -303,7 +317,7 @@ static void element_to_perl_hash (ELEMENT *e);
 
 /* Return reference to Perl array built from e.  If any of
    the elements in E don't have 'hv' set, set it to an empty
-   hash table, or create it if there is no parent element, indicating the 
+   hash table, or create it if there is no parent element, indicating the
    element is not in the tree.
    Note that not having 'hv' set should be rare (actually never happen),
    as the contents and args children are processed before the extra
@@ -740,11 +754,34 @@ build_target_elements_list (void)
 
   for (i = 0; i < labels_number; i++)
     {
-      sv = newRV_inc (target_elements_list[i]->hv);
+      sv = newRV_inc (labels_list[i].element->hv);
       av_store (target_array, i, sv);
     }
 
   return target_array;
+}
+
+HV *
+build_identifiers_target (void)
+{
+  HV* hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (identifiers_target->number > 0)
+    {
+      int i;
+      for (i = 0; i < identifiers_target->number; i++)
+        {
+          SV *sv = newRV_inc (identifiers_target->list[i].element->hv);
+          hv_store (hv, identifiers_target->list[i].identifier,
+                    strlen (identifiers_target->list[i].identifier),
+                    sv, 0);
+        }
+    }
+  return hv;
 }
 
 AV *
@@ -1187,6 +1224,8 @@ convert_error (int i)
               e.type == error ? newSVpv("error", strlen("error"))
                               : newSVpv("warning", strlen("warning")),
             0);
+  hv_store (hv, "continuation", strlen ("continuation"),
+            newSViv (e.continuation), 0);
 
   hv_store (hv, "source_info", strlen ("source_info"),
             build_source_info_hash(e.source_info), 0);

@@ -229,10 +229,12 @@ sub _set_errors_node_lists_labels_indices($)
   my $LABELS_LIST = build_target_elements_list ();
   $self->{'labels_list'} = $LABELS_LIST;
 
+  my $identifier_targets = build_identifiers_target ();
+  $self->{'identifiers_target'} = $identifier_targets;
   _get_errors ($self);
   # Setup labels info and nodes list based on 'labels_list'
-  Texinfo::Document::set_labels_identifiers_target($self,
-                                           $self->{'registrar'}, $self);
+  #Texinfo::Document::set_labels_identifiers_target($self,
+  #                                         $self->{'registrar'}, $self);
 
   my $INDEX_NAMES = build_index_data ();
   $self->{'index_names'} = $INDEX_NAMES;
@@ -328,11 +330,11 @@ sub _get_errors($)
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
                               $error->{'message'}, $error->{'source_info'},
-                              undef, 1);
+                              $error->{'continuation'}, 1);
     } else {
       $registrar->line_warn ($configuration_information,
                              $error->{'message'}, $error->{'source_info'},
-                             undef, 1);
+                             $error->{'continuation'}, 1);
     }
   }
 }

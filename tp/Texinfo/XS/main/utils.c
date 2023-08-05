@@ -18,6 +18,10 @@
 #include <config.h>
 #include <ctype.h>
 
+#include "tree_types.h"
+#include "tree.h"
+#include "command_ids.h"
+
 const char *whitespace_chars = " \t\v\f\r\n";
 
 int
@@ -26,3 +30,13 @@ isascii_alnum (int c)
   return (((c & ~0x7f) == 0) && isalnum(c));
 }
 
+ELEMENT *
+get_label_element (ELEMENT *e)
+{
+  if ((e->cmd == CM_node || e->cmd == CM_anchor)
+      && e->args.number > 0)
+    return e->args.list[0];
+  else if (e->cmd == CM_float && e->args.number >= 2)
+    return e->args.list[1];
+  return 0;
+}

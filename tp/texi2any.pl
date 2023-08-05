@@ -1572,6 +1572,7 @@ while(@input_files) {
   }
 
   my $refs = $parser->internal_references_information();
+
   Texinfo::Structuring::associate_internal_references($registrar,
                                 $main_configuration, $identifier_target, $refs);
   # information obtained through Texinfo::Structuring

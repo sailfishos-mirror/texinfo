@@ -84,7 +84,8 @@ size_t error_number = 0;
 static size_t error_space = 0;
 
 static void
-line_error_internal (enum error_type type, SOURCE_INFO *cmd_source_info,
+line_error_internal (enum error_type type, int continuation,
+                     SOURCE_INFO *cmd_source_info,
                      char *format, va_list v)
 {
   char *message;
@@ -102,6 +103,7 @@ line_error_internal (enum error_type type, SOURCE_INFO *cmd_source_info,
     }
   error_list[error_number].message = message;
   error_list[error_number].type = type;
+  error_list[error_number].continuation = continuation;
 
   if (cmd_source_info)
     {
@@ -118,13 +120,14 @@ line_error_internal (enum error_type type, SOURCE_INFO *cmd_source_info,
 }
 
 void
-line_error_ext (enum error_type type, SOURCE_INFO *cmd_source_info,
+line_error_ext (enum error_type type, int continuation,
+                SOURCE_INFO *cmd_source_info,
                 char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
-  line_error_internal (type, cmd_source_info, format, v);
+  line_error_internal (type, continuation, cmd_source_info, format, v);
 }
 
 void
@@ -133,7 +136,7 @@ line_error (char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (error, 0, format, v);
+  line_error_internal (error, 0, 0, format, v);
 }
 
 void
@@ -142,7 +145,7 @@ line_warn (char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (warning, 0, format, v);
+  line_error_internal (warning, 0, 0, format, v);
 }
 
 void
@@ -151,7 +154,7 @@ command_warn (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (warning, &e->source_info, format, v);
+  line_error_internal (warning, 0, &e->source_info, format, v);
 }
 
 void
@@ -160,7 +163,7 @@ command_error (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (error, &e->source_info, format, v);
+  line_error_internal (error, 0, &e->source_info, format, v);
 }
 
 void

@@ -18,9 +18,11 @@
 
 #include "tree_types.h"
 
-extern ELEMENT **target_elements_list;
+extern LABEL *labels_list;
+extern LABEL_LIST *identifiers_target;
 extern size_t labels_number;
 void reset_labels (void);
+void unallocate_labels (void);
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
 

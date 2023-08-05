@@ -17,8 +17,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "tree_types.h"
+
 extern const char *whitespace_chars;
 
 int isascii_alnum (int c);
+
+ELEMENT *get_label_element (ELEMENT *e);
 
 #endif

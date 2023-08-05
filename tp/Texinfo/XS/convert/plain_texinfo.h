@@ -4,6 +4,6 @@
 
 #include "document.h"
 
-char * plain_texinfo_convert (DOCUMENT *document);
+char *plain_texinfo_convert (DOCUMENT *document);
 
 #endif

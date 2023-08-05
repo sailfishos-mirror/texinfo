@@ -529,44 +529,6 @@ $result_menus{'double_node_anchor_float'} = {
 
 $result_errors{'double_node_anchor_float'} = [
   {
-    'error_line' => '@node `node1\' previously defined
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@node `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor `node1\' previously defined
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => '@anchor `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
     'error_line' => '@node `anchor1\' previously defined
 ',
     'file_name' => '',
@@ -583,25 +545,6 @@ $result_errors{'double_node_anchor_float'} = [
     'line_nr' => 7,
     'macro' => '',
     'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@float `node1\' previously defined
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => '',
-    'text' => '@float `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'here is the previous definition as @node',
     'type' => 'error'
   },
   {
@@ -640,6 +583,63 @@ $result_errors{'double_node_anchor_float'} = [
     'line_nr' => 17,
     'macro' => '',
     'text' => 'here is the previous definition as @float',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@node `node1\' previously defined
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@node `node1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'here is the previous definition as @node',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@anchor `node1\' previously defined
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@anchor `node1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'here is the previous definition as @node',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@float `node1\' previously defined
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => '',
+    'text' => '@float `node1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'here is the previous definition as @node',
     'type' => 'error'
   }
 ];

@@ -161,4 +161,16 @@ typedef struct {
     ELEMENT *element;
 } DEF_ARG;
 
+typedef struct {
+    size_t label_number;
+    char *identifier;
+    ELEMENT *element;
+} LABEL;
+
+typedef struct {
+    size_t number;
+    size_t space;
+    LABEL *list;
+} LABEL_LIST;
+
 #endif

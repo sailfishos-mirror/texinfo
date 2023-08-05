@@ -15,6 +15,7 @@
 
 #include <config.h>
 #include <string.h>
+#include <stdio.h>
 
 /* for count_convert_u8 */
 #include "parser.h"
@@ -30,27 +31,33 @@
 #include "labels.h"
 
 /* Array of recorded elements with labels. */
-ELEMENT **target_elements_list = 0;
+LABEL *labels_list = 0;
 size_t labels_number = 0;
 size_t labels_space = 0;
+
+/* Array of target elements with unique identifiers, sorted by identifier */
+LABEL_LIST *identifiers_target = 0;
 
 /* Register a target element associated to a label that may be the target of
    a reference and must be unique in the document.  Corresponds to @node,
    @anchor, and @float (float label corresponds to the second argument). */
 void
-register_label (ELEMENT *target_element)
+register_label (ELEMENT *target_element, char *normalized)
 {
   /* register the element in the list. */
   if (labels_number == labels_space)
     {
       labels_space += 1;
       labels_space *= 1.5;
-      target_elements_list = realloc (target_elements_list,
-                                      labels_space * sizeof (ELEMENT *));
-      if (!target_elements_list)
+      labels_list = realloc (labels_list,
+                             labels_space * sizeof (LABEL));
+      if (!labels_list)
         fatal ("realloc failed");
     }
-  target_elements_list[labels_number++] = target_element;
+  labels_list[labels_number].element = target_element;
+  labels_list[labels_number].label_number = labels_number;
+  labels_list[labels_number].identifier = normalized;
+  labels_number++;
 }
 
 void
@@ -59,13 +66,21 @@ reset_labels (void)
   labels_number = 0;
 }
 
+void unallocate_labels (void)
+{
+  labels_number = 0;
+  labels_space = 0;
+  free (labels_list);
+  labels_list = 0;
+}
+
 void
 check_register_target_element_label (ELEMENT *label_element,
                                      ELEMENT *target_element)
 {
+  char *normalized = 0;
   if (label_element && label_element->contents.number > 0)
     {
-      char *normalized;
       char *non_hyphen_char;
       /* check that the label used as an anchor for link target has no
          external manual part */
@@ -82,17 +97,18 @@ check_register_target_element_label (ELEMENT *label_element,
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (!*non_hyphen_char)
         {
-          line_error_ext (error, &target_element->source_info,
+          line_error_ext (error, 0, &target_element->source_info,
                           "empty node name after expansion `%s'",
                            convert_contents_to_texinfo (label_element));
           free (normalized);
+          normalized = 0;
         }
       else
         {
           add_extra_string (target_element, "normalized", normalized);
         }
     }
-  register_label (target_element);
+  register_label (target_element, normalized);
 }
 
 

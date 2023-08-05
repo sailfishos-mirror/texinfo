@@ -41,6 +41,10 @@
 /* for nesting_context */
 #include "context_stack.h"
 #include "commands.h"
+/* for labels_list and labels_number */
+#include "labels.h"
+/* for set_labels_identifiers_target */
+#include "document.h"
 #include "parser.h"
 
 
@@ -1579,14 +1583,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                               macro = lookup_macro (existing);
                               if (macro)
                                 {
-                                  line_error_ext (1, &current->source_info,
+                                  line_error_ext (warning, 0, &current->source_info,
                                      "macro `%s' previously defined", name);
-                                  line_error_ext (1, &macro->element->source_info,
+                                  line_error_ext (warning, 0, &macro->element->source_info,
                                      "here is the previous definition of `%s'", name);
                                 }
                               else if (!(existing & USER_COMMAND_BIT))
                                 {
-                                  line_error_ext (1, &current->source_info,
+                                  line_error_ext (warning, 0, &current->source_info,
                                     "redefining Texinfo language command: @%s",
                                     name);
                                 }
@@ -2766,6 +2770,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
              value_expansion_nr);
   if (input_number > 0)
     fprintf (stderr, "BUG: at end, input_number > 0: %d\n", input_number);
+
+  identifiers_target
+    = set_labels_identifiers_target (labels_list, labels_number);
 
   return current;
 }

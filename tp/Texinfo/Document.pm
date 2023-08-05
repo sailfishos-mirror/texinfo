@@ -4,12 +4,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -95,6 +95,33 @@ sub labels_information($)
   return $self->{'identifiers_target'};
 }
 
+sub _existing_label_error($$;$$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
+
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'normalized'})) {
+    my $normalized = $element->{'extra'}->{'normalized'};
+    if (defined($customization_information) and defined($registrar)) {
+      my $existing_target = $self->{'identifiers_target'}->{$normalized};
+      my $label_element = Texinfo::Common::get_label_element($element);
+      $registrar->line_error($customization_information,
+                             sprintf(__("\@%s `%s' previously defined"),
+                                     $element->{'cmdname'},
+                    Texinfo::Convert::Texinfo::convert_to_texinfo(
+                         {'contents' => $label_element->{'contents'}})),
+                              $element->{'source_info'});
+      $registrar->line_error($customization_information,
+                    sprintf(__("here is the previous definition as \@%s"),
+                            $existing_target->{'cmdname'}),
+                             $existing_target->{'source_info'}, 1);
+    }
+  }
+}
+
 sub _add_element_to_identifiers_target($$;$$)
 {
   my $self = shift;
@@ -105,21 +132,7 @@ sub _add_element_to_identifiers_target($$;$$)
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
-    if (defined $self->{'identifiers_target'}->{$normalized}) {
-      if (defined($customization_information) and defined($registrar)) {
-        my $label_element = Texinfo::Common::get_label_element($element);
-        $registrar->line_error($customization_information,
-                               sprintf(__("\@%s `%s' previously defined"),
-                                       $element->{'cmdname'},
-                      Texinfo::Convert::Texinfo::convert_to_texinfo(
-                           {'contents' => $label_element->{'contents'}})),
-                                $element->{'source_info'});
-        $registrar->line_error($customization_information,
-            sprintf(__("here is the previous definition as \@%s"),
-             $self->{'identifiers_target'}->{$normalized}->{'cmdname'}),
-              $self->{'identifiers_target'}->{$normalized}->{'source_info'}, 1);
-      }
-    } else {
+    if (!defined $self->{'identifiers_target'}->{$normalized}) {
       $self->{'identifiers_target'}->{$normalized} = $element;
       $element->{'extra'}->{'is_target'} = 1;
       return 1;
@@ -138,11 +151,28 @@ sub set_labels_identifiers_target ($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
+  my @elements_with_error;
+
   $self->{'identifiers_target'} = {};
   if (defined $self->{'labels_list'}) {
     foreach my $element (@{$self->{'labels_list'}}) {
-      _add_element_to_identifiers_target($self, $element, $registrar,
+      my $retval = _add_element_to_identifiers_target($self,
+                                         $element, $registrar,
                                          $customization_information);
+      if (!$retval and $element->{'extra'}
+          and defined($element->{'extra'}->{'normalized'})) {
+        push @elements_with_error, $element;
+      }
+    }
+  }
+  # use identifiers order to have the same error messages order as in XS parser
+  if (scalar(@elements_with_error) > 0) {
+    my @sorted
+     = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
+        @elements_with_error;
+    foreach my $element (@sorted) {
+      _existing_label_error($self, $element, $registrar,
+                            $customization_information);
     }
   }
 }
@@ -157,6 +187,10 @@ sub register_label_element($$;$$)
 
   my $retval = _add_element_to_identifiers_target($self, $element, $registrar,
                                          $customization_information);
+  if (!$retval) {
+    _existing_label_error($self, $element, $registrar,
+                                         $customization_information);
+  }
   # FIXME do not push at the end but have the caller give the element it should be
   # after or before?
   push @{$self->{'labels_list'}}, $element;
