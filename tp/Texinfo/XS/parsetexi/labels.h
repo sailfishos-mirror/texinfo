@@ -25,6 +25,7 @@ void reset_labels (void);
 void unallocate_labels (void);
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
+void wipe_identifiers_target (void);
 
 
 
@@ -36,4 +37,5 @@ extern size_t internal_xref_number;
 
 void remember_internal_xref (ELEMENT *element);
 void reset_internal_xrefs (void);
+void unallocate_internal_xrefs (void);
 #endif

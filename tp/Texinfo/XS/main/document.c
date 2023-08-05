@@ -44,7 +44,11 @@ retrieve_document (int document_descriptor)
 /* descriptor starts at 1, 0 is an error */
 size_t
 register_document (ELEMENT *root, INDEX **index_names,
-                   LABEL_LIST *labels_list)
+                   FLOAT_RECORD_LIST *floats_list,
+                   ELEMENT_LIST *internal_references,
+                   LABEL_LIST *labels_list,
+                   LABEL_LIST *identifiers_target,
+                   GLOBAL_INFO *global_info)
 {
   size_t document_index;
   int slot_found = 0;
@@ -78,7 +82,11 @@ register_document (ELEMENT *root, INDEX **index_names,
   document = &document_list[document_index];
   document->tree = root;
   document->index_names = index_names;
+  document->floats = floats_list;
+  document->internal_references = internal_references;
   document->labels_list = labels_list;
+  document->identifiers_target = identifiers_target;
+  document->global_info = global_info;
   return document_index +1;
 }
 

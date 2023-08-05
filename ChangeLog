@@ -1,5 +1,21 @@
 2023-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (register_document),
+	tp/Texinfo/XS/main/tree_types.h (FLOAT_RECORD, FLOAT_RECORD_LIST),
+	tp/Texinfo/XS/main/utils.h (GLOBAL_INFO),
+	tp/Texinfo/XS/parsetexi/parser.h,
+	tp/Texinfo/XS/parsetexi/api.c (store_document),
+	tp/Texinfo/XS/parsetexi/labels.c (unallocate_internal_xrefs):
+	store floats, internal_references, identifiers_target and global_info
+	in document.  Move GLOBAL_INFO declaration to main/utils.h
+	and FLOAT_RECORD to main/tree_types.h.
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
+	tp/Texinfo/XS/parsetexi/labels.c (wipe_identifiers_target): add
+	wipe_identifiers_target and call it in reset_parser_except_conf.
+
+2023-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_piece, parse_texi_line)
 	(parse_texi_text, parse_texi_file, _parse_texi_document, _parse_texi):
 	setup a document in _parse_texi such as to use the same code in all

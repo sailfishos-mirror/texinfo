@@ -111,6 +111,17 @@ check_register_target_element_label (ELEMENT *label_element,
   register_label (target_element, normalized);
 }
 
+void
+wipe_identifiers_target (void)
+{
+  if (identifiers_target != 0)
+    {
+      free (identifiers_target->list);
+      free (identifiers_target);
+      identifiers_target = 0;
+    }
+}
+
 
 
 /* NODE->contents is the Texinfo for the specification of a node.  This
@@ -411,3 +422,12 @@ reset_internal_xrefs (void)
 {
   internal_xref_number = 0;
 }
+
+void
+unallocate_internal_xrefs (void)
+{
+  internal_xref_number = 0;
+  internal_xref_space = 0;
+  internal_xref_list = 0;
+}
+

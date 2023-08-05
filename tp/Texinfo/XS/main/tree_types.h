@@ -173,4 +173,15 @@ typedef struct {
     LABEL *list;
 } LABEL_LIST;
 
+typedef struct {
+    char *type;
+    ELEMENT *element;
+} FLOAT_RECORD;
+
+typedef struct {
+    size_t number;
+    size_t space;
+    FLOAT_RECORD *float_types;
+} FLOAT_RECORD_LIST;
+
 #endif

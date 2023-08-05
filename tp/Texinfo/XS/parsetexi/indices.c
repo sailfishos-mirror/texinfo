@@ -157,7 +157,7 @@ wipe_indices (void)
   return;
 }
 
-/* reset indices without unallocating them */
+/* reset indices without unallocating them nor the list of indices */
 void
 reset_indices (void)
 {

@@ -21,6 +21,80 @@
 
 extern const char *whitespace_chars;
 
+typedef struct GLOBAL_INFO {
+    char *input_file_name;
+    int sections_level;
+    ELEMENT dircategory_direntry; /* an array of elements */
+
+    /* Elements that should be unique. */
+    ELEMENT *settitle; /* Title of document. */
+    ELEMENT *copying;
+    ELEMENT *title;
+    ELEMENT *titlepage;
+    ELEMENT *top;
+    ELEMENT *setfilename;
+    ELEMENT *documentdescription;
+    ELEMENT *pagesizes;
+    ELEMENT *fonttextsize;
+    ELEMENT *footnotestyle;
+    ELEMENT *setchapternewpage;
+    ELEMENT *everyheading;
+    ELEMENT *everyfooting;
+    ELEMENT *evenheading;
+    ELEMENT *evenfooting;
+    ELEMENT *oddheading;
+    ELEMENT *oddfooting;
+    ELEMENT *everyheadingmarks;
+    ELEMENT *everyfootingmarks;
+    ELEMENT *evenheadingmarks;
+    ELEMENT *oddheadingmarks;
+    ELEMENT *evenfootingmarks;
+    ELEMENT *oddfootingmarks;
+    ELEMENT *shorttitlepage;
+    ELEMENT *novalidate;
+    ELEMENT *afourpaper;
+    ELEMENT *afourlatex;
+    ELEMENT *afourwide;
+    ELEMENT *afivepaper;
+    ELEMENT *bsixpaper;
+    ELEMENT *smallbook;
+
+    /* Arrays of elements */
+    ELEMENT author;
+    ELEMENT detailmenu;
+    ELEMENT floats;
+    ELEMENT footnotes;
+    ELEMENT hyphenation;
+    ELEMENT insertcopying;
+    ELEMENT listoffloats;
+    ELEMENT part;
+    ELEMENT printindex;
+    ELEMENT subtitle;
+    ELEMENT titlefont;
+
+    ELEMENT allowcodebreaks;
+    ELEMENT clickstyle;
+    ELEMENT codequotebacktick;
+    ELEMENT codequoteundirected;
+    ELEMENT contents;
+    ELEMENT deftypefnnewline;
+    ELEMENT documentencoding;
+    ELEMENT documentlanguage;
+    ELEMENT exampleindent;
+    ELEMENT firstparagraphindent;
+    ELEMENT frenchspacing;
+    ELEMENT headings;
+    ELEMENT kbdinputstyle;
+    ELEMENT microtype;
+    ELEMENT paragraphindent;
+    ELEMENT shortcontents;
+    ELEMENT urefbreakstyle;
+    ELEMENT xrefautomaticsectiontitle;
+
+    /* Ignored characters for index sort key */
+    IGNORED_CHARS ignored_chars;
+} GLOBAL_INFO;
+
 int isascii_alnum (int c);
 
 ELEMENT *get_label_element (ELEMENT *e);

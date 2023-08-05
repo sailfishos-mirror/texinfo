@@ -151,6 +151,7 @@ reset_parser_except_conf (void)
   wipe_user_commands ();
   wipe_macros ();
   init_index_commands ();
+  wipe_identifiers_target ();
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
@@ -293,6 +294,9 @@ store_document (void)
 {
   int document_descriptor;
   LABEL_LIST *labels;
+  FLOAT_RECORD_LIST *floats;
+  ELEMENT_LIST *internal_references;
+  GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
 
   labels = malloc (sizeof (LABEL_LIST));
 
@@ -304,11 +308,40 @@ store_document (void)
   labels->number = labels_number;
   labels->space = labels_number;
 
-  document_descriptor = register_document (Root, index_names,
-                                           labels);
+  floats = malloc (sizeof (FLOAT_RECORD_LIST));
+  floats_list = realloc (floats_list,
+                         floats_number * sizeof (FLOAT_RECORD));
+
+  floats->float_types = floats_list;
+  floats->number = floats_number;
+  floats->space = floats_number;
+
+  internal_references = malloc (sizeof (ELEMENT_LIST));
+
+  internal_xref_list = realloc (internal_xref_list,
+                                internal_xref_number * sizeof (ELEMENT));
+
+  internal_references->list = internal_xref_list;
+  internal_references->number = internal_xref_number;
+  internal_references->space = internal_xref_number;
+
+  memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
+
+  document_descriptor
+   = register_document (Root, index_names, floats, internal_references,
+                        labels, identifiers_target, doc_global_info);
   Root = 0;
   reset_indices ();
   unallocate_labels ();
+  /* use a function? */
+  floats_list = 0;
+  floats_number = 0;
+  floats_space = 0;
+
+  unallocate_internal_xrefs ();
+
+  identifiers_target = 0;
+
   return document_descriptor;
 }
 
