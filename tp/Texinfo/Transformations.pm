@@ -412,10 +412,9 @@ sub complete_node_menu($;$)
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my ($normalized_entry_node, $node)
-              = Texinfo::Common::_normalized_entry_associated_internal_node($entry);
+              = Texinfo::Structuring::_normalized_entry_associated_internal_node($entry);
             if (defined($normalized_entry_node)) {
-              $existing_entries{$normalized_entry_node}
-                = [$menu, $entry];
+              $existing_entries{$normalized_entry_node} = [$menu, $entry];
             }
           }
         }
@@ -535,7 +534,7 @@ sub regenerate_master_menu($$)
                    or !$top_node->{'extra'}->{'menus'}
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
-  my $new_master_menu = Texinfo::Common::new_master_menu($self,
+  my $new_master_menu = Texinfo::Structuring::new_master_menu($self,
                                  $labels, $top_node->{'extra'}->{'menus'});
   return undef if (!defined($new_master_menu));
 

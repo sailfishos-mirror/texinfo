@@ -3836,7 +3836,7 @@ sub _convert($$)
         $menu_node = Texinfo::Structuring::new_complete_node_menu($node);
         if ($command eq 'top' and $menu_node
              and $node->{'extra'}->{'normalized'} eq 'Top') {
-          my $detailmenu = Texinfo::Common::new_master_menu($self,
+          my $detailmenu = Texinfo::Structuring::new_master_menu($self,
                                                         $self->{'labels'},
                                                         [ $menu_node ]);
           if ($detailmenu) {

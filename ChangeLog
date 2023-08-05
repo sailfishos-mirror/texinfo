@@ -1,5 +1,12 @@
 2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm,  tp/Texinfo/Structuring.pm
+	(_normalized_entry_associated_internal_node, new_master_menu):
+	Move to Structuring.pm as Common.pm should not depend on
+	Texinfo::Structuring or Texinfo::Translations.  Report from Patrice.
+
+2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	add CHECK_MISSING_MENU_ENTRY
 
 	* tp/Texinfo/Common.pm (%default_main_program_customization):
