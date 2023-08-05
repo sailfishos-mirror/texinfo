@@ -1,5 +1,10 @@
 2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: Mention AUTO_MENU_DESCRIPTION_FILLCOLUMN and
+	AUTO_MENU_DESCRIPTION_INDENT_LENGTH.
+
+2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* TODO: add outputting detailmenu comment lines
 
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
