@@ -762,11 +762,11 @@ sub parse_texi_piece($$;$)
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
-  my $tree = $self->_parse_texi($document_root, $before_node_section);
+  my $document = $self->_parse_texi($document_root, $before_node_section);
 
   get_parser_info($self);
 
-  return $tree;
+  return $document->tree();
 }
 
 sub parse_texi_line($$;$)
@@ -782,8 +782,9 @@ sub parse_texi_line($$;$)
   _input_push_text($self, $text, $line_nr);
 
   my $root = {'type' => 'root_line'};
-  my $tree = $self->_parse_texi($root, $root);
-  return $tree;
+  my $document = $self->_parse_texi($root, $root);
+  get_parser_info($self);
+  return $document->tree();
 }
 
 sub parse_texi_text($$;$)
@@ -798,15 +799,12 @@ sub parse_texi_text($$;$)
 
   _input_push_text($self, $text, $line_nr);
 
-  my $tree = $self->_parse_texi_document();
+  my $document = $self->_parse_texi_document();
 
   get_parser_info($self);
-
-  my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
-     $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
+  return $document;
 }
+
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
 # Returns binary strings too.
@@ -898,16 +896,12 @@ sub parse_texi_file($$)
 
   $self = parser() if (!defined($self));
 
+  my $document = $self->_parse_texi_document();
+  get_parser_info($self);
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
 
-  my $tree = $self->_parse_texi_document();
-  get_parser_info($self);
-
-  my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
-     $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
+  return $document;
 }
 
 sub _parse_texi_document($)
@@ -944,11 +938,11 @@ sub _parse_texi_document($)
     }
   }
 
-  my $tree = $self->_parse_texi($document_root, $before_node_section);
+  my $document = $self->_parse_texi($document_root, $before_node_section);
 
   Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
 
-  return $tree;
+  return $document;
 }
 
 # return indices information
@@ -7464,7 +7458,12 @@ sub _parse_texi($$$)
   Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
   Texinfo::Translations::complete_indices($self);
-  return $root;
+
+  my $document = Texinfo::Document::register($root,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
+     $self->{'identifiers_target'}, $self->{'labels_list'});
+  return $document;
 }
 
 # parse special rawline @-commands, unmacro, set, clear, clickstyle

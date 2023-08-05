@@ -192,6 +192,9 @@ sub _get_error_registrar($)
 
 sub get_parser_info {
   my $self = shift;
+  my $store = shift;
+
+  my $tree = build_texinfo_tree ();
 
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
@@ -224,6 +227,18 @@ sub get_parser_info {
                               $registrar, $configuration_information);
   $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
+
+  my $document = Texinfo::Document::register($tree,
+     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'internal_references'}, $self->{'commands_info'},
+     $self->{'identifiers_target'}, $self->{'labels_list'});
+
+  if ($store) {
+    my $document_descriptor = store_document();
+    $tree->{'document_descriptor'} = $document_descriptor;
+    $document->{'document_descriptor'} = $document_descriptor;
+  }
+  return $document;
 }
 
 sub parse_texi_file ($$)
@@ -248,20 +263,7 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $tree = build_texinfo_tree ();
-  get_parser_info ($self);
-
-  ############################################################
-
-  my $document_descriptor = store_document();
-  $tree->{'document_descriptor'} = $document_descriptor;
-
-  my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
-     $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
-
-  $document->{'document_descriptor'} = $document_descriptor;
+  my $document = get_parser_info ($self, 1);
 
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
   $self->{'info'}->{'input_file_name'} = $basename;
@@ -310,16 +312,10 @@ sub parse_texi_piece($$;$$)
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
   parse_piece($utf8_bytes, $line_nr);
-  my $tree = build_texinfo_tree ();
 
-  get_parser_info($self);
+  my $document = get_parser_info($self, $store);
 
-  if ($store) {
-    my $document_descriptor = store_document();
-    $tree->{'document_descriptor'} = $document_descriptor;
-  }
-
-  return $tree;
+  return $document->tree();
 }
 
 # Used in tests under tp/t.
@@ -336,19 +332,8 @@ sub parse_texi_text($$;$)
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
   parse_text($utf8_bytes, $line_nr);
-  my $tree = build_texinfo_tree ();
 
-  get_parser_info($self);
-
-  my $document_descriptor = store_document();
-  $tree->{'document_descriptor'} = $document_descriptor;
-
-  my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
-     $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
-
-  $document->{'document_descriptor'} = $document_descriptor;
+  my $document = get_parser_info($self, 1);
 
   return $document;
 }
@@ -366,19 +351,10 @@ sub parse_texi_line($$;$$)
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
   parse_string($utf8_bytes, $line_nr);
-  my $tree = build_texinfo_tree ();
 
-  my ($registrar, $configuration_information)
-     = _get_error_registrar($self);
+  my $document = get_parser_info($self, $store);
 
-  _get_errors ($self, $registrar, $configuration_information);
-
-  if ($store) {
-    my $document_descriptor = store_document();
-    $tree->{'document_descriptor'} = $document_descriptor;
-  }
-
-  return $tree;
+  return $document->tree();
 }
 
 # Public interfaces of Texinfo::Parser to gather information

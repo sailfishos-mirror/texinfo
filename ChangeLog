@@ -1,5 +1,19 @@
 2023-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_piece, parse_texi_line)
+	(parse_texi_text, parse_texi_file, _parse_texi_document, _parse_texi):
+	setup a document in _parse_texi such as to use the same code in all
+	the parse_texi_* functions.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(parse_texi_file, parse_texi_text, parse_texi_line, parse_texi_piece):
+	get the tree and setup the document in get_parser_info.  New argument
+	for get_parser_info, store, if true the C parsed tree is kept.  Use
+	get_parser_info in all the parse_texi_* codes for simpler and more
+	similar codes.
+
+2023-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
 	(_set_errors_node_lists_labels_indices, _get_errors, parse_texi_file)
 	(parse_texi_line): do not call _set_errors_node_lists_labels_indices
