@@ -106,6 +106,7 @@ $result_trees{'8bit_document_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'Top'
       },
       'info' => {
@@ -175,6 +176,7 @@ $result_trees{'8bit_document_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'chap'
       },
       'info' => {
@@ -271,6 +273,7 @@ $result_trees{'8bit_document_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
+        'is_target' => 1,
         'normalized' => 'appendix'
       },
       'info' => {
