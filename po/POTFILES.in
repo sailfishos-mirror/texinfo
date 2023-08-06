@@ -35,6 +35,7 @@ Pod-Simple-Texinfo/pod2texi.pl
 tp/DebugTexinfo/DebugTree.pm
 tp/Texinfo/Common.pm
 tp/Texinfo/Config.pm
+tp/Texinfo/Document.pm
 tp/Texinfo/Convert/Converter.pm
 tp/Texinfo/Convert/DocBook.pm
 tp/Texinfo/Convert/HTML.pm
@@ -57,11 +58,11 @@ tp/ext/latex2html.pm
 tp/ext/tex4ht.pm
 tp/texi2any.pl
 tp/Texinfo/XS/gnulib/lib/obstack.c
+tp/Texinfo/XS/main/errors.c
+tp/Texinfo/XS/main/errors.h
 tp/Texinfo/XS/parsetexi/Parsetexi.pm
 tp/Texinfo/XS/parsetexi/close.c
 tp/Texinfo/XS/parsetexi/end_line.c
-tp/Texinfo/XS/parsetexi/errors.c
-tp/Texinfo/XS/parsetexi/errors.h
 tp/Texinfo/XS/parsetexi/handle_commands.c
 tp/Texinfo/XS/parsetexi/indices.c
 tp/Texinfo/XS/parsetexi/input.c
