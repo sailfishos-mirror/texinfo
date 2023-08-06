@@ -90,7 +90,7 @@ XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
-########################## shared common library
+########################## shared common library and parser library
 
 # FIXME this is an internal library.  Do not put it in lib?
 # it still needs to be found by the linker.
@@ -98,6 +98,10 @@ if HAVE_ICONV
 lib_LTLIBRARIES = libtexinfo.la
 endif
 
+# The files in the main directory correspond to code used both
+# by the parser and by converters.  The files in the parsetexi
+# directory correspond to the parser code.  They depend on the files
+# in main but not the other way around.
 libtexinfo_la_SOURCES= \
 		      main/tree_types.h \
 		      main/tree.c \
@@ -124,7 +128,38 @@ libtexinfo_la_SOURCES= \
 		      main/utils.c \
 		      main/utils.h \
 		      main/document.c \
-		      main/document.h
+		      main/document.h \
+		      parsetexi/api.c \
+		      parsetexi/api.h \
+		      parsetexi/parser.c \
+		      parsetexi/parser.h \
+		      parsetexi/input.c \
+		      parsetexi/input.h \
+		      parsetexi/close.c \
+		      parsetexi/conf.c \
+		      parsetexi/conf.h \
+		      parsetexi/context_stack.c \
+		      parsetexi/context_stack.h \
+		      parsetexi/end_line.c \
+		      parsetexi/separator.c \
+		      parsetexi/multitable.c \
+		      parsetexi/indices.c \
+		      parsetexi/indices.h \
+		      parsetexi/commands.c \
+		      parsetexi/commands.h \
+		      parsetexi/macro.c \
+		      parsetexi/macro.h \
+		      parsetexi/handle_commands.c \
+		      parsetexi/handle_commands.h \
+		      parsetexi/def.c \
+		      parsetexi/def.h \
+		      parsetexi/menus.c \
+		      parsetexi/labels.c \
+		      parsetexi/labels.h \
+		      parsetexi/counter.c \
+		      parsetexi/counter.h \
+		      parsetexi/source_marks.c \
+		      parsetexi/source_marks.h
 EXTRA_DIST += main/command_data.c
 EXTRA_DIST += main/command_tables.c
 EXTRA_DIST += main/unicode_tables.c
@@ -160,7 +195,7 @@ $(srcdir)/main/command_tables.c: $(srcdir)/main/command_data.c
               $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c
 
 
-########################## parsetexi
+########################## Parsetexi XS
 
 p=parsetexi
 
@@ -173,38 +208,7 @@ endif
 
 Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/build_perl_info.c \
-		      parsetexi/build_perl_info.h \
-		      parsetexi/api.c \
-		      parsetexi/api.h \
-		      parsetexi/parser.c \
-		      parsetexi/parser.h \
-		      parsetexi/input.c \
-		      parsetexi/input.h \
-		      parsetexi/close.c \
-		      parsetexi/conf.c \
-		      parsetexi/conf.h \
-		      parsetexi/context_stack.c \
-		      parsetexi/context_stack.h \
-		      parsetexi/end_line.c \
-		      parsetexi/separator.c \
-		      parsetexi/multitable.c \
-		      parsetexi/indices.c \
-		      parsetexi/indices.h \
-		      parsetexi/commands.c \
-		      parsetexi/commands.h \
-		      parsetexi/macro.c \
-		      parsetexi/macro.h \
-		      parsetexi/handle_commands.c \
-		      parsetexi/handle_commands.h \
-		      parsetexi/def.c \
-		      parsetexi/def.h \
-		      parsetexi/menus.c \
-		      parsetexi/labels.c \
-		      parsetexi/labels.h \
-		      parsetexi/counter.c \
-		      parsetexi/counter.h \
-		      parsetexi/source_marks.c \
-		      parsetexi/source_marks.h
+		      parsetexi/build_perl_info.h
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
@@ -214,7 +218,11 @@ Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
+########################## ConvertXS
+
+if HAVE_ICONV
 xs_LTLIBRARIES += ConvertXS.la
+endif
 
 ConvertXS_la_SOURCES = \
                        convert/ConvertXS.c \
