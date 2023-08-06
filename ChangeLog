@@ -1,5 +1,15 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_SOURCES),
+	tp/Texinfo/XS/parsetexi/build_perl_info.c,
+	tp/Texinfo/XS/parsetexi/build_perl_info.h,
+	tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/api.h:
+	split out of api.c the api related to perl and put it in
+	build_perl_info.c.  What remains in api.c can be moved to a
+	separate library to be linked against by XS code.
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* po/POTFILES.in: update.
 
 2023-08-06  Patrice Dumas  <pertusus@free.fr>

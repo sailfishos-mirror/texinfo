@@ -2,7 +2,9 @@
 #ifndef API_H
 #define API_H
 
-int init (int texinfo_uninstalled, char *srcdir_in);
+#include <config.h>
+
+extern ELEMENT *Root;
 
 int parse_file (char *filename);
 void parse_piece (char *, int line_nr);
@@ -20,14 +22,10 @@ void conf_set_input_file_name_encoding (char *value);
 void conf_set_locale_encoding (char *value);
 void conf_set_documentlanguage_override (char *value);
 
-HV *build_texinfo_tree (void);
-AV *build_target_elements_list (void);
-HV* build_identifiers_target (void);
-AV *build_internal_xref_list (void);
-HV *build_float_list (void);
-HV *build_index_data (void);
-HV *build_global_info (void);
-HV *build_global_info2 (void);
-AV *get_errors (void);
+#ifdef ENABLE_NLS
+
+#define LOCALEDIR DATADIR "/locale"
+
+#endif
 
 #endif

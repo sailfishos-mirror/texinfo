@@ -172,7 +172,9 @@ xs_LTLIBRARIES += Parsetexi.la
 endif
 
 Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
-                      parsetexi/api.c \
+		      parsetexi/build_perl_info.c \
+		      parsetexi/build_perl_info.h \
+		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
 		      parsetexi/parser.h \

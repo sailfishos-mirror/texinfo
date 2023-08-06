@@ -32,6 +32,7 @@
 
 #include "parser.h"
 #include "api.h"
+#include "build_perl_info.h"
 #include "indices.h"
 #include "input.h"
 
