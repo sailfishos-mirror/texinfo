@@ -28,6 +28,7 @@ use strict;
 use Encode;
 use POSIX qw(setlocale LC_ALL LC_MESSAGES);
 #use Carp qw(confess);
+use Carp qw(cluck);
 use Locale::Messages;
 
 # note that there is a circular dependency with the parser module, as
@@ -105,6 +106,9 @@ sub gdt($$;$$$$)
   # the language needs to be dynamic in case there is an untranslated string
   # from another language that needs to be translated.
   $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
+  if (defined($lang) and $lang eq '') {
+    cluck ("BUG: defined but empty documentlanguage: $self: '$string'\n");
+  }
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
@@ -136,6 +140,7 @@ sub gdt($$;$$$$)
       $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
     }
   } else {
+    # NOTE never happens in the tests, unlikely to happen at all.
     $encoding = $DEFAULT_ENCODING;
     $perl_encoding = $DEFAULT_PERL_ENCODING;
   }
@@ -324,10 +329,11 @@ sub _substitute_element_array ($$) {
   @{$array} = map {
     if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
       my $name = $_->{'args'}->[0]->{'text'};
+      # FIXME set the parent?
       if (ref($replaced_substrings->{$name}) eq 'HASH') {
         $replaced_substrings->{$name};
       } elsif (ref($replaced_substrings->{$name}) eq 'ARRAY') {
-        @{$replaced_substrings->{$name}};
+        {'contents' => $replaced_substrings->{$name}};
       } elsif (ref($replaced_substrings->{$name}) eq '') {
         {'text' => $replaced_substrings->{$name}};
       } else {

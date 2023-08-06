@@ -1723,9 +1723,8 @@ sub _inline_or_block($)
   } elsif ($current->{'cmdname'}
            and exists($not_inline_commands{$current->{'cmdname'}})) {
     return 0;
-  } else {
-    return undef;
   }
+  return undef;
 }
 
 # return true if in running text context.

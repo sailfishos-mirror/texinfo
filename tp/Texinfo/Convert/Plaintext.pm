@@ -1218,6 +1218,7 @@ sub _align_environment($$$$)
   return $result;
 }
 
+# format @contents or @shortcontents
 sub format_contents($$$)
 {
   my ($self, $section_root, $contents_or_shortcontents) = @_;

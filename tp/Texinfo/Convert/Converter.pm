@@ -1060,6 +1060,7 @@ sub _command_init($$)
       return $Texinfo::Common::document_settable_at_commands{$global_command};
     }
   }
+  return undef;
 }
 
 # $COMMANDS_LOCATION is 'before', 'last', 'preamble' or 'preamble_or_first'

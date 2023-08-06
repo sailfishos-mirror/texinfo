@@ -141,6 +141,22 @@ anchor in flushright, on an empty line, with a current byte offset.
 Future features
 ===============
 
+
+Bugs lurks when perl functions do not return anything, as it depends on the
+exact ending of the function:
+       If you specify no return value, the subroutine
+       returns an empty list in list context, the undefined value in scalar
+       context, or nothing in void context.  If you return one or more
+       aggregates (arrays and hashes), these will be flattened together into
+       one large indistinguishable list.
+
+       If no "return" is found and if the last statement is an expression, its
+       value is returned.  If the last statement is a loop control structure
+       like a "foreach" or a "while", the returned value is unspecified.  The
+       empty sub returns the empty list.
+
+
+
 For converters in C, agreed with Gavin that it is better not to
 translate a perl tree in input, but access directly the C tree that
 was setup by the XS parser.
@@ -168,6 +184,56 @@ for global_info.cm*, contents are added with
   add_to_contents_as_array (&global_info.cmx, current)
 which allocates a new list.  In wipe_global_info the list is cleared.
 simply use memcpy?
+
+
+POSIX::setlocale: setlocale(), #include <locale.h>
+https://www.gnu.org/software/libc/manual/html_node/Setting-the-Locale.html
+
+%ENV: getenv/putenv
+Locale::Messages::nl_putenv?  putenv?
+https://www.gnu.org/software/libc/manual/html_node/Environment-Access.html
+
+bind_textdomain_codeset
+https://www.gnu.org/software/libc/manual/html_node/Charset-conversion-in-gettext.html
+The bind_textdomain_codeset function can be used to specify the output character set for message catalogs for domain domainname. The codeset argument must be a valid codeset name which can be used for the iconv_open function, or a null pointer. 
+
+for gdt, what could be self?  Can be parser, $main_configuration in rare
+cases (regenerate_master_menu), converter.
+
+get_conf that need to be implemented in C
+
+In parser:
+  $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
+$self->{'documentlanguage'} for get_conf('documentlanguage'):
+  global_documentlanguage
+(can be 0 even if ($self).)
+
+For bind_textdomain_codeset, there is no need for OUTPUT_ENCODING_NAME
+OUTPUT_PERL_ENCODING, UTF-8 will always be used.
+
+To find the locale, OUTPUT_ENCODING_NAME seems not to be available when
+$self is a parser, but always to be available in the other cases.
+
+On LANGUAGE: is it portable to use : separated list?  Ok in GNU:
+https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
+While for the LC_xxx variables the value should consist of exactly one specification of a locale the LANGUAGE variable’s value can consist of a colon separated list of locale names. The attentive reader will realize that this is the way we manage to implement one of our additional demands above: we want to be able to specify an ordered list of languages. 
+
+BUT, (most likely same as in perl, explains the whole set any locale
+before anything kludges, cf a bug report I made on libintl-perl):
+https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
+Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In other words, you have to first enable localization, by setting LANG (or LC_ALL) to a value other than ‘C’, before you can use a language priority list through the LANGUAGE variable. 
+
+probably need to use
+#ifdef ENABLE_NLS
+for example in errors.c line_error_internal
+#ifdef ENABLE_NLS
+  xvasprintf (&message, gettext(format), v);
+#else
+  xvasprintf (&message, format, v);
+#endif
+
+Note that there is a function, not currently used, that could be reused in api.c:
+find_locales_dir
 
 
 For Paragraph, improvements and synchronizations of

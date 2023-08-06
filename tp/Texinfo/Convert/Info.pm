@@ -24,6 +24,8 @@ package Texinfo::Convert::Info;
 use 5.00405;
 use strict;
 
+use Carp qw(cluck);
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
