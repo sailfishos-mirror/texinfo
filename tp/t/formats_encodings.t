@@ -395,6 +395,9 @@ undef, {'test_file' => 'multiple_include_encodings.texi',
         'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
                    ? 'No conversion from EUC-CN' : undef, }
 ],
+['8bit_document_translations',
+undef, {'test_file' => 'pl_translated_inserted_strings_8bit.texi'}
+],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info
 @documentencoding utf-8

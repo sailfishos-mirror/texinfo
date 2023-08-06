@@ -239,6 +239,7 @@ test_files = \
  t/input_files/minimal_empty_empty.texi \
  t/input_files/minimal_empty_with_bye.texi \
  t/input_files/minimal_empty_with_input.texi \
+ t/input_files/minimal_only_input_line.texi \
  t/input_files/multiple_include_encodings.texi \
  t/input_files/navigation.texi \
  t/input_files/nodequote.texi \
@@ -249,8 +250,8 @@ test_files = \
  t/input_files/node_footnote.texi \
  t/input_files/non_break_spaces.texi \
  t/input_files/one_line.texi \
- t/input_files/minimal_only_input_line.texi \
  t/input_files/only_special_spaces_node.texi \
+ t/input_files/pl_translated_inserted_strings_8bit.texi \
  t/input_files/punctuation_small_case_accents_latin1.texi \
  t/input_files/punctuation_small_case_accents_us_ascii.texi \
  t/input_files/punctuation_small_case_accents_utf8.texi \
