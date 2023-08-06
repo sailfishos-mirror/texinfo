@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-add @nodedescription customization
-
 Bugs
 ====
 
@@ -49,6 +47,21 @@ For converter writers,
 
 Delayed bugs
 ============
+
+From https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
+For locales, the encoding part is normalized in a specific way.  It
+seems that iconv in the C library follows the same convention at least to
+some extent, though it is not visibly documented.
+Should we use fully the normalization of documentencoding following in some
+context (gdt?):
+  The normalized codeset value is generated from the user-provided character set name by applying the following rules:
+
+    Remove all characters besides numbers and letters.
+    Fold letters to lowercase.
+    If the same only contains digits prepend the string "iso".
+
+  So all of the above names will be normalized to iso88591. This allows the program user much more freedom in choosing the locale name.
+
 
 hyphenation: should only appear in toplevel.
 
