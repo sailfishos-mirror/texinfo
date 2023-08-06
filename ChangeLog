@@ -1,5 +1,11 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (gdt): have the gettext framework convert
+	translated strings to UTF-8, and decode from UTF-8 to internal perl
+	encoding.
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/LINGUAS, po_document/pl.iso-8859-2.po, tp/Makefile.am
 	(test_files), t/input_files/pl_translated_inserted_strings_8bit.texi,
 	tp/Makefile.tres (test_files_generated_list), tp/t/formats_encodings.t

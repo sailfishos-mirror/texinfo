@@ -139,14 +139,26 @@ sub gdt($$;$$$$)
     $encoding = $DEFAULT_ENCODING;
     $perl_encoding = $DEFAULT_PERL_ENCODING;
   }
-  Locale::Messages::bind_textdomain_codeset($strings_textdomain, $encoding)
-    if ($encoding and $encoding ne 'us-ascii');
-  if (!($encoding and $encoding eq 'us-ascii')) {
-    if ($perl_encoding) {
-      Locale::Messages::bind_textdomain_filter($strings_textdomain,
-        \&_decode_i18n_string, $perl_encoding);
-    }
-  }
+  Locale::Messages::bind_textdomain_codeset($strings_textdomain, 'UTF-8');
+  Locale::Messages::bind_textdomain_filter($strings_textdomain,
+                          \&_decode_i18n_string, 'UTF-8');
+  # Previously we used the encoding used for input or output to be converted
+  # to and then decoded to the perl internal encoding.  But it should be safer
+  # to use UTF-8 as we cannot know in advance if the encoding actually used
+  # is compatible with the specified encoding, while it should be compatible
+  # with UTF-8.  If there are actually characters that cannot be encoded in the
+  # output encoding issues will still show up when encoding to output, though.
+  # Should be more similar with code used in XS modules, too.
+  # As a side note, the best would have been to directly decode using the
+  # charset used in the po/gmo files, but it does not seems to be available.
+  #Locale::Messages::bind_textdomain_codeset($strings_textdomain, $encoding)
+  #  if ($encoding and $encoding ne 'us-ascii');
+  #if (!($encoding and $encoding eq 'us-ascii')) {
+  #  if ($perl_encoding) {
+  #    Locale::Messages::bind_textdomain_filter($strings_textdomain,
+  #      \&_decode_i18n_string, $perl_encoding);
+  #  }
+  #}
 
   my @langs = ($lang);
   if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
