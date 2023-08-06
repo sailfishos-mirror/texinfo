@@ -1,5 +1,10 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (get_conf): make sure that undef is returned if
+	the variable was not found in case of standalone.
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Utils.pm (find_innermost_accent_contents):
 	return in the expected format even if there was a bug.
 

@@ -842,10 +842,9 @@ sub get_conf($$)
       return $self->{'config'}->{$var};
     } elsif (exists($main_program_default_options->{$var})) {
       return $main_program_default_options->{$var};
-    } else {
-      return undef;
     }
   }
+  return undef;
 }
 
 sub set_conf($$$)
