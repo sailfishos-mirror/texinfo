@@ -1,5 +1,9 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	update po files
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/POTFILES.in: add tp/Texinfo/Structuring.pm.
 
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
