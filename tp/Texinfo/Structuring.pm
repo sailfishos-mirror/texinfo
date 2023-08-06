@@ -812,7 +812,7 @@ sub nodes_tree($$$$)
       = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
 
     if ($automatic_directions) {
-      if ($node ne $top_node) {
+      if (!$top_node or $node ne $top_node) {
         foreach my $direction (@node_directions) {
           # prev already defined for the node first Top node menu entry
           if ($direction eq 'prev' and $node->{'node_'.$direction}

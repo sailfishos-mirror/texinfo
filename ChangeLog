@@ -1,5 +1,10 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (nodes_tree): avoid warning about top_node
+	not being defined.
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
 	(Parsetexi_la_SOURCES): put the parser code in the libtexinfo library,
 	such that it can be linked against from other XS codes.  Use the same
