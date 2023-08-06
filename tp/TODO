@@ -142,21 +142,6 @@ Future features
 ===============
 
 
-Bugs lurks when perl functions do not return anything, as it depends on the
-exact ending of the function:
-       If you specify no return value, the subroutine
-       returns an empty list in list context, the undefined value in scalar
-       context, or nothing in void context.  If you return one or more
-       aggregates (arrays and hashes), these will be flattened together into
-       one large indistinguishable list.
-
-       If no "return" is found and if the last statement is an expression, its
-       value is returned.  If the last statement is a loop control structure
-       like a "foreach" or a "while", the returned value is unspecified.  The
-       empty sub returns the empty list.
-
-
-
 For converters in C, agreed with Gavin that it is better not to
 translate a perl tree in input, but access directly the C tree that
 was setup by the XS parser.

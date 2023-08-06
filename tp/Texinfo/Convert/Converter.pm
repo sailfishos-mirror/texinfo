@@ -345,10 +345,10 @@ sub output($$)
 
   # Now do the output
   my $fh;
-  my $output = '';
   if (!$tree_units or !$tree_units->[0]->{'structure'}
       or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
+    my $output = '';
     my $outfile_name;
     my $encoded_outfile_name;
     if ($output_file ne '') {
@@ -451,6 +451,7 @@ sub output($$)
       }
     }
   }
+  return undef;
 }
 
 
@@ -475,7 +476,7 @@ sub set_conf($$$)
   my $conf = shift;
   my $value = shift;
   if (!Texinfo::Common::valid_customization_option($conf)) {
-    die "BBUG: unknown option $conf\n";
+    die "BUG: set_conf: unknown option $conf\n";
     return undef;
   }
   if ($self->{'set'}->{$conf}) {
@@ -492,7 +493,7 @@ sub force_conf($$$)
   my $conf = shift;
   my $value = shift;
   if (!Texinfo::Common::valid_customization_option($conf)) {
-    die "ABUG: unknown option $conf\n";
+    die "BUG: force_conf: unknown option $conf\n";
     return undef;
   }
   $self->{'conf'}->{$conf} = $value;

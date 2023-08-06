@@ -214,7 +214,7 @@ sub find_innermost_accent_contents($)
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       #print STDERR Data::Dumper->Dump([$current]);
-      last;
+      return ([], \@accent_commands);
     }
     push @accent_commands, $current;
     # A bogus accent, that may happen

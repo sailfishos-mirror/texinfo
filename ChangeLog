@@ -1,5 +1,13 @@
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Utils.pm (find_innermost_accent_contents):
+	return in the expected format even if there was a bug.
+
+	* tp/Texinfo/Convert/Converter.pm (output): explicit return undef at
+	the end.
+
+2023-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (_command_init): explicitely
 	return undef, otherwise the return value is not well defined.
 

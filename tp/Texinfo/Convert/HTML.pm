@@ -11215,10 +11215,10 @@ sub output($$)
   # complete information should be available.
   $self->_reset_info();
 
-  my $output = '';
 
   if (!$tree_units or !$tree_units->[0]->{'structure'}
       or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+    my $output = '';
     my $fh;
     my $encoded_no_page_out_filepath;
     my $no_page_out_filepath;
