@@ -133,6 +133,9 @@ sub gdt($$;$$$$)
   my $encoding;
   my $perl_encoding;
   if ($self) {
+    # NOTE the following customization variables are not set for
+    # a Parser, so the encoding will be undef when gdt is called from
+    # parsers.
     if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
       $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
     }
@@ -157,9 +160,9 @@ sub gdt($$;$$$$)
   # As a side note, the best would have been to directly decode using the
   # charset used in the po/gmo files, but it does not seems to be available.
   #Locale::Messages::bind_textdomain_codeset($strings_textdomain, $encoding)
-  #  if ($encoding and $encoding ne 'us-ascii');
+  #  if (defined($encoding) and $encoding ne 'us-ascii');
   #if (!($encoding and $encoding eq 'us-ascii')) {
-  #  if ($perl_encoding) {
+  #  if (defined($perl_encoding)) {
   #    Locale::Messages::bind_textdomain_filter($strings_textdomain,
   #      \&_decode_i18n_string, $perl_encoding);
   #  }
@@ -174,19 +177,22 @@ sub gdt($$;$$$$)
 
   my @locales;
   foreach my $language (@langs) {
-    if ($encoding) {
+    # NOTE the locale file with appended encoding are searched for, but if
+    # not found, files with stripped encoding are searched for too:
+    # https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
+    if (defined($encoding)) {
       push @locales, "$language.$encoding";
     } else {
       push @locales, $language;
     }
-    # always try us-ascii, the charset should always be a subset of
-    # all charset, and should resort to @-commands if needed for non
+    # also try us-ascii, the charset should be compatible with other
+    # charset, and should resort to @-commands if needed for non
     # ascii characters
     # REMARK this is not necessarily true for every language/encoding.
     # This can be true for latin1, and maybe some other 8 bit encodings
     # with accents available as @-commands, but not for most
     # language.  However, for those languages, it is unlikely that
-    # the locale with .us-ascii can be set, so it should not hurt
+    # the locale with .us-ascii are set, so it should not hurt
     # to add this possibility.
     if (!$encoding or ($encoding and $encoding ne 'us-ascii')) {
       push @locales, "$language.us-ascii";
