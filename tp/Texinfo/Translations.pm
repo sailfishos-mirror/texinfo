@@ -98,6 +98,21 @@ sub _switch_messages_locale
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
+# $LANG set the language if set, otherwise the documentlanguage configuration
+# variable is used; if still undef, the $DEFAULT_LANGUAGE variable is used.
+# NOTE whether documentlanguage is set as a configuration variable depends a
+# lot on the caller.
+#  * If called from a Parser, or from the main program, documentlanguage is in
+#    general not set, except if set from the command line.
+#    When called from the parser, however, it should only be for @def* object
+#    oriented def* index name translation and $LANG is likely to be set from the
+#    tree is there was a @documentlanguage.
+#  * If called from a converter, documentlanguage will in general be set from
+#    the document when it is encountered.  Before the first @documentlanguage,
+#    it depends on the converter.  Some do not set @documentlanguage before it
+#    is encountered.  Some set some default based on @documentlanguage if in
+#    the preamble, some set some default language (in general en) in any
+#    case.
 sub gdt($$;$$$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context, $type, $lang) = @_;
