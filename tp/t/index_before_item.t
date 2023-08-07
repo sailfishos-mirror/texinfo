@@ -20,7 +20,8 @@ sub run_test($$$)
   my $out = shift;
   my $name = shift;
 
-  my $tree = parse_texi_piece(undef, $in);
+  my $document = parse_texi_piece(undef, $in);
+  my $tree = $document->tree();
 
 #print STDERR DebugTexinfo::DebugTree::convert_tree(undef, $tree)."\n";
 

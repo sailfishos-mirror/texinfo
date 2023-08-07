@@ -1482,18 +1482,18 @@ while(@input_files) {
     }
   }
 
-  my $identifier_target = $parser->labels_information();
+  my $identifier_target = $document->labels_information();
 
   # setup a configuration object which defines get_conf and gives the same as
   # get_conf() in main program.  It is for Structuring/Transformations methods
   # needing access to the configuration information.
   my $main_configuration = Texinfo::MainConfig::new();
 
-  my $parser_information = $parser->global_information();
+  my $parser_information = $document->global_information();
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
-  my $global_commands = $parser->global_commands_information();
+  my $global_commands = $document->global_commands_information();
   if (not defined($main_configuration->get_conf('documentlanguage'))) {
     my $element = Texinfo::Common::set_global_document_command($main_configuration,
        $global_commands, 'documentlanguage', 'preamble');
@@ -1549,7 +1549,7 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
-    my $indices_information = $parser->indices_information();
+    my $indices_information = $document->indices_information();
     Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
                                                           $indices_information);
   }
@@ -1571,7 +1571,7 @@ while(@input_files) {
     }
   }
 
-  my $refs = $parser->internal_references_information();
+  my $refs = $document->internal_references_information();
 
   Texinfo::Structuring::associate_internal_references($registrar,
                                 $main_configuration, $identifier_target, $refs);
@@ -1606,7 +1606,7 @@ while(@input_files) {
   }
 
   # this can be done for every format, since information is already gathered
-  my $floats = $parser->floats_information();
+  my $floats = $document->floats_information();
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
     my ($top_node, $nodes_list)
@@ -1682,7 +1682,7 @@ while(@input_files) {
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.
-  $converter_options->{'parser'} = $parser;
+  $converter_options->{'parser'} = $document;
   $converter_options->{'structuring'} = $structure_information;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;

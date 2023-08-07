@@ -13,9 +13,11 @@ use Texinfo::Convert::Texinfo;
 
 ok(1, "modules loading");
 
-my $tree = parse_texi_piece(undef, '@raisesections
+my $document = parse_texi_piece(undef, '@raisesections
 @section truc
 ');
+
+my $tree = $document->tree();
 
 my $section = $tree->{'contents'}->[1];
 my @correct_level_offset_commands 
@@ -26,10 +28,11 @@ ok (scalar(@correct_level_offset_commands) == 2,"one lowersection");
 ok ($correct_level_offset_commands[0]->{'cmdname'} eq 'lowersection' ,
     "command is lowersection");
 
-$tree = parse_texi_piece(undef, '@lowersections
+$document = parse_texi_piece(undef, '@lowersections
 @lowersections
 @chapter truc
 ');
+$tree = $document->tree();
 $section = $tree->{'contents'}->[1];
 @correct_level_offset_commands 
    = Texinfo::Transformations::_correct_level($section, $tree->{'contents'}->[0], -1);
@@ -42,7 +45,8 @@ sub test_correction($$$)
   my $in = shift;
   my $out = shift;
   my $name = shift;
-  my $tree = parse_texi_piece(undef, $in);
+  my $document = parse_texi_piece(undef, $in);
+  my $tree = $document->tree();
   my ($corrected_content, $added_sections) 
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   $tree->{'contents'} = $corrected_content;

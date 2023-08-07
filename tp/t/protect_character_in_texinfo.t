@@ -27,7 +27,8 @@ sub run_test($$$$)
     $reference_as_line = $reference_as_text if not defined($reference_as_line);
   }
 
-  my $tree_as_text = parse_texi_piece(undef, $in);
+  my $document = parse_texi_piece(undef, $in);
+  my $tree_as_text = $document->tree();
   my $tree_as_line = parse_texi_line(undef, $in);
 
   foreach my $tree ($tree_as_text, $tree_as_line) {

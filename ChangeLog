@@ -1,5 +1,18 @@
 2023-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_piece),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_piece): return a
+	document, not a tree.  Update callers.
+
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: take information on
+	document from $document, not from parser.
+
+	* tp/Texinfo/Document.pm (register): fix key name.
+
+	* tp/t/test_utils.pl: change in spacing.
+
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Partial XS implementation of Texinfo::Translations
 
 	*  tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),

@@ -30,7 +30,8 @@ sub run_test($$$$)
     $references = {'text' => $reference_as_text, 'line' => $reference_as_line};
   }
 
-  my $tree_as_text = parse_texi_piece(undef, $in);
+  my $document = parse_texi_piece(undef, $in);
+  my $tree_as_text = $document->tree();
   my $tree_as_line = parse_texi_line(undef, $in);
 
   my $trees = {'text' => $tree_as_text, 'line' => $tree_as_line};

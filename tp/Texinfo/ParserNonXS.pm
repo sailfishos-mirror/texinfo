@@ -766,7 +766,7 @@ sub parse_texi_piece($$;$)
 
   get_parser_info($self);
 
-  return $document->tree();
+  return $document;
 }
 
 sub parse_texi_line($$;$)
@@ -8064,7 +8064,7 @@ This function is used to parse a short fragment of Texinfo code.
 I<$text> is the string containing the texinfo line.  I<$first_line_number> is
 the line number of the line, if undef, it will be set to 1.
 
-=item $tree = parse_texi_piece($parser, $text, $first_line_number)
+=item $document = parse_texi_piece($parser, $text, $first_line_number)
 X<C<parse_texi_piece>>
 
 This function is used to parse Texinfo fragments.

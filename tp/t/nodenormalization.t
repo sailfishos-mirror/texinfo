@@ -49,7 +49,8 @@ in node
 
 in top section
 ';
-my $node_tree = $parser->parse_texi_piece($node_texi);
+my $document = $parser->parse_texi_piece($node_texi);
+my $node_tree = $document->tree();
 my $normalized_node = convert_to_identifier($node_tree);
 is ($normalized_node, '', 'node ignored');
 
@@ -137,7 +138,8 @@ in float
 @bye
 ';
 
-my $texinfo_manual_tree = $parser->parse_texi_piece($texinfo_manual);
+$document = $parser->parse_texi_piece($texinfo_manual);
+my $texinfo_manual_tree = $document->tree();
 my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_manual_tree);
 is ($texinfo_manual, $check_texinfo, 'check parsing of a manual');
 
@@ -184,7 +186,8 @@ my $top_and_space_before = ' tOp';
 # when parsed with parse_texi_text, the text is put in a paragraph
 # and spaces before the text is put in a special content for
 # spaces before paragraphs, that are ignored afterwards
-my $top_and_space_before_tree_text = $parser->parse_texi_piece($top_and_space_before);
+$document = $parser->parse_texi_piece($top_and_space_before);
+my $top_and_space_before_tree_text = $document->tree();
 my $top_and_space_before_text_normalized
    = convert_to_identifier($top_and_space_before_tree_text);
 is ($top_and_space_before_text_normalized, 'Top',

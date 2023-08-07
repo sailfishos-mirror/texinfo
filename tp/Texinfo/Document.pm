@@ -42,7 +42,7 @@ sub register
     'indices' => $indices_information,
     'floats' => $floats_information,
     'internal_references' => $internal_references_information,
-    'commands_information' => $global_commands_information,
+    'commands_info' => $global_commands_information,
     'info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,

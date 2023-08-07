@@ -432,7 +432,7 @@ sub new_test($;$$$)
   my $test_formats = shift;
   my $test = {'name' => $name, 'generate' => $generate,
               'DEBUG' => $debug, 'test_formats' => $test_formats};
-  
+
   if ($generate) {
     mkdir $srcdir."t/results/$name" if (! -d $srcdir."t/results/$name");
   }
@@ -569,7 +569,7 @@ sub convert_to_plaintext($$$$$$;$)
         = $converter_options->{'SUBDIR'}.$test_name.".txt";
     }
   }
-  
+
   my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
                                              'parser' => $parser,
@@ -912,7 +912,7 @@ sub test($$)
   # get the same structuring warnings as texi2any.
   my $added_main_configurations = {'FORMAT_MENU' => 'menu',
                                    'CHECK_MISSING_MENU_ENTRY' => 1};
-  
+
   # this is only used for index keys sorting in structuring
   foreach my $structuring_and_converter_option ('ENABLE_ENCODING') {
     if (defined($parser_options->{$structuring_and_converter_option})) {
@@ -1000,20 +1000,14 @@ sub test($$)
   # take the initial values to record only if there is something new
   # do a copy to compare the values and not the references
   my $initial_index_names = dclone(\%Texinfo::Commands::index_names);
-  my $tree;
   my $document;
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
       $document = $parser->parse_texi_text($test_text);
-      $tree = $document->tree();
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $tree = $parser->parse_texi_piece($test_text);
-      # since we need a document because convert and output are
-      # called by converters, we set one, but only with the tree, as
-      # the tree comes from parse_texi_piece.
-      $document = Texinfo::Document::register($tree);
+      $document = $parser->parse_texi_piece($test_text);
     }
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that
@@ -1023,8 +1017,9 @@ sub test($$)
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
     $document = $parser->parse_texi_file($test_file);
-    $tree = $document->tree();
   }
+  my $tree = $document->tree();
+
   my $registrar = $parser->registered_errors();
 
   if (not defined($tree)) {
@@ -1051,18 +1046,18 @@ sub test($$)
     }
   }
 
-  my $identifier_target = $parser->labels_information();
-  my $parser_information = $parser->global_information();
+  my $identifier_target = $document->labels_information();
+  my $parser_information = $document->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
                                         $parser_information);
 
-  my $global_commands = $parser->global_commands_information();
+  my $global_commands = $document->global_commands_information();
   if ($global_commands->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  my $indices_information = $parser->indices_information();
+  my $indices_information = $document->indices_information();
   if ($tree_transformations{'relate_index_entries_to_items'}) {
     Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
                                                      $indices_information);
@@ -1084,7 +1079,7 @@ sub test($$)
     }
   }
 
-  my $refs = $parser->internal_references_information();
+  my $refs = $document->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
                           $main_configuration, $identifier_target, $refs);
   my $structure_information = {};
@@ -1110,7 +1105,7 @@ sub test($$)
                                                      $identifier_target);
   }
 
-  my $floats = $parser->floats_information();
+  my $floats = $document->floats_information();
 
 
   my ($top_node, $nodes_list)
@@ -1144,7 +1139,7 @@ sub test($$)
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries
      = Texinfo::Structuring::merge_indices($indices_information);
-  
+
   # only print indices information if it differs from the default
   # indices
   my $indices;
@@ -1229,7 +1224,7 @@ sub test($$)
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type, $document,
-                                  $parser, $main_configuration,
+                                  $document, $main_configuration,
                                   $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
@@ -1495,7 +1490,7 @@ sub test($$)
     $out_result .= "1;\n";
     print OUT $out_result;
     close (OUT);
-    
+
     if ($self->{'generate'}) {
       print STDERR "--> $test_name\n";
     }

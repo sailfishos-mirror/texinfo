@@ -20,7 +20,8 @@ sub run_test($$$)
   my $name = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_piece($in);
+  my $document = $parser->parse_texi_piece($in);
+  my $tree = $document->tree();
 
   my $corrected_tree 
     = Texinfo::Transformations::reference_to_arg_in_tree($tree);

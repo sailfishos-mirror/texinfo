@@ -315,7 +315,7 @@ sub parse_texi_piece($$;$$)
 
   my $document = get_parser_info($self, $store);
 
-  return $document->tree();
+  return $document;
 }
 
 # Used in tests under tp/t.

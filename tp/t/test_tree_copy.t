@@ -92,7 +92,8 @@ T
 
 ';
 
-my $tree = Texinfo::Parser::parse_texi_piece(undef, $text);
+my $document = Texinfo::Parser::parse_texi_piece(undef, $text);
+my $tree = $document->tree();
 my $reference_associations = {};
 my $copy = Texinfo::Common::copy_tree($tree, undef);
 

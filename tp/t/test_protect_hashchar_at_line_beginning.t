@@ -28,7 +28,8 @@ sub run_test($$$;$)
   my $error_message = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_piece($in, 1);
+  my $document = $parser->parse_texi_piece($in, 1);
+  my $tree = $document->tree();
 
   my $registrar = $parser->registered_errors();
 

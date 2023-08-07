@@ -123,7 +123,8 @@ my $no_detailmenu = _get_in('');
 #print STDERR $in_detailmenu;
 
 my $parser = Texinfo::Parser::parser();
-my $tree = $parser->parse_texi_piece($in_detailmenu);
+my $document = $parser->parse_texi_piece($in_detailmenu);
+my $tree = $document->tree();
 my $registrar = $parser->registered_errors();
 my $identifier_target = $parser->labels_information();
 my $refs = $parser->internal_references_information();
@@ -169,7 +170,8 @@ unnumbered1
 is ($out, $reference, 'master menu');
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_piece($no_detailmenu);
+$document = $parser->parse_texi_piece($no_detailmenu);
+$tree = $document->tree();
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
 $refs = $parser->internal_references_information();
@@ -181,7 +183,8 @@ $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 is ($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_piece($in_detailmenu);
+$document = $parser->parse_texi_piece($in_detailmenu);
+$tree = $document->tree();
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
 $refs = $parser->internal_references_information();
@@ -195,7 +198,8 @@ is ($out, _get_in($reference), 'regenerate with existing detailmenu');
 
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_piece($no_detailmenu);
+$document = $parser->parse_texi_piece($no_detailmenu);
+$tree = $document->tree();
 $registrar = $parser->registered_errors();
 $identifier_target = $parser->labels_information();
 $refs = $parser->internal_references_information();
