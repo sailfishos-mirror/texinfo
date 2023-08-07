@@ -1,5 +1,10 @@
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/refcard/txirefcard.tex: Close TeX group as intended (broken
+	since 2022-10-21).
+
+2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txirefcard.tex: Document new commands.
 
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
