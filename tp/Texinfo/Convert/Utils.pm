@@ -336,13 +336,11 @@ sub add_heading_number($$$;$)
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'structure'}->{'section_level'} == 1) {
-        $result = $self->gdt('Appendix {number} {section_title}',
-                   {'number' => $number, 'section_title' => $text},
-                   undef, 'translated_text');
+        $result = $self->gdt_string('Appendix {number} {section_title}',
+                   {'number' => $number, 'section_title' => $text});
       } else {
-        $result = $self->gdt('{number} {section_title}',
-                   {'number' => $number, 'section_title' => $text},
-                   undef, 'translated_text');
+        $result = $self->gdt_string('{number} {section_title}',
+                   {'number' => $number, 'section_title' => $text});
       }
     } else {
       $result = $text;

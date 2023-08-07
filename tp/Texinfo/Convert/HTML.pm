@@ -1477,7 +1477,7 @@ sub direction_string($$$;$)
       }
       if (defined($context_converted_string)) {
         my $result_string
-          = $self->gdt($context_converted_string, undef, undef, 'translated_text');
+          = $self->gdt_string($context_converted_string);
         $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
           = $self->substitute_html_non_breaking_space($result_string);
       } else {
@@ -2310,9 +2310,8 @@ sub _translate_names($)
                                         ->{$context}->{$command}->{'unset'}) {
         $translated_commands{$command} = 1;
         $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
-         = $self->gdt($self->{'no_arg_commands_formatting'}
-                             ->{$context}->{$command}->{'translated_converted'},
-                      undef, undef, 'translated_text');
+         = $self->gdt_string($self->{'no_arg_commands_formatting'}
+                       ->{$context}->{$command}->{'translated_converted'});
       } elsif ($context eq 'normal') {
         my $translated_tree;
         if (defined($self->{'no_arg_commands_formatting'}
@@ -2342,23 +2341,43 @@ sub _translate_names($)
 # redefined functions
 #
 # Texinfo::Translations::gdt redefined to call user defined function.
-sub gdt($$;$$$$)
+sub gdt($$;$$$)
 {
-  my ($self, $message, $replaced_substrings, $message_context, $type, $lang) = @_;
-  if (defined($self->{'formatting_function'}->{'format_translate_string'})) {
+  my ($self, $message, $replaced_substrings, $message_context, $lang) = @_;
+  if (defined($self->{'formatting_function'}->{'format_translate_message_tree'})) {
+    my $format_lang = $lang;
+    $format_lang = $self->get_conf('documentlanguage')
+                           if ($self and !defined($format_lang));
+    my $result_tree
+      = &{$self->{'formatting_function'}->{'format_translate_message_tree'}}($self,
+                                 $message, $format_lang, $replaced_substrings,
+                                 $message_context);
+    if (defined($result_tree)) {
+      return $result_tree;
+    }
+  }
+  return $self->SUPER::gdt($message, $replaced_substrings, $message_context,
+                           $lang);
+}
+
+# Texinfo::Translations::gdt_string redefined to call user defined function.
+sub gdt_string($$;$$$)
+{
+  my ($self, $message, $replaced_substrings, $message_context, $lang) = @_;
+  if (defined($self->{'formatting_function'}->{'format_translate_message_string'})) {
     my $format_lang = $lang;
     $format_lang = $self->get_conf('documentlanguage')
                            if ($self and !defined($format_lang));
     my $translated_string
-      = &{$self->{'formatting_function'}->{'format_translate_string'}}($self,
+      = &{$self->{'formatting_function'}->{'format_translate_message_string'}}($self,
                                  $message, $format_lang, $replaced_substrings,
-                                 $message_context, $type);
+                                 $message_context);
     if (defined($translated_string)) {
       return $translated_string;
     }
   }
-  return $self->SUPER::gdt($message, $replaced_substrings, $message_context,
-                           $type, $lang);
+  return $self->SUPER::gdt_string($message, $replaced_substrings, $message_context,
+                                  $lang);
 }
 
 
@@ -7454,7 +7473,8 @@ foreach my $customized_reference ('external_target_split_name',
      'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_titlepage' => \&_default_format_titlepage,
      'format_title_titlepage' => \&_default_format_title_titlepage,
-     'format_translate_string' => undef,
+     'format_translate_message_tree' => undef,
+     'format_translate_message_string' => undef,
 );
 
 # not up for customization

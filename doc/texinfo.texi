@@ -16636,9 +16636,13 @@ UTF-8 is used for most documents.  Note that accented characters
 are required to be expressed as @@-commands in the @code{us-ascii} locales,
 which may be inconvenient for translators.
 
-@item Next, the string is expanded as Texinfo, and converted.
-The arguments are substituted; for example, @samp{@{arg_name@}} is
-replaced by the corresponding actual argument.
+@item Next, in most cases, the string is expanded as Texinfo, and converted.
+The arguments are substituted; for example, @samp{@{arg_name@}} is replaced by
+the corresponding actual argument.
+
+It is also possible for the string and the argument to be already converted.
+In that case, the arguments are simply substituted.  Similarly,
+@samp{@{arg_name@}} is replaced by the corresponding actual argument.
 
 @end enumerate
 

@@ -6,15 +6,15 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Translations;
@@ -49,7 +49,7 @@ Locale::Messages->select_package ('gettext_pp');
 my $DEFAULT_LANGUAGE = 'en';
 
 my $DEFAULT_ENCODING = 'utf-8';
-my $DEFAULT_PERL_ENCODING = 'utf-8';
+#my $DEFAULT_PERL_ENCODING = 'utf-8';
 
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
@@ -113,10 +113,9 @@ sub _switch_messages_locale
 #    is encountered.  Some set some default based on @documentlanguage if in
 #    the preamble, some set some default language (in general en) in any
 #    case.
-sub gdt($$;$$$$)
+sub _gdt($$;$$)
 {
-  my ($self, $string, $replaced_substrings, $translation_context, $type, $lang) = @_;
-
+  my ($self, $string, $translation_context, $lang) = @_;
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
   # from another language that needs to be translated.
@@ -146,7 +145,7 @@ sub gdt($$;$$$$)
   # FIXME do this only once when encoding is seen (or at beginning)
   # instead of here, each time that gdt is called?
   my $encoding;
-  my $perl_encoding;
+  #my $perl_encoding;
   if ($self) {
     # NOTE the following customization variables are not set for
     # a Parser, so the encoding will be undef when gdt is called from
@@ -154,13 +153,13 @@ sub gdt($$;$$$$)
     if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
       $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
     }
-    if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-      $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
-    }
+    #if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
+    #  $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+    #}
   } else {
     # NOTE never happens in the tests, unlikely to happen at all.
     $encoding = $DEFAULT_ENCODING;
-    $perl_encoding = $DEFAULT_PERL_ENCODING;
+    #$perl_encoding = $DEFAULT_PERL_ENCODING;
   }
   Locale::Messages::bind_textdomain_codeset($strings_textdomain, 'UTF-8');
   Locale::Messages::bind_textdomain_filter($strings_textdomain,
@@ -242,29 +241,54 @@ sub gdt($$;$$$$)
       POSIX::setlocale(LC_MESSAGES, '');
     }
   }
-
-  return replace_convert_substrings($self, $translated_string,
-                                    $replaced_substrings, $type);
+  return $translated_string;
 }
 
-sub replace_convert_substrings($$;$$)
+sub gdt($$;$$$)
+{
+  my ($self, $string, $replaced_substrings, $translation_context, $lang) = @_;
+
+  my $translated_string = _gdt($self, $string, $translation_context, $lang);
+
+  return replace_convert_substrings($self, $translated_string,
+                                    $replaced_substrings);
+}
+
+sub gdt_string($$;$$$)
+{
+  my ($self, $string, $replaced_substrings, $translation_context, $lang) = @_;
+
+  my $translated_string = _gdt($self, $string, $translation_context, $lang);
+
+  return replace_substrings ($self, $translated_string,
+                             $replaced_substrings);
+}
+
+sub replace_substrings($$;$)
 {
   my $self = shift;
   my $translated_string = shift;
   my $replaced_substrings = shift;
-  my $type = shift;
 
   my $translation_result = $translated_string;
 
-  if ($type and $type eq 'translated_text') {
-    if (defined($replaced_substrings) and ref($replaced_substrings)) {
+  if (defined($replaced_substrings) and ref($replaced_substrings)) {
       my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
       # next line taken from libintl perl, copyright Guido. sub __expand
-      $translation_result
+    $translation_result
   =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
-    }
-    return $translation_result;
   }
+  return $translation_result;
+}
+
+
+sub replace_convert_substrings($$;$)
+{
+  my $self = shift;
+  my $translated_string = shift;
+  my $replaced_substrings = shift;
+
+  my $translation_result = $translated_string;
 
   # we change the substituted brace-enclosed strings to internal
   # values marked by @txiinternalvalue such that their location
@@ -384,10 +408,10 @@ sub _substitute ($$) {
   return $tree;
 }
 
-sub pgdt($$$;$$$)
+sub pgdt($$$;$$)
 {
-  my ($self, $translation_context, $string, $replaced_substrings, $type, $lang) = @_;
-  return $self->gdt($string, $replaced_substrings, $translation_context, $type, $lang);
+  my ($self, $translation_context, $string, $replaced_substrings, $lang) = @_;
+  return $self->gdt($string, $replaced_substrings, $translation_context, $lang);
 }
 
 # FIXME currently not used.  See below how it could be used to avoid having the
@@ -460,7 +484,7 @@ sub complete_indices($)
               or $def_command eq 'deftypemethod') {
             $index_entry = gdt($self, '{name} on {class}',
                                {'name' => $name, 'class' => $class},
-                                undef, undef, $entry_language);
+                                undef, $entry_language);
             $index_contents_normalized
               = [$name, { 'text' => ' on '}, $class];
               #= [_non_bracketed_contents($name),
@@ -472,7 +496,7 @@ sub complete_indices($)
                    or $def_command eq 'deftypecv') {
             $index_entry = gdt($self, '{name} of {class}',
                                {'name' => $name, 'class' => $class},
-                               undef, undef, $entry_language);
+                               undef, $entry_language);
             $index_contents_normalized
               = [$name, {'text' => ' of '}, $class];
               #= [_non_bracketed_contents($name),
@@ -537,26 +561,33 @@ elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_s
 No method is exported.
 
 The C<gdt> and C<pgdt> methods are used to translate strings to be output in
-converted documents, and returns, in general, a Texinfo tree.
+converted documents, and return a Texinfo tree.  The C<gdt_string> is similar
+but returns a simple string, for already converted strings.
 
 The C<replace_convert_substrings> method is called by C<gdt> to substitute
 replaced substrings in a translated string and convert to a Texinfo tree.
-It may be especially useful when overriding or reimplementing C<gdt>.
+It may be especially useful when overriding or reimplementing C<gdt>.  The
+C<replace_substrings> method is called by C<gdt_string> to substitute
+replaced substrings in a translated string.
 
 =over
 
-=item $tree = $object->gdt($string, $replaced_substrings, $translation_context, $mode, $lang)
-X<C<gdt>>
+=item $tree = $object->gdt($string, $replaced_substrings, $translation_context, $lang)
 
-The I<$string> is a string to be translated.  In the default case,
+=item $string = $object->gdt_string($string, $replaced_substrings, $translation_context, $lang)
+
+X<C<gdt>> X<C<gdt_string>>
+
+The I<$string> is a string to be translated.  With C<gdt>
 the function returns a Texinfo tree, as the string is interpreted
-as Texinfo code after translation.  I<$replaced_substrings> is an
-optional hash reference specifying some substitution to be done
-after the translation.  The key of the I<$replaced_substrings> hash
-reference identifies what is to be substituted, and the value is
-some string, texinfo tree or array content that is substituted in
-the resulting texinfo tree.  In the string to be translated word
-in brace matching keys of I<$replaced_substrings> are replaced.
+as Texinfo code after translation.  With C<gdt_string> a string
+is returned.  I<$replaced_substrings> is an optional hash reference specifying
+some substitution to be done after the translation.  The key of the
+I<$replaced_substrings> hash reference identifies what is to be substituted,
+and the value is, for C<gdt>, some string, texinfo tree or array content
+that is substituted in the resulting texinfo tree. The substitutions may only
+be strings with C<gdt_string>. In the string to be translated word in brace
+matching keys of I<$replaced_substrings> are replaced.
 
 The I<$object> is typically a converter, but can be any object that implements
 C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
@@ -590,20 +621,7 @@ replaced by the associated texinfo tree text element:
 C<gdt> uses a gettext-like infrastructure to retrieve the
 translated strings, using the I<texinfo_document> domain.
 
-I<$mode> is an optional string which may modify how the function
-behaves.  The possible values are:
-
-=over
-
-=item translated_text
-
-In that case the string is not considered to be Texinfo, a plain string
-that is returned after translation and substitution.  The substitutions
-may only be strings in that case.
-
-=back
-
-=item $tree = $object->pgdt($translation_context, $string, $replaced_substrings, $mode, $lang)
+=item $tree = $object->pgdt($translation_context, $string, $replaced_substrings, $lang)
 X<C<pgdt>>
 
 Same to C<gdt> except that the I<$translation_context> is not optional.
@@ -611,20 +629,25 @@ Calls C<gdt>.  This function is useful to mark strings with a
 translation context for translation.  This function is similar to pgettext
 in the Gettext C API.
 
-=item $tree = $object->replace_convert_substrings($translated_string, $replaced_substrings, $mode)
-X<C<replace_convert_substrings>>
+=item $tree = $object->replace_convert_substrings($translated_string, $replaced_substrings)
+
+=item $string = $object->replace_substrings($translated_string, $replaced_substrings)
+
+X<C<replace_convert_substrings>> X<C<replace_substrings>>
 
 I<$translated_string> is a string already translated.  I<$replaced_substrings>
 is an optional hash reference specifying some substitution to be done.
-I<$mode> is an optional string which may modify how the function behaves, and
-in particular whether the translated string should be converted to a Texinfo
-tree.  I<$object> is typically a converter, but can be any object that
-implements C<get_conf>, or undefined (C<undef>).  If not undefined, the
-information in the I<$object> is used to get some customization information.
+I<$object> is typically a converter, but can be any object that implements
+C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
+I<$object> is used to get some customization information.
 
-The function performs the substitutions of substrings in the translated
-string and converts to a Texinfo tree if needed.  It is called from C<gdt>
+C<replace_convert_substrings> performs the substitutions of substrings in the
+translated string and converts to a Texinfo tree.  It is called from C<gdt>
 after the retrieval of the translated string.
+
+C<replace_substrings> performs the substitutions of substrings in the
+translated string.  It is called from C<gdt_string> after the retrieval of the
+translated string.
 
 =back
 

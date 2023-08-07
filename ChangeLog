@@ -1,3 +1,26 @@
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
+	Separate functions for translations returned as strings or Texinfo trees
+
+	* doc/texi2any_api.texi (Translations Output and Customization)
+	(Internationalization of Strings Function)
+	(Translated Strings Customization, Translation Contexts),
+	doc/texinfo.texi (Internationalization of Document Strings),
+	tp/Texinfo/Convert/HTML.pm (gdt, gdt_string),
+	tp/Texinfo/Translations.pm (_gdt, gdt, gdt_string, pgdt)
+	(replace_convert_substrings, replace_substrings),
+	tp/init/documentation_examples.pm,
+	tp/t/init/special_element_customization.pm,
+	tp/t/init/translated_strings_customization.pm: add gdt_string
+	to return translated substituted strings, that goes along with
+	replace_substrings.  gdt is only used to return trees now.  Update
+	HTML functions customization.  Update callers.
+
+	* po_document/Makevars (XGETTEXT_OPTIONS): add gdt_string.
+
+	* tp/Texinfo/Translations.pm (_gdt): comment out $perl_encoding and
+	$DEFAULT_PERL_ENCODING, they are not used anymore.
+
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (nodes_tree): avoid warning about top_node
