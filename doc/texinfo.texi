@@ -16147,8 +16147,9 @@ thorough structure check than that provided by
 @code{CHECK_MISSING_MENU_ENTRY}.  Off by default.
 
 @item CLOSE_QUOTE_SYMBOL
-When a closing quote is needed, use this character; default @code{&#8217;}
-in DocBook.  Undefined in the default case in HTML and set to @code{&rsquo;}
+When a closing quote is needed, e.g. for @code{@@samp} output, use
+this character; default @code{&#8217;} in DocBook.
+Undefined in the default case in HTML and set to @code{&rsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
 to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
 encoding includes that character.

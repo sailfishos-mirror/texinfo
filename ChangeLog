@@ -1,5 +1,11 @@
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Other Customization Variables)
+	<CLOSE_QUOTE_SYMBOL>: Give @samp as an example use case, as
+	at OPEN_QUOTE_SYMBOL.
+
+2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Add line "@microtype on".
 
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
