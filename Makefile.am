@@ -95,10 +95,9 @@ po-check:
 	  grep -E -v '^(#|$$)' po/POTFILES.in				\
 	    | grep -v '^src/false\.c$$' | sort > $@-1;			\
 	  files=;							\
-	  for file in $$($(CVS_LIST_EXCEPT))				\
-	              `find [a-z]* -name '*.[ch]' 			\
-		                -o -name '*.p[lm]'			\
-				-o -name '*.notyettwjr'`; do		\
+	  for file in `find [a-zA-Z]* -name '*.[ch]' 			\
+		                   -o -name '*.p[lm]'			\
+			           -o -name '*.notyettwjr'`; do		\
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
 	      contrib/* ) continue;;					\
@@ -129,8 +128,7 @@ po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
 	  files=;							\
-	  for file in $$($(CVS_LIST_EXCEPT))				\
-	              `find [a-z]* -name '*.p[lm]'`; do		\
+	  for file in `find [a-z]* -name '*.p[lm]'`; do 		\
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
 	      contrib/* ) continue;;					\
