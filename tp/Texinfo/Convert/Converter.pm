@@ -66,7 +66,7 @@ my %defaults = (
 
 # defaults for all converters that are not defined elsewhere.
 # undef values in general marks information passed by the caller that
-# is valid in the parser initialization hash, but is not considered
+# is valid in the initialization hash, but is not considered
 # as "configuration/customization". It is not available through get_conf()
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
@@ -189,20 +189,20 @@ sub converter(;$)
   }
   #$converter->{'converter_pre_conf'} = \%defaults;
   if (defined($conf)) {
-    if ($conf->{'parser'}) {
+    if ($conf->{'document'}) {
       $converter->{'global_commands'}
-         = $conf->{'parser'}->global_commands_information();
-      $converter->{'parser_info'} = $conf->{'parser'}->global_information();
-      my $floats = $conf->{'parser'}->floats_information();
-      my $identifier_target = $conf->{'parser'}->labels_information();
+         = $conf->{'document'}->global_commands_information();
+      $converter->{'parser_info'} = $conf->{'document'}->global_information();
+      my $floats = $conf->{'document'}->floats_information();
+      my $identifier_target = $conf->{'document'}->labels_information();
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'identifiers_target'} = $identifier_target
                                              if ($identifier_target);
       $converter->{'indices_information'}
-             = $conf->{'parser'}->indices_information();
-      $converter->{'values'} = $conf->{'parser'}->{'values'};
-      delete $conf->{'parser'};
+             = $conf->{'document'}->indices_information();
+      $converter->{'values'} = $conf->{'document'}->{'values'};
+      delete $conf->{'document'};
     }
     foreach my $key (keys(%$conf)) {
       if (Texinfo::Common::valid_customization_option($key)) {
@@ -1793,7 +1793,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   # end of Texinfo::Convert::MyConverter
 
   my $converter = Texinfo::Convert::MyConverter->converter(
-                                               {'parser' => $parser});
+                                               {'document' => $document});
   $converter->output($texinfo_parsed_document);
 
 =head1 NOTES
@@ -1854,22 +1854,23 @@ C<Texinfo::Convert::Converter>.
 =item $converter = MyConverter->converter($options)
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a L<parser object|Texinfo::Parser>
-may be associated with the I<parser> key.  The other options
+this option hash reference a L<document|Texinfo::Document>
+may be associated with the I<document> key.  The other options
 are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
 are described in the Texinfo manual.
 Those customization options, when appropriate, override the document content.
 B<TODO what about the other options (all are used in converters;
 'structuring' is available in HTML $converter-E<gt>get_info()?>
-The parser should not be available directly anymore after getting the
-associated information. B<TODO document this associated information
+B<TODO change?
+The document should not be available directly anymore after getting the
+associated information.> B<TODO document this associated information
 ('parser_info', 'indices_information', 'floats'..., most available
 in HTML converter, either through $converter-E<gt>get_info() or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations,
-especially when a parser is given among the options.  The converter is
+especially when a document is given among the options.  The converter is
 also initialized as a L<Texinfo::Report>.
 
 =back

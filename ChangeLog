@@ -1,5 +1,19 @@
 2023-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/Text.pm (converter), tp/Texinfo/Translations.pm
+	(replace_convert_substrings), tp/t/test_utils.pl (convert_to_*)
+	(test), tp/texi2any.pl, util/texi-elements-by-size: rename the parser
+	key in converter options as document.
+
+	* tp/t/test_utils.pl (test): use main_configuration for the
+	Texinfo::Structuring::elements_directions call.
+
+	* tp/Texinfo/Convert/Text.pm (converter): do not take
+	EXPANDED_FORMATS from parser/document.
+
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_normalize_texinfo_name): update for parse_texi_piece that
 	returns a document, not a tree.

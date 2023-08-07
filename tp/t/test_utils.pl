@@ -552,7 +552,6 @@ sub convert_to_plaintext($$$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
@@ -572,7 +571,7 @@ sub convert_to_plaintext($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
-                                             'parser' => $parser,
+                                             'document' => $document,
                                              'converted_format' => 'plaintext',
                                              %$converter_options });
   my $result;
@@ -594,7 +593,6 @@ sub convert_to_info($$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   # FIXME plaintext too?
@@ -604,7 +602,7 @@ sub convert_to_info($$$$$;$)
 
   my $converter =
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'parser' => $parser,
+                                         'document' => $document,
                                          'converted_format' => 'info',
                                           %$converter_options });
   my $result = $converter->output($document);
@@ -620,7 +618,6 @@ sub convert_to_html($$$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
@@ -632,7 +629,7 @@ sub convert_to_html($$$$$$;$)
         and !defined($converter_options->{'SPLIT'}));
   my $converter =
      Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'parser' => $parser,
+                                         'document' => $document,
                                          'converted_format' => 'html',
                                           %$converter_options });
   my $result;
@@ -653,7 +650,6 @@ sub convert_to_xml($$$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
@@ -662,7 +658,7 @@ sub convert_to_xml($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'parser' => $parser,
+                                         'document' => $document,
                                          'converted_format' => 'texinfoxml',
                                           %$converter_options });
 
@@ -685,7 +681,6 @@ sub convert_to_docbook($$$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
@@ -694,7 +689,7 @@ sub convert_to_docbook($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'parser' => $parser,
+                                         'document' => $document,
                                          'converted_format' => 'docbook',
                                           %$converter_options });
   my $result;
@@ -736,7 +731,6 @@ sub convert_to_latex($$$$$$;$)
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options
@@ -745,7 +739,7 @@ sub convert_to_latex($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'parser' => $parser,
+                                         'document' => $document,
                                          'converted_format' => 'latex',
                                           %$converter_options });
   my $result;
@@ -1223,7 +1217,7 @@ sub test($$)
                                           $srcdir.'t/include/'];
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
-           = &{$formats{$format}}($self, $test_name, $format_type, $document,
+           = &{$formats{$format}}($self, $test_name, $format_type,
                                   $document, $main_configuration,
                                   $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
@@ -1351,7 +1345,8 @@ sub test($$)
     $elements = Texinfo::Structuring::split_by_section($tree);
   }
   if ($test_split) {
-    Texinfo::Structuring::elements_directions($parser, $identifier_target,
+    Texinfo::Structuring::elements_directions($main_configuration,
+                                              $identifier_target,
                                               $elements);
     $directions_text = '';
     foreach my $element (@$elements) {

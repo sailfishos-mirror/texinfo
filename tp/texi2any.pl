@@ -1682,7 +1682,7 @@ while(@input_files) {
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.
-  $converter_options->{'parser'} = $document;
+  $converter_options->{'document'} = $document;
   $converter_options->{'structuring'} = $structure_information;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;
@@ -1766,7 +1766,7 @@ while(@input_files) {
                                            %$file_cmdline_options,
                                          };
 
-    $sort_element_converter_options->{'parser'} = $parser;
+    $sort_element_converter_options->{'document'} = $document;
     $sort_element_converter_options->{'structuring'} = $structure_information;
     # This is not clear that this is correct.  On the one hand it could
     # be more consistent with the formatting to have nothing here or a

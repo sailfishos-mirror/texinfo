@@ -262,7 +262,7 @@ Texinfo::Convert::TexinfoXML - Convert Texinfo tree to TexinfoXML
 =head1 SYNOPSIS
 
   my $converter
-    = Texinfo::Convert::TexinfoXML->converter({'parser' => $parser});
+    = Texinfo::Convert::TexinfoXML->converter({'document' => $document});
 
   $converter->output($document);
   $converter->convert($document);
@@ -286,13 +286,14 @@ Texinfo::Convert::TexinfoXML converts a Texinfo tree to TexinfoXML.
 Initialize converter from Texinfo to TexinfoXML.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a L<parser object|Texinfo::Parser>
-may be associated with the I<parser> key.  The other options
-are Texinfo customization options and a few other options that can
-be passed to the converter. Most of the customization options are described in
-the Texinfo manual.  Those customization options, when appropriate, override
-the document content.  The parser should not be available directly anymore
-after getting the associated information.
+this option hash reference a L<document|Texinfo::Document>
+may be associated with the I<document> key.  The document should not
+be available directly anymore after getting the associated information.
+
+The other options are Texinfo customization options and a few other options
+that can be passed to the converter. Most of the customization options are
+described in the Texinfo manual.  Those customization options, when
+appropriate, override the document content.
 
 See L<Texinfo::Convert::Converter> for more information.
 

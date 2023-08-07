@@ -728,10 +728,10 @@ sub converter($)
   }
 
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
-  if ($converter->{'parser'}) {
-    $converter->{'parser_info'} = $converter->{'parser'}->global_information();
+  if ($converter->{'document'}) {
+    $converter->{'parser_info'} = $converter->{'document'}->global_information();
     $converter->{'global_commands'}
-       = $converter->{'parser'}->global_commands_information();
+       = $converter->{'document'}->global_commands_information();
     foreach my $global_command ('documentencoding') {
       if (defined($converter->{'global_commands'}->{$global_command})) {
         my $element = $converter->{'global_commands'}->{$global_command}->[0];
@@ -746,10 +746,10 @@ sub converter($)
         }
       }
     }
-    if (!$expanded_formats and $converter->{'parser'}->{'EXPANDED_FORMATS'}) {
-      $expanded_formats = $converter->{'parser'}->{'EXPANDED_FORMATS'};
-    }
-    delete $converter->{'parser'};
+    #if (!$expanded_formats and $converter->{'parser'}->{'EXPANDED_FORMATS'}) {
+    #  $expanded_formats = $converter->{'parser'}->{'EXPANDED_FORMATS'};
+    #}
+    delete $converter->{'document'};
   }
   if ($expanded_formats) {
     $converter->{'expanded_formats_hash'} = {};

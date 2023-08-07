@@ -311,7 +311,7 @@ sub replace_convert_substrings($$;$)
   # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used
   # everytime, only if and where the $self object sets 'clickstyle'
   # and 'kbdinputstyle'
-  # FIXME currently, converters are not associated with parser, such
+  # FIXME currently, converters are not associated with document, such
   # that the second condition should always be false
 
   # determine existing parser, if any
@@ -319,8 +319,8 @@ sub replace_convert_substrings($$;$)
   if ($self) {
     if (ref($self) eq 'Texinfo::Parser') {
       $current_parser = $self;
-    } elsif ($self->{'parser'}) {
-      $current_parser = $self->{'parser'};
+    } elsif ($self->{'document'}) {
+      $current_parser = $self->{'document'};
     }
   }
 
