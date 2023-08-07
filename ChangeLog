@@ -1,5 +1,10 @@
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/refcard/txicmdcheck: ignore @item_LINE as this is not
+	a real Texinfo command and is only used internally.
+
+2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po/POTFILES.in, po_document/POTFILES.in: update so that
 	"make po-check" and "make po_document-check" work at the top level.
 
