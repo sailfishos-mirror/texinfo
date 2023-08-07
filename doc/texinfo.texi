@@ -26,6 +26,8 @@
 @set commandlookup
 @end ifhtml
 
+@microtype on
+
 @copying
 This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
 a documentation system that can produce both online information and a
