@@ -147,6 +147,7 @@ doc/version-texi2any_api.texi
 doc/wwwtemp
 
 doc/refcard/*.dvi
+doc/refcard/*.pdf
 doc/refcard/*.log
 doc/refcard/*.ps
 
