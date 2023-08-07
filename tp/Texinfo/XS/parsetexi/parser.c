@@ -25,7 +25,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for isascii_alnum and whitespace_chars */
+/* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "utils.h"
 #include "debug.h"
 #include "errors.h"
@@ -45,6 +45,8 @@
 #include "labels.h"
 /* for set_labels_identifiers_target */
 #include "document.h"
+/* for complete_indices */
+#include "indices.h"
 #include "parser.h"
 
 
@@ -132,27 +134,6 @@ parse_command_name (char **ptr, int *single_char)
     {
       ret = read_command_name (ptr);
     }
-  return ret;
-}
-
-/* Read a name used for @set and @value. */
-char *
-read_flag_name (char **ptr)
-{
-  char *p = *ptr, *q;
-  char *ret = 0;
-
-  q = p;
-  if (!isascii_alnum (*q) && *q != '-' && *q != '_')
-    return 0; /* Invalid. */
-
-  while (!strchr (whitespace_chars, *q)
-         && !strchr ("{\\}~`^+\"<>|@", *q))
-    q++;
-  ret = strndup (p, q - p);
-  p = q;
-
-  *ptr = p;
   return ret;
 }
 
@@ -2773,6 +2754,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   identifiers_target
     = set_labels_identifiers_target (labels_list, labels_number);
+
+  complete_indices ();
 
   return current;
 }

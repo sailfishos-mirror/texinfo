@@ -1,5 +1,26 @@
 2023-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Partial XS implementation of Texinfo::Translations
+
+	*  tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/utils.c (isascii_lower, isascii_upper)
+	(read_flag_name), tp/Texinfo/XS/parsetexi/indices.c
+	(complete_indices), tp/Texinfo/XS/parsetexi/parser.c (parse_texi),
+	(tp/Texinfo/XS/main/translations.c (switch_messages_locale)
+	(translate_string, replace_substrings, replace_convert_substrings)
+	(gdt, gdt_string, new_named_string_element_list)
+	(reallocate_named_string_element_list)
+	(add_string_to_named_string_element_list)
+	(add_element_to_named_string_element_list)
+	(destroy_named_string_element_list), tp/Texinfo/XS/main/translations.h
+	(NAMED_STRING_ELEMENT_LIST):
+	add isascii_lower and isascii_upper.  Move read_flag_name to utils.c.
+	Add complete_indices partial implementation.  Add main/translations.c
+	where most of the remaining of Texinfo::Translations is partially
+	implemented, in particular gdt.
+
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Separate functions for translations returned as strings or Texinfo trees
 
 	* doc/texi2any_api.texi (Translations Output and Customization)

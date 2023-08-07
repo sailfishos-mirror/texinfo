@@ -3,6 +3,7 @@
 #define API_H
 
 #include <config.h>
+#include "tree_types.h"
 
 extern ELEMENT *Root;
 

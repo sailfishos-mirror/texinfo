@@ -96,7 +96,10 @@ typedef struct GLOBAL_INFO {
 } GLOBAL_INFO;
 
 int isascii_alnum (int c);
+int isascii_lower (int c);
+int isascii_upper (int c);
 
 ELEMENT *get_label_element (ELEMENT *e);
+char * read_flag_name (char **ptr);
 
 #endif

@@ -16,6 +16,7 @@
 /* code that does not fit anywhere else */
 
 #include <config.h>
+#include <string.h>
 #include <ctype.h>
 
 #include "tree_types.h"
@@ -30,6 +31,18 @@ isascii_alnum (int c)
   return (((c & ~0x7f) == 0) && isalnum(c));
 }
 
+int
+isascii_lower (int c)
+{
+  return (((c & ~0x7f) == 0) && islower(c));
+}
+
+int
+isascii_upper (int c)
+{
+  return (((c & ~0x7f) == 0) && isupper(c));
+}
+
 ELEMENT *
 get_label_element (ELEMENT *e)
 {
@@ -40,3 +53,25 @@ get_label_element (ELEMENT *e)
     return e->args.list[1];
   return 0;
 }
+
+/* Read a name used for @set, @value and translations arguments. */
+char *
+read_flag_name (char **ptr)
+{
+  char *p = *ptr, *q;
+  char *ret = 0;
+
+  q = p;
+  if (!isascii_alnum (*q) && *q != '-' && *q != '_')
+    return 0; /* Invalid. */
+
+  while (!strchr (whitespace_chars, *q)
+         && !strchr ("{\\}~`^+\"<>|@", *q))
+    q++;
+  ret = strndup (p, q - p);
+  p = q;
+
+  *ptr = p;
+  return ret;
+}
+

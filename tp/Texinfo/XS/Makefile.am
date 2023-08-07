@@ -125,6 +125,8 @@ libtexinfo_la_SOURCES= \
 		      main/node_name_normalization.h \
 		      main/unicode.c \
 		      main/unicode.h \
+		      main/translations.c \
+		      main/translations.h \
 		      main/utils.c \
 		      main/utils.h \
 		      main/document.c \

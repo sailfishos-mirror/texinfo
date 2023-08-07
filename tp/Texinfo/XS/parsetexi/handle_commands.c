@@ -23,7 +23,7 @@
 #include "tree_types.h"
 #include "command_ids.h"
 #include "element_types.h"
-/* for isascii_alnum and whitespace_chars */
+/* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "utils.h"
 #include "builtin_commands.h"
 #include "counter.h"
@@ -199,7 +199,7 @@ parse_rawline_command (char *line, enum command_id cmd,
                    "{\\}~^+\"<>|@"); /* other bytes that aren't allowed */
       if (q)
         {
-        /* see also read_flag_name function in end_line.c */
+        /* see also read_flag_name function in utils.c */
           r = skip_to_comment_if_comment_or_spaces (q, has_comment);
           if (!r)
             goto set_invalid;

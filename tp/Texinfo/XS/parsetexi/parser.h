@@ -93,7 +93,6 @@ ELEMENT *end_preformatted (ELEMENT *current,
                            enum command_id interrupting_command);
 char *read_command_name (char **ptr);
 char *read_comment (char *line, int *has_comment);
-char *read_flag_name (char **ptr);
 char *convert_to_text (ELEMENT *e, int *superfluous_arg);
 ELEMENT *merge_text (ELEMENT *current, char *text,
                      ELEMENT *transfer_marks_element);

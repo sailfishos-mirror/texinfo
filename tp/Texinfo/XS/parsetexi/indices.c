@@ -22,10 +22,12 @@
 #include "tree.h"
 #include "command_ids.h"
 #include "errors.h"
+#include "debug.h"
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"
 #include "commands.h"
+#include "translations.h"
 #include "indices.h"
 
 INDEX **index_names = 0;
@@ -384,4 +386,90 @@ ultimate_index (INDEX *index)
   while (index->merged_in)
     index = index->merged_in;
   return index;
+}
+
+void
+complete_indices (void)
+{
+  INDEX **i, *idx;
+  for (i = index_names; (idx = *i); i++)
+    {
+      if (idx->index_number > 0)
+        {
+          int j;
+          for (j = 0; j < idx->index_number; j++)
+            {
+              INDEX_ENTRY *entry;
+              ELEMENT *main_entry_element;
+              KEY_PAIR *k;
+              KEY_PAIR *k_idx_element;
+
+              entry = &idx->index_entries[j];
+              main_entry_element = entry->command;
+
+              k = lookup_extra (main_entry_element, "def_command");
+
+              k_idx_element = lookup_extra (main_entry_element,
+                                            "def_index_element");
+              if (k && k->value && !(k_idx_element && k_idx_element->value))
+                {
+                  ELEMENT *name = 0;
+                  ELEMENT *class = 0;
+                  ELEMENT *def_l_e = main_entry_element->args.list[0];
+                  if (def_l_e->contents.number > 0)
+                    {
+                      int ic;
+                      for (ic = 0; ic < def_l_e->contents.number; ic++)
+                        {
+                          ELEMENT *arg = def_l_e->contents.list[ic];
+                          KEY_PAIR *k_role = lookup_extra (arg, "def_role");
+                          char *role = (char *) k_role->value;
+                          if (!strcmp (role, "name"))
+                            name = arg;
+                          else if (!strcmp (role, "class"))
+                            class = arg;
+                          else if (!strcmp (role, "arg")
+                                   || !strcmp (role, "typearg")
+                                   || !strcmp (role, "delimiter"))
+                            break;
+                        }
+                    }
+                  /*
+                  fprintf (stderr, "DEF IDX NAME CLASS '%s' '%s' \n",
+                                              print_element_debug(name, 0),
+                                              print_element_debug(class, 0));
+                   */
+                  if (name && class)
+                    {
+                      char *lang = 0;
+                      ELEMENT *index_entry;
+                      ELEMENT *index_contents_normalized = new_element (ET_NONE);
+                      enum command_id def_command
+                        = lookup_command ((char *) k->value);
+                      KEY_PAIR *k_lang = lookup_extra (main_entry_element,
+                                                       "documentlanguage");
+                      if (k_lang && k_lang->value)
+                        {
+                          lang = (char *) k_lang->value;
+                        }
+                      if (def_command == CM_defop
+                          || def_command == CM_deftypeop
+                          || def_command == CM_defmethod
+                          || def_command == CM_deftypemethod)
+                        {
+                          NAMED_STRING_ELEMENT_LIST *substrings
+                                           = new_named_string_element_list ();
+                          add_element_to_named_string_element_list (substrings,
+                                                                  "name", name);
+                          add_element_to_named_string_element_list (substrings,
+                                                                  "class", class);
+                          index_entry = gdt ("{name} of {class}",
+                                             substrings, 0, lang);
+                          destroy_named_string_element_list (substrings);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

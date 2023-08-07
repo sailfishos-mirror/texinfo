@@ -21,7 +21,7 @@
 #include <stdio.h>
 
 #include "parser.h"
-/* for isascii_alnum and whitespace_chars */
+/* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "tree_types.h"
 #include "tree.h"
 #include "builtin_commands.h"

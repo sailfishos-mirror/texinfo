@@ -187,7 +187,7 @@ cases (regenerate_master_menu), converter.
 
 get_conf that need to be implemented in C
 
-In parser:
+In parser (not useful):
   $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
 $self->{'documentlanguage'} for get_conf('documentlanguage'):
   global_documentlanguage
