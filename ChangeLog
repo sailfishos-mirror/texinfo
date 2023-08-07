@@ -1,3 +1,13 @@
+2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Change AUTO_MENU_DESCRIPTION_FILLCOLUMN to
+	AUTO_MENU_MAX_WIDTH and AUTO_MENU_DESCRIPTION_INDENT_LENGTH to
+	AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Subtract one
+	from the value of AUTO_MENU_DESCRIPTION_ALIGN_COLUMN to get the
+	number of preceding columns in the line.
+
 2023-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: Mention AUTO_MENU_DESCRIPTION_FILLCOLUMN and
