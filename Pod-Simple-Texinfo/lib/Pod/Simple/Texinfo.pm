@@ -424,8 +424,8 @@ sub _normalize_texinfo_name($$)
     $texinfo_text = "\@$command $name\n";
   }
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_piece($texinfo_text);
-  if (!defined($tree)) {
+  my $document = $parser->parse_texi_piece($texinfo_text);
+  if (!defined($document)) {
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
     warn "ERROR: Texinfo parsing failed for: $texinfo_text_str\n";
@@ -441,6 +441,7 @@ sub _normalize_texinfo_name($$)
     # FIXME Or undef, and callers check the return to be defined?
     return '';
   }
+  my $tree = $document->tree();
   if ($command eq 'anchor') {
     # FIXME this works to find the anchor command only if
     # the tree structure always leads to the interesting

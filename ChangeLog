@@ -1,5 +1,11 @@
 2023-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): update for parse_texi_piece that
+	returns a document, not a tree.
+
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_piece),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_piece): return a
 	document, not a tree.  Update callers.
