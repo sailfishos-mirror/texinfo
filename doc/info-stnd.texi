@@ -158,7 +158,9 @@ Select the node @samp{Top} in the current Info file.
 @item @kbd{d} (@code{dir-node})
 @kindex d
 @findex dir-node
-Select the directory node (i.e., the node @samp{(dir)}).
+Select the directory node (i.e., the node @samp{(dir)}).  This contains
+a menu referencing all the available Info files that are installed on your
+system.
 @end table
 
 @findex execute-command

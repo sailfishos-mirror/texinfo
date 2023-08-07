@@ -1,5 +1,10 @@
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands) <d>: Say a little about
+	what the dir node is.
+
+2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (@variable_string_settables):
 	Change AUTO_MENU_DESCRIPTION_FILLCOLUMN to
 	AUTO_MENU_MAX_WIDTH and AUTO_MENU_DESCRIPTION_INDENT_LENGTH to
