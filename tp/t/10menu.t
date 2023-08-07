@@ -668,8 +668,8 @@ where the max column could be. @w{in w}.
 
 @listoffloats tfloat
 
-',{},{'AUTO_MENU_DESCRIPTION_INDENT_LENGTH' => 15,
-       'AUTO_MENU_DESCRIPTION_FILLCOLUMN' => 90}],
+',{},{'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN' => 16,
+       'AUTO_MENU_MAX_WIDTH' => 90}],
 );
 
 my @test_invalid = (

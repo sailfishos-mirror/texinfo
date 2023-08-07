@@ -1724,9 +1724,9 @@ sub _get_form_feeds($)
   return $form_feeds;
 }
 
-#my $description_indent_length = 31;
-# computed as 31/72
-my $description_indent_length_factor = 0.44;
+#my $description_align_column = 32;
+# computed as 32/72, rounded up
+my $description_align_column_factor = 0.45;
 
 sub _convert($$);
 
@@ -3478,15 +3478,16 @@ sub _convert($$)
               and $self->{'labels'}
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'}) {
-            my $description_indent_length;
-            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_INDENT_LENGTH'))) {
-              $description_indent_length
-                 = $self->get_conf('AUTO_MENU_DESCRIPTION_INDENT_LENGTH');
+            my $description_align_column;
+            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN'))) {
+              $description_align_column
+                 = $self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN');
             } else {
-              $description_indent_length
+              $description_align_column
                = int($self->{'text_element_context'}->[-1]->{'max'}
-                    * $description_indent_length_factor);
+                    * $description_align_column_factor);
             }
+            my $description_indent_length = $description_align_column - 1;
 
             my $description_element = $self->{'labels'}
                  ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
@@ -3521,9 +3522,9 @@ sub _convert($$)
                      'counter' => $text_count
             };
 
-            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN'))) {
+            if (defined($self->get_conf('AUTO_MENU_MAX_WIDTH'))) {
               $text_element_context->{'max'}
-                 = $self->get_conf('AUTO_MENU_DESCRIPTION_FILLCOLUMN');
+                 = $self->get_conf('AUTO_MENU_MAX_WIDTH');
             } else {
               # e.g. 72 -> 79
               $text_element_context->{'max'}

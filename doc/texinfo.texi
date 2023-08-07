@@ -16121,16 +16121,17 @@ output.  Implies both @code{ASCII_DASHES_AND_QUOTES} and @code{ASCII_GLYPH}
 and additionally affects the output of commands such as @code{@@samp} which
 output quotation marks.
 
-@item AUTO_MENU_DESCRIPTION_FILLCOLUMN
-Maximum number of columns in a line for @code{@@nodedescription} or
-@code{@@nodedescriptionblock} menu entry description formatting in Info.
+@item AUTO_MENU_DESCRIPTION_ALIGN_COLUMN
+For Info output, column at which to start a menu entry description
+provided by @code{@@nodedescription} or @code{@@nodedescriptionblock}.
+Undefined by default, in which case 45% of the fill column value is used
+(@pxref{Invoking @command{texi2any}}).
+
+@item AUTO_MENU_MAX_WIDTH
+Maximum number of columns in a menu entry line in Info when adding a
+description from @code{@@nodedescription} or @code{@@nodedescriptionblock}.
 Undefined by default, in which case 10% more than the fill column value
 is used (@pxref{Invoking @command{texi2any}}).
-
-@item AUTO_MENU_DESCRIPTION_INDENT_LENGTH
-Indentation for @code{@@nodedescription} or @code{@@nodedescriptionblock}
-menu entry description formatting in Info.  Undefined by default, in which case
-44% of the fill column value is used (@pxref{Invoking @command{texi2any}}).
 
 @item CHECK_MISSING_MENU_ENTRY
 When a @code{@@menu} block occurs in a node, check if there is a menu
