@@ -1,5 +1,28 @@
 2023-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm,
+	tp/t/automatic_menus.t, tp/t/automatic_nodes.t, tp/t/do_master_menu.t,
+	tp/t/test_sort.t: remove indices_information, floats_information,
+	internal_references_information, global_commands_information,
+	global_information and labels_information from parsers, this
+	information should come from documents.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi), tp/Texinfo/Translations.pm
+	(complete_indices), tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(get_parser_info): pass directly index_names as
+	Texinfo::Translations::complete_indices argument.
+
+	* tp/Texinfo/Translations.pm (replace_convert_substrings): do not
+	try to get a parser from a document, as there is none associated.
+
+	* tp/Texinfo/Structuring.pm (new_master_menu),
+	tp/Texinfo/Translations.pm (_gdt, gdt, gdt_string, replace_substrings)
+	(replace_convert_substrings, pgdt, complete_indices): rename self as
+	customization_information.
+
+
+2023-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter),
 	tp/Texinfo/Convert/Text.pm (converter), tp/Texinfo/Translations.pm
 	(replace_convert_substrings), tp/t/test_utils.pl (convert_to_*)

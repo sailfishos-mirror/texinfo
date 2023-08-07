@@ -1814,7 +1814,7 @@ sub _normalized_entry_associated_internal_node($;$)
 # used in Plaintext converter and tree transformations
 sub new_master_menu($$$)
 {
-  my $self = shift;
+  my $customization_information = shift;
   my $labels = shift;
   my $menus = shift;
 
@@ -1834,8 +1834,9 @@ sub new_master_menu($$$)
   }
   if (scalar(@master_menu_contents)) {
     my $first_preformatted = $master_menu_contents[0]->{'contents'}->[0];
-    my $master_menu_title = Texinfo::Translations::gdt($self,
-                                      ' --- The Detailed Node Listing ---');
+    my $master_menu_title
+           = Texinfo::Translations::gdt($customization_information,
+                                        ' --- The Detailed Node Listing ---');
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
       $content->{'parent'} = $first_preformatted;
@@ -1954,7 +1955,7 @@ sub _print_down_menus($$)
 
 if (0) {
   # it is needed to mark the translation as gdt is called like
-  # Texinfo::Translations::gdt($self, ' --- The Detailed Node Listing ---')
+  # Texinfo::Translations::gdt($customization_information, ' --- The Detailed Node Listing ---')
   # and not like gdt(' --- The Detailed Node Listing ---')
   gdt(' --- The Detailed Node Listing ---');
 }

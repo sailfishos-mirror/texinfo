@@ -219,7 +219,7 @@ sub get_parser_info {
 
   my $index_names = build_index_data ();
   $self->{'index_names'} = $index_names;
-  Texinfo::Translations::complete_indices ($self);
+  Texinfo::Translations::complete_indices ($self, $index_names);
 
   $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
@@ -355,44 +355,6 @@ sub parse_texi_line($$;$$)
   my $document = get_parser_info($self, $store);
 
   return $document->tree();
-}
-
-# Public interfaces of Texinfo::Parser to gather information
-sub indices_information($)
-{
-  my $self = shift;
-
-  return $self->{'index_names'};
-}
-
-sub floats_information($)
-{
-  my $self = shift;
-  return $self->{'floats'};
-}
-
-sub internal_references_information($)
-{
-  my $self = shift;
-  return $self->{'internal_references'};
-}
-
-sub global_commands_information($)
-{
-  my $self = shift;
-  return $self->{'commands_info'};
-}
-
-sub global_information($)
-{
-  my $self = shift;
-  return $self->{'info'};
-}
-
-sub labels_information($)
-{
-  my $self = shift;
-  return $self->{'identifiers_target'};
 }
 
 sub registered_errors($)

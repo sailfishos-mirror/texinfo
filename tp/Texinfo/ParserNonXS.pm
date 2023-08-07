@@ -940,51 +940,9 @@ sub _parse_texi_document($)
 
   my $document = $self->_parse_texi($document_root, $before_node_section);
 
-  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
+  Texinfo::Common::rearrange_tree_beginning($document, $before_node_section);
 
   return $document;
-}
-
-# return indices information
-sub indices_information($)
-{
-  my $self = shift;
-  return $self->{'index_names'};
-}
-
-sub floats_information($)
-{
-  my $self = shift;
-  return $self->{'floats'};
-}
-
-sub internal_references_information($)
-{
-  my $self = shift;
-  return $self->{'internal_references'};
-}
-
-sub global_commands_information($)
-{
-  my $self = shift;
-  return $self->{'commands_info'};
-}
-
-# @ dircategory_direntry
-# perl_encoding
-# input_encoding_name
-# input_file_name
-# input_directory
-sub global_information($)
-{
-  my $self = shift;
-  return $self->{'info'};
-}
-
-sub labels_information($)
-{
-  my $self = shift;
-  return $self->{'identifiers_target'};
 }
 
 sub registered_errors($)
@@ -7457,12 +7415,13 @@ sub _parse_texi($$$)
   # Setup labels info and nodes list based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
-  Texinfo::Translations::complete_indices($self);
+  Texinfo::Translations::complete_indices($self, $self->{'index_names'});
 
   my $document = Texinfo::Document::register($root,
      $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'});
+
   return $document;
 }
 
@@ -7920,7 +7879,6 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   use Texinfo::Parser;
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
-  my $tree = $document->tree();
   # a Texinfo::Report object in which the errors and warnings
   # encountered while parsing are registered.
   my $registrar = $parser->registered_errors();
@@ -7928,19 +7886,6 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
-
-  my $indices_information = $parser->indices_information();
-  my $float_types_arrays = $parser->floats_information();
-  my $internal_references_array
-    = $parser->internal_references_information();
-  # $identifier_target is an hash reference on normalized node/float/anchor names.
-  my $identifier_target = $parser->labels_information();
-  # A hash reference, keys are @-command names, value is an
-  # array reference holding all the corresponding @-commands.
-  my $global_commands_information = $parser->global_commands_information();
-  # a hash reference on document information (encodings,
-  # input file name, dircategory and direntry list, for example).
-  my $global_information = $parser->global_information();
 
 =head1 NOTES
 
@@ -8006,21 +7951,6 @@ Default on.
 
 Maximal number of nested user-defined macro calls.  Default is 100000.
 
-=begin comment
-
-Duplicated in gdt() but not implemented in the XS Parser, so not
-documented.
-
-=item clickstyle
-
-A string, the command name associated with C<@clickstyle>.
-
-=item kbdinputstyle
-
-A string, the C<@kbdinputstyle> style.
-
-=end comment
-
 =item documentlanguage
 
 A string corresponding to a document language set by C<@documentlanguage>.
@@ -8072,7 +8002,7 @@ This function is used to parse Texinfo fragments.
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $tree = parse_texi_text($parser, $text, $first_line_number)
+=item $document = parse_texi_text($parser, $text, $first_line_number)
 X<C<parse_texi_text>>
 
 This function is used to parse a text as a whole document.
@@ -8080,7 +8010,7 @@ This function is used to parse a text as a whole document.
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $tree = parse_texi_file($parser, $file_name)
+=item $document = parse_texi_file($parser, $file_name)
 X<C<parse_texi_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and
@@ -8107,259 +8037,6 @@ is passed to the parser initialization options, it is reused, otherwise
 a new one is created.
 
 =back
-
-=head2 Getting information on the document
-
-After parsing some information about the Texinfo code that was processed
-is available from the parser.
-
-Some global information is available through C<global_information>:
-
-=over
-
-=item $info = global_information($parser)
-X<C<global_information>>
-
-The I<$info> returned is a hash reference.  The possible keys are
-
-=over
-
-=item dircategory_direntry
-
-An array of successive C<@dircategory> and C<@direntry> as they appear
-in the document.
-
-=item input_encoding_name
-
-=item input_perl_encoding
-
-C<input_encoding_name> string is the encoding name used for the
-Texinfo code.
-C<input_perl_encoding> string is a corresponding Perl encoding name.
-
-=item input_file_name
-
-=item input_directory
-
-The name of the main Texinfo input file and the associated directory.
-Binary strings.  In C<texi2any>, they should come from the command line
-(and can be decoded with the encoding in the customization variable
-C<COMMAND_LINE_ENCODING>).
-
-=back
-
-=back
-
-Some command lists are available, such that it is possible to go through
-the corresponding tree elements without walking the tree.  They are
-available through C<global_commands_information>:
-
-=over
-
-=item $commands = global_commands_information($parser)
-X<C<global_commands_information>>
-
-I<$commands> is an hash reference.  The keys are @-command names.  The
-associated values are array references containing all the corresponding
-tree elements.
-
-=back
-
-All the @-commands that have an associated label (so can be the
-target of cross references) -- C<@node>, C<@anchor> and C<@float> with
-label -- have a normalized name associated, constructed as described in the
-I<HTML Xref> node in the Texinfo documentation.  Those normalized labels and
-the association with @-commands is available through C<labels_information>:
-
-=over
-
-=item $identifier_target = labels_information($parser)
-X<C<labels_information>>
-
-I<$identifier_target> is a hash reference whose keys are normalized
-labels, and the associated value is the corresponding @-command.
-
-=back
-
-Information on C<@float> is also available, grouped by type of
-floats, each type corresponding to potential C<@listoffloats>.
-This information is available through the method C<floats_information>.
-
-=over
-
-=item $float_types = floats_information($parser)
-X<C<floats_information>>
-
-I<$float_types> is a hash reference whose keys are normalized float
-types (the first float argument, or the C<@listoffloats> argument).
-The normalization is the same as for the first step of node names
-normalization. The value is the list of float tree elements appearing
-in the texinfo document.
-
-=back
-
-Internal references, that is, @-commands that refer to node, anchors
-or floats within the document are also available:
-
-=over
-
-=item $internal_references_array = internal_references_information($parser)
-X<C<internal_references_information>>
-
-The function returns a list of cross-reference commands referring to
-the same document.
-
-=back
-
-Information about defined indices, merged indices and index entries is
-also available through the C<indices_information> method.
-
-=over
-
-=item $indices_information = $parser->indices_information()
-X<C<indices_information>>
-
-I<$indices_information> is a hash reference.  The keys are
-
-=over
-
-=item in_code
-
-1 if the index entries should be formatted as code, 0 in the opposite case.
-
-=item name
-
-The index name.
-
-=item prefix
-
-An array reference of prefix associated to the index.
-
-=item merged_in
-
-In case the index is merged to another index, this key holds the name of
-the index the index is merged into.  It takes into account indirectly
-merged indices.
-
-=item contained_indices
-
-An hash reference holding names of indices that are merged into the index,
-including itself.  It also contains indirectly merged indices.  This key
-is removed if the index is itself later merged to another index.
-
-=item index_entries
-
-An array reference containing index entry structures for index entries
-associated with the index.  The index entry could be associated to
-@-commands like C<@cindex>, or C<@item> in C<@vtable>, or definition
-commands entries like C<@deffn>.
-
-The keys of the index entry structures are
-
-=over
-
-=item index_name
-
-The index name associated to the command.  Not modified if the corresponding
-index is merged in another index (with C<@synindex>, for example).
-
-=item entry_element
-
-The element in the parsed tree associated with the @-command holding the
-index entry.
-
-=item entry_number
-
-The number of the index entry.
-
-=back
-
-=back
-
-The following shows the references corresponding to the default indexes
-I<cp> and I<fn>, the I<fn> index having its entries formatted as code and
-the indices corresponding to the following texinfo
-
-  @defindex some
-  @defcodeindex code
-
-  $index_names = {'cp' => {'name' => 'cp', 'in_code' => 0, },
-                  'fn' => {'name' => 'fn', 'in_code' => 1, },
-                  'some' => {'in_code' => 0},
-                  'code' => {'in_code' => 1}};
-
-If C<name> is not set, it is set to the index name.
-
-=back
-
-=begin comment
-
-The following are not implemented in the XS parser, and we do not want them
-to be used for the NonXS parser.  They are not set to be configurable in the
-NonXS parser anyway (but could easily be).
-
-=head2 Texinfo Parser options
-
-Setting these options is the same as seeing some Texinfo constructs in the
-document.
-
-=over
-
-=item aliases
-
-A hash reference.  The key is a command name, the value is the alias, as
-could be set by C<@alias>.
-
-=item indices
-
-If it is a hash reference, the keys are index names, the values are
-index prefix hash references.  The index prefix hash reference values are
-prefix, the value is set if the corresponding index entries should be
-formatted as if in C<@code>.  An example is as L</indices_information>.
-
-If it is an array reference, it is a list of index names, as if they were
-entered as
-
-  @defindex name
-
-=item labels
-
-A hash reference.  Keys are normalized node names as described in the
-I<HTML Xref> node in the Texinfo manual.  Instead of a node, it may also
-be a float label or an anchor name.  The value is the corresponding
-@-command element in the tree.
-
-=item macros
-
-The associated hash reference has as keys user-defined macro names.  The
-value is the reference on a macro definition element as obtained by
-the Parser when parsing a C<@macro>.  For example
-
-  @macro mymacro{arg}
-  coucou \arg\ after arg
-  @end macro
-
-Is associated to a macro definition element
-
-  {'cmdname' => 'macro',
-   'args' => [{'text' => 'mymacro', 'type' => 'macro_name'},
-              {'text' => 'arg', 'type' => 'macro_arg}],
-   'contents' => [{'text' => "coucou \arg\ after arg\n", 'type' => 'raw'}],
-   'info' => {'arg_line' => " mymacro{arg}\n", }}
-
-=item merged_indices
-
-The associated hash reference holds merged indices information, each key
-is merged in the value.  Same as setting C<@synindex> or C<syncodeindex>.
-
-=item sections_level
-
-Modifier of the sections level.  Same as calling C<@lowersections> or
-C<@raisesections>.
-
-=back
-
-=end comment
 
 =head1 TEXINFO TREE
 

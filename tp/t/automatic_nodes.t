@@ -26,8 +26,8 @@ sub test_new_node($$$$)
   my $node_tree = $parser->parse_texi_line ($in);
   my $registrar = $parser->registered_errors();
   my $document = $parser->parse_texi_text ('');
-  my $identifier_target = $parser->labels_information();
-  my $refs = $parser->internal_references_information();
+  my $identifier_target = $document->labels_information();
+  my $refs = $document->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                 $identifier_target, $refs);
   my $node = Texinfo::Transformations::_new_node($node_tree, $document);
@@ -35,7 +35,7 @@ sub test_new_node($$$$)
   my ($texi_result, $normalized);
   if (defined($node)) {
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
-    my $refs = $parser->internal_references_information();
+    my $refs = $document->internal_references_information();
     Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                   $identifier_target, $refs);
     $normalized = $node->{'extra'}->{'normalized'};
@@ -81,8 +81,8 @@ my $document = $parser->parse_texi_text('@node a node
 my $tree = $document->tree();
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $registrar = $parser->registered_errors();
-my $identifier_target = $parser->labels_information();
-my $refs = $parser->internal_references_information();
+my $identifier_target = $document->labels_information();
+my $refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                $identifier_target, $refs);
 my $node = Texinfo::Transformations::_new_node($line_tree, $document);
@@ -157,8 +157,8 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
 $tree = $document->tree();
 $registrar = $parser->registered_errors();
-$identifier_target = $parser->labels_information();
-$refs = $parser->internal_references_information();
+$identifier_target = $document->labels_information();
+$refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                   $identifier_target, $refs);
 my ($new_content, $added_nodes)
@@ -183,15 +183,15 @@ $document = $parser->parse_texi_text('@node Top
 ');
   $tree = $document->tree();
 $registrar = $parser->registered_errors();
-$identifier_target = $parser->labels_information();
-$refs = $parser->internal_references_information();
+$identifier_target = $document->labels_information();
+$refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $identifier_target, $refs);
 ($new_content, $added_nodes)
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
 $tree->{'contents'} = $new_content;
-my ($indices_information, $merged_indices) = $parser->indices_information();
+my ($indices_information, $merged_indices) = $document->indices_information();
 ok (($identifier_target->{'chap'}->{'extra'}->{'menus'}
      and @{$identifier_target->{'chap'}->{'extra'}->{'menus'}}
      and scalar(@{$identifier_target->{'chap'}->{'extra'}->{'menus'}}) == 1

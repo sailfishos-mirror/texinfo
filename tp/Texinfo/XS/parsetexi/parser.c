@@ -2755,7 +2755,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   identifiers_target
     = set_labels_identifiers_target (labels_list, labels_number);
 
+  /*
   complete_indices ();
-
+  */
   return current;
 }

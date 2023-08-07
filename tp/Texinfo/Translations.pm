@@ -115,13 +115,17 @@ sub _switch_messages_locale
 #    case.
 sub _gdt($$;$$)
 {
-  my ($self, $string, $translation_context, $lang) = @_;
+  my ($customization_information, $string, $translation_context, $lang) = @_;
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
   # from another language that needs to be translated.
-  $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
+  if (ref($customization_information) eq 'Texinfo::Document') {
+    cluck;
+  }
+  $lang = $customization_information->get_conf('documentlanguage')
+    if ($customization_information and !defined($lang));
   if (defined($lang) and $lang eq '') {
-    cluck ("BUG: defined but empty documentlanguage: $self: '$string'\n");
+    cluck ("BUG: defined but empty documentlanguage: $customization_information: '$string'\n");
   }
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
@@ -146,15 +150,15 @@ sub _gdt($$;$$)
   # instead of here, each time that gdt is called?
   my $encoding;
   #my $perl_encoding;
-  if ($self) {
+  if ($customization_information) {
     # NOTE the following customization variables are not set for
     # a Parser, so the encoding will be undef when gdt is called from
     # parsers.
-    if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-      $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+    if ($customization_information->get_conf('OUTPUT_ENCODING_NAME')) {
+      $encoding = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
     }
-    #if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-    #  $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+    #if (defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
+    #  $perl_encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
     #}
   } else {
     # NOTE never happens in the tests, unlikely to happen at all.
@@ -246,27 +250,32 @@ sub _gdt($$;$$)
 
 sub gdt($$;$$$)
 {
-  my ($self, $string, $replaced_substrings, $translation_context, $lang) = @_;
+  my ($customization_information, $string, $replaced_substrings,
+      $translation_context, $lang) = @_;
 
-  my $translated_string = _gdt($self, $string, $translation_context, $lang);
+  my $translated_string = _gdt($customization_information, $string,
+                               $translation_context, $lang);
 
-  return replace_convert_substrings($self, $translated_string,
+  return replace_convert_substrings($customization_information,
+                                    $translated_string,
                                     $replaced_substrings);
 }
 
 sub gdt_string($$;$$$)
 {
-  my ($self, $string, $replaced_substrings, $translation_context, $lang) = @_;
+  my ($customization_information, $string, $replaced_substrings,
+      $translation_context, $lang) = @_;
 
-  my $translated_string = _gdt($self, $string, $translation_context, $lang);
+  my $translated_string = _gdt($customization_information, $string,
+                               $translation_context, $lang);
 
-  return replace_substrings ($self, $translated_string,
+  return replace_substrings ($customization_information, $translated_string,
                              $replaced_substrings);
 }
 
 sub replace_substrings($$;$)
 {
-  my $self = shift;
+  my $customization_information = shift;
   my $translated_string = shift;
   my $replaced_substrings = shift;
 
@@ -284,7 +293,7 @@ sub replace_substrings($$;$)
 
 sub replace_convert_substrings($$;$)
 {
-  my $self = shift;
+  my $customization_information = shift;
   my $translated_string = shift;
   my $replaced_substrings = shift;
 
@@ -308,19 +317,16 @@ sub replace_convert_substrings($$;$)
   # clickstyle and kbdinputstyle is relevant (though not implemented in the XS
   # parser, but could be) but not necessarily determining.  Converters and
   # users could easily avoid using @kbd and @click in the translated strings.
-  # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used
-  # everytime, only if and where the $self object sets 'clickstyle'
+  # FIXME why not use $customization_information->get_conf('clickstyle'), ...?
+  # It would not be used everytime, only if and where the
+  # $customization_information object sets 'clickstyle'
   # and 'kbdinputstyle'
-  # FIXME currently, converters are not associated with document, such
-  # that the second condition should always be false
 
   # determine existing parser, if any
   my $current_parser;
-  if ($self) {
-    if (ref($self) eq 'Texinfo::Parser') {
-      $current_parser = $self;
-    } elsif ($self->{'document'}) {
-      $current_parser = $self->{'document'};
+  if ($customization_information) {
+    if (ref($customization_information) eq 'Texinfo::Parser') {
+      $current_parser = $customization_information;
     }
   }
 
@@ -340,10 +346,11 @@ sub replace_convert_substrings($$;$)
     }
   }
   # general customization relevant for parser
-  if ($self) {
+  if ($customization_information) {
     foreach my $conf_variable ('DEBUG') {
-      if (defined($self->get_conf($conf_variable))) {
-        $parser_conf->{$conf_variable} = $self->get_conf($conf_variable);
+      if (defined($customization_information->get_conf($conf_variable))) {
+        $parser_conf->{$conf_variable}
+          = $customization_information->get_conf($conf_variable);
       }
     }
   }
@@ -410,8 +417,10 @@ sub _substitute ($$) {
 
 sub pgdt($$$;$$)
 {
-  my ($self, $translation_context, $string, $replaced_substrings, $lang) = @_;
-  return $self->gdt($string, $replaced_substrings, $translation_context, $lang);
+  my ($customization_information, $translation_context, $string,
+      $replaced_substrings, $lang) = @_;
+  return $customization_information->gdt($string, $replaced_substrings,
+                                         $translation_context, $lang);
 }
 
 # FIXME currently not used.  See below how it could be used to avoid having the
@@ -431,7 +440,7 @@ sub _non_bracketed_contents($) {
 
 if (0) {
   # it is needed to mark the translation as gdt is called like
-  # gdt($self, '....')
+  # gdt($customization_information, '....')
   # and not like gdt('....')
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
@@ -445,13 +454,14 @@ if (0) {
 # In a handful of cases, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of Parser.pm.
-sub complete_indices($)
+sub complete_indices($$)
 {
-  my $self = shift;
+  my $customization_information = shift;
+  my $index_names = shift;
 
-  foreach my $index_name (sort(keys(%{$self->{'index_names'}}))) {
-    next if (not defined($self->{'index_names'}->{$index_name}->{'index_entries'}));
-    foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
+  foreach my $index_name (sort(keys(%{$index_names}))) {
+    next if (not defined($index_names->{$index_name}->{'index_entries'}));
+    foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
       my $main_entry_element = $entry->{'entry_element'};
       if ($main_entry_element->{'extra'}
           and $main_entry_element->{'extra'}->{'def_command'}
@@ -482,7 +492,7 @@ sub complete_indices($)
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
-            $index_entry = gdt($self, '{name} on {class}',
+            $index_entry = gdt($customization_information, '{name} on {class}',
                                {'name' => $name, 'class' => $class},
                                 undef, $entry_language);
             $index_contents_normalized
@@ -494,7 +504,7 @@ sub complete_indices($)
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
-            $index_entry = gdt($self, '{name} of {class}',
+            $index_entry = gdt($customization_information, '{name} of {class}',
                                {'name' => $name, 'class' => $class},
                                undef, $entry_language);
             $index_contents_normalized
