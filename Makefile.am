@@ -105,6 +105,7 @@ po-check:
 	      djgpp/* | man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
+              tp/t/results* ) continue;;				\
 	    esac;							\
 	    # if have lex/yacc sources, skip corresponding c/h files.	\
 	    case $$file in						\

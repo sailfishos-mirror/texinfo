@@ -28,7 +28,6 @@ info/pcterm.c
 info/scan.c
 info/search.c
 info/session.c
-info/util.c
 info/variables.c
 info/window.c
 install-info/install-info.c
@@ -66,6 +65,7 @@ tp/Texinfo/XS/parsetexi/errors.c
 tp/Texinfo/XS/parsetexi/errors.h
 tp/Texinfo/XS/parsetexi/handle_commands.c
 tp/Texinfo/XS/parsetexi/indices.c
+tp/Texinfo/XS/parsetexi/input.c
 tp/Texinfo/XS/parsetexi/labels.c
 tp/Texinfo/XS/parsetexi/macro.c
 tp/Texinfo/XS/parsetexi/menus.c
