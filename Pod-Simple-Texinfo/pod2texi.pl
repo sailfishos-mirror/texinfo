@@ -253,7 +253,7 @@ sub _parsed_manual_tree($$$$$)
   my $tree = $document->tree();
   my $registrar = $texi_parser->registered_errors();
   
-  my $identifier_target = $texi_parser->labels_information();
+  my $identifier_target = $document->labels_information();
 
   if ($fill_gaps_in_sectioning) {
     my ($added_sections, $added_nodes);
@@ -302,14 +302,14 @@ sub _parsed_manual_tree($$$$$)
   }
   my ($sectioning_root, $sections_list)
     = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
-  my $refs = $texi_parser->internal_references_information();
+  my $refs = $document->internal_references_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
   Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
                                                       $identifier_target, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
-  return ($texi_parser, $tree, $identifier_target);
+  return ($texi_parser, $document, $identifier_target);
 }
 
 sub _fix_texinfo_tree($$$$;$$)
@@ -321,7 +321,7 @@ sub _fix_texinfo_tree($$$$;$$)
   my $do_node_menus = shift;
   my $do_master_menu = shift;
 
-  my ($texi_parser, $tree, $updated_labels)
+  my ($texi_parser, $document, $updated_labels)
     = _parsed_manual_tree($self, $manual_texi, $section_nodes,
                           $fill_gaps_in_sectioning,
                           $do_node_menus);
@@ -340,7 +340,7 @@ sub _fix_texinfo_tree($$$$;$$)
 
       # setup another tree with menus to do the master menu as menus are
       # not done for the main tree
-      my ($texi_parser_menus, $tree_menus, $updated_labels_menus)
+      my ($texi_parser_menus, $document_menus, $updated_labels_menus)
        = _parsed_manual_tree($self, $manual_texi, $section_nodes,
                              $fill_gaps_in_sectioning, 1);
       my $top_node_menus = $updated_labels_menus->{'Top'};
@@ -354,7 +354,7 @@ sub _fix_texinfo_tree($$$$;$$)
       }
     }
   }
-  return ($texi_parser, $tree);
+  return ($texi_parser, $document);
 }
 
 sub _fix_texinfo_manual($$$$;$$)
@@ -366,18 +366,20 @@ sub _fix_texinfo_manual($$$$;$$)
   my $do_node_menus = shift;
   my $do_master_menu = shift;
 
-  my ($texi_parser, $tree)
+  my ($texi_parser, $document)
       = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
                           $fill_gaps_in_sectioning, $do_node_menus,
                           $do_master_menu);
+  my $tree = $document->tree();
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
 sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
-  my ($texi_parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
-  my $identifier_target = $texi_parser->labels_information();
+  my ($texi_parser, $document)
+             = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
+  my $identifier_target = $document->labels_information();
   my $top_node_menu = $identifier_target->{'Top'}->{'extra'}->{'menus'}->[0];
   if ($top_node_menu) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
