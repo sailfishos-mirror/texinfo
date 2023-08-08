@@ -3446,7 +3446,7 @@ sub _convert($$)
            = $self->gdt('{abbr_or_acronym} ({explanation})',
                         {'abbr_or_acronym' => $argument,
                          'explanation'
-                                   => $element->{'args'}->[-1]->{'contents'}});
+                                   => $element->{'args'}->[-1]});
           $result .= _convert($self, $prepended);
         } else {
           $result .= _convert($self, $argument);
@@ -3598,7 +3598,8 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}',
-                                 {'value' => $element->{'args'}->[0]});
+                                 {'value'
+                                    => $element->{'args'}->[0]});
       $expansion = {'type' => 'paragraph',
                     'contents' => [$expansion]};
       $result .= _convert($self, $expansion);
@@ -3656,7 +3657,7 @@ sub _convert($$)
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $element->{'args'}->[0]->{'contents'}});
+                      {'quotation_arg' => $element->{'args'}->[0]});
           $result .= $self->_convert($prepended);
         }
       } elsif ($cmdname eq 'multitable') {
@@ -4124,7 +4125,7 @@ sub _convert($$)
         if ($arguments) {
           $def_line_result .= $def_space;
           if ($Texinfo::Common::def_no_var_arg_commands{$command}) {
-            $def_line_result .= _convert($self, {'contents' => $arguments});
+            $def_line_result .= _convert($self, $arguments);
           } else {
             $self->{'packages'}->{'embrac'} = 1;
             # we want slanted roman and not slanted typewriter, including
@@ -4135,7 +4136,7 @@ sub _convert($$)
             push @{$self->{'formatting_context'}->[-1]->{'embrac'}},
               {'status' => 1, 'made_known' => {}};
 
-            $def_line_result .= _convert($self, {'contents' => $arguments});
+            $def_line_result .= _convert($self, $arguments);
 
             # \EmbracOff{} is probably not really needed here as \EmbracOn{}
             # should be local to the texttt
@@ -4360,7 +4361,7 @@ sub _convert($$)
             $result .= _convert($self,
                  # TRANSLATORS: quotation author
                  $self->gdt('@center --- @emph{{author}}',
-                    {'author' => $author->{'args'}->[0]->{'contents'}}));
+                    {'author' => $author->{'args'}->[0]}));
           }
         }
       }

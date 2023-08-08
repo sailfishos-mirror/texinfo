@@ -7063,7 +7063,8 @@ sub _process_remaining_on_line($$$$)
                sprintf(__("undefined flag: %s"), $value), $source_info);
 
             # caller should expand something along
-            # gdt($self, '@{No value for `{value}\'@}', {'value' => $value});
+            # gdt($self, '@{No value for `{value}\'@}',
+            #                            {'value' => {'text' => $value}});
             my $new_element = _new_value_element($command, $value, $current,
                                                  $spaces_element);
             push @{$current->{'contents'}}, $new_element;

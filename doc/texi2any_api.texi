@@ -3066,10 +3066,10 @@ and is the first argument.
 With @code{gdt} and @code{pgdt}, when the string is expanded as Texinfo, and
 converted to a Texinfo tree in perl, the arguments are substituted; for
 example, @samp{@{arg_name@}} is replaced by the corresponding actual argument,
-which should be Texinfo perl tree, Texinfo perl tree contents array or
-string.  With @code{gdt_string}, the string should already be converted, the
-arguments are substituted as strings; for example @samp{@{arg_name@}} is
-replaced by the corresponding actual argument, which should be a string.
+which should be a Texinfo tree element.  With @code{gdt_string}, the string
+should already be converted, the arguments are substituted as strings; for
+example @samp{@{arg_name@}} is replaced by the corresponding actual argument,
+which should be a string.
 
 In the following example, @samp{@{date@}}, @samp{@{program_homepage@}}
 and @samp{@{program@}} are the arguments of the string.  Since they
@@ -3077,18 +3077,14 @@ are used in @code{@@uref}, their order in the formatted output depends on
 the formatting and is not predictable.
 @samp{@{date@}}, @samp{@{program_homepage@}} and @samp{@{program@}} are
 substituted after the expansion, which means that they should already be
-Texinfo perl trees, Texinfo perl tree contents.  A string is turned
-into a Texinfo text element without type, with the string as @code{text}.
+Texinfo tree elements.
 
 @example
   $converter->gdt('Generated @@emph@{@@today@{@}@} using '
-   .'@@uref@{@{program_homepage@}, @@emph@{@{program@}@}@}.',
-      @{ 'program_homepage' => $converter->get_conf('PACKAGE_URL'),
+   .'@@uref@{@{homepage@}, @@emph@{@{program@}@}@}.',
+      @{ 'homepage' => @{ 'text' => $converter->get_conf('PACKAGE_URL') @},
         'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
 @end example
-
-In the example, the @code{$converter->get_conf('PACKAGE_URL')} string is turned
-into @code{@{ 'text' => $converter->get_conf('PACKAGE_URL')  @}}.
 
 An example of combining conversion with translation:
 @example
@@ -3129,10 +3125,11 @@ To customize strings translations, register the
 @var{$translation_context} is an optional translation context.
 
 The result returned should be a perl Texinfo tree for
-@code{format_translate_message_tree}, and
-a string for @code{format_translate_message_string}.
-The result returned may also be @samp{undef}, in which case the translation
-is done as if the function reference had not been defined.
+@code{format_translate_message_tree} (replacing @code{gdt} and
+@code{pgdt}), and a string for @code{format_translate_message_string}
+(replacing @code{gdt_string}).  The result returned may also be @samp{undef},
+in which case the translation is done as if the function reference had not been
+defined.
 
 @xref{Internationalization of Strings Function} for more information on
 strings translations function arguments.

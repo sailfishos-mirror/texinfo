@@ -654,7 +654,7 @@ sub _convert($;$)
 
       if ($arguments) {
         push @contents, {'text' => ' '};
-        push @contents, @$arguments;
+        push @contents, $arguments;
       }
       push @contents, {'text' => "\n"};
       $options->{'_code_state'}++;

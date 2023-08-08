@@ -1243,7 +1243,8 @@ sub float_type_number($$)
         and defined($float->{'structure'}->{'float_number'})) {
       $tree = $self->gdt("{float_type} {float_number}",
           {'float_type' => $type_element,
-            'float_number' => $float->{'structure'}->{'float_number'}});
+            'float_number'
+                => {'text' => $float->{'structure'}->{'float_number'}}});
     } else {
       $tree = $self->gdt("{float_type}",
           {'float_type' => $type_element});
@@ -1251,7 +1252,8 @@ sub float_type_number($$)
   } elsif (defined($float->{'structure'})
            and defined($float->{'structure'}->{'float_number'})) {
     $tree = $self->gdt("{float_number}",
-       {'float_number' => $float->{'structure'}->{'float_number'}});
+       {'float_number'
+           => {'text' => $float->{'structure'}->{'float_number'}}});
   }
   return $tree;
 }
@@ -1285,7 +1287,8 @@ sub float_name_caption($$)
         # TRANSLATORS: added before caption
         $prepended = $self->gdt('{float_type} {float_number}: ',
             {'float_type' => $type_element,
-             'float_number' => $element->{'structure'}->{'float_number'}});
+             'float_number'
+                => {'text' => $element->{'structure'}->{'float_number'}}});
       } else {
         # TRANSLATORS: added before caption, no float label
         $prepended = $self->gdt('{float_type}: ',
@@ -1296,7 +1299,8 @@ sub float_name_caption($$)
           and defined($element->{'structure'}->{'float_number'})) {
         $prepended = $self->gdt("{float_type} {float_number}",
             {'float_type' => $type_element,
-              'float_number' => $element->{'structure'}->{'float_number'}});
+              'float_number'
+                 => {'text' => $element->{'structure'}->{'float_number'}}});
       } else {
         $prepended = $self->gdt("{float_type}",
             {'float_type' => $type_element});
@@ -1307,10 +1311,12 @@ sub float_name_caption($$)
     if ($caption) {
       # TRANSLATORS: added before caption, no float type
       $prepended = $self->gdt('{float_number}: ',
-          {'float_number' => $element->{'structure'}->{'float_number'}});
+          {'float_number'
+                => {'text' => $element->{'structure'}->{'float_number'}}});
     } else {
       $prepended = $self->gdt("{float_number}",
-           {'float_number' => $element->{'structure'}->{'float_number'}});
+           {'float_number'
+                => {'text' => $element->{'structure'}->{'float_number'}}});
     }
   }
   return ($caption, $prepended);

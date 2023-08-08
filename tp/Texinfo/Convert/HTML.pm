@@ -1105,14 +1105,14 @@ sub command_text($$;$)
                     {'number' => {'text' => $command->{'structure'}
                                                     ->{'section_number'}},
                      'section_title'
-                                => {'contents' => $section_arg_contents}});
+                                => $command->{'args'}->[0]});
           } else {
             # TRANSLATORS: numbered section title
             $tree = $self->gdt('{number} {section_title}',
                      {'number' => {'text' => $command->{'structure'}
                                                        ->{'section_number'}},
                      'section_title'
-                         => {'contents' => $section_arg_contents}});
+                         => $command->{'args'}->[0]});
           }
         } else {
           $tree = {'contents' => $section_arg_contents};
@@ -3006,7 +3006,7 @@ sub _convert_value_command($$$$)
   my $args = shift;
 
   return $self->convert_tree($self->gdt('@{No value for `{value}\'@}',
-                                  {'value' => $args->[0]->{'monospacestring'}}));
+                 {'value' => {'text' => $args->[0]->{'monospacestring'}}}));
 }
 
 $default_commands_conversion{'value'} = \&_convert_value_command;
@@ -5002,7 +5002,7 @@ sub _convert_quotation_command($$$$$)
           and $author->{'args'}->[0]->{'contents'}) {
         # TRANSLATORS: quotation author
         my $centered_author = $self->gdt("\@center --- \@emph{{author}}",
-           {'author' => $author->{'args'}->[0]->{'contents'}});
+           {'author' => $author->{'args'}->[0]});
         $centered_author->{'parent'} = $command;
         $attribution .= $self->convert_tree($centered_author,
                                             'convert quotation author');
@@ -6131,7 +6131,7 @@ sub _open_quotation_command($$$)
       and @{$command->{'args'}->[0]->{'contents'}}) {
     $formatted_quotation_arg_to_prepend
      = $self->convert_tree($self->gdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $command->{'args'}->[0]->{'contents'}}),
+             {'quotation_arg' => $command->{'args'}->[0]}),
                            "open $cmdname prepended arg");
   }
   $self->register_pending_formatted_inline_content($cmdname,
@@ -6929,7 +6929,7 @@ sub _convert_def_line_type($$$$)
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
       my $arguments_formatted = $self->_convert({'type' => '_code',
-                                                 'contents' => $arguments});
+                                                 'contents' => [$arguments]});
       $result_arguments = $self->html_attribute_class('code',
                                       ['def-code-arguments']).'>'
                           . $arguments_formatted.'</code>'
@@ -6937,7 +6937,7 @@ sub _convert_def_line_type($$$$)
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
-      my $arguments_formatted = $self->_convert({'contents' => $arguments});
+      my $arguments_formatted = $self->_convert({'contents' => [$arguments]});
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       if ($arguments_formatted =~ /\S/) {
         $result_arguments = $self->html_attribute_class('var',
@@ -9906,8 +9906,8 @@ sub _default_format_program_string($)
       and defined($self->get_conf('PACKAGE_URL'))) {
     return $self->convert_tree(
       $self->gdt('This document was generated on @emph{@today{}} using @uref{{program_homepage}, @emph{{program}}}.',
-         { 'program_homepage' => $self->get_conf('PACKAGE_URL'),
-           'program' => $self->get_conf('PROGRAM') }));
+         { 'program_homepage' => {'text' => $self->get_conf('PACKAGE_URL')},
+           'program' => {'text' => $self->get_conf('PROGRAM')} }));
   } else {
     return $self->convert_tree(
       $self->gdt('This document was generated on @emph{@today{}}.'));

@@ -1253,18 +1253,15 @@ sub format_contents($$$)
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
                {'number' => {'text'
                                => $section->{'structure'}->{'section_number'}},
-                'section_title' =>
-                        {'contents' => $section->{'args'}->[0]->{'contents'}}});
+                'section_title' => $section->{'args'}->[0]});
         } else {
           $section_title_tree = $self->gdt('{number} {section_title}',
                {'number' => {'text'
                                => $section->{'structure'}->{'section_number'}},
-                'section_title' =>
-                        {'contents' => $section->{'args'}->[0]->{'contents'}}});
+                'section_title' => $section->{'args'}->[0]});
         }
       } else {
-        $section_title_tree
-                = {'contents' => $section->{'args'}->[0]->{'contents'}};
+        $section_title_tree = $section->{'args'}->[0];
       }
       my $section_title = $self->convert_line(
             {'contents' => [$section_title_tree],
@@ -2415,12 +2412,12 @@ sub _convert($$)
               and defined($element->{'args'}->[1])
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}) {
-            $name = $element->{'args'}->[1]->{'contents'};
+            $name = $element->{'args'}->[1];
           }
           if (defined($element->{'args'}->[0])
               and $element->{'args'}->[0]->{'contents'}
               and @{$element->{'args'}->[0]->{'contents'}}) {
-            $email = $element->{'args'}->[0]->{'contents'};
+            $email = $element->{'args'}->[0];
           }
           my $email_tree;
           if ($name and $email) {
@@ -2430,7 +2427,7 @@ sub _convert($$)
             $email_tree = $self->gdt('@url{{email}}',
                              {'email' => $email});
           } elsif ($name) {
-            $email_tree = {'contents' => $name};
+            $email_tree = $name;
           } else {
             return '';
           }
@@ -2459,7 +2456,7 @@ sub _convert($$)
                and $element->{'args'}->[1]->{'contents'}
                and @{$element->{'args'}->[1]->{'contents'}}) {
               $inserted = $self->gdt('{text} ({url})',
-                   {'text' => $element->{'args'}->[1]->{'contents'},
+                   {'text' => $element->{'args'}->[1],
                     'url' => $url });
             } else {
               $inserted = $self->gdt('@t{<{url}>}', {'url' => $url});
@@ -2534,7 +2531,7 @@ sub _convert($$)
               and @{$element->{'args'}->[-1]->{'contents'}}) {
             my $inserted = $self->gdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
-                    'explanation' => $element->{'args'}->[-1]->{'contents'}});
+                    'explanation' => $element->{'args'}->[-1]});
             $result .= _convert($self, $inserted);
             return $result;
           } else {
@@ -2739,7 +2736,7 @@ sub _convert($$)
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $element->{'args'}->[0]->{'contents'}});
+             {'quotation_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';
           $result .= $self->convert_line($prepended);
           $self->{'text_element_context'}->[-1]->{'counter'} +=
@@ -2792,7 +2789,7 @@ sub _convert($$)
           # FIXME reset the paragraph count in cartouche and use a
           # specific format_context?
           my $prepended = $self->gdt('@center @b{{cartouche_arg}}',
-             {'cartouche_arg' => $element->{'args'}->[0]->{'contents'}});
+             {'cartouche_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';
           # Do not consider the title to be like a paragraph
           my $previous_paragraph_count
@@ -3183,7 +3180,7 @@ sub _convert($$)
         } else {
           $command = $element->{'extra'}->{'def_command'};
         }
-        $name = '' if (!defined($name));
+        $name = {'text' => ''} if (!defined($name));
 
         my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
 
@@ -3830,7 +3827,7 @@ sub _convert($$)
           $result .= _convert($self,
                    # TRANSLATORS: quotation author
                    $self->gdt("\@center --- \@emph{{author}}",
-                      {'author' => $author->{'args'}->[0]->{'contents'}}));
+                      {'author' => $author->{'args'}->[0]}));
         }
       }
     } elsif (($command eq 'multitable')) {

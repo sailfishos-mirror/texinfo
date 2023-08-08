@@ -105,7 +105,7 @@ sub expand_today($)
   $year += ($year < 70) ? 2000 : 1900;
   return $self->gdt('{month} {day}, {year}',
           { 'month' => $self->gdt($MONTH_NAMES[$mon]),
-            'day' => $mday, 'year' => $year });
+            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
 }
 
 sub definition_arguments_content($)
@@ -133,7 +133,7 @@ sub definition_arguments_content($)
     shift @args;
   }
   if (scalar(@args) > 0) {
-    $args = \@args;
+    $args = {'contents' => \@args};
   }
   return ($category, $class, $type, $name, $args);
 }
@@ -177,8 +177,9 @@ sub definition_category_tree($$)
     if ($self) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
-      return $self->gdt('{category} on @code{{class}}', { 'category' => $arg_category,
-                                          'class' => $arg_class });
+      return $self->gdt('{category} on @code{{class}}',
+                                         {'category' => $arg_category,
+                                          'class' => $arg_class});
     } else {
       return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class_code]};
     }
@@ -562,7 +563,7 @@ I<$element> should be a C<@def*> Texinfo tree element.  The
 I<$category>, I<$class>, I<$type>, I<$name> are elements corresponding
 to the definition @-command line.  Texinfo elements
 on the @-command line corresponding to arguments in the function
-definition are returned in the I<$arguments> array reference.
+definition are returned in the I<$arguments> element.
 Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.

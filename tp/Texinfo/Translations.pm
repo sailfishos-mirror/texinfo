@@ -352,15 +352,12 @@ sub _substitute_element_array ($$) {
   @{$array} = map {
     if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
       my $name = $_->{'args'}->[0]->{'text'};
+      if ($replaced_substrings->{$name}) {
       # FIXME set the parent?
-      if (ref($replaced_substrings->{$name}) eq 'HASH') {
         $replaced_substrings->{$name};
-      } elsif (ref($replaced_substrings->{$name}) eq 'ARRAY') {
-        {'contents' => $replaced_substrings->{$name}};
-      } elsif (ref($replaced_substrings->{$name}) eq '') {
-        {'text' => $replaced_substrings->{$name}};
       } else {
-        (); # undefined - shouldn't happen?
+        # Not possible unless @txiinternalvalue in translated string
+        ();
       }
     } else {
       _substitute($_, $replaced_substrings);
