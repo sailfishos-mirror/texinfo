@@ -527,21 +527,22 @@ sub complete_tree_nodes_missing_menu($;$)
   }
 }
 
-# self is used to pass down a translatable object with customization
-# information for the gdt() call.
+# customization_information is used to pass down a translatable object with
+# customization information for the gdt() call.
 sub regenerate_master_menu($$)
 {
-  my $self = shift;
-  my $labels = shift;
-  my $top_node = $labels->{'Top'};
+  my $customization_information = shift;
+  my $identifier_target = shift;
+  my $top_node = $identifier_target->{'Top'};
 
   return undef if (!defined($top_node)
                    or !$top_node->{'extra'}
                    or !$top_node->{'extra'}->{'menus'}
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
-  my $new_master_menu = Texinfo::Structuring::new_master_menu($self,
-                                 $labels, $top_node->{'extra'}->{'menus'});
+  my $new_master_menu
+      = Texinfo::Structuring::new_master_menu($customization_information,
+                      $identifier_target, $top_node->{'extra'}->{'menus'});
   return undef if (!defined($new_master_menu));
 
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
@@ -876,7 +877,7 @@ reference @-command from constructed node names trees, as node names cannot
 contain reference @-command while there could be some in the tree used in input
 for the node name tree.
 
-=item regenerate_master_menu($translations, $labels)
+=item regenerate_master_menu($customization_information, $identifier_target)
 X<C<regenerate_master_menu>>
 
 Regenerate the Top node master menu, replacing the first detailmenu

@@ -8620,9 +8620,10 @@ instead L<C<Texinfo::Common::lookup_index_entry>|Texinfo::Common/($index_entry, 
 should be called on the C<extra> I<index_entry> value.  The
 I<$indices_information> is the information on a Texinfo manual indices obtained
 from
-L<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>.
+L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
 The index entry information hash returned by
-C<Texinfo::Common::lookup_index_entry> is described in L</index_entries>.
+C<Texinfo::Common::lookup_index_entry> is described in
+L<Texinfo::Document/index_entries>.
 
 Currently, the I<index_entry> value is an array reference
 with an index name as first element and the index entry number in that index

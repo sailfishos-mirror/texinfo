@@ -30,7 +30,7 @@ outside of the module.
 X<C<%index_names>>
 
 Hash describing the default Texinfo indices.  The format of this hash is
-described in L<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>.
+described in L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
 
 =back
 

@@ -1791,15 +1791,16 @@ sub _sort_string($$)
 sub _normalized_entry_associated_internal_node($;$)
 {
   my $entry = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
 
   foreach my $arg (@{$entry->{'contents'}}) {
     if ($arg->{'type'} eq 'menu_entry_node') {
       if (! $arg->{'extra'}->{'manual_content'}) {
         my $normalized_entry_node = $arg->{'extra'}->{'normalized'};
         if (defined($normalized_entry_node)) {
-          if ($labels) {
-            return ($normalized_entry_node, $labels->{$normalized_entry_node});
+          if ($identifier_target) {
+            return ($normalized_entry_node,
+                      $identifier_target->{$normalized_entry_node});
           } else {
             return ($normalized_entry_node, undef);
           }
@@ -1815,7 +1816,7 @@ sub _normalized_entry_associated_internal_node($;$)
 sub new_master_menu($$$)
 {
   my $customization_information = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   my $menus = shift;
 
   my @master_menu_contents;
@@ -1824,9 +1825,11 @@ sub new_master_menu($$$)
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           my ($normalized_entry_node, $node)
-               = _normalized_entry_associated_internal_node($entry, $labels);
+               = _normalized_entry_associated_internal_node($entry,
+                                                            $identifier_target);
           if (defined($node) and $node->{'extra'}) {
-            push @master_menu_contents, _print_down_menus($node, $labels);
+            push @master_menu_contents, _print_down_menus($node,
+                                                          $identifier_target);
           }
         }
       }
@@ -1886,7 +1889,7 @@ sub _print_down_menus($$);
 sub _print_down_menus($$)
 {
   my $node = shift;
-  my $labels = shift;
+  my $identifier_target = shift;
   my @menus;
 
   if ($node->{'extra'}->{'menus'}
@@ -1911,7 +1914,8 @@ sub _print_down_menus($$)
           push @master_menu_contents, Texinfo::Common::copy_tree($entry);
           # gather node children to recursively print their menus
           my ($normalized_entry_node, $node)
-               = _normalized_entry_associated_internal_node($entry, $labels);
+               = _normalized_entry_associated_internal_node($entry,
+                                                            $identifier_target);
           if (defined($node) and $node->{'extra'}) {
             push @node_children, $node;
           }
@@ -1946,7 +1950,7 @@ sub _print_down_menus($$)
 
       # now recurse in the children
       foreach my $child (@node_children) {
-        push @master_menu_contents, _print_down_menus($child, $labels);
+        push @master_menu_contents, _print_down_menus($child, $identifier_target);
       }
     }
   }
@@ -2354,7 +2358,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Structuring - information on Texinfo::Parser tree
+Texinfo::Structuring - information on Texinfo::Document tree
 
 =head1 SYNOPSIS
 
@@ -2362,24 +2366,25 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     associate_internal_references split_by_node split_by_section split_pages
     merge_indices sort_indices elements_directions elements_file_directions);
 
-  # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
-  # $config is an object implementing the get_conf() method.
+  # $document is a parsed Texinfo::Document document, $tree is the
+  # associated Texinfo document tree.  $parser is a Texinfo::Parser
+  # object. $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
   my $sections_root = sectioning_structure ($registrar, $config, $tree);
-  my $identifier_target = $parser->labels_information();
-  my $global_commands = $parser->global_commands_information();
+  my $identifier_target = $document->labels_information();
+  my $global_commands = $document->global_commands_information();
   my ($top_node, $nodes_list)
               = nodes_tree($registrar, $config,
                             $tree, $identifier_target);
   set_menus_node_directions($registrar, $config, $global_commands,
                             $nodes_list, $identifier_target);
   complete_node_tree_with_menus($registrar, $config, $nodes_list, $top_node);
-  my $refs = $parser->internal_references_information();
+  my $refs = $document->internal_references_information();
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
                              $identifier_target, $refs);
-  associate_internal_references($registrar, $parser,
+  associate_internal_references($registrar, $config,
                                 $identifier_target, $refs);
-  number_floats($parser->floats_information());
+  number_floats($document->floats_information());
   my $tree_units;
   if ($split_at_nodes) {
     $tree_units = split_by_node($tree);
@@ -2390,7 +2395,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   elements_directions($config, $identifier_target, $tree_units);
   elements_file_directions($tree_units);
 
-  my $indices_information = $parser->indices_information();
+  my $indices_information = $document->indices_information();
   my $merged_index_entries
      = merge_indices($indices_information);
   my $index_entries_sorted;
@@ -2413,7 +2418,7 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 Texinfo::Structuring first allows to collect information on a Texinfo
-tree.  In most case, it also requires information from a parser object to
+tree.  In most case, it also requires information from a parsed document to
 do that job.  Thanks to C<sectioning_structure> the hierarchy of
 sectioning commands is determined.  The directions implied by menus are
 determined with C<set_menus_node_directions>.  The node tree is analysed
@@ -2453,8 +2458,9 @@ error reporting.  Most also require Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, in
 practice the main program configuration or a converter
 (L<Texinfo::Convert::Converter/Getting and setting customization
-variables>).  Other common input arguments such as parser information,
-labels or refs are obtained from a parser, see L<Texinfo::Parser>.
+variables>).  Other common input arguments such as target elements associated
+to identifiers or refs are obtained from a parsed document, see
+L<Texinfo::Document>.
 
 =over
 
@@ -2581,14 +2587,14 @@ L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting
 =item $merged_entries = merge_indices($indices_information)
 X<C<merge_indices>>
 
-Using information returned by L<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>,
+Using information returned by L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>,
 a structure holding all the index entries by index name is returned,
 with all the entries of merged indices merged with those of the indice
 merged into.
 
 The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
-described in details in L<Texinfo::Parser/index_entries>.
+described in details in L<Texinfo::Document/index_entries>.
 
 =item $new_block = new_block_command($content, $parent, $command_name)
 X<C<new_block_command>>
@@ -2603,7 +2609,7 @@ Returns a texinfo tree menu for node I<$node>, pointing to the children
 of the node obtained with the sectioning structure.  If I<$use_sections>
 is set, use section names for the menu entry names.
 
-=item $detailmenu = new_master_menu($translations, $labels, $menus)
+=item $detailmenu = new_master_menu($translations, $identifier_target, $menus)
 X<C<new_master_menu>>
 
 Returns a detailmenu tree element formatted as a master node.
@@ -2816,14 +2822,14 @@ X<C<warn_non_empty_parts>>
 
 Register a warning in I<$registrar> for each C<@part> that is not empty
 in I<$global_commands> information (typically obtained by calling
-C<global_commands_information()> on a parser).
+C<global_commands_information()> on a document).
 
 =back
 
 =head1 SEE ALSO
 
 L<Texinfo manual|http://www.gnu.org/s/texinfo/manual/texinfo/>,
-L<Texinfo::Parser>.
+L<Texinfo::Document>.
 
 =head1 AUTHOR
 

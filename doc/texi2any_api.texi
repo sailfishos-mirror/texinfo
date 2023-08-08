@@ -1745,13 +1745,13 @@ Expansion Contexts}.
 
 @item floats
 Information on floats. Gathered from the Texinfo parsing result.
-@xref{Texinfo::Parser $float_types = floats_information($parser),,
-Texinfo::Parser::floats_information,texi2any_internals}.
+@xref{Texinfo::Document $float_types = floats_information($document),,
+Texinfo::Document::floats_information,texi2any_internals}.
 
 @item global_commands
 Global commands information.  Gathered from the Texinfo parsing result.
-@xref{Texinfo::Parser $commands = global_commands_information($parser),,
-Texinfo::Parser::global_commands_information,texi2any_internals}.
+@xref{Texinfo::Document $commands = global_commands_information($document),,
+Texinfo::Document::global_commands_information,texi2any_internals}.
 
 @item index_entries
 Information on indices taking into account merged indices.
@@ -1762,7 +1762,7 @@ Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorte
 
 @item indices_information
 Information about defined indices, merged indices and index entries.
-@xref{Texinfo@asis{::}Parser $indices_information = $parser->indices_information(),,Texinfo@asis{::}Parser@asis{::}indices_information,texi2any_internals}.
+@xref{Texinfo@asis{::}Document $indices_information = $document->indices_information(),,Texinfo@asis{::}Document@asis{::}indices_information,texi2any_internals}.
 
 @item jslicenses
 An hash reference with  categories of javascript used in the document
@@ -1788,12 +1788,12 @@ HTML line break element, based on @samp{<br>}, also taking into account
 @item non_breaking_space
 Non breaking space, can be @samp{&nbsp;}, but also a non breaking
 space character or the corresponding numeric entity based on
-@code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY} customization variables
+@code{OUTPUT_CHARACTERS} and @code{USE_NUMERIC_ENTITY} customization variables
 values.
 
 @item paragraph_symbol
 Paragraph symbol, can be @samp{&para;}, but also the corresponding numeric entity
-or encoded character based on @code{ENABLE_ENCODING} and
+or encoded character based on @code{OUTPUT_CHARACTERS} and
 @code{USE_NUMERIC_ENTITY} customization variables values.
 
 @item title_string
@@ -2248,7 +2248,7 @@ text.  @xref{Converter Object and Conversion Functions}.
 @item filenametext
 Same as monospacetext, but in addition the document encoding is used
 to convert accented letters and special insertion @@-commands to plain
-text even if @code{ENABLE_ENCODING} is unset.
+text independently of customization variables.
 
 @item raw
 Text is kept as is, special HTML characters are not protected.  Appears only
@@ -2555,7 +2555,7 @@ $description = $converter->close_html_lone_element(
 
 If a @code{&nbsp;} can appear in formatted code,
 the corresponding text should be in a call to @code{substitute_html_non_breaking_space},
-to take into account @code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY}
+to take into account @code{OUTPUT_CHARACTERS} and @code{USE_NUMERIC_ENTITY}
 customization variables:
 
 @deftypefun {@var{$substituted_text} =} @var{$converter}->substitute_html_non_breaking_space @

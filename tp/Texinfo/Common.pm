@@ -910,16 +910,16 @@ sub output_files_unclosed_files($)
 # functions used in main program, Parser and/or Texinfo::Structuring.
 # Not supposed to be called in user-defined code.
 
-# Called both in NonXS and XS parsers
+# Called in perl parser
 sub rearrange_tree_beginning($$)
 {
-  my $self = shift;
+  my $document = shift;
   my $before_node_section = shift;
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
-  if ($self->global_commands_information()->{'setfilename'}
-      and $self->global_commands_information()->{'setfilename'}->{'parent'}
+  if ($document->global_commands_information()->{'setfilename'}
+      and $document->global_commands_information()->{'setfilename'}->{'parent'}
                                                  eq $before_node_section) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
                               'parent' => $before_node_section,
@@ -973,6 +973,7 @@ sub _add_preamble_before_content($)
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
+# Called in both XS and perl parser
 sub get_perl_encoding($$$)
 {
   my $commands_info = shift;
@@ -2897,8 +2898,8 @@ an array reference with an index name as first element and the index entry numbe
 in that index (1-based) as second element.  In general, the I<$index_entry_info>
 is an L<C<extra> I<index_entry>|Texinfo::Parser/index_entry> associated to an element.
 
-The I<$index_entry> hash is described in L<Texinfo::Parser/index_entries>.  The
-I<$index_info> hash is described in LL<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>.
+The I<$index_entry> hash is described in L<Texinfo::Document/index_entries>.  The
+I<$index_info> hash is described in LL<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
 
 
 =item move_index_entries_after_items_in_tree($tree)
@@ -2957,7 +2958,7 @@ X<C<set_global_document_command>>
 Set the Texinfo customization variable corresponding to I<$cmdname> in
 I<$customization_information>.  The I<$global_commands_information> should
 contain information about global commands in a Texinfo document, typically obtained
-from a parser L<< $parser->global_commands_information()|Texinfo::Parser/$commands = global_commands_information($parser) >>.
+from a parsed document L<< $document->global_commands_information()|Texinfo::Document/$commands = global_commands_information($document) >>.
 I<$command_location> specifies where in the document the value should be taken from,
 for commands that may appear more than once. The possibilities are:
 

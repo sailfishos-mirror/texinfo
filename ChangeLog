@@ -1,5 +1,17 @@
 2023-08-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (rearrange_tree_beginning): rename self as
+	document.
+
+	* tp/Texinfo/Structuring.pm (new_master_menu, _print_down_menus)
+	(_normalized_entry_associated_internal_node): rename labels as
+	identifier_target.
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu): rename self
+	as customization_information and labels as identifier_target.
+
+2023-08-08  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree)
 	(_fix_texinfo_tree, _fix_texinfo_manual, _do_top_node_menu): pass
 	document and not tree.  Use information from document.
