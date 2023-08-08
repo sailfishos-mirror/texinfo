@@ -80,13 +80,14 @@ use Texinfo::Commands;
 # Error reporting and counting
 use Texinfo::Report;
 
-# register the parsed manual and associated information
+# To register the parsed manual and associated information
+# and also to call set_labels_identifiers_target.
 use Texinfo::Document;
 
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
 
-# to call set_nodes_list_labels
+# to normalize names
 use Texinfo::Convert::NodeNameNormalization;
 
 # to complete indices translations.
@@ -135,6 +136,8 @@ my %parser_state_initialization = (
                               # global @-commands.
   'conditional_stack' => [],  # a stack of conditional commands that are
                               # expanded.
+  'clickstyle' => 'arrow',       #
+  'kbdinputstyle' => 'distinct', #
   'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'floats' => {},             # key is the normalized float type, value is
                               # an array reference holding all the floats
@@ -163,10 +166,6 @@ my %parser_state_configuration = (
   'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
                                # to the tree or considered invalid.
                                # currently set if called by gdt.
-  'clickstyle' => 'arrow',       # duplicated in gdt but not set nor used by
-                                 # the XS parser
-  'kbdinputstyle' => 'distinct', # duplicated in gdt but not set nor used by
-                                 # the XS parser
   'registrar' => undef,        # Texinfo::Report object used for error
                                # reporting.
   'values' => {'txicommandconditionals' => 1},

@@ -312,39 +312,10 @@ sub replace_convert_substrings($$;$)
     $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
 
-  # FIXME not sure if the added complexity of getting information from parser
-  # is worth it.  The current use case, that is allow to specify the state of
-  # clickstyle and kbdinputstyle is relevant (though not implemented in the XS
-  # parser, but could be) but not necessarily determining.  Converters and
-  # users could easily avoid using @kbd and @click in the translated strings.
-  # FIXME why not use $customization_information->get_conf('clickstyle'), ...?
-  # It would not be used everytime, only if and where the
-  # $customization_information object sets 'clickstyle'
-  # and 'kbdinputstyle'
-
-  # determine existing parser, if any
-  my $current_parser;
-  if ($customization_information) {
-    if (ref($customization_information) eq 'Texinfo::Parser') {
-      $current_parser = $customization_information;
-    }
-  }
-
-  # We never reuse a parser directly as it is cleaner to get only the
-  # relevant information (if any).  It could also mess with the parser
-  # state, though this has not been checked for a long time.
-
   # accept @txiinternalvalue as a valid Texinfo command, used to mark
   # location in tree of substituted brace enclosed strings.
   my $parser_conf = {'accept_internalvalue' => 1};
-  # information only found in parser, not available through get_conf().
-  # Note that it is only available for the NonXS parser.
-  if ($current_parser) {
-    foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle') {
-      $parser_conf->{$duplicated_conf} = $current_parser->{$duplicated_conf}
-        if (defined($current_parser->{$duplicated_conf}));
-    }
-  }
+
   # general customization relevant for parser
   if ($customization_information) {
     foreach my $conf_variable ('DEBUG') {

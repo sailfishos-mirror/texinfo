@@ -21,15 +21,6 @@
 
 # File to be loaded in conjunction with Parsetexi.xs module
 #
-# FIXME two customization keys are duplicated from the main parser in
-# gdt(), which are set and used by the NonXS parser, 'kbdinputstyle'
-# and 'clickstyle'.  The XS parser does not set nor use those keys, so
-# their values are not passed to gdt().
-# As long as there is no other code that sets those keys to another value than
-# their default value, and that there are no translated strings containing the
-# @-commands whose output is modified by those customization keys, however,
-# the difference between the parsers won't have any visible effect.
-
 # In general, the Parser works with character strings decoded from the
 # command line, from input files or from the parsed document and returns
 # character strings.  There are exceptions for the following files and
@@ -38,7 +29,7 @@
 # * the 'file_name' values in 'source_info' from convert_errors and in
 #   the tree elements 'source_info' are returned as binary strings
 #
-# The following parser information is directly determined from the
+# The following information is directly determined from the
 # input file name as binary strings
 # ->{'info'}->{'input_file_name'}
 # ->{'info'}->{'input_directory'}
@@ -207,9 +198,11 @@ sub get_parser_info($$$) {
      $XS_document->{'info'}, $XS_document->{'index_names'}, $XS_document->{'floats'},
      $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
      $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
+
   Texinfo::Translations::complete_indices ($self,
                                    $document->indices_information());
 
+  # additional info relevant in perl only.
   $document->{'info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
@@ -224,7 +217,8 @@ sub get_parser_info($$$) {
   } else {
     # TODO
     # for now leads to double free, but could be because memory
-    # is reused.  Test when this is fixed.  Until then, leak.
+    # is reused in obstacks.  Test when this is fixed.  Until then,
+    # leak.
     #remove_document ($document_descriptor);
   }
   return $document;

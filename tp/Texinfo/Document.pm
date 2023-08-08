@@ -13,9 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This package provides a view of a Texinfo document.  The most important
-# use of this package, however is hidden, as it is used to associate to
-# information held by the XS modules in a transparent way.
+# This package provides a view of a parsed Texinfo document.  The
+# instantiated objects are also used to carry information for the
+# XS modules, mainly to be able to find the document information
+# in memory.
 
 package Texinfo::Document;
 
@@ -141,9 +142,9 @@ sub _add_element_to_identifiers_target($$;$$)
   return 0;
 }
 
-# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
-# This should be considered an internal function of the parsers for all
-# purposes, it is here to avoid code duplication.
+# Called from Texinfo::ParserNonXS.
+# This should be considered an internal function of the parser.
+# It is here to reuse code.
 # Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
 sub set_labels_identifiers_target ($$$)
 {
@@ -191,8 +192,8 @@ sub register_label_element($$;$$)
     _existing_label_error($self, $element, $registrar,
                                          $customization_information);
   }
-  # FIXME do not push at the end but have the caller give the element it should be
-  # after or before?
+  # FIXME do not push at the end but have the caller give an information
+  # on the element it should be after or before in the list?
   push @{$self->{'labels_list'}}, $element;
   return $retval;
 }
@@ -236,9 +237,9 @@ tree and associated information.  In general a document is obtained from
 a Texinfo parser call, there is no need to setup the document.
 
 If the document comes from the XS parser, other XS module can retrieve data
-structures associated to the document.  How this information is retrieved
-and set is transparent and not documented here, as it is only set and retrieved
-in XS modules, not in perl code.
+structures associated to the document object, by using information carried
+by the object.  This is not relevant for perl code and is not documented
+here.
 
 =head1 METHODS
 
