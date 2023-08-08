@@ -254,24 +254,32 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
 }
 
 /* Return conversion of S according to input_encoding.  This function
-   frees S. */
+   frees S if S is converted. */
 char *
 convert_to_utf8 (char *s)
 {
   char *ret;
 
   /* Convert from @documentencoding to UTF-8.
-     It might be possible not to convert to UTF-8 and use an 8-bit encoding
-     throughout, but then we'd have to not set the UTF-8 flag on the Perl 
-     strings in api.c.  If multiple character encodings were used in a single 
-     file, then we'd have to keep track of which strings needed the UTF-8 flag
-     and which didn't. */
+     It could have been possible to use an 8-bit encoding throughout,
+     but if multiple character encodings were used in a single file it
+     is simpler to use UTF-8.  Another reason is that we need to
+     determine the unicode codepoints for conversion to identifiers, doing
+     that for UTF-8 only is more manageable.  For conversion
+     of strings it is also easier to request that callers give UTF-8
+     encoded strings instead of keeping track of the encodings.
+     It is also better to use only UTF-8 to pass strings to Perl.  Lastly,
+     we assume in places in the code that the encoding is UTF-8, for
+     instance to determine the number of bytes representing a character, but
+     these code would in general be easily modified for an 8-bit encoding.
+   */
 
   if (current_encoding_conversion == 0)
     {
       /* In case the converter couldn't be initialised.
          Danger: this will cause problems if the input is not in UTF-8 as
-         the Perl strings that are created are flagged as being UTF-8. */
+         UTF-8 is assumed when using libunistring and the Perl strings that
+         are created are flagged as being UTF-8. */
       return s;
     }
 

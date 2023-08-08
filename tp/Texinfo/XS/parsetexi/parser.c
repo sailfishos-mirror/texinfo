@@ -352,9 +352,9 @@ set_documentlanguage_override (char *value)
 
 
 void
-set_accept_internalvalue()
+set_accept_internalvalue(int value)
 {
-  global_accept_internalvalue = 1;
+  global_accept_internalvalue = value;
 }
 
 /* Record the information from a command of global effect. */

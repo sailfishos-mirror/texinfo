@@ -1,5 +1,14 @@
 2023-08-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/parser.c (set_accept_internalvalue): give a
+	value in input to set_accept_internalvalue.
+
+	* tp/Texinfo/XS/parsetexi/input.c (convert_to_utf8): in a comment,
+	give more reasons to use UTF-8.
+
+2023-08-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (_substitute_element_array): use only
 	tree elements for substring substitutions.  Update gdt callers
 	and doc/texi2any_api.texi.

@@ -104,7 +104,7 @@ int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
 void set_documentlanguage_override (char *value);
-void set_accept_internalvalue (void);
+void set_accept_internalvalue (int value);
 char *element_type_name (ELEMENT *e);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);

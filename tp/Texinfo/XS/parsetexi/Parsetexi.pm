@@ -111,7 +111,7 @@ sub parser (;$$)
       if ($key eq 'INCLUDE_DIRECTORIES') {
         # the directories from the command line or the input file name
         # are already byte strings (or ascii).  The encoding was detected
-        # as COMMAND_LINE_ENCODING, but it is not useful for the XS parser.
+        # as COMMAND_LINE_ENCODING, but it is not used in the XS parser.
         foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
           add_include_directory ($d);
         }
@@ -155,8 +155,8 @@ sub parser (;$$)
       } elsif ($key eq 'LOCALE_ENCODING' and defined($conf->{$key})) {
         my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
         conf_set_locale_encoding ($utf8_bytes);
-      } elsif ($key eq 'accept_internalvalue') {
-        set_accept_internalvalue();
+      } elsif ($key eq 'accept_internalvalue' and $conf->{$key}) {
+        set_accept_internalvalue(1);
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
         # no action needed, only used in perl code
       } else {
