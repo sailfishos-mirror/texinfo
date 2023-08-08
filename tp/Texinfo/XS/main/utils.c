@@ -22,6 +22,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "command_ids.h"
+#include "utils.h"
 
 const char *whitespace_chars = " \t\v\f\r\n";
 
@@ -73,5 +74,50 @@ read_flag_name (char **ptr)
 
   *ptr = p;
   return ret;
+}
+
+void
+delete_global_info (GLOBAL_INFO *global_info_ref)
+{
+  GLOBAL_INFO global_info = *global_info_ref;
+
+  free (global_info.dircategory_direntry.contents.list);
+  free (global_info.footnotes.contents.list);
+
+  free (global_info.global_input_encoding_name);
+
+#define GLOBAL_CASE(cmx) \
+  free (global_info.cmx.contents.list)
+
+  GLOBAL_CASE(author);
+  GLOBAL_CASE(detailmenu);
+  GLOBAL_CASE(hyphenation);
+  GLOBAL_CASE(insertcopying);
+  GLOBAL_CASE(printindex);
+  GLOBAL_CASE(subtitle);
+  GLOBAL_CASE(titlefont);
+  GLOBAL_CASE(listoffloats);
+  GLOBAL_CASE(part);
+  GLOBAL_CASE(floats);
+  GLOBAL_CASE(allowcodebreaks);
+  GLOBAL_CASE(clickstyle);
+  GLOBAL_CASE(codequotebacktick);
+  GLOBAL_CASE(codequoteundirected);
+  GLOBAL_CASE(contents);
+  GLOBAL_CASE(deftypefnnewline);
+  GLOBAL_CASE(documentencoding);
+  GLOBAL_CASE(documentlanguage);
+  GLOBAL_CASE(exampleindent);
+  GLOBAL_CASE(firstparagraphindent);
+  GLOBAL_CASE(frenchspacing);
+  GLOBAL_CASE(headings);
+  GLOBAL_CASE(kbdinputstyle);
+  GLOBAL_CASE(microtype);
+  GLOBAL_CASE(paragraphindent);
+  GLOBAL_CASE(shortcontents);
+  GLOBAL_CASE(urefbreakstyle);
+  GLOBAL_CASE(xrefautomaticsectiontitle);
+
+#undef GLOBAL_CASE
 }
 

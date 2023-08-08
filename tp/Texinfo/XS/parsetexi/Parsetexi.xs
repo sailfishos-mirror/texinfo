@@ -34,6 +34,10 @@
 #include "api.h"
 #include "build_perl_info.h"
 #include "indices.h"
+/* for remove_document
+ FIXME should it be a separate API?
+ */
+#include "document.h"
 #include "input.h"
 
 MODULE = Texinfo::Parser	PACKAGE = Texinfo::Parser
@@ -99,6 +103,9 @@ add_include_directory (filename)
 
 HV *
 build_document (int document_descriptor)
+
+void
+remove_document (int document_descriptor)
 
 void
 reset_parser (int debug_output)

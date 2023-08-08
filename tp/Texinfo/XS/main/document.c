@@ -20,13 +20,15 @@
 
 #include "tree_types.h"
 #include "tree.h"
-/* for get_label_element */
+/* for get_label_element and delete_global_info */
 #include "utils.h"
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
 #include "extra.h"
 #include "convert_to_texinfo.h"
+/* for wipe_index */
+#include "indices.h"
 #include "document.h"
 
 static DOCUMENT *document_list;
@@ -101,7 +103,27 @@ remove_document (int document_descriptor)
 
   document = &document_list[document_descriptor -1];
   if (document->tree)
-    destroy_element_and_children (document->tree);
+    {
+      INDEX **i, *idx;
+
+      delete_global_info (document->global_info);
+      free (document->global_info);
+      free (document->internal_references->list);
+      free (document->internal_references);
+      free (document->floats->float_types);
+      free (document->floats);
+      free (document->labels_list->list);
+      free (document->labels_list);
+      free (document->identifiers_target->list);
+      free (document->identifiers_target);
+      for (i = document->index_names; (idx = *i); i++)
+        {
+          wipe_index (idx);
+          free (idx);
+        }
+      free (document->index_names);
+      destroy_element_and_children (document->tree);
+    }
   document->tree = 0;
 }
 

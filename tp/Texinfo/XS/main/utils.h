@@ -100,6 +100,8 @@ int isascii_alnum (int c);
 int isascii_lower (int c);
 int isascii_upper (int c);
 
+void delete_global_info (GLOBAL_INFO *global_info_ref);
+
 ELEMENT *get_label_element (ELEMENT *e);
 char * read_flag_name (char **ptr);
 

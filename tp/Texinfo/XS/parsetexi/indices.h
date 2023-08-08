@@ -15,6 +15,7 @@ void enter_index_entry (enum command_id index_type_cmd,
                         ELEMENT *current);
 INDEX *ultimate_index (INDEX *index);
 void wipe_indices (void);
+void wipe_index (INDEX *idx);
 void reset_indices (void);
 void set_non_ignored_space_in_index_before_command (ELEMENT *content);
 void complete_indices (void);

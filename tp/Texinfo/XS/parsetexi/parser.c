@@ -25,7 +25,8 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for isascii_alnum, whitespace_chars and read_flag_name */
+/* for isascii_alnum, whitespace_chars, read_flag_name
+ * and delete_global_info */
 #include "utils.h"
 #include "debug.h"
 #include "errors.h"
@@ -491,7 +492,7 @@ register_global_command (ELEMENT *current)
 
 
 void
-wipe_global_info (void)
+wipe_parser_global_info (void)
 {
   free (global_clickstyle);
   global_clickstyle = strdup ("arrow");
@@ -502,46 +503,7 @@ wipe_global_info (void)
     }
   global_kbdinputstyle = kbd_distinct;
 
-  free (global_info.dircategory_direntry.contents.list);
-  free (global_info.footnotes.contents.list);
-
-  free (global_info.global_input_encoding_name);
-  /* set by set_input_encoding */
-  global_info.global_input_encoding_name = 0;
-
-#define GLOBAL_CASE(cmx) \
-  free (global_info.cmx.contents.list)
-
-  GLOBAL_CASE(author);
-  GLOBAL_CASE(detailmenu);
-  GLOBAL_CASE(hyphenation);
-  GLOBAL_CASE(insertcopying);
-  GLOBAL_CASE(printindex);
-  GLOBAL_CASE(subtitle);
-  GLOBAL_CASE(titlefont);
-  GLOBAL_CASE(listoffloats);
-  GLOBAL_CASE(part);
-  GLOBAL_CASE(floats);
-  GLOBAL_CASE(allowcodebreaks);
-  GLOBAL_CASE(clickstyle);
-  GLOBAL_CASE(codequotebacktick);
-  GLOBAL_CASE(codequoteundirected);
-  GLOBAL_CASE(contents);
-  GLOBAL_CASE(deftypefnnewline);
-  GLOBAL_CASE(documentencoding);
-  GLOBAL_CASE(documentlanguage);
-  GLOBAL_CASE(exampleindent);
-  GLOBAL_CASE(firstparagraphindent);
-  GLOBAL_CASE(frenchspacing);
-  GLOBAL_CASE(headings);
-  GLOBAL_CASE(kbdinputstyle);
-  GLOBAL_CASE(microtype);
-  GLOBAL_CASE(paragraphindent);
-  GLOBAL_CASE(shortcontents);
-  GLOBAL_CASE(urefbreakstyle);
-  GLOBAL_CASE(xrefautomaticsectiontitle);
-
-#undef GLOBAL_CASE
+  delete_global_info (&global_info);
 
   /* clear the rest of the fields */
   memset (&global_info, 0, sizeof (global_info));

@@ -221,8 +221,11 @@ sub get_parser_info($$$) {
     my $tree = $document->tree();
     $tree->{'document_descriptor'} = $document_descriptor;
     $document->{'document_descriptor'} = $document_descriptor;
-  #} else {
-  # FIXME destroy the XS data in that case?
+  } else {
+    # TODO
+    # for now leads to double free, but could be because memory
+    # is reused.  Test when this is fixed.  Until then, leak.
+    #remove_document ($document_descriptor);
   }
   return $document;
 }

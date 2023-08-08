@@ -139,7 +139,7 @@ add_index (char *name, int in_code)
   free (cmdname);
 }
 
-static void
+void
 wipe_index (INDEX *idx)
 {
   free (idx->name);

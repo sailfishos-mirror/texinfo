@@ -133,7 +133,7 @@ enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;
 
 int register_global_command (ELEMENT *current);
-void wipe_global_info (void);
+void wipe_parser_global_info (void);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
 

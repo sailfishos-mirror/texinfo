@@ -90,7 +90,7 @@ reset_parser_except_conf (void)
   wipe_indices ();
 
   reset_floats ();
-  wipe_global_info ();
+  wipe_parser_global_info ();
   reset_internal_xrefs ();
   reset_labels ();
 
@@ -168,7 +168,7 @@ parse_file (char *filename)
   char *p, *q;
 
   int status;
-  
+
   status = input_push_file (filename);
   if (status)
     return 0;
@@ -243,6 +243,7 @@ int
 store_document (ELEMENT *root)
 {
   int document_descriptor;
+  int i;
   LABEL_LIST *labels;
   FLOAT_RECORD_LIST *floats;
   ELEMENT_LIST *internal_references;
@@ -276,6 +277,55 @@ store_document (ELEMENT *root)
   internal_references->space = internal_xref_number;
 
   memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
+  if (global_info.global_input_encoding_name)
+    doc_global_info->global_input_encoding_name
+      = strdup (global_info.global_input_encoding_name);
+  #define COPY_GLOBAL_ARRAY(cmd) \
+   doc_global_info->cmd.contents.list = 0;                          \
+   doc_global_info->cmd.contents.number = 0;                         \
+   doc_global_info->cmd.contents.space = 0;        \
+   if (global_info.cmd.contents.number > 0)                              \
+    {                                                                   \
+      for (i = 0; i < global_info.cmd.contents.number; i++)             \
+        {                                                               \
+          ELEMENT *e = contents_child_by_index (&global_info.cmd, i);            \
+          add_to_contents_as_array (&doc_global_info->cmd, e);           \
+        }                                                               \
+    }
+  COPY_GLOBAL_ARRAY(dircategory_direntry);
+
+  COPY_GLOBAL_ARRAY(author);
+  COPY_GLOBAL_ARRAY(detailmenu);
+  COPY_GLOBAL_ARRAY(hyphenation);
+  COPY_GLOBAL_ARRAY(insertcopying);
+  COPY_GLOBAL_ARRAY(listoffloats);
+  COPY_GLOBAL_ARRAY(part);
+  COPY_GLOBAL_ARRAY(printindex);
+  COPY_GLOBAL_ARRAY(subtitle);
+  COPY_GLOBAL_ARRAY(titlefont);
+
+  COPY_GLOBAL_ARRAY(footnotes);
+  COPY_GLOBAL_ARRAY(floats);
+
+  /* from Common.pm %document_settable_multiple_at_commands */
+  COPY_GLOBAL_ARRAY(allowcodebreaks);
+  COPY_GLOBAL_ARRAY(clickstyle);
+  COPY_GLOBAL_ARRAY(codequotebacktick);
+  COPY_GLOBAL_ARRAY(codequoteundirected);
+  COPY_GLOBAL_ARRAY(contents);
+  COPY_GLOBAL_ARRAY(deftypefnnewline);
+  COPY_GLOBAL_ARRAY(documentencoding);
+  COPY_GLOBAL_ARRAY(documentlanguage);
+  COPY_GLOBAL_ARRAY(exampleindent);
+  COPY_GLOBAL_ARRAY(firstparagraphindent);
+  COPY_GLOBAL_ARRAY(frenchspacing);
+  COPY_GLOBAL_ARRAY(headings);
+  COPY_GLOBAL_ARRAY(kbdinputstyle);
+  COPY_GLOBAL_ARRAY(paragraphindent);
+  COPY_GLOBAL_ARRAY(shortcontents);
+  COPY_GLOBAL_ARRAY(urefbreakstyle);
+  COPY_GLOBAL_ARRAY(xrefautomaticsectiontitle);
+
 
   document_descriptor
    = register_document (root, index_names, floats, internal_references,
