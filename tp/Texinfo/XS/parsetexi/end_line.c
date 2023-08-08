@@ -1321,9 +1321,9 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_verbatiminclude)
             {
-              if (global_input_encoding_name)
+              if (global_info.global_input_encoding_name)
                 add_extra_string_dup (current, "input_encoding_name",
-                                      global_input_encoding_name);
+                                      global_info.global_input_encoding_name);
             }
           else if (current->cmd == CM_documentencoding)
             {
@@ -1435,7 +1435,8 @@ end_line_misc_line (ELEMENT *current)
                       input_encoding = normalized_text;
                     }
 
-                  /* set_input_encoding also sets global_input_encoding_name */
+                  /* set_input_encoding also sets
+                     global_info.global_input_encoding_name */
                   encoding_set = set_input_encoding (input_encoding);
                   if (encoding_set)
                     {

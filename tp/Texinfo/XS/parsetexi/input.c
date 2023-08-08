@@ -22,6 +22,8 @@
 #include <errno.h>
 #include <sys/stat.h>
 
+/* for global_info */
+#include "parser.h"
 #include "errors.h"
 #include "debug.h"
 #include "input.h"
@@ -60,7 +62,6 @@ typedef struct {
 static ENCODING_CONVERSION *encodings_list = 0;
 int encoding_number = 0;
 int encoding_space = 0;
-char *global_input_encoding_name = 0;
 
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
@@ -130,8 +131,8 @@ set_input_encoding (char *encoding)
     {
       current_encoding_conversion = &encodings_list[encoding_index];
       encoding_set = 1;
-      free (global_input_encoding_name);
-      global_input_encoding_name = strdup (encoding);
+      free (global_info.global_input_encoding_name);
+      global_info.global_input_encoding_name = strdup (encoding);
     }
 
   return encoding_set;
@@ -313,7 +314,7 @@ encode_file_name (char *filename)
       else if (doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
-              && strcmp (global_input_encoding_name, "utf-8"))
+              && strcmp (global_info.global_input_encoding_name, "utf-8"))
             {
               char *conversion_encoding
                 = current_encoding_conversion->encoding_name;

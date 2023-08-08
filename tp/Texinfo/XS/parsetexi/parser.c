@@ -503,9 +503,9 @@ wipe_global_info (void)
   free (global_info.dircategory_direntry.contents.list);
   free (global_info.footnotes.contents.list);
 
-  free (global_input_encoding_name);
+  free (global_info.global_input_encoding_name);
   /* set by set_input_encoding */
-  global_input_encoding_name = 0;
+  global_info.global_input_encoding_name = 0;
 
 #define GLOBAL_CASE(cmx) \
   free (global_info.cmx.contents.list)

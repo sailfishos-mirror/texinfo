@@ -23,6 +23,7 @@ extern const char *whitespace_chars;
 
 typedef struct GLOBAL_INFO {
     char *input_file_name;
+    char *global_input_encoding_name;
     int sections_level;
     ELEMENT dircategory_direntry; /* an array of elements */
 

@@ -754,9 +754,9 @@ build_global_info (void)
   dTHX;
 
   hv = newHV ();
-  if (global_input_encoding_name)
+  if (global_info.global_input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
-              newSVpv (global_input_encoding_name, 0), 0);
+              newSVpv (global_info.global_input_encoding_name, 0), 0);
 
   if (global_info.dircategory_direntry.contents.number > 0)
     {
