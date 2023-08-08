@@ -42,6 +42,7 @@
 #include "source_marks.h"
 #include "labels.h"
 #include "extra.h"
+#include "document.h"
 #include "build_perl_info.h"
 
   /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
@@ -162,7 +163,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
           switch (a->info[i].type)
             {
             case extra_element:
-              /* For references to other parts of the tree, create the hash so 
+              /* For references to other parts of the tree, create the hash so
                  we can point to it. */
               /* Note that this does not happen much, as the contents
                  and args are processed before the extra information.  It only
@@ -492,23 +493,23 @@ element_to_perl_hash (ELEMENT *e)
 }
 
 HV *
-build_texinfo_tree (void)
+build_texinfo_tree (ELEMENT *root)
 {
-  if (! Root)
+  if (! root)
       /* use an empty element with contents if there is nothing.
          This should only happen if the input file was not opened
          or no parse_* function was called after initialization
          and should not happen with the current calling code.
       */
-      Root = new_element (ET_NONE);
-  element_to_perl_hash (Root);
-  return Root->hv;
+      root = new_element (ET_NONE);
+  element_to_perl_hash (root);
+  return root->hv;
 }
 
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
 AV *
-build_target_elements_list (void)
+build_target_elements_list (LABEL *labels_list, size_t labels_number)
 {
   AV *target_array;
   SV *sv;
@@ -529,7 +530,7 @@ build_target_elements_list (void)
 }
 
 HV *
-build_identifiers_target (void)
+build_identifiers_target (LABEL_LIST *identifiers_target)
 {
   HV* hv;
 
@@ -552,7 +553,8 @@ build_identifiers_target (void)
 }
 
 AV *
-build_internal_xref_list (void)
+build_internal_xref_list (ELEMENT **internal_xref_list,
+                          size_t internal_xref_number)
 {
   AV *list_av;
   SV *sv;
@@ -574,7 +576,7 @@ build_internal_xref_list (void)
 
 /* Return hash for list of @float's that appeared in the file. */
 HV *
-build_float_list (void)
+build_float_list (FLOAT_RECORD *floats_list, size_t floats_number)
 {
   HV *float_hash;
   SV **type_array;
@@ -608,7 +610,7 @@ build_float_list (void)
         {
           av = newAV ();
           hv_store_ent (float_hash, float_type,
-                        newRV_noinc ((SV *)av), 0); 
+                        newRV_noinc ((SV *)av), 0);
         }
       sv = newRV_inc ((SV *)floats_list[i].element->hv);
       av_push (av, sv);
@@ -721,7 +723,7 @@ build_single_index_data (INDEX *i)
    build_texinfo_tree must be called before this so all the 'hv' fields
    are set on the elements in the tree. */
 HV *
-build_index_data (void)
+build_index_data (INDEX **index_names_in)
 {
   HV *hv;
   INDEX **i, *idx;
@@ -730,7 +732,7 @@ build_index_data (void)
 
   hv = newHV ();
 
-  for (i = index_names; (idx = *i); i++)
+  for (i = index_names_in; (idx = *i); i++)
     {
       HV *hv2;
       build_single_index_data (idx);
@@ -745,11 +747,12 @@ build_index_data (void)
 /* Return object to be used as $self->{'info'} in the Perl code, retrievable
    with the 'global_information' function. */
 HV *
-build_global_info (void)
+build_global_info (GLOBAL_INFO *global_info_ref)
 {
   HV *hv;
   int i;
   ELEMENT *e;
+  GLOBAL_INFO global_info = *global_info_ref;
 
   dTHX;
 
@@ -777,12 +780,13 @@ build_global_info (void)
 /* Return object to be used as $self->{'extra'} in the Perl code, which
    are mostly references to tree elements. */
 HV *
-build_global_info2 (void)
+build_global_info2 (GLOBAL_INFO *global_info_ref)
 {
   HV *hv;
   AV *av;
   int i;
   ELEMENT *e;
+  GLOBAL_INFO global_info = *global_info_ref;
 
   dTHX;
 
@@ -900,6 +904,66 @@ build_global_info2 (void)
   BUILD_GLOBAL_ARRAY(xrefautomaticsectiontitle);
   return hv;
 }
+
+HV *
+build_document (size_t document_descriptor)
+{
+  HV *hv;
+  DOCUMENT *document;
+  HV *hv_tree;
+  HV *hv_info;
+  HV *hv_global_info;
+  HV *hv_index_names;
+  HV *hv_floats;
+  AV *av_internal_xref;
+  HV *hv_identifiers_target;
+  AV *av_labels_list;
+
+  dTHX;
+
+  hv = newHV ();
+
+  document = retrieve_document (document_descriptor);
+
+  hv_tree = build_texinfo_tree (document->tree);
+
+  hv_info = build_global_info (document->global_info);
+
+  hv_global_info = build_global_info2 (document->global_info);
+
+  hv_index_names = build_index_data (document->index_names);
+
+  hv_floats = build_float_list (document->floats->float_types,
+                                document->floats->number);
+
+  av_internal_xref = build_internal_xref_list (
+                    document->internal_references->list,
+                    document->internal_references->number);
+
+  hv_identifiers_target = build_identifiers_target (document->identifiers_target);
+
+  av_labels_list = build_target_elements_list (document->labels_list->list,
+                                               document->labels_list->number);
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
+
+  STORE("tree", hv_tree);
+  STORE("info", hv_info);
+  STORE("index_names", hv_index_names);
+  STORE("floats", hv_floats);
+  STORE("internal_references", av_internal_xref);
+  STORE("commands_info", hv_global_info);
+  STORE("identifiers_target", hv_identifiers_target);
+  STORE("labels_list", av_labels_list);
+
+#undef STORE
+
+  /*
+  return newRV_noinc ((SV *) hv);
+   */
+  return hv;
+}
+
 
 
 

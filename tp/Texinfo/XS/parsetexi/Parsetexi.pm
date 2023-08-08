@@ -194,49 +194,37 @@ sub get_parser_info {
   my $self = shift;
   my $store = shift;
 
-  my $tree = build_texinfo_tree ();
-
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
   _get_errors ($self, $registrar, $configuration_information);
 
-  my $internal_refs = build_internal_xref_list ();
-  my $floats = build_float_list ();
-  my $global_info = build_global_info ();
-  my $global_commands_info = build_global_info2 ();
+  my $document_descriptor = store_document();
 
-  $self->{'internal_references'} = $internal_refs;
-  $self->{'floats'} = $floats;
-  $self->{'info'} = $global_info;
-  $self->{'commands_info'} = $global_commands_info;
+  # FIXME need to bless in XS code to remove the call to
+  # Texinfo::Document::register.
+  my $XS_document = build_document ($document_descriptor);
+  my $document = Texinfo::Document::register($XS_document->{'tree'},
+     $XS_document->{'info'}, $XS_document->{'index_names'}, $XS_document->{'floats'},
+     $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
+     $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
+  Texinfo::Translations::complete_indices ($self,
+                                   $document->indices_information());
 
-  my $labels_list = build_target_elements_list ();
-  $self->{'labels_list'} = $labels_list;
-
-  my $identifier_targets = build_identifiers_target ();
-  $self->{'identifiers_target'} = $identifier_targets;
-
-  my $index_names = build_index_data ();
-  $self->{'index_names'} = $index_names;
-  Texinfo::Translations::complete_indices ($self, $index_names);
-
-  $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
+  $document->{'info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
-    = Texinfo::Common::get_perl_encoding($self->{'commands_info'},
+    = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
                               $registrar, $configuration_information);
-  $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
+  $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
-  my $document = Texinfo::Document::register($tree,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
-     $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
-
+  # FIXME do that unconditionally?
   if ($store) {
-    my $document_descriptor = store_document();
+    my $tree = $document->tree();
     $tree->{'document_descriptor'} = $document_descriptor;
     $document->{'document_descriptor'} = $document_descriptor;
+  #} else {
+  # FIXME mark the document such that it can be destroyed early?
   }
   return $document;
 }
@@ -263,11 +251,11 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = get_parser_info ($self, 1);
+  my $document = get_parser_info($self, 1);
 
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  $self->{'info'}->{'input_file_name'} = $basename;
-  $self->{'info'}->{'input_directory'} = $directories;
+  $document->{'info'}->{'input_file_name'} = $basename;
+  $document->{'info'}->{'input_directory'} = $directories;
 
   return $document;
 }

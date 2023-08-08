@@ -1,5 +1,34 @@
 2023-08-08  Patrice Dumas  <pertusus@free.fr>
 
+	Setup parsed document information in XS
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs,
+	tp/Texinfo/XS/parsetexi/build_perl_info.c (build_texinfo_tree)
+	(build_target_elements_list, build_identifiers_target)
+	(build_internal_xref_list, build_float_list, build_index_data)
+	(build_global_info, build_global_info2, build_document): 
+	do not expose to perl code and add arguments for build_texinfo_tree,
+	build_target_elements_list, build_identifiers_target,
+	build_internal_xref_list, build_float_list, build_index_data and
+	build_global_info* instead of using global variables. Add
+	build_document that calls those functions on a stored document to build
+	a perl document hash, like the one obtained from Texinfo::Document.
+	Always store the document in get_parser_info Parsetexi.pm, and get a
+	document directly from XS, using build_document.
+
+	* p/Texinfo/XS/parsetexi/labels.c (unallocate_labels): do not free
+	labels_list, it should be stored in document.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(parse_texi_file): set document info, and not parser info, which is
+	not used anymore.
+
+	* tp/t/test_utils.pl (test): set document info, and not parser info,
+	which is not used anymore.
+
+2023-08-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/build_perl_info.c (build_global_info),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)

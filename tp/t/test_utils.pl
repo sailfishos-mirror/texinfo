@@ -1006,7 +1006,7 @@ sub test($$)
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that
       # $test_input_file_name is already bytes?
-      $parser->{'info'}->{'input_file_name'} = $test_input_file_name;
+      $document->{'info'}->{'input_file_name'} = $test_input_file_name;
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});

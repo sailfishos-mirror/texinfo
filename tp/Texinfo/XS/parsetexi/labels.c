@@ -70,7 +70,6 @@ void unallocate_labels (void)
 {
   labels_number = 0;
   labels_space = 0;
-  free (labels_list);
   labels_list = 0;
 }
 

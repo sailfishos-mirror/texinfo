@@ -98,28 +98,7 @@ add_include_directory (filename)
         char *filename = (char *)SvPVbyte_nolen($arg);
 
 HV *
-build_texinfo_tree ()
-
-AV *
-build_target_elements_list ()
-
-HV *
-build_identifiers_target ()
-
-AV *
-build_internal_xref_list ()
-
-HV *
-build_float_list ()
-
-HV *
-build_index_data ()
-
-HV *
-build_global_info ()
-
-HV *
-build_global_info2 ()
+build_document (int document_descriptor)
 
 void
 reset_parser (int debug_output)
