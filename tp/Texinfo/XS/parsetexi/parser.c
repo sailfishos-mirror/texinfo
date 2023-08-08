@@ -43,6 +43,8 @@
 #include "commands.h"
 /* for labels_list and labels_number */
 #include "labels.h"
+/* for store_document */
+#include "api.h"
 /* for set_labels_identifiers_target */
 #include "document.h"
 /* for complete_indices */
@@ -613,9 +615,10 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
 }
 
 
-ELEMENT *
+int
 parse_texi_document (void)
 {
+  int document_descriptor;
   char *linep, *line = 0;
   ELEMENT *result;
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
@@ -654,11 +657,11 @@ parse_texi_document (void)
   if (preamble_before_beginning)
     add_to_element_contents (before_node_section, preamble_before_beginning);
 
-  result = parse_texi (document_root, before_node_section);
+  document_descriptor = parse_texi (document_root, before_node_section);
 
   rearrange_tree_beginning (before_node_section);
 
-  return result;
+  return document_descriptor;
 }
 
 
@@ -2602,12 +2605,13 @@ check_line_directive (char *line)
   return 1;
 }
 
-/* Pass in and return root of a "Texinfo tree".  Starting point for adding
-   to the tree is current_elt */
-ELEMENT *
+/* Pass in a root of "Texinfo tree".  Starting point for adding
+   to the tree is current_elt.  Returns a stored document_descriptor */
+int
 parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
+  int document_descriptor;
   static char *allocated_line;
   char *line;
   int status;
@@ -2755,8 +2759,13 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   identifiers_target
     = set_labels_identifiers_target (labels_list, labels_number);
 
+  document_descriptor = store_document(current);
+
+  /* from this point on, could call parsing functions again
+     when the obstack memeory is not common anymore */
+
   /*
   complete_indices ();
   */
-  return current;
+  return document_descriptor;
 }

@@ -33,15 +33,16 @@
 #include <libintl.h>
 
 #include "tree_types.h"
+#include "tree.h"
 #include "element_types.h"
-#include "parser.h"
-#include "errors.h"
-#include "api.h"
-#include "indices.h"
-#include "input.h"
-#include "source_marks.h"
-#include "labels.h"
 #include "extra.h"
+/* for command_name */
+#include "builtin_commands.h"
+/* for ultimate_index */
+#include "indices.h"
+/* for LOCALEDIR */
+#include "api.h"
+#include "errors.h"
 #include "document.h"
 #include "build_perl_info.h"
 
@@ -958,9 +959,6 @@ build_document (size_t document_descriptor)
 
 #undef STORE
 
-  /*
-  return newRV_noinc ((SV *) hv);
-   */
   return hv;
 }
 

@@ -45,8 +45,6 @@
 #include "conf.h"
 #include "api.h"
 
-ELEMENT *Root;
-
 #ifdef ENABLE_NLS
 
 /* Use the uninstalled locales dir.  Currently unused.
@@ -90,12 +88,6 @@ reset_parser_except_conf (void)
   /* do before destroying tree because index entries refer to in-tree
      elements. */
   wipe_indices ();
-
-  if (Root)
-    {
-      destroy_element_and_children (Root);
-      Root = 0;
-    }
 
   reset_floats ();
   wipe_global_info ();
@@ -172,16 +164,14 @@ reset_parser (int debug_output)
 int
 parse_file (char *filename)
 {
-  /*
-  debug_output = 0;
-  */
+  int document_descriptor;
   char *p, *q;
 
   int status;
   
   status = input_push_file (filename);
   if (status)
-    return status;
+    return 0;
 
   /* Strip off a leading directory path, by looking for the last
      '/' in filename. */
@@ -201,41 +191,43 @@ parse_file (char *filename)
       *p = saved;
     }
 
-  Root = parse_texi_document ();
+  document_descriptor = parse_texi_document ();
 
-  if (Root)
-    {
-      return 0;
-    }
-  return 1;
+  return document_descriptor;
 }
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
-void
+int
 parse_text (char *string, int line_nr)
 {
+  int document_descriptor;
+
   reset_parser_except_conf ();
   input_push_text (strdup (string), line_nr, 0, 0);
-  Root = parse_texi_document ();
+  document_descriptor = parse_texi_document ();
+  return document_descriptor;
 }
 
 /* Set ROOT to root of tree obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
-void
+int
 parse_string (char *string, int line_nr)
 {
   ELEMENT *root_elt;
+  int document_descriptor;
 
   reset_parser_except_conf ();
   root_elt = new_element (ET_root_line);
   input_push_text (strdup (string), line_nr, 0, 0);
-  Root = parse_texi (root_elt, root_elt);
+  document_descriptor = parse_texi (root_elt, root_elt);
+  return document_descriptor;
 }
 
 /* Used for parse_texi_piece.  STRING should be a UTF-8 buffer. */
-void
+int
 parse_piece (char *string, int line_nr)
 {
+  int document_descriptor;
   ELEMENT *before_node_section, *document_root;
 
   reset_parser_except_conf ();
@@ -243,11 +235,12 @@ parse_piece (char *string, int line_nr)
   document_root = before_node_section->parent;
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  Root = parse_texi (document_root, before_node_section);
+  document_descriptor = parse_texi (document_root, before_node_section);
+  return document_descriptor;
 }
 
 int
-store_document (void)
+store_document (ELEMENT *root)
 {
   int document_descriptor;
   LABEL_LIST *labels;
@@ -285,9 +278,8 @@ store_document (void)
   memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
 
   document_descriptor
-   = register_document (Root, index_names, floats, internal_references,
+   = register_document (root, index_names, floats, internal_references,
                         labels, identifiers_target, doc_global_info);
-  Root = 0;
   reset_indices ();
   unallocate_labels ();
   /* use a function? */

@@ -63,17 +63,17 @@ int
 parse_file(filename)
         char *filename = (char *)SvPVbyte_nolen($arg);
 
-void
+int
 parse_piece(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
-void
+int
 parse_string(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
-void
+int
 parse_text(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
@@ -102,9 +102,6 @@ build_document (int document_descriptor)
 
 void
 reset_parser (int debug_output)
-
-int
-store_document ()
 
 void
 clear_expanded_formats ()

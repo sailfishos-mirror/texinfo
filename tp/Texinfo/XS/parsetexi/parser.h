@@ -73,12 +73,12 @@ typedef struct {
 } CONDITIONAL_STACK_ITEM;
 
 size_t count_convert_u8 (const char *text);
-ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
+int parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
 CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
 CONDITIONAL_STACK_ITEM *top_conditional_stack (void);
 extern size_t conditional_number;
-ELEMENT *parse_texi_document (void);
+int parse_texi_document (void);
 int abort_empty_line (ELEMENT **current_inout, char *additional);
 ELEMENT *end_paragraph (ELEMENT *current,
                         enum command_id closed_block_command,

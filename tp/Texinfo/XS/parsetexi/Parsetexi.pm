@@ -190,16 +190,15 @@ sub _get_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-sub get_parser_info {
+sub get_parser_info($$$) {
   my $self = shift;
+  my $document_descriptor = shift;
   my $store = shift;
 
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  _get_errors ($self, $registrar, $configuration_information);
-
-  my $document_descriptor = store_document();
+  _get_errors ($registrar, $configuration_information);
 
   # FIXME need to bless in XS code to remove the call to
   # Texinfo::Document::register.
@@ -218,13 +217,12 @@ sub get_parser_info {
   $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
-  # FIXME do that unconditionally?
   if ($store) {
     my $tree = $document->tree();
     $tree->{'document_descriptor'} = $document_descriptor;
     $document->{'document_descriptor'} = $document_descriptor;
   #} else {
-  # FIXME mark the document such that it can be destroyed early?
+  # FIXME destroy the XS data in that case?
   }
   return $document;
 }
@@ -238,8 +236,8 @@ sub parse_texi_file ($$)
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
-  my $status = parse_file ($input_file_path);
-  if ($status) {
+  my $document_descriptor = parse_file ($input_file_path);
+  if (!$document_descriptor) {
     my ($registrar, $configuration_information) = _get_error_registrar($self);
     my $input_file_name = $input_file_path;
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
@@ -251,7 +249,7 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = get_parser_info($self, 1);
+  my $document = get_parser_info($self, $document_descriptor, 1);
 
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
   $document->{'info'}->{'input_file_name'} = $basename;
@@ -261,9 +259,8 @@ sub parse_texi_file ($$)
 }
 
 # Copy the errors into the error list in Texinfo::Report.
-sub _get_errors($$$)
+sub _get_errors($$)
 {
-  my $self = shift;
   my $registrar = shift;
   my $configuration_information = shift;
 
@@ -299,9 +296,9 @@ sub parse_texi_piece($$;$$)
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
-  parse_piece($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $store);
+  my $document = get_parser_info($self, $document_descriptor, $store);
 
   return $document;
 }
@@ -319,9 +316,9 @@ sub parse_texi_text($$;$)
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
-  parse_text($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_text($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, 1);
+  my $document = get_parser_info($self, $document_descriptor, 1);
 
   return $document;
 }
@@ -338,9 +335,9 @@ sub parse_texi_line($$;$$)
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
-  parse_string($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $store);
+  my $document = get_parser_info($self, $document_descriptor, $store);
 
   return $document->tree();
 }

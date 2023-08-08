@@ -1,5 +1,26 @@
 2023-08-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(parse_texi_text, parse_texi_line, parse_texi_file, parse_texi_piece),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser_except_conf, parse_file, parse_text, parse_string)
+	(parse_piece, store_document), tp/Texinfo/XS/parsetexi/parser.c
+	(parse_texi_document, parse_texi): do not expose store_document
+	to perl code, always call it in parse_texi. Add root argument to
+	store_document, remove the Root global variable (which was now
+	always 0 oustide of parse_texi). Pass document_descriptor from
+	parse_file, parse_text, parse_string, parse_piece,
+	parse_texi_document, parse_texi. For parse_file, an error is now 0,
+	was 1 previously, now 1 is a document_descriptor. Pass
+	document_descriptor to get_parser_info in Parsetexi.pm.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_errors): remove unused
+	$self argument.
+
+	* tp/Texinfo/XS/parsetexi/build_perl_info.c: cleanup includes.
+
+2023-08-08  Patrice Dumas  <pertusus@free.fr>
+
 	Setup parsed document information in XS
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
