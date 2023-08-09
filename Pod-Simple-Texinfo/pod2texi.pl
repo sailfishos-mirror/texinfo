@@ -256,12 +256,12 @@ sub _parsed_manual_tree($$$$$)
   my $identifier_target = $document->labels_information();
 
   if ($fill_gaps_in_sectioning) {
-    my ($added_sections, $added_nodes);
-    ($tree->{'contents'}, $added_sections)
+    my $added_sections
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
     # there should already be nodes associated with other sections.  Therefore
     # new nodes should only be created for the $added_sections.
     if ($section_nodes) {
+      my $added_nodes;
       ($tree->{'contents'}, $added_nodes)
         = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                          $registrar, $texi_parser);

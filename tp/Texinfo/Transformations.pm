@@ -57,96 +57,116 @@ sub _correct_level($$;$)
   my $modifier = shift;
   $modifier = 1 if (!defined($modifier));
 
-  my @result;
   if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
     my $level_to_remove = $modifier * $section->{'extra'}->{'sections_level'};
     my $command;
     if ($level_to_remove < 0) {
-      $command = 'raisesection';
+      $command = 'raisesections';
     } else {
-      $command = 'lowersection';
+      $command = 'lowersections';
     }
     my $remaining_level = abs($level_to_remove);
     while ($remaining_level) {
-      push @result, {'cmdname' => $command,
+      push @{$parent->{'contents'}},
+                    {'cmdname' => $command,
                      'parent' => $parent};
-      push @result, {'type' => 'empty_line', 'text' => "\n",
+      push @{$parent->{'contents'}},
+                    {'type' => 'empty_line', 'text' => "\n",
                      'parent' => $parent};
       $remaining_level--;
     }
   }
-  return @result;
 }
 
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
-  my @sections_list;
-  foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
-      push @sections_list, $content;
-    }
-  }
 
-  return (undef, undef) if (!scalar(@sections_list));
+  my $contents_nr = scalar(@{$root->{'contents'}});
 
   my @added_sections;
-  my @contents;
-  my $previous_section;
-  foreach my $content(@{$root->{'contents'}}) {
-    push @contents, $content;
-    if (!@sections_list or $sections_list[0] ne $content) {
-      next;
+
+  # initialize current and next sections
+  my $idx_current_section = -1;
+  my $idx_next_section = -1;
+  my $idx = 0;
+  while ($idx < $contents_nr) {
+    my $content = $root->{'contents'}->[$idx];
+    if (! $content->{'cmdname'} or $content->{'cmdname'} eq 'node'
+        or ! $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+    } elsif ($idx_current_section < 0) {
+      $idx_current_section = $idx;
+    } elsif ($idx_next_section < 0) {
+      $idx_next_section = $idx;
+      last;
     }
-    my $current_section = shift @sections_list;
+    $idx++;
+  }
+
+  return undef
+    if ($idx_current_section < 0);
+
+  return \@added_sections
+    if ($idx_next_section < 0);
+
+  while (1) {
+    my $current_section = $root->{'contents'}->[$idx_current_section];
     my $current_section_level
        = Texinfo::Common::section_level($current_section);
-    my $next_section = $sections_list[0];
 
-    if (defined($next_section)) {
-      my $next_section_level
-                        = Texinfo::Common::section_level($next_section);
+    my $next_section = $root->{'contents'}->[$idx_next_section];
+    my $next_section_level
+       = Texinfo::Common::section_level($next_section);
 
-      if ($next_section_level - $current_section_level > 1) {
-        my @correct_level_offset_commands = _correct_level($next_section,
-                                                          $contents[-1]);
-        if (@correct_level_offset_commands) {
-          push @{$contents[-1]->{'contents'}}, @correct_level_offset_commands;
-        }
-        while ($next_section_level - $current_section_level > 1) {
-          $current_section_level++;
-          my $new_section = {'cmdname' =>
-            $Texinfo::Common::level_to_structuring_command{'unnumbered'}
-                                                  ->[$current_section_level],
-            'parent' => $root,
-          };
-          $new_section->{'info'} = {'spaces_before_argument' =>
-                                                {'text' => ' ',}};
-          my $line_arg = {'type' => 'line_arg', 'parent' => $new_section,
-                          'info' => {'spaces_after_argument'
-                                                   => {'text' => "\n",}}};
-          $new_section->{'args'} = [$line_arg];
-          my $asis_command = {'cmdname' => 'asis',
-                              'parent' => $line_arg};
-          $line_arg->{'contents'} = [$asis_command];
-          $asis_command->{'args'} = [{'type' => 'brace_command_arg',
-                                      'parent' => $asis_command}];
-          $new_section->{'contents'} = [{'type' => 'empty_line',
-                                         'text' => "\n",
-                                         'parent' => $new_section}];
-          push @contents, $new_section;
-          push @added_sections, $new_section;
-        }
-        my @set_level_offset_commands = _correct_level($next_section,
-                                                       $contents[-1], -1);
-        if (@set_level_offset_commands) {
-          push @{$contents[-1]->{'contents'}}, @set_level_offset_commands;
-        }
+    if ($next_section_level - $current_section_level > 1) {
+      _correct_level($next_section, $current_section);
+      my @new_sections;
+      while ($next_section_level - $current_section_level > 1) {
+        $current_section_level++;
+        my $new_section = {'cmdname' =>
+          $Texinfo::Common::level_to_structuring_command{'unnumbered'}
+                                                ->[$current_section_level],
+          'parent' => $root,
+        };
+        $new_section->{'info'} = {'spaces_before_argument' =>
+                                              {'text' => ' ',}};
+        my $line_arg = {'type' => 'line_arg', 'parent' => $new_section,
+                        'info' => {'spaces_after_argument'
+                                                 => {'text' => "\n",}}};
+        $new_section->{'args'} = [$line_arg];
+        my $asis_command = {'cmdname' => 'asis',
+                            'parent' => $line_arg};
+        $line_arg->{'contents'} = [$asis_command];
+        $asis_command->{'args'} = [{'type' => 'brace_command_arg',
+                                    'parent' => $asis_command}];
+        $new_section->{'contents'} = [{'type' => 'empty_line',
+                                       'text' => "\n",
+                                       'parent' => $new_section}];
+        push @new_sections, $new_section;
       }
+      splice (@{$root->{'contents'}}, $idx_current_section+1, 0, @new_sections);
+      $idx_next_section += scalar(@new_sections);
+      $contents_nr += scalar(@new_sections);
+      push @added_sections, @new_sections;
+      _correct_level($next_section, $new_sections[-1], -1);
+    }
+    $idx_current_section = $idx_next_section;
+
+    # find the new next section index
+    $idx_next_section = $idx_current_section +1;
+    while ($idx_next_section < $contents_nr) {
+      my $content = $root->{'contents'}->[$idx_next_section];
+      if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
+          and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+        last;
+      }
+      $idx_next_section++;
+    }
+    if ($idx_next_section >= $contents_nr) {
+      last;
     }
   }
-  return (\@contents, \@added_sections);
+  return \@added_sections;
 }
 
 # This converts a reference @-command to simple text using one of the
@@ -814,15 +834,15 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $customization_information, $tree)>.
 
-=item ($root_content, $added_sections) = fill_gaps_in_sectioning($tree)
+=item $added_sections = fill_gaps_in_sectioning($tree)
 X<C<fill_gaps_in_sectioning>>
 
 This function adds empty C<@unnumbered> and similar commands in a tree
 to fill gaps in sectioning.  This may be used, for example, when converting
 from a format that can handle gaps in sectioning.  I<$tree> is the tree
-root.  An array reference is returned, containing the root contents
-with added sectioning commands, as well as an array reference containing
-the added sectioning commands.
+root, which is modified by adding the new sectioning commands. An array
+reference is returned, containing the added sectioning commands, or
+undef if there was no sectioning command at all in the tree root.
 
 If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or

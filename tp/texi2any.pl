@@ -1472,13 +1472,11 @@ while(@input_files) {
 
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    my ($filled_contents, $added_sections)
+    my $added_sections
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-    if (!defined($filled_contents)) {
+    if (!defined($added_sections)) {
       document_warn(__(
        "fill_gaps_in_sectioning transformation return no result. No section?"));
-    } else {
-      $tree->{'contents'} = $filled_contents;
     }
   }
 
