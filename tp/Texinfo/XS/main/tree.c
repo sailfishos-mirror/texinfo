@@ -223,24 +223,31 @@ add_to_element_args (ELEMENT *parent, ELEMENT *e)
   e->parent = parent;
 }
 
-/* Add the element E into the contents of PARENT at index WHERE. */
+/* Add the element E into the LIST at index WHERE. */
 void
-insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
+insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where)
 {
-  ELEMENT_LIST *list = &parent->contents;
   reallocate_list (list);
 
   if (where < 0)
     where = list->number + where;
 
   if (where < 0 || where > list->number)
-    fatal ("contents index out of bounds");
+    fatal ("elements list index out of bounds");
 
   memmove (&list->list[where + 1], &list->list[where],
            (list->number - where) * sizeof (ELEMENT *));
   list->list[where] = e;
-  e->parent = parent;
   list->number++;
+}
+
+/* Add the element E into the contents of PARENT at index WHERE. */
+void
+insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
+{
+  ELEMENT_LIST *list = &parent->contents;
+  insert_into_element_list (list, e, where);
+  e->parent = parent;
 }
 
 /* Add the element E into the arguments of PARENT at index WHERE. */
@@ -248,19 +255,8 @@ void
 insert_into_args (ELEMENT *parent, ELEMENT *e, int where)
 {
   ELEMENT_LIST *list = &parent->args;
-  reallocate_list (list);
-
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number)
-    fatal ("arguments index out of bounds");
-
-  memmove (&list->list[where + 1], &list->list[where],
-           (list->number - where) * sizeof (ELEMENT *));
-  list->list[where] = e;
+  insert_into_element_list (list, e, where);
   e->parent = parent;
-  list->number++;
 }
 
 /* Insert elements to the contents of TO at position WHERE from FROM
@@ -283,22 +279,28 @@ insert_slice_into_contents (ELEMENT *to, int where, ELEMENT *from,
 }
 
 ELEMENT *
-remove_from_contents (ELEMENT *parent, int where)
+remove_from_element_list (ELEMENT_LIST *list, int where)
 {
-  ELEMENT_LIST *list = &parent->contents;
   ELEMENT *removed;
 
   if (where < 0)
     where = list->number + where;
 
   if (where < 0 || where > list->number)
-    fatal ("contents index out of bounds");
+    fatal ("element list index out of bounds");
 
   removed = list->list[where];
   memmove (&list->list[where], &list->list[where + 1],
            (list->number - (where+1)) * sizeof (ELEMENT *));
   list->number--;
   return removed;
+}
+
+ELEMENT *
+remove_from_contents (ELEMENT *parent, int where)
+{
+  ELEMENT_LIST *list = &parent->contents;
+  return remove_from_element_list (list, where);
 }
 
 /* Remove elements from START inclusive to END exclusive.  Do not

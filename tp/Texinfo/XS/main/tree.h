@@ -11,10 +11,12 @@ ELEMENT *new_element (enum element_type type);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
 void add_to_element_args (ELEMENT *parent, ELEMENT *e);
+void insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where);
 void insert_into_contents (ELEMENT *parent, ELEMENT *e, int where);
 void insert_into_args (ELEMENT *parent, ELEMENT *e, int where);
 void insert_slice_into_contents (ELEMENT *to, int idx, ELEMENT *from,
                                  int start, int end);
+ELEMENT *remove_from_element_list (ELEMENT_LIST *list, int where);
 ELEMENT *remove_from_contents (ELEMENT *parent, int where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);
 ELEMENT *last_args_child (ELEMENT *current);
