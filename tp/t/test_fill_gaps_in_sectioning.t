@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 8; }
+BEGIN { plan tests => 9; }
 
 use Texinfo::Transformations;
 use Texinfo::Parser qw(parse_texi_piece);
@@ -14,6 +14,7 @@ use Texinfo::Convert::Texinfo;
 ok(1, "modules loading");
 
 my $document = parse_texi_piece(undef, '@raisesections
+
 @section truc
 ');
 
@@ -25,25 +26,32 @@ my $nr_contents = scalar(@{$before_sections->{'contents'}});
 Texinfo::Transformations::_correct_level($section, $tree->{'contents'}->[0]);
 my $new_nr_contents = scalar(@{$before_sections->{'contents'}});
 
-# 2 because there is also an empty line
-ok ($new_nr_contents - $nr_contents == 2,"one lowersections");
-ok ($before_sections->{'contents'}->[$nr_contents]->{'cmdname'} eq 'lowersections' ,
+ok ($new_nr_contents - $nr_contents == 1, "one lowersections");
+is ($before_sections->{'contents'}->[$nr_contents]->{'cmdname'}, 'lowersections',
    "command is lowersections");
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo ($tree);
 
 $document = parse_texi_piece(undef, '@lowersections
 @lowersections
+
 @chapter truc
 ');
 $tree = $document->tree();
+
 $section = $tree->{'contents'}->[1];
 $before_sections = $tree->{'contents'}->[0];
 $nr_contents = scalar(@{$before_sections->{'contents'}});
+# With -1, the commands added go from the normal level to the modified level
+# of the chapter.  It is therefore the same commands as the commands setting
+# the chapter level that are added.
 Texinfo::Transformations::_correct_level($section, $tree->{'contents'}->[0], -1);
 $new_nr_contents = scalar(@{$before_sections->{'contents'}});
-ok ($new_nr_contents - $nr_contents == 4,"two lowersections");
-ok ($before_sections->{'contents'}->[$nr_contents]->{'cmdname'} eq 'lowersections',
-     "command is lowersections");
+ok ($new_nr_contents - $nr_contents == 2, "two lowersections");
+is ($before_sections->{'contents'}->[$nr_contents]->{'cmdname'}, 'lowersections',
+     "first command is lowersections");
+is ($before_sections->{'contents'}->[$nr_contents+1]->{'cmdname'}, 'lowersections',
+     "second command is lowersections");
+
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo ($tree);
 
 sub test_correction($$$)
@@ -60,11 +68,10 @@ sub test_correction($$$)
   #local $Data::Dumper::Maxdepth = 2;
   local $Data::Dumper::Indent = 1;
   #print STDERR Data::Dumper->Dump([$tree]);
-  #print STDERR Data::Dumper->Dump([$corrected_content]);
+  #print STDERR Data::Dumper->Dump([$added_sections]);
   }
   my $texi_result
-   = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                 {'contents' => $tree->{'contents'}});
+   = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";
   } else {

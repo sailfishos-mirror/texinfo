@@ -49,7 +49,11 @@ reference_to_arg_in_tree
 
 $VERSION = '7.1';
 
-# Add raise/lowersections to be back at the normal level
+# Add raise/lowersections to be back at the normal level from
+# the $SECTION level.  The raise/lowersections are added at the
+# end of $PARENT.
+# If $MODIFIER is set to -1, add raise/lowersections to go from
+# the normal level to the $SECTION level.
 sub _correct_level($$;$)
 {
   my $section = shift;
@@ -59,20 +63,20 @@ sub _correct_level($$;$)
 
   if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
     my $level_to_remove = $modifier * $section->{'extra'}->{'sections_level'};
-    my $command;
+    my $cmdname;
     if ($level_to_remove < 0) {
-      $command = 'raisesections';
+      $cmdname = 'raisesections';
     } else {
-      $command = 'lowersections';
+      $cmdname = 'lowersections';
     }
     my $remaining_level = abs($level_to_remove);
     while ($remaining_level) {
-      push @{$parent->{'contents'}},
-                    {'cmdname' => $command,
+      my $element = {'cmdname' => $cmdname,
                      'parent' => $parent};
-      push @{$parent->{'contents'}},
-                    {'type' => 'empty_line', 'text' => "\n",
-                     'parent' => $parent};
+      push @{$parent->{'contents'}}, $element;
+      my $rawline_arg = {'type' => 'rawline_arg', 'text' => "\n",
+                         'parent' => $element};
+      push @{$element->{'args'}}, $rawline_arg;
       $remaining_level--;
     }
   }
