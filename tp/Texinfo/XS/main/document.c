@@ -93,15 +93,8 @@ register_document (ELEMENT *root, INDEX **index_names,
 }
 
 void
-remove_document (int document_descriptor)
+destroy_document_information_except_tree (DOCUMENT *document)
 {
-  DOCUMENT *document = 0;
-
-  /* error? */
-  if (document_descriptor > document_number)
-    return;
-
-  document = &document_list[document_descriptor -1];
   if (document->tree)
     {
       INDEX **i, *idx;
@@ -122,9 +115,39 @@ remove_document (int document_descriptor)
           free (idx);
         }
       free (document->index_names);
-      destroy_element_and_children (document->tree);
     }
+}
+
+void
+remove_document (int document_descriptor)
+{
+  DOCUMENT *document = 0;
+
+  /* error? */
+  if (document_descriptor > document_number)
+    return;
+
+  document = &document_list[document_descriptor -1];
+
+  destroy_document_information_except_tree (document);
+
+  if (document->tree)
+    destroy_element_and_children (document->tree);
   document->tree = 0;
+}
+
+/* destroy everything except for the tree, and unregister the
+   tree such that it won't ever be retrieved.  Should be used
+   when the tree becomes part of another document */
+ELEMENT *
+unregister_tree (DOCUMENT *document)
+{
+  ELEMENT *tree;
+
+  destroy_document_information_except_tree (document);
+  tree = document->tree;
+  document->tree = 0;
+  return tree;
 }
 
 int

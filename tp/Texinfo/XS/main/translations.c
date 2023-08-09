@@ -26,10 +26,15 @@
 #include <errno.h>
 #include <gettext.h>
 
+/* for set_accept_internalvalue */
+#include "parser.h"
 #include "api.h"
 #include "utils.h"
 #include "text.h"
 #include "errors.h"
+#include "debug.h"
+#include "document.h"
+#include "convert_to_texinfo.h"
 #include "translations.h"
 
 #ifdef ENABLE_NLS
@@ -335,11 +340,63 @@ replace_substrings (char *string,
 }
 
 ELEMENT *
+substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+
+void
+substitute_element_array (ELEMENT_LIST *list,
+                          NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+{
+  int idx = 0;
+
+  for (; idx < list->number; idx++)
+    {
+      ELEMENT *e = list->list[idx];
+      if (e->cmd == CM_txiinternalvalue)
+        {
+          char *name = e->args.list[0]->text.text;
+          int i;
+          for (i = 0; i < replaced_substrings->number; i++)
+            {
+              if (!strcmp (name, replaced_substrings->list[i].name))
+                {
+                  /* FIXME mix elements from replaced_substrings already
+                     appearing in the main tree (or somewhere else) and
+                     elements in the tree created by parse_texi_line.
+                     These elements will be destroyed twice.
+                     Use reference count, gather list of elements to free,
+                     or copy? */
+                  list->list[idx] = replaced_substrings->list[i].element;
+                  destroy_element_and_children (e);
+                  break;
+                }
+            }
+        }
+      else
+        substitute (e, replaced_substrings);
+    }
+}
+
+ELEMENT *
+substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+{
+  if (tree->contents.number > 0)
+    substitute_element_array (&tree->contents, replaced_substrings);
+  if (tree->args.number > 0)
+    substitute_element_array (&tree->args, replaced_substrings);
+
+  return tree;
+}
+
+ELEMENT *
 replace_convert_substrings (char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   int i;
   char *texinfo_line;
+  int document_descriptor;
+  ELEMENT *result_tree;
+  ELEMENT *tree;
+  DOCUMENT *document;
 
   /* setup the strings to be replaced using the input replaced_substrings
      structure, which should only contain elements */
@@ -364,12 +421,56 @@ replace_convert_substrings (char *translated_string,
   fprintf(stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
                                                  texinfo_line);
    */ 
-  
-
   for (i = 0; i < replaced_substrings->number; i++)
-    {
-      free (replaced_substrings->list[i].string);
+    free (replaced_substrings->list[i].string);
+
+
+  /*
+   accept @txiinternalvalue as a valid Texinfo command, used to mark
+   location in tree of substituted brace enclosed strings.
+   */
+  set_accept_internalvalue (1);
+
+  /* TODO implement setting configuration.  This is not needed when called
+     from a parser, but would be when called from a converter */
+  /*
+  # general customization relevant for parser
+  if ($customization_information) {
+    foreach my $conf_variable ('DEBUG') {
+      if (defined($customization_information->get_conf($conf_variable))) {
+        $parser_conf->{$conf_variable}
+          = $customization_information->get_conf($conf_variable);
+      }
     }
+  }
+   */
+  document_descriptor = parse_string (texinfo_line, 1);
+
+  debug ("GDT %s", texinfo_line);
+
+  if (error_number > 0)
+    {
+      fprintf (stderr, "translation %d error(s)\n", error_number);
+      fprintf (stderr, "translated string: %s\n", translated_string);
+      fprintf (stderr, "Error messages: \n");
+      for (i = 0; i < error_number; i++)
+        {
+           char *message = prepare_error_line_message (&error_list[i]);
+           fprintf (stderr, "%s\n", message);
+           free (message);
+        }
+    }
+  set_accept_internalvalue (0);
+
+  document = retrieve_document (document_descriptor);
+  tree = unregister_tree (document);
+
+  result_tree = substitute (tree, replaced_substrings);
+/*
+  fprintf (stderr, "RESULT GDT %s\n", convert_to_texinfo (result_tree));
+*/
+
+  return result_tree;
 }
 
 ELEMENT *
@@ -422,7 +523,8 @@ reallocate_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel)
     }
 }
 
-/* arguments to be freed by the caller */
+/* arguments to be freed by the caller, even name as it is a constant
+   string in general */
 void
 add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
                                          char *name, char *string)
@@ -437,7 +539,8 @@ add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
   nsel->number++;
 }
 
-/* arguments to be freed by the caller */
+/* arguments to be freed by the caller, even name as it is a constant
+   string in general */
 void
 add_element_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
                                           char *name, ELEMENT *element)

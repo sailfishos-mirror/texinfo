@@ -13,6 +13,13 @@ void bug (char *);
 
 enum error_type { error, warning };
 
+typedef struct {
+    char *message;
+    enum error_type type;
+    int continuation;
+    SOURCE_INFO source_info;
+} ERROR_MESSAGE;
+
 void line_error (char *format, ...);
 void line_warn (char *format, ...);
 void command_error (ELEMENT *e, char *format, ...);
@@ -21,13 +28,7 @@ void wipe_errors (void);
 void line_error_ext (enum error_type type, int continuation,
                      SOURCE_INFO *cmd_source_info, char *format, ...);
 void bug_message (char *format, ...);
-
-typedef struct {
-    char *message;
-    enum error_type type;
-    int continuation;
-    SOURCE_INFO source_info;
-} ERROR_MESSAGE;
+char *prepare_error_line_message (ERROR_MESSAGE *error_message);
 
 extern ERROR_MESSAGE *error_list;
 extern size_t error_number;

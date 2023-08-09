@@ -353,11 +353,15 @@ sub _substitute_element_array ($$) {
     if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
       my $name = $_->{'args'}->[0]->{'text'};
       if ($replaced_substrings->{$name}) {
-      # FIXME set the parent?
+      # In many cases, the added element is taken from somewhere
+      # else in the tree, and therefore already has a parent, so we
+      # cannot add parent here in the general case.  We could if
+      # there is no parent already.
         $replaced_substrings->{$name};
       } else {
-        # Not possible unless @txiinternalvalue in translated string
-        ();
+        # Not possible unless @txiinternalvalue in translated string.
+        # Keep it to do the same as in the XS parser.
+        ( $_ );
       }
     } else {
       _substitute($_, $replaced_substrings);
