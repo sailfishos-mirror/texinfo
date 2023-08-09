@@ -18,5 +18,5 @@ void wipe_indices (void);
 void wipe_index (INDEX *idx);
 void reset_indices (void);
 void set_non_ignored_space_in_index_before_command (ELEMENT *content);
-void complete_indices (void);
+void complete_indices (int document_descriptor);
 #endif

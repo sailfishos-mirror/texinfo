@@ -28,6 +28,10 @@
 #include "extra.h"
 #include "commands.h"
 #include "translations.h"
+#include "document.h"
+/*
+#include "convert_to_texinfo.h"
+*/
 #include "indices.h"
 
 INDEX **index_names = 0;
@@ -389,9 +393,16 @@ ultimate_index (INDEX *index)
 }
 
 void
-complete_indices (void)
+complete_indices (int document_descriptor)
 {
   INDEX **i, *idx;
+  DOCUMENT *document;
+  INDEX **index_names;
+
+  document = retrieve_document (document_descriptor);
+
+  index_names = document->index_names;
+
   for (i = index_names; (idx = *i); i++)
     {
       if (idx->index_number > 0)
