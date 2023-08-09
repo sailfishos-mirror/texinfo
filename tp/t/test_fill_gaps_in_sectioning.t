@@ -8,7 +8,7 @@ use Test::More;
 BEGIN { plan tests => 6; }
 
 use Texinfo::Transformations;
-use Texinfo::Parser qw(parse_texi_piece);
+use Texinfo::Parser qw(parse_texi_text);
 use Texinfo::Convert::Texinfo;
 
 ok(1, "modules loading");
@@ -21,7 +21,7 @@ sub test_correction($$$;$)
   # if set, test _correct_level instead of fill_gaps_in_sectioning
   my $test_correct_level = shift;
 
-  my $document = parse_texi_piece(undef, $in);
+  my $document = parse_texi_text(undef, $in);
   my $tree = $document->tree();
 
   if (! defined($test_correct_level)) {
