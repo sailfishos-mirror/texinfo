@@ -48,20 +48,6 @@ For converter writers,
 Delayed bugs
 ============
 
-From https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
-For locales, the encoding part is normalized in a specific way.  It
-seems that iconv in the C library follows the same convention at least to
-some extent, though it is not visibly documented.
-Should we use fully the normalization of documentencoding following in some
-context (gdt?):
-  The normalized codeset value is generated from the user-provided character set name by applying the following rules:
-
-    Remove all characters besides numbers and letters.
-    Fold letters to lowercase.
-    If the same only contains digits prepend the string "iso".
-
-  So all of the above names will be normalized to iso88591. This allows the program user much more freedom in choosing the locale name.
-
 
 hyphenation: should only appear in toplevel.
 
@@ -133,6 +119,25 @@ as CSS because it is not style, but table or even line specific formatting.
 Missing tests
 =============
 
+There is a test of translation in parser in a translation in converter, in
+
+  tp/t/init_files_tests.t translation_in_parser_in_translation
+
+It would be nice to also have a translation in parser in a translation
+in parser.  That would meen having a po/gmo file where the string
+translated in the parser for @def* indices, for instance "{name} of {class}"
+is translated to a string including @def* commands, like
+@deftypeop a b c d e f        
+AA
+@end deftypeop
+
+@documentlanguage fr
+
+@deftypemethod g h i j k l
+BB
+@end deftypemethod
+
+
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 
 anchor in flushright, on an empty line, with a current byte offset.
@@ -164,58 +169,6 @@ For transliteration, use in iconv ascii//TRANSLIT?
 For nodenormalization
 Constant: uc_property_t UC_PROPERTY_DIACRITIC
 Function: bool uc_is_property (ucs4_t uc, uc_property_t property)
-
-for global_info.cm*, contents are added with
-  add_to_contents_as_array (&global_info.cmx, current)
-which allocates a new list.  In wipe_global_info the list is cleared.
-simply use memcpy?
-
-
-POSIX::setlocale: setlocale(), #include <locale.h>
-https://www.gnu.org/software/libc/manual/html_node/Setting-the-Locale.html
-
-%ENV: getenv/putenv
-Locale::Messages::nl_putenv?  putenv?
-https://www.gnu.org/software/libc/manual/html_node/Environment-Access.html
-
-bind_textdomain_codeset
-https://www.gnu.org/software/libc/manual/html_node/Charset-conversion-in-gettext.html
-The bind_textdomain_codeset function can be used to specify the output character set for message catalogs for domain domainname. The codeset argument must be a valid codeset name which can be used for the iconv_open function, or a null pointer. 
-
-for gdt, what could be self?  Can be parser, $main_configuration in rare
-cases (regenerate_master_menu), converter.
-
-get_conf that need to be implemented in C
-
-In parser (not useful):
-  $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
-$self->{'documentlanguage'} for get_conf('documentlanguage'):
-  global_documentlanguage
-(can be 0 even if ($self).)
-
-For bind_textdomain_codeset, there is no need for OUTPUT_ENCODING_NAME
-OUTPUT_PERL_ENCODING, UTF-8 will always be used.
-
-To find the locale, OUTPUT_ENCODING_NAME seems not to be available when
-$self is a parser, but always to be available in the other cases.
-
-On LANGUAGE: is it portable to use : separated list?  Ok in GNU:
-https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
-While for the LC_xxx variables the value should consist of exactly one specification of a locale the LANGUAGE variable’s value can consist of a colon separated list of locale names. The attentive reader will realize that this is the way we manage to implement one of our additional demands above: we want to be able to specify an ordered list of languages. 
-
-BUT, (most likely same as in perl, explains the whole set any locale
-before anything kludges, cf a bug report I made on libintl-perl):
-https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
-Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In other words, you have to first enable localization, by setting LANG (or LC_ALL) to a value other than ‘C’, before you can use a language priority list through the LANGUAGE variable. 
-
-probably need to use
-#ifdef ENABLE_NLS
-for example in errors.c line_error_internal
-#ifdef ENABLE_NLS
-  xvasprintf (&message, gettext(format), v);
-#else
-  xvasprintf (&message, format, v);
-#endif
 
 Note that there is a function, not currently used, that could be reused in api.c:
 find_locales_dir

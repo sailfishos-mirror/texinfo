@@ -1,5 +1,16 @@
 2023-08-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files),
+	t/init/translation_in_parser_in_translation.pm, tp/Makefile.tres,
+	tp/t/init_files_tests.t (translation_in_parser_in_translation): add
+	a test of translation in parser of def object type index entry,
+	when already in a translation (of the Next button).
+
+	* tp/Texinfo/Translations.pm: minor changes (variable name, commented
+	out debug).
+
+2023-08-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c
 	(destroy_document_information_except_tree, remove_document)
 	(unregister_tree): add unregister_tree to get the tree, destroy

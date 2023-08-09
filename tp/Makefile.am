@@ -188,6 +188,7 @@ test_files = \
  t/init/test_renamed_nodes.init \
  t/init/translate_txiinternalvalue_macro.init \
  t/init/translated_strings_customization.pm \
+ t/init/translation_in_parser_in_translation.pm \
  t/init/undef_node_file_name.init \
  t/init/spaces_in_line_breaks.init \
  t/test_utils.pl \

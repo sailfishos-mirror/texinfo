@@ -256,9 +256,12 @@ sub gdt($$;$$$)
   my $translated_string = _gdt($customization_information, $string,
                                $translation_context, $lang);
 
-  return replace_convert_substrings($customization_information,
+  my $result_tree = replace_convert_substrings($customization_information,
                                     $translated_string,
                                     $replaced_substrings);
+  #print STDERR "GDT '$string' '$translated_string' '".
+  #     Texinfo::Convert::Texinfo::convert_to_texinfo($result_tree)."'\n";
+  return $result_tree;
 }
 
 sub gdt_string($$;$$$)
@@ -297,7 +300,7 @@ sub replace_convert_substrings($$;$)
   my $translated_string = shift;
   my $replaced_substrings = shift;
 
-  my $translation_result = $translated_string;
+  my $texinfo_line = $translated_string;
 
   # we change the substituted brace-enclosed strings to internal
   # values marked by @txiinternalvalue such that their location
@@ -309,7 +312,7 @@ sub replace_convert_substrings($$;$)
   if (defined($replaced_substrings) and ref($replaced_substrings)) {
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
     # next line taken from libintl perl, copyright Guido. sub __expand
-    $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
+    $texinfo_line =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
 
   # accept @txiinternalvalue as a valid Texinfo command, used to mark
@@ -327,10 +330,10 @@ sub replace_convert_substrings($$;$)
   }
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
-    print STDERR "GDT $translation_result\n";
+    print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
-  my $tree = $parser->parse_texi_line($translation_result);
+  my $tree = $parser->parse_texi_line($texinfo_line);
   my $registrar = $parser->registered_errors();
   my ($errors, $errors_count) = $registrar->errors();
   if ($errors_count) {

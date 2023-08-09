@@ -126,6 +126,22 @@ Text@footnote{In footnote}.
 
 ',{'init_files' => ['documentation_examples.pm']},
 ],
+# tests translation in parser of def object type index entry, when already
+# in a translation (of the Next button).
+['translation_in_parser_in_translation',
+'@documentlanguage fr
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@deftypeop da db dc dd de
+DOC
+@end deftypeop
+
+', {'init_files' => ['translation_in_parser_in_translation.pm']}],
 );
 
 foreach my $test (@test_cases) {

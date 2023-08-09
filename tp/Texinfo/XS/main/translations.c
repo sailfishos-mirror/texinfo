@@ -446,7 +446,7 @@ replace_convert_substrings (char *translated_string,
    */
   document_descriptor = parse_string (texinfo_line, 1);
 
-  debug ("GDT %s", texinfo_line);
+  debug ("IN TR PARSER ' %s'", texinfo_line);
 
   if (error_number > 0)
     {
