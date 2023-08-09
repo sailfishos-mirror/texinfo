@@ -87,6 +87,8 @@ sub line_warn($$$$;$$)
 
   if (defined($error_location_info->{'macro'})
       and $error_location_info->{'macro'} ne '') {
+    # TODO change the context to "Texinfo source file warning in a macro"
+    # when nearing the release
     $warn_line = sprintf(__p("Texinfo source file warning",
                              "warning: %s (possibly involving \@%s)")."\n",
                          $text, $error_location_info->{'macro'});
@@ -121,10 +123,14 @@ sub line_error($$$$;$)
   chomp ($text);
 
   if (defined($error_location_info)) {
-    my $macro_text = '';
-    $macro_text = " (possibly involving \@$error_location_info->{'macro'})"
-       if ($error_location_info->{'macro'} ne '');
-    my $error_text = "$text$macro_text\n";
+    my $error_text;
+    if ($error_location_info->{'macro'} ne '') {
+      $error_text = sprintf(__p("Texinfo source file error in macro",
+                            "%s (possibly involving \@%s)")."\n",
+                         $text, $error_location_info->{'macro'});
+    } else {
+      $error_text = $text."\n";
+    }
     warn $error_text if (defined($configuration_information)
                          and $configuration_information->get_conf('DEBUG')
                          and not $silent);
