@@ -186,6 +186,7 @@ $result_trees{'transparent_sort_chars'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -224,6 +225,7 @@ $result_trees{'transparent_sort_chars'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -262,6 +264,7 @@ $result_trees{'transparent_sort_chars'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

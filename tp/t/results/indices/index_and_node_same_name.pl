@@ -112,6 +112,7 @@ $result_trees{'index_and_node_same_name'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

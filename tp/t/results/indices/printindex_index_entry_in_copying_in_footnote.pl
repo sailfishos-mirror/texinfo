@@ -71,6 +71,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                     ]
                                   },
                                   'info' => {
+                                    'command_name' => 'cindex',
                                     'spaces_before_argument' => {
                                       'text' => ' '
                                     }

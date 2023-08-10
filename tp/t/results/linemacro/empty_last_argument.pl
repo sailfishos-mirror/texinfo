@@ -202,6 +202,7 @@ $result_trees{'empty_last_argument'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'BIindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -335,6 +336,7 @@ $result_trees{'empty_last_argument'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'BIindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -481,6 +483,7 @@ $result_trees{'empty_last_argument'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'BIindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

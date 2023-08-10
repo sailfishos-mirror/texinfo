@@ -806,6 +806,7 @@ $result_trees{'at_commands_in_raw'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'findex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

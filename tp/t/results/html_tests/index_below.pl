@@ -148,6 +148,7 @@ $result_trees{'index_below'} = [
               ]
             },
             'info' => {
+              'command_name' => 'cindex',
               'spaces_before_argument' => {
                 'text' => ' '
               }

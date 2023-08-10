@@ -166,6 +166,7 @@ $result_trees{'float_copying'} = {
                                             ]
                                           },
                                           'info' => {
+                                            'command_name' => 'cindex',
                                             'spaces_before_argument' => {
                                               'text' => ' '
                                             }
@@ -203,6 +204,7 @@ $result_trees{'float_copying'} = {
                                             ]
                                           },
                                           'info' => {
+                                            'command_name' => 'findex',
                                             'spaces_before_argument' => {
                                               'text' => ' '
                                             }
@@ -345,6 +347,7 @@ $result_trees{'float_copying'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }
@@ -382,6 +385,7 @@ $result_trees{'float_copying'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'findex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }

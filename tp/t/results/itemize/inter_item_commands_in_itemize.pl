@@ -205,6 +205,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -350,6 +351,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -429,6 +431,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -575,6 +578,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

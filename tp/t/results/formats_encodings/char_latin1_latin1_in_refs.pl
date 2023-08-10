@@ -981,6 +981,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1018,6 +1019,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1055,6 +1057,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1092,6 +1095,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1129,6 +1133,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1166,6 +1171,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

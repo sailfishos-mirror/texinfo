@@ -587,6 +587,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -892,6 +893,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

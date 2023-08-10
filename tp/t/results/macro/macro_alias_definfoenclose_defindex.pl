@@ -447,6 +447,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'phooindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -705,6 +706,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'phooindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1033,6 +1035,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'phooindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

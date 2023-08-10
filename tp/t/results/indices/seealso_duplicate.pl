@@ -144,6 +144,7 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -269,6 +270,7 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

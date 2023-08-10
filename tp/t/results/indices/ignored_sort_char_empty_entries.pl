@@ -150,6 +150,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -188,6 +189,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -226,6 +228,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'index_ignore_chars' => '-'
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -287,6 +290,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'sortas' => '--'
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

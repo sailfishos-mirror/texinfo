@@ -71,6 +71,7 @@ $result_trees{'before_node_and_section'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

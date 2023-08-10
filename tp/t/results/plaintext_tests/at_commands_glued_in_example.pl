@@ -405,6 +405,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

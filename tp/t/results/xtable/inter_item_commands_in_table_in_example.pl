@@ -113,6 +113,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                     ]
                                   },
                                   'info' => {
+                                    'command_name' => 'cindex',
                                     'spaces_before_argument' => {
                                       'text' => ' '
                                     }

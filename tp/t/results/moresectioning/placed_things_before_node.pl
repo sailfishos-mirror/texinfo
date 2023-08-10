@@ -499,6 +499,7 @@ $result_trees{'placed_things_before_node'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

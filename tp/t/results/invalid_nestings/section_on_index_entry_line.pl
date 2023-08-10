@@ -33,6 +33,7 @@ $result_trees{'section_on_index_entry_line'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

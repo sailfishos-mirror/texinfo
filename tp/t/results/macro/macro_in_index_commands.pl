@@ -833,6 +833,7 @@ $result_trees{'macro_in_index_commands'} = {
             ]
           },
           'info' => {
+            'command_name' => 'trucindex',
             'spaces_before_argument' => {
               'source_marks' => [
                 {
@@ -964,6 +965,7 @@ $result_trees{'macro_in_index_commands'} = {
             ]
           },
           'info' => {
+            'command_name' => 'codeidxindex',
             'spaces_before_argument' => {
               'source_marks' => [
                 {
@@ -1033,6 +1035,7 @@ $result_trees{'macro_in_index_commands'} = {
             ]
           },
           'info' => {
+            'command_name' => 'kindex',
             'spaces_before_argument' => {
               'source_marks' => [
                 {
@@ -1114,6 +1117,7 @@ $result_trees{'macro_in_index_commands'} = {
             ]
           },
           'info' => {
+            'command_name' => 'pindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

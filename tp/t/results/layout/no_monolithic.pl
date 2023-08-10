@@ -153,6 +153,7 @@ $result_trees{'no_monolithic'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

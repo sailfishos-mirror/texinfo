@@ -249,6 +249,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -291,6 +292,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             ]
           },
           'info' => {
+            'command_name' => 'vindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -333,6 +335,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -454,6 +457,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cdiindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -575,6 +579,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             ]
           },
           'info' => {
+            'command_name' => 'ddiindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

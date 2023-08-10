@@ -246,6 +246,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

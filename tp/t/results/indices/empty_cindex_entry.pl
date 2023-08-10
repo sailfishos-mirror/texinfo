@@ -83,6 +83,9 @@ $result_trees{'empty_cindex_entry'} = {
           'extra' => {
             'missing_argument' => 1
           },
+          'info' => {
+            'command_name' => 'cindex'
+          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,

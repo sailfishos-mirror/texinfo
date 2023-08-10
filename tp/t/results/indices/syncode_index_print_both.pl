@@ -211,6 +211,7 @@ $result_trees{'syncode_index_print_both'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -248,6 +249,7 @@ $result_trees{'syncode_index_print_both'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

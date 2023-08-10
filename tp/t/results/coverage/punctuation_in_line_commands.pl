@@ -612,6 +612,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

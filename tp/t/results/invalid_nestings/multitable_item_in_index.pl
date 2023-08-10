@@ -75,6 +75,7 @@ $result_trees{'multitable_item_in_index'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'vindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

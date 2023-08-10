@@ -159,6 +159,7 @@ $result_trees{'subentries'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -227,6 +228,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -327,6 +329,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -459,6 +462,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -504,6 +508,7 @@ $result_trees{'subentries'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -572,6 +577,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -672,6 +678,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -804,6 +811,7 @@ $result_trees{'subentries'} = {
             }
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

@@ -220,6 +220,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -365,6 +366,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -444,6 +446,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -590,6 +593,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -834,6 +838,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -973,6 +978,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -1102,6 +1108,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -1242,6 +1249,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -1374,6 +1382,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -1421,6 +1430,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -1458,6 +1468,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -1973,6 +1984,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                             ]
                           },
                           'info' => {
+                            'command_name' => 'cindex',
                             'spaces_before_argument' => {
                               'text' => ' '
                             }
@@ -2297,6 +2309,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -2472,6 +2485,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -2641,6 +2655,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -2816,6 +2831,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -2988,6 +3004,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -3151,6 +3168,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -3326,6 +3344,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -3479,6 +3498,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -3526,6 +3546,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -3563,6 +3584,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

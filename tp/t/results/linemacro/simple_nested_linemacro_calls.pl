@@ -531,6 +531,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

@@ -568,6 +568,7 @@ $result_trees{'no_element'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

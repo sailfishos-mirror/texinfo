@@ -357,6 +357,7 @@ $result_trees{'comment_space_command_on_line'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

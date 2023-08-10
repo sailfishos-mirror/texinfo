@@ -52,6 +52,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -197,6 +198,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -239,6 +241,7 @@ $result_trees{'index_no_node_no_top'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }
@@ -358,6 +361,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -394,6 +398,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -430,6 +435,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -466,6 +472,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -502,6 +509,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -538,6 +546,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -627,6 +636,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -743,6 +753,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -785,6 +796,7 @@ $result_trees{'index_no_node_no_top'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }
@@ -894,6 +906,7 @@ $result_trees{'index_no_node_no_top'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -975,6 +988,7 @@ $result_trees{'index_no_node_no_top'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

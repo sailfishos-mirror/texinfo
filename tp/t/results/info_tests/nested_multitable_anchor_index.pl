@@ -210,6 +210,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                 ]
                                               },
                                               'info' => {
+                                                'command_name' => 'cindex',
                                                 'spaces_before_argument' => {
                                                   'text' => ' '
                                                 }
@@ -428,6 +429,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }

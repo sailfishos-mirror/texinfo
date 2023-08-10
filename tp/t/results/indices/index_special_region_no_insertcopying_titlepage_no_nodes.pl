@@ -71,6 +71,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -203,6 +204,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }
@@ -365,6 +367,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -490,6 +493,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }
@@ -756,6 +760,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -787,6 +792,9 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'missing_argument' => 1
+          },
+          'info' => {
+            'command_name' => 'cindex'
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1360,6 +1368,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1402,6 +1411,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

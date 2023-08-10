@@ -98,6 +98,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -135,6 +136,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -172,6 +174,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -209,6 +212,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -321,6 +325,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -358,6 +363,7 @@ $result_trees{'printindex_between_node_section'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

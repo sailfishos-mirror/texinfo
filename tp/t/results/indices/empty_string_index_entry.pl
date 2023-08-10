@@ -108,6 +108,7 @@ $result_trees{'empty_string_index_entry'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

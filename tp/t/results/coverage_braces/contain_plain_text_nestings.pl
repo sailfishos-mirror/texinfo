@@ -331,6 +331,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                 'sortas' => ' text'
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }
@@ -629,6 +630,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                 'sortas' => ' text'
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

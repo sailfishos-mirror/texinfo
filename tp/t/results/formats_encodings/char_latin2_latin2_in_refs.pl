@@ -415,6 +415,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

@@ -240,6 +240,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -278,6 +279,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -316,6 +318,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -354,6 +357,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -392,6 +396,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -445,6 +450,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -781,6 +787,7 @@ $result_trees{'indices'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -820,6 +827,7 @@ $result_trees{'indices'} = {
             'index_ignore_chars' => '\\'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -881,6 +889,7 @@ $result_trees{'indices'} = {
             'sortas' => '\\cmd'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -968,6 +977,7 @@ $result_trees{'indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -1049,6 +1059,7 @@ $result_trees{'indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

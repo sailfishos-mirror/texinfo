@@ -3618,6 +3618,8 @@ sub _end_line_misc_line($$$)
   } else {
     if ($self->{'command_index'}->{$current->{'cmdname'}}) {
       $current->{'type'} = 'index_entry_command';
+      $current->{'info'} = {} if (!$current->{'info'});
+      $current->{'info'}->{'command_name'} = $current->{'cmdname'};
     }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top is allowed
@@ -8165,6 +8167,8 @@ is:
 
 the C<@fooindex> @-command element will have the I<index_entry_command>
 type.
+
+The command name is the info I<command_name> value.
 
 =back
 

@@ -184,6 +184,7 @@ $result_trees{'cindex_in_caption'} = {
                             ]
                           },
                           'info' => {
+                            'command_name' => 'cindex',
                             'spaces_before_argument' => {
                               'text' => ' '
                             }

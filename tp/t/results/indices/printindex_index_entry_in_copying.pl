@@ -56,6 +56,7 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'findex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

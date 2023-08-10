@@ -263,6 +263,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'trucindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -419,6 +420,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'codeidxindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -461,6 +463,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -543,6 +546,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'kindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -580,6 +584,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'pindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -810,6 +815,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'defgindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -852,6 +858,7 @@ $result_trees{'def_syn_indices'} = {
             ]
           },
           'info' => {
+            'command_name' => 'abcindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

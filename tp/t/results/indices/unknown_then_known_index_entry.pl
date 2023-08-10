@@ -78,6 +78,7 @@ $result_trees{'unknown_then_known_index_entry'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'someindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

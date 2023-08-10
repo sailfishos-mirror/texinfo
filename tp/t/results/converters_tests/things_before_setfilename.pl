@@ -663,6 +663,7 @@ $result_trees{'things_before_setfilename'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

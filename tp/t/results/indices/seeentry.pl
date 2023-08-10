@@ -182,6 +182,7 @@ $result_trees{'seeentry'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -242,6 +243,7 @@ $result_trees{'seeentry'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -307,6 +309,7 @@ $result_trees{'seeentry'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -367,6 +370,7 @@ $result_trees{'seeentry'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

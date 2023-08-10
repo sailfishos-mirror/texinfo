@@ -240,6 +240,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             'sortas' => 'A---S'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -306,6 +307,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             'sortas' => 'BB'
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -372,6 +374,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

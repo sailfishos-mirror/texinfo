@@ -140,6 +140,7 @@ $result_trees{'syncodeindex_to_plain'} = {
             ]
           },
           'info' => {
+            'command_name' => 'kindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -177,6 +178,7 @@ $result_trees{'syncodeindex_to_plain'} = {
             ]
           },
           'info' => {
+            'command_name' => 'vindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -214,6 +216,7 @@ $result_trees{'syncodeindex_to_plain'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

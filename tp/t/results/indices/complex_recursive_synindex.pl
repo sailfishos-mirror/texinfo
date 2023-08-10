@@ -407,6 +407,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'eeeindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -518,6 +519,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cccindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -555,6 +557,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'bbbindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -592,6 +595,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'aaaindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -629,6 +633,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'dddindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -666,6 +671,7 @@ $result_trees{'complex_recursive_synindex'} = {
             ]
           },
           'info' => {
+            'command_name' => 'eeeindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

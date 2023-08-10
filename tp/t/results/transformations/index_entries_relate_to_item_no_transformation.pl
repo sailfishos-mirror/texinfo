@@ -223,6 +223,7 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -260,6 +261,7 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }
@@ -297,6 +299,7 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

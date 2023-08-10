@@ -44,6 +44,7 @@ $result_trees{'raw_block_on_line'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

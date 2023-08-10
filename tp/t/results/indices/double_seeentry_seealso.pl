@@ -214,6 +214,7 @@ $result_trees{'double_seeentry_seealso'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -296,6 +297,7 @@ $result_trees{'double_seeentry_seealso'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -379,6 +381,7 @@ $result_trees{'double_seeentry_seealso'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -486,6 +489,7 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

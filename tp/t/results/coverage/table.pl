@@ -246,6 +246,7 @@ $result_trees{'table'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -344,6 +345,7 @@ $result_trees{'table'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'kindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

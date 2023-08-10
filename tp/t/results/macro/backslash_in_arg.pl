@@ -194,6 +194,7 @@ $result_trees{'backslash_in_arg'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -262,6 +263,7 @@ $result_trees{'backslash_in_arg'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -333,6 +335,7 @@ $result_trees{'backslash_in_arg'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -401,6 +404,7 @@ $result_trees{'backslash_in_arg'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

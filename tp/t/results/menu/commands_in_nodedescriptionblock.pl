@@ -468,6 +468,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

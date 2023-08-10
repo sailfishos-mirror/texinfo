@@ -270,6 +270,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                             ]
                           },
                           'info' => {
+                            'command_name' => 'cindex',
                             'spaces_before_argument' => {
                               'text' => ' '
                             }
@@ -343,6 +344,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'cindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

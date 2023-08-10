@@ -227,6 +227,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -307,6 +308,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -421,6 +423,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -517,6 +520,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

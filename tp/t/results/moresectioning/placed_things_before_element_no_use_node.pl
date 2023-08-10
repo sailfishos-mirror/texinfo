@@ -496,6 +496,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

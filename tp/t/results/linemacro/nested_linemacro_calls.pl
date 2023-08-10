@@ -454,6 +454,7 @@ $result_trees{'nested_linemacro_calls'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'source_marks' => [
                         {

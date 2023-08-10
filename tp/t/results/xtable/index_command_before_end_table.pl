@@ -145,6 +145,7 @@ $result_trees{'index_command_before_end_table'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'vindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

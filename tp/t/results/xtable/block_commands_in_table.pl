@@ -807,6 +807,7 @@ $result_trees{'block_commands_in_table'} = {
                         ]
                       },
                       'info' => {
+                        'command_name' => 'vindex',
                         'spaces_before_argument' => {
                           'text' => ' '
                         }

@@ -280,6 +280,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }
@@ -587,6 +588,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'cindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }

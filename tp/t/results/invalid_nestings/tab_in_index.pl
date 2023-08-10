@@ -118,6 +118,7 @@ $result_trees{'tab_in_index'} = {
                                 ]
                               },
                               'info' => {
+                                'command_name' => 'vindex',
                                 'spaces_before_argument' => {
                                   'text' => ' '
                                 }

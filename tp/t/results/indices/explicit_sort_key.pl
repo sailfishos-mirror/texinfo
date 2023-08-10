@@ -187,6 +187,7 @@ $result_trees{'explicit_sort_key'} = {
             'sortas' => 'A'
           },
           'info' => {
+            'command_name' => 'SKindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -247,6 +248,7 @@ $result_trees{'explicit_sort_key'} = {
             'sortas' => 'B'
           },
           'info' => {
+            'command_name' => 'SKindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -307,6 +309,7 @@ $result_trees{'explicit_sort_key'} = {
             'sortas' => '0'
           },
           'info' => {
+            'command_name' => 'SKindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -377,6 +380,7 @@ $result_trees{'explicit_sort_key'} = {
             ]
           },
           'info' => {
+            'command_name' => 'SKindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

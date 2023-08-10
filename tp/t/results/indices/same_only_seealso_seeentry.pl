@@ -192,6 +192,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -252,6 +253,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -317,6 +319,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -377,6 +380,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -442,6 +446,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seealso' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -502,6 +507,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
             'seeentry' => {}
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

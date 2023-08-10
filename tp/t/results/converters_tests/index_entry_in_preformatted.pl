@@ -179,6 +179,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -234,6 +235,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
@@ -275,6 +277,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                     ]
                   },
                   'info' => {
+                    'command_name' => 'cindex',
                     'spaces_before_argument' => {
                       'text' => ' '
                     }

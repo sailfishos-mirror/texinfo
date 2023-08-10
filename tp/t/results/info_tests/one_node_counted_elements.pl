@@ -40,6 +40,7 @@ $result_trees{'one_node_counted_elements'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }
@@ -138,6 +139,7 @@ $result_trees{'one_node_counted_elements'} = {
                 ]
               },
               'info' => {
+                'command_name' => 'cindex',
                 'spaces_before_argument' => {
                   'text' => ' '
                 }

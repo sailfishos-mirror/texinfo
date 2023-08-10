@@ -328,6 +328,7 @@ $result_trees{'index_entry_at_end_node'} = {
             ]
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }

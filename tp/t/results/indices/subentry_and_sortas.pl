@@ -236,6 +236,7 @@ $result_trees{'subentry_and_sortas'} = {
             }
           },
           'info' => {
+            'command_name' => 'cindex',
             'spaces_before_argument' => {
               'text' => ' '
             }
@@ -356,6 +357,7 @@ $result_trees{'subentry_and_sortas'} = {
             }
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

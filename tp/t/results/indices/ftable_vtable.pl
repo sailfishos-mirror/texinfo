@@ -559,6 +559,7 @@ $result_trees{'ftable_vtable'} = {
             ]
           },
           'info' => {
+            'command_name' => 'findex',
             'spaces_before_argument' => {
               'text' => ' '
             }

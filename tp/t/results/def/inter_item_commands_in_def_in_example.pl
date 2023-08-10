@@ -258,6 +258,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             ]
                           },
                           'info' => {
+                            'command_name' => 'cindex',
                             'spaces_before_argument' => {
                               'text' => ' '
                             }
@@ -408,6 +409,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             ]
                           },
                           'info' => {
+                            'command_name' => 'cindex',
                             'spaces_before_argument' => {
                               'text' => ' '
                             }

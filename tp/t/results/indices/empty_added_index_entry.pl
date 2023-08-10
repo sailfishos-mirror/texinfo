@@ -129,6 +129,9 @@ $result_trees{'empty_added_index_entry'} = {
           'extra' => {
             'missing_argument' => 1
           },
+          'info' => {
+            'command_name' => 'myindex'
+          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
