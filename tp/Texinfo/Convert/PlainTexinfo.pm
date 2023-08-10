@@ -74,17 +74,13 @@ sub convert_tree($$)
   return $self->_convert($root);
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
-
-  if (defined($document->{'document_descriptor'})) {
-    return _convert_with_XS($self, $document, 1);
-  }
-
-  return Texinfo::Convert::Converter::output($self, $document);
-}
+#sub output($$)
+#{
+#  my $self = shift;
+#  my $document = shift;
+#
+#  return Texinfo::Convert::Converter::output($self, $document);
+#}
 
 sub convert($$)
 {
@@ -101,15 +97,12 @@ sub convert($$)
 
 # This is used if the tree is available for XS, but XS is not
 # used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_with_XS($$;$)
+sub _convert_with_XS($$)
 {
   my $self = shift;
   my $document = shift;
-  my $output = shift;
 
   my $root = $document->tree();
-
-  return Texinfo::Convert::Converter::output($self, $document) if ($output);
 
   return $self->_convert($root);
 }

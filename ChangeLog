@@ -1,5 +1,10 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/PlainTexinfo.pm (_convert_with_XS): remove
+	output() as the XS converrter is not ready yet.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl: use Texinfo::Convert::PlainTexinfo consistently
 	to output file and compare.
 
