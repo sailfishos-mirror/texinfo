@@ -1,5 +1,10 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/init/translation_in_parser_in_translation.pm: use more specific
+	name for function to avoid clash with other init files.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	Remove simple_parser
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/Texinfo/ParserNonXS.pm

@@ -39,7 +39,7 @@ DD
 '},
 });
 
-sub _texi2any_tests_format_translate_message_tree($$$;$$)
+sub _texi2any_test_translation_in_parser_format_translate_message_tree($$$;$$)
 {
   my ($self, $string, $lang, $replaced_substrings,
                               $translation_context) = @_;
@@ -55,7 +55,7 @@ sub _texi2any_tests_format_translate_message_tree($$$;$$)
 }
 
 texinfo_register_formatting_function('format_translate_message_tree',
-                              \&_texi2any_tests_format_translate_message_tree);
+       \&_texi2any_test_translation_in_parser_format_translate_message_tree);
 
 # there are no indices id output for the @def* commands used in Next
 # button translation, as their index information is with the tree used
