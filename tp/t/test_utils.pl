@@ -1031,12 +1031,10 @@ sub test($$)
         or $converter_options->{'SIMPLE_MENU'});
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    my ($filled_contents, $added_sections)
+    my $added_sections
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-    if (!defined($filled_contents)) {
+    if (!defined($added_sections)) {
       warn "$test_name: fill_gaps_in_sectioning transformation return no result. No section?\n";
-    } else {
-      $tree->{'contents'} = $filled_contents;
     }
   }
 
