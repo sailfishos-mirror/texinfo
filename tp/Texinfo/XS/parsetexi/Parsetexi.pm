@@ -73,7 +73,7 @@ sub get_conf($$)
 {
   my $self = shift;
   my $var = shift;
-  return $self->{$var};
+  return $self->{'conf'}->{$var};
 }
 
 sub simple_parser {
@@ -98,8 +98,16 @@ sub parser (;$$)
       }
     }
   }
+  # restrict variables found by get_conf, and set the values to the
+  # parser initialization values only.  What is found in the document
+  # has no effect.
+  $parser->{'conf'} = {};
+  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
+    $parser->{'conf'}->{$key} = $parser->{$key};
+  }
 
-  # pass directly DEBUG configuration to reset_parser to override previous
+
+  # pass directly DEBUG value to reset_parser to override previous
   # parser configuration, as the configuration isn't already reset and the new
   # configuration is set afterwards.
   my $debug = 0;

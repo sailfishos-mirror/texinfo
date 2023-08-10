@@ -159,6 +159,10 @@ my %parser_state_initialization = (
                                     # mime type encoding names
   # initialization of information returned by global_information()
   'info' => {},
+  # for get_conf, set for all the configuration keys that are also in
+  # %Texinfo::Common::default_parser_customization_values to the
+  # values set at parser initialization
+  'conf' => {},
 );
 
 # configurable parser state
@@ -585,6 +589,7 @@ sub parser(;$$)
   $parser->{'close_paragraph_commands'} = {%default_close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
+  # following is common with simple_parser
   # other initializations
   $parser->{'definfoenclose'} = {};
   $parser->{'source_mark_counters'} = {};
@@ -595,7 +600,6 @@ sub parser(;$$)
   $parser->{'nesting_context'}->{'regions_stack'} = [];
   $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
 
-  # following is common with simple_parser
   $parser->_init_context_stack();
 
   # turn the array to a hash for speed.  Not sure it really matters for such
@@ -650,6 +654,11 @@ sub simple_parser(;$)
   $parser->{'definfoenclose'} = {};
   $parser->{'source_mark_counters'} = {};
   $parser->{'nesting_context'} = {%nesting_context_init};
+  $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
+  $parser->{'nesting_context'}->{'regions_stack'} = [];
+  $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
 
   $parser->_init_context_stack();
 
@@ -669,7 +678,7 @@ sub simple_parser(;$)
 sub get_conf($$)
 {
   my ($self, $var) = @_;
-  return $self->{$var};
+  return $self->{'conf'}->{$var};
 }
 
 sub _new_text_input($$)
@@ -971,6 +980,12 @@ sub _setup_conf($$)
         warn "ignoring parser configuration value \"$key\"\n";
       }
     }
+  }
+  # restrict variables found by get_conf, and set the values to the
+  # parser initialization values only.  What is found in the document
+  # has no effect.
+  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
+    $parser->{'conf'}->{$key} = $parser->{$key};
   }
 }
 
@@ -4412,7 +4427,7 @@ sub _end_line($$$)
         # as the source marks are either associated to the menu description
         # or to the empty line after the menu description.  Leave a message
         # in case it happens in the future/some unexpected case.
-        if ($self->get_conf('TEST')
+        if ($self->{'TEST'}
             and $empty_preformatted->{'source_marks'}) {
           print STDERR "BUG: source_marks in menu description preformatted\n";
         }
@@ -7417,7 +7432,7 @@ sub _parse_texi($$$)
     die;
   }
 
-  # Setup labels info and nodes list based on 'labels_list'
+  # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
   Texinfo::Translations::complete_indices($self, $self->{'index_names'});

@@ -1,5 +1,15 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_conf, parser),
+	tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
+	(_setup_conf, get_conf): restrict variables found by get_conf, and set
+	the values to the parser initialization values only.  What is found in
+	the document has no effect.
+
+	* tp/Texinfo/ParserNonXS.pm (simple_parser): more initializations.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
 	tp/Texinfo/Convert/DocBook.pm (_convert),
