@@ -41,7 +41,9 @@ plain_texinfo_convert (DOCUMENT *document)
     }
   result = convert_to_texinfo (document->tree);
 
+  /*
   fprintf (stderr, "EXPERIMENTAL: using XS: '%.100s'\n", result);
+   */
 
   return result;
 }
