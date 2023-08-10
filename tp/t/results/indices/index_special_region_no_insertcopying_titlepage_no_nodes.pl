@@ -792,7 +792,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
             'file_name' => 'index_special_region_no_insertcopying.texi',
             'line_nr' => 44,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         },
         {
           'cmdname' => 'deffn',

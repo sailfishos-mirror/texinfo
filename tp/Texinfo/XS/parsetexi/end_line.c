@@ -1578,6 +1578,10 @@ end_line_misc_line (ELEMENT *current)
     }
   else
     {
+      if (command_flags(current) & CF_index_entry_command)
+        {
+          current->type = ET_index_entry_command;
+        }
       /* All the other "line" commands. Check they have an argument. Empty 
          @top is allowed. */
       if (current->args.list[0]->contents.number == 0
@@ -1600,7 +1604,6 @@ end_line_misc_line (ELEMENT *current)
           /* Index commands */
             {
               enter_index_entry (current->cmd, current);
-              current->type = ET_index_entry_command;
             }
           /* if there is a brace command interrupting an index or subentry
              command, replace the internal internal_spaces_before_brace_in_index

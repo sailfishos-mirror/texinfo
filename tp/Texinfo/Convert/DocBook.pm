@@ -813,13 +813,14 @@ sub _convert($$;$)
       }
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $end_line;
-      if ($element->{'args'}->[0]) {
+      if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
+          # this condition is probably always true
+          and $element->{'args'}->[0]) {
         $end_line = $self->format_comment_or_return_end_line($element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
         }
       } else {
-        # May that happen?
         $end_line = '';
       }
       return $self->_index_entry($element).${end_line};

@@ -755,7 +755,8 @@ sub _convert($$;$)
         unshift @close_format_elements, 'entry';
       } # otherwise we have an incorrect construct, for instance
         # out of block commands @item, @itemx in enumerate or multitable...
-    } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+    } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command'
+             and $element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
       my ($index_entry, $index_info)
         = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
                                               $self->{'indices_information'});

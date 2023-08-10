@@ -3664,6 +3664,9 @@ sub _end_line_misc_line($$$)
   } elsif ($command eq 'listoffloats') {
     _parse_float_type($current);
   } else {
+    if ($self->{'command_index'}->{$current->{'cmdname'}}) {
+      $current->{'type'} = 'index_entry_command';
+    }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top is allowed
     if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
@@ -3680,7 +3683,6 @@ sub _end_line_misc_line($$$)
       } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'cmdname'},
                            $current, $source_info);
-        $current->{'type'} = 'index_entry_command';
       }
       # if there is a brace command interrupting an index or subentry
       # command, replace the internal internal_spaces_before_brace_in_index

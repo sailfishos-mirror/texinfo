@@ -1,5 +1,13 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): set
+	index_entry_command for empty index entry commands.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/09indices.t (empty_added_index_entry):
 	add test for defined index empty entry.
 

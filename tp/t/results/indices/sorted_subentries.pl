@@ -1417,7 +1417,8 @@ $result_trees{'sorted_subentries'} = {
             'file_name' => '',
             'line_nr' => 26,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         },
         {},
         {

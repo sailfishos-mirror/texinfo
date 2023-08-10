@@ -133,7 +133,8 @@ $result_trees{'empty_added_index_entry'} = {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         }
       ],
       'extra' => {

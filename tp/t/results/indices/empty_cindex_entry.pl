@@ -87,7 +87,8 @@ $result_trees{'empty_cindex_entry'} = {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         }
       ],
       'extra' => {

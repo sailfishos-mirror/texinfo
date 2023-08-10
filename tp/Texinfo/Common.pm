@@ -1529,6 +1529,9 @@ sub lookup_index_entry($$)
   my $index_entry_info = shift;
   my $indices_information = shift;
 
+  if (!defined($index_entry_info)) {
+    cluck ("BUG: lookup_index_entry: index_entry_info undef\n");
+  }
   my ($entry_index_name, $entry_number) = @{$index_entry_info};
 
   my $index_info;
