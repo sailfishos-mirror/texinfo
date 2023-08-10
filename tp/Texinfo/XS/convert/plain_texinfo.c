@@ -15,17 +15,6 @@
 
 #include <config.h>
 
-#define PERL_NO_GET_CONTEXT
-
-#include "EXTERN.h"
-#include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-# undef free
-#endif
-#include "XSUB.h"
-
-#include "ppport.h"
-
 #include "plain_texinfo.h"
 #include "convert_to_texinfo.h"
 #include "document.h"
@@ -47,3 +36,4 @@ plain_texinfo_convert (DOCUMENT *document)
 
   return result;
 }
+

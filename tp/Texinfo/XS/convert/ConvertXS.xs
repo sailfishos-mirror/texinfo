@@ -39,11 +39,12 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
+# use SV for the converters, in particular to accept undef
+
 SV *
-plain_texinfo_convert (converter, document_in, ...)
-        HV *converter
+plain_texinfo_convert (converter, document_in)
+        SV *converter
         HV *document_in
-    PROTOTYPE: $$;$
     PREINIT:
         char *result;
         SV** document_descriptor_sv;
@@ -63,5 +64,32 @@ plain_texinfo_convert (converter, document_in, ...)
         SvUTF8_on (RETVAL);
     OUTPUT:
         RETVAL
+
+
+SV *
+plain_texinfo_convert_tree (converter, root_in)
+        SV *converter
+        HV *root_in
+    PREINIT:
+        char *result;
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+    CODE:
+        document_descriptor_sv = hv_fetch (root_in, "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        result = plain_texinfo_convert (document);
+        RETVAL = newSVpv (result, strlen(result));
+        SvUTF8_on (RETVAL);
+    OUTPUT:
+        RETVAL
+
+
 
 

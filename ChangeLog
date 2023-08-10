@@ -1,5 +1,26 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert_tree): XS
+	function finding the document based on a tree and converting to
+	Texinfo.  Use SV * for converters to allow for undef converter.
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (import)
+	(_convert_document_with_XS, _convert_tree_with_XS, convert)
+	(convert_tree): rename _convert_with_XS as _convert_document_with_XS.
+	Add _convert_tree_with_XS, overriden with XS function and use it for
+	convert_tree.
+
+	* tp/Texinfo/Convert/Texinfo.pm (import, convert_to_texinfo)
+	(_convert_to_texinfo, _convert_tree_with_XS): in convert_to_texinfo
+	call _convert_tree_with_XS if there is an XS tree associated to the
+	perl tree.  Override _convert_tree_with_XS with ConvertXS
+	plain_texinfo_convert_tree.  Add _convert_to_texinfo to do the actual
+	conversion in case it is done in pure Perl.
+
+	* tp/Texinfo/XS/convert/plain_texinfo.c: remove Perl headers includes.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/PlainTexinfo.pm (convert_tree, convert)
 	(_convert_with_XS): call directly
 	Texinfo::Convert::Texinfo::convert_to_texinfo.  Remove _convert.

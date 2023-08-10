@@ -28,6 +28,8 @@ use strict;
 
 use Carp qw(cluck confess);
 
+use Texinfo::Convert::ConvertXS;
+
 # commands definitions
 use Texinfo::Commands;
 # get_label_element
@@ -47,6 +49,23 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1';
 
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+      # We do not simply override, we must check at runtime
+      # that the document tree was stored by the XS parser.
+      Texinfo::XSLoader::override(
+        "Texinfo::Convert::Texinfo::_convert_tree_with_XS",
+        "Texinfo::Convert::ConvertXS::plain_texinfo_convert_tree"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 my %brace_commands           = %Texinfo::Commands::brace_commands;
 my %block_commands           = %Texinfo::Commands::block_commands;
@@ -115,6 +134,17 @@ sub convert_to_texinfo($)
 {
   my $element = shift;
 
+  if (defined($element->{'tree_document_descriptor'})) {
+    return _convert_tree_with_XS(undef, $element);
+  }
+  return _convert_to_texinfo($element);
+}
+
+sub _convert_to_texinfo($);
+sub _convert_to_texinfo($)
+{
+  my $element = shift;
+
   confess "convert_to_texinfo: element undef" if (!defined($element));
   confess "convert_to_texinfo: bad element type (".ref($element).") $element"
      if (ref($element) ne 'HASH');
@@ -141,14 +171,14 @@ sub convert_to_texinfo($)
     }
     if (defined($element->{'contents'})) {
       foreach my $child (@{$element->{'contents'}}) {
-        $result .= convert_to_texinfo($child);
+        $result .= _convert_to_texinfo($child);
       }
     }
     if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
       $result .= $element->{'info'}->{'spaces_after_argument'}->{'text'};
     }
     if ($element->{'info'} and $element->{'info'}->{'comment_at_end'}) {
-      $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'})
+      $result .= _convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if ($element->{'type'}
                        and ($element->{'type'} eq 'bracketed_arg'
@@ -210,7 +240,7 @@ sub _expand_cmd_args_to_texi($) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;
       }
-      $result .= convert_to_texinfo($arg);
+      $result .= _convert_to_texinfo($arg);
     }
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'info'}->{'delimiter'};
@@ -221,6 +251,16 @@ sub _expand_cmd_args_to_texi($) {
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
   }
   return $result;
+}
+
+# This is used if the document is available for XS, but XS is not
+# used (most likely $TEXINFO_XS_CONVERT is 0).
+sub _convert_tree_with_XS($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  return _convert_to_texinfo($root);
 }
 
 1;
