@@ -17,7 +17,30 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
+/* TODO
+ obstack is not used as it requires any code adding element to
+ be able to access the struct obstack.  The struct obstack could
+ be allocated on the heap and be available in the parser.  It could
+ also be passed to the parsed document but it seems complicated to
+ make it available to alloc_element outside of the parser (more
+ precisely after a call to store_document), in code related to
+ tree modification and conversion.
+
+ If obstack is used again, in addition to the obvious changes,
+ code following
+   freed in reset_obstacks
+ should be commented out.
+
+
 #include "obstack.h"
+
+static struct obstack obs_element;
+static int *obs_element_first = 0;
+
+#define obstack_chunk_alloc malloc
+#define obstack_chunk_free free
+ */
 
 #include "errors.h"
 #include "tree.h"
@@ -25,21 +48,21 @@
 #include "debug.h"
  */
 
-static struct obstack obs_element;
-static int *obs_element_first = 0;
-
 /* Used with destroy_element to reuse storage, e.g. from
    abort_empty_line.  Reduces memory use slightly (about 5% from testing)
    for large manuals. */
 static ELEMENT *spare_element;
 
-#define obstack_chunk_alloc malloc
-#define obstack_chunk_free free
-
 void
 reset_obstacks (void)
 {
+  /* freed in reset_obstacks */
+  if (spare_element)
+    free (spare_element);
+
   spare_element = 0;
+
+  /* obstacks not used
 
   if (obs_element_first)
     obstack_free (&obs_element, obs_element_first);
@@ -47,12 +70,16 @@ reset_obstacks (void)
     obstack_init (&obs_element);
 
   obs_element_first = obstack_alloc (&obs_element, sizeof (int));
+   */
 }
 
 static ELEMENT *alloc_element (void)
 {
   ELEMENT *e;
+  /*
   e = (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
+   */
+  e = (ELEMENT *) malloc (sizeof (ELEMENT));
   memset (e, 0, sizeof (ELEMENT));
   return e;
 }
@@ -146,10 +173,11 @@ destroy_element (ELEMENT *e)
   destroy_associated_info (&e->extra_info);
   destroy_associated_info (&e->info_info);
 
-  spare_element = e;
-
   /* freed in reset_obstacks */
-  /* free (e); */
+  if (spare_element)
+    free (spare_element);
+
+  spare_element = e;
 }
 
 /* Recursively destroy this element and all data in its descendants. */
