@@ -337,6 +337,14 @@ Text.
 @node chap
 @cindex
 '],
+['empty_added_index_entry',
+'@defindex my
+
+@node Top
+@node chap
+
+@myindex
+'],
 ['empty_string_index_entry',
 '@node Top
 @node chap

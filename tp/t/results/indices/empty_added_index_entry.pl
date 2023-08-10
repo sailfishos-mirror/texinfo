@@ -1,0 +1,315 @@
+use vars qw(%result_texis %result_texts %result_trees %result_errors 
+   %result_indices %result_sectioning %result_nodes %result_menus
+   %result_floats %result_converted %result_converted_errors 
+   %result_elements %result_directions_text %result_indices_sort_strings);
+
+use utf8;
+
+$result_trees{'empty_added_index_entry'} = {
+  'contents' => [
+    {
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'my'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'defindex',
+              'extra' => {
+                'misc_args' => [
+                  'my'
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'type' => 'preamble_before_content'
+        }
+      ],
+      'type' => 'before_node_section'
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 3,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'myindex',
+          'extra' => {
+            'missing_argument' => 1
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          }
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'chap'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 4,
+        'macro' => ''
+      }
+    }
+  ],
+  'type' => 'document_root'
+};
+
+$result_texis{'empty_added_index_entry'} = '@defindex my
+
+@node Top
+@node chap
+
+@myindex
+';
+
+
+$result_texts{'empty_added_index_entry'} = '
+
+';
+
+$result_nodes{'empty_added_index_entry'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'normalized' => 'Top'
+  },
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
+};
+$result_nodes{'empty_added_index_entry'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'empty_added_index_entry'};
+
+$result_menus{'empty_added_index_entry'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'normalized' => 'Top'
+  },
+  'structure' => {}
+};
+
+$result_errors{'empty_added_index_entry'} = [
+  {
+    'error_line' => 'warning: @myindex missing argument
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => '@myindex missing argument',
+    'type' => 'warning'
+  }
+];
+
+
+$result_indices{'empty_added_index_entry'} = {
+  'index_names' => {
+    'cp' => {
+      'contained_indices' => {
+        'cp' => 1
+      },
+      'in_code' => 0,
+      'name' => 'cp'
+    },
+    'fn' => {
+      'contained_indices' => {
+        'fn' => 1
+      },
+      'in_code' => 1,
+      'name' => 'fn'
+    },
+    'ky' => {
+      'contained_indices' => {
+        'ky' => 1
+      },
+      'in_code' => 1,
+      'name' => 'ky'
+    },
+    'my' => {
+      'contained_indices' => {
+        'my' => 1
+      },
+      'in_code' => 0,
+      'name' => 'my'
+    },
+    'pg' => {
+      'contained_indices' => {
+        'pg' => 1
+      },
+      'in_code' => 1,
+      'name' => 'pg'
+    },
+    'tp' => {
+      'contained_indices' => {
+        'tp' => 1
+      },
+      'in_code' => 1,
+      'name' => 'tp'
+    },
+    'vr' => {
+      'contained_indices' => {
+        'vr' => 1
+      },
+      'in_code' => 1,
+      'name' => 'vr'
+    }
+  }
+};
+
+
+$result_floats{'empty_added_index_entry'} = {};
+
+
+
+$result_converted{'info'}->{'empty_added_index_entry'} = 'This is , produced from .
+
+
+File: ,  Node: Top,  Next: chap,  Up: (dir)
+
+
+File: ,  Node: chap,  Prev: Top
+
+
+
+Tag Table:
+Node: Top27
+Node: chap74
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+
+$result_converted{'plaintext'}->{'empty_added_index_entry'} = '';
+
+
+$result_converted{'html_text'}->{'empty_added_index_entry'} = '
+<a class="node-id" id="Top"></a><div class="nav-panel">
+</div>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<hr>
+<a class="node-id" id="chap"></a><div class="nav-panel">
+</div>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
+
+';
+
+
+$result_converted{'xml'}->{'empty_added_index_entry'} = '<defindex spaces=" " value="my" line="my"></defindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+
+';
+
+1;

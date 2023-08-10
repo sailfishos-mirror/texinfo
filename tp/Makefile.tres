@@ -759,6 +759,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/double_index_entry.pl \
   t/results/indices/double_seeentry_seealso.pl \
   t/results/indices/double_syncodeindex.pl \
+  t/results/indices/empty_added_index_entry.pl \
   t/results/indices/empty_cindex_entry.pl \
   t/results/indices/empty_index_entry.pl \
   t/results/indices/empty_string_index_entry.pl \

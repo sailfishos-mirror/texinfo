@@ -3298,8 +3298,11 @@ sub _parse_def($$$$)
 
 # store an index entry.
 # $COMMAND_CONTAINER is the name of the @-command the index entry
-#  is associated with, for instance 'cindex', 'defivar' or 'vtable'.
-# $CURRENT is the command element.
+# is associated with, for instance 'cindex', 'defivar' or 'vtable'.
+# $ELEMENT is the element holding more directly the index entry.
+# Can be the same as $COMMAND_CONTAINER, but also be different,
+# for instance it is @item or @itemx for @vtable and defline type
+# for @defivar.
 sub _enter_index_entry($$$$)
 {
   my ($self, $command_container, $element, $source_info) = @_;
