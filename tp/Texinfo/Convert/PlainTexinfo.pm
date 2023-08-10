@@ -27,7 +27,7 @@ use strict;
 
 use Texinfo::Convert::ConvertXS;
 
-use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::Texinfo qw(convert_to_texinfo);
 use Texinfo::Convert::Converter;
 
 use vars qw($VERSION @ISA);
@@ -71,7 +71,7 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  return $self->_convert($root);
+  return convert_to_texinfo($root);
 }
 
 #sub output($$)
@@ -92,7 +92,7 @@ sub convert($$)
   }
   my $root = $document->tree();
 
-  return $self->_convert($root);
+  return convert_to_texinfo($root);
 }
 
 # This is used if the tree is available for XS, but XS is not
@@ -104,17 +104,7 @@ sub _convert_with_XS($$)
 
   my $root = $document->tree();
 
-  return $self->_convert($root);
-}
-
-sub _convert($$);
-
-sub _convert($$)
-{
-  my $self = shift;
-  my $root = shift;
-  
-  return Texinfo::Convert::Texinfo::convert_to_texinfo($root);
+  return convert_to_texinfo($root);
 }
 
 1;

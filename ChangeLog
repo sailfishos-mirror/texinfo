@@ -1,5 +1,11 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/PlainTexinfo.pm (convert_tree, convert)
+	(_convert_with_XS): call directly
+	Texinfo::Convert::Texinfo::convert_to_texinfo.  Remove _convert.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
 	tp/t/test_utils.pl (new_test): use the key 'tree_document_descriptor'
 	to register the document descriptor associated to a tree instead of
