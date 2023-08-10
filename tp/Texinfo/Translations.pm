@@ -245,6 +245,7 @@ sub _gdt($$;$$)
       POSIX::setlocale(LC_MESSAGES, '');
     }
   }
+  #print STDERR "_GDT '$string' '$translated_string'\n";
   return $translated_string;
 }
 
@@ -328,8 +329,9 @@ sub replace_convert_substrings($$;$)
       }
     }
   }
-  my $parser = Texinfo::Parser::simple_parser($parser_conf);
-  if ($parser->{'DEBUG'}) {
+  my $parser = Texinfo::Parser::parser($parser_conf);
+
+  if ($customization_information->get_conf('DEBUG')) {
     print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
@@ -488,6 +490,10 @@ sub complete_indices($$)
               #   {'text' => ' of '},
               #   _non_bracketed_contents($class)];
           }
+          #print STDERR "COMPLETE $entry_language: $def_command name: '"
+          #  .Texinfo::Convert::Texinfo::convert_to_texinfo($name)."' class: '"
+          #   .Texinfo::Convert::Texinfo::convert_to_texinfo($class)." '"
+          #   .Texinfo::Convert::Texinfo::convert_to_texinfo($index_entry)."'\n";
 
           # FIXME the 'parent' of the tree elements that correspond to name and
           # class, be them from gdt or from the elements, are in the

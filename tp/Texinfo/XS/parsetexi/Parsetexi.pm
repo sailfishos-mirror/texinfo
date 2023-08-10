@@ -76,10 +76,6 @@ sub get_conf($$)
   return $self->{'conf'}->{$var};
 }
 
-sub simple_parser {
-  goto &parser;
-}
-
 # Initialize the parser
 sub parser (;$$)
 {

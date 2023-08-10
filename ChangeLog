@@ -1,5 +1,15 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	Remove simple_parser
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/Texinfo/ParserNonXS.pm
+	(parser), tp/Texinfo/Translations.pm (replace_convert_substrings):
+	remove simple_parser, information leaks among simple parsers, with
+	customizable translation strings, any Texinfo command could end up
+	processed by a simple parser and leak.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_conf, parser),
 	tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
 	(_setup_conf, get_conf): restrict variables found by get_conf, and set
