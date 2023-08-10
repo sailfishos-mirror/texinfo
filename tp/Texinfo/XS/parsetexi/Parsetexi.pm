@@ -216,7 +216,7 @@ sub get_parser_info($$$) {
 
   if ($store) {
     my $tree = $document->tree();
-    $tree->{'document_descriptor'} = $document_descriptor;
+    $tree->{'tree_document_descriptor'} = $document_descriptor;
     $document->{'document_descriptor'} = $document_descriptor;
   } else {
     # TODO
