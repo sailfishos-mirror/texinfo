@@ -1,5 +1,15 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_texinfo.c
+	(convert_to_texinfo_internal): only add add space or brace after
+	command if not done in expand_cmd_args_to_texi.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo):
+	initialize with an empty string to always return a string even for a
+	document without content.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/PlainTexinfo.pm (_convert_with_XS): remove
 	output() as the XS converrter is not ready yet.
 

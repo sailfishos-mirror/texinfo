@@ -177,12 +177,17 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         {
           expand_cmd_args_to_texi (e, result);
         }
-
-      if (e->type == ET_bracketed_arg || e->type == ET_bracketed_linemacro_arg)
-        ADD("{");
-      elt = lookup_info_element (e, "spaces_before_argument");
-      if (elt)
-        ADD((char *)elt->text.text);
+      else
+        {
+          if (e->type == ET_bracketed_arg
+              || e->type == ET_bracketed_linemacro_arg)
+            ADD("{");
+          elt = lookup_info_element (e, "spaces_before_argument");
+          if (elt)
+            {
+              ADD((char *)elt->text.text);
+            }
+        }
       if (e->contents.number > 0)
         {
           int i;
@@ -217,6 +222,9 @@ convert_to_texinfo (ELEMENT *e)
   if (!e)
     return strdup ("");
   text_init (&result);
+  /* in case of a document without any content expanded, for instance
+     containing only containers, we still want to output an empty string */
+  text_append (&result, "");
   convert_to_texinfo_internal (e, &result);
   return result.text;
 }
