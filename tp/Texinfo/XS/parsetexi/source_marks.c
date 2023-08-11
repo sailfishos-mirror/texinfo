@@ -22,6 +22,7 @@
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "source_marks.h"
 
 int include_counter = 0;
@@ -126,8 +127,8 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
          source_mark->status == SM_status_start ? "start"
           : source_mark->status == SM_status_end ? "end"
           : "UNDEF", add_element_string);
-  debug_print_element(mark_element, 0); debug_nonl (" ");
-  debug_print_element(e, 0); debug ("");
+  debug_parser_print_element(mark_element, 0); debug_nonl (" ");
+  debug_parser_print_element(e, 0); debug ("");
 
   add_source_mark (source_mark, mark_element);
 }

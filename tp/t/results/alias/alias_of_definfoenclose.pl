@@ -109,7 +109,8 @@ $result_trees{'alias_of_definfoenclose'} = {
                 'end' => ':'
               },
               'info' => {
-                'alias_of' => 'new'
+                'alias_of' => 'new',
+                'command_name' => 'phoo'
               },
               'source_info' => {
                 'file_name' => '',

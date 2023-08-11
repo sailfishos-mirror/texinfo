@@ -29,6 +29,7 @@
  * and delete_global_info */
 #include "utils.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "text.h"
 #include "counter.h"
@@ -801,9 +802,9 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
         }
 
       debug_nonl ("MERGED TEXT: %s||| in ", text);
-      debug_print_element (last_child, 0);
+      debug_parser_print_element (last_child, 0);
       debug_nonl (" last of ");
-      debug_print_element (current, 0); debug ("");
+      debug_parser_print_element (current, 0); debug ("");
 
       /* Append text */
       text_append (&last_child->text, text);
@@ -843,7 +844,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
     {
       retval = 1;
       debug_nonl ("ABORT EMPTY in ");
-      debug_print_element (current, 0);
+      debug_parser_print_element (current, 0);
       debug_nonl ("(p:%d): %s; add |%s| to |%s|",
                   in_paragraph_context (current_context ()),
                   element_type_name (last_child), additional_spaces,
@@ -1032,9 +1033,9 @@ isolate_last_space (ELEMENT *current)
     goto no_isolate_space;
 
   debug_nonl ("ISOLATE SPACE p ");
-  debug_print_element (current, 0);
+  debug_parser_print_element (current, 0);
   debug_nonl ("; c ");
-  debug_print_element (last_elt, 0); debug ("");
+  debug_parser_print_element (last_elt, 0); debug ("");
 
   if (current->type == ET_menu_entry_node)
     isolate_trailing_space (current, ET_space_at_end_menu_node);
@@ -1045,10 +1046,10 @@ isolate_last_space (ELEMENT *current)
 
  no_isolate_space:
   debug_nonl ("NOT ISOLATING p ");
-  debug_print_element (current, 0);
+  debug_parser_print_element (current, 0);
   debug_nonl ("; c ");
   if (last_elt)
-    debug_print_element (last_elt, 0);
+    debug_parser_print_element (last_elt, 0);
   debug ("");
 
   return;
@@ -1771,7 +1772,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       static char *allocated_text;
       debug_nonl ("EMPTY TEXT in: ");
-      debug_print_element (current, 0); debug ("");
+      debug_parser_print_element (current, 0); debug ("");
 
       /* Each place we supply Texinfo input we store the supplied
          input in a static variable like allocated_text, to prevent
@@ -2166,7 +2167,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       enum command_id data_cmd = cmd;
       ELEMENT *command_element;
 
-      debug ("COMMAND @%s", debug_command_name(cmd));
+      debug ("COMMAND @%s", debug_parser_command_name(cmd));
 
       line = line_after_command;
 
@@ -2446,7 +2447,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (*line == '\f')
     {
       line++;
-      debug_nonl ("FORM FEED in "); debug_print_element (current, 1);
+      debug_nonl ("FORM FEED in "); debug_parser_print_element (current, 1);
       debug_nonl (": "); debug_print_protected_string (line); debug ("");
       if (current->type == ET_paragraph)
         {
@@ -2482,7 +2483,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else /*  End of line */
     {
       debug_nonl ("END LINE ");
-      debug_print_element (current, 1);
+      debug_parser_print_element (current, 1);
       debug ("");
 
       if (*line == '\n')

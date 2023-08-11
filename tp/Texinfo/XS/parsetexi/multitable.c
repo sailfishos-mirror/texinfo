@@ -19,6 +19,7 @@
 #include "tree.h"
 #include "errors.h"
 #include "builtin_commands.h"
+#include "commands.h"
 /* check_no_text */
 #include "handle_commands.h"
 

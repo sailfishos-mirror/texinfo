@@ -81,6 +81,9 @@ $result_trees{'definfoenclose'} = {
                 'begin' => '//',
                 'end' => '\\'
               },
+              'info' => {
+                'command_name' => 'phoo'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -166,6 +169,9 @@ $result_trees{'definfoenclose'} = {
               'extra' => {
                 'begin' => ':',
                 'end' => ':'
+              },
+              'info' => {
+                'command_name' => 'phi'
               },
               'source_info' => {
                 'file_name' => '',
@@ -276,6 +282,9 @@ $result_trees{'definfoenclose'} = {
               'extra' => {
                 'begin' => '(strong:',
                 'end' => ':)'
+              },
+              'info' => {
+                'command_name' => 'strong'
               },
               'source_info' => {
                 'file_name' => '',

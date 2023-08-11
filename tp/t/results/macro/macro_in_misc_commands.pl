@@ -1367,6 +1367,9 @@ $result_trees{'macro_in_misc_commands'} = {
                 'begin' => '//',
                 'end' => '\\\\'
               },
+              'info' => {
+                'command_name' => 'phoo'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 60,
@@ -1528,6 +1531,9 @@ $result_trees{'macro_in_misc_commands'} = {
               'extra' => {
                 'begin' => ':',
                 'end' => ':'
+              },
+              'info' => {
+                'command_name' => 'phi'
               },
               'source_info' => {
                 'file_name' => '',
@@ -1859,6 +1865,7 @@ $result_trees{'macro_in_misc_commands'} = {
                 'end' => ':)'
               },
               'info' => {
+                'command_name' => 'strong',
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {

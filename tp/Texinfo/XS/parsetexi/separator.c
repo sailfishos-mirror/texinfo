@@ -26,6 +26,7 @@
 /* for command_name and others */
 #include "builtin_commands.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "context_stack.h"
 #include "labels.h"
@@ -186,7 +187,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
                   command_name (current->parent->cmd),
                   counter_value (&count_remaining_args, current->parent) > 0 ?
                    counter_value (&count_remaining_args, current->parent) : 0);
-      debug_print_element (current, 0); debug ("");
+      debug_parser_print_element (current, 0); debug ("");
     }
   else if (current->parent && (current->parent->cmd == CM_multitable
                                || current->parent->type == ET_def_line

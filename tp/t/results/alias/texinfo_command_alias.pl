@@ -222,7 +222,8 @@ $result_trees{'texinfo_command_alias'} = {
                 'end' => ':'
               },
               'info' => {
-                'alias_of' => 'strong'
+                'alias_of' => 'strong',
+                'command_name' => 'mystrong'
               },
               'source_info' => {
                 'file_name' => '',

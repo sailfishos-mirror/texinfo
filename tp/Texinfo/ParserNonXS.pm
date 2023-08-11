@@ -5848,6 +5848,8 @@ sub _handle_brace_command($$$$)
   }
   if ($self->{'definfoenclose'}->{$command}) {
     $command_e->{'type'} = 'definfoenclose_command';
+    $command_e->{'info'} = {} if (!$command_e->{'info'});
+    $command_e->{'info'}->{'command_name'} = $command;
     $command_e->{'extra'} = {} if (!$command_e->{'extra'});
     $command_e->{'extra'}->{'begin'}
       = $self->{'definfoenclose'}->{$command}->[0];

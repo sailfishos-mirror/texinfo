@@ -25,6 +25,7 @@
 #include "tree.h"
 #include "tree_types.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "text.h"
 #include "counter.h"
@@ -642,7 +643,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                 {
                   char *braced_text = strdup (argument_content->text.text);
                   debug_nonl ("TURN to bracketed %d ", i);
-                  debug_print_element (argument_content, 0); debug ("");
+                  debug_parser_print_element (argument_content, 0); debug ("");
 
                   text_reset (&argument_content->text);
                   text_append_n (&argument_content->text,

@@ -76,6 +76,9 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 'begin' => '',
                 'end' => ':'
               },
+              'info' => {
+                'command_name' => 'headword'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,

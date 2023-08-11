@@ -27,6 +27,7 @@
 #include "errors.h"
 #include "commands.h"
 
+COMMAND *user_defined_command_data = 0;
 static size_t user_defined_number = 0;
 static size_t user_defined_space = 0;
 

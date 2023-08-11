@@ -25,13 +25,13 @@
 #include "element_types.h"
 /* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "utils.h"
-#include "builtin_commands.h"
 #include "counter.h"
 #include "context_stack.h"
 /* for conf */
 #include "conf.h"
 /* lookup_infoenclose */
 #include "macro.h"
+#include "builtin_commands.h"
 #include "commands.h"
 #include "def.h"
 #include "debug.h"
@@ -1270,6 +1270,8 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
           add_extra_string_dup (command_e, "end", ie->end);
         }
       command_e->type = ET_definfoenclose_command;
+      add_info_string_dup (current, "command_name",
+                           command_name(cmd));
     }
 
   *line_inout = line;

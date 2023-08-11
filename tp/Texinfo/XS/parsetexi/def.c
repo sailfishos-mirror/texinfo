@@ -30,6 +30,7 @@
 #include "source_marks.h"
 #include "errors.h"
 #include "builtin_commands.h"
+#include "commands.h"
 /*
 #include "debug.h"
 */

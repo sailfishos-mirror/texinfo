@@ -25,6 +25,7 @@
 #include "tree.h"
 #include "def.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "counter.h"
 #include "builtin_commands.h"
@@ -138,8 +139,8 @@ remove_empty_content (ELEMENT *current)
           transfer_source_marks (child_element, current);
 
           debug_nonl ("REMOVE empty child ");
-          debug_print_element (child_element, 0); debug_nonl (" from ");
-          debug_print_element (current, 0); debug ("");
+          debug_parser_print_element (child_element, 0); debug_nonl (" from ");
+          debug_parser_print_element (current, 0); debug ("");
           destroy_element (pop_element_from_contents (current));
         }
     }
@@ -158,7 +159,7 @@ close_container (ELEMENT *current)
   if (is_container_empty (current))
     {
       debug_nonl ("CONTAINER EMPTY ");
-      debug_print_element (current, 1);
+      debug_parser_print_element (current, 1);
       debug_nonl (" (%d source marks)",
                   current->source_mark_list.number); debug ("");
       if (current->source_mark_list.number > 0)
@@ -183,7 +184,7 @@ close_container (ELEMENT *current)
       if (last_child == element_to_remove)
         {
           debug_nonl ("REMOVE empty type ");
-          debug_print_element (last_child, 1); debug ("");
+          debug_parser_print_element (last_child, 1); debug ("");
           destroy_element (pop_element_from_contents (current));
         }
     }
@@ -531,7 +532,7 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
              || (current->type == ET_document_root)))
         {
           debug_nonl ("close_commands unexpectedly stopped ");
-          debug_print_element (current, 1); debug ("");
+          debug_parser_print_element (current, 1); debug ("");
         }
     }
 

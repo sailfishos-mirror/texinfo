@@ -1,4 +1,4 @@
-/* Copyright 2014-2023 Free Software Foundation, Inc.
+/* Copyright 2014-2019 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -14,74 +14,36 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
-#include <stdarg.h>
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-#include "builtin_commands.h"
+#include "commands.h"
 #include "tree_types.h"
 #include "text.h"
 #include "element_types.h"
 #include "debug.h"
+#include "debug_parser.h"
 
-/* Whether to dump debugging output on stderr. */
-int debug_output = 0;
+/* Here use command_name to get command names, using information on
+   user-defined commands.  To be used in parser.
 
-void
-debug (char *s, ...)
-{
-  va_list v;
-
-  if (!debug_output)
-    return;
-  va_start (v, s);
-  vfprintf (stderr, s, v);
-  fputc ('\n', stderr);
-}
-
-void
-debug_nonl (char *s, ...)
-{
-  va_list v;
-
-  if (!debug_output)
-    return;
-  va_start (v, s);
-  vfprintf (stderr, s, v);
-}
+   There are corresponding functions in debug.c, which do not use
+   user-defined commands information.
+*/
 
 char *
-debug_element_command_name (ELEMENT *e)
+debug_parser_command_name (enum command_id cmd)
 {
-  if (e->cmd == CM_TAB)
+  if (cmd == CM_TAB)
     return "\\t";
-  else if (e->cmd == CM_NEWLINE)
+  else if (cmd == CM_NEWLINE)
     return "\\n";
   else
-    return element_command_name (e);
+    return command_name (cmd);
 }
 
 char *
-debug_protect_eol (char *input_string, int *allocated)
-{
-  char *end_of_line = strchr (input_string, '\n');
-  char *protected_string = input_string;
-  *allocated = 0;
-  if (end_of_line) {
-    char *p;
-    protected_string = malloc ((strlen(input_string) + 2) * sizeof(char));
-    *allocated = 1;
-    memcpy (protected_string, input_string, strlen(input_string));
-    p = protected_string + (end_of_line - input_string);
-    *p = '\\';
-    *(p+1) = 'n';
-    *(p+2) = '\0';
-  }
-  return protected_string;
-}
-
-char *
-print_element_debug (ELEMENT *e, int print_parent)
+print_element_debug_parser (ELEMENT *e, int print_parent)
 {
   TEXT text;
   char *result;
@@ -89,7 +51,7 @@ print_element_debug (ELEMENT *e, int print_parent)
   text_init (&text);
   text_append (&text, "");
   if (e->cmd)
-    text_printf (&text, "@%s", debug_element_command_name (e));
+    text_printf (&text, "@%s", debug_parser_command_name (e->cmd));
   if (e->type)
     text_printf (&text, "(%s)", element_type_names[e->type]);
   if (e->text.end > 0)
@@ -108,7 +70,7 @@ print_element_debug (ELEMENT *e, int print_parent)
     {
       text_append (&text, " <- ");
       if (e->parent->cmd)
-        text_printf (&text, "@%s", element_command_name (e->parent));
+        text_printf (&text, "@%s", command_name (e->parent->cmd));
       if (e->parent->type)
         text_printf (&text, "(%s)", element_type_names[e->parent->type]);
     }
@@ -118,31 +80,13 @@ print_element_debug (ELEMENT *e, int print_parent)
 }
 
 void
-debug_print_element (ELEMENT *e, int print_parent)
+debug_parser_print_element (ELEMENT *e, int print_parent)
 {
   if (debug_output)
     {
       char *result;
-      result = print_element_debug (e, print_parent);
+      result = print_element_debug_parser (e, print_parent);
       fputs (result, stderr);
       free (result);
     }
 }
-
-void
-debug_print_protected_string (char *input_string)
-{
-  if (debug_output)
-    {
-      int allocated = 0;
-      char *result;
-      if (!input_string)
-        result = "[NULL]";
-      else
-        result = debug_protect_eol (input_string, &allocated);
-      fputs (result, stderr);
-      if (allocated)
-        free (result);
-    }
-}
-

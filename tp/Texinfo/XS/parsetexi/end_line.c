@@ -24,9 +24,9 @@
 /* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "tree_types.h"
 #include "tree.h"
-#include "builtin_commands.h"
 #include "utils.h"
 #include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "text.h"
 #include "input.h"
@@ -37,6 +37,7 @@
 #include "macro.h"
 #include "indices.h"
 #include "context_stack.h"
+#include "builtin_commands.h"
 #include "commands.h"
 #include "def.h"
 #include "source_marks.h"
@@ -674,7 +675,7 @@ end_line_def_line (ELEMENT *current)
 
   debug_nonl ("END DEF LINE %s; current ",
                command_name(def_command));
-  debug_print_element (current, 1); debug ("");
+  debug_parser_print_element (current, 1); debug ("");
 
   def_info = parse_def (def_command, current);
 
@@ -784,7 +785,7 @@ end_line_starting_block (ELEMENT *current)
     fatal ("line context expected");
 
   debug_nonl ("END BLOCK LINE: ");
-  debug_print_element (current, 1); debug ("");
+  debug_parser_print_element (current, 1); debug ("");
 
   /* @multitable args */
   if (command == CM_multitable
@@ -1792,7 +1793,7 @@ end_line (ELEMENT *current)
       && last_contents_child (current)->type == ET_empty_line)
     {
       debug_nonl ("END EMPTY LINE in ");
-      debug_print_element (current, 0); debug ("");
+      debug_parser_print_element (current, 0); debug ("");
       if (current->type == ET_paragraph)
         {
           ELEMENT *e;
@@ -1865,7 +1866,7 @@ end_line (ELEMENT *current)
     {
       debug_nonl ("Still opened line/block command %s: ",
                   context_name (current_context ()));
-      debug_print_element (current, 1); debug("");
+      debug_parser_print_element (current, 1); debug("");
       if (current_context () == ct_def)
         {
           while (current->parent

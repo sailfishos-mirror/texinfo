@@ -60,6 +60,9 @@ $result_trees{'definfoenclose_on_table_line'} = {
                     'begin' => ':',
                     'end' => ':'
                   },
+                  'info' => {
+                    'command_name' => 'phi'
+                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,

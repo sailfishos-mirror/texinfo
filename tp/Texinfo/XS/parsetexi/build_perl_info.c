@@ -36,7 +36,7 @@
 #include "tree.h"
 #include "element_types.h"
 #include "extra.h"
-/* for command_name */
+/* for element_command_name */
 #include "builtin_commands.h"
 /* for ultimate_index */
 #include "indices.h"
@@ -411,7 +411,7 @@ element_to_perl_hash (ELEMENT *e)
 
   if (e->cmd)
     {
-      sv = newSVpv (command_name(e->cmd), 0);
+      sv = newSVpv (element_command_name (e), 0);
       hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
 
       /* Note we could optimize the call to newSVpv here and

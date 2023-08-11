@@ -16,6 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "tree_types.h"
+
 typedef struct command_struct {
     char *cmdname;
     unsigned long flags; /* Up to 32 flags */
@@ -25,25 +27,8 @@ typedef struct command_struct {
 
 extern COMMAND builtin_command_data[];
 
-/* This is not about builtin data, but needed for command_name() and 
- * other similar macros */
-extern COMMAND *user_defined_command_data;
-
-/* Command ID's with this bit set represent a user-defined command. */
-#define USER_COMMAND_BIT 0x8000
-
-enum command_id lookup_command (char *cmdname);
-
-#define command_data(id) \
-  (!((id) & USER_COMMAND_BIT) \
-   ? builtin_command_data[(id)] \
-   : user_defined_command_data[(id) & ~USER_COMMAND_BIT])
-
-#define command_flags(e) (!(e) ? 0 : (command_data((e)->cmd).flags))
-#define command_name(cmd) (command_data(cmd).cmdname)
-
-
 enum command_id lookup_builtin_command (char *cmdname);
+char *element_command_name (ELEMENT *e);
 
 /* Available command flags. */
 

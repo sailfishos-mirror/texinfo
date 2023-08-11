@@ -19,13 +19,11 @@
 #include <stdlib.h>
 
 #include "command_ids.h"
+#include "tree_types.h"
+#include "extra.h"
 #include "builtin_commands.h"
 
 #include "command_data.c"
-
-/* not used here, used in commands.c, but needed for some macros
- * in builtin_commands.h, so instantiated here */
-COMMAND *user_defined_command_data = 0;
 
 static int
 compare_command_fn (const void *a, const void *b)
@@ -58,5 +56,24 @@ lookup_builtin_command (char *cmdname)
       cmd = c - &builtin_command_data[0];
       return cmd;
    }
+  return 0;
+}
+
+/* this should be used when the user-defined commands are not avalable,
+   ie outside of the parser */
+char *
+element_command_name (ELEMENT *e)
+{
+  if (e->cmd && e->cmd <
+             sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
+    return builtin_command_data[e->cmd].cmdname;
+  else
+    {
+      KEY_PAIR *k_cmdname;
+      k_cmdname = lookup_info (e, "command_name");
+      if (k_cmdname && k_cmdname->value)
+        return (char *)k_cmdname->value;
+    }
+
   return 0;
 }

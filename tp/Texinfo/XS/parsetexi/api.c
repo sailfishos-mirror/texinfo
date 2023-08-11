@@ -33,7 +33,6 @@
 #include "errors.h"
 #include "document.h"
 #include "extra.h"
-#include "builtin_commands.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "context_stack.h"

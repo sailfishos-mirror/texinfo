@@ -192,7 +192,7 @@ sub _expand_cmd_args_to_texi($) {
   my $cmd = shift;
 
   my $cmdname = $cmd->{'cmdname'};
-  $cmdname = '' if (!$cmd->{'cmdname'});
+  $cmdname = '' if (! defined($cmd->{'cmdname'}));
   my $result = '';
 
   if ($cmdname) {

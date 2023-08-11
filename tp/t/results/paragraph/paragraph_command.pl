@@ -211,6 +211,9 @@ $result_trees{'paragraph_command'} = {
                 'begin' => '\\',
                 'end' => '//'
               },
+              'info' => {
+                'command_name' => 'foo'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,

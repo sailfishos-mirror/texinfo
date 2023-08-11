@@ -165,6 +165,8 @@ remove_document (int document_descriptor)
 /* destroy everything except for the tree, and unregister the
    tree such that it won't ever be retrieved.  Should be used
    when the tree becomes part of another document */
+/* FIXME cannot unregister the tree as there are associated
+   small_strings */
 ELEMENT *
 unregister_tree (DOCUMENT *document)
 {
@@ -172,7 +174,9 @@ unregister_tree (DOCUMENT *document)
 
   destroy_document_information_except_tree (document);
   tree = document->tree;
+  /*
   document->tree = 0;
+   */
   return tree;
 }
 
@@ -261,12 +265,12 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
                   char *texi_str = convert_contents_to_texinfo (label_element);
                   line_error_ext (error, 0, &targets[n].element->source_info,
                                   "@%s `%s' previously defined",
-                                  command_name (targets[n].element->cmd),
+                                  element_command_name (targets[n].element),
                                   texi_str);
                   free (texi_str);
                   line_error_ext (error, 1, &targets[i].element->source_info,
                                  "here is the previous definition as @%s",
-                                  command_name (targets[i].element->cmd));
+                                  element_command_name (targets[i].element));
 
                 }
               if (j < targets_number - 1)

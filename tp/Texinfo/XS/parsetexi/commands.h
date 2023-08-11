@@ -18,6 +18,21 @@
 
 #include "builtin_commands.h"
 
+extern COMMAND *user_defined_command_data;
+
+/* Command ID's with this bit set represent a user-defined command. */
+#define USER_COMMAND_BIT 0x8000
+
+enum command_id lookup_command (char *cmdname);
+
+#define command_data(id) \
+  (!((id) & USER_COMMAND_BIT) \
+   ? builtin_command_data[(id)] \
+   : user_defined_command_data[(id) & ~USER_COMMAND_BIT])
+
+#define command_flags(e) (!(e) ? 0 : (command_data((e)->cmd).flags))
+#define command_name(cmd) (command_data(cmd).cmdname)
+
 int close_preformatted_command (enum command_id cmd_id);
 int item_line_command (enum command_id cmd_id);
 enum command_id add_texinfo_command (char *name);

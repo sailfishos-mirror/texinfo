@@ -72,6 +72,9 @@ $result_trees{'definfoenclose_nestings'} = {
                         'begin' => '//',
                         'end' => '\\'
                       },
+                      'info' => {
+                        'command_name' => 'phoo'
+                      },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -135,6 +138,9 @@ $result_trees{'definfoenclose_nestings'} = {
                 'begin' => '//',
                 'end' => '\\'
               },
+              'info' => {
+                'command_name' => 'phoo'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -172,6 +178,9 @@ $result_trees{'definfoenclose_nestings'} = {
               'extra' => {
                 'begin' => '//',
                 'end' => '\\'
+              },
+              'info' => {
+                'command_name' => 'phoo'
               },
               'source_info' => {
                 'file_name' => '',

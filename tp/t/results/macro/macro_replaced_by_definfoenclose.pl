@@ -134,6 +134,9 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
                 'begin' => ';',
                 'end' => ':'
               },
+              'info' => {
+                'command_name' => 'phoo'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,

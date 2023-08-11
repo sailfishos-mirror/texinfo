@@ -298,6 +298,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'begin' => ';',
                 'end' => ':'
               },
+              'info' => {
+                'command_name' => 'phooindex'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -517,6 +520,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
+              },
+              'info' => {
+                'command_name' => 'phooindex'
               },
               'source_info' => {
                 'file_name' => '',
@@ -955,6 +961,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
+              },
+              'info' => {
+                'command_name' => 'phoo'
               },
               'source_info' => {
                 'file_name' => '',

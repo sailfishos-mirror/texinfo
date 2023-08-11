@@ -1,5 +1,38 @@
 2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/builtin_commands.c (element_command_name),
+	tp/Texinfo/XS/main/builtin_commands.h,
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi),
+	tp/Texinfo/XS/main/debug.c (debug_element_command_name)
+	(print_element_debug), tp/Texinfo/XS/main/document.c
+	(set_labels_identifiers_target),
+	tp/Texinfo/XS/parsetexi/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/parsetexi/*.c, tp/Texinfo/XS/parsetexi/commands.c
+	(user_defined_command_data), tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/debug_parser.c (debug_parser_command_name)
+	(print_element_debug_parser, debug_parser_print_element): add
+	element_command_name to determine an element command name to be used
+	outside of the parser instead of command_name, as the user-defined
+	commands information is not present in that case and the info
+	command_name information should be used.  Use that function in
+	print_element_debug, debug_print_element and element_to_perl_hash.
+	Add specific parser print_element_debug_parser and
+	debug_parser_print_element functions corresponding to
+	print_element_debug and debug_print_element, but that use command_name
+	to determine the command name.  Use those functions in parser code.
+	Move code using user-defined commands information out of
+	main/builtin_commands.* to parsetexi/commands.*.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_brace_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_brace_command): add
+	command_name info to definfoenclose user-defined commands.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_expand_cmd_args_to_texi): check if
+	command is defined, not if non 0.
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
 	use "command_name" info for index_entry_command types to get the
 	command name, as command_name(cmd) cannot be used as the index
