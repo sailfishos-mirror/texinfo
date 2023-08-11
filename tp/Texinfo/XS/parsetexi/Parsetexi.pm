@@ -205,7 +205,6 @@ sub get_parser_info($$$) {
   Texinfo::Translations::complete_indices ($self,
                                    $document->indices_information());
 
-
   _get_errors ($registrar, $configuration_information,
                $XS_document->{'errors'});
 

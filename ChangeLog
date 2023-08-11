@@ -1,4 +1,11 @@
-2023-08-10  Patrice Dumas  <pertusus@free.fr>
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
+	use "command_name" info for index_entry_command types to get the
+	command name, as command_name(cmd) cannot be used as the index
+	commands are user-defined commands dynamically added in the parser.
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c (register_document)
 	(destroy_document_information_except_tree),
@@ -20,7 +27,7 @@
 	Parsetexi.pm again until a copy of the elements is stored in the XS
 	tree.
 
-2023-08-10  Patrice Dumas  <pertusus@free.fr>
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c (register_document)
 	(free_small_document_strings)
@@ -39,7 +46,7 @@
 
 	* tp/Texinfo/XS/main/translations.c (switch_messages_locale): check
 	that the locale returned by setlocale is not C nor POSIX before
-	setting the worning locale to that locale.
+	setting the working locale to that locale.
 
 	* tp/Texinfo/XS/main/translations.c (translate_string): use
 	setenv/unsetenv instead of putenv as putenv interface is difficult to

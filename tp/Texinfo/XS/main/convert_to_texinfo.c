@@ -75,7 +75,20 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
   if (cmd)
     {
-      ADD("@");  ADD(command_name(cmd));
+      char *cmdname;
+      if (e->type == ET_index_entry_command)
+        {
+          /* cannot use command_name(cmd) here, as the index commands
+             are user-defined commands dynamically added in the parser */
+          KEY_PAIR *k_cmdname;
+          k_cmdname = lookup_info (e, "command_name");
+          cmdname = (char *)k_cmdname->value;
+        }
+      else
+        {
+          cmdname = command_name(cmd);
+        }
+      ADD("@");  ADD(cmdname);
       elt = lookup_info_element (e, "spaces_after_cmd_before_arg");
       if (elt)
         ADD((char *)elt->text.text);
