@@ -458,7 +458,9 @@ sub complete_indices($$)
         }
 
         if ($name and $class) {
-          my ($index_entry, $index_contents_normalized);
+          my ($index_entry, $text_element);
+          my $index_entry_normalized = {};
+
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
           # Use the document language that was current when the command was
@@ -472,11 +474,8 @@ sub complete_indices($$)
             $index_entry = gdt($customization_information, '{name} on {class}',
                                {'name' => $name, 'class' => $class},
                                 undef, $entry_language);
-            $index_contents_normalized
-              = [$name, { 'text' => ' on '}, $class];
-              #= [_non_bracketed_contents($name),
-              #  {'text' => ' on '},
-              #  _non_bracketed_contents($class)];
+            $text_element = {'text' => ' on ',
+                             'parent' => $index_entry_normalized};
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
@@ -484,12 +483,14 @@ sub complete_indices($$)
             $index_entry = gdt($customization_information, '{name} of {class}',
                                {'name' => $name, 'class' => $class},
                                undef, $entry_language);
-            $index_contents_normalized
-              = [$name, {'text' => ' of '}, $class];
-              #= [_non_bracketed_contents($name),
-              #   {'text' => ' of '},
-              #   _non_bracketed_contents($class)];
+            $text_element = {'text' => ' of ',
+                             'parent' => $index_entry_normalized};
           }
+          $index_entry_normalized->{'contents'}
+              = [$name, $text_element, $class];
+              #= [_non_bracketed_contents($name),
+              #   $text_element,
+              #   _non_bracketed_contents($class)];
           #print STDERR "COMPLETE $entry_language: $def_command name: '"
           #  .Texinfo::Convert::Texinfo::convert_to_texinfo($name)."' class: '"
           #   .Texinfo::Convert::Texinfo::convert_to_texinfo($class)." '"
@@ -498,7 +499,7 @@ sub complete_indices($$)
           # FIXME the 'parent' of the tree elements that correspond to name and
           # class, be them from gdt or from the elements, are in the
           # main tree in the definition command arguments, while the new text has
-          # either no parent (for index_contents_normalized) or the 'root_line'
+          # either no parent (for index_entry_normalized) or the 'root_line'
           # container returned by gdt.
           #
           # prefer a type-less container rather than 'root_line' returned by gdt
@@ -506,7 +507,7 @@ sub complete_indices($$)
 
           $main_entry_element->{'extra'}->{'def_index_element'} = $index_entry;
           $main_entry_element->{'extra'}->{'def_index_ref_element'}
-                                  = {'contents' => $index_contents_normalized};
+                                                  = $index_entry_normalized;
         }
       }
     }

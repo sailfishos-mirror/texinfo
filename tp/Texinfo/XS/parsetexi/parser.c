@@ -2723,11 +2723,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   document_descriptor = store_document(current);
 
-  /* from this point on, could call parsing functions again
-     when the obstack memory is not common anymore */
-
-  /*
   complete_indices (document_descriptor);
-  */
+
   return document_descriptor;
 }

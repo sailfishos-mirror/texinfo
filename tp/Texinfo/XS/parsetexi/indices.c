@@ -454,11 +454,19 @@ complete_indices (int document_descriptor)
                     {
                       char *lang = 0;
                       ELEMENT *index_entry;
-                      ELEMENT *index_contents_normalized = new_element (ET_NONE);
+                      ELEMENT *index_entry_normalized = new_element (ET_NONE);
+                      ELEMENT *text_element = new_element (ET_NONE);
                       enum command_id def_command
                         = lookup_command ((char *) k->value);
                       KEY_PAIR *k_lang = lookup_extra (main_entry_element,
                                                        "documentlanguage");
+                      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+
+                      add_element_to_named_string_element_list (substrings,
+                                                                "name", name);
+                      add_element_to_named_string_element_list (substrings,
+                                                                "class", class);
                       if (k_lang && k_lang->value)
                         {
                           lang = (char *) k_lang->value;
@@ -468,16 +476,44 @@ complete_indices (int document_descriptor)
                           || def_command == CM_defmethod
                           || def_command == CM_deftypemethod)
                         {
-                          NAMED_STRING_ELEMENT_LIST *substrings
-                                           = new_named_string_element_list ();
-                          add_element_to_named_string_element_list (substrings,
-                                                                  "name", name);
-                          add_element_to_named_string_element_list (substrings,
-                                                                  "class", class);
+                          index_entry = gdt ("{name} on {class}",
+                                             substrings, 0, lang);
+
+                          text_append (&text_element->text, " on ");
+                        }
+                      else if (def_command == CM_defcv
+                               || def_command == CM_defivar
+                               || def_command == CM_deftypeivar
+                               || def_command == CM_deftypecv)
+                        {
                           index_entry = gdt ("{name} of {class}",
                                              substrings, 0, lang);
-                          destroy_named_string_element_list (substrings);
+
+                          text_append (&text_element->text, " of ");
                         }
+                      destroy_named_string_element_list (substrings);
+
+                      add_to_contents_as_array
+                                   (index_entry_normalized, name);
+                      add_to_element_contents
+                                   (index_entry_normalized, text_element);
+                      add_to_contents_as_array
+                                   (index_entry_normalized, class);
+                      /*
+                      FIXME the 'parent' of the tree elements that correspond to name and
+                      class, be them from gdt or from the elements, are in the
+                      main tree in the definition command arguments, while the new text has
+                      either no parent (for index_entry_normalized) or the 'root_line'
+                      container returned by gdt.
+
+                      prefer a type-less container rather than 'root_line' returned by gdt
+                       */
+                      index_entry->type = ET_NONE;
+
+                      add_extra_element_oot (main_entry_element, "def_index_element",
+                                             index_entry);
+                      add_extra_element_oot (main_entry_element, "def_index_ref_element",
+                                             index_entry_normalized);
                     }
                 }
             }

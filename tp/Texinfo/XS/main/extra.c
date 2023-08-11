@@ -58,7 +58,7 @@ add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 
 /* Add an extra key that is a reference to another element that is
    out-of-tree, i.e., not referenced anywhere in the tree.
-   Unused in 2023.
+   Unused in the parser in 2023, but used in other codes.
 */
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)

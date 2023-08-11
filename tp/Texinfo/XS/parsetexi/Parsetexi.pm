@@ -203,8 +203,8 @@ sub get_parser_info($$$) {
      $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
      $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
 
-  Texinfo::Translations::complete_indices ($self,
-                                   $document->indices_information());
+  #Texinfo::Translations::complete_indices ($self,
+  #                                 $document->indices_information());
 
   # additional info relevant in perl only.
   $document->{'info'}->{'input_perl_encoding'} = 'utf-8';

@@ -1,5 +1,21 @@
 2023-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (switch_messages_locale): check
+	that the locale returned by setlocale is not C nor POSIX before
+	setting the worning locale to that locale.
+
+	* tp/Texinfo/XS/main/translations.c (translate_string): use
+	setenv/unsetenv instead of putenv as putenv interface is difficult to
+	use.
+
+	* tp/Texinfo/XS/parsetexi/indices.c (complete_indices): finish the
+	implementation.
+
+	* tp/Texinfo/Translations.pm (complete_indices): rearrange code to be
+	more similar with XS code.
+
+2023-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert_tree): XS
 	function finding the document based on a tree and converting to
 	Texinfo.  Use SV * for converters to allow for undef converter.

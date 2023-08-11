@@ -58,7 +58,9 @@ switch_messages_locale (void)
   char *locale;
 
   if (working_locale)
-    locale = setlocale (LC_MESSAGES, working_locale);
+    {
+      locale = setlocale (LC_MESSAGES, working_locale);
+    }
   if (!locale)
     locale = setlocale (LC_MESSAGES, "en_US.UTF-8");
   if (!locale)
@@ -101,8 +103,14 @@ switch_messages_locale (void)
             }
         }
     }
-  if (locale)
-    working_locale = strdup (locale);
+  /* check that the locale set is not "C"/"POSIX" as we want to set
+     to other locales for LANGUAGE.  The locale returned by setlocale
+     can be these one of these locales even if the locale passed
+     in argument is not */
+  if (locale && strcmp (locale, "C") && strcmp (locale, "POSIX"))
+    {
+      working_locale = locale;
+    }
 }
 
 char *
@@ -119,6 +127,7 @@ translate_string (char * string, const char *translation_context,
   char *p;
   static TEXT language_locales;
   int i;
+
 /*
   $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
  */
@@ -149,15 +158,20 @@ translate_string (char * string, const char *translation_context,
   #ifndef _WIN32
 
   saved_LC_MESSAGES = setlocale(LC_MESSAGES, NULL);
+
   if (saved_LC_MESSAGES)
     saved_LC_MESSAGES = strdup (saved_LC_MESSAGES);
+
   switch_messages_locale ();
 
   #endif
 
   saved_LANGUAGE = getenv ("LANGUAGE");
+
   if (saved_LANGUAGE)
-    saved_LANGUAGE = strdup (saved_LANGUAGE);
+    {
+      saved_LANGUAGE = strdup (saved_LANGUAGE);
+    }
 
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
@@ -201,7 +215,7 @@ translate_string (char * string, const char *translation_context,
     langs[1] = main_lang;
 
   text_init (&language_locales);
-  text_append (&language_locales, "LANGUAGE=");
+
   for (i = 0; i < 2; i++)
     {
       if (!langs[i])
@@ -233,9 +247,9 @@ translate_string (char * string, const char *translation_context,
           text_append (&language_locales, "us-ascii");
         }
     }
-  if (putenv (language_locales.text) != 0)
+  if (setenv ("LANGUAGE", language_locales.text, 1) != 0)
     {
-      fprintf(stderr, "gdt: putenv `%s' error for string `%s': %s\n",
+      fprintf(stderr, "gdt: setenv `%s' error for string `%s': %s\n",
               language_locales.text, string, strerror(errno));
     }
 
@@ -251,12 +265,11 @@ translate_string (char * string, const char *translation_context,
 
   if (saved_LANGUAGE)
     {
-      putenv (saved_LANGUAGE);
+      setenv ("LANGUAGE", saved_LANGUAGE, 1);
       free (saved_LANGUAGE);
     }
   else
-    /* FIXME is this portable? */
-    putenv ("LANGUAGE");
+    unsetenv ("LANGUAGE");
 
   free (language_locales.text);
 
