@@ -1,5 +1,11 @@
 2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm b/tp/Texinfo/Common.pm (_copy_extra_info):
+	remove code for impossible situations.  Inline
+	_substitute_references_in_array.
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	in tp/Texinfo/XS gnulib-tool --add-import setenv unsetenv
 
 2023-08-11  Patrice Dumas  <pertusus@free.fr>

@@ -2010,41 +2010,6 @@ sub _copy_tree($$$)
   return $new;
 }
 
-# this code works with arrays mixing scalars and reference to elements.
-# In practice arrays in extra are either only scalars (index_entry,
-# misc_args) or only elements (the remaining).
-sub _substitute_references_in_array($$$;$);
-sub _substitute_references_in_array($$$;$)
-{
-  my $array = shift;
-  my $reference_associations = shift;
-  my $context = shift;
-  my $level = shift;
-
-  $level = 0 if (!defined($level));
-  $level++;
-
-  my $result = [];
-  my $index = 0;
-  foreach my $item (@{$array}) {
-    if (ref($item) eq '') {
-      push @{$result}, $item;
-    } elsif ($reference_associations->{$item}) {
-      push @{$result}, $reference_associations->{$item};
-    } elsif (ref($item) eq 'ARRAY') {
-      # nothing like a two level array currently, and hopefully never
-      push @$result,
-        _substitute_references_in_array($item, $reference_associations,
-                                        "$context [$index]", $level);
-    } else {
-      print STDERR "Trouble with $context [$index] (".ref($item).")\n";
-      push @{$result}, undef;
-    }
-    $index++;
-  }
-  return $result;
-}
-
 sub _copy_extra_info($$$;$);
 sub _copy_extra_info($$$;$)
 {
@@ -2087,9 +2052,24 @@ sub _copy_extra_info($$$;$)
       } elsif (ref($value) eq 'ARRAY') {
         # authors index_entry manual_content menus misc_args node_content
         #print STDERR "Array $command_or_type $info_type -> $key\n";
-        $new->{$info_type}->{$key}
-          = _substitute_references_in_array($value, $reference_associations,
-                             "${info_type}[$command_or_type]{$key}", $level);
+        my $result = [];
+        my $index = 0;
+        # this code works with arrays mixing scalars and reference to elements.
+        # In practice arrays in extra are either only scalars (index_entry,
+        # misc_args) or only elements (the remaining).
+        foreach my $item (@{$value}) {
+          if (ref($item) eq '') {
+            push @{$result}, $item;
+          } elsif ($reference_associations->{$item}) {
+            push @{$result}, $reference_associations->{$item};
+          } else {
+            print STDERR "Trouble with ${info_type}[$command_or_type]{$key} "
+               ."[$index] (".ref($item).")\n";
+            push @{$result}, undef;
+          }
+          $index++;
+        }
+        $new->{$info_type}->{$key} = $result;
       } elsif (ref($value) eq 'HASH') {
         if ($reference_associations->{$value}) {
           # reference to another element in the tree, for example:
@@ -2109,25 +2089,8 @@ sub _copy_extra_info($$$;$)
                            $reference_associations, $level);
           $new->{$info_type}->{$key} = $new_element;
         } else {
-          # code that could handle hash structures that would not be elements.
-          # Not used currently, and it would be better if it stayed that way.
-          #print STDERR "HASH $info_type $key\n";
-          $new->{$info_type}->{$key} = {};
-          foreach my $type_key (keys(%{$value})) {
-            if (ref($value->{$type_key}) eq '') {
-              $new->{$info_type}->{$key}->{$type_key} = $value->{$type_key};
-            } elsif ($reference_associations->{$value->{$type_key}}) {
-              $new->{$info_type}->{$key}->{$type_key}
-                = $reference_associations->{$value->{$type_key}};
-            } elsif (ref($value->{$type_key}) eq 'ARRAY') {
-              $new->{$info_type}->{$key}->{$type_key}
-                = _substitute_references_in_array($value->{$type_key},
-                                   $reference_associations,
-                   "${info_type}[$command_or_type]{$key}{$type_key}", $level);
-            } else {
-              print STDERR "Unexpected $info_type [$command_or_type]{$key}: $type_key\n";
-            }
-          }
+          print STDERR "Unexpected $info_type [$command_or_type]{$key}: "
+                                                          .ref($value)."\n";
         }
       }
     }
