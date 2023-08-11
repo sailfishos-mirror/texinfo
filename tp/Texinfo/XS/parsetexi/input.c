@@ -628,8 +628,8 @@ set_input_source_mark (SOURCE_MARK *source_mark)
 /* For filenames and macro names, it is possible that they won't be referenced 
    in the line number of any element.  It would be too much work to keep track, 
    so just keep them all here, and free them all together at the end. */
-static char **small_strings;
-static size_t small_strings_num;
+char **small_strings = 0;
+size_t small_strings_num = 0;
 static size_t small_strings_space;
 
 char *
@@ -650,6 +650,14 @@ save_string (char *string)
       small_strings[small_strings_num++] = ret;
     }
   return ret;
+}
+
+void
+forget_small_strings (void)
+{
+  small_strings = 0;
+  small_strings_num = 0;
+  small_strings_space = 0;
 }
 
 /* Called in reset_parser. */

@@ -66,7 +66,7 @@ reset_labels (void)
   labels_number = 0;
 }
 
-void unallocate_labels (void)
+void forget_labels (void)
 {
   labels_number = 0;
   labels_space = 0;
@@ -423,7 +423,7 @@ reset_internal_xrefs (void)
 }
 
 void
-unallocate_internal_xrefs (void)
+forget_internal_xrefs (void)
 {
   internal_xref_number = 0;
   internal_xref_space = 0;

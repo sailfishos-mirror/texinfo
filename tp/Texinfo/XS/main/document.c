@@ -50,7 +50,8 @@ register_document (ELEMENT *root, INDEX **index_names,
                    ELEMENT_LIST *internal_references,
                    LABEL_LIST *labels_list,
                    LABEL_LIST *identifiers_target,
-                   GLOBAL_INFO *global_info)
+                   GLOBAL_INFO *global_info,
+                   SMALL_STRINGS_LIST *small_strings)
 {
   size_t document_index;
   int slot_found = 0;
@@ -89,7 +90,21 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->labels_list = labels_list;
   document->identifiers_target = identifiers_target;
   document->global_info = global_info;
+  document->small_strings = small_strings;
   return document_index +1;
+}
+
+/* very similar to parsetexi/input.c free_small_strings */
+void
+free_small_document_strings (SMALL_STRINGS_LIST *small_strings)
+{
+  size_t i;
+  for (i = 0; i < small_strings->number; i++)
+    {
+      free (small_strings->list[i]);
+    }
+  free (small_strings->list);
+  free (small_strings);
 }
 
 void
@@ -132,7 +147,10 @@ remove_document (int document_descriptor)
   destroy_document_information_except_tree (document);
 
   if (document->tree)
-    destroy_element_and_children (document->tree);
+    {
+      destroy_element_and_children (document->tree);
+      free_small_document_strings (document->small_strings);
+    }
   document->tree = 0;
 }
 

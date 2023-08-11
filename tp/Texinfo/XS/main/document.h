@@ -6,6 +6,12 @@
 /* for GLOBAL_INFO */
 #include "utils.h"
 
+typedef struct SMALL_STRINGS_LIST {
+  char **list;
+  size_t number;
+  size_t space;
+} SMALL_STRINGS_LIST;
+
 typedef struct DOCUMENT {
   ELEMENT *tree;
   INDEX **index_names;
@@ -14,7 +20,10 @@ typedef struct DOCUMENT {
   LABEL_LIST *labels_list;
   LABEL_LIST *identifiers_target;
   GLOBAL_INFO *global_info;
+  SMALL_STRINGS_LIST *small_strings;
 } DOCUMENT;
+
+
 
 DOCUMENT *retrieve_document (int document_descriptor);
 size_t register_document (ELEMENT *root, INDEX **index_names,
@@ -22,7 +31,8 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           ELEMENT_LIST *internal_references,
                           LABEL_LIST *labels_list,
                           LABEL_LIST *identifiers_target,
-                          GLOBAL_INFO *global_info);
+                          GLOBAL_INFO *global_info,
+                          SMALL_STRINGS_LIST *small_strings);
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
 LABEL_LIST *set_labels_identifiers_target (LABEL *list_of_labels,

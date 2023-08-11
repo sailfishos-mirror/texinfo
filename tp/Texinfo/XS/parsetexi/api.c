@@ -247,6 +247,7 @@ store_document (ELEMENT *root)
   LABEL_LIST *labels;
   FLOAT_RECORD_LIST *floats;
   ELEMENT_LIST *internal_references;
+  SMALL_STRINGS_LIST *small_strings_list;
   GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
 
   labels = malloc (sizeof (LABEL_LIST));
@@ -326,18 +327,26 @@ store_document (ELEMENT *root)
   COPY_GLOBAL_ARRAY(urefbreakstyle);
   COPY_GLOBAL_ARRAY(xrefautomaticsectiontitle);
 
+  small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
+  small_strings_list = malloc (sizeof (SMALL_STRINGS_LIST));
+  small_strings_list->list = small_strings;
+  small_strings_list->number = small_strings_num;
+  small_strings_list->space = small_strings_num;
 
   document_descriptor
    = register_document (root, index_names, floats, internal_references,
-                        labels, identifiers_target, doc_global_info);
-  reset_indices ();
-  unallocate_labels ();
+                        labels, identifiers_target, doc_global_info,
+                        small_strings_list);
+  forget_indices ();
+  forget_labels ();
   /* use a function? */
   floats_list = 0;
   floats_number = 0;
   floats_space = 0;
 
-  unallocate_internal_xrefs ();
+  forget_small_strings ();
+
+  forget_internal_xrefs ();
 
   identifiers_target = 0;
 

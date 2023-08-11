@@ -165,7 +165,7 @@ wipe_indices (void)
 
 /* reset indices without unallocating them nor the list of indices */
 void
-reset_indices (void)
+forget_indices (void)
 {
   index_names = 0;
   number_of_indices = 0;

@@ -26,8 +26,12 @@ int set_input_encoding (char *encoding);
 void add_include_directory (char *filename);
 void clear_include_directories (void);
 
+extern char **small_strings;
+extern size_t small_strings_num;
+
 char *save_string (char *string);
 void free_small_strings (void);
+void forget_small_strings (void);
 
 extern int input_number;
 extern int macro_expansion_nr;
