@@ -150,5 +150,3 @@ set_debug (int i)
 void
 set_accept_internalvalue(int value)
 
-AV *
-get_errors ()

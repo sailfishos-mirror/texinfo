@@ -248,6 +248,7 @@ store_document (ELEMENT *root)
   FLOAT_RECORD_LIST *floats;
   ELEMENT_LIST *internal_references;
   SMALL_STRINGS_LIST *small_strings_list;
+  ERROR_MESSAGE_LIST *error_messages;
   GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
 
   labels = malloc (sizeof (LABEL_LIST));
@@ -333,10 +334,16 @@ store_document (ELEMENT *root)
   small_strings_list->number = small_strings_num;
   small_strings_list->space = small_strings_num;
 
+  error_list = realloc (error_list, error_number * sizeof (ERROR_MESSAGE));
+  error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
+  error_messages->list = error_list;
+  error_messages->number = error_number;
+  error_messages->space = error_number;
+
   document_descriptor
    = register_document (root, index_names, floats, internal_references,
                         labels, identifiers_target, doc_global_info,
-                        small_strings_list);
+                        small_strings_list, error_messages);
   forget_indices ();
   forget_labels ();
   /* use a function? */
@@ -344,9 +351,9 @@ store_document (ELEMENT *root)
   floats_number = 0;
   floats_space = 0;
 
-  forget_small_strings ();
-
   forget_internal_xrefs ();
+  forget_small_strings ();
+  forget_errors ();
 
   identifiers_target = 0;
 

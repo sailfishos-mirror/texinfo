@@ -27,7 +27,7 @@
 #include "builtin_commands.h"
 #include "extra.h"
 #include "convert_to_texinfo.h"
-/* for wipe_index */
+/* for forget_index and wipe_index */
 #include "indices.h"
 #include "document.h"
 
@@ -51,7 +51,8 @@ register_document (ELEMENT *root, INDEX **index_names,
                    LABEL_LIST *labels_list,
                    LABEL_LIST *identifiers_target,
                    GLOBAL_INFO *global_info,
-                   SMALL_STRINGS_LIST *small_strings)
+                   SMALL_STRINGS_LIST *small_strings,
+                   ERROR_MESSAGE_LIST *error_messages)
 {
   size_t document_index;
   int slot_found = 0;
@@ -91,6 +92,7 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->identifiers_target = identifiers_target;
   document->global_info = global_info;
   document->small_strings = small_strings;
+  document->error_messages = error_messages;
   return document_index +1;
 }
 
@@ -113,6 +115,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
   if (document->tree)
     {
       INDEX **i, *idx;
+      int j;
 
       delete_global_info (document->global_info);
       free (document->global_info);
@@ -130,6 +133,11 @@ destroy_document_information_except_tree (DOCUMENT *document)
           free (idx);
         }
       free (document->index_names);
+      /* same as errors.c wipe_errors */
+      for (j = 0; j < document->error_messages->number; j++)
+        free (document->error_messages->list[j].message);
+      free (document->error_messages->list);
+      free (document->error_messages);
     }
 }
 

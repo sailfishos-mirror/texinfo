@@ -20,11 +20,18 @@ typedef struct {
     SOURCE_INFO source_info;
 } ERROR_MESSAGE;
 
+typedef struct {
+  ERROR_MESSAGE *list;
+  size_t number;
+  size_t space;
+} ERROR_MESSAGE_LIST;
+
 void line_error (char *format, ...);
 void line_warn (char *format, ...);
 void command_error (ELEMENT *e, char *format, ...);
 void command_warn (ELEMENT *e, char *format, ...);
 void wipe_errors (void);
+void forget_errors (void);
 void line_error_ext (enum error_type type, int continuation,
                      SOURCE_INFO *cmd_source_info, char *format, ...);
 void bug_message (char *format, ...);

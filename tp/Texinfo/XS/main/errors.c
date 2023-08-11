@@ -215,6 +215,14 @@ wipe_errors (void)
   error_number = 0;
 }
 
+void
+forget_errors (void)
+{
+  error_number = 0;
+  error_space = 0;
+  error_list = 0;
+}
+
 static void
 bug_message_internal (char *format, va_list v)
 {

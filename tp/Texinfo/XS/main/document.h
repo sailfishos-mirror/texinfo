@@ -5,6 +5,8 @@
 #include "tree_types.h"
 /* for GLOBAL_INFO */
 #include "utils.h"
+/* for ERROR_MESSAGE_LIST */
+#include "errors.h"
 
 typedef struct SMALL_STRINGS_LIST {
   char **list;
@@ -21,6 +23,7 @@ typedef struct DOCUMENT {
   LABEL_LIST *identifiers_target;
   GLOBAL_INFO *global_info;
   SMALL_STRINGS_LIST *small_strings;
+  ERROR_MESSAGE_LIST *error_messages;
 } DOCUMENT;
 
 
@@ -32,9 +35,11 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           LABEL_LIST *labels_list,
                           LABEL_LIST *identifiers_target,
                           GLOBAL_INFO *global_info,
-                          SMALL_STRINGS_LIST *small_strings);
+                          SMALL_STRINGS_LIST *small_strings,
+                          ERROR_MESSAGE_LIST *error_messages);
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
+
 LABEL_LIST *set_labels_identifiers_target (LABEL *list_of_labels,
                                            size_t labels_number);
 

@@ -500,20 +500,27 @@ complete_indices (int document_descriptor)
                       add_to_contents_as_array
                                    (index_entry_normalized, class);
                       /*
-                      FIXME the 'parent' of the tree elements that correspond to name and
-                      class, be them from gdt or from the elements, are in the
-                      main tree in the definition command arguments, while the new text has
-                      either no parent (for index_entry_normalized) or the 'root_line'
-                      container returned by gdt.
+         FIXME the 'parent' of the tree elements that correspond to name and
+         class, be them from gdt or from the elements, are in the
+         main tree in the definition command arguments, while the new text has
+         either no parent (for index_entry_normalized) or the 'root_line'
+         container returned by gdt.
 
-                      prefer a type-less container rather than 'root_line' returned by gdt
+         prefer a type-less container rather than 'root_line' returned by gdt
                        */
                       index_entry->type = ET_NONE;
 
-                      add_extra_element_oot (main_entry_element, "def_index_element",
+                      /*
+                       FIXME need to set up a copy the duplicate elements
+                       before it is possible to add them in the tree
+
+                      add_extra_element_oot (main_entry_element,
+                                             "def_index_element",
                                              index_entry);
-                      add_extra_element_oot (main_entry_element, "def_index_ref_element",
+                      add_extra_element_oot (main_entry_element,
+                                             "def_index_ref_element",
                                              index_entry_normalized);
+                       */
                     }
                 }
             }

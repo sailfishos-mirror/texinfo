@@ -44,6 +44,7 @@
 #include "api.h"
 #include "errors.h"
 #include "document.h"
+#include "debug.h"
 #include "build_perl_info.h"
 
   /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
@@ -360,6 +361,8 @@ static U32 HSH_macro = 0;
 
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
+/* Note that it is not possible to call element_to_perl_hash twice on
+   an element as hv_store should not be called twice for the same key */
 static void
 element_to_perl_hash (ELEMENT *e)
 {
@@ -906,62 +909,6 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
   return hv;
 }
 
-HV *
-build_document (size_t document_descriptor)
-{
-  HV *hv;
-  DOCUMENT *document;
-  HV *hv_tree;
-  HV *hv_info;
-  HV *hv_global_info;
-  HV *hv_index_names;
-  HV *hv_floats;
-  AV *av_internal_xref;
-  HV *hv_identifiers_target;
-  AV *av_labels_list;
-
-  dTHX;
-
-  hv = newHV ();
-
-  document = retrieve_document (document_descriptor);
-
-  hv_tree = build_texinfo_tree (document->tree);
-
-  hv_info = build_global_info (document->global_info);
-
-  hv_global_info = build_global_info2 (document->global_info);
-
-  hv_index_names = build_index_data (document->index_names);
-
-  hv_floats = build_float_list (document->floats->float_types,
-                                document->floats->number);
-
-  av_internal_xref = build_internal_xref_list (
-                    document->internal_references->list,
-                    document->internal_references->number);
-
-  hv_identifiers_target = build_identifiers_target (document->identifiers_target);
-
-  av_labels_list = build_target_elements_list (document->labels_list->list,
-                                               document->labels_list->number);
-
-#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
-
-  STORE("tree", hv_tree);
-  STORE("info", hv_info);
-  STORE("index_names", hv_index_names);
-  STORE("floats", hv_floats);
-  STORE("internal_references", av_internal_xref);
-  STORE("commands_info", hv_global_info);
-  STORE("identifiers_target", hv_identifiers_target);
-  STORE("labels_list", av_labels_list);
-
-#undef STORE
-
-  return hv;
-}
-
 
 
 
@@ -1004,15 +951,13 @@ build_source_info_hash (SOURCE_INFO source_info)
 }
 
 static SV *
-convert_error (int i)
+convert_error (ERROR_MESSAGE e)
 {
-  ERROR_MESSAGE e;
   HV *hv;
   SV *msg;
 
   dTHX;
 
-  e = error_list[i];
   hv = newHV ();
 
   msg = newSVpv_utf8 (e.message, 0);
@@ -1034,7 +979,7 @@ convert_error (int i)
 
 /* Errors */
 AV *
-get_errors (void)
+get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 {
   AV *av;
   int i;
@@ -1045,10 +990,74 @@ get_errors (void)
 
   for (i = 0; i < error_number; i++)
     {
-      SV *sv = convert_error (i);
+      SV *sv = convert_error (error_list[i]);
       av_push (av, sv);
     }
 
   return av;
 
 }
+
+
+
+HV *
+build_document (size_t document_descriptor)
+{
+  HV *hv;
+  DOCUMENT *document;
+  HV *hv_tree;
+  HV *hv_info;
+  HV *hv_global_info;
+  HV *hv_index_names;
+  HV *hv_floats;
+  AV *av_internal_xref;
+  HV *hv_identifiers_target;
+  AV *av_labels_list;
+  AV *av_errors_list;
+
+  dTHX;
+
+  hv = newHV ();
+
+  document = retrieve_document (document_descriptor);
+
+  hv_tree = build_texinfo_tree (document->tree);
+
+  hv_info = build_global_info (document->global_info);
+
+  hv_global_info = build_global_info2 (document->global_info);
+
+  hv_index_names = build_index_data (document->index_names);
+
+  hv_floats = build_float_list (document->floats->float_types,
+                                document->floats->number);
+
+  av_internal_xref = build_internal_xref_list (
+                    document->internal_references->list,
+                    document->internal_references->number);
+
+  hv_identifiers_target = build_identifiers_target (document->identifiers_target);
+
+  av_labels_list = build_target_elements_list (document->labels_list->list,
+                                               document->labels_list->number);
+
+  av_errors_list = get_errors (document->error_messages->list,
+                               document->error_messages->number);
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
+
+  STORE("tree", hv_tree);
+  STORE("info", hv_info);
+  STORE("index_names", hv_index_names);
+  STORE("floats", hv_floats);
+  STORE("internal_references", av_internal_xref);
+  STORE("commands_info", hv_global_info);
+  STORE("identifiers_target", hv_identifiers_target);
+  STORE("labels_list", av_labels_list);
+  STORE("errors", av_errors_list);
+
+#undef STORE
+
+  return hv;
+}
+

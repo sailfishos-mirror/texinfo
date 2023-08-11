@@ -6,8 +6,9 @@
 #include "utils.h"
 
 int init (int texinfo_uninstalled, char *srcdir_in);
+HV *build_document (size_t document_descriptor);
 
-HV * build_document (size_t document_descriptor);
+/* currently only used internally */
 HV *build_texinfo_tree (ELEMENT *root);
 AV *build_target_elements_list (LABEL *labels_list,
                                 size_t labels_number);
@@ -19,6 +20,6 @@ HV *build_index_data (INDEX **index_names_in);
 HV *build_global_info (GLOBAL_INFO *global_info_ref);
 HV *build_global_info2 (GLOBAL_INFO *global_info_ref);
 
-AV *get_errors (void);
+AV *get_errors (ERROR_MESSAGE* error_list, size_t error_number);
 
 #endif
