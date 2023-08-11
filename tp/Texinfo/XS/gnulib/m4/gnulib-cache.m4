@@ -41,6 +41,7 @@
 #  iconv \
 #  libunistring \
 #  obstack \
+#  setenv \
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
@@ -52,6 +53,7 @@
 #  unistr/u8-mbsnlen \
 #  unistr/u8-next \
 #  unistr/u8-uctomb \
+#  unsetenv \
 #  vasprintf \
 #  wcwidth
 
@@ -62,6 +64,7 @@ gl_MODULES([
   iconv
   libunistring
   obstack
+  setenv
   strchrnul
   strndup
   uniconv/u8-strconv-from-enc
@@ -73,6 +76,7 @@ gl_MODULES([
   unistr/u8-mbsnlen
   unistr/u8-next
   unistr/u8-uctomb
+  unsetenv
   vasprintf
   wcwidth
 ])

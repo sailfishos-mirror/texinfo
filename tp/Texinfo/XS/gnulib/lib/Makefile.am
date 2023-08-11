@@ -36,6 +36,7 @@
 #  iconv \
 #  libunistring \
 #  obstack \
+#  setenv \
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
@@ -47,6 +48,7 @@
 #  unistr/u8-mbsnlen \
 #  unistr/u8-next \
 #  unistr/u8-uctomb \
+#  unsetenv \
 #  vasprintf \
 #  wcwidth
 
@@ -526,6 +528,14 @@ endif
 EXTRA_DIST += rawmemchr.valgrind
 
 ## end   gnulib module rawmemchr
+
+## begin gnulib module setenv
+
+if GL_COND_OBJ_SETENV
+libgnu_la_SOURCES += setenv.c
+endif
+
+## end   gnulib module setenv
 
 ## begin gnulib module size_max
 
@@ -1856,6 +1866,14 @@ endif
 EXTRA_DIST += unictype/bitmap.h uniwidth/cjk.h uniwidth/width0.h uniwidth/width2.h
 
 ## end   gnulib module uniwidth/width
+
+## begin gnulib module unsetenv
+
+if GL_COND_OBJ_UNSETENV
+libgnu_la_SOURCES += unsetenv.c
+endif
+
+## end   gnulib module unsetenv
 
 ## begin gnulib module vasnprintf
 

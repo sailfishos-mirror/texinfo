@@ -1,5 +1,9 @@
 2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	in tp/Texinfo/XS gnulib-tool --add-import setenv unsetenv
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
 	tp/Texinfo/XS/main/builtin_commands.c (element_command_name),
 	tp/Texinfo/XS/main/builtin_commands.h,

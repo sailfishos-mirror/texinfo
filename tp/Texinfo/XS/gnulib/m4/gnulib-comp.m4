@@ -53,6 +53,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module c-strcase:
   # Code from module c-strcaseeq:
   # Code from module c99:
+  # Code from module environ:
   # Code from module errno:
   # Code from module exitfail:
   # Code from module extensions:
@@ -81,6 +82,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module multiarch:
   # Code from module obstack:
   # Code from module rawmemchr:
+  # Code from module setenv:
   # Code from module size_max:
   # Code from module snippet/_Noreturn:
   # Code from module snippet/arg-nonnull:
@@ -136,6 +138,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unitypes:
   # Code from module uniwidth/base:
   # Code from module uniwidth/width:
+  # Code from module unsetenv:
   # Code from module vararrays:
   # Code from module vasnprintf:
   # Code from module vasprintf:
@@ -170,6 +173,8 @@ AC_DEFUN([gl_INIT],
   gl_ASSERT_H
   gl_CONDITIONAL_HEADER([assert.h])
   AC_PROG_MKDIR_P
+  gl_ENVIRON
+  gl_UNISTD_MODULE_INDICATOR([environ])
   gl_HEADER_ERRNO_H
   gl_CONDITIONAL_HEADER([errno.h])
   AC_PROG_MKDIR_P
@@ -245,6 +250,10 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_RAWMEMCHR
   ])
   gl_STRING_MODULE_INDICATOR([rawmemchr])
+  gl_FUNC_SETENV
+  gl_CONDITIONAL([GL_COND_OBJ_SETENV],
+                 [test $HAVE_SETENV = 0 || test $REPLACE_SETENV = 1])
+  gl_STDLIB_MODULE_INDICATOR([setenv])
   gl_SIZE_MAX
   gt_TYPE_SSIZE_T
   gl_C_BOOL
@@ -392,6 +401,13 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([1.1], [uniwidth/width])
+  gl_FUNC_UNSETENV
+  gl_CONDITIONAL([GL_COND_OBJ_UNSETENV],
+                 [test $HAVE_UNSETENV = 0 || test $REPLACE_UNSETENV = 1])
+  AM_COND_IF([GL_COND_OBJ_UNSETENV], [
+    gl_PREREQ_UNSETENV
+  ])
+  gl_STDLIB_MODULE_INDICATOR([unsetenv])
   AC_C_VARARRAYS
   AC_REQUIRE([AC_C_RESTRICT])
   gl_FUNC_VASNPRINTF
@@ -641,6 +657,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/printf-parse.h
   lib/rawmemchr.c
   lib/rawmemchr.valgrind
+  lib/setenv.c
   lib/size_max.h
   lib/stdckdint.in.h
   lib/stddef.in.h
@@ -712,6 +729,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uniwidth/width.c
   lib/uniwidth/width0.h
   lib/uniwidth/width2.h
+  lib/unsetenv.c
   lib/vasnprintf.c
   lib/vasnprintf.h
   lib/vasprintf.c
@@ -731,6 +749,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/c-bool.m4
   m4/codeset.m4
   m4/eealloc.m4
+  m4/environ.m4
   m4/errno_h.m4
   m4/exponentd.m4
   m4/extensions.m4
@@ -772,6 +791,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/pid_t.m4
   m4/printf.m4
   m4/rawmemchr.m4
+  m4/setenv.m4
   m4/size_max.m4
   m4/ssize_t.m4
   m4/std-gnu11.m4
