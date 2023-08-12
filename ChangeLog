@@ -22,12 +22,12 @@
 	add parentheses to avoid ambiguity and match better perl parser code.
 
 	* tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list): explicit
-	default in switch for SM_status_none.
+	default in switch for SM_status_none and SM_type_none.
 
 	* tp/Texinfo/XS/MiscXS.xs (xs_parse_texi_regex): remove left over
 	variable.
 
-	* tp/Texinfo/XS/xspara.c (xspara_init): group expresions to avoid
+	* tp/Texinfo/XS/xspara.c (xspara_init): group expressions to avoid
 	ambiguity.
 
 	* tp/Texinfo/XS/xspara.c (xspara_get_state): avoid mixing declarations
