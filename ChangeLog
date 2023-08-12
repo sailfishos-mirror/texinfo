@@ -1,5 +1,19 @@
 2023-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/terminal.c (term_Km): Remove.
+	(terminal_initialize_terminal): Do not load or set Km (kmous)
+	capability string.  As the termcap string for xterm can be
+	"\033[<" rather than the "\033[M" we expected, we cannot rely
+	on the contents of this.
+	(initialize_byte_map): Add KEY_MOUSE bindings unconditionally.  They
+	are harmless even if mouse support is off.
+	(terminal_begin_using_terminal): Do not use term_Km to decide
+	whether to try to turn on "normal tracking mode".  Instead, only
+	use the setting from the "mouse" variable.
+	(terminal_end_using_terminal): Likewise.
+
+2023-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_get_state): Remove
 	unused function (which currently does nothing).
 
