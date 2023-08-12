@@ -2062,7 +2062,7 @@ sub _copy_tree($$)
   return $new;
 }
 
-sub _get_ref($$)
+sub _get_copy_ref($$)
 {
   my $target = shift;
   my $context = shift;
@@ -2108,7 +2108,7 @@ sub _copy_extra_info($$;$)
   #   .Texinfo::Common::debug_print_element($current).": $current ".
   #   (defined($current->{'_counter'}) ? $current->{'_counter'} : 'N')."\n";
 
-  _get_ref($current, "myself[$command_or_type]");
+  _get_copy_ref($current, "myself[$command_or_type]");
 
   foreach my $key ('args', 'contents') {
     if ($current->{$key}) {
@@ -2139,7 +2139,7 @@ sub _copy_extra_info($$;$)
           for (my $index = 0; $index < scalar(@{$value}); $index++) {
             if (!defined($new_array->[$index])) {
               my $context = "$info_type [$command_or_type]{$key} [$index]";
-              $new_array->[$index] = _get_ref($value->[$index], $context);
+              $new_array->[$index] = _get_copy_ref($value->[$index], $context);
             }
             _copy_extra_info($value->[$index],
                              $value->[$index]->{'_copy'}, $level)
@@ -2151,7 +2151,7 @@ sub _copy_extra_info($$;$)
         #         . "Hash $command_or_type $info_type -> $key\n";
         if (!exists($new->{$info_type}->{$key})) {
           my $context = "${info_type}[$command_or_type]{$key}";
-          $new->{$info_type}->{$key} = _get_ref($value, $context);
+          $new->{$info_type}->{$key} = _get_copy_ref($value, $context);
         }
         if ($value->{'_copy'}) {
           _copy_extra_info($value, $value->{'_copy'}, $level);

@@ -105,4 +105,6 @@ void delete_global_info (GLOBAL_INFO *global_info_ref);
 ELEMENT *get_label_element (ELEMENT *e);
 char * read_flag_name (char **ptr);
 
+ELEMENT *copy_tree (ELEMENT *current, ELEMENT *parent);
+
 #endif

@@ -20,7 +20,8 @@
 #include "errors.h"
 #include "extra.h"
 
-static void
+/* used in tree copy, but should not be used in general */
+void
 add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
                          enum extra_type type)
 {
@@ -178,3 +179,24 @@ lookup_info (ELEMENT *e, char *key)
   return lookup_associated_info (&e->info_info, key);
 }
 
+/* only called in tree copy to optimize for speed */
+KEY_PAIR *
+lookup_associated_info_by_index (ASSOCIATED_INFO *a, char *key, int index)
+{
+  if (index < 0)
+    index = a->info_number + index;
+
+  if (index < 0 || index >= a->info_number)
+    return 0;
+
+  if (!strcmp (a->info[index].key, key))
+    return &a->info[index];
+
+  return 0;
+}
+
+KEY_PAIR *
+lookup_extra_by_index (ELEMENT *e, char *key, int index)
+{
+  return lookup_associated_info_by_index (&e->extra_info, key, index);
+}

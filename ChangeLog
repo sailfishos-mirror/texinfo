@@ -1,5 +1,19 @@
 2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/extra.c (lookup_associated_info_by_index)
+	(lookup_extra_by_index): add functions that looks directly at
+	an index and compare the key strings at this index only.  Not
+	to be used in general, but when speed is important and extra
+	keys addition is controlled.
+
+	* tp/Texinfo/XS/main/utils.c (copy_tree_internal)
+	(increase_ref_counter, copy_associated_info, get_copy_ref)
+	(copy_extra_info, associate_info_references, copy_tree),
+	tp/Texinfo/Common.pm (_get_copy_ref): implement copy_tree in
+	XS.  Not tested for now.
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_copy_tree, _get_ref, _copy_extra_info):
 	redo the implementation of tree copy without a hash associating
 	element and copy, to be easier to implement in XS.  Put the copy
