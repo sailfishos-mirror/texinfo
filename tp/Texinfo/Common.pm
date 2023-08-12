@@ -1969,26 +1969,46 @@ sub _collect_commands_list_in_tree($$$)
 # modules but are not generally useful in converters
 # and therefore not public.
 
-sub _copy_tree($$$);
-sub _copy_tree($$$)
+
+# This implementation of tree copy is designed such as to be
+# implemntable easily in XS with reference to copy local to
+# the element and not in a hash
+
+# It is important to go through the tree in the same order
+# in _copy_tree and _copy_extra_info, to be sure that elements already
+# seen are the same in both cases, such that _counter is at 0 in
+# _copy_extra_info when all the dependent elements have been seen
+# and going through the target element.
+sub _copy_tree($$);
+sub _copy_tree($$)
 {
   my $current = shift;
   my $parent = shift;
-  my $reference_associations = shift;
-  if (exists($reference_associations->{$current})) {
-    # happens for def_*index_element (which are not in the main tree)
-    # as they contain pieces of the main tree
-    #print STDERR "COPY: replace $current: "
-    #          ."$reference_associations->{$current}; "
-    #          .Texinfo::Common::debug_print_element($current)."\n";
-    return $reference_associations->{$current};
+
+  # either a duplicate in a tree (should be rare/avoided) or an
+  # element referred to in extra/info, either directly or
+  # (probably rare) in the extra element tree that has already
+  # been seen in the tree
+  if ($current->{'_copy'}) {
+    #print STDERR "RCT $current ".debug_print_element($current)
+    # .": $current->{'_counter'}\n";
+    $current->{'_copy'}->{'parent'} = $parent
+        if (not $current->{'_copy'}->{'parent'} and $parent);
+    return $current->{'_copy'};
   }
+
   my $new = {};
-  $reference_associations->{$current} = $new;
   $new->{'parent'} = $parent if ($parent);
   foreach my $key ('type', 'cmdname', 'text') {
     $new->{$key} = $current->{$key} if (exists($current->{$key}));
   }
+
+  $current->{'_copy'} = $new;
+  $current->{'_counter'} = 0 if !exists($current->{'_counter'});
+  $current->{'_counter'}++;
+
+  #print STDERR "CTNEW $current ".debug_print_element($current)." $new\n";
+
   foreach my $key ('args', 'contents') {
     if ($current->{$key}) {
       if (ref($current->{$key}) ne 'ARRAY') {
@@ -2003,19 +2023,70 @@ sub _copy_tree($$$)
       }
       $new->{$key} = [];
       foreach my $child (@{$current->{$key}}) {
-        push @{$new->{$key}}, _copy_tree($child, $new, $reference_associations);
+        push @{$new->{$key}}, _copy_tree($child, $new);
+      }
+    }
+  }
+  foreach my $info_type ('info', 'extra') {
+    next if (!$current->{$info_type});
+    $new->{$info_type} = {};
+    foreach my $key (sort(keys(%{$current->{$info_type}}))) {
+      my $value = $current->{$info_type}->{$key};
+      if (ref($value) eq 'ARRAY' and ref($value->[0]) eq 'HASH') {
+        #print STDERR "II ARRAY $key $value\n";
+        $new->{$info_type}->{$key} = [];
+        foreach my $target (@{$value}) {
+          if ($target->{'_copy'}) {
+            push @{$new->{$info_type}->{$key}}, $target->{'_copy'};
+          } else {
+            push @{$new->{$info_type}->{$key}}, undef;
+            $target->{'_counter'}++;
+            #print STDERR "AC $target ".debug_print_element($target)
+            #   .": $target->{'_counter'}\n";
+          }
+          _copy_tree($target, undef);
+        }
+      } elsif (ref($value) eq 'HASH') {
+        #print STDERR "II HASH $key $value\n";
+        if ($value->{'_copy'}) {
+          $new->{$info_type}->{$key} = $value->{'_copy'};
+        } else {
+          $value->{'_counter'}++;
+          #print STDERR "AC $value ".debug_print_element($value)
+          #   .": $value->{'_counter'}\n";
+        }
+        _copy_tree($value, undef);
       }
     }
   }
   return $new;
 }
 
-sub _copy_extra_info($$$;$);
-sub _copy_extra_info($$$;$)
+sub _get_ref($$)
+{
+  my $target = shift;
+  my $context = shift;
+
+  if (ref($target) ne 'HASH' or !$target->{'_counter'}) {
+    print STDERR "BUG: $context: unexpected target $target\n";
+    print STDERR "    ".debug_print_element($target)."\n";
+    die;
+  }
+  $target->{'_counter'}--;
+  if ($target->{'_counter'} == 0) {
+    delete $target->{'_counter'};
+    my $copy = $target->{'_copy'};
+    delete $target->{'_copy'};
+    return $copy;
+  }
+  return $target->{'_copy'};
+}
+
+sub _copy_extra_info($$;$);
+sub _copy_extra_info($$;$)
 {
   my $current = shift;
   my $new = shift;
-  my $reference_associations = shift;
   my $level = shift;
 
   my $command_or_type = '';
@@ -2027,16 +2098,23 @@ sub _copy_extra_info($$$;$)
 
   $level = 0 if (!defined($level));
 
+  if (!$current->{'_copy'}) {
+    #print STDERR "DONE $current ".debug_print_element($current)."\n";
+    return;
+  }
+
   $level++;
   #print STDERR (' ' x $level)
-  #   .Texinfo::Common::debug_print_element($current).": $current\n";
+  #   .Texinfo::Common::debug_print_element($current).": $current ".
+  #   (defined($current->{'_counter'}) ? $current->{'_counter'} : 'N')."\n";
+
+  _get_ref($current, "myself[$command_or_type]");
 
   foreach my $key ('args', 'contents') {
     if ($current->{$key}) {
       my $index = 0;
       foreach my $child (@{$current->{$key}}) {
-        _copy_extra_info($child, $new->{$key}->[$index],
-                         $reference_associations, $level);
+        _copy_extra_info($child, $new->{$key}->[$index], $level);
         $index++;
       }
     }
@@ -2044,54 +2122,43 @@ sub _copy_extra_info($$$;$)
 
   foreach my $info_type ('info', 'extra') {
     next if (!$current->{$info_type});
-    foreach my $key (keys %{$current->{$info_type}}) {
-      #print STDERR (' ' x $level) . "K $info_type $key\n";
+    foreach my $key (sort(keys(%{$current->{$info_type}}))) {
       my $value = $current->{$info_type}->{$key};
+      #print STDERR (' ' x $level) . "K $info_type $key |$value\n";
       if (ref($value) eq '') {
         $new->{$info_type}->{$key} = $value;
       } elsif (ref($value) eq 'ARRAY') {
-        # authors index_entry manual_content menus misc_args node_content
-        #print STDERR "Array $command_or_type $info_type -> $key\n";
-        my $result = [];
-        my $index = 0;
-        # this code works with arrays mixing scalars and reference to elements.
-        # In practice arrays in extra are either only scalars (index_entry,
-        # misc_args) or only elements (the remaining).
-        foreach my $item (@{$value}) {
-          if (ref($item) eq '') {
-            push @{$result}, $item;
-          } elsif ($reference_associations->{$item}) {
-            push @{$result}, $reference_associations->{$item};
-          } else {
-            print STDERR "Trouble with ${info_type}[$command_or_type]{$key} "
-               ."[$index] (".ref($item).")\n";
-            push @{$result}, undef;
-          }
-          $index++;
-        }
-        $new->{$info_type}->{$key} = $result;
-      } elsif (ref($value) eq 'HASH') {
-        if ($reference_associations->{$value}) {
-          # reference to another element in the tree, for example:
-          # associated_node caption columnfractions def_index_element
-          # command_as_argument seealso subentry
-          $new->{$info_type}->{$key} = $reference_associations->{$value};
-          #print STDERR "Done $info_type [$command_or_type]: $key\n";
-        } elsif ($value->{'contents'} or $value->{'args'} or $value->{'cmdname'}
-                 or $value->{'type'} or (defined($value->{'text'})
-                                         and $value->{'text'} ne '')) {
-          # Out of tree element.
-          # Note that the code works only if the out of tree elements are
-          # not referred to by main tree elements.
-          #print STDERR "Doing $info_type [$command_or_type]: $key\n";
-          my $new_element = _copy_tree($value, undef, $reference_associations);
-          _copy_extra_info($value, $new_element,
-                           $reference_associations, $level);
-          $new->{$info_type}->{$key} = $new_element;
+        #print STDERR (' ' x $level) .
+        #           "Array $command_or_type $info_type -> $key\n";
+        # misc_args index_entry
+        if (ref($value->[0]) eq '') {
+          $new->{$info_type}->{$key} = [@$value];
         } else {
-          print STDERR "Unexpected $info_type [$command_or_type]{$key}: "
-                                                          .ref($value)."\n";
+          # authors manual_content menus node_content
+          my $new_array = $new->{$info_type}->{$key};
+          for (my $index = 0; $index < scalar(@{$value}); $index++) {
+            if (!defined($new_array->[$index])) {
+              my $context = "$info_type [$command_or_type]{$key} [$index]";
+              $new_array->[$index] = _get_ref($value->[$index], $context);
+            }
+            _copy_extra_info($value->[$index],
+                             $value->[$index]->{'_copy'}, $level)
+              if ($value->[$index]->{'_copy'});
+          }
         }
+      } elsif (ref($value) eq 'HASH') {
+        #print STDERR (' ' x $level)
+        #         . "Hash $command_or_type $info_type -> $key\n";
+        if (!exists($new->{$info_type}->{$key})) {
+          my $context = "${info_type}[$command_or_type]{$key}";
+          $new->{$info_type}->{$key} = _get_ref($value, $context);
+        }
+        if ($value->{'_copy'}) {
+          _copy_extra_info($value, $value->{'_copy'}, $level);
+        }
+      } else {
+        print STDERR "Unexpected $info_type [$command_or_type]{$key}: "
+                                                          .ref($value)."\n";
       }
     }
   }
@@ -2101,9 +2168,8 @@ sub copy_tree($;$)
 {
   my $current = shift;
   my $parent = shift;
-  my $reference_associations = {};
-  my $copy = _copy_tree($current, $parent, $reference_associations);
-  _copy_extra_info($current, $copy, $reference_associations);
+  my $copy = _copy_tree($current, $parent);
+  _copy_extra_info($current, $copy);
   return $copy;
 }
 

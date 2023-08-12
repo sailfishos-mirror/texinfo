@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 5; }
+BEGIN { plan tests => 6; }
 #BEGIN { plan tests => 1; }
 
 use Texinfo::Parser;
@@ -24,6 +24,38 @@ if (defined($srcdir)) {
 my $debug = 0;
 
 ok(1, "modules loading");
+
+# FIXME not tested in XS
+# a tree with a reference seen after one within the extra tree.
+# Not sure that it exists in real trees, so check it here
+my $tref = {'type' => 'document_root',
+            'contents' => [{'text' => 'x'},
+                           {'text' => 'a',
+                            'extra' => {'thing' =>
+                              {'type' => 'container',
+                               'contents' => [{'text' => 'e1',
+                                              'extra' => {}}
+                                             ]
+                              }
+                             }
+                            },
+                            {'text' => "\n"},
+                           ]
+            };
+
+$tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'ref'}
+  = $tref->{'contents'}->[0];
+
+my $tref_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref);
+
+my $tref_copy = Texinfo::Common::copy_tree($tref, undef);
+
+my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
+
+# Does not test much as the reference in extra does not appear in the
+# output.  Not a big deal, what is important it so see if there are error
+# messages.
+is ($tref_texi, $tref_copy_texi, "ref within extra tree");
 
 my $text = '@setfilename some@@file.ext
 

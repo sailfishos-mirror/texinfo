@@ -1,6 +1,19 @@
 2023-08-11  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Common.pm b/tp/Texinfo/Common.pm (_copy_extra_info):
+	* tp/Texinfo/Common.pm (_copy_tree, _get_ref, _copy_extra_info):
+	redo the implementation of tree copy without a hash associating
+	element and copy, to be easier to implement in XS.  Put the copy
+	with the initial element, add a counter to count refs seen after
+	an element has been copied and go through the tree in the same order
+	again in _copy_extra_info to get the missing references and remove the
+	information about copy/counter.
+
+	* tp/t/test_tree_copy.t: add a test with a manual tree with a
+	reference to the beginning of the tree from within an extra tree.
+
+2023-08-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (_copy_extra_info):
 	remove code for impossible situations.  Inline
 	_substitute_references_in_array.
 
