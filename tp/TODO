@@ -36,6 +36,8 @@ elided_rawpreformatted, elided_brace_command_arg types.
 
 'comment_at_end' in info hash
 
+alias_of in info hash
+
 source marks.
 
 Other
@@ -682,6 +684,8 @@ From doc/
 texi2pdf -I ../tp/tests/layout/ ../tp/tests/formatting_valid.texi
 
 mkdir -p val_res
+PERL_DESTRUCT_LEVEL=2
+export PERL_DESTRUCT_LEVEL
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q perl -w $file > val_res/$bfile.out 2>&1 ; done
 
 For tests in tp/tests, a way to have valgrind -q prependend is to add, in tp/defs:

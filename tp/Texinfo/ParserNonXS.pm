@@ -8156,6 +8156,8 @@ This type is set for an @-command that is redefined by C<@definfoenclose>.
 The beginning is in C<< {'extra'}->{'begin'} >> and the end in
 C<< {'extra'}->{'end'} >>.
 
+The command name is the info I<command_name> value.
+
 =item index_entry_command
 
 This is the type of index entry command like C<@cindex>, and, more
@@ -8513,7 +8515,10 @@ and for C<@macro> line.
 
 =item command_name
 
-The name of the user defined macro, rmacro or linemacro called
+Name of commands that can be defined dynamically.
+The name of index command or definfoenclose defined command (also
+available in I<cmdname> for those commands).
+The name of user defined macro, rmacro or linemacro called
 associated with the element holding the arguments of the user defined command
 call.
 
