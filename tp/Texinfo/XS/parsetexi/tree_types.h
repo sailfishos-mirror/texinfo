@@ -55,13 +55,6 @@ enum source_mark_type {
   #undef sm_type
 };
 
-static char *source_marks_names[SM_type_expanded_conditional_command + 1] =
-{
-  #define sm_type(name) [SM_type_ ## name] = #name,
-    SM_TYPES_LIST
-  #undef sm_type
-};
-
 enum source_mark_status {
     SM_status_none,
     SM_status_start,

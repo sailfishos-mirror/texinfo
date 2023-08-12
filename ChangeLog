@@ -1,5 +1,12 @@
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/source_marks.c (source_marks_names): setup
+	the source_marks_names table in the file using it and not in the
+	header file defining the macro used to setup the table, to have the
+	table defined only where it is used.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
 	tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments),
