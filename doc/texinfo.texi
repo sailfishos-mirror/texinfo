@@ -2769,11 +2769,13 @@ Texinfo File''.  This shows a @code{@@node} line followed by a
 @end nodedescriptionblock
 @section Node Descriptions
 
+@findex nodedescription
 You can provide a short description of the purpose of a node by using
 the @code{@@nodedescription} command following the @code{@@node} line.
 Such a description might elaborate on or extend the information in the
 node name itself.
 
+@findex nodedescriptionblock
 You can also use a @code{@@nodedescriptionblock} environment to
 provide a node description. This may be useful for longer descriptions.
 
@@ -18747,6 +18749,10 @@ with @code{@@end copying}.  @xref{@code{@@copying}}.
 Generate the copyright symbol @copyright{}.
 @xref{@code{@@copyright}}.
 
+@item @@defblock
+Start a block containing definitions.  Pair with @samp{@@end defblock}.
+@xref{Generic Definition Commands}.
+
 @item @@defcodeindex @var{index-name}
 Define a new index and its indexing command.  Print entries in an
 @code{@@code} font.  @xref{New Indices, , Defining New Indices}.
@@ -18780,6 +18786,11 @@ follow the text.
 Format a description for an instance variable in object-oriented
 programming.  The command is equivalent to @samp{@@defcv @{Instance
 Variable@} @dots{}}.  @xref{Definition Commands}.
+
+@item @@defline @var{category} @var{name} @var{arguments}@dots{}
+Use within a @code{@@defblock} environment to give the heading prototype
+line for a symbol being defined.  This command does not
+create any index entries.  @xref{Generic Definition Commands}.
 
 @item @@defmac @var{macroname} @var{arguments}@dots{}
 @itemx @@defmacx @var{macroname} @var{arguments}@dots{}
@@ -18844,6 +18855,11 @@ The command is equivalent to @samp{@@deftypefn Function @dots{}}.
 @itemx @@deftypeivarx @var{class} @var{data-type} @var{variable-name}
 Format a description for a typed instance variable in object-oriented
 programming. @xref{Definition Commands}, and @ref{Abstract Objects}.
+
+@item @@deftypeline @var{category} @var{data-type} @var{name} @var{arguments}@dots{}
+Use within a @code{@@defblock} environment to give the heading prototype
+line for a symbol being defined, with data types.  This command does not
+create any index entries.  @xref{Generic Definition Commands}.
 
 @item @@deftypemethod @var{class} @var{data-type} @var{method-name} @var{arguments}@dots{}
 @itemx @@deftypemethodx @var{class} @var{data-type} @var{method-name} @var{arguments}@dots{}
@@ -19272,6 +19288,14 @@ Formatter Commands}.
 @item @@leq@{@}
 Generate a less-than-or-equal sign, `@leq{}'.  @xref{@code{@@geq @@leq}}.
 
+@item @@linemacro @var{macroname} @{@var{params}@}
+Define a new macro which takes rest of the line as an argument, and
+expands to a whole number of complete lines.  @xref{Line Macros}.
+
+@item @@link@{@var{nodename}, @var{label}, @var{manual-name}@}
+Create a plain link with no visible markup or page reference.
+@xref{@code{@@link}}.
+
 @item @@lisp
 Begin an example of Lisp code.  Indent text, do not fill, and select
 fixed-width font.  Pair with @code{@@end lisp}.  @xref{@code{@@lisp}}.
@@ -19321,6 +19345,14 @@ Start a new page in a printed manual if fewer than @var{n} mils
 @item @@node @var{name}, [@var{next}], [@var{previous}], [@var{up}]
 Begin a new node.  Only the first argument is mandatory.
 @xref{Writing a Node}.
+
+@item @@nodedescription @var{node-description}
+Provide a short elaboration of the purpose of a node.
+@xref{Node Descriptions}.
+
+@item @@nodedescriptionblock
+Used to start a longer node description.  Pair with
+@samp{@@end nodedescriptionblock}.  @xref{Node Descriptions}.
 
 @item @@noindent
 Prevent text from being indented as if it were a new paragraph.
