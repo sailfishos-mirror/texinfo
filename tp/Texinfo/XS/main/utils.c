@@ -18,12 +18,14 @@
 #include <config.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 #include "tree.h"
 #include "command_ids.h"
 #include "extra.h"
 #include "errors.h"
+#include "debug.h"
 #include "utils.h"
 
 const char *whitespace_chars = " \t\v\f\r\n";
@@ -187,11 +189,11 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
                 add_to_contents_as_array (new_extra_contents,
                                           (ELEMENT *)k_copy->value);
               else
-               {
-                 increase_ref_counter (e);
-                 add_to_contents_as_array (new_extra_contents, 0);
-               }
-               copy_tree_internal (e, 0);
+                {
+                  increase_ref_counter (e);
+                  add_to_contents_as_array (new_extra_contents, 0);
+                }
+              copy_tree_internal (e, 0);
             }
         default:
           break;
@@ -223,8 +225,13 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   if (current->text.space > 0)
     text_append (&new->text, current->text.text);
 
-  increase_ref_counter (new);
+  increase_ref_counter (current);
   add_extra_element (current, "_copy", new);
+
+  /*
+  fprintf (stderr, "CTNEW %p %s %p\n", current,
+                                       print_element_debug (current, 0), new);
+  */
 
   for (i = 0; i < current->args.number; i++)
     add_to_element_args (new,

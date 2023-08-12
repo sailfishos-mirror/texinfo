@@ -1,5 +1,10 @@
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (copy_tree_internal): call
+	increase_ref_counter on current element, not on new.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/debug.c (print_associate_info_debug)
 	(print_element_debug_details): add printing detailed debug information
 	on extra and info.
