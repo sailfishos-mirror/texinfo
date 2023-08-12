@@ -1,3 +1,14 @@
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): avoid
+	mixing declarations and code.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command):
+	remove unused variable.
+
 2023-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add note re "git stash list".

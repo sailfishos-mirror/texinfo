@@ -595,6 +595,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
             }
           else
             {
+              ELEMENT *spaces_element = new_element (ET_NONE);
 
               set_toplevel_braces_nr (&count_toplevel_braces,
                                       argument_content);
@@ -608,7 +609,6 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
               add_to_element_contents (argument, argument_content);
               arg = &(argument_content->text);
 
-              ELEMENT *spaces_element = new_element (ET_NONE);
               text_append_n (&spaces_element->text, pline,
                              whitespaces_len);
               add_info_element_oot (argument, "spaces_before_argument",

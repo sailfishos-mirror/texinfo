@@ -165,7 +165,7 @@ parse_rawline_command (char *line, enum command_id cmd,
 
   ELEMENT *args = new_element (ET_NONE);
   char *p = 0, *q = 0, *r = 0;
-  char *value = 0, *remaining = 0;;
+  char *value = 0;
 
   *special_arg = 1;
 
@@ -1065,6 +1065,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
       if (flags & CF_def)
         {
           ELEMENT *def_line;
+          char *val;
           push_context (ct_def, cmd);
           block = new_element (ET_NONE);
           block->cmd = cmd;
@@ -1080,7 +1081,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
           add_extra_string_dup (current, "original_def_cmdname", 
                                 command_name(cmd));
           /* Check txidefnamenospace flag */
-          char *val = fetch_value ("txidefnamenospace");
+          val = fetch_value ("txidefnamenospace");
           if (val)
             add_extra_integer (current, "omit_def_name_space", 1);
         }

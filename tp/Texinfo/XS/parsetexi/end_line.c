@@ -873,6 +873,7 @@ end_line_starting_block (ELEMENT *current)
     }
   else if (command_data(command).flags & CF_blockitem)
     {
+      KEY_PAIR *k;
       if (command == CM_enumerate)
         {
           char *spec = "1";
@@ -979,7 +980,7 @@ end_line_starting_block (ELEMENT *current)
         }
 
       /* Check if command_as_argument isn't an accent command */
-      KEY_PAIR *k = lookup_extra (current, "command_as_argument");
+      k = lookup_extra (current, "command_as_argument");
       if (k && k->value)
         {
           enum command_id cmd = ((ELEMENT *) k->value)->cmd;

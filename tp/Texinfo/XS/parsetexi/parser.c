@@ -1539,8 +1539,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           p += strspn (p, whitespace_chars);
           if (*p == '@')
             {
+              char *command;
               p++;
-              char *command = read_command_name (&p);
+              command = read_command_name (&p);
               if (command)
                 {
                   cmd = lookup_command (command);
