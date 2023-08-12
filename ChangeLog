@@ -1,3 +1,7 @@
+2023-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: add note re "git stash list".
+
 2023-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/refcard/txirefcard.tex: Close TeX group as intended (broken

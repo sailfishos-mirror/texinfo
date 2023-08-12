@@ -286,6 +286,8 @@ Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.  Check for leftover result
   files under tp/tests which should be removed.
 
+check "git stash list" for any work in progress
+
 check OpenCSW build reports at
   https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
 (for master branch only)
