@@ -140,7 +140,7 @@ increase_ref_counter (ELEMENT *element)
     add_extra_integer (element, "_counter", 0);
   k_counter = lookup_extra_by_index (element, "_counter", -1);
   counter_ptr = (intptr_t *) &k_counter->value;
-  *counter_ptr ++;
+  (*counter_ptr) ++;
 }
 
 void
@@ -202,12 +202,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
 ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 {
-  ASSOCIATED_INFO *cur_extra = &current->extra_info;
   KEY_PAIR *k_copy = 0;
-  KEY_PAIR *k_counter = 0;
   ELEMENT *new;
   int i;
-  intptr_t *counter_ptr;
 
   k_copy = lookup_extra_by_index (current, "_copy", -1);
   if (k_copy)
@@ -252,7 +249,7 @@ get_copy_ref (ELEMENT *element)
 
   k_counter = lookup_extra_by_index (element, "_counter", -2);
   counter_ptr = (intptr_t *) &k_counter->value;
-  *counter_ptr --;
+  (*counter_ptr) --;
 
   if (*counter_ptr == 0)
     {
@@ -275,7 +272,6 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
       char *key = info->info[i].key;
       ELEMENT *f = (ELEMENT *) info->info[i].value;
       ELEMENT *new_extra_contents;
-      KEY_PAIR *k_copy = 0;
       int j;
 
       if (info->info[i].type == extra_deleted)
@@ -340,10 +336,10 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           }
         case extra_misc_args:
           {
+          int j;
           new_extra_contents = new_element (ET_NONE);
           add_associated_info_key (new_info, key, (intptr_t)new_extra_contents,
                                    info->info[i].type);
-          int j;
           for (j = 0; j < f->contents.number; j++)
             {
               ELEMENT *e = new_element (ET_NONE);

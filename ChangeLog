@@ -1,4 +1,11 @@
-2023-08-11  Patrice Dumas  <pertusus@free.fr>
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.c (increase_ref_counter)
+	(copy_associated_info, get_copy_ref, associate_info_references):
+	fix precedence, remove unused variables, do not mix declarations
+	and code.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/extra.c (lookup_associated_info_by_index)
 	(lookup_extra_by_index): add functions that looks directly at
