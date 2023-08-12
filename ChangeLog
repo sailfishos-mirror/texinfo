@@ -1,5 +1,14 @@
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	XS interface for copy_tree in tests
+
+	* tp/Texinfo/Structuring.pm (import, copy_tree, _copy_tree_with_XS)
+	tp/Texinfo/XS/convert/ConvertXS.xs (copy_tree), tp/t/test_tree_copy.t:
+	add interface for XS copy_tree in Texinfo::Structuring.  Used in tests
+	only for now, as it works only on full trees.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (increase_ref_counter)
 	(copy_associated_info, get_copy_ref, associate_info_references):
 	fix precedence, remove unused variables, do not mix declarations

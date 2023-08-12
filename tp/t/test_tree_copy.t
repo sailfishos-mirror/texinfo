@@ -8,11 +8,14 @@ use Test::More;
 BEGIN { plan tests => 6; }
 #BEGIN { plan tests => 1; }
 
-use Texinfo::Parser;
-use Texinfo::Convert::Texinfo;
 use Data::Dumper;
 use File::Spec;
 #use Text::Diff;
+
+use Texinfo::Parser;
+use Texinfo::Convert::Texinfo;
+# use copy_tree from Texinfo::Structuring to use the XS version.
+use Texinfo::Structuring;
 
 my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {
@@ -48,7 +51,7 @@ $tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'
 
 my $tref_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref);
 
-my $tref_copy = Texinfo::Common::copy_tree($tref, undef);
+my $tref_copy = Texinfo::Structuring::copy_tree($tref, undef);
 
 my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
 
@@ -127,7 +130,7 @@ T
 my $document = Texinfo::Parser::parse_texi_piece(undef, $text);
 my $tree = $document->tree();
 my $reference_associations = {};
-my $copy = Texinfo::Common::copy_tree($tree, undef);
+my $copy = Texinfo::Structuring::copy_tree($tree, undef);
 
 my $texi_tree = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -160,7 +163,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
     warn "$label: ".$error_message->{'error_line'}
       if ($debug);
   }
-  my $test_tree_copy = Texinfo::Common::copy_tree($texinfo_test_tree, undef);
+  my $test_tree_copy = Texinfo::Structuring::copy_tree($texinfo_test_tree, undef);
 
   my $test_texi
      = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_test_tree);

@@ -31,6 +31,7 @@
 #include "ppport.h"
 
 #include "plain_texinfo.h"
+#include "utils.h"
 #include "document.h"
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
@@ -90,6 +91,37 @@ plain_texinfo_convert_tree (converter, root_in)
     OUTPUT:
         RETVAL
 
-
-
-
+# FIXME what to do with the parent argument?
+SV *
+copy_tree (tree_in, parent_in)
+        SV *tree_in
+        SV *parent_in
+    PREINIT:
+        ELEMENT *result;
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        int copy_document_descriptor;
+        HV *hv;
+        HV *hv_tree_in;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        result = copy_tree (document->tree, 0);
+        copy_document_descriptor = register_document (result, 0, 0,
+                                                      0, 0, 0, 0, 0, 0);
+        hv = newHV ();
+        hv_store (hv, "tree_document_descriptor",
+                  strlen ("tree_document_descriptor"),
+                  newSViv ((IV) copy_document_descriptor), 0);
+        RETVAL = newRV_inc ((SV *) hv);
+    OUTPUT:
+        RETVAL

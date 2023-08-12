@@ -75,6 +75,22 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1';
 
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_copy_tree_with_XS",
+        "Texinfo::Convert::ConvertXS::copy_tree"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
+
 
 my %types_to_enter;
 foreach my $type_to_enter ('brace_command_arg', 'line_arg',
@@ -97,6 +113,23 @@ foreach my $command (keys(%command_structuring_level)) {
 $unnumbered_commands{'top'} = 1;
 $unnumbered_commands{'centerchap'} = 1;
 $unnumbered_commands{'part'} = 1;
+
+sub copy_tree($;$)
+{
+  my $tree = shift;
+  my $parent = shift;
+  if (defined($tree->{'tree_document_descriptor'})) {
+    return _copy_tree_with_XS($tree, $parent);
+  }
+  return Texinfo::Common::copy_tree($tree, $parent);
+}
+
+sub _copy_tree_with_XS($$)
+{
+  my $tree = shift;
+  my $parent = shift;
+  return Texinfo::Common::copy_tree($tree, $parent);
+}
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
@@ -1911,6 +1944,8 @@ sub _print_down_menus($$)
     foreach my $menu (@menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+          # Should use copy_tree from Structuring to use XS code, but
+          # the tree would have to be registered first.
           push @master_menu_contents, Texinfo::Common::copy_tree($entry);
           # gather node children to recursively print their menus
           my ($normalized_entry_node, $node)
