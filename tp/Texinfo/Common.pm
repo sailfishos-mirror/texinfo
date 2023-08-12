@@ -2638,9 +2638,15 @@ sub debug_print_element_details($;$)
     $string .= "   $key: $current->{$key}\n";
   }
   if ($current->{'extra'}) {
-    $string .= "    EXTRA\n";
+    $string .= " EXTRA\n";
     foreach my $key (keys (%{$current->{'extra'}})) {
-      $string .= "    $key: $current->{'extra'}->{$key}\n";
+      $string .= "  $key: $current->{'extra'}->{$key}\n";
+    }
+  }
+  if ($current->{'info'}) {
+    $string .= " INFO\n";
+    foreach my $key (keys (%{$current->{'info'}})) {
+      $string .= "  $key: $current->{'info'}->{$key}\n";
     }
   }
   return $string;

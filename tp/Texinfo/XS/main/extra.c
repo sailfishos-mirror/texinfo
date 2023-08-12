@@ -86,6 +86,9 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 
 /* Add an extra key that is a reference to the text field of another
    element. */
+/*
+   Unused in 2023.
+*/
 void
 add_extra_text (ELEMENT *e, char *key, ELEMENT *value)
 {
