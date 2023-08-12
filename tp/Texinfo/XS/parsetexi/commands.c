@@ -36,10 +36,7 @@ enum command_id
 lookup_command (char *cmdname)
 {
   enum command_id cmd;
-  COMMAND target;
   int i;
-
-  target.cmdname = cmdname;
 
   /* Check for user-defined commands: macros, indexes, etc. */
   /* Do this before looking in the built-in commands, in case the user uses 

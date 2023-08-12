@@ -60,11 +60,11 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
                || e->cmd == CM_caption
                || e->cmd == CM_hyphenation
                || e->cmd == CM_sortas
-               || e->cmd == CM_seeentry))
+               || e->cmd == CM_seeentry)
              /* here ignore the line commands */
               || (e->args.number > 0
                   && (e->args.list[0]->type == ET_line_arg
-                      || e->args.list[0]->type == ET_rawline_arg))))
+                      || e->args.list[0]->type == ET_rawline_arg)))))
     return;
   else if (e->text.end > 0)
     {

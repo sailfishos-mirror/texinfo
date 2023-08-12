@@ -40,7 +40,8 @@ normalize_NFC (const char *text)
   uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   /* +1 to have the terminating NUL included in the string */
-  uint8_t *normalized_u8 = u8_normalize (UNINORM_NFC, encoded_u8, strlen (encoded_u8)+1,
+  uint8_t *normalized_u8 = u8_normalize (UNINORM_NFC, encoded_u8,
+                                         u8_strlen (encoded_u8)+1,
                                          NULL, &lengthp);
   free (encoded_u8);
   result = u8_strconv_to_encoding (normalized_u8, "UTF-8", iconveh_question_mark);

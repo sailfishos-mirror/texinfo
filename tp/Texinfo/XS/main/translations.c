@@ -463,7 +463,7 @@ replace_convert_substrings (char *translated_string,
 
   if (error_number > 0)
     {
-      fprintf (stderr, "translation %d error(s)\n", error_number);
+      fprintf (stderr, "translation %zu error(s)\n", error_number);
       fprintf (stderr, "translated string: %s\n", translated_string);
       fprintf (stderr, "Error messages: \n");
       for (i = 0; i < error_number; i++)

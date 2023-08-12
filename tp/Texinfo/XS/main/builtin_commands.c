@@ -40,7 +40,6 @@ lookup_builtin_command (char *cmdname)
 {
   COMMAND *c;
   COMMAND target;
-  int i;
 
   target.cmdname = cmdname;
 

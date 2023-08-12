@@ -583,7 +583,6 @@ parse_texi_document (void)
 {
   int document_descriptor;
   char *linep, *line = 0;
-  ELEMENT *result;
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = before_node_section->parent;

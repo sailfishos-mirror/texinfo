@@ -1,5 +1,21 @@
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/builtin_commands.c,
+	tp/Texinfo/XS/parsetexi/commands.c, tp/Texinfo/XS/parsetexi/parser.c:
+	remove unused variables.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal): remore redundant parenthesis,
+	replace by a grouping.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings):
+	use %zu for size_t in fprintf format.
+
+	* tp/Texinfo/XS/main/unicode.c (normalize_NFC): use u8_strlen instead
+	of strlen to match the type.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	XS interface for copy_tree in tests
 
 	* tp/Texinfo/Structuring.pm (import, copy_tree, _copy_tree_with_XS)
