@@ -491,39 +491,6 @@ xspara_init_state (HV *hash)
 #undef FETCH_INT
 }
 
-/* Move the state back into the Perl hash. */
-void
-xspara_get_state (HV *hash)
-{
-  /* TODO: The last argument of hv_store would be a precomputed hash, which
-     would save the time of calculating it. */
-#define STORE(key) hv_store (hash, key, strlen (key), val, 0)
-
-  SV *val;
-
-  dTHX; /* Perl boilerplate. */
-
-  /* Don't do anything. */
-  return;
-
-  val = newSViv (state.end_sentence);
-  STORE("end_sentence");
-
-  val = newSViv (state.counter);
-  STORE("counter");
-
-  val = newSViv (state.word_counter);
-  STORE("word_counter");
-
-  val = newSViv (state.lines_counter);
-  STORE("lines_counter");
-
-  return;
-
-
-#undef STORE
-}
-
 
 /************************************************************************/
 
