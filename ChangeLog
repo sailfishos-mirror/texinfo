@@ -4,6 +4,37 @@
 
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): free
+	fullpath only after error messages have been output.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting, parse_texi):
+	add parentheses to avoid ambiguity and match better perl parser code.
+	(isolate_last_space): simplify debug output code.
+
+	* tp/Texinfo/XS/parsetexi/parser.c, tp/Texinfo/XS/parsetexi/input.c,
+	tp/Texinfo/XS/parsetexi/tree.c, tp/Texinfo/XS/parsetexi/close.c,
+	tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/macro.c,
+	tp/Texinfo/XS/parsetexi/menus.c, tp/Texinfo/XS/parsetexi/indices.c:
+	remove unused variables.
+
+	* tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace):
+	add parentheses to avoid ambiguity and match better perl parser code.
+
+	* tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list): explicit
+	default in switch for SM_status_none.
+
+	* tp/Texinfo/XS/MiscXS.xs (xs_parse_texi_regex): remove left over
+	variable.
+
+	* tp/Texinfo/XS/xspara.c (xspara_init): group expresions to avoid
+	ambiguity.
+
+	* tp/Texinfo/XS/xspara.c (xspara_get_state): avoid mixing declarations
+	and code.
+
+2023-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/source_marks.c (source_marks_names): setup
 	the source_marks_names table in the file using it and not in the
 	header file defining the macro used to setup the table, to have the

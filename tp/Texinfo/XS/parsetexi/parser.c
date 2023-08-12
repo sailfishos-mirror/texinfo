@@ -942,7 +942,6 @@ void
 isolate_last_space (ELEMENT *current)
 {
   char *text;
-  char *debug_last_elt_str = "";
   ELEMENT *last_elt;
   int text_len;
 
@@ -987,14 +986,13 @@ isolate_last_space (ELEMENT *current)
 
   return;
 
-no_isolate_space:
+ no_isolate_space:
   debug_nonl ("NOT ISOLATING p ");
   debug_print_element (current, 0);
+  debug_nonl ("; c ");
   if (current->contents.number != 0)
-    debug_last_elt_str = print_element_debug (last_elt, 0);
-  debug_nonl ("; c %s", debug_last_elt_str); debug ("");
-  if (current->contents.number != 0)
-    free (debug_last_elt_str);
+    debug_print_element (last_elt, 0);
+  debug ("");
 
   return;
 }
@@ -1181,10 +1179,10 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       if (cmd == CM_c || cmd == CM_comment)
         ok = 1;
     }
-  else if ((outer_flags & CF_brace)       /* "full text commands" */
+  else if (((outer_flags & CF_brace)       /* "full text commands" */
                && (command_data(outer).data == BRACE_style_other
-                || command_data(outer).data == BRACE_style_code
-                || command_data(outer).data == BRACE_style_no_code)
+                   || command_data(outer).data == BRACE_style_code
+                   || command_data(outer).data == BRACE_style_no_code))
            || outer == CM_center
            || outer == CM_exdent
            || outer == CM_item
@@ -1929,7 +1927,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
            */
       || (command_data(cmd).flags & CF_ALIAS))
     {
-      ELEMENT *paragraph;
       char *unknown_cmd;
 
       if (cmd)
@@ -1971,10 +1968,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                && ((command_flags(current) & CF_accent)
                    || conf.ignore_space_after_braced_command_name))
         {
-           char *p; char *s;
            int whitespaces_len;
            int additional_newline = 0;
-           KEY_PAIR *k;
            whitespaces_len = strspn (line, whitespace_chars);
 
            for (int i = 0; i < whitespaces_len; i++)
@@ -2161,7 +2156,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   if (!value)
                     {
                     /* Add element for unexpanded @value.
-                       This should be an error, but still leave a tree element 
+                       This should be an error, but still leave a tree element
                        for the converters to handle */
                       ELEMENT *value_elt;
 
@@ -2187,12 +2182,12 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                 }
               else
                 { /* CM_txiinternalvalue */
-                  ELEMENT *txiinternalvalue_elt, *txiinternalvalue_arg;
+                  ELEMENT *txiinternalvalue_elt;
 
                   abort_empty_line (&current, NULL);
 
-                  txiinternalvalue_elt = new_value_element (cmd, flag, spaces_element);
-
+                  txiinternalvalue_elt = new_value_element (cmd, flag,
+                                                            spaces_element);
 
                   add_to_element_contents (current, txiinternalvalue_elt);
 
@@ -2248,7 +2243,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   && cmd != CM_item
                   && cmd != CM_subentry)))
         {
-          line_warn ("@%s should only appear at the beginning of a line", 
+          line_warn ("@%s should only appear at the beginning of a line",
                      command_name(cmd));
         }
 
@@ -2548,7 +2543,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                   || command_data(current->cmd).data == BLOCK_conditional)
                  || (command_data(current->cmd).data == BLOCK_format_raw
                      && !format_expanded_p (command_name(current->cmd)))))
-            || current->parent && current->parent->cmd == CM_verb)
+            || (current->parent && current->parent->cmd == CM_verb))
           && current_context () != ct_def)
         {
           ELEMENT *e;

@@ -319,11 +319,11 @@ close_command_cleanup (ELEMENT *current)
                       ELEMENT *e = current->contents.list[i];
                       if (e == before_item)
                         continue;
-                      if (e->cmd != CM_NONE
-                          && (e->cmd != CM_c && e->cmd != CM_comment
-                              && e->cmd != CM_end)
-                          || e->type != ET_NONE
-                          && e->type != ET_ignorable_spaces_after_command)
+                      if ((e->cmd != CM_NONE
+                           && (e->cmd != CM_c && e->cmd != CM_comment
+                               && e->cmd != CM_end))
+                          || (e->type != ET_NONE
+                              && e->type != ET_ignorable_spaces_after_command))
                         {
                           empty_format = 0;
                           break;
@@ -426,7 +426,6 @@ close_current (ELEMENT *current,
     }
   else if (current->type != ET_NONE)
     {
-      enum context c;
       ELEMENT *close_brace;
 
       debug ("CLOSING type %s", element_type_name (current));

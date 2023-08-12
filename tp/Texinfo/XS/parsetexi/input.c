@@ -260,7 +260,6 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
 char *
 convert_to_utf8 (char *s)
 {
-  iconv_t our_iconv = (iconv_t) -1;
   char *ret;
 
   /* Convert from @documentencoding to UTF-8.

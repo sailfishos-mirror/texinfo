@@ -286,10 +286,10 @@ xspara_init (int unused, char *unused2)
   if (!cur)
     goto failure;
   len = strlen (cur);
-  if (len >= 6 && !memcmp (".UTF-8", cur + len - 6, 6)
-      || len >= 5 && !memcmp (".utf8", cur + len - 5, 5)
-      || len >= 6 && !memcmp (".utf-8", cur + len - 6, 6)
-      || len >= 5 && !memcmp (".UTF8", cur + len - 5, 5))
+  if ((len >= 6 && !memcmp (".UTF-8", cur + len - 6, 6))
+      || (len >= 5 && !memcmp (".utf8", cur + len - 5, 5))
+      || (len >= 6 && !memcmp (".utf-8", cur + len - 6, 6))
+      || (len >= 5 && !memcmp (".UTF8", cur + len - 5, 5)))
     {
       setlocale (LC_CTYPE, ""); /* Use the locale from the environment. */
       goto success;
@@ -501,10 +501,10 @@ xspara_get_state (HV *hash)
 
   SV *val;
 
+  dTHX; /* Perl boilerplate. */
+
   /* Don't do anything. */
   return;
-
-  dTHX; /* Perl boilerplate. */
 
   val = newSViv (state.end_sentence);
   STORE("end_sentence");

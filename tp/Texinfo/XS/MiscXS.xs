@@ -128,7 +128,6 @@ xs_parse_texi_regex (text)
      char *close_brace;
      char *comma;
      char *asterisk;
-     char *separator_match;
      char *form_feed;
      char *menu_only_separator;
      char *new_text;

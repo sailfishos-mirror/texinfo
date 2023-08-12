@@ -265,7 +265,6 @@ enter_index_entry (enum command_id index_type_cmd,
 {
   INDEX *idx;
   INDEX_ENTRY *entry;
-  KEY_PAIR *k;
   TEXT ignored_chars;
 
   idx = index_of_command (index_type_cmd);
@@ -301,8 +300,8 @@ enter_index_entry (enum command_id index_type_cmd,
       free (ignored_chars.text);
     }
 
-  /* index_entry is an array with two elements.  Use an element with extra_misc_args
-     to pass that information as an array */
+  /* index_entry is an array with two elements.  Use
+     extra_misc_args to pass that information as an array */
   {
     ELEMENT *index_entry = new_element (ET_NONE);
     ELEMENT *e = new_element (ET_NONE);

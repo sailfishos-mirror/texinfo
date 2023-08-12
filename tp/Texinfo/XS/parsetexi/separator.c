@@ -357,16 +357,16 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                       if (ref_label_info->node_content)
                         destroy_element (ref_label_info->node_content);
                     }
-                  if (!link_or_inforef
-                        && (ref->args.number <= 3
-                            || ref->args.number <= 4
-                               && ref->args.list[3]->contents.number == 0
+                  if ((!link_or_inforef
+                       && (ref->args.number <= 3
+                            || (ref->args.number <= 4
+                                && ref->args.list[3]->contents.number == 0)
                             || (ref->args.list[3]->contents.number == 0
                                  && ref->args.list[4]->contents.number == 0))
-                        && !ref_label_info->manual_content
-                      || link_or_inforef
-                        && (ref->args.number <= 2
-                            || ref->args.list[2]->contents.number == 0))
+                       && !ref_label_info->manual_content)
+                      || (link_or_inforef
+                          && (ref->args.number <= 2
+                              || ref->args.list[2]->contents.number == 0)))
                     {
                       /* we use the @*ref command here and not the label
                          command to have more information for messages */

@@ -147,8 +147,6 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
       if (current->type == ET_preformatted
           && current->parent->type == ET_menu_comment)
         {
-          ELEMENT *menu = current->parent->parent;
-
           /* Close ET_preformatted, and ET_menu_comment. */
           current = close_container (current);
           current = close_container (current);

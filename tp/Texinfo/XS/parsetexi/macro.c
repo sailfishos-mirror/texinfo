@@ -60,7 +60,6 @@ new_macro (char *name, ELEMENT *macro)
   enum command_id new;
   MACRO *m = 0;
   size_t free_slot = 0;
-  ELEMENT *tmp;
 
   /* Check for an existing definition first for us to overwrite. */
   new = lookup_command (name);
@@ -539,7 +538,6 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
         {
           int single_char;
           char *command;
-          enum command_id cmd;
           int whitespaces_len;
         case '@':
           pline = sep + 1;

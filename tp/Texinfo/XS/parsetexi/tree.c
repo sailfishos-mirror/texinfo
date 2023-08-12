@@ -134,7 +134,6 @@ destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
 void
 destroy_element (ELEMENT *e)
 {
-  int i;
   free (e->text.text);
 
   /* Note the pointers in these lists are not themselves freed. */
