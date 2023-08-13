@@ -4386,10 +4386,12 @@ sub _convert_heading_command($$$$$)
     $result .= &{$self->formatting_function('format_separate_anchor')}($self,
                                                        $heading_id, $cmdname);
   }
+
   $result .= $content if (defined($content));
 
   $result .= $tables_of_contents;
   $result .= $mini_toc_or_auto_menu;
+
   return $result;
 }
 

@@ -29,6 +29,8 @@ use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;
 
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+
 texinfo_set_from_init_file('contents', 1);
 texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
 texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
@@ -178,7 +180,7 @@ sub book_convert_heading_command($$$$$)
   my $result = '';
 
   # No situation where this could happen
-  if ($self->in_string) {
+  if ($self->in_string()) {
     $result .= $self->command_text($element, 'string') ."\n"
       if ($cmdname ne 'node');
     $result .= $content if (defined($content));
@@ -187,7 +189,9 @@ sub book_convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
-  print STDERR "CONVERT elt heading $element "
+  print STDERR "CONVERT elt heading "
+        # uncomment next line for the perl object name
+        #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
@@ -207,7 +211,7 @@ sub book_convert_heading_command($$$$$)
       and $cmdname eq 'top'
       and $structuring and $structuring->{'sectioning_root'}
       and scalar(@{$structuring->{'sections_list'}}) > 1) {
-    foreach my $content_command_name ('contents', 'shortcontents') {
+    foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text
           = $self->_contents_inline_element($content_command_name, undef);
@@ -235,10 +239,17 @@ sub book_convert_heading_command($$$$$)
       and $Texinfo::Commands::root_commands{$cmdname}) {
     my $in_skipped_node_top
       = $self->shared_conversion_state('in_skipped_node_top', 0);
+    my $node_element;
     if ($cmdname eq 'node') {
-      if ($$in_skipped_node_top == 0
-          and $element->{'extra'}
-          and $element->{'extra'}->{'normalized'} eq 'Top') {
+      $node_element = $element;
+    } elsif ($cmdname eq 'part' and $element->{'extra'}
+             and $element->{'extra'}->{'part_following_node'}) {
+      $node_element = $element->{'extra'}->{'part_following_node'};
+    }
+    if ($node_element or $cmdname eq 'part') {
+      if ($node_element and $node_element->{'extra'}
+          and $node_element->{'extra'}->{'normalized'}
+          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $$in_skipped_node_top = 1;
       } elsif ($$in_skipped_node_top == 1) {
         $$in_skipped_node_top = -1;
@@ -257,7 +268,8 @@ sub book_convert_heading_command($$$$$)
 
   my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
-  if (defined $element->{'structure'}->{'section_level'}) {
+  if ($element->{'structure'}
+      and defined $element->{'structure'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -271,14 +283,18 @@ sub book_convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
+  if ($cmdname eq 'node'
+      and $element->{'extra'}
+      and $element->{'extra'}->{'associated_section'}) {
     $opening_section = $element->{'extra'}->{'associated_section'};
     $level_corrected_opening_section_cmdname
-     = Texinfo::Structuring::section_level_adjusted_command_name($opening_section);
+     = Texinfo::Structuring::section_level_adjusted_command_name(
+                                                             $opening_section);
   } elsif ($cmdname ne 'node'
            # if there is an associated node, it is not a section opening
            # the section was opened before when the node was encountered
-           and not $element->{'extra'}->{'associated_node'}
+           and (not $element->{'extra'}
+                or not $element->{'extra'}->{'associated_node'})
            # to avoid *heading* @-commands
            and $Texinfo::Commands::root_commands{$cmdname}) {
     $opening_section = $element;
@@ -292,20 +308,49 @@ sub book_convert_heading_command($$$$$)
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     # FIXME what to do if the $tree_unit extra does not contain any
-    # unit_command, but tree_unit is defined (it can contain only 'first_in_page')
+    # unit_command, but tree_unit is defined (it can contain only
+    # 'first_in_page')
     if ((!$tree_unit # or !$tree_unit->{'extra'}
          # or !$tree_unit->{'extra'}->{'unit_command'}
          or ($tree_unit->{'extra'}->{'unit_command'}
              and $tree_unit->{'extra'}->{'unit_command'} eq $element
-             and not $element->{'extra'}->{'associated_section'}))
+             and (not $element->{'extra'}
+                  or not $element->{'extra'}->{'associated_section'})))
+        and defined($element->{'extra'})
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
-        $heading_level = 3;
+        my $use_next_heading = 0;
+        if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
+          my $expanded_format_raw
+             = $self->shared_conversion_state('expanded_format_raw', {});
+          # if no format is expanded, the formats will be checked each time
+          # but this is very unlikely, as html is always expanded.
+          if (length(keys(%$expanded_format_raw)) == 0) {
+            foreach my $output_format_command
+                (keys(%Texinfo::Comon::texinfo_output_formats)) {
+              if ($self->is_format_expanded($output_format_command)) {
+                $expanded_format_raw->{$output_format_command} = 1;
+              }
+            }
+          }
+          my $next_heading
+            = Texinfo::Convert::Utils::find_root_command_next_heading_command(
+                     $element, $expanded_format_raw,
+                     ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'));
+          if ($next_heading) {
+            $use_next_heading = 1;
+          }
+        }
+        if (!$use_next_heading) {
+          # use node
+          $heading_level = 3;
+        }
       }
     }
-  } elsif (defined $element->{'structure'}->{'section_level'}) {
+  } elsif ($element->{'structure'}
+           and defined($element->{'structure'}->{'section_level'})) {
     $heading_level = $element->{'structure'}->{'section_level'};
   } else {
     # for *heading* @-commands which do not have a level
@@ -353,13 +398,12 @@ sub book_convert_heading_command($$$$$)
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Commands::root_commands{$cmdname}
-        and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
+        and $sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";
       }
     }
-
 
     my $heading_class = $level_corrected_cmdname;
     unshift @heading_classes, $heading_class;
@@ -374,7 +418,7 @@ sub book_convert_heading_command($$$$$)
       $result .= &{$self->formatting_function('format_heading_text')}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $heading_id, $element);
+                     $heading_id, $element, $element_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
@@ -384,6 +428,7 @@ sub book_convert_heading_command($$$$$)
 
   $result .= $tables_of_contents;
   $result .= $sub_toc;
+
   $result .= $content if (defined($content));
 
   return $result;

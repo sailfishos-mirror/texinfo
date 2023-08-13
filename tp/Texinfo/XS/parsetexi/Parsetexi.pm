@@ -102,7 +102,6 @@ sub parser (;$$)
     $parser->{'conf'}->{$key} = $parser->{$key};
   }
 
-
   # pass directly DEBUG value to reset_parser to override previous
   # parser configuration, as the configuration isn't already reset and the new
   # configuration is set afterwards.

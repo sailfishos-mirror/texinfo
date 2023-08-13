@@ -436,15 +436,18 @@ replace_convert_substrings (char *translated_string,
   for (i = 0; i < replaced_substrings->number; i++)
     free (replaced_substrings->list[i].string);
 
-
+  /* FIXME different from Perl case, as in perl case, a parser is
+     setup, which means a full reset of configuration, in practice
+     a call of reset_parser */
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
    location in tree of substituted brace enclosed strings.
    */
   parser_set_accept_internalvalue (1);
 
-  /* TODO implement setting configuration.  This is not needed when called
-     from a parser, but would be when called from a converter */
+  /* FIXME implement setting configuration.  This may not be needed when
+     called from a parser without reset_parser being called, but would be
+     when called from a converter */
   /*
   # general customization relevant for parser
   if ($customization_information) {
@@ -458,7 +461,7 @@ replace_convert_substrings (char *translated_string,
    */
   document_descriptor = parse_string (texinfo_line, 1);
 
-  debug ("IN TR PARSER ' %s'", texinfo_line);
+  debug ("IN TR PARSER '%s'", texinfo_line);
 
   if (error_number > 0)
     {
