@@ -1,3 +1,10 @@
+2023-08-13  John Wheeler <wheelerwjx9@runbox.com>
+
+	* install-info/tests/ii-0058-test,
+	* install-info/tests/ii-0059-test: Add new tests to check
+	blank lines between sections on repeated addition and deletion of
+	sections.
+
 2023-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/terminal.c (term_Km): Remove.

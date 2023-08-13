@@ -176,3 +176,7 @@ This file describes each of the numbered install-info tests.
 0055: --defsection when its value is used
 0056: --defsection when its value is not used
 0057: --maxwidth
+0058: Repeated deletion and addition of a section does not introduce
+      extra blank lines.
+0059: Deletion of section between two other sections leaves one
+      blank line between the remaining sections.
