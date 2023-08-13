@@ -202,8 +202,8 @@ sub get_parser_info($$$) {
      $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
      $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
 
-  Texinfo::Translations::complete_indices ($self,
-                                   $document->indices_information());
+  #Texinfo::Translations::complete_indices ($self,
+  #                                 $document->indices_information());
 
   _get_errors ($registrar, $configuration_information,
                $XS_document->{'errors'});

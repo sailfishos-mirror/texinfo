@@ -497,20 +497,60 @@ $result_trees{'frenchspacing_and_code'} = {
                 'def_command' => 'deftypeop',
                 'def_index_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name? n. d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'class: MyC. b'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name? n. d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'class: MyC. b'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'element_node' => {},
@@ -768,20 +808,60 @@ $result_trees{'frenchspacing_and_code'} = {
                 'def_command' => 'defop',
                 'def_index_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vname? n; d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vclass: MyC. u'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vname? n; d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vclass: MyC. u'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'element_node' => {},
@@ -1279,20 +1359,60 @@ $result_trees{'frenchspacing_and_code'} = {
                 'def_command' => 'deftypeop',
                 'def_index_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name? n. d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'class: MyC. b'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name? n. d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'class: MyC. b'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'element_node' => {},
@@ -1550,20 +1670,60 @@ $result_trees{'frenchspacing_and_code'} = {
                 'def_command' => 'defop',
                 'def_index_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vname? n; d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'nvclass: MyC. u'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
-                    {},
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'vname? n; d'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
                       'text' => ' on '
                     },
-                    {}
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'nvclass: MyC. u'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'class'
+                      },
+                      'type' => 'bracketed_arg'
+                    }
                   ]
                 },
                 'element_node' => {},
@@ -1654,25 +1814,9 @@ $result_trees{'frenchspacing_and_code'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'frenchspacing_and_code'}{'contents'}[3];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'frenchspacing_and_code'}{'contents'}[3];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'frenchspacing_and_code'}{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[9]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'frenchspacing_and_code'}{'contents'}[5];
 
 $result_texis{'frenchspacing_and_code'} = '

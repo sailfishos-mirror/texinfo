@@ -1,3 +1,13 @@
+2023-08-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Translations.pm (complete_indices),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/indices.c (complete_indices): copy elements
+	used from the tree.
+	Use XS complete_indices in the XS parser.
+
+	* tp/t/README: minor fix and change in language.
+
 2023-08-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (copy_tree_internal): call

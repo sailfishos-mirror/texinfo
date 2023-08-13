@@ -463,6 +463,11 @@ sub complete_indices($$)
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
+          my $class_copy = Texinfo::Common::copy_tree($class, undef);
+          my $name_copy = Texinfo::Common::copy_tree($name, undef);
+          my $ref_class_copy = Texinfo::Common::copy_tree($class, undef);
+          my $ref_name_copy = Texinfo::Common::copy_tree($name, undef);
+
           # Use the document language that was current when the command was
           # used for getting the translation.
           my $entry_language
@@ -472,7 +477,7 @@ sub complete_indices($$)
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
             $index_entry = gdt($customization_information, '{name} on {class}',
-                               {'name' => $name, 'class' => $class},
+                               {'name' => $name_copy, 'class' => $class_copy},
                                 undef, $entry_language);
             $text_element = {'text' => ' on ',
                              'parent' => $index_entry_normalized};
@@ -481,16 +486,16 @@ sub complete_indices($$)
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
             $index_entry = gdt($customization_information, '{name} of {class}',
-                               {'name' => $name, 'class' => $class},
+                               {'name' => $name_copy, 'class' => $class_copy},
                                undef, $entry_language);
             $text_element = {'text' => ' of ',
                              'parent' => $index_entry_normalized};
           }
           $index_entry_normalized->{'contents'}
-              = [$name, $text_element, $class];
-              #= [_non_bracketed_contents($name),
+              = [$ref_name_copy, $text_element, $ref_class_copy];
+              #= [_non_bracketed_contents($ref_name_copy),
               #   $text_element,
-              #   _non_bracketed_contents($class)];
+              #   _non_bracketed_contents($ref_class_copy)];
           #print STDERR "COMPLETE $entry_language: $def_command name: '"
           #  .Texinfo::Convert::Texinfo::convert_to_texinfo($name)."' class: '"
           #   .Texinfo::Convert::Texinfo::convert_to_texinfo($class)." '"

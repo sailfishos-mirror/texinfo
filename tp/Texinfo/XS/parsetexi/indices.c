@@ -26,6 +26,8 @@
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"
+/* for copy_tree */
+#include "utils.h"
 #include "commands.h"
 #include "translations.h"
 #include "document.h"
@@ -462,11 +464,15 @@ complete_indices (int document_descriptor)
                                                        "documentlanguage");
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
+                      ELEMENT *name_copy = copy_tree (name, 0);
+                      ELEMENT *class_copy = copy_tree (class, 0);
+                      ELEMENT *ref_name_copy = copy_tree (name, 0);
+                      ELEMENT *ref_class_copy = copy_tree (class, 0);
 
                       add_element_to_named_string_element_list (substrings,
-                                                                "name", name);
+                                                           "name", name_copy);
                       add_element_to_named_string_element_list (substrings,
-                                                                "class", class);
+                                                           "class", class_copy);
                       if (k_lang && k_lang->value)
                         {
                           lang = (char *) k_lang->value;
@@ -494,11 +500,11 @@ complete_indices (int document_descriptor)
                       destroy_named_string_element_list (substrings);
 
                       add_to_contents_as_array
-                                   (index_entry_normalized, name);
+                                   (index_entry_normalized, ref_name_copy);
                       add_to_element_contents
                                    (index_entry_normalized, text_element);
                       add_to_contents_as_array
-                                   (index_entry_normalized, class);
+                                   (index_entry_normalized, ref_class_copy);
                       /*
          FIXME the 'parent' of the tree elements that correspond to name and
          class, be them from gdt or from the elements, are in the
@@ -510,17 +516,12 @@ complete_indices (int document_descriptor)
                        */
                       index_entry->type = ET_NONE;
 
-                      /*
-                       FIXME need to set up a copy the duplicate elements
-                       before it is possible to add them in the tree
-
                       add_extra_element_oot (main_entry_element,
                                              "def_index_element",
                                              index_entry);
                       add_extra_element_oot (main_entry_element,
                                              "def_index_ref_element",
                                              index_entry_normalized);
-                       */
                     }
                 }
             }
