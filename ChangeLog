@@ -1,5 +1,9 @@
 2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: advice on LDADD for new gnulib modules
+
+2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	gnulib LDADD
 
 	* info/Makefile.am (LDADD), install-info/Makefile.am (LDADD):

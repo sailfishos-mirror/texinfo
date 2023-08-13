@@ -131,6 +131,17 @@ status -u") and add new files to the repository with "git add".
 Add any new generated files (typically gnulib/lib/foo.h from foo.h.in) 
 to the ignore list in .gitignore.
 
+When adding new modules, or sometimes even just when upgrading gnulib,
+it may be necessary to update the LDADD variables in info/Makefile.am or
+install-info/Makefile.am.  Check for any unfamiliar Makefile variables in
+the output of "gnulib-tool --add-import", and work out which program
+needs them.  You can look at the modules/* files in the gnulib checkout
+to help work out which gnulib module is demanding which variable.
+
+For the gnulib checkout in the XS directory, it is just
+tp/Texinfo/XS/Makefile.am that may need to be updated.
+
+
 
 Subdirectories in repository
 ----------------------------
