@@ -4,6 +4,7 @@
 
 #include "tree_types.h"
 #include "utils.h"
+#include "errors.h"
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 HV *build_document (size_t document_descriptor);

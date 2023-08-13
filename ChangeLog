@@ -1,5 +1,44 @@
 2023-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	Isolate better the C parser api in api.h
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: remove wipe_values,
+	reset_context_stack and init_index_commands.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/parsetexi/api.c
+	(parser_set_debug, parser_set_documentlanguage_override)
+	(parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME)
+	(parser_set_input_file_name_encoding, parser_set_locale_encoding)
+	(parser_store_value, parser_add_include_directory)
+	(parser_clear_expanded_formats, parser_add_expanded_format)
+	(parser_set_accept_internalvalue): rename conf_* functions in api
+	not using CONF to parser_* functions.  Add parser_* function in api
+	to wrap functions in specific files such that all the code that can
+	call the C parser externally is in api.h or conf.h.
+
+	* tp/Texinfo/XS/parsetexi/conf.c (reset_conf),
+	tp/Texinfo/XS/parsetexi/conf.h (CONF): remove
+	doc_encoding_for_input_file_name as it is not set through conf.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs (init): buildir is passed, not
+	srcdir.
+
+	* tp/Texinfo/XS/main/debug.c (set_debug_output): add set_debug_output
+	such that debugging can be set through a function.
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser)
+	(parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME),
+	tp/Texinfo/XS/parsetexi/input.c
+	(set_doc_encoding_for_input_file_name): use a function,
+	set_doc_encoding_for_input_file_name, to set
+	doc_encoding_for_input_file_name.  Make
+	doc_encoding_for_input_file_name, input_file_name_encoding and
+	locale_encoding static variables.
+
+2023-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/build_perl_info.c: remove unused variable.
 
 2023-08-13  Patrice Dumas  <pertusus@free.fr>

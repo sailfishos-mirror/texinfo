@@ -289,9 +289,9 @@ convert_to_utf8 (char *s)
 }
 
 
-int doc_encoding_for_input_file_name = 1;
-char *input_file_name_encoding = 0;
-char *locale_encoding = 0;
+static int doc_encoding_for_input_file_name = 1;
+static char *input_file_name_encoding = 0;
+static char *locale_encoding = 0;
 
 void
 set_input_file_name_encoding (char *value)
@@ -305,6 +305,12 @@ set_locale_encoding (char *value)
 {
   free (locale_encoding);
   locale_encoding =  value ? strdup (value) : 0;
+}
+
+void
+set_doc_encoding_for_input_file_name (int value)
+{
+  doc_encoding_for_input_file_name = value;
 }
 
 /* Reverse the decoding of the filename to the input encoding, to retrieve

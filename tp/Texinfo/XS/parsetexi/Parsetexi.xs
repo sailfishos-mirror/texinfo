@@ -30,15 +30,15 @@
 
 #include "ppport.h"
 
-#include "parser.h"
 #include "api.h"
+#include "conf.h"
 #include "build_perl_info.h"
-#include "indices.h"
 /* for remove_document
  FIXME should it be a separate API?
  */
 #include "document.h"
-#include "input.h"
+/* for wipe_errors */
+#include "errors.h"
 
 MODULE = Texinfo::Parser	PACKAGE = Texinfo::Parser
 
@@ -55,9 +55,12 @@ PROTOTYPES: ENABLE
 # Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
 # file path, can be in any encoding
 int
-init (texinfo_uninstalled, srcdir)
+init (texinfo_uninstalled, builddir)
      int texinfo_uninstalled
-     char *srcdir = (char *)SvPVbyte_nolen($arg);
+     char *builddir = (char *)SvPVbyte_nolen($arg);
+
+void
+reset_parser (int debug_output)
 
 void
 wipe_errors ()
@@ -82,25 +85,6 @@ parse_text(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
-void
-store_value (name, value)
-        char *name = (char *)SvPVbyte_nolen($arg);
-        char *value = (char *)SvPVbyte_nolen($arg);
-
-void
-wipe_values ()
-
-void
-reset_context_stack ()
-
-void
-init_index_commands ()
-
-# file path, can be in any encoding
-void
-add_include_directory (filename)
-        char *filename = (char *)SvPVbyte_nolen($arg);
-
 HV *
 build_document (int document_descriptor)
 
@@ -108,13 +92,20 @@ void
 remove_document (int document_descriptor)
 
 void
-reset_parser (int debug_output)
+parser_store_value (name, value)
+        char *name = (char *)SvPVbyte_nolen($arg);
+        char *value = (char *)SvPVbyte_nolen($arg);
+
+# file path, can be in any encoding
+void
+parser_add_include_directory (filename)
+        char *filename = (char *)SvPVbyte_nolen($arg);
 
 void
-clear_expanded_formats ()
+parser_clear_expanded_formats ()
 
 void
-add_expanded_format (format)
+parser_add_expanded_format (format)
      char *format = (char *)SvPVbyte_nolen($arg);
 
 void
@@ -130,23 +121,23 @@ void
 conf_set_MAX_MACRO_CALL_NESTING (int i)
 
 void
-set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
-conf_set_input_file_name_encoding (value)
+parser_set_input_file_name_encoding (value)
      char *value = (char *)SvPVbyte_nolen($arg);
 
 void
-conf_set_locale_encoding (value)
+parser_set_locale_encoding (value)
      char *value = (char *)SvPVbyte_nolen($arg);
 
 void
-conf_set_documentlanguage_override (value)
+parser_set_documentlanguage_override (value)
      char *value = (char *)SvPVbyte_nolen($arg);
 
 void
-set_debug (int i)
+parser_set_debug (int i)
 
 void
-set_accept_internalvalue(int value)
+parser_set_accept_internalvalue(int value)
 

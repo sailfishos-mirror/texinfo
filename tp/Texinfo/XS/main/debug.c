@@ -29,6 +29,12 @@
 int debug_output = 0;
 
 void
+set_debug_output (int value)
+{
+  debug_output = value;
+}
+
+void
 debug (char *s, ...)
 {
   va_list v;

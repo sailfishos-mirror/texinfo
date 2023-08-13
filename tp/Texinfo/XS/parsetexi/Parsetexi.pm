@@ -117,25 +117,25 @@ sub parser (;$$)
         # are already byte strings (or ascii).  The encoding was detected
         # as COMMAND_LINE_ENCODING, but it is not used in the XS parser.
         foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
-          add_include_directory ($d);
+          parser_add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
         for my $flag (keys %{$conf->{'values'}}) {
           my $bytes_flag = Encode::encode('utf-8', $flag);
           my $bytes_value = Encode::encode('utf-8', $conf->{'values'}->{$flag});
-          store_value ($bytes_flag, $bytes_value);
+          parser_store_value ($bytes_flag, $bytes_value);
         }
       } elsif ($key eq 'EXPANDED_FORMATS') {
-        clear_expanded_formats ();
+        parser_clear_expanded_formats ();
 
         for my $f (@{$conf->{$key}}) {
           my $utf8_bytes = Encode::encode('utf-8', $f);
-          add_expanded_format ($utf8_bytes);
+          parser_add_expanded_format ($utf8_bytes);
         }
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
           my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-          conf_set_documentlanguage_override ($utf8_bytes);
+          parser_set_documentlanguage_override ($utf8_bytes);
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} eq 'menu') {
@@ -150,17 +150,17 @@ sub parser (;$$)
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
         conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
       } elsif ($key eq 'DEBUG') {
-        set_debug($conf->{$key}) if $conf->{$key};
+        parser_set_debug($conf->{$key}) if $conf->{$key};
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
-        set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
+        parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING' and defined($conf->{$key})) {
         my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-        conf_set_input_file_name_encoding ($utf8_bytes);
+        parser_set_input_file_name_encoding ($utf8_bytes);
       } elsif ($key eq 'LOCALE_ENCODING' and defined($conf->{$key})) {
         my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-        conf_set_locale_encoding ($utf8_bytes);
+        parser_set_locale_encoding ($utf8_bytes);
       } elsif ($key eq 'accept_internalvalue' and $conf->{$key}) {
-        set_accept_internalvalue(1);
+        parser_set_accept_internalvalue(1);
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
         # no action needed, only used in perl code
       } else {

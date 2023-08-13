@@ -26,10 +26,9 @@
 #include <errno.h>
 #include <gettext.h>
 
-/* for set_accept_internalvalue */
-#include "parser.h"
 #include "api.h"
 #include "utils.h"
+#include "tree.h"
 #include "text.h"
 #include "errors.h"
 #include "debug.h"
@@ -442,7 +441,7 @@ replace_convert_substrings (char *translated_string,
    accept @txiinternalvalue as a valid Texinfo command, used to mark
    location in tree of substituted brace enclosed strings.
    */
-  set_accept_internalvalue (1);
+  parser_set_accept_internalvalue (1);
 
   /* TODO implement setting configuration.  This is not needed when called
      from a parser, but would be when called from a converter */
@@ -473,7 +472,7 @@ replace_convert_substrings (char *translated_string,
            free (message);
         }
     }
-  set_accept_internalvalue (0);
+  parser_set_accept_internalvalue (0);
 
   document = retrieve_document (document_descriptor);
   tree = unregister_tree (document);

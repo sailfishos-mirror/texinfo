@@ -24,8 +24,10 @@
 #include <errno.h>
 
 #include "parser.h"
+/* for set_debug_output */
 #include "debug.h"
 #include "tree.h"
+/* for add_include_directory, set_input_file_name_encoding */
 #include "input.h"
 #include "source_marks.h"
 #include "labels.h"
@@ -36,9 +38,9 @@
 /* for wipe_user_commands */
 #include "commands.h"
 #include "context_stack.h"
-/* for clear_expanded_formats */
+/* for clear_expanded_formats and add_expanded_format */
 #include "handle_commands.h"
-/* for wipe_macros */
+/* for wipe_macros and store_value */
 #include "macro.h"
 /* for reset_conf */
 #include "conf.h"
@@ -120,7 +122,7 @@ reset_parser_except_conf (void)
 }
 
 void
-reset_parser (int debug_output)
+reset_parser (int local_debug_output)
 {
   dTHX;
 
@@ -137,7 +139,7 @@ reset_parser (int debug_output)
   /*
   debug ("!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
   */
-  if (debug_output)
+  if (local_debug_output)
     fprintf (stderr,
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
@@ -150,7 +152,7 @@ reset_parser (int debug_output)
   global_documentlanguage_fixed = 0;
   set_documentlanguage (0);
 
-  doc_encoding_for_input_file_name = 1;
+  set_doc_encoding_for_input_file_name (1);
   set_input_file_name_encoding (0);
   set_locale_encoding (0);
 
@@ -238,6 +240,8 @@ parse_piece (char *string, int line_nr)
   return document_descriptor;
 }
 
+/* FIXME here or in parser.c?  Not really in the API anymore as it is now
+   mandatory */
 int
 store_document (ELEMENT *root)
 {
@@ -361,31 +365,61 @@ store_document (ELEMENT *root)
 
 /* for debugging */
 void
-set_debug (int value)
+parser_set_debug (int value)
 {
-  debug_output = value;
+  set_debug_output (value);
 }
 
 void
-conf_set_documentlanguage_override (char *value)
+parser_set_documentlanguage_override (char *value)
 {
   set_documentlanguage_override (value);
 }
 
 void
-set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 {
-  doc_encoding_for_input_file_name = i;
+  set_doc_encoding_for_input_file_name (i);
 }
 
 void
-conf_set_input_file_name_encoding (char *value)
+parser_set_input_file_name_encoding (char *value)
 {
   set_input_file_name_encoding (value);
 }
 
 void
-conf_set_locale_encoding (char *value)
+parser_set_locale_encoding (char *value)
 {
   set_locale_encoding (value);
+}
+
+void
+parser_store_value (char *name, char *value)
+{
+  store_value (name, value);
+}
+
+void
+parser_add_include_directory (char *filename)
+{
+  add_include_directory (filename);
+}
+
+void
+parser_clear_expanded_formats (void)
+{
+  clear_expanded_formats ();
+}
+
+void
+parser_add_expanded_format (char *format)
+{
+  add_expanded_format (format);
+}
+
+void
+parser_set_accept_internalvalue (int value)
+{
+  set_accept_internalvalue (value);
 }
