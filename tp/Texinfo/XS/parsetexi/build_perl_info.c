@@ -583,7 +583,6 @@ HV *
 build_float_list (FLOAT_RECORD *floats_list, size_t floats_number)
 {
   HV *float_hash;
-  SV **type_array;
   SV *sv;
   int i;
 

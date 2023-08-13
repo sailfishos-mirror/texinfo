@@ -1,5 +1,9 @@
 2023-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/build_perl_info.c: remove unused variable.
+
+2023-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (complete_indices),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
 	tp/Texinfo/XS/parsetexi/indices.c (complete_indices): copy elements
