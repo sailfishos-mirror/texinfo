@@ -204,6 +204,8 @@ check at latest automake/autoconf/gettext/help2man version:
     after installing new version of gettext.
     (check that this does not actually downgrade files due to files also
     being updated from gnulib --add-import)
+      .  (note upgrade to gettext 0.22 is stalled - see
+         https://lists.gnu.org/archive/html/bug-gettext/2023-07/msg00008.html)
   . After upgrading automake/autoconf/gettext, run ./autogen.sh
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.
