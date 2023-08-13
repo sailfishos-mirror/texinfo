@@ -25,7 +25,16 @@ AM_CPPFLAGS =                                   \
   -DINFODIR=\"$(infodir)\"                      \
   -DINFODIR2=\"$(datadir)/info\"
 
-LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(TERMLIBS) $(LIBINTL) $(LIBICONV) $(LIBTHREAD)
+LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(TERMLIBS)
+
+# for various gnulib modules
+LDADD += $(LIBINTL) $(LIBICONV) $(LIBC32CONV) $(LIBUNISTRING) $(LIBTHREAD)
+
+# for hard-locale gnulib module which is brought in indirectly
+LDADD += $(HARD_LOCALE_LIB) $(SETLOCALE_NULL_LIB)
+
+# for mbrtowc gnulib module which is brought in indirectly
+LDADD += $(MBRTOWC_LIB)
 
 EXTRA_DIST = pcterm.c
 

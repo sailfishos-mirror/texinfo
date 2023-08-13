@@ -33,4 +33,8 @@ AM_CPPFLAGS = 					\
   -I$(top_srcdir)/gnulib/lib			\
   -I$(top_builddir)/gnulib/lib			\
   -DLOCALEDIR=\"$(localedir)\"
-LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(LIBINTL) $(LIBTHREAD) $(GETRANDOM_LIB)
+
+LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(LIBINTL) $(LIBTHREAD)
+
+# for mkstemp gnulib module
+LDADD += $(GETRANDOM_LIB) $(CLOCK_TIME_LIB)
