@@ -1,5 +1,9 @@
 2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Run "gnulib-tool --add-import" (top level)
+
+2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: note that we can't use gettext 0.22.
 
 2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>

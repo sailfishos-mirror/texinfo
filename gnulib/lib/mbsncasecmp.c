@@ -24,9 +24,7 @@
 #include <ctype.h>
 #include <limits.h>
 
-#include "mbuiter.h"
-
-#define TOLOWER(Ch) (isupper (Ch) ? tolower (Ch) : (Ch))
+#include "mbuiterf.h"
 
 /* Compare the initial segment of the character string S1 consisting of at most
    N characters with the initial segment of the character string S2 consisting
@@ -46,15 +44,21 @@ mbsncasecmp (const char *s1, const char *s2, size_t n)
      most often already in the very few first characters.  */
   if (MB_CUR_MAX > 1)
     {
-      mbui_iterator_t iter1;
-      mbui_iterator_t iter2;
+      mbuif_state_t state1;
+      const char *iter1;
+      mbuif_init (state1);
+      iter1 = s1;
 
-      mbui_init (iter1, s1);
-      mbui_init (iter2, s2);
+      mbuif_state_t state2;
+      const char *iter2;
+      mbuif_init (state2);
+      iter2 = s2;
 
-      while (mbui_avail (iter1) && mbui_avail (iter2))
+      while (mbuif_avail (state1, iter1) && mbuif_avail (state2, iter2))
         {
-          int cmp = mb_casecmp (mbui_cur (iter1), mbui_cur (iter2));
+          mbchar_t cur1 = mbuif_next (state1, iter1);
+          mbchar_t cur2 = mbuif_next (state2, iter2);
+          int cmp = mb_casecmp (cur1, cur2);
 
           if (cmp != 0)
             return cmp;
@@ -62,13 +66,13 @@ mbsncasecmp (const char *s1, const char *s2, size_t n)
           if (--n == 0)
             return 0;
 
-          mbui_advance (iter1);
-          mbui_advance (iter2);
+          iter1 += mb_len (cur1);
+          iter2 += mb_len (cur2);
         }
-      if (mbui_avail (iter1))
+      if (mbuif_avail (state1, iter1))
         /* s2 terminated before s1 and n.  */
         return 1;
-      if (mbui_avail (iter2))
+      if (mbuif_avail (state2, iter2))
         /* s1 terminated before s2 and n.  */
         return -1;
       return 0;
@@ -81,8 +85,8 @@ mbsncasecmp (const char *s1, const char *s2, size_t n)
 
       for (; ; p1++, p2++)
         {
-          c1 = TOLOWER (*p1);
-          c2 = TOLOWER (*p2);
+          c1 = tolower (*p1);
+          c2 = tolower (*p2);
 
           if (--n == 0 || c1 == '\0' || c1 != c2)
             break;

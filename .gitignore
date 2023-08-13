@@ -76,6 +76,10 @@ gnulib/lib/stddef.h
 gnulib/lib/limits.h
 gnulib/lib/malloc/dynarray.gl.h 
 gnulib/lib/malloc/dynarray-skeleton.gl.h
+gnulib/lib/uchar.h
+gnulib/lib/unicase.h
+gnulib/lib/unictype.h
+gnulib/lib/uninorm.h
 
 tp/Texinfo/XS/gnulib/lib/inttypes.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h
