@@ -23,6 +23,7 @@ build
 **/*.o
 **/core
 **/tags
+**/tags.*
 **/*.swp
 
 **/test-suite.log
