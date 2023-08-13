@@ -54,7 +54,7 @@ See the manual for detailed information.
  . Info output:
     . new variable ASCII_DASHES_AND_QUOTES, on by default,
       outputs ASCII characters for literal quote or hyphen characters
-      in source rather than UTF-8.  this makes it easier to search
+      in source, rather than UTF-8.  this makes it easier to search
       Info files.
     . new ASCII_GLYPH variable for using ASCII renditions for glyph
       commands (like @bullet)
@@ -73,11 +73,16 @@ See the manual for detailed information.
  . in @code, ` and ' output by default with backtick and undirected
    single quote glyphs in the typewriter font.  you can still configure
    this using the @codequoteundirected/@codequotebacktick commands.
- . page headings generation is no longer linked to the @titlepage command
+ . do not insert a space for @ def line continuation, matching the behavior
+   of texi2any
+ . align section titles in table of contents when more than 10 sections
  . microtype is off by default, for speed
+ . page headings generation is no longer linked to the @titlepage command
 
 * info
  . when going Up, position cursor on menu entry for current node
+ . allow mouse scrolling support regardless of termcap entries.  this
+   supports some more xterm configurations.
  . do not use "/index" as a possible file extension for Info files
 
 * Distribution
