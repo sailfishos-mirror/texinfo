@@ -1,6 +1,5 @@
-/* size_max.h -- declare SIZE_MAX through system headers
-   Copyright (C) 2005-2006, 2009-2023 Free Software Foundation, Inc.
-   Written by Simon Josefsson.
+/* Put an mbstate_t into an initial conversion state.
+   Copyright (C) 2023 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -15,21 +14,10 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-#ifndef GNULIB_SIZE_MAX_H
-#define GNULIB_SIZE_MAX_H
+/* Written by Bruno Haible <bruno@clisp.org>, 2023.  */
 
-/* This file uses HAVE_STDINT_H.  */
-#if !_GL_CONFIG_H_INCLUDED
- #error "Please include config.h first."
-#endif
+#include <config.h>
 
-/* Get SIZE_MAX declaration on systems like Solaris 7/8/9.  */
-# include <limits.h>
-/* Get SIZE_MAX declaration on systems like glibc 2.  */
-# if HAVE_STDINT_H
-#  include <stdint.h>
-# endif
-/* On systems where these include files don't define it, SIZE_MAX is defined
-   in config.h.  */
-
-#endif /* GNULIB_SIZE_MAX_H */
+#define IN_MBSZERO
+/* Specification and implementation.  */
+#include <wchar.h>

@@ -83,7 +83,7 @@
 #include <stdio.h>      /* snprintf(), sprintf() */
 #include <stdlib.h>     /* abort(), malloc(), realloc(), free() */
 #include <string.h>     /* memcpy(), strlen() */
-#include <wchar.h>      /* mbstate_t, mbrtowc(), mbrlen(), wcrtomb() */
+#include <wchar.h>      /* mbstate_t, mbrtowc(), mbrlen(), wcrtomb(), mbszero() */
 #include <errno.h>      /* errno */
 #include <limits.h>     /* CHAR_BIT, INT_WIDTH, LONG_WIDTH */
 #include <float.h>      /* DBL_MAX_EXP, LDBL_MAX_EXP */
@@ -103,7 +103,7 @@
 
 #include "attribute.h"
 
-#if NEED_PRINTF_DOUBLE || NEED_PRINTF_LONG_DOUBLE
+#if NEED_PRINTF_DOUBLE || NEED_PRINTF_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
 # include <math.h>
 # include "float+.h"
 #endif
@@ -113,7 +113,7 @@
 # include "isnand-nolibm.h"
 #endif
 
-#if NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_INFINITE_LONG_DOUBLE
+#if NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_INFINITE_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
 # include <math.h>
 # include "isnanl-nolibm.h"
 # include "fpucw.h"
@@ -125,7 +125,7 @@
 # include "printf-frexp.h"
 #endif
 
-#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE
+#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
 # include <math.h>
 # include "isnanl-nolibm.h"
 # include "printf-frexpl.h"
@@ -247,7 +247,7 @@ local_strnlen (const char *string, size_t maxlen)
 # endif
 #endif
 
-#if (((!USE_SNPRINTF || WIDE_CHAR_VERSION || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF) && WIDE_CHAR_VERSION) || ((!USE_SNPRINTF || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || NEED_PRINTF_DIRECTIVE_LS) && !WIDE_CHAR_VERSION && DCHAR_IS_TCHAR)) && HAVE_WCHAR_T
+#if (((!USE_SNPRINTF || WIDE_CHAR_VERSION || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || NEED_WPRINTF_DIRECTIVE_LC) && WIDE_CHAR_VERSION) || ((!USE_SNPRINTF || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || NEED_PRINTF_DIRECTIVE_LS) && !WIDE_CHAR_VERSION && DCHAR_IS_TCHAR)) && HAVE_WCHAR_T
 # if HAVE_WCSLEN
 #  define local_wcslen wcslen
 # else
@@ -357,7 +357,7 @@ local_wctomb (char *s, wchar_t wc)
 # endif
 #endif
 
-#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_INFINITE_LONG_DOUBLE || NEED_PRINTF_DOUBLE || NEED_PRINTF_INFINITE_DOUBLE
+#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_INFINITE_LONG_DOUBLE || NEED_PRINTF_DOUBLE || NEED_PRINTF_INFINITE_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
 /* Determine the decimal-point character according to the current locale.  */
 # ifndef decimal_point_char_defined
 #  define decimal_point_char_defined 1
@@ -927,6 +927,14 @@ divide (mpn_t a, mpn_t b, mpn_t *q)
   return roomptr;
 }
 
+/* Avoid pointless GCC warning "argument 1 value '18446744073709551615' exceeds
+   maximum object size 9223372036854775807", triggered by the use of xsum as
+   argument of malloc.  */
+# if __GNUC__ >= 7
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Walloc-size-larger-than="
+# endif
+
 /* Convert a bignum a >= 0, multiplied with 10^extra_zeroes, to decimal
    representation.
    Destroys the contents of a.
@@ -982,6 +990,10 @@ convert_to_decimal (mpn_t a, size_t extra_zeroes)
     }
   return c_ptr;
 }
+
+# if __GNUC__ >= 7
+#  pragma GCC diagnostic pop
+# endif
 
 # if NEED_PRINTF_LONG_DOUBLE
 
@@ -1177,8 +1189,6 @@ scale10_round_decimal_decoded (int e, mpn_t m, void *memory, int n)
   void *z_memory;
   char *digits;
 
-  if (memory == NULL)
-    return NULL;
   /* x = 2^e * m, hence
      y = round (2^e * 10^n * m) = round (2^(e+n) * 5^n * m)
        = round (2^s * 5^n * m).  */
@@ -1386,10 +1396,13 @@ scale10_round_decimal_decoded (int e, mpn_t m, void *memory, int n)
 static char *
 scale10_round_decimal_long_double (long double x, int n)
 {
-  int e IF_LINT(= 0);
+  int e;
   mpn_t m;
   void *memory = decode_long_double (x, &e, &m);
-  return scale10_round_decimal_decoded (e, m, memory, n);
+  if (memory != NULL)
+    return scale10_round_decimal_decoded (e, m, memory, n);
+  else
+    return NULL;
 }
 
 # endif
@@ -1404,10 +1417,13 @@ scale10_round_decimal_long_double (long double x, int n)
 static char *
 scale10_round_decimal_double (double x, int n)
 {
-  int e IF_LINT(= 0);
+  int e;
   mpn_t m;
   void *memory = decode_double (x, &e, &m);
-  return scale10_round_decimal_decoded (e, m, memory, n);
+  if (memory != NULL)
+    return scale10_round_decimal_decoded (e, m, memory, n);
+  else
+    return NULL;
 }
 
 # endif
@@ -1641,6 +1657,7 @@ MAX_ROOM_NEEDED (const arguments *ap, size_t arg_index, FCHAR_T conversion,
                             * 0.30103 /* binary -> decimal */
                            )
             + 1; /* turn floor into ceil */
+          break;
         case TYPE_LONGINT:
           tmp_length =
             (unsigned int) (sizeof (long int) * CHAR_BIT
@@ -2748,14 +2765,14 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                   }
               }
 #endif
-#if WIDE_CHAR_VERSION && !DCHAR_IS_TCHAR
+#if WIDE_CHAR_VERSION && (!DCHAR_IS_TCHAR || NEED_WPRINTF_DIRECTIVE_LC)
             else if ((dp->conversion == 's'
                       && a.arg[dp->arg_index].type == TYPE_WIDE_STRING)
                      || (dp->conversion == 'c'
                          && a.arg[dp->arg_index].type == TYPE_WIDE_CHAR))
               {
                 /* %ls or %lc in vasnwprintf.  See the specification of
-                    fwprintf.  */
+                   fwprintf.  */
                 /* It would be silly to use snprintf ("%ls", ...) and then
                    convert back the result from a char[] to a wchar_t[].
                    Instead, just copy the argument wchar_t[] to the result.  */
@@ -2990,7 +3007,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                          wide characters, from the left.  */
 #  if HAVE_MBRTOWC
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       arg_end = arg;
                       characters = 0;
@@ -3018,7 +3035,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                          characters.  */
 #  if HAVE_MBRTOWC
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       arg_end = arg;
                       characters = 0;
@@ -3062,7 +3079,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                       size_t remaining;
 #  if HAVE_MBRTOWC
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       ENSURE_ALLOCATION (xsum (length, characters));
                       for (remaining = characters; remaining > 0; remaining--)
@@ -3088,7 +3105,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                     {
 #  if HAVE_MBRTOWC
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       while (arg < arg_end)
                         {
@@ -3140,7 +3157,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                          at most PRECISION bytes, from the left.  */
 #  if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       arg_end = arg;
                       characters = 0;
@@ -3173,7 +3190,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                          bytes.  */
 #  if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
                       arg_end = arg;
                       characters = 0;
@@ -3213,7 +3230,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                     size_t remaining;
 #   if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                     mbstate_t state;
-                    memset (&state, '\0', sizeof (mbstate_t));
+                    mbszero (&state);
 #   endif
                     for (remaining = characters; remaining > 0; )
                       {
@@ -3282,7 +3299,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                       size_t remaining;
 #   if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #   endif
                       ENSURE_ALLOCATION (xsum (length, characters));
                       for (remaining = characters; remaining > 0; )
@@ -3308,7 +3325,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                     {
 #   if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #   endif
                       while (arg < arg_end)
                         {
@@ -3413,7 +3430,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                           int count;
 # if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                           mbstate_t state;
-                          memset (&state, '\0', sizeof (mbstate_t));
+                          mbszero (&state);
 # endif
 
                           count = local_wcrtomb (cbuf, arg, &state);
@@ -3439,7 +3456,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                       int count;
 #  if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                       mbstate_t state;
-                      memset (&state, '\0', sizeof (mbstate_t));
+                      mbszero (&state);
 #  endif
 
                       count = local_wcrtomb (cbuf, arg, &state);
@@ -3495,7 +3512,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                           int count;
 #  if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                           mbstate_t state;
-                          memset (&state, '\0', sizeof (mbstate_t));
+                          mbszero (&state);
 #  endif
 
                           count = local_wcrtomb (result + length, arg, &state);
@@ -3513,7 +3530,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                           int count;
 #  if HAVE_WCRTOMB && !defined GNULIB_defined_mbstate_t
                           mbstate_t state;
-                          memset (&state, '\0', sizeof (mbstate_t));
+                          mbszero (&state);
 #  endif
 
                           count = local_wcrtomb (cbuf, arg, &state);
@@ -3587,7 +3604,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                   mbstate_t state;
                   wchar_t wc;
 
-                  memset (&state, '\0', sizeof (mbstate_t));
+                  mbszero (&state);
                   int count = mbrtowc (&wc, &arg, 1, &state);
                   if (count < 0)
                     /* Invalid or incomplete multibyte character.  */
@@ -3928,14 +3945,14 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                 length += count;
               }
 #endif
-#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_DOUBLE
+#if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
             else if ((dp->conversion == 'a' || dp->conversion == 'A')
 # if !(NEED_PRINTF_DIRECTIVE_A || (NEED_PRINTF_LONG_DOUBLE && NEED_PRINTF_DOUBLE))
                      && (0
 #  if NEED_PRINTF_DOUBLE
                          || a.arg[dp->arg_index].type == TYPE_DOUBLE
 #  endif
-#  if NEED_PRINTF_LONG_DOUBLE
+#  if NEED_PRINTF_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
                          || a.arg[dp->arg_index].type == TYPE_LONGDOUBLE
 #  endif
                         )
@@ -4055,7 +4072,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                 p = tmp;
                 if (type == TYPE_LONGDOUBLE)
                   {
-# if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE
+# if NEED_PRINTF_DIRECTIVE_A || NEED_PRINTF_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
                     long double arg = a.arg[dp->arg_index].a.a_longdouble;
 
                     if (isnanl (arg))
@@ -5611,7 +5628,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
 #if !USE_SNPRINTF || WIDE_CHAR_VERSION || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || !DCHAR_IS_TCHAR || ENABLE_UNISTDIO || NEED_PRINTF_FLAG_LEFTADJUST || NEED_PRINTF_FLAG_ZERO || NEED_PRINTF_UNBOUNDED_PRECISION
                 size_t width;
 #endif
-#if !USE_SNPRINTF || (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR) || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || NEED_PRINTF_UNBOUNDED_PRECISION
+#if !USE_SNPRINTF || (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR) || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || (WIDE_CHAR_VERSION && MUSL_LIBC) || !DCHAR_IS_TCHAR || ENABLE_UNISTDIO || NEED_PRINTF_FLAG_LEFTADJUST || NEED_PRINTF_FLAG_ZERO || NEED_PRINTF_UNBOUNDED_PRECISION
                 int has_precision;
                 size_t precision;
 #endif
@@ -5668,13 +5685,13 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                           width = xsum (xtimes (width, 10), *digitp++ - '0');
                         while (digitp != dp->width_end);
                       }
-#if (WIDE_CHAR_VERSION && MUSL_LIBC) || !DCHAR_IS_TCHAR || ENABLE_UNISTDIO || NEED_PRINTF_FLAG_LEFTADJUST || NEED_PRINTF_FLAG_ZERO || NEED_PRINTF_UNBOUNDED_PRECISION
+# if (WIDE_CHAR_VERSION && MUSL_LIBC) || !DCHAR_IS_TCHAR || ENABLE_UNISTDIO || NEED_PRINTF_FLAG_LEFTADJUST || NEED_PRINTF_FLAG_ZERO || NEED_PRINTF_UNBOUNDED_PRECISION
                     has_width = 1;
-#endif
+# endif
                   }
 #endif
 
-#if !USE_SNPRINTF || (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR) || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || NEED_PRINTF_UNBOUNDED_PRECISION
+#if !USE_SNPRINTF || (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR) || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF || (WIDE_CHAR_VERSION && MUSL_LIBC) || !DCHAR_IS_TCHAR || ENABLE_UNISTDIO || NEED_PRINTF_FLAG_LEFTADJUST || NEED_PRINTF_FLAG_ZERO || NEED_PRINTF_UNBOUNDED_PRECISION
                 has_precision = 0;
                 precision = 6;
                 if (dp->precision_start != dp->precision_end)
@@ -6585,7 +6602,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                            wide character array.  */
                         mbstate_t state;
 
-                        memset (&state, '\0', sizeof (mbstate_t));
+                        mbszero (&state);
                         tmpdst_len = 0;
                         {
                           const TCHAR_T *src = tmpsrc;
@@ -6609,7 +6626,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                         if (tmpdst == NULL)
                           goto out_of_memory;
 
-                        memset (&state, '\0', sizeof (mbstate_t));
+                        mbszero (&state);
                         {
                           DCHAR_T *destptr = tmpdst;
                           const TCHAR_T *src = tmpsrc;
@@ -6793,7 +6810,22 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                                   for (; pad > 0; pad--)
                                     *p++ = ' ';
                                 }
-                              else if ((flags & FLAG_ZERO) && pad_ptr != NULL)
+                              else if ((flags & FLAG_ZERO) && pad_ptr != NULL
+                                       /* ISO C says: "For d, i, o, u, x, and X
+                                          conversions, if a precision is
+                                          specified, the 0 flag is ignored.  */
+                                       && !(has_precision
+                                            && (dp->conversion == 'd'
+                                                || dp->conversion == 'i'
+                                                || dp->conversion == 'o'
+                                                || dp->conversion == 'u'
+                                                || dp->conversion == 'x'
+                                                || dp->conversion == 'X'
+                                                /* Although ISO C does not
+                                                   require it, treat 'b' and 'B'
+                                                   like 'x' and 'X'.  */
+                                                || dp->conversion == 'b'
+                                                || dp->conversion == 'B')))
                                 {
                                   /* Pad with zeroes.  */
                                   DCHAR_T *q = end;

@@ -82,7 +82,7 @@ AM_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
 AM_LDFLAGS += $(PLATFORM_LDFLAGS)
 
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV)
+XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
 
@@ -149,7 +149,7 @@ EXTRA_DIST += $(p)/command_data.c
 EXTRA_DIST += $(p)/Parsetexi.xs
 
 Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV)
+Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/parsetexi $(AM_CPPFLAGS)

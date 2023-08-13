@@ -74,6 +74,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module limits-h:
   # Code from module localcharset:
   # Code from module malloca:
+  # Code from module mbszero:
   # Code from module memchr:
   # Code from module multiarch:
   # Code from module obstack:
@@ -90,6 +91,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module stddef:
   # Code from module stdint:
   # Code from module stdio:
+  gl_STDIO_H_EARLY
   # Code from module stdlib:
   # Code from module strchrnul:
   # Code from module streq:
@@ -205,6 +207,10 @@ AC_DEFUN([gl_INIT],
   LOCALCHARSET_TESTS_ENVIRONMENT=
   AC_SUBST([LOCALCHARSET_TESTS_ENVIRONMENT])
   gl_MALLOCA
+  AC_REQUIRE([AC_TYPE_MBSTATE_T])
+  gl_MBSTATE_T_BROKEN
+  gl_MUSL_LIBC
+  gl_WCHAR_MODULE_INDICATOR([mbszero])
   gl_FUNC_MEMCHR
   gl_CONDITIONAL([GL_COND_OBJ_MEMCHR], [test $REPLACE_MEMCHR = 1])
   AM_COND_IF([GL_COND_OBJ_MEMCHR], [
@@ -306,13 +312,13 @@ AC_DEFUN([gl_INIT],
   gl_UNISTD_H
   gl_UNISTD_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_LIBHEADER([0.9.11], [unistr.h])
+  gl_LIBUNISTRING_LIBHEADER([1.2], [unistr.h])
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-check])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mblen])
-  gl_LIBUNISTRING_MODULE([0.9.4], [unistr/u8-mbsnlen])
+  gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbsnlen])
   gl_MODULE_INDICATOR([unistr/u8-mbtouc])
-  gl_LIBUNISTRING_MODULE([0.9.4], [unistr/u8-mbtouc])
+  gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbtouc])
   gl_MODULE_INDICATOR([unistr/u8-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9.4], [unistr/u8-mbtouc-unsafe])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
@@ -577,6 +583,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/localcharset.h
   lib/malloca.c
   lib/malloca.h
+  lib/mbszero.c
   lib/memchr.c
   lib/memchr.valgrind
   lib/obstack.c
@@ -675,8 +682,13 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/libunistring-base.m4
   m4/limits-h.m4
   m4/localcharset.m4
+  m4/locale-fr.m4
+  m4/locale-ja.m4
+  m4/locale-zh.m4
   m4/malloca.m4
   m4/math_h.m4
+  m4/mbrtowc.m4
+  m4/mbstate_t.m4
   m4/memchr.m4
   m4/mmap-anon.m4
   m4/multiarch.m4
