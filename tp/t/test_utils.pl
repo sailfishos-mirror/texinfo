@@ -66,6 +66,7 @@ use Texinfo::Parser;
 use Texinfo::Convert::Text;
 use Texinfo::Structuring;
 use Texinfo::Convert::PlainTexinfo;
+use Texinfo::Translations;
 use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
 use Texinfo::Convert::LaTeX;
@@ -80,7 +81,6 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
    %result_floats %result_converted %result_converted_errors
    %result_elements %result_directions_text %result_indices_sort_strings);
 
-my $strings_textdomain = 'texinfo_document';
 Locale::Messages->select_package('gettext_pp');
 
 my $srcdir = $ENV{'srcdir'};
@@ -104,7 +104,8 @@ if (! defined($localesdir)) {
   warn "No locales directory found, some tests will fail\n";
 }
 
-Locale::Messages::bindtextdomain('texinfo_document', $localesdir);
+Texinfo::Translations::init($localesdir);
+
 Locale::Messages::bindtextdomain('texinfo', $localesdir);
 
 my $generated_texis_dir = 't_texis';

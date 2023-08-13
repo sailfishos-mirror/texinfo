@@ -203,19 +203,6 @@ $strings_textdomain = 'texinfo_document'
 # gettext.
 Locale::Messages->select_package('gettext_pp');
 
-if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
-                                       'LocaleData');
-  if (-d $locales_dir) {
-    Locale::Messages::bindtextdomain($strings_textdomain, $locales_dir);
-  } else {
-    warn "Locales dir for document strings not found\n";
-  }
-} else {
-  Locale::Messages::bindtextdomain($strings_textdomain,
-                                    File::Spec->catdir($datadir, 'locale'));
-}
-
 # Note: this uses installed messages even when the program is uninstalled
 Locale::Messages::bindtextdomain($messages_textdomain,
                                 File::Spec->catdir($datadir, 'locale'));
@@ -1263,10 +1250,24 @@ sub handle_errors($$$)
 }
 
 require Texinfo::Parser;
+require Texinfo::Translations;
 require Texinfo::Structuring;
 require Texinfo::Transformations;
 # Avoid loading these modules until down here to speed up the case
 # when they are not needed.
+
+if ($Texinfo::ModulePath::texinfo_uninstalled) {
+  my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
+                                       'LocaleData');
+  if (-d $locales_dir) {
+    Texinfo::Translations::init($locales_dir, $strings_textdomain);
+  } else {
+    warn "Locales dir for document strings not found\n";
+  }
+} else {
+  Texinfo::Translations::init(File::Spec->catdir($datadir, 'locale'),
+                              $strings_textdomain);
+}
 
 my %tree_transformations;
 if (get_conf('TREE_TRANSFORMATIONS')) {

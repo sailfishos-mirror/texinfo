@@ -32,12 +32,12 @@ use Carp qw(cluck);
 use Locale::Messages;
 
 # note that there is a circular dependency with the parser module, as
-# the parser uses complete_indices() from this modules, while this modules
-# can use a parser.  This is not problematic, however, as the
+# the parser uses complete_indices() from this modules, while this module
+# uses a parser.  This is not problematic, however, as the
 # modules do not setup data such that their order of loading is not
 # important, as long as they load after their dependencies.
 
-# to be able to load a (simple) parser if none was given to gdt.
+# to load a parser
 use Texinfo::Parser;
 
 # we want a reliable way to switch locale for the document
@@ -53,6 +53,17 @@ my $DEFAULT_ENCODING = 'utf-8';
 
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
+
+sub init($;$)
+{
+  my $localesdir = shift;
+  my $in_strings_textdomain = shift;
+
+  if (defined($in_strings_textdomain)) {
+    $strings_textdomain = $in_strings_textdomain;
+  }
+  Locale::Messages::bindtextdomain($strings_textdomain, $localesdir);
+}
 
 # libintl converts between encodings but doesn't decode them into the
 # perl internal format.  This is only called if the encoding is a proper
@@ -533,6 +544,8 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   @ISA = qw(Texinfo::Translations);
 
+  Texinfo::Translations::init('LocaleData');
+
   my $tree_translated = $converter->gdt('See {reference} in @cite{{book}}',
                        {'reference' => $tree_reference,
                         'book'  => {'text' => $book_name}});
@@ -548,14 +561,28 @@ Texinfo to other formats.  There is no promise of API stability.
 The C<Texinfo::Translations> module helps with translations
 in output documents.
 
-Translation of error messages uses another interface, which
-is the classical gettext based perl interface.  It is not
-described as it is described in details elsewhere, some
+Translation of error messages is not described here, some
 elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_string = __($msgid)>.
 
 =head1 METHODS
 
 No method is exported.
+
+The C<init> method sets the translation files base directory.  If not
+called, system defaults are used.
+
+=over
+
+=item init($localesdir, $strings_textdomain)
+
+I<$localesdir> is the directory where translation files are found. The
+directory structure and files format should follow the L<conventions expected
+for gettext based
+internationalization|https://www.gnu.org/software/gettext/manual/html_node/Locating-Catalogs.html>.
+The I<$strings_textdomain> is optional, if set, it determines the translation
+domain.
+
+=back
 
 The C<gdt> and C<pgdt> methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The C<gdt_string> is similar
@@ -595,15 +622,6 @@ The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
 in the C API of Gettext.  I<$lang> is optional. If set, it overrides the
 documentlanguage.
-
-=begin comment
-
-If the I<$object> is a parser or is associated to a parser some
-information may be used, but it is different for the NonXS and
-XS parser, and may also not be such a good idea, therefore no
-documentation.
-
-=end comment
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
@@ -647,6 +665,10 @@ translated string.  It is called from C<gdt_string> after the retrieval of the
 translated string.
 
 =back
+
+=head1 SEE ALSO
+
+L<GNU gettext utilities manual|https://www.gnu.org/software/gettext/manual/>.
 
 =head1 AUTHOR
 
