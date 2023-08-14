@@ -17,14 +17,16 @@
     
 #include <config.h>
 
-#include <libintl.h>
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <errno.h>
+
+#ifdef ENABLE_NLS
 #include <gettext.h>
+#include <libintl.h>
+#endif
 
 #include "api.h"
 #include "utils.h"
@@ -35,9 +37,6 @@
 #include "document.h"
 #include "convert_to_texinfo.h"
 #include "translations.h"
-
-#ifdef ENABLE_NLS
-#endif
 
 /*
 my $DEFAULT_ENCODING = 'utf-8';
@@ -58,7 +57,9 @@ configure (char *localesdir, char *strings_textdomain_in)
   if (strings_textdomain_in)
     strings_textdomain = strings_textdomain_in;
 
+  #ifdef ENABLE_NLS
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
+  #endif
 }
 
 void
