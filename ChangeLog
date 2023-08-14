@@ -1,5 +1,13 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (AM_GNULIB, AM_CPPFLAGS, *_la_CPPFLAGS)
+	(libtexinfoxs_la_LIBADD, Parsetexi_la_LIBADD, Translations_la_LIBADD):
+	separate gnulib flags from the remaining of AM_CPPFLAGS.  Do not use
+	gnulib flags and do not link against gnulib if gnulib is not directly
+	used, for most of the XS codes.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm
 	(insert_nodes_for_sectioning_commands), Pod-Simple-Texinfo/pod2texi.pl
 	(_parsed_manual_tree), tp/t/automatic_nodes.t, tp/t/test_utils.pl

@@ -17,8 +17,9 @@ EXTRA_DIST=
 ######################## Gnulib ################################
 
 AM_CPPFLAGS =                \
-  -I$(srcdir)                \
-  -I$(srcdir)/gnulib/lib     \
+  -I$(srcdir)
+
+AM_GNULIB = -I$(srcdir)/gnulib/lib     \
   -I$(builddir)/gnulib/lib
 
 ACLOCAL_AMFLAGS = -I gnulib/m4
@@ -73,7 +74,7 @@ TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 xs_LTLIBRARIES += MiscXS.la
 MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
 MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(AM_GNULIB) $(XSLIBS_CFLAGS)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 # TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES, 
@@ -85,7 +86,7 @@ install-data-hook:
 EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
 
 
-XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(AM_GNULIB) $(XSLIBS_CFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
@@ -171,7 +172,7 @@ libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS)
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(AM_GNULIB)
 
 BUILT_SOURCES=main/element_types.c \
               main/element_types.h \
@@ -210,7 +211,7 @@ libtexinfoxs_la_SOURCES= \
 		      main/build_perl_info.c \
 		      main/build_perl_info.h
 
-libtexinfoxs_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
@@ -231,7 +232,7 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
-Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfoxs.la libtexinfo.la
+Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
@@ -251,7 +252,7 @@ Translations_la_SOURCES = \
 
 EXTRA_DIST += main/Translations.xs
 
-Translations_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfoxs.la libtexinfo.la
+Translations_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
