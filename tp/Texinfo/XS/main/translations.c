@@ -191,7 +191,8 @@ translate_string (char * string, const char *translation_context,
 
    We set LANG and then LC_MESSAGES to a valid locale in
    switch_messages_locale to have LANGUAGE work in that case.
-   FIXME it does not work.
+   FIXME it does not work.  Also tested with setting LC_ALL instead of
+         LC_MESSAGES and it does not work either
    */
 
   saved_LANG = getenv ("LANG");
