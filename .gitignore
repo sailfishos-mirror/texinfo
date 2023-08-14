@@ -252,15 +252,11 @@ tp/t_texis
 tp/texi2any
 tp/texi_sort_elements_count
 tp/*.trs
-tp/*.log
-tp/*.html
-tp/test.*
+tp/t/*.log
+tp/tests/*.log
 
 tp/Texinfo/Commands.pm
 tp/Texinfo/ModulePath.pm
-tp/Texinfo/*.html
-
-tp/Texinfo/Convert/*.html
 
 tp/Texinfo/XS/*.lo
 tp/Texinfo/XS/*.la
