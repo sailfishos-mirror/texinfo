@@ -19,7 +19,7 @@
 #include "debug.h"
 #include "context_stack.h"
 #include "commands.h"
-#include "errors.h"
+#include "utils.h"
 
 static enum context *context_stack;
 static size_t top; /* One above last pushed context. */

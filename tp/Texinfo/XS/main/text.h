@@ -17,6 +17,9 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+#include <stdarg.h>
+
+int xvasprintf (char **ptr, const char *template, va_list ap);
 
 typedef struct TEXT {
     char *text;

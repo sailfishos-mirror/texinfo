@@ -35,12 +35,11 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-/* for GLOBAL_INFO */
+/* for GLOBAL_INFO and fatal */
 #include "utils.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-#include "errors.h"
 #include "document.h"
 #include "build_perl_info.h"
 

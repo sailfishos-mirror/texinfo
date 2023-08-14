@@ -26,7 +26,8 @@
 
 #include "tree_types.h"
 #include "text.h"
-#include "errors.h"
+#include "utils.h"
+#include "unicode.h"
 
 #include "unicode_tables.c"
 

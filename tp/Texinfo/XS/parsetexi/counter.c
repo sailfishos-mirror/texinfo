@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 #include "tree_types.h"
-#include "errors.h"
+#include "utils.h"
 #include "counter.h"
 
 void

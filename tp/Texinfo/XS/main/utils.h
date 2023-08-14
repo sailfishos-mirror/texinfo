@@ -21,6 +21,21 @@
 
 extern const char *whitespace_chars;
 
+enum error_type { error, warning };
+
+typedef struct {
+    char *message;
+    enum error_type type;
+    int continuation;
+    SOURCE_INFO source_info;
+} ERROR_MESSAGE;
+
+typedef struct {
+  ERROR_MESSAGE *list;
+  size_t number;
+  size_t space;
+} ERROR_MESSAGE_LIST;
+
 typedef struct GLOBAL_INFO {
     char *input_file_name;
     char *global_input_encoding_name;
@@ -101,6 +116,9 @@ int isascii_lower (int c);
 int isascii_upper (int c);
 
 void delete_global_info (GLOBAL_INFO *global_info_ref);
+
+void fatal (char *);
+void bug (char *);
 
 ELEMENT *get_label_element (ELEMENT *e);
 char * read_flag_name (char **ptr);

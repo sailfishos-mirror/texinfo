@@ -22,6 +22,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "command_ids.h"
+/* for xasprintf and other */
 #include "errors.h"
 #include "debug.h"
 #include "context_stack.h"

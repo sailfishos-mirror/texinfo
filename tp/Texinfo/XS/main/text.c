@@ -19,8 +19,19 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "errors.h"
+#include "utils.h"
 #include "text.h"
+
+/* wrapper for vasprintf */
+int
+xvasprintf (char **ptr, const char *template, va_list ap)
+{
+  int ret;
+  ret = vasprintf (ptr, template, ap);
+  if (ret < 0)
+    abort (); /* out of memory */
+  return ret;
+}
 
 /* Make sure there are LEN free bytes. */
 void

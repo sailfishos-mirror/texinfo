@@ -42,11 +42,12 @@ static int *obs_element_first = 0;
 #define obstack_chunk_free free
  */
 
-#include "errors.h"
-#include "tree.h"
+#include "tree_types.h"
+#include "utils.h"
 /* for debug
 #include "debug.h"
  */
+#include "tree.h"
 
 /* Used with destroy_element to reuse storage, e.g. from
    abort_empty_line.  Reduces memory use slightly (about 5% from testing)

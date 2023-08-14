@@ -28,7 +28,6 @@
 #include "context_stack.h"
 #include "commands.h"
 #include "handle_commands.h"
-#include "errors.h"
 #include "counter.h"
 #include "macro.h"
 #include "conf.h"

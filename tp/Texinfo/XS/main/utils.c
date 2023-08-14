@@ -16,6 +16,7 @@
 /* code that does not fit anywhere else */
 
 #include <config.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
@@ -29,6 +30,17 @@
 #include "utils.h"
 
 const char *whitespace_chars = " \t\v\f\r\n";
+
+void bug (char *message)
+{
+  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
+}
+
+void fatal (char *message)
+{
+  bug (message);
+  abort ();
+}
 
 int
 isascii_alnum (int c)

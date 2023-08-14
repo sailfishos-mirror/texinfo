@@ -1,5 +1,14 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/text.c (xvasprintf):
+	move xvasprintf to text.c.  Update callers.
+
+	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/utils.c (bug, fatal)
+	(ERROR_MESSAGE): move bug, fatal and ERROR_MESSAGE types to utils.c.
+	Update callers.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	Update includes and move LOCALEDIR define
 
 	* tp/Texinfo/XS/main/debug.c, tp/Texinfo/XS/main/extra.c,

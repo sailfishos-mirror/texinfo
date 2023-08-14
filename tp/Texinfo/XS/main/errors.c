@@ -15,7 +15,6 @@
 
 #include <config.h>
 
-
 #ifdef ENABLE_NLS
 #include <libintl.h>
 #endif
@@ -25,21 +24,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "errors.h"
+#include "utils.h"
+/* also for xvasprintf */
 #include "text.h"
 #include "debug.h"
+#include "errors.h"
 
-/* wrappers for asprintf and vasprintf */
-int
-xvasprintf (char **ptr, const char *template, va_list ap)
-{
-  int ret;
-  ret = vasprintf (ptr, template, ap);
-  if (ret < 0)
-    abort (); /* out of memory */
-  return ret;
-}
-
+/* wrapper for asprintf */
 int
 xasprintf (char **ptr, const char *template, ...)
 {
@@ -48,17 +39,6 @@ xasprintf (char **ptr, const char *template, ...)
   return xvasprintf (ptr, template, v);
 }
 
-
-void bug (char *message)
-{
-  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
-}
-
-void fatal (char *message)
-{
-  bug (message);
-  abort ();
-}
 
 /* these are not full line messages, but the part that are output along
    with debug messages, as is done in Texinfo::Register::line_warn/line_error

@@ -6,27 +6,9 @@
 #include <stdarg.h>
 
 #include "tree_types.h"
+#include "utils.h"
 
 int xasprintf (char **ptr, const char *template, ...);
-int xvasprintf (char **ptr, const char *template, va_list ap);
-
-void fatal (char *);
-void bug (char *);
-
-enum error_type { error, warning };
-
-typedef struct {
-    char *message;
-    enum error_type type;
-    int continuation;
-    SOURCE_INFO source_info;
-} ERROR_MESSAGE;
-
-typedef struct {
-  ERROR_MESSAGE *list;
-  size_t number;
-  size_t space;
-} ERROR_MESSAGE_LIST;
 
 void line_error (char *format, ...);
 void line_warn (char *format, ...);

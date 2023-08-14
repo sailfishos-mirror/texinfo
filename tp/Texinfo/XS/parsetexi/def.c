@@ -24,11 +24,13 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for whitespace_chars */
+/* for whitespace_chars and fatal */
 #include "utils.h"
 #include "text.h"
 #include "source_marks.h"
+/*
 #include "errors.h"
+*/
 #include "builtin_commands.h"
 #include "commands.h"
 /*

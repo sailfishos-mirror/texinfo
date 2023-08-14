@@ -24,7 +24,7 @@
 #include "builtin_commands.h"
 /* for lookup_macro and unset_macro_record */
 #include "macro.h"
-#include "errors.h"
+#include "utils.h"
 #include "commands.h"
 
 COMMAND *user_defined_command_data = 0;

@@ -25,11 +25,13 @@
 #include "xvasprintf.h"
 */
 
-/* for whitespace_chars and isascii_alnum */
+/* for whitespace_chars, isascii_alnum and bug */
 #include "utils.h"
 #include "tree_types.h"
 #include "element_types.h"
+/* for xasprintf */
 #include "errors.h"
+/* also for xvasprintf */
 #include "text.h"
 #include "extra.h"
 #include "builtin_commands.h"

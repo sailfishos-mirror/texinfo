@@ -21,7 +21,7 @@
 #include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
-#include "errors.h"
+#include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"
 #include "source_marks.h"
