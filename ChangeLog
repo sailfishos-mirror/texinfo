@@ -1,3 +1,41 @@
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Translations.pm (configure): rename init as configure to
+	avoid clashing with the XSLoader init function name.
+
+	* tp/Texinfo/TranslationsNonXS.pm (import, configure, _configure_XS),
+	tp/Makefile.am (dist_modules_DATA), p/Texinfo/Translations.pm,
+	tp/Texinfo/XS/main/Translations.xs (configure_XS), tp/Texinfo/XS/Makefile.am
+	(xs_LTLIBRARIES, Translations_la_SOURCES),
+	tp/Texinfo/XS/main/translations.c (configure): rename
+	Texinfo/Translations.pm as Texinfo/TranslationsNonXS.pm.  Prepare XS
+	code for Translations in tp/Texinfo/XS/main/Translations.xs.  Setup
+	Texinfo/Translations.pm to load the main/Translations.xs XS code, but
+	load the Texinfo/TranslationsNonXS.pm module as accompanying perl
+	modules, since the specific XS module does not work.  In
+	Texinfo/TranslationsNonXS.pm call _configure_XS and override with the
+	configure_XS function from XS code, which calls configure in
+	tp/Texinfo/XS/main/translations.c in order to setup the locales
+	directory in the XS code too.
+
+	* tp/Texinfo/XS/main/translations.c (switch_messages_locale): set line
+	to null before each call of getline.
+
+	* tp/Texinfo/XS/main/translations.c (switch_messages_locale)
+	(translate_string): try to set the LANG encironment variable too in
+	addition to switching locale to have LANGUAGE taken into account.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings):
+	access replaced_substrings only if not NULL.
+
+	* tp/Texinfo/XS/main/Translations.xs (gettree),
+	Texinfo/XS/main/TranslationsXS.pm (gdt): setup code to replace gdt in
+	XS.  The code is correct, but the approach is flawed, as there won't
+	be any substitution if the trees in replaced substrings are not
+	registered in C data, as is the case in general.
+	This issue is the reason why in tp/Texinfo/Translations.pm the NonXS
+	module is loaded.
+
 2023-08-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Translations.pm (init), tp/t/test_utils.pl,

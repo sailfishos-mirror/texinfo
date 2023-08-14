@@ -52,20 +52,37 @@ static char *locale_command = 0;
 static char *strings_textdomain = "texinfo_document";
 
 void
+configure (char *localesdir, char *strings_textdomain_in)
+{
+  char *textdomain_directory;
+  if (strings_textdomain_in)
+    strings_textdomain = strings_textdomain_in;
+
+  textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
+}
+
+void
 switch_messages_locale (void)
 {
-  char *locale;
+  char *locale = 0;
+  int setenv_status = 1;
 
   if (working_locale)
     {
+      setenv_status = setenv ("LANG", working_locale, 1);
       locale = setlocale (LC_MESSAGES, working_locale);
     }
-  if (!locale)
-    locale = setlocale (LC_MESSAGES, "en_US.UTF-8");
-  if (!locale)
-    locale = setlocale (LC_MESSAGES, "en_US");
-
-  if (!locale && !locale_command)
+  if (!locale || setenv_status)
+    {
+      setenv_status = setenv ("LANG", "en_US.UTF-8", 1);
+      locale = setlocale (LC_MESSAGES, "en_US.UTF-8");
+    }
+  if (!locale || setenv_status)
+    {
+      setenv_status = setenv ("LANG", "en_US", 1);
+      locale = setlocale (LC_MESSAGES, "en_US");
+    }
+  if ((!locale || setenv_status) && !locale_command)
     {
       FILE *p;
       locale_command = "locale -a";
@@ -73,13 +90,12 @@ switch_messages_locale (void)
       p = popen (locale_command, "r");
       if (p)
         {
-          char *line = 0;
           size_t n = 0;
-          ssize_t ret;
 
           while (1)
             {
-              ret = getline (&line, &n, p);
+              char *line = 0;
+              ssize_t ret = getline (&line, &n, p);
               if (ret == (ssize_t) -1)
                 {
                   free (line);
@@ -92,8 +108,9 @@ switch_messages_locale (void)
                   free (line);
                   continue;
                 }
+              setenv_status = setenv ("LANG", line, 1);
               locale = setlocale (LC_MESSAGES, line);
-              if (locale)
+              if (locale && !setenv_status)
                 {
                   free (line);
                   pclose (p);
@@ -108,7 +125,16 @@ switch_messages_locale (void)
      in argument is not */
   if (locale && strcmp (locale, "C") && strcmp (locale, "POSIX"))
     {
+      char *current_lang = getenv ("LANG");
       working_locale = locale;
+      /*
+      fprintf (stderr, "SETTING (%d) LANG '%s' locale %s '%s'\n",
+               setenv_status, current_lang, locale, working_locale);
+      if (strcmp (current_lang, locale))
+        {
+          fprintf (stderr, "LANG %s != locale %s\n", current_lang, locale);
+        }
+      */
     }
 }
 
@@ -118,6 +144,7 @@ translate_string (char * string, const char *translation_context,
 {
   char *lang = in_lang;
   char *saved_LANGUAGE;
+  char *saved_LANG;
   char *saved_LC_MESSAGES;
   char *encoding = 0;
   char *langs[2] = {0, 0};
@@ -155,6 +182,24 @@ translate_string (char * string, const char *translation_context,
    */
 
   #ifndef _WIN32
+  /* In
+   https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
+    Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In
+    other words, you have to first enable localization, by setting LANG (or
+    LC_ALL) to a value other than ‘C’, before you can use a language priority
+    list through the LANGUAGE variable.
+
+   We set LANG and then LC_MESSAGES to a valid locale in
+   switch_messages_locale to have LANGUAGE work in that case.
+   FIXME it does not work.
+   */
+
+  saved_LANG = getenv ("LANG");
+
+  if (saved_LANG)
+    {
+      saved_LANG = strdup (saved_LANG);
+    }
 
   saved_LC_MESSAGES = setlocale(LC_MESSAGES, NULL);
 
@@ -174,6 +219,17 @@ translate_string (char * string, const char *translation_context,
 
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
+
+  /*
+   {
+     char *bindtextdomain_dir;
+     char *current_textdomain;
+     current_textdomain = textdomain (NULL);
+     bindtextdomain_dir = bindtextdomain (current_textdomain, NULL);
+     fprintf (stderr, "DOMAIN %s '%s'\n", current_textdomain,
+                                         bindtextdomain_dir);
+   }
+   */
 
 /*
   if ($self) {
@@ -248,7 +304,7 @@ translate_string (char * string, const char *translation_context,
     }
   if (setenv ("LANGUAGE", language_locales.text, 1) != 0)
     {
-      fprintf(stderr, "gdt: setenv `%s' error for string `%s': %s\n",
+      fprintf (stderr, "gdt: setenv `%s' error for string `%s': %s\n",
               language_locales.text, string, strerror(errno));
     }
 
@@ -259,7 +315,8 @@ translate_string (char * string, const char *translation_context,
     translated_string = strdup (gettext (string));
 
   /*
-  fprintf (stderr, "TRANSLATED: '%s' '%s'\n", string, translated_string);
+  fprintf (stderr, "TRANSLATED(%s): '%s' '%s'\n", language_locales.text,
+                                                  string, translated_string);
   */
 
   if (saved_LANGUAGE)
@@ -273,6 +330,14 @@ translate_string (char * string, const char *translation_context,
   free (language_locales.text);
 
   #ifndef _WIN32
+
+  if (saved_LANG)
+    {
+      setenv ("LANG", saved_LANG, 1);
+      free (saved_LANG);
+    }
+  else
+    unsetenv ("LANG");
 
   if (saved_LC_MESSAGES)
     {
@@ -371,12 +436,6 @@ substitute_element_array (ELEMENT_LIST *list,
             {
               if (!strcmp (name, replaced_substrings->list[i].name))
                 {
-                  /* FIXME mix elements from replaced_substrings already
-                     appearing in the main tree (or somewhere else) and
-                     elements in the tree created by parse_texi_line.
-                     These elements will be destroyed twice.
-                     Use reference count, gather list of elements to free,
-                     or copy? */
                   list->list[idx] = replaced_substrings->list[i].element;
                   destroy_element_and_children (e);
                   break;
@@ -399,6 +458,8 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
   return tree;
 }
 
+/* the caller should have made sure that the
+   inserted elements do not appear elsewhere in the tree. */
 ELEMENT *
 replace_convert_substrings (char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings)
@@ -410,22 +471,27 @@ replace_convert_substrings (char *translated_string,
   ELEMENT *tree;
   DOCUMENT *document;
 
-  /* setup the strings to be replaced using the input replaced_substrings
-     structure, which should only contain elements */
-  for (i = 0; i < replaced_substrings->number; i++)
-    {
-      TEXT text;
-      text_init (&text);
-      text_append (&text, "@txiinternalvalue{");
-      text_append (&text, replaced_substrings->list[i].name);
-      text_append (&text, "}");
-      replaced_substrings->list[i].string = strdup (text.text);
-      free (text.text);
-    }
-
   if (replaced_substrings)
-    texinfo_line = replace_substrings (translated_string,
-                                             replaced_substrings);
+    {
+    /* setup the strings to be replaced using the input replaced_substrings
+       structure, which should only contain elements */
+      for (i = 0; i < replaced_substrings->number; i++)
+        {
+          TEXT text;
+          text_init (&text);
+          text_append (&text, "@txiinternalvalue{");
+          text_append (&text, replaced_substrings->list[i].name);
+          text_append (&text, "}");
+          replaced_substrings->list[i].string = strdup (text.text);
+          free (text.text);
+        }
+
+      texinfo_line = replace_substrings (translated_string,
+                                         replaced_substrings);
+
+      for (i = 0; i < replaced_substrings->number; i++)
+        free (replaced_substrings->list[i].string);
+    }
   else
     texinfo_line = translated_string;
 
@@ -433,12 +499,9 @@ replace_convert_substrings (char *translated_string,
   fprintf(stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
                                                  texinfo_line);
    */ 
-  for (i = 0; i < replaced_substrings->number; i++)
-    free (replaced_substrings->list[i].string);
-
   /* FIXME different from Perl case, as in perl case, a parser is
-     setup, which means a full reset of configuration, in practice
-     a call of reset_parser */
+     setup, which means a full reset of configuration, here would
+     correspond to a call of reset_parser */
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
    location in tree of substituted brace enclosed strings.

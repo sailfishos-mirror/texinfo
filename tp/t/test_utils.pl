@@ -104,7 +104,7 @@ if (! defined($localesdir)) {
   warn "No locales directory found, some tests will fail\n";
 }
 
-Texinfo::Translations::init($localesdir);
+Texinfo::Translations::configure($localesdir);
 
 Locale::Messages::bindtextdomain('texinfo', $localesdir);
 

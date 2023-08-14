@@ -27,4 +27,7 @@ void add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
 void add_element_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
                                                char *name, ELEMENT *element);
 void destroy_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel);
+
+void configure (char *localesdir, char *strings_textdomain_in);
+
 #endif

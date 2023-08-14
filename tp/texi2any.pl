@@ -1260,12 +1260,12 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
                                        'LocaleData');
   if (-d $locales_dir) {
-    Texinfo::Translations::init($locales_dir, $strings_textdomain);
+    Texinfo::Translations::configure($locales_dir, $strings_textdomain);
   } else {
     warn "Locales dir for document strings not found\n";
   }
 } else {
-  Texinfo::Translations::init(File::Spec->catdir($datadir, 'locale'),
+  Texinfo::Translations::configure(File::Spec->catdir($datadir, 'locale'),
                               $strings_textdomain);
 }
 
