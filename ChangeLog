@@ -1,5 +1,11 @@
 2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (MAKEINFO_ENVIRONMENT): Do not use shell
+	export statements as this may lead to the same problem experienced
+	with TEXI2DVI_ENVIRONMENT.
+
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Do not rely on texi2dvi internal directory layout
 
 	* doc/Makefile.am (TEXI2DVI_ENVIRONMENT),

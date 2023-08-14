@@ -21,9 +21,9 @@ DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 
 TEXINFO_TEX = texinfo.tex
 
-MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
-                       top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
-                       top_builddir="$(top_builddir)" ; export top_builddir ;
+MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
+                       top_srcdir="$(top_srcdir)" \
+                       top_builddir="$(top_builddir)"
 MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tp/texi2any
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
