@@ -1,5 +1,14 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	Add a shared library for Perl XS common code among XS codes
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES): add shared
+	library using perl includes and link flags for codes common to diverse
+	XS codes, containing only build_perl_info.c.  Move build_perl_info.c
+	from parsetexi directory to main directory.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/build_perl_info.c: include libintl.h only
 	if ENABLE_NLS.
 

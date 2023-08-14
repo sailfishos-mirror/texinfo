@@ -89,7 +89,6 @@ XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-
 ########################## shared common library and parser library
 
 # FIXME this is an internal library.  Do not put it in lib?
@@ -199,9 +198,23 @@ $(srcdir)/main/command_tables.c: $(srcdir)/main/command_data.c
               $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c
 
 
-# FIXME parsetexi/build_perl_info.* in common in diverse XS
-# codes.  Not a good idea to add to libtexinfo as it requires
-# specific perl linking/includes.  Do a separate library?
+########################## shared perl XS library for texinfo XS codes
+
+# FIXME this is an internal library.  Do not put it in lib?
+# it still needs to be found by the linker.
+if HAVE_ICONV
+lib_LTLIBRARIES += libtexinfoxs.la
+endif
+
+libtexinfoxs_la_SOURCES= \
+		      main/build_perl_info.c \
+		      main/build_perl_info.h
+
+libtexinfoxs_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
+
+# To locate include files under out-of-source builds.
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## Parsetexi XS
 
@@ -214,19 +227,17 @@ if HAVE_ICONV
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
-Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
-		      parsetexi/build_perl_info.c \
-		      parsetexi/build_perl_info.h
+Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
-Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+Parsetexi_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfoxs.la libtexinfo.la
 Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
-########################## Translations
+########################## Translations XS
 
 mainmodulesdir = $(pkgdatadir)/Texinfo/XS/main
 dist_mainmodules_DATA = main/TranslationsXS.pm
@@ -236,13 +247,11 @@ xs_LTLIBRARIES += Translations.la
 endif
 
 Translations_la_SOURCES = \
-                       main/Translations.c \
-		      parsetexi/build_perl_info.c \
-		      parsetexi/build_perl_info.h
+                       main/Translations.c
 
 EXTRA_DIST += main/Translations.xs
 
-Translations_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+Translations_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfoxs.la libtexinfo.la
 Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.
