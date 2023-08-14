@@ -5,7 +5,7 @@ use Test::More;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
-BEGIN { plan tests => 11; }
+BEGIN { plan tests => 12; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
@@ -291,6 +291,43 @@ test('@node Top
 @node nsection
 @section sect
 ', 'non automatic node');
+
+test('@node Top
+@top top
+
+@node chapter
+@chapter chap
+
+@menu
+* nsec1::
+
+@node nsec1
+@section sec1
+
+@node nsec2
+@section sec2
+
+', '@node Top
+@top top
+
+@menu
+* chapter::
+@end menu
+
+@node chapter
+@chapter chap
+
+@menu
+* nsec1::
+
+* nsec2::
+@node nsec1
+@section sec1
+
+@node nsec2
+@section sec2
+
+', 'menu not closed');
 
 # test complete_tree_nodes_missing_menu and use the
 # same input for complete_tree_nodes_menus too

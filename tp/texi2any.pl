@@ -1559,15 +1559,9 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    my ($modified_contents, $added_nodes)
+    my $added_nodes
      = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                $registrar, $main_configuration);
-    if (!defined($modified_contents)) {
-      document_warn(__(
-   "insert_nodes_for_sectioning_commands transformation return no result. No section?"));
-    } else {
-      $tree->{'contents'} = $modified_contents;
-    }
   }
 
   my $refs = $document->internal_references_information();

@@ -370,9 +370,10 @@ sub insert_nodes_for_sectioning_commands($;$$)
   my $root = $document->tree();
 
   my @added_nodes;
-  my @contents;
   my $previous_node;
-  foreach my $content (@{$root->{'contents'}}) {
+  my $contents_nr = scalar(@{$root->{'contents'}});
+  for (my $idx = 0; $idx < $contents_nr; $idx++) {
+    my $content = $root->{'contents'}->[$idx];
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
         and $Texinfo::Commands::root_commands{$content->{'cmdname'}}
@@ -388,7 +389,10 @@ sub insert_nodes_for_sectioning_commands($;$$)
       my $new_node = _new_node($new_node_tree, $document, $registrar,
                                $customization_information);
       if (defined($new_node)) {
-        push @contents, $new_node;
+        # insert before $content
+        splice(@{$root->{'contents'}}, $idx, 0, $new_node);
+        $idx++;
+        $contents_nr++;
         push @added_nodes, $new_node;
         $new_node->{'extra'}->{'associated_section'} = $content;
         $content->{'extra'} = {} if (!$content->{'extra'});
@@ -405,9 +409,8 @@ sub insert_nodes_for_sectioning_commands($;$$)
           and $content->{'cmdname'} eq 'node'
           and $content->{'extra'}
           and $content->{'extra'}->{'is_target'});
-    push @contents, $content;
   }
-  return (\@contents, \@added_nodes);
+  return \@added_nodes;
 }
 
 sub _prepend_new_menu_in_node_section($$$)
@@ -490,13 +493,13 @@ sub complete_node_menu($;$)
         foreach my $entry (@pending) {
           $entry->{'parent'} = $current_menu;
         }
-        my $end;
         if ($current_menu->{'contents'}->[-1]->{'cmdname'}
             and $current_menu->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-          $end = pop @{$current_menu->{'contents'}};
+          splice (@{$current_menu->{'contents'}}, -1, 0, @pending);
+        } else {
+          # Should probably only happen with menu without end
+          push @{$current_menu->{'contents'}}, @pending;
         }
-        push @{$current_menu->{'contents'}}, @pending;
-        push @{$current_menu->{'contents'}}, $end if ($end);
       }
     }
   }
@@ -509,7 +512,6 @@ sub _get_non_automatic_nodes_with_sections($)
   my @non_automatic_nodes;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and $content->{'extra'}
         and not ($content->{'args'} and scalar(@{$content->{'args'}}) > 1)
         and $content->{'extra'}
         and $content->{'extra'}->{'associated_section'}) {

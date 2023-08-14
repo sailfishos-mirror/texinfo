@@ -280,8 +280,7 @@ sub _parsed_manual_tree($$$$$)
     # there should already be nodes associated with other sections.  Therefore
     # new nodes should only be created for the $added_sections.
     if ($section_nodes) {
-      my $added_nodes;
-      ($tree->{'contents'}, $added_nodes)
+      my $added_nodes
         = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                          $registrar, $texi_parser);
       if ($self and $self->texinfo_sectioning_base_level() > 0) {

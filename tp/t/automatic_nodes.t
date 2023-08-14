@@ -161,10 +161,9 @@ $identifier_target = $document->labels_information();
 $refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                   $identifier_target, $refs);
-my ($new_content, $added_nodes)
+my $added_nodes
  = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
-$tree->{'contents'} = $new_content;
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 is ($reference, $result, 'add nodes');
 #print STDERR "$result";
@@ -187,10 +186,9 @@ $identifier_target = $document->labels_information();
 $refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $identifier_target, $refs);
-($new_content, $added_nodes)
+$added_nodes
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
-$tree->{'contents'} = $new_content;
 my ($indices_information, $merged_indices) = $document->indices_information();
 ok (($identifier_target->{'chap'}->{'extra'}->{'menus'}
      and @{$identifier_target->{'chap'}->{'extra'}->{'menus'}}
