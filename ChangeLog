@@ -1,5 +1,17 @@
 2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Do not rely on texi2dvi internal directory layout
+
+	* doc/Makefile.am (TEXI2DVI_ENVIRONMENT),
+	* doc/tp_api/Makefile.am (TEXI2DVI_ENVIRONMENT):
+	Use $(abs_top_srcdir) and $(abs_top_builddir) to reference texindex
+	files, rather than $(top_srcdir) and $(top_builddir) concatenated
+	with a certain number of "../", as this is hard to understand and
+	depends on internal details of texi2dvi that we shouldn't have
+	to think about.
+
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix "make distcheck" without installed texinfo.tex
 
 	* doc/Makefile.am (TEXI2DVI_ENVIRONMENT),
