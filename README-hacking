@@ -260,10 +260,10 @@ simplest just to update them all, e.g. in a directory, run
   find . -type f \( -name '*.c' -o -name '*.pm' -o -name '*.h' -o -name '*.sh' -o -name Makefile.am \) -execdir perl -wpli -e 's/-20\d\d Free/-2023 Free/' '{}' \;
 
 to update copyright ranges.  Run git diff after each tranche of files to
-check the changes, followed by git add.  Look for anomalies (e.g. single
-years) with
+check the changes, followed by git add.  Look for omissions and anomalies
+(e.g. single years) with
 
-  grep '20[0-9][^3] Free' . -R
+ grep '20[0-9][^3] Free' . -R  --exclude=Makefile.in --exclude=Makefile --exclude="*.m4" --exclude=configure --exclude="config.*" --exclude="*~" --exclude-dir=autom4te.cache
 
 Can update lone years to ranges with e.g.
 
