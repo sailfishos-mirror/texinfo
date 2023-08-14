@@ -2,6 +2,8 @@
 #ifndef TRANSLATIONS_H
 #define TRANSLATIONS_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 /* element or string may not always be present */

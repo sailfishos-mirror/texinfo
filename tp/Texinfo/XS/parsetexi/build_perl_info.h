@@ -2,6 +2,8 @@
 #ifndef BUILD_PERL_INFO_H
 #define BUILD_PERL_INFO_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 #include "utils.h"
 #include "errors.h"

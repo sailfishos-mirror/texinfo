@@ -2,6 +2,8 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 char *new_line (ELEMENT *current);

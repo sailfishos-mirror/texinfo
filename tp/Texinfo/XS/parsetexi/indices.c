@@ -16,6 +16,7 @@
 #include <config.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "parser.h"
 #include "tree_types.h"

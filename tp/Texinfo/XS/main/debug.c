@@ -17,6 +17,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "builtin_commands.h"
 #include "tree_types.h"

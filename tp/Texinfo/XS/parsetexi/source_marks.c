@@ -15,6 +15,7 @@
 
 #include <config.h>
 #include <string.h>
+#include <stdlib.h>
 
 /* for count_convert_u8 */
 #include "parser.h"

@@ -16,6 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stddef.h>
+
 typedef struct TEXT {
     char *text;
     size_t space; /* Allocated bytes in 'text', including terminating null. */

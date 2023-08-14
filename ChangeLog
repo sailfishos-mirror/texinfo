@@ -1,5 +1,28 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	Update includes and move LOCALEDIR define
+
+	* tp/Texinfo/XS/main/debug.c, tp/Texinfo/XS/main/extra.c,
+	tp/Texinfo/XS/parsetexi/counter.c, tp/Texinfo/XS/parsetexi/indices.c,
+	tp/Texinfo/XS/parsetexi/labels.c, tp/Texinfo/XS/parsetexi/source_marks.c:
+	include stdlib.h for malloc/realloc.
+
+	* tp/Texinfo/XS/main/document.h, tp/Texinfo/XS/main/errors.h,
+	tp/Texinfo/XS/main/text.h, tp/Texinfo/XS/main/translations.h,
+	tp/Texinfo/XS/main/tree_types.h,
+	tp/Texinfo/XS/parsetexi/build_perl_info.h,
+	p/Texinfo/XS/parsetexi/context_stack.h,
+	tp/Texinfo/XS/parsetexi/input.h, tp/Texinfo/XS/parsetexi/labels.h,
+	tp/Texinfo/XS/parsetexi/parser.h,
+	tp/Texinfo/XS/parsetexi/source_marks.h:
+	include stddef.h for size_t.
+
+	* tp/Texinfo/XS/parsetexi/api.h,
+	tp/Texinfo/XS/parsetexi/build_perl_info.c: move LOCALEDIR define to
+	build_perl_info.c, where it is used.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (ultimate_index), tp/Texinfo/ParserNonXS.pm
 	(%parser_state_initialization, _parse_texi, _parse_line_command_args),
 	tp/Texinfo/Structuring.pm (merge_indices),

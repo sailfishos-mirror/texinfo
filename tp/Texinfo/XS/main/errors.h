@@ -2,8 +2,10 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
-#include "tree_types.h"
+#include <stddef.h>
 #include <stdarg.h>
+
+#include "tree_types.h"
 
 int xasprintf (char **ptr, const char *template, ...);
 int xvasprintf (char **ptr, const char *template, va_list ap);

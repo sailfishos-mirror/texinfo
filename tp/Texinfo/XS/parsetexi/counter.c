@@ -14,7 +14,9 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+#include <stdlib.h>
 
+#include "tree_types.h"
 #include "errors.h"
 #include "counter.h"
 

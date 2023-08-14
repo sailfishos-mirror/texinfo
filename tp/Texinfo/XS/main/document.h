@@ -2,6 +2,8 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 /* for GLOBAL_INFO */
 #include "utils.h"

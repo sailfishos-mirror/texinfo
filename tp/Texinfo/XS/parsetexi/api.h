@@ -25,10 +25,5 @@ void parser_set_documentlanguage_override (char *value);
 
 int store_document (ELEMENT *root);
 
-#ifdef ENABLE_NLS
-
-#define LOCALEDIR DATADIR "/locale"
-
-#endif
 
 #endif

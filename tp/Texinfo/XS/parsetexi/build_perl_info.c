@@ -35,14 +35,13 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
+/* for GLOBAL_INFO */
+#include "utils.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-/* for LOCALEDIR */
-#include "api.h"
 #include "errors.h"
 #include "document.h"
-#include "debug.h"
 #include "build_perl_info.h"
 
   /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
@@ -54,6 +53,12 @@
      will then use malloc that is different from Perl's malloc, whereas
      free below is redirected to Perl's implementation.  This could
      cause crashes if the two malloc/free implementations were different.  */
+
+#ifdef ENABLE_NLS
+
+#define LOCALEDIR DATADIR "/locale"
+
+#endif
 
 #ifdef ENABLE_NLS
 
@@ -620,8 +625,8 @@ build_float_list (FLOAT_RECORD *floats_list, size_t floats_number)
   return float_hash;
 }
 
-/* Ensure that I->hv is a hash value for a single entry in 
-   $self->{'index_names'}, containing information about a single index. */
+/* returns a hash for a single entry in $self->{'index_names'}, containing
+   information about a single index. */
 static HV *
 build_single_index_data (INDEX *i)
 {
@@ -698,8 +703,8 @@ build_index_data (INDEX **index_names_in)
 }
 
 
-/* Return object to be used as $self->{'info'} in the Perl code, retrievable
-   with the 'global_information' function. */
+/* Return object to be used as 'info', retrievable with the
+   'global_information' function. */
 HV *
 build_global_info (GLOBAL_INFO *global_info_ref)
 {
@@ -731,8 +736,8 @@ build_global_info (GLOBAL_INFO *global_info_ref)
   return hv;
 }
 
-/* Return object to be used as $self->{'extra'} in the Perl code, which
-   are mostly references to tree elements. */
+/* Return object to be used as 'commands_info', which holds references
+   to tree elements. */
 HV *
 build_global_info2 (GLOBAL_INFO *global_info_ref)
 {
@@ -786,7 +791,6 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
 
   /* The following are arrays of elements. */
 
-  
   if (global_info.footnotes.contents.number > 0)
     {
       av = newAV ();
@@ -924,7 +928,6 @@ convert_error (ERROR_MESSAGE e)
             build_source_info_hash(e.source_info), 0);
 
   return newRV_noinc ((SV *) hv);
-
 }
 
 /* Errors */
@@ -945,7 +948,6 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
     }
 
   return av;
-
 }
 
 
