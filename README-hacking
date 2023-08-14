@@ -254,6 +254,22 @@ don't support it are still widespread.
 Not all compiler warnings have to be fixed, though.
 
 
+Check if copyright years in files have all been updated.  It may be
+simplest just to update them all, e.g. in a directory, run
+
+  find . -type f \( -name '*.c' -o -name '*.pm' -o -name '*.h' -o -name '*.sh' -o -name Makefile.am \) -execdir perl -wpli -e 's/-20\d\d Free/-2023 Free/' '{}' \;
+
+to update copyright ranges.  Run git diff after each tranche of files to
+check the changes, followed by git add.  Look for anomalies (e.g. single
+years) with
+
+  grep '20[0-9][^3] Free' . -R
+
+Can update lone years to ranges with e.g.
+
+  find . -type f \( -name '*.sh' \) -execdir perl -wpli -e 's/( 20\d\d) Free/$1-2023 Free/' '{}' \;
+
+
 check at latest automake/autoconf/gettext/help2man version:
   . to upgrade gettext, run
       gettextize -f --po-dir=po --po-dir=po_document
