@@ -1427,9 +1427,6 @@ $result_errors{'macro_in_index_commands'} = [
 $result_indices{'macro_in_index_commands'} = {
   'index_names' => {
     'codeidx' => {
-      'contained_indices' => {
-        'codeidx' => 1
-      },
       'in_code' => 1,
       'name' => 'codeidx'
     },
@@ -1439,45 +1436,26 @@ $result_indices{'macro_in_index_commands'} = {
       'name' => 'cp'
     },
     'fn' => {
-      'contained_indices' => {
-        'cp' => 1,
-        'fn' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
     'ky' => {
-      'contained_indices' => {
-        'ky' => 1
-      },
       'in_code' => 1,
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },
     'truc' => {
-      'contained_indices' => {
-        'truc' => 1
-      },
       'in_code' => 0,
       'name' => 'truc'
     },
     'vr' => {
-      'contained_indices' => {
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'vr'
     }

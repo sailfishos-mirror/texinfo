@@ -1599,9 +1599,6 @@ $result_indices{'def_syn_indices'} = {
       'name' => 'abc'
     },
     'codeidx' => {
-      'contained_indices' => {
-        'codeidx' => 1
-      },
       'in_code' => 1,
       'name' => 'codeidx'
     },
@@ -1616,11 +1613,6 @@ $result_indices{'def_syn_indices'} = {
       'name' => 'defg'
     },
     'fn' => {
-      'contained_indices' => {
-        'cp' => 1,
-        'fn' => 1,
-        'truc' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
@@ -1630,19 +1622,10 @@ $result_indices{'def_syn_indices'} = {
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'abc' => 1,
-        'defg' => 1,
-        'ky' => 1,
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },
@@ -1652,9 +1635,6 @@ $result_indices{'def_syn_indices'} = {
       'name' => 'truc'
     },
     'vr' => {
-      'contained_indices' => {
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'vr'
     }

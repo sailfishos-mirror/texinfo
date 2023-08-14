@@ -2718,6 +2718,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   if (input_number > 0)
     fprintf (stderr, "BUG: at end, input_number > 0: %d\n", input_number);
 
+  /* update merged_in for merging hapening after first index merge */
+  resolve_indices_merged_in ();
+
   identifiers_target
     = set_labels_identifiers_target (labels_list, labels_number);
 

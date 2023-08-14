@@ -1,5 +1,29 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (ultimate_index), tp/Texinfo/ParserNonXS.pm
+	(%parser_state_initialization, _parse_texi, _parse_line_command_args),
+	tp/Texinfo/Structuring.pm (merge_indices),
+	tp/maintain/regenerate_commands_perl_info.pl,
+	tp/Texinfo/XS/main/tree_types.h (INDEX),
+	tp/Texinfo/XS/parsetexi/build_perl_info.c (build_single_index_data)
+	(build_index_data), tp/Texinfo/XS/parsetexi/indices.c
+	(resolve_indices_merged_in), tp/Texinfo/XS/parsetexi/parser.c
+	(parse_texi): update merged_in index information at the end of
+	parse_texi to take into account indices merged after the first
+	index merge.
+	Remove 'contained_indices' index information key, use ultimate_index
+	in perl code instead, to determine dynamically index merged in.
+	Use code similar to the XS parser in Perl parser.
+	Have build_single_index_data return the hv instead of putting it in
+	the tree.  Remove the hv and contained_hv fields of INDEX since they
+	are now unused.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): change
+	variable names to match Perl parser variable names.  Use
+	ultimate_index.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/run_parser_all.sh: set LC_ALL=en_US to have translations of
 	messages in document with XS code working.  Should be temporary.
 

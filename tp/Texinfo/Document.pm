@@ -387,12 +387,6 @@ In case the index is merged to another index, this key holds the name of
 the index the index is merged into.  It takes into account indirectly
 merged indices.
 
-=item contained_indices
-
-An hash reference holding names of indices that are merged into the index,
-including itself.  It also contains indirectly merged indices.  This key
-is removed if the index is itself later merged to another index.
-
 =item index_entries
 
 An array reference containing index entry structures for index entries

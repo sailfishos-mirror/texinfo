@@ -395,6 +395,22 @@ ultimate_index (INDEX *index)
 }
 
 void
+resolve_indices_merged_in (void)
+{
+  INDEX **i, *idx;
+
+  for (i = index_names; (idx = *i); i++)
+    {
+      if (idx->merged_in)
+        {
+          /* This index is merged in another one. */
+          INDEX *ultimate = ultimate_index (idx);
+          idx->merged_in = ultimate;
+        }
+    }
+}
+
+void
 complete_indices (int document_descriptor)
 {
   INDEX **i, *idx;

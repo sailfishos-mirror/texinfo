@@ -38,8 +38,6 @@
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-/* for ultimate_index */
-#include "indices.h"
 /* for LOCALEDIR */
 #include "api.h"
 #include "errors.h"
@@ -624,7 +622,7 @@ build_float_list (FLOAT_RECORD *floats_list, size_t floats_number)
 
 /* Ensure that I->hv is a hash value for a single entry in 
    $self->{'index_names'}, containing information about a single index. */
-static void
+static HV *
 build_single_index_data (INDEX *i)
 {
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
@@ -636,60 +634,14 @@ build_single_index_data (INDEX *i)
 
   dTHX;
 
-  if (!i->hv)
-    {
-      hv = newHV ();
-      i->hv = (void *) hv;
-    }
-  else
-    {
-      hv = (HV *) i->hv;
-    }
+  hv = newHV ();
 
   STORE("name", newSVpv_utf8 (i->name, 0));
   STORE("in_code", i->in_code ? newSViv(1) : newSViv(0));
 
   if (i->merged_in)
     {
-      /* This index is merged in another one. */
-      INDEX *ultimate = ultimate_index (i);
-
-      if (!ultimate->hv)
-        {
-          ultimate->hv = (void *) newHV ();
-          ultimate->contained_hv = (void *) newHV ();
-          hv_store (ultimate->hv,
-                    "contained_indices",
-                    strlen ("contained_indices"),
-                    newRV_inc ((SV *)(HV *) ultimate->contained_hv),
-                    0);
-        }
-
-      hv_store (ultimate->contained_hv, i->name, strlen (i->name),
-                newSViv (1), 0);
-
-      STORE("merged_in", newSVpv_utf8 (ultimate->name, 0));
-
-      if (i->contained_hv)
-        {
-          /* This is unlikely to happen, as if this index is merged into
-             another one, any indices merged into this index would have been
-             recorded under that one, and not this one. */
-          hv_delete (i->hv,
-                     "contained_indices", strlen ("contained_indices"),
-                     G_DISCARD);
-          i->contained_hv = 0;
-        }
-    }
-  else
-    {
-      if (!i->contained_hv)
-        {
-          i->contained_hv = newHV ();
-          STORE("contained_indices", newRV_inc ((SV *)(HV *) i->contained_hv));
-        }
-      /* Record that this index "contains itself". */
-      hv_store (i->contained_hv, i->name, strlen (i->name), newSViv(1), 0);
+      STORE("merged_in", newSVpv_utf8 (i->merged_in->name, 0));
     }
 
   if (i->index_number > 0)
@@ -720,6 +672,7 @@ build_single_index_data (INDEX *i)
 #undef STORE2
         }
     }
+  return hv;
 }
 
 /* Return object to be used as $self->{'index_names'} in the perl code.
@@ -737,9 +690,7 @@ build_index_data (INDEX **index_names_in)
 
   for (i = index_names_in; (idx = *i); i++)
     {
-      HV *hv2;
-      build_single_index_data (idx);
-      hv2 = idx->hv;
+      HV *hv2 = build_single_index_data (idx);
       hv_store (hv, idx->name, strlen (idx->name), newRV_noinc ((SV *)hv2), 0);
     }
 

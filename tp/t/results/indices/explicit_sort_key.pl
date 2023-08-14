@@ -771,51 +771,30 @@ $result_errors{'explicit_sort_key'} = [
 $result_indices{'explicit_sort_key'} = {
   'index_names' => {
     'SK' => {
-      'contained_indices' => {
-        'SK' => 1
-      },
       'in_code' => 0,
       'name' => 'SK'
     },
     'cp' => {
-      'contained_indices' => {
-        'cp' => 1
-      },
       'in_code' => 0,
       'name' => 'cp'
     },
     'fn' => {
-      'contained_indices' => {
-        'fn' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
     'ky' => {
-      'contained_indices' => {
-        'ky' => 1
-      },
       'in_code' => 1,
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },
     'vr' => {
-      'contained_indices' => {
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'vr'
     }

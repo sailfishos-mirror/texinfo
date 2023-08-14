@@ -13,6 +13,7 @@ void add_index (char *name, int in_code);
 INDEX *index_of_command (enum command_id cmd);
 void enter_index_entry (enum command_id index_type_cmd,
                         ELEMENT *current);
+void resolve_indices_merged_in (void);
 INDEX *ultimate_index (INDEX *index);
 void wipe_indices (void);
 void wipe_index (INDEX *idx);

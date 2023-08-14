@@ -973,7 +973,7 @@ sub _add_preamble_before_content($)
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
-# Called in both XS and perl parser
+# Called in both Parsetexi.pm and perl parser
 sub get_perl_encoding($$$)
 {
   my $commands_info = shift;
@@ -1067,6 +1067,15 @@ sub _count_opened_tree_braces($$)
                                                           $braces_count);
   }
   return $braces_count;
+}
+
+sub ultimate_index($$) {
+  my $indices_information = shift;
+  my $index = shift;
+  while ($index->{'merged_in'}) {
+    $index = $indices_information->{$index->{'merged_in'}};
+  }
+  return $index;
 }
 
 # relocate $SOURCE_MARKS source marks with position between

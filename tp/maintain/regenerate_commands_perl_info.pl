@@ -178,7 +178,6 @@ print OUT ");\n\n";
 # add code that sets %line_commands for index commands based on %index_names
 print OUT 'foreach my $index (keys(%index_names)) {
   $index_names{$index}->{"name"} = $index;
-  $index_names{$index}->{"contained_indices"} = {$index => 1};
 }
 
 our %default_index_commands;

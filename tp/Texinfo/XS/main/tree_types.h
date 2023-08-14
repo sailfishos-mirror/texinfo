@@ -143,10 +143,6 @@ typedef struct INDEX {
     INDEX_ENTRY *index_entries;
     size_t index_number;
     size_t index_space;
-
-    /********* Used when building Perl hash value ********************/
-    void *hv;
-    void *contained_hv;
 } INDEX;
 
 /* See parse_node_manual function. */

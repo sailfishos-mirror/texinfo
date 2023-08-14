@@ -919,51 +919,30 @@ $result_errors{'command_conditionals_user_defined'} = [
 $result_indices{'command_conditionals_user_defined'} = {
   'index_names' => {
     'auth' => {
-      'contained_indices' => {
-        'auth' => 1
-      },
       'in_code' => 0,
       'name' => 'auth'
     },
     'cp' => {
-      'contained_indices' => {
-        'cp' => 1
-      },
       'in_code' => 0,
       'name' => 'cp'
     },
     'fn' => {
-      'contained_indices' => {
-        'fn' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
     'ky' => {
-      'contained_indices' => {
-        'ky' => 1
-      },
       'in_code' => 1,
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },
     'vr' => {
-      'contained_indices' => {
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'vr'
     }

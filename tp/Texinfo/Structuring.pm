@@ -2374,13 +2374,16 @@ sub merge_indices($)
   my $merged_index_entries;
   foreach my $index_name (keys(%$indices_information)) {
     my $index_info = $indices_information->{$index_name};
-    next if ($index_info->{'merged_in'});
-    foreach my $contained_index (keys (%{$index_info->{'contained_indices'}})) {
-      if ($indices_information->{$contained_index}->{'index_entries'}) {
-        $merged_index_entries = {} if (! $merged_index_entries);
-        push @{$merged_index_entries->{$index_name}},
-          @{$indices_information->{$contained_index}->{'index_entries'}};
+    if ($index_info->{'index_entries'}) {
+      $merged_index_entries = {} if (! $merged_index_entries);
+      my $in_idx_name = $index_name;
+      if ($index_info->{'merged_in'}) {
+        my $ultimate_idx = Texinfo::Common::ultimate_index($indices_information,
+                                                           $index_info);
+        $in_idx_name = $ultimate_idx->{'name'};
       }
+      push @{$merged_index_entries->{$in_idx_name}},
+        @{$index_info->{'index_entries'}};
     }
   }
   return $merged_index_entries;

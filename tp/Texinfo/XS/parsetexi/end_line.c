@@ -359,34 +359,34 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_syncodeindex:
       {
         /* synindex FROM TO */
-        char *from = 0, *to = 0;
+        char *index_name_from = 0, *index_name_to = 0;
         INDEX *from_index, *to_index;
         char *p = line;
 
         if (!isascii_alnum (*p))
           goto synindex_invalid;
-        from = read_command_name (&p);
-        if (!from)
+        index_name_from = read_command_name (&p);
+        if (!index_name_from)
           goto synindex_invalid;
 
         p += strspn (p, whitespace_chars);
 
         if (!isascii_alnum (*p))
           goto synindex_invalid;
-        to = read_command_name (&p);
-        if (!to)
+        index_name_to = read_command_name (&p);
+        if (!index_name_to)
           goto synindex_invalid;
         if (*p)
           goto synindex_invalid; /* More at end of line. */
 
-        from_index = index_by_name (from);
-        to_index = index_by_name (to);
+        from_index = index_by_name (index_name_from);
+        to_index = index_by_name (index_name_to);
         if (!from_index)
           line_error ("unknown source index in @%s: %s",
-                      command_name(cmd), from);
+                      command_name(cmd), index_name_from);
         if (!to_index)
           line_error ("unknown destination index in @%s: %s",
-                      command_name(cmd), to);
+                      command_name(cmd), index_name_to);
 
         if (from_index && to_index)
           {
@@ -398,25 +398,25 @@ parse_line_command_args (ELEMENT *line_command)
               {
                 from_index->merged_in = current_to;
                 from_index->in_code = (cmd == CM_syncodeindex);
-                ADD_ARG(from);
-                ADD_ARG(to);
+                ADD_ARG(index_name_from);
+                ADD_ARG(index_name_to);
                 /* Note that 'current_to' may not end up as the index
                    'from_index' merges into if there are further @synindex 
                    commands. */
               }
             else
               line_warn ("@%s leads to a merging of %s in itself, ignoring",
-                          command_name(cmd), from);
+                          command_name(cmd), index_name_from);
           }
 
-        free (from);
-        free (to);
+        free (index_name_from);
+        free (index_name_to);
 
         break;
       synindex_invalid:
         line_error ("bad argument to @%s: %s",
                      command_name(cmd), line);
-        free (from); free (to);
+        free (index_name_from); free (index_name_to);
         break;
       }
     case CM_printindex:
@@ -435,9 +435,7 @@ parse_line_command_args (ELEMENT *line_command)
               {
                 if (idx->merged_in)
                   {
-                    INDEX *i2;
-                    for (i2 = idx; (i2->merged_in); i2 = i2->merged_in)
-                      ;
+                    INDEX *i2 = ultimate_index (idx);
                     line_warn
                       ("printing an index `%s' merged in another one, `%s'",
                        arg, i2->name);

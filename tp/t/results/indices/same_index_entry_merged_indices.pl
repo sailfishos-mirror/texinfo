@@ -644,38 +644,22 @@ $result_errors{'same_index_entry_merged_indices'} = [];
 $result_indices{'same_index_entry_merged_indices'} = {
   'index_names' => {
     'cp' => {
-      'contained_indices' => {
-        'cp' => 1
-      },
       'in_code' => 0,
       'name' => 'cp'
     },
     'fn' => {
-      'contained_indices' => {
-        'fn' => 1,
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
     'ky' => {
-      'contained_indices' => {
-        'ky' => 1
-      },
       'in_code' => 1,
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },

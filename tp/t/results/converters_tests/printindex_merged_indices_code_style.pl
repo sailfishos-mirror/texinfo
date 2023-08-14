@@ -816,34 +816,18 @@ $result_indices{'printindex_merged_indices_code_style'} = {
       'name' => 'ddi'
     },
     'fn' => {
-      'contained_indices' => {
-        'cdi' => 1,
-        'cp' => 1,
-        'ddi' => 1,
-        'fn' => 1,
-        'vr' => 1
-      },
       'in_code' => 1,
       'name' => 'fn'
     },
     'ky' => {
-      'contained_indices' => {
-        'ky' => 1
-      },
       'in_code' => 1,
       'name' => 'ky'
     },
     'pg' => {
-      'contained_indices' => {
-        'pg' => 1
-      },
       'in_code' => 1,
       'name' => 'pg'
     },
     'tp' => {
-      'contained_indices' => {
-        'tp' => 1
-      },
       'in_code' => 1,
       'name' => 'tp'
     },

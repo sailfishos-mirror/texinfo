@@ -150,7 +150,6 @@ my %parser_state_initialization = (
                               # as obtained by parsing the @macro
   'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_expansion_nr' => 0,  # number of values being expanded
-  'merged_indices' => {},     # the key is merged in the value
   'sections_level' => 0,      # modified by raise/lowersections
   'labels_list' => [],            # array of elements associated with labels
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
@@ -7373,6 +7372,16 @@ sub _parse_texi($$$)
     die;
   }
 
+  # update merged_in for merging hapening after first index merge
+  foreach my $index_name (keys (%{$self->{'index_names'}})) {
+    my $index_info = $self->{'index_names'}->{$index_name};
+    if ($index_info->{'merged_in'}) {
+      my $ultimate_idx = Texinfo::Common::ultimate_index($self->{'index_names'},
+                                                         $index_info);
+      $index_info->{'merged_in'} = $ultimate_idx->{'name'};
+    }
+  }
+
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
@@ -7608,9 +7617,6 @@ sub _parse_line_command_args($$$)
         if (!exists($self->{'index_names'}->{$name}->{'name'})) {
           $self->{'index_names'}->{$name}->{'name'} = $name;
         }
-        if (!exists($self->{'index_names'}->{$name}->{'contained_indices'})) {
-          $self->{'index_names'}->{$name}->{'contained_indices'} = {$name => 1};
-        }
         my $index_cmdname = $name.'index';
         delete $self->{'macros'}->{$index_cmdname};
         delete $self->{'aliases'}->{$index_cmdname};
@@ -7631,47 +7637,30 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'synindex' || $command eq 'syncodeindex') {
     # REMACRO
     if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)\s+([[:alnum:]][[:alnum:]\-]*)$/) {
-      my $index_from = $1;
-      my $index_to = $2;
+      my $index_name_from = $1;
+      my $index_name_to = $2;
+      my $index_from = $self->{'index_names'}->{$index_name_from};
+      my $index_to = $self->{'index_names'}->{$index_name_to};
       $self->_line_error(sprintf(__("unknown source index in \@%s: %s"),
-                                 $command, $index_from), $source_info)
-        unless $self->{'index_names'}->{$index_from};
+                                 $command, $index_name_from), $source_info)
+        unless $index_from;
       $self->_line_error(sprintf(__("unknown destination index in \@%s: %s"),
-                                 $command, $index_to), $source_info)
-        unless $self->{'index_names'}->{$index_to};
-      if ($self->{'index_names'}->{$index_from}
-           and $self->{'index_names'}->{$index_to}) {
-        my $current_to = $index_to;
+                                 $command, $index_name_to), $source_info)
+        unless $index_to;
+      if ($index_from and $index_to) {
+        my $current_to = Texinfo::Common::ultimate_index($self->{'index_names'},
+                                                         $index_to);
         # find the merged indices recursively avoiding loops
-        while ($current_to ne $index_from
-               and $self->{'merged_indices'}->{$current_to}) {
-          $current_to = $self->{'merged_indices'}->{$current_to};
-        }
-        if ($current_to ne $index_from) {
-          my $index_from_info = $self->{'index_names'}->{$index_from};
-          my $index_to_info = $self->{'index_names'}->{$current_to};
-
+        if ($current_to->{'name'} ne $index_name_from) {
           my $in_code = 0;
           $in_code = 1 if ($command eq 'syncodeindex');
-          $self->{'merged_indices'}->{$index_from} = $current_to;
-          $index_from_info->{'in_code'} = $in_code;
-          if ($index_from_info->{'contained_indices'}) {
-            foreach my $contained_index
-                             (keys %{$index_from_info->{'contained_indices'}}) {
-              $index_to_info->{'contained_indices'}->{$contained_index} = 1;
-              $self->{'index_names'}->{$contained_index}->{'merged_in'}
-                                                              = $current_to;
-              $self->{'merged_indices'}->{$contained_index} = $current_to;
-            }
-            delete $index_from_info->{'contained_indices'};
-          }
-          $index_from_info->{'merged_in'} = $current_to;
-          $index_to_info->{'contained_indices'}->{$index_from} = 1;
-          $args = [$index_from, $index_to];
+          $index_from->{'in_code'} = $in_code;
+          $index_from->{'merged_in'} = $current_to->{'name'};
+          $args = [$index_name_from, $index_name_to];
         } else {
           $self->_line_warn(sprintf(__(
                          "\@%s leads to a merging of %s in itself, ignoring"),
-                             $command, $index_from), $source_info);
+                             $command, $index_name_from), $source_info);
         }
       }
     } else {
@@ -7686,10 +7675,13 @@ sub _parse_line_command_args($$$)
         $self->_line_error(sprintf(__("unknown index `%s' in \@printindex"),
                                     $name), $source_info);
       } else {
-        if ($self->{'merged_indices'}->{$name}) {
+        my $idx = $self->{'index_names'}->{$name};
+        if ($idx->{'merged_in'}) {
+          my $ultimate_idx
+            = Texinfo::Common::ultimate_index($self->{'index_names'}, $idx);
           $self->_line_warn(sprintf(__(
                        "printing an index `%s' merged in another one, `%s'"),
-                                   $name, $self->{'merged_indices'}->{$name}),
+                                   $name, $ultimate_idx->{'name'}),
                            $source_info);
         }
         if (!defined($self->{'current_node'})
