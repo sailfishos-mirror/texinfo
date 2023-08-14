@@ -1,5 +1,10 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/run_parser_all.sh: set LC_ALL=en_US to have translations of
+	messages in document with XS code working.  Should be temporary.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (configure): rename init as configure to
 	avoid clashing with the XSLoader init function name.
 
