@@ -1,5 +1,14 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl: always set manual name, using
+	base name of file if title is not found.  Base the output file name
+	on the manual name if there is no title.
+
+	* Pod-Simple-Texinfo/pod2texi.pl: use stricter utf-8 in binmode
+	encoding layer.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	Add a shared library for Perl XS common code among XS codes
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES): add shared

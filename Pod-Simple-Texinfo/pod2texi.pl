@@ -19,7 +19,7 @@
 
 use strict;
 use Getopt::Long qw(GetOptions);
-# for dirname.
+# for fileparse.
 use File::Basename;
 use File::Spec;
 
@@ -200,7 +200,6 @@ if (defined($subdir)) {
 my $STDOUT_DOCU_NAME = 'stdout';
 
 my @manuals;
-my @all_manual_names;
 
 my @input_files = @ARGV;
 
@@ -210,32 +209,52 @@ die sprintf(__("%s: missing file argument\n"), $real_command_name)
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name)
      unless (scalar(@input_files) >= 1);
 
+my %file_manual_title;
+my %manual_name_file;
+my %file_manual_name;
 # First gather all the manual names
 if ($base_level > 0) {
   foreach my $file (@input_files) {
+    my $manual_name;
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
     # FIXME are there other file types that have the same problem?
     if ($file eq '-' or -p $file or -S $file) {
-      push @all_manual_names, undef;
-      next;
-    }
-    # not really used, only the manual name is used.
-    my $parser = Pod::Simple::PullParserRun->new();
-    $parser->parse_file($file);
-    my $short_title = $parser->get_short_title();
-    if (defined($short_title) and $short_title =~ m/\S/) {
-      push @manuals, $short_title;
-      push @all_manual_names, $short_title;
-      #print STDERR "NEW MANUAL: $short_title\n";
+      # do not read file
     } else {
-      if (!$parser->content_seen) {
-        warn sprintf(__("%s: ignoring %s without content\n"),
-                     $real_command_name, $file);
-        next;
+      # not really used, only the manual name is used.
+      my $parser = Pod::Simple::PullParserRun->new();
+      $parser->parse_file($file);
+      my $short_title = $parser->get_short_title();
+      if (defined($short_title) and $short_title =~ m/\S/) {
+        $file_manual_title{$file} = $short_title;
+        push @manuals, $short_title;
+        $manual_name = $short_title;
+        #print STDERR "NEW MANUAL: $manual_name\n";
+      } else {
+        if (!$parser->content_seen) {
+          warn sprintf(__("%s: warning: %s without content\n"),
+                       $real_command_name, $file);
+        }
       }
-      push @all_manual_names, undef;
     }
+    if (!defined($manual_name)) {
+      if ($file eq '-') {
+        $manual_name = $STDOUT_DOCU_NAME;
+      } else {
+        my ($file_name, $dir, $suffix) = fileparse($file, ('.pm', '.pod'));
+        $manual_name = $file_name;
+      }
+    }
+    if (exists($manual_name_file{$manual_name})
+        and $manual_name_file{$manual_name} ne $file) {
+      warn sprintf(__("%s: same manual name `%s' for different files: %s and %s"),
+                  $real_command_name, $manual_name, $file,
+                  $manual_name_file{$manual_name})."\n";
+    } else {
+      $manual_name_file{$manual_name} = $file;
+    }
+    $file_manual_name{$file} = $manual_name;
   }
 }
 
@@ -388,33 +407,28 @@ sub _do_top_node_menu($)
   }
 }
 
-my $file_nr = 0;
+my $file_nr = -1;
 # Full manual is collected to generate the top node menu, if $section_nodes
 my $full_manual = '';
 my @included;
 foreach my $file (@input_files) {
+  $file_nr++;
   my $manual_texi = '';
   my $outfile;
   my $outfile_name;
-  my $name = shift @all_manual_names;
+  my $manual_name = $file_manual_name{$file};
+  my $manual_title;
+  $manual_title = $file_manual_title{$file}
+    if (defined($file_manual_title{$file}));
   if ($base_level == 0 and !$file_nr) {
     $outfile = $output;
   } else {
-    if (defined($name)) {
-      $outfile_name = Pod::Simple::Texinfo::_pod_title_to_file_name($name);
-      $outfile_name .= '.texi';
+    if (defined($manual_title)) {
+      $outfile_name = Pod::Simple::Texinfo::_pod_title_to_file_name($manual_title);
     } else {
-      if ($file eq '-') {
-        $outfile_name = $STDOUT_DOCU_NAME;
-      } else {
-        $outfile_name = $file;
-      }
-      if ($outfile_name =~ /\.(pm|pod)$/) {
-        $outfile_name =~ s/\.(pm|pod)$/.texi/i;
-      } else {
-        $outfile_name .= '.texi';
-      }
+      $outfile_name = $manual_name;
     }
+    $outfile_name .= '.texi';
     if (defined($subdir)) {
       $outfile = File::Spec->catfile($subdir, $outfile_name);
     } else {
@@ -427,7 +441,7 @@ foreach my $file (@input_files) {
 
   my $new = Pod::Simple::Texinfo->new();
 
-  push @included, [$name, $outfile, $file] if ($base_level > 0);
+  push @included, [$manual_name, $outfile, $file] if ($base_level > 0);
   my $fh;
   if ($outfile eq '-') {
     $fh = *STDOUT;
@@ -438,11 +452,11 @@ foreach my $file (@input_files) {
     $fh = *OUT;
   }
   # The Texinfo output from Pod::Simple::Texinfo does not contain
-  # @documentencoding.  We output utf8 as it is consistent with no
+  # @documentencoding.  We output UTF-8 as it is consistent with no
   # @documentencoding, and it also because is the best choice or encoding.
   # The =encoding information is not available anyway, but even if it
-  # was it would still be better to output utf8.
-  binmode($fh, ':encoding(utf8)');
+  # was it would still be better to output UTF-8.
+  binmode($fh, ':encoding(utf-8)');
 
   # this sets the string that $parser's output will be sent to
   $new->output_string(\$manual_texi);
@@ -463,7 +477,7 @@ foreach my $file (@input_files) {
     $new->texinfo_internal_pod_manuals(\@manuals);
   }
   
-  print STDERR "processing $file -> $outfile ($name)\n" if ($debug);
+  print STDERR "processing $file -> $outfile ($manual_name)\n" if ($debug);
   $new->parse_file($file);
 
   if ($section_nodes or $fill_sectioning_gaps) {
@@ -472,7 +486,7 @@ foreach my $file (@input_files) {
       open (DBGFILE, ">$outfile-dbg")
                              or die sprintf(__("%s: could not open %s: %s\n"),
                                       $real_command_name, "$outfile-dbg", $!);
-      binmode(DBGFILE, ':encoding(utf8)');
+      binmode(DBGFILE, ':encoding(utf-8)');
       print DBGFILE $manual_texi;
     }
     $manual_texi = _fix_texinfo_manual($new, $manual_texi, $section_nodes,
@@ -489,13 +503,12 @@ foreach my $file (@input_files) {
 
   if ($base_level > 0) {
     if (!$new->content_seen) {
-      # this should only happen for input coming from pipe or the like
       warn sprintf(__("%s: removing %s as input file %s has no content\n"),
                    $real_command_name, $outfile, $file);
       unlink ($outfile);
       pop @included;
     # if we didn't gather the short title, try now, and rename out file if found
-    } elsif (!defined($name)) {
+    } elsif (!defined($manual_title)) {
       my $short_title = $new->texinfo_short_title;
       if (defined($short_title) and $short_title =~ /\S/) {
         push @manuals, $short_title;
@@ -515,7 +528,6 @@ foreach my $file (@input_files) {
       }
     }
   }
-  $file_nr++;
 }
 
 if ($base_level > 0) {
@@ -529,9 +541,9 @@ if ($base_level > 0) {
     $fh = *STDOUT;
   }
 
-  # We output utf8 as it is default for Texinfo and is consistent with no
+  # We output UTF-8 as it is default for Texinfo and is consistent with no
   # @documentencoding, and it also because is the best choice for encoding.
-  binmode($fh, ':encoding(utf8)');
+  binmode($fh, ':encoding(utf-8)');
 
   my $setfilename_string = '';
   if (defined($setfilename)) {
