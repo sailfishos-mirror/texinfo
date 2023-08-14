@@ -1,5 +1,10 @@
 2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/prove.sh: Add a comment stating the purpose of this file (mail
+	from Patrice, October 24th, 2022).
+
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: reorder to put longer, less predictable
 	tasks further away from the final release instructions.
 
