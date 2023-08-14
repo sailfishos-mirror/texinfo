@@ -1,5 +1,10 @@
 2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: reorder to put longer, less predictable
+	tasks further away from the final release instructions.
+
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* INSTALL.generic, build-aux/compile, build-aux/config.guess,
 	build-aux/config.sub, build-aux/depcomp, build-aux/mdate-sh:
 	update from gnulib

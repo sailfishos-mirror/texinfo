@@ -209,26 +209,12 @@ Steps for making a release (pretest or official):
 
 - When close to official release:
 
-check at latest automake/autoconf/gettext/help2man version:
-  . to upgrade gettext, run
-      gettextize -f --po-dir=po --po-dir=po_document
-    after installing new version of gettext.
-    (check that this does not actually downgrade files due to files also
-    being updated from gnulib --add-import)
-      .  (note upgrade to gettext 0.22 is stalled - see
-         https://lists.gnu.org/archive/html/bug-gettext/2023-07/msg00008.html)
-  . After upgrading automake/autoconf/gettext, run ./autogen.sh
-    and/or "autoreconf --verbose --force --install" to update ancilliary
-    files in build-aux and elsewhere.  Check changes before committing.
-  . mention new versions in NEWS
-
-Update gnulib:
-  # Under the top level, and also under tp/Texinfo/XS, which uses
-  # a separate gnulib import.
-  gnulib-tool --add-import
-  'git status -u' and add untracked files
-
-Use util/srclist-txi for checking files to be copied from gnulib
+NYTProf profiling for Perl code
+* e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
+  man page.
+callgrind profiling for XS code
+* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tp/texi2any.pl \
+  FILE.texi' then 'kcachegrind callgrind.out.*'.
 
 run all tests with valgrind:
 * under info/t, put valgrind in $ginfo, then check t/*.val.log files after
@@ -249,14 +235,11 @@ run all tests with valgrind:
           perl -w $f ; done
  (could take 1-2 hours to finish).  check log files one by one afterwards.
 
-
-
-NYTProf profiling for Perl code
-* e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
-  man page.
-callgrind profiling for XS code
-* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tp/texi2any.pl \
-  FILE.texi' then 'kcachegrind callgrind.out.*'.
+Manual testing:
+. try groff.texinfo from groff source repo.
+. process doc/texinfo-tex-test.texi with TeX and check that output is good.
+. process some manuals with INFO_JS_DIR and check the JS interface is
+  not broken.
 
 check for C compiler warnings by configuring with
 
@@ -270,11 +253,27 @@ don't support it are still widespread.
 
 Not all compiler warnings have to be fixed, though.
 
-Manual testing:
-. try groff.texinfo from groff source repo.
-. process doc/texinfo-tex-test.texi with TeX and check that output is good.
-. process some manuals with INFO_JS_DIR and check the JS interface is
-  not broken.
+
+check at latest automake/autoconf/gettext/help2man version:
+  . to upgrade gettext, run
+      gettextize -f --po-dir=po --po-dir=po_document
+    after installing new version of gettext.
+    (check that this does not actually downgrade files due to files also
+    being updated from gnulib --add-import)
+      .  (note upgrade to gettext 0.22 is stalled - see
+         https://lists.gnu.org/archive/html/bug-gettext/2023-07/msg00008.html)
+  . After upgrading automake/autoconf/gettext, run ./autogen.sh
+    and/or "autoreconf --verbose --force --install" to update ancilliary
+    files in build-aux and elsewhere.  Check changes before committing.
+  . mention new versions in NEWS
+
+Update gnulib:
+  # Under the top level, and also under tp/Texinfo/XS, which uses
+  # a separate gnulib import.
+  gnulib-tool --add-import
+  'git status -u' and add untracked files
+
+Use util/srclist-txi for checking files to be copied from gnulib
 
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
