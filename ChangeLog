@@ -24,6 +24,8 @@
 	* tp/Texinfo/XS/main/translations.c (switch_messages_locale)
 	(translate_string): try to set the LANG encironment variable too in
 	addition to switching locale to have LANGUAGE taken into account.
+	This does not work to have LANGUAGES taken into account if locale is
+	C.
 
 	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings):
 	access replaced_substrings only if not NULL.
