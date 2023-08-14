@@ -1,5 +1,10 @@
 2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Menus): Be clearer about when menus are
+	output in HTML.
+
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/Makefile.am (MAKEINFO_ENVIRONMENT): Do not use shell
 	export statements as this may lead to the same problem experienced
 	with TEXI2DVI_ENVIRONMENT.
