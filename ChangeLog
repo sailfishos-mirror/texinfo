@@ -1,3 +1,23 @@
+2023-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix "make distcheck" without installed texinfo.tex
+
+	* doc/Makefile.am (TEXI2DVI_ENVIRONMENT),
+	* doc/tp_api/Makefile.am (TEXI2DVI_ENVIRONMENT):
+	Do not export TEXINDEX or TEXINDEX_SCRIPT shell variables in
+	separate shell statements.
+
+	As texi2dvi was run by Makefile rules like
+
+	  TEXINPUTS=... MAKEINFO=... \
+	  TEXINDEX=... ; export TEXINDEX ; \
+	  TEXINDEX_SCRIPT=... ; export TEXINDEX_SCRIPT ; ../util/texi2dvi ...
+
+	the first semicolon ended the shell statement where TEXINPUTS and
+	MAKEINFO were set, so they were not set correctly for texi2dvi.
+	This broke "make distcheck" under doc/tp_api, where texinfo.tex
+	was not found, if not installed on the user's system.
+
 2023-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS: Run "gnulib-tool --add-import"

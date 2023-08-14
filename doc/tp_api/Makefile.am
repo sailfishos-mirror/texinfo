@@ -21,8 +21,8 @@ MAKEINFO = $(PERL) -I $(top_builddir)/tp/ -I $(top_srcdir)/tp/ $(top_srcdir)/tp/
 
 # NOTE the four ../ are needed because texi2dvi runs texindex from the build dir
 # texi2any_internals.t2d/texi2any_internals.t2d/dvi/build/
-TEXI2DVI_ENVIRONMENT = TEXINDEX=$(top_builddir)/../../../../texindex/texindex ; export TEXINDEX ; \
-                       TEXINDEX_SCRIPT=$(top_srcdir)/../../../../texindex/texindex.awk ; export TEXINDEX_SCRIPT ;
+TEXI2DVI_ENVIRONMENT = TEXINDEX=${top_builddir}/../../../../texindex/texindex \
+                       TEXINDEX_SCRIPT=${top_srcdir}/../../../../texindex/texindex.awk
 TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
 
 # the pod files are formatted like man pages.  If HTML is split at node
