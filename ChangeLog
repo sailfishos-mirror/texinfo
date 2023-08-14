@@ -1,5 +1,12 @@
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/build_perl_info.c: include libintl.h only
+	if ENABLE_NLS.
+
+	* tp/Texinfo/XS/parsetexi/build_perl_info.h: do not include errors.h.
+
+2023-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/text.c (xvasprintf):
 	move xvasprintf to text.c.  Update callers.
 

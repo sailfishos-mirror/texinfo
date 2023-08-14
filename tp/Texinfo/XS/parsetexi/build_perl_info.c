@@ -30,18 +30,22 @@
 
 #undef context
 
+#ifdef ENABLE_NLS
 #include <libintl.h>
+#endif
 
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-/* for GLOBAL_INFO and fatal */
+/* for GLOBAL_INFO ERROR_MESSAGE and fatal */
 #include "utils.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
 #include "document.h"
 #include "build_perl_info.h"
+
+#define LOCALEDIR DATADIR "/locale"
 
   /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
      Since this file (build_perl_info.c) includes the Perl headers,
@@ -52,12 +56,6 @@
      will then use malloc that is different from Perl's malloc, whereas
      free below is redirected to Perl's implementation.  This could
      cause crashes if the two malloc/free implementations were different.  */
-
-#ifdef ENABLE_NLS
-
-#define LOCALEDIR DATADIR "/locale"
-
-#endif
 
 #ifdef ENABLE_NLS
 
