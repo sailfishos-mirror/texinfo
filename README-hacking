@@ -285,7 +285,7 @@ by git add.  Look for omissions and anomalies by running, e.g.
 find . \
   -name autom4te.cache -prune -o \
   -name .git -prune -o \
-  -wholename tp/maintain/lib -prune -o \
+  -wholename ./tp/maintain/lib -prune -o \
   -name test -prune -o \
   -type f \
   \( -name '*' \) \
@@ -376,7 +376,8 @@ Update version number:
   (cd tp && ./maintain/change_perl_modules_version.sh auto)
     -- this updates all the version numbers in the Perl modules
 check up to date copyright years in files relevant to --version calls
-(tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr)
+(tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr,
+Pod-Simple-Texinfo/pod2texi)
 
 Ensure texinfo.tex, htmlxref.cnf are updated on ftp.gnu.org.
 Upload texi2dvi, texi2pdf (official releases only)
