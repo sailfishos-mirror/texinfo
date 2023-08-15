@@ -24,7 +24,7 @@ PATH="$abs_top_builddir/tp:$PATH"
 export PATH
 
 # Trigger the use of local modules.
-TEXINFO_UNINSTALLED=1
-export TEXINFO_UNINSTALLED
+TEXINFO_DEV_SOURCE=1
+export TEXINFO_DEV_SOURCE
 
 exec "$@"

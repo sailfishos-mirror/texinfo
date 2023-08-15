@@ -1,5 +1,10 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* build-aux/pre-inst-env.in: set TEXINFO_DEV_SOURCE rather than
+	TEXINFO_UNINSTALLED as the latter is not used anywhere.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Translator comments and contexts
 
 	* tp/Texinfo/Common (%def_map):
