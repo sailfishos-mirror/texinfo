@@ -942,7 +942,7 @@ void
 isolate_last_space (ELEMENT *current)
 {
   char *text;
-  ELEMENT *last_elt;
+  ELEMENT *last_elt = 0;
   int text_len;
 
   if (current->contents.number == 0)
@@ -990,7 +990,7 @@ isolate_last_space (ELEMENT *current)
   debug_nonl ("NOT ISOLATING p ");
   debug_print_element (current, 0);
   debug_nonl ("; c ");
-  if (current->contents.number != 0)
+  if (last_elt)
     debug_print_element (last_elt, 0);
   debug ("");
 

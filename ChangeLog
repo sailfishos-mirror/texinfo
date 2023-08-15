@@ -2,6 +2,20 @@
 
 	parsetexi compiler warnings
 
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space):
+	Change a condition to make it easier to see that a variable is
+	not used uninitialised.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
+	Restructure to make it clearer that a variable is not used
+	uninitialised, especially as this is quite a long function.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block) <float>:
+	Comment out declaration of unused variable.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	parsetexi compiler warnings
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	Do not save separator characters into unused variables.
 	* tp/Texinfo/XS/parsetexi/separator.c: Removed unused "funexit:" label.

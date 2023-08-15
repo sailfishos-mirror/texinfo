@@ -844,7 +844,7 @@ end_line_starting_block (ELEMENT *current)
 
   if (command == CM_float)
     {
-      char *float_type = "";
+      /* char *float_type = ""; */
       ELEMENT *float_label_element = 0;
       current->source_info = current_source_info;
       if (current->args.number >= 2)
@@ -1186,7 +1186,7 @@ end_line_misc_line (ELEMENT *current)
   char *end_command = 0;
   enum command_id end_id = CM_NONE;
   int included_file = 0;
-  SOURCE_MARK *include_source_mark;
+  SOURCE_MARK *include_source_mark = 0;
 
   data_cmd = cmd = current->parent->cmd;
   /* we are in a command line context, so the @item command information is
@@ -1666,18 +1666,21 @@ end_line_misc_line (ELEMENT *current)
         Also ignore @setfilename in included file, as said in the manual. */
       if (included_file || (cmd == CM_setfilename && top_file_index () > 0))
         {
-          SOURCE_MARK *source_mark;
-          if (included_file)
+          SOURCE_MARK *source_mark = 0;
+          if (included_file && include_source_mark)
             source_mark = include_source_mark;
           else
             source_mark = new_source_mark (SM_type_setfilename);
 
-          /* this is in order to keep source marks that are within a
-            removed element.  For the XS parser it is also easier to
-            manage the source mark memory which can stay associated
-            to the element. */
-          source_mark->element = pop_element_from_contents (current);
-          register_source_mark (current, source_mark);
+          if (source_mark)
+            {
+              /* this is in order to keep source marks that are within a
+                removed element.  For the XS parser it is also easier to
+                manage the source mark memory which can stay associated
+                to the element. */
+              source_mark->element = pop_element_from_contents (current);
+              register_source_mark (current, source_mark);
+            }
         }
       if (close_preformatted_command (cmd))
         current = begin_preformatted (current);
