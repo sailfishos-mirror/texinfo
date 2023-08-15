@@ -2,7 +2,7 @@
 # Texinfo's wrapper for the Gnulib script config/srclist-update,
 # to define particular variables our srclist.txt uses.
 # 
-# Copyright 2013-2022 Free Software Foundation, Inc.
+# Copyright 2013-2023 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without

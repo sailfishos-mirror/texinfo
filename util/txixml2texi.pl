@@ -2,7 +2,7 @@
 #
 # texixml2texi -- convert Texinfo XML to Texinfo code
 #
-# Copyright 2012 Free Software Foundation, Inc.
+# Copyright 2012-2023 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
