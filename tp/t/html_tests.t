@@ -284,7 +284,7 @@ in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @
 @cindex entry
 @printindex cp
 ', {'test_split' => 'section'}, {'USE_NODES', 0}],
-['simple_menu',
+['menu',
 '
 @node Top
 @top
@@ -357,8 +357,9 @@ in detaildescription
 
 @end detailmenu
 @end menu
-', {'SIMPLE_MENU' => 1, 'test_formats' => ['info']}, {'FORMAT_MENU' => 'menu'}],
-['simple_menu_in_example',
+', {'FORMAT_MENU' => 'menu', 'test_formats' => ['info']},
+   {'FORMAT_MENU' => 'menu'}],
+['menu_in_example',
 '@node Top
 
 @example
@@ -376,7 +377,8 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node.
 @end menu
 @end example
-', {'SIMPLE_MENU' => 1, 'test_formats' => ['info']}, {'FORMAT_MENU' => 'menu'}],
+', {'FORMAT_MENU' => 'menu', 'test_formats' => ['info']},
+   {'FORMAT_MENU' => 'menu'}],
 # the following tests are somewhat redundant with tests in
 # XXsectioning.t, but here there is a clearer comparison with
 # and without 'USE_NODES' here.  There is no test of TOP_NODE_UP, here, however.

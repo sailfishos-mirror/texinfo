@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'simple_menu_in_example'} = {
+$result_trees{'menu_in_example'} = {
   'contents' => [
     {
       'type' => 'before_node_section'
@@ -493,13 +493,13 @@ $result_trees{'simple_menu_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[4];
-$result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1];
-$result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'simple_menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[4];
 
-$result_texis{'simple_menu_in_example'} = '@node Top
+$result_texis{'menu_in_example'} = '@node Top
 
 @example
 @menu
@@ -519,7 +519,7 @@ in cartouche in menu comment in menu in example
 ';
 
 
-$result_texts{'simple_menu_in_example'} = '
+$result_texts{'menu_in_example'} = '
 * (entry)::
 in cartouche in description in menu in example
 
@@ -529,21 +529,21 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node.
 ';
 
-$result_nodes{'simple_menu_in_example'} = {
+$result_nodes{'menu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   }
 };
 
-$result_menus{'simple_menu_in_example'} = {
+$result_menus{'menu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   }
 };
 
-$result_errors{'simple_menu_in_example'} = [
+$result_errors{'menu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context
 ',
@@ -556,11 +556,11 @@ $result_errors{'simple_menu_in_example'} = [
 ];
 
 
-$result_floats{'simple_menu_in_example'} = {};
+$result_floats{'menu_in_example'} = {};
 
 
 
-$result_converted{'info'}->{'simple_menu_in_example'} = 'This is , produced from simple_menu_in_example.texi.
+$result_converted{'info'}->{'menu_in_example'} = 'This is , produced from menu_in_example.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -577,7 +577,7 @@ File: ,  Node: Top,  Up: (dir)
 
 
 Tag Table:
-Node: Top54
+Node: Top47
 
 End Tag Table
 
@@ -588,7 +588,7 @@ End:
 ';
 
 
-$result_converted{'html'}->{'simple_menu_in_example'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'menu_in_example'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
@@ -620,7 +620,8 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <div class="example">
-<div class="menu">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::<pre class="menu-entry-description-preformatted">
+<table class="menu" border="0" cellspacing="0"><tr><td>
+<pre class="menu-preformatted">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::</pre><pre class="menu-entry-description-preformatted">
 
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-preformatted">in cartouche in description in menu in example
@@ -632,10 +633,10 @@ span:hover a.copiable-link {visibility: visible}
 </pre></td></tr></table>
 <pre class="menu-comment-preformatted">
 
-</pre>&bull; <a href="node.html#menu" accesskey="2">(node) menu</a>::      <pre class="menu-entry-description-preformatted">a node in menu
-</pre>&bull; a menu name:<a href="other.html#node" accesskey="3">(other) node</a>.<pre class="menu-entry-description-preformatted">
+</pre><pre class="menu-preformatted">&bull; <a href="node.html#menu" accesskey="2">(node) menu</a>::      </pre><pre class="menu-entry-description-preformatted">a node in menu
+</pre><pre class="menu-preformatted">&bull; a menu name:<a href="other.html#node" accesskey="3">(other) node</a>.</pre><pre class="menu-entry-description-preformatted">
 
-</pre></div>
+</pre></td></tr></table>
 </div>
 
 
@@ -644,11 +645,11 @@ span:hover a.copiable-link {visibility: visible}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'simple_menu_in_example'} = [
+$result_converted_errors{'html'}->{'menu_in_example'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'simple_menu_in_example.texi',
+    'file_name' => 'menu_in_example.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

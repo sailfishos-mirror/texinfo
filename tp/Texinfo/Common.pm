@@ -463,7 +463,6 @@ our @variable_string_settables = (
 'SECTION_NAME_IN_TITLE',
 'SHORT_TOC_LINK_TO_TOC',
 'SHOW_TITLE',
-'SIMPLE_MENU',
 'SORT_ELEMENT_COUNT',
 'T4H_LATEX_CONVERSION',
 'T4H_MATH_CONVERSION',
@@ -556,7 +555,7 @@ foreach my $output_format_command ('info', 'plaintext',
 # Tree transformations
 
 my %valid_tree_transformations;
-foreach my $valid_transformation ('simple_menus',
+foreach my $valid_transformation (
     'fill_gaps_in_sectioning', 'move_index_entries_after_items',
     'relate_index_entries_to_items',
     'insert_nodes_for_sectioning_commands',

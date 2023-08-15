@@ -1,5 +1,21 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	Remove SIMPLE_MENU customization option and tree transformation
+
+	* NEWS, doc/texinfo.texi (HTML Customization Variables)
+	(Other Customization Variables), tp/Makefile.tres,
+	tp/Texinfo/Common.pm (@variable_string_settables)
+	(%valid_tree_transformations), tp/Texinfo/Convert/HTML.pm
+	(_in_preformatted_in_menu, _convert_menu_command)
+	(_convert_menu_entry_type), tp/t/html_tests.t (menu, menu_in_example),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: remove SIMPLE_MENU
+	customization option and simple_menu tree transformation and
+	specific formatting in HTML.  It is not a good idea to have possibly
+	different tree to represent a menu, and it is a burden to maintain.
+	The transformations code in perl remain.
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_LDFLAGS)
 	(Translations_la_LDFLAGS, StructTransf_la_LDFLAGS)
 	(ConvertXS_la_LDFLAGS): remove linking flags for libraries not

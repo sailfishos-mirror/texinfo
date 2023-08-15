@@ -642,6 +642,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding/res_latex \
   t/results/html_tests/mathjax_with_texinfo_html_text.pl \
   t/results/html_tests/mathjax_with_texinfo_no_convert_to_latex.pl \
+  t/results/html_tests/menu.pl \
+  t/results/html_tests/menu_in_example.pl \
   t/results/html_tests/no_content.pl \
   t/results/html_tests/no_content/res_html \
   t/results/html_tests/no_content_do_contents.pl \
@@ -671,8 +673,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/sectioning_frames/res_html \
   t/results/html_tests/shortcontents_no_top.pl \
   t/results/html_tests/shorttitlepage.pl \
-  t/results/html_tests/simple_menu.pl \
-  t/results/html_tests/simple_menu_in_example.pl \
   t/results/html_tests/simplest_test_date_in_header.pl \
   t/results/html_tests/simplest_test_date_in_header/res_html \
   t/results/html_tests/spaces_in_line_break_in_verb_w.pl \

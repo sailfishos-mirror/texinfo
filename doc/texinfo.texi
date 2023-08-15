@@ -15840,11 +15840,6 @@ If set, output the title at the beginning of the document;
 default @samp{undef}.  If set to @samp{undef}, setting
 @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
 
-@item SIMPLE_MENU
-If set, use a simple preformatted style for the menu,
-instead of breaking down the different parts of the menu; default false.
-@xref{Menu Parts}.
-
 @item TOC_LINKS
 If set, links from headings to toc entries are created;
 default false.
@@ -16523,11 +16518,6 @@ In @code{@@table}, @code{@@vtable} and @code{@@ftable},
 reassociate the index entry information from an index @@-command
 appearing right after an @code{@@item} line with the first element of
 the @code{@@item}.  Remove the index @@-command from the tree.
-
-@item simple_menu
-Mostly the same as @code{SIMPLE_MENU}: use a simple preformatted style
-for the menu.  It differs from setting @code{SIMPLE_MENU} in that
-@code{SIMPLE_MENU} only has an effect in HTML output.
 
 @end ftable
 

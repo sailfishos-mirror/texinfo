@@ -881,14 +881,6 @@ sub test($$)
     delete $parser_options->{'test_split'};
   }
 
-  # this is a Structuring phase option, but also needed
-  # by converter, so set to converter, and use converter option
-  # to check for the option
-  if ($parser_options->{'SIMPLE_MENU'}) {
-    $converter_options->{'SIMPLE_MENU'} = 1;
-    delete $parser_options->{'SIMPLE_MENU'};
-  }
-
   my %tree_transformations;
   if ($parser_options->{'TREE_TRANSFORMATIONS'}) {
     my @option_transformations
@@ -1028,8 +1020,7 @@ sub test($$)
 
   # require instead of use for speed when this module is not needed
   require Texinfo::Transformations
-    if (scalar(keys(%tree_transformations))
-        or $converter_options->{'SIMPLE_MENU'});
+    if (scalar(keys(%tree_transformations)));
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     my $added_sections
@@ -1098,10 +1089,6 @@ sub test($$)
   my ($top_node, $nodes_list)
           = Texinfo::Structuring::nodes_tree($registrar,
                          $main_configuration, $tree, $identifier_target);
-
-  if ($converter_options->{'SIMPLE_MENU'}) {
-    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
-  }
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $global_commands, $nodes_list,

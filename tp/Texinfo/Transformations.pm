@@ -838,12 +838,11 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Includes miscellaneous methods C<set_menus_to_simple_menu> and
-C<menu_to_simple_menu> to change the menu texinfo tree, as well
-as C<insert_nodes_for_sectioning_commands> that adds nodes for
-sectioning commands without nodes and C<complete_tree_nodes_menus>
-and C<complete_tree_nodes_missing_menu> that completes the
-node menus based on the sectioning tree.
+Includes miscellaneous methods such as as
+C<insert_nodes_for_sectioning_commands> that adds nodes for sectioning commands
+without nodes and C<complete_tree_nodes_menus> and
+C<complete_tree_nodes_missing_menu> that completes the node menus based on the
+sectioning tree.
 
 =head1 METHODS
 

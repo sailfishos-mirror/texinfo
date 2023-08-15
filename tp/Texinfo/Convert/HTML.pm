@@ -4842,7 +4842,6 @@ $default_commands_conversion{'listoffloats'} = \&_convert_listoffloats_command;
 sub _in_preformatted_in_menu($)
 {
   my $self = shift;
-  return 1 if ($self->get_conf('SIMPLE_MENU'));
   my @pre_classes = $self->preformatted_classes_stack();
   foreach my $pre_class (@pre_classes) {
     return 1 if ($preformatted_commands{$pre_class});
@@ -4874,10 +4873,6 @@ sub _convert_menu_command($$$$$)
     return $content;
   }
 
-  if ($self->get_conf('SIMPLE_MENU')) {
-    return $self->html_attribute_class('div', [$cmdname]).'>'
-       .$content ."</div>\n";
-  }
   my $begin_row = '';
   my $end_row = '';
   if ($self->_in_preformatted_in_menu()) {
@@ -6296,7 +6291,7 @@ sub _convert_preformatted_type($$$$)
   if ($element->{'parent'}->{'type'}
       and $element->{'parent'}->{'type'} eq 'menu_entry_description') {
     if (!$self->_in_preformatted_in_menu()) {
-      # If not in preformatted block command (nor in SIMPLE_MENU),
+      # If not in preformatted block command,
       # we don't preserve spaces and newlines in menu_entry_description,
       # instead the whole menu_entry is in a table, so no <pre> in that situation
       return $content;
@@ -6711,7 +6706,7 @@ sub _convert_menu_entry_type($$$)
                                "menu_arg node separator preformatted");
     }
 
-    if (!$self->get_conf('SIMPLE_MENU') and not $in_string) {
+    if (not $in_string) {
       my $pre_class = $self->_preformatted_class();
       $result_name_node = $self->html_attribute_class('pre', [$pre_class]).'>'
                                                . $result_name_node . '</pre>';

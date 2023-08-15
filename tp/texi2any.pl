@@ -611,7 +611,6 @@ my %formats_table = (
              'floats' => 1,
              'split' => 1,
              'internal_links' => 1,
-             'simple_menu' => 1,
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
@@ -1606,11 +1605,6 @@ while(@input_files) {
          = Texinfo::Structuring::nodes_tree($registrar,
                          $main_configuration, $tree, $identifier_target);
 
-    if ((get_conf('SIMPLE_MENU')
-         and $formats_table{$converted_format}->{'simple_menu'})
-        or $tree_transformations{'simple_menus'}) {
-      Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
-    }
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if
     # 1) 'nodes_tree' is set for the converted format,
