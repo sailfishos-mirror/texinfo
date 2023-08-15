@@ -1,5 +1,10 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (move_index_entries_after_items):
+	simplify code and avoid using an intermediary array.
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	Remove SIMPLE_MENU customization option and tree transformation
 
 	* NEWS, doc/texinfo.texi (HTML Customization Variables)

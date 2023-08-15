@@ -2408,52 +2408,55 @@ sub move_index_entries_after_items($)
         $previous_ending_container = $previous;
       }
 
-      my @gathered_index_entries;
+      my $contents_nr = scalar(@{$previous_ending_container->{'contents'}});
+      next if (!$contents_nr);
 
-      #print STDERR "Gathering for item $item in previous $previous ($previous_ending_container)\n";
-      while ($previous_ending_container->{'contents'}->[-1]
-             and (($previous_ending_container->{'contents'}->[-1]->{'type'}
-                   and $previous_ending_container->{'contents'}->[-1]->{'type'} eq 'index_entry_command')
-                  or ($previous_ending_container->{'contents'}->[-1]->{'cmdname'}
-                      and ($previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'c'
-                           or $previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'comment')))) {
-        unshift @gathered_index_entries, pop @{$previous_ending_container->{'contents'}};
+      # find the last index entry, with possibly comments after
+      my $last_entry_idx = -1;
+      for (my $i = $contents_nr -1; $i >= 0; $i--) {
+        my $content = $previous_ending_container->{'contents'}->[$i];
+        if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
+          $last_entry_idx = $i;
+        } elsif (not $content->{'cmdname'}
+                 or ($content->{'cmdname'} ne 'c'
+                     and $content->{'cmdname'} ne 'comment')) {
+          last;
+        }
       }
-      #print STDERR "Gathered: @gathered_index_entries\n";
-      if (scalar(@gathered_index_entries)) {
-        # put back leading comments
-        while ($gathered_index_entries[0]
-               and (!$gathered_index_entries[0]->{'type'}
-                    or $gathered_index_entries[0]->{'type'} ne 'index_entry_command')) {
-          #print STDERR "Putting back $gathered_index_entries[0] $gathered_index_entries[0]->{'cmdname'}\n";
-          push @{$previous_ending_container->{'contents'}},
-             shift @gathered_index_entries;
+
+      if ($last_entry_idx >= 0) {
+        my $item_container;
+        if ($item->{'contents'} and $item->{'contents'}->[0]
+            and $item->{'contents'}->[0]->{'type'}
+            and $item->{'contents'}->[0]->{'type'} eq 'preformatted') {
+          $item_container = $item->{'contents'}->[0];
+        } else {
+          $item_container = $item;
         }
 
-        # We have the index entries of the previous @item or before item.
-        # Now put them right after the current @item command.
-        if (scalar(@gathered_index_entries)) {
-          my $item_container;
-          if ($item->{'contents'} and $item->{'contents'}->[0]
-              and $item->{'contents'}->[0]->{'type'}
-              and $item->{'contents'}->[0]->{'type'} eq 'preformatted') {
-            $item_container = $item->{'contents'}->[0];
-          } else {
-            $item_container = $item;
-          }
-          foreach my $entry(@gathered_index_entries) {
-            $entry->{'parent'} = $item_container;
-          }
-          if ($item_container->{'contents'}
-              and $item_container->{'contents'}->[0]
-              and $item_container->{'contents'}->[0]->{'type'}
-              and $item_container->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command') {
-            $item_container->{'contents'}->[0]->{'text'} .= "\n"
-              if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
-            unshift @gathered_index_entries, shift @{$item_container->{'contents'}};
-          }
-          unshift @{$item_container->{'contents'}}, @gathered_index_entries;
+        for (my $i = $last_entry_idx; $i < $contents_nr; $i++) {
+          $previous_ending_container->{'contents'}->[$i]->{'parent'}
+               = $item_container;
         }
+
+        my $insertion_idx = 0;
+        if ($item_container->{'contents'}
+            and $item_container->{'contents'}->[0]
+            and $item_container->{'contents'}->[0]->{'type'}
+            and $item_container->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command') {
+          # insert after leading spaces, and add an end of line if there
+          # is none
+          $insertion_idx = 1;
+          $item_container->{'contents'}->[0]->{'text'} .= "\n"
+            if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
+        }
+        # first part of the splice is the insertion in $item_container
+        splice (@{$item_container->{'contents'}},
+                $insertion_idx, 0,
+                    # this splice removes from the previous container starting
+                    # at $last_entry_idx and returns the contents to be inserted
+                    splice (@{$previous_ending_container->{'contents'}},
+                            $last_entry_idx, $contents_nr - $last_entry_idx));
       }
     }
     $previous = $item;
