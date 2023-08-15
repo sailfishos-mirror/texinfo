@@ -1,5 +1,15 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Translator comments and contexts
+
+	* tp/Texinfo/Common (%def_map):
+	Change "users-modifiable" to "user-modifiable" in a translator
+	comment, and shorten context for @deftypefn "Function" to be
+	similar to context for @deffn -- we don't need to describe
+	what the difference is in these contexts.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move month names translation strings
 
 	* tp/Texinfo/Convert/Converter.pm,

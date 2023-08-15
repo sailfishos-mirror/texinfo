@@ -635,10 +635,10 @@ our %def_map = (
     'defspec',       {'deffn'     => gdt('Special Form')},
     'defvar',        {'defvr'     => pgdt('category of variables for @defvar',
                                           'Variable')},
-    # TRANSLATORS: category of users-modifiable options for @defopt
+    # TRANSLATORS: category of user-modifiable options for @defopt
     'defopt',        {'defvr'     => gdt('User Option')},
     'deftypefun',    {'deftypefn' => pgdt(
-     'category of general definition for functions for @deftypefun',
+                      'category of functions for @deftypefun',
                                          'Function')},
     'deftypevar',    {'deftypevr' => pgdt(
                      'category of variables in typed languages for @deftypevar',
