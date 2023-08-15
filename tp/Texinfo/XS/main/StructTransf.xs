@@ -57,7 +57,7 @@ fill_gaps_in_sectioning (tree_in)
         document_descriptor_sv = hv_fetch (hv_tree_in,
                                            "tree_document_descriptor",
                                            strlen ("tree_document_descriptor"), 0);
-        /* FIXME warning/error if not found? */
+        /* FIXME warning/error if document not found? */
         if (document_descriptor_sv)
           {
             document_descriptor = SvIV (*document_descriptor_sv);
@@ -138,7 +138,6 @@ relate_index_entries_to_table_items_in_tree (tree_in, indices_information)
         document_descriptor_sv = hv_fetch (hv_tree_in,
                                            "tree_document_descriptor",
                                            strlen ("tree_document_descriptor"), 0);
-        /* FIXME warning/error if not found? */
         if (document_descriptor_sv)
           {
             document_descriptor = SvIV (*document_descriptor_sv);
@@ -162,4 +161,36 @@ relate_index_entries_to_table_items_in_tree (tree_in, indices_information)
         relate_index_entries_to_table_items_in_tree (document->tree,
                                                      document->index_names);
     
+
+void
+move_index_entries_after_items_in_tree (tree_in)
+        SV *tree_in
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_tree_in;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: move_index_entries_after_items_in_tree:"
+                             "no tree_document_descriptor\n");
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        move_index_entries_after_items_in_tree (document->tree);
+
 

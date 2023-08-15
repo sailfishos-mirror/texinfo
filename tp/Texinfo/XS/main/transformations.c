@@ -420,3 +420,100 @@ relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
   modify_tree (tree, &relate_index_entries_to_table_items_internal,
                indices_information);
 }
+
+void
+move_index_entries_after_items (ELEMENT *current)
+{
+  ELEMENT *previous = 0;
+  int i;
+
+  for (i = 0; i < current->contents.number; i++)
+    {
+      ELEMENT *item = current->contents.list[i];
+      if (previous && item->cmd && item->cmd == CM_item
+          && previous->contents.number > 0)
+        {
+          ELEMENT *previous_ending_container;
+          ELEMENT *prev_last_child = last_contents_child (previous);
+          int last_entry_idx = -1;
+          int j;
+          size_t contents_nr;
+
+          if (prev_last_child->type == ET_paragraph
+              || prev_last_child->type == ET_preformatted)
+            previous_ending_container = prev_last_child;
+          else
+            previous_ending_container = previous;
+
+          contents_nr = previous_ending_container->contents.number;
+          for (j = contents_nr - 1; j >= 0; j--)
+            {
+              ELEMENT *content = previous_ending_container->contents.list[j];
+              if (content->type == ET_index_entry_command)
+                last_entry_idx = j;
+              else if (!content->cmd
+                       || (content->cmd != CM_comment
+                           && content->cmd != CM_c))
+                break;
+            }
+
+          if (last_entry_idx >= 0)
+            {
+              size_t insertion_idx = 0;
+              ELEMENT *item_container;
+
+              if (item->contents.number
+                  && item->contents.list[0]->type == ET_preformatted)
+                item_container = item->contents.list[0];
+              else
+                item_container = item;
+
+              for (j = last_entry_idx; j < contents_nr; j++)
+                previous_ending_container->contents.list[j]->parent
+                  = item_container;
+
+              if (item_container->contents.number
+                  && item_container->contents.list[0]->type
+                          == ET_ignorable_spaces_after_command)
+                {
+                  TEXT *t = &item_container->contents.list[0]->text;
+                  /*
+                   insert after leading spaces, and add an end of line if there
+                   is none
+                   */
+                  insertion_idx = 1;
+
+                  if (t->text[t->end -1] != '\n')
+                    {
+                      text_append (t, "\n");
+                    }
+                }
+              insert_slice_into_contents (item_container, insertion_idx,
+                                          previous_ending_container,
+                                          last_entry_idx, contents_nr);
+              remove_slice_from_contents (previous_ending_container,
+                                          last_entry_idx, contents_nr);
+            }
+        }
+      previous = item;
+    }
+}
+
+ELEMENT *
+move_index_entries_after_items_internal (const char *type,
+                                         ELEMENT *current,
+                                         void *argument)
+{
+  if (current->cmd && (current->cmd == CM_enumerate
+                       || current->cmd == CM_itemize))
+    {
+      move_index_entries_after_items (current);
+    }
+  return 0;
+}
+
+void
+move_index_entries_after_items_in_tree (ELEMENT *tree)
+{
+  modify_tree (tree, &move_index_entries_after_items_internal, 0);
+}

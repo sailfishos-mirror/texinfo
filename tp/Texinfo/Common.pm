@@ -86,6 +86,10 @@ sub import {
         "Texinfo::Common::_XS_relate_index_entries_to_table_items_in_tree",
         "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_move_index_entries_after_items_in_tree",
+        "Texinfo::StructTransf::move_index_entries_after_items_in_tree"
+      );
     }
     $module_loaded = 1;
   }
@@ -2409,7 +2413,6 @@ sub move_index_entries_after_items($)
       }
 
       my $contents_nr = scalar(@{$previous_ending_container->{'contents'}});
-      next if (!$contents_nr);
 
       # find the last index entry, with possibly comments after
       my $last_entry_idx = -1;
@@ -2480,6 +2483,12 @@ sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
   modify_tree($tree, \&_move_index_entries_after_items);
+
+  _XS_move_index_entries_after_items_in_tree($tree);
+}
+
+sub _XS_move_index_entries_after_items_in_tree($)
+{
 }
 
 sub _relate_index_entries_to_table_items_in($$)
