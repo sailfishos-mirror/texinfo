@@ -1,5 +1,11 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
+	uncomment variable declaration (rebased from master with impacts
+	earlier).
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info): always
 	register the document descriptor in perl document and tree.
 
