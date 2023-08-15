@@ -563,7 +563,6 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       line_error ("misplaced }");
     }
 
-funexit:
   *line_inout = line;
   return current;
 }

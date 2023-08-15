@@ -2358,17 +2358,17 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* "Separator" characters */
   else if (*line == '{')
     {
-      char separator = *line++;
+      line++;
       current = handle_open_brace (current, &line);
     }
   else if (*line == '}')
     {
-      char separator = *line++;
+      line++;
       current = handle_close_brace (current, &line);
     }
   else if (*line == ',')
     {
-      char separator = *line++;
+      line++;
       /* comma as a command argument separator */
       if (counter_value (&count_remaining_args, current->parent) > 0)
         current = handle_comma (current, &line);
@@ -2388,7 +2388,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     }
   else if (*line == '\f')
     {
-      char separator = *line++;
+      line++;
       debug_nonl ("FORM FEED in "); debug_print_element (current, 1);
       debug_nonl (": "); debug_print_protected_string (line); debug ("");
       if (current->type == ET_paragraph)
