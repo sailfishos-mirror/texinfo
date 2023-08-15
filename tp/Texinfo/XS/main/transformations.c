@@ -32,7 +32,7 @@
 #include "debug.h"
 #include "transformations.h"
 
-#include "structuring_tables.c"
+#include "cmd_structuring.c"
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
@@ -517,3 +517,45 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
 {
   modify_tree (tree, &move_index_entries_after_items_internal, 0);
 }
+
+/* also in node_name_normalization.c */
+int ref_3_args_order[] = {0, 1, 2, -1};
+int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
+
+/*
+ This converts a reference @-command to simple text using one of the
+ arguments.  This is used to remove reference @-command from
+ constructed node names trees, as node names cannot contain
+ reference @-command while there could be some in the tree used in
+ input for the node name tree.
+ */
+ELEMENT *
+reference_to_arg_internal (const char *type,
+                           ELEMENT *e,
+                           void *argument)
+{
+  if (e->cmd
+      && builtin_command_data[e->cmd].flags & CF_ref)
+    {
+      int index = 0;
+      int *arguments_order = ref_5_args_order;
+      if (e->cmd == CM_inforef || e->cmd == CM_link)
+        arguments_order = ref_3_args_order;
+      while (arguments_order[index] >= 0)
+        {
+          if (e->args.number > arguments_order[index])
+            {
+              /*
+               This a double checking that there is some content.
+               Not sure that it is useful.
+               */
+              /* TODO continue here */
+
+            }
+          index++;
+        }
+    }
+  else
+   return 0;
+}
+

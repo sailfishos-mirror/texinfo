@@ -136,7 +136,8 @@ our %text_brace_no_arg_commands = (
                'click'           => '', # specially treated
 );
 
-my %sort_brace_no_arg_commands = (
+# used in C commands table generation
+our %sort_brace_no_arg_commands = (
   'copyright' => 'C',
   'registeredsymbol' => 'R',
   'today' => 't',

@@ -39,7 +39,7 @@
 #include "node_name_normalization.h"
 
 /* put in another file? Add an extern declaration in the .h file?*/
-#include "command_tables.c"
+#include "cmd_normalization.c"
 
 int ref_3_args_order[] = {0, 1, 2, -1};
 int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};

@@ -165,8 +165,11 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/source_marks.c \
 		      parsetexi/source_marks.h
 EXTRA_DIST += main/command_data.c
-EXTRA_DIST += main/command_tables.c
-EXTRA_DIST += main/unicode_tables.c
+EXTRA_DIST += main/cmd_normalization.c
+EXTRA_DIST += main/cmd_unicode.c
+EXTRA_DIST += main/cmd_structuring.c
+EXTRA_DIST += main/cmd_symbol.c
+EXTRA_DIST += main/cmd_text.c
 
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -177,8 +180,11 @@ libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $
 BUILT_SOURCES=main/element_types.c \
               main/element_types.h \
               main/command_data.c \
-              main/command_tables.c \
-              main/unicode_tables.c \
+              main/cmd_normalization.c \
+              main/cmd_unicode.c \
+              main/cmd_structuring.c \
+              main/cmd_symbol.c \
+              main/cmd_text.c \
               main/command_ids.h
 
 # Need to be distributed
@@ -193,11 +199,14 @@ $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt 
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
 
-$(srcdir)/main/command_tables.c: $(srcdir)/main/command_data.c
+$(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
            < $(srcdir)/main/command_data.c \
-              $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c \
-              $(srcdir)/main/structuring_tables.c
+              $(srcdir)/main/cmd_normalization.c \
+              $(srcdir)/main/cmd_unicode.c \
+              $(srcdir)/main/cmd_structuring.c \
+              $(srcdir)/main/cmd_symbol.c \
+              $(srcdir)/main/cmd_text.c
 
 
 ########################## shared perl XS library for texinfo XS codes

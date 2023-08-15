@@ -95,6 +95,7 @@ delete $normalize_node_brace_no_arg_commands{'click'};
 sub _protect_char
 {
   my $char = shift;
+  return '\\n' if ($char eq "\n");
   if (ord($char) < 127 and $char ne '\\' and $char ne '"') {
     return $char;
   }
@@ -102,14 +103,21 @@ sub _protect_char
   return join('', map {"\\x".sprintf("%02x",ord($_))} split('', $encoded));
 }
 
-my $out_file = $ARGV[0];
-die "Need a file\n" if (!defined($out_file));
+my $normalization_file = $ARGV[0];
+die "Need a file for normalization tables\n"
+   if (!defined($normalization_file));
 
 my $unicode_file = $ARGV[1];
 die "Need a file for unicode tables\n" if (!defined($unicode_file));
 
 my $structuring_file = $ARGV[2];
 die "Need a file for structuring tables\n" if (!defined($structuring_file));
+
+my $symbol_file = $ARGV[3];
+die "Need a file for symbols tables\n" if (!defined($symbol_file));
+
+my $text_file = $ARGV[4];
+die "Need a file for text tables\n" if (!defined($text_file));
 
 my %unicode_diacritics = %Texinfo::Convert::Unicode::unicode_diacritics;
 
@@ -126,7 +134,7 @@ foreach my $command_name (@commands_order) {
   if (defined($unicode_diacritics{$command_name})) {
     my $result = chr(hex($unicode_diacritics{$command_name}));
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print UNIC "\"$protected\",\n";
+    print UNIC "\"$protected\",   /* $command */\n";
   } else {
     print UNIC "0,\n";
   }
@@ -178,28 +186,84 @@ print STRUC "};\n\n";
 
 close (STRUC);
 
-# Finish by this file as it is used as make target
-open (OUT, '>', $out_file) or die "Open $out_file: $!\n";
+open (SYMB, '>', $symbol_file) or die "Open $symbol_file: $!\n";
 
-print OUT "char * command_normalization_text[] = {\n";
+print SYMB "char *nobrace_symbol_text[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
     $command = $name_commands{$command_name};
   }
-  #print OUT "$command; ";
+  if (defined($Texinfo::Common::nobrace_symbol_text{$command_name})) {
+    my $symbol = $Texinfo::Common::nobrace_symbol_text{$command_name};
+    my $protected = join ('', map {_protect_char($_)} split ('', $symbol));
+    print SYMB "\"$protected\",   /* $command */\n";
+  } else {
+    print SYMB "0,\n";
+  }
+}
+print SYMB "};\n\n";
+
+close(SYMB);
+
+open (TEXT, '>', $text_file) or die "Open $text_file: $!\n";
+
+print TEXT "char *text_brace_no_arg_commands[] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if (defined($Texinfo::Convert::Text::text_brace_no_arg_commands{$command_name})) {
+    my $result = $Texinfo::Convert::Text::text_brace_no_arg_commands{$command_name};
+    my $protected = join ('', map {_protect_char($_)} split ('', $result));
+    print TEXT "\"$protected\",   /* $command */\n";
+  } else {
+    print TEXT "0,\n";
+  }
+}
+print TEXT "};\n\n";
+
+print TEXT "char *sort_brace_no_arg_commands[] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if (defined($Texinfo::Convert::Text::sort_brace_no_arg_commands{$command_name})) {
+    my $result = $Texinfo::Convert::Text::sort_brace_no_arg_commands{$command_name};
+    my $protected = join ('', map {_protect_char($_)} split ('', $result));
+    print TEXT "\"$protected\",   /* $command */\n";
+  } else {
+    print TEXT "0,\n";
+  }
+}
+print TEXT "};\n\n";
+
+close(TEXT);
+
+# Finish by this file as it is used as make target
+open (NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
+
+print NORM "char * command_normalization_text[] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  #print NORM "$command; ";
 
   if (defined($normalize_node_nobrace_symbol_text{$command_name})) {
-    print OUT "\"$normalize_node_nobrace_symbol_text{$command_name}\",\n";
+    print NORM "\"$normalize_node_nobrace_symbol_text{$command_name}\",  /* $command */\n";
   } elsif (defined($normalize_node_brace_no_arg_commands{$command_name})) {
     my $result = $normalize_node_brace_no_arg_commands{$command_name};
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print OUT "\"$protected\",\n";
+    print NORM "\"$protected\",  /* $command */\n";
   } else {
-    print OUT "0,\n";
+    print NORM "0,\n";
   }
 }
-print OUT "};\n\n";
+print NORM "};\n\n";
 
-close(OUT);
+close(NORM);
 

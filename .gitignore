@@ -315,9 +315,11 @@ tp/Texinfo/XS/gnulib/m4/lt~obsolete.m4
 tp/Texinfo/XS/main/StructTransf.c
 tp/Texinfo/XS/main/Translations.c
 tp/Texinfo/XS/main/command_data.c
-tp/Texinfo/XS/main/command_tables.c
-tp/Texinfo/XS/main/structuring_tables.c
-tp/Texinfo/XS/main/unicode_tables.c
+tp/Texinfo/XS/main/cmd_normalization.c
+tp/Texinfo/XS/main/cmd_unicode.c
+tp/Texinfo/XS/main/cmd_structuring.c
+tp/Texinfo/XS/main/cmd_symbol.c
+tp/Texinfo/XS/main/cmd_text.c
 
 tp/Texinfo/XS/main/*.lo
 

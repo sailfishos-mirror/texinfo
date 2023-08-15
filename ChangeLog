@@ -1,5 +1,23 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (_reference_to_arg): replace
+	link too.
+
+	* tp/Texinfo/XS/Makefile.am (EXTRA_DIST, BUILT_SOURCES),
+	tp/Texinfo/XS/main/node_name_normalization.c,
+	tp/Texinfo/XS/main/transformations.c, tp/Texinfo/XS/main/unicode.c,
+	tp/maintain/setup_converters_code_tables.pl: generate commands
+	tables for C for sort_brace_no_arg_commands, nobrace_symbol_text and
+	text_brace_no_arg_commands. Normalize names of command tables files.
+
+	* tp/Texinfo/Convert/Text.pm (%sort_brace_no_arg_commands): make it
+	our to be used in C table generation.
+
+	* tp/Texinfo/XS/main/transformations.c (reference_to_arg_internal):
+	unfinished implementation.
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (move_index_entries_after_items): no next
 	if empty, to correctly set previous.
 

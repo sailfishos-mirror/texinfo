@@ -216,7 +216,8 @@ sub _reference_to_arg($$$)
       $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
       and $current->{'args'}) {
     my @args_try_order;
-    if ($current->{'cmdname'} eq 'inforef') {
+    if ($current->{'cmdname'} eq 'inforef'
+        or $current->{'cmdname'} eq 'link') {
       @args_try_order = (0, 1, 2);
     } else {
       @args_try_order = (0, 1, 2, 4, 3);

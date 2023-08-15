@@ -29,7 +29,7 @@
 #include "utils.h"
 #include "unicode.h"
 
-#include "unicode_tables.c"
+#include "cmd_unicode.c"
 
 char *
 normalize_NFC (const char *text)
