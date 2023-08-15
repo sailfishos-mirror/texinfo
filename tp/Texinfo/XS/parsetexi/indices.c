@@ -272,16 +272,6 @@ init_index_commands (void)
 #undef MAX
 }
 
-
-/* A reference to an index entry, in the "index_entry" extra key of
-   an element.  index->index_entries[entry] is the referred-to index
-   entry.  Not actually used in api.c (element_to_perl_hash). */
-typedef struct {
-    INDEX *index;
-    int entry;
-} INDEX_ENTRY_REF;
-
-
 /* INDEX_TYPE_CMD is used to determine which index to enter the entry in.
    index entry.  ELEMENT is the element in the main body of the manual that
    the index entry refers/belongs to.

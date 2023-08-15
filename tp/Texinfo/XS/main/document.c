@@ -93,6 +93,11 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->global_info = global_info;
   document->small_strings = small_strings;
   document->error_messages = error_messages;
+
+  /*
+  fprintf(stderr, "REGISTER %d %p %p\n", document_index +1,
+                       document->tree, document->index_names);
+   */
   return document_index +1;
 }
 
@@ -160,6 +165,9 @@ remove_document (int document_descriptor)
       free_small_document_strings (document->small_strings);
     }
   document->tree = 0;
+  /*
+  fprintf(stderr, "REMOVE %d\n", document_descriptor);
+   */
 }
 
 /* destroy everything except for the tree, and unregister the

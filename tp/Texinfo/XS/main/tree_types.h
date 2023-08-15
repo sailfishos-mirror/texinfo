@@ -131,6 +131,8 @@ typedef struct IGNORED_CHARS {
 typedef struct {
     char *index_name; /* kept with the entry as the indices may be merged */
     ELEMENT *command;
+    ELEMENT *entry_associated_element; /* set if the entry is reassociated to
+                                          another element */
 } INDEX_ENTRY;
 
 typedef struct INDEX {
@@ -144,6 +146,12 @@ typedef struct INDEX {
     size_t index_number;
     size_t index_space;
 } INDEX;
+
+/* not used in parser */
+typedef struct INDEX_ENTRY_AND_INDEX {
+     INDEX *index;
+     INDEX_ENTRY *index_entry;
+} INDEX_ENTRY_AND_INDEX;
 
 /* See parse_node_manual function. */
 typedef struct {

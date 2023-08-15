@@ -46,6 +46,10 @@ use Locale::Messages;
 use Texinfo::Documentlanguages;
 use Texinfo::Commands;
 
+# FIXME do we really want XS in that file?  Move to
+# Structuring.pm?
+use Texinfo::StructTransf;
+
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
@@ -73,6 +77,21 @@ __ __p
 
 $VERSION = '7.1';
 
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (!defined $ENV{TEXINFO_XS_PARSER}
+        or $ENV{TEXINFO_XS_PARSER} eq '1') {
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_relate_index_entries_to_table_items_in_tree",
+        "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 # i18n
 # For the messages translations.
@@ -2475,7 +2494,6 @@ sub _relate_index_entries_to_table_items_in($$)
     my $term = $table_entry->{'contents'}->[0];
     my $definition;
     my $item;
-    my @moved_index_entries;
 
     # Move any index entries from the start of a 'table_definition' to
     # the 'table_term'.
@@ -2483,16 +2501,19 @@ sub _relate_index_entries_to_table_items_in($$)
         and defined($table_entry->{'contents'}->[1]->{'type'})
         and $table_entry->{'contents'}->[1]->{'type'} eq 'table_definition') {
       $definition = $table_entry->{'contents'}->[1];
-
-      while (defined($definition->{'contents'}->[0])) {
-        my $child = $definition->{'contents'}->[0];
-        last if !defined($child->{'type'})
-               or $child->{'type'} ne 'index_entry_command';
-        shift @{$definition->{'contents'}};
-        push @moved_index_entries, $child;
-        $child->{'parent'} = $term;
+      my $nr_index_entry_command = 0;
+      foreach my $child (@{$definition->{'contents'}}) {
+        if ($child->{'type'} and $child->{'type'} eq 'index_entry_command') {
+          $child->{'parent'} = $term;
+          $nr_index_entry_command++;
+        } else {
+          last;
+        }
       }
-      unshift @{$term->{'contents'}}, @moved_index_entries;
+      if ($nr_index_entry_command > 0) {
+        unshift @{$term->{'contents'}},
+          splice (@{$definition->{'contents'}}, 0, $nr_index_entry_command);
+      }
     }
 
     if (defined($term->{'type'}) and $term->{'type'} eq 'table_term') {
@@ -2503,12 +2524,13 @@ sub _relate_index_entries_to_table_items_in($$)
       foreach my $content (@{$term->{'contents'}}) {
         if ($content->{'type'}
             and $content->{'type'} eq 'index_entry_command') {
-          my $index_info;
-          ($index_entry, $index_info)
-            = Texinfo::Common::lookup_index_entry(
-                            $content->{'extra'}->{'index_entry'},
-                            $indices_information)
-              unless $index_entry;
+          if (!$index_entry) {
+            my $index_info;
+            ($index_entry, $index_info)
+              = Texinfo::Common::lookup_index_entry(
+                              $content->{'extra'}->{'index_entry'},
+                              $indices_information)
+          }
         } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
           $item = $content unless $item;
         }
@@ -2531,12 +2553,9 @@ sub _relate_index_entries_to_table_items($$$)
   my $current = shift;
   my $indices_information = shift;
 
-  return $current unless $current->{'cmdname'};
-
-  if ($current->{'cmdname'} eq 'table') {
+  if ($current->{'cmdname'} and $current->{'cmdname'} eq 'table') {
     _relate_index_entries_to_table_items_in($current, $indices_information);
   }
-
   return $current;
 }
 
@@ -2545,8 +2564,13 @@ sub relate_index_entries_to_table_items_in_tree($$)
   my $tree = shift;
   my $indices_information = shift;
 
-  return modify_tree($tree, \&_relate_index_entries_to_table_items,
-                     $indices_information);
+  modify_tree($tree, \&_relate_index_entries_to_table_items,
+              $indices_information);
+  _XS_relate_index_entries_to_table_items_in_tree($tree, $indices_information);
+}
+
+sub _XS_relate_index_entries_to_table_items_in_tree($$)
+{
 }
 
 # Common to different module, but not meant to be used in user-defined

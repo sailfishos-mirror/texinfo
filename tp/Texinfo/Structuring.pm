@@ -82,7 +82,7 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} ne '0') {
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_copy_tree_with_XS",
+        "Texinfo::Structuring::_XS_copy_tree",
         "Texinfo::StructTransf::copy_tree"
       );
     }
@@ -119,17 +119,17 @@ sub copy_tree($;$)
 {
   my $tree = shift;
   my $parent = shift;
-  if (defined($tree->{'tree_document_descriptor'})) {
-    return _copy_tree_with_XS($tree, $parent);
+  my $descriptor = _XS_copy_tree($tree, $parent);
+  my $result = Texinfo::Common::copy_tree($tree, $parent);
+  if ($descriptor != 0 and $result) {
+    $result->{'tree_document_descriptor'} = $descriptor;
   }
-  return Texinfo::Common::copy_tree($tree, $parent);
+  return $result;
 }
 
-sub _copy_tree_with_XS($$)
+sub _XS_copy_tree($$)
 {
-  my $tree = shift;
-  my $parent = shift;
-  return Texinfo::Common::copy_tree($tree, $parent);
+  return 0;
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and

@@ -215,17 +215,21 @@ sub get_parser_info($$$) {
   $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
-  if ($store) {
-    my $tree = $document->tree();
-    $tree->{'tree_document_descriptor'} = $document_descriptor;
-    $document->{'document_descriptor'} = $document_descriptor;
-  } else {
-    # TODO
-    # for now leads to double free, but could be because memory
-    # is reused in obstacks.  Test when this is fixed.  Until then,
-    # leak.
-    #remove_document ($document_descriptor);
-  }
+  my $tree = $document->tree();
+  $tree->{'tree_document_descriptor'} = $document_descriptor;
+  $document->{'document_descriptor'} = $document_descriptor;
+
+  # FIXME need to think more about the interface.  The tests using
+  # parse_texi_piece will fail with XS converters if the document
+  # is ot registered.
+  #if ($store) {
+  #} else {
+  #  # TODO
+  #  # for now leads to double free, but could be because memory
+  #  # is reused in obstacks.  Test when this is fixed.  Until then,
+  #  # leak.
+  #  #remove_document ($document_descriptor);
+  #}
   return $document;
 }
 

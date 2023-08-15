@@ -1,10 +1,10 @@
 /* Copyright 2010-2023 Free Software Foundation, Inc.
-          
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-     
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -20,6 +20,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "tree_types.h"
 #include "tree.h"
@@ -55,6 +56,109 @@ section_level (ELEMENT *section)
         level = max_level;
     }
   return level;
+}
+
+/* FIXME in indices.c, but for within parser only,
+   use only one? */
+INDEX *
+indices_info_index_by_name (INDEX **indices_information, char *name)
+{
+  INDEX **i, *idx;
+
+  for (i = indices_information; (idx = *i); i++)
+    if (!strcmp (idx->name, name))
+      return idx;
+  return 0;
+}
+
+
+/* in Common.pm */
+INDEX_ENTRY_AND_INDEX *
+lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
+{
+  INDEX_ENTRY_AND_INDEX *result = 0;
+  KEY_PAIR *k = lookup_extra (index_entry_info->contents.list[1], "integer");
+  char *entry_index_name = index_entry_info->contents.list[0]->text.text;
+  int entry_number = (intptr_t) k->value;
+  INDEX *index_info;
+
+  index_info = indices_info_index_by_name (indices_information,
+                                           entry_index_name);
+  if (!index_info)
+    return 0;
+
+  result = malloc (sizeof (INDEX_ENTRY_AND_INDEX));
+  result->index = index_info;
+  result->index_entry = 0;
+  if (index_info->index_number && entry_number <= index_info->index_number)
+    {
+      result->index_entry = &index_info->index_entries[entry_number -1];
+    }
+  return result;
+}
+
+/* in Common.pm */
+ELEMENT *
+modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *element, void* argument), void *argument)
+{
+  if (tree->args.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->args.number; i++)
+        {
+          ELEMENT *new_args;
+          new_args = (*operation) ("arg", tree->args.list[i], argument);
+          modify_tree (tree->args.list[i], operation, argument);
+          /* this puts the new args at the place of the old arg using the
+             offset from the end of the array */
+          if (new_args)
+            {
+              insert_slice_into_args (tree, tree->args.number - i +1,
+                                      new_args, 0,
+                                      new_args->args.number);
+            }
+        }
+    }
+  if (tree->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->contents.number; i++)
+        {
+          ELEMENT *new_contents;
+          new_contents = (*operation) ("content", tree->contents.list[i],
+                                       argument);
+          modify_tree (tree->contents.list[i], operation, argument);
+          /* this puts the new contents at the place of the old arg using the
+             offset from the end of the array */
+          if (new_contents)
+            {
+              insert_slice_into_contents (tree, tree->contents.number - i +1,
+                                          new_contents, 0,
+                                          new_contents->contents.number);
+            }
+        }
+    }
+  if (tree->source_mark_list.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->source_mark_list.number; i++)
+        {
+          if (tree->source_mark_list.list[i]->element)
+            {
+              ELEMENT *new_element;
+              new_element = (*operation) ("source_mark",
+                                     tree->source_mark_list.list[i]->element,
+                                          argument);
+              if (new_element)
+                {
+                  /* FIXME destroy previous element? or let the operation
+                     do it? */
+                  tree->source_mark_list.list[i]->element = new_element;
+                }
+            }
+        }
+    }
+  return tree;
 }
 
 /* Add raise/lowersections to be back at the normal level from
@@ -154,7 +258,7 @@ fill_gaps_in_sectioning (ELEMENT *root)
 
               text_append (&spaces_before_argument->text, " ");
               add_info_element_oot (new_section, "spaces_before_argument",
-                                    spaces_before_argument); 
+                                    spaces_before_argument);
               text_append (&spaces_after_argument->text, "\n");
 
               add_info_element_oot (line_arg, "spaces_after_argument",
@@ -167,7 +271,7 @@ fill_gaps_in_sectioning (ELEMENT *root)
 
               text_append (&empty_line->text, "\n");
               add_to_element_contents (new_section, empty_line);
-              
+
               add_to_contents_as_array (new_sections, new_section);
             }
           insert_slice_into_contents (root, idx_current_section+1,
@@ -200,3 +304,119 @@ fill_gaps_in_sectioning (ELEMENT *root)
   return added_sections;
 }
 
+void
+relate_index_entries_to_table_items_in (ELEMENT *table,
+                                        INDEX **indices_information)
+{
+  int i;
+
+  if (table->contents.number <= 0)
+    return;
+
+  for (i = 0; i < table->contents.number; i++)
+    {
+      ELEMENT *table_entry = table->contents.list[i];
+      ELEMENT *term;
+      ELEMENT *definition;
+      ELEMENT *item = 0;
+
+      if (table_entry->type != ET_table_entry
+          || table_entry->contents.number <= 0)
+        continue;
+
+      term = table_entry->contents.list[0];
+
+      /*
+       Move any index entries from the start of a 'table_definition' to
+       the 'table_term'.
+       */
+
+      if (table_entry->contents.number > 1
+          && table_entry->contents.list[1]->type == ET_table_definition)
+        {
+          size_t nr_index_entry_command = 0;
+          int j;
+          definition = table_entry->contents.list[1];
+
+          for (j = 0; j < definition->contents.number; j++)
+            {
+              ELEMENT *child = definition->contents.list[j];
+              if (child->type == ET_index_entry_command)
+                {
+                  child->parent = term;
+                  nr_index_entry_command++;
+                }
+              else
+                break;
+            }
+          if (nr_index_entry_command > 0)
+            {
+              insert_slice_into_contents (term, 0, definition, 0,
+                                          nr_index_entry_command);
+              remove_slice_from_contents (definition, 0,
+                                          nr_index_entry_command);
+            }
+        }
+      if (term->type == ET_table_term)
+        {
+          INDEX_ENTRY *index_entry = 0;
+          int j;
+         /*
+         Relate the first index_entry_command in the 'table_term' to
+         the term itself.
+          */
+          for (j = 0; j < term->contents.number; j++)
+            {
+              ELEMENT *content = term->contents.list[j];
+              if (content->type == ET_index_entry_command)
+                {
+                  if (!index_entry)
+                    {
+                      INDEX_ENTRY_AND_INDEX *idx_info;
+                      ELEMENT *index_entry_info = lookup_extra_element (content,
+                                                                 "index_entry");
+                      idx_info = lookup_index_entry (index_entry_info,
+                                                     indices_information);
+                      if (idx_info->index_entry)
+                        index_entry = idx_info->index_entry;
+                   }
+                }
+              else if (content->cmd && content->cmd == CM_item_LINE)
+                {
+                  if (!item)
+                    item = content;
+                }
+              if (item && index_entry)
+                {
+                 /*
+                  This is better than overwriting 'entry_element', which
+                  holds important information.
+                  */
+                  index_entry->entry_associated_element = item;
+                  break;
+                }
+            }
+        }
+    }
+}
+
+ELEMENT *
+relate_index_entries_to_table_items_internal (const char *type,
+                                              ELEMENT *current,
+                                              void *argument)
+{
+  if (current->cmd && current->cmd == CM_table)
+    {
+      INDEX **indices_information = (INDEX **)argument;
+      relate_index_entries_to_table_items_in (current, indices_information);
+    }
+  return 0;
+}
+
+ELEMENT *
+relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
+                                             INDEX **indices_information)
+{
+  return modify_tree (tree, &relate_index_entries_to_table_items_internal,
+                      indices_information);
+}

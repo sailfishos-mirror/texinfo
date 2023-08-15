@@ -63,6 +63,12 @@ fill_gaps_in_sectioning (tree_in)
             document_descriptor = SvIV (*document_descriptor_sv);
             document = retrieve_document (document_descriptor);
           }
+        else
+          {
+            fprintf (stderr, "ERROR: fill_gaps_in_sectioning: "
+                             "no tree_document_descriptor\n");
+            return;
+          }
         added_sections = fill_gaps_in_sectioning (document->tree);
         result_tree = build_texinfo_tree (added_sections);
         destroy_element (added_sections);
@@ -71,7 +77,8 @@ fill_gaps_in_sectioning (tree_in)
         RETVAL
 
 # FIXME what to do with the parent argument?
-SV *
+# FIXME returns a fake element instead?
+int
 copy_tree (tree_in, parent_in)
         SV *tree_in
         SV *parent_in
@@ -94,15 +101,65 @@ copy_tree (tree_in, parent_in)
             document_descriptor = SvIV (*document_descriptor_sv);
             document = retrieve_document (document_descriptor);
           }
-        result = copy_tree (document->tree, 0);
-        /* FIXME have a similar system but for trees only? */
-        copy_document_descriptor = register_document (result, 0, 0,
+        if (document)
+          {
+            result = copy_tree (document->tree, 0);
+            /* FIXME have a similar system but for trees only? */
+            copy_document_descriptor = register_document (result, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
-        hv = newHV ();
-        hv_store (hv, "tree_document_descriptor",
-                  strlen ("tree_document_descriptor"),
-                  newSViv ((IV) copy_document_descriptor), 0);
-        RETVAL = newRV_inc ((SV *) hv);
+            /*
+            hv = newHV ();
+            hv_store (hv, "tree_document_descriptor",
+                      strlen ("tree_document_descriptor"),
+                      newSViv ((IV) copy_document_descriptor), 0);
+            RETVAL = newRV_inc ((SV *) hv);
+            */
+            RETVAL = copy_document_descriptor;
+          }
+        else
+          /*
+          RETVAL = newRV_inc (newSV(0));
+           */
+          RETVAL = 0;
     OUTPUT:
         RETVAL
+
+void
+relate_index_entries_to_table_items_in_tree (tree_in, indices_information)
+        SV *tree_in
+        SV *indices_information
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_tree_in;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: relate_index_entries_to_table_items_in_tree:"
+                             "no tree_document_descriptor\n");
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        if (!document->index_names)
+          {
+            fprintf (stderr, "ERROR: %d: no index_names\n", document_descriptor);
+          }
+        relate_index_entries_to_table_items_in_tree (document->tree,
+                                                     document->index_names);
+    
 

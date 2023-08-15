@@ -16,6 +16,8 @@ void insert_into_contents (ELEMENT *parent, ELEMENT *e, int where);
 void insert_into_args (ELEMENT *parent, ELEMENT *e, int where);
 void insert_slice_into_contents (ELEMENT *to, int idx, ELEMENT *from,
                                  int start, int end);
+void insert_slice_into_args (ELEMENT *to, int where, ELEMENT *from,
+                            int start, int end);
 ELEMENT *remove_from_element_list (ELEMENT_LIST *list, int where);
 ELEMENT *remove_from_contents (ELEMENT *parent, int where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);

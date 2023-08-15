@@ -307,6 +307,25 @@ insert_slice_into_contents (ELEMENT *to, int where, ELEMENT *from,
   to->contents.number += num;
 }
 
+/* Insert elements to the args of TO at position WHERE from FROM
+   from START inclusive to END exclusive.  Do not set the parent fields. */
+void
+insert_slice_into_args (ELEMENT *to, int where, ELEMENT *from,
+                            int start, int end)
+{
+  int num = end - start;
+  reallocate_list_for (num, &to->args);
+
+  memmove (&to->args.list[where + num],
+           &to->args.list[where],
+           (to->args.number - where) * sizeof (ELEMENT *));
+  memmove (&to->args.list[where],
+           &from->args.list[start],
+           num * sizeof (ELEMENT *));
+
+  to->args.number += num;
+}
+
 ELEMENT *
 remove_from_element_list (ELEMENT_LIST *list, int where)
 {

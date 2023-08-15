@@ -57,7 +57,7 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::fill_gaps_in_sectioning",
+        "Texinfo::Transformations::_XS_fill_gaps_in_sectioning",
         "Texinfo::StructTransf::fill_gaps_in_sectioning"
       );
     }
@@ -104,6 +104,11 @@ sub _correct_level($$;$)
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
+
+  # Returns a valid added sections array held in contents,
+  # but not the one corresponding to the perl tree returned by
+  # fill_gaps_in_sectioning.
+  _XS_fill_gaps_in_sectioning($root);
 
   my $contents_nr = scalar(@{$root->{'contents'}});
 
@@ -190,6 +195,11 @@ sub fill_gaps_in_sectioning($)
     }
   }
   return \@added_sections;
+}
+
+sub _XS_fill_gaps_in_sectioning($)
+{
+  return undef;
 }
 
 # This converts a reference @-command to simple text using one of the
