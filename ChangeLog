@@ -1,5 +1,10 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: update suggested configure invocation to
+	disable some unneeded warnings
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	parsetexi compiler warnings
 
 	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space):
