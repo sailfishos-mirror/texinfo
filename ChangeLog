@@ -1,5 +1,14 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move month names translation strings
+
+	* tp/Texinfo/Convert/Converter.pm,
+	* tp/Texinfo/Convert/Utils.pm: move appearance of month names
+	in gdt to Utils.pm, in order to be next to the @MONTH_NAMES
+	array that these strings are used with.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* ChangeLog, texindex/ChangeLog: Move texindex ChangeLog entries
 	into top-level file.
 

@@ -111,26 +111,6 @@ if (0) {
   $self->gdt('error@arrow{}');
 }
 
-# This is not used as code, but used to mark months as strings to be
-# translated
-if (0) {
-  my $self;
-  my @mark_month_for_translation = (
-   $self->gdt('January'),
-   $self->gdt('February'),
-   $self->gdt('March'),
-   $self->gdt('April'),
-   $self->gdt('May'),
-   $self->gdt('June'),
-   $self->gdt('July'),
-   $self->gdt('August'),
-   $self->gdt('September'),
-   $self->gdt('October'),
-   $self->gdt('November'),
-   $self->gdt('December')
-  );
-}
-
 our %default_args_code_style = (
   'email' => [1],
   'anchor' => [1],
