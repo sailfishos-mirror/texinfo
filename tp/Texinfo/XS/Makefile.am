@@ -234,7 +234,7 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
 EXTRA_DIST += $(p)/Parsetexi.xs
 
 Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la
-Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
@@ -254,7 +254,7 @@ Translations_la_SOURCES = \
 EXTRA_DIST += main/Translations.xs
 
 Translations_la_LIBADD = libtexinfoxs.la libtexinfo.la
-Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
+Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
 Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
@@ -272,7 +272,7 @@ StructTransf_la_SOURCES = main/StructTransf.c \
 EXTRA_DIST += convert/StructTransf.xs
 
 StructTransf_la_LIBADD = libtexinfoxs.la libtexinfo.la
-StructTransf_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
+StructTransf_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
 StructTransf_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
@@ -291,7 +291,7 @@ ConvertXS_la_SOURCES = \
 EXTRA_DIST += convert/ConvertXS.xs
 
 ConvertXS_la_LIBADD = libtexinfo.la
-ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
+ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)

@@ -1,5 +1,12 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_LDFLAGS)
+	(Translations_la_LDFLAGS, StructTransf_la_LDFLAGS)
+	(ConvertXS_la_LDFLAGS): remove linking flags for libraries not
+	directly linked against.
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (GNULIB_CPPFLAGS): rename AM_GNULIB as
 	GNULIB_CPPFLAGS.
 
