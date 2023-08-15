@@ -2956,7 +2956,6 @@ info_handle_pointer (char *label, WINDOW *window)
   if (strcmp (label, "Up") == 0)
     {
       REFERENCE **r;
-      int i;
 
       for (r = node->references; (*r); r++)
         {

@@ -1,5 +1,9 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session.c: removed unused variable.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: update suggested configure invocation to
 	disable some unneeded warnings
 
