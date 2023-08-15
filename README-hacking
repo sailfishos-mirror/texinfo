@@ -285,6 +285,8 @@ by git add.  Look for omissions and anomalies by running, e.g.
 find . \
   -name autom4te.cache -prune -o \
   -name .git -prune -o \
+  -wholename tp/maintain/lib -prune -o \
+  -name test -prune -o \
   -type f \
   \( -name '*' \) \
   -not -name 'Makefile.in' \
@@ -293,7 +295,7 @@ find . \
   -not -name configure \
   -not -name "config.*" \
   -not -name "*~" \
-  -exec perl -wnl -e '/ 20\d[^3] Free/ && print "$ARGV:$_"' '{}' \;
+  -exec perl -wnl -e '/20\d[^3] Free/ && print "$ARGV:$_"' '{}' \;
 
 at the top level.
 
