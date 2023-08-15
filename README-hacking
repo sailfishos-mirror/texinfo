@@ -353,27 +353,31 @@ Check that translations have been updated, e.g.:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
                  po_document # note the trailing slashes in these commands
   git status -u to check for new translations
-make
-make update-po            # both po and po_document needed, build a dist first
-Ensure texinfo.tex, texi2dvi, and htmlxref.cnf are updated on ftp.gnu.org.
+
 Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
 Check that LINGUAS under po and po_document match actual file list.
+
+make
+make update-po            # both po and po_document needed, build a dist first
+
 Check that TEXINFO_DTD_VERSION has been updated to the next version in
   configure.ac if the DTD has been modified since the last release.
   See comments in configure.ac, and run (at the top level) make dtd-check.
+
 Check "dist-xz" is in the option list in configure.ac (often removed
 for speed when testing).
-check up to date copyright years in files relevant to --version calls
-(tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr)
 
 Update version number:
-  update version in configure.ac
-  version number in texi2dvi, texi2pdf
-  version number in js/info.js
+  update version number in configure.ac, texi2dvi, texi2pdf, js/info.js
   version number in txirefcard.tex (offical releases only)
   (cd texindex ; rm texindex.awk ; make)
   (cd tp && ./maintain/change_perl_modules_version.sh auto)
     -- this updates all the version numbers in the Perl modules
+check up to date copyright years in files relevant to --version calls
+(tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr)
+
+Ensure texinfo.tex, htmlxref.cnf are updated on ftp.gnu.org.
+Upload texi2dvi, texi2pdf (official releases only)
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
