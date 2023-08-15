@@ -27,6 +27,10 @@ typedef struct command_struct {
 
 extern COMMAND builtin_command_data[];
 
+#define builtin_command_flags(e) \
+   (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))
+#define builtin_command_name(cmd) (builtin_command_data[cmd].cmdname)
+
 enum command_id lookup_builtin_command (char *cmdname);
 char *element_command_name (ELEMENT *e);
 

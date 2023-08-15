@@ -196,7 +196,8 @@ $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt 
 $(srcdir)/main/command_tables.c: $(srcdir)/main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
            < $(srcdir)/main/command_data.c \
-              $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c
+              $(srcdir)/main/command_tables.c $(srcdir)/main/unicode_tables.c \
+              $(srcdir)/main/structuring_tables.c
 
 
 ########################## shared perl XS library for texinfo XS codes
@@ -258,6 +259,24 @@ Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 # To locate include files under out-of-source builds.
 Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
+########################## StructTransf
+
+if HAVE_ICONV
+xs_LTLIBRARIES += StructTransf.la
+endif
+
+StructTransf_la_SOURCES = main/StructTransf.c \
+                    main/transformations.c \
+                    main/transformations.h
+
+EXTRA_DIST += convert/StructTransf.xs
+
+StructTransf_la_LIBADD = libtexinfoxs.la libtexinfo.la
+StructTransf_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
+
+# To locate include files under out-of-source builds.
+StructTransf_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+
 ########################## ConvertXS
 
 if HAVE_ICONV
@@ -271,7 +290,7 @@ ConvertXS_la_SOURCES = \
 
 EXTRA_DIST += convert/ConvertXS.xs
 
-ConvertXS_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libtexinfo.la
+ConvertXS_la_LIBADD = libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL)
 
 # To locate include files under out-of-source builds.

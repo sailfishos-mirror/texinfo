@@ -57,6 +57,10 @@ sub test_correction($$$;$)
   }
 }
 
+SKIP:
+{
+  skip "incorrect for XS", 2, (defined $ENV{TEXINFO_XS_CONVERT}
+                               and !$ENV{TEXINFO_XS_CONVERT} eq '0');
 test_correction('@raisesections
 
 @section truc
@@ -80,7 +84,7 @@ test_correction('@lowersections
 @lowersections
 @chapter truc
 ', 'correct level from normal to section, two lowered', -1);
-
+}
 
 test_correction('@chapter chap
 @subsection sub

@@ -36,6 +36,8 @@ use Texinfo::Translations;
 use Texinfo::Structuring;
 use Texinfo::Document;
 
+use Texinfo::StructTransf;
+
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
@@ -48,6 +50,23 @@ reference_to_arg_in_tree
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 $VERSION = '7.1';
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (!defined $ENV{TEXINFO_XS_PARSER}
+        or $ENV{TEXINFO_XS_PARSER} eq '1') {
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::fill_gaps_in_sectioning",
+        "Texinfo::StructTransf::fill_gaps_in_sectioning"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
+
 
 # Add raise/lowersections to be back at the normal level from
 # the $SECTION level.  The raise/lowersections are added at the

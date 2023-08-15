@@ -108,9 +108,12 @@ die "Need a file\n" if (!defined($out_file));
 my $unicode_file = $ARGV[1];
 die "Need a file for unicode tables\n" if (!defined($unicode_file));
 
+my $structuring_file = $ARGV[2];
+die "Need a file for structuring tables\n" if (!defined($structuring_file));
+
 my %unicode_diacritics = %Texinfo::Convert::Unicode::unicode_diacritics;
 
-open (UNIC, '>', $unicode_file) or die "Open $out_file: $!\n";
+open (UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
 
 print UNIC "char * unicode_diacritics[] = {\n";
 foreach my $command_name (@commands_order) {
@@ -131,6 +134,49 @@ foreach my $command_name (@commands_order) {
 print UNIC "};\n\n";
 
 close(UNIC);
+
+my %command_structuring_level = %Texinfo::Common::command_structuring_level;
+my %level_to_structuring_command
+  = %Texinfo::Common::level_to_structuring_command;
+
+open (STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
+
+print STRUC "int command_structuring_level[] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  } 
+  if (defined($command_structuring_level{$command_name})) {
+    print STRUC "$command_structuring_level{$command_name},  /* $command */\n";
+  } else {
+    print STRUC "-1,\n";
+  }
+}
+print STRUC "};\n\n";
+
+print STRUC "enum command_id level_to_structuring_command[][5] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if (defined($level_to_structuring_command{$command_name})) {
+    print STRUC "{";
+    foreach my $structuring_command
+        (@{$level_to_structuring_command{$command_name}}) {
+      # level 0 not defined except for unnumbered
+      $structuring_command = 'NONE' if (!defined($structuring_command));
+      print STRUC "CM_$structuring_command, ";
+    }
+    print STRUC "},  /* $command */\n";
+  } else {
+    print STRUC "{0, 0, 0, 0, 0},\n";
+  }
+}
+print STRUC "};\n\n";
+
+close (STRUC);
 
 # Finish by this file as it is used as make target
 open (OUT, '>', $out_file) or die "Open $out_file: $!\n";

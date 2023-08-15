@@ -48,6 +48,7 @@ use Texinfo::Convert::NodeNameNormalization;
 # for new_master_menu translations
 use Texinfo::Translations;
 
+use Texinfo::StructTransf;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -78,11 +79,11 @@ $VERSION = '7.1';
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (defined $ENV{TEXINFO_XS_CONVERT}
-        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    if (!defined $ENV{TEXINFO_XS_PARSER}
+        or $ENV{TEXINFO_XS_PARSER} ne '0') {
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::_copy_tree_with_XS",
-        "Texinfo::Convert::ConvertXS::copy_tree"
+        "Texinfo::StructTransf::copy_tree"
       );
     }
     $module_loaded = 1;

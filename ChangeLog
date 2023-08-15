@@ -1,3 +1,28 @@
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am,
+	tp/maintain/setup_converters_code_tables.pl: setup
+	tp/Texinfo/XS/main/structuring_tables.c with
+	Texinfo::Common::command_structuring_level and
+	Texinfo::Common::level_to_structuring_command.
+
+	* tp/Texinfo/Transformations.pm (import), tp/Texinfo/XS/Makefile.am
+	(StructTransf_la_*), tp/Makefile.am (dist_modules_DATA),
+	tp/t/test_fill_gaps_in_sectioning.t, Texinfo/XS/main/transformations.c
+	(section_level, correct_level) (fill_gaps_in_sectioning),
+	Texinfo/StructTransf.pm: add a new XS code, StructTransf.xs for
+	Structuring and Transformations.  Add
+	tp/Texinfo/XS/main/transformations.c for transformations and implement
+	fill_gaps_in_sectioning, overriding fill_gaps_in_sectioning in
+	tp/Texinfo/Transformations.pm with XS function.
+
+	* tp/Texinfo/Structuring.pm (import),
+	tp/Texinfo/XS/convert/ConvertXS.xs,: use Texinfo::StructTransf for
+	copy_tree.
+
+	* tp/Texinfo/XS/main/builtin_commands.h: add builtin_command_flags and
+	builtin_command_name defines.
+
 2023-08-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/translations.c: conditionalize includes and code
