@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.0dev\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-08-06 18:05+0200\n"
+"POT-Creation-Date: 2023-08-15 11:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgid "Table of contents"
 msgstr ""
 
 #. TRANSLATORS: abbreviation or acronym explanation
-#: tp/init/html32.pm:197 tp/Texinfo/Convert/HTML.pm:3105
+#: tp/init/html32.pm:196 tp/Texinfo/Convert/HTML.pm:3105
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr ""
@@ -47,13 +47,13 @@ msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr ""
 
-#. TRANSLATORS: category of users-modifiable options for @defopt
+#. TRANSLATORS: category of user-modifiable options for @defopt
 #: tp/Texinfo/Common.pm:639
 msgid "User Option"
 msgstr ""
 
 #: tp/Texinfo/Common.pm:642
-msgctxt "category of general definition for functions for @deftypefun"
+msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr ""
 
@@ -93,7 +93,7 @@ msgstr ""
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Translations.pm:375
+#: tp/Texinfo/Translations.pm:387
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr ""
@@ -101,7 +101,7 @@ msgstr ""
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables or
 #. instance variable.
-#: tp/Texinfo/Translations.pm:379
+#: tp/Texinfo/Translations.pm:391
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr ""
@@ -111,83 +111,35 @@ msgstr ""
 msgid "error@arrow{}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:119
-msgid "January"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:120
-msgid "February"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:121
-msgid "March"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:122
-msgid "April"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:123
-msgid "May"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:124
-msgid "June"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:125
-msgid "July"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:126
-msgid "August"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:127
-msgid "September"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:128
-msgid "October"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:129
-msgid "November"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:130
-msgid "December"
-msgstr ""
-
-#: tp/Texinfo/Convert/Converter.pm:1265 tp/Texinfo/Convert/Converter.pm:1318
+#: tp/Texinfo/Convert/Converter.pm:1245 tp/Texinfo/Convert/Converter.pm:1298
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1269 tp/Texinfo/Convert/Converter.pm:1322
+#: tp/Texinfo/Convert/Converter.pm:1249 tp/Texinfo/Convert/Converter.pm:1302
 #, perl-brace-format
 msgid "{float_type}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1274 tp/Texinfo/Convert/Converter.pm:1333
+#: tp/Texinfo/Convert/Converter.pm:1254 tp/Texinfo/Convert/Converter.pm:1313
 #, perl-brace-format
 msgid "{float_number}"
 msgstr ""
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1307
+#: tp/Texinfo/Convert/Converter.pm:1287
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr ""
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1312
+#: tp/Texinfo/Convert/Converter.pm:1292
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr ""
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1330
+#: tp/Texinfo/Convert/Converter.pm:1310
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr ""
@@ -321,21 +273,21 @@ msgid "@{No value for `{value}'@}"
 msgstr ""
 
 #. TRANSLATORS: quotation author
-#: tp/Texinfo/Convert/LaTeX.pm:4351 tp/Texinfo/Convert/Plaintext.pm:3817
+#: tp/Texinfo/Convert/LaTeX.pm:4351 tp/Texinfo/Convert/Plaintext.pm:3818
 #: tp/Texinfo/Convert/HTML.pm:4964
 #, perl-brace-format
 msgid "@center --- @emph{{author}}"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:1248 tp/Texinfo/Convert/HTML.pm:1104
-#: tp/Texinfo/Convert/Utils.pm:319
+#: tp/Texinfo/Convert/Utils.pm:339
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr ""
 
 #. TRANSLATORS: numbered section title
 #: tp/Texinfo/Convert/Plaintext.pm:1254 tp/Texinfo/Convert/HTML.pm:1111
-#: tp/Texinfo/Convert/Utils.pm:323
+#: tp/Texinfo/Convert/Utils.pm:343
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr ""
@@ -1057,14 +1009,62 @@ msgstr ""
 msgid "Untitled Document"
 msgstr ""
 
+#: tp/Texinfo/Convert/Utils.pm:76
+msgid "January"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:77
+msgid "February"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:78
+msgid "March"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:79
+msgid "April"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:80
+msgid "May"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:81
+msgid "June"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:82
+msgid "July"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:83
+msgid "August"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:84
+msgid "September"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:85
+msgid "October"
+msgstr ""
+
 #: tp/Texinfo/Convert/Utils.pm:86
+msgid "November"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:87
+msgid "December"
+msgstr ""
+
+#: tp/Texinfo/Convert/Utils.pm:106
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr ""
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Convert/Utils.pm:160
+#: tp/Texinfo/Convert/Utils.pm:180
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr ""
@@ -1072,7 +1072,7 @@ msgstr ""
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables
 #. or instance variable.
-#: tp/Texinfo/Convert/Utils.pm:173
+#: tp/Texinfo/Convert/Utils.pm:193
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr ""

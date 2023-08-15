@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the texinfo package.
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2004, 2008.
 # Sebastian Rasmussen <sebras@gmail.com> , 2017, 2018, 2019.
-# Luna Jernberg <droidbittin@gmail.com>, 2022.
+# Luna Jernberg <droidbittin@gmail.com>, 2022, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.92\n"
+"Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-08-06 18:05+0200\n"
-"PO-Revision-Date: 2022-02-15 11:20+0100\n"
+"POT-Creation-Date: 2023-08-15 11:56+0100\n"
+"PO-Revision-Date: 2023-03-26 22:05+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,10 +18,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: gnulib/lib/error.c:193
+#: gnulib/lib/error.c:194
 msgid "Unknown system error"
 msgstr "Okänt systemfel"
 
@@ -132,7 +132,8 @@ msgstr "Ensam ) eller \\)"
 msgid "No previous regular expression"
 msgstr "Inget tidigare reguljärt uttryck"
 
-#: gnulib/lib/xalloc-die.c:34
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
 msgid "memory exhausted"
 msgstr "minne slut"
 
@@ -553,42 +554,48 @@ msgstr ""
 
 #: info/info.c:1139
 msgid "Examples:"
-msgstr ""
+msgstr "Exempel:"
 
 #: info/info.c:1142
 msgid "  info                         show top-level dir menu"
-msgstr ""
+msgstr "  info                         visa högsta-nivå katalog meny"
 
 #: info/info.c:1144
 msgid "  info info-stnd               show the manual for this Info program"
 msgstr ""
+"  info info-stnd                visa manualsidan för detta Info program"
 
 #: info/info.c:1146
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr ""
+"  info emacs                   starta på emacs-nod från högsta-nivå katalog"
 
 #: info/info.c:1148
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
 msgstr ""
+"  info emacs buffers           välj buffertar menypost i emacs manualen"
 
 #: info/info.c:1150
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr ""
+"  info emacs -n Files          starta på filer-nod inuti emacs manualen"
 
 #: info/info.c:1152
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
-msgstr ""
+msgstr "info '(emacs)Files' alternativt sätt att börja vid filer-noden"
 
 #: info/info.c:1154
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
 msgstr ""
+"  info --subnodes -o out.txt emacs\n"
+"dumpa hela emacs manualen till out.txt"
 
 #: info/info.c:1157
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
-msgstr ""
+msgstr "  info -f ./foo.info           visa fil ./foo.info, söker inte katalog"
 
 #: info/info.c:1162 install-info/install-info.c:578
 #: Pod-Simple-Texinfo/pod2texi.pl:137 tp/texi2any.pl:925
@@ -2070,12 +2077,22 @@ msgid ""
 "to a file suitable for @include, and one more file with a main menu\n"
 "and all the @include is generated."
 msgstr ""
+"Översätt Perl Pod dokumentationsfiler till Texinfo. Det finns två\n"
+"grundläggande arbetssätt. Först är varje Pod som standard översatt till\n"
+"en fristående Texinfo-manual.\n"
+"\n"
+"Det andra sättet är om --base-level är högre än 0, översätts varje Pod\n"
+"till en fil som lämpar sig för @include, och ytterligare en fil med en "
+"huvudmeny\n"
+"och alla @include genereras."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Alternativ:\n"
+"    --appendix-sections     använd bilagaliknande sektioner"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
@@ -2087,7 +2104,7 @@ msgstr "    --debug=NUM              ange felsökningsnivå"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --headings-as-sections  no structuring command for sections"
-msgstr ""
+msgstr "    --headings-as-sections  inget struktureringskommando för sektioner"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid "    --help                  display this help and exit"
@@ -2095,46 +2112,52 @@ msgstr "    --help                  visa denna hjälptext och avsluta"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:123
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  fyll inte sektioneringsluckor"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
 msgstr ""
+"    --no-section-nodes      använd ankare för sektioner istället för noder"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
-#, fuzzy
-#| msgid "    --help                  display this help and exit"
 msgid "    --menus                 generate node menus"
-msgstr "    --help                  visa denna hjälptext och avsluta"
+msgstr "    --menus                 generera nod-menyer"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=NAME           utdata till NAMN för den första eller "
+"huvudmanualen\n"
+"\n"
+"                            istället för standard utdata"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate.\n"
 "                            Defaults to a minimal Texinfo document beginning"
 msgstr ""
+"    --preamble=STR          infoga STR som början till boilerplate.\n"
+"                            Standard är ett minimalt Texinfo-dokuments början"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:130
 msgid "    --setfilename           @setfilename for the main manual"
-msgstr ""
+msgstr "    --setfilename           @setfilename för huvudmanualen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:131
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=NAME           lägg filer som ingår i huvudmanualen i NAMN"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:132
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   högst upp på huvudmanualen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:133
 msgid "    --unnumbered-sections   do not number sections"
-msgstr ""
+msgstr "    --unnumbered-sections   numrera inte sektioner"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:134
 msgid "    --version               display version information and exit"
@@ -2143,7 +2166,7 @@ msgstr "    --version               visa versionsinformation och avsluta"
 #: Pod-Simple-Texinfo/pod2texi.pl:171
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: fel argument för --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:194
 #, perl-format
@@ -2197,8 +2220,8 @@ msgstr "%s: byta namn på %s misslyckades: %s\n"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: fel vid stängning av stdout %s\n"
 
-#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:395
-#: tp/Texinfo/Convert/Converter.pm:452 tp/Texinfo/Convert/DocBook.pm:353
+#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:375
+#: tp/Texinfo/Convert/Converter.pm:432 tp/Texinfo/Convert/DocBook.pm:353
 #: tp/Texinfo/Convert/HTML.pm:10454 tp/Texinfo/Convert/HTML.pm:10520
 #: tp/Texinfo/Convert/HTML.pm:10557 tp/Texinfo/Convert/HTML.pm:11176
 #: tp/Texinfo/Convert/HTML.pm:11279 tp/Texinfo/Convert/HTML.pm:11498
@@ -2209,15 +2232,15 @@ msgstr "%s: fel vid stängning av stdout %s\n"
 msgid "could not open %s for writing: %s"
 msgstr "kunde inte öppna %s för skrivning: %s"
 
-#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:429
-#: tp/Texinfo/Convert/Converter.pm:470 tp/Texinfo/Convert/DocBook.pm:522
+#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:409
+#: tp/Texinfo/Convert/Converter.pm:450 tp/Texinfo/Convert/DocBook.pm:522
 #: tp/Texinfo/Convert/HTML.pm:10449 tp/Texinfo/Convert/HTML.pm:11216
 #: tp/Texinfo/Convert/HTML.pm:11298 tp/Texinfo/Convert/IXIN.pm:987
 #: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
 #: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:297
 #: tp/Texinfo/Convert/LaTeX.pm:1147 tp/Texinfo/Convert/TexinfoMarkup.pm:338
-#: tp/Texinfo/ParserNonXS.pm:2467
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:2467 tp/Texinfo/XS/parsetexi/input.c:509
+#, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "fel vid stängning av %s: %s"
 
@@ -2238,36 +2261,32 @@ msgid "%s is not a valid region code"
 msgstr "%s är inte en giltig regionkod"
 
 #: tp/Texinfo/Config.pm:121 tp/texi2any.pl:432
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: varning: "
+msgstr "%s: varning: %s"
 
 #: tp/Texinfo/Config.pm:138 tp/texi2any.pl:1318
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s\n"
+#, perl-format
 msgid "error loading %s: %s"
-msgstr "fel vid inläsning av %s: %s\n"
+msgstr "fel vid inläsning %s: %s"
 
 #: tp/Texinfo/Config.pm:151
 #, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
-msgstr ""
+msgstr "%s: %s"
 
 #: tp/Texinfo/Config.pm:157
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: varning: "
+msgstr "%s: varning: %s"
 
 #: tp/Texinfo/Config.pm:192
-#, fuzzy, perl-format
-#| msgid "obsolete variable %s\n"
+#, perl-format
 msgid "obsolete option: %s"
-msgstr "föråldrad variabel %s\n"
+msgstr "föråldradat alternativ: %s"
 
 #: tp/Texinfo/Config.pm:217
 #, perl-format
@@ -2275,41 +2294,39 @@ msgid "%s: unknown variable %s"
 msgstr "%s: okänd variabel %s"
 
 #: tp/Texinfo/Config.pm:242
-#, fuzzy, perl-format
-#| msgid "%s: unknown variable %s\n"
+#, perl-format
 msgid "unknown variable from command line: %s\n"
-msgstr "%s: okänd variabel %s\n"
+msgstr "okänd variabel från kommandorad: %s\n"
 
 #: tp/Texinfo/Config.pm:562 tp/Texinfo/Config.pm:597 tp/Texinfo/Config.pm:619
 #: tp/Texinfo/Config.pm:642
-#, fuzzy, perl-format
-#| msgid "%s: unknown variable %s\n"
+#, perl-format
 msgid "%s: unknown formatting context %s\n"
-msgstr "%s: okänd variabel %s\n"
+msgstr "%s: okänt formateringskontext %s\n"
 
 #: tp/Texinfo/Config.pm:732
 #, fuzzy, perl-format
-#| msgid "%s: unknown variable %s\n"
+#| msgid "%s: unknown formatting context %s\n"
 msgid "%s: unknown special element information type %s\n"
-msgstr "%s: okänd variabel %s\n"
+msgstr "%s: okänt formateringskontext %s\n"
 
-#: tp/Texinfo/Convert/Converter.pm:330
+#: tp/Texinfo/Convert/Converter.pm:310
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: utmatning inkompatibel med delning"
 
-#: tp/Texinfo/Convert/Converter.pm:1061 tp/Texinfo/Convert/Text.pm:826
+#: tp/Texinfo/Convert/Converter.pm:1041 tp/Texinfo/Convert/Text.pm:826
 #: tp/Texinfo/Convert/Text.pm:845
 #, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "kunde inte skapa katalogen ”%s”: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1234
+#: tp/Texinfo/Convert/Converter.pm:1214
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "fel vid stängning av bildtextfil %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1243
+#: tp/Texinfo/Convert/Converter.pm:1223
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image-filen ”%s” är oläslig: %s"
@@ -2366,21 +2383,19 @@ msgid "error on closing html refs config file %s: %s"
 msgstr "fel vid stängning av html-referenskonfigurationsfil %s: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7640
-#, fuzzy, perl-format
-#| msgid "could not open html refs config file %s: %s"
+#, perl-format
 msgid "could not find html refs config file %s"
-msgstr "kunde inte öppna konfigurationsfil för html-refs %s: %s"
+msgstr "kunde inte hitta konfigurationsfil för html-refs %s"
 
 #: tp/Texinfo/Convert/HTML.pm:8129
 #, perl-format
 msgid "Unknown file and id setting function: %s"
-msgstr ""
+msgstr "Okänd fil och id-inställningsfunktion: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:8144
-#, fuzzy, perl-format
-#| msgid "unknown action `%s'"
+#, perl-format
 msgid "Unknown formatting function: %s"
-msgstr "okänd åtgärd ”%s”"
+msgstr "Okänd formateringsfunktion: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:8419
 msgid "string not closed in css file"
@@ -2412,7 +2427,7 @@ msgstr "fel vid stängning av CSS-fil %s: %s"
 #: tp/Texinfo/Convert/HTML.pm:8670
 #, perl-format
 msgid "user-defined node file name not set for `%s'"
-msgstr ""
+msgstr "användardefinierat nodfilnamn har inte angetts för `%s'"
 
 #: tp/Texinfo/Convert/HTML.pm:8969
 #, perl-format
@@ -2435,6 +2450,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"kan inte använda absolut sökväg eller URL `%s' för JS_WEBLABELS_FIL vid "
+"generering av webbetikettsfil"
 
 #: tp/Texinfo/Convert/HTML.pm:10514
 #, perl-format
@@ -2468,9 +2485,9 @@ msgstr "fel vid kopiering av %s till %s"
 
 #: tp/Texinfo/Convert/HTML.pm:11342
 #, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#| msgid "error creating directory: %s: %s"
 msgid "error on creating empty %s: %s"
-msgstr "fel vid skrivning till %s: %s"
+msgstr "fel vid skapande av katalog: %s: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:11347
 #, fuzzy, perl-format
@@ -2559,10 +2576,9 @@ msgid "@node name should not contain `,': %s"
 msgstr "@node-namn borde innehålla ”,”: %s"
 
 #: tp/Texinfo/Convert/Info.pm:510
-#, fuzzy, perl-format
-#| msgid "@node name should not contain `,': %s"
+#, perl-format
 msgid "@node %s name should not contain `,': %s"
-msgstr "@node-namn borde innehålla ”,”: %s"
+msgstr "@nod %s namn får inte innehålla `,': %s"
 
 #: tp/Texinfo/Convert/LaTeX.pm:2959
 #, perl-format
@@ -2570,10 +2586,9 @@ msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
 #: tp/Texinfo/Convert/LaTeX.pm:2991
-#, fuzzy, perl-format
-#| msgid "@image file `%s' (for HTML) not found, using `%s'"
+#, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
-msgstr "@image-filen ”%s” (för HTML) hittades inte, använder ”%s”"
+msgstr "@image fil `%s' (för LaTeX) hittades inte"
 
 #: tp/Texinfo/Convert/NodeNameNormalization.pm:357
 #, perl-format
@@ -2602,7 +2617,7 @@ msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr "Indexpost i @%s med : producerar ogiltig Info: %s"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1557 tp/Texinfo/ParserNonXS.pm:3423
-#: tp/Texinfo/XS/parsetexi/indices.c:327
+#: tp/Texinfo/XS/parsetexi/indices.c:326
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "post för index ”%s” är utanför alla noder"
@@ -2616,10 +2631,9 @@ msgstr "post för index ”%s” är utanför alla noder"
 # instead and an outer if statement.
 #
 #: tp/Texinfo/Convert/Plaintext.pm:1573
-#, fuzzy, perl-format
-#| msgid "@%s node name should not contain `%s'"
+#, perl-format
 msgid "node name with index entries should not contain `%s'"
-msgstr "@%s nodnamn bör inte innehålla ”%s”"
+msgstr "nodnamn med indexposter får inte innehålla `%s'"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1685
 #, perl-format
@@ -2676,17 +2690,17 @@ msgstr "nodnamn för menyobjekt borde inte innehålla ”:”"
 msgid "menu entry name should not contain `:'"
 msgstr "namn för menyobjekt borde inte innehålla ”:”"
 
-#: tp/Texinfo/Convert/Utils.pm:262
+#: tp/Texinfo/Convert/Utils.pm:282
 #, perl-format
 msgid "could not read %s: %s"
 msgstr "kunde inte läsa %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:286
+#: tp/Texinfo/Convert/Utils.pm:306
 #, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "fel vid stängning av @verbatiminclude-fil %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:293 tp/Texinfo/ParserNonXS.pm:3593
+#: tp/Texinfo/Convert/Utils.pm:313 tp/Texinfo/ParserNonXS.pm:3593
 #, perl-format
 msgid "@%s: could not find %s"
 msgstr "%s: kunde inte hitta %s"
@@ -2704,7 +2718,7 @@ msgstr "multipla @%s"
 
 #: tp/Texinfo/ParserNonXS.pm:1285 tp/Texinfo/ParserNonXS.pm:4208
 #: tp/Texinfo/ParserNonXS.pm:4248 tp/Texinfo/XS/parsetexi/end_line.c:1070
-#: tp/Texinfo/XS/parsetexi/end_line.c:1106 tp/Texinfo/XS/parsetexi/macro.c:126
+#: tp/Texinfo/XS/parsetexi/end_line.c:1106 tp/Texinfo/XS/parsetexi/macro.c:125
 #, c-format, perl-format
 msgid "@%s requires a name"
 msgstr "@%s kräver ett namn"
@@ -2712,17 +2726,17 @@ msgstr "@%s kräver ett namn"
 #: tp/Texinfo/ParserNonXS.pm:1292 tp/Texinfo/ParserNonXS.pm:4252
 #: tp/Texinfo/ParserNonXS.pm:7483 tp/Texinfo/ParserNonXS.pm:7495
 #: tp/Texinfo/ParserNonXS.pm:7508 tp/Texinfo/XS/parsetexi/end_line.c:1110
-#: tp/Texinfo/XS/parsetexi/macro.c:134
+#: tp/Texinfo/XS/parsetexi/macro.c:133
 #, c-format, perl-format
 msgid "bad name for @%s"
 msgstr "felaktigt namn för @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:1314 tp/Texinfo/XS/parsetexi/macro.c:211
+#: tp/Texinfo/ParserNonXS.pm:1314 tp/Texinfo/XS/parsetexi/macro.c:210
 #, c-format, perl-format
 msgid "bad or empty @%s formal argument: %s"
 msgstr "felaktigt eller tomt formellt argument till @%s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:1322 tp/Texinfo/XS/parsetexi/macro.c:240
+#: tp/Texinfo/ParserNonXS.pm:1322 tp/Texinfo/XS/parsetexi/macro.c:239
 #, c-format, perl-format
 msgid "bad syntax for @%s argument: %s"
 msgstr "felaktig argumentsyntax till @%s: %s"
@@ -2739,7 +2753,7 @@ msgstr "@%s anträffades innan @%s avslutningsparentes"
 
 #: tp/Texinfo/ParserNonXS.pm:1468 tp/Texinfo/ParserNonXS.pm:2647
 #: tp/Texinfo/ParserNonXS.pm:2747 tp/Texinfo/XS/parsetexi/close.c:75
-#: tp/Texinfo/XS/parsetexi/macro.c:344 tp/Texinfo/XS/parsetexi/macro.c:504
+#: tp/Texinfo/XS/parsetexi/macro.c:343 tp/Texinfo/XS/parsetexi/macro.c:503
 #, c-format, perl-format
 msgid "@%s missing closing brace"
 msgstr "@%s saknar avslutande klammer"
@@ -2779,8 +2793,8 @@ msgid "no matching `@end %s'"
 msgstr "inget matchande ”@end %s”"
 
 #: tp/Texinfo/ParserNonXS.pm:2105 tp/Texinfo/ParserNonXS.pm:2116
-#: tp/Texinfo/ParserNonXS.pm:6105 tp/Texinfo/XS/parsetexi/close.c:438
-#: tp/Texinfo/XS/parsetexi/close.c:448 tp/Texinfo/XS/parsetexi/separator.c:227
+#: tp/Texinfo/ParserNonXS.pm:6105 tp/Texinfo/XS/parsetexi/close.c:437
+#: tp/Texinfo/XS/parsetexi/close.c:447 tp/Texinfo/XS/parsetexi/separator.c:227
 msgid "misplaced {"
 msgstr "felplacerat {"
 
@@ -2789,22 +2803,22 @@ msgstr "felplacerat {"
 msgid "unmatched `%c%s'"
 msgstr "omatchat ”%c%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:2594 tp/Texinfo/XS/parsetexi/macro.c:365
+#: tp/Texinfo/ParserNonXS.pm:2594 tp/Texinfo/XS/parsetexi/macro.c:364
 #, c-format, perl-format
 msgid "use %s instead of %s in macro arg"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:2624 tp/Texinfo/XS/parsetexi/macro.c:418
+#: tp/Texinfo/ParserNonXS.pm:2624 tp/Texinfo/XS/parsetexi/macro.c:417
 #, c-format, perl-format
 msgid "macro `%s' called with too many args"
 msgstr "makro ”%s” anropades med för många argument"
 
-#: tp/Texinfo/ParserNonXS.pm:2658 tp/Texinfo/XS/parsetexi/macro.c:434
+#: tp/Texinfo/ParserNonXS.pm:2658 tp/Texinfo/XS/parsetexi/macro.c:433
 #, c-format, perl-format
 msgid "macro `%s' declared without argument called with an argument"
 msgstr "makro ”%s” deklarerat utan argument, anropades med ett argument"
 
-#: tp/Texinfo/ParserNonXS.pm:2851 tp/Texinfo/XS/parsetexi/macro.c:711
+#: tp/Texinfo/ParserNonXS.pm:2851 tp/Texinfo/XS/parsetexi/macro.c:709
 #, c-format, perl-format
 msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr ""
@@ -2813,7 +2827,7 @@ msgstr ""
 #: tp/Texinfo/ParserNonXS.pm:3533 tp/Texinfo/ParserNonXS.pm:3715
 #: tp/Texinfo/ParserNonXS.pm:7566 tp/Texinfo/XS/parsetexi/end_line.c:100
 #: tp/Texinfo/XS/parsetexi/end_line.c:1231
-#: tp/Texinfo/XS/parsetexi/end_line.c:1562
+#: tp/Texinfo/XS/parsetexi/end_line.c:1561
 #, c-format, perl-format
 msgid "@%s missing argument"
 msgstr "@%s saknar argument"
@@ -2871,24 +2885,24 @@ msgstr "@%s är inte meningsfullt utanför @multitabell-rad"
 msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr "@node föregår @%s, men delar kanske inte associeras med noder"
 
-#: tp/Texinfo/ParserNonXS.pm:3899 tp/Texinfo/XS/parsetexi/end_line.c:743
+#: tp/Texinfo/ParserNonXS.pm:3899 tp/Texinfo/XS/parsetexi/end_line.c:742
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr "saknar kategori för @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:3945 tp/Texinfo/XS/parsetexi/end_line.c:737
+#: tp/Texinfo/ParserNonXS.pm:3945 tp/Texinfo/XS/parsetexi/end_line.c:736
 #, c-format, perl-format
 msgid "missing name for @%s"
 msgstr "saknar namn för @%s"
 
 #: tp/Texinfo/ParserNonXS.pm:4021 tp/Texinfo/ParserNonXS.pm:4192
-#: tp/Texinfo/XS/parsetexi/end_line.c:827
+#: tp/Texinfo/XS/parsetexi/end_line.c:826
 #: tp/Texinfo/XS/parsetexi/end_line.c:1047
 #, c-format, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "oväntat argument på @%s-rad: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:4033 tp/Texinfo/XS/parsetexi/end_line.c:838
+#: tp/Texinfo/ParserNonXS.pm:4033 tp/Texinfo/XS/parsetexi/end_line.c:837
 msgid "empty multitable"
 msgstr "tom multitabell"
 
@@ -2937,36 +2951,36 @@ msgstr "tomt namn för menyobjekt i ”%s”"
 msgid "empty node name in menu entry"
 msgstr "tomt nodnamn i menyobjekt"
 
-#: tp/Texinfo/ParserNonXS.pm:4804 tp/Texinfo/XS/parsetexi/parser.c:1257
+#: tp/Texinfo/ParserNonXS.pm:4804 tp/Texinfo/XS/parsetexi/parser.c:1255
 #, c-format, perl-format
 msgid "@%s should not appear in @%s"
 msgstr "@%s borde inte förekomma i @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4816 tp/Texinfo/XS/parsetexi/parser.c:1271
+#: tp/Texinfo/ParserNonXS.pm:4816 tp/Texinfo/XS/parsetexi/parser.c:1269
 #, fuzzy, c-format, perl-format
 #| msgid "@%s should not appear in @%s"
 msgid "@%s should not appear anywhere inside caption"
 msgstr "@%s borde inte förekomma i @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4833 tp/Texinfo/XS/parsetexi/parser.c:1324
+#: tp/Texinfo/ParserNonXS.pm:4833 tp/Texinfo/XS/parsetexi/parser.c:1322
 #, fuzzy, c-format, perl-format
 #| msgid "@%s should not appear in @%s"
 msgid "@%s should not appear anywhere inside @%s"
 msgstr "@%s borde inte förekomma i @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4859 tp/Texinfo/XS/parsetexi/parser.c:1339
+#: tp/Texinfo/ParserNonXS.pm:4859 tp/Texinfo/XS/parsetexi/parser.c:1337
 #, fuzzy, c-format, perl-format
 #| msgid "@%s should not appear in @%s"
 msgid "@%s should not appear on @%s line"
 msgstr "@%s borde inte förekomma i @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4873 tp/Texinfo/XS/parsetexi/parser.c:1353
+#: tp/Texinfo/ParserNonXS.pm:4873 tp/Texinfo/XS/parsetexi/parser.c:1351
 #, fuzzy, c-format, perl-format
 #| msgid "@%s should not appear in @%s"
 msgid "@%s should not appear in @%s block"
 msgstr "@%s borde inte förekomma i @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4951 tp/Texinfo/XS/parsetexi/macro.c:844
+#: tp/Texinfo/ParserNonXS.pm:4951 tp/Texinfo/XS/parsetexi/macro.c:842
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "macro call nested too deeply (set MAX_NESTED_MACROS to override; current "
@@ -2978,13 +2992,13 @@ msgstr ""
 "makroanrop nästlat för djupt (sätt MAX_NESTED_MACROS för att åsidosätta; "
 "aktuellt värde %d)"
 
-#: tp/Texinfo/ParserNonXS.pm:4962 tp/Texinfo/XS/parsetexi/macro.c:834
+#: tp/Texinfo/ParserNonXS.pm:4962 tp/Texinfo/XS/parsetexi/macro.c:832
 #, c-format, perl-format
 msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
 msgstr ""
 "rekursivt anrop av makro %s är inte tillåtet; använd @rmacro om det behövs"
 
-#: tp/Texinfo/ParserNonXS.pm:4990 tp/Texinfo/XS/parsetexi/macro.c:878
+#: tp/Texinfo/ParserNonXS.pm:4990 tp/Texinfo/XS/parsetexi/macro.c:876
 #, c-format, perl-format
 msgid ""
 "@%s defined with zero or more than one argument should be invoked with {}"
@@ -3053,7 +3067,7 @@ msgid "@nodedescription outside of any node"
 msgstr "@%s utanför alla noder"
 
 #: tp/Texinfo/ParserNonXS.pm:5598 tp/Texinfo/ParserNonXS.pm:5912
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1219
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1220
 #, c-format, perl-format
 msgid "@%s should only appear in an index entry"
 msgstr "@%s borde endast förekomma i en indexpost"
@@ -3078,22 +3092,22 @@ msgid "@dircategory after first node"
 msgstr "@dircategory efter första noden"
 
 #: tp/Texinfo/ParserNonXS.pm:5822
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1122
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1123
 msgid "@direntry after first node"
 msgstr "@direntry efter första noden"
 
 #: tp/Texinfo/ParserNonXS.pm:5834
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1127
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1128
 msgid "@menu in invalid context"
 msgstr "@menu i ogiltig kontext"
 
 #: tp/Texinfo/ParserNonXS.pm:5852
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1140
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1141
 msgid "multiple node @nodedescriptionblock"
 msgstr ""
 
 #: tp/Texinfo/ParserNonXS.pm:5865
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1155
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1156
 #, fuzzy
 #| msgid "@%s outside of any node"
 msgid "@nodedescriptionblock outside of any node"
@@ -3143,7 +3157,7 @@ msgid "@image missing filename argument"
 msgstr "@image saknar filnamnsargument"
 
 #: tp/Texinfo/ParserNonXS.pm:6262 tp/Texinfo/ParserNonXS.pm:7058
-#: tp/Texinfo/XS/parsetexi/parser.c:2088
+#: tp/Texinfo/XS/parsetexi/parser.c:2084
 #: tp/Texinfo/XS/parsetexi/separator.c:433
 #, c-format, perl-format
 msgid "@dotless expects `i' or `j' as argument, not `%s'"
@@ -3174,31 +3188,31 @@ msgid "misplaced }"
 msgstr "felplacerat }"
 
 #: tp/Texinfo/ParserNonXS.pm:6604 tp/Texinfo/ParserNonXS.pm:6680
-#: tp/Texinfo/XS/parsetexi/parser.c:1457 tp/Texinfo/XS/parsetexi/parser.c:1575
+#: tp/Texinfo/XS/parsetexi/parser.c:1455 tp/Texinfo/XS/parsetexi/parser.c:1574
 #, c-format, perl-format
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s ska bara uppträda vid böjran på en rad"
 
-#: tp/Texinfo/ParserNonXS.pm:6613 tp/Texinfo/XS/parsetexi/parser.c:1478
+#: tp/Texinfo/ParserNonXS.pm:6613 tp/Texinfo/XS/parsetexi/parser.c:1476
 #, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "makrot ”%s” är redan definierat"
 
-#: tp/Texinfo/ParserNonXS.pm:6616 tp/Texinfo/XS/parsetexi/parser.c:1480
+#: tp/Texinfo/ParserNonXS.pm:6616 tp/Texinfo/XS/parsetexi/parser.c:1478
 #, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "här är den tidigare definitionen av ”%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:6623 tp/Texinfo/XS/parsetexi/parser.c:1485
+#: tp/Texinfo/ParserNonXS.pm:6623 tp/Texinfo/XS/parsetexi/parser.c:1483
 #, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "omdefinierar Texinfo-språkkommando: @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:6803 tp/Texinfo/XS/parsetexi/parser.c:1752
+#: tp/Texinfo/ParserNonXS.pm:6803 tp/Texinfo/XS/parsetexi/parser.c:1751
 msgid "unexpected @"
 msgstr "oväntat @"
 
-#: tp/Texinfo/ParserNonXS.pm:6862 tp/Texinfo/XS/parsetexi/parser.c:1833
+#: tp/Texinfo/ParserNonXS.pm:6862 tp/Texinfo/XS/parsetexi/parser.c:1832
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "macro call nested too deeply (set MAX_NESTED_MACROS to override; current "
@@ -3211,51 +3225,48 @@ msgstr ""
 "aktuellt värde %d)"
 
 #: tp/Texinfo/ParserNonXS.pm:6921 tp/Texinfo/ParserNonXS.pm:7026
-#: tp/Texinfo/ParserNonXS.pm:7064 tp/Texinfo/XS/parsetexi/parser.c:1910
-#: tp/Texinfo/XS/parsetexi/parser.c:2044 tp/Texinfo/XS/parsetexi/parser.c:2096
+#: tp/Texinfo/ParserNonXS.pm:7064 tp/Texinfo/XS/parsetexi/parser.c:1909
+#: tp/Texinfo/XS/parsetexi/parser.c:2040 tp/Texinfo/XS/parsetexi/parser.c:2092
 #, c-format, perl-format
 msgid "@%s expected braces"
 msgstr "@%s förväntade klamrar"
 
-#: tp/Texinfo/ParserNonXS.pm:6937 tp/Texinfo/XS/parsetexi/parser.c:1948
+#: tp/Texinfo/ParserNonXS.pm:6937 tp/Texinfo/XS/parsetexi/parser.c:1946
 #, c-format, perl-format
 msgid "unknown command `%s'"
 msgstr "okänt kommando ”%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:6972 tp/Texinfo/XS/parsetexi/parser.c:1983
-#, fuzzy, c-format, perl-format
-#| msgid "accent command `@%s' must not be followed by new line"
+#: tp/Texinfo/ParserNonXS.pm:6972 tp/Texinfo/XS/parsetexi/parser.c:1979
+#, c-format, perl-format
 msgid "command `@%s' must not be followed by new line"
-msgstr "accentkommando ”@%s” får inte efterföljas av nyrad"
+msgstr "kommandot `@%s' får inte följas av en ny rad"
 
-#: tp/Texinfo/ParserNonXS.pm:7097 tp/Texinfo/XS/parsetexi/parser.c:2169
+#: tp/Texinfo/ParserNonXS.pm:7097 tp/Texinfo/XS/parsetexi/parser.c:2165
 #, c-format, perl-format
 msgid "undefined flag: %s"
 msgstr "odefinierad flagga: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7115 tp/Texinfo/XS/parsetexi/parser.c:2207
-#, fuzzy, c-format, perl-format
-#| msgid "bad name for @%s"
+#: tp/Texinfo/ParserNonXS.pm:7115 tp/Texinfo/XS/parsetexi/parser.c:2203
+#, c-format, perl-format
 msgid "bad syntax for @%s"
-msgstr "felaktigt namn för @%s"
+msgstr "dålig syntax för @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:7123 tp/Texinfo/XS/parsetexi/parser.c:2225
-#, fuzzy, c-format, perl-format
-#| msgid "@%s is obsolete."
+#: tp/Texinfo/ParserNonXS.pm:7123 tp/Texinfo/XS/parsetexi/parser.c:2221
+#, c-format, perl-format
 msgid "@%s is obsolete"
-msgstr "@%s är föråldrat."
+msgstr "@%s är föråldrat"
 
-#: tp/Texinfo/ParserNonXS.pm:7138 tp/Texinfo/XS/parsetexi/parser.c:2250
+#: tp/Texinfo/ParserNonXS.pm:7138 tp/Texinfo/XS/parsetexi/parser.c:2246
 #, c-format, perl-format
 msgid "@%s should only appear at the beginning of a line"
 msgstr "@%s borde enbart uppträda vid början på en rad"
 
-#: tp/Texinfo/ParserNonXS.pm:7237 tp/Texinfo/XS/parsetexi/parser.c:2380
+#: tp/Texinfo/ParserNonXS.pm:7237 tp/Texinfo/XS/parsetexi/parser.c:2376
 msgid "superfluous arguments for node"
 msgstr "överflödiga argument för nod"
 
 #: tp/Texinfo/ParserNonXS.pm:7397 tp/Texinfo/ParserNonXS.pm:7402
-#: tp/Texinfo/XS/parsetexi/parser.c:2606 tp/Texinfo/XS/parsetexi/parser.c:2614
+#: tp/Texinfo/XS/parsetexi/parser.c:2602 tp/Texinfo/XS/parsetexi/parser.c:2610
 #, c-format, perl-format
 msgid "expected @end %s"
 msgstr "förväntade @end %s"
@@ -3408,31 +3419,36 @@ msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s argument måste vara ”top” eller ”bottom”, inte ”%s”"
 
 #: tp/Texinfo/Report.pm:91
-#, perl-format
+#, fuzzy, perl-format
+#| msgctxt "Texinfo source file warning"
+#| msgid "warning: %s (possibly involving @%s)\n"
 msgctxt "Texinfo source file warning"
 msgid "warning: %s (possibly involving @%s)"
-msgstr ""
+msgstr "varning: %s (involverar möjligen @%s)\n"
 
 #: tp/Texinfo/Report.pm:95
 #, fuzzy, perl-format
-#| msgid "%s: warning: "
+#| msgctxt "Texinfo source file warning"
+#| msgid "warning: %s\n"
 msgctxt "Texinfo source file warning"
 msgid "warning: %s"
-msgstr "%s: varning: "
+msgstr "varning: %s\n"
 
 #: tp/Texinfo/Report.pm:156
 #, fuzzy, perl-format
-#| msgid "%s: warning: "
+#| msgctxt "program name: warning: warning_message"
+#| msgid "%s: warning: %s"
 msgctxt "whole document warning"
 msgid "%s: warning: %s"
-msgstr "%s: varning: "
+msgstr "%s: varning: %s"
 
 #: tp/Texinfo/Report.pm:159
 #, fuzzy, perl-format
-#| msgid "%s: warning: "
+#| msgctxt "whole document warning"
+#| msgid "warning: %s\n"
 msgctxt "whole document warning"
 msgid "warning: %s"
-msgstr "%s: varning: "
+msgstr "varning: %s\n"
 
 #: tp/Texinfo/Structuring.pm:161
 #, perl-format
@@ -3525,118 +3541,105 @@ msgstr "tom indexnyckel i @%s"
 msgid "could not protect hash character in @%s"
 msgstr "kunde inte skydda hashtecken i @%s"
 
-#: tp/init/chm.pm:231 tp/init/chm.pm:297 tp/init/chm.pm:377
+#: tp/init/chm.pm:230 tp/init/chm.pm:296 tp/init/chm.pm:376
 #, perl-format
 msgid "chm.pm: could not open %s for writing: %s\n"
 msgstr "chm.pm: kunde inte öppna %s för skrivning: %s\n"
 
-#: tp/init/chm.pm:283 tp/init/chm.pm:363 tp/init/chm.pm:429
+#: tp/init/chm.pm:282 tp/init/chm.pm:362 tp/init/chm.pm:428
 #, perl-format
 msgid "chm.pm: error on closing %s: %s"
 msgstr "chm.pm: fel vid stängning %s: %s"
 
 #: tp/ext/epub3.pm:292
-#, fuzzy, perl-format
-#| msgid "@image file `%s' unreadable: %s"
+#, perl-format
 msgid "@image file `%s' can not be copied"
-msgstr "@image-filen ”%s” är oläslig: %s"
+msgstr "@image fil `%s' kan inte kopieras"
 
 #: tp/ext/epub3.pm:304
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "could not create images directory `%s': %s"
-msgstr "kunde inte skapa katalogen ”%s”: %s"
+msgstr "kunde inte skapa bildkatalogen `%s': %s"
 
 #: tp/ext/epub3.pm:324
-#, fuzzy, perl-format
-#| msgid "could not create directories `%s' or `%s': %s"
+#, perl-format
 msgid "could not copy `%s' to `%s': %s"
-msgstr "kunde inte skapa kataloger ”%s” eller ”%s”: %s"
+msgstr "kunde inte kopiera `%s' till `%s': %s"
 
 #: tp/ext/epub3.pm:404
-#, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#, perl-format
 msgid "error removing directory: %s: %s"
-msgstr "fel vid skrivning till %s: %s"
+msgstr "fel vid borttagning av katalog: %s: %s"
 
 #: tp/ext/epub3.pm:409
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error removing directory: %s: unlinking %s: %s"
-msgstr "fel vid stängning av %s: %s"
+msgstr "fel vid borttagning av katalog: %s: avlänkar %s: %s"
 
 #: tp/ext/epub3.pm:451
 msgid "Archive::Zip is required for EPUB file output"
-msgstr ""
+msgstr "Arkiv::Zip krävs för EPUB-filutmatning"
 
 #: tp/ext/epub3.pm:546
-#, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#, perl-format
 msgid "error creating directory: %s: %s"
-msgstr "fel vid skrivning till %s: %s"
+msgstr "fel vid skapande av katalog: %s: %s"
 
 #: tp/ext/epub3.pm:551
-#, fuzzy, perl-format
-#| msgid "error on closing redirection node file %s: %s"
+#, perl-format
 msgid "error creating directory: %s: creating %s: %s"
-msgstr "fel vid stängning av omdirigeringsnodsfil %s: %s"
+msgstr "fel vid skapande av katalog: %s: skapar %s: %s"
 
 #: tp/ext/epub3.pm:576
 msgid "epub: no filename output"
-msgstr ""
+msgstr "epub: ingen filnamnsutmatning"
 
 #: tp/ext/epub3.pm:587
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "could not create meta informations directory `%s': %s"
-msgstr "kunde inte skapa katalogen ”%s”: %s"
+msgstr "kunde inte skapa metainformationskatalog `%s': %s"
 
 #: tp/ext/epub3.pm:601 tp/ext/epub3.pm:637 tp/ext/epub3.pm:667
 #: tp/ext/epub3.pm:777
-#, fuzzy, perl-format
-#| msgid "chm.pm: could not open %s for writing: %s\n"
+#, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
-msgstr "chm.pm: kunde inte öppna %s för skrivning: %s\n"
+msgstr "epub3.pm: kunde inte öppna %s för skrivning: %s\n"
 
 #: tp/ext/epub3.pm:621 tp/ext/epub3.pm:649 tp/ext/epub3.pm:747
 #: tp/ext/epub3.pm:926
-#, fuzzy, perl-format
-#| msgid "chm.pm: error on closing %s: %s"
+#, perl-format
 msgid "epub3.pm: error on closing %s: %s"
-msgstr "chm.pm: fel vid stängning %s: %s"
+msgstr "epub3.pm: fel vid stängning %s: %s"
 
 #: tp/ext/epub3.pm:878
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: chdir %s failed: %s"
+#, perl-format
 msgid "epub3.pm: readdir %s error: %s"
-msgstr "tex4ht.pm: chdir %s misslyckades: %s"
+msgstr "epub3.pm: fel vid läsning av katalog %s fel: %s"
 
 #: tp/ext/epub3.pm:946 tp/ext/epub3.pm:955 tp/ext/epub3.pm:968
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
-msgstr ""
+msgstr "epub3.pm: fel när %s skulle läggas till i arkivet"
 
 #: tp/ext/epub3.pm:977
 #, perl-format
 msgid "epub3.pm: error writing archive %s"
-msgstr ""
+msgstr "epub3.pm: fel vid skrivning av arkiv %s"
 
 #: tp/ext/highlight_syntax.pm:118 tp/ext/highlight_syntax.pm:352
 #, perl-format
 msgid "%s: %s"
-msgstr ""
+msgstr "%s: %s"
 
 #: tp/ext/highlight_syntax.pm:161 tp/ext/highlight_syntax.pm:183
-#, fuzzy, perl-format
-#| msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
+#, perl-format
 msgid "%s: %s: cannot parse language line"
-msgstr "highlight_syntax.pm: %s: %s: kan inte tolka språkraden"
+msgstr "%s: %s: kunde inte tolka språkraden"
 
 #: tp/ext/highlight_syntax.pm:194
-#, fuzzy, perl-format
-#| msgid "%s is not a valid language code"
+#, perl-format
 msgid "%s: no highlighted language found"
-msgstr "%s är inte en giltig landskod"
+msgstr "%s: inget markerat språk hittades"
 
 #: tp/ext/highlight_syntax.pm:362
 #, fuzzy, perl-format
@@ -3697,14 +3700,9 @@ msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr "highlight_syntax.pm: %s: slut på @%s-objekt %d hittades inte"
 
 #: tp/ext/highlight_syntax.pm:546
-#, fuzzy, perl-format
-#| msgid ""
-#| "highlight_syntax.pm: %s: processing produced %d items in HTML; expected "
-#| "%d, the number found in the document"
+#, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
-msgstr ""
-"highlight_syntax.pm: %s behandling producerade %d HTML-objekt; förväntade "
-"%d, antalet objekt som hittats i dokumentet"
+msgstr "highlight_syntax.pm: %s: hämtade %d objekt i HTML; förväntade %d"
 
 #: tp/ext/highlight_syntax.pm:601
 #, perl-format
@@ -3723,14 +3721,9 @@ msgid "l2h: could not open latex file %s for writing: %s"
 msgstr "l2h: kunde inte öppna latexfil %s för skrivning: %s"
 
 #: tp/ext/latex2html.pm:363
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid "latex2html.pm: processing produced %d items in HTML; expected %d"
-msgstr ""
-"latex2html.pm: behandling producerade %d HTML-objekt; förväntade %d, antalet "
-"objekt som hittats i dokumentet"
+msgstr "latex2html.pm: bearbetning producerade %d objekt i HTML; förväntade %d"
 
 #: tp/ext/latex2html.pm:401
 msgid "l2h: L2H_TMP directory contains a dot"
@@ -3741,10 +3734,8 @@ msgid "l2h: current directory contains a dot"
 msgstr "l2h: aktuell katalog innehåller en punkt"
 
 #: tp/ext/latex2html.pm:414
-#, fuzzy
-#| msgid "l2h: command did not succeed: %s"
 msgid "l2h: command not set"
-msgstr "l2h: kommando misslyckades: %s"
+msgstr "l2h: kommando inte inställt"
 
 #: tp/ext/latex2html.pm:468
 #, perl-format
@@ -3767,26 +3758,19 @@ msgid "l2h: could not open %s: %s"
 msgstr "l2h: kunde inte öppna %s: %s"
 
 #: tp/ext/latex2html.pm:604
-#, fuzzy, perl-format
-#| msgid "latex2html.pm: end of @%s item %d not found"
+#, perl-format
 msgid "latex2html.pm: end of @%s text %d not found"
-msgstr "latex2html.pm: slut på @%s-objekt %d hittades inte"
+msgstr "latex2html.pm: slut på @%s text %d hittades inte"
 
 #: tp/ext/latex2html.pm:684
-#, fuzzy, perl-format
-#| msgid ""
-#| "l2h: could not extract the fragment %d for @%s with output counter %d "
-#| "from HTML"
+#, perl-format
 msgid "l2h: could not extract the fragment %d for @%s, text %d, from HTML"
-msgstr ""
-"l2h: kunde inte extrahera fragment %d för @%s med utmatningsräknare %d från "
-"HTML"
+msgstr "l2h: kunde inte extrahera fragmentet %d för @%s, text %d, från HTML"
 
 #: tp/ext/latex2html.pm:776
-#, fuzzy, perl-format
-#| msgid "l2h: could not open %s: %s"
+#, perl-format
 msgid "l2h: could not compile %s: %s"
-msgstr "l2h: kunde inte öppna %s: %s"
+msgstr "l2h: kunde inte kompilera %s: %s"
 
 #: tp/ext/latex2html.pm:781
 #, perl-format
@@ -3794,10 +3778,9 @@ msgid "l2h: could not load %s: %s"
 msgstr "l2h: kunde inte läsa in %s: %s"
 
 #: tp/ext/latex2html.pm:785
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s\n"
+#, perl-format
 msgid "l2h: error loading %s"
-msgstr "fel vid inläsning av %s: %s\n"
+msgstr "l2h: fel vid inläsning av %s"
 
 #: tp/ext/latex2html.pm:805
 #, perl-format
@@ -3807,17 +3790,17 @@ msgstr "l2h: kunde inte öppna %s för skrivning: %s"
 #: tp/ext/tex4ht.pm:122
 #, perl-format
 msgid "tex4ht.pm: unknown conversion type for math: %s"
-msgstr ""
+msgstr "tex4ht.pm: okänd konverteringstyp för matematik: %s"
 
 #: tp/ext/tex4ht.pm:131
 #, perl-format
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
-msgstr ""
+msgstr "tex4ht.pm: okänd konverteringstyp för @tex: %s"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
-msgstr ""
+msgstr "tex4ht.pm: okänd konverteringstyp för @latex: %s"
 
 #: tp/ext/tex4ht.pm:237 tp/ext/tex4ht.pm:423
 #, perl-format
@@ -3850,21 +3833,17 @@ msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: avslutande kommunikation misslyckades: %s: %s"
 
 #: tp/ext/tex4ht.pm:459
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "tex4ht.pm: end of %s item %d for @%s not found"
-msgstr "tex4ht.pm: slut på @%s-objekt %d hittades inte"
+msgstr "tex4ht.pm: slut på %s objekt %d för @%s hittades inte"
 
 #: tp/ext/tex4ht.pm:468
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid ""
 "tex4ht.pm: processing produced %d items in HTML; expected %d for format %s"
 msgstr ""
-"latex2html.pm: behandling producerade %d HTML-objekt; förväntade %d, antalet "
-"objekt som hittats i dokumentet för @%s"
+"tex4ht.pm: bearbetning producerade %d objekt i HTML; förväntade %d för "
+"format %s"
 
 #: tp/ext/tex4ht.pm:503
 #, perl-format
@@ -3872,30 +3851,19 @@ msgid "tex4ht.pm: output has no HTML item for @%s %s"
 msgstr "tex4ht.pm: utdata har inget HTML-objekt för @%s %s"
 
 #: tp/ext/tex4ht.pm:520
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "tex4ht.pm: output counter UNDEF; expected %d for @%s"
-msgstr "tex4ht.pm: utdata har inget HTML-objekt för @%s %s"
+msgstr "tex4ht.pm: utgångsräknare UNDEF; förväntade %d för @%s"
 
 #: tp/ext/tex4ht.pm:524
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid "tex4ht.pm: no expected items in the document for @%s"
-msgstr ""
-"latex2html.pm: behandling producerade %d HTML-objekt; förväntade %d, antalet "
-"objekt som hittats i dokumentet för @%s"
+msgstr "tex4ht.pm: inga förväntade objekt i dokumentet för @%s"
 
 #: tp/ext/tex4ht.pm:531
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
-msgstr ""
-"latex2html.pm: behandling hämtade %d HTML-objekt; förväntade %d, antalet "
-"objekt som hittats i dokumentet för @%s"
+msgstr "tex4ht.pm: bearbetar hämtade %d objekt i HTML; samlade %d för @%s"
 
 #: tp/texi2any.pl:458
 #, perl-format
@@ -3903,10 +3871,9 @@ msgid "could not read init file %s"
 msgstr "kunde inte läsa initfil %s"
 
 #: tp/texi2any.pl:476
-#, fuzzy, perl-format
-#| msgid "could not read init file %s"
+#, perl-format
 msgid "could not read extension file %s"
-msgstr "kunde inte läsa initfil %s"
+msgstr "kunde inte läsa tilläggsfil %s"
 
 #: tp/texi2any.pl:722
 #, perl-format
@@ -3969,51 +3936,53 @@ msgstr ""
 
 #: tp/texi2any.pl:796
 msgid "Output format selection (default is to produce Info):"
-msgstr ""
+msgstr "Val av utdataformat (standard är att producera info):"
 
 #: tp/texi2any.pl:797
 msgid "      --docbook               output Docbook XML."
-msgstr ""
+msgstr "      --docbook               utdata Docbook XML."
 
 #: tp/texi2any.pl:798
-#, fuzzy
-#| msgid "    --help                  display this help and exit"
 msgid "      --html                  output HTML."
-msgstr "    --help                  visa denna hjälptext och avsluta"
+msgstr "      --html               utdata HTML"
 
 #: tp/texi2any.pl:799
 msgid "      --epub3                 output EPUB 3."
-msgstr ""
+msgstr "      --epub3               utdata EPUB 3."
 
 #: tp/texi2any.pl:800
 msgid "      --latex                 output LaTeX."
-msgstr ""
+msgstr "      --latex               utdata LaTeX"
 
 #: tp/texi2any.pl:801
 msgid "      --plaintext             output plain text rather than Info."
-msgstr ""
+msgstr "      --plaintext             utdata vanlig text istället för Info."
 
 #: tp/texi2any.pl:802
-#, fuzzy
-#| msgid "    --help                  display this help and exit"
 msgid "      --xml                   output Texinfo XML."
-msgstr "    --help                  visa denna hjälptext och avsluta"
+msgstr "      --xml               utdata Texinfo XML."
 
 #: tp/texi2any.pl:803
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
+"      --dvi, --dvipdf, --ps, --pdf  anropa texi2dvi för att generera given "
+"utdata,\n"
+"                                efter att ha kontrollerat giltigheten av "
+"TEXINFO-FILEN."
 
 #: tp/texi2any.pl:807
 msgid "General output options:"
-msgstr ""
+msgstr "Allmänna utdataalternativ:"
 
 #: tp/texi2any.pl:809
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
+"  -E, --macro-expand=FILE     utdata makro-expanderad källkod till FIL,\n"
+"                               ignorerar alla @setfilnamn."
 
 #: tp/texi2any.pl:812
 msgid ""
@@ -4026,18 +3995,26 @@ msgid ""
 "                                Also, if producing Info, write to\n"
 "                                standard output by default."
 msgstr ""
+"      --no-headers            dämpa nodseparatorer, Nod: linjer och menyer\n"
+"                                från Info utdata (vilket producerar vanlig "
+"text)\n"
+"                                eller från HTML (vilket ger kortare utdata.\n"
+"                               Dessutom, om du producerar info, skriv till\n"
+"                                standard utdata som standard."
 
 #: tp/texi2any.pl:818
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
+"      --no-split              dämpa eventuell uppdelning av utdatan;\n"
+"                                generera endast en utdatafil."
 
 #: tp/texi2any.pl:821
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
-msgstr ""
+msgstr "      --[no-]number-sections  utdata kapter och sektionsnummer;"
 
 #: tp/texi2any.pl:824
 msgid ""
@@ -4050,14 +4027,30 @@ msgid ""
 "                                put the output file there.\n"
 "                                Otherwise, DEST names the output file."
 msgstr ""
+"  -o, --output=DEST           utdata till DEST.\n"
+"                                Med uppdeladutdata, skapa DEST som en "
+"katalog\n"
+"                                och stoppa utdata filerna där.\n"
+"                                Med icke uppdeladutdata, om DEST redan "
+"finns\n"
+"                                som en katalog eller slutar med ett a/,\n"
+"                                stoppa utdata filerna där.\n"
+"                                Annars, så är DEST namnen utdata filen."
 
 #: tp/texi2any.pl:832
+#, fuzzy
+#| msgid ""
+#| "      --disable-encoding      do not output accented and special "
+#| "characters\n"
+#| "                                in Info output based on document encoding."
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
 "document\n"
 "                                encoding."
 msgstr ""
+"      --disable-encoding      mata inte ut accenter och specialtecken\n"
+"                                i Info utdata baserat på dokumentkodning."
 
 #: tp/texi2any.pl:836
 msgid "      --enable-encoding       override --disable-encoding (default)."
@@ -4065,13 +4058,15 @@ msgstr ""
 
 #: tp/texi2any.pl:838
 msgid "Options for Info and plain text:"
-msgstr ""
+msgstr "Alternativ för info och vanlig text:"
 
 #: tp/texi2any.pl:840
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
+"      --fill-column=NUM       bryt informationsrader vid NUM kolumner "
+"(standard %d)."
 
 #: tp/texi2any.pl:842
 msgid ""
@@ -4081,6 +4076,12 @@ msgid ""
 "in\n"
 "                                which they are defined (this is the default)."
 msgstr ""
+"      --footnote-style=STYLE  utdata fotnoter i Info enligt STIL:\n"
+"                                `separate' för att placera dem i sin egen "
+"nod;\n"
+"                                `end' för att placera dom vid slutet av "
+"nod;\n"
+"                                som de är definierade (detta är standard)."
 
 #: tp/texi2any.pl:847
 #, perl-format
@@ -4090,12 +4091,18 @@ msgid ""
 "                                If VAL is `none', do not indent; if VAL is\n"
 "                                `asis', preserve existing indentation."
 msgstr ""
+"      --paragraph-indent=VAL dra in Info-stycken med VÄR-mellanslag "
+"(standard %d)\n"
+"                                Om VAL är `none', indrag inte; om VAL är\n"
+"                                `asis', bevara befintlig indragning."
 
 #: tp/texi2any.pl:851
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
+"      --split-size=NUM        dela upp informationsfiler vid storlek NUM "
+"(standard %d)."
 
 #: tp/texi2any.pl:859
 msgid ""
@@ -4134,106 +4141,106 @@ msgstr ""
 
 #: tp/texi2any.pl:874
 msgid "Input file options:"
-msgstr ""
+msgstr "Inmatningsfilalternativ:"
 
 #: tp/texi2any.pl:875
 msgid " -D VAR                       define the variable VAR, as with @set."
-msgstr ""
+msgstr " -D VAR                       definiera variabeln VAR, som med @set."
 
 #: tp/texi2any.pl:876
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
+" -D 'VAR VAL'                 definiera VAR till VAL (ett skal-argument)."
 
 #: tp/texi2any.pl:877
 msgid " -I DIR                       append DIR to the @include search path."
-msgstr ""
+msgstr " -I KAT                       lägg till KAT till @include-sökvägen."
 
 #: tp/texi2any.pl:878
 msgid " -P DIR                       prepend DIR to the @include search path."
-msgstr ""
+msgstr " -P KAT                       lägg KAT till @include-sökvägen."
 
 #: tp/texi2any.pl:879
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
+" -U VAR                       odefiniera variabeln VAR, som med @clear."
 
 #: tp/texi2any.pl:881
 msgid "Conditional processing in input:"
-msgstr ""
+msgstr "Villkorlig bearbetning i indata:"
 
 #: tp/texi2any.pl:882
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
+"  --ifdocbook       bearbeta @ifdocbook och @docbook även om\n"
+"                      du inte genererar Docbook."
 
 #: tp/texi2any.pl:884
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
+"  --ifhtml          bearbeta @ifhtml och @html även om HTML inte genereras."
 
 #: tp/texi2any.pl:885
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
+"  --ifinfo          bearbeta @ifinfo även om information inte genereras."
 
 #: tp/texi2any.pl:886
 msgid "  --iflatex         process @iflatex and @latex."
-msgstr ""
+msgstr "  --iflatex         bearbeta @iflatex och @latex."
 
 #: tp/texi2any.pl:887
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
+"  --ifplaintext     bearbeta @ifplaintext även om du inte genererar vanlig "
+"text."
 
 #: tp/texi2any.pl:888
 msgid "  --iftex           process @iftex and @tex."
-msgstr ""
+msgstr "  --iftex           bearbeta @iftex och @tex."
 
 #: tp/texi2any.pl:889
 msgid "  --ifxml           process @ifxml and @xml."
-msgstr ""
+msgstr "  --ifxml           bearbeta @ifxml och @xml."
 
 #: tp/texi2any.pl:890
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
-msgstr ""
+msgstr "  --no-ifdocbook    bearbeta inte @ifdocbook och @docbook text."
 
 #: tp/texi2any.pl:891
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
-msgstr ""
+msgstr "  --no-ifhtml       bearbeta inte @ifhtml och @html text."
 
 #: tp/texi2any.pl:892
 msgid "  --no-ifinfo       do not process @ifinfo text."
-msgstr ""
+msgstr "  --no-ifinfo       bearbeta inte @ifinfo-text."
 
 #: tp/texi2any.pl:893
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
-msgstr ""
+msgstr "  --no-iflatex      bearbeta inte @iflatex och @latex text."
 
 #: tp/texi2any.pl:894
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
-msgstr ""
+msgstr "  --no-ifplaintext  bearbeta inte @ifplaintext-text."
 
 #: tp/texi2any.pl:895
 msgid "  --no-iftex        do not process @iftex and @tex text."
-msgstr ""
+msgstr "  --no-iftex        bearbeta inte @iftex och @tex text."
 
 #: tp/texi2any.pl:896
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
-msgstr ""
+msgstr "  --no-ifxml        bearbeta inte @ifxml och @xml text."
 
 #: tp/texi2any.pl:898
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
-msgstr ""
+msgstr "  För alternativet --no-ifFORMAT, bearbeta även @ifnotFORMAT text."
 
 #: tp/texi2any.pl:902
-#, fuzzy
-#| msgid ""
-#| "  The defaults for the @if... conditionals depend on the output format:\n"
-#| "  if generating Docbook, --ifdocbook is on and the others are off;\n"
-#| "  if generating HTML, --ifhtml is on and the others are off;\n"
-#| "  if generating Info, --ifinfo is on and the others are off;\n"
-#| "  if generating plain text, --ifplaintext is on and the others are off;\n"
-#| "  if generating XML, --ifxml is on and the others are off.\n"
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -4243,12 +4250,13 @@ msgid ""
 "  if generating LaTeX, --iflatex is on and the others are off;\n"
 "  if generating XML, --ifxml is on and the others are off."
 msgstr ""
-"  Standardvärdena för @if...-villkoren beror på utdataformatet:\n"
+"Standardinställningarna för @if...-villkoren beror på utdataformatet:\n"
 "  om DocBook genereras är --ifdocbook på och de andra av;\n"
 "  om HTML genereras är --ifhtml på och de andra av;\n"
 "  om Info genereras är --ifinfo på och de andra av;\n"
 "  om vanlig text genereras är --ifplaintext på och de andra av;\n"
-"  om XML genereras är --ifxml på och de andra av.\n"
+"  om LaTeX genereras är --iflatex på och de andra av;\n"
+"  om XML genereras är --ifxml på och de andra av."
 
 #: tp/texi2any.pl:913
 msgid ""
@@ -4365,7 +4373,7 @@ msgstr ""
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: fel vid stängning av intern länkfil %s: %s\n"
 
-#: tp/Texinfo/XS/parsetexi/close.c:519
+#: tp/Texinfo/XS/parsetexi/close.c:518
 #, c-format
 msgid "unmatched `@end %s'"
 msgstr "omatchat ”@end %s”"
@@ -4398,25 +4406,25 @@ msgstr "felaktigt argument till @end: %s"
 msgid "@include: could not find %s"
 msgstr "@include: kunde inte hitta %s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1299
+#: tp/Texinfo/XS/parsetexi/end_line.c:1298
 #, fuzzy, c-format
 #| msgid "@include: could not open %s:"
 msgid "@include: could not open %s: %s"
 msgstr "@include: kunde inte öppna %s:"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1688
+#: tp/Texinfo/XS/parsetexi/end_line.c:1687
 msgid "@setfilename after the first element"
 msgstr "@setfilename efter första elementet"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1695
+#: tp/Texinfo/XS/parsetexi/end_line.c:1694
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions är inte meningsfullt utanför @multitabell-rad"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1730
+#: tp/Texinfo/XS/parsetexi/end_line.c:1729
 msgid "@part should not be associated with @top"
 msgstr "@part borde inte associeras med @top"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1743
+#: tp/Texinfo/XS/parsetexi/end_line.c:1742
 msgid "@node precedes @part, but parts may not be associated with nodes"
 msgstr "@node föregår @part, men delar kanske inte associeras med noder"
 
@@ -4440,19 +4448,15 @@ msgstr "@\\ borde endast förekomma i matematikkontext"
 msgid "@subentry should only occur in an index entry"
 msgstr "@subentry borde endast förekomma i en indexpost"
 
-#: tp/Texinfo/XS/parsetexi/macro.c:189
+#: tp/Texinfo/XS/parsetexi/macro.c:188
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr "felaktigt eller tomt @%s formellt argument: "
 
-#: tp/Texinfo/XS/parsetexi/parser.c:2227
+#: tp/Texinfo/XS/parsetexi/parser.c:2223
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s är föråldrat; %s"
-
-#, c-format
-#~ msgid "@dotless expects `i' or `j' as argument, not `%c'"
-#~ msgstr "@dotless förväntar sig ”i” eller ”j” som argument, inte ”%c”"
 
 #, perl-format
 #~ msgid "%c%s requires a name"
@@ -4467,6 +4471,18 @@ msgstr "@%s är föråldrat; %s"
 #~ msgstr "inge matchning ”%cend %s”"
 
 #, perl-format
+#~ msgid "misplaced %c"
+#~ msgstr "felplacerat %c"
+
+#, perl-format
+#~ msgid "%s requires an argument: the formatter for %citem"
+#~ msgstr "%s kräver ett argument: formateraren för %citem"
+
+#, perl-format
+#~ msgid "superfluous argument to @%s %s: %s"
+#~ msgstr "överflödigt argument till @%s %s: %s"
+
+#, perl-format
 #~ msgid "@%s without associated character"
 #~ msgstr "@%s utan associerat tecken"
 
@@ -4474,15 +4490,13 @@ msgstr "@%s är föråldrat; %s"
 #~ msgid "%c%s expects `i' or `j' as argument, not `%s'"
 #~ msgstr "%c%s förväntar sig ”i” eller ”j” som argument, inte ”%s”"
 
-#, fuzzy, perl-format
-#~| msgid "bad syntax for @value"
+#, perl-format
 #~ msgid "bad syntax for %c%s"
-#~ msgstr "felaktig syntax för @value"
+#~ msgstr "dålig syntax för %c%s"
 
-#, fuzzy, perl-format
-#~| msgid "%c%s is obsolete."
+#, perl-format
 #~ msgid "%c%s is obsolete"
-#~ msgstr "%c%s är föråldrat."
+#~ msgstr "%c%s är föråldrat"
 
 #, perl-format
 #~ msgid "@%s not allowed inside `@%s' block"
@@ -4493,6 +4507,10 @@ msgstr "@%s är föråldrat; %s"
 #~ "@%s not meaningful outside `@titlepage' and `@quotation' environments"
 #~ msgstr ""
 #~ "@%s är inte meningsfullt utanför ”@titlepage”- och ”@quotation”-omgivning"
+
+#, c-format, perl-format
+#~ msgid "region %s inside region %s is not allowed"
+#~ msgstr "region %s inuti region %s är inte tillåtet"
 
 #, perl-format
 #~ msgid "@%s should only accept an @-command as argument, not `%s'"
@@ -4518,22 +4536,38 @@ msgstr "@%s är föråldrat; %s"
 #~ msgid "@%s arg must be `on', `off' or `odd', not `%s'"
 #~ msgstr "@%s argument måste vara ”on”, ”off” eller ”odd”, inte ”%s”"
 
+#, perl-format
+#~ msgctxt "whole document warning"
+#~ msgid "%s: warning: %s\n"
+#~ msgstr "%s: varning: %s\n"
+
+#, perl-format
+#~ msgctxt "program name: warning: warning_message"
+#~ msgid "%s: warning: %s\n"
+#~ msgstr "%s: varning: %s\n"
+
+#~ msgid ""
+#~ "      --enable-encoding       based on document encoding, output "
+#~ "accented\n"
+#~ "                                characters in XML-based output as well "
+#~ "as\n"
+#~ "                                special characters in HTML instead of\n"
+#~ "                                entities."
+#~ msgstr ""
+#~ "      --enable-encoding       baserat på dokumentkodning, utdata med "
+#~ "accent\n"
+#~ "                                tecken i XML-baserad utdata as såväl som\n"
+#~ "                                specialtecken i HTML istället för\n"
+#~ "                                entiteter."
+
 #, c-format
 #~ msgid "@firstparagraph arg must be `none' or `insert', not `%s'"
 #~ msgstr ""
 #~ "@firstparagraph-argument måste vara ”none” eller ”insert”, inte ”%s”"
 
-#, perl-format
-#~ msgid "misplaced %c"
-#~ msgstr "felplacerat %c"
-
-#, perl-format
-#~ msgid "superfluous argument to @%s %s: %s"
-#~ msgstr "överflödigt argument till @%s %s: %s"
-
-#, c-format, perl-format
-#~ msgid "region %s inside region %s is not allowed"
-#~ msgstr "region %s inuti region %s är inte tillåtet"
+#, c-format
+#~ msgid "%s requires an argument: the formatter for @item"
+#~ msgstr "%s kräver ett argument: formateraren för @item"
 
 #~ msgid "unmatched `@end'"
 #~ msgstr "omatchat ”@end”"
@@ -4542,25 +4576,9 @@ msgstr "@%s är föråldrat; %s"
 #~ msgid "superfluous argument to @end %s: %s"
 #~ msgstr "överflödigt argument till @end %s: %s"
 
-#, perl-format
-#~ msgid "%s requires an argument: the formatter for %citem"
-#~ msgstr "%s kräver ett argument: formateraren för %citem"
-
 #, c-format
-#~ msgid "%s requires an argument: the formatter for @item"
-#~ msgstr "%s kräver ett argument: formateraren för @item"
-
-#, fuzzy, perl-format
-#~| msgid "%s: warning: "
-#~ msgctxt "whole document warning"
-#~ msgid "%s: warning: %s\n"
-#~ msgstr "%s: varning: "
-
-#, fuzzy, perl-format
-#~| msgid "%s: warning: "
-#~ msgctxt "program name: warning: warning_message"
-#~ msgid "%s: warning: %s\n"
-#~ msgstr "%s: varning: "
+#~ msgid "@dotless expects `i' or `j' as argument, not `%c'"
+#~ msgstr "@dotless förväntar sig ”i” eller ”j” som argument, inte ”%c”"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr ""
@@ -4594,27 +4612,21 @@ msgstr "@%s är föråldrat; %s"
 #~ "  info --subnodes -o ut.txt emacs  dumpa hela emacs-manualen till ut.txt\n"
 #~ "  info -f ./foo.info         visa filen ./foo.info, sök inte i katalogen"
 
-#, perl-format
 #~ msgid "@%s node name should not contain `:'"
 #~ msgstr "@%s-nodnamn borde inte innehålla ”:”"
 
-#, c-format, perl-format
 #~ msgid "accent command `@%s' must not be followed by whitespace"
 #~ msgstr "apostrofkommando ”@%s” får inte följa på blanksteg"
 
-#, c-format, perl-format
 #~ msgid "use braces to give a command as an argument to @%s"
 #~ msgstr "använd klamrar för att ge ett kommando som ett argument till @%s"
 
-#, perl-format
 #~ msgid "%c%s is obsolete; %s"
 #~ msgstr "%c%s är föråldrat; %s"
 
-#, perl-format
 #~ msgid "l2h: could not determine the fragment %d for @%s"
 #~ msgstr "l2h: kunde inte avgöra fragment %d för @%s"
 
-#, perl-format
 #~ msgid "highlight_syntax.pm: command failed: %s"
 #~ msgstr "highlight_syntax.pm: kommando misslyckades: %s"
 
@@ -4687,7 +4699,6 @@ msgstr "@%s är föråldrat; %s"
 #~ "                              placera utdatafilen där.\n"
 #~ "                              Annars anger DEST namnet på utdatafilen.\n"
 
-#, perl-format
 #~ msgid ""
 #~ "Options for Info and plain text:\n"
 #~ "      --disable-encoding      do not output accented and special "
@@ -4805,7 +4816,6 @@ msgstr "@%s är föråldrat; %s"
 #~ "\n"
 #~ "  Dessutom, för flaggorna --no-ifFORMAT, behandla @ifnotFORMAT-text.\n"
 
-#, c-format
 #~ msgid "@%s not meaningful inside @%s block"
 #~ msgstr "@%s är inte meningsfullt inuti ”@%s”-block"
 

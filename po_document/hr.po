@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-08-06 18:05+0200\n"
+"POT-Creation-Date: 2023-08-15 11:56+0100\n"
 "PO-Revision-Date: 2022-11-06 17:20-0800\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -23,13 +23,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: tp/ext/epub3.pm:672
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Table of contents"
 msgstr "Sadržaj"
 
 #. TRANSLATORS: abbreviation or acronym explanation
-#: tp/init/html32.pm:197 tp/Texinfo/Convert/HTML.pm:3105
+#: tp/init/html32.pm:196 tp/Texinfo/Convert/HTML.pm:3105
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
@@ -58,7 +56,7 @@ msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Varijabla"
 
-#. TRANSLATORS: category of users-modifiable options for @defopt
+#. TRANSLATORS: category of user-modifiable options for @defopt
 #: tp/Texinfo/Common.pm:639
 msgid "User Option"
 msgstr "Korisnička opcija"
@@ -66,7 +64,7 @@ msgstr "Korisnička opcija"
 #: tp/Texinfo/Common.pm:642
 #, fuzzy
 #| msgid "Function"
-msgctxt "category of general definition for functions for @deftypefun"
+msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Funkcija"
 
@@ -116,7 +114,7 @@ msgstr " --- Detaljan popis čvorova ---"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Translations.pm:375
+#: tp/Texinfo/Translations.pm:387
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} na {class}"
@@ -124,7 +122,7 @@ msgstr "{name} na {class}"
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables or
 #. instance variable.
-#: tp/Texinfo/Translations.pm:379
+#: tp/Texinfo/Translations.pm:391
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} od {class}"
@@ -134,83 +132,35 @@ msgstr "{name} od {class}"
 msgid "error@arrow{}"
 msgstr "greška@arrow{}"
 
-#: tp/Texinfo/Convert/Converter.pm:119
-msgid "January"
-msgstr "siječanj"
-
-#: tp/Texinfo/Convert/Converter.pm:120
-msgid "February"
-msgstr "veljača"
-
-#: tp/Texinfo/Convert/Converter.pm:121
-msgid "March"
-msgstr "ožujak"
-
-#: tp/Texinfo/Convert/Converter.pm:122
-msgid "April"
-msgstr "travanj"
-
-#: tp/Texinfo/Convert/Converter.pm:123
-msgid "May"
-msgstr "svibanj"
-
-#: tp/Texinfo/Convert/Converter.pm:124
-msgid "June"
-msgstr "lipanj"
-
-#: tp/Texinfo/Convert/Converter.pm:125
-msgid "July"
-msgstr "srpanj"
-
-#: tp/Texinfo/Convert/Converter.pm:126
-msgid "August"
-msgstr "kolovoz"
-
-#: tp/Texinfo/Convert/Converter.pm:127
-msgid "September"
-msgstr "rujan"
-
-#: tp/Texinfo/Convert/Converter.pm:128
-msgid "October"
-msgstr "listopad"
-
-#: tp/Texinfo/Convert/Converter.pm:129
-msgid "November"
-msgstr "studeni"
-
-#: tp/Texinfo/Convert/Converter.pm:130
-msgid "December"
-msgstr "prosinac"
-
-#: tp/Texinfo/Convert/Converter.pm:1265 tp/Texinfo/Convert/Converter.pm:1318
+#: tp/Texinfo/Convert/Converter.pm:1245 tp/Texinfo/Convert/Converter.pm:1298
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1269 tp/Texinfo/Convert/Converter.pm:1322
+#: tp/Texinfo/Convert/Converter.pm:1249 tp/Texinfo/Convert/Converter.pm:1302
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tp/Texinfo/Convert/Converter.pm:1274 tp/Texinfo/Convert/Converter.pm:1333
+#: tp/Texinfo/Convert/Converter.pm:1254 tp/Texinfo/Convert/Converter.pm:1313
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1307
+#: tp/Texinfo/Convert/Converter.pm:1287
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1312
+#: tp/Texinfo/Convert/Converter.pm:1292
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1330
+#: tp/Texinfo/Convert/Converter.pm:1310
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
@@ -344,21 +294,21 @@ msgid "@{No value for `{value}'@}"
 msgstr "@{nema vrijednosti za „{value}“@}"
 
 #. TRANSLATORS: quotation author
-#: tp/Texinfo/Convert/LaTeX.pm:4351 tp/Texinfo/Convert/Plaintext.pm:3817
+#: tp/Texinfo/Convert/LaTeX.pm:4351 tp/Texinfo/Convert/Plaintext.pm:3818
 #: tp/Texinfo/Convert/HTML.pm:4964
 #, perl-brace-format
 msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1248 tp/Texinfo/Convert/HTML.pm:1104
-#: tp/Texinfo/Convert/Utils.pm:319
+#: tp/Texinfo/Convert/Utils.pm:339
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr "Privitak {number} {section_title}"
 
 #. TRANSLATORS: numbered section title
 #: tp/Texinfo/Convert/Plaintext.pm:1254 tp/Texinfo/Convert/HTML.pm:1111
-#: tp/Texinfo/Convert/Utils.pm:323
+#: tp/Texinfo/Convert/Utils.pm:343
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
@@ -1211,14 +1161,62 @@ msgstr "Pododlomak jedan-četri"
 msgid "Untitled Document"
 msgstr "Dokument bez naslova"
 
+#: tp/Texinfo/Convert/Utils.pm:76
+msgid "January"
+msgstr "siječanj"
+
+#: tp/Texinfo/Convert/Utils.pm:77
+msgid "February"
+msgstr "veljača"
+
+#: tp/Texinfo/Convert/Utils.pm:78
+msgid "March"
+msgstr "ožujak"
+
+#: tp/Texinfo/Convert/Utils.pm:79
+msgid "April"
+msgstr "travanj"
+
+#: tp/Texinfo/Convert/Utils.pm:80
+msgid "May"
+msgstr "svibanj"
+
+#: tp/Texinfo/Convert/Utils.pm:81
+msgid "June"
+msgstr "lipanj"
+
+#: tp/Texinfo/Convert/Utils.pm:82
+msgid "July"
+msgstr "srpanj"
+
+#: tp/Texinfo/Convert/Utils.pm:83
+msgid "August"
+msgstr "kolovoz"
+
+#: tp/Texinfo/Convert/Utils.pm:84
+msgid "September"
+msgstr "rujan"
+
+#: tp/Texinfo/Convert/Utils.pm:85
+msgid "October"
+msgstr "listopad"
+
 #: tp/Texinfo/Convert/Utils.pm:86
+msgid "November"
+msgstr "studeni"
+
+#: tp/Texinfo/Convert/Utils.pm:87
+msgid "December"
+msgstr "prosinac"
+
+#: tp/Texinfo/Convert/Utils.pm:106
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr "{day} {month} {year}"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Convert/Utils.pm:160
+#: tp/Texinfo/Convert/Utils.pm:180
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr "{category} na @code{{class}}"
@@ -1226,14 +1224,10 @@ msgstr "{category} na @code{{class}}"
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables
 #. or instance variable.
-#: tp/Texinfo/Convert/Utils.pm:173
+#: tp/Texinfo/Convert/Utils.pm:193
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} od @code{{class}}"
-
-#, perl-brace-format
-#~ msgid "@center --- @emph{{author}}\n"
-#~ msgstr "@center --- @emph{{author}}\n"
 
 #, perl-brace-format
 #~ msgid "{float_type} {float_number}\n"
@@ -1246,6 +1240,10 @@ msgstr "{category} od @code{{class}}"
 #, perl-brace-format
 #~ msgid "{float_number}\n"
 #~ msgstr "{float_number}\n"
+
+#, perl-brace-format
+#~ msgid "@center --- @emph{{author}}\n"
+#~ msgstr "@center --- @emph{{author}}\n"
 
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
 #~ msgstr "Pogledajte Info-datoteku @file{{myfile}}, čvor @samp{{mynode}}"
