@@ -25,8 +25,8 @@ sub run_test($$$)
 
 #print STDERR DebugTexinfo::DebugTree::convert_tree(undef, $tree)."\n";
 
-  my $corrected_tree = move_index_entries_after_items_in_tree($tree);
-  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
+  move_index_entries_after_items_in_tree($tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";

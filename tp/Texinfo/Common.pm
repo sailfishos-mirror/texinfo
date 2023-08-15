@@ -2479,7 +2479,7 @@ sub _move_index_entries_after_items($$)
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
-  return modify_tree($tree, \&_move_index_entries_after_items);
+  modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 sub _relate_index_entries_to_table_items_in($$)
