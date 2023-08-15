@@ -413,10 +413,10 @@ relate_index_entries_to_table_items_internal (const char *type,
   return 0;
 }
 
-ELEMENT *
+void
 relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                                              INDEX **indices_information)
 {
-  return modify_tree (tree, &relate_index_entries_to_table_items_internal,
-                      indices_information);
+  modify_tree (tree, &relate_index_entries_to_table_items_internal,
+               indices_information);
 }
