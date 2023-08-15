@@ -74,7 +74,7 @@ install-data-local:
 	@echo "             texinfo.tex and txi-??.tex manually,"
 	@echo "         perhaps in TEXMF/tex/texinfo/,"
 	@echo "         where TEXMF is a root of your TeX tree."
-	@echo "         See doc/README for some considerations."
+	@echo "         See INSTALL for some considerations."
 	@echo "         You can run make TEXMF=/your/texmf install-tex to do this."
 	@echo
 	@echo "         You may also need to install epsf.tex in"

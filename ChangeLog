@@ -1,5 +1,12 @@
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* INSTALL: integrate text from doc/README about *.tex installation.
+	use https: for ftp.gnu.org link.
+	* doc/README: eliminate file.
+	* doc/Makefile.am (install-data-local): update reference to INSTALL.
+
+2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session.c: removed unused variable.
 
 2023-08-15  Gavin Smith <gavinsmith0123@gmail.com>
