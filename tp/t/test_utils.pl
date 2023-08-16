@@ -405,7 +405,7 @@ sub _duplicate_element_keys($$)
     $current->{'source_info'} = $new_source_info;
   }
 
-  return ($current);
+  return undef;
 }
 
 sub duplicate_tree_element_keys($)

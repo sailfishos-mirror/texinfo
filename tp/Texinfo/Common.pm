@@ -2223,31 +2223,40 @@ sub modify_tree($$;$)
   if ($tree->{'args'}) {
     my @args = @{$tree->{'args'}};
     for (my $i = 0; $i <= $#args; $i++) {
-      my @new_args = &$operation('arg', $args[$i], $argument);
+      my $new_args = &$operation('arg', $args[$i], $argument);
       modify_tree($args[$i], $operation, $argument);
-      # this puts the new args at the place of the old arg using the
-      # offset from the end of the array
-      splice (@{$tree->{'args'}}, $i - $#args -1, 1, @new_args);
+      if ($new_args) {
+        # this puts the new args at the place of the old arg using the
+        # offset from the end of the array
+        splice (@{$tree->{'args'}}, $i - $#args -1, 1, @$new_args);
+      }
     }
   }
   if ($tree->{'contents'}) {
     my @contents = @{$tree->{'contents'}};
     for (my $i = 0; $i <= $#contents; $i++) {
-      my @new_contents = &$operation('content', $contents[$i], $argument);
+      my $new_contents = &$operation('content', $contents[$i], $argument);
       modify_tree($contents[$i], $operation, $argument);
-      # this puts the new contents at the place of the old content using the
-      # offset from the end of the array
-      splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @new_contents);
+      if ($new_contents) {
+        if (ref $new_contents ne 'ARRAY') {
+          cluck;
+        }
+        # this puts the new contents at the place of the old content using the
+        # offset from the end of the array
+        splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @$new_contents);
+      }
     }
   }
   if ($tree->{'source_marks'}) {
     my @source_marks = @{$tree->{'source_marks'}};
     for (my $i = 0; $i <= $#source_marks; $i++) {
       if ($source_marks[$i]->{'element'}) {
-        my @new_element
+        my $new_element
           = &$operation('source_mark', $source_marks[$i]->{'element'},
                         $argument);
-        $source_marks[$i]->{'element'} = $new_element[0];
+        if ($new_element) {
+          $source_marks[$i]->{'element'} = $new_element->[0];
+        }
       }
     }
   }
@@ -2320,10 +2329,10 @@ sub _protect_text($$)
       }
     }
     #print STDERR "_protect_text: Result: @result\n";
-    return @result;
+    return \@result;
   } else {
     #print STDERR "_protect_text: No change\n";
-    return ($current);
+    return undef;
   }
 }
 
@@ -2467,7 +2476,7 @@ sub _move_index_entries_after_items($$)
                                  or $current->{'cmdname'} eq 'itemize')) {
     move_index_entries_after_items($current);
   }
-  return ($current);
+  return undef;
 }
 
 # For @itemize/@enumerate
@@ -2559,7 +2568,7 @@ sub _relate_index_entries_to_table_items($$$)
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'table') {
     _relate_index_entries_to_table_items_in($current, $indices_information);
   }
-  return $current;
+  return undef;
 }
 
 sub relate_index_entries_to_table_items_in_tree($$)

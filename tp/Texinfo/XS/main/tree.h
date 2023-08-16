@@ -20,6 +20,7 @@ void insert_slice_into_args (ELEMENT *to, int where, ELEMENT *from,
                             int start, int end);
 ELEMENT *remove_from_element_list (ELEMENT_LIST *list, int where);
 ELEMENT *remove_from_contents (ELEMENT *parent, int where);
+ELEMENT *remove_from_args (ELEMENT *parent, int where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);
 ELEMENT *last_args_child (ELEMENT *current);
 ELEMENT *last_contents_child (ELEMENT *current);

@@ -3,7 +3,7 @@
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version. 
+   (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -14,7 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <config.h>
-    
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -160,7 +160,7 @@ relate_index_entries_to_table_items_in_tree (tree_in, indices_information)
           }
         relate_index_entries_to_table_items_in_tree (document->tree,
                                                      document->index_names);
-    
+
 
 void
 move_index_entries_after_items_in_tree (tree_in)
@@ -192,5 +192,38 @@ move_index_entries_after_items_in_tree (tree_in)
             return;
           }
         move_index_entries_after_items_in_tree (document->tree);
+
+# the root of a registered tree will not be modified, so it is not particularly
+# interesting to return it.
+void
+reference_to_arg_in_tree (tree_in)
+        SV *tree_in
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_tree_in;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: reference_to_arg_in_tree:"
+                             "no tree_document_descriptor\n");
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        reference_to_arg_in_tree (document->tree);
 
 

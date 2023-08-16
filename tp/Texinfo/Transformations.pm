@@ -60,6 +60,10 @@ sub import {
         "Texinfo::Transformations::_XS_fill_gaps_in_sectioning",
         "Texinfo::StructTransf::fill_gaps_in_sectioning"
       );
+      #Texinfo::XSLoader::override(
+      #  "Texinfo::Transformations::_XS_reference_to_arg_in_tree",
+      #  "Texinfo::StructTransf::reference_to_arg_in_tree"
+      #);
     }
     $module_loaded = 1;
   }
@@ -212,6 +216,7 @@ sub _reference_to_arg($$$)
   my $type = shift;
   my $current = shift;
 
+  # FIXME remove from internal references list?
   if ($current->{'cmdname'} and
       $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
       and $current->{'args'}) {
@@ -224,28 +229,35 @@ sub _reference_to_arg($$$)
     }
     foreach my $index (@args_try_order) {
       if (defined($current->{'args'}->[$index])) {
-        my $content = $current->{'args'}->[$index];
-        # this will not detect if the content expands as spaces only, like
+        my $arg = $current->{'args'}->[$index];
+        # this will not detect if the arg expands as spaces only, like
         # @asis{ }, @ , but it is not an issue or could even be considered
         # as a feature.
-        if (!Texinfo::Common::is_content_empty($content)) {
+        if (!Texinfo::Common::is_content_empty($arg)) {
+          # avoid the type and spaces by getting only the contents
           my $result
-            = {'contents' => $content->{'contents'},
+            = {'contents' => $arg->{'contents'},
                         'parent' => $current->{'parent'}};
-          return ($result);
+          return [$result];
         }
       }
     }
     return {'text' => '', 'parent' => $current->{'parent'}};
   } else {
-    return ($current);
+    return undef;
   }
 }
 
 sub reference_to_arg_in_tree($)
 {
   my $tree = shift;
+  _XS_reference_to_arg_in_tree($tree);
   return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
+}
+
+sub _XS_reference_to_arg_in_tree($)
+{
+  return undef;
 }
 
 # prepare and add a new node as a possible cross reference targets
@@ -388,7 +400,7 @@ sub _reassociate_to_node($$$$)
     }
     $current->{'extra'}->{'element_node'} = $new_node;
   }
-  return ($current);
+  return undef;
 }
 
 sub insert_nodes_for_sectioning_commands($;$$)
@@ -807,9 +819,9 @@ sub _protect_hashchar_at_line_beginning($$$)
                      'args' => [{'type' => 'brace_command_arg'}]};
     }
     push @result, $current;
-    return @result;
+    return \@result;
   } else {
-    return ($current);
+    return undef;
   }
 }
 

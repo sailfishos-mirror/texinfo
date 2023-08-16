@@ -8,5 +8,6 @@ ELEMENT *fill_gaps_in_sectioning (ELEMENT *root);
 void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                                     INDEX **indices_information);
 void move_index_entries_after_items_in_tree (ELEMENT *tree);
+ELEMENT *reference_to_arg_in_tree (ELEMENT *tree);
 
 #endif

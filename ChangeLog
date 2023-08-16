@@ -1,5 +1,30 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (modify_tree, _protect_text)
+	(_move_index_entries_after_items)
+	(_relate_index_entries_to_table_items), tp/Texinfo/Transformations.pm
+	(_reference_to_arg, _reassociate_to_node)
+	(_protect_hashchar_at_line_beginning), tp/t/test_utils.pl
+	(_duplicate_element_keys): the function called by modify
+	tree should now return a reference on an array holding the contents to
+	be inserted, or undef, if the tree does not need to be modified.
+
+	* tp/Texinfo/XS/main/transformations.c (is_content_empty): implement
+	is_content_empty.
+
+	* tp/Texinfo/XS/main/tree.c (remove_from_args): add.
+
+	* tp/Texinfo/Transformations.pm (_XS_reference_to_arg_in_tree)
+	(reference_to_arg_in_tree), tp/Texinfo/XS/main/StructTransf.xs
+	(reference_to_arg_in_tree), tp/Texinfo/XS/main/transformations.c
+	(reference_to_arg_internal, reference_to_arg_in_tree): implementation
+	of reference_to_arg_in_tree in XS.
+
+	* tp/Texinfo/Transformations.pm (_reference_to_arg): change name of
+	$content variable to $arg.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/reference_to_text_in_tree.t (run_test): call convert_to_texinfo
 	on the main tree, such that it will work with XS code registering
 	in the main tree.

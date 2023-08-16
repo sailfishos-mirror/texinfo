@@ -351,6 +351,13 @@ remove_from_contents (ELEMENT *parent, int where)
   return remove_from_element_list (list, where);
 }
 
+ELEMENT *
+remove_from_args (ELEMENT *parent, int where)
+{
+  ELEMENT_LIST *list = &parent->args;
+  return remove_from_element_list (list, where);
+}
+
 /* Remove elements from START inclusive to END exclusive.  Do not
    free any of them. */
 void
