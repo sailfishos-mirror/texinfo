@@ -36,6 +36,11 @@ typedef struct {
   size_t space;
 } ERROR_MESSAGE_LIST;
 
+struct expanded_format {
+    char *format;
+    int expandedp;
+};
+
 typedef struct GLOBAL_INFO {
     char *input_file_name;
     char *global_input_encoding_name;
@@ -112,6 +117,7 @@ typedef struct GLOBAL_INFO {
 } GLOBAL_INFO;
 
 int isascii_alnum (int c);
+int isascii_alpha (int c);
 int isascii_lower (int c);
 int isascii_upper (int c);
 
@@ -120,8 +126,14 @@ void delete_global_info (GLOBAL_INFO *global_info_ref);
 void fatal (char *);
 void bug (char *);
 
+char *normalize_encoding_name (char *text, int *possible_encoding);
 ELEMENT *get_label_element (ELEMENT *e);
 char * read_flag_name (char **ptr);
+
+struct expanded_format *new_expanded_formats (char *format);
+void clear_expanded_formats (struct expanded_format *formats);
+void add_expanded_format (struct expanded_format *formats, char *format);
+int format_expanded_p (struct expanded_format *formats, char *format);
 
 ELEMENT *copy_tree (ELEMENT *current, ELEMENT *parent);
 

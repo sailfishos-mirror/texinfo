@@ -3342,7 +3342,7 @@ sub _in_include($)
 # name containing an at sign or braces, but no other commands nor element
 # types.  Returns $SUPERFLUOUS_ARG if the $E contains other commands or element
 # types.
-sub _convert_to_text {
+sub _text_contents_to_plain_text {
   my $e = shift;
 
   my ($text, $superfluous_arg) = ('', 0);
@@ -3421,7 +3421,7 @@ sub _end_line_misc_line($$$)
     }
   } elsif ($arg_spec eq 'text') {
     my ($text, $superfluous_arg)
-      = _convert_to_text($current->{'args'}->[0]);
+      = _text_contents_to_plain_text($current->{'args'}->[0]);
 
     $current->{'extra'} = {} if (!$current->{'extra'});
     if ($text eq '') {
@@ -6259,7 +6259,7 @@ sub _handle_close_brace($$$)
       if ($index_element
           and _is_index_element($self, $index_element)) {
         if ($command eq 'sortas') {
-          my ($arg, $superfluous_arg) = _convert_to_text($current);
+          my ($arg, $superfluous_arg) = _text_contents_to_plain_text($current);
           if (defined($arg)) {
             $index_element->{'extra'} = {}
               if (!defined($index_element->{'extra'}));

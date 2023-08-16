@@ -31,6 +31,17 @@
 
 const char *whitespace_chars = " \t\v\f\r\n";
 
+/* duplicated when creating a new expanded_formats */
+struct expanded_format expanded_formats[] = {
+    "html", 0,
+    "docbook", 0,
+    "plaintext", 0,
+    "tex", 0,
+    "xml", 0,
+    "info", 0,
+    "latex", 0,
+};
+
 void bug (char *message)
 {
   fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
@@ -49,6 +60,12 @@ isascii_alnum (int c)
 }
 
 int
+isascii_alpha (int c)
+{
+  return (((c & ~0x7f) == 0) && isalpha(c));
+}
+
+int
 isascii_lower (int c)
 {
   return (((c & ~0x7f) == 0) && islower(c));
@@ -58,6 +75,59 @@ int
 isascii_upper (int c)
 {
   return (((c & ~0x7f) == 0) && isupper(c));
+}
+
+void
+clear_expanded_formats (struct expanded_format *formats)
+{
+  int i;
+  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+       i++)
+    {
+      formats[i].expandedp = 0;
+    }
+}
+
+void
+add_expanded_format (struct expanded_format *formats, char *format)
+{
+  int i;
+  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+       i++)
+    {
+      if (!strcmp (format, formats[i].format))
+        {
+          formats[i].expandedp = 1;
+          break;
+        }
+    }
+  if (!strcmp (format, "plaintext"))
+    add_expanded_format (formats, "info");
+}
+
+struct expanded_format *
+new_expanded_formats (char *format)
+{
+  struct expanded_format *formats;
+
+  formats = malloc (sizeof (expanded_formats));
+  memcpy (formats, expanded_formats, sizeof (expanded_formats));
+
+  if (format)
+    add_expanded_format (formats, format);
+}
+
+int
+format_expanded_p (struct expanded_format *formats, char *format)
+{
+  int i;
+  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+       i++)
+    {
+      if (!strcmp (format, formats[i].format))
+        return formats[i].expandedp;
+    }
+  return 0;
 }
 
 ELEMENT *
@@ -90,6 +160,35 @@ read_flag_name (char **ptr)
 
   *ptr = p;
   return ret;
+}
+
+char *
+normalize_encoding_name (char *text, int *possible_encoding)
+{
+  char *p;
+  char *normalized_text = strdup (text);
+  char *q = normalized_text;
+  *possible_encoding = 0;
+    /* lower case, trim non-ascii characters and keep only alphanumeric
+       characters, - and _.  iconv also seems to trim non alphanumeric
+       non - _ characters */
+  for (p = text; *p; p++)
+    {
+      /* check if ascii and alphanumeric */
+      if (isascii_alnum(*p))
+        {
+          *possible_encoding = 1;
+          *q = tolower (*p);
+          q++;
+        }
+      else if (*p == '_' || *p == '-')
+        {
+          *q = *p;
+          q++;
+        }
+    }
+  *q = '\0';
+  return normalized_text;
 }
 
 void

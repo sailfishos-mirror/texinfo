@@ -194,7 +194,7 @@ sub _ascii_accents($$;$)
   my $stack = shift;
   my $set_case = shift;
 
-  if ($set_case and $result =~ /^\w$/) {
+  if ($set_case and $result =~ /^\w+$/) {
     if ($set_case > 0) {
       $result = uc($result);
     } else {

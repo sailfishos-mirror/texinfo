@@ -527,7 +527,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
               if (current->parent->cmd == CM_sortas)
                 {
                   int superfluous_arg;
-                  char *arg = convert_to_text (current, &superfluous_arg);
+                  char *arg = text_contents_to_plain_text (current,
+                                                           &superfluous_arg);
                   if (arg && *arg)
                     {
                       add_extra_string (index_elt,
@@ -623,7 +624,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                   || current->cmd == CM_inlinefmt
                   || current->cmd == CM_inlinefmtifelse)
                 {
-                  if (format_expanded_p (inline_type))
+                  if (parser_format_expanded_p (inline_type))
                     {
                       expandp = 1;
                       add_extra_integer (current, "expand_index", 1);

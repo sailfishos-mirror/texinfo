@@ -38,7 +38,7 @@
 /* for wipe_user_commands */
 #include "commands.h"
 #include "context_stack.h"
-/* for clear_expanded_formats and add_expanded_format */
+/* for clear_parser_expanded_formats and add_parser_expanded_format */
 #include "handle_commands.h"
 /* for wipe_macros and store_value */
 #include "macro.h"
@@ -145,7 +145,7 @@ reset_parser (int local_debug_output)
 
   reset_parser_except_conf ();
   wipe_values ();
-  clear_expanded_formats ();
+  clear_parser_expanded_formats ();
   clear_include_directories ();
   reset_conf ();
 
@@ -409,13 +409,13 @@ parser_add_include_directory (char *filename)
 void
 parser_clear_expanded_formats (void)
 {
-  clear_expanded_formats ();
+  clear_parser_expanded_formats ();
 }
 
 void
 parser_add_expanded_format (char *format)
 {
-  add_expanded_format (format);
+  add_parser_expanded_format (format);
 }
 
 void

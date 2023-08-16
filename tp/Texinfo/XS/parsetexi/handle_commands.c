@@ -978,7 +978,7 @@ funexit:
   return current;
 }
 
-struct expanded_format expanded_formats[] = {
+struct expanded_format parser_expanded_formats[] = {
     "html", 0,
     "docbook", 0,
     "plaintext", 1,
@@ -989,44 +989,21 @@ struct expanded_format expanded_formats[] = {
 };
 
 void
-clear_expanded_formats (void)
+clear_parser_expanded_formats (void)
 {
-  int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
-       i++)
-    {
-      expanded_formats[i].expandedp = 0;
-    }
+  clear_expanded_formats (parser_expanded_formats);
 }
 
 void
-add_expanded_format (char *format)
+add_parser_expanded_format (char *format)
 {
-  int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
-       i++)
-    {
-      if (!strcmp (format, expanded_formats[i].format))
-        {
-          expanded_formats[i].expandedp = 1;
-          break;
-        }
-    }
-  if (!strcmp (format, "plaintext"))
-    add_expanded_format ("info");
+  add_expanded_format (parser_expanded_formats, format);
 }
 
 int
-format_expanded_p (char *format)
+parser_format_expanded_p (char *format)
 {
-  int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
-       i++)
-    {
-      if (!strcmp (format, expanded_formats[i].format))
-        return expanded_formats[i].expandedp;
-    }
-  return 0;
+  return format_expanded_p (parser_expanded_formats, format);
 }
 
 /* A command name has been read that starts a multiline block, which should

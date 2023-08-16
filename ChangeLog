@@ -1,5 +1,44 @@
 2023-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_ascii_accents): accept more than
+	one character.
+
+	* tp/Texinfo/ParserNonXS.pm (_text_contents_to_plain_text),
+	tp/Texinfo/XS/parsetexi/parser.c (text_contents_to_plain_text): rename
+	convert_to_text as text_contents_to_plain_text.  Update callers.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
+	(destroy_accent_stack), tp/Texinfo/XS/main/convert_utils.h
+	(ACCENTS_STACK): implement find_innermost_accent_contents from
+	Texinfo::Convert::Utils.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/convert_to_text.c (ascii_accent)
+	(ascii_accents_internal, new_text_options, destroy_options)
+	(text_accents): preliminary implementation of Texinfo::Convert::Text.
+
+	* tp/Texinfo/XS/main/unicode.c (format_unicode_accents_stack_internal)
+	(encoded_accents): unfinished implementations.
+
+	* tp/Texinfo/XS/main/utils.c (isascii_alpha),
+	tp/Texinfo/XS/parsetexi/end_line.c: move isascii_alpha to utils.c.
+
+	* tp/Texinfo/XS/main/utils.c (expanded_formats)
+	(clear_expanded_formats, add_expanded_format, new_expanded_formats)
+	(format_expanded_p), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(parser_expanded_formats, clear_parser_expanded_formats)
+	(add_parser_expanded_format, parser_format_expanded_p):
+	move expanded formats related functions from handle_commands.c to
+	utils.c and add a list as argument.  Add warppers to use in parser
+	only in handle_commands.c.  Update callers.
+
+	* tp/Texinfo/XS/main/utils.c (normalize_encoding_name),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
+	add normalize_encoding_name to utils.c using code from end_line.c.
+
+2023-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (_reference_to_arg): replace
 	link too.
 

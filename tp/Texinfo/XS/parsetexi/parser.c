@@ -202,7 +202,7 @@ check_space_element (ELEMENT *e)
    types.  Set *SUPERFLUOUS_ARG if the E contains other commands or element
    types. */
 char *
-convert_to_text (ELEMENT *e, int *superfluous_arg)
+text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 {
 #define ADD(x) text_append (&result, x)
 
@@ -1707,7 +1707,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     } /* CM_verb */
   else if (command_flags(current) & CF_block
            && command_data(current->cmd).data == BLOCK_format_raw
-           && !format_expanded_p (command_name(current->cmd)))
+           && !parser_format_expanded_p (command_name(current->cmd)))
     {
       ELEMENT *e_elided_rawpreformatted;
       ELEMENT *e_empty_line;
@@ -2600,7 +2600,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
              && ((command_data(current->cmd).data == BLOCK_raw
                   || command_data(current->cmd).data == BLOCK_conditional)
                  || (command_data(current->cmd).data == BLOCK_format_raw
-                     && !format_expanded_p (command_name(current->cmd)))))
+                     && !parser_format_expanded_p (command_name(current->cmd)))))
             || (current->parent && current->parent->cmd == CM_verb))
           && current_context () != ct_def)
         {

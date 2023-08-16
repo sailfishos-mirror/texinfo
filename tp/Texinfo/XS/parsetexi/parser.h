@@ -94,13 +94,12 @@ ELEMENT *end_preformatted (ELEMENT *current,
                            enum command_id interrupting_command);
 char *read_command_name (char **ptr);
 char *read_comment (char *line, int *has_comment);
-char *convert_to_text (ELEMENT *e, int *superfluous_arg);
+char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
 ELEMENT *merge_text (ELEMENT *current, char *text,
                      ELEMENT *transfer_marks_element);
 void start_empty_line_after_command (ELEMENT *current, char **line_inout,
                                      ELEMENT *command);
 ELEMENT *begin_paragraph (ELEMENT *current);
-int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);

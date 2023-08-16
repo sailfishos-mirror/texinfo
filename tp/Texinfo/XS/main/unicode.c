@@ -35,7 +35,7 @@ char *
 normalize_NFC (const char *text)
 {
   size_t lengthp;
-  
+
   char *result = 0;
   /* FIXME error checking? */
   uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
@@ -135,4 +135,86 @@ unicode_accent (const char *text, ELEMENT *e)
     }
 
   return result;
+}
+
+/* FIXME converter in perl */
+char *
+format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
+  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+  int set_case)
+{
+  int i;
+  char *result = strdup (text);
+
+  for (i = stack->contents.number; i >= 0; i--)
+    {
+      ELEMENT *accent_command = stack->contents.list[i];
+      char *formatted_result = unicode_accent (result, accent_command);
+      if (formatted_resut)
+        {
+          free (result);
+          result = formatted_result;
+        }
+      else
+        break;
+    }
+
+/* FIXME uc/lc on multibyte characters?
+   use libunistring u8_toupper
+  if ($set_case) {
+    if ($set_case > 0) {
+      $result = uc ($result);
+    } else {
+      $result = lc ($result);
+    }
+  }
+ */
+
+  for (; i >= 0; i--)
+    {
+      ELEMENT *accent_command = stack->contents.list[i];
+      char *formatted_result
+          = (*format_accent) (result, accent_command, set_case);
+      free (result);
+      result = formatted_result;
+    }
+  return result;
+}
+
+
+/* FIXME a converter is passed in perl to encoded_accents and
+  to (*format_accent) */
+char *
+encoded_accents (char *text, ELEMENT *stack, char *encoding,
+  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+  int set_case)
+{
+  if (encoding)
+    {
+     /*
+      in case an encoding is directly specified with -c OUTPUT_ENCODING_NAME
+      in upper case to match with the encodings in Texinfo input, we convert
+      to lower case to match the encoding names used here.  In the code
+      encoding names are lower cased early.
+     */
+      int possible_encoding;
+      char *normalized_encoding = normalize_encoding_name
+                                      (encoding, &possible_encoding);
+      if (possible_encoding)
+        {
+          if (!strcmp (normalized_encoding, "utf-8"))
+            {
+              return format_unicode_accents_stack_internal (text, stack,
+                                                format_accent, set_case);
+            }
+          /*
+               } elsif ($unicode_to_eight_bit{$encoding}) {
+      return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
+                               $format_accent, $set_case);
+    }
+
+           */
+        }
+    }
+  return 0;
 }

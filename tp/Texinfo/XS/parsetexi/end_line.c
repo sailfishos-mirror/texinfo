@@ -47,12 +47,6 @@
 #include "node_name_normalization.h"
 
 static int
-isascii_alpha (int c)
-{
-  return (((c & ~0x7f) == 0) && isalpha(c));
-}
-
-static int
 is_decimal_number (char *string)
 {
   char *p = string;
@@ -1123,12 +1117,13 @@ end_line_starting_block (ELEMENT *current)
           p = command_name(command) + 2; /* After "if". */
           if (!memcmp (p, "not", 3))
             p += 3; /* After "not". */
-          for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+          /* FIXME call parser_format_expanded_p? */
+          for (i = 0; i < sizeof (parser_expanded_formats)/sizeof (*parser_expanded_formats);
                i++)
             {
-              if (!strcmp (p, expanded_formats[i].format))
+              if (!strcmp (p, parser_expanded_formats[i].format))
                 {
-                  iftrue = expanded_formats[i].expandedp;
+                  iftrue = parser_expanded_formats[i].expandedp;
                   break;
                 }
             }
@@ -1167,7 +1162,7 @@ end_line_starting_block (ELEMENT *current)
       debug ("MENU_COMMENT OPEN");
     }
   if (command_data(command).data == BLOCK_format_raw
-      && format_expanded_p (command_name(command)))
+      && parser_format_expanded_p (command_name(command)))
     {
       ELEMENT *rawpreformatted = new_element (ET_rawpreformatted);
       add_to_element_contents (current, rawpreformatted);
@@ -1229,7 +1224,8 @@ end_line_misc_line (ELEMENT *current)
       int superfluous_arg = 0;
 
       if (current->args.number > 0)
-        text = convert_to_text (current->args.list[0], &superfluous_arg);
+        text = text_contents_to_plain_text (current->args.list[0],
+                                            &superfluous_arg);
 
       if (!text || !strcmp (text, ""))
         {
@@ -1331,27 +1327,8 @@ end_line_misc_line (ELEMENT *current)
               char *input_encoding = 0;
               int possible_encoding = 0;
 
-              normalized_text = strdup (text);
-              q = normalized_text;
-              /* lower case, trim non-ascii characters and keep only alphanumeric
-                 characters, - and _.  iconv also seems to trim non alphanumeric
-                 non - _ characters */
-              for (p = text; *p; p++)
-                {
-                  /* check if ascii and alphanumeric */
-                  if (isascii_alnum(*p))
-                    {
-                      possible_encoding = 1;
-                      *q = tolower (*p);
-                      q++;
-                    }
-                  else if (*p == '_' || *p == '-')
-                    {
-                      *q = *p;
-                      q++;
-                    }
-                }
-              *q = '\0';
+              normalized_text = normalize_encoding_name (text,
+                                                         &possible_encoding);
 
               if (! possible_encoding)
                 command_warn (current, "bad encoding name `%s'",

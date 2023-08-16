@@ -121,14 +121,18 @@ libtexinfo_la_SOURCES= \
 		      main/extra.h \
 		      main/convert_to_texinfo.c \
 		      main/convert_to_texinfo.h \
+		      main/convert_to_text.c \
+		      main/convert_to_text.h \
+		      main/convert_utils.c \
+		      main/convert_utils.h \
 		      main/node_name_normalization.c \
 		      main/node_name_normalization.h \
+		      main/utils.c \
+		      main/utils.h \
 		      main/unicode.c \
 		      main/unicode.h \
 		      main/translations.c \
 		      main/translations.h \
-		      main/utils.c \
-		      main/utils.h \
 		      main/document.c \
 		      main/document.h \
 		      parsetexi/api.c \

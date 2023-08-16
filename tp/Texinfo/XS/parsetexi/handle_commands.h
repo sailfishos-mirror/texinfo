@@ -3,6 +3,7 @@
 #define HANDLE_COMMANDS_H
 
 #include "tree_types.h"
+#include "utils.h"
 
 ELEMENT *handle_other_command (ELEMENT *current, char **line_inout,
                                enum command_id cmd_id, int *status,
@@ -17,14 +18,10 @@ ELEMENT *handle_brace_command (ELEMENT *current, char **line_inout,
                              enum command_id cmd_id, ELEMENT **command_element);
 int check_no_text (ELEMENT *current);
 
-void clear_expanded_formats (void);
-void add_expanded_format (char *format);
+void clear_parser_expanded_formats (void);
+void add_parser_expanded_format (char *format);
+int parser_format_expanded_p (char *format);
 
-struct expanded_format {
-    char *format;
-    int expandedp;
-};
-
-extern struct expanded_format expanded_formats[7];
+extern struct expanded_format parser_expanded_formats[7];
 
 #endif
