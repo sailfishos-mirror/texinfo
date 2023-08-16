@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 2; }
+BEGIN { plan tests => 3; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
@@ -36,3 +36,7 @@ sub run_test($$$)
 
 run_test('AA @ref{a, b, c, d, e} (@pxref{,,, @code{trc}})',
 'AA a (@code{trc})', 'simple test');
+run_test('AA @ref{
+ , @c comment
+, @| , d, e} (@pxref{@asis{ },,, @code{trc}})',
+'AA e (@asis{ })', 'end of line, comment, empty asis');

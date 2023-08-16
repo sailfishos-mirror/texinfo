@@ -224,13 +224,13 @@ sub _reference_to_arg($$$)
     }
     foreach my $index (@args_try_order) {
       if (defined($current->{'args'}->[$index])) {
-        # This a double checking that there is some content.
-        # Not sure that it is useful.
-        my $text = Texinfo::Convert::Text::convert_to_text(
-                                           $current->{'args'}->[$index]);
-        if (defined($text) and $text =~ /\S/) {
+        my $content = $current->{'args'}->[$index];
+        # this will not detect if the content expands as spaces only, like
+        # @asis{ }, @ , but it is not an issue or could even be considered
+        # as a feature.
+        if (!Texinfo::Common::is_content_empty($content)) {
           my $result
-            = {'contents' => $current->{'args'}->[$index]->{'contents'},
+            = {'contents' => $content->{'contents'},
                         'parent' => $current->{'parent'}};
           return ($result);
         }

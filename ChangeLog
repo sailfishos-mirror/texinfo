@@ -1,4 +1,12 @@
-2023-08-15  Patrice Dumas  <pertusus@free.fr>
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Transformations.pm (_reference_to_arg): use
+	Texinfo::Common::is_content_empty to determine if content is empty.
+
+	* tp/t/reference_to_text_in_tree.t (end of line, comment, empty asis):
+	new test.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (_ascii_accents): accept more than
 	one character.
