@@ -1,5 +1,9 @@
 2023-08-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	pretest 7.0.90
+
+2023-08-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/srclist.txt: Update source for INSTALL to doc/INSTALL.ISO
 	in gnulib sources to avoid non-ASCII sequences.
 
