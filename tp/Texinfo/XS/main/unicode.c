@@ -150,7 +150,7 @@ format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
     {
       ELEMENT *accent_command = stack->contents.list[i];
       char *formatted_result = unicode_accent (result, accent_command);
-      if (formatted_resut)
+      if (formatted_result)
         {
           free (result);
           result = formatted_result;
