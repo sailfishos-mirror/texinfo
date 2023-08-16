@@ -2224,11 +2224,12 @@ sub modify_tree($$;$)
     my @args = @{$tree->{'args'}};
     for (my $i = 0; $i <= $#args; $i++) {
       my $new_args = &$operation('arg', $args[$i], $argument);
-      modify_tree($args[$i], $operation, $argument);
       if ($new_args) {
         # this puts the new args at the place of the old arg using the
         # offset from the end of the array
-        splice (@{$tree->{'args'}}, $i - $#args -1, 1, @$new_args);
+        splice(@{$tree->{'args'}}, $i - $#args -1, 1, @$new_args);
+      } else {
+        modify_tree($args[$i], $operation, $argument);
       }
     }
   }
@@ -2236,14 +2237,12 @@ sub modify_tree($$;$)
     my @contents = @{$tree->{'contents'}};
     for (my $i = 0; $i <= $#contents; $i++) {
       my $new_contents = &$operation('content', $contents[$i], $argument);
-      modify_tree($contents[$i], $operation, $argument);
       if ($new_contents) {
-        if (ref $new_contents ne 'ARRAY') {
-          cluck;
-        }
         # this puts the new contents at the place of the old content using the
         # offset from the end of the array
-        splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @$new_contents);
+        splice(@{$tree->{'contents'}}, $i - $#contents -1, 1, @$new_contents);
+      } else {
+        modify_tree($contents[$i], $operation, $argument);
       }
     }
   }

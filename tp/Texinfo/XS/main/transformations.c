@@ -109,15 +109,16 @@ modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *ele
         {
           ELEMENT *new_args;
           new_args = (*operation) ("arg", tree->args.list[i], argument);
-          modify_tree (tree->args.list[i], operation, argument);
-          /* this puts the new args at the place of the old arg using the
-             offset from the end of the array */
           if (new_args)
             {
+             /* this puts the new args at the place of the old arg using the
+               offset from the end of the array */
               insert_slice_into_args (tree, tree->args.number - i +1,
                                       new_args, 0,
                                       new_args->args.number);
             }
+          else
+            modify_tree (tree->args.list[i], operation, argument);
         }
     }
   if (tree->contents.number > 0)
@@ -128,15 +129,16 @@ modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *ele
           ELEMENT *new_contents;
           new_contents = (*operation) ("content", tree->contents.list[i],
                                        argument);
-          modify_tree (tree->contents.list[i], operation, argument);
-          /* this puts the new contents at the place of the old arg using the
-             offset from the end of the array */
           if (new_contents)
             {
+           /* this puts the new contents at the place of the old using the
+             offset from the end of the array */
               insert_slice_into_contents (tree, tree->contents.number - i +1,
                                           new_contents, 0,
                                           new_contents->contents.number);
             }
+          else
+            modify_tree (tree->contents.list[i], operation, argument);
         }
     }
   if (tree->source_mark_list.number > 0)
