@@ -104,6 +104,7 @@ char *element_command_name (ELEMENT *e);
 #define CF_formatted_nobrace		0x00100000
 #define CF_formattable_line		0x00200000
 #define CF_non_formatted_block		0x00400000
+#define CF_non_formatted_brace		0x00800000
 /*
 #define CF_		0x00800000
 */

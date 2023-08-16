@@ -282,6 +282,11 @@ X<C<%non_formatted_block_commands>>
 
 Block commands not formatted as text, such as C<@ignore> or C<@macro>.
 
+=item %non_formatted_brace_commands
+
+Brace commands that are not immediately replaced with text, such as
+C<anchor>, C<caption>, C<errormsg> and others.
+
 =item %preamble_commands
 X<C<%preamble_commands>>
 

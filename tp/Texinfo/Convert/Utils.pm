@@ -413,7 +413,7 @@ sub find_root_command_next_heading_command($$;$$)
         }
       # brace commands
       } else {
-        if ($Texinfo::Common::non_formatted_brace_commands{$content->{'cmdname'}}) {
+        if ($Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}}) {
           next;
         } else {
           return undef;

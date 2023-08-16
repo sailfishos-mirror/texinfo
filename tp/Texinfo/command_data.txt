@@ -401,8 +401,8 @@ r                       brace                           BRACE_style_no_code
 # context brace commands - commands that enclose full texts
 # not in the main document context.  They can contain multiple paragraphs.
 footnote                brace,global                    BRACE_context
-caption                 brace,close_paragraph,no_paragraph           BRACE_context
-shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph    BRACE_context
+caption                 brace,close_paragraph,no_paragraph,non_formatted_brace           BRACE_context
+shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph,non_formatted_brace    BRACE_context
 # Commands that enclose math content, and, because of that, are not in the
 # main document context.
 math                    brace,math,contain_basic_inline  BRACE_context
@@ -414,10 +414,10 @@ math                    brace,math,contain_basic_inline  BRACE_context
 # without even indicatric @-commands.
 # Parsers have specific checks for U content.
 U                       brace                                      BRACE_arguments     1
-hyphenation             brace,global,preamble,contain_plain_text,no_paragraph   BRACE_arguments     1
-anchor                  brace,contain_basic_inline,no_paragraph                 BRACE_arguments     1
-errormsg                brace,preamble,contain_basic_inline,no_paragraph        BRACE_arguments     1
-sortas                  brace,in_index,contain_plain_text          BRACE_arguments     1
+hyphenation             brace,global,preamble,contain_plain_text,no_paragraph,non_formatted_brace   BRACE_arguments     1
+anchor                  brace,contain_basic_inline,no_paragraph,non_formatted_brace                 BRACE_arguments     1
+errormsg                brace,preamble,contain_basic_inline,no_paragraph,non_formatted_brace        BRACE_arguments     1
+sortas                  brace,in_index,contain_plain_text,non_formatted_brace          BRACE_arguments     1
 seeentry                brace,in_index,contain_basic_inline        BRACE_arguments     1
 seealso                 brace,in_index,contain_basic_inline        BRACE_arguments     1
 

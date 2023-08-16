@@ -780,14 +780,6 @@ foreach my $command (
 }
 
 
-# brace commands that are not replaced with text.
-our %non_formatted_brace_commands;
-foreach my $non_formatted_brace_command ('anchor', 'caption',
-               'errormsg', 'hyphenation', 'shortcaption', 'sortas') {
-  $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
-}
-
-
 # functions for main program.  Should not be called in user-defined code.
 # FIXME locate_init_file() is also called in HTML Converter for htmlxref files.
 
@@ -1708,7 +1700,7 @@ sub is_content_empty($;$)
         } else {
           next;
         }
-      } elsif ($non_formatted_brace_commands{$content->{'cmdname'}}
+      } elsif ($Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}}
                or $Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}}) {
         next;
       } else {
@@ -2840,11 +2832,6 @@ X<C<%nobrace_symbol_text>>
 
 Values are ASCII representation of single character non-alphabetical commands
 without brace such as C<*> or C<:>.  The value may be an empty string.
-
-=item %non_formatted_brace_commands
-
-Brace commands that are not immediately replaced with text, such as
-C<anchor>, C<caption>, C<errormsg> and others.
 
 =item %small_block_associated_command
 X<C<%small_block_associated_command>>
