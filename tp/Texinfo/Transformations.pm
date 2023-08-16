@@ -362,7 +362,7 @@ sub _new_node($$;$$)
 }
 
 # reassociate a tree element to the new node, from previous node
-sub _reassociate_to_node($$$$)
+sub _reassociate_to_node($$$)
 {
   my $type = shift;
   my $current = shift;
@@ -745,84 +745,59 @@ sub set_menus_to_simple_menu($)
   }
 }
 
-sub _is_cpp_line($)
-{
-  my $text = shift;
-  return 1 if ($text =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/);
-  return 0;
-}
-
-# An element can be marked to be protected, it will actually be protected
-# when it is processed later on by Texinfo::Common::modify_tree
 sub _protect_hashchar_at_line_beginning($$$)
 {
   my $type = shift;
   my $current = shift;
   my $argument = shift;
 
-  my ($registrar, $customization_information, $elements_to_protect) = @$argument;
+  my ($registrar, $customization_information) = @$argument;
 
-  #print STDERR "$type $current ".debug_print_element($current, 1)."\n";
-  # if the next is a hash character at line beginning, mark it
-  if (defined($current->{'text'}) and $current->{'text'} =~ /\n$/
+  if ($current->{'text'} and
+      $current->{'text'} =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/
       and $current->{'parent'} and $current->{'parent'}->{'contents'}) {
+    # find the $current element index in parent to check if first or preceded
+    # by a new line
     my $parent = $current->{'parent'};
-    #print STDERR "End of line in $current, parent $parent: (@{$parent->{'contents'}})\n";
-    my $current_found = 0;
-    foreach my $content (@{$parent->{'contents'}}) {
-      if ($current_found) {
-        #print STDERR "after $current: $content $content->{'text'}\n";
-        if ($content->{'text'} and _is_cpp_line($content->{'text'})) {
-          $elements_to_protect->{$content} = 1;
-        }
-        last;
-      } elsif ($content eq $current) {
-        $current_found = 1;
-      }
-    }
-  }
-
-  my $protect_hash = 0;
-  # if marked, or first and a cpp_line protect a leading hash character
-  if ($elements_to_protect->{$current}) {
-    $protect_hash = 1;
-    delete $elements_to_protect->{$current};
-  } elsif ($current->{'parent'}
-           and $current->{'parent'}->{'contents'}
-           and $current->{'parent'}->{'contents'}->[0]
-           and $current->{'parent'}->{'contents'}->[0] eq $current
-           and $current->{'text'}
-           and _is_cpp_line($current->{'text'})) {
-    $protect_hash = 1;
-  }
-  if ($protect_hash) {
-    my @result = ();
-    if ($current->{'type'} and $current->{'type'} eq 'raw') {
-      my $parent = $current->{'parent'};
-      while ($parent) {
-        if ($parent->{'cmdname'} and $parent->{'source_info'}) {
-          if ($registrar) {
-            $registrar->line_warn($customization_information, sprintf(__(
-                "could not protect hash character in \@%s"),
-                           $parent->{'cmdname'}), $parent->{'source_info'});
+    for (my $i = 0; $i < scalar(@{$parent->{'contents'}}); $i++) {
+      if ($parent->{'contents'}->[$i] eq $current) {
+        # protect if first in container, or if after a newline
+        if ($i == 0
+            or ($parent->{'contents'}->[$i-1]->{'text'}
+                and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
+          # do not actually protect in raw block command, but warn
+          if ($current->{'type'} and $current->{'type'} eq 'raw') {
+            my $parent_for_warn = $parent;
+            while ($parent_for_warn) {
+              if ($parent_for_warn->{'cmdname'}
+                  and $parent_for_warn->{'source_info'}) {
+                if ($registrar) {
+                  $registrar->line_warn($customization_information, sprintf(__(
+                      "could not protect hash character in \@%s"),
+                           $parent_for_warn->{'cmdname'}),
+                                        $parent_for_warn->{'source_info'});
+                }
+                last;
+              }
+              $parent_for_warn = $parent_for_warn->{'parent'};
+            }
+            return undef;
+          } else {
+            my @result = ();
+            $current->{'text'} =~ s/^(\s*)#//;
+            if ($1 ne '') {
+              push @result, {'text' => $1, 'parent' => $parent};
+            }
+            push @result, {'cmdname' => 'hashchar', 'parent' => $parent,
+                           'args' => [{'type' => 'brace_command_arg'}]};
+            push @result, $current;
+            return \@result;
           }
-          last;
         }
-        $parent = $parent->{'parent'};
       }
-    } else {
-      $current->{'text'} =~ s/^(\s*)#//;
-      if ($1 ne '') {
-        push @result, {'text' => $1, 'parent' => $current->{'parent'}};
-      }
-      push @result, {'cmdname' => 'hashchar', 'parent' => $current->{'parent'},
-                     'args' => [{'type' => 'brace_command_arg'}]};
     }
-    push @result, $current;
-    return \@result;
-  } else {
-    return undef;
   }
+  return undef;
 }
 
 sub protect_hashchar_at_line_beginning($$$)
@@ -831,9 +806,8 @@ sub protect_hashchar_at_line_beginning($$$)
   my $customization_information = shift;
   my $tree = shift;
 
-  my $elements_to_protect = {};
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
-                      [$registrar, $customization_information, $elements_to_protect]);
+                      [$registrar, $customization_information]);
 }
 
 1;

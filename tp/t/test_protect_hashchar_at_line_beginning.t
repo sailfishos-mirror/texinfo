@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 7; }
+BEGIN { plan tests => 9; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
@@ -142,6 +142,47 @@ run_test('
 @end macro
 ', 'in raw command', [2, 'warning: could not protect hash character in @macro
 ']);
+
+run_test('
+@example
+in example
+@end example
+# line 100 "toto"
+
+Something.
+','
+@example
+in example
+@end example
+@hashchar{} line 100 "toto"
+
+Something.
+',
+'after block end');
+
+# shows that there is protection in contexts where hash character
+# is not first in line, as there is protection whenever first in
+# content.  There can therefore be too much protection, but it is
+# not an issue in general.
+run_test('@quotation # line 100 "toto"
+in quotation
+@end quotation
+
+@enumerate
+@item # line 1
+@end enumerate
+
+@code{# 3 "c"}
+', '@quotation @hashchar{} line 100 "toto"
+in quotation
+@end quotation
+
+@enumerate
+@item @hashchar{} line 1
+@end enumerate
+
+@code{@hashchar{} 3 "c"}
+', 'on quotation line');
 
 
 #{

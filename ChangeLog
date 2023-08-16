@@ -1,5 +1,16 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (_protect_hashchar_at_line_beginning)
+	(protect_hashchar_at_line_beginning): simpler implementation.
+	Only consider element with text like a cpp line, find index in
+	parent contents and modify tree if first or preceded by a new line in
+	text.  Inline _is_cpp_line.
+
+	* tp/t/test_protect_hashchar_at_line_beginning.t ('after block end')
+	('on quotation line'): new tests.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): remove call of duplicate_tree_element_keys
 	and remove duplicate_tree_element_keys and _duplicate_element_keys
 	as they are not useful since quite a long time, as the perl parser
