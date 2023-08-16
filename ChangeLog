@@ -1,5 +1,14 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): remove call of duplicate_tree_element_keys
+	and remove duplicate_tree_element_keys and _duplicate_element_keys
+	as they are not useful since quite a long time, as the perl parser
+	duplicates all the source_info.
+
+	* tp/t/test_utils.pl: remove unused duplicate_key_array.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (modify_tree, _protect_text)
 	(_move_index_entries_after_items)
 	(_relate_index_entries_to_table_items), tp/Texinfo/Transformations.pm

@@ -372,48 +372,6 @@ sub remove_keys($$;$)
   return $root;
 }
 
-# currently unused, but could be used again.
-sub duplicate_key_array($$)
-{
-  my $element = shift;
-  my $key = shift;
-
-  if (defined($element) and exists($element->{$key})
-      and defined($element->{$key})) {
-    my $new_content = [];
-    foreach my $array_item (@{$element->{$key}}) {
-      push @$new_content, $array_item;
-    }
-    $element->{$key} = $new_content;
-  }
-}
-
-# used to have a similar output as the XS parser
-# when using the pure perl parser.
-sub _duplicate_element_keys($$)
-{
-  my $type = shift;
-  my $current = shift;
-
-  if (exists($current->{'source_info'})) {
-    # cannot use dclone as dclone changes integers to strings
-    #$current->{'source_info'} = dclone($current->{'source_info'});
-    my $new_source_info = {};
-    foreach my $key(keys(%{$current->{'source_info'}})) {
-      $new_source_info->{$key} = $current->{'source_info'}->{$key};
-    }
-    $current->{'source_info'} = $new_source_info;
-  }
-
-  return undef;
-}
-
-sub duplicate_tree_element_keys($)
-{
-  my $tree = shift;
-  return Texinfo::Common::modify_tree($tree, \&_duplicate_element_keys);
-}
-
 sub cmp_trimmed($$$$)
 {
   my $compared = shift;
@@ -1344,12 +1302,8 @@ sub test($$)
   my $split_result;
   if ($elements) {
     $split_result = $elements;
-    foreach my $element (@$elements) {
-      duplicate_tree_element_keys($element);
-    }
   } else {
     $split_result = $tree;
-    duplicate_tree_element_keys($tree);
   }
 
   {
