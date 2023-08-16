@@ -1,5 +1,15 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	Add an other flags field in COMMAND
+
+	* tp/Texinfo/XS/main/builtin_commands.h (COMMAND)
+	(builtin_command_other_flags), tp/Texinfo/XS/main/command_data.awk:
+	with command data used outside of parser, it is relevant to have all
+	the flags available.  The flags not already there, called other flags,
+	are put in another unsigned long in the COMMAND structure.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (_reference_to_arg): use
 	Texinfo::Common::is_content_empty to determine if content is empty.
 

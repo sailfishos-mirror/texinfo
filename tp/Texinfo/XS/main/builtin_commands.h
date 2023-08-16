@@ -21,6 +21,7 @@
 typedef struct command_struct {
     char *cmdname;
     unsigned long flags; /* Up to 32 flags */
+    unsigned long other_flags; /* Up to 32 additional flags */
     int data; /* type of command. */
     int args_number; /* Number of arguments for brace or line commands. */
 } COMMAND;
@@ -30,11 +31,13 @@ extern COMMAND builtin_command_data[];
 #define builtin_command_flags(e) \
    (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))
 #define builtin_command_name(cmd) (builtin_command_data[cmd].cmdname)
+#define builtin_command_other_flags(e) \
+   (!(e) ? 0 : (builtin_command_data[(e)->cmd].other_flags))
 
 enum command_id lookup_builtin_command (char *cmdname);
 char *element_command_name (ELEMENT *e);
 
-/* Available command flags. */
+/* Base command flags, .flags in COMMAND */
 
 #define CF_line			        0x0001
 #define CF_deprecated   	        0x0002
@@ -46,7 +49,7 @@ char *element_command_name (ELEMENT *e);
 #define CF_brace		        0x0010
 #define CF_preamble		        0x0020
 #define CF_accent		        0x0040
-/* CF_math is not used in XS parser, used in perl */
+/* CF_math is not used in XS parser */
 #define CF_math			        0x0080
 /* commands with an unlimited number of arguments */
 #define CF_variadic		        0x0100
@@ -88,10 +91,22 @@ char *element_command_name (ELEMENT *e);
 /* command that affect the document as a whole and should appear only once */
 #define CF_global_unique		0x80000000
 
-/* NOTE: We often run out of spaces for flags
-
-   Could combine CF_MACRO, CF_ALIAS, and CF_INFOENCLOSE into 2 bits.
- */
+/* Other command flags. .other_flags in COMMAND. Not used in parser, but
+   in other codes, or only used in perl */
+#define CF_letter_no_arg		0x0001
+#define CF_inline_format		0x0002
+#define CF_inline_conditional		0x0004
+#define CF_in_index		0x0008
+#define CF_in_def		0x00010000
+#define CF_brace_code		0x00020000
+#define CF_explained		0x00040000
+#define CF_formatted_line		0x00080000
+#define CF_formatted_nobrace		0x00100000
+#define CF_formattable_line		0x00200000
+#define CF_non_formatted_block		0x00400000
+/*
+#define CF_		0x00800000
+*/
 
 /* Types of line command (has CF_line flag).  Values for COMMAND.data. */
 #define LINE_lineraw -1

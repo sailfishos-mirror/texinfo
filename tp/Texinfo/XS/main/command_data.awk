@@ -125,7 +125,7 @@ END {
     print "#include \"builtin_commands.h\"" > CD
     print "COMMAND builtin_command_data[] = {" > CD
 
-    print "0, 0, 0, 0," > CD
+    print "0, 0, 0, 0, 0," > CD
 
     # We want the output sorted so we can use bsearch
     PROCINFO["sorted_in"]="@ind_str_asc"
@@ -145,6 +145,7 @@ END {
         if (commands[c] != "") {
             split(commands[c], flags_array, ",")
             flags_str = ""
+            other_flags_str = ""
             for (flag_idx in flags_array) {
               if (flag_idx == 1) {
                 # first flag is always kept, corresponds to the category
@@ -155,7 +156,7 @@ END {
                   flags_str = old_str "," "no_paragraph"
                 }
               } else {
-                # filter out flags not relevant for the XS parser.  Use
+                # filter out other flags.  Use
                 # an array and not a regexp because word boundary matching
                 # does not seems to be portable and we want to be sure to
                 # match correctly even if an ignored flag is a substring of
@@ -173,6 +174,13 @@ END {
                     && flags_array[flag_idx] != "non_formatted_block") {
                   old_str = flags_str
                   flags_str = old_str "," flags_array[flag_idx]
+                } else {
+                  if (other_flags_str == "") {
+                    other_flags_str = flags_array[flag_idx]
+                  } else {
+                    old_str = other_flags_str
+                    other_flags_str = old_str "," flags_array[flag_idx]
+                  }
                 }
               }
             }
@@ -183,6 +191,13 @@ END {
         } else {
             flags = "CF_" flags_str
             gsub (/,/, " | CF_", flags)
+        }
+
+        if (other_flags_str == "") {
+            other_flags = "0"
+        } else {
+            other_flags = "CF_" other_flags_str
+            gsub (/,/, " | CF_", other_flags)
         }
 
         if (data[c] != "") {
@@ -207,7 +222,7 @@ END {
               args_nr_data = "1"
             }
         }
-        print "\"" c2 "\", " flags ", " command_data ", " args_nr_data "," > CD
+        print "\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data "," > CD
     }
     print "};" > CD
     print "};" > CI
