@@ -23,9 +23,8 @@ sub run_test($$$)
   my $document = $parser->parse_texi_piece($in);
   my $tree = $document->tree();
 
-  my $corrected_tree 
-    = Texinfo::Transformations::reference_to_arg_in_tree($tree);
-  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
+  Texinfo::Transformations::reference_to_arg_in_tree($tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";
