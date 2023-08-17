@@ -1,5 +1,15 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/StructTransf.pm (BEGIN), tp/Texinfo/XS/Makefile.am
+	(StructuringTransfo_la_SOURCES),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs: rename
+	StructTransf.xs as StructuringTransfo.xs (but keep the perl package
+	defined in StructuringTransfo.xs name as StructTransf).  Move
+	StructuringTransfo.xs and transformations.c from main to
+	structuring_transfo directory.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (modify_tree),
 	tp/Texinfo/XS/main/transformations.c (modify_tree): keep track of
 	location in args or contents array instead of inserting from the end.

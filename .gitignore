@@ -312,7 +312,6 @@ tp/Texinfo/XS/gnulib/m4/ltsugar.m4
 tp/Texinfo/XS/gnulib/m4/ltversion.m4
 tp/Texinfo/XS/gnulib/m4/lt~obsolete.m4
 
-tp/Texinfo/XS/main/StructTransf.c
 tp/Texinfo/XS/main/Translations.c
 tp/Texinfo/XS/main/command_data.c
 tp/Texinfo/XS/main/cmd_normalization.c
@@ -322,6 +321,10 @@ tp/Texinfo/XS/main/cmd_symbol.c
 tp/Texinfo/XS/main/cmd_text.c
 
 tp/Texinfo/XS/main/*.lo
+
+tp/Texinfo/XS/structuring_transfo/StructuringTransfo.c
+
+tp/Texinfo/XS/structuring_transfo/*.lo
 
 tp/Texinfo/XS/parsetexi/Parsetexi.c
 tp/Texinfo/XS/parsetexi/config.h

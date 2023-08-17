@@ -30,7 +30,7 @@ BEGIN {
   Texinfo::XSLoader::init (
     "Texinfo::StructTransf",
     "Texinfo::StructTransf",
-    "StructTransf",
+    "StructuringTransfo",
     undef,
     0,
     undef,

@@ -272,23 +272,23 @@ Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 # To locate include files under out-of-source builds.
 Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
-########################## StructTransf
+########################## StructuringTransfo
 
 if HAVE_ICONV
-xs_LTLIBRARIES += StructTransf.la
+xs_LTLIBRARIES += StructuringTransfo.la
 endif
 
-StructTransf_la_SOURCES = main/StructTransf.c \
-                    main/transformations.c \
-                    main/transformations.h
+StructuringTransfo_la_SOURCES = structuring_transfo/StructuringTransfo.c \
+                    structuring_transfo/transformations.c \
+                    structuring_transfo/transformations.h
 
-EXTRA_DIST += convert/StructTransf.xs
+EXTRA_DIST += convert/StructuringTransfo.xs
 
-StructTransf_la_LIBADD = libtexinfoxs.la libtexinfo.la
-StructTransf_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la
+StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
-StructTransf_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## ConvertXS
 
