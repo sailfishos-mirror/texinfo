@@ -1,6 +1,20 @@
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (modify_tree),
+	tp/Texinfo/XS/main/transformations.c (modify_tree): keep track of
+	location in args or contents array instead of inserting from the end.
+	Fix C code.
+
+	* tp/Texinfo/Transformations.pm (_reference_to_arg): reset parent
+	of contents kept from the reference argument.
+
+	* tp/Texinfo/XS/main/transformations.c (reference_to_arg_internal):
+	add a container, put the new element in it, copy contents only and fix
+	parents.
+
+2023-08-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (modify_tree),
 	tp/Texinfo/XS/main/transformations.c (modify_tree): recurse
 	into the original element only if not replaced.
 

@@ -2221,28 +2221,31 @@ sub modify_tree($$;$)
   }
 
   if ($tree->{'args'}) {
-    my @args = @{$tree->{'args'}};
-    for (my $i = 0; $i <= $#args; $i++) {
-      my $new_args = &$operation('arg', $args[$i], $argument);
+    my $args_nr = scalar(@{$tree->{'args'}});
+    for (my $i = 0; $i < $args_nr; $i++) {
+      my $new_args = &$operation('arg', $tree->{'args'}->[$i], $argument);
       if ($new_args) {
-        # this puts the new args at the place of the old arg using the
-        # offset from the end of the array
-        splice(@{$tree->{'args'}}, $i - $#args -1, 1, @$new_args);
+        # replace by new content
+        splice(@{$tree->{'args'}}, $i, 1, @$new_args);
+        $i += scalar(@$new_args) -1;
+        $args_nr += scalar(@$new_args) -1;
       } else {
-        modify_tree($args[$i], $operation, $argument);
+        modify_tree($tree->{'args'}->[$i], $operation, $argument);
       }
     }
   }
   if ($tree->{'contents'}) {
-    my @contents = @{$tree->{'contents'}};
-    for (my $i = 0; $i <= $#contents; $i++) {
-      my $new_contents = &$operation('content', $contents[$i], $argument);
+    my $contents_nr = scalar(@{$tree->{'contents'}});
+    for (my $i = 0; $i < $contents_nr; $i++) {
+      my $new_contents = &$operation('content',
+                                     $tree->{'contents'}->[$i], $argument);
       if ($new_contents) {
-        # this puts the new contents at the place of the old content using the
-        # offset from the end of the array
-        splice(@{$tree->{'contents'}}, $i - $#contents -1, 1, @$new_contents);
+        # replace by new content
+        splice(@{$tree->{'contents'}}, $i, 1, @$new_contents);
+        $i += scalar(@$new_contents) -1;
+        $contents_nr += scalar(@$new_contents) -1;
       } else {
-        modify_tree($contents[$i], $operation, $argument);
+        modify_tree($tree->{'contents'}->[$i], $operation, $argument);
       }
     }
   }

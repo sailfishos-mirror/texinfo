@@ -100,7 +100,9 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
 
 /* in Common.pm */
 ELEMENT *
-modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *element, void* argument), void *argument)
+modify_tree (ELEMENT *tree,
+             ELEMENT *(*operation)(const char *type, ELEMENT *element, void* argument),
+             void *argument)
 {
   if (tree->args.number > 0)
     {
@@ -111,11 +113,12 @@ modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *ele
           new_args = (*operation) ("arg", tree->args.list[i], argument);
           if (new_args)
             {
-             /* this puts the new args at the place of the old arg using the
-               offset from the end of the array */
-              insert_slice_into_args (tree, tree->args.number - i +1,
+              ELEMENT *removed = remove_from_args (tree, i);
+              insert_slice_into_args (tree, i,
                                       new_args, 0,
                                       new_args->args.number);
+              i += new_args->args.number -1;
+              destroy_element (new_args);
             }
           else
             modify_tree (tree->args.list[i], operation, argument);
@@ -131,11 +134,12 @@ modify_tree (ELEMENT *tree, ELEMENT *(*operation)(const char *type, ELEMENT *ele
                                        argument);
           if (new_contents)
             {
-           /* this puts the new contents at the place of the old using the
-             offset from the end of the array */
-              insert_slice_into_contents (tree, tree->contents.number - i +1,
+              ELEMENT *removed = remove_from_contents (tree, i);
+              insert_slice_into_contents (tree, i,
                                           new_contents, 0,
                                           new_contents->contents.number);
+              i += new_contents->contents.number -1;
+              destroy_element (new_contents);
             }
           else
             modify_tree (tree->contents.list[i], operation, argument);
@@ -601,8 +605,12 @@ reference_to_arg_internal (const char *type,
     {
       int index = 0;
       int *arguments_order = ref_5_args_order;
+      /* container for the new elements to insert, will be destroyed
+         by the caller */
+      ELEMENT *container = new_element (ET_NONE);
       ELEMENT *new = new_element (ET_NONE);
       new->parent = e->parent;
+      add_to_contents_as_array (container, new);
       if (e->cmd == CM_inforef || e->cmd == CM_link)
         arguments_order = ref_3_args_order;
       while (arguments_order[index] >= 0)
@@ -619,10 +627,15 @@ reference_to_arg_internal (const char *type,
                 {
                   ELEMENT *removed
                       = remove_from_args (e, arguments_order[index]);
+                  int i;
                   if (removed != arg)
                     fatal ("BUG: reference_to_arg_internal removed != arg");
                   /* avoid the type and spaces by getting only the contents */
-                  new->contents = removed->contents;
+                  insert_slice_into_contents (new, 0,
+                                              removed, 0,
+                                              removed->contents.number);
+                  for (i = 0; i < new->contents.number; i++)
+                    new->contents.list[i]->parent = new;
                   removed->contents.list = 0;
                   destroy_element (removed);
                   break;
@@ -633,7 +646,7 @@ reference_to_arg_internal (const char *type,
       destroy_element_and_children (e);
       if (new->contents.number == 0)
         text_append (&new->text, "");
-      return new;
+      return container;
     }
   else
    return 0;

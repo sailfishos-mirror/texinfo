@@ -60,10 +60,10 @@ sub import {
         "Texinfo::Transformations::_XS_fill_gaps_in_sectioning",
         "Texinfo::StructTransf::fill_gaps_in_sectioning"
       );
-      #Texinfo::XSLoader::override(
-      #  "Texinfo::Transformations::_XS_reference_to_arg_in_tree",
-      #  "Texinfo::StructTransf::reference_to_arg_in_tree"
-      #);
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_reference_to_arg_in_tree",
+        "Texinfo::StructTransf::reference_to_arg_in_tree"
+      );
     }
     $module_loaded = 1;
   }
@@ -238,6 +238,9 @@ sub _reference_to_arg($$$)
           my $result
             = {'contents' => $arg->{'contents'},
                         'parent' => $current->{'parent'}};
+          foreach my $content (@{$arg->{'contents'}}) {
+            $content->{'parent'} = $result;
+          }
           return [$result];
         }
       }
