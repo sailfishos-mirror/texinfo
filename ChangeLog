@@ -1,5 +1,9 @@
 2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* install-info/tests/ii-0059-test: Fix malformed menu entry.
+
+2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: remove recommendation to check with
 	-Wdeclaration-after-statement, as it may not be a relevant
 	warning any more.  From Bruno.
