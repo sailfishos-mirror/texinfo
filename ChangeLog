@@ -1,5 +1,11 @@
 2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* install-info/install-info.c (readfile): null-terminate file
+	data so to avoid reading off the end in mark_entry_for_deletion.
+	(mark_entry_for_deletion): Add checks for end of data.
+
+2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (output_dirfile): Avoid mixed
 	declaration and statements.
 

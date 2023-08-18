@@ -893,7 +893,7 @@ readfile (char *filename, int *sizep,
         break;
 
       filled += nread;
-      if (filled == data_size)
+      if (filled == data_size - 1)
         {
           data_size += 65536;
           data = xrealloc (data, data_size);
@@ -909,6 +909,8 @@ readfile (char *filename, int *sizep,
     fclose (f);
 
   *sizep = filled;
+  data[filled] = '\0';
+
   return data;
 }
 
@@ -1349,9 +1351,13 @@ mark_entry_for_deletion (struct line_data *lines, int nlines, char *name)
           /* Read menu item.  */
           while (*p != 0 && *p != ':')
             p++;
+          if (!*p)
+            continue;
           p++; /* skip : */
 
-          if (*p == ':')
+          if (!*p)
+            continue;
+          else if (*p == ':')
             { /* XEmacs-style entry, as in * Mew::Messaging.  */
               if (menu_item_equal (q, ':', name))
                 {
@@ -1365,7 +1371,7 @@ mark_entry_for_deletion (struct line_data *lines, int nlines, char *name)
               if (*p == '(')         /* if at parenthesized (FILENAME) */
                 {
                   p++;
-                  if (menu_item_equal (p, ')', name))
+                  if (*p && menu_item_equal (p, ')', name))
                     {
                       lines[i].delete = 1;
                       something_deleted = 1;
