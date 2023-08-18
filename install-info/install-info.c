@@ -925,8 +925,20 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   int n_entries_added = 0;
   int i;
   FILE *output;
-  int tempfile; /* moved to dirfile when finished */
-  char tempname[] = "infodirXXXXXX";
+  int tempfile;
+  static char *tempname;
+  int dirfile_len;
+
+  /* Create temporary file in the same directory as dirfile.  This ensures
+     it is on the same disk volume and can be renamed to dirfile when
+     finished. */
+  free (tempname);
+#define suffix "-XXXXXX"
+  dirfile_len = strlen (dirfile);
+  tempname = xmalloc (dirfile_len + strlen (suffix) + 1);
+  memcpy (tempname, dirfile, dirfile_len);
+  memcpy (tempname + dirfile_len, suffix, strlen (suffix) + 1);
+#undef suffix
 
   tempfile = mkstemp (tempname);
 

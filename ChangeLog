@@ -1,5 +1,14 @@
 2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	install-info atomic dir update
+
+	* install-info/install-info.c (output_dirfile):
+	Get name of temp file by appending to dir file name.  This
+	ensures that the temporary file is in the same directory and
+	thus on the same disk volume.  Report from Bruno Haible.
+
+2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (output_dirfile):
 	Change further uses of perror to pfatal_with_name for concision
 	and to print program name.
