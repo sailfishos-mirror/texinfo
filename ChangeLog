@@ -1,6 +1,12 @@
 2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (output_dirfile):
+	Change further uses of perror to pfatal_with_name for concision
+	and to print program name.
+
+2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (output_dirfile):
 	In case removing and renaming to target dirfile failed, print
 	error message and exit with pfatal_with_name function.  Lack
 	of exit reported by Bruno Haible.

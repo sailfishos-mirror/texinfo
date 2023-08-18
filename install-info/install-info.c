@@ -935,9 +935,8 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   umask (um);
   if (chmod (tempname, 0666 & ~um) < 0)
     {
-      perror ("chmod");
       remove (tempname);
-      exit (EXIT_FAILURE);
+      pfatal_with_name (tempname);
     }
 
   if (compression_program)
@@ -951,10 +950,7 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
     output = fdopen (tempfile, "w");
 
   if (!output)
-    {
-      perror (dirfile);
-      exit (EXIT_FAILURE);
-    }
+    pfatal_with_name (dirfile);
 
   for (i = 0; i <= dir_nlines; i++)
     {
