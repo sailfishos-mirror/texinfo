@@ -243,14 +243,9 @@ Manual testing:
 
 check for C compiler warnings by configuring with
 
-our_CFLAGS='-Wall -Wdeclaration-after-statement -Wno-parentheses -Wno-missing-braces'
+our_CFLAGS='-Wall -Wno-parentheses -Wno-missing-braces'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
-
--Wdeclaration-after-statement is useful because a) intermixing
-declarations with statements is an easy thing to do accidentally,
-b) gcc doesn't warn about it by default, and c) other compilers that
-don't support it are still widespread.
 
 Not all compiler warnings have to be fixed, though.
 
