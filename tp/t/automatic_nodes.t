@@ -27,17 +27,15 @@ sub test_new_node($$$$)
   my $registrar = $parser->registered_errors();
   my $document = $parser->parse_texi_text ('');
   my $identifier_target = $document->labels_information();
-  my $refs = $document->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                $identifier_target, $refs);
+                                                      $document);
   my $node = Texinfo::Transformations::_new_node($node_tree, $document);
 
   my ($texi_result, $normalized);
   if (defined($node)) {
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
-    my $refs = $document->internal_references_information();
     Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                  $identifier_target, $refs);
+                                                        $document);
     $normalized = $node->{'extra'}->{'normalized'};
     my @identifiers = sort(keys(%$identifier_target));
     if (scalar(@identifiers) != 1) {
@@ -81,10 +79,8 @@ my $document = $parser->parse_texi_text('@node a node
 my $tree = $document->tree();
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $registrar = $parser->registered_errors();
-my $identifier_target = $document->labels_information();
-my $refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                               $identifier_target, $refs);
+                                                    $document);
 my $node = Texinfo::Transformations::_new_node($line_tree, $document);
 is ('@node a node 1
 ',  Texinfo::Convert::Texinfo::convert_to_texinfo($node), 'duplicate node added');
@@ -157,10 +153,8 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
 $tree = $document->tree();
 $registrar = $parser->registered_errors();
-$identifier_target = $document->labels_information();
-$refs = $document->internal_references_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                  $identifier_target, $refs);
+                                                    $document);
 my $added_nodes
  = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
@@ -182,10 +176,9 @@ $document = $parser->parse_texi_text('@node Top
 ');
   $tree = $document->tree();
 $registrar = $parser->registered_errors();
-$identifier_target = $document->labels_information();
-$refs = $document->internal_references_information();
+my $identifier_target = $document->labels_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $identifier_target, $refs);
+                                                    $document);
 $added_nodes
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);

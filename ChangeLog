@@ -1,3 +1,43 @@
+2023-08-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (associate_internal_references): use a
+	document as argument.  Update callers.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/targets.c (compare_labels,
+	set_labels_identifiers_target), tp/Texinfo/XS/main/document.c: add
+	main/targets.c and move set_labels_identifiers_target to that file.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/Texinfo/XS/main/utils.c
+	(collapse_spaces): move code from main/node_name_normalization.c
+	to main/utils.c and make it a function, collapse_spaces.
+
+	* tp/Texinfo/Structuring.pm (import, associate_internal_references)
+	(_XS_associate_internal_references), tp/Texinfo/XS/Makefile.am
+	(StructuringTransfo_la_SOURCES),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(associate_internal_references),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (link_element_to_texi)
+	(target_element_to_texi_label, check_node_same_texinfo_code),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_contents_to_identifier),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(associate_internal_references), tp/Texinfo/XS/main/targets.c
+	(compare_targets, find_identifier_target): implement
+	associate_internal_references in XS code.
+
+	* tp/Texinfo/Convert/Texinfo.pm (check_node_same_texinfo_code),
+	tp/Texinfo/Structuring.pm: add use re => '/a'.  Move
+	check_node_same_texinfo_code to tp/Texinfo/Convert/Texinfo.pm for the
+	use re => '/a'.
+
+	* tp/Texinfo/Convert/Texinfo.pm (check_node_same_texinfo_code): use
+	directly an {'extra'}->{'node_content'} as argument.  Update callers.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert)
+	(plain_texinfo_convert_tree): use SV in argument, not HV.
+
 2023-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/StructTransf.pm (BEGIN), tp/Texinfo/XS/Makefile.am

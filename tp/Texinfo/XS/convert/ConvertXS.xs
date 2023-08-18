@@ -42,14 +42,16 @@ PROTOTYPES: ENABLE
 SV *
 plain_texinfo_convert (converter, document_in)
         SV *converter
-        HV *document_in
+        SV *document_in
     PREINIT:
         char *result;
         SV** document_descriptor_sv;
         DOCUMENT *document = 0;
         int document_descriptor;
+        HV *hv_document_in;
     CODE:
-        document_descriptor_sv = hv_fetch (document_in, "document_descriptor",
+        hv_document_in = (HV *)SvRV (document_in);
+        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
                                            strlen ("document_descriptor"), 0);
         /* FIXME warning/error if not found? */
         if (document_descriptor_sv)
@@ -65,16 +67,18 @@ plain_texinfo_convert (converter, document_in)
 
 
 SV *
-plain_texinfo_convert_tree (converter, root_in)
+plain_texinfo_convert_tree (converter, tree_in)
         SV *converter
-        HV *root_in
+        SV *tree_in
     PREINIT:
         char *result;
         SV** document_descriptor_sv;
         DOCUMENT *document = 0;
         int document_descriptor;
+        HV *hv_tree_in;
     CODE:
-        document_descriptor_sv = hv_fetch (root_in, "tree_document_descriptor",
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in, "tree_document_descriptor",
                                            strlen ("tree_document_descriptor"), 0);
         /* FIXME warning/error if not found? */
         if (document_descriptor_sv)

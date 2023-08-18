@@ -128,7 +128,8 @@ void bug (char *);
 
 char *normalize_encoding_name (char *text, int *possible_encoding);
 ELEMENT *get_label_element (ELEMENT *e);
-char * read_flag_name (char **ptr);
+char *read_flag_name (char **ptr);
+char *collapse_spaces (char *text);
 
 struct expanded_format *new_expanded_formats (char *format);
 void clear_expanded_formats (struct expanded_format *formats);

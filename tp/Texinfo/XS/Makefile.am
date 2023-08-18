@@ -127,6 +127,8 @@ libtexinfo_la_SOURCES= \
 		      main/convert_utils.h \
 		      main/node_name_normalization.c \
 		      main/node_name_normalization.h \
+		      main/targets.c \
+		      main/targets.h \
 		      main/utils.c \
 		      main/utils.h \
 		      main/unicode.c \
@@ -279,6 +281,8 @@ xs_LTLIBRARIES += StructuringTransfo.la
 endif
 
 StructuringTransfo_la_SOURCES = structuring_transfo/StructuringTransfo.c \
+                    structuring_transfo/structuring.c \
+                    structuring_transfo/structuring.h \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 

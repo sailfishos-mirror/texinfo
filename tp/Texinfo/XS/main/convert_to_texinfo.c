@@ -27,6 +27,8 @@
 #include "extra.h"
 /* new_element and destroy_element for convert_contents_to_texinfo */
 #include "tree.h"
+/* get_label_element and collapse_spaces */
+#include "utils.h"
 #include "builtin_commands.h"
 #include "element_types.h"
 #include "debug.h"
@@ -242,5 +244,91 @@ convert_contents_to_texinfo (ELEMENT *e)
   destroy_element (tmp);
 
   return result;
+}
+
+char *
+link_element_to_texi (ELEMENT *element)
+{
+  TEXT result;
+  ELEMENT *element_link;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  element_link = lookup_extra_element (element, "manual_content");
+  if (element_link)
+    {
+      char *manual_texi = convert_contents_to_texinfo (element_link);
+      text_append (&result, "(");
+      text_append (&result, manual_texi);
+      text_append (&result, ")");
+      free (manual_texi);
+    }
+
+  element_link = lookup_extra_element (element, "node_content");
+  if (element_link)
+    {
+      char *node_texi = convert_contents_to_texinfo (element_link);
+      text_append (&result, node_texi);
+      free (node_texi);
+    }
+  return result.text;
+}
+
+char *
+target_element_to_texi_label (ELEMENT *element)
+{
+  ELEMENT *label_element = get_label_element (element);
+  return convert_contents_to_texinfo (label_element);
+}
+
+int
+check_node_same_texinfo_code (ELEMENT *reference_node, ELEMENT *node_content)
+{
+  char *reference_node_texi;
+  char *node_texi;
+  int equal_texi;
+  KEY_PAIR *k = lookup_extra (reference_node, "normalized");
+
+  if (k && k->value)
+    {
+      char *tmp_texi;
+      ELEMENT *label_element = get_label_element (reference_node);
+
+      tmp_texi = convert_contents_to_texinfo (label_element);
+      reference_node_texi = collapse_spaces (tmp_texi);
+      free (tmp_texi);
+    }
+  else
+    reference_node_texi = strdup ("");
+
+  if (node_content)
+    {
+      char *tmp_texi;
+
+      ELEMENT *last_content = last_contents_child (node_content);
+      if (last_content && last_content->type == ET_space_at_end_menu_node)
+        {
+          ELEMENT *tmp_elt = new_element (ET_NONE);
+          insert_slice_into_contents (tmp_elt, 0,
+                                      node_content, 0,
+                                      node_content->contents.number -1);
+          tmp_texi = convert_to_texinfo (tmp_elt);
+          destroy_element (tmp_elt);
+        }
+      else
+        tmp_texi = convert_contents_to_texinfo (node_content);
+
+      node_texi = collapse_spaces (tmp_texi);
+      free (tmp_texi);
+    }
+  else
+    node_texi = strdup ("");
+
+  equal_texi = !strcmp(reference_node_texi, node_texi);
+  free (reference_node_texi);
+  free (node_texi);
+
+  return equal_texi;
 }
 

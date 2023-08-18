@@ -28,6 +28,7 @@
 /* for whitespace_chars, isascii_alnum and bug */
 #include "utils.h"
 #include "tree_types.h"
+#include "tree.h"
 #include "element_types.h"
 /* for xasprintf */
 #include "errors.h"
@@ -70,25 +71,9 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
     return;
   else if (e->text.end > 0)
     {
-      char *p = e->text.text;
-      while (*p)
-        {
-          int n = strcspn (p, whitespace_chars);
-          if (n)
-            {
-              text_append_n (result, p, n);
-              p += n;
-            }
-          if (*p)
-            {
-              int n = strspn (p, whitespace_chars);
-              if (n)
-                {
-                  ADD(" ");
-                  p += n;
-                }
-            }
-        }
+      char *text_norm_spaces = collapse_spaces (e->text.text);
+      ADD(text_norm_spaces);
+      free (text_norm_spaces);
     }
   if (e->cmd)
     {
@@ -302,5 +287,19 @@ convert_to_identifier (ELEMENT *root)
 
   free (converted_name);
   free (normalized_name);
+  return result;
+}
+
+char *
+convert_contents_to_identifier (ELEMENT *e)
+{
+  ELEMENT *tmp = new_element (ET_NONE);
+  char *result;
+
+  tmp->contents = e->contents;
+  result = convert_to_identifier (tmp);
+  tmp->contents.list = 0;
+  destroy_element (tmp);
+
   return result;
 }

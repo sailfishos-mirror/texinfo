@@ -27,10 +27,8 @@ sub test($$$;$$)
   my $document = $parser->parse_texi_text($in);
   my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
-  my $identifier_target = $document->labels_information();
-  my $refs = $document->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                      $identifier_target, $refs);
+                                                      $document);
   my ($sectioning_root, $sections_list)
                  = Texinfo::Structuring::sectioning_structure($registrar,
                                                               $parser, $tree);

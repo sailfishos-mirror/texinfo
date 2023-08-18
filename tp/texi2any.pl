@@ -1566,7 +1566,7 @@ while(@input_files) {
   my $refs = $document->internal_references_information();
 
   Texinfo::Structuring::associate_internal_references($registrar,
-                                $main_configuration, $identifier_target, $refs);
+                                            $main_configuration, $document);
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # FIXME the keys are not documented anywhere.  It is unclear where they

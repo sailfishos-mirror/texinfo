@@ -162,6 +162,40 @@ read_flag_name (char **ptr)
   return ret;
 }
 
+/* s/\s+/ /g with re => '/a' in perl */
+char *
+collapse_spaces (char *text)
+{
+  TEXT result;
+  char *p = text;
+
+  if (!text)
+    return 0;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  while (*p)
+    {
+      int n = strcspn (p, whitespace_chars);
+      if (n)
+        {
+          text_append_n (&result, p, n);
+          p += n;
+        }
+      if (*p)
+        {
+          int n = strspn (p, whitespace_chars);
+          if (n)
+            {
+              text_append (&result, " ");
+              p += n;
+            }
+        }
+    }
+  return result.text;
+}
+
 char *
 normalize_encoding_name (char *text, int *possible_encoding)
 {

@@ -42,7 +42,4 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
 
-LABEL_LIST *set_labels_identifiers_target (LABEL *list_of_labels,
-                                           size_t labels_number);
-
 #endif

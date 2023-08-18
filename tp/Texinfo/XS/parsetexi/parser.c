@@ -48,7 +48,7 @@
 /* for store_document */
 #include "api.h"
 /* for set_labels_identifiers_target */
-#include "document.h"
+#include "targets.h"
 /* for complete_indices */
 #include "indices.h"
 #include "parser.h"

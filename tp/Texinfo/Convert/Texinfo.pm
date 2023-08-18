@@ -23,6 +23,10 @@ package Texinfo::Convert::Texinfo;
 use 5.00405;
 use strict;
 
+# stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
+# used to match Unicode character classes.
+use if $] >= 5.014, re => '/a';
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -104,6 +108,41 @@ sub target_element_to_texi_label($)
   my $element = shift;
   my $label_element = Texinfo::Common::get_label_element($element);
   return convert_to_texinfo({'contents' => $label_element->{'contents'}});
+}
+
+# only used in Texinfo::Structuring.  Here and not in Texinfo::Structuring
+# to use re => '/a'.
+# $REFERENCE_NODE should always be a target element associated to
+# a label.
+sub check_node_same_texinfo_code($$)
+{
+  my $reference_node = shift;
+  my $node_content = shift;
+
+  my $reference_node_texi;
+  if (defined($reference_node->{'extra'}->{'normalized'})) {
+    my $label_element = Texinfo::Common::get_label_element($reference_node);
+    $reference_node_texi = convert_to_texinfo(
+                        {'contents' => $label_element->{'contents'}});
+    $reference_node_texi =~ s/\s+/ /g;
+  } else {
+    $reference_node_texi = '';
+  }
+
+  my $node_texi;
+  if ($node_content) {
+    my $contents_node = $node_content;
+    if ($node_content->[-1]->{'type'}
+        and $node_content->[-1]->{'type'} eq 'space_at_end_menu_node') {
+      $contents_node = [ @{$node_content} ];
+      pop @$contents_node;
+    }
+    $node_texi = convert_to_texinfo({'contents' => $contents_node});
+    $node_texi =~ s/\s+/ /g;
+  } else {
+    $node_texi = '';
+  }
+  return ($reference_node_texi eq $node_texi);
 }
 
 # for debugging.

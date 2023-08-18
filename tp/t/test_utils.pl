@@ -1015,9 +1015,8 @@ sub test($$)
                              $document, $registrar, $main_configuration);
   }
 
-  my $refs = $document->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
-                          $main_configuration, $identifier_target, $refs);
+                                     $main_configuration, $document);
   my $structure_information = {};
   my ($sectioning_root, $sections_list)
         = Texinfo::Structuring::sectioning_structure($registrar,
@@ -1060,6 +1059,7 @@ sub test($$)
            or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
     Texinfo::Structuring::complete_node_tree_with_menus($registrar,
                                 $main_configuration, $nodes_list, $top_node);
+    my $refs = $document->internal_references_information();
     Texinfo::Structuring::check_nodes_are_referenced($registrar,
                                       $main_configuration, $nodes_list,
                                       $top_node, $identifier_target, $refs);

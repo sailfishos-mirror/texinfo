@@ -58,7 +58,7 @@ lookup_builtin_command (char *cmdname)
   return 0;
 }
 
-/* this should be used when the user-defined commands are not avalable,
+/* this should be used when the user-defined commands are not available,
    ie outside of the parser */
 char *
 element_command_name (ELEMENT *e)

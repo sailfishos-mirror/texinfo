@@ -35,6 +35,7 @@
 #include "tree.h"
 #include "document.h"
 #include "transformations.h"
+#include "structuring.h"
 #include "build_perl_info.h"
 
 MODULE = Texinfo::StructTransf		PACKAGE = Texinfo::StructTransf
@@ -215,8 +216,11 @@ reference_to_arg_in_tree (tree_in)
           }
         else
           {
+          /* FIXME warn?  This happens with direct calls of _new_node,
+                          for example
             fprintf (stderr, "ERROR: reference_to_arg_in_tree:"
                              "no tree_document_descriptor\n");
+           */
             return;
           }
         if (! document)
@@ -225,5 +229,27 @@ reference_to_arg_in_tree (tree_in)
             return;
           }
         reference_to_arg_in_tree (document->tree);
+
+void
+associate_internal_references (document_in)
+        SV *document_in
+    PREINIT:
+        char *result;
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_document_in;
+    CODE:
+        hv_document_in = (HV *)SvRV (document_in);
+        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
+                                           strlen ("document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        associate_internal_references (document->identifiers_target,
+                                       document->internal_references);
 
 

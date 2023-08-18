@@ -30,6 +30,11 @@ use strict;
 # Can be used to check that there is no incorrect autovivfication
 #no autovivification qw(fetch delete exists store strict);
 
+# Cannot do that because of sort_indices, probably for uc().
+# stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
+# used to match Unicode character classes.
+#use if $] >= 5.014, re => '/a';
+
 use Carp qw(cluck confess);
 
 use Unicode::Normalize;
@@ -84,6 +89,10 @@ sub import {
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::_XS_copy_tree",
         "Texinfo::StructTransf::copy_tree"
+      );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_associate_internal_references",
+        "Texinfo::StructTransf::associate_internal_references"
       );
     }
     $module_loaded = 1;
@@ -367,38 +376,6 @@ sub warn_non_empty_parts($$$)
   }
 }
 
-# $REFERENCE_NODE should always be a target element associated to
-# a label.
-sub _check_node_same_texinfo_code($$)
-{
-  my $reference_node = shift;
-  my $node_extra = shift;
-
-  my $reference_node_texi;
-  if (defined($reference_node->{'extra'}->{'normalized'})) {
-    my $label_element = Texinfo::Common::get_label_element($reference_node);
-    $reference_node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
-        {'contents' => $label_element->{'contents'}});
-    $reference_node_texi =~ s/\s+/ /g;
-  } else {
-    $reference_node_texi = '';
-  }
-
-  my $node_texi;
-  if ($node_extra and $node_extra->{'node_content'}) {
-    my @contents_node = @{$node_extra->{'node_content'}};
-    pop @contents_node if ($contents_node[-1]->{'type'}
-               and $contents_node[-1]->{'type'} eq 'space_at_end_menu_node');
-    $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
-      {'contents' => \@contents_node});
-    $node_texi =~ s/\s+/ /g;
-  } else {
-    $node_texi = '';
-  }
-  return ($reference_node_texi eq $node_texi);
-}
-
-
 my @node_directions = ('next', 'prev', 'up');
 # No translation of those special Info keywords.
 my %direction_texts = (
@@ -428,7 +405,8 @@ sub _check_menu_entry($$$$$$)
                           link_element_to_texi($menu_entry_node)),
                             $menu_content->{'source_info'});
     } else {
-      if (!_check_node_same_texinfo_code($menu_node, $menu_entry_node->{'extra'})) {
+      if (!Texinfo::Convert::Texinfo::check_node_same_texinfo_code($menu_node,
+                           $menu_entry_node->{'extra'}->{'node_content'})) {
         $registrar->line_warn($customization_information,
         sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
                 $command,
@@ -923,8 +901,9 @@ sub nodes_tree($$$$)
             $node->{'structure'}->{'node_'.$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
-                and !_check_node_same_texinfo_code($node_target,
-                                                   $node_direction)) {
+                and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
+                                      $node_target,
+                                      $node_direction->{'node_content'})) {
               $registrar->line_warn($customization_information,
                 sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
@@ -1525,12 +1504,16 @@ sub print_element_directions($)
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($$$$)
+sub associate_internal_references($$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
-  my $identifier_target = shift;
-  my $refs = shift;
+  my $document = shift;
+
+  _XS_associate_internal_references($document);
+
+  my $identifier_target = $document->labels_information();
+  my $refs = $document->internal_references_information();
 
   return if (!defined($refs));
   foreach my $ref (@$refs) {
@@ -1554,9 +1537,9 @@ sub associate_internal_references($$$$)
       # similar messages are output in _check_menu_entry
       next;
     } elsif ($label_element->{'extra'}) {
-      my $label_info = $label_element->{'extra'};
-      if (!defined($label_info->{'normalized'})
-          or !defined($identifier_target->{$label_info->{'normalized'}})) {
+      my $normalized = $label_element->{'extra'}->{'normalized'};
+      if (!defined($normalized)
+          or !defined($identifier_target->{$normalized})) {
         if (!$customization_information->get_conf('novalidate')) {
           $registrar->line_error($customization_information,
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
@@ -1565,9 +1548,11 @@ sub associate_internal_references($$$$)
                                  $ref->{'source_info'});
         }
       } else {
-        my $node_target = $identifier_target->{$label_info->{'normalized'}};
+        my $node_target = $identifier_target->{$normalized};
         if (!$customization_information->get_conf('novalidate')
-            and !_check_node_same_texinfo_code($node_target, $label_info)) {
+            and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
+                               $node_target,
+                               $label_element->{'extra'}->{'node_content'})) {
           $registrar->line_warn($customization_information,
              sprintf(__("\@%s to `%s', different from %s name `%s'"),
                      $ref->{'cmdname'},
@@ -1580,6 +1565,12 @@ sub associate_internal_references($$$$)
     }
   }
 }
+
+sub _XS_associate_internal_references($)
+{
+  return undef;
+}
+
 
 sub number_floats($)
 {
@@ -2421,8 +2412,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   my $refs = $document->internal_references_information();
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
                              $identifier_target, $refs);
-  associate_internal_references($registrar, $config,
-                                $identifier_target, $refs);
+  associate_internal_references($registrar, $config, $document);
   number_floats($document->floats_information());
   my $tree_units;
   if ($split_at_nodes) {
@@ -2503,7 +2493,7 @@ L<Texinfo::Document>.
 
 =over
 
-=item associate_internal_references($registrar, $customization_information, $identifier_target, $refs)
+=item associate_internal_references($registrar, $customization_information, $document)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
