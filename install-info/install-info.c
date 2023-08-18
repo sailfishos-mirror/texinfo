@@ -928,6 +928,7 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   int tempfile;
   static char *tempname;
   int dirfile_len;
+  mode_t um;
 
   /* Create temporary file in the same directory as dirfile.  This ensures
      it is on the same disk volume and can be renamed to dirfile when
@@ -943,7 +944,7 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   tempfile = mkstemp (tempname);
 
   /* Reset the mode that the file is set to.  */
-  mode_t um = umask (0022);
+  um = umask (0022);
   umask (um);
   if (chmod (tempname, 0666 & ~um) < 0)
     {
