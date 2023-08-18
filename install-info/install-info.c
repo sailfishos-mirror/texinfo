@@ -1072,15 +1072,10 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
     {
       /* Try to delete target file and try again.  On some platforms you
          may not rename to an existing file. */
-      if (remove (dirfile) == -1)
+      if (remove (dirfile) == -1 || rename (tempname, dirfile) == -1)
         {
-          perror (dirfile);
           remove (tempname);
-        }
-      else if (rename (tempname, dirfile) == -1)
-        {
-          perror (tempname);
-          remove (tempname);
+          pfatal_with_name (dirfile);
         }
     }
 }
