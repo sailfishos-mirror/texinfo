@@ -1,5 +1,17 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/*/*.c: rename KEY_PAIR variables k to more descriptive
+	names.  Replace some calls to lookup_extra by calls to
+	lookup_extra_element.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
+	use local KEY_PAIR for verb delimiter.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	call fatal if subentry parent has no level set.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_enter_menu_entry_node)
 	(_handle_other_command, _handle_line_command, _handle_block_command)
 	(_handle_open_brace, _handle_close_brace): copy more source_info

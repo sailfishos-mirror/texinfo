@@ -166,10 +166,9 @@ char *print_associate_info_debug (ASSOCIATED_INFO *info)
             text_append (&text, "array: ");
             for (j = 0; j < f->contents.number; j++)
               {
-                KEY_PAIR *k;
-                k = lookup_extra (f->contents.list[j], "integer");
-                if (k)
-                  text_printf (&text, "%d|", (intptr_t) k->value);
+                KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
+                if (k_integer)
+                  text_printf (&text, "%d|", (intptr_t) k_integer->value);
                 else
                   text_printf (&text, "%s|", f->contents.list[j]->text.text);
               }

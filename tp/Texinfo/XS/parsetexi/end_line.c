@@ -651,7 +651,7 @@ end_line_def_line (ELEMENT *current)
 {
   enum command_id def_command;
   DEF_ARG **def_info = 0;
-  KEY_PAIR *k;
+  KEY_PAIR *k_pair;
   ELEMENT *index_entry = 0; /* Index entry text. */
   ELEMENT *def_info_name = 0;
   ELEMENT *def_info_class = 0;
@@ -662,8 +662,8 @@ end_line_def_line (ELEMENT *current)
   if (top_context != ct_def)
     fatal ("def context expected");
 
-  k = lookup_extra (current->parent, "def_command");
-  def_command = lookup_command ((char *) k->value);
+  k_pair = lookup_extra (current->parent, "def_command");
+  def_command = lookup_command ((char *) k_pair->value);
 
   debug_nonl ("END DEF LINE %s; current ",
                command_name(def_command));
@@ -735,14 +735,14 @@ end_line_def_line (ELEMENT *current)
         }
       else
         {
-          k = lookup_extra (current, "original_def_cmdname");
-          command_warn (current, "missing name for @%s", (char *) k->value);
+          k_pair = lookup_extra (current, "original_def_cmdname");
+          command_warn (current, "missing name for @%s", (char *) k_pair->value);
         }
     }
   else
     {
-      k = lookup_extra (current, "original_def_cmdname");
-      command_warn (current, "missing category for @%s", (char *) k->value);
+      k_pair = lookup_extra (current, "original_def_cmdname");
+      command_warn (current, "missing category for @%s", (char *) k_pair->value);
     }
 
 
@@ -902,9 +902,9 @@ end_line_starting_block (ELEMENT *current)
         }
       else if (command_data(command).data == BLOCK_item_line)
         {
-          KEY_PAIR *k;
-          k = lookup_extra (current, "command_as_argument");
-          if (!k)
+          KEY_PAIR *k_command_as_argument;
+          k_command_as_argument = lookup_extra (current, "command_as_argument");
+          if (!k_command_as_argument)
             {
               if (current->args.number > 0
                   && current->args.list[0]->contents.number > 0)
@@ -925,7 +925,7 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = (ELEMENT *) k->value;
+              ELEMENT *e = (ELEMENT *) k_command_as_argument->value;
               if (!(command_flags(e) & CF_brace)
                   || (command_data(e->cmd).data == BRACE_noarg))
                 {
@@ -934,8 +934,8 @@ end_line_starting_block (ELEMENT *current)
                                  "should not be on @%s line",
                                  command_name(e->cmd),
                                  command_name(command));
-                  k->key = "";
-                  k->type = extra_deleted;
+                  k_command_as_argument->key = "";
+                  k_command_as_argument->type = extra_deleted;
                 }
             }
         }
@@ -944,16 +944,17 @@ end_line_starting_block (ELEMENT *current)
          otherwise it is not a command_as_argument */
       else if (command == CM_itemize)
         {
-          KEY_PAIR *k;
-          k = lookup_extra (current, "command_as_argument");
-          if (k)
+          KEY_PAIR *k_command_as_argument;
+          k_command_as_argument = lookup_extra (current, "command_as_argument");
+          if (k_command_as_argument)
             {
               int i;
               ELEMENT *e = args_child_by_index (current, 0);
 
               for (i = 0; i < e->contents.number; i++)
                 {
-                  if (contents_child_by_index (e, i) == (ELEMENT *) k->value)
+                  if (contents_child_by_index (e, i)
+                             == (ELEMENT *) k_command_as_argument->value)
                     {
                       i++;
                       break;
@@ -968,9 +969,9 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
-                      ((ELEMENT *) k->value)->type = ET_NONE;
-                      k->key = "";
-                      k->type = extra_deleted;
+                      ((ELEMENT *) k_command_as_argument->value)->type = ET_NONE;
+                      k_command_as_argument->key = "";
+                      k_command_as_argument->type = extra_deleted;
                       break;
                     }
                 }

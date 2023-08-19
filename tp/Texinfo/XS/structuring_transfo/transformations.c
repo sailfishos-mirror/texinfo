@@ -43,10 +43,10 @@ int
 section_level (ELEMENT *section)
 {
   int level = command_structuring_level[section->cmd];
-  KEY_PAIR *k = lookup_extra (section, "level_modifier");
-  if (k)
+  KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
+  if (k_level_modifier)
     {
-      int section_modifier = (intptr_t) k->value;
+      int section_modifier = (intptr_t) k_level_modifier->value;
       level -= section_modifier;
       if (level < min_level)
         if (command_structuring_level[section->cmd] < min_level)
@@ -78,9 +78,10 @@ INDEX_ENTRY_AND_INDEX *
 lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
-  KEY_PAIR *k = lookup_extra (index_entry_info->contents.list[1], "integer");
+  KEY_PAIR *k_integer
+              = lookup_extra (index_entry_info->contents.list[1], "integer");
   char *entry_index_name = index_entry_info->contents.list[0]->text.text;
-  int entry_number = (intptr_t) k->value;
+  int entry_number = (intptr_t) k_integer->value;
   INDEX *index_info;
 
   index_info = indices_info_index_by_name (indices_information,
@@ -179,11 +180,11 @@ modify_tree (ELEMENT *tree,
 void
 correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 {
-  KEY_PAIR *k = lookup_extra (section, "level_modifier");
-  if (k)
+  KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
+  if (k_level_modifier)
     {
       int level_to_remove;
-      int section_modifier = (intptr_t) k->value;
+      int section_modifier = (intptr_t) k_level_modifier->value;
       enum command_id cmd;
       int remaining_level;
 

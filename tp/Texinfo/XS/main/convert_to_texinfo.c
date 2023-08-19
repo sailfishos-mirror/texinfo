@@ -72,7 +72,7 @@ static void
 expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = e->cmd;
-  KEY_PAIR *k, *arg_line;
+  KEY_PAIR *arg_line;
   ELEMENT *elt, *spc_before_arg;
 
   if (cmd)
@@ -113,8 +113,8 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
       if (e->cmd == CM_verb)
         {
-          k = lookup_info (e, "delimiter");
-          ADD((char *)k->value);
+          KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
+          ADD((char *)k_delimiter->value);
         }
 
       if (spc_before_arg)
@@ -148,8 +148,8 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
       if (e->cmd == CM_verb)
         {
-          k = lookup_info (e, "delimiter");
-          ADD((char *)k->value);
+          KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
+          ADD((char *)k_delimiter->value);
         }
 
       if (braces)
@@ -288,9 +288,9 @@ check_node_same_texinfo_code (ELEMENT *reference_node, ELEMENT *node_content)
   char *reference_node_texi;
   char *node_texi;
   int equal_texi;
-  KEY_PAIR *k = lookup_extra (reference_node, "normalized");
+  KEY_PAIR *k_normalized = lookup_extra (reference_node, "normalized");
 
-  if (k && k->value)
+  if (k_normalized && k_normalized->value)
     {
       char *tmp_texi;
       ELEMENT *label_element = get_label_element (reference_node);

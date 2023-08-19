@@ -879,12 +879,11 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           /* Remove element from main tree. It will still be referenced in
              the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
-          KEY_PAIR *k;
           ELEMENT *e = pop_element_from_contents (current);
           ELEMENT *spaces_element = new_element (ET_NONE);
 
-          k = lookup_extra (last_child, "spaces_associated_command");
-          owning_element = (ELEMENT *) k->value;
+          owning_element = lookup_extra_element (last_child,
+                                                 "spaces_associated_command");
           text_append (&spaces_element->text, e->text.text);
           transfer_source_marks (e, spaces_element);
           add_info_element_oot (owning_element, "spaces_before_argument",
@@ -1653,11 +1652,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       char *delimiter;
       char *q;
-      KEY_PAIR *k;
+      KEY_PAIR *k_delimiter;
 
-      k = lookup_info (current->parent, "delimiter");
-
-      delimiter = (char *)k->value;
+      k_delimiter = lookup_info (current->parent, "delimiter");
+      delimiter = (char *)k_delimiter->value;
       if (strcmp (delimiter, ""))
         {
           /* Look forward for the delimiter character followed by a close

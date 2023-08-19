@@ -632,10 +632,11 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
   for (i = 0; i < current->args.number; i++)
     {
       ELEMENT *argument_content = current->args.list[i]->contents.list[0];
-      KEY_PAIR *k = lookup_extra (argument_content, "toplevel_braces_nr");
-      if (k)
+      KEY_PAIR *k_toplevel_braces_nr
+                   = lookup_extra (argument_content, "toplevel_braces_nr");
+      if (k_toplevel_braces_nr)
         {
-          if ((intptr_t) k->value == 1)
+          if ((intptr_t) k_toplevel_braces_nr->value == 1)
             {
               int text_len = strlen(argument_content->text.text);
               if (argument_content->text.text[0] == '{'
@@ -653,8 +654,8 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                 }
             }
 
-          k->key = "";
-          k->type = extra_deleted;
+          k_toplevel_braces_nr->key = "";
+          k_toplevel_braces_nr->type = extra_deleted;
         }
     }
   debug ("END LINEMACRO ARGS EXPANSION");

@@ -415,11 +415,11 @@ handle_other_command (ELEMENT *current, char **line_inout,
           else if ((parent = item_multitable_parent (current)))
             {
               long max_columns = 0;
-              KEY_PAIR *k;
+              KEY_PAIR *k_max_columns;
 
-              k = lookup_extra (parent, "max_columns");
-              if (k)
-                max_columns = (long) k->value;
+              k_max_columns = lookup_extra (parent, "max_columns");
+              if (k_max_columns)
+                max_columns = (long) k_max_columns->value;
 
               if (max_columns == 0)
                 {
@@ -762,10 +762,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
             {
               if (current_node)
                 {
-                  KEY_PAIR *k = lookup_extra (current_node, "node_description");
-                  if (k && k->value)
+                  ELEMENT *e_description
+                    = lookup_extra_element (current_node, "node_description");
+                  if (e_description)
                     {
-                      ELEMENT *e_description = (ELEMENT *) k->value;
                       if (e_description->cmd == cmd)
                         line_warn ("multiple node @nodedescription");
                       else
@@ -796,9 +796,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
               if (parent->cmd == CM_subentry)
                 {
-                  KEY_PAIR *k = lookup_extra (parent, "level");
-                  if (k && k->value)
-                    level = (long) k->value + 1;
+                  KEY_PAIR *k_parent_level = lookup_extra (parent, "level");
+                  if (k_parent_level && k_parent_level->value)
+                    level = (long) k_parent_level->value + 1;
+                  else
+                    fatal ("No subentry parent level or level 0");
                 }
               add_extra_integer (command_e, "level", level);
               if (level > 2)
@@ -935,10 +937,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
               else if (parent->cmd == CM_quotation
                        || parent->cmd == CM_smallquotation)
                 {
-                  KEY_PAIR *k; ELEMENT *e;
-                  k = lookup_extra (parent, "authors");
-                  if (k)
-                    e = (ELEMENT *) k->value;
+                  KEY_PAIR *k_authors; ELEMENT *e;
+                  k_authors = lookup_extra (parent, "authors");
+                  if (k_authors)
+                    e = (ELEMENT *) k_authors->value;
                   else
                     {
                       e = new_element (ET_NONE);
@@ -1120,10 +1122,10 @@ handle_block_command (ELEMENT *current, char **line_inout,
                     line_warn ("@menu in invalid context");
                   else
                     {
-                      KEY_PAIR *k; ELEMENT *e;
-                      k = lookup_extra (current_node, "menus");
-                      if (k)
-                        e = (ELEMENT *) k->value;
+                      KEY_PAIR *k_menus; ELEMENT *e;
+                      k_menus = lookup_extra (current_node, "menus");
+                      if (k_menus)
+                        e = (ELEMENT *) k_menus->value;
                       else
                         {
                           e = new_element (ET_NONE);
@@ -1139,14 +1141,16 @@ handle_block_command (ELEMENT *current, char **line_inout,
         {
           if (current_node)
             {
-              KEY_PAIR *k = lookup_extra (current_node, "node_long_description");
-              if (k && k->value)
+              ELEMENT *node_long_description
+                = lookup_extra_element (current_node, "node_long_description");
+              if (node_long_description)
                 line_warn ("multiple node @nodedescriptionblock");
                else
                 {
-                  KEY_PAIR *kn = lookup_extra (current_node, "node_description");
+                  ELEMENT *node_description
+                    = lookup_extra_element (current_node, "node_description");
 
-                  if (!kn || !kn->value)
+                  if (!node_description)
                     add_extra_element (current_node, "node_description",
                                        block);
 

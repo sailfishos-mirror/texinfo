@@ -422,17 +422,18 @@ complete_indices (int document_descriptor)
             {
               INDEX_ENTRY *entry;
               ELEMENT *main_entry_element;
-              KEY_PAIR *k;
+              KEY_PAIR *k_def_command;
               KEY_PAIR *k_idx_element;
 
               entry = &idx->index_entries[j];
               main_entry_element = entry->command;
 
-              k = lookup_extra (main_entry_element, "def_command");
+              k_def_command = lookup_extra (main_entry_element, "def_command");
 
               k_idx_element = lookup_extra (main_entry_element,
                                             "def_index_element");
-              if (k && k->value && !(k_idx_element && k_idx_element->value))
+              if (k_def_command && k_def_command->value
+                  && !(k_idx_element && k_idx_element->value))
                 {
                   ELEMENT *name = 0;
                   ELEMENT *class = 0;
@@ -467,7 +468,7 @@ complete_indices (int document_descriptor)
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
                       ELEMENT *text_element = new_element (ET_NONE);
                       enum command_id def_command
-                        = lookup_command ((char *) k->value);
+                        = lookup_command ((char *) k_def_command->value);
                       KEY_PAIR *k_lang = lookup_extra (main_entry_element,
                                                        "documentlanguage");
                       NAMED_STRING_ELEMENT_LIST *substrings

@@ -596,10 +596,10 @@ handle_comma (ELEMENT *current, char **line_inout)
 
   if (command_data(current->cmd).data == BRACE_inline)
     {
-      KEY_PAIR *k;
+      KEY_PAIR *k_format;
       int expandp = 0;
-      k = lookup_extra (current, "format");
-      if (!k)
+      k_format = lookup_extra (current, "format");
+      if (!k_format)
         {
           ELEMENT *arg = 0;
           char *inline_type = 0;

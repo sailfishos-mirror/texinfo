@@ -42,7 +42,7 @@ close_brace_command (ELEMENT *current,
                      int missing_brace)
 {
 
-  KEY_PAIR *k;
+  KEY_PAIR *k_delimiter;
 
   if (command_data(current->cmd).data == BRACE_context)
     {
@@ -64,8 +64,8 @@ close_brace_command (ELEMENT *current,
 
   if (current->cmd != CM_verb)
     goto yes;
-  k = lookup_info (current, "delimiter");
-  if (!k || !*(char *)k->value)
+  k_delimiter = lookup_info (current, "delimiter");
+  if (!k_delimiter || !*(char *)k_delimiter->value)
     goto yes;
   if (0)
     {
@@ -90,7 +90,7 @@ close_brace_command (ELEMENT *current,
       command_error (current,
                       "@%s missing closing delimiter sequence: %s}",
                       command_name(current->cmd),
-                      (char *)k->value);
+                      (char *)k_delimiter->value);
     }
   current = current->parent;
   return current;

@@ -218,11 +218,11 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               /* An array of strings or integers. */
               for (j = 0; j < f->contents.number; j++)
                 {
-                  KEY_PAIR *k;
-                  k = lookup_extra (f->contents.list[j], "integer");
-                  if (k)
+                  KEY_PAIR *k_integer;
+                  k_integer = lookup_extra (f->contents.list[j], "integer");
+                  if (k_integer)
                     {
-                      IV value = (IV) (intptr_t) k->value;
+                      IV value = (IV) (intptr_t) k_integer->value;
                       av_store (av, j, newSViv (value));
                     }
                   else if (f->contents.list[j]->text.end > 0)

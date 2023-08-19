@@ -499,11 +499,10 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           for (j = 0; j < f->contents.number; j++)
             {
               ELEMENT *e = new_element (ET_NONE);
-              KEY_PAIR *k;
-              k = lookup_extra (f->contents.list[j], "integer");
-              if (k)
+              KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
+              if (k_integer)
                 {
-                  add_extra_integer (e, "integer", (intptr_t) k->value);
+                  add_extra_integer (e, "integer", (intptr_t) k_integer->value);
                 }
               else
                 {
