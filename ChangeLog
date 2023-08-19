@@ -1,5 +1,16 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_enter_menu_entry_node)
+	(_handle_other_command, _handle_line_command, _handle_block_command)
+	(_handle_open_brace, _handle_close_brace): copy more source_info
+	to have the same tree as the XS parser, even for invalid constructs
+	such aas 2 commands on the same line.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block): do not reset
+	source_info for float.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (relate_index_entries_to_table_items_in_tree)
 	(_XS_relate_index_entries_to_table_items_in_tree),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs

@@ -3949,7 +3949,6 @@ sub _end_line_starting_block($$$)
 
   # @float args
   if ($command eq 'float') {
-    $current->{'source_info'} = $source_info;
     my $float_label_element;
     $float_label_element = $current->{'args'}->[1]
       if ($current->{'args'} and scalar(@{$current->{'args'}}) >= 2);
@@ -4566,7 +4565,7 @@ sub _enter_menu_entry_node($$$)
 {
   my ($self, $current, $source_info) = @_;
 
-  $current->{'source_info'} = $source_info;
+  $current->{'source_info'} = {%$source_info};
 
   my $menu_entry_node
     = _register_extra_menu_entry_information($self, $current, $source_info);
@@ -5294,10 +5293,10 @@ sub _handle_other_command($$$$$)
            "\@%s outside of table or list"), $command), $source_info);
         $current = _begin_preformatted($self, $current);
       }
-      $command_e->{'source_info'} = $source_info if (defined($command_e));
+      $command_e->{'source_info'} = {%$source_info} if (defined($command_e));
     } else {
       $command_e = { 'cmdname' => $command, 'parent' => $current,
-                     'source_info' => $source_info };
+                     'source_info' => {%$source_info} };
       push @{$current->{'contents'}}, $command_e;
       if (($command eq 'indent' or $command eq 'noindent')
            and _in_paragraph($self, $current)) {
@@ -5486,9 +5485,9 @@ sub _handle_line_command($$$$$$)
       }
       $command_e = { 'cmdname' => $command, 'parent' => $current };
       push @{$current->{'contents'}}, $command_e;
-      $command_e->{'source_info'} = $source_info;
+      $command_e->{'source_info'} = {%$source_info};
     } else {
-      $command_e = { 'cmdname' => $command, 'source_info' => $source_info };
+      $command_e = { 'cmdname' => $command, 'source_info' => {%$source_info} };
       if ($command eq 'nodedescription') {
         if ($self->{'current_node'}) {
           $command_e->{'extra'} = {} if (!defined($command_e->{'extra'}));
@@ -5709,7 +5708,7 @@ sub _handle_block_command($$$$$)
       push @{$current->{'contents'}}, {
                                         'type' => 'def_line',
                                         'parent' => $current,
-                                        'source_info' => $source_info,
+                                        'source_info' => {%$source_info},
                                         'extra' =>
                                          {'def_command' => $command,
                                           'original_def_cmdname' => $command}
@@ -5810,7 +5809,7 @@ sub _handle_block_command($$$$$)
       push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
            $command;
     }
-    $block->{'source_info'} = $source_info;
+    $block->{'source_info'} = {%$source_info};
     _register_global_command($self, $block, $source_info);
     $line = _start_empty_line_after_command($line, $current, $block);
   }
@@ -5991,7 +5990,7 @@ sub _handle_open_brace($$$$)
            'parent' => $current };
     $current = $current->{'contents'}->[-1];
     # we need the line number here in case @ protects end of line
-    $current->{'source_info'} = $source_info
+    $current->{'source_info'} = {%$source_info}
       if ($current->{'parent'}->{'parent'}->{'type'}
           and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
     # internal_spaces_before_argument is a transient internal type,
@@ -6082,7 +6081,7 @@ sub _handle_close_brace($$$)
                                $closed_command), $source_info);
     }
     if ($current->{'parent'}->{'cmdname'} eq 'anchor') {
-      $current->{'parent'}->{'source_info'} = $source_info;
+      $current->{'parent'}->{'source_info'} = {%$source_info};
       if (! $current->{'contents'}) {
         $self->_line_error(sprintf(__("empty argument in \@%s"),
                            $current->{'parent'}->{'cmdname'}),
