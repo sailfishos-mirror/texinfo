@@ -1,5 +1,15 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm, tp/ext/epub3.pm,
+	tp/init/book.pm, tp/init/chm.pm, tp/t/init/t2h_singular.init,
+	tp/t/test_utils.pl: move 'unit_filename' out of structure directly in
+	tree_unit.  Move 'unit_command' out of extra directly in tree_unit.
+	Replace {'structure'}->{'unit_next'} by {'tree_unit_directions'}->{'next'}
+	and {'structure'}->{'unit_prev'} by
+	{'tree_unit_directions'}->{'prev'}.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/extra.c (lookup_extra_contents),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command)
 	(handle_block_command): add lookup_extra_contents with create argument

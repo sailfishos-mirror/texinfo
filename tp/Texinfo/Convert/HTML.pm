@@ -760,10 +760,10 @@ sub command_filename($$)
 
     if (defined($root_element)
         and $root_element->{'structure'}
-        and exists($root_element->{'structure'}->{'unit_filename'})) {
+        and exists($root_element->{'unit_filename'})) {
       $target->{'filename'}
-        = $root_element->{'structure'}->{'unit_filename'};
-      return $root_element->{'structure'}->{'unit_filename'};
+        = $root_element->{'unit_filename'};
+      return $root_element->{'unit_filename'};
     } else {
       $target->{'filename'} = undef;
     }
@@ -785,9 +785,9 @@ sub command_root_element_command($$)
       # it is better to stay in the document to find a root element.
       my ($root_element, $root_command)
         = $self->_html_get_tree_root_element($command);
-      if ($root_element and $root_element->{'extra'}) {
+      if ($root_element) {
         $target->{'root_element_command'}
-          = $root_element->{'extra'}->{'unit_command'};
+          = $root_element->{'unit_command'};
       } else {
         $target->{'root_element_command'} = undef;
       }
@@ -802,9 +802,9 @@ sub tree_unit_element_command($$)
   my $self = shift;
   my $element = shift;
 
-  if ($element and $element->{'extra'}) {
-    if ($element->{'extra'}->{'unit_command'}) {
-      return $element->{'extra'}->{'unit_command'};
+  if ($element) {
+    if ($element->{'unit_command'}) {
+      return $element->{'unit_command'};
     } elsif (defined($element->{'type'})
              and $element->{'type'} eq 'special_element') {
       return $element;
@@ -884,10 +884,10 @@ sub command_href($$;$$$)
     if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
         and $self->{'tree_units'}->[0]->{'structure'}
         and defined($self->{'tree_units'}->[0]
-                                   ->{'structure'}->{'unit_filename'})) {
+                                   ->{'unit_filename'})) {
       # In that case use the first page.
       $target_filename
-        = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
+        = $self->{'tree_units'}->[0]->{'unit_filename'};
     }
   }
   if (defined($target_filename)) {
@@ -996,7 +996,7 @@ sub footnote_location_href($$;$$$)
             = $self->{'special_targets'}->{'footnote_location'}->{$command};
         }
         $special_target->{'filename'}
-          = $root_element->{'structure'}->{'unit_filename'};
+          = $root_element->{'unit_filename'};
         $target_filename = $special_target->{'filename'};
       }
     }
@@ -1344,28 +1344,26 @@ sub from_element_direction($$$;$$$)
         return $self->command_text($external_node, $type);
       }
     } elsif ($type eq 'node') {
-      if ($target_element->{'extra'}
-          and $target_element->{'extra'}->{'unit_command'}) {
-        if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
-          $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}
-                 and $target_element->{'extra'}->{'unit_command'}
+      if ($target_element->{'unit_command'}) {
+        if ($target_element->{'unit_command'}->{'cmdname'} eq 'node') {
+          $command = $target_element->{'unit_command'};
+        } elsif ($target_element->{'unit_command'}->{'extra'}
+                 and $target_element->{'unit_command'}
                                           ->{'extra'}->{'associated_node'}) {
-          $command = $target_element->{'extra'}->{'unit_command'}
+          $command = $target_element->{'unit_command'}
                                           ->{'extra'}->{'associated_node'};
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
-      if ($target_element->{'extra'}
-          and $target_element->{'extra'}->{'unit_command'}) {
-        if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
-          $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}
-                 and $target_element->{'extra'}->{'unit_command'}
+      if ($target_element->{'unit_command'}) {
+        if ($target_element->{'unit_command'}->{'cmdname'} ne 'node') {
+          $command = $target_element->{'unit_command'};
+        } elsif ($target_element->{'unit_command'}->{'extra'}
+                 and $target_element->{'unit_command'}
                                          ->{'extra'}->{'associated_section'}) {
-          $command = $target_element->{'extra'}->{'unit_command'}
+          $command = $target_element->{'unit_command'}
                                         ->{'extra'}->{'associated_section'};
         }
       }
@@ -1375,8 +1373,8 @@ sub from_element_direction($$$;$$$)
       if (defined($target_element->{'type'})
           and $target_element->{'type'} eq 'special_element') {
         $command = $target_element;
-      } elsif ($target_element->{'extra'}) {
-        $command = $target_element->{'extra'}->{'unit_command'};
+      } else {
+        $command = $target_element->{'unit_command'};
       }
       if ($type eq 'href') {
         if (defined($command)) {
@@ -1461,7 +1459,7 @@ sub direction_string($$$;$)
       or not exists($self->{'directions_strings'}->{$string_type}
                                                  ->{$direction}->{$context})) {
     $self->{'directions_strings'}->{$string_type}->{$direction} = {}
-      if not exists($self->{'directions_strings'}->{$string_type}->{$direction});
+      if not ($self->{'directions_strings'}->{$string_type}->{$direction});
     my $translated_directions_strings = $self->{'translated_direction_strings'};
     if (defined($translated_directions_strings->{$string_type}
                                                 ->{$direction}->{'converted'})) {
@@ -1503,8 +1501,13 @@ sub direction_string($$$;$)
       } else {
         $converted_tree = $translated_tree;
       }
+      # FIXME calling convert_tree_new_formatting_context may remove
+      # $self->{'directions_strings'}->{$string_type}->{$direction}, that was
+      # set above if not already existing.
       my $result_string = $self->convert_tree_new_formatting_context($converted_tree,
                              "direction $direction", undef, "direction $direction");
+      $self->{'directions_strings'}->{$string_type}->{$direction} = {}
+          if (not $self->{'directions_strings'}->{$string_type}->{$direction});
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
         = $result_string;
     } else {
@@ -1561,10 +1564,9 @@ sub element_is_tree_unit_top($$)
   my $element = shift;
   my $top_element = $self->global_direction_element('Top');
   return (defined($top_element) and $top_element eq $element
-          and $element->{'extra'}
-          and $element->{'extra'}->{'unit_command'}
-          and ($element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
-               or $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'top'));
+          and $element->{'unit_command'}
+          and ($element->{'unit_command'}->{'cmdname'} eq 'node'
+               or $element->{'unit_command'}->{'cmdname'} eq 'top'));
 }
 
 my %default_formatting_references;
@@ -4032,18 +4034,18 @@ sub _default_format_element_header($$$$)
        or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
             and $tree_unit->{'contents'}->[1] eq $command))
       # and there is more than one element
-      and ($tree_unit->{'structure'}
-           and ($tree_unit->{'structure'}->{'unit_next'}
-                or $tree_unit->{'structure'}->{'unit_prev'}))) {
+      and ($tree_unit->{'tree_unit_directions'}
+           and ($tree_unit->{'tree_unit_directions'}->{'next'}
+                or $tree_unit->{'tree_unit_directions'}->{'prev'}))) {
     my $is_top = $self->element_is_tree_unit_top($tree_unit);
-    my $first_in_page = (defined($tree_unit->{'structure'}->{'unit_filename'})
+    my $first_in_page = (defined($tree_unit->{'unit_filename'})
            and $self->count_elements_in_filename('current',
-                           $tree_unit->{'structure'}->{'unit_filename'}) == 1);
+                           $tree_unit->{'unit_filename'}) == 1);
     my $previous_is_top = 0;
     $previous_is_top = 1
-      if ($tree_unit->{'structure'}->{'unit_prev'}
-          and $self->element_is_tree_unit_top($tree_unit->{'structure'}
-                                                             ->{'unit_prev'}));
+      if ($tree_unit->{'tree_unit_directions'}->{'prev'}
+          and $self->element_is_tree_unit_top($tree_unit->{'tree_unit_directions'}
+                                                             ->{'prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
      .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command)."\n"
@@ -4272,9 +4274,9 @@ sub _convert_heading_command($$$$$)
     # unit_command, but tree_unit is defined (it can contain only
     # 'first_in_page')
     if ((!$tree_unit # or !$tree_unit->{'extra'}
-         # or !$tree_unit->{'extra'}->{'unit_command'}
-         or ($tree_unit->{'extra'}->{'unit_command'}
-             and $tree_unit->{'extra'}->{'unit_command'} eq $element
+         # or !$tree_unit->{'unit_command'}
+         or ($tree_unit->{'unit_command'}
+             and $tree_unit->{'unit_command'} eq $element
              and (not $element->{'extra'}
                   or not $element->{'extra'}->{'associated_section'})))
         and defined($element->{'extra'})
@@ -7215,7 +7217,7 @@ sub _convert_special_element_type($$$$)
   if ($self->get_conf('HEADERS')
       # first in page
       or $self->count_elements_in_filename('current',
-                  $element->{'structure'}->{'unit_filename'}) == 1) {
+                  $element->{'unit_filename'}) == 1) {
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
                              $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
@@ -7257,11 +7259,11 @@ sub _convert_tree_unit_type($$$$)
   }
   my $result = '';
   my $tree_unit = $element;
-  if (not $tree_unit->{'structure'}
-      or not $tree_unit->{'structure'}->{'unit_prev'}) {
+  if (not $tree_unit->{'tree_unit_directions'}
+      or not $tree_unit->{'tree_unit_directions'}->{'prev'}) {
     $result .= $self->get_info('title_titlepage');
-    if (not $tree_unit->{'structure'}
-        or not $tree_unit->{'structure'}->{'unit_next'}) {
+    if (not $tree_unit->{'tree_unit_directions'}
+        or not $tree_unit->{'tree_unit_directions'}->{'next'}) {
       # only one unit, use simplified formatting
       $result .= $content;
       # if there is one unit it also means that there is no formatting
@@ -7278,8 +7280,8 @@ sub _convert_tree_unit_type($$$$)
   }
   $result .= $content;
   my $command;
-  if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
-    $command = $element->{'extra'}->{'unit_command'};
+  if ($element->{'unit_command'}) {
+    $command = $element->{'unit_command'};
   }
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
                                                               $element, $content, $command);
@@ -7300,18 +7302,20 @@ sub _default_format_element_footer($$$$;$)
 
   my $result = '';
   my $is_top = $self->element_is_tree_unit_top($element);
-  my $next_is_top = ($element->{'structure'}->{'unit_next'}
-                     and $self->element_is_tree_unit_top($element->{'structure'}->{'unit_next'}));
-  my $next_is_special = (defined($element->{'structure'}->{'unit_next'})
-                   and defined($element->{'structure'}->{'unit_next'}->{'type'})
-                   and $element->{'structure'}->{'unit_next'}->{'type'} eq 'special_element');
+  my $next_is_top = ($element->{'tree_unit_directions'}->{'next'}
+                     and $self->element_is_tree_unit_top(
+                            $element->{'tree_unit_directions'}->{'next'}));
+  my $next_is_special = (defined($element->{'tree_unit_directions'}->{'next'})
+               and defined($element->{'tree_unit_directions'}->{'next'}->{'type'})
+               and $element->{'tree_unit_directions'}->{'next'}
+                                       ->{'type'} eq 'special_element');
 
-  my $end_page = (!$element->{'structure'}->{'unit_next'}
-       or (defined($element->{'structure'}->{'unit_filename'})
-           and $element->{'structure'}->{'unit_filename'}
-               ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
+  my $end_page = (!$element->{'tree_unit_directions'}->{'next'}
+       or (defined($element->{'unit_filename'})
+           and $element->{'unit_filename'}
+               ne $element->{'tree_unit_directions'}->{'next'}->{'unit_filename'}
            and $self->count_elements_in_filename('remaining',
-                         $element->{'structure'}->{'unit_filename'}) == 1));
+                         $element->{'unit_filename'}) == 1));
 
   my $is_special = (defined($element->{'type'})
                     and $element->{'type'} eq 'special_element');
@@ -7365,10 +7369,10 @@ sub _default_format_element_footer($$$$;$)
   # FIXME the following condition is almost a duplication of the
   # condition appearing in end_page except that the file counter
   # needs not to be 1
-  if ((!$element->{'structure'}->{'unit_next'}
-       or (defined($element->{'structure'}->{'unit_filename'})
-           and $element->{'structure'}->{'unit_filename'}
-               ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}))
+  if ((!$element->{'tree_unit_directions'}->{'next'}
+       or (defined($element->{'unit_filename'})
+           and $element->{'unit_filename'}
+               ne $element->{'tree_unit_directions'}->{'next'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
     $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
   }
@@ -8798,7 +8802,7 @@ sub _html_get_tree_root_element($$;$)
                  and $self->{'tree_units'}->[0]) {
           #print STDERR "FOR titlepage tree_units [0]\n" if ($debug);
           return ($self->{'tree_units'}->[0],
-                  $self->{'tree_units'}->[0]->{'extra'}->{'unit_command'});
+                  $self->{'tree_units'}->[0]->{'unit_command'});
         }
         die "Problem $root_element, $root_command" if (defined($root_element)
                                                   or defined($root_command));
@@ -9022,7 +9026,7 @@ sub _html_set_pages_files($$$$$$$$)
       }
     }
     $self->set_tree_unit_file($tree_unit, $filename);
-    my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+    my $tree_unit_filename = $tree_unit->{'unit_filename'};
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
     $self->{'file_counters'}->{$tree_unit_filename}++;
@@ -9121,8 +9125,10 @@ sub _prepare_conversion_tree_units($$$$)
   if ($special_elements and defined($tree_units) and scalar(@$tree_units)) {
     my $previous_tree_unit = $tree_units->[-1];
     foreach my $special_element (@$special_elements) {
-      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
-      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
+      $special_element->{'tree_unit_directions'} = {}
+          if not $special_element->{'tree_unit_directions'};
+      $special_element->{'tree_unit_directions'}->{'prev'} = $previous_tree_unit;
+      $previous_tree_unit->{'tree_unit_directions'}->{'next'} = $special_element;
       $previous_tree_unit = $special_element;
     }
   }
@@ -9294,9 +9300,9 @@ sub _prepare_contents_elements($)
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
           if ($self->{'tree_units'} and $self->{'tree_units'}->[0]->{'structure'}
-              and exists($self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'})) {
+              and exists($self->{'tree_units'}->[0]->{'unit_filename'})) {
             $default_filename
-              = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
+              = $self->{'tree_units'}->[0]->{'unit_filename'};
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
@@ -9311,9 +9317,9 @@ sub _prepare_contents_elements($)
               my ($root_element, $root_command)
                 = $self->_html_get_tree_root_element($command);
               if (defined($root_element) and $root_element->{'structure'}
-                  and exists($root_element->{'structure'}->{'unit_filename'})) {
+                  and exists($root_element->{'unit_filename'})) {
                 $default_filename
-                   = $root_element->{'structure'}->{'unit_filename'};
+                   = $root_element->{'unit_filename'};
                 last;
               }
             }
@@ -10568,7 +10574,7 @@ sub _default_format_frame_files($$)
     my $top_file = '';
     my $top_element = $self->global_direction_element('Top');
     if ($top_element) {
-      $top_file = $top_element->{'structure'}->{'unit_filename'};
+      $top_file = $top_element->{'unit_filename'};
     }
     my $title = $self->{'title_string'};
     print $frame_fh <<EOT;
@@ -11046,12 +11052,12 @@ sub output($$)
   if ($special_elements
       and $tree_units and $tree_units->[0]
       and $tree_units->[0]->{'structure'}
-      and defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+      and defined($tree_units->[0]->{'unit_filename'})) {
     foreach my $special_element (@$special_elements) {
-      if (!defined($special_element->{'structure'}->{'unit_filename'})) {
-        $special_element->{'structure'}->{'unit_filename'}
-           = $tree_units->[0]->{'structure'}->{'unit_filename'};
-        $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
+      if (!defined($special_element->{'unit_filename'})) {
+        $special_element->{'unit_filename'}
+           = $tree_units->[0]->{'unit_filename'};
+        $self->{'file_counters'}->{$special_element->{'unit_filename'}}++;
       }
     }
   }
@@ -11198,7 +11204,7 @@ sub output($$)
 
   # determine first file name
   if (!$tree_units
-      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+      or !defined($tree_units->[0]->{'unit_filename'})) {
     # no page
     if ($output_file ne '') {
       my $no_page_output_filename;
@@ -11223,7 +11229,7 @@ sub output($$)
     }
   } else {
     $self->{'current_filename'}
-      = $tree_units->[0]->{'structure'}->{'unit_filename'};
+      = $tree_units->[0]->{'unit_filename'};
   }
   # title
   $self->{'title_titlepage'}
@@ -11234,7 +11240,7 @@ sub output($$)
 
 
   if (!$tree_units or !$tree_units->[0]->{'structure'}
-      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+      or !defined($tree_units->[0]->{'unit_filename'})) {
     my $output = '';
     my $fh;
     my $encoded_no_page_out_filepath;
@@ -11309,7 +11315,7 @@ sub output($$)
     # Now do the output, converting each tree units and special elements in turn
     $special_elements = [] if (!defined($special_elements));
     foreach my $element (@$tree_units, @$special_elements) {
-      my $element_filename = $element->{'structure'}->{'unit_filename'};
+      my $element_filename = $element->{'unit_filename'};
       my $out_filepath = $self->{'out_filepaths'}->{$element_filename};
       $self->{'current_filename'} = $element_filename;
 

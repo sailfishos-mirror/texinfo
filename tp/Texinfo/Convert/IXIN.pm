@@ -282,11 +282,11 @@ sub _associated_node_id($$$;$)
 
     if ($root_command) {
       if (!$root_command->{'cmdname'} or $root_command->{'cmdname'} ne 'node') {
-        if ($element and $element->{'extra'}
-            and $element->{'extra'}->{'unit_command'}
-            and $element->{'extra'}->{'unit_command'}->{'cmdname'}
-            and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
-          $node_command = $element->{'extra'}->{'unit_command'};
+        if ($element
+            and $element->{'unit_command'}
+            and $element->{'unit_command'}->{'cmdname'}
+            and $element->{'unit_command'}->{'cmdname'} eq 'node') {
+          $node_command = $element->{'unit_command'};
         }
       } else {
         $node_command = $root_command;
@@ -500,9 +500,9 @@ sub output_ixin($$)
   if ($tree_units) {
     foreach my $node_element (@$tree_units) {
       next if (not defined ($node_element->{'extra'})
-               or not defined($node_element->{'extra'}->{'unit_command'}));
+               or not defined($node_element->{'unit_command'}));
       $node_nr++;
-      my $node = $node_element->{'extra'}->{'unit_command'};
+      my $node = $node_element->{'unit_command'};
       push @nodes, $node;
       my $normalized_node_name = $node->{'extra'}->{'normalized'};
       foreach my $setting_command_name (keys(%current_settings)) {

@@ -86,14 +86,12 @@ $result_trees{'part_before_top'} = [
         }
       }
     ],
-    'extra' => {
-      'unit_command' => {}
-    },
-    'type' => 'unit'
+    'type' => 'unit',
+    'unit_command' => {}
   }
 ];
 $result_trees{'part_before_top'}[0]{'contents'}[2]{'extra'}{'associated_part'} = $result_trees{'part_before_top'}[0]{'contents'}[1];
-$result_trees{'part_before_top'}[0]{'extra'}{'unit_command'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
+$result_trees{'part_before_top'}[0]{'unit_command'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
 
 $result_texis{'part_before_top'} = '@part part
 
@@ -121,15 +119,13 @@ $result_sectioning{'part_before_top'} = {
             },
             'structure' => {
               'associated_unit' => {
-                'extra' => {
-                  'unit_command' => {}
-                },
                 'structure' => {
                   'directions' => {
                     'This' => {}
                   }
                 },
-                'type' => 'unit'
+                'type' => 'unit',
+                'unit_command' => {}
               },
               'section_level' => 0,
               'section_prev' => {},
@@ -149,8 +145,8 @@ $result_sectioning{'part_before_top'} = {
   }
 };
 $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
 $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'associated_unit'}{'structure'}{'directions'}{'This'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'associated_unit'};
+$result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'associated_unit'}{'unit_command'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
 $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'section_prev'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'section_up'} = $result_sectioning{'part_before_top'};
 $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'} = $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'structure'}{'associated_unit'};
@@ -175,34 +171,32 @@ $result_floats{'part_before_top'} = {};
 
 $result_elements{'part_before_top'} = [
   {
-    'extra' => {
-      'unit_command' => {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_part' => {
-            'cmdname' => 'part',
-            'extra' => {},
-            'structure' => {
-              'associated_unit' => {}
-            }
-          }
-        },
-        'structure' => {
-          'associated_unit' => {}
-        }
-      }
-    },
     'structure' => {
       'directions' => {
         'This' => {}
       }
     },
-    'type' => 'unit'
+    'type' => 'unit',
+    'unit_command' => {
+      'cmdname' => 'top',
+      'extra' => {
+        'associated_part' => {
+          'cmdname' => 'part',
+          'extra' => {},
+          'structure' => {
+            'associated_unit' => {}
+          }
+        }
+      },
+      'structure' => {
+        'associated_unit' => {}
+      }
+    }
   }
 ];
-$result_elements{'part_before_top'}[0]{'extra'}{'unit_command'}{'extra'}{'associated_part'}{'structure'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
-$result_elements{'part_before_top'}[0]{'extra'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
 $result_elements{'part_before_top'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'part_before_top'}[0];
+$result_elements{'part_before_top'}[0]{'unit_command'}{'extra'}{'associated_part'}{'structure'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
+$result_elements{'part_before_top'}[0]{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
 
 
 

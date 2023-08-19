@@ -389,7 +389,7 @@ sub chm_init($)
   my $top_file = '';
   my $top_element = $self->global_direction_element('Top');
   if ($top_element) {
-    $top_file = $top_element->{'structure'}->{'unit_filename'};
+    $top_file = $top_element->{'unit_filename'};
   }
 
   print $hhp_fh <<EOT;
@@ -414,9 +414,9 @@ EOT
   my %chm_files;
   if ($self->{'tree_units'}) {
     foreach my $element (@{$self->{'tree_units'}}) {
-      if (!$chm_files{$element->{'structure'}->{'unit_filename'}}) {
-        print $hhp_fh "$element->{'structure'}->{'unit_filename'}\n";
-        $chm_files{$element->{'structure'}->{'unit_filename'}} = 1;
+      if (!$chm_files{$element->{'unit_filename'}}) {
+        print $hhp_fh "$element->{'unit_filename'}\n";
+        $chm_files{$element->{'unit_filename'}} = 1;
       }
     }
   }

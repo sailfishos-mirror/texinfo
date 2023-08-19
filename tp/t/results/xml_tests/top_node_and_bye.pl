@@ -132,7 +132,8 @@ $result_elements{'top_node_and_bye'}[0]{'structure'}{'directions'}{'This'} = $re
 
 
 $result_directions_text{'top_node_and_bye'} = 'element: No associated command (type unit)
-  NO DIRECTION';
+  This: No associated command (type unit)
+';
 
 
 $result_converted{'xml'}->{'top_node_and_bye'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

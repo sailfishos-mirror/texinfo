@@ -421,7 +421,7 @@ my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
-    'structure', 'menu_child', 'unit_next', 'directions', 'page_next',
+    'structure', 'menu_child', 'tree_unit_directions', 'directions', 'page_next',
     'parent',
     # only set with the XS parser
     'tree_document_descriptor');
@@ -466,7 +466,7 @@ sub filter_floats_keys { [grep {!$avoided_keys_floats{$_}}
 
 my %avoided_keys_elements;
 my @avoided_keys_elements = (@contents_keys, @sections_keys, @node_keys,
-  'unit_next', 'unit_prev');
+  'tree_unit_directions');
 foreach my $avoided_key(@avoided_keys_elements) {
   $avoided_keys_elements{$avoided_key} = 1;
 }

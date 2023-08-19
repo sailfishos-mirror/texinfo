@@ -341,12 +341,12 @@ sub output($$)
                                  $output_filename, $document_name);
   }
 
-  #print STDERR "$tree_units $tree_units->[0]->{'structure'}->{'unit_filename'}\n";
+  #print STDERR "$tree_units $tree_units->[0]->{'unit_filename'}\n";
 
   # Now do the output
   my $fh;
   if (!$tree_units or !$tree_units->[0]->{'structure'}
-      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+      or !defined($tree_units->[0]->{'unit_filename'})) {
     # no page
     my $output = '';
     my $outfile_name;
@@ -414,7 +414,7 @@ sub output($$)
     my %files_filehandle;
     
     foreach my $tree_unit (@$tree_units) {
-      my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+      my $tree_unit_filename = $tree_unit->{'unit_filename'};
       my $out_filepath = $self->{'out_filepaths'}->{$tree_unit_filename};
       my $file_fh;
       # open the file and output the elements
@@ -787,7 +787,7 @@ sub registered_filename($$)
   return undef;
 }
 
-# Sets $tree_unit->{'structure'}->{'unit_filename'}.
+# Sets $tree_unit->{'unit_filename'}.
 sub set_tree_unit_file($$$)
 {
   my $self = shift;
@@ -807,17 +807,17 @@ sub set_tree_unit_file($$$)
 
   # This should never happen, set_tree_unit_file is called once per
   # tree unit.
-  if (exists($tree_unit->{'structure'}->{'unit_filename'})) {
-    if ($tree_unit->{'structure'}->{'unit_filename'} eq $filename) {
+  if (exists($tree_unit->{'unit_filename'})) {
+    if ($tree_unit->{'unit_filename'} eq $filename) {
       print STDERR "set_tree_unit_file: already set: $filename\n"
          if ($self->get_conf('DEBUG'));
     } else {
       print STDERR  "set_tree_unit_file: unit_filename reset: "
-        .$tree_unit->{'structure'}->{'unit_filename'}.", $filename\n"
+        .$tree_unit->{'unit_filename'}.", $filename\n"
            if ($self->get_conf('DEBUG'));
     }
   }
-  $tree_unit->{'structure'}->{'unit_filename'} = $filename;
+  $tree_unit->{'unit_filename'} = $filename;
 }
 
 # sets out_filepaths converter state, associating a file name
@@ -951,12 +951,12 @@ sub _set_tree_units_files($$$$$$)
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
       next if ($tree_unit->{'structure'}
-               and defined($tree_unit->{'structure'}->{'unit_filename'}));
+               and defined($tree_unit->{'unit_filename'}));
       my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
       if (!$file_tree_unit) {
         cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
+      if (!defined($file_tree_unit->{'unit_filename'})) {
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
@@ -978,9 +978,9 @@ sub _set_tree_units_files($$$$$$)
             last;
           }
         }
-        if (!defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
+        if (!defined($file_tree_unit->{'unit_filename'})) {
           # use section to do the file name if there is no node
-          my $command = $file_tree_unit->{'extra'}->{'unit_command'};
+          my $command = $file_tree_unit->{'unit_command'};
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
@@ -1008,12 +1008,12 @@ sub _set_tree_units_files($$$$$$)
         }
       }
       $self->set_tree_unit_file($tree_unit,
-                    $file_tree_unit->{'structure'}->{'unit_filename'});
+                    $file_tree_unit->{'unit_filename'});
     }
   }
 
   foreach my $tree_unit (@$tree_units) {
-    my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+    my $tree_unit_filename = $tree_unit->{'unit_filename'};
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
     $self->{'file_counters'}->{$tree_unit_filename}++;
@@ -1456,8 +1456,7 @@ sub sort_element_counts($$;$$)
   if (!$elements) {
     @$elements = ($tree);
   } elsif (scalar(@$elements) >= 1
-           and (not $elements->[0]->{'extra'}
-                or not $elements->[0]->{'extra'}->{'unit_command'})) {
+           and not $elements->[0]->{'unit_command'}) {
     shift @$elements;
   }
 
@@ -1467,8 +1466,8 @@ sub sort_element_counts($$;$$)
   require Texinfo::Convert::Texinfo;
   foreach my $element (@$elements) {
     my $name;
-    if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
-      my $command = $element->{'extra'}->{'unit_command'};
+    if ($element->{'unit_command'}) {
+      my $command = $element->{'unit_command'};
       if ($command->{'args'}->[0]->{'contents'}) {
         $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo(

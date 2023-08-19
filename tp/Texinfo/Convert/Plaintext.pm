@@ -977,12 +977,11 @@ sub process_footnotes($;$)
   if (scalar(@{$self->{'pending_footnotes'}})) {
 
     $element = undef if ($element and
-                         (not defined($element->{'extra'})
-                          or not defined($element->{'extra'}->{'unit_command'})));
+                         not defined($element->{'unit_command'}));
     my $node_element;
     my $node_contents;
     if ($element) {
-      $node_element = $element->{'extra'}->{'unit_command'};
+      $node_element = $element->{'unit_command'};
       if ($node_element->{'extra'}
           and defined($node_element->{'extra'}->{'normalized'})) {
         $node_contents = $node_element->{'args'}->[0]->{'contents'};

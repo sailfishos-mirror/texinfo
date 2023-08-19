@@ -116,8 +116,8 @@ sub output($$)
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
   my $out_file_nr = 0;
   my @indirect_files;
-  if (!defined($tree_units) or not defined($tree_units->[0]->{'extra'})
-      or not defined($tree_units->[0]->{'extra'}->{'unit_command'})) {
+  if (!defined($tree_units) or not defined($tree_units->[0])
+      or not defined($tree_units->[0]->{'unit_command'})) {
     $self->line_warn($self, __("document without nodes"),
              {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
     my $output = $header.$self->convert_tree($root);

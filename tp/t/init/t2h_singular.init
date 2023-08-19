@@ -66,12 +66,12 @@ sub singular_format_footer($$$$)
   my $content = shift;
 
 
-  my $end_page = (!$element->{'structure'}->{'unit_next'}
-   or (defined($element->{'structure'}->{'unit_filename'})
-       and $element->{'structure'}->{'unit_filename'}
-           ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
+  my $end_page = (!$element->{'tree_unit_directions'}->{'next'}
+   or (defined($element->{'unit_filename'})
+       and $element->{'unit_filename'}
+           ne $element->{'tree_unit_directions'}->{'next'}->{'unit_filename'}
        and $self->count_elements_in_filename('current',
-                   $element->{'structure'}->{'unit_filename'}) == 1));
+                   $element->{'unit_filename'}) == 1));
 
   if ($self->element_is_tree_unit_top($element)) {
     my $buttons = $self->get_conf('TOP_BUTTONS');

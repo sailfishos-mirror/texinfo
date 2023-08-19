@@ -117,15 +117,15 @@ sub book_format_navigation_header($$$$)
   my $element = shift;
 
   my $tree_unit = $element->{'structure'}->{'associated_unit'};
-  if ($tree_unit and $tree_unit->{'extra'}->{'unit_command'}
-      and not $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
+  if ($tree_unit and $tree_unit->{'unit_command'}
+      and not $tree_unit->{'unit_command'}->{'cmdname'} eq 'node'
       and ($tree_unit->{'contents'}->[0] eq $element
           or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
               and $tree_unit->{'contents'}->[1] eq $element))
-      and defined($tree_unit->{'structure'}->{'unit_filename'})
+      and defined($tree_unit->{'unit_filename'})
       and $self->count_elements_in_filename('current',
-                         $tree_unit->{'structure'}->{'unit_filename'}) == 1) {
-    return book_print_up_toc($self, $tree_unit->{'extra'}->{'unit_command'}) .
+                         $tree_unit->{'unit_filename'}) == 1) {
+    return book_print_up_toc($self, $tree_unit->{'unit_command'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $element);
 
@@ -311,9 +311,9 @@ sub book_convert_heading_command($$$$$)
     # unit_command, but tree_unit is defined (it can contain only
     # 'first_in_page')
     if ((!$tree_unit # or !$tree_unit->{'extra'}
-         # or !$tree_unit->{'extra'}->{'unit_command'}
-         or ($tree_unit->{'extra'}->{'unit_command'}
-             and $tree_unit->{'extra'}->{'unit_command'} eq $element
+         # or !$tree_unit->{'unit_command'}
+         or ($tree_unit->{'unit_command'}
+             and $tree_unit->{'unit_command'} eq $element
              and (not $element->{'extra'}
                   or not $element->{'extra'}->{'associated_section'})))
         and defined($element->{'extra'})
@@ -461,12 +461,12 @@ sub book_element_file_name($$$$)
   my $prefix = $converter->{'document_name'};
   my $new_file_name;
   my $command;
-  if ($element->{'extra'}->{'unit_command'}) {
-    if ($element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
-      $command = $element->{'extra'}->{'unit_command'};
-    } elsif ($element->{'extra'}->{'unit_command'}->{'extra'}
-             and $element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
-      $command = $element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
+  if ($element->{'unit_command'}) {
+    if ($element->{'unit_command'}->{'cmdname'} ne 'node') {
+      $command = $element->{'unit_command'};
+    } elsif ($element->{'unit_command'}->{'extra'}
+             and $element->{'unit_command'}->{'extra'}->{'associated_section'}) {
+      $command = $element->{'unit_command'}->{'extra'}->{'associated_section'};
     }
   }
   return undef unless ($command);

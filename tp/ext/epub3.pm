@@ -365,8 +365,8 @@ sub epub_convert_tree_unit_type($$$$)
   my $content = shift;
 
   push @epub_tree_units_output_filenames,
-   $element->{'structure'}->{'unit_filename'}
-    unless grep {$_ eq $element->{'structure'}->{'unit_filename'}}
+   $element->{'unit_filename'}
+    unless grep {$_ eq $element->{'unit_filename'}}
             @epub_tree_units_output_filenames;
   return &{$self->default_type_conversion($type)}($self,
                                       $type, $element, $content);
@@ -382,8 +382,8 @@ sub epub_convert_special_element_type($$$$)
   my $content = shift;
 
   push @epub_special_elements_filenames,
-   $element->{'structure'}->{'unit_filename'}
-    unless grep {$_ eq $element->{'structure'}->{'unit_filename'}}
+   $element->{'unit_filename'}
+    unless grep {$_ eq $element->{'unit_filename'}}
             @epub_special_elements_filenames;
   return &{$self->default_type_conversion($type)}($self,
                                       $type, $element, $content);
