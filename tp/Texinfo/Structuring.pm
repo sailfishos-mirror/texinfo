@@ -2098,21 +2098,20 @@ sub sort_indices($$$$;$$)
   my $preset_keys = shift;
   $preset_keys = $default_preset_keys if (!defined($preset_keys));
 
-  eval { require Unicode::Collate; Unicode::Collate->import; };
-  my $unicode_collate_loading_error = $@;
+  # The 'Non-Ignorable' for variable collation elements means that they are
+  # treated as normal characters.   This allows to have spaces and punctuation
+  # marks sort before letters.
+  # http://www.unicode.org/reports/tr10/#Variable_Weighting
+  my %collate_options = ( 'variable' => 'Non-Ignorable' );
 
-  my $options = setup_index_entry_keys_formatting($customization_information);
   # TODO Unicode::Collate has been in perl core long enough, but
   # Unicode::Collate::Locale is present since perl major version 5.14 only,
   # released in 2011.  So probably better to use Unicode::Collate until 2031
   # (and if documentlanguage is not set) and switch to Unicode::Collate::Locale
   # at this date.
-  # The 'Non-Ignorable' for variable collation elements means that they are
-  # treated as normal characters.   This allows to have spaces and punctuation
-  # marks sort before letters.
-  # http://www.unicode.org/reports/tr10/#Variable_Weighting
   #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage,
-  #                                             'variable' => 'Non-Ignorable');
+  #                                             %collate_options);
+
   # The Unicode::Collate sorting changes often, based on the UCA version.
   # To test the result with a specific version, the UCA_Version should be set,
   # and, more importantly the table should correspond to that version.
@@ -2125,29 +2124,34 @@ sub sort_indices($$$$;$$)
   # The test results seem to be consistent with 6.2.0, corresponding
   # to the perl 5.18.0 Unicode::Collate
 
+  # to test for 6.2.0
+  #%collate_options = (%collate_options,
+  #                    'UCA_Version' => 24,
+  #                    'table' => 'allkeys-6.2.0.txt');
+  # To test files affected for UCA corresponding to perl 5.8.1
+  # wget -N http://www.unicode.org/Public/UCA/3.1.1/allkeys-3.1.1.txt
+  #%collate_options = (%collate_options,
+  #                   'UCA_Version' => 9,
+  #                   'table' => 'allkeys-3.1.1.txt');
+
   # Fall back to stub if Unicode::Collate not available.
   my $collator;
+  eval { require Unicode::Collate; Unicode::Collate->import; };
+  my $unicode_collate_loading_error = $@;
   if ($unicode_collate_loading_error eq '') {
-    $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
+    $collator = Unicode::Collate->new(%collate_options);
   } else {
     $collator = Texinfo::CollateStub->new();
   }
 
-  # to test for 6.2.0
-  #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
-  #                                     'UCA_Version' => 24,
-  #                                     'table' => 'allkeys-6.2.0.txt');
-  # To test files affected for UCA corresponding to perl 5.8.1
-  # wget -N http://www.unicode.org/Public/UCA/3.1.1/allkeys-3.1.1.txt
-  #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
-  #                                     'UCA_Version' => 9,
-  #                                     'table' => 'allkeys-3.1.1.txt');
   my $entries_collator;
   $entries_collator = $collator if $preset_keys;
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings
     unless ($index_entries);
+
+  my $options = setup_index_entry_keys_formatting($customization_information);
   $sorted_index_entries = {};
   foreach my $index_name (keys(%$index_entries)) {
     # used if not $sort_by_letter
