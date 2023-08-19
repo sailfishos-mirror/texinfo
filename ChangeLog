@@ -1,5 +1,23 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (section_level), tp/Texinfo/ParserNonXS.pm
+	(%parser_state_initialization, _handle_line_command),
+	tp/Texinfo/Transformations.pm (_correct_level),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command,
+	tp/Texinfo/XS/structuring_transfo/transformations.c (section_level)
+	(correct_level): rename extra key sections_level as level_modifier and
+	sections_level parser state as sections_level_modifier.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c (section_level)
+	(correct_level): do not check that key value is 0 before checking the
+	integer value.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c (modify_tree):
+	make clearer that the operation on tree should take care of destroying
+	removed element.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): update
 	Texinfo::Structuring::associate_internal_references call.
 

@@ -150,7 +150,7 @@ my %parser_state_initialization = (
                               # as obtained by parsing the @macro
   'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_expansion_nr' => 0,  # number of values being expanded
-  'sections_level' => 0,      # modified by raise/lowersections
+  'sections_level_modifier' => 0, # modified by raise/lowersections
   'labels_list' => [],            # array of elements associated with labels
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
                                     # file
@@ -5446,9 +5446,9 @@ sub _handle_line_command($$$$$$)
       }
     }
     if ($command eq 'raisesections') {
-      $self->{'sections_level'}++;
+      $self->{'sections_level_modifier'}++;
     } elsif ($command eq 'lowersections') {
-      $self->{'sections_level'}--;
+      $self->{'sections_level_modifier'}--;
     }
     _register_global_command($self, $command_e, $source_info)
       if $command_e;
@@ -5539,9 +5539,9 @@ sub _handle_line_command($$$$$$)
         # when converting back to Texinfo.
         $current = _end_line($self, $current, $source_info);
       } elsif ($sectioning_heading_commands{$data_cmdname}) {
-        if ($self->{'sections_level'}) {
+        if ($self->{'sections_level_modifier'}) {
           $command_e->{'extra'}
-            = {'sections_level' => $self->{'sections_level'}};
+            = {'level_modifier' => $self->{'sections_level_modifier'}};
         }
       }
       push @{$current->{'contents'}}, $command_e;
@@ -8828,7 +8828,7 @@ the C<@multitable>.
 The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
-or C<@lowersections>, the differential level is in I<sections_level>.
+or C<@lowersections>, the differential level is in I<level_modifier>.
 
 =item C<untranslated>
 

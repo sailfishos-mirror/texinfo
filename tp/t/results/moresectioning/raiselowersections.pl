@@ -895,7 +895,7 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1071,7 +1071,7 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1405,7 +1405,7 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1666,7 +1666,7 @@ $result_sectioning{'raiselowersections'} = {
                         },
                         'structure' => {}
                       },
-                      'sections_level' => -1
+                      'level_modifier' => -1
                     },
                     'structure' => {
                       'section_childs' => [
@@ -1680,7 +1680,7 @@ $result_sectioning{'raiselowersections'} = {
                               },
                               'structure' => {}
                             },
-                            'sections_level' => -1
+                            'level_modifier' => -1
                           },
                           'structure' => {
                             'section_childs' => [
@@ -1694,7 +1694,7 @@ $result_sectioning{'raiselowersections'} = {
                                     },
                                     'structure' => {}
                                   },
-                                  'sections_level' => -1
+                                  'level_modifier' => -1
                                 },
                                 'structure' => {
                                   'section_level' => 4,
@@ -1803,7 +1803,7 @@ $result_nodes{'raiselowersections'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'sections_level' => -1
+                'level_modifier' => -1
               },
               'structure' => {
                 'section_number' => '1.1'
@@ -1823,7 +1823,7 @@ $result_nodes{'raiselowersections'} = {
                 'associated_section' => {
                   'cmdname' => 'section',
                   'extra' => {
-                    'sections_level' => -1
+                    'level_modifier' => -1
                   },
                   'structure' => {
                     'section_number' => '1.1.1'
@@ -1843,7 +1843,7 @@ $result_nodes{'raiselowersections'} = {
                     'associated_section' => {
                       'cmdname' => 'subsection',
                       'extra' => {
-                        'sections_level' => -1
+                        'level_modifier' => -1
                       },
                       'structure' => {
                         'section_number' => '1.1.1.1'

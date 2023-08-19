@@ -60,7 +60,7 @@ $result_trees{'loweredheading'} = {
           ],
           'cmdname' => 'heading',
           'extra' => {
-            'sections_level' => -1
+            'level_modifier' => -1
           },
           'info' => {
             'spaces_before_argument' => {
@@ -75,7 +75,7 @@ $result_trees{'loweredheading'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -121,7 +121,7 @@ $result_sectioning{'loweredheading'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'sections_level' => -1
+          'level_modifier' => -1
         },
         'structure' => {
           'section_level' => 3,

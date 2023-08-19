@@ -84,8 +84,8 @@ sub _correct_level($$;$)
   my $modifier = shift;
   $modifier = 1 if (!defined($modifier));
 
-  if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
-    my $level_to_remove = $modifier * $section->{'extra'}->{'sections_level'};
+  if ($section->{'extra'} and $section->{'extra'}->{'level_modifier'}) {
+    my $level_to_remove = $modifier * $section->{'extra'}->{'level_modifier'};
     my $cmdname;
     if ($level_to_remove < 0) {
       $cmdname = 'raisesections';

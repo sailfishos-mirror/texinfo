@@ -985,7 +985,7 @@ $result_trees{'lowered_subsubsection'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1082,7 +1082,7 @@ $result_trees{'lowered_subsubsection'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1
+        'level_modifier' => -1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1278,7 +1278,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                                     },
                                     'structure' => {}
                                   },
-                                  'sections_level' => -1
+                                  'level_modifier' => -1
                                 },
                                 'structure' => {
                                   'section_level' => 4,
@@ -1297,7 +1297,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                                     },
                                     'structure' => {}
                                   },
-                                  'sections_level' => -1
+                                  'level_modifier' => -1
                                 },
                                 'structure' => {
                                   'section_level' => 4,
@@ -1436,7 +1436,7 @@ $result_nodes{'lowered_subsubsection'} = {
                         'associated_section' => {
                           'cmdname' => 'subsection',
                           'extra' => {
-                            'sections_level' => -1
+                            'level_modifier' => -1
                           },
                           'structure' => {
                             'section_number' => '1.1.1.2'
@@ -1456,7 +1456,7 @@ $result_nodes{'lowered_subsubsection'} = {
                             'associated_section' => {
                               'cmdname' => 'subsubsection',
                               'extra' => {
-                                'sections_level' => -1
+                                'level_modifier' => -1
                               },
                               'structure' => {
                                 'section_number' => '1.1.1.3'

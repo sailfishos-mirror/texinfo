@@ -695,11 +695,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
       if (cmd == CM_raisesections)
         {
-          global_info.sections_level++;
+          global_info.sections_level_modifier++;
         }
       else if (cmd == CM_lowersections)
         {
-          global_info.sections_level--;
+          global_info.sections_level_modifier--;
         }
 
       if (command_e)
@@ -817,10 +817,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           if (command_data(data_cmd).flags & CF_sectioning_heading)
             {
-              if (global_info.sections_level)
+              if (global_info.sections_level_modifier)
                 {
-                  add_extra_integer (command_e, "sections_level",
-                                     global_info.sections_level);
+                  add_extra_integer (command_e, "level_modifier",
+                                     global_info.sections_level_modifier);
                 }
             }
 

@@ -1602,8 +1602,8 @@ sub section_level($)
   my $section = shift;
   my $level = $command_structuring_level{$section->{'cmdname'}};
   # correct level according to raise/lowersections
-  if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
-    $level -= $section->{'extra'}->{'sections_level'};
+  if ($section->{'extra'} and $section->{'extra'}->{'level_modifier'}) {
+    $level -= $section->{'extra'}->{'level_modifier'};
     if ($level < $min_level) {
       if ($command_structuring_level{$section->{'cmdname'}} < $min_level) {
         $level = $command_structuring_level{$section->{'cmdname'}};

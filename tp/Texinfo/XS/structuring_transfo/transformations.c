@@ -43,8 +43,8 @@ int
 section_level (ELEMENT *section)
 {
   int level = command_structuring_level[section->cmd];
-  KEY_PAIR *k = lookup_extra (section, "sections_level");
-  if (k && k->value)
+  KEY_PAIR *k = lookup_extra (section, "level_modifier");
+  if (k)
     {
       int section_modifier = (intptr_t) k->value;
       level -= section_modifier;
@@ -113,7 +113,8 @@ modify_tree (ELEMENT *tree,
           new_args = (*operation) ("arg", tree->args.list[i], argument);
           if (new_args)
             {
-              ELEMENT *removed = remove_from_args (tree, i);
+              /* *operation should take care of destroying removed element */
+              remove_from_args (tree, i);
               insert_slice_into_args (tree, i,
                                       new_args, 0,
                                       new_args->args.number);
@@ -134,7 +135,8 @@ modify_tree (ELEMENT *tree,
                                        argument);
           if (new_contents)
             {
-              ELEMENT *removed = remove_from_contents (tree, i);
+              /* *operation should take care of destroying removed element */
+              remove_from_contents (tree, i);
               insert_slice_into_contents (tree, i,
                                           new_contents, 0,
                                           new_contents->contents.number);
@@ -177,8 +179,8 @@ modify_tree (ELEMENT *tree,
 void
 correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 {
-  KEY_PAIR *k = lookup_extra (section, "sections_level");
-  if (k && k->value)
+  KEY_PAIR *k = lookup_extra (section, "level_modifier");
+  if (k)
     {
       int level_to_remove;
       int section_modifier = (intptr_t) k->value;
