@@ -1,5 +1,10 @@
 2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac: Check for Unicode::Collate and issue a warning
+	if not found.  Report from Bruno Haible on CentOS 8-stream.
+
+2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Structuring.pm (sort_indices):
 	Put collator options in a hash variable to make code clearer.
 	Reorder code slightly.
