@@ -1,3 +1,9 @@
+2023-08-19  Bruno Haible  <bruno@clisp.org>
+
+	* doc/Makefile.am (refcard/txirefcard.pdf, refcard/txirefcard-a4.pdf):
+	Combine Makefile rules in attempt to forestall two make processes
+	running at the same time in case of a parallel make.
+
 2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/Makefile.am (refcard/txirefcard.pdf, refcard/txirefcard-a4.pdf):

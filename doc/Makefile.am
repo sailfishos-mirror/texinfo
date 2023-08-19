@@ -57,11 +57,8 @@ refcard_files = refcard/Makefile refcard/txicmdcheck \
                 refcard/txirefcard-a4.pdf refcard/txirefcard.pdf \
 		refcard/txirefcard.tex
 
-refcard/txirefcard.pdf: refcard/txirefcard.tex
-	(cd $(srcdir)/refcard && make)
-
-refcard/txirefcard-a4.pdf: refcard/txirefcard.tex
-	(cd $(srcdir)/refcard && make)
+refcard/txirefcard.pdf refcard/txirefcard-a4.pdf: refcard/txirefcard.tex
+	cd $(srcdir)/refcard && make
 
 # Include our texinfo.tex, not Automake's.
 EXTRA_DIST = epsf.tex texinfo.tex \
