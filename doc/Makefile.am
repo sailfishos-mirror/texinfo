@@ -174,9 +174,9 @@ wwwdoc-build:
 # http://www.gnu.org/software/texinfo/manual/
 wwwdoc-install:
 	cp -arf $(doctemp)/$(manual1) $(doctemp)/$(manual2) \
-                $(doctemp)/$(manual3) $(doctemp)/$(manual4) \
-                $(doctemp)/pod2texi.html \
-                $(www_target)
+	        $(doctemp)/$(manual3) $(doctemp)/$(manual4) \
+	        $(doctemp)/pod2texi.html \
+	        $(www_target)
 	$(MKDIR_P) $(www_target)/Pod/Simple
 	cp -arf $(doctemp)/Pod/Simple/Texinfo.html $(www_target)/Pod/Simple
 	ls -ltu $(www_target)/*/html_node | tail  # cvs rm -f obsolete files
