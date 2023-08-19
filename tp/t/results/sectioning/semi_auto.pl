@@ -853,6 +853,15 @@ $result_errors{'semi_auto'} = [
     'macro' => '',
     'text' => 'node `Section non auto\' is next for `Chap1\' in menu but not in sectioning',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => 'node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu',
+    'type' => 'warning'
   }
 ];
 

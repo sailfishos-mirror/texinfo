@@ -660,9 +660,11 @@ sub complete_node_tree_with_menus($$$$)
           and $section->{'structure'}->{'section_up'}
                                                 ->{'extra'}->{'associated_node'}
           and $section->{'structure'}->{'section_up'}
-                                     ->{'extra'}->{'associated_node'}->{'menus'}
+                        ->{'extra'}->{'associated_node'}->{'extra'}
+          and $section->{'structure'}->{'section_up'}
+                        ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}
           and @{$section->{'structure'}->{'section_up'}
-                                    ->{'extra'}->{'associated_node'}->{'menus'}}
+                        ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}}
                     and !$node->{'structure'}->{'menu_'.$direction}) {
                   $registrar->line_warn($customization_information,
            sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),

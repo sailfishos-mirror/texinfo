@@ -1586,6 +1586,24 @@ $result_menus{'lowered_subsubsection'}{'structure'}{'menu_child'}{'structure'}{'
 
 $result_errors{'lowered_subsubsection'} = [
   {
+    'error_line' => 'warning: node next for `Lowered subsec\' is `Lowered subsubsection\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 34,
+    'macro' => '',
+    'text' => 'node next for `Lowered subsec\' is `Lowered subsubsection\' in sectioning but not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node prev for `Lowered subsubsection\' is `Lowered subsec\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 41,
+    'macro' => '',
+    'text' => 'node prev for `Lowered subsubsection\' is `Lowered subsec\' in sectioning but not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node up pointer for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu
 ',
     'file_name' => '',

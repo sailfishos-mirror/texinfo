@@ -1,3 +1,8 @@
+2023-08-19  Patrice Dumas <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus): add
+	missing extra for menus key.
+
 2023-08-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* install-info/tests/ii-0059-test: Fix malformed menu entry.

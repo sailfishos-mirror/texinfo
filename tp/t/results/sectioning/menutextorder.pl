@@ -1332,6 +1332,24 @@ $result_menus{'menutextorder'}{'structure'}{'menu_child'}{'structure'}{'menu_up'
 
 $result_errors{'menutextorder'} = [
   {
+    'error_line' => 'warning: node next for `onesub1\' is `onesub2\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => 'node next for `onesub1\' is `onesub2\' in sectioning but not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node up for `onesub1\' is `bar\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => 'node up for `onesub1\' is `bar\' in sectioning but not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
 ',
     'file_name' => '',
@@ -1341,12 +1359,30 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: node prev for `onesub2\' is `onesub1\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => 'node prev for `onesub2\' is `onesub1\' in sectioning but not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node next pointer for `sub1\' is `sub2\' but next is `sub3\' in menu
 ',
     'file_name' => '',
     'line_nr' => 29,
     'macro' => '',
     'text' => 'node next pointer for `sub1\' is `sub2\' but next is `sub3\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node next for `sub2\' is `sub3\' in sectioning but not in menu
+',
+    'file_name' => '',
+    'line_nr' => 32,
+    'macro' => '',
+    'text' => 'node next for `sub2\' is `sub3\' in sectioning but not in menu',
     'type' => 'warning'
   },
   {
