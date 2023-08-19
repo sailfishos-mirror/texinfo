@@ -1,9 +1,8 @@
 #!/usr/bin/env perl
 # javaprop2texiflag.pl --- -*- coding: utf-8 -*-
-# Copyright 2012 Vincent Belaïche
+# Copyright 2012, 2023 Vincent Belaïche
 #
 # Author: Vincent Belaïche <vincentb1@users.sourceforge.net>
-# Version: $Id: javaprop2texiflag.pl,v 1.2 2012/09/02 11:17:29 vincentb1 Exp $
 # Keywords:
 # X-URL: http://www.jpicedt.org/
 #
@@ -40,7 +39,7 @@ use warnings;
 use feature qw(say unicode_strings);
 use PerlIO;
 
-my $version='$Id: javaprop2texiflag.pl,v 1.2 2012/09/02 11:17:29 vincentb1 Exp $';
+my $version='javaprop2texiflag.pl,v 1.2 2012/09/02 11:17:29 vincentb1';
 my $linenb = 0;
 my $inputfile;
 my $verbose;
