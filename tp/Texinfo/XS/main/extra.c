@@ -145,6 +145,9 @@ lookup_associated_info (ASSOCIATED_INFO *a, char *key)
   int i;
   for (i = 0; i < a->info_number; i++)
     {
+      /* We could reuse extra_deleted slots by keeping the extra_deleted
+         key and checking here the type, but in the current code the
+         extra_deleted keys will never be set again */
       if (!strcmp (a->info[i].key, key))
         return &a->info[i];
     }
