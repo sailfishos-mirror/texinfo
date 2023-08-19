@@ -16,8 +16,6 @@ Bugs
 check extra_deleted in
 lookup_associated_info
 
-check !k->value /k->value for integers
-
 HTML API
 ========
 

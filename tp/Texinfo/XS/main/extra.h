@@ -34,6 +34,7 @@ KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
 KEY_PAIR *lookup_info (ELEMENT *e, char *key);
 ELEMENT *lookup_extra_element (ELEMENT *e, char *key);
 ELEMENT *lookup_info_element (ELEMENT *e, char *key);
+ELEMENT *lookup_extra_contents (ELEMENT *e, char *key, int create);
 
 KEY_PAIR *lookup_associated_info (ASSOCIATED_INFO *a, char *key);
 

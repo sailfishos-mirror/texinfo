@@ -18,6 +18,7 @@
 #include <stdlib.h>
 
 #include "tree_types.h"
+#include "tree.h"
 #include "utils.h"
 #include "extra.h"
 
@@ -164,6 +165,19 @@ KEY_PAIR *
 lookup_extra (ELEMENT *e, char *key)
 {
   return lookup_associated_info (&e->extra_info, key);
+}
+/* if CREATE is true, create an extra contents element if there is none */
+ELEMENT *
+lookup_extra_contents (ELEMENT *e, char *key, int create)
+{
+  ELEMENT *contents_e;
+  contents_e = lookup_extra_element (e, key);
+  if (!contents_e && create)
+    {
+      contents_e = new_element (ET_NONE);
+      add_extra_contents (e, key, contents_e);
+    }
+  return contents_e;
 }
 
 ELEMENT *
