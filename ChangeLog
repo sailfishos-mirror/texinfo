@@ -1,5 +1,11 @@
 2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (refcard/txirefcard.pdf, refcard/txirefcard-a4.pdf):
+	Add rules for these files, as they aren't tracked in git any more
+	and are needed for make dist.  From Bruno.
+
+2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* contrib/gen-dir-node,
 	* contrib/javaprop2texiflag.pl,
 	* doc/refcard/Makefile: Eliminate $Id keyword expansion.

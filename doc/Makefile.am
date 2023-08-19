@@ -1,6 +1,6 @@
 # Makefile.am for texinfo/doc.
 #
-# Copyright 2002-2019 Free Software Foundation, Inc.
+# Copyright 2002-2023 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -56,6 +56,12 @@ TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 refcard_files = refcard/Makefile refcard/txicmdcheck \
                 refcard/txirefcard-a4.pdf refcard/txirefcard.pdf \
 		refcard/txirefcard.tex
+
+refcard/txirefcard.pdf: refcard/txirefcard.tex
+	(cd $(srcdir)/refcard && make)
+
+refcard/txirefcard-a4.pdf: refcard/txirefcard.tex
+	(cd $(srcdir)/refcard && make)
 
 # Include our texinfo.tex, not Automake's.
 EXTRA_DIST = epsf.tex texinfo.tex \
