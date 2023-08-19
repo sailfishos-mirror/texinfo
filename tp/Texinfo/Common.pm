@@ -2580,10 +2580,11 @@ sub relate_index_entries_to_table_items_in_tree($$)
 
   modify_tree($tree, \&_relate_index_entries_to_table_items,
               $indices_information);
-  _XS_relate_index_entries_to_table_items_in_tree($tree, $indices_information);
+  # The XS function retrieves the indices information associated with the tree.
+  _XS_relate_index_entries_to_table_items_in_tree($tree);
 }
 
-sub _XS_relate_index_entries_to_table_items_in_tree($$)
+sub _XS_relate_index_entries_to_table_items_in_tree($)
 {
 }
 

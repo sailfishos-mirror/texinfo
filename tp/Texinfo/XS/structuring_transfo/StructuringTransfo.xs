@@ -50,7 +50,6 @@ fill_gaps_in_sectioning (tree_in)
         SV** document_descriptor_sv;
         DOCUMENT *document = 0;
         int document_descriptor;
-        int copy_document_descriptor;
         HV *hv_tree_in;
         HV *result_tree;
      CODE:
@@ -89,7 +88,6 @@ copy_tree (tree_in, parent_in)
         DOCUMENT *document = 0;
         int document_descriptor;
         int copy_document_descriptor;
-        HV *hv;
         HV *hv_tree_in;
      CODE:
         hv_tree_in = (HV *)SvRV (tree_in);
@@ -108,8 +106,8 @@ copy_tree (tree_in, parent_in)
             /* FIXME have a similar system but for trees only? */
             copy_document_descriptor = register_document (result, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
-            /*
-            hv = newHV ();
+            /* to return a fake element
+            HV *hv = newHV ();
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document_descriptor), 0);
@@ -126,9 +124,8 @@ copy_tree (tree_in, parent_in)
         RETVAL
 
 void
-relate_index_entries_to_table_items_in_tree (tree_in, indices_information)
+relate_index_entries_to_table_items_in_tree (tree_in)
         SV *tree_in
-        SV *indices_information
     PREINIT:
         SV** document_descriptor_sv;
         DOCUMENT *document = 0;
@@ -234,7 +231,6 @@ void
 associate_internal_references (document_in)
         SV *document_in
     PREINIT:
-        char *result;
         SV** document_descriptor_sv;
         DOCUMENT *document = 0;
         int document_descriptor;

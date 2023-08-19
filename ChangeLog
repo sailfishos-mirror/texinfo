@@ -1,5 +1,21 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (relate_index_entries_to_table_items_in_tree)
+	(_XS_relate_index_entries_to_table_items_in_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(relate_index_entries_to_table_items_in_tree): do not pass
+	indices_information to the XS
+	relate_index_entries_to_table_items_in_tree.
+
+	* tp/Texinfo/XS/main/utils.c (new_expanded_formats): return the
+	formats.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs,
+	tp/Texinfo/XS/main/translations.c, tp/Texinfo/XS/parsetexi/end_line.c:
+	remove or comment out unused variables.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (section_level), tp/Texinfo/ParserNonXS.pm
 	(%parser_state_initialization, _handle_line_command),
 	tp/Texinfo/Transformations.pm (_correct_level),

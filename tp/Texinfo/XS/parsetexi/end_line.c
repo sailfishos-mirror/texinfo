@@ -1322,7 +1322,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_documentencoding)
             {
-              int i; char *p, *normalized_text, *q;
+              int i; char *p, *normalized_text;
               int encoding_set;
               char *input_encoding = 0;
               int possible_encoding = 0;

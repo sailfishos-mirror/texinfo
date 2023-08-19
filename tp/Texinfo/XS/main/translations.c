@@ -58,6 +58,8 @@ configure (char *localesdir, char *strings_textdomain_in)
     strings_textdomain = strings_textdomain_in;
 
   #ifdef ENABLE_NLS
+  /* FIXME error out if failure?
+     if failure bindtextdomain sets errno to ENOMEM and returns NULL */
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
   #endif
 }
@@ -126,9 +128,8 @@ switch_messages_locale (void)
      in argument is not */
   if (locale && strcmp (locale, "C") && strcmp (locale, "POSIX"))
     {
-      char *current_lang = getenv ("LANG");
-      working_locale = locale;
       /*
+      char *current_lang = getenv ("LANG");
       fprintf (stderr, "SETTING (%d) LANG '%s' locale %s '%s'\n",
                setenv_status, current_lang, locale, working_locale);
       if (strcmp (current_lang, locale))
@@ -136,6 +137,7 @@ switch_messages_locale (void)
           fprintf (stderr, "LANG %s != locale %s\n", current_lang, locale);
         }
       */
+      working_locale = locale;
     }
 }
 

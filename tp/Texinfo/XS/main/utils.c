@@ -105,6 +105,8 @@ add_expanded_format (struct expanded_format *formats, char *format)
     add_expanded_format (formats, "info");
 }
 
+/* FORMAT is an optional argument, to set a format at the expanded_format
+   structure creation */
 struct expanded_format *
 new_expanded_formats (char *format)
 {
@@ -115,6 +117,8 @@ new_expanded_formats (char *format)
 
   if (format)
     add_expanded_format (formats, format);
+
+  return formats;
 }
 
 int
