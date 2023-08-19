@@ -1,3 +1,9 @@
+2023-08-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Structuring.pm (Texinfo::CollateStub):
+	Provide fall-back module in case Unicode::Collate can't be loaded.
+	(sort_indices): Use it if loading Unicode::Collate fails.
+
 2023-08-19  Patrice Dumas <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus): add

@@ -32,7 +32,6 @@ use strict;
 
 use Carp qw(cluck confess);
 
-use Unicode::Collate;
 use Unicode::Normalize;
 
 # for %root_commands
@@ -2047,6 +2046,42 @@ sub index_entry_sort_string($$$$;$)
   return ($entry_key, $sort_entry_key);
 }
 
+# This is a stub for the Unicode::Collate module.  Although this module is
+# a core Perl module, some distributions may install a stripped-down Perl
+# that doesn't include it, so providing this fall-back allows texi2any
+# to run in such cases.  Using this fall-back will change index sorting,
+# especially of punctuation characters and in non-English manuals.
+#
+# This fall-back also allows checking the performance impact of
+# Unicode::Collate (last checked as about a 5% increase in runtime for
+# typical Info output).
+
+package Texinfo::CollateStub;
+
+sub new($%) {
+  my $class = shift;
+  my %options = @_;
+
+  my $self = {};
+  bless $self, $class;
+  return $self;
+}
+
+sub getSortKey($$) {
+  my $self = shift;
+  my $string = shift;
+
+  return $string;
+}
+
+sub cmp($$$) {
+  my ($self, $a, $b) = @_;
+
+  return ($a cmp $b);
+}
+
+package Texinfo::Structuring;
+
 # if true pre-set collating keys
 #my $default_preset_keys = 0;
 my $default_preset_keys = 1;
@@ -2062,6 +2097,9 @@ sub sort_indices($$$$;$$)
   my $sort_by_letter = shift;
   my $preset_keys = shift;
   $preset_keys = $default_preset_keys if (!defined($preset_keys));
+
+  eval { require Unicode::Collate; Unicode::Collate->import; };
+  my $unicode_collate_loading_error = $@;
 
   my $options = setup_index_entry_keys_formatting($customization_information);
   # TODO Unicode::Collate has been in perl core long enough, but
@@ -2086,7 +2124,15 @@ sub sort_indices($$$$;$$)
   # should only be used for checks.
   # The test results seem to be consistent with 6.2.0, corresponding
   # to the perl 5.18.0 Unicode::Collate
-  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
+
+  # Fall back to stub if Unicode::Collate not available.
+  my $collator;
+  if ($unicode_collate_loading_error eq '') {
+    $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
+  } else {
+    $collator = Texinfo::CollateStub->new();
+  }
+
   # to test for 6.2.0
   #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
   #                                     'UCA_Version' => 24,
