@@ -1374,11 +1374,9 @@ $result_floats{'form_feeds'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => 'type',
         'normalized' => 'fl'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

@@ -3802,8 +3802,8 @@ sub _convert($$)
     if ($command eq 'float') {
       if ($element->{'extra'}
           and ($element->{'extra'}->{'float_type'} ne ''
-               or ($element->{'structure'}
-                   and defined($element->{'structure'}->{'float_number'}))
+               or ($element->{'extra'}
+                   and defined($element->{'extra'}->{'float_number'}))
                or $element->{'extra'}->{'caption'}
                or $element->{'extra'}->{'shortcaption'})) {
         $result .= _add_newline_if_needed($self);

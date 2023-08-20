@@ -1016,11 +1016,9 @@ $result_floats{'things_before_setfilename_no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => '',
         'normalized' => 'float-anchor'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ],
@@ -1034,11 +1032,9 @@ $result_floats{'things_before_setfilename_no_element'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'Text',
         'normalized' => 'ta'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

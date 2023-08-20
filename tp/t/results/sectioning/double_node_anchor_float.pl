@@ -666,31 +666,25 @@ $result_floats{'double_node_anchor_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => 'Text',
         'normalized' => 'node1'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     },
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 2,
         'float_type' => 'Text',
         'normalized' => 'anchor1'
-      },
-      'structure' => {
-        'float_number' => 2
       }
     },
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 3,
         'float_type' => 'Text',
         'normalized' => 'float1'
-      },
-      'structure' => {
-        'float_number' => 3
       }
     }
   ]

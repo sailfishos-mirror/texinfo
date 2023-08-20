@@ -552,6 +552,7 @@ $result_floats{'special_characters_in_float_type'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -560,9 +561,6 @@ $result_floats{'special_characters_in_float_type'} = {
         },
         'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
         'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

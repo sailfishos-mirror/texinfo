@@ -1,5 +1,16 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl ($nr_comparisons, test): enable comparison of
+	floats results.
+
+	* p/Texinfo/Convert/Converter.pm (float_type_number)
+	(float_name_caption), tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Structuring.pm (number_floats), tp/t/test_utils.pl: put
+	float_number in extra instead of structure.  No more structure key.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (split_pages),
 	tp/Texinfo/Convert/Converter.pm (_set_tree_units_files), 
 	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): put

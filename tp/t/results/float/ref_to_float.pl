@@ -306,11 +306,9 @@ $result_floats{'ref_to_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => '',
         'normalized' => 'Label2'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ],
@@ -318,11 +316,9 @@ $result_floats{'ref_to_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => 'Text',
         'normalized' => 'Label1'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

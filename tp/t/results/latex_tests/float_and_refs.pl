@@ -1904,6 +1904,7 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -1918,9 +1919,6 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ],
@@ -1934,6 +1932,7 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {},
         'float_type' => 'Figure',
         'normalized' => 'my-figure',
@@ -1943,9 +1942,6 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ],
@@ -1959,6 +1955,7 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {},
         'float_type' => 'Thing',
         'normalized' => 'with-type',
@@ -1968,9 +1965,6 @@ $result_floats{'float_and_refs'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

@@ -208,11 +208,9 @@ $result_floats{'float_in_style_command'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'A',
         'normalized' => 'B'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

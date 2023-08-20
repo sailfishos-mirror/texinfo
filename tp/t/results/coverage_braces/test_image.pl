@@ -3075,11 +3075,9 @@ $result_floats{'test_image'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'Image',
         'normalized' => 'Image-with-commands'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

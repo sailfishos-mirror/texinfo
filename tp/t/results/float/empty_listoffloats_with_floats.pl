@@ -478,11 +478,9 @@ $result_floats{'empty_listoffloats_with_floats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => '',
         'normalized' => 'label1'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     },
     {
@@ -494,11 +492,9 @@ $result_floats{'empty_listoffloats_with_floats'} = {
             'float' => {}
           }
         },
+        'float_number' => 2,
         'float_type' => '',
         'normalized' => 'label2'
-      },
-      'structure' => {
-        'float_number' => 2
       }
     },
     {

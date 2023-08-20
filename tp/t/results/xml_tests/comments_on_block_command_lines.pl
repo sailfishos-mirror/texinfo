@@ -2251,11 +2251,9 @@ $result_floats{'comments_on_block_command_lines'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => 'f',
         'normalized' => 'g'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

@@ -1316,6 +1316,7 @@ $result_floats{'commands_in_nodedescriptionblock'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -1324,9 +1325,6 @@ $result_floats{'commands_in_nodedescriptionblock'} = {
         },
         'float_type' => 'tfloat',
         'normalized' => 'f1'
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

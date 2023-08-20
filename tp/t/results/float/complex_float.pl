@@ -3820,6 +3820,7 @@ $result_floats{'complex_float'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {}
@@ -3832,9 +3833,6 @@ $result_floats{'complex_float'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => 1
       }
     },
     {
@@ -3846,6 +3844,7 @@ $result_floats{'complex_float'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -3854,9 +3853,6 @@ $result_floats{'complex_float'} = {
         },
         'float_type' => 'Text',
         'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

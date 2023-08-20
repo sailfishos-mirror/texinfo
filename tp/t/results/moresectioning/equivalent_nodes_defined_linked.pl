@@ -630,11 +630,9 @@ $result_floats{'equivalent_nodes_defined_linked'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => 'Figure',
         'normalized' => 'chap'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

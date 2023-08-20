@@ -1668,6 +1668,7 @@ $result_floats{'image_inline_or_not'} = {
             'float' => {}
           }
         },
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -1676,9 +1677,6 @@ $result_floats{'image_inline_or_not'} = {
         },
         'float_type' => 'F',
         'normalized' => 'g'
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

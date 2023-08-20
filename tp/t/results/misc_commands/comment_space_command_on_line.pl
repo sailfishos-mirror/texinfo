@@ -800,6 +800,7 @@ $result_floats{'comment_space_command_on_line'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => '1.1',
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
@@ -808,9 +809,6 @@ $result_floats{'comment_space_command_on_line'} = {
         },
         'float_type' => 'Text',
         'normalized' => 'label'
-      },
-      'structure' => {
-        'float_number' => '1.1'
       }
     }
   ]

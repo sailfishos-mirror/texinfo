@@ -408,11 +408,9 @@ $result_floats{'cindex_in_caption'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'fl',
         'normalized' => 'label'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

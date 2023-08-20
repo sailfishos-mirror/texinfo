@@ -1266,10 +1266,10 @@ sub _convert($$;$)
         }
         push @$attribute, ['type',
                            $element->{'extra'}->{'float_type'}];
-        if ($element->{'structure'}
-            and defined($element->{'structure'}->{'float_number'})) {
+        if ($element->{'extra'}
+            and defined($element->{'extra'}->{'float_number'})) {
           push @$attribute, ['number',
-                             $element->{'structure'}->{'float_number'}];
+                             $element->{'extra'}->{'float_number'}];
         }
       } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @$attribute, ['space', 'preserve'];

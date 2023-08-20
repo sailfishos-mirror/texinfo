@@ -396,6 +396,7 @@ $result_floats{'empty_caption'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_type' => '',
         'normalized' => 'c',
         'shortcaption' => {
@@ -404,9 +405,6 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => 1
       }
     },
     {
@@ -438,11 +436,9 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'a',
         'normalized' => 'b'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]

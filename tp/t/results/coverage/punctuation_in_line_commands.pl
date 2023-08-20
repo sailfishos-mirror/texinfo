@@ -930,6 +930,7 @@ $result_floats{'punctuation_in_line_commands'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => 1,
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {}
@@ -942,9 +943,6 @@ $result_floats{'punctuation_in_line_commands'} = {
             'float' => {}
           }
         }
-      },
-      'structure' => {
-        'float_number' => 1
       }
     },
     {
@@ -956,12 +954,10 @@ $result_floats{'punctuation_in_line_commands'} = {
             'float' => {}
           }
         },
+        'float_number' => 2,
         'float_section' => {},
         'float_type' => 'float type! After punc',
         'normalized' => 'label-with-caption'
-      },
-      'structure' => {
-        'float_number' => 2
       }
     }
   ]

@@ -1709,8 +1709,8 @@ sub number_floats($)
         }
       }
       $number = $float_index if (!defined($number));
-      $float->{'structure'} = {} if (! $float->{'structure'});
-      $float->{'structure'}->{'float_number'} = $number;
+      $float->{'extra'} = {} if (! $float->{'extra'});
+      $float->{'extra'}->{'float_number'} = $number;
     }
   }
 }
@@ -2785,7 +2785,7 @@ elements corresponding to node line directions.
 X<C<number_floats>>
 
 Number the floats as described in the Texinfo manual.  Sets
-the I<number> key in the C<structure> hash of the float
+the I<float_number> key in the C<extra> hash of the float
 tree elements.
 
 =item $command_name = section_level_adjusted_command_name($element)

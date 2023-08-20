@@ -345,7 +345,7 @@ sub output($$)
 
   # Now do the output
   my $fh;
-  if (!$tree_units or !$tree_units->[0]->{'structure'}
+  if (!$tree_units
       or !defined($tree_units->[0]->{'unit_filename'})) {
     # no page
     my $output = '';
@@ -803,8 +803,6 @@ sub set_tree_unit_file($$$)
 
   $filename = $self->register_normalize_case_filename($filename);
 
-  $tree_unit->{'structure'} = {} if (!$tree_unit->{'structure'});
-
   # This should never happen, set_tree_unit_file is called once per
   # tree unit.
   if (exists($tree_unit->{'unit_filename'})) {
@@ -1238,21 +1236,21 @@ sub float_type_number($$)
 
   my $tree;
   if ($type_element) {
-    if (defined($float->{'structure'})
-        and defined($float->{'structure'}->{'float_number'})) {
+    if (defined($float->{'extra'})
+        and defined($float->{'extra'}->{'float_number'})) {
       $tree = $self->gdt("{float_type} {float_number}",
           {'float_type' => $type_element,
             'float_number'
-                => {'text' => $float->{'structure'}->{'float_number'}}});
+                => {'text' => $float->{'extra'}->{'float_number'}}});
     } else {
       $tree = $self->gdt("{float_type}",
           {'float_type' => $type_element});
     }
-  } elsif (defined($float->{'structure'})
-           and defined($float->{'structure'}->{'float_number'})) {
+  } elsif (defined($float->{'extra'})
+           and defined($float->{'extra'}->{'float_number'})) {
     $tree = $self->gdt("{float_number}",
        {'float_number'
-           => {'text' => $float->{'structure'}->{'float_number'}}});
+           => {'text' => $float->{'extra'}->{'float_number'}}});
   }
   return $tree;
 }
@@ -1281,41 +1279,41 @@ sub float_name_caption($$)
   my $prepended;
   if ($type_element) {
     if ($caption) {
-      if ($element->{'structure'}
-          and defined($element->{'structure'}->{'float_number'})) {
+      if ($element->{'extra'}
+          and defined($element->{'extra'}->{'float_number'})) {
         # TRANSLATORS: added before caption
         $prepended = $self->gdt('{float_type} {float_number}: ',
             {'float_type' => $type_element,
              'float_number'
-                => {'text' => $element->{'structure'}->{'float_number'}}});
+                => {'text' => $element->{'extra'}->{'float_number'}}});
       } else {
         # TRANSLATORS: added before caption, no float label
         $prepended = $self->gdt('{float_type}: ',
           {'float_type' => $type_element});
       }
     } else {
-      if ($element->{'structure'}
-          and defined($element->{'structure'}->{'float_number'})) {
+      if ($element->{'extra'}
+          and defined($element->{'extra'}->{'float_number'})) {
         $prepended = $self->gdt("{float_type} {float_number}",
             {'float_type' => $type_element,
               'float_number'
-                 => {'text' => $element->{'structure'}->{'float_number'}}});
+                 => {'text' => $element->{'extra'}->{'float_number'}}});
       } else {
         $prepended = $self->gdt("{float_type}",
             {'float_type' => $type_element});
       }
     }
-  } elsif ($element->{'structure'}
-           and defined($element->{'structure'}->{'float_number'})) {
+  } elsif ($element->{'extra'}
+           and defined($element->{'extra'}->{'float_number'})) {
     if ($caption) {
       # TRANSLATORS: added before caption, no float type
       $prepended = $self->gdt('{float_number}: ',
           {'float_number'
-                => {'text' => $element->{'structure'}->{'float_number'}}});
+                => {'text' => $element->{'extra'}->{'float_number'}}});
     } else {
       $prepended = $self->gdt("{float_number}",
            {'float_number'
-                => {'text' => $element->{'structure'}->{'float_number'}}});
+                => {'text' => $element->{'extra'}->{'float_number'}}});
     }
   }
   return ($caption, $prepended);

@@ -851,6 +851,7 @@ $result_floats{'transliterated_names_conflicts'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_number' => '2.1',
         'float_section' => {
           'associated_unit' => {
             'directions' => {
@@ -928,9 +929,6 @@ $result_floats{'transliterated_names_conflicts'} = {
         },
         'float_type' => 'Figure',
         'normalized' => 'Pr_00e8s'
-      },
-      'structure' => {
-        'float_number' => '2.1'
       }
     }
   ]

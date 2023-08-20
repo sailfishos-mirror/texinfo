@@ -193,7 +193,7 @@ my $arg_generate;
 my $arg_debug;
 my $arg_complete;
 my $arg_output;
-my $nr_comparisons = 9;
+my $nr_comparisons = 10;
 
 Getopt::Long::Configure("gnu_getopt");
 # complete: output a complete texinfo file based on the test.  Does not
@@ -416,8 +416,8 @@ my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
-    'structure', 'tree_unit_directions', 'directions',
-    'page_next', 'parent', 'associated_unit',
+    'float_number', 'tree_unit_directions', 'directions',
+    'parent', 'associated_unit',
     # only set with the XS parser
     'tree_document_descriptor');
 foreach my $avoided_key(@avoided_keys_tree) {
@@ -1437,6 +1437,9 @@ sub test($$)
     $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
     cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
                 $test_name.' menus');
+
+    cmp_trimmed($floats, $result_floats{$test_name},
+                \@avoided_keys_floats, $test_name.' floats');
 
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');

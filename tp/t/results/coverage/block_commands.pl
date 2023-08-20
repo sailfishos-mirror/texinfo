@@ -357,11 +357,9 @@ $result_floats{'block_commands'} = {
             'float' => {}
           }
         },
+        'float_number' => 1,
         'float_type' => 'a float',
         'normalized' => 'b-float'
-      },
-      'structure' => {
-        'float_number' => 1
       }
     }
   ]
