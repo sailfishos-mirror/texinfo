@@ -878,11 +878,11 @@ associated with a button (@pxref{Simple Navigation Panel Customization}).
 
 @c FIXME check if the links are to output units only or also to elements
 @c such as sections or nodes
-Each element direction has a name and a reference to the element unit they
-point to, when such an element exists.  The element is either a
-global output unit (for example, the Top output unit) or relative to the
-current output unit (for example, the next element unit).  Such relative
-elements are determined with respect to the document structure defined
+Each element direction has a name and a reference to the unit they
+point to, when such an unit exists.  The unit is either a
+global unit (for example, the Top output unit) or relative to the
+current output unit (for example, the next output unit).  Such relative
+output units are determined with respect to the document structure defined
 by the section structuring commands (@code{@@chapter},
 @code{@@unnumbered}@dots{}) or by the nodes if the node pointers are
 specified on @code{@@node} lines or in menus (@pxref{Two Paths,,, texinfo, Texinfo}).
@@ -913,62 +913,62 @@ The first output unit with @code{@@printindex}.
 
 @end table
 
-Here is the list of relative element units directions:
+Here is the list of relative output units directions:
 
 @table @emph
 @item This
-The current element unit.
+The current output unit.
 
 @item Forward
-Next element unit in reading order.
+Next output unit in reading order.
 
 @item First
-First element unit in reading order.
+First output unit in reading order.
 
 @item Last
-Last element unit in reading order.
+Last output unit in reading order.
 
 @item Back
-Previous element unit in reading order.
+Previous output unit in reading order.
 
 @item FastForward
-Next chapter element unit.
+Next chapter output unit.
 
 @item FastBack
 Beginning of this chapter, or previous chapter if the element is a chapter.
 
 @item Next
-Next section element unit at the same level.
+Next section output unit at the same level.
 
 @item Prev
-Previous section element unit at the same level.
+Previous section output unit at the same level.
 
 @item Up
 Up section.
 
 @item SectionNext
-Next element unit in section reading order.
+Next output unit in section reading order.
 
 @item SectionPrev
-Previous element unit in section reading order.
+Previous output unit in section reading order.
 
 @item SectionUp
 Up in section reading order.
 
 @item NodeNext
-Next node element unit.
+Next node output unit.
 
 @item NodeForward
-Next node element unit in node reading order.
+Next node output unit in node reading order.
 
 @item NodeBack
-Previous node element unit in node reading order.
+Previous node output unit in node reading order.
 
 @item NodePrev
-Previous node element unit.
+Previous node output unit.
 
 @item NodeUp
-Up node element unit.
+Up node output unit.
 
 @end table
 
@@ -987,13 +987,13 @@ is the next node element relative to the first element in file.  The
 @cindex Direction information type
 @cindex Type, of direction information
 The element directions also have types of information associated,
-which are in general set dynamically depending on the current element
-unit, for instance on the element unit whose navigation panel is being
+which are in general set dynamically depending on the current output
+unit, for instance on the output unit whose navigation panel is being
 formatted:
 
 @table @code
 @item href
-A string that can be used as an href attribute linking to the element unit
+A string that can be used as an href attribute linking to the output unit
 corresponding to the direction.
 
 @item string
@@ -1128,8 +1128,8 @@ variables need to be set in addition:
 @itemx PASSIVE_ICONS
 Hash references with element directions as key (@pxref{Directions}) and button
 image icons as values.  @code{ACTIVE_ICONS} is used for directions actually
-linking to an element, and @code{PASSIVE_ICONS} are used if there is no
-element to link to.  The button images are interpreted as URLs.
+linking to an output unit, and @code{PASSIVE_ICONS} are used if there is no
+output unit to link to.  The button images are interpreted as URLs.
 @end vtable
 
 @cindex Navigation panel button specification
@@ -1172,8 +1172,8 @@ Specifies the buttons used in the top output unit (@pxref{Output Units}).
 @end vtable
 
 Each array specifies which buttons are included, and how they are
-displayed.  Each array element is associated with a button of the
-navigation panel from left to right.  The meaning of the array element
+displayed.  Each array item is associated with a button of the
+navigation panel from left to right.  The meaning of the array item
 values is the following:
 
 @anchor{Buttons Display}
@@ -1181,7 +1181,7 @@ values is the following:
 @table @emph
 @item string with an element direction
 If icons are not used, the button is a link to the corresponding
-element whose text is the @code{text} direction string
+output unit whose text is the @code{text} direction string
 (@pxref{Direction Strings}), surrounded by @samp{[} and
 @samp{]}. If the element direction is @samp{ }, the @samp{[} and @samp{]}
 are omitted.
@@ -1191,9 +1191,9 @@ are omitted.
 @cindex Icons, in navigation buttons
 If icons are used, the button is an image whose file is determined by
 the value associated with the element direction in the
-@code{ACTIVE_ICONS} variable hash if the link leads to an element, or in the
-@code{PASSIVE_ICONS} variable hash if there is no element to link to.  If
-there is a link to the element, the icon links to that element.  The
+@code{ACTIVE_ICONS} variable hash if the link leads to an output unit, or in the
+@code{PASSIVE_ICONS} variable hash if there is no output unit to link to.  If
+there is a link to the output unit, the icon links to that output unit.  The
 button name and button description are given as HTML attributes to
 have a textual description of the icon.  The corresponding strings
 correspond to the @code{button} direction string for the button name
@@ -1209,9 +1209,9 @@ button text.
 The scalar value is printed.
 
 @item array reference of length 2
-Here, the first array element should be a an element direction.
-A link to the element unit associated with the element direction
-is generated.  The text of the link depends on the second array element.
+Here, the first array item should be a an element direction.
+A link to the output unit associated with the element direction
+is generated.  The text of the link depends on the second array item.
 
 @table @emph
 @item reference to a text string
@@ -1227,14 +1227,14 @@ The text string is interpreted as an element direction information type
 and the corresponding text is used for the link.
 @xref{Element Direction Information Type}.
 
-For example, if the button array element is
+For example, if the button array item is
 @example
 [ 'Next', 'node' ]
 @end example
 
 @noindent
 Then the button will be a link to the next section with text
-based on the name of the node associated with the next section element unit.
+based on the name of the node associated with the next section output unit.
 
 @end table
 
