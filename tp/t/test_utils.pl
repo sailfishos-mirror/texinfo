@@ -1433,7 +1433,9 @@ sub test($$)
                  \@avoided_keys_sectioning, $test_name.' sectioning' );
     cmp_trimmed($top_node, $result_nodes{$test_name}, \@avoided_keys_nodes,
                 $test_name.' nodes');
-    cmp_trimmed($top_node, $result_menus{$test_name}, \@avoided_keys_menus,
+    my $menus_result;
+    $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
+    cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
                 $test_name.' menus');
 
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),

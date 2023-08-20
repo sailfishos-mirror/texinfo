@@ -1,5 +1,10 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): setup menu results based on the nodes
+	list, like the generated result is now.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (_first_menu_node)
 	(set_menus_node_directions, complete_node_tree_with_menus)
 	(elements_directions), tp/texi2any.pl, tp/t/test_utils.pl: determine
