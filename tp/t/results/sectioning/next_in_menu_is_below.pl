@@ -722,8 +722,7 @@ $result_sectioning{'next_in_menu_is_below'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -733,8 +732,7 @@ $result_sectioning{'next_in_menu_is_below'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -744,8 +742,7 @@ $result_sectioning{'next_in_menu_is_below'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'subsection'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -815,8 +812,7 @@ $result_nodes{'next_in_menu_is_below'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -843,11 +839,6 @@ $result_menus{'next_in_menu_is_below'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -860,12 +851,6 @@ $result_menus{'next_in_menu_is_below'} = [
               'up' => {}
             },
             'normalized' => 'subsection'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'chapter' => 1,
-              'section' => 1
-            }
           }
         },
         'up' => {}
@@ -874,11 +859,6 @@ $result_menus{'next_in_menu_is_below'} = [
         {}
       ],
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   },
   {}

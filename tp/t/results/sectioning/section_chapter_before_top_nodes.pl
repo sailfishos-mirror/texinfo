@@ -488,8 +488,7 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'section-node'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -506,8 +505,7 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chapter-node'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'prev' => {},
@@ -584,14 +582,12 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
                   'up' => {}
                 },
                 'normalized' => 'section-node'
-              },
-              'structure' => {}
+              }
             },
             'up' => {}
           },
           'normalized' => 'chapter-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -622,20 +618,10 @@ $result_menus{'section_chapter_before_top_nodes'} = [
               {}
             ],
             'normalized' => 'chapter-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         }
       },
       'normalized' => 'section-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter-node' => 1
-      }
     }
   },
   {},

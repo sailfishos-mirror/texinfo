@@ -954,8 +954,7 @@ $result_sectioning{'direntry_dircategory'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1007,8 +1006,7 @@ $result_nodes{'direntry_dircategory'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1032,11 +1030,6 @@ $result_menus{'direntry_dircategory'} = [
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

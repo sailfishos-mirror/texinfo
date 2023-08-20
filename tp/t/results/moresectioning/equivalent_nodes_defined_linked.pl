@@ -547,8 +547,7 @@ $result_nodes{'equivalent_nodes_defined_linked'} = {
             'up' => {}
           },
           'normalized' => 'chap'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -571,11 +570,6 @@ $result_menus{'equivalent_nodes_defined_linked'} = [
         'up' => {}
       },
       'normalized' => 'chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

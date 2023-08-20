@@ -1382,8 +1382,7 @@ $result_sectioning{'split_chapter_index'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'first'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -1393,8 +1392,7 @@ $result_sectioning{'split_chapter_index'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section-1'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -1404,8 +1402,7 @@ $result_sectioning{'split_chapter_index'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'subsection-1'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -1476,8 +1473,7 @@ $result_nodes{'split_chapter_index'} = {
             'up' => {}
           },
           'normalized' => 'first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1504,11 +1500,6 @@ $result_menus{'split_chapter_index'} = [
         {}
       ],
       'normalized' => 'first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -1520,11 +1511,6 @@ $result_menus{'split_chapter_index'} = [
         {}
       ],
       'normalized' => 'section-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   },
   {
@@ -1533,11 +1519,6 @@ $result_menus{'split_chapter_index'} = [
         'up' => {}
       },
       'normalized' => 'subsection-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'section-1' => 1
-      }
     }
   }
 ];

@@ -245,8 +245,7 @@ $result_nodes{'top_node_normalization'} = {
       'prev' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 $result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'};
 $result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_normalization'};
@@ -261,11 +260,6 @@ $result_menus{'top_node_normalization'} = [
         {}
       ],
       'normalized' => 'Top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

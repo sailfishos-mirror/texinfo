@@ -337,8 +337,7 @@ $result_nodes{'double_top_in_menu'} = {
       'next' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 $result_nodes{'double_top_in_menu'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top_in_menu'};
 
@@ -354,11 +353,6 @@ $result_menus{'double_top_in_menu'} = [
         {}
       ],
       'normalized' => 'Top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {

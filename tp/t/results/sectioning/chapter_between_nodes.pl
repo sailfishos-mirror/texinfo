@@ -441,8 +441,7 @@ $result_sectioning{'chapter_between_nodes'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section-node'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -503,8 +502,7 @@ $result_nodes{'chapter_between_nodes'} = {
             'up' => {}
           },
           'normalized' => 'section-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -528,11 +526,6 @@ $result_menus{'chapter_between_nodes'} = [
         'up' => {}
       },
       'normalized' => 'section-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

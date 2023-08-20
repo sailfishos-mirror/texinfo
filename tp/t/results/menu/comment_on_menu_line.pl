@@ -296,8 +296,7 @@ $result_nodes{'comment_on_menu_line'} = {
             'up' => {}
           },
           'normalized' => 'first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -321,11 +320,6 @@ $result_menus{'comment_on_menu_line'} = [
         'up' => {}
       },
       'normalized' => 'first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

@@ -569,8 +569,7 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => '_00e2'
-                    },
-                    'structure' => {}
+                    }
                   }
                 },
                 'NodeBack' => {},
@@ -589,8 +588,7 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'n'
-                },
-                'structure' => {}
+                }
               }
             },
             'NodeBack' => {},
@@ -609,8 +607,7 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => '_00e3'
-            },
-            'structure' => {}
+            }
           }
         },
         'cmdname' => 'unnumbered',
@@ -709,20 +706,17 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
                                   'up' => {}
                                 },
                                 'normalized' => '_00e3'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'up' => {}
                           },
                           'normalized' => 'n'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'up' => {}
                     },
                     'normalized' => '_00e2'
-                  },
-                  'structure' => {}
+                  }
                 }
               },
               'NodeBack' => {},
@@ -857,31 +851,16 @@ $result_menus{'transliterated_split_equivalent_nodes'} = [
                                     'up' => {}
                                   },
                                   'normalized' => '_00e3'
-                                },
-                                'structure' => {
-                                  'menu_up_hash' => {
-                                    'Top' => 1
-                                  }
                                 }
                               },
                               'up' => {}
                             },
                             'normalized' => 'n'
-                          },
-                          'structure' => {
-                            'menu_up_hash' => {
-                              'Top' => 1
-                            }
                           }
                         },
                         'up' => {}
                       },
                       'normalized' => '_00e2'
-                    },
-                    'structure' => {
-                      'menu_up_hash' => {
-                        'Top' => 1
-                      }
                     }
                   }
                 },
@@ -1031,31 +1010,16 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
                                   }
                                 },
                                 'normalized' => '_00e3'
-                              },
-                              'structure' => {
-                                'menu_up_hash' => {
-                                  'Top' => 1
-                                }
                               }
                             },
                             'up' => {}
                           },
                           'normalized' => 'n'
-                        },
-                        'structure' => {
-                          'menu_up_hash' => {
-                            'Top' => 1
-                          }
                         }
                       },
                       'up' => {}
                     },
                     'normalized' => '_00e2'
-                  },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Top' => 1
-                    }
                   }
                 }
               },

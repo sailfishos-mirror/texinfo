@@ -1,5 +1,13 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (_register_menu_node_targets)
+	(check_nodes_are_referenced, set_menus_node_directions)
+	(complete_node_tree_with_menus): determine if a node is in a menu
+	dynamically instead of with {'structure'}->{'menu_up_hash'}.
+	Remove {'structure'}->{'menu_up_hash'}.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): setup menu results based on the nodes
 	list, like the generated result is now.
 

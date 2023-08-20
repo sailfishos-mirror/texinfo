@@ -280,8 +280,7 @@ $result_nodes{'empty_top_node_up'} = {
             'up' => {}
           },
           'normalized' => 'chap'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -305,11 +304,6 @@ $result_menus{'empty_top_node_up'} = [
         'up' => {}
       },
       'normalized' => 'chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

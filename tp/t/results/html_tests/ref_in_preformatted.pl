@@ -328,8 +328,7 @@ $result_nodes{'ref_in_preformatted'} = {
             'up' => {}
           },
           'normalized' => 'chap-nnn-the-node-name'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -353,11 +352,6 @@ $result_menus{'ref_in_preformatted'} = [
         'up' => {}
       },
       'normalized' => 'chap-nnn-the-node-name'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

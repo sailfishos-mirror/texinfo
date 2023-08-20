@@ -573,8 +573,7 @@ $result_sectioning{'printindex_index_entry_in_copying_in_footnote'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -626,8 +625,7 @@ $result_nodes{'printindex_index_entry_in_copying_in_footnote'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -651,11 +649,6 @@ $result_menus{'printindex_index_entry_in_copying_in_footnote'} = [
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

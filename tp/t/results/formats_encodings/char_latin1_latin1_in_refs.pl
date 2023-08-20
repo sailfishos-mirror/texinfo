@@ -1346,8 +1346,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1367,8 +1366,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e9'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1389,8 +1387,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e0-_00e8-_00f9'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1411,8 +1408,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1433,8 +1429,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e7'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1544,36 +1539,31 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                                     'up' => {}
                                   },
                                   'normalized' => '_00e7'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'prev' => {},
                               'up' => {}
                             },
                             'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => '_00e0-_00e8-_00f9'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => '_00e9'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1618,54 +1608,29 @@ $result_menus{'char_latin1_latin1_in_refs'} = [
                                 'up' => {}
                               },
                               'normalized' => '_00e7'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'Top' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => '_00e0-_00e8-_00f9'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => '_00e9'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

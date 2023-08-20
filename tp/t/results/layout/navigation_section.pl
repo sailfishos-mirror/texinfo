@@ -978,8 +978,7 @@ $result_sectioning{'navigation_section'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -989,8 +988,7 @@ $result_sectioning{'navigation_section'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -1000,8 +998,7 @@ $result_sectioning{'navigation_section'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'subsection'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -1071,8 +1068,7 @@ $result_nodes{'navigation_section'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1099,11 +1095,6 @@ $result_menus{'navigation_section'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -1115,11 +1106,6 @@ $result_menus{'navigation_section'} = [
         {}
       ],
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   },
   {
@@ -1128,11 +1114,6 @@ $result_menus{'navigation_section'} = [
         'up' => {}
       },
       'normalized' => 'subsection'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'section' => 1
-      }
     }
   }
 ];

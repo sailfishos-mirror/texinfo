@@ -1073,8 +1073,7 @@ $result_sectioning{'node_footnote_end'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chapter'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -1119,29 +1118,25 @@ $result_nodes{'node_footnote_end'} = {
                               'up' => {}
                             },
                             'normalized' => '_00e0'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => 'chapter'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => '_00e2'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => '_00e1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1181,12 +1176,6 @@ $result_menus{'node_footnote_end'} = [
                           'up' => {}
                         },
                         'normalized' => '_00e0'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1,
-                          'chapter' => 1
-                        }
                       }
                     },
                     'prev' => {},
@@ -1196,32 +1185,17 @@ $result_menus{'node_footnote_end'} = [
                     {}
                   ],
                   'normalized' => 'chapter'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => '_00e2'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_00e1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

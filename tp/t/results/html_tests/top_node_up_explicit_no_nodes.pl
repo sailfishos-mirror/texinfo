@@ -406,8 +406,7 @@ $result_sectioning{'top_node_up_explicit_no_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -492,11 +491,6 @@ $result_menus{'top_node_up_explicit_no_nodes'} = [
         'up' => {}
       },
       'normalized' => 'Chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

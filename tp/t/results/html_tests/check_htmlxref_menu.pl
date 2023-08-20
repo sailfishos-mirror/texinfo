@@ -747,8 +747,7 @@ $result_sectioning{'check_htmlxref_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -810,8 +809,7 @@ $result_nodes{'check_htmlxref_menu'} = {
             }
           },
           'normalized' => 'first'
-        },
-        'structure' => {}
+        }
       },
       'up' => {
         'extra' => {
@@ -852,11 +850,6 @@ $result_menus{'check_htmlxref_menu'} = [
         'up' => {}
       },
       'normalized' => 'first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -866,11 +859,6 @@ $result_menus{'check_htmlxref_menu'} = [
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

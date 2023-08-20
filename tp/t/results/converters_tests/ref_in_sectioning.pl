@@ -1889,8 +1889,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1910,8 +1909,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -2147,15 +2145,13 @@ $result_nodes{'ref_in_sectioning'} = {
                   'up' => {}
                 },
                 'normalized' => 'chap'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -2185,21 +2181,11 @@ $result_menus{'ref_in_sectioning'} = [
               'up' => {}
             },
             'normalized' => 'chap'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

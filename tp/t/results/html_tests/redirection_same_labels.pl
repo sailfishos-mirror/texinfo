@@ -1018,8 +1018,7 @@ $result_sectioning{'redirection_same_labels'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'circumflex'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {
@@ -1031,8 +1030,7 @@ $result_sectioning{'redirection_same_labels'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'umlaut'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -1237,15 +1235,13 @@ $result_nodes{'redirection_same_labels'} = {
                   'up' => {}
                 },
                 'normalized' => 'circumflex'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'umlaut'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1381,11 +1377,6 @@ $result_menus{'redirection_same_labels'} = [
               {}
             ],
             'normalized' => 'circumflex'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -1394,11 +1385,6 @@ $result_menus{'redirection_same_labels'} = [
         {}
       ],
       'normalized' => 'umlaut'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -1413,21 +1399,11 @@ $result_menus{'redirection_same_labels'} = [
               'up' => {}
             },
             'normalized' => '_0129'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'umlaut' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_00ef'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'umlaut' => 1
-      }
     }
   },
   {},
@@ -1439,11 +1415,6 @@ $result_menus{'redirection_same_labels'} = [
         'up' => {}
       },
       'normalized' => '_00ee'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'circumflex' => 1
-      }
     }
   }
 ];

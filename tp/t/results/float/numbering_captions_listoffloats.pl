@@ -5388,8 +5388,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -5399,8 +5398,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -5428,8 +5426,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Unnumbered'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -5439,8 +5436,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Section-within-unnumbered'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -5467,8 +5463,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Chapter-with-unnumbsubsec'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -5478,8 +5473,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'unnumbered-sec'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -5507,8 +5501,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Appendix-for-float'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -5529,8 +5522,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'list-of-floats'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -5637,36 +5629,31 @@ $result_nodes{'numbering_captions_listoffloats'} = {
                                     'up' => {}
                                   },
                                   'normalized' => 'list-of-floats'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'prev' => {},
                               'up' => {}
                             },
                             'normalized' => 'Appendix-for-float'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => 'Chapter-with-unnumbsubsec'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'Unnumbered'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -5711,22 +5698,12 @@ $result_menus{'numbering_captions_listoffloats'} = [
                                 'up' => {}
                               },
                               'normalized' => 'list-of-floats'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'Top' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => 'Appendix-for-float'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
@@ -5736,11 +5713,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
                     {}
                   ],
                   'normalized' => 'Chapter-with-unnumbsubsec'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
@@ -5750,11 +5722,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
               {}
             ],
             'normalized' => 'Unnumbered'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -5763,11 +5730,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -5776,11 +5738,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
         'up' => {}
       },
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   },
   {},
@@ -5790,11 +5747,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
         'up' => {}
       },
       'normalized' => 'Section-within-unnumbered'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Unnumbered' => 1
-      }
     }
   },
   {},
@@ -5804,11 +5756,6 @@ $result_menus{'numbering_captions_listoffloats'} = [
         'up' => {}
       },
       'normalized' => 'unnumbered-sec'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Chapter-with-unnumbsubsec' => 1
-      }
     }
   },
   {},

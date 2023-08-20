@@ -519,8 +519,7 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'GFDL'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -610,11 +609,6 @@ $result_menus{'ref_in_copying_insert_in_chapter'} = [
         'up' => {}
       },
       'normalized' => 'GFDL'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Intro' => 1
-      }
     }
   }
 ];

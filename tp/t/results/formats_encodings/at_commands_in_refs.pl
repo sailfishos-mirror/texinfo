@@ -15087,8 +15087,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '-_007b-_007d'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -15108,8 +15107,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '-_0021-_002e-_002e-_003f-_0040'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15130,8 +15128,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0040-_007b-_007d-_005c-_0023'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15152,8 +15149,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15174,8 +15170,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15196,8 +15191,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2265-_2264-_2192'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15218,8 +15212,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15240,8 +15233,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_21d2-_00b0-a-b-_00e5'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15262,8 +15254,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15284,8 +15275,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15306,8 +15296,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15328,8 +15317,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0131-_1e14-_1e08'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15350,8 +15338,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15372,8 +15359,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15394,8 +15380,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15416,8 +15401,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'AAA-AAA-BBB'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15438,8 +15422,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'CCC-CCC-DDD'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15460,8 +15443,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15482,8 +15464,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'f_002d_002dile1-f_002d_002dile'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15504,8 +15485,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '-_0040-_007b_007d-_002e-'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15526,8 +15506,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15548,8 +15527,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15570,8 +15548,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '8_002e27in'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15592,8 +15569,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sansserif-slanted'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15614,8 +15590,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'indicateurl'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15636,8 +15611,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'gH-3rd'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -15658,8 +15632,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -16076,190 +16049,163 @@ $result_nodes{'at_commands_in_refs'} = {
                                                                                                                                                                         'up' => {}
                                                                                                                                                                       },
                                                                                                                                                                       'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
-                                                                                                                                                                    },
-                                                                                                                                                                    'structure' => {}
+                                                                                                                                                                    }
                                                                                                                                                                   },
                                                                                                                                                                   'prev' => {},
                                                                                                                                                                   'up' => {}
                                                                                                                                                                 },
                                                                                                                                                                 'normalized' => 'gH-3rd'
-                                                                                                                                                              },
-                                                                                                                                                              'structure' => {}
+                                                                                                                                                              }
                                                                                                                                                             },
                                                                                                                                                             'prev' => {},
                                                                                                                                                             'up' => {}
                                                                                                                                                           },
                                                                                                                                                           'normalized' => 'indicateurl'
-                                                                                                                                                        },
-                                                                                                                                                        'structure' => {}
+                                                                                                                                                        }
                                                                                                                                                       },
                                                                                                                                                       'prev' => {},
                                                                                                                                                       'up' => {}
                                                                                                                                                     },
                                                                                                                                                     'normalized' => 'sansserif-slanted'
-                                                                                                                                                  },
-                                                                                                                                                  'structure' => {}
+                                                                                                                                                  }
                                                                                                                                                 },
                                                                                                                                                 'prev' => {},
                                                                                                                                                 'up' => {}
                                                                                                                                               },
                                                                                                                                               'normalized' => '8_002e27in'
-                                                                                                                                            },
-                                                                                                                                            'structure' => {}
+                                                                                                                                            }
                                                                                                                                           },
                                                                                                                                           'prev' => {},
                                                                                                                                           'up' => {}
                                                                                                                                         },
                                                                                                                                         'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
-                                                                                                                                      },
-                                                                                                                                      'structure' => {}
+                                                                                                                                      }
                                                                                                                                     },
                                                                                                                                     'prev' => {},
                                                                                                                                     'up' => {}
                                                                                                                                   },
                                                                                                                                   'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
-                                                                                                                                },
-                                                                                                                                'structure' => {}
+                                                                                                                                }
                                                                                                                               },
                                                                                                                               'prev' => {},
                                                                                                                               'up' => {}
                                                                                                                             },
                                                                                                                             'normalized' => '-_0040-_007b_007d-_002e-'
-                                                                                                                          },
-                                                                                                                          'structure' => {}
+                                                                                                                          }
                                                                                                                         },
                                                                                                                         'prev' => {},
                                                                                                                         'up' => {}
                                                                                                                       },
                                                                                                                       'normalized' => 'f_002d_002dile1-f_002d_002dile'
-                                                                                                                    },
-                                                                                                                    'structure' => {}
+                                                                                                                    }
                                                                                                                   },
                                                                                                                   'prev' => {},
                                                                                                                   'up' => {}
                                                                                                                 },
                                                                                                                 'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
-                                                                                                              },
-                                                                                                              'structure' => {}
+                                                                                                              }
                                                                                                             },
                                                                                                             'prev' => {},
                                                                                                             'up' => {}
                                                                                                           },
                                                                                                           'normalized' => 'CCC-CCC-DDD'
-                                                                                                        },
-                                                                                                        'structure' => {}
+                                                                                                        }
                                                                                                       },
                                                                                                       'prev' => {},
                                                                                                       'up' => {}
                                                                                                     },
                                                                                                     'normalized' => 'AAA-AAA-BBB'
-                                                                                                  },
-                                                                                                  'structure' => {}
+                                                                                                  }
                                                                                                 },
                                                                                                 'prev' => {},
                                                                                                 'up' => {}
                                                                                               },
                                                                                               'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
-                                                                                            },
-                                                                                            'structure' => {}
+                                                                                            }
                                                                                           },
                                                                                           'prev' => {},
                                                                                           'up' => {}
                                                                                         },
                                                                                         'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
-                                                                                      },
-                                                                                      'structure' => {}
+                                                                                      }
                                                                                     },
                                                                                     'prev' => {},
                                                                                     'up' => {}
                                                                                   },
                                                                                   'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
-                                                                                },
-                                                                                'structure' => {}
+                                                                                }
                                                                               },
                                                                               'prev' => {},
                                                                               'up' => {}
                                                                             },
                                                                             'normalized' => '_0131-_1e14-_1e08'
-                                                                          },
-                                                                          'structure' => {}
+                                                                          }
                                                                         },
                                                                         'prev' => {},
                                                                         'up' => {}
                                                                       },
                                                                       'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
-                                                                    },
-                                                                    'structure' => {}
+                                                                    }
                                                                   },
                                                                   'prev' => {},
                                                                   'up' => {}
                                                                 },
                                                                 'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
-                                                              },
-                                                              'structure' => {}
+                                                              }
                                                             },
                                                             'prev' => {},
                                                             'up' => {}
                                                           },
                                                           'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
-                                                        },
-                                                        'structure' => {}
+                                                        }
                                                       },
                                                       'prev' => {},
                                                       'up' => {}
                                                     },
                                                     'normalized' => '_21d2-_00b0-a-b-_00e5'
-                                                  },
-                                                  'structure' => {}
+                                                  }
                                                 },
                                                 'prev' => {},
                                                 'up' => {}
                                               },
                                               'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
-                                            },
-                                            'structure' => {}
+                                            }
                                           },
                                           'prev' => {},
                                           'up' => {}
                                         },
                                         'normalized' => '_2265-_2264-_2192'
-                                      },
-                                      'structure' => {}
+                                      }
                                     },
                                     'prev' => {},
                                     'up' => {}
                                   },
                                   'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'prev' => {},
                               'up' => {}
                             },
                             'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => '_0040-_007b-_007d-_005c-_0023'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => '-_0021-_002e-_002e-_003f-_0040'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => '-_007b-_007d'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -16414,296 +16360,161 @@ $result_menus{'at_commands_in_refs'} = [
                                                                                                                                                                     'up' => {}
                                                                                                                                                                   },
                                                                                                                                                                   'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
-                                                                                                                                                                },
-                                                                                                                                                                'structure' => {
-                                                                                                                                                                  'menu_up_hash' => {
-                                                                                                                                                                    'Top' => 1
-                                                                                                                                                                  }
                                                                                                                                                                 }
                                                                                                                                                               },
                                                                                                                                                               'prev' => {},
                                                                                                                                                               'up' => {}
                                                                                                                                                             },
                                                                                                                                                             'normalized' => 'gH-3rd'
-                                                                                                                                                          },
-                                                                                                                                                          'structure' => {
-                                                                                                                                                            'menu_up_hash' => {
-                                                                                                                                                              'Top' => 1
-                                                                                                                                                            }
                                                                                                                                                           }
                                                                                                                                                         },
                                                                                                                                                         'prev' => {},
                                                                                                                                                         'up' => {}
                                                                                                                                                       },
                                                                                                                                                       'normalized' => 'indicateurl'
-                                                                                                                                                    },
-                                                                                                                                                    'structure' => {
-                                                                                                                                                      'menu_up_hash' => {
-                                                                                                                                                        'Top' => 1
-                                                                                                                                                      }
                                                                                                                                                     }
                                                                                                                                                   },
                                                                                                                                                   'prev' => {},
                                                                                                                                                   'up' => {}
                                                                                                                                                 },
                                                                                                                                                 'normalized' => 'sansserif-slanted'
-                                                                                                                                              },
-                                                                                                                                              'structure' => {
-                                                                                                                                                'menu_up_hash' => {
-                                                                                                                                                  'Top' => 1
-                                                                                                                                                }
                                                                                                                                               }
                                                                                                                                             },
                                                                                                                                             'prev' => {},
                                                                                                                                             'up' => {}
                                                                                                                                           },
                                                                                                                                           'normalized' => '8_002e27in'
-                                                                                                                                        },
-                                                                                                                                        'structure' => {
-                                                                                                                                          'menu_up_hash' => {
-                                                                                                                                            'Top' => 1
-                                                                                                                                          }
                                                                                                                                         }
                                                                                                                                       },
                                                                                                                                       'prev' => {},
                                                                                                                                       'up' => {}
                                                                                                                                     },
                                                                                                                                     'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
-                                                                                                                                  },
-                                                                                                                                  'structure' => {
-                                                                                                                                    'menu_up_hash' => {
-                                                                                                                                      'Top' => 1
-                                                                                                                                    }
                                                                                                                                   }
                                                                                                                                 },
                                                                                                                                 'prev' => {},
                                                                                                                                 'up' => {}
                                                                                                                               },
                                                                                                                               'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
-                                                                                                                            },
-                                                                                                                            'structure' => {
-                                                                                                                              'menu_up_hash' => {
-                                                                                                                                'Top' => 1
-                                                                                                                              }
                                                                                                                             }
                                                                                                                           },
                                                                                                                           'prev' => {},
                                                                                                                           'up' => {}
                                                                                                                         },
                                                                                                                         'normalized' => '-_0040-_007b_007d-_002e-'
-                                                                                                                      },
-                                                                                                                      'structure' => {
-                                                                                                                        'menu_up_hash' => {
-                                                                                                                          'Top' => 1
-                                                                                                                        }
                                                                                                                       }
                                                                                                                     },
                                                                                                                     'prev' => {},
                                                                                                                     'up' => {}
                                                                                                                   },
                                                                                                                   'normalized' => 'f_002d_002dile1-f_002d_002dile'
-                                                                                                                },
-                                                                                                                'structure' => {
-                                                                                                                  'menu_up_hash' => {
-                                                                                                                    'Top' => 1
-                                                                                                                  }
                                                                                                                 }
                                                                                                               },
                                                                                                               'prev' => {},
                                                                                                               'up' => {}
                                                                                                             },
                                                                                                             'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
-                                                                                                          },
-                                                                                                          'structure' => {
-                                                                                                            'menu_up_hash' => {
-                                                                                                              'Top' => 1
-                                                                                                            }
                                                                                                           }
                                                                                                         },
                                                                                                         'prev' => {},
                                                                                                         'up' => {}
                                                                                                       },
                                                                                                       'normalized' => 'CCC-CCC-DDD'
-                                                                                                    },
-                                                                                                    'structure' => {
-                                                                                                      'menu_up_hash' => {
-                                                                                                        'Top' => 1
-                                                                                                      }
                                                                                                     }
                                                                                                   },
                                                                                                   'prev' => {},
                                                                                                   'up' => {}
                                                                                                 },
                                                                                                 'normalized' => 'AAA-AAA-BBB'
-                                                                                              },
-                                                                                              'structure' => {
-                                                                                                'menu_up_hash' => {
-                                                                                                  'Top' => 1
-                                                                                                }
                                                                                               }
                                                                                             },
                                                                                             'prev' => {},
                                                                                             'up' => {}
                                                                                           },
                                                                                           'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
-                                                                                        },
-                                                                                        'structure' => {
-                                                                                          'menu_up_hash' => {
-                                                                                            'Top' => 1
-                                                                                          }
                                                                                         }
                                                                                       },
                                                                                       'prev' => {},
                                                                                       'up' => {}
                                                                                     },
                                                                                     'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
-                                                                                  },
-                                                                                  'structure' => {
-                                                                                    'menu_up_hash' => {
-                                                                                      'Top' => 1
-                                                                                    }
                                                                                   }
                                                                                 },
                                                                                 'prev' => {},
                                                                                 'up' => {}
                                                                               },
                                                                               'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
-                                                                            },
-                                                                            'structure' => {
-                                                                              'menu_up_hash' => {
-                                                                                'Top' => 1
-                                                                              }
                                                                             }
                                                                           },
                                                                           'prev' => {},
                                                                           'up' => {}
                                                                         },
                                                                         'normalized' => '_0131-_1e14-_1e08'
-                                                                      },
-                                                                      'structure' => {
-                                                                        'menu_up_hash' => {
-                                                                          'Top' => 1
-                                                                        }
                                                                       }
                                                                     },
                                                                     'prev' => {},
                                                                     'up' => {}
                                                                   },
                                                                   'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
-                                                                },
-                                                                'structure' => {
-                                                                  'menu_up_hash' => {
-                                                                    'Top' => 1
-                                                                  }
                                                                 }
                                                               },
                                                               'prev' => {},
                                                               'up' => {}
                                                             },
                                                             'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
-                                                          },
-                                                          'structure' => {
-                                                            'menu_up_hash' => {
-                                                              'Top' => 1
-                                                            }
                                                           }
                                                         },
                                                         'prev' => {},
                                                         'up' => {}
                                                       },
                                                       'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
-                                                    },
-                                                    'structure' => {
-                                                      'menu_up_hash' => {
-                                                        'Top' => 1
-                                                      }
                                                     }
                                                   },
                                                   'prev' => {},
                                                   'up' => {}
                                                 },
                                                 'normalized' => '_21d2-_00b0-a-b-_00e5'
-                                              },
-                                              'structure' => {
-                                                'menu_up_hash' => {
-                                                  'Top' => 1
-                                                }
                                               }
                                             },
                                             'prev' => {},
                                             'up' => {}
                                           },
                                           'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
-                                        },
-                                        'structure' => {
-                                          'menu_up_hash' => {
-                                            'Top' => 1
-                                          }
                                         }
                                       },
                                       'prev' => {},
                                       'up' => {}
                                     },
                                     'normalized' => '_2265-_2264-_2192'
-                                  },
-                                  'structure' => {
-                                    'menu_up_hash' => {
-                                      'Top' => 1
-                                    }
                                   }
                                 },
                                 'prev' => {},
                                 'up' => {}
                               },
                               'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'Top' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => '_0040-_007b-_007d-_005c-_0023'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => '-_0021-_002e-_002e-_003f-_0040'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '-_007b-_007d'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

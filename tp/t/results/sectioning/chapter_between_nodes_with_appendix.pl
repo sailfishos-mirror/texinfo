@@ -355,8 +355,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Additional'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -413,8 +412,7 @@ $result_nodes{'chapter_between_nodes_with_appendix'} = {
             'up' => {}
           },
           'normalized' => 'Additional'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -438,11 +436,6 @@ $result_menus{'chapter_between_nodes_with_appendix'} = [
         'up' => {}
       },
       'normalized' => 'Additional'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

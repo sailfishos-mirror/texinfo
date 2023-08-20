@@ -2552,8 +2552,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                                         'cmdname' => 'node',
                                                         'extra' => {
                                                           'normalized' => 'unnumbered'
-                                                        },
-                                                        'structure' => {}
+                                                        }
                                                       }
                                                     },
                                                     'FastBack' => {},
@@ -2576,8 +2575,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                                     'cmdname' => 'node',
                                                     'extra' => {
                                                       'normalized' => 'unnumbered-sub'
-                                                    },
-                                                    'structure' => {}
+                                                    }
                                                   }
                                                 },
                                                 'FastBack' => {},
@@ -2602,8 +2600,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                                 'cmdname' => 'node',
                                                 'extra' => {
                                                   'normalized' => 'numbered-sub'
-                                                },
-                                                'structure' => {}
+                                                }
                                               }
                                             },
                                             'FastBack' => {},
@@ -2628,8 +2625,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                             'cmdname' => 'node',
                                             'extra' => {
                                               'normalized' => 'unnumbered-sub2'
-                                            },
-                                            'structure' => {}
+                                            }
                                           }
                                         },
                                         'FastBack' => {},
@@ -2652,8 +2648,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                         'cmdname' => 'node',
                                         'extra' => {
                                           'normalized' => 'numbered-sub2'
-                                        },
-                                        'structure' => {}
+                                        }
                                       }
                                     },
                                     'FastBack' => {},
@@ -2678,8 +2673,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                     'cmdname' => 'node',
                                     'extra' => {
                                       'normalized' => 'unnumbered2'
-                                    },
-                                    'structure' => {}
+                                    }
                                   }
                                 },
                                 'FastBack' => {},
@@ -2700,8 +2694,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                 'cmdname' => 'node',
                                 'extra' => {
                                   'normalized' => 'numbered-sub3'
-                                },
-                                'structure' => {}
+                                }
                               }
                             },
                             'FastBack' => {},
@@ -2723,8 +2716,7 @@ $result_sectioning{'complex_split_at_node'} = {
                             'cmdname' => 'node',
                             'extra' => {
                               'normalized' => 'numbered'
-                            },
-                            'structure' => {}
+                            }
                           }
                         },
                         'FastForward' => {},
@@ -2741,8 +2733,7 @@ $result_sectioning{'complex_split_at_node'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'between-node'
-                        },
-                        'structure' => {}
+                        }
                       }
                     },
                     'FastBack' => {},
@@ -2771,8 +2762,7 @@ $result_sectioning{'complex_split_at_node'} = {
                                 'cmdname' => 'node',
                                 'extra' => {
                                   'normalized' => 'Last-node-no-description'
-                                },
-                                'structure' => {}
+                                }
                               }
                             },
                             'NodeBack' => {},
@@ -2793,8 +2783,7 @@ $result_sectioning{'complex_split_at_node'} = {
                             'cmdname' => 'node',
                             'extra' => {
                               'normalized' => 'continuity'
-                            },
-                            'structure' => {}
+                            }
                           }
                         },
                         'Forward' => {},
@@ -2817,8 +2806,7 @@ $result_sectioning{'complex_split_at_node'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Third-node-unnumbered'
-                        },
-                        'structure' => {}
+                        }
                       }
                     },
                     'Forward' => {},
@@ -2839,8 +2827,7 @@ $result_sectioning{'complex_split_at_node'} = {
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'Second-node'
-                    },
-                    'structure' => {}
+                    }
                   }
                 },
                 'Forward' => {},
@@ -2861,8 +2848,7 @@ $result_sectioning{'complex_split_at_node'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'First-node'
-                },
-                'structure' => {}
+                }
               }
             },
             'Forward' => {},
@@ -3380,26 +3366,22 @@ $result_nodes{'complex_split_at_node'} = {
                                                                         'up' => {}
                                                                       },
                                                                       'normalized' => 'First-node'
-                                                                    },
-                                                                    'structure' => {}
+                                                                    }
                                                                   }
                                                                 },
                                                                 'normalized' => 'numbered'
-                                                              },
-                                                              'structure' => {}
+                                                              }
                                                             },
                                                             'prev' => {},
                                                             'up' => {}
                                                           },
                                                           'normalized' => 'unnumbered2'
-                                                        },
-                                                        'structure' => {}
+                                                        }
                                                       },
                                                       'up' => {}
                                                     },
                                                     'normalized' => 'unnumbered'
-                                                  },
-                                                  'structure' => {}
+                                                  }
                                                 }
                                               },
                                               'FastBack' => {},
@@ -3462,28 +3444,24 @@ $result_nodes{'complex_split_at_node'} = {
                                                                     'up' => {}
                                                                   },
                                                                   'normalized' => 'numbered-sub2'
-                                                                },
-                                                                'structure' => {}
+                                                                }
                                                               },
                                                               'prev' => {},
                                                               'up' => {}
                                                             },
                                                             'normalized' => 'unnumbered-sub2'
-                                                          },
-                                                          'structure' => {}
+                                                          }
                                                         },
                                                         'prev' => {},
                                                         'up' => {}
                                                       },
                                                       'normalized' => 'numbered-sub'
-                                                    },
-                                                    'structure' => {}
+                                                    }
                                                   },
                                                   'up' => {}
                                                 },
                                                 'normalized' => 'unnumbered-sub'
-                                              },
-                                              'structure' => {}
+                                              }
                                             }
                                           },
                                           'FastBack' => {},
@@ -3591,8 +3569,7 @@ $result_nodes{'complex_split_at_node'} = {
                               'up' => {}
                             },
                             'normalized' => 'numbered-sub3'
-                          },
-                          'structure' => {}
+                          }
                         }
                       },
                       'FastBack' => {},
@@ -3630,8 +3607,7 @@ $result_nodes{'complex_split_at_node'} = {
                       'up' => {}
                     },
                     'normalized' => 'between-node'
-                  },
-                  'structure' => {}
+                  }
                 }
               },
               'FastBack' => {},
@@ -3697,27 +3673,23 @@ $result_nodes{'complex_split_at_node'} = {
                                                 'up' => {}
                                               },
                                               'normalized' => 'Second-node'
-                                            },
-                                            'structure' => {}
+                                            }
                                           },
                                           'up' => {}
                                         },
                                         'normalized' => 'Third-node-unnumbered'
-                                      },
-                                      'structure' => {}
+                                      }
                                     },
                                     'prev' => {},
                                     'up' => {}
                                   },
                                   'normalized' => 'continuity'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'up' => {}
                             },
                             'normalized' => 'Last-node-no-description'
-                          },
-                          'structure' => {}
+                          }
                         }
                       },
                       'NodeBack' => {},
@@ -4157,21 +4129,11 @@ $result_menus{'complex_split_at_node'} = [
                                                                                                               'up' => {}
                                                                                                             },
                                                                                                             'normalized' => 'continuity'
-                                                                                                          },
-                                                                                                          'structure' => {
-                                                                                                            'menu_up_hash' => {
-                                                                                                              'Top' => 1
-                                                                                                            }
                                                                                                           }
                                                                                                         },
                                                                                                         'up' => {}
                                                                                                       },
                                                                                                       'normalized' => 'Last-node-no-description'
-                                                                                                    },
-                                                                                                    'structure' => {
-                                                                                                      'menu_up_hash' => {
-                                                                                                        'Top' => 1
-                                                                                                      }
                                                                                                     }
                                                                                                   }
                                                                                                 },
@@ -4216,33 +4178,18 @@ $result_menus{'complex_split_at_node'} = [
                                                                                             'up' => {}
                                                                                           },
                                                                                           'normalized' => 'Third-node-unnumbered'
-                                                                                        },
-                                                                                        'structure' => {
-                                                                                          'menu_up_hash' => {
-                                                                                            'Top' => 1
-                                                                                          }
                                                                                         }
                                                                                       },
                                                                                       'prev' => {},
                                                                                       'up' => {}
                                                                                     },
                                                                                     'normalized' => 'Second-node'
-                                                                                  },
-                                                                                  'structure' => {
-                                                                                    'menu_up_hash' => {
-                                                                                      'Top' => 1
-                                                                                    }
                                                                                   }
                                                                                 },
                                                                                 'prev' => {},
                                                                                 'up' => {}
                                                                               },
                                                                               'normalized' => 'between-node'
-                                                                            },
-                                                                            'structure' => {
-                                                                              'menu_up_hash' => {
-                                                                                'Top' => 1
-                                                                              }
                                                                             }
                                                                           },
                                                                           'up' => {}
@@ -4251,20 +4198,10 @@ $result_menus{'complex_split_at_node'} = [
                                                                           {}
                                                                         ],
                                                                         'normalized' => 'First-node'
-                                                                      },
-                                                                      'structure' => {
-                                                                        'menu_up_hash' => {
-                                                                          'Top' => 1
-                                                                        }
                                                                       }
                                                                     }
                                                                   },
                                                                   'normalized' => 'numbered'
-                                                                },
-                                                                'structure' => {
-                                                                  'menu_up_hash' => {
-                                                                    'First-node' => 1
-                                                                  }
                                                                 }
                                                               },
                                                               'prev' => {},
@@ -4274,11 +4211,6 @@ $result_menus{'complex_split_at_node'} = [
                                                               {}
                                                             ],
                                                             'normalized' => 'unnumbered2'
-                                                          },
-                                                          'structure' => {
-                                                            'menu_up_hash' => {
-                                                              'First-node' => 1
-                                                            }
                                                           }
                                                         },
                                                         'up' => {}
@@ -4287,11 +4219,6 @@ $result_menus{'complex_split_at_node'} = [
                                                         {}
                                                       ],
                                                       'normalized' => 'unnumbered'
-                                                    },
-                                                    'structure' => {
-                                                      'menu_up_hash' => {
-                                                        'First-node' => 1
-                                                      }
                                                     }
                                                   }
                                                 },
@@ -4331,43 +4258,23 @@ $result_menus{'complex_split_at_node'} = [
                                                                       'up' => {}
                                                                     },
                                                                     'normalized' => 'numbered-sub2'
-                                                                  },
-                                                                  'structure' => {
-                                                                    'menu_up_hash' => {
-                                                                      'unnumbered' => 1
-                                                                    }
                                                                   }
                                                                 },
                                                                 'prev' => {},
                                                                 'up' => {}
                                                               },
                                                               'normalized' => 'unnumbered-sub2'
-                                                            },
-                                                            'structure' => {
-                                                              'menu_up_hash' => {
-                                                                'unnumbered' => 1
-                                                              }
                                                             }
                                                           },
                                                           'prev' => {},
                                                           'up' => {}
                                                         },
                                                         'normalized' => 'numbered-sub'
-                                                      },
-                                                      'structure' => {
-                                                        'menu_up_hash' => {
-                                                          'unnumbered' => 1
-                                                        }
                                                       }
                                                     },
                                                     'up' => {}
                                                   },
                                                   'normalized' => 'unnumbered-sub'
-                                                },
-                                                'structure' => {
-                                                  'menu_up_hash' => {
-                                                    'unnumbered' => 1
-                                                  }
                                                 }
                                               }
                                             },
@@ -4470,11 +4377,6 @@ $result_menus{'complex_split_at_node'} = [
                                 'up' => {}
                               },
                               'normalized' => 'numbered-sub3'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'unnumbered2' => 1
-                              }
                             }
                           }
                         },
@@ -4930,21 +4832,11 @@ $result_elements{'complex_split_at_node'} = [
                                                                                                             }
                                                                                                           },
                                                                                                           'normalized' => 'continuity'
-                                                                                                        },
-                                                                                                        'structure' => {
-                                                                                                          'menu_up_hash' => {
-                                                                                                            'Top' => 1
-                                                                                                          }
                                                                                                         }
                                                                                                       },
                                                                                                       'up' => {}
                                                                                                     },
                                                                                                     'normalized' => 'Last-node-no-description'
-                                                                                                  },
-                                                                                                  'structure' => {
-                                                                                                    'menu_up_hash' => {
-                                                                                                      'Top' => 1
-                                                                                                    }
                                                                                                   }
                                                                                                 }
                                                                                               },
@@ -4982,73 +4874,38 @@ $result_elements{'complex_split_at_node'} = [
                                                                                           'up' => {}
                                                                                         },
                                                                                         'normalized' => 'Third-node-unnumbered'
-                                                                                      },
-                                                                                      'structure' => {
-                                                                                        'menu_up_hash' => {
-                                                                                          'Top' => 1
-                                                                                        }
                                                                                       }
                                                                                     },
                                                                                     'prev' => {},
                                                                                     'up' => {}
                                                                                   },
                                                                                   'normalized' => 'Second-node'
-                                                                                },
-                                                                                'structure' => {
-                                                                                  'menu_up_hash' => {
-                                                                                    'Top' => 1
-                                                                                  }
                                                                                 }
                                                                               },
                                                                               'prev' => {},
                                                                               'up' => {}
                                                                             },
                                                                             'normalized' => 'between-node'
-                                                                          },
-                                                                          'structure' => {
-                                                                            'menu_up_hash' => {
-                                                                              'Top' => 1
-                                                                            }
                                                                           }
                                                                         },
                                                                         'up' => {}
                                                                       },
                                                                       'normalized' => 'First-node'
-                                                                    },
-                                                                    'structure' => {
-                                                                      'menu_up_hash' => {
-                                                                        'Top' => 1
-                                                                      }
                                                                     }
                                                                   }
                                                                 },
                                                                 'normalized' => 'numbered'
-                                                              },
-                                                              'structure' => {
-                                                                'menu_up_hash' => {
-                                                                  'First-node' => 1
-                                                                }
                                                               }
                                                             },
                                                             'prev' => {},
                                                             'up' => {}
                                                           },
                                                           'normalized' => 'unnumbered2'
-                                                        },
-                                                        'structure' => {
-                                                          'menu_up_hash' => {
-                                                            'First-node' => 1
-                                                          }
                                                         }
                                                       },
                                                       'up' => {}
                                                     },
                                                     'normalized' => 'unnumbered'
-                                                  },
-                                                  'structure' => {
-                                                    'menu_up_hash' => {
-                                                      'First-node' => 1
-                                                    }
                                                   }
                                                 }
                                               },
@@ -5088,43 +4945,23 @@ $result_elements{'complex_split_at_node'} = [
                                                                     'up' => {}
                                                                   },
                                                                   'normalized' => 'numbered-sub2'
-                                                                },
-                                                                'structure' => {
-                                                                  'menu_up_hash' => {
-                                                                    'unnumbered' => 1
-                                                                  }
                                                                 }
                                                               },
                                                               'prev' => {},
                                                               'up' => {}
                                                             },
                                                             'normalized' => 'unnumbered-sub2'
-                                                          },
-                                                          'structure' => {
-                                                            'menu_up_hash' => {
-                                                              'unnumbered' => 1
-                                                            }
                                                           }
                                                         },
                                                         'prev' => {},
                                                         'up' => {}
                                                       },
                                                       'normalized' => 'numbered-sub'
-                                                    },
-                                                    'structure' => {
-                                                      'menu_up_hash' => {
-                                                        'unnumbered' => 1
-                                                      }
                                                     }
                                                   },
                                                   'up' => {}
                                                 },
                                                 'normalized' => 'unnumbered-sub'
-                                              },
-                                              'structure' => {
-                                                'menu_up_hash' => {
-                                                  'unnumbered' => 1
-                                                }
                                               }
                                             }
                                           },
@@ -5208,11 +5045,6 @@ $result_elements{'complex_split_at_node'} = [
                               'up' => {}
                             },
                             'normalized' => 'numbered-sub3'
-                          },
-                          'structure' => {
-                            'menu_up_hash' => {
-                              'unnumbered2' => 1
-                            }
                           }
                         }
                       },

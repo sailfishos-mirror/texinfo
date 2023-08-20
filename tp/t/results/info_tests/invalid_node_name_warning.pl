@@ -739,22 +739,19 @@ $result_nodes{'invalid_node_name_warning'} = {
                         'up' => {}
                       },
                       'normalized' => 'bidule_003a'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'node_002ccomma'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'nodename_002e-a'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -789,32 +786,17 @@ $result_menus{'invalid_node_name_warning'} = [
                     'up' => {}
                   },
                   'normalized' => 'bidule_003a'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'node_002ccomma'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'nodename_002e-a'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

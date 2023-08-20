@@ -413,8 +413,7 @@ $result_nodes{'part_node_after_top'} = {
             'up' => {}
           },
           'normalized' => 'chap-part-node-after-top'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -489,11 +488,6 @@ $result_menus{'part_node_after_top'} = [
         'up' => {}
       },
       'normalized' => 'chap-part-node-after-top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

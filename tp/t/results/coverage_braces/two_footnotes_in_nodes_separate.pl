@@ -586,8 +586,7 @@ $result_sectioning{'two_footnotes_in_nodes_separate'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -639,8 +638,7 @@ $result_nodes{'two_footnotes_in_nodes_separate'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -664,11 +662,6 @@ $result_menus{'two_footnotes_in_nodes_separate'} = [
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

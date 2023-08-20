@@ -2118,11 +2118,6 @@ $result_menus{'nodes_before_top_split_chapter'} = [
         'up' => {}
       },
       'normalized' => 'node-in-menu-before-top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first-before-top' => 1
-      }
     }
   },
   {
@@ -2142,11 +2137,6 @@ $result_menus{'nodes_before_top_split_chapter'} = [
         {}
       ],
       'normalized' => 'chap-first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -2158,11 +2148,6 @@ $result_menus{'nodes_before_top_split_chapter'} = [
         {}
       ],
       'normalized' => 'second'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chap-first' => 1
-      }
     }
   },
   {
@@ -2175,21 +2160,11 @@ $result_menus{'nodes_before_top_split_chapter'} = [
               'up' => {}
             },
             'normalized' => 'a-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'second' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'another'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'second' => 1
-      }
     }
   },
   {}

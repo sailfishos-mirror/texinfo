@@ -702,8 +702,7 @@ $result_sectioning{'before_node_and_section'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'node1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -756,8 +755,7 @@ $result_nodes{'before_node_and_section'} = {
             'up' => {}
           },
           'normalized' => 'node1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -781,11 +779,6 @@ $result_menus{'before_node_and_section'} = [
         'up' => {}
       },
       'normalized' => 'node1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

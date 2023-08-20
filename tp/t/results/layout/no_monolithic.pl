@@ -522,8 +522,7 @@ $result_sectioning{'no_monolithic'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -576,8 +575,7 @@ $result_nodes{'no_monolithic'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -601,11 +599,6 @@ $result_menus{'no_monolithic'} = [
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

@@ -643,18 +643,15 @@ $result_nodes{'loop_nodes'} = {
                         'up' => {}
                       },
                       'normalized' => 'node-middle'
-                    },
-                    'structure' => {}
+                    }
                   }
                 },
                 'normalized' => 'node-down'
-              },
-              'structure' => {}
+              }
             }
           },
           'normalized' => 'chap-node-up'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -681,11 +678,6 @@ $result_menus{'loop_nodes'} = [
         {}
       ],
       'normalized' => 'chap-node-up'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -697,11 +689,6 @@ $result_menus{'loop_nodes'} = [
         {}
       ],
       'normalized' => 'node-middle'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chap-node-up' => 1
-      }
     }
   },
   {
@@ -710,11 +697,6 @@ $result_menus{'loop_nodes'} = [
         'up' => {}
       },
       'normalized' => 'node-down'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'node-middle' => 1
-      }
     }
   }
 ];

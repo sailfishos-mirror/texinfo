@@ -531,8 +531,7 @@ $result_sectioning{'non_automatic_internal_top_node_up'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chap'
-                },
-                'structure' => {}
+                }
               }
             },
             'NodeForward' => {},
@@ -599,8 +598,7 @@ $result_nodes{'non_automatic_internal_top_node_up'} = {
               'prev' => {}
             },
             'normalized' => 'chap'
-          },
-          'structure' => {}
+          }
         }
       },
       'NodeForward' => {},
@@ -665,11 +663,6 @@ $result_menus{'non_automatic_internal_top_node_up'} = [
                 'up' => {}
               },
               'normalized' => 'chap'
-            },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
             }
           }
         },
@@ -767,11 +760,6 @@ $result_elements{'non_automatic_internal_top_node_up'} = [
               }
             },
             'normalized' => 'chap'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         }
       },

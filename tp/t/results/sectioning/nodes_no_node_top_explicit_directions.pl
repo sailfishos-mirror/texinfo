@@ -325,8 +325,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
               'up' => {}
             },
             'normalized' => 'second-node'
-          },
-          'structure' => {}
+          }
         }
       },
       'NodeForward' => {},
@@ -398,11 +397,6 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = [
                 'up' => {}
               },
               'normalized' => 'second-node'
-            },
-            'structure' => {
-              'menu_up_hash' => {
-                'first' => 1
-              }
             }
           }
         },
@@ -480,11 +474,6 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
               }
             },
             'normalized' => 'second-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'first' => 1
-            }
           }
         }
       },

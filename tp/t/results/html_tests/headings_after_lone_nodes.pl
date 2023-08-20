@@ -1630,11 +1630,6 @@ $result_menus{'headings_after_lone_nodes'} = [
         'up' => {}
       },
       'normalized' => 'subnode'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        '5-not' => 1
-      }
     }
   }
 ];

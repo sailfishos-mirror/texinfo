@@ -4364,8 +4364,7 @@ $result_sectioning{'bib_example'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Introduction'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -4385,8 +4384,7 @@ $result_sectioning{'bib_example'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'References'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -4453,15 +4451,13 @@ $result_nodes{'bib_example'} = {
                   'up' => {}
                 },
                 'normalized' => 'References'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Introduction'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -4491,21 +4487,11 @@ $result_menus{'bib_example'} = [
               'up' => {}
             },
             'normalized' => 'References'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Introduction'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

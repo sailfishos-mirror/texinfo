@@ -584,8 +584,7 @@ $result_sectioning{'section_below_unnumbered'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Unn'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -595,8 +594,7 @@ $result_sectioning{'section_below_unnumbered'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Sec'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -653,8 +651,7 @@ $result_nodes{'section_below_unnumbered'} = {
             'up' => {}
           },
           'normalized' => 'Unn'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -681,11 +678,6 @@ $result_menus{'section_below_unnumbered'} = [
         {}
       ],
       'normalized' => 'Unn'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -694,11 +686,6 @@ $result_menus{'section_below_unnumbered'} = [
         'up' => {}
       },
       'normalized' => 'Sec'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Unn' => 1
-      }
     }
   }
 ];

@@ -619,8 +619,7 @@ $result_sectioning{'double_contents_inline'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -630,8 +629,7 @@ $result_sectioning{'double_contents_inline'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -692,8 +690,7 @@ $result_nodes{'double_contents_inline'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -720,11 +717,6 @@ $result_menus{'double_contents_inline'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -733,11 +725,6 @@ $result_menus{'double_contents_inline'} = [
         'up' => {}
       },
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   }
 ];

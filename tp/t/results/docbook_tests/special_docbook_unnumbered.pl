@@ -762,8 +762,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Dedication'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -782,8 +781,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'preface'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -803,8 +801,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'colophon'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -824,8 +821,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'acknowledgements'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -914,29 +910,25 @@ $result_nodes{'special_docbook_unnumbered'} = {
                               'up' => {}
                             },
                             'normalized' => 'acknowledgements'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => 'colophon'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'preface'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Dedication'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -976,43 +968,23 @@ $result_menus{'special_docbook_unnumbered'} = [
                           'up' => {}
                         },
                         'normalized' => 'acknowledgements'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => 'colophon'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'preface'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Dedication'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

@@ -2627,8 +2627,7 @@ $result_sectioning{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -2707,11 +2706,6 @@ $result_menus{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
         'up' => {}
       },
       'normalized' => 'node-in-menu-before-top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first-before-top' => 1
-      }
     }
   },
   {
@@ -2735,22 +2729,12 @@ $result_menus{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
                     'up' => {}
                   },
                   'normalized' => 'node-in-chapter'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'chapter'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -2759,11 +2743,6 @@ $result_menus{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
         {}
       ],
       'normalized' => 'first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -2775,11 +2754,6 @@ $result_menus{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
         {}
       ],
       'normalized' => 'second'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   },
   {
@@ -2792,21 +2766,11 @@ $result_menus{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
               'up' => {}
             },
             'normalized' => 'a-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'second' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'another'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'second' => 1
-      }
     }
   },
   {},

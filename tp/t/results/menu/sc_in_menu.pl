@@ -810,11 +810,6 @@ $result_menus{'sc_in_menu'} = [
         'up' => {}
       },
       'normalized' => 'node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   }
 ];

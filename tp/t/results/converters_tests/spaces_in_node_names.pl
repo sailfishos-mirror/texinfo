@@ -681,22 +681,19 @@ $result_nodes{'spaces_in_node_names'} = {
                         'up' => {}
                       },
                       'normalized' => 'c-'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'b-'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap-'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -731,32 +728,17 @@ $result_menus{'spaces_in_node_names'} = [
                     'up' => {}
                   },
                   'normalized' => 'c-'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'b-'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

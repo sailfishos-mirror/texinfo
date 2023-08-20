@@ -484,8 +484,7 @@ $result_sectioning{'external_node_in_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'nchapter1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -505,8 +504,7 @@ $result_sectioning{'external_node_in_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'nchapter2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -573,15 +571,13 @@ $result_nodes{'external_node_in_menu'} = {
                   'up' => {}
                 },
                 'normalized' => 'nchapter2'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'nchapter1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -618,11 +614,6 @@ $result_menus{'external_node_in_menu'} = [
         'up' => {}
       },
       'normalized' => 'nchapter1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -632,11 +623,6 @@ $result_menus{'external_node_in_menu'} = [
         'up' => {}
       },
       'normalized' => 'nchapter2'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

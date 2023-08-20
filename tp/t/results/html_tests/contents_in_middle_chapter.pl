@@ -596,8 +596,7 @@ $result_sectioning{'contents_in_middle_chapter'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -607,8 +606,7 @@ $result_sectioning{'contents_in_middle_chapter'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -669,8 +667,7 @@ $result_nodes{'contents_in_middle_chapter'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -697,11 +694,6 @@ $result_menus{'contents_in_middle_chapter'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -710,11 +702,6 @@ $result_menus{'contents_in_middle_chapter'} = [
         'up' => {}
       },
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   }
 ];

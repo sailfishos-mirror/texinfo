@@ -2358,8 +2358,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => '_0104-_0105-_02db-_0118-_0119'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -2618,11 +2617,6 @@ $result_menus{'multiple_include_encodings'} = [
         'up' => {}
       },
       'normalized' => '_0104-_0105-_02db-_0118-_0119'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'char-latin2-latin2' => 1
-      }
     }
   },
   {

@@ -463,8 +463,7 @@ $result_sectioning{'nodes_after_top_before_section_sections'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'third-node'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -518,15 +517,13 @@ $result_nodes{'nodes_after_top_before_section_sections'} = {
                   'up' => {}
                 },
                 'normalized' => 'third-node'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -579,21 +576,11 @@ $result_menus{'nodes_after_top_before_section_sections'} = [
               'up' => {}
             },
             'normalized' => 'third-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

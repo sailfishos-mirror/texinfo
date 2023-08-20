@@ -3411,8 +3411,7 @@ $result_sectioning{'test_index'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'name'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -3433,8 +3432,7 @@ $result_sectioning{'test_index'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -3578,15 +3576,13 @@ $result_nodes{'test_index'} = {
                   'up' => {}
                 },
                 'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'name'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -3616,21 +3612,11 @@ $result_menus{'test_index'} = [
               'up' => {}
             },
             'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'name'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

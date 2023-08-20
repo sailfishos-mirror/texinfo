@@ -561,15 +561,13 @@ $result_nodes{'entry_after_detailmenu'} = {
                   'up' => {}
                 },
                 'normalized' => 'second'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap-first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -599,21 +597,11 @@ $result_menus{'entry_after_detailmenu'} = [
               'up' => {}
             },
             'normalized' => 'second'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

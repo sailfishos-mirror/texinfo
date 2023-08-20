@@ -499,8 +499,7 @@ $result_sectioning{'nodes_after_top_before_section_nodes'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chap-node'
-                },
-                'structure' => {}
+                }
               }
             },
             'NodeBack' => {},
@@ -517,8 +516,7 @@ $result_sectioning{'nodes_after_top_before_section_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'third-node'
-            },
-            'structure' => {}
+            }
           }
         },
         'cmdname' => 'subsection',
@@ -598,14 +596,12 @@ $result_nodes{'nodes_after_top_before_section_nodes'} = {
                         'up' => {}
                       },
                       'normalized' => 'chap-node'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'up' => {}
                 },
                 'normalized' => 'third-node'
-              },
-              'structure' => {}
+              }
             }
           },
           'NodeBack' => {},
@@ -701,21 +697,11 @@ $result_menus{'nodes_after_top_before_section_nodes'} = [
                           'up' => {}
                         },
                         'normalized' => 'chap-node'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'up' => {}
                   },
                   'normalized' => 'third-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               }
             },
@@ -823,21 +809,11 @@ $result_elements{'nodes_after_top_before_section_nodes'} = [
                         }
                       },
                       'normalized' => 'chap-node'
-                    },
-                    'structure' => {
-                      'menu_up_hash' => {
-                        'Top' => 1
-                      }
                     }
                   },
                   'up' => {}
                 },
                 'normalized' => 'third-node'
-              },
-              'structure' => {
-                'menu_up_hash' => {
-                  'Top' => 1
-                }
               }
             }
           },

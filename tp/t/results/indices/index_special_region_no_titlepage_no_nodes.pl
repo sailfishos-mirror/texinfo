@@ -1871,8 +1871,7 @@ $result_sectioning{'index_special_region_no_titlepage_no_nodes'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-indices'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1930,8 +1929,7 @@ $result_nodes{'index_special_region_no_titlepage_no_nodes'} = {
             'up' => {}
           },
           'normalized' => 'Copying-and-indices'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1955,11 +1953,6 @@ $result_menus{'index_special_region_no_titlepage_no_nodes'} = [
         'up' => {}
       },
       'normalized' => 'Copying-and-indices'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

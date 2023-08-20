@@ -385,8 +385,7 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'after'
-                },
-                'structure' => {}
+                }
               },
               'associated_part' => {},
               'section_directions' => {
@@ -450,8 +449,7 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
           },
           'node_preceding_part' => {},
           'normalized' => 'after'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -476,11 +474,6 @@ $result_menus{'chapter_node_before_and_after_part'} = [
         'up' => {}
       },
       'normalized' => 'after'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

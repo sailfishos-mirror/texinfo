@@ -355,8 +355,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Additional'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -417,11 +416,6 @@ $result_menus{'chapter_between_nodes_with_appendix_nomenu'} = [
         'up' => {}
       },
       'normalized' => 'Additional'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

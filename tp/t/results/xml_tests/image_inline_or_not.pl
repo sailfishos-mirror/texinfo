@@ -1562,8 +1562,7 @@ $result_sectioning{'image_inline_or_not'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node_005fimage'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1615,8 +1614,7 @@ $result_nodes{'image_inline_or_not'} = {
             'up' => {}
           },
           'normalized' => 'node_005fimage'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1651,11 +1649,6 @@ $result_menus{'image_inline_or_not'} = [
         'up' => {}
       },
       'normalized' => 'node_005fimage'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

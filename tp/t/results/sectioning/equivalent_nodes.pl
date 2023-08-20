@@ -326,8 +326,7 @@ $result_nodes{'equivalent_nodes'} = {
             'up' => {}
           },
           'normalized' => 'node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'first'
@@ -350,11 +349,6 @@ $result_menus{'equivalent_nodes'} = [
         'up' => {}
       },
       'normalized' => 'node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   }
 ];

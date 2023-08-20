@@ -2082,8 +2082,7 @@ $result_sectioning{'quote_node_names_info'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'blah_003ablah'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -2103,8 +2102,7 @@ $result_sectioning{'quote_node_names_info'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'blumpty_002efump'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2125,8 +2123,7 @@ $result_sectioning{'quote_node_names_info'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'normal-node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2147,8 +2144,7 @@ $result_sectioning{'quote_node_names_info'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'secret_002cnode'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2267,22 +2263,19 @@ $result_nodes{'quote_node_names_info'} = {
                         }
                       },
                       'normalized' => 'normal-node'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'blumpty_002efump'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'blah_003ablah'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -2318,43 +2311,23 @@ $result_menus{'quote_node_names_info'} = [
                           'up' => {}
                         },
                         'normalized' => 'secret_002cnode'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => 'normal-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'blumpty_002efump'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'blah_003ablah'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

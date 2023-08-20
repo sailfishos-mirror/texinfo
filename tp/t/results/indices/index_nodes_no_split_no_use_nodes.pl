@@ -1583,8 +1583,7 @@ $result_nodes{'index_nodes_no_split_no_use_nodes'} = {
             'up' => {}
           },
           'normalized' => 'chap-first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1611,11 +1610,6 @@ $result_menus{'index_nodes_no_split_no_use_nodes'} = [
         {}
       ],
       'normalized' => 'chap-first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -1627,11 +1621,6 @@ $result_menus{'index_nodes_no_split_no_use_nodes'} = [
         {}
       ],
       'normalized' => 'second'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chap-first' => 1
-      }
     }
   },
   {
@@ -1644,21 +1633,11 @@ $result_menus{'index_nodes_no_split_no_use_nodes'} = [
               'up' => {}
             },
             'normalized' => 'a-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'second' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'another'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'second' => 1
-      }
     }
   },
   {}

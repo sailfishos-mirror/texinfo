@@ -3027,8 +3027,7 @@ $result_sectioning{'index_split'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -3039,8 +3038,7 @@ $result_sectioning{'index_split'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'first'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -3051,8 +3049,7 @@ $result_sectioning{'index_split'} = {
                         'extra' => {
                           'isindex' => 1,
                           'normalized' => 'section-1'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -3062,8 +3059,7 @@ $result_sectioning{'index_split'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'subsection-1'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -3080,8 +3076,7 @@ $result_sectioning{'index_split'} = {
                               'extra' => {
                                 'isindex' => 1,
                                 'normalized' => 'subsection-2'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'prev' => {},
@@ -3106,8 +3101,7 @@ $result_sectioning{'index_split'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section-2'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -3125,8 +3119,7 @@ $result_sectioning{'index_split'} = {
                         'extra' => {
                           'isindex' => 1,
                           'normalized' => 'section-3'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -3155,8 +3148,7 @@ $result_sectioning{'index_split'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'second-chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -3233,20 +3225,17 @@ $result_nodes{'index_split'} = {
                   'up' => {}
                 },
                 'normalized' => 'second-chapter'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 $result_nodes{'index_split'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_split'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'index_split'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_split'};
@@ -3267,11 +3256,6 @@ $result_menus{'index_split'} = [
                     'up' => {}
                   },
                   'normalized' => 'second-chapter'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
@@ -3281,11 +3265,6 @@ $result_menus{'index_split'} = [
               {}
             ],
             'normalized' => 'first'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -3294,11 +3273,6 @@ $result_menus{'index_split'} = [
         {}
       ],
       'normalized' => 'Top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},
@@ -3324,55 +3298,30 @@ $result_menus{'index_split'} = [
                                       'up' => {}
                                     },
                                     'normalized' => 'node-3-in-section-3'
-                                  },
-                                  'structure' => {
-                                    'menu_up_hash' => {
-                                      'first' => 1
-                                    }
                                   }
                                 },
                                 'prev' => {},
                                 'up' => {}
                               },
                               'normalized' => 'node-2-in-section-3'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'first' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => 'node-in-section-3'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'first' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => 'section-3'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'first' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'section-2'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'first' => 1
-            }
           }
         },
         'up' => {}
@@ -3381,11 +3330,6 @@ $result_menus{'index_split'} = [
         {}
       ],
       'normalized' => 'section-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   },
   {
@@ -3398,21 +3342,11 @@ $result_menus{'index_split'} = [
               'up' => {}
             },
             'normalized' => 'subsection-2'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'section-1' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'subsection-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'section-1' => 1
-      }
     }
   },
   {},

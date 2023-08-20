@@ -471,8 +471,7 @@ $result_sectioning{'part_node_part_appendix'} = {
                                       'cmdname' => 'node',
                                       'extra' => {
                                         'normalized' => 'chapter-node'
-                                      },
-                                      'structure' => {}
+                                      }
                                     },
                                     'associated_part' => {},
                                     'section_directions' => {
@@ -686,8 +685,7 @@ $result_nodes{'part_node_part_appendix'} = {
           },
           'node_preceding_part' => {},
           'normalized' => 'chapter-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -804,11 +802,6 @@ $result_menus{'part_node_part_appendix'} = [
         'up' => {}
       },
       'normalized' => 'chapter-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

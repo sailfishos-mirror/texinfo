@@ -291,8 +291,7 @@ $result_nodes{'menu_pointing_to_anchor'} = {
             'prev' => {}
           },
           'normalized' => 'An-anchor'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'

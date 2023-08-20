@@ -455,11 +455,6 @@ $result_menus{'protected_node_parentheses'} = [
         'up' => {}
       },
       'normalized' => '_0028manual_0029-name'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   }
 ];

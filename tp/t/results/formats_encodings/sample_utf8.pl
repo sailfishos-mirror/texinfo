@@ -1489,8 +1489,7 @@ $result_sectioning{'sample_utf8'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1510,8 +1509,7 @@ $result_sectioning{'sample_utf8'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1533,8 +1531,7 @@ $result_sectioning{'sample_utf8'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'Index-node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1613,22 +1610,19 @@ $result_nodes{'sample_utf8'} = {
                         'up' => {}
                       },
                       'normalized' => 'Index-node'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1663,32 +1657,17 @@ $result_menus{'sample_utf8'} = [
                     'up' => {}
                   },
                   'normalized' => 'Index-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

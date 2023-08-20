@@ -307,11 +307,6 @@ $result_menus{'empty_menu_entry_name'} = [
         'up' => {}
       },
       'normalized' => 'aaa'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'first' => 1
-      }
     }
   }
 ];

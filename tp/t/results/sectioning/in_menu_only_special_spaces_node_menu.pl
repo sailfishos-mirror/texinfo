@@ -1010,8 +1010,7 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1069,8 +1068,7 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0085_00a0_1680'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1091,8 +1089,7 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_180e_2003'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1114,7 +1111,6 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
                   'extra' => {
                     'normalized' => '_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000'
                   },
-                  'structure' => {}
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1218,8 +1214,7 @@ $result_nodes{'in_menu_only_special_spaces_node_menu'} = {
             'up' => {}
           },
           'normalized' => '_2002_2003_2002'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1253,43 +1248,23 @@ $result_menus{'in_menu_only_special_spaces_node_menu'} = [
                           'up' => {}
                         },
                         'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => '_180e_2003'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => '_0085_00a0_1680'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_2002_2003_2002'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

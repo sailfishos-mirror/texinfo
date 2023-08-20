@@ -697,8 +697,7 @@ $result_sectioning{'master_menu_fr'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -708,8 +707,7 @@ $result_sectioning{'master_menu_fr'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -770,8 +768,7 @@ $result_nodes{'master_menu_fr'} = {
             'up' => {}
           },
           'normalized' => 'chap'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -798,11 +795,6 @@ $result_menus{'master_menu_fr'} = [
         {}
       ],
       'normalized' => 'chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -811,11 +803,6 @@ $result_menus{'master_menu_fr'} = [
         'up' => {}
       },
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chap' => 1
-      }
     }
   }
 ];

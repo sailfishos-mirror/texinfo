@@ -1226,8 +1226,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -1237,8 +1236,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -1248,8 +1246,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'Subsection'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_childs' => [
                               {
@@ -1259,8 +1256,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                                     'cmdname' => 'node',
                                     'extra' => {
                                       'normalized' => 'Subsubsection'
-                                    },
-                                    'structure' => {}
+                                    }
                                   },
                                   'section_directions' => {
                                     'up' => {}
@@ -1276,8 +1272,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                                     'cmdname' => 'node',
                                     'extra' => {
                                       'normalized' => 'Lowered-subsec'
-                                    },
-                                    'structure' => {}
+                                    }
                                   },
                                   'level_modifier' => -1,
                                   'section_directions' => {
@@ -1295,8 +1290,7 @@ $result_sectioning{'lowered_subsubsection'} = {
                                     'cmdname' => 'node',
                                     'extra' => {
                                       'normalized' => 'Lowered-subsubsection'
-                                    },
-                                    'structure' => {}
+                                    }
                                   },
                                   'level_modifier' => -1,
                                   'section_directions' => {
@@ -1381,8 +1375,7 @@ $result_nodes{'lowered_subsubsection'} = {
             'up' => {}
           },
           'normalized' => 'Chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1409,11 +1402,6 @@ $result_menus{'lowered_subsubsection'} = [
         {}
       ],
       'normalized' => 'Chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -1425,11 +1413,6 @@ $result_menus{'lowered_subsubsection'} = [
         {}
       ],
       'normalized' => 'Section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Chapter' => 1
-      }
     }
   },
   {
@@ -1441,11 +1424,6 @@ $result_menus{'lowered_subsubsection'} = [
         {}
       ],
       'normalized' => 'Subsection'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Section' => 1
-      }
     }
   },
   {
@@ -1461,21 +1439,11 @@ $result_menus{'lowered_subsubsection'} = [
               {}
             ],
             'normalized' => 'Lowered-subsec'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Subsection' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Subsubsection'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Subsection' => 1
-      }
     }
   },
   {},
@@ -1485,11 +1453,6 @@ $result_menus{'lowered_subsubsection'} = [
         'up' => {}
       },
       'normalized' => 'Lowered-subsubsection'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Lowered-subsec' => 1
-      }
     }
   }
 ];

@@ -810,8 +810,7 @@ $result_sectioning{'value_in_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Node-1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -899,11 +898,6 @@ $result_menus{'value_in_node'} = [
         {}
       ],
       'normalized' => 'Node-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -912,11 +906,6 @@ $result_menus{'value_in_node'} = [
         'up' => {}
       },
       'normalized' => 'Section-1_002e1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Node-1' => 1
-      }
     }
   }
 ];

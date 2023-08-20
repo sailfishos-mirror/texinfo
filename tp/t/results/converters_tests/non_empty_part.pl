@@ -1006,8 +1006,7 @@ $result_sectioning{'non_empty_part'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'part-chapter-node'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'prev' => {},
@@ -1198,8 +1197,7 @@ $result_nodes{'non_empty_part'} = {
             'extra' => {}
           },
           'normalized' => 'part-chapter-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'node_preceding_part' => {},
@@ -1225,11 +1223,6 @@ $result_menus{'non_empty_part'} = [
         'up' => {}
       },
       'normalized' => 'part-chapter-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {

@@ -235,8 +235,7 @@ $result_nodes{'menu_title_before_entries'} = {
             'up' => {}
           },
           'normalized' => 'chap-subnode'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -260,11 +259,6 @@ $result_menus{'menu_title_before_entries'} = [
         'up' => {}
       },
       'normalized' => 'chap-subnode'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

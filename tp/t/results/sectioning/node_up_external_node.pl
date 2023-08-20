@@ -370,8 +370,7 @@ $result_nodes{'node_up_external_node'} = {
               }
             },
             'normalized' => 'chap-first'
-          },
-          'structure' => {}
+          }
         }
       },
       'NodeForward' => {},
@@ -465,11 +464,6 @@ $result_menus{'node_up_external_node'} = [
                 'up' => {}
               },
               'normalized' => 'chap-first'
-            },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
             }
           }
         },
@@ -572,11 +566,6 @@ $result_elements{'node_up_external_node'} = [
               }
             },
             'normalized' => 'chap-first'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         }
       },

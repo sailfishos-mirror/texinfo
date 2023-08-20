@@ -476,8 +476,7 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -529,8 +528,7 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
             'up' => {}
           },
           'normalized' => 'chap'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -554,11 +552,6 @@ $result_menus{'test_xrefautomaticsectiontitle_off_first'} = [
         'up' => {}
       },
       'normalized' => 'chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

@@ -1021,8 +1021,7 @@ $result_nodes{'rec_nodes'} = {
             'up' => {}
           },
           'normalized' => 'chap-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1056,11 +1055,6 @@ $result_menus{'rec_nodes'} = [
                     {}
                   ],
                   'normalized' => 'node-up-node-following-second'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'node-following-second' => 1
-                  }
                 }
               }
             },
@@ -1068,12 +1062,6 @@ $result_menus{'rec_nodes'} = [
               {}
             ],
             'normalized' => 'node-following-second'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1,
-              'node-up-node-following-second' => 1
-            }
           }
         },
         'prev' => {
@@ -1086,12 +1074,6 @@ $result_menus{'rec_nodes'} = [
               {}
             ],
             'normalized' => 'other-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'chap-node' => 1,
-              'other-node' => 1
-            }
           }
         },
         'up' => {}
@@ -1100,12 +1082,6 @@ $result_menus{'rec_nodes'} = [
         {}
       ],
       'normalized' => 'chap-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1,
-        'chap-node' => 1
-      }
     }
   },
   {},

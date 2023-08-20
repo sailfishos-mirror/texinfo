@@ -497,15 +497,13 @@ $result_nodes{'index_entry_before_node'} = {
                   'up' => {}
                 },
                 'normalized' => 'second'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap-first'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -535,21 +533,11 @@ $result_menus{'index_entry_before_node'} = [
               'up' => {}
             },
             'normalized' => 'second'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-first'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

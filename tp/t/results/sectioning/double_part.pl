@@ -485,8 +485,7 @@ $result_sectioning{'double_part'} = {
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'node-chapter'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'associated_part' => {
                     'associated_unit' => {},
@@ -680,8 +679,7 @@ $result_nodes{'double_part'} = {
           },
           'node_preceding_part' => {},
           'normalized' => 'node-chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -805,11 +803,6 @@ $result_menus{'double_part'} = [
         'up' => {}
       },
       'normalized' => 'node-chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

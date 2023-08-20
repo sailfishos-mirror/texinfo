@@ -305,8 +305,7 @@ $result_nodes{'node_referenced_in_ref'} = {
             'up' => {}
           },
           'normalized' => 'chap-first-level-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -330,11 +329,6 @@ $result_menus{'node_referenced_in_ref'} = [
         'up' => {}
       },
       'normalized' => 'chap-first-level-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {

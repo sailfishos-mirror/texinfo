@@ -416,8 +416,7 @@ $result_nodes{'part_node_before_top'} = {
             'up' => {}
           },
           'normalized' => 'part-node-before-top'
-        },
-        'structure' => {}
+        }
       }
     },
     'node_preceding_part' => {},
@@ -470,11 +469,6 @@ $result_menus{'part_node_before_top'} = [
         }
       },
       'normalized' => 'part-node-before-top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

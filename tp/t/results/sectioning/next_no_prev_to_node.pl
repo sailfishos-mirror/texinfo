@@ -379,15 +379,13 @@ $result_nodes{'next_no_prev_to_node'} = {
                   'up' => {}
                 },
                 'normalized' => 'no-return'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap-first-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -416,21 +414,11 @@ $result_menus{'next_no_prev_to_node'} = [
               'up' => {}
             },
             'normalized' => 'no-return'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-first-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

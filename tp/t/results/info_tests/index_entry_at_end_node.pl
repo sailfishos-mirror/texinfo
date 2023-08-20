@@ -535,8 +535,7 @@ $result_sectioning{'index_entry_at_end_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -557,8 +556,7 @@ $result_sectioning{'index_entry_at_end_node'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'indices'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -626,15 +624,13 @@ $result_nodes{'index_entry_at_end_node'} = {
                   'up' => {}
                 },
                 'normalized' => 'indices'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -664,21 +660,11 @@ $result_menus{'index_entry_at_end_node'} = [
               'up' => {}
             },
             'normalized' => 'indices'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

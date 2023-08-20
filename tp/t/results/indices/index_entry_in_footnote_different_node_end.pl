@@ -530,15 +530,13 @@ $result_nodes{'index_entry_in_footnote_different_node_end'} = {
                   'up' => {}
                 },
                 'normalized' => 'First'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chap'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -568,21 +566,11 @@ $result_menus{'index_entry_in_footnote_different_node_end'} = [
               'up' => {}
             },
             'normalized' => 'First'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

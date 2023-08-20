@@ -393,8 +393,7 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -446,8 +445,7 @@ $result_nodes{'split_test_before_first_node_no_empty_line'} = {
             'up' => {}
           },
           'normalized' => 'chap1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -471,11 +469,6 @@ $result_menus{'split_test_before_first_node_no_empty_line'} = [
         'up' => {}
       },
       'normalized' => 'chap1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

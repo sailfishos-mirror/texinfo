@@ -438,22 +438,19 @@ $result_nodes{'space_in_node'} = {
                         'up' => {}
                       },
                       'normalized' => 'Last-with-spaces'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'Test-title'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Chap-first-here'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -488,32 +485,17 @@ $result_menus{'space_in_node'} = [
                     'up' => {}
                   },
                   'normalized' => 'Last-with-spaces'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'Test-title'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Chap-first-here'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

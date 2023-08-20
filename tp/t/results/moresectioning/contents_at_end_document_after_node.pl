@@ -390,8 +390,7 @@ $result_nodes{'contents_at_end_document_after_node'} = {
             'up' => {}
           },
           'normalized' => 'a-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -415,11 +414,6 @@ $result_menus{'contents_at_end_document_after_node'} = [
         'up' => {}
       },
       'normalized' => 'a-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

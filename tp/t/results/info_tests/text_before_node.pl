@@ -299,8 +299,7 @@ $result_sectioning{'text_before_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter-node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -352,8 +351,7 @@ $result_nodes{'text_before_node'} = {
             'up' => {}
           },
           'normalized' => 'chapter-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -377,11 +375,6 @@ $result_menus{'text_before_node'} = [
         'up' => {}
       },
       'normalized' => 'chapter-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

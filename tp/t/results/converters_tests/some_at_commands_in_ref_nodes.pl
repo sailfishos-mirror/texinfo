@@ -1526,8 +1526,7 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1579,8 +1578,7 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
             'up' => {}
           },
           'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1604,11 +1602,6 @@ $result_menus{'some_at_commands_in_ref_nodes'} = [
         'up' => {}
       },
       'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

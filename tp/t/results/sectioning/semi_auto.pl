@@ -652,8 +652,7 @@ $result_sectioning{'semi_auto'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Chap1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -663,8 +662,7 @@ $result_sectioning{'semi_auto'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Sec-in-chapter'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -680,8 +678,7 @@ $result_sectioning{'semi_auto'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Section-non-auto'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -755,15 +752,13 @@ $result_nodes{'semi_auto'} = {
                   'up' => {}
                 },
                 'normalized' => 'Section-non-auto'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Chap1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -793,11 +788,6 @@ $result_menus{'semi_auto'} = [
               'up' => {}
             },
             'normalized' => 'Section-non-auto'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -806,11 +796,6 @@ $result_menus{'semi_auto'} = [
         {}
       ],
       'normalized' => 'Chap1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -819,11 +804,6 @@ $result_menus{'semi_auto'} = [
         'up' => {}
       },
       'normalized' => 'Sec-in-chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Chap1' => 1
-      }
     }
   },
   {}

@@ -431,8 +431,7 @@ $result_sectioning{'ref_in_copying'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'GFDL'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -484,8 +483,7 @@ $result_nodes{'ref_in_copying'} = {
             'up' => {}
           },
           'normalized' => 'GFDL'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -509,11 +507,6 @@ $result_menus{'ref_in_copying'} = [
         'up' => {}
       },
       'normalized' => 'GFDL'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

@@ -271,8 +271,7 @@ $result_sectioning{'lone_Top_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'First'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -321,8 +320,7 @@ $result_nodes{'lone_Top_node'} = {
             'up' => {}
           },
           'normalized' => 'First'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -367,11 +365,6 @@ $result_menus{'lone_Top_node'} = [
         'up' => {}
       },
       'normalized' => 'First'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

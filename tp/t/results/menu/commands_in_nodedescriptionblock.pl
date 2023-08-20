@@ -1160,8 +1160,7 @@ $result_sectioning{'commands_in_nodedescriptionblock'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1182,8 +1181,7 @@ $result_sectioning{'commands_in_nodedescriptionblock'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'node2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1251,15 +1249,13 @@ $result_nodes{'commands_in_nodedescriptionblock'} = {
                   'up' => {}
                 },
                 'normalized' => 'node2'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'node1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1292,22 +1288,11 @@ $result_menus{'commands_in_nodedescriptionblock'} = [
               {}
             ],
             'normalized' => 'node2'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'node1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1,
-        'node2' => 1
-      }
     }
   },
   {}

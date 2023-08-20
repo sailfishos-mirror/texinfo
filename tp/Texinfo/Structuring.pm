@@ -432,6 +432,35 @@ sub _check_menu_entry($$$$$$)
   }
 }
 
+sub _register_menu_node_targets($$$)
+{
+  my $identifier_target = shift;
+  my $node = shift;
+  my $register = shift;
+
+  if ($node->{'extra'}->{'menus'}) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+      foreach my $menu_content (@{$menu->{'contents'}}) {
+        if ($menu_content->{'type'}
+            and $menu_content->{'type'} eq 'menu_entry') {
+          foreach my $arg (@{$menu_content->{'contents'}}) {
+            if ($arg->{'type'} eq 'menu_entry_node') {
+              if ($arg->{'extra'}
+                  and !$arg->{'extra'}->{'manual_content'}
+                  and defined($arg->{'extra'}->{'normalized'})) {
+                my $menu_node
+                  = $identifier_target->{$arg->{'extra'}->{'normalized'}};
+                $register->{$menu_node} = 1 if (defined($menu_node));
+              }
+              last;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 # In general should be called only after complete_node_tree_with_menus
 # to try to generate menus automatically before checking.
 sub check_nodes_are_referenced
@@ -454,22 +483,21 @@ sub check_nodes_are_referenced
              $node->{'extra'}->{'node_directions'}->{$direction}} = 1;
       }
     }
-    if ($node->{'structure'}
-        and $node->{'structure'}->{'menu_up_hash'}) {
-      $referenced_nodes{$node} = 1;
-    }
-    # If an automatic menu can be setup, consider that all
-    # the nodes appearing in the automatic menu are referenced.
-    # Note that the menu may not be actually setup, but
-    # it is better not to warn for nothing.
-    my $automatic_directions
-      = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
-    if ($automatic_directions
-        and (not $node->{'extra'}->{'menus'}
-             or not scalar(@{$node->{'extra'}->{'menus'}}))) {
-      my @node_childs = get_node_node_childs_from_sectioning($node);
-      foreach my $node_child (@node_childs) {
-        $referenced_nodes{$node_child} = 1;
+    if ($node->{'extra'}->{'menus'}) {
+      _register_menu_node_targets($identifier_target, $node,
+                                 \%referenced_nodes);
+    } else {
+      # If an automatic menu can be setup, consider that all
+      # the nodes appearing in the automatic menu are referenced.
+      # Note that the menu may not be actually setup, but
+      # it is better not to warn for nothing.
+      my $automatic_directions
+        = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
+      if ($automatic_directions) {
+        my @node_childs = get_node_node_childs_from_sectioning($node);
+        foreach my $node_child (@node_childs) {
+          $referenced_nodes{$node_child} = 1;
+        }
       }
     }
   }
@@ -590,21 +618,12 @@ sub set_menus_node_directions($$$$$)
                                         $menu_content, $arg);
                     }
                     if (defined($arg->{'extra'}->{'normalized'})) {
-                      # this may happen more than once for a given node if the node
-                      # is in more than one menu.  Therefore all the menu up node
-                      # are kept in $menu_node->{'structure'}->{'menu_up_hash'}
                       $menu_node
                         = $identifier_target->{$arg->{'extra'}->{'normalized'}};
                       if ($menu_node) {
                         $menu_node->{'extra'}->{'menu_directions'} = {}
                            if (!$menu_node->{'extra'}->{'menu_directions'});
                         $menu_node->{'extra'}->{'menu_directions'}->{'up'} = $node;
-                        $menu_node->{'structure'} = {}
-                                               if (!$menu_node->{'structure'});
-                        $menu_node->{'structure'}->{'menu_up_hash'} = {}
-                            if (!$menu_node->{'structure'}->{'menu_up_hash'});
-                        $menu_node->{'structure'}->{'menu_up_hash'}
-                                    ->{$node->{'extra'}->{'normalized'}} = 1;
                       }
                     }
                   } else {
@@ -695,6 +714,8 @@ sub complete_node_tree_with_menus($$$$$)
   my $top_node = shift;
 
   return undef unless ($nodes_list and @{$nodes_list});
+
+  my %cached_menu_nodes;
   # Go through all the nodes
   foreach my $node (@{$nodes_list}) {
     my $automatic_directions
@@ -855,14 +876,15 @@ sub complete_node_tree_with_menus($$$$$)
         # no check for a redundant node, the node registered in the menu
         # was the main equivalent node
         and $node->{'extra'}->{'is_target'}
-        and (!$node->{'structure'}
-          or !$node->{'structure'}->{'menu_up_hash'}
-          or !$node->{'structure'}->{'menu_up_hash'}->{
-  $node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'normalized'}})) {
-      # check if up node has a menu
-      if ($node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}
-          and scalar(
-     @{$node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}})) {
+        # check only if there are menus
+        and $node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}) {
+      my $up_node = $node->{'extra'}->{'node_directions'}->{'up'};
+      if (!$cached_menu_nodes{$up_node}) {
+        $cached_menu_nodes{$up_node} = {};
+        _register_menu_node_targets($identifier_target, $up_node,
+                                   $cached_menu_nodes{$up_node});
+      }
+      if (!$cached_menu_nodes{$up_node}->{$node}) {
         $registrar->line_warn($customization_information,
          sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"),
@@ -871,7 +893,7 @@ sub complete_node_tree_with_menus($$$$$)
            target_element_to_texi_label($node)),
          $node->{'extra'}->{'node_directions'}->{'up'}->{'source_info'});
       }
-      # FIXME check that the menu_up_hash is not empty (except for Top)?
+      # FIXME check that the all the nodes are in a menu (except for Top)?
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }

@@ -2395,8 +2395,7 @@ $result_sectioning{'custom_heading_with_include'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_childs' => [
                         {
@@ -2406,8 +2405,7 @@ $result_sectioning{'custom_heading_with_include'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'Subsection'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'up' => {}
@@ -2742,11 +2740,6 @@ $result_menus{'custom_heading_with_include'} = [
         {}
       ],
       'normalized' => 'Section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Chapter-in-included-file' => 1
-      }
     }
   },
   {
@@ -2755,11 +2748,6 @@ $result_menus{'custom_heading_with_include'} = [
         'up' => {}
       },
       'normalized' => 'Subsection'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Section' => 1
-      }
     }
   },
   {

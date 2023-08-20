@@ -5624,8 +5624,7 @@ $result_sectioning{'macro_in_misc_commands'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node-atext'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -5691,8 +5690,7 @@ $result_nodes{'macro_in_misc_commands'} = {
             'up' => {}
           },
           'normalized' => 'node-atext'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -5716,11 +5714,6 @@ $result_menus{'macro_in_misc_commands'} = [
         'up' => {}
       },
       'normalized' => 'node-atext'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

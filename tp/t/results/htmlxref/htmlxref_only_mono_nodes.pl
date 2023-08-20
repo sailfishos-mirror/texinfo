@@ -2756,8 +2756,7 @@ $result_sectioning{'htmlxref_only_mono_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'other-nodes'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -2821,29 +2820,25 @@ $result_nodes{'htmlxref_only_mono_nodes'} = {
                               'up' => {}
                             },
                             'normalized' => 'local-node'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'other-nodes'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -2876,11 +2871,6 @@ $result_menus{'htmlxref_only_mono_nodes'} = [
         {}
       ],
       'normalized' => 'other-nodes'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -2896,32 +2886,17 @@ $result_menus{'htmlxref_only_mono_nodes'} = [
                     'up' => {}
                   },
                   'normalized' => 'local-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'other-nodes' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'other-nodes' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'other-nodes' => 1
-      }
     }
   },
   {},

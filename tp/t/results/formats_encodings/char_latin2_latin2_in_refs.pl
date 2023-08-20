@@ -525,8 +525,7 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -579,8 +578,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
             'up' => {}
           },
           'normalized' => '_0104-_0105-_02db-_0118-_0119'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -604,11 +602,6 @@ $result_menus{'char_latin2_latin2_in_refs'} = [
         'up' => {}
       },
       'normalized' => '_0104-_0105-_02db-_0118-_0119'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

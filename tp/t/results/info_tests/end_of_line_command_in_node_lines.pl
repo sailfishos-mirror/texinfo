@@ -978,8 +978,7 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'chap-f-nl-Something_003f-After-punct'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1073,8 +1072,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
             'up' => {}
           },
           'normalized' => 'chap-f-nl-Something_003f-After-punct'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1109,21 +1107,11 @@ $result_menus{'end_of_line_command_in_node_lines'} = [
               }
             },
             'normalized' => 'ankh-p'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'new-n' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chap-f-nl-Something_003f-After-punct'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'new-n' => 1
-      }
     }
   },
   {}

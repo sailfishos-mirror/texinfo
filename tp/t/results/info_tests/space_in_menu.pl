@@ -333,8 +333,7 @@ $result_sectioning{'space_in_menu'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -386,8 +385,7 @@ $result_nodes{'space_in_menu'} = {
             'up' => {}
           },
           'normalized' => 'node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -411,11 +409,6 @@ $result_menus{'space_in_menu'} = [
         'up' => {}
       },
       'normalized' => 'node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

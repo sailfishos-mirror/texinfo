@@ -848,8 +848,7 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Preface'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -869,8 +868,7 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Introduction'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -937,15 +935,13 @@ $result_nodes{'japanese_shift_jis'} = {
                   'up' => {}
                 },
                 'normalized' => 'Introduction'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Preface'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -975,21 +971,11 @@ $result_menus{'japanese_shift_jis'} = [
               'up' => {}
             },
             'normalized' => 'Introduction'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Preface'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

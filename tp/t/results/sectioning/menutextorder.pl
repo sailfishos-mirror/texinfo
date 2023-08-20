@@ -1081,8 +1081,7 @@ $result_sectioning{'menutextorder'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'onesub2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1118,8 +1117,7 @@ $result_sectioning{'menutextorder'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sub1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1135,8 +1133,7 @@ $result_sectioning{'menutextorder'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sub2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1153,8 +1150,7 @@ $result_sectioning{'menutextorder'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sub3'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1244,11 +1240,6 @@ $result_menus{'menutextorder'} = [
         'up' => {}
       },
       'normalized' => 'onesub2'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'bar' => 1
-      }
     }
   },
   {
@@ -1272,32 +1263,17 @@ $result_menus{'menutextorder'} = [
                     'up' => {}
                   },
                   'normalized' => 'sub2'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'foo' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'sub3'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'foo' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'sub1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'foo' => 1
-      }
     }
   },
   {},

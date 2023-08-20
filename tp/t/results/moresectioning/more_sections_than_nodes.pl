@@ -1195,8 +1195,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'n-c2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -1229,8 +1228,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'n-c3'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -1250,8 +1248,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'n-c3-s-2'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -1310,8 +1307,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'n-c3-s1-s2'
-                              },
-                              'structure' => {}
+                              }
                             },
                             'section_directions' => {
                               'prev' => {},
@@ -1442,22 +1438,19 @@ $result_nodes{'more_sections_than_nodes'} = {
                         'up' => {}
                       },
                       'normalized' => 'n-c3-s1-s2'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'n-c3'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'n-c2'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1492,11 +1485,6 @@ $result_menus{'more_sections_than_nodes'} = [
                     'up' => {}
                   },
                   'normalized' => 'n-c3-s1-s2'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
@@ -1506,21 +1494,11 @@ $result_menus{'more_sections_than_nodes'} = [
               {}
             ],
             'normalized' => 'n-c3'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'n-c2'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},
@@ -1530,11 +1508,6 @@ $result_menus{'more_sections_than_nodes'} = [
         'up' => {}
       },
       'normalized' => 'n-c3-s-2'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'n-c3' => 1
-      }
     }
   },
   {}

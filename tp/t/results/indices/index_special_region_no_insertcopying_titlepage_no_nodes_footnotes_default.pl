@@ -1861,8 +1861,7 @@ $result_sectioning{'index_special_region_no_insertcopying_titlepage_no_nodes_foo
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-indices'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1920,8 +1919,7 @@ $result_nodes{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
             'up' => {}
           },
           'normalized' => 'Copying-and-indices'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1945,11 +1943,6 @@ $result_menus{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
         'up' => {}
       },
       'normalized' => 'Copying-and-indices'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

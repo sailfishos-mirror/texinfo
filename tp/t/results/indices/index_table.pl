@@ -6682,8 +6682,7 @@ $result_sectioning{'index_table'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node-with-ftable-and-vtable'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -6704,8 +6703,7 @@ $result_sectioning{'index_table'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'node-with-printindex'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -6727,8 +6725,7 @@ $result_sectioning{'index_table'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'indices-refs'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -6738,8 +6735,7 @@ $result_sectioning{'index_table'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'node'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -6831,22 +6827,19 @@ $result_nodes{'index_table'} = {
                         'up' => {}
                       },
                       'normalized' => 'indices-refs'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'node-with-printindex'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'node-with-ftable-and-vtable'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -6884,32 +6877,17 @@ $result_menus{'index_table'} = [
                     {}
                   ],
                   'normalized' => 'indices-refs'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'node-with-printindex'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'node-with-ftable-and-vtable'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},
@@ -6920,11 +6898,6 @@ $result_menus{'index_table'} = [
         'up' => {}
       },
       'normalized' => 'node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'indices-refs' => 1
-      }
     }
   }
 ];

@@ -1729,8 +1729,7 @@ $result_sectioning{'glossary'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'glossary'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1782,8 +1781,7 @@ $result_nodes{'glossary'} = {
             'up' => {}
           },
           'normalized' => 'glossary'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1807,11 +1805,6 @@ $result_menus{'glossary'} = [
         'up' => {}
       },
       'normalized' => 'glossary'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

@@ -582,8 +582,7 @@ $result_sectioning{'two_nodes_at_the_end'} = {
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'chapter-1'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'section_directions' => {
                     'up' => {}
@@ -719,22 +718,19 @@ $result_nodes{'two_nodes_at_the_end'} = {
                         'up' => {}
                       },
                       'normalized' => 'last-node-in-chapter-1'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'node-after-chapter-1'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chapter-1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -833,32 +829,17 @@ $result_menus{'two_nodes_at_the_end'} = [
                     'up' => {}
                   },
                   'normalized' => 'last-node-in-chapter-1'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'node-after-chapter-1'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chapter-1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

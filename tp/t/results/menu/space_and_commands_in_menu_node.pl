@@ -799,8 +799,7 @@ $result_sectioning{'space_and_commands_in_menu_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap-b'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -853,8 +852,7 @@ $result_nodes{'space_and_commands_in_menu_node'} = {
             'up' => {}
           },
           'normalized' => 'chap-b'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -881,11 +879,6 @@ $result_menus{'space_and_commands_in_menu_node'} = [
         'up' => {}
       },
       'normalized' => 'chap-b'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

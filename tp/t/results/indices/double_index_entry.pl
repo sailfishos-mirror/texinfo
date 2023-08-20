@@ -450,8 +450,7 @@ $result_nodes{'double_index_entry'} = {
             'up' => {}
           },
           'normalized' => 'chap-other-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -475,11 +474,6 @@ $result_menus{'double_index_entry'} = [
         'up' => {}
       },
       'normalized' => 'chap-other-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

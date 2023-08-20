@@ -1576,8 +1576,7 @@ $result_sectioning{'nodedescriptionblock_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'toto'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1597,8 +1596,7 @@ $result_sectioning{'nodedescriptionblock_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'titi'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1619,8 +1617,7 @@ $result_sectioning{'nodedescriptionblock_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'other'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1641,8 +1638,7 @@ $result_sectioning{'nodedescriptionblock_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1663,8 +1659,7 @@ $result_sectioning{'nodedescriptionblock_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node-double-nodedescriptionblock'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1773,36 +1768,31 @@ $result_nodes{'nodedescriptionblock_descriptions'} = {
                                     'up' => {}
                                   },
                                   'normalized' => 'node-double-nodedescriptionblock'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'prev' => {},
                               'up' => {}
                             },
                             'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => 'other'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'titi'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'toto'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1847,54 +1837,29 @@ $result_menus{'nodedescriptionblock_descriptions'} = [
                                 'up' => {}
                               },
                               'normalized' => 'node-double-nodedescriptionblock'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'Top' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => 'other'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'titi'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'toto'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

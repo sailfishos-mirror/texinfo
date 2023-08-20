@@ -415,8 +415,7 @@ $result_sectioning{'split_no_copying'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Ch1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -468,8 +467,7 @@ $result_nodes{'split_no_copying'} = {
             'up' => {}
           },
           'normalized' => 'Ch1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -493,11 +491,6 @@ $result_menus{'split_no_copying'} = [
         'up' => {}
       },
       'normalized' => 'Ch1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];

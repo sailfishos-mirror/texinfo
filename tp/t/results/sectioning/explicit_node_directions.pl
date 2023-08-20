@@ -455,14 +455,12 @@ $result_nodes{'explicit_node_directions'} = {
                         'up' => {}
                       },
                       'normalized' => 'chap-node'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'up' => {}
                 },
                 'normalized' => 'third-node'
-              },
-              'structure' => {}
+              }
             }
           },
           'NodeBack' => {},
@@ -557,21 +555,11 @@ $result_menus{'explicit_node_directions'} = [
                           'up' => {}
                         },
                         'normalized' => 'chap-node'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'up' => {}
                   },
                   'normalized' => 'third-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               }
             },
@@ -679,21 +667,11 @@ $result_elements{'explicit_node_directions'} = [
                         }
                       },
                       'normalized' => 'chap-node'
-                    },
-                    'structure' => {
-                      'menu_up_hash' => {
-                        'Top' => 1
-                      }
                     }
                   },
                   'up' => {}
                 },
                 'normalized' => 'third-node'
-              },
-              'structure' => {
-                'menu_up_hash' => {
-                  'Top' => 1
-                }
               }
             }
           },

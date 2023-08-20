@@ -308,8 +308,7 @@ $result_sectioning{'section_before_top'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'section-node'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -369,8 +368,7 @@ $result_nodes{'section_before_top'} = {
             'up' => {}
           },
           'normalized' => 'section-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -393,11 +391,6 @@ $result_menus{'section_before_top'} = [
         }
       },
       'normalized' => 'section-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

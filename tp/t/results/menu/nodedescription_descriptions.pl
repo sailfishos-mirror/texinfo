@@ -1491,8 +1491,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'toto'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1512,8 +1511,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'titi'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1534,8 +1532,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'other'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1556,8 +1553,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'last'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1578,8 +1574,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1600,8 +1595,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'a-very-long-node-without-description-with-very-little-space-left-for'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1622,8 +1616,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1760,50 +1753,43 @@ $result_nodes{'nodedescription_descriptions'} = {
                                                 'up' => {}
                                               },
                                               'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
-                                            },
-                                            'structure' => {}
+                                            }
                                           },
                                           'prev' => {},
                                           'up' => {}
                                         },
                                         'normalized' => 'a-very-long-node-without-description-with-very-little-space-left-for'
-                                      },
-                                      'structure' => {}
+                                      }
                                     },
                                     'prev' => {},
                                     'up' => {}
                                   },
                                   'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                                },
-                                'structure' => {}
+                                }
                               },
                               'prev' => {},
                               'up' => {}
                             },
                             'normalized' => 'last'
-                          },
-                          'structure' => {}
+                          }
                         },
                         'prev' => {},
                         'up' => {}
                       },
                       'normalized' => 'other'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'titi'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'toto'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1858,76 +1844,41 @@ $result_menus{'nodedescription_descriptions'} = [
                                             'up' => {}
                                           },
                                           'normalized' => 'very-very-long-node-extending-past-the-max-columns-and-without-description'
-                                        },
-                                        'structure' => {
-                                          'menu_up_hash' => {
-                                            'Top' => 1
-                                          }
                                         }
                                       },
                                       'prev' => {},
                                       'up' => {}
                                     },
                                     'normalized' => 'a-very-long-node-without-description-with-very-little-space-left-for'
-                                  },
-                                  'structure' => {
-                                    'menu_up_hash' => {
-                                      'Top' => 1
-                                    }
                                   }
                                 },
                                 'prev' => {},
                                 'up' => {}
                               },
                               'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'Top' => 1
-                              }
                             }
                           },
                           'prev' => {},
                           'up' => {}
                         },
                         'normalized' => 'last'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
                       }
                     },
                     'prev' => {},
                     'up' => {}
                   },
                   'normalized' => 'other'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'titi'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'toto'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

@@ -301,13 +301,11 @@ $result_nodes{'top_node_no_menu_direction'} = {
             'up' => {}
           },
           'normalized' => 'chap-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 $result_nodes{'top_node_no_menu_direction'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_no_menu_direction'};
 $result_nodes{'top_node_no_menu_direction'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_no_menu_direction'};
@@ -323,11 +321,6 @@ $result_menus{'top_node_no_menu_direction'} = [
               'up' => {}
             },
             'normalized' => 'chap-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
@@ -336,11 +329,6 @@ $result_menus{'top_node_no_menu_direction'} = [
         {}
       ],
       'normalized' => 'Top'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

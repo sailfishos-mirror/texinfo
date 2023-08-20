@@ -795,15 +795,13 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
                   'up' => {}
                 },
                 'normalized' => 'Concept-Index'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'One_003a_003anode_002c-with-entries_002e'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -833,21 +831,11 @@ $result_menus{'colons_in_index_entries_and_node'} = [
               'up' => {}
             },
             'normalized' => 'Concept-Index'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'One_003a_003anode_002c-with-entries_002e'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {}

@@ -751,8 +751,7 @@ $result_sectioning{'nodename_parentheses'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Node-_0028with-parentheses_0029'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -772,8 +771,7 @@ $result_sectioning{'nodename_parentheses'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Other-node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -881,15 +879,13 @@ $result_nodes{'nodename_parentheses'} = {
                   'up' => {}
                 },
                 'normalized' => 'Other-node'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Node-_0028with-parentheses_0029'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -932,21 +928,11 @@ $result_menus{'nodename_parentheses'} = [
               'up' => {}
             },
             'normalized' => 'Other-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'Node-_0028with-parentheses_0029'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

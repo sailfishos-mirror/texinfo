@@ -730,8 +730,7 @@ $result_sectioning{'contents_in_middle_section'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -741,8 +740,7 @@ $result_sectioning{'contents_in_middle_section'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -758,8 +756,7 @@ $result_sectioning{'contents_in_middle_section'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'section1'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -823,8 +820,7 @@ $result_nodes{'contents_in_middle_section'} = {
             'up' => {}
           },
           'normalized' => 'chapter'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -851,11 +847,6 @@ $result_menus{'contents_in_middle_section'} = [
         {}
       ],
       'normalized' => 'chapter'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {
@@ -868,21 +859,11 @@ $result_menus{'contents_in_middle_section'} = [
               'up' => {}
             },
             'normalized' => 'section1'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'chapter' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'section'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'chapter' => 1
-      }
     }
   },
   {}

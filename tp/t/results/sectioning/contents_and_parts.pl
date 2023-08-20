@@ -692,8 +692,7 @@ $result_sectioning{'contents_and_parts'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chapter-1-node'
-                },
-                'structure' => {}
+                }
               },
               'associated_part' => {},
               'section_directions' => {
@@ -717,8 +716,7 @@ $result_sectioning{'contents_and_parts'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter-2-node'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -750,8 +748,7 @@ $result_sectioning{'contents_and_parts'} = {
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chapter-3-node'
-                },
-                'structure' => {}
+                }
               },
               'associated_part' => {},
               'section_directions' => {
@@ -853,23 +850,20 @@ $result_nodes{'contents_and_parts'} = {
                       },
                       'node_preceding_part' => {},
                       'normalized' => 'chapter-3-node'
-                    },
-                    'structure' => {}
+                    }
                   },
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'chapter-2-node'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'node_preceding_part' => {},
           'normalized' => 'chapter-1-node'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -906,32 +900,17 @@ $result_menus{'contents_and_parts'} = [
                     'up' => {}
                   },
                   'normalized' => 'chapter-3-node'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
                 }
               },
               'prev' => {},
               'up' => {}
             },
             'normalized' => 'chapter-2-node'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1
-            }
           }
         },
         'up' => {}
       },
       'normalized' => 'chapter-1-node'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   },
   {},

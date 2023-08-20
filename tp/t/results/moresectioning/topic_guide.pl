@@ -1988,8 +1988,7 @@ $result_sectioning{'topic_guide'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'guide1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -2009,8 +2008,7 @@ $result_sectioning{'topic_guide'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'guide2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2077,15 +2075,13 @@ $result_nodes{'topic_guide'} = {
                   'up' => {}
                 },
                 'normalized' => 'guide2'
-              },
-              'structure' => {}
+              }
             },
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'guide1'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -2125,11 +2121,6 @@ $result_menus{'topic_guide'} = [
                           {}
                         ],
                         'normalized' => 'topic4'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'guide2' => 1
-                        }
                       }
                     },
                     'prev' => {
@@ -2146,11 +2137,6 @@ $result_menus{'topic_guide'} = [
                                 {}
                               ],
                               'normalized' => 'topic1'
-                            },
-                            'structure' => {
-                              'menu_up_hash' => {
-                                'guide1' => 1
-                              }
                             }
                           },
                           'up' => {}
@@ -2159,11 +2145,6 @@ $result_menus{'topic_guide'} = [
                           {}
                         ],
                         'normalized' => 'topic2'
-                      },
-                      'structure' => {
-                        'menu_up_hash' => {
-                          'guide1' => 1
-                        }
                       }
                     },
                     'up' => {}
@@ -2172,12 +2153,6 @@ $result_menus{'topic_guide'} = [
                     {}
                   ],
                   'normalized' => 'topic5'
-                },
-                'structure' => {
-                  'menu_up_hash' => {
-                    'guide1' => 1,
-                    'guide2' => 1
-                  }
                 }
               }
             },
@@ -2185,13 +2160,6 @@ $result_menus{'topic_guide'} = [
               {}
             ],
             'normalized' => 'guide2'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Top' => 1,
-              'topic4' => 1,
-              'topic5' => 1
-            }
           }
         },
         'up' => {}
@@ -2200,14 +2168,6 @@ $result_menus{'topic_guide'} = [
         {}
       ],
       'normalized' => 'guide1'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1,
-        'topic1' => 1,
-        'topic2' => 1,
-        'topic5' => 1
-      }
     }
   },
   {},

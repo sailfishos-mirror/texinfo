@@ -1013,8 +1013,7 @@ $result_sectioning{'float_copying'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-floats'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1067,8 +1066,7 @@ $result_nodes{'float_copying'} = {
             'up' => {}
           },
           'normalized' => 'Copying-and-floats'
-        },
-        'structure' => {}
+        }
       }
     },
     'normalized' => 'Top'
@@ -1092,11 +1090,6 @@ $result_menus{'float_copying'} = [
         'up' => {}
       },
       'normalized' => 'Copying-and-floats'
-    },
-    'structure' => {
-      'menu_up_hash' => {
-        'Top' => 1
-      }
     }
   }
 ];
