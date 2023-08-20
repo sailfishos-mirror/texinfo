@@ -315,7 +315,7 @@ sub book_convert_heading_command($$$$$)
     # FIXME what to do if the $tree_unit extra does not contain any
     # unit_command, but tree_unit is defined (it can contain only
     # 'first_in_page')
-    if ((!$tree_unit # or !$tree_unit->{'extra'}
+    if ((!$tree_unit
          # or !$tree_unit->{'unit_command'}
          or ($tree_unit->{'unit_command'}
              and $tree_unit->{'unit_command'} eq $element

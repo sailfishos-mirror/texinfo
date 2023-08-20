@@ -4270,7 +4270,7 @@ sub _convert_heading_command($$$$$)
     # FIXME what to do if the $tree_unit extra does not contain any
     # unit_command, but tree_unit is defined (it can contain only
     # 'first_in_page')
-    if ((!$tree_unit # or !$tree_unit->{'extra'}
+    if ((!$tree_unit
          # or !$tree_unit->{'unit_command'}
          or ($tree_unit->{'unit_command'}
              and $tree_unit->{'unit_command'} eq $element
@@ -8893,7 +8893,7 @@ sub _html_set_pages_files($$$$$$$$)
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
       next if (exists($unit_file_name_paths{$tree_unit}));
-      my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      my $file_tree_unit = $tree_unit->{'first_in_page'};
       if (!$file_tree_unit) {
         cluck ("No first_in_page for $tree_unit\n");
       }

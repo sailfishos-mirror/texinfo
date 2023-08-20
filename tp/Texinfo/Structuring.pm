@@ -1162,8 +1162,7 @@ sub split_by_section($)
       }
     }
     push @{$current->{'contents'}}, $content;
-    #if (defined($content->{'structure'})
-    #    and defined($content->{'associated_unit'})) {
+    #if ($content->{'associated_unit'}) {
     #  print STDERR "Resetting section associated_unit for $content\n";
     #}
     $content->{'associated_unit'} = $current;
@@ -1184,8 +1183,7 @@ sub split_pages ($$)
   my $split_level;
   if (!$split) {
     foreach my $tree_unit (@$tree_units) {
-      $tree_unit->{'extra'} = {} if (! $tree_unit->{'extra'});
-      $tree_unit->{'extra'}->{'first_in_page'} = $tree_units->[0];
+      $tree_unit->{'first_in_page'} = $tree_units->[0];
     }
     return;
   } elsif ($split eq 'chapter') {
@@ -1209,8 +1207,7 @@ sub split_pages ($$)
         or !$current_first_in_page) {
       $current_first_in_page = $tree_unit;
     }
-    $tree_unit->{'extra'} = {} if (! $tree_unit->{'extra'});
-    $tree_unit->{'extra'}->{'first_in_page'} = $current_first_in_page;
+    $tree_unit->{'first_in_page'} = $current_first_in_page;
   }
 }
 
@@ -2911,9 +2908,9 @@ command associated with the tree unit.
 X<C<split_pages>>
 
 The tree units from the array reference argument have an extra
-I<first_in_page> value set in the C<structure> hash reference to
-the first tree unit in the group, and based on the value of I<$split>.
-The possible values for I<$split> are
+I<first_in_page> value set to the first tree unit in the group,
+and based on the value of I<$split>.  The possible values for
+I<$split> are
 
 =over
 

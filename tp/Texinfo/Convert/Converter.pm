@@ -950,9 +950,8 @@ sub _set_tree_units_files($$$$$$)
     my $previous_page;
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if ($tree_unit->{'structure'}
-               and defined($tree_unit->{'unit_filename'}));
-      my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      next if (defined($tree_unit->{'unit_filename'}));
+      my $file_tree_unit = $tree_unit->{'first_in_page'};
       if (!$file_tree_unit) {
         cluck ("No first_in_page for $tree_unit\n");
       }
