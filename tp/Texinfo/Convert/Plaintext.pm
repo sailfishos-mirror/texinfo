@@ -1278,16 +1278,19 @@ sub format_contents($$$)
           and ($contents
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
         $section = $section->{'extra'}->{'section_childs'}->[0];
-      } elsif ($section->{'structure'}->{'section_next'}) {
+      } elsif ($section->{'extra'}->{'section_directions'}
+               and $section->{'extra'}->{'section_directions'}->{'next'}) {
         last if ($section eq $top_section);
-        $section = $section->{'structure'}->{'section_next'};
+        $section = $section->{'extra'}->{'section_directions'}->{'next'};
       } else {
         last if ($section eq $top_section);
-        while ($section->{'structure'}->{'section_up'}) {
-          $section = $section->{'structure'}->{'section_up'};
+        while ($section->{'extra'}->{'section_directions'}
+               and $section->{'extra'}->{'section_directions'}->{'up'}) {
+          $section = $section->{'extra'}->{'section_directions'}->{'up'};
           last SECTION if ($section eq $top_section);
-          if ($section->{'structure'}->{'section_next'}) {
-            $section = $section->{'structure'}->{'section_next'};
+          if ($section->{'extra'}->{'section_directions'}
+              and $section->{'extra'}->{'section_directions'}->{'next'}) {
+            $section = $section->{'extra'}->{'section_directions'}->{'next'};
             last;
           }
         }

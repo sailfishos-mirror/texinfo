@@ -407,10 +407,10 @@ my @contents_keys = ('contents', 'args', 'parent', 'source_info',
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
-my @sections_keys = ('section_next', 'section_prev', 'section_up',
+my @sections_keys = ('section_directions',
   'section_childs', 'associated_node', 'part_associated_section',
   'part_following_node', 'section_level',
-  'toplevel_prev', 'toplevel_next', 'toplevel_up');
+  'toplevel_directions');
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
   'associated_section', 'node_preceding_part');
 
@@ -431,8 +431,8 @@ foreach my $avoided_key(@avoided_keys_tree) {
 sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
 
 my %avoided_keys_sectioning;
-my @avoided_keys_sectioning = ('section_next', @contents_keys, @menus_keys,
-  @node_keys, 'menu_child', 'manual_content', 'toplevel_next');
+my @avoided_keys_sectioning = ('next', @contents_keys, @menus_keys,
+  @node_keys, 'menu_child', 'manual_content');
 foreach my $avoided_key(@avoided_keys_sectioning) {
   $avoided_keys_sectioning{$avoided_key} = 1;
 }

@@ -83,11 +83,15 @@ sub book_print_up_toc($$)
   my $result = '';
   my $current_command = $command;
   my @up_commands;
-  while (defined($current_command->{'structure'}->{'section_up'})
-           and ($current_command->{'structure'}->{'section_up'} ne $current_command)
-           and defined($current_command->{'structure'}->{'section_up'}->{'cmdname'})) {
-    unshift (@up_commands, $current_command->{'structure'}->{'section_up'});
-    $current_command = $current_command->{'structure'}->{'section_up'};
+  while ($current_command->{'extra'}->{'section_directions'}
+         and defined($current_command->{'extra'}->{'section_directions'}->{'up'})
+         and ($current_command->{'extra'}->{'section_directions'}->{'up'}
+                                                           ne $current_command)
+         and defined($current_command->{'extra'}->{'section_directions'}->{'up'}
+                                                                ->{'cmdname'})) {
+    unshift (@up_commands,
+                $current_command->{'extra'}->{'section_directions'}->{'up'});
+    $current_command = $current_command->{'extra'}->{'section_directions'}->{'up'};
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
@@ -159,9 +163,10 @@ sub book_print_sub_toc($$$)
                                 $command->{'extra'}->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
-  if (exists($command->{'structure'}->{'section_next'})) {
+  if ($command->{'extra'}->{'section_directions'}
+      and exists($command->{'extra'}->{'section_directions'}->{'next'})) {
     $result .= book_print_sub_toc($converter, $parent_command,
-                                  $command->{'structure'}->{'section_next'});
+                  $command->{'extra'}->{'section_directions'}->{'next'});
   }
   return $result;
 }

@@ -9390,10 +9390,11 @@ sub _prepare_tree_units_global_targets($$)
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
         while ($root_command->{'extra'}->{'section_level'} > 1
-               and $root_command->{'structure'}->{'section_up'}
-               and $root_command->{'structure'}->{'section_up'}
+               and $root_command->{'extra'}->{'section_directions'}
+               and $root_command->{'extra'}->{'section_directions'}->{'up'}
+               and $root_command->{'extra'}->{'section_directions'}->{'up'}
                                         ->{'structure'}->{'associated_unit'}) {
-          $root_command = $root_command->{'structure'}->{'section_up'};
+          $root_command = $root_command->{'extra'}->{'section_directions'}->{'up'};
           $root_element = $root_command->{'structure'}->{'associated_unit'};
         }
       }
@@ -9855,19 +9856,21 @@ sub _default_format_contents($$;$$)
             if ($contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
         $section = $section->{'extra'}->{'section_childs'}->[0];
-      } elsif ($section->{'structure'}->{'section_next'}
+      } elsif ($section->{'extra'}->{'section_directions'}
+               and $section->{'extra'}->{'section_directions'}->{'next'}
                and $section->{'cmdname'} ne 'top') {
         $result .= "</li>\n";
         last if ($section eq $top_section);
-        $section = $section->{'structure'}->{'section_next'};
+        $section = $section->{'extra'}->{'section_directions'}->{'next'};
       } else {
         #last if ($section eq $top_section);
         if ($section eq $top_section) {
           $result .= "</li>\n" unless ($section->{'cmdname'} eq 'top');
           last;
         }
-        while ($section->{'structure'}->{'section_up'}) {
-          $section = $section->{'structure'}->{'section_up'};
+        while ($section->{'extra'}->{'section_directions'}
+               and $section->{'extra'}->{'section_directions'}->{'up'}) {
+          $section = $section->{'extra'}->{'section_directions'}->{'up'};
           $result .= "</li>\n"
            . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             . "</ul>";
@@ -9875,9 +9878,10 @@ sub _default_format_contents($$;$$)
             $result .= "</li>\n" if ($toplevel_contents);
             last SECTION;
           }
-          if ($section->{'structure'}->{'section_next'}) {
+          if ($section->{'extra'}->{'section_directions'}
+              and $section->{'extra'}->{'section_directions'}->{'next'}) {
             $result .= "</li>\n";
-            $section = $section->{'structure'}->{'section_next'};
+            $section = $section->{'extra'}->{'section_directions'}->{'next'};
             last;
           }
         }

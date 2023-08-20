@@ -1775,14 +1775,15 @@ sub _convert($$;$)
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
-      while ($current->{'structure'}->{'section_up'}
+      while ($current->{'extra'}->{'section_directions'}
+             and $current->{'extra'}->{'section_directions'}->{'up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
-             and $current->{'structure'}->{'section_up'}->{'cmdname'}
-             and !$current->{'structure'}->{'section_next'}
+             and $current->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}
+             and !$current->{'extra'}->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-                            $current->{'structure'}->{'section_up'}) ne 'top') {
-        $current = $current->{'structure'}->{'section_up'};
+               $current->{'extra'}->{'section_directions'}->{'up'}) ne 'top') {
+        $current = $current->{'extra'}->{'section_directions'}->{'up'};
         $result .= '</'.$self->_docbook_section_element($current) .">\n";
         pop @{$self->{'lang_stack'}};
       }
