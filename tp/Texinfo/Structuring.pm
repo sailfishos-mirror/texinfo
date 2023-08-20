@@ -1067,9 +1067,9 @@ sub section_level_adjusted_command_name($)
 sub split_by_node($)
 {
   my $root = shift;
-  my $tree_units;
+  my $output_units;
   my $current = { 'type' => 'unit' };
-  push @$tree_units, $current;
+  push @$output_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'part') {
@@ -1081,11 +1081,11 @@ sub split_by_node($)
         $current->{'unit_command'} = $content;
       } else {
         $current = { 'type' => 'unit', 'unit_command' => $content,
-                    'tree_unit_directions' => {'prev' => $tree_units->[-1]}};
-        $tree_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $tree_units->[-1]->{'tree_unit_directions'});
-        $tree_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
-        push @$tree_units, $current;
+                    'tree_unit_directions' => {'prev' => $output_units->[-1]}};
+        $output_units->[-1]->{'tree_unit_directions'} = {}
+            if (! $output_units->[-1]->{'tree_unit_directions'});
+        $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
+        push @$output_units, $current;
       }
     }
     if (@pending_parts) {
@@ -1109,7 +1109,7 @@ sub split_by_node($)
     @pending_parts = ();
   }
 
-  return $tree_units;
+  return $output_units;
 }
 
 # Return a list of tree units to be converted into pages.  Each tree unit
@@ -1120,9 +1120,9 @@ sub split_by_node($)
 sub split_by_section($)
 {
   my $root = shift;
-  my $tree_units;
+  my $output_units;
   my $current = { 'type' => 'unit' };
-  push @$tree_units, $current;
+  push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'}
         and (($content->{'cmdname'} eq 'node'
@@ -1142,11 +1142,11 @@ sub split_by_section($)
       } elsif ($new_section ne $current->{'unit_command'}) {
         $current = { 'type' => 'unit',
                      'unit_command' => $new_section,
-                     'tree_unit_directions' => {'prev' => $tree_units->[-1]}};
-        $tree_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $tree_units->[-1]->{'tree_unit_directions'});
-        $tree_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
-        push @$tree_units, $current;
+                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
+        $output_units->[-1]->{'tree_unit_directions'} = {}
+            if (! $output_units->[-1]->{'tree_unit_directions'});
+        $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
+        push @$output_units, $current;
       }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
              and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
@@ -1154,11 +1154,11 @@ sub split_by_section($)
         $current->{'unit_command'} = $content;
       } elsif ($current->{'unit_command'} ne $content) {
         $current = {'type' => 'unit', 'unit_command' => $content,
-                    'tree_unit_directions' => {'prev' => $tree_units->[-1]}};
-        $tree_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $tree_units->[-1]->{'tree_unit_directions'});
-        $tree_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
-        push @$tree_units, $current;
+                    'tree_unit_directions' => {'prev' => $output_units->[-1]}};
+        $output_units->[-1]->{'tree_unit_directions'} = {}
+            if (! $output_units->[-1]->{'tree_unit_directions'});
+        $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
+        push @$output_units, $current;
       }
     }
     push @{$current->{'contents'}}, $content;
@@ -1167,7 +1167,7 @@ sub split_by_section($)
     #}
     $content->{'associated_unit'} = $current;
   }
-  return $tree_units;
+  return $output_units;
 }
 
 # Associate top-level units with pages according to the splitting
@@ -1175,15 +1175,15 @@ sub split_by_section($)
 # that is the first in the output page.
 sub split_pages ($$)
 {
-  my $tree_units = shift;
+  my $output_units = shift;
   my $split = shift;
 
-  return undef if (!$tree_units or !@$tree_units);
+  return undef if (!$output_units or !@$output_units);
 
   my $split_level;
   if (!$split) {
-    foreach my $tree_unit (@$tree_units) {
-      $tree_unit->{'first_in_page'} = $tree_units->[0];
+    foreach my $output_unit (@$output_units) {
+      $output_unit->{'first_in_page'} = $output_units->[0];
     }
     return;
   } elsif ($split eq 'chapter') {
@@ -1195,19 +1195,19 @@ sub split_pages ($$)
   }
 
   my $current_first_in_page;
-  foreach my $tree_unit (@$tree_units) {
+  foreach my $output_unit (@$output_units) {
     my $level;
-    my $section = _tree_unit_section($tree_unit);
+    my $section = _tree_unit_section($output_unit);
     if (defined($section)) {
       $level = $section->{'extra'}->{'section_level'};
     }
     #print STDERR "level($split_level) $level "
-    #       .root_or_external_element_cmd_texi($tree_unit)."\n";
+    #       .unit_or_external_element_texi($output_unit)."\n";
     if (!defined($split_level) or (defined($level) and $split_level >= $level)
         or !$current_first_in_page) {
-      $current_first_in_page = $tree_unit;
+      $current_first_in_page = $output_unit;
     }
-    $tree_unit->{'first_in_page'} = $current_first_in_page;
+    $output_unit->{'first_in_page'} = $current_first_in_page;
   }
 }
 
@@ -1241,36 +1241,36 @@ sub _label_target_unit_element($)
 
 sub _tree_unit_section($)
 {
-  my $tree_unit = shift;
-  if (not defined($tree_unit->{'unit_command'})) {
+  my $output_unit = shift;
+  if (not defined($output_unit->{'unit_command'})) {
     return undef;
   }
-  my $tree_unit_command_element = $tree_unit->{'unit_command'};
-  if ($tree_unit_command_element->{'cmdname'} eq 'node') {
-    if ($tree_unit_command_element->{'extra'}
-        and $tree_unit_command_element->{'extra'}->{'associated_section'}) {
-      return $tree_unit_command_element->{'extra'}->{'associated_section'};
+  my $element = $output_unit->{'unit_command'};
+  if ($element->{'cmdname'} eq 'node') {
+    if ($element->{'extra'}
+        and $element->{'extra'}->{'associated_section'}) {
+      return $element->{'extra'}->{'associated_section'};
     } else {
       return undef;
     }
   } else {
-    return $tree_unit_command_element;
+    return $element;
   }
 }
 
 sub _tree_unit_node($)
 {
-  my $tree_unit = shift;
-  if (not defined($tree_unit->{'unit_command'})) {
+  my $output_unit = shift;
+  if (not defined($output_unit->{'unit_command'})) {
     return undef;
   }
-  my $tree_unit_command_element = $tree_unit->{'unit_command'};
-  if ($tree_unit_command_element->{'cmdname'} eq 'node') {
-    return $tree_unit_command_element;
+  my $element = $output_unit->{'unit_command'};
+  if ($element->{'cmdname'} eq 'node') {
+    return $element;
   } else {
-    if ($tree_unit_command_element->{'extra'}
-        and $tree_unit_command_element->{'extra'}->{'associated_node'}) {
-      return $tree_unit_command_element->{'extra'}->{'associated_node'}
+    if ($element->{'extra'}
+        and $element->{'extra'}->{'associated_node'}) {
+      return $element->{'extra'}->{'associated_node'}
     } else {
       return undef;
     }
@@ -1286,24 +1286,24 @@ sub elements_directions($$$)
 {
   my $customization_information = shift;
   my $identifier_target = shift;
-  my $tree_units = shift;
-  return if (!$tree_units or !@$tree_units);
+  my $output_units = shift;
+  return if (!$output_units or !@$output_units);
 
   my $node_top = $identifier_target->{'Top'};
-  foreach my $tree_unit (@$tree_units) {
+  foreach my $output_unit (@$output_units) {
     my $directions = {};
-    $directions->{'This'} = $tree_unit;
-    $directions->{'Forward'} = $tree_unit->{'tree_unit_directions'}->{'next'}
-      if ($tree_unit->{'tree_unit_directions'}
-          and $tree_unit->{'tree_unit_directions'}->{'next'}
-          and defined($tree_unit->{'tree_unit_directions'}->{'next'}->{'type'})
-          and $tree_unit->{'tree_unit_directions'}->{'next'}->{'type'} eq 'unit');
-    $directions->{'Back'} = $tree_unit->{'tree_unit_directions'}->{'prev'}
-      if ($tree_unit->{'tree_unit_directions'}
-          and $tree_unit->{'tree_unit_directions'}->{'prev'}
-          and defined($tree_unit->{'tree_unit_directions'}->{'prev'}->{'type'})
-          and $tree_unit->{'tree_unit_directions'}->{'prev'}->{'type'} eq 'unit');
-    my $node = _tree_unit_node($tree_unit);
+    $directions->{'This'} = $output_unit;
+    $directions->{'Forward'} = $output_unit->{'tree_unit_directions'}->{'next'}
+      if ($output_unit->{'tree_unit_directions'}
+          and $output_unit->{'tree_unit_directions'}->{'next'}
+          and defined($output_unit->{'tree_unit_directions'}->{'next'}->{'type'})
+          and $output_unit->{'tree_unit_directions'}->{'next'}->{'type'} eq 'unit');
+    $directions->{'Back'} = $output_unit->{'tree_unit_directions'}->{'prev'}
+      if ($output_unit->{'tree_unit_directions'}
+          and $output_unit->{'tree_unit_directions'}->{'prev'}
+          and defined($output_unit->{'tree_unit_directions'}->{'prev'}->{'type'})
+          and $output_unit->{'tree_unit_directions'}->{'prev'}->{'type'} eq 'unit');
+    my $node = _tree_unit_node($output_unit);
     if (defined($node)) {
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
@@ -1357,20 +1357,20 @@ sub elements_directions($$$)
           and $directions->{'NodeForward'}->{'type'} eq 'unit'
           and (!$directions->{'NodeForward'}->{'directions'}
                or !$directions->{'NodeForward'}->{'directions'}
-                                                              ->{'NodeBack'})) {
+                                                  ->{'NodeBack'})) {
         $directions->{'NodeForward'}->{'directions'} = {}
             if (! $directions->{'NodeForward'}->{'directions'});
         $directions->{'NodeForward'}->{'directions'}
-                                                   ->{'NodeBack'} = $tree_unit;
+                                       ->{'NodeBack'} = $output_unit;
       }
     }
-    my $section = _tree_unit_section($tree_unit);
+    my $section = _tree_unit_section($output_unit);
     if (not defined($section)) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
       my $section_element;
-      my $current = $tree_unit;
+      my $current = $output_unit;
       while ($current->{'tree_unit_directions'}
              and $current->{'tree_unit_directions'}->{'prev'}) {
         $current = $current->{'tree_unit_directions'}->{'prev'};
@@ -1454,7 +1454,7 @@ sub elements_directions($$$)
         $directions->{'FastForward'}->{'directions'} = {}
            if (! $directions->{'FastForward'}->{'directions'});
         $directions->{'FastForward'}->{'directions'}->{'FastBack'}
-          = $tree_unit if ($directions and $directions->{'FastForward'});
+          = $output_unit if ($directions and $directions->{'FastForward'});
       }
     }
     # Use node up for Up if there is no section up.
@@ -1464,25 +1464,25 @@ sub elements_directions($$$)
         and $node->{'extra'}->{'node_directions'}
         and $node->{'extra'}->{'node_directions'}->{'up'}
         and (!$node_top or ($node ne $node_top))) {
-      #print STDERR "Node for up: ".root_or_external_element_cmd_texi($tree_unit)."\n";
+      #print STDERR "Node for up: ".unit_or_external_element_texi($output_unit)."\n";
       my $up_node_element
         = _label_target_unit_element(
                $node->{'extra'}->{'node_directions'}->{'up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
-    if ($tree_unit->{'directions'}) {
-      %{$tree_unit->{'directions'}}
-        = (%{$tree_unit->{'directions'}}, %$directions);
+    if ($output_unit->{'directions'}) {
+      %{$output_unit->{'directions'}}
+        = (%{$output_unit->{'directions'}}, %$directions);
     } else {
-      $tree_unit->{'directions'} = $directions;
+      $output_unit->{'directions'} = $directions;
     }
   }
   if ($customization_information->get_conf('DEBUG')) {
-    foreach my $tree_unit (@$tree_units) {
+    foreach my $output_unit (@$output_units) {
       print STDERR 'Directions'
        # uncomment to show the perl object name
-       #  . "($tree_unit)"
-         . ': '.print_element_directions($tree_unit)."\n";
+       #  . "($output_unit)"
+         . ': '.print_element_directions($output_unit)."\n";
     }
   }
 }
@@ -1491,48 +1491,50 @@ sub elements_directions($$$)
 # be other root elements for which file directions make sense, in theory.
 sub elements_file_directions($)
 {
-  my $tree_units = shift;
-  return if (!$tree_units or !@$tree_units);
+  my $output_units = shift;
+  return if (!$output_units or !@$output_units);
 
   my $current_filename;
-  my $first_element_in_file;
+  my $first_unit_in_file;
   # need to gather the directions before the FirstInFile* directions
   # are added to the first element in the file.
-  my @first_element_in_file_directions;
-  foreach my $tree_unit (@$tree_units) {
+  my @first_unit_in_file_directions;
+  foreach my $output_unit (@$output_units) {
     my $directions;
     my $filename;
-    if (defined($tree_unit->{'unit_filename'})) {
-      $filename = $tree_unit->{'unit_filename'};
-      my $current_tree_unit = $tree_unit;
+    if (defined($output_unit->{'unit_filename'})) {
+      $filename = $output_unit->{'unit_filename'};
+      my $current_output_unit = $output_unit;
       if (not defined($current_filename)
           or $filename ne $current_filename) {
-        $first_element_in_file = $tree_unit;
-        @first_element_in_file_directions
-            = keys %{$tree_unit->{'directions'}};
+        $first_unit_in_file = $output_unit;
+        @first_unit_in_file_directions
+            = keys %{$output_unit->{'directions'}};
         $current_filename = $filename;
       }
-      while ($current_tree_unit->{'tree_unit_directions'}
-             and $current_tree_unit->{'tree_unit_directions'}->{'prev'}) {
-        $current_tree_unit = $current_tree_unit->{'tree_unit_directions'}->{'prev'};
-        if (defined($current_tree_unit->{'unit_filename'})) {
-          if ($current_tree_unit->{'unit_filename'} ne $filename) {
-            $tree_unit->{'directions'}->{'PrevFile'}
-                 = $current_tree_unit;
+      while ($current_output_unit->{'tree_unit_directions'}
+             and $current_output_unit->{'tree_unit_directions'}->{'prev'}) {
+        $current_output_unit
+          = $current_output_unit->{'tree_unit_directions'}->{'prev'};
+        if (defined($current_output_unit->{'unit_filename'})) {
+          if ($current_output_unit->{'unit_filename'} ne $filename) {
+            $output_unit->{'directions'}->{'PrevFile'}
+                 = $current_output_unit;
             last;
           }
         } else {
           last;
         }
       }
-      $current_tree_unit = $tree_unit;
-      while ($current_tree_unit->{'tree_unit_directions'}
-             and $current_tree_unit->{'tree_unit_directions'}->{'next'}) {
-        $current_tree_unit = $current_tree_unit->{'tree_unit_directions'}->{'next'};
-        if (defined($current_tree_unit->{'unit_filename'})) {
-          if ($current_tree_unit->{'unit_filename'} ne $filename) {
-            $tree_unit->{'directions'}->{'NextFile'}
-               = $current_tree_unit;
+      $current_output_unit = $output_unit;
+      while ($current_output_unit->{'tree_unit_directions'}
+             and $current_output_unit->{'tree_unit_directions'}->{'next'}) {
+        $current_output_unit
+          = $current_output_unit->{'tree_unit_directions'}->{'next'};
+        if (defined($current_output_unit->{'unit_filename'})) {
+          if ($current_output_unit->{'unit_filename'} ne $filename) {
+            $output_unit->{'directions'}->{'NextFile'}
+               = $current_output_unit;
             last;
           }
         } else {
@@ -1542,12 +1544,12 @@ sub elements_file_directions($)
     }
     # set the directions of the first elements in file, to
     # be used in footers for example
-    if (defined($first_element_in_file)) {
+    if (defined($first_unit_in_file)) {
       foreach my $first_in_file_direction
-                (@first_element_in_file_directions) {
-        $tree_unit->{'directions'}
+                (@first_unit_in_file_directions) {
+        $output_unit->{'directions'}
                                 ->{'FirstInFile'.$first_in_file_direction}
-          = $first_element_in_file->{'directions'}
+          = $first_unit_in_file->{'directions'}
                                          ->{$first_in_file_direction};
       }
     }
@@ -1555,7 +1557,7 @@ sub elements_file_directions($)
 }
 
 # used in debug messages
-sub root_or_external_element_cmd_texi($)
+sub unit_or_external_element_texi($)
 {
   my $element = shift;
   if (!$element) {
@@ -1596,12 +1598,12 @@ sub root_or_external_element_cmd_texi($)
 sub print_element_directions($)
 {
   my $element = shift;
-  my $result = 'element: '.root_or_external_element_cmd_texi($element)."\n";
+  my $result = 'element: '.unit_or_external_element_texi($element)."\n";
 
   if ($element->{'directions'}) {
     foreach my $direction (sort(keys(%{$element->{'directions'}}))) {
       $result .= "  $direction: ".
-       root_or_external_element_cmd_texi(
+       unit_or_external_element_texi(
          $element->{'directions'}->{$direction})."\n";
     }
   } else {
@@ -2525,15 +2527,15 @@ Texinfo::Structuring - information on Texinfo::Document tree
                              $identifier_target, $refs);
   associate_internal_references($registrar, $config, $document);
   number_floats($document->floats_information());
-  my $tree_units;
+  my $output_units;
   if ($split_at_nodes) {
-    $tree_units = split_by_node($tree);
+    $output_units = split_by_node($tree);
   } else {
-    $tree_units = split_by_section($tree);
+    $output_units = split_by_section($tree);
   }
-  split_pages($tree_units, $split);
-  elements_directions($config, $identifier_target, $tree_units);
-  elements_file_directions($tree_units);
+  split_pages($output_units, $split);
+  elements_directions($config, $identifier_target, $output_units);
+  elements_file_directions($output_units);
 
   my $indices_information = $document->indices_information();
   my $merged_index_entries
@@ -2629,11 +2631,11 @@ Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
 Register errors in I<$registrar>.
 
-=item elements_directions($customization_information, $identifier_target, $tree_units)
+=item elements_directions($customization_information, $identifier_target, $output_units)
 X<C<elements_directions>>
 
-Directions are set up for the tree units in the array reference
-I<$tree_units> given in argument. The corresponding hash is associated
+Directions are set up for the output units in the array reference
+I<$output_units> given in argument. The corresponding hash is associated
 to the C<directions> key. In this hash, keys correspond to directions
 while values are elements.
 
@@ -2691,7 +2693,7 @@ The next top level section element.
 
 =back
 
-=item elements_file_directions($tree_units)
+=item elements_file_directions($output_units)
 X<C<elements_file_directions>>
 
 In the directions reference described above for C<elements_directions>,
@@ -2876,7 +2878,7 @@ entries with the strings that were used to sort them.
 
 Register errors in I<$registrar>.
 
-=item $tree_units = split_by_node($tree)
+=item $output_units = split_by_node($tree)
 X<C<split_by_node>>
 
 Returns a reference array of tree units where a node is associated to
@@ -2894,7 +2896,7 @@ Tree units also have directions in the C<tree_unit_directions>
 hash reference, namely I<next> and I<prev> pointing to the
 previous and the next tree unit.
 
-=item $tree_units = split_by_section($tree)
+=item $output_units = split_by_section($tree)
 X<C<split_by_section>>
 
 Similarly with C<split_by_node>, returns an array of tree units.  This
@@ -2904,7 +2906,7 @@ sections makes up a tree unit.
 The hash keys set are the same, except that I<unit_command> is the sectioning
 command associated with the tree unit.
 
-=item $pages = split_pages($tree_units, $split)
+=item $pages = split_pages($output_units, $split)
 X<C<split_pages>>
 
 The tree units from the array reference argument have an extra

@@ -4023,7 +4023,7 @@ sub _default_format_element_header($$$$)
      #."$output_unit (@{$output_unit->{'contents'}}) ".
      . "(".join('|', map{Texinfo::Common::debug_print_element($_)}
              @{$output_unit->{'contents'}}) . ") ".
-     Texinfo::Structuring::root_or_external_element_cmd_texi($output_unit) ."\n"
+     Texinfo::Structuring::unit_or_external_element_texi($output_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
@@ -9029,7 +9029,7 @@ sub _html_set_pages_files($$$$$$$$)
     print STDERR 'Page '
       # uncomment for perl object name
       #."$output_unit "
-      .Texinfo::Structuring::root_or_external_element_cmd_texi($output_unit)
+      .Texinfo::Structuring::unit_or_external_element_texi($output_unit)
       .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
              if ($self->get_conf('DEBUG'));
   }
@@ -9425,11 +9425,11 @@ sub _prepare_output_units_global_targets($$)
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
       if (defined($self->global_direction_element($global_direction))) {
-        my $global_element = $self->global_direction_element($global_direction);
+        my $global_unit = $self->global_direction_element($global_direction);
         print STDERR "$global_direction"
             # uncomment to get the perl object name
-            # ."($global_element)"
-     .': '. Texinfo::Structuring::root_or_external_element_cmd_texi($global_element)."\n";
+            # ."($global_unit)"
+     .': '. Texinfo::Structuring::unit_or_external_element_texi($global_unit)."\n";
       }
     }
   }

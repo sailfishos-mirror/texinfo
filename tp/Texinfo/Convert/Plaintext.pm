@@ -542,7 +542,7 @@ sub count_context_bug_message($$$)
     my $element_text;
     if ($element) {
       $element_text
-         = Texinfo::Structuring::root_or_external_element_cmd_texi($element);
+         = Texinfo::Structuring::unit_or_external_element_texi($element);
     } else {
       $element_text = '';
     }
@@ -573,19 +573,19 @@ sub convert($$)
 
   my $result = '';
 
-  my $tree_units = Texinfo::Structuring::split_by_node($root);
+  my $output_units = Texinfo::Structuring::split_by_node($root);
   $self->{'seenmenus'} = {};
   $self->{'empty_lines_count'} = 1;
   $self->{'index_entries_line_location'} = {};
-  if (!defined($tree_units)) {
+  if (!defined($output_units)) {
     $result = $self->_convert($root);
     $self->count_context_bug_message('no element ');
     my $footnotes = $self->process_footnotes();
     $self->count_context_bug_message('no element footnotes ');
     $result .= $footnotes;
   } else {
-    foreach my $node_root_element (@$tree_units) {
-      my $node_text = _convert_root_element($self, $node_root_element);
+    foreach my $output_unit (@$output_units) {
+      my $node_text = _convert_root_element($self, $output_unit);
       $result .= $node_text;
     }
   }
