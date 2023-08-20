@@ -11039,13 +11039,13 @@ sub output($$)
   $self->_prepare_contents_elements();
 
   # do tree units directions.
-  Texinfo::Structuring::elements_directions($self,
+  Texinfo::Structuring::units_directions($self,
                                 $self->{'identifiers_target'}, $output_units);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that
   # PrevFile and NextFile can be set.
-  Texinfo::Structuring::elements_file_directions($output_units);
+  Texinfo::Structuring::units_file_directions($output_units);
 
   # Associate the special elements that have no page with the main page.
   # This may only happen if not split.

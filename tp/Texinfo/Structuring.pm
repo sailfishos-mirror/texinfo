@@ -63,8 +63,8 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
   associate_internal_references
   check_nodes_are_referenced
   complete_node_tree_with_menus
-  elements_directions
-  elements_file_directions
+  units_directions
+  units_file_directions
   merge_indices
   nodes_tree
   number_floats
@@ -1280,7 +1280,7 @@ sub _output_unit_node($)
 # Do output units directions (like in texi2html) and store them
 # in 'directions'.
 # The directions are only created if pointing to other output units.
-sub elements_directions($$$)
+sub units_directions($$$)
 {
   my $customization_information = shift;
   my $identifier_target = shift;
@@ -1485,7 +1485,7 @@ sub elements_directions($$$)
   }
 }
 
-sub elements_file_directions($)
+sub units_file_directions($)
 {
   my $output_units = shift;
   return if (!$output_units or !@$output_units);
@@ -2502,7 +2502,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
 
   use Texinfo::Structuring qw(sectioning_structure nodes_tree number_floats
     associate_internal_references split_by_node split_by_section split_pages
-    merge_indices sort_indices elements_directions elements_file_directions);
+    merge_indices sort_indices units_directions units_file_directions);
 
   # $document is a parsed Texinfo::Document document, $tree is the
   # associated Texinfo document tree.  $parser is a Texinfo::Parser
@@ -2530,8 +2530,8 @@ Texinfo::Structuring - information on Texinfo::Document tree
     $output_units = split_by_section($tree);
   }
   split_pages($output_units, $split);
-  elements_directions($config, $identifier_target, $output_units);
-  elements_file_directions($output_units);
+  units_directions($config, $identifier_target, $output_units);
+  units_file_directions($output_units);
 
   my $indices_information = $document->indices_information();
   my $merged_index_entries
@@ -2578,7 +2578,7 @@ I<pages>, which are not pages as in book pages, but more like web pages,
 and hold series of output units.
 
 The output units may have directions to other output units prepared
-by C<elements_directions>.  C<elements_file_directions> should also
+by C<units_directions>.  C<units_file_directions> should also
 set direction related to files, provided files are associated with
 output units by the user.
 
@@ -2626,8 +2626,8 @@ Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
 Register errors in I<$registrar>.
 
-=item elements_directions($customization_information, $identifier_target, $output_units)
-X<C<elements_directions>>
+=item units_directions($customization_information, $identifier_target, $output_units)
+X<C<units_directions>>
 
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated
@@ -2688,10 +2688,10 @@ The next top level output unit.
 
 =back
 
-=item elements_file_directions($output_units)
-X<C<elements_file_directions>>
+=item units_file_directions($output_units)
+X<C<units_file_directions>>
 
-In the directions reference described above for C<elements_directions>,
+In the directions reference described above for C<units_directions>,
 sets the I<PrevFile> and I<NextFile> directions to the output units in
 previous and following files.
 

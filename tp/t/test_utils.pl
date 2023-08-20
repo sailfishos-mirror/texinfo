@@ -1273,32 +1273,32 @@ sub test($$)
   my $unsplit_needed = unsplit($tree);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
-  my $elements;
+  my $output_units;
   if ($test_split eq 'node') {
-    $elements = Texinfo::Structuring::split_by_node($tree);
+    $output_units = Texinfo::Structuring::split_by_node($tree);
   } elsif ($test_split eq 'section') {
-    $elements = Texinfo::Structuring::split_by_section($tree);
+    $output_units = Texinfo::Structuring::split_by_section($tree);
   }
   if ($test_split) {
-    Texinfo::Structuring::elements_directions($main_configuration,
-                                              $identifier_target,
-                                              $elements);
+    Texinfo::Structuring::units_directions($main_configuration,
+                                           $identifier_target,
+                                           $output_units);
     $directions_text = '';
-    foreach my $element (@$elements) {
+    foreach my $output_unit (@$output_units) {
       $directions_text .=
-          Texinfo::Structuring::print_element_directions($element);
+          Texinfo::Structuring::print_element_directions($output_unit);
     }
   }
   if ($split_pages) {
-    Texinfo::Structuring::split_pages($elements, $split_pages);
+    Texinfo::Structuring::split_pages($output_units, $split_pages);
   }
 
   my $file = "t/results/$self->{'name'}/$test_name.pl";
   my $new_file = $file.'.new';
 
   my $split_result;
-  if ($elements) {
-    $split_result = $elements;
+  if ($output_units) {
+    $split_result = $output_units;
   } else {
     $split_result = $tree;
   }
@@ -1393,9 +1393,9 @@ sub test($$)
                       ['$result_indices_sort_strings{\''.$test_name.'\'}'])
                      ."\n\n";
     }
-    if ($elements) {
+    if ($output_units) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
-      $out_result .= Data::Dumper->Dump([$elements],
+      $out_result .= Data::Dumper->Dump([$output_units],
                        ['$result_elements{\''.$test_name.'\'}'])
                      ."\n\n";
       $out_result .= "\n".'$result_directions_text{\''.$test_name.'\'} = \''
@@ -1464,7 +1464,7 @@ sub test($$)
     }
     $tests_count = $nr_comparisons;
     if (defined($result_directions_text{$test_name})) {
-      cmp_trimmed($elements, $result_elements{$test_name},
+      cmp_trimmed($output_units, $result_elements{$test_name},
                   \@avoided_keys_elements, $test_name.' elements');
       $tests_count++;
       is ($directions_text, $result_directions_text{$test_name},
