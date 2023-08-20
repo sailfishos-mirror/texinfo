@@ -653,7 +653,7 @@ and cmd .
 ';
 
 $result_sectioning{'explicit_sort_key'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -664,10 +664,10 @@ $result_sectioning{'explicit_sort_key'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -675,7 +675,7 @@ $result_sectioning{'explicit_sort_key'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'explicit_sort_key'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'explicit_sort_key'};
+$result_sectioning{'explicit_sort_key'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'explicit_sort_key'};
 
 $result_nodes{'explicit_sort_key'} = {
   'cmdname' => 'node',

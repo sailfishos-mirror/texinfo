@@ -823,7 +823,7 @@ This is ifnottex text.
 ';
 
 $result_sectioning{'cond'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -834,18 +834,19 @@ $result_sectioning{'cond'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'cond'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond'};
+$result_sectioning{'cond'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond'};
 
 $result_nodes{'cond'} = {
   'cmdname' => 'node',

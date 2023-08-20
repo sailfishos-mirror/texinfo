@@ -70,6 +70,9 @@ $result_trees{'section_in_flushright'} = {
         }
       ],
       'cmdname' => 'section',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -101,13 +104,15 @@ text flushed right
 ';
 
 $result_sectioning{'section_in_flushright'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -115,7 +120,7 @@ $result_sectioning{'section_in_flushright'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_flushright'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_flushright'};
+$result_sectioning{'section_in_flushright'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_flushright'};
 
 $result_errors{'section_in_flushright'} = [
   {

@@ -565,7 +565,7 @@ Should be unnumbered.
 ';
 
 $result_sectioning{'section_below_unnumbered'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -576,9 +576,7 @@ $result_sectioning{'section_below_unnumbered'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'unnumbered',
@@ -589,9 +587,7 @@ $result_sectioning{'section_below_unnumbered'} = {
                     'normalized' => 'Unn'
                   },
                   'structure' => {}
-                }
-              },
-              'structure' => {
+                },
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -602,34 +598,39 @@ $result_sectioning{'section_below_unnumbered'} = {
                           'normalized' => 'Sec'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2
                     },
                     'structure' => {
-                      'section_level' => 2,
                       'section_up' => {}
                     }
                   }
                 ],
-                'section_level' => 1,
+                'section_level' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'};
+$result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'};
 
 $result_nodes{'section_below_unnumbered'} = {
   'cmdname' => 'node',

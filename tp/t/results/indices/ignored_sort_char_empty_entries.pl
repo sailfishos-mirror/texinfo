@@ -389,7 +389,7 @@ $result_texts{'ignored_sort_char_empty_entries'} = '
 ';
 
 $result_sectioning{'ignored_sort_char_empty_entries'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -400,10 +400,10 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -411,7 +411,7 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'ignored_sort_char_empty_entries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'ignored_sort_char_empty_entries'};
+$result_sectioning{'ignored_sort_char_empty_entries'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'ignored_sort_char_empty_entries'};
 
 $result_nodes{'ignored_sort_char_empty_entries'} = {
   'cmdname' => 'node',

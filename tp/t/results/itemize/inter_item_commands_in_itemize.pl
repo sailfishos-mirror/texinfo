@@ -665,7 +665,9 @@ $result_trees{'inter_item_commands_in_itemize'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -732,7 +734,7 @@ bullet item
 ';
 
 $result_sectioning{'inter_item_commands_in_itemize'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -743,9 +745,7 @@ $result_sectioning{'inter_item_commands_in_itemize'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -756,18 +756,20 @@ $result_sectioning{'inter_item_commands_in_itemize'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -775,10 +777,10 @@ $result_sectioning{'inter_item_commands_in_itemize'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_itemize'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_itemize'};
+$result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_itemize'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_itemize'};
 
 $result_nodes{'inter_item_commands_in_itemize'} = {
   'cmdname' => 'node',
@@ -796,10 +798,10 @@ $result_nodes{'inter_item_commands_in_itemize'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

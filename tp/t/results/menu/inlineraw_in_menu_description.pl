@@ -276,7 +276,7 @@ end inlineraw
 ';
 
 $result_sectioning{'inlineraw_in_menu_description'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -287,18 +287,19 @@ $result_sectioning{'inlineraw_in_menu_description'} = {
               'normalized' => 'first'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'inlineraw_in_menu_description'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inlineraw_in_menu_description'};
+$result_sectioning{'inlineraw_in_menu_description'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inlineraw_in_menu_description'};
 
 $result_nodes{'inlineraw_in_menu_description'} = {
   'cmdname' => 'node',

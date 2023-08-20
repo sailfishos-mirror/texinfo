@@ -1470,7 +1470,9 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1540,7 +1542,9 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1737,7 +1741,9 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 3
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1837,7 +1843,9 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 4
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2055,7 +2063,7 @@ stuff here.
 ';
 
 $result_sectioning{'quote_node_names_info'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2066,9 +2074,7 @@ $result_sectioning{'quote_node_names_info'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -2079,11 +2085,11 @@ $result_sectioning{'quote_node_names_info'} = {
                     'normalized' => 'blah_003ablah'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -2098,11 +2104,11 @@ $result_sectioning{'quote_node_names_info'} = {
                     'normalized' => 'blumpty_002efump'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2118,11 +2124,11 @@ $result_sectioning{'quote_node_names_info'} = {
                     'normalized' => 'normal-node'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 3
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2138,11 +2144,11 @@ $result_sectioning{'quote_node_names_info'} = {
                     'normalized' => 'secret_002cnode'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 4
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 4,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2150,7 +2156,9 @@ $result_sectioning{'quote_node_names_info'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -2158,22 +2166,22 @@ $result_sectioning{'quote_node_names_info'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'};
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names_info'};
 
 $result_nodes{'quote_node_names_info'} = {
   'cmdname' => 'node',
@@ -2196,10 +2204,10 @@ $result_nodes{'quote_node_names_info'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'blah_003ablah'
       },
@@ -2209,10 +2217,10 @@ $result_nodes{'quote_node_names_info'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'blumpty_002efump'
           },
@@ -2222,10 +2230,10 @@ $result_nodes{'quote_node_names_info'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => 3
-                  }
+                  },
+                  'structure' => {}
                 },
                 'normalized' => 'normal-node'
               },

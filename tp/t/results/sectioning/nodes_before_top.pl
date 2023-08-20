@@ -507,7 +507,9 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -563,7 +565,7 @@ top section
 ';
 
 $result_sectioning{'nodes_before_top'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -574,9 +576,7 @@ $result_sectioning{'nodes_before_top'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -587,18 +587,20 @@ $result_sectioning{'nodes_before_top'} = {
                     'normalized' => 'second-node'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -606,10 +608,10 @@ $result_sectioning{'nodes_before_top'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'nodes_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_before_top'};
+$result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'nodes_before_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_before_top'};
 
 $result_nodes{'nodes_before_top'} = {
   'cmdname' => 'node',
@@ -632,10 +634,10 @@ $result_nodes{'nodes_before_top'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'second-node'
       },

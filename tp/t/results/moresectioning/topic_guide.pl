@@ -536,7 +536,9 @@ $result_trees{'topic_guide'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1769,7 +1771,9 @@ $result_trees{'topic_guide'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1965,7 +1969,7 @@ This is the guide for an in depth use
 ';
 
 $result_sectioning{'topic_guide'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1976,9 +1980,7 @@ $result_sectioning{'topic_guide'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1989,11 +1991,11 @@ $result_sectioning{'topic_guide'} = {
                     'normalized' => 'guide1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -2008,11 +2010,11 @@ $result_sectioning{'topic_guide'} = {
                     'normalized' => 'guide2'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2020,22 +2022,25 @@ $result_sectioning{'topic_guide'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'topic_guide'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'};
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'topic_guide'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'topic_guide'};
 
 $result_nodes{'topic_guide'} = {
   'cmdname' => 'node',
@@ -2058,10 +2063,10 @@ $result_nodes{'topic_guide'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'menus' => [
           {
@@ -2134,10 +2139,10 @@ $result_nodes{'topic_guide'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'menus' => [
               {

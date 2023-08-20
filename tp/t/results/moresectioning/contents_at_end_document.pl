@@ -120,6 +120,9 @@ $result_trees{'contents_at_end_document'} = {
           }
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -153,7 +156,7 @@ $result_texts{'contents_at_end_document'} = 'contents at end document
 ';
 
 $result_sectioning{'contents_at_end_document'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -163,22 +166,24 @@ $result_sectioning{'contents_at_end_document'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -186,10 +191,10 @@ $result_sectioning{'contents_at_end_document'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_end_document'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_end_document'};
+$result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contents_at_end_document'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_end_document'};
 
 $result_nodes{'contents_at_end_document'} = {
   'cmdname' => 'node',

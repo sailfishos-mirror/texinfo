@@ -213,7 +213,9 @@ $result_trees{'footnote_no_number_separate'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -253,7 +255,7 @@ Para2.
 ';
 
 $result_sectioning{'footnote_no_number_separate'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -264,9 +266,7 @@ $result_sectioning{'footnote_no_number_separate'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -277,18 +277,20 @@ $result_sectioning{'footnote_no_number_separate'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -296,10 +298,10 @@ $result_sectioning{'footnote_no_number_separate'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'footnote_no_number_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'footnote_no_number_separate'};
+$result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'footnote_no_number_separate'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'footnote_no_number_separate'};
 
 $result_nodes{'footnote_no_number_separate'} = {
   'cmdname' => 'node',
@@ -317,10 +319,10 @@ $result_nodes{'footnote_no_number_separate'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

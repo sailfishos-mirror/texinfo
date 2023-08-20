@@ -170,7 +170,9 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -240,7 +242,9 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -310,7 +314,9 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.2'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -451,7 +457,9 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.3'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -514,7 +522,7 @@ Foo
 ';
 
 $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -525,9 +533,7 @@ $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} =
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -538,9 +544,7 @@ $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} =
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
-              },
-              'structure' => {
+                },
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -551,11 +555,11 @@ $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} =
                           'normalized' => 'Foo'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.1'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.1',
                       'section_up' => {}
                     }
                   },
@@ -568,11 +572,11 @@ $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} =
                           'normalized' => 'Bar'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.2'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.2',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -586,41 +590,46 @@ $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'} =
                           'normalized' => 'foo'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.3'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.3',
                       'section_prev' => {},
                       'section_up' => {}
                     }
                   }
                 ],
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'};
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_case_insensitive_conflict_node_no_redirections'};
 
 $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'} = {
   'cmdname' => 'node',
@@ -638,10 +647,10 @@ $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

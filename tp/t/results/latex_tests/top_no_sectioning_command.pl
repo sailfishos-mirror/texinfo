@@ -146,7 +146,9 @@ $result_trees{'top_no_sectioning_command'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -180,7 +182,7 @@ Top
 ';
 
 $result_sectioning{'top_no_sectioning_command'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -191,11 +193,11 @@ $result_sectioning{'top_no_sectioning_command'} = {
               'normalized' => 'Chapter'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -203,7 +205,7 @@ $result_sectioning{'top_no_sectioning_command'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'top_no_sectioning_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_sectioning_command'};
+$result_sectioning{'top_no_sectioning_command'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_sectioning_command'};
 
 $result_nodes{'top_no_sectioning_command'} = {
   'cmdname' => 'node',
@@ -216,10 +218,10 @@ $result_nodes{'top_no_sectioning_command'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Chapter'
       },

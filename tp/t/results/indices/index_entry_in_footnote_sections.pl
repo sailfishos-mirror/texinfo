@@ -271,7 +271,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 'A'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -315,7 +317,7 @@ Appendix A index
 ';
 
 $result_sectioning{'index_entry_in_footnote_sections'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -326,9 +328,7 @@ $result_sectioning{'index_entry_in_footnote_sections'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'appendix',
@@ -340,18 +340,20 @@ $result_sectioning{'index_entry_in_footnote_sections'} = {
                     'normalized' => 'Index'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 'A'
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 'A',
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -359,10 +361,10 @@ $result_sectioning{'index_entry_in_footnote_sections'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections'};
+$result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections'};
 
 $result_nodes{'index_entry_in_footnote_sections'} = {
   'cmdname' => 'node',
@@ -380,10 +382,10 @@ $result_nodes{'index_entry_in_footnote_sections'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 'A'
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'Index'

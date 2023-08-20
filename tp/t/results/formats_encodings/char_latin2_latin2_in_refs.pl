@@ -433,7 +433,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -503,7 +505,7 @@ char latin2 latin2 in refs
 ';
 
 $result_sectioning{'char_latin2_latin2_in_refs'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -515,9 +517,7 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -528,29 +528,32 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'};
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'};
 
 $result_nodes{'char_latin2_latin2_in_refs'} = {
   'cmdname' => 'node',
@@ -574,10 +577,10 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },

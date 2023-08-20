@@ -35,6 +35,7 @@ $result_trees{'unnumbered_before_top'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -64,6 +65,7 @@ $result_trees{'unnumbered_before_top'} = {
         }
       ],
       'cmdname' => 'top',
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -93,19 +95,23 @@ top
 ';
 
 $result_sectioning{'unnumbered_before_top'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
+        'extra' => {
+          'section_level' => 1
+        },
         'structure' => {
-          'section_level' => 1,
           'section_up' => {}
         }
       },
       {
         'cmdname' => 'top',
+        'extra' => {
+          'section_level' => 1
+        },
         'structure' => {
-          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -113,12 +119,13 @@ $result_sectioning{'unnumbered_before_top'} = {
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top'};
-$result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top'};
-$result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top'};
+$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top'};
+$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'unnumbered_before_top'} = [
   {

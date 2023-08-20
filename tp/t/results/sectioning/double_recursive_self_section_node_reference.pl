@@ -164,7 +164,9 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -258,7 +260,7 @@ $result_texts{'double_recursive_self_section_node_reference'} = 'top
 ';
 
 $result_sectioning{'double_recursive_self_section_node_reference'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -269,9 +271,7 @@ $result_sectioning{'double_recursive_self_section_node_reference'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -282,29 +282,32 @@ $result_sectioning{'double_recursive_self_section_node_reference'} = {
                     'normalized' => 'node1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'double_recursive_self_section_node_reference'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_node_reference'};
+$result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_node_reference'};
 
 $result_nodes{'double_recursive_self_section_node_reference'} = {
   'cmdname' => 'node',
@@ -322,10 +325,10 @@ $result_nodes{'double_recursive_self_section_node_reference'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'node1'
       },

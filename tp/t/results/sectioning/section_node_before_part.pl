@@ -75,7 +75,9 @@ $result_trees{'section_node_before_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -105,6 +107,7 @@ $result_trees{'section_node_before_part'} = {
         }
       ],
       'cmdname' => 'part',
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -137,7 +140,7 @@ part
 ';
 
 $result_sectioning{'section_node_before_part'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
@@ -147,37 +150,40 @@ $result_sectioning{'section_node_before_part'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 2,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 2,
-          'section_number' => 1,
           'section_up' => {}
         }
       },
       {
         'cmdname' => 'part',
+        'extra' => {
+          'section_level' => 0
+        },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'section_node_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_node_before_part'};
-$result_sectioning{'section_node_before_part'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_node_before_part'};
+$result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_node_before_part'};
+$result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_node_before_part'};
 
 $result_nodes{'section_node_before_part'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'section',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

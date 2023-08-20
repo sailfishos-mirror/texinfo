@@ -242,7 +242,7 @@ aaa
 ';
 
 $result_sectioning{'cpp_line_latin1'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -253,10 +253,10 @@ $result_sectioning{'cpp_line_latin1'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -264,7 +264,7 @@ $result_sectioning{'cpp_line_latin1'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'cpp_line_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cpp_line_latin1'};
+$result_sectioning{'cpp_line_latin1'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cpp_line_latin1'};
 
 $result_nodes{'cpp_line_latin1'} = {
   'cmdname' => 'node',

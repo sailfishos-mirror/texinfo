@@ -66,6 +66,7 @@ $result_trees{'settitle_and_empty_top'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -88,12 +89,14 @@ $result_texts{'settitle_and_empty_top'} = '
 ';
 
 $result_sectioning{'settitle_and_empty_top'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
+        'extra' => {
+          'section_level' => 0
+        },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -101,7 +104,7 @@ $result_sectioning{'settitle_and_empty_top'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'settitle_and_empty_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_empty_top'};
+$result_sectioning{'settitle_and_empty_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_empty_top'};
 
 $result_errors{'settitle_and_empty_top'} = [];
 

@@ -877,7 +877,9 @@ $result_trees{'index_table'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1055,7 +1057,9 @@ $result_trees{'index_table'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -6148,7 +6152,9 @@ $result_trees{'index_table'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 3
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -6256,7 +6262,9 @@ $result_trees{'index_table'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '3.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -6655,7 +6663,7 @@ A section following the indices.
 ';
 
 $result_sectioning{'index_table'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -6666,9 +6674,7 @@ $result_sectioning{'index_table'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -6679,11 +6685,11 @@ $result_sectioning{'index_table'} = {
                     'normalized' => 'node-with-ftable-and-vtable'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -6699,11 +6705,11 @@ $result_sectioning{'index_table'} = {
                     'normalized' => 'node-with-printindex'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -6720,9 +6726,7 @@ $result_sectioning{'index_table'} = {
                     'normalized' => 'indices-refs'
                   },
                   'structure' => {}
-                }
-              },
-              'structure' => {
+                },
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -6733,17 +6737,19 @@ $result_sectioning{'index_table'} = {
                           'normalized' => 'node'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '3.1'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '3.1',
                       'section_up' => {}
                     }
                   }
                 ],
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => 3
+              },
+              'structure' => {
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -6751,27 +6757,30 @@ $result_sectioning{'index_table'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'};
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_table'};
 
 $result_nodes{'index_table'} = {
   'cmdname' => 'node',
@@ -6794,10 +6803,10 @@ $result_nodes{'index_table'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'node-with-ftable-and-vtable'
       },
@@ -6807,10 +6816,10 @@ $result_nodes{'index_table'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'isindex' => 1,
             'normalized' => 'node-with-printindex'
@@ -6821,10 +6830,10 @@ $result_nodes{'index_table'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => 3
-                  }
+                  },
+                  'structure' => {}
                 },
                 'isindex' => 1,
                 'menus' => [
@@ -6840,10 +6849,10 @@ $result_nodes{'index_table'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'section',
-                      'extra' => {},
-                      'structure' => {
+                      'extra' => {
                         'section_number' => '3.1'
-                      }
+                      },
+                      'structure' => {}
                     },
                     'normalized' => 'node'
                   },

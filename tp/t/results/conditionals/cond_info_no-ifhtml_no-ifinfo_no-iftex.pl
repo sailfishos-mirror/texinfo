@@ -823,7 +823,7 @@ This is ifnottex text.
 ';
 
 $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -834,10 +834,10 @@ $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -845,7 +845,7 @@ $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'};
+$result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'};
 
 $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
   'cmdname' => 'node',

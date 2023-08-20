@@ -2263,7 +2263,7 @@ should be dotless j": j"
 ';
 
 $result_sectioning{'accent_enable_encoding'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2273,10 +2273,10 @@ $result_sectioning{'accent_enable_encoding'} = {
             'extra' => {
               'normalized' => 'first'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -2284,7 +2284,7 @@ $result_sectioning{'accent_enable_encoding'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'accent_enable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'accent_enable_encoding'};
+$result_sectioning{'accent_enable_encoding'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'accent_enable_encoding'};
 
 $result_nodes{'accent_enable_encoding'} = {
   'cmdname' => 'node',

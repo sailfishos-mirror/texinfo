@@ -612,7 +612,9 @@ $result_trees{'before_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -680,7 +682,7 @@ ref to anchor1, which is before @node Top: anchor1.
 ';
 
 $result_sectioning{'before_node_and_section'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -691,9 +693,7 @@ $result_sectioning{'before_node_and_section'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -705,18 +705,20 @@ $result_sectioning{'before_node_and_section'} = {
                     'normalized' => 'node1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -724,10 +726,10 @@ $result_sectioning{'before_node_and_section'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'before_node_and_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'before_node_and_section'};
+$result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'before_node_and_section'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'before_node_and_section'};
 
 $result_nodes{'before_node_and_section'} = {
   'cmdname' => 'node',
@@ -750,10 +752,10 @@ $result_nodes{'before_node_and_section'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'node1'

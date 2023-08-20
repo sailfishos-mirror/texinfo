@@ -161,6 +161,9 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -236,13 +239,14 @@ in chapter
 ';
 
 $result_sectioning{'section_before_after_top_node_last_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
+        'extra' => {
+          'section_level' => 1
+        },
         'structure' => {
-          'section_level' => 1,
           'section_up' => {}
         }
       },
@@ -255,10 +259,10 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1
         },
         'structure' => {
-          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -266,9 +270,11 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'structure' => {
+        'extra' => {
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
@@ -277,16 +283,17 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1];
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1];
-$result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'section_before_after_top_node_last_node'}{'structure'}{'section_childs'}[1];
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1];
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node_last_node'};
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1];
+$result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1];
 
 $result_nodes{'section_before_after_top_node_last_node'} = {
   'cmdname' => 'node',

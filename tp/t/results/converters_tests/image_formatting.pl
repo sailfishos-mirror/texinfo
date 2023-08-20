@@ -1851,7 +1851,9 @@ $result_trees{'image_formatting'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1937,7 +1939,7 @@ f--ile.
 ';
 
 $result_sectioning{'image_formatting'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1948,9 +1950,7 @@ $result_sectioning{'image_formatting'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1961,18 +1961,20 @@ $result_sectioning{'image_formatting'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -1980,10 +1982,10 @@ $result_sectioning{'image_formatting'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'image_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_formatting'};
+$result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_formatting'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_formatting'};
 
 $result_nodes{'image_formatting'} = {
   'cmdname' => 'node',
@@ -2001,10 +2003,10 @@ $result_nodes{'image_formatting'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

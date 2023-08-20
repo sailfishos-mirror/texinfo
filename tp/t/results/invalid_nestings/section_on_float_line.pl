@@ -74,6 +74,9 @@ $result_trees{'section_on_float_line'} = {
         }
       ],
       'cmdname' => 'section',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -99,13 +102,15 @@ $result_texts{'section_on_float_line'} = 't, l
 ';
 
 $result_sectioning{'section_on_float_line'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -113,7 +118,7 @@ $result_sectioning{'section_on_float_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_on_float_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_on_float_line'};
+$result_sectioning{'section_on_float_line'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_on_float_line'};
 
 $result_errors{'section_on_float_line'} = [
   {

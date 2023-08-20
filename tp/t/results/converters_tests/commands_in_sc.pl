@@ -705,7 +705,9 @@ $result_trees{'commands_in_sc'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -748,7 +750,7 @@ EXT inverb 00FF MA+TH  LA A (B)  (LB)
 C E AB (D)';
 
 $result_sectioning{'commands_in_sc'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -759,9 +761,7 @@ $result_sectioning{'commands_in_sc'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -772,18 +772,20 @@ $result_sectioning{'commands_in_sc'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -791,10 +793,10 @@ $result_sectioning{'commands_in_sc'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'};
+$result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'commands_in_sc'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'};
 
 $result_nodes{'commands_in_sc'} = {
   'cmdname' => 'node',
@@ -812,10 +814,10 @@ $result_nodes{'commands_in_sc'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

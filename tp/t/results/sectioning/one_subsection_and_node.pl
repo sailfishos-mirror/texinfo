@@ -61,7 +61,9 @@ $result_trees{'one_subsection_and_node'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -87,7 +89,7 @@ $result_texts{'one_subsection_and_node'} = '1 The subsection
 ';
 
 $result_sectioning{'one_subsection_and_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'subsection',
@@ -97,29 +99,30 @@ $result_sectioning{'one_subsection_and_node'} = {
             'extra' => {
               'normalized' => 'one-node'
             }
-          }
+          },
+          'section_level' => 3,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 3,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
     ],
     'section_level' => 2
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'one_subsection_and_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection_and_node'};
+$result_sectioning{'one_subsection_and_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection_and_node'};
 
 $result_nodes{'one_subsection_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'subsection',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'one-node'
   }

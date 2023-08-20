@@ -1272,7 +1272,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1380,7 +1382,7 @@ all
 ';
 
 $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1391,9 +1393,7 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1405,18 +1405,20 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -1424,10 +1426,10 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
 
 $result_nodes{'macro_alias_definfoenclose_defindex'} = {
   'cmdname' => 'node',
@@ -1445,10 +1447,10 @@ $result_nodes{'macro_alias_definfoenclose_defindex'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'chap'

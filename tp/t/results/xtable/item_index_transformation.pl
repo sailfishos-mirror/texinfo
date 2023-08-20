@@ -1311,7 +1311,9 @@ $result_trees{'item_index_transformation'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1419,7 +1421,7 @@ HHHHHH
 ';
 
 $result_sectioning{'item_index_transformation'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -1429,11 +1431,11 @@ $result_sectioning{'item_index_transformation'} = {
             'extra' => {
               'normalized' => 'chap'
             }
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -1441,17 +1443,17 @@ $result_sectioning{'item_index_transformation'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'item_index_transformation'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'item_index_transformation'};
+$result_sectioning{'item_index_transformation'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'item_index_transformation'};
 
 $result_nodes{'item_index_transformation'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'chap'
   }

@@ -3688,7 +3688,9 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -3876,7 +3878,9 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -4194,7 +4198,7 @@ asamp-bb2
 ';
 
 $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -4205,9 +4209,7 @@ $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -4218,11 +4220,11 @@ $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -4238,11 +4240,11 @@ $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'} = {
                     'normalized' => 'printindex'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -4250,22 +4252,25 @@ $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'};
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'indices_in_begin_tables_lists_entries_after_item'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_in_begin_tables_lists_entries_after_item'};
 
 $result_nodes{'indices_in_begin_tables_lists_entries_after_item'} = {
   'cmdname' => 'node',
@@ -4283,10 +4288,10 @@ $result_nodes{'indices_in_begin_tables_lists_entries_after_item'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },
@@ -4296,10 +4301,10 @@ $result_nodes{'indices_in_begin_tables_lists_entries_after_item'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'isindex' => 1,
             'normalized' => 'printindex'

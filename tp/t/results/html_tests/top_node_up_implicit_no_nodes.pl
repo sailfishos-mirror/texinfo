@@ -265,7 +265,9 @@ $result_trees{'top_node_up_implicit_no_nodes'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -312,7 +314,7 @@ Without the chapter, no up node from top is generated.
 ';
 
 $result_sectioning{'top_node_up_implicit_no_nodes'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -323,9 +325,7 @@ $result_sectioning{'top_node_up_implicit_no_nodes'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -336,29 +336,32 @@ $result_sectioning{'top_node_up_implicit_no_nodes'} = {
                     'normalized' => 'Chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit_no_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'};
+$result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_implicit_no_nodes'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit_no_nodes'};
 
 $result_nodes{'top_node_up_implicit_no_nodes'} = {
   'cmdname' => 'node',
@@ -381,10 +384,10 @@ $result_nodes{'top_node_up_implicit_no_nodes'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Chap'
       },

@@ -203,7 +203,7 @@ No space.
 ';
 
 $result_sectioning{'anchor_and_spaces'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -213,10 +213,10 @@ $result_sectioning{'anchor_and_spaces'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -224,7 +224,7 @@ $result_sectioning{'anchor_and_spaces'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'anchor_and_spaces'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_and_spaces'};
+$result_sectioning{'anchor_and_spaces'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_and_spaces'};
 
 $result_nodes{'anchor_and_spaces'} = {
   'cmdname' => 'node',

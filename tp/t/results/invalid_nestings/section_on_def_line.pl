@@ -114,6 +114,9 @@ $result_trees{'section_on_def_line'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -146,13 +149,15 @@ Something
 ';
 
 $result_sectioning{'section_on_def_line'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -160,7 +165,7 @@ $result_sectioning{'section_on_def_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_on_def_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_on_def_line'};
+$result_sectioning{'section_on_def_line'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_on_def_line'};
 
 $result_errors{'section_on_def_line'} = [
   {

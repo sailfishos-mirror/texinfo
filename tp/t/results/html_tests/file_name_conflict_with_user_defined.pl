@@ -170,7 +170,9 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -233,7 +235,9 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -274,7 +278,7 @@ $result_texts{'file_name_conflict_with_user_defined'} = 'top
 ';
 
 $result_sectioning{'file_name_conflict_with_user_defined'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -285,9 +289,7 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -298,11 +300,11 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                     'normalized' => 'Chapter-1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -317,11 +319,11 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                     'normalized' => 'Chapter-2'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -329,22 +331,25 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'};
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_user_defined'};
 
 $result_nodes{'file_name_conflict_with_user_defined'} = {
   'cmdname' => 'node',
@@ -362,10 +367,10 @@ $result_nodes{'file_name_conflict_with_user_defined'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Chapter-1'
       },
@@ -375,10 +380,10 @@ $result_nodes{'file_name_conflict_with_user_defined'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'Chapter-2'
           },

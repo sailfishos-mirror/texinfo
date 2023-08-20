@@ -387,7 +387,9 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -438,7 +440,7 @@ second node
 ';
 
 $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'subsection',
@@ -449,19 +451,20 @@ $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'} = {
               'normalized' => 'third-node'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 3,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 3,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
     ],
     'section_level' => 2
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'};
+$result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'};
 
 $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'} = {
   'cmdname' => 'node',
@@ -485,10 +488,10 @@ $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'subsection',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 1
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'third-node'
           },

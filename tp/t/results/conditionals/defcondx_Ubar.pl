@@ -284,6 +284,7 @@ $result_trees{'defcondx_Ubar'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -343,12 +344,14 @@ Documentation.
 ';
 
 $result_sectioning{'defcondx_Ubar'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
+        'extra' => {
+          'section_level' => 0
+        },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -356,7 +359,7 @@ $result_sectioning{'defcondx_Ubar'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'defcondx_Ubar'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'defcondx_Ubar'};
+$result_sectioning{'defcondx_Ubar'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'defcondx_Ubar'};
 
 $result_errors{'defcondx_Ubar'} = [
   {

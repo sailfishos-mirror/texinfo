@@ -169,7 +169,9 @@ $result_trees{'verb_delimiter_not_ascii'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -203,7 +205,7 @@ $result_texts{'verb_delimiter_not_ascii'} = 'top
 ';
 
 $result_sectioning{'verb_delimiter_not_ascii'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -214,9 +216,7 @@ $result_sectioning{'verb_delimiter_not_ascii'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -227,18 +227,20 @@ $result_sectioning{'verb_delimiter_not_ascii'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -246,10 +248,10 @@ $result_sectioning{'verb_delimiter_not_ascii'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'verb_delimiter_not_ascii'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_delimiter_not_ascii'};
+$result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'verb_delimiter_not_ascii'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_delimiter_not_ascii'};
 
 $result_nodes{'verb_delimiter_not_ascii'} = {
   'cmdname' => 'node',
@@ -267,10 +269,10 @@ $result_nodes{'verb_delimiter_not_ascii'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

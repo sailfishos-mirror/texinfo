@@ -563,7 +563,7 @@ sub _docbook_section_element($$)
   my $self = shift;
   my $element = shift;
 
-  my $heading_level = $element->{'structure'}->{'section_level'};
+  my $heading_level = $element->{'extra'}->{'section_level'};
   if (exists $docbook_sections{$heading_level}) {
     return $docbook_sections{$heading_level};
   }
@@ -901,12 +901,12 @@ sub _convert($$;$)
               # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
               # having a label (empty) is important.
               my $label = '';
-              if (defined($opened_element->{'structure'}->{'section_number'})
+              if (defined($opened_element->{'extra'}->{'section_number'})
                 and ($self->get_conf('NUMBER_SECTIONS')
                      or !defined($self->get_conf('NUMBER_SECTIONS')))) {
                 # Looking at docbook2html output, Appendix is appended in the
                 # section title, so only the letter is used.
-                $label = $opened_element->{'structure'}->{'section_number'};
+                $label = $opened_element->{'extra'}->{'section_number'};
               }
               my $docbook_sectioning_element
                  = $self->_docbook_section_element($opened_element);
@@ -1769,8 +1769,8 @@ sub _convert($$;$)
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'structure'}->{'section_childs'}
-          and scalar(@{$element->{'structure'}->{'section_childs'}}))
+    if (!($element->{'extra'}->{'section_childs'}
+          and scalar(@{$element->{'extra'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
@@ -1780,7 +1780,8 @@ sub _convert($$;$)
              # condition avoids getting into it
              and $current->{'structure'}->{'section_up'}->{'cmdname'}
              and !$current->{'structure'}->{'section_next'}
-             and Texinfo::Structuring::section_level_adjusted_command_name($current->{'structure'}->{'section_up'}) ne 'top') {
+             and Texinfo::Structuring::section_level_adjusted_command_name(
+                            $current->{'structure'}->{'section_up'}) ne 'top') {
         $current = $current->{'structure'}->{'section_up'};
         $result .= '</'.$self->_docbook_section_element($current) .">\n";
         pop @{$self->{'lang_stack'}};

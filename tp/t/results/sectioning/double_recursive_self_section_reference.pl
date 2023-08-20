@@ -94,7 +94,9 @@ $result_trees{'double_recursive_self_section_reference'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -178,7 +180,9 @@ $result_trees{'double_recursive_self_section_reference'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -212,7 +216,7 @@ $result_texts{'double_recursive_self_section_reference'} = '1 n2
 ';
 
 $result_sectioning{'double_recursive_self_section_reference'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -223,11 +227,11 @@ $result_sectioning{'double_recursive_self_section_reference'} = {
               'normalized' => 'n1'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       },
@@ -240,11 +244,11 @@ $result_sectioning{'double_recursive_self_section_reference'} = {
               'normalized' => 'n2'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 2
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -252,22 +256,23 @@ $result_sectioning{'double_recursive_self_section_reference'} = {
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_reference'};
-$result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_reference'};
-$result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_recursive_self_section_reference'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_reference'};
+$result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'double_recursive_self_section_reference'};
+$result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[0];
 
 $result_nodes{'double_recursive_self_section_reference'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'n1'
   },
@@ -277,10 +282,10 @@ $result_nodes{'double_recursive_self_section_reference'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 2
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'n2'
       },

@@ -174,6 +174,9 @@ $result_trees{'settitle_and_headings'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -220,13 +223,15 @@ Another page
 ';
 
 $result_sectioning{'settitle_and_headings'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'structure' => {
+        'extra' => {
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -234,7 +239,7 @@ $result_sectioning{'settitle_and_headings'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'settitle_and_headings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_headings'};
+$result_sectioning{'settitle_and_headings'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_headings'};
 
 $result_errors{'settitle_and_headings'} = [];
 

@@ -258,7 +258,7 @@ Second paragraph.
 ';
 
 $result_sectioning{'shorttitlepage'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -268,18 +268,19 @@ $result_sectioning{'shorttitlepage'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'shorttitlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'shorttitlepage'};
+$result_sectioning{'shorttitlepage'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'shorttitlepage'};
 
 $result_nodes{'shorttitlepage'} = {
   'cmdname' => 'node',

@@ -237,6 +237,9 @@ $result_trees{'chapter_between_nodes'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -355,7 +358,9 @@ $result_trees{'chapter_between_nodes'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -413,7 +418,7 @@ section.
 ';
 
 $result_sectioning{'chapter_between_nodes'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -424,13 +429,11 @@ $result_sectioning{'chapter_between_nodes'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -441,36 +444,41 @@ $result_sectioning{'chapter_between_nodes'} = {
                           'normalized' => 'section-node'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.1'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.1',
                       'section_up' => {}
                     }
                   }
                 ],
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'};
+$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes'};
 
 $result_nodes{'chapter_between_nodes'} = {
   'cmdname' => 'node',
@@ -493,10 +501,10 @@ $result_nodes{'chapter_between_nodes'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'section',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => '1.1'
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'section-node'
       },

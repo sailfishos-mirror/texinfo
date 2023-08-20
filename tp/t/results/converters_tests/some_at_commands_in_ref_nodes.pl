@@ -1415,7 +1415,9 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => '  '
@@ -1505,7 +1507,7 @@ A SC N~ AA TeX node i" i" E=` /l C\', !.
 ';
 
 $result_sectioning{'some_at_commands_in_ref_nodes'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1516,9 +1518,7 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1529,18 +1529,20 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
                     'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -1548,10 +1550,10 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'};
+$result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'some_at_commands_in_ref_nodes'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'};
 
 $result_nodes{'some_at_commands_in_ref_nodes'} = {
   'cmdname' => 'node',
@@ -1574,10 +1576,10 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
       },

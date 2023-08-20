@@ -103,6 +103,9 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       ],
       'cmdname' => 'chapter',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -133,7 +136,7 @@ $result_texts{'node_sectop_before_chapter_no_node'} = 'top section
 ';
 
 $result_sectioning{'node_sectop_before_chapter_no_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -143,33 +146,36 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'node_sectop_before_chapter_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'};
+$result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_sectop_before_chapter_no_node'};
 
 $result_nodes{'node_sectop_before_chapter_no_node'} = {
   'cmdname' => 'node',

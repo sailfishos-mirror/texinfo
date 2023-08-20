@@ -661,7 +661,9 @@ $result_trees{'check_htmlxref'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -726,7 +728,7 @@ a
 ';
 
 $result_sectioning{'check_htmlxref'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -737,9 +739,7 @@ $result_sectioning{'check_htmlxref'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -750,29 +750,32 @@ $result_sectioning{'check_htmlxref'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'check_htmlxref'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'check_htmlxref'};
+$result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'check_htmlxref'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'check_htmlxref'};
 
 $result_nodes{'check_htmlxref'} = {
   'cmdname' => 'node',

@@ -574,7 +574,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -623,7 +625,7 @@ $result_texts{'subentry_and_sortas_spaces'} = '
 ';
 
 $result_sectioning{'subentry_and_sortas_spaces'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -634,9 +636,7 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -648,18 +648,20 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
                     'normalized' => 'chapter-index'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -667,10 +669,10 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'subentry_and_sortas_spaces'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'subentry_and_sortas_spaces'};
+$result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'subentry_and_sortas_spaces'};
 
 $result_nodes{'subentry_and_sortas_spaces'} = {
   'cmdname' => 'node',
@@ -688,10 +690,10 @@ $result_nodes{'subentry_and_sortas_spaces'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'chapter-index'

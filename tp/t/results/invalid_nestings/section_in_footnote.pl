@@ -69,6 +69,9 @@ $result_trees{'section_in_footnote'} = {
         }
       ],
       'cmdname' => 'section',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -97,13 +100,15 @@ Text1 a section
 ';
 
 $result_sectioning{'section_in_footnote'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -111,7 +116,7 @@ $result_sectioning{'section_in_footnote'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_footnote'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_footnote'};
+$result_sectioning{'section_in_footnote'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_footnote'};
 
 $result_errors{'section_in_footnote'} = [
   {

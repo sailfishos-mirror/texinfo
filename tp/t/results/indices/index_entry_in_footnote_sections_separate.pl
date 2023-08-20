@@ -271,7 +271,9 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 'A'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -315,7 +317,7 @@ Appendix A index
 ';
 
 $result_sectioning{'index_entry_in_footnote_sections_separate'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -326,9 +328,7 @@ $result_sectioning{'index_entry_in_footnote_sections_separate'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'appendix',
@@ -340,18 +340,20 @@ $result_sectioning{'index_entry_in_footnote_sections_separate'} = {
                     'normalized' => 'Index'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 'A'
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 'A',
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -359,10 +361,10 @@ $result_sectioning{'index_entry_in_footnote_sections_separate'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_entry_in_footnote_sections_separate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'};
+$result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'};
 
 $result_nodes{'index_entry_in_footnote_sections_separate'} = {
   'cmdname' => 'node',
@@ -380,10 +382,10 @@ $result_nodes{'index_entry_in_footnote_sections_separate'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 'A'
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'Index'

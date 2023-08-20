@@ -44,6 +44,7 @@ $result_trees{'top_no_argument_and_content'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -65,12 +66,14 @@ A.
 ';
 
 $result_sectioning{'top_no_argument_and_content'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
+        'extra' => {
+          'section_level' => 0
+        },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -78,7 +81,7 @@ $result_sectioning{'top_no_argument_and_content'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'top_no_argument_and_content'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_content'};
+$result_sectioning{'top_no_argument_and_content'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_content'};
 
 $result_errors{'top_no_argument_and_content'} = [];
 

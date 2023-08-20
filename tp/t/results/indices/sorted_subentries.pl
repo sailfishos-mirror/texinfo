@@ -936,7 +936,9 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1806,7 +1808,9 @@ $result_trees{'sorted_subentries'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1910,7 +1914,7 @@ $result_texts{'sorted_subentries'} = '
 ';
 
 $result_sectioning{'sorted_subentries'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1921,9 +1925,7 @@ $result_sectioning{'sorted_subentries'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1934,11 +1936,11 @@ $result_sectioning{'sorted_subentries'} = {
                     'normalized' => 'chapter-one'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1954,11 +1956,11 @@ $result_sectioning{'sorted_subentries'} = {
                     'normalized' => 'chapter-second'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1966,7 +1968,9 @@ $result_sectioning{'sorted_subentries'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -1974,14 +1978,14 @@ $result_sectioning{'sorted_subentries'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'sorted_subentries'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'};
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'sorted_subentries'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'sorted_subentries'};
 
 $result_nodes{'sorted_subentries'} = {
   'cmdname' => 'node',
@@ -1999,10 +2003,10 @@ $result_nodes{'sorted_subentries'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter-one'
       },
@@ -2012,10 +2016,10 @@ $result_nodes{'sorted_subentries'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'isindex' => 1,
             'normalized' => 'chapter-second'

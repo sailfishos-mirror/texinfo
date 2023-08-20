@@ -75,7 +75,8 @@ $result_trees{'loweredheading'} = {
         }
       ],
       'extra' => {
-        'level_modifier' => -1
+        'level_modifier' => -1,
+        'section_number' => 1
       },
       'info' => {
         'spaces_before_argument' => {
@@ -116,16 +117,16 @@ Bar
 ';
 
 $result_sectioning{'loweredheading'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
         'extra' => {
-          'level_modifier' => -1
+          'level_modifier' => -1,
+          'section_level' => 3,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 3,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -133,7 +134,7 @@ $result_sectioning{'loweredheading'} = {
     'section_level' => 2
   }
 };
-$result_sectioning{'loweredheading'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loweredheading'};
+$result_sectioning{'loweredheading'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loweredheading'};
 
 $result_errors{'loweredheading'} = [];
 

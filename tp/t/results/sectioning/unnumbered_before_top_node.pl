@@ -144,11 +144,13 @@ Title titlefont
 ';
 
 $result_sectioning{'unnumbered_before_top_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
+        'extra' => {
+          'section_level' => 1
+        },
         'structure' => {
           'associated_unit' => {
             'directions' => {
@@ -157,17 +159,17 @@ $result_sectioning{'unnumbered_before_top_node'} = {
             'type' => 'unit',
             'unit_command' => {}
           },
-          'section_level' => 1,
           'section_up' => {}
         }
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'unit_command'} = $result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top_node'};
+$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'unit_command'} = $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top_node'};
 
 $result_nodes{'unnumbered_before_top_node'} = {
   'cmdname' => 'node',

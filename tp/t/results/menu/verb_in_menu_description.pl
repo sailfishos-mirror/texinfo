@@ -260,7 +260,7 @@ $result_texts{'verb_in_menu_description'} = 'top
 ';
 
 $result_sectioning{'verb_in_menu_description'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -271,18 +271,19 @@ $result_sectioning{'verb_in_menu_description'} = {
               'normalized' => 'first'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'verb_in_menu_description'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_in_menu_description'};
+$result_sectioning{'verb_in_menu_description'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_in_menu_description'};
 
 $result_nodes{'verb_in_menu_description'} = {
   'cmdname' => 'node',

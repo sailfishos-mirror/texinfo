@@ -82,7 +82,9 @@ $result_trees{'link'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -583,7 +585,7 @@ Introduction
 ';
 
 $result_sectioning{'link'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -593,11 +595,11 @@ $result_sectioning{'link'} = {
             'extra' => {
               'normalized' => 'One'
             }
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -605,17 +607,17 @@ $result_sectioning{'link'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'link'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'link'};
+$result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'link'};
 
 $result_nodes{'link'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'One'
   }

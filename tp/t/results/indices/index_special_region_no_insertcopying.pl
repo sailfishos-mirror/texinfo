@@ -1259,6 +1259,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1664,7 +1667,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 'A'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1822,7 +1827,7 @@ Titlepage footnote anchor for reference on the titlepage.
 ';
 
 $result_sectioning{'index_special_region_no_insertcopying'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1833,15 +1838,15 @@ $result_sectioning{'index_special_region_no_insertcopying'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1857,11 +1862,11 @@ $result_sectioning{'index_special_region_no_insertcopying'} = {
                     'normalized' => 'Copying-and-indices'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 'A'
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 'A',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1869,22 +1874,25 @@ $result_sectioning{'index_special_region_no_insertcopying'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_no_insertcopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'};
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_no_insertcopying'};
 
 $result_nodes{'index_special_region_no_insertcopying'} = {
   'cmdname' => 'node',
@@ -1907,10 +1915,10 @@ $result_nodes{'index_special_region_no_insertcopying'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 'A'
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'Copying-and-indices'

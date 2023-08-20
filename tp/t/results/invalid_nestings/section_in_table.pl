@@ -144,6 +144,9 @@ $result_trees{'section_in_table'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -180,13 +183,15 @@ After
 ';
 
 $result_sectioning{'section_in_table'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -194,7 +199,7 @@ $result_sectioning{'section_in_table'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_table'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_table'};
+$result_sectioning{'section_in_table'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_table'};
 
 $result_errors{'section_in_table'} = [
   {

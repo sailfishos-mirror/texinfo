@@ -2896,7 +2896,7 @@ top
 ';
 
 $result_sectioning{'encoding_index_ascii_enable_encoding'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2907,18 +2907,19 @@ $result_sectioning{'encoding_index_ascii_enable_encoding'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'encoding_index_ascii_enable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'encoding_index_ascii_enable_encoding'};
+$result_sectioning{'encoding_index_ascii_enable_encoding'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'encoding_index_ascii_enable_encoding'};
 
 $result_nodes{'encoding_index_ascii_enable_encoding'} = {
   'cmdname' => 'node',

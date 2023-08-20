@@ -724,7 +724,9 @@ $result_trees{'multiple_in_preamble_before_node'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -784,7 +786,7 @@ error-->
 ';
 
 $result_sectioning{'multiple_in_preamble_before_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -795,9 +797,7 @@ $result_sectioning{'multiple_in_preamble_before_node'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -808,29 +808,32 @@ $result_sectioning{'multiple_in_preamble_before_node'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_in_preamble_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_in_preamble_before_node'};
+$result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_in_preamble_before_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_in_preamble_before_node'};
 
 $result_nodes{'multiple_in_preamble_before_node'} = {
   'cmdname' => 'node',
@@ -848,10 +851,10 @@ $result_nodes{'multiple_in_preamble_before_node'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

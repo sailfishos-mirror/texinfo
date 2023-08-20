@@ -300,7 +300,9 @@ $result_trees{'style_not_closed_root_commands'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -360,7 +362,7 @@ still not closed
 ';
 
 $result_sectioning{'style_not_closed_root_commands'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -371,9 +373,7 @@ $result_sectioning{'style_not_closed_root_commands'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -384,18 +384,20 @@ $result_sectioning{'style_not_closed_root_commands'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -403,10 +405,10 @@ $result_sectioning{'style_not_closed_root_commands'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'style_not_closed_root_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'style_not_closed_root_commands'};
+$result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'style_not_closed_root_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'style_not_closed_root_commands'};
 
 $result_nodes{'style_not_closed_root_commands'} = {
   'cmdname' => 'node',
@@ -429,10 +431,10 @@ $result_nodes{'style_not_closed_root_commands'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

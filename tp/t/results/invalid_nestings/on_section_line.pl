@@ -132,6 +132,9 @@ $result_trees{'on_section_line'} = {
         }
       ],
       'cmdname' => 'section',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -156,13 +159,15 @@ $result_texts{'on_section_line'} = '1 Text in titlefont  exdent
 ';
 
 $result_sectioning{'on_section_line'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -170,7 +175,7 @@ $result_sectioning{'on_section_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'on_section_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'on_section_line'};
+$result_sectioning{'on_section_line'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'on_section_line'};
 
 $result_errors{'on_section_line'} = [
   {

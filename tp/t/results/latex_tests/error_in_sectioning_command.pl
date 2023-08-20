@@ -276,7 +276,9 @@ $result_trees{'error_in_sectioning_command'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -315,7 +317,7 @@ Describe error-->.
 ';
 
 $result_sectioning{'error_in_sectioning_command'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -326,9 +328,7 @@ $result_sectioning{'error_in_sectioning_command'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -339,18 +339,20 @@ $result_sectioning{'error_in_sectioning_command'} = {
                     'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -358,10 +360,10 @@ $result_sectioning{'error_in_sectioning_command'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'error_in_sectioning_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'error_in_sectioning_command'};
+$result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'error_in_sectioning_command'};
 
 $result_nodes{'error_in_sectioning_command'} = {
   'cmdname' => 'node',
@@ -379,10 +381,10 @@ $result_nodes{'error_in_sectioning_command'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
       },

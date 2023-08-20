@@ -596,7 +596,7 @@ $result_texts{'loop_nodes'} = 'top
 ';
 
 $result_sectioning{'loop_nodes'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -607,10 +607,10 @@ $result_sectioning{'loop_nodes'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -618,7 +618,7 @@ $result_sectioning{'loop_nodes'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'loop_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loop_nodes'};
+$result_sectioning{'loop_nodes'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loop_nodes'};
 
 $result_nodes{'loop_nodes'} = {
   'cmdname' => 'node',

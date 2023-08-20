@@ -492,7 +492,7 @@ Text
 ';
 
 $result_sectioning{'direntry_dircategory_and_commands'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -502,10 +502,10 @@ $result_sectioning{'direntry_dircategory_and_commands'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -513,7 +513,7 @@ $result_sectioning{'direntry_dircategory_and_commands'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'direntry_dircategory_and_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_and_commands'};
+$result_sectioning{'direntry_dircategory_and_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_and_commands'};
 
 $result_nodes{'direntry_dircategory_and_commands'} = {
   'cmdname' => 'node',

@@ -183,7 +183,9 @@ $result_trees{'comment_on_menu_line'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -252,7 +254,7 @@ $result_texts{'comment_on_menu_line'} = '
 ';
 
 $result_sectioning{'comment_on_menu_line'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -263,29 +265,30 @@ $result_sectioning{'comment_on_menu_line'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'comment_on_menu_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'comment_on_menu_line'};
+$result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'comment_on_menu_line'};
 
 $result_nodes{'comment_on_menu_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'menus' => [
       {

@@ -620,6 +620,9 @@ $result_trees{'placed_things_before_element'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -710,13 +713,15 @@ Anchor in footnote
 ';
 
 $result_sectioning{'placed_things_before_element'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -724,7 +729,7 @@ $result_sectioning{'placed_things_before_element'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'placed_things_before_element'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element'};
+$result_sectioning{'placed_things_before_element'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element'};
 
 $result_errors{'placed_things_before_element'} = [
   {

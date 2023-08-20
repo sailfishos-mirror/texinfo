@@ -318,7 +318,9 @@ $result_trees{'split_no_copying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -394,7 +396,7 @@ First chapter.
 ';
 
 $result_sectioning{'split_no_copying'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -405,9 +407,7 @@ $result_sectioning{'split_no_copying'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -418,18 +418,20 @@ $result_sectioning{'split_no_copying'} = {
                     'normalized' => 'Ch1'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -437,10 +439,10 @@ $result_sectioning{'split_no_copying'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_no_copying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_no_copying'};
+$result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_no_copying'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_no_copying'};
 
 $result_nodes{'split_no_copying'} = {
   'cmdname' => 'node',
@@ -463,10 +465,10 @@ $result_nodes{'split_no_copying'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Ch1'
       },

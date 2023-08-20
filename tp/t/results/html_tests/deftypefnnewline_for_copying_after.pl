@@ -566,7 +566,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -626,7 +628,7 @@ do something with input
 ';
 
 $result_sectioning{'deftypefnnewline_for_copying_after'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -637,9 +639,7 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -650,29 +650,32 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'};
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'};
 
 $result_nodes{'deftypefnnewline_for_copying_after'} = {
   'cmdname' => 'node',
@@ -690,10 +693,10 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },

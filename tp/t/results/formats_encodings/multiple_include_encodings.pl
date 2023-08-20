@@ -627,7 +627,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -730,7 +732,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -905,7 +909,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 3
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1167,7 +1173,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 4
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1371,7 +1379,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '4.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1714,7 +1724,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 5
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1951,7 +1963,9 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 6
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2252,7 +2266,7 @@ overlap。
 ';
 
 $result_sectioning{'multiple_include_encodings'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2263,9 +2277,7 @@ $result_sectioning{'multiple_include_encodings'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -2276,11 +2288,11 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -2295,11 +2307,11 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => 'Preface'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2315,11 +2327,11 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => 'Introduction'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 3
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2336,9 +2348,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => 'char-latin2-latin2'
                   },
                   'structure' => {}
-                }
-              },
-              'structure' => {
+                },
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -2349,17 +2359,19 @@ $result_sectioning{'multiple_include_encodings'} = {
                           'normalized' => '_0104-_0105-_02db-_0118-_0119'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '4.1'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '4.1',
                       'section_up' => {}
                     }
                   }
                 ],
                 'section_level' => 1,
-                'section_number' => 4,
+                'section_number' => 4
+              },
+              'structure' => {
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2375,11 +2387,11 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 5
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 5,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2395,11 +2407,11 @@ $result_sectioning{'multiple_include_encodings'} = {
                     'normalized' => 'Mixed-chinese-and-english-utf_002d8'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 6
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 6,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2407,39 +2419,42 @@ $result_sectioning{'multiple_include_encodings'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[5]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_include_encodings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'};
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'structure'}{'section_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_include_encodings'};
 
 $result_nodes{'multiple_include_encodings'} = {
   'cmdname' => 'node',
@@ -2457,10 +2472,10 @@ $result_nodes{'multiple_include_encodings'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
@@ -2470,10 +2485,10 @@ $result_nodes{'multiple_include_encodings'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'Preface'
           },
@@ -2483,10 +2498,10 @@ $result_nodes{'multiple_include_encodings'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => 3
-                  }
+                  },
+                  'structure' => {}
                 },
                 'normalized' => 'Introduction'
               },
@@ -2496,10 +2511,10 @@ $result_nodes{'multiple_include_encodings'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {},
-                      'structure' => {
+                      'extra' => {
                         'section_number' => 4
-                      }
+                      },
+                      'structure' => {}
                     },
                     'isindex' => 1,
                     'menus' => [
@@ -2515,10 +2530,10 @@ $result_nodes{'multiple_include_encodings'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'section',
-                          'extra' => {},
-                          'structure' => {
+                          'extra' => {
                             'section_number' => '4.1'
-                          }
+                          },
+                          'structure' => {}
                         },
                         'normalized' => '_0104-_0105-_02db-_0118-_0119'
                       },
@@ -2531,10 +2546,10 @@ $result_nodes{'multiple_include_encodings'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {},
-                          'structure' => {
+                          'extra' => {
                             'section_number' => 5
-                          }
+                          },
+                          'structure' => {}
                         },
                         'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
                       },
@@ -2544,10 +2559,10 @@ $result_nodes{'multiple_include_encodings'} = {
                           'extra' => {
                             'associated_section' => {
                               'cmdname' => 'chapter',
-                              'extra' => {},
-                              'structure' => {
+                              'extra' => {
                                 'section_number' => 6
-                              }
+                              },
+                              'structure' => {}
                             },
                             'normalized' => 'Mixed-chinese-and-english-utf_002d8'
                           },

@@ -1709,7 +1709,7 @@ in detaildescription
 ';
 
 $result_sectioning{'menu'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1720,18 +1720,19 @@ $result_sectioning{'menu'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'menu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'menu'};
+$result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'menu'};
 
 $result_nodes{'menu'} = {
   'cmdname' => 'node',

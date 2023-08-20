@@ -429,7 +429,9 @@ $result_trees{'no_monolithic'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -500,7 +502,7 @@ Chapter.
 ';
 
 $result_sectioning{'no_monolithic'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -511,9 +513,7 @@ $result_sectioning{'no_monolithic'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -525,29 +525,32 @@ $result_sectioning{'no_monolithic'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'no_monolithic'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_monolithic'};
+$result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'no_monolithic'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_monolithic'};
 
 $result_nodes{'no_monolithic'} = {
   'cmdname' => 'node',
@@ -570,10 +573,10 @@ $result_nodes{'no_monolithic'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'chapter'

@@ -141,7 +141,7 @@ TOP.
 ';
 
 $result_sectioning{'ref_to_top'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -151,18 +151,19 @@ $result_sectioning{'ref_to_top'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'ref_to_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'ref_to_top'};
+$result_sectioning{'ref_to_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'ref_to_top'};
 
 $result_nodes{'ref_to_top'} = {
   'cmdname' => 'node',

@@ -131,7 +131,7 @@ $result_texts{'filenameconflictwithnonsplit'} = 'top
 ';
 
 $result_sectioning{'filenameconflictwithnonsplit'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -141,18 +141,19 @@ $result_sectioning{'filenameconflictwithnonsplit'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'filenameconflictwithnonsplit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'filenameconflictwithnonsplit'};
+$result_sectioning{'filenameconflictwithnonsplit'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'filenameconflictwithnonsplit'};
 
 $result_nodes{'filenameconflictwithnonsplit'} = {
   'cmdname' => 'node',

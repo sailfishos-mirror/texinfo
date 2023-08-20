@@ -392,7 +392,9 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -443,7 +445,7 @@ second node
 ';
 
 $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -454,19 +456,20 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directi
               'normalized' => 'third-node'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
     ],
     'section_level' => 0
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'};
+$result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'};
 
 $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = {
   'cmdname' => 'node',
@@ -490,10 +493,10 @@ $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 1
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'third-node'
           },

@@ -187,52 +187,53 @@ sub sectioning_structure($$$)
     }
     my $level;
     $content->{'structure'} = {} if (! $content->{'structure'});
-    $level = $content->{'structure'}->{'section_level'}
+    $content->{'extra'} = {} if (! $content->{'extra'});
+    $level = $content->{'extra'}->{'section_level'}
          = Texinfo::Common::section_level($content);
     if (!defined($level)) {
       warn "bug: level not defined for $content->{'cmdname'} "
            .Texinfo::Common::debug_print_element($content)."\n";
-      $level = $content->{'structure'}->{'section_level'} = 0;
+      $level = $content->{'extra'}->{'section_level'} = 0;
     }
 
     if ($previous_section) {
       # new command is below
-      if ($previous_section->{'structure'}->{'section_level'} < $level) {
-        if ($level - $previous_section->{'structure'}->{'section_level'} > 1) {
+      if ($previous_section->{'extra'}->{'section_level'} < $level) {
+        if ($level - $previous_section->{'extra'}->{'section_level'} > 1) {
           $registrar->line_error($customization_information,
            sprintf(__("raising the section level of \@%s which is too low"),
               $content->{'cmdname'}), $content->{'source_info'});
-          $content->{'structure'}->{'section_level'}
-              = $previous_section->{'structure'}->{'section_level'} + 1;
+          $content->{'extra'}->{'section_level'}
+              = $previous_section->{'extra'}->{'section_level'} + 1;
         }
-        $previous_section->{'structure'}->{'section_childs'} = [$content];
+        $previous_section->{'extra'}->{'section_childs'} = [$content];
         $content->{'structure'}->{'section_up'} = $previous_section;
 
         # if the up is unnumbered, the number information has to be kept,
         # to avoid reusing an already used number.
         if (!$unnumbered_commands{$previous_section->{'cmdname'}}) {
-          $command_numbers[$content->{'structure'}->{'section_level'}] = undef;
+          $command_numbers[$content->{'extra'}->{'section_level'}] = undef;
         } elsif (!$unnumbered_commands{$content->{'cmdname'}}) {
-          $command_numbers[$content->{'structure'}->{'section_level'}]++;
+          $command_numbers[$content->{'extra'}->{'section_level'}]++;
         }
         if ($unnumbered_commands{$content->{'cmdname'}}) {
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 1;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 1;
         } else {
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 0;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 0;
         }
       } else {
         my $up = $previous_section->{'structure'}->{'section_up'};
         my $new_upper_part_element;
-        if ($previous_section->{'structure'}->{'section_level'} != $level) {
+        if ($previous_section->{'extra'}->{'section_level'} != $level) {
           # means it is above the previous command, the up is to be found
           while ($up->{'structure'}->{'section_up'}
-                 and $up->{'structure'}->{'section_level'} >= $level) {
+                 and $up->{'extra'}->{'section_level'} >= $level) {
             $up = $up->{'structure'}->{'section_up'};
           }
-          if ($level <= $up->{'structure'}->{'section_level'}) {
+          if ($level <= $up->{'extra'}->{'section_level'}) {
             if ($content->{'cmdname'} eq 'part') {
               $new_upper_part_element = 1;
-              if ($level < $up->{'structure'}->{'section_level'}) {
+              if ($level < $up->{'extra'}->{'section_level'}) {
                 $registrar->line_warn($customization_information,
                  sprintf(__("no chapter-level command before \@%s"),
                     $content->{'cmdname'}), $content->{'source_info'});
@@ -241,45 +242,45 @@ sub sectioning_structure($$$)
               $registrar->line_warn($customization_information,
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'});
-              $content->{'structure'}->{'section_level'}
-                 = $up->{'structure'}->{'section_level'} + 1;
+              $content->{'extra'}->{'section_level'}
+                 = $up->{'extra'}->{'section_level'} + 1;
             }
           }
         }
         if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
-            and $content->{'structure'}->{'section_level'} <= $number_top_level
+            and $content->{'extra'}->{'section_level'} <= $number_top_level
             and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
           $up = $up->{'structure'}->{'section_up'};
         }
         if ($new_upper_part_element) {
           # In that case the root has to be updated because the first
           # 'part' just appeared
-          $sec_root->{'structure'}->{'section_level'} = $level - 1;
-          push @{$sec_root->{'structure'}->{'section_childs'}}, $content;
+          $sec_root->{'extra'}->{'section_level'} = $level - 1;
+          push @{$sec_root->{'extra'}->{'section_childs'}}, $content;
           $content->{'structure'}->{'section_up'} = $sec_root;
           $number_top_level = $level;
           $number_top_level++ if (!$number_top_level);
         } else {
-          push @{$up->{'structure'}->{'section_childs'}}, $content;
+          push @{$up->{'extra'}->{'section_childs'}}, $content;
           $content->{'structure'}->{'section_up'} = $up;
           $content->{'structure'}->{'section_prev'}
-                = $up->{'structure'}->{'section_childs'}->[-2];
+                = $up->{'extra'}->{'section_childs'}->[-2];
           $content->{'structure'}->{'section_prev'}
                             ->{'structure'}->{'section_next'} = $content;
         }
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
-          $command_numbers[$content->{'structure'}->{'section_level'}]++;
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 0;
+          $command_numbers[$content->{'extra'}->{'section_level'}]++;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 0;
         } else {
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 1;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 1;
         }
       }
     } else {
-      $sec_root = {'structure' => {}};
+      $sec_root = {'extra' => {}};
       # first section determines the level of the root.  It is
       # typically -1 when there is a @top.
-      $sec_root->{'structure'}->{'section_level'} = $level - 1;
-      $sec_root->{'structure'}->{'section_childs'} = [$content];
+      $sec_root->{'extra'}->{'section_level'} = $level - 1;
+      $sec_root->{'extra'}->{'section_childs'} = [$content];
       $content->{'structure'}->{'section_up'} = $sec_root;
       $number_top_level = $level;
       # if $level of top sectioning element is 0, which means that
@@ -288,29 +289,29 @@ sub sectioning_structure($$$)
       $number_top_level++ if (!$number_top_level);
       if ($content->{'cmdname'} ne 'top') {
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 0;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 0;
         } else {
-          $command_unnumbered[$content->{'structure'}->{'section_level'}] = 1;
+          $command_unnumbered[$content->{'extra'}->{'section_level'}] = 1;
         }
       }
     }
-    if (!defined($command_numbers[$content->{'structure'}->{'section_level'}])) {
+    if (!defined($command_numbers[$content->{'extra'}->{'section_level'}])) {
       if ($unnumbered_commands{$content->{'cmdname'}}) {
-        $command_numbers[$content->{'structure'}->{'section_level'}] = 0;
+        $command_numbers[$content->{'extra'}->{'section_level'}] = 0;
       } else {
-        $command_numbers[$content->{'structure'}->{'section_level'}] = 1;
+        $command_numbers[$content->{'extra'}->{'section_level'}] = 1;
       }
     }
     if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix) {
       $in_appendix = 1;
-      $command_numbers[$content->{'structure'}->{'section_level'}] = 'A';
+      $command_numbers[$content->{'extra'}->{'section_level'}] = 'A';
     }
     if (!$unnumbered_commands{$content->{'cmdname'}}) {
       # construct the number, if not below an unnumbered
       if (!$command_unnumbered[$number_top_level]) {
         my $section_number = $command_numbers[$number_top_level];
         for (my $i = $number_top_level+1;
-             $i <= $content->{'structure'}->{'section_level'}; $i++) {
+             $i <= $content->{'extra'}->{'section_level'}; $i++) {
           $section_number .= ".$command_numbers[$i]";
           # If there is an unnumbered above, then no number is added.
           if ($command_unnumbered[$i]) {
@@ -319,13 +320,13 @@ sub sectioning_structure($$$)
           }
         }
         if (defined($section_number)) {
-          $content->{'structure'}->{'section_number'} = $section_number;
+          $content->{'extra'}->{'section_number'} = $section_number;
         }
       }
     }
     $previous_section = $content;
     if ($content->{'cmdname'} ne 'part'
-        and $content->{'structure'}->{'section_level'} <= $number_top_level) {
+        and $content->{'extra'}->{'section_level'} <= $number_top_level) {
       if ($previous_toplevel) {
         $previous_toplevel->{'structure'}->{'toplevel_next'} = $content;
         $content->{'structure'}->{'toplevel_prev'} = $previous_toplevel;
@@ -350,9 +351,9 @@ sub _print_sectioning_tree($);
 sub _print_sectioning_tree($)
 {
   my $current = shift;
-  my $result = ' ' x $current->{'structure'}->{'section_level'}
+  my $result = ' ' x $current->{'extra'}->{'section_level'}
    . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
-  foreach my $child (@{$current->{'structure'}->{'section_childs'}}) {
+  foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
     $result .= _print_sectioning_tree($child);
   }
   return $result;
@@ -857,17 +858,17 @@ sub nodes_tree($$$$)
         # Special case for Top node, use first section
         if ($node->{'extra'}->{'associated_section'}
             and $node->{'extra'}->{'associated_section'}
-                                 ->{'structure'}->{'section_childs'}
+                                 ->{'extra'}->{'section_childs'}
             and $node->{'extra'}->{'associated_section'}
-                                 ->{'structure'}->{'section_childs'}->[0]
+                                 ->{'extra'}->{'section_childs'}->[0]
             and $node->{'extra'}->{'associated_section'}
-                             ->{'structure'}->{'section_childs'}->[0]->{'extra'}
+                             ->{'extra'}->{'section_childs'}->[0]->{'extra'}
             and $node->{'extra'}->{'associated_section'}
-                          ->{'structure'}->{'section_childs'}->[0]
+                          ->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'associated_node'}) {
           my $top_node_section_child
             = $node->{'extra'}->{'associated_section'}
-                        ->{'structure'}->{'section_childs'}->[0]
+                        ->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'associated_node'};
           $node->{'structure'} = {} if (! $node->{'structure'});
           $node->{'structure'}->{'node_next'} = $top_node_section_child;
@@ -940,7 +941,7 @@ sub section_level_adjusted_command_name($)
 {
   my $element = shift;
 
-  my $heading_level = $element->{'structure'}->{'section_level'};
+  my $heading_level = $element->{'extra'}->{'section_level'};
   my $command;
   if ($heading_level ne $Texinfo::Common::command_structuring_level{
                                                        $element->{'cmdname'}}) {
@@ -1097,7 +1098,7 @@ sub split_pages ($$)
     my $level;
     my $section = _tree_unit_section($tree_unit);
     if (defined($section)) {
-      $level = $section->{'structure'}->{'section_level'};
+      $level = $section->{'extra'}->{'section_level'};
     }
     #print STDERR "level($split_level) $level "
     #       .root_or_external_element_cmd_texi($tree_unit)."\n";
@@ -1217,10 +1218,10 @@ sub elements_directions($$$)
         $directions->{'NodeForward'}
           = _label_target_unit_element($node->{'structure'}->{'menu_child'});
       } elsif ($automatic_directions and $node->{'associated_section'}
-       and $node->{'associated_section'}->{'structure'}->{'section_childs'}
-       and $node->{'associated_section'}->{'structure'}->{'section_childs'}->[0]) {
+       and $node->{'associated_section'}->{'extra'}->{'section_childs'}
+       and $node->{'associated_section'}->{'extra'}->{'section_childs'}->[0]) {
         $directions->{'NodeForward'}
-          = $node->{'associated_section'}->{'structure'}
+          = $node->{'associated_section'}->{'extra'}
                   ->{'section_childs'}->[0]->{'structure'}->{'associated_unit'};
       } elsif ($node->{'structure'}->{'node_next'}) {
         $directions->{'NodeForward'}
@@ -1275,7 +1276,7 @@ sub elements_directions($$$)
           $directions->{'FastForward'}
             = $section_element->{'directions'}->{'FastForward'};
         }
-        if ($section->{'structure'}->{'section_level'} <= 1) {
+        if ($section->{'extra'}->{'section_level'} <= 1) {
           $directions->{'FastBack'} = $section_element;
         } elsif ($section_element->{'directions'}->{'Fastback'}) {
           $directions->{'FastBack'}
@@ -1304,19 +1305,19 @@ sub elements_directions($$$)
       }
 
       my $up = $section;
-      while ($up->{'structure'}->{'section_level'} > 1
+      while ($up->{'extra'}->{'section_level'} > 1
              and $up->{'structure'}->{'section_up'}) {
         $up = $up->{'structure'}->{'section_up'};
       }
 
       # fastforward is the next element on same level than the upper parent
       # element.
-      if ($up->{'structure'}->{'section_level'} < 1
+      if ($up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
-          and $up->{'structure'}->{'section_childs'}
-          and @{$up->{'structure'}->{'section_childs'}}) {
+          and $up->{'extra'}->{'section_childs'}
+          and @{$up->{'extra'}->{'section_childs'}}) {
         $directions->{'FastForward'}
-           = $up->{'structure'}->{'section_childs'}->[0]
+           = $up->{'extra'}->{'section_childs'}->[0]
                             ->{'structure'}->{'associated_unit'};
       } elsif ($up->{'structure'}->{'toplevel_next'}) {
         $directions->{'FastForward'}
@@ -1331,7 +1332,7 @@ sub elements_directions($$$)
       # highest parent element
       if ($up and $up ne $section) {
         $directions->{'FastBack'} = $up->{'structure'}->{'associated_unit'};
-      } elsif ($section->{'structure'}->{'section_level'} <= 1
+      } elsif ($section->{'extra'}->{'section_level'} <= 1
                and $directions->{'FastForward'}) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback
@@ -1583,9 +1584,9 @@ sub number_floats($)
           $up = $up->{'structure'}->{'section_up'};
         }
         if (!$unnumbered_commands{$up->{'cmdname'}}) {
-          $nr_in_chapter{$up->{'structure'}->{'section_number'}}++;
-          $number = $up->{'structure'}->{'section_number'} .
-            '.' . $nr_in_chapter{$up->{'structure'}->{'section_number'}};
+          $nr_in_chapter{$up->{'extra'}->{'section_number'}}++;
+          $number = $up->{'extra'}->{'section_number'} .
+            '.' . $nr_in_chapter{$up->{'extra'}->{'section_number'}};
         }
       }
       $number = $float_index if (!defined($number));
@@ -1605,9 +1606,9 @@ sub get_node_node_childs_from_sectioning
       and $node->{'extra'}->{'associated_section'}
       and $node->{'extra'}->{'associated_section'}->{'structure'}
       and $node->{'extra'}->{'associated_section'}
-                                      ->{'structure'}->{'section_childs'}) {
+                                      ->{'extra'}->{'section_childs'}) {
     foreach my $child (@{$node->{'extra'}->{'associated_section'}
-                                        ->{'structure'}->{'section_childs'}}) {
+                                        ->{'extra'}->{'section_childs'}}) {
       if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
         push @node_childs, $child->{'extra'}->{'associated_node'};
       }
@@ -1623,8 +1624,8 @@ sub get_node_node_childs_from_sectioning
            and $current->{'structure'}->{'section_next'}) {
       $current = $current->{'structure'}->{'section_next'};
       if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part'
-          and $current->{'structure'}->{'section_childs'}) {
-        foreach my $child (@{$current->{'structure'}->{'section_childs'}}) {
+          and $current->{'extra'}->{'section_childs'}) {
+        foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
           if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
             push @node_childs, $child->{'extra'}->{'associated_node'};
           }

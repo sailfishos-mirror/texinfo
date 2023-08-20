@@ -271,7 +271,9 @@ $result_trees{'titlepage_no_title'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -315,7 +317,7 @@ In chapter
 ';
 
 $result_sectioning{'titlepage_no_title'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -326,9 +328,7 @@ $result_sectioning{'titlepage_no_title'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -339,18 +339,20 @@ $result_sectioning{'titlepage_no_title'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -358,10 +360,10 @@ $result_sectioning{'titlepage_no_title'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'titlepage_no_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'titlepage_no_title'};
+$result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'titlepage_no_title'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'titlepage_no_title'};
 
 $result_nodes{'titlepage_no_title'} = {
   'cmdname' => 'node',
@@ -379,10 +381,10 @@ $result_nodes{'titlepage_no_title'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

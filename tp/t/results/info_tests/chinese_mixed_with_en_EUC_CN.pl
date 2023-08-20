@@ -389,7 +389,9 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -495,7 +497,7 @@ overlap。
 ';
 
 $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -506,9 +508,7 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -519,18 +519,20 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
                     'normalized' => 'Mixed-english-and-chinese'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -538,10 +540,10 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'};
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en_EUC_CN'};
 
 $result_nodes{'chinese_mixed_with_en_EUC_CN'} = {
   'cmdname' => 'node',
@@ -559,10 +561,10 @@ $result_nodes{'chinese_mixed_with_en_EUC_CN'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Mixed-english-and-chinese'
       },

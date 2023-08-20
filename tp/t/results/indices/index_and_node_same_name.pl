@@ -249,7 +249,9 @@ $result_trees{'index_and_node_same_name'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -296,7 +298,7 @@ in index node node, with the same name than index entry.
 ';
 
 $result_sectioning{'index_and_node_same_name'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -307,9 +309,7 @@ $result_sectioning{'index_and_node_same_name'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -321,18 +321,20 @@ $result_sectioning{'index_and_node_same_name'} = {
                     'normalized' => 'index-node'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -340,10 +342,10 @@ $result_sectioning{'index_and_node_same_name'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_and_node_same_name'};
+$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_and_node_same_name'};
 
 $result_nodes{'index_and_node_same_name'} = {
   'cmdname' => 'node',
@@ -361,10 +363,10 @@ $result_nodes{'index_and_node_same_name'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'index-node'

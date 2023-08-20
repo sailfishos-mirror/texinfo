@@ -152,11 +152,11 @@ sub book_print_sub_toc($$$)
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  if ($command->{'structure'}->{'section_childs'}
-      and @{$command->{'structure'}->{'section_childs'}}) {
+  if ($command->{'extra'}->{'section_childs'}
+      and @{$command->{'extra'}->{'section_childs'}}) {
     $result .= '<li>'.$converter->html_attribute_class('ul', [$toc_numbered_mark_class])
      .">\n". book_print_sub_toc($converter, $parent_command,
-                                $command->{'structure'}->{'section_childs'}->[0])
+                                $command->{'extra'}->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
   if (exists($command->{'structure'}->{'section_next'})) {
@@ -224,14 +224,14 @@ sub book_convert_heading_command($$$$$)
 
   my $sub_toc = '';
   if ($tables_of_contents eq ''
-      and $element->{'structure'}->{'section_childs'}
-      and @{$element->{'structure'}->{'section_childs'}}
+      and $element->{'extra'}->{'section_childs'}
+      and @{$element->{'extra'}->{'section_childs'}}
       # FIXME why not @top?
       and $cmdname ne 'top'
       and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
     $sub_toc .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
     $sub_toc .= book_print_sub_toc($self, $element,
-                                  $element->{'structure'}->{'section_childs'}->[0]);
+                                 $element->{'extra'}->{'section_childs'}->[0]);
     $sub_toc .= "</ul>\n";
   }
 
@@ -268,8 +268,8 @@ sub book_convert_heading_command($$$$$)
 
   my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
-  if ($element->{'structure'}
-      and defined $element->{'structure'}->{'section_level'}) {
+  if ($element->{'extra'}
+      and defined $element->{'extra'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -349,9 +349,9 @@ sub book_convert_heading_command($$$$$)
         }
       }
     }
-  } elsif ($element->{'structure'}
-           and defined($element->{'structure'}->{'section_level'})) {
-    $heading_level = $element->{'structure'}->{'section_level'};
+  } elsif ($element->{'extra'}
+           and defined($element->{'extra'}->{'section_level'})) {
+    $heading_level = $element->{'extra'}->{'section_level'};
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
@@ -365,7 +365,7 @@ sub book_convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($opening_section) {
-    my $level = $opening_section->{'structure'}->{'section_level'};
+    my $level = $opening_section->{'extra'}->{'section_level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -472,9 +472,9 @@ sub book_element_file_name($$$$)
   return undef unless ($command);
   if ($converter->element_is_tree_unit_top($element)) {
     $new_file_name = "${prefix}_top.html";
-  } elsif (defined($command->{'structure'}->{'section_number'})
-           and ($command->{'structure'}->{'section_number'} ne '')) {
-    my $number = $command->{'structure'}->{'section_number'};
+  } elsif (defined($command->{'extra'}->{'section_number'})
+           and ($command->{'extra'}->{'section_number'} ne '')) {
+    my $number = $command->{'extra'}->{'section_number'};
     $number .= '.' unless ($number =~ /\.$/);
     $new_file_name = "${prefix}_$number" . 'html';
   } else {

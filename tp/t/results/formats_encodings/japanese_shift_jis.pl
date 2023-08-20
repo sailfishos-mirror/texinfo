@@ -643,7 +643,9 @@ $result_trees{'japanese_shift_jis'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -727,7 +729,9 @@ $result_trees{'japanese_shift_jis'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -825,7 +829,7 @@ GNU LilyPond -- 学習マニュアル
 ';
 
 $result_sectioning{'japanese_shift_jis'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -836,9 +840,7 @@ $result_sectioning{'japanese_shift_jis'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -849,11 +851,11 @@ $result_sectioning{'japanese_shift_jis'} = {
                     'normalized' => 'Preface'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -868,11 +870,11 @@ $result_sectioning{'japanese_shift_jis'} = {
                     'normalized' => 'Introduction'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -880,22 +882,25 @@ $result_sectioning{'japanese_shift_jis'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'japanese_shift_jis'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'};
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'japanese_shift_jis'};
 
 $result_nodes{'japanese_shift_jis'} = {
   'cmdname' => 'node',
@@ -918,10 +923,10 @@ $result_nodes{'japanese_shift_jis'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Preface'
       },
@@ -931,10 +936,10 @@ $result_nodes{'japanese_shift_jis'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'Introduction'
           },

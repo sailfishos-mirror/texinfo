@@ -43,15 +43,15 @@ $result_texis{'unnumbered_no_argument'} = '@unnumbered
 $result_texts{'unnumbered_no_argument'} = '';
 
 $result_sectioning{'unnumbered_no_argument'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
         'extra' => {
-          'missing_argument' => 1
+          'missing_argument' => 1,
+          'section_level' => 1
         },
         'structure' => {
-          'section_level' => 1,
           'section_up' => {}
         }
       }
@@ -59,7 +59,7 @@ $result_sectioning{'unnumbered_no_argument'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'unnumbered_no_argument'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_no_argument'};
+$result_sectioning{'unnumbered_no_argument'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_no_argument'};
 
 $result_errors{'unnumbered_no_argument'} = [
   {

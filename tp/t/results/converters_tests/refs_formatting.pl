@@ -2842,7 +2842,9 @@ $result_trees{'refs_formatting'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2984,7 +2986,7 @@ $result_texts{'refs_formatting'} = '1 chapter
 ';
 
 $result_sectioning{'refs_formatting'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -2994,11 +2996,11 @@ $result_sectioning{'refs_formatting'} = {
             'extra' => {
               'normalized' => 'chapter'
             }
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -3006,17 +3008,17 @@ $result_sectioning{'refs_formatting'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'refs_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'refs_formatting'};
+$result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'refs_formatting'};
 
 $result_nodes{'refs_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'chapter'
   }

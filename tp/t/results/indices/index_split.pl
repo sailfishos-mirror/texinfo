@@ -1267,7 +1267,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1622,7 +1624,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1706,7 +1710,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.1.1'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1916,7 +1922,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.1.2'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2000,7 +2008,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.2'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2153,7 +2163,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => '1.3'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2740,7 +2752,9 @@ $result_trees{'index_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -3003,7 +3017,7 @@ Second chapter
 ';
 
 $result_sectioning{'index_split'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -3015,9 +3029,7 @@ $result_sectioning{'index_split'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -3029,9 +3041,7 @@ $result_sectioning{'index_split'} = {
                     'normalized' => 'first'
                   },
                   'structure' => {}
-                }
-              },
-              'structure' => {
+                },
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -3043,9 +3053,7 @@ $result_sectioning{'index_split'} = {
                           'normalized' => 'section-1'
                         },
                         'structure' => {}
-                      }
-                    },
-                    'structure' => {
+                      },
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
@@ -3056,11 +3064,11 @@ $result_sectioning{'index_split'} = {
                                 'normalized' => 'subsection-1'
                               },
                               'structure' => {}
-                            }
+                            },
+                            'section_level' => 3,
+                            'section_number' => '1.1.1'
                           },
                           'structure' => {
-                            'section_level' => 3,
-                            'section_number' => '1.1.1',
                             'section_up' => {}
                           }
                         },
@@ -3074,18 +3082,20 @@ $result_sectioning{'index_split'} = {
                                 'normalized' => 'subsection-2'
                               },
                               'structure' => {}
-                            }
+                            },
+                            'section_level' => 3,
+                            'section_number' => '1.1.2'
                           },
                           'structure' => {
-                            'section_level' => 3,
-                            'section_number' => '1.1.2',
                             'section_prev' => {},
                             'section_up' => {}
                           }
                         }
                       ],
                       'section_level' => 2,
-                      'section_number' => '1.1',
+                      'section_number' => '1.1'
+                    },
+                    'structure' => {
                       'section_up' => {}
                     }
                   },
@@ -3098,11 +3108,11 @@ $result_sectioning{'index_split'} = {
                           'normalized' => 'section-2'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.2'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.2',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -3117,18 +3127,20 @@ $result_sectioning{'index_split'} = {
                           'normalized' => 'section-3'
                         },
                         'structure' => {}
-                      }
+                      },
+                      'section_level' => 2,
+                      'section_number' => '1.3'
                     },
                     'structure' => {
-                      'section_level' => 2,
-                      'section_number' => '1.3',
                       'section_prev' => {},
                       'section_up' => {}
                     }
                   }
                 ],
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -3143,11 +3155,11 @@ $result_sectioning{'index_split'} = {
                     'normalized' => 'second-chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -3155,30 +3167,33 @@ $result_sectioning{'index_split'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'};
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_split'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_split'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_split'};
 
 $result_nodes{'index_split'} = {
   'cmdname' => 'node',
@@ -3203,10 +3218,10 @@ $result_nodes{'index_split'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'menus' => [
@@ -3222,10 +3237,10 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'section',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => '1.1'
-              }
+              },
+              'structure' => {}
             },
             'isindex' => 1,
             'menus' => [
@@ -3241,10 +3256,10 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'subsection',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => '1.1.1'
-                  }
+                  },
+                  'structure' => {}
                 },
                 'normalized' => 'subsection-1'
               },
@@ -3254,10 +3269,10 @@ $result_nodes{'index_split'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'subsection',
-                      'extra' => {},
-                      'structure' => {
+                      'extra' => {
                         'section_number' => '1.1.2'
-                      }
+                      },
+                      'structure' => {}
                     },
                     'isindex' => 1,
                     'normalized' => 'subsection-2'
@@ -3275,10 +3290,10 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'section',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => '1.2'
-                  }
+                  },
+                  'structure' => {}
                 },
                 'normalized' => 'section-2'
               },
@@ -3288,10 +3303,10 @@ $result_nodes{'index_split'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'section',
-                      'extra' => {},
-                      'structure' => {
+                      'extra' => {
                         'section_number' => '1.3'
-                      }
+                      },
+                      'structure' => {}
                     },
                     'isindex' => 1,
                     'normalized' => 'section-3'
@@ -3323,10 +3338,10 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'second-chapter'
           },

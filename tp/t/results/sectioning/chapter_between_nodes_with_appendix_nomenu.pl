@@ -211,6 +211,9 @@ $result_trees{'chapter_between_nodes_with_appendix_nomenu'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -273,7 +276,9 @@ $result_trees{'chapter_between_nodes_with_appendix_nomenu'} = {
         }
       ],
       'cmdname' => 'appendix',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 'A'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -317,7 +322,7 @@ Appendix A Annex
 ';
 
 $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -328,15 +333,15 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -351,11 +356,11 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
                     'normalized' => 'Additional'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 'A'
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 'A',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -363,22 +368,25 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'};
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'};
 
 $result_nodes{'chapter_between_nodes_with_appendix_nomenu'} = {
   'cmdname' => 'node',
@@ -401,10 +409,10 @@ $result_nodes{'chapter_between_nodes_with_appendix_nomenu'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 'A'
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Additional'
       },

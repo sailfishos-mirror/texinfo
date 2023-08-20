@@ -361,7 +361,7 @@ $result_texts{'transparent_sort_chars'} = '
 ';
 
 $result_sectioning{'transparent_sort_chars'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -372,10 +372,10 @@ $result_sectioning{'transparent_sort_chars'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -383,7 +383,7 @@ $result_sectioning{'transparent_sort_chars'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'transparent_sort_chars'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'transparent_sort_chars'};
+$result_sectioning{'transparent_sort_chars'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'transparent_sort_chars'};
 
 $result_nodes{'transparent_sort_chars'} = {
   'cmdname' => 'node',

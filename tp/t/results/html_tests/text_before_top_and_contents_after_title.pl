@@ -160,6 +160,9 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -205,7 +208,7 @@ In top.
 ';
 
 $result_sectioning{'text_before_top_and_contents_after_title'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -215,33 +218,36 @@ $result_sectioning{'text_before_top_and_contents_after_title'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'text_before_top_and_contents_after_title'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_top_and_contents_after_title'};
+$result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'text_before_top_and_contents_after_title'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_top_and_contents_after_title'};
 
 $result_nodes{'text_before_top_and_contents_after_title'} = {
   'cmdname' => 'node',

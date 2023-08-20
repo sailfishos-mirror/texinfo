@@ -260,7 +260,9 @@ $result_trees{'text_before_line_command'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -303,7 +305,7 @@ quotation
 ';
 
 $result_sectioning{'text_before_line_command'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -313,11 +315,11 @@ $result_sectioning{'text_before_line_command'} = {
             'extra' => {
               'normalized' => 'LD-Version-Scripts'
             }
-          }
+          },
+          'section_level' => 1,
+          'section_number' => 1
         },
         'structure' => {
-          'section_level' => 1,
-          'section_number' => 1,
           'section_up' => {}
         }
       }
@@ -325,17 +327,17 @@ $result_sectioning{'text_before_line_command'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'text_before_line_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_line_command'};
+$result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_line_command'};
 
 $result_nodes{'text_before_line_command'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'LD-Version-Scripts'
   }

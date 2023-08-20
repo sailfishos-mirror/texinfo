@@ -898,7 +898,9 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1212,7 +1214,9 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 2
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1490,7 +1494,9 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 3
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1592,7 +1598,9 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 4
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1698,7 +1706,9 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 5
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1814,7 +1824,7 @@ In brazilian. chapter ja.
 ';
 
 $result_sectioning{'multiple_lang_chapters_texi2html'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1825,9 +1835,7 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1838,11 +1846,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
                     'normalized' => 'chapter-ja'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1857,11 +1865,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
                     'normalized' => 'chapter-en'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 2
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1877,11 +1885,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
                     'normalized' => 'chapter-fr_005fFR'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 3
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1897,11 +1905,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
                     'normalized' => 'chapter-de'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 4
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 4,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1917,11 +1925,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
                     'normalized' => 'chapter-pt_005fBR'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 5
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 5,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1929,34 +1937,37 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[2];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[3];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'multiple_lang_chapters_texi2html'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'};
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'multiple_lang_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'};
 
 $result_nodes{'multiple_lang_chapters_texi2html'} = {
   'cmdname' => 'node',
@@ -1979,10 +1990,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter-ja'
       },
@@ -1992,10 +2003,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {},
-              'structure' => {
+              'extra' => {
                 'section_number' => 2
-              }
+              },
+              'structure' => {}
             },
             'normalized' => 'chapter-en'
           },
@@ -2005,10 +2016,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {},
-                  'structure' => {
+                  'extra' => {
                     'section_number' => 3
-                  }
+                  },
+                  'structure' => {}
                 },
                 'normalized' => 'chapter-fr_005fFR'
               },
@@ -2018,10 +2029,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {},
-                      'structure' => {
+                      'extra' => {
                         'section_number' => 4
-                      }
+                      },
+                      'structure' => {}
                     },
                     'normalized' => 'chapter-de'
                   },
@@ -2031,10 +2042,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {},
-                          'structure' => {
+                          'extra' => {
                             'section_number' => 5
-                          }
+                          },
+                          'structure' => {}
                         },
                         'normalized' => 'chapter-pt_005fBR'
                       },

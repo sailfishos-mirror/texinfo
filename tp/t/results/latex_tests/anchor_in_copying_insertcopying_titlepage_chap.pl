@@ -448,7 +448,9 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -506,7 +508,7 @@ a in copying
 ';
 
 $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -517,9 +519,7 @@ $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -530,18 +530,20 @@ $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                     'normalized' => 'Chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -549,10 +551,10 @@ $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'};
+$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'};
 
 $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'} = {
   'cmdname' => 'node',
@@ -570,10 +572,10 @@ $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'Chapter'
       },

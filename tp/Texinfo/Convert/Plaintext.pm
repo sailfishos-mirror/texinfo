@@ -1226,37 +1226,37 @@ sub format_contents($$$)
 
   # no sections
   return ('', 0) if (!$section_root
-                     or !$section_root->{'structure'}->{'section_childs'});
-  my $root_level = $section_root->{'structure'}->{'section_childs'}->[0]
-                                          ->{'structure'}->{'section_level'};
-  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
-    $root_level = $top_section->{'structure'}->{'section_level'}
-      if ($top_section->{'structure'}->{'section_level'} < $root_level);
+                     or !$section_root->{'extra'}->{'section_childs'});
+  my $root_level = $section_root->{'extra'}->{'section_childs'}->[0]
+                                          ->{'extra'}->{'section_level'};
+  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+    $root_level = $top_section->{'extra'}->{'section_level'}
+      if ($top_section->{'extra'}->{'section_level'} < $root_level);
   }
 
   my $result = '';
   my $lines_count = 0;
   # This is done like that because the tree may not be well formed if
   # there is a @part after a @chapter for example.
-  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
+  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       my $section_title_tree;
-      if (defined($section->{'structure'}->{'section_number'})
+      if (defined($section->{'extra'}->{'section_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
         if ($section->{'cmdname'} eq 'appendix'
-            and $section->{'structure'}->{'section_level'} == 1) {
+            and $section->{'extra'}->{'section_level'} == 1) {
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
                {'number' => {'text'
-                               => $section->{'structure'}->{'section_number'}},
+                               => $section->{'extra'}->{'section_number'}},
                 'section_title' => $section->{'args'}->[0]});
         } else {
           $section_title_tree = $self->gdt('{number} {section_title}',
                {'number' => {'text'
-                               => $section->{'structure'}->{'section_number'}},
+                               => $section->{'extra'}->{'section_number'}},
                 'section_title' => $section->{'args'}->[0]});
         }
       } else {
@@ -1270,14 +1270,14 @@ sub format_contents($$$)
       chomp ($text);
       $text .= "\n";
       my $repeat_count
-        = 2 * ($section->{'structure'}->{'section_level'} - ($root_level+1));
+        = 2 * ($section->{'extra'}->{'section_level'} - ($root_level+1));
       ($result .= (' ' x $repeat_count)) if $repeat_count > 0;
       $result .= $text;
       $lines_count++;
-      if ($section->{'structure'}->{'section_childs'}
+      if ($section->{'extra'}->{'section_childs'}
           and ($contents
-               or $section->{'structure'}->{'section_level'} < $root_level+1)) {
-        $section = $section->{'structure'}->{'section_childs'}->[0];
+               or $section->{'extra'}->{'section_level'} < $root_level+1)) {
+        $section = $section->{'extra'}->{'section_childs'}->[0];
       } elsif ($section->{'structure'}->{'section_next'}) {
         last if ($section eq $top_section);
         $section = $section->{'structure'}->{'section_next'};
@@ -2585,7 +2585,7 @@ sub _convert($$)
                  'contents' => [$element->{'args'}->[0]]});
         pop @{$self->{'count_context'}};
         $result = Texinfo::Convert::Text::text_heading(
-                          {'structure' => {'section_level' => 0},
+                          {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
                             $result, $self, $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);

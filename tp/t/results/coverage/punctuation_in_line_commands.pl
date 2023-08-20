@@ -878,7 +878,7 @@ center! After punc
 ';
 
 $result_sectioning{'punctuation_in_line_commands'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -889,10 +889,10 @@ $result_sectioning{'punctuation_in_line_commands'} = {
               'isindex' => 1,
               'normalized' => 'node_0021-After-punc'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -900,7 +900,7 @@ $result_sectioning{'punctuation_in_line_commands'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'punctuation_in_line_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_in_line_commands'};
+$result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_in_line_commands'};
 
 $result_nodes{'punctuation_in_line_commands'} = {
   'cmdname' => 'node',

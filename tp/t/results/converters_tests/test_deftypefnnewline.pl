@@ -2518,7 +2518,9 @@ $result_trees{'test_deftypefnnewline'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2677,7 +2679,7 @@ fff2
 ';
 
 $result_sectioning{'test_deftypefnnewline'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2688,9 +2690,7 @@ $result_sectioning{'test_deftypefnnewline'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -2701,18 +2701,20 @@ $result_sectioning{'test_deftypefnnewline'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -2720,10 +2722,10 @@ $result_sectioning{'test_deftypefnnewline'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'test_deftypefnnewline'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_deftypefnnewline'};
+$result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_deftypefnnewline'};
 
 $result_nodes{'test_deftypefnnewline'} = {
   'cmdname' => 'node',
@@ -2741,10 +2743,10 @@ $result_nodes{'test_deftypefnnewline'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

@@ -197,7 +197,7 @@ Text.
 ';
 
 $result_sectioning{'setfilename_no_extension'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -208,18 +208,19 @@ $result_sectioning{'setfilename_no_extension'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'setfilename_no_extension'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'setfilename_no_extension'};
+$result_sectioning{'setfilename_no_extension'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'setfilename_no_extension'};
 
 $result_nodes{'setfilename_no_extension'} = {
   'cmdname' => 'node',

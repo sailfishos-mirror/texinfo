@@ -1264,6 +1264,9 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
           'type' => 'empty_line'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1674,7 +1677,9 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 'A'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1832,7 +1837,7 @@ Titlepage footnote anchor for reference on the titlepage.
 ';
 
 $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1843,15 +1848,15 @@ $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} 
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1867,11 +1872,11 @@ $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} 
                     'normalized' => 'Copying-and-indices'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 'A'
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 'A',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1879,22 +1884,25 @@ $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} 
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'};
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'};
 
 $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
   'cmdname' => 'node',
@@ -1917,10 +1925,10 @@ $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 'A'
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'Copying-and-indices'

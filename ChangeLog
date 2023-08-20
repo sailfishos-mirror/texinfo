@@ -1,5 +1,11 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm, tp/ext/epub3.pm,
+	tp/init/book.pm, tp/init/chm.pm: put section_level, section_number
+	and section_childs in extra instead of structure.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/t/init/only_toc_out.init: move tree unit directions out of
 	structure directly in tree_unit.  Move 'special_element_variety'

@@ -685,7 +685,9 @@ $result_trees{'contain_plain_text_nestings'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -743,7 +745,7 @@ Top text
 ';
 
 $result_sectioning{'contain_plain_text_nestings'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -754,9 +756,7 @@ $result_sectioning{'contain_plain_text_nestings'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -768,18 +768,20 @@ $result_sectioning{'contain_plain_text_nestings'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -787,10 +789,10 @@ $result_sectioning{'contain_plain_text_nestings'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contain_plain_text_nestings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contain_plain_text_nestings'};
+$result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contain_plain_text_nestings'};
 
 $result_nodes{'contain_plain_text_nestings'} = {
   'cmdname' => 'node',
@@ -808,10 +810,10 @@ $result_nodes{'contain_plain_text_nestings'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'isindex' => 1,
         'normalized' => 'chap'

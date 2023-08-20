@@ -342,7 +342,9 @@ $result_trees{'anchor_in_footnote'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -392,7 +394,7 @@ Anchor in footnote.
 ';
 
 $result_sectioning{'anchor_in_footnote'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -403,9 +405,7 @@ $result_sectioning{'anchor_in_footnote'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -416,29 +416,32 @@ $result_sectioning{'anchor_in_footnote'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_footnote'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_footnote'};
+$result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_footnote'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_footnote'};
 
 $result_nodes{'anchor_in_footnote'} = {
   'cmdname' => 'node',
@@ -461,10 +464,10 @@ $result_nodes{'anchor_in_footnote'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

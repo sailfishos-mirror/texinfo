@@ -590,7 +590,7 @@ sub output_ixin($$)
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
-    foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
+    foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
       my $section = $top_section;
  SECTION:
       while ($section) {
@@ -610,8 +610,8 @@ sub output_ixin($$)
         if ($section->{'cmdname'} eq 'top') {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
         }
-        if ($section->{'structure'}->{'section_childs'}) {
-          $section = $section->{'structure'}->{'section_childs'}->[0];
+        if ($section->{'extra'}->{'section_childs'}) {
+          $section = $section->{'extra'}->{'section_childs'}->[0];
         } elsif ($section->{'structure'}->{'section_next'}) {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
           last if ($section eq $top_section);

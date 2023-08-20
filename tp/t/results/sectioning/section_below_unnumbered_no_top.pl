@@ -33,6 +33,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         }
       ],
       'cmdname' => 'unnumbered',
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -62,6 +63,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         }
       ],
       'cmdname' => 'section',
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -89,21 +91,25 @@ S
 ';
 
 $result_sectioning{'section_below_unnumbered_no_top'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'structure' => {
+        'extra' => {
           'section_childs' => [
             {
               'cmdname' => 'section',
+              'extra' => {
+                'section_level' => 2
+              },
               'structure' => {
-                'section_level' => 2,
                 'section_up' => {}
               }
             }
           ],
-          'section_level' => 1,
+          'section_level' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -111,8 +117,8 @@ $result_sectioning{'section_below_unnumbered_no_top'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'};
+$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'};
 
 $result_errors{'section_below_unnumbered_no_top'} = [];
 

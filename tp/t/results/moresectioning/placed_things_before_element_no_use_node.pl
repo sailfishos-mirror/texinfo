@@ -620,6 +620,9 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
           'type' => 'paragraph'
         }
       ],
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -710,21 +713,24 @@ Anchor in footnote
 ';
 
 $result_sectioning{'placed_things_before_element_no_use_node'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'structure' => {
+        'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => 1
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => 1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'placed_things_before_element_no_use_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element_no_use_node'};
+$result_sectioning{'placed_things_before_element_no_use_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element_no_use_node'};
 
 $result_errors{'placed_things_before_element_no_use_node'} = [
   {

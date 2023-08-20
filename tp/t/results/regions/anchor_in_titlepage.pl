@@ -128,6 +128,7 @@ $result_trees{'anchor_in_titlepage'} = {
         }
       ],
       'cmdname' => 'top',
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -197,7 +198,9 @@ $result_trees{'anchor_in_titlepage'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -313,11 +316,11 @@ in titlepage.
 ';
 
 $result_sectioning{'anchor_in_titlepage'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'structure' => {
+        'extra' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -328,18 +331,20 @@ $result_sectioning{'anchor_in_titlepage'} = {
                     'normalized' => 'Top'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
@@ -347,20 +352,20 @@ $result_sectioning{'anchor_in_titlepage'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_titlepage'};
+$result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'anchor_in_titlepage'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_titlepage'};
 
 $result_nodes{'anchor_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {},
-      'structure' => {
+      'extra' => {
         'section_number' => 1
-      }
+      },
+      'structure' => {}
     },
     'normalized' => 'Top'
   },

@@ -1609,8 +1609,8 @@ sub _convert($$;$)
            and !$self->get_conf('USE_NODES')) {
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'structure'}->{'section_childs'}
-          and scalar(@{$element->{'structure'}->{'section_childs'}}))
+    if (!($element->{'extra'}->{'section_childs'}
+          and scalar(@{$element->{'extra'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;

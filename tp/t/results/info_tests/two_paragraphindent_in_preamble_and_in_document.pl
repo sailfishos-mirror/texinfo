@@ -417,7 +417,7 @@ Third para after third paragraphindent.
 ';
 
 $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -427,10 +427,10 @@ $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'section_level' => 0
         },
         'structure' => {
-          'section_level' => 0,
           'section_up' => {}
         }
       }
@@ -438,7 +438,7 @@ $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'two_paragraphindent_in_preamble_and_in_document'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'};
+$result_sectioning{'two_paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'};
 
 $result_nodes{'two_paragraphindent_in_preamble_and_in_document'} = {
   'cmdname' => 'node',

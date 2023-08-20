@@ -397,7 +397,9 @@ $result_trees{'special_characters_in_float_type'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -443,7 +445,7 @@ F
 ';
 
 $result_sectioning{'special_characters_in_float_type'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -454,9 +456,7 @@ $result_sectioning{'special_characters_in_float_type'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -467,29 +467,32 @@ $result_sectioning{'special_characters_in_float_type'} = {
                     'normalized' => 'chap'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'special_characters_in_float_type'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'special_characters_in_float_type'};
+$result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'special_characters_in_float_type'};
 
 $result_nodes{'special_characters_in_float_type'} = {
   'cmdname' => 'node',
@@ -507,10 +510,10 @@ $result_nodes{'special_characters_in_float_type'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chap'
       },
@@ -548,10 +551,10 @@ $result_floats{'special_characters_in_float_type'} = {
         },
         'float_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
         'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'

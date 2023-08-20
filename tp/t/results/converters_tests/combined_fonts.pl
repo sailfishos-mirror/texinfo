@@ -1170,7 +1170,9 @@ $result_trees{'combined_fonts'} = {
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1263,7 +1265,7 @@ c--ite in example
 ';
 
 $result_sectioning{'combined_fonts'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1274,9 +1276,7 @@ $result_sectioning{'combined_fonts'} = {
               'normalized' => 'Top'
             },
             'structure' => {}
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1287,29 +1287,32 @@ $result_sectioning{'combined_fonts'} = {
                     'normalized' => 'chapter'
                   },
                   'structure' => {}
-                }
+                },
+                'section_level' => 1,
+                'section_number' => 1
               },
               'structure' => {
-                'section_level' => 1,
-                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'combined_fonts'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'combined_fonts'};
+$result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'combined_fonts'};
 
 $result_nodes{'combined_fonts'} = {
   'cmdname' => 'node',
@@ -1327,10 +1330,10 @@ $result_nodes{'combined_fonts'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {},
-          'structure' => {
+          'extra' => {
             'section_number' => 1
-          }
+          },
+          'structure' => {}
         },
         'normalized' => 'chapter'
       },

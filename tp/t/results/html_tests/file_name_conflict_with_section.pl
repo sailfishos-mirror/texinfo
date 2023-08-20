@@ -125,6 +125,9 @@ $result_trees{'file_name_conflict_with_section'} = {
         }
       ],
       'cmdname' => 'chapter',
+      'extra' => {
+        'section_number' => 1
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -156,7 +159,7 @@ $result_texts{'file_name_conflict_with_section'} = 'top
 ';
 
 $result_sectioning{'file_name_conflict_with_section'} = {
-  'structure' => {
+  'extra' => {
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -166,33 +169,36 @@ $result_sectioning{'file_name_conflict_with_section'} = {
             'extra' => {
               'normalized' => 'Top'
             }
-          }
-        },
-        'structure' => {
+          },
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'structure' => {
+              'extra' => {
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => 1
+              },
+              'structure' => {
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
-          'section_level' => 0,
+          'section_level' => 0
+        },
+        'structure' => {
           'section_up' => {}
         }
       }
     ],
     'section_level' => -1
-  }
+  },
+  'structure' => {}
 };
-$result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_section'};
+$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'file_name_conflict_with_section'};
 
 $result_nodes{'file_name_conflict_with_section'} = {
   'cmdname' => 'node',

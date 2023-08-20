@@ -759,7 +759,6 @@ sub command_filename($$)
            = $self->_html_get_tree_root_element($command, 1);
 
     if (defined($root_element)
-        and $root_element->{'structure'}
         and exists($root_element->{'unit_filename'})) {
       $target->{'filename'}
         = $root_element->{'unit_filename'};
@@ -882,7 +881,6 @@ sub command_href($$;$$$)
     # as in the test cases.  Also for things in @titlepage when
     # titlepage is not output.
     if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
-        and $self->{'tree_units'}->[0]->{'structure'}
         and defined($self->{'tree_units'}->[0]
                                    ->{'unit_filename'})) {
       # In that case use the first page.
@@ -1095,21 +1093,21 @@ sub command_text($$;$)
         my $section_arg_contents = [];
         $section_arg_contents = $command->{'args'}->[0]->{'contents'}
           if $command->{'args'}->[0]->{'contents'};
-        if ($command->{'structure'}
-            and defined($command->{'structure'}->{'section_number'})
+        if ($command->{'extra'}
+            and defined($command->{'extra'}->{'section_number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
           if ($command->{'cmdname'} eq 'appendix'
-              and $command->{'structure'}->{'section_level'} == 1) {
+              and $command->{'extra'}->{'section_level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
-                    {'number' => {'text' => $command->{'structure'}
+                    {'number' => {'text' => $command->{'extra'}
                                                     ->{'section_number'}},
                      'section_title'
                                 => $command->{'args'}->[0]});
           } else {
             # TRANSLATORS: numbered section title
             $tree = $self->gdt('{number} {section_title}',
-                     {'number' => {'text' => $command->{'structure'}
+                     {'number' => {'text' => $command->{'extra'}
                                                        ->{'section_number'}},
                      'section_title'
                          => $command->{'args'}->[0]});
@@ -4230,8 +4228,8 @@ sub _convert_heading_command($$$$$)
 
   my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
-  if ($element->{'structure'}
-      and defined $element->{'structure'}->{'section_level'}) {
+  if ($element->{'extra'}
+      and defined $element->{'extra'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -4311,9 +4309,9 @@ sub _convert_heading_command($$$$$)
         }
       }
     }
-  } elsif ($element->{'structure'}
-           and defined($element->{'structure'}->{'section_level'})) {
-    $heading_level = $element->{'structure'}->{'section_level'};
+  } elsif ($element->{'extra'}
+           and defined($element->{'extra'}->{'section_level'})) {
+    $heading_level = $element->{'extra'}->{'section_level'};
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
@@ -4327,7 +4325,7 @@ sub _convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($opening_section) {
-    my $level = $opening_section->{'structure'}->{'section_level'};
+    my $level = $opening_section->{'extra'}->{'section_level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -9298,7 +9296,7 @@ sub _prepare_contents_elements($)
       if ($self->get_conf($cmdname)) {
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-          if ($self->{'tree_units'} and $self->{'tree_units'}->[0]->{'structure'}
+          if ($self->{'tree_units'}
               and exists($self->{'tree_units'}->[0]->{'unit_filename'})) {
             $default_filename
               = $self->{'tree_units'}->[0]->{'unit_filename'};
@@ -9315,7 +9313,7 @@ sub _prepare_contents_elements($)
             foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
               my ($root_element, $root_command)
                 = $self->_html_get_tree_root_element($command);
-              if (defined($root_element) and $root_element->{'structure'}
+              if (defined($root_element)
                   and exists($root_element->{'unit_filename'})) {
                 $default_filename
                    = $root_element->{'unit_filename'};
@@ -9391,7 +9389,7 @@ sub _prepare_tree_units_global_targets($$)
       }
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
-        while ($root_command->{'structure'}->{'section_level'} > 1
+        while ($root_command->{'extra'}->{'section_level'} > 1
                and $root_command->{'structure'}->{'section_up'}
                and $root_command->{'structure'}->{'section_up'}
                                         ->{'structure'}->{'associated_unit'}) {
@@ -9716,12 +9714,12 @@ sub _mini_toc
   my $result = '';
   my $entry_index = 0;
 
-  if ($command->{'structure'}
-      and $command->{'structure'}->{'section_childs'}
-      and @{$command->{'structure'}->{'section_childs'}}) {
+  if ($command->{'extra'}
+      and $command->{'extra'}->{'section_childs'}
+      and @{$command->{'extra'}->{'section_childs'}}) {
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
-    foreach my $section (@{$command->{'structure'}->{'section_childs'}}) {
+    foreach my $section (@{$command->{'extra'}->{'section_childs'}}) {
       my $tree = $self->command_text($section, 'tree_nonumber');
       my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
 
@@ -9766,15 +9764,15 @@ sub _default_format_contents($$;$$)
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $section_root->{'structure'}->{'section_childs'}->[0]
-                                             ->{'structure'}->{'section_level'};
-  my $max_root_level = $section_root->{'structure'}->{'section_childs'}->[0]
-                                              ->{'structure'}->{'section_level'};
-  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
-    $min_root_level = $top_section->{'structure'}->{'section_level'}
-      if ($top_section->{'structure'}->{'section_level'} < $min_root_level);
-    $max_root_level = $top_section->{'structure'}->{'section_level'}
-      if ($top_section->{'structure'}->{'section_level'} > $max_root_level);
+  my $min_root_level = $section_root->{'extra'}->{'section_childs'}->[0]
+                                             ->{'extra'}->{'section_level'};
+  my $max_root_level = $section_root->{'extra'}->{'section_childs'}->[0]
+                                              ->{'extra'}->{'section_level'};
+  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+    $min_root_level = $top_section->{'extra'}->{'section_level'}
+      if ($top_section->{'extra'}->{'section_level'} < $min_root_level);
+    $max_root_level = $top_section->{'extra'}->{'section_level'}
+      if ($top_section->{'extra'}->{'section_level'} > $max_root_level);
   }
   # chapter level elements are considered top-level here.
   $max_root_level = 1 if ($max_root_level < 1);
@@ -9794,7 +9792,7 @@ sub _default_format_contents($$;$$)
   }
 
   my $toplevel_contents;
-  if (@{$section_root->{'structure'}->{'section_childs'}} > 1) {
+  if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
     $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
     $toplevel_contents = 1;
   }
@@ -9803,7 +9801,7 @@ sub _default_format_contents($$;$$)
                      and ($self->get_conf('contents'))
                      and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
                           or $self->_has_contents_or_shortcontents()));
-  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
+  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
@@ -9819,7 +9817,7 @@ sub _default_format_contents($$;$$)
         if ($text ne '') {
           # no indenting for shortcontents
           $result .= (' ' x
-            (2*($section->{'structure'}->{'section_level'} - $min_root_level)))
+            (2*($section->{'extra'}->{'section_level'} - $min_root_level)))
               if ($contents);
           if ($toc_id ne '' or $href ne '') {
             my $toc_name_attribute = '';
@@ -9842,21 +9840,21 @@ sub _default_format_contents($$;$$)
             $result .= "<li>$text";
           }
         }
-      } elsif ($section->{'structure'}->{'section_childs'}
-               and @{$section->{'structure'}->{'section_childs'}}
+      } elsif ($section->{'extra'}->{'section_childs'}
+               and @{$section->{'extra'}->{'section_childs'}}
                and $toplevel_contents) {
         $result .= "<li>";
       }
       # for shortcontents don't do child if child is not toplevel
-      if ($section->{'structure'}->{'section_childs'}
+      if ($section->{'extra'}->{'section_childs'}
           and ($contents
-               or $section->{'structure'}->{'section_level'} < $max_root_level)) {
+               or $section->{'extra'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
         $result .= "\n"
-         . ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
+         . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             if ($contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
-        $section = $section->{'structure'}->{'section_childs'}->[0];
+        $section = $section->{'extra'}->{'section_childs'}->[0];
       } elsif ($section->{'structure'}->{'section_next'}
                and $section->{'cmdname'} ne 'top') {
         $result .= "</li>\n";
@@ -9871,7 +9869,7 @@ sub _default_format_contents($$;$$)
         while ($section->{'structure'}->{'section_up'}) {
           $section = $section->{'structure'}->{'section_up'};
           $result .= "</li>\n"
-           . ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
+           . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
             $result .= "</li>\n" if ($toplevel_contents);
@@ -9886,7 +9884,7 @@ sub _default_format_contents($$;$$)
       }
     }
   }
-  if (@{$section_root->{'structure'}->{'section_childs'}} > 1) {
+  if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
     $result .= "\n</ul>";
   }
   if ($contents and !defined($self->get_conf('AFTER_TOC_LINES'))
@@ -11050,7 +11048,6 @@ sub output($$)
   # This may only happen if not split.
   if ($special_elements
       and $tree_units and $tree_units->[0]
-      and $tree_units->[0]->{'structure'}
       and defined($tree_units->[0]->{'unit_filename'})) {
     foreach my $special_element (@$special_elements) {
       if (!defined($special_element->{'unit_filename'})) {
@@ -11238,7 +11235,7 @@ sub output($$)
   $self->_reset_info();
 
 
-  if (!$tree_units or !$tree_units->[0]->{'structure'}
+  if (!$tree_units
       or !defined($tree_units->[0]->{'unit_filename'})) {
     my $output = '';
     my $fh;
