@@ -1060,10 +1060,10 @@ sub section_level_adjusted_command_name($)
   return $command;
 }
 
-# Return a list of tree units to be converted into pages.  Each tree unit
-# starts with a @node as its first child (except possibly the first one).
-# It is important that this function reassociates all the root commands
-# such that the result does not depend on the previous association (if any).
+# Return a list of output units.  Each output unit starts with a @node as its
+# first content (except possibly the first one).  It is important that this
+# function reassociates all the root commands such that the result does not
+# depend on the previous association (if any).
 sub split_by_node($)
 {
   my $root = shift;
@@ -1112,11 +1112,11 @@ sub split_by_node($)
   return $output_units;
 }
 
-# Return a list of tree units to be converted into pages.  Each tree unit
-# starts with the @node associated with a sectioning command or with the
-# sectioning command if there is no associated node.
-# It is important that this function reassociates all the root commands
-# such that the result does not depend on the previous association (if any).
+# Return a list of output units.  Each output unit starts with the @node
+# associated with a sectioning command or with the sectioning command if there
+# is no associated node.  It is important that this function reassociates all
+# the root commands such that the result does not depend on the previous
+# association (if any).
 sub split_by_section($)
 {
   my $root = shift;
@@ -1197,7 +1197,7 @@ sub split_pages ($$)
   my $current_first_in_page;
   foreach my $output_unit (@$output_units) {
     my $level;
-    my $section = _tree_unit_section($output_unit);
+    my $section = _output_unit_section($output_unit);
     if (defined($section)) {
       $level = $section->{'extra'}->{'section_level'};
     }
@@ -1211,9 +1211,9 @@ sub split_pages ($$)
   }
 }
 
-# Returns a unit element associated to a label that can be used to setup a target
+# Returns something associated to a label that can be used to setup a target
 # to the label.  If the target is an external node, create such element here,
-# if it is a node return the parent element that is supposed to be the
+# if it is a node return the output unit that is supposed to be the
 # target for links to the node.  Otherwise there is no such element (yet),
 # for floats and anchor, return undef.
 sub _label_target_unit_element($)
@@ -1239,7 +1239,7 @@ sub _label_target_unit_element($)
   }
 }
 
-sub _tree_unit_section($)
+sub _output_unit_section($)
 {
   my $output_unit = shift;
   if (not defined($output_unit->{'unit_command'})) {
@@ -1258,7 +1258,7 @@ sub _tree_unit_section($)
   }
 }
 
-sub _tree_unit_node($)
+sub _output_unit_node($)
 {
   my $output_unit = shift;
   if (not defined($output_unit->{'unit_command'})) {
@@ -1277,11 +1277,9 @@ sub _tree_unit_node($)
   }
 }
 
-# Do element directions (like in texi2html) and store them
+# Do output units directions (like in texi2html) and store them
 # in 'directions'.
-# The directions are only created if pointing to other 'unit' elements.
-# In practice there are only tree unit passed to the function, but
-# other root elements could probably be used, in theory.
+# The directions are only created if pointing to other output units.
 sub elements_directions($$$)
 {
   my $customization_information = shift;
@@ -1303,7 +1301,7 @@ sub elements_directions($$$)
           and $output_unit->{'tree_unit_directions'}->{'prev'}
           and defined($output_unit->{'tree_unit_directions'}->{'prev'}->{'type'})
           and $output_unit->{'tree_unit_directions'}->{'prev'}->{'type'} eq 'unit');
-    my $node = _tree_unit_node($output_unit);
+    my $node = _output_unit_node($output_unit);
     if (defined($node)) {
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
@@ -1364,32 +1362,32 @@ sub elements_directions($$$)
                                        ->{'NodeBack'} = $output_unit;
       }
     }
-    my $section = _tree_unit_section($output_unit);
+    my $section = _output_unit_section($output_unit);
     if (not defined($section)) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
-      my $section_element;
-      my $current = $output_unit;
-      while ($current->{'tree_unit_directions'}
-             and $current->{'tree_unit_directions'}->{'prev'}) {
-        $current = $current->{'tree_unit_directions'}->{'prev'};
-        $section = _tree_unit_section($current);
+      my $section_output_unit;
+      my $current_unit = $output_unit;
+      while ($current_unit->{'tree_unit_directions'}
+             and $current_unit->{'tree_unit_directions'}->{'prev'}) {
+        $current_unit = $current_unit->{'tree_unit_directions'}->{'prev'};
+        $section = _output_unit_section($current_unit);
         if (defined($section)) {
-          $section_element = $current;
+          $section_output_unit = $current_unit;
           last;
         }
       }
-      if ($section_element) {
-        if ($section_element->{'directions'}->{'FastForward'}) {
+      if ($section_output_unit) {
+        if ($section_output_unit->{'directions'}->{'FastForward'}) {
           $directions->{'FastForward'}
-            = $section_element->{'directions'}->{'FastForward'};
+            = $section_output_unit->{'directions'}->{'FastForward'};
         }
         if ($section->{'extra'}->{'section_level'} <= 1) {
-          $directions->{'FastBack'} = $section_element;
-        } elsif ($section_element->{'directions'}->{'Fastback'}) {
+          $directions->{'FastBack'} = $section_output_unit;
+        } elsif ($section_output_unit->{'directions'}->{'Fastback'}) {
           $directions->{'FastBack'}
-            = $section_element->{'directions'}->{'Fastback'};
+            = $section_output_unit->{'directions'}->{'Fastback'};
         }
       }
     } else {
@@ -1465,10 +1463,10 @@ sub elements_directions($$$)
         and $node->{'extra'}->{'node_directions'}->{'up'}
         and (!$node_top or ($node ne $node_top))) {
       #print STDERR "Node for up: ".unit_or_external_element_texi($output_unit)."\n";
-      my $up_node_element
+      my $up_node_unit_element
         = _label_target_unit_element(
                $node->{'extra'}->{'node_directions'}->{'up'});
-      $directions->{'Up'} = $up_node_element if ($up_node_element);
+      $directions->{'Up'} = $up_node_unit_element if ($up_node_unit_element);
     }
     if ($output_unit->{'directions'}) {
       %{$output_unit->{'directions'}}
@@ -1487,8 +1485,6 @@ sub elements_directions($$$)
   }
 }
 
-# for now, the elements can only be tree units.  It could probably
-# be other root elements for which file directions make sense, in theory.
 sub elements_file_directions($)
 {
   my $output_units = shift;
@@ -1593,7 +1589,7 @@ sub unit_or_external_element_texi($)
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
-# In general would be called with tree units, but is more generic
+# In general would be called with output units, but is more generic
 # to account for other situations.
 sub print_element_directions($)
 {
@@ -2560,8 +2556,7 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 Texinfo::Structuring first allows to collect information on a Texinfo
-tree.  In most case, it also requires information from a parsed document to
-do that job.  Thanks to C<sectioning_structure> the hierarchy of
+document.  Thanks to C<sectioning_structure> the hierarchy of
 sectioning commands is determined.  The directions implied by menus are
 determined with C<set_menus_node_directions>.  The node tree is analysed
 with C<nodes_tree>.  Nodes directions are completed with menu directions
@@ -2573,19 +2568,19 @@ The following methods depend on the output format, so are usually called
 from converters.
 
 It is also possible to associate top-level contents of the tree, which
-consist in nodes and sectioning commands with tree units that
+consist in nodes and sectioning commands with output units that
 group together a node and the next sectioning element.  With
 C<split_by_node> nodes are considered to be the main sectioning elements,
 while with C<split_by_section> the sectioning command elements are the
 main elements.  The first mode is typical of Info format, while the second
 corresponds to a traditional book.  The elements may be further split in
 I<pages>, which are not pages as in book pages, but more like web pages,
-and hold series of tree units.
+and hold series of output units.
 
-The elements may have directions to other elements prepared
+The output units may have directions to other output units prepared
 by C<elements_directions>.  C<elements_file_directions> should also
 set direction related to files, provided files are associated with
-elements by the user.
+output units by the user.
 
 C<merge_indices> may be used to merge indices, which may be sorted
 with C<sort_indices>.
@@ -2611,8 +2606,8 @@ X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
 fifth argument and menu entries) have an associated node, anchor or float.
-Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash for
-menu entries and in the first argument C<extra> hash for internal
+Set the I<normalized> key in the C<extra> hash of C<menu_entry_node> container
+for menu entries and in the first argument C<extra> hash for internal
 references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
 
 =item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $top_node, $identifier_target, $refs)
@@ -2637,7 +2632,7 @@ X<C<elements_directions>>
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated
 to the C<directions> key. In this hash, keys correspond to directions
-while values are elements.
+while values are output units.
 
 The following directions are set up:
 
@@ -2645,24 +2640,24 @@ The following directions are set up:
 
 =item This
 
-The element itself.
+The output unit itself.
 
 =item Forward
 
-Element next.
+Unit next.
 
 =item Back
 
-Previous element.
+Previous output unit.
 
 =item NodeForward
 
-Following node element in reading order.  It is the next node, or the
+Following node output unit in reading order.  It is the next node unit, or the
 first in menu or the next of the up node.
 
 =item NodeBack
 
-Preceding node element.
+Preceding node output unit.
 
 =item NodeUp
 
@@ -2670,7 +2665,7 @@ Preceding node element.
 
 =item NodePrev
 
-The up, next and previous node elements.
+The up, next and previous node output unit.
 
 =item Up
 
@@ -2678,18 +2673,18 @@ The up, next and previous node elements.
 
 =item Prev
 
-The up, next and previous section elements.
+The up, next and previous section output unit.
 
 =item FastBack
 
-For top level elements, the previous top level element.  For other
-elements the up top level element.  For example, for a chapter element it
-is the previous chapter, for a subsection element it is the chapter
-element that contains the subsection.
+For top level output units, the previous top level output unit.  For other
+output units the up top level unit.  For example, for a chapter output unit it
+is the previous chapter output unit, for a subsection output unit it is the
+chapter output unit that contains the subsection.
 
 =item FastForward
 
-The next top level section element.
+The next top level output unit.
 
 =back
 
@@ -2697,15 +2692,15 @@ The next top level section element.
 X<C<elements_file_directions>>
 
 In the directions reference described above for C<elements_directions>,
-sets the I<PrevFile> and I<NextFile> directions to the elements in
+sets the I<PrevFile> and I<NextFile> directions to the output units in
 previous and following files.
 
-It also sets I<FirstInFile*> directions for all the elements by using
-the directions of the first element in file.  So, for example,
-I<FirstInFileNodeNext> is the next node of the first element in
-the file of each element.
+It also sets I<FirstInFile*> directions for all the output units by using
+the directions of the first output unit in file.  So, for example,
+I<FirstInFileNodeNext> is the output unit associated to the next node
+of the first output unit node in the file for each output unit in the file.
 
-The API for association of pages/elements to files is not defined yet.
+The API for association of pages/output units to files is not defined yet.
 
 =item @children_nodes = get_node_node_childs_from_sectioning($node)
 X<C<get_node_node_childs_from_sectioning>>
@@ -2778,7 +2773,7 @@ This functions sets, in the C<extra> node element hash:
 
 =item node_directions
 
-Hash reference with C<up>, C<next> and C<prev> keys associated to
+Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to node line directions.
 
 =back
@@ -2825,12 +2820,12 @@ An array holding sectioning elements children of the element.
 
 =item section_directions
 
-Hash reference with C<up>, C<next> and C<prev> keys associated to
+Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to sectioning structure directions.
 
 =item toplevel_directions
 
-Hash reference with C<up>, C<next> and C<prev> keys associated to
+Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to toplevel sectioning structure directions,
 for elements like C<@top>, C<@chapter>, C<@appendix>, not taking into
 account C<@part> elements.
@@ -2848,7 +2843,7 @@ This functions sets, in the C<extra> node element hash reference:
 
 =item menu_directions
 
-Hash reference with C<up>, C<next> and C<prev> keys associated to
+Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to menu directions.
 
 =back
@@ -2881,36 +2876,36 @@ Register errors in I<$registrar>.
 =item $output_units = split_by_node($tree)
 X<C<split_by_node>>
 
-Returns a reference array of tree units where a node is associated to
+Returns a reference array of output units where a node is associated to
 the following sectioning commands.  Sectioning commands without nodes
 are also with the previous node, while nodes without sectioning commands
-are alone in their tree units.
+are alone in their output units.
 
-Tree units are hash references with with type I<unit>, the node command
+Output units are hash references with with type I<unit>, the node command
 associated with the element is associated to the C<unit_command> key,
 the associated nodes and sectioning tree elements are in the array
 associated with the C<contents> key.  The associated elements have
-an I<associated_unit> key that points to the associated tree unit.
+an C<associated_unit> key that points to the associated output unit.
 
-Tree units also have directions in the C<tree_unit_directions>
+Output units also have directions in the C<tree_unit_directions>
 hash reference, namely I<next> and I<prev> pointing to the
-previous and the next tree unit.
+previous and the next output unit.
 
 =item $output_units = split_by_section($tree)
 X<C<split_by_section>>
 
-Similarly with C<split_by_node>, returns an array of tree units.  This
+Similarly with C<split_by_node>, returns an array of output units.  This
 time, lone nodes are associated with the previous sections and lone
-sections makes up a tree unit.
+sections makes up an output unit.
 
 The hash keys set are the same, except that I<unit_command> is the sectioning
-command associated with the tree unit.
+command associated with the output unit.
 
 =item $pages = split_pages($output_units, $split)
 X<C<split_pages>>
 
-The tree units from the array reference argument have an extra
-I<first_in_page> value set to the first tree unit in the group,
+The output units from the array reference argument have a
+I<first_in_page> value set to the first output unit in the group,
 and based on the value of I<$split>.  The possible values for
 I<$split> are
 
@@ -2918,19 +2913,19 @@ I<$split> are
 
 =item chapter
 
-The tree units are split at chapter or other toplevel sectioning tree units.
+The output units are split at chapter or other toplevel sectioning commands.
 
 =item node
 
-Each element has its own page.
+Each element has its own output unit.
 
 =item section
 
-The tree units are split at sectioning commands below chapter.
+The output units are split at sectioning commands below chapter.
 
 =item value evaluating to false
 
-No splitting, only one page is returned, holding all the tree units.
+No splitting, only one page is returned, holding all the output units.
 
 =back
 

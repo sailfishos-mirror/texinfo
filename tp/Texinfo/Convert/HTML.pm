@@ -11327,7 +11327,7 @@ sub output($$)
           and $output_unit->{'type'} eq 'special_element') {
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
         $special_element_content
-                       .= $self->_convert($output_unit, "output s-unit $unit_nr");
+                  .= $self->_convert($output_unit, "output s-unit $unit_nr");
         if ($special_element_content eq '') {
           $self->{'file_counters'}->{$output_unit_filename}--;
           next ;

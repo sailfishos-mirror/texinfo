@@ -1,5 +1,11 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	*  tp/Texinfo/Structuring.pm (_output_unit_section)
+	(_output_unit_node): rename _tree_unit_section as _output_unit_section
+	and _tree_unit_node as _output_unit_node.  Rename some variables.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_output_unit_file)
 	(_set_output_units_files, initialize_output_units_files)
 	(_convert_document_units): rename set_tree_unit_file as
