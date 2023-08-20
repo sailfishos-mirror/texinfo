@@ -1,5 +1,11 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML (_prepare_conversion_units): rename
+	_prepare_conversion_tree_units as _prepare_conversion_units.
+	Rename 'tree_units' as 'document_units'.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML: rename current_root_element as
 	current_output_unit.
 

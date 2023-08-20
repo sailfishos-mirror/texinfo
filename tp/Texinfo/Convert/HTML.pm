@@ -880,12 +880,12 @@ sub command_href($$;$$$)
     # Happens if there are no pages, for example if OUTPUT is set to ''
     # as in the test cases.  Also for things in @titlepage when
     # titlepage is not output.
-    if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
-        and defined($self->{'tree_units'}->[0]
+    if ($self->{'document_units'} and $self->{'document_units'}->[0]
+        and defined($self->{'document_units'}->[0]
                                    ->{'unit_filename'})) {
       # In that case use the first page.
       $target_filename
-        = $self->{'tree_units'}->[0]->{'unit_filename'};
+        = $self->{'document_units'}->[0]->{'unit_filename'};
     }
   }
   if (defined($target_filename)) {
@@ -7238,7 +7238,7 @@ $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 # Function for converting the top-level elements in the conversion corresponding to
 # a section or a node.  The node and associated section appear together in
 # the tree unit top-level element.  $ELEMENT was created in this module (in
-# _prepare_conversion_tree_units), with type 'unit' (it's not a tree element created
+# _prepare_conversion_units), with type 'unit' (it's not a tree element created
 # by the parser).  $CONTENT is the contents of the node/section, already converted.
 sub _convert_tree_unit_type($$$$)
 {
@@ -7817,7 +7817,7 @@ sub _load_htmlxref_files {
 #  files_information
 #
 #     No API, converter internals
-#  tree_units
+#  document_units
 #  out_filepaths          (partially common with Texinfo::Converter)
 #  current_output_unit
 #  seen_ids
@@ -8796,10 +8796,10 @@ sub _html_get_tree_root_element($$;$)
         } elsif ($current->{'cmdname'} eq 'titlepage'
                  and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
                  and $self->get_conf('SHOW_TITLE')
-                 and $self->{'tree_units'}->[0]) {
-          #print STDERR "FOR titlepage tree_units [0]\n" if ($debug);
-          return ($self->{'tree_units'}->[0],
-                  $self->{'tree_units'}->[0]->{'unit_command'});
+                 and $self->{'document_units'}->[0]) {
+          #print STDERR "FOR titlepage document_units [0]\n" if ($debug);
+          return ($self->{'document_units'}->[0],
+                  $self->{'document_units'}->[0]->{'unit_command'});
         }
         die "Problem $root_element, $root_command" if (defined($root_element)
                                                   or defined($root_command));
@@ -9070,7 +9070,7 @@ sub _html_set_pages_files($$$$$$$$)
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
 # Also do some conversion setup that is to be done in both convert() and output().
-sub _prepare_conversion_tree_units($$$$)
+sub _prepare_conversion_units($$$$)
 {
   my $self = shift;
   my $root = shift;
@@ -9085,7 +9085,7 @@ sub _prepare_conversion_tree_units($$$$)
     $output_units = Texinfo::Structuring::split_by_section($root);
   }
 
-  $self->{'tree_units'} = $output_units
+  $self->{'document_units'} = $output_units
     if (defined($output_units));
 
   # This may be done as soon as tree units are available.
@@ -9295,10 +9295,10 @@ sub _prepare_contents_elements($)
       if ($self->get_conf($cmdname)) {
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-          if ($self->{'tree_units'}
-              and exists($self->{'tree_units'}->[0]->{'unit_filename'})) {
+          if ($self->{'document_units'}
+              and exists($self->{'document_units'}->[0]->{'unit_filename'})) {
             $default_filename
-              = $self->{'tree_units'}->[0]->{'unit_filename'};
+              = $self->{'document_units'}->[0]->{'unit_filename'};
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
@@ -10718,12 +10718,12 @@ sub convert($$)
   # needed for CSS rules gathering
   $self->{'current_filename'} = '';
 
-  # call before _prepare_conversion_tree_units, which calls _translate_names.
+  # call before _prepare_conversion_units, which calls _translate_names.
   # Some information is not available yet.
   $self->_reset_info();
 
   my ($output_units, $special_elements)
-    = $self->_prepare_conversion_tree_units($root, undef, undef);
+    = $self->_prepare_conversion_units($root, undef, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
@@ -10760,8 +10760,8 @@ sub output_internal_links($)
 {
   my $self = shift;
   my $out_string = '';
-  if ($self->{'tree_units'}) {
-    foreach my $output_unit (@{$self->{'tree_units'}}) {
+  if ($self->{'document_units'}) {
+    foreach my $output_unit (@{$self->{'document_units'}}) {
       my $text;
       my $href;
       my $command = $self->unit_element_command($output_unit);
@@ -11014,7 +11014,7 @@ sub output($$)
   $self->{'destination_directory'} = $destination_directory;
 
   # set information, to have it available for the conversions below,
-  # in translate_names called by _prepare_conversion_tree_units and in
+  # in translate_names called by _prepare_conversion_units and in
   # titles formatting.
   # Some information is not available yet.
   $self->_reset_info();
@@ -11022,8 +11022,8 @@ sub output($$)
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
   my ($output_units, $special_elements)
-    = $self->_prepare_conversion_tree_units($root, $destination_directory,
-                                            $document_name);
+    = $self->_prepare_conversion_units($root, $destination_directory,
+                                       $document_name);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
 

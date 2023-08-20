@@ -412,8 +412,8 @@ Default=,"$hhc_filename","$hhk_filename","$top_file","$top_file",,,,,0x22520,,0x
 EOT
 
   my %chm_files;
-  if ($self->{'tree_units'}) {
-    foreach my $element (@{$self->{'tree_units'}}) {
+  if ($self->{'document_units'}) {
+    foreach my $element (@{$self->{'document_units'}}) {
       if (!$chm_files{$element->{'unit_filename'}}) {
         print $hhp_fh "$element->{'unit_filename'}\n";
         $chm_files{$element->{'unit_filename'}} = 1;

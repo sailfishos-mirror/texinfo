@@ -13,8 +13,8 @@ sub test_misc_file_name($$$$)
   return ($filename, $filepath) if (defined($filepath));
 
   if ($converter->unit_is_top_output_unit($output_unit)
-      or ($converter->{'tree_units'}->[2]
-          and $converter->{'tree_units'}->[2] eq $output_unit)) {
+      or ($converter->{'document_units'}->[2]
+          and $converter->{'document_units'}->[2] eq $output_unit)) {
     my $extension = $converter->get_conf('EXTENSION');
     my $prefix = $converter->{'document_name'};
     $filename = "${prefix}_abt"
