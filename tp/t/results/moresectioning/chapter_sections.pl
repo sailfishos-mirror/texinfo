@@ -650,10 +650,8 @@ $result_sectioning{'chapter_sections'} = {
       {},
       {}
     ],
-    'section_directions' => {},
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_sections'};
 $result_sectioning{'chapter_sections'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

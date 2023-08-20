@@ -330,28 +330,27 @@ Copying information.
 $result_nodes{'anchor_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'anchor_in_copying'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'anchor_in_copying'};
+$result_nodes{'anchor_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_copying'};
 
 $result_menus{'anchor_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'anchor_in_copying'} = [];

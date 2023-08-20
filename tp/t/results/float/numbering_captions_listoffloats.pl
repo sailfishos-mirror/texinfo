@@ -5554,8 +5554,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'numbering_captions_listoffloats'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'numbering_captions_listoffloats'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'numbering_captions_listoffloats'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'numbering_captions_listoffloats'}{'extra'}{'section_childs'}[0];
@@ -5593,158 +5592,171 @@ $result_nodes{'numbering_captions_listoffloats'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'menus' => [
-          {
-            'cmdname' => 'menu'
-          }
-        ],
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'section',
-              'extra' => {
-                'section_number' => '1.1'
-              }
-            },
-            'normalized' => 'section'
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
           },
-          'structure' => {
-            'node_up' => {}
-          }
-        },
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'unnumbered',
-              'extra' => {}
-            },
-            'menus' => [
-              {
-                'cmdname' => 'menu'
-              }
-            ],
-            'normalized' => 'Unnumbered'
-          },
-          'structure' => {
-            'menu_child' => {
+          'menus' => [
+            {
+              'cmdname' => 'menu'
+            }
+          ],
+          'node_directions' => {
+            'next' => {
               'cmdname' => 'node',
               'extra' => {
                 'associated_section' => {
-                  'cmdname' => 'section',
+                  'cmdname' => 'unnumbered',
                   'extra' => {}
-                },
-                'normalized' => 'Section-within-unnumbered'
-              },
-              'structure' => {
-                'node_up' => {}
-              }
-            },
-            'node_next' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'associated_section' => {
-                  'cmdname' => 'chapter',
-                  'extra' => {
-                    'section_number' => 2
-                  }
                 },
                 'menus' => [
                   {
                     'cmdname' => 'menu'
                   }
                 ],
-                'normalized' => 'Chapter-with-unnumbsubsec'
+                'node_directions' => {
+                  'next' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'associated_section' => {
+                        'cmdname' => 'chapter',
+                        'extra' => {
+                          'section_number' => 2
+                        }
+                      },
+                      'menus' => [
+                        {
+                          'cmdname' => 'menu'
+                        }
+                      ],
+                      'node_directions' => {
+                        'next' => {
+                          'cmdname' => 'node',
+                          'extra' => {
+                            'associated_section' => {
+                              'cmdname' => 'appendix',
+                              'extra' => {
+                                'section_number' => 'A'
+                              }
+                            },
+                            'node_directions' => {
+                              'next' => {
+                                'cmdname' => 'node',
+                                'extra' => {
+                                  'associated_section' => {
+                                    'cmdname' => 'unnumbered',
+                                    'extra' => {}
+                                  },
+                                  'node_directions' => {
+                                    'prev' => {},
+                                    'up' => {}
+                                  },
+                                  'normalized' => 'list-of-floats'
+                                },
+                                'structure' => {}
+                              },
+                              'prev' => {},
+                              'up' => {}
+                            },
+                            'normalized' => 'Appendix-for-float'
+                          },
+                          'structure' => {}
+                        },
+                        'prev' => {},
+                        'up' => {}
+                      },
+                      'normalized' => 'Chapter-with-unnumbsubsec'
+                    },
+                    'structure' => {
+                      'menu_child' => {
+                        'cmdname' => 'node',
+                        'extra' => {
+                          'associated_section' => {
+                            'cmdname' => 'unnumberedsec',
+                            'extra' => {}
+                          },
+                          'node_directions' => {
+                            'up' => {}
+                          },
+                          'normalized' => 'unnumbered-sec'
+                        },
+                        'structure' => {}
+                      }
+                    }
+                  },
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'Unnumbered'
               },
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'associated_section' => {
-                      'cmdname' => 'unnumberedsec',
+                      'cmdname' => 'section',
                       'extra' => {}
                     },
-                    'normalized' => 'unnumbered-sec'
-                  },
-                  'structure' => {
-                    'node_up' => {}
-                  }
-                },
-                'node_next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'associated_section' => {
-                      'cmdname' => 'appendix',
-                      'extra' => {
-                        'section_number' => 'A'
-                      }
+                    'node_directions' => {
+                      'up' => {}
                     },
-                    'normalized' => 'Appendix-for-float'
+                    'normalized' => 'Section-within-unnumbered'
                   },
-                  'structure' => {
-                    'node_next' => {
-                      'cmdname' => 'node',
-                      'extra' => {
-                        'associated_section' => {
-                          'cmdname' => 'unnumbered',
-                          'extra' => {}
-                        },
-                        'normalized' => 'list-of-floats'
-                      },
-                      'structure' => {
-                        'node_prev' => {},
-                        'node_up' => {}
-                      }
-                    },
-                    'node_prev' => {},
-                    'node_up' => {}
-                  }
-                },
-                'node_prev' => {},
-                'node_up' => {}
+                  'structure' => {}
+                }
               }
             },
-            'node_prev' => {},
-            'node_up' => {}
-          }
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
         },
-        'node_prev' => {},
-        'node_up' => {}
+        'structure' => {
+          'menu_child' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'associated_section' => {
+                'cmdname' => 'section',
+                'extra' => {
+                  'section_number' => '1.1'
+                }
+              },
+              'node_directions' => {
+                'up' => {}
+              },
+              'normalized' => 'section'
+            },
+            'structure' => {}
+          }
+        }
       }
     },
-    'node_next' => {}
+    'normalized' => 'Top'
+  },
+  'structure' => {
+    'menu_child' => {}
   }
 };
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'numbering_captions_listoffloats'};
-$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'node_next'} = $result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'};
+$result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'numbering_captions_listoffloats'}{'structure'}{'menu_child'} = $result_nodes{'numbering_captions_listoffloats'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'numbering_captions_listoffloats'} = {
   'cmdname' => 'node',

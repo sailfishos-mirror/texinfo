@@ -670,7 +670,6 @@ $result_sectioning{'contents'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => -1
   }
 };

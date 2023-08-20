@@ -727,8 +727,7 @@ $result_sectioning{'placed_things_before_element_no_use_node'} = {
       }
     ],
     'section_level' => 1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'placed_things_before_element_no_use_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'placed_things_before_element_no_use_node'};
 

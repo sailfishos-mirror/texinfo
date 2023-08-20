@@ -481,8 +481,7 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -493,8 +492,7 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -531,37 +529,36 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'chapter-index'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter-index'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
-$result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
+$result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
+$result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
 
 $result_menus{'multiple_index_text_sortas_seeentry_seealso'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'multiple_index_text_sortas_seeentry_seealso'} = [];

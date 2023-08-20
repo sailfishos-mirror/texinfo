@@ -179,8 +179,7 @@ $result_sectioning{'setfilename_on_top_and_after_node'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'setfilename_on_top_and_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'setfilename_on_top_and_after_node'};
 

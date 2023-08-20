@@ -149,7 +149,6 @@ $result_sectioning{'section_before_part'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => -1
   }
 };

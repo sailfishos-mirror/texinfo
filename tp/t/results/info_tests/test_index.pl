@@ -3558,50 +3558,54 @@ $result_nodes{'test_index'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'appendix',
+                  'extra' => {
+                    'section_number' => 'A'
+                  }
+                },
+                'isindex' => 1,
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+              },
+              'structure' => {}
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'name'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'name'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'appendix',
-              'extra' => {
-                'section_number' => 'A'
-              }
-            },
-            'isindex' => 1,
-            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
-          },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'test_index'}{'structure'}{'menu_child'};
-$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'structure'}{'node_next'} = $result_nodes{'test_index'}{'structure'}{'menu_child'};
+$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'structure'}{'menu_child'} = $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_index'} = {
   'cmdname' => 'node',

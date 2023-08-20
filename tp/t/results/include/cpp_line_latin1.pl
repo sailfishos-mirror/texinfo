@@ -251,8 +251,7 @@ $result_sectioning{'cpp_line_latin1'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -273,28 +272,27 @@ $result_nodes{'cpp_line_latin1'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'cpp_line_latin1'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'cpp_line_latin1'};
+$result_nodes{'cpp_line_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_line_latin1'};
 
 $result_menus{'cpp_line_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cpp_line_latin1'} = [

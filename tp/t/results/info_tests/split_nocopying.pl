@@ -423,31 +423,34 @@ $result_nodes{'split_nocopying'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Ch1'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'Ch1'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'split_nocopying'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'split_nocopying'};
-$result_nodes{'split_nocopying'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'split_nocopying'};
-$result_nodes{'split_nocopying'}{'structure'}{'node_next'} = $result_nodes{'split_nocopying'}{'structure'}{'menu_child'};
+$result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'split_nocopying'};
+$result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_nocopying'};
+$result_nodes{'split_nocopying'}{'structure'}{'menu_child'} = $result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'split_nocopying'} = {
   'cmdname' => 'node',

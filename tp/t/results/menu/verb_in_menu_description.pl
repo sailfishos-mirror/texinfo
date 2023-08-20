@@ -280,8 +280,7 @@ $result_sectioning{'verb_in_menu_description'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'verb_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'verb_in_menu_description'};
 

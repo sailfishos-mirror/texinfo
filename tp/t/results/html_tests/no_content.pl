@@ -398,8 +398,7 @@ $result_sectioning{'no_content'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'no_content'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'no_content'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'no_content'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'no_content'}{'extra'}{'section_childs'}[0];
@@ -418,31 +417,34 @@ $result_nodes{'no_content'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'no_content'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'no_content'};
-$result_nodes{'no_content'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'no_content'};
-$result_nodes{'no_content'}{'structure'}{'node_next'} = $result_nodes{'no_content'}{'structure'}{'menu_child'};
+$result_nodes{'no_content'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'no_content'};
+$result_nodes{'no_content'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'no_content'};
+$result_nodes{'no_content'}{'structure'}{'menu_child'} = $result_nodes{'no_content'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'no_content'} = {
   'cmdname' => 'node',

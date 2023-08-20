@@ -124,7 +124,6 @@ $result_sectioning{'section_before_top_no_node'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 1
   }
 };

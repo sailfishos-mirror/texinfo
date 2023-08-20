@@ -168,10 +168,8 @@ $result_sectioning{'section_node_before_part'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_node_before_part'};
 $result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_node_before_part'};

@@ -1247,7 +1247,6 @@ $result_sectioning{'index_no_node_no_top'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 0
   }
 };

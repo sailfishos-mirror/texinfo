@@ -472,6 +472,17 @@ $result_nodes{'one_node_counted_elements'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
+      }
+    },
     'normalized' => 'one-node'
   },
   'structure' => {
@@ -484,15 +495,6 @@ $result_nodes{'one_node_counted_elements'} = {
         ]
       },
       'type' => 'menu_entry_node'
-    },
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
-      }
     }
   }
 };

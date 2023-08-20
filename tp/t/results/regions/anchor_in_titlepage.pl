@@ -329,8 +329,7 @@ $result_sectioning{'anchor_in_titlepage'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Top'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -369,28 +368,27 @@ $result_nodes{'anchor_in_titlepage'} = {
         'section_number' => 1
       }
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'nchap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'nchap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'anchor_in_titlepage'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'anchor_in_titlepage'};
+$result_nodes{'anchor_in_titlepage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_titlepage'};
 
 $result_menus{'anchor_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'anchor_in_titlepage'} = [];

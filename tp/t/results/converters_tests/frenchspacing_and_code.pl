@@ -1916,8 +1916,7 @@ $result_sectioning{'frenchspacing_and_code'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1927,8 +1926,7 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter-frenchspacing'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1948,8 +1946,7 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap-no'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1991,54 +1988,53 @@ $result_nodes{'frenchspacing_and_code'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chapter-frenchspacing'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
               'extra' => {
-                'section_number' => 2
+                'associated_section' => {
+                  'cmdname' => 'chapter',
+                  'extra' => {
+                    'section_number' => 2
+                  }
+                },
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'chap-no'
               }
             },
-            'normalized' => 'chap-no'
+            'prev' => {},
+            'up' => {}
           },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
+          'normalized' => 'chapter-frenchspacing'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'frenchspacing_and_code'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'frenchspacing_and_code'}{'structure'}{'node_next'};
-$result_nodes{'frenchspacing_and_code'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'frenchspacing_and_code'};
-$result_nodes{'frenchspacing_and_code'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'frenchspacing_and_code'};
-$result_nodes{'frenchspacing_and_code'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'frenchspacing_and_code'};
+$result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'frenchspacing_and_code'};
+$result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'frenchspacing_and_code'};
+$result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'frenchspacing_and_code'};
 
 $result_menus{'frenchspacing_and_code'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'frenchspacing_and_code'} = [];

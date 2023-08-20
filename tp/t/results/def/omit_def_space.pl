@@ -397,28 +397,27 @@ explain
 $result_nodes{'omit_def_space'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'omit_def_space'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'omit_def_space'};
+$result_nodes{'omit_def_space'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'omit_def_space'};
 
 $result_menus{'omit_def_space'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'omit_def_space'} = [];

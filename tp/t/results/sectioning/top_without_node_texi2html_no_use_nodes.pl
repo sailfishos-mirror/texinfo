@@ -201,8 +201,7 @@ $result_sectioning{'top_without_node_texi2html_no_use_nodes'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'second'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -225,8 +224,7 @@ $result_sectioning{'top_without_node_texi2html_no_use_nodes'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0];
@@ -242,18 +240,18 @@ $result_nodes{'top_without_node_texi2html_no_use_nodes'} = {
         'section_number' => 1
       }
     },
-    'normalized' => 'second'
-  },
-  'structure' => {
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
+    'node_directions' => {
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
       }
-    }
+    },
+    'normalized' => 'second'
   }
 };
 
@@ -261,8 +259,7 @@ $result_menus{'top_without_node_texi2html_no_use_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'second'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'top_without_node_texi2html_no_use_nodes'} = [];

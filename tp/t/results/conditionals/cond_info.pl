@@ -832,8 +832,7 @@ $result_sectioning{'cond_info'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -854,28 +853,27 @@ $result_nodes{'cond_info'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'cond_info'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'cond_info'};
+$result_nodes{'cond_info'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cond_info'};
 
 $result_menus{'cond_info'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cond_info'} = [];

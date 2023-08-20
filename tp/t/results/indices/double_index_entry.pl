@@ -445,26 +445,29 @@ $result_nodes{'double_index_entry'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-other-node'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'normalized' => 'chap-other-node'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'double_index_entry'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'double_index_entry'};
-$result_nodes{'double_index_entry'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'double_index_entry'};
-$result_nodes{'double_index_entry'}{'structure'}{'node_next'} = $result_nodes{'double_index_entry'}{'structure'}{'menu_child'};
+$result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_index_entry'};
+$result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_index_entry'};
+$result_nodes{'double_index_entry'}{'structure'}{'menu_child'} = $result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'double_index_entry'} = {
   'cmdname' => 'node',

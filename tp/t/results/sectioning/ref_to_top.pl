@@ -160,8 +160,7 @@ $result_sectioning{'ref_to_top'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'ref_to_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'ref_to_top'};
 

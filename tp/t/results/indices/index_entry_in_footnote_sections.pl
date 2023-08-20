@@ -326,8 +326,7 @@ $result_sectioning{'index_entry_in_footnote_sections'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -338,8 +337,7 @@ $result_sectioning{'index_entry_in_footnote_sections'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'Index'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -376,37 +374,36 @@ $result_nodes{'index_entry_in_footnote_sections'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'appendix',
-          'extra' => {
-            'section_number' => 'A'
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'Index'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'appendix',
+            'extra' => {
+              'section_number' => 'A'
+            }
+          },
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Index'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'index_entry_in_footnote_sections'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'index_entry_in_footnote_sections'};
-$result_nodes{'index_entry_in_footnote_sections'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'index_entry_in_footnote_sections'};
+$result_nodes{'index_entry_in_footnote_sections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_in_footnote_sections'};
+$result_nodes{'index_entry_in_footnote_sections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_in_footnote_sections'};
 
 $result_menus{'index_entry_in_footnote_sections'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'index_entry_in_footnote_sections'} = [];

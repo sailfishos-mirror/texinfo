@@ -174,8 +174,7 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
 

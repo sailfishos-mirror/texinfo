@@ -411,7 +411,7 @@ my @sections_keys = ('section_directions',
   'section_childs', 'associated_node', 'part_associated_section',
   'part_following_node', 'section_level',
   'toplevel_directions');
-my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
+my @node_keys = ('node_directions', 'menus',
   'associated_section', 'node_preceding_part');
 
 # in general, the 'parent' keys adds lot of non legible information,

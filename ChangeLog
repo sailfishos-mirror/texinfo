@@ -1,30 +1,37 @@
-2023-08-19  Patrice Dumas  <pertusus@free.fr>
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm,
+	tp/t/test_utils.pl: replace node directions {'structure'}->{'node_*'}
+	by {'extra'}->{'node_directions'}->{'*'}.  Fix some unexpected
+	autovivification.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm, tp/t/test_utils.pl: replace menu
 	directions {'structure'}->{'menu_*'} by
 	{'extra'}->{'menu_directions'}->{'*'}.
 
-2023-08-19  Patrice Dumas  <pertusus@free.fr>
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm,
 	tp/t/test_utils.pl: Replace {'structure'}->{'section_*'} by
 	{'extra'}->{'section_directions'}->{*} and {'structure'}->{'toplevel_*'}
 	by {'extra'}->{'toplevel_directions'}->{*}.
 
-2023-08-19  Patrice Dumas  <pertusus@free.fr>
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm, tp/ext/epub3.pm,
 	tp/init/book.pm, tp/init/chm.pm: put section_level, section_number
 	and section_childs in extra instead of structure.
 
-2023-08-19  Patrice Dumas  <pertusus@free.fr>
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/t/init/only_toc_out.init: move tree unit directions out of
 	structure directly in tree_unit.  Move 'special_element_variety'
 	out of extra directly in tree_unit.
 
-2023-08-19  Patrice Dumas  <pertusus@free.fr>
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm, tp/ext/epub3.pm,
 	tp/init/book.pm, tp/init/chm.pm, tp/t/init/t2h_singular.init,

@@ -139,8 +139,7 @@ $result_sectioning{'recursive_self_section_reference'} = {
       }
     ],
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'recursive_self_section_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'recursive_self_section_reference'};
 

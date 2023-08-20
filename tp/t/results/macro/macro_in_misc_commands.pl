@@ -5675,38 +5675,41 @@ $result_nodes{'macro_in_misc_commands'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            },
+            'source_marks' => [
+              {
+                'counter' => 51,
+                'sourcemark_type' => 'macro_expansion',
+                'status' => 'end'
+              }
+            ]
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'node-atext'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          },
-          'source_marks' => [
-            {
-              'counter' => 51,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ]
-        },
-        'normalized' => 'node-atext'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'macro_in_misc_commands'};
-$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'macro_in_misc_commands'};
-$result_nodes{'macro_in_misc_commands'}{'structure'}{'node_next'} = $result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'};
+$result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'macro_in_misc_commands'};
+$result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'macro_in_misc_commands'};
+$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'} = $result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'macro_in_misc_commands'} = {
   'cmdname' => 'node',

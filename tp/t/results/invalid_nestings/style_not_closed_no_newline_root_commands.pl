@@ -411,31 +411,34 @@ $result_nodes{'style_not_closed_no_newline_root_commands'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
-$result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
-$result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'node_next'} = $result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'};
+$result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
+$result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
+$result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'} = $result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'style_not_closed_no_newline_root_commands'} = {
   'cmdname' => 'node',

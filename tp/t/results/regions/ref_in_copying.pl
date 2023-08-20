@@ -456,8 +456,7 @@ $result_sectioning{'ref_in_copying'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'ref_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'ref_in_copying'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'ref_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'ref_in_copying'}{'extra'}{'section_childs'}[0];
@@ -476,31 +475,34 @@ $result_nodes{'ref_in_copying'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'GFDL'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'GFDL'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'ref_in_copying'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_copying'};
-$result_nodes{'ref_in_copying'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'ref_in_copying'};
-$result_nodes{'ref_in_copying'}{'structure'}{'node_next'} = $result_nodes{'ref_in_copying'}{'structure'}{'menu_child'};
+$result_nodes{'ref_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_copying'};
+$result_nodes{'ref_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying'};
+$result_nodes{'ref_in_copying'}{'structure'}{'menu_child'} = $result_nodes{'ref_in_copying'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'ref_in_copying'} = {
   'cmdname' => 'node',

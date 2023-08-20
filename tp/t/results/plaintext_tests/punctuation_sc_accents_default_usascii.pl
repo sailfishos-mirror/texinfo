@@ -1258,8 +1258,7 @@ $result_sectioning{'punctuation_sc_accents_default_usascii'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1269,8 +1268,7 @@ $result_sectioning{'punctuation_sc_accents_default_usascii'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node-chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1307,36 +1305,35 @@ $result_nodes{'punctuation_sc_accents_default_usascii'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'node-chap'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'node-chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'punctuation_sc_accents_default_usascii'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'punctuation_sc_accents_default_usascii'};
-$result_nodes{'punctuation_sc_accents_default_usascii'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'punctuation_sc_accents_default_usascii'};
+$result_nodes{'punctuation_sc_accents_default_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'punctuation_sc_accents_default_usascii'};
+$result_nodes{'punctuation_sc_accents_default_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'punctuation_sc_accents_default_usascii'};
 
 $result_menus{'punctuation_sc_accents_default_usascii'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'punctuation_sc_accents_default_usascii'} = [];

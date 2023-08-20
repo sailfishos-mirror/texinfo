@@ -772,8 +772,7 @@ $result_sectioning{'check_htmlxref_no_use_nodes'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0];
@@ -792,48 +791,51 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'first'
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => '../there/no_existing_no_manual_direction'
+            }
+          ]
+        }
       },
-      'structure' => {
-        'node_next' => {
-          'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'no_existing_no_manual.info'
+      'prev' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'next' => {
+              'extra' => {
+                'manual_content' => [
+                  {
+                    'text' => 'no_existing_no_manual.info'
+                  }
+                ]
               }
-            ]
-          }
+            }
+          },
+          'normalized' => 'first'
+        },
+        'structure' => {}
+      },
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
         }
       }
     },
-    'node_next' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => '../there/no_existing_no_manual_direction'
-          }
-        ]
-      }
-    },
-    'node_prev' => {},
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
-      }
-    }
+    'normalized' => 'Top'
+  },
+  'structure' => {
+    'menu_child' => {}
   }
 };
-$result_nodes{'check_htmlxref_no_use_nodes'}{'structure'}{'node_prev'} = $result_nodes{'check_htmlxref_no_use_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'check_htmlxref_no_use_nodes'}{'structure'}{'menu_child'} = $result_nodes{'check_htmlxref_no_use_nodes'}{'extra'}{'node_directions'}{'prev'};
 
 $result_menus{'check_htmlxref_no_use_nodes'} = {
   'cmdname' => 'node',

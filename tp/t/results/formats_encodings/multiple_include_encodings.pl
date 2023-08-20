@@ -2275,8 +2275,7 @@ $result_sectioning{'multiple_include_encodings'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -2286,8 +2285,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -2307,8 +2305,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Preface'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2329,8 +2326,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Introduction'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2393,8 +2389,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2415,8 +2410,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Mixed-chinese-and-english-utf_002d8'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -2440,8 +2434,7 @@ $result_sectioning{'multiple_include_encodings'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
@@ -2476,148 +2469,150 @@ $result_nodes{'multiple_include_encodings'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_number' => 2
-              }
-            },
-            'normalized' => 'Preface'
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
           },
-          'structure' => {
-            'node_next' => {
+          'node_directions' => {
+            'next' => {
               'cmdname' => 'node',
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {
-                    'section_number' => 3
+                    'section_number' => 2
                   }
                 },
-                'normalized' => 'Introduction'
-              },
-              'structure' => {
-                'node_next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'associated_section' => {
-                      'cmdname' => 'chapter',
-                      'extra' => {
-                        'section_number' => 4
-                      }
-                    },
-                    'isindex' => 1,
-                    'menus' => [
-                      {
-                        'cmdname' => 'menu'
-                      }
-                    ],
-                    'normalized' => 'char-latin2-latin2'
-                  },
-                  'structure' => {
-                    'menu_child' => {
-                      'cmdname' => 'node',
-                      'extra' => {
-                        'associated_section' => {
-                          'cmdname' => 'section',
-                          'extra' => {
-                            'section_number' => '4.1'
-                          }
-                        },
-                        'normalized' => '_0104-_0105-_02db-_0118-_0119'
+                'node_directions' => {
+                  'next' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'associated_section' => {
+                        'cmdname' => 'chapter',
+                        'extra' => {
+                          'section_number' => 3
+                        }
                       },
-                      'structure' => {
-                        'node_up' => {}
-                      }
-                    },
-                    'node_next' => {
-                      'cmdname' => 'node',
-                      'extra' => {
-                        'associated_section' => {
-                          'cmdname' => 'chapter',
-                          'extra' => {
-                            'section_number' => 5
-                          }
-                        },
-                        'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
-                      },
-                      'structure' => {
-                        'node_next' => {
+                      'node_directions' => {
+                        'next' => {
                           'cmdname' => 'node',
                           'extra' => {
                             'associated_section' => {
                               'cmdname' => 'chapter',
                               'extra' => {
-                                'section_number' => 6
+                                'section_number' => 4
                               }
                             },
-                            'normalized' => 'Mixed-chinese-and-english-utf_002d8'
+                            'isindex' => 1,
+                            'menus' => [
+                              {
+                                'cmdname' => 'menu'
+                              }
+                            ],
+                            'node_directions' => {
+                              'next' => {
+                                'cmdname' => 'node',
+                                'extra' => {
+                                  'associated_section' => {
+                                    'cmdname' => 'chapter',
+                                    'extra' => {
+                                      'section_number' => 5
+                                    }
+                                  },
+                                  'node_directions' => {
+                                    'next' => {
+                                      'cmdname' => 'node',
+                                      'extra' => {
+                                        'associated_section' => {
+                                          'cmdname' => 'chapter',
+                                          'extra' => {
+                                            'section_number' => 6
+                                          }
+                                        },
+                                        'node_directions' => {
+                                          'prev' => {},
+                                          'up' => {}
+                                        },
+                                        'normalized' => 'Mixed-chinese-and-english-utf_002d8'
+                                      }
+                                    },
+                                    'prev' => {},
+                                    'up' => {}
+                                  },
+                                  'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
+                                }
+                              },
+                              'prev' => {},
+                              'up' => {}
+                            },
+                            'normalized' => 'char-latin2-latin2'
                           },
                           'structure' => {
-                            'node_prev' => {},
-                            'node_up' => {}
+                            'menu_child' => {
+                              'cmdname' => 'node',
+                              'extra' => {
+                                'associated_section' => {
+                                  'cmdname' => 'section',
+                                  'extra' => {
+                                    'section_number' => '4.1'
+                                  }
+                                },
+                                'node_directions' => {
+                                  'up' => {}
+                                },
+                                'normalized' => '_0104-_0105-_02db-_0118-_0119'
+                              },
+                              'structure' => {}
+                            }
                           }
                         },
-                        'node_prev' => {},
-                        'node_up' => {}
-                      }
-                    },
-                    'node_prev' => {},
-                    'node_up' => {}
-                  }
+                        'prev' => {},
+                        'up' => {}
+                      },
+                      'normalized' => 'Introduction'
+                    }
+                  },
+                  'prev' => {},
+                  'up' => {}
                 },
-                'node_prev' => {},
-                'node_up' => {}
+                'normalized' => 'Preface'
               }
             },
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'};
+$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
 
 $result_menus{'multiple_include_encodings'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'multiple_include_encodings'} = [

@@ -1365,28 +1365,27 @@ etext4
 $result_nodes{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'cpp_lines'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'cpp_lines'};
+$result_nodes{'cpp_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_lines'};
 
 $result_menus{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cpp_lines'} = [

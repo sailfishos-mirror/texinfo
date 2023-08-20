@@ -6772,8 +6772,7 @@ $result_sectioning{'index_table'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
@@ -6801,87 +6800,93 @@ $result_nodes{'index_table'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'node-with-ftable-and-vtable'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_number' => 2
-              }
-            },
-            'isindex' => 1,
-            'normalized' => 'node-with-printindex'
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
           },
-          'structure' => {
-            'node_next' => {
+          'node_directions' => {
+            'next' => {
               'cmdname' => 'node',
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {
-                    'section_number' => 3
+                    'section_number' => 2
                   }
                 },
                 'isindex' => 1,
-                'menus' => [
-                  {
-                    'cmdname' => 'menu'
-                  }
-                ],
-                'normalized' => 'indices-refs'
-              },
-              'structure' => {
-                'menu_child' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'associated_section' => {
-                      'cmdname' => 'section',
-                      'extra' => {
-                        'section_number' => '3.1'
-                      }
+                'node_directions' => {
+                  'next' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'associated_section' => {
+                        'cmdname' => 'chapter',
+                        'extra' => {
+                          'section_number' => 3
+                        }
+                      },
+                      'isindex' => 1,
+                      'menus' => [
+                        {
+                          'cmdname' => 'menu'
+                        }
+                      ],
+                      'node_directions' => {
+                        'prev' => {},
+                        'up' => {}
+                      },
+                      'normalized' => 'indices-refs'
                     },
-                    'normalized' => 'node'
+                    'structure' => {
+                      'menu_child' => {
+                        'cmdname' => 'node',
+                        'extra' => {
+                          'associated_section' => {
+                            'cmdname' => 'section',
+                            'extra' => {
+                              'section_number' => '3.1'
+                            }
+                          },
+                          'normalized' => 'node'
+                        },
+                        'structure' => {}
+                      }
+                    }
                   },
-                  'structure' => {}
+                  'prev' => {},
+                  'up' => {}
                 },
-                'node_prev' => {},
-                'node_up' => {}
-              }
+                'normalized' => 'node-with-printindex'
+              },
+              'structure' => {}
             },
-            'node_prev' => {},
-            'node_up' => {}
-          }
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'node-with-ftable-and-vtable'
         },
-        'node_prev' => {},
-        'node_up' => {}
+        'structure' => {}
       }
     },
-    'node_next' => {}
+    'normalized' => 'Top'
+  },
+  'structure' => {
+    'menu_child' => {}
   }
 };
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'index_table'};
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'index_table'}{'structure'}{'menu_child'};
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'index_table'};
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'index_table'};
-$result_nodes{'index_table'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'index_table'};
-$result_nodes{'index_table'}{'structure'}{'node_next'} = $result_nodes{'index_table'}{'structure'}{'menu_child'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_table'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_table'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_table'};
+$result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_table'};
+$result_nodes{'index_table'}{'structure'}{'menu_child'} = $result_nodes{'index_table'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'index_table'} = {
   'cmdname' => 'node',

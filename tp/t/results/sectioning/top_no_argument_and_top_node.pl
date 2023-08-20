@@ -94,8 +94,7 @@ $result_sectioning{'top_no_argument_and_top_node'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'top_no_argument_and_top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_no_argument_and_top_node'};
 

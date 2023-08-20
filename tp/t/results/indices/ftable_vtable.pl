@@ -730,29 +730,28 @@ var3
 $result_nodes{'ftable_vtable'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'ftable_vtable'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'ftable_vtable'};
+$result_nodes{'ftable_vtable'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ftable_vtable'};
 
 $result_menus{'ftable_vtable'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'ftable_vtable'} = [];

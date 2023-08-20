@@ -190,20 +190,19 @@ $result_texts{'double_top'} = '
 $result_nodes{'double_top'} = {
   'cmdname' => 'node',
   'extra' => {
+    'node_directions' => {
+      'next' => {}
+    },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {}
   }
 };
-$result_nodes{'double_top'}{'structure'}{'node_next'} = $result_nodes{'double_top'};
+$result_nodes{'double_top'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top'};
 
 $result_menus{'double_top'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'double_top'} = [

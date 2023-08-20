@@ -431,8 +431,7 @@ $result_sectioning{'top_node_up_explicit'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0];
@@ -451,6 +450,35 @@ $result_nodes{'top_node_up_explicit'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
+      },
+      'prev' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'weird'
+            }
+          ]
+        }
+      },
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
@@ -463,42 +491,16 @@ $result_nodes{'top_node_up_explicit'} = {
             'section_number' => 1
           }
         },
+        'node_directions' => {
+          'up' => {}
+        },
         'normalized' => 'Chap'
       },
-      'structure' => {
-        'node_up' => {}
-      }
-    },
-    'node_next' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
-      }
-    },
-    'node_prev' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'weird'
-          }
-        ]
-      }
-    },
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
-      }
+      'structure' => {}
     }
   }
 };
-$result_nodes{'top_node_up_explicit'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'top_node_up_explicit'};
+$result_nodes{'top_node_up_explicit'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_up_explicit'};
 
 $result_menus{'top_node_up_explicit'} = {
   'cmdname' => 'node',

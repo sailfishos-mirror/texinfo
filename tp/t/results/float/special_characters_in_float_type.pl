@@ -454,8 +454,7 @@ $result_sectioning{'special_characters_in_float_type'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -465,8 +464,7 @@ $result_sectioning{'special_characters_in_float_type'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -489,8 +487,7 @@ $result_sectioning{'special_characters_in_float_type'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
@@ -504,36 +501,35 @@ $result_nodes{'special_characters_in_float_type'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'special_characters_in_float_type'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'special_characters_in_float_type'};
-$result_nodes{'special_characters_in_float_type'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'special_characters_in_float_type'};
+$result_nodes{'special_characters_in_float_type'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'special_characters_in_float_type'};
+$result_nodes{'special_characters_in_float_type'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'special_characters_in_float_type'};
 
 $result_menus{'special_characters_in_float_type'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'special_characters_in_float_type'} = [];

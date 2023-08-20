@@ -214,23 +214,25 @@ $result_nodes{'space_at_menu_end'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'out'
+            }
+          ]
+        },
+        'type' => 'menu_entry_node'
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'out'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'space_at_menu_end'}{'structure'}{'node_next'} = $result_nodes{'space_at_menu_end'}{'structure'}{'menu_child'};
+$result_nodes{'space_at_menu_end'}{'structure'}{'menu_child'} = $result_nodes{'space_at_menu_end'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'space_at_menu_end'} = {
   'cmdname' => 'node',

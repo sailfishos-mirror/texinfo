@@ -267,14 +267,14 @@ $result_nodes{'novalidate'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'node_next' => {
-      'extra' => {
-        'normalized' => 'unknown-node'
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'normalized' => 'unknown-node'
+        }
       }
-    }
+    },
+    'normalized' => 'first'
   }
 };
 
@@ -282,8 +282,7 @@ $result_menus{'novalidate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'novalidate'} = [];

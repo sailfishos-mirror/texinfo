@@ -1570,31 +1570,34 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'some_at_commands_in_ref_nodes'};
-$result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'some_at_commands_in_ref_nodes'};
-$result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'node_next'} = $result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'some_at_commands_in_ref_nodes'};
+$result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'some_at_commands_in_ref_nodes'};
+$result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'} = $result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'some_at_commands_in_ref_nodes'} = {
   'cmdname' => 'node',

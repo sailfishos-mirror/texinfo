@@ -789,10 +789,8 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
       {},
       {}
     ],
-    'section_directions' => {},
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

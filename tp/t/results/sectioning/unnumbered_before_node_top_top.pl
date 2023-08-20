@@ -234,10 +234,8 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
       },
       {}
     ],
-    'section_directions' => {},
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_before_node_top_top'};
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

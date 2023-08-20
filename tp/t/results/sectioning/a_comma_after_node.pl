@@ -114,6 +114,7 @@ A comma in text, end.
 $result_nodes{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
+    'node_directions' => {},
     'normalized' => 'Commands'
   }
 };

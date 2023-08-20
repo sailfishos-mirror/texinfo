@@ -364,8 +364,7 @@ $result_sectioning{'8bit_document_translations'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -375,8 +374,7 @@ $result_sectioning{'8bit_document_translations'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -396,8 +394,7 @@ $result_sectioning{'8bit_document_translations'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'appendix'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -421,8 +418,7 @@ $result_sectioning{'8bit_document_translations'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'8bit_document_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'8bit_document_translations'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'8bit_document_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'8bit_document_translations'}{'extra'}{'section_childs'}[0];
@@ -440,54 +436,53 @@ $result_nodes{'8bit_document_translations'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'appendix',
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
               'extra' => {
-                'section_number' => 'A'
+                'associated_section' => {
+                  'cmdname' => 'appendix',
+                  'extra' => {
+                    'section_number' => 'A'
+                  }
+                },
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'appendix'
               }
             },
-            'normalized' => 'appendix'
+            'prev' => {},
+            'up' => {}
           },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'8bit_document_translations'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'8bit_document_translations'}{'structure'}{'node_next'};
-$result_nodes{'8bit_document_translations'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'8bit_document_translations'};
-$result_nodes{'8bit_document_translations'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'8bit_document_translations'};
-$result_nodes{'8bit_document_translations'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'8bit_document_translations'};
+$result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'8bit_document_translations'};
+$result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'8bit_document_translations'};
+$result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'8bit_document_translations'};
 
 $result_menus{'8bit_document_translations'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'8bit_document_translations'} = [];

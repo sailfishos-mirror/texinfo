@@ -218,39 +218,39 @@ Content
 $result_nodes{'node_on_index_entry_line'} = {
   'cmdname' => 'node',
   'extra' => {
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'm'
+            }
+          ],
+          'normalized' => 'b'
+        }
+      },
+      'prev' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'm'
+            }
+          ],
+          'normalized' => 'c'
+        }
+      },
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'h'
+            }
+          ],
+          'normalized' => 'd'
+        }
+      }
+    },
     'normalized' => 'a'
-  },
-  'structure' => {
-    'node_next' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'm'
-          }
-        ],
-        'normalized' => 'b'
-      }
-    },
-    'node_prev' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'm'
-          }
-        ],
-        'normalized' => 'c'
-      }
-    },
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'h'
-          }
-        ],
-        'normalized' => 'd'
-      }
-    }
   }
 };
 
@@ -258,8 +258,7 @@ $result_menus{'node_on_index_entry_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_on_index_entry_line'} = [

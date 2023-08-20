@@ -256,8 +256,8 @@ sub expand_verbatiminclude($$$)
   my $customization_information = shift;
   my $current = shift;
 
-  return unless ($current->{'extra'}
-                 and defined($current->{'extra'}->{'text_arg'}));
+  return undef unless ($current->{'extra'}
+                       and defined($current->{'extra'}->{'text_arg'}));
   my $file_name_text = $current->{'extra'}->{'text_arg'};
 
   my $input_encoding

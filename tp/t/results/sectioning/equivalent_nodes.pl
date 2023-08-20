@@ -323,23 +323,26 @@ $result_nodes{'equivalent_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'up' => {}
+          },
+          'normalized' => 'node'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'first'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'node'
-      },
-      'structure' => {
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'equivalent_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'equivalent_nodes'};
-$result_nodes{'equivalent_nodes'}{'structure'}{'node_next'} = $result_nodes{'equivalent_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'equivalent_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes'};
+$result_nodes{'equivalent_nodes'}{'structure'}{'menu_child'} = $result_nodes{'equivalent_nodes'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'equivalent_nodes'} = {
   'cmdname' => 'node',

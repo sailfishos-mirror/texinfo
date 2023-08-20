@@ -303,8 +303,7 @@ $result_sectioning{'between_node_and_section'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sec1'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -320,8 +319,7 @@ $result_sectioning{'between_node_and_section'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'sec2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},

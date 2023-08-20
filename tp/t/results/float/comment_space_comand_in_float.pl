@@ -258,28 +258,27 @@ Float
 $result_nodes{'comment_space_comand_in_float'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'comment_space_comand_in_float'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'comment_space_comand_in_float'};
+$result_nodes{'comment_space_comand_in_float'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_space_comand_in_float'};
 
 $result_menus{'comment_space_comand_in_float'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'comment_space_comand_in_float'} = [];

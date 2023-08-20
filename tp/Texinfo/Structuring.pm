@@ -226,7 +226,8 @@ sub sectioning_structure($$$)
         my $new_upper_part_element;
         if ($previous_section->{'extra'}->{'section_level'} != $level) {
           # means it is above the previous command, the up is to be found
-          while ($up->{'extra'}->{'section_directions'}->{'up'}
+          while ($up->{'extra'}->{'section_directions'}
+                 and $up->{'extra'}->{'section_directions'}->{'up'}
                  and $up->{'extra'}->{'section_level'} >= $level) {
             $up = $up->{'extra'}->{'section_directions'}->{'up'};
           }
@@ -443,16 +444,19 @@ sub check_nodes_are_referenced
 
   my %referenced_nodes = ($top_node => 1);
   foreach my $node (@{$nodes_list}) {
-    next if (!$node->{'structure'});
+    next if (!$node->{'extra'});
     # gather referenced nodes based on node pointers
     foreach my $direction (@node_directions) {
-      if ($node->{'structure'}->{'node_'.$direction}
-          and not $node->{'structure'}->{'node_'.$direction}
-                                             ->{'extra'}->{'manual_content'}) {
-        $referenced_nodes{$node->{'structure'}->{'node_'.$direction}} = 1;
+      if ($node->{'extra'}->{'node_directions'}
+          and $node->{'extra'}->{'node_directions'}->{$direction}
+          and not $node->{'extra'}->{'node_directions'}->{$direction}
+                                     ->{'extra'}->{'manual_content'}) {
+        $referenced_nodes{
+             $node->{'extra'}->{'node_directions'}->{$direction}} = 1;
       }
     }
-    if ($node->{'structure'}->{'menu_up_hash'}) {
+    if ($node->{'structure'}
+        and $node->{'structure'}->{'menu_up_hash'}) {
       $referenced_nodes{$node} = 1;
     }
     # If an automatic menu can be setup, consider that all
@@ -667,13 +671,13 @@ sub complete_node_tree_with_menus($$$$)
       if ($node->{'extra'}->{'normalized'} ne 'Top') {
         foreach my $direction (@node_directions) {
           # prev already defined for the node first Top node menu entry
-          if ($direction eq 'prev' and $node->{'structure'}
-              and $node->{'structure'}->{'node_'.$direction}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-                                                                ->{'normalized'}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-                                                    ->{'normalized'} eq 'Top') {
+          if ($direction eq 'prev' and $node->{'extra'}->{'node_directions'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+              and $node->{'extra'}->{'node_directions'}->{$direction}->{'extra'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+                                      ->{'extra'}->{'normalized'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+                                      ->{'extra'}->{'normalized'} eq 'Top') {
             next;
           }
           if ($node->{'extra'}->{'associated_section'}) {
@@ -693,7 +697,7 @@ sub complete_node_tree_with_menus($$$$)
                     and $section->{'extra'}->{'section_directions'}->{'up'}
                and $section->{'extra'}->{'section_directions'}->{'up'}->{'extra'}
           and $section->{'extra'}->{'section_directions'}->{'up'}
-                                                ->{'extra'}->{'associated_node'}
+                        ->{'extra'}->{'associated_node'}
           and $section->{'extra'}->{'section_directions'}->{'up'}
                         ->{'extra'}->{'associated_node'}->{'extra'}
           and $section->{'extra'}->{'section_directions'}->{'up'}
@@ -716,14 +720,14 @@ sub complete_node_tree_with_menus($$$$)
           # using only automatic direction for manuals without sectioning
           # commands.
           if ($node->{'extra'}
-              and $node->{'structure'}
-              and !$node->{'structure'}->{'node_'.$direction}
+              and (!$node->{'extra'}->{'node_directions'}
+                   or !$node->{'extra'}->{'node_directions'}->{$direction})
               and $node->{'extra'}->{'menu_directions'}
               and $node->{'extra'}->{'menu_directions'}->{$direction}
-              and !$node->{'extra'}->{'menu_directions'}->{$direction}->{'extra'}
-                                                        ->{'manual_content'}) {
+              and !$node->{'extra'}->{'menu_directions'}->{$direction}
+                                          ->{'extra'}->{'manual_content'}) {
             if ($customization_information->get_conf(
-                                                  'CHECK_NORMAL_MENU_STRUCTURE')
+                                               'CHECK_NORMAL_MENU_STRUCTURE')
                   and $node->{'extra'}->{'associated_section'}) {
               $registrar->line_warn($customization_information,
           sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
@@ -734,34 +738,51 @@ sub complete_node_tree_with_menus($$$$)
                   ),
                 $node->{'source_info'});
             }
-            $node->{'structure'}->{'node_'.$direction}
+            $node->{'extra'}->{'node_directions'} = {}
+               if (!$node->{'extra'}->{'node_directions'});
+            $node->{'extra'}->{'node_directions'}->{$direction}
                = $node->{'extra'}->{'menu_directions'}->{$direction};
           }
         }
-      } elsif (not $node->{'structure'}
-               or not $node->{'structure'}->{'node_next'}) {
+      } elsif (not $node->{'extra'}
+               or not $node->{'extra'}->{'node_directions'}
+               or not $node->{'extra'}->{'node_directions'}->{'next'}) {
         # use first menu entry if available as next for Top
         if ($node->{'structure'} and $node->{'structure'}->{'menu_child'}) {
-          $node->{'structure'}->{'node_next'}
+          $node->{'extra'}->{'node_directions'} = {}
+             if (!$node->{'extra'}->{'node_directions'});
+          $node->{'extra'}->{'node_directions'}->{'next'}
              = $node->{'structure'}->{'menu_child'};
-          if (!$node->{'structure'}->{'menu_child'}->{'extra'}->{'manual_content'}
-              and !$node->{'structure'}->{'menu_child'}->{'structure'}->{'node_prev'}) {
-            $node->{'structure'}->{'menu_child'}->{'structure'}->{'node_prev'}
+          if (!$node->{'structure'}->{'menu_child'}
+                                            ->{'extra'}->{'manual_content'}
+              and (!$node->{'structure'}->{'menu_child'}
+                               ->{'extra'}->{'node_directions'}
+                   or !$node->{'structure'}->{'menu_child'}
+                               ->{'extra'}->{'node_directions'}->{'prev'})) {
+            $node->{'structure'}->{'menu_child'}
+                         ->{'extra'}->{'node_directions'} = {}
+              if (!$node->{'structure'}->{'menu_child'}
+                           ->{'extra'}->{'node_directions'});
+            $node->{'structure'}->{'menu_child'}
+                         ->{'extra'}->{'node_directions'}->{'prev'}
                 = $node;
           }
         } else {
           # use the first non top node as next for Top
           foreach my $first_non_top_node (@{$nodes_list}) {
             if ($first_non_top_node ne $node) {
-              $node->{'structure'} = {} if (! $node->{'structure'});
-              $node->{'structure'}->{'node_next'} = $first_non_top_node;
+              $node->{'extra'}->{'node_directions'} = {}
+                 if (!$node->{'extra'}->{'node_directions'});
+              $node->{'extra'}->{'node_directions'}->{'next'}
+                  = $first_non_top_node;
               my $first_non_top_automatic
                 = (not ($first_non_top_node->{'args'}
                         and scalar(@{$first_non_top_node->{'args'}}) > 1));
               if ($first_non_top_automatic) {
-                $first_non_top_node->{'structure'} = {}
-                     if (! $first_non_top_node->{'structure'});
-                $first_non_top_node->{'structure'}->{'node_prev'} = $node;
+                $first_non_top_node->{'extra'}->{'node_directions'} = {}
+                   if (!$first_non_top_node->{'extra'}->{'node_directions'});
+                $first_non_top_node->{'extra'}->{'node_directions'}->{'prev'}
+                    = $node;
               }
               last;
             }
@@ -773,11 +794,12 @@ sub complete_node_tree_with_menus($$$$)
     if ($node->{'extra'}->{'normalized'} ne 'Top') {
       foreach my $direction (@node_directions) {
         if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-            and $node->{'structure'}->{'node_'.$direction}
+            and $node->{'extra'}->{'node_directions'}
+            and $node->{'extra'}->{'node_directions'}->{$direction}
             and $node->{'extra'}->{'menu_directions'}
             and $node->{'extra'}->{'menu_directions'}->{$direction}
             and $node->{'extra'}->{'menu_directions'}->{$direction}
-               ne $node->{'structure'}->{'node_'.$direction}
+               ne $node->{'extra'}->{'node_directions'}->{$direction}
             and not $node->{'extra'}->{'menu_directions'}->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
           $registrar->line_warn($customization_information,
@@ -785,7 +807,7 @@ sub complete_node_tree_with_menus($$$$)
                   $direction,
                   target_element_to_texi_label($node),
                   target_element_to_texi_label(
-                               $node->{'structure'}->{'node_'.$direction}),
+                      $node->{'extra'}->{'node_directions'}->{$direction}),
                   $direction,
                   target_element_to_texi_label(
                       $node->{'extra'}->{'menu_directions'}->{$direction})),
@@ -796,25 +818,30 @@ sub complete_node_tree_with_menus($$$$)
 
     # check for node up / menu up mismatch
     if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')
-        and $node->{'structure'}
-        and $node->{'structure'}->{'node_up'}
+        and $node->{'extra'}
+        and $node->{'extra'}->{'node_directions'}
+        and $node->{'extra'}->{'node_directions'}->{'up'}
         # No check if node up is an external manual
-        and (!$node->{'structure'}->{'node_up'}->{'extra'}->{'manual_content'})
+        and (!$node->{'extra'}->{'node_directions'}->{'up'}
+                                      ->{'extra'}->{'manual_content'})
         # no check for a redundant node, the node registered in the menu
         # was the main equivalent node
         and $node->{'extra'}->{'is_target'}
-        and (!$node->{'structure'}->{'menu_up_hash'}
-          or !$node->{'structure'}->{'menu_up_hash'}->{$node->{'structure'}
-                                   ->{'node_up'}->{'extra'}->{'normalized'}})) {
+        and (!$node->{'structure'}
+          or !$node->{'structure'}->{'menu_up_hash'}
+          or !$node->{'structure'}->{'menu_up_hash'}->{
+  $node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'normalized'}})) {
       # check if up node has a menu
-      if ($node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}
-          and scalar(@{$node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}})) {
+      if ($node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}
+          and scalar(
+     @{$node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}})) {
         $registrar->line_warn($customization_information,
          sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"),
-           target_element_to_texi_label($node->{'structure'}->{'node_up'}),
+           target_element_to_texi_label(
+                             $node->{'extra'}->{'node_directions'}->{'up'}),
            target_element_to_texi_label($node)),
-         $node->{'structure'}->{'node_up'}->{'source_info'});
+         $node->{'extra'}->{'node_directions'}->{'up'}->{'source_info'});
       }
       # FIXME check that the menu_up_hash is not empty (except for Top)?
       # FIXME check that node_up is not an external node (except for Top)?
@@ -852,12 +879,13 @@ sub nodes_tree($$$$)
       if (!$top_node or $node ne $top_node) {
         foreach my $direction (@node_directions) {
           # prev already defined for the node first Top node menu entry
-          if ($direction eq 'prev' and $node->{'node_'.$direction}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-                                                             ->{'normalized'}
-              and $node->{'structure'}->{'node_'.$direction}->{'extra'}
-                                                   ->{'normalized'} eq 'Top') {
+          if ($direction eq 'prev' and $node->{'extra'}->{'node_directions'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+              and $node->{'extra'}->{'node_directions'}->{$direction}->{'extra'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+                                        ->{'extra'}->{'normalized'}
+              and $node->{'extra'}->{'node_directions'}->{$direction}
+                                        ->{'extra'}->{'normalized'} eq 'Top') {
             next;
           }
           if ($node->{'extra'}->{'associated_section'}) {
@@ -871,8 +899,9 @@ sub nodes_tree($$$$)
             my $direction_associated_node
               = _section_direction_associated_node($section, $direction);
             if ($direction_associated_node) {
-              $node->{'structure'} = {} if (!$node->{'structure'});
-              $node->{'structure'}->{'node_'.$direction}
+              $node->{'extra'}->{'node_directions'} = {}
+                 if (!$node->{'extra'}->{'node_directions'});
+              $node->{'extra'}->{'node_directions'}->{$direction}
                                                 = $direction_associated_node;
             }
           }
@@ -893,17 +922,20 @@ sub nodes_tree($$$$)
             = $node->{'extra'}->{'associated_section'}
                         ->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'associated_node'};
-          $node->{'structure'} = {} if (! $node->{'structure'});
-          $node->{'structure'}->{'node_next'} = $top_node_section_child;
+          $node->{'extra'}->{'node_directions'} = {}
+              if (! $node->{'extra'}->{'node_directions'});
+          $node->{'extra'}->{'node_directions'}->{'next'}
+             = $top_node_section_child;
 
           my $first_section_child_automatic
              = (not ($top_node_section_child->{'args'}
                      and scalar(@{$top_node_section_child->{'args'}}) > 1));
 
           if ($first_section_child_automatic) {
-            $top_node_section_child->{'structure'} = {}
-                if (! $top_node_section_child->{'structure'});
-            $top_node_section_child->{'structure'}->{'node_prev'} = $node;
+            $top_node_section_child->{'extra'}->{'node_directions'} = {}
+              if (! $top_node_section_child->{'extra'}->{'node_directions'});
+            $top_node_section_child->{'extra'}->{'node_directions'}->{'prev'}
+               = $node;
           }
         }
       }
@@ -914,16 +946,17 @@ sub nodes_tree($$$$)
         my $node_direction = $direction_element->{'extra'};
         my $direction = $node_directions[$i-1];
 
-        $node->{'structure'} = {} if (! defined($node->{'structure'}));
+        $node->{'extra'}->{'node_directions'} = {}
+           if (!defined($node->{'extra'}->{'node_directions'}));
         # external node
         if ($node_direction->{'manual_content'}) {
-          $node->{'structure'}->{'node_'.$direction}
+          $node->{'extra'}->{'node_directions'}->{$direction}
                             = { 'extra' => $node_direction };
         } elsif (defined($node_direction->{'normalized'})) {
           if ($identifier_target->{$node_direction->{'normalized'}}) {
             my $node_target
                = $identifier_target->{$node_direction->{'normalized'}};
-            $node->{'structure'}->{'node_'.$direction} = $node_target;
+            $node->{'extra'}->{'node_directions'}->{$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
@@ -941,7 +974,7 @@ sub nodes_tree($$$$)
             }
           } else {
             if ($customization_information->get_conf('novalidate')) {
-              $node->{'structure'}->{'node_'.$direction}
+              $node->{'extra'}->{'node_directions'}->{$direction}
                            = { 'extra' => $node_direction };
             } else {
               $registrar->line_error($customization_information,
@@ -1228,11 +1261,13 @@ sub elements_directions($$$)
           and $tree_unit->{'tree_unit_directions'}->{'prev'}->{'type'} eq 'unit');
     my $node = _tree_unit_node($tree_unit);
     if (defined($node)) {
-      foreach my $direction(['NodeUp', 'node_up'], ['NodeNext', 'node_next'],
-                            ['NodePrev', 'node_prev']) {
+      foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
+                            ['NodePrev', 'prev']) {
         $directions->{$direction->[0]}
-           = _label_target_unit_element($node->{'structure'}->{$direction->[1]})
-            if ($node->{'structure'}->{$direction->[1]});
+           = _label_target_unit_element(
+               $node->{'extra'}->{'node_directions'}->{$direction->[1]})
+            if ($node->{'extra'}->{'node_directions'}
+                and $node->{'extra'}->{'node_directions'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
       my $automatic_directions
@@ -1246,24 +1281,30 @@ sub elements_directions($$$)
         $directions->{'NodeForward'}
           = $node->{'associated_section'}->{'extra'}
                   ->{'section_childs'}->[0]->{'structure'}->{'associated_unit'};
-      } elsif ($node->{'structure'}->{'node_next'}) {
+      } elsif ($node->{'extra'}->{'node_directions'}
+               and $node->{'extra'}->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
-            = _label_target_unit_element($node->{'structure'}->{'node_next'});
-      } elsif ($node->{'structure'}->{'node_up'}) {
-        my $up = $node->{'structure'}->{'node_up'};
+            = _label_target_unit_element(
+                  $node->{'extra'}->{'node_directions'}->{'next'});
+      } elsif ($node->{'extra'}->{'node_directions'}
+               and $node->{'extra'}->{'node_directions'}->{'up'}) {
+        my $up = $node->{'extra'}->{'node_directions'}->{'up'};
         my @up_list = ($node);
         # the condition with the up_list avoids infinite loops
         # the last condition stops when the Top node is reached.
         while (not (grep {$up eq $_} @up_list
                     or ($node_top and $up eq $node_top))) {
-          if ($up->{'structure'} and defined($up->{'structure'}->{'node_next'})) {
+          if ($up->{'extra'}->{'node_directions'}
+              and defined($up->{'extra'}->{'node_directions'}->{'next'})) {
             $directions->{'NodeForward'}
-              = _label_target_unit_element($up->{'structure'}->{'node_next'});
+              = _label_target_unit_element(
+                           $up->{'extra'}->{'node_directions'}->{'next'});
             last;
           }
           push @up_list, $up;
-          last if (not $up->{'structure'} or not $up->{'structure'}->{'node_up'});
-          $up = $up->{'structure'}->{'node_up'};
+          last if (not $up->{'extra'}->{'node_directions'}
+                   or not $up->{'extra'}->{'node_directions'}->{'up'});
+          $up = $up->{'extra'}->{'node_directions'}->{'up'};
         }
       }
 
@@ -1309,8 +1350,9 @@ sub elements_directions($$$)
     } else {
       foreach my $direction(['Up', 'up'], ['Next', 'next'],
                             ['Prev', 'prev']) {
-        # in most cases $section->{$direction->[1]}
-        #              ->{'structure'}->{'associated_unit'} is defined
+        # in most cases $section->{'extra'}->{'section_directions'}
+        #          ->{$direction->[1]}
+        #                 ->{'structure'}->{'associated_unit'} is defined
         # but it may not be the case for the up of @top.
         # The section may be its own up in cases like
         #  @part part
@@ -1322,10 +1364,14 @@ sub elements_directions($$$)
        if ($section->{'extra'}->{'section_directions'}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-                                           ->{'structure'}->{'associated_unit'}
+                                           ->{'structure'}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-                ->{'structure'}->{'associated_unit'}
-                       ne $section->{'structure'}->{'associated_unit'});
+                                           ->{'structure'}->{'associated_unit'}
+           and (!$section->{'structure'}
+                or !$section->{'structure'}->{'associated_unit'}
+                or $section->{'extra'}->{'section_directions'}->{$direction->[1]}
+                    ->{'structure'}->{'associated_unit'}
+                       ne $section->{'structure'}->{'associated_unit'}));
       }
 
       my $up = $section;
@@ -1357,7 +1403,8 @@ sub elements_directions($$$)
       }
       # if the element isn't at the highest level, fastback is the
       # highest parent element
-      if ($up and $up ne $section) {
+      if ($up and $up ne $section and $up->{'structure'}
+          and $up->{'structure'}->{'associated_unit'}) {
         $directions->{'FastBack'} = $up->{'structure'}->{'associated_unit'};
       } elsif ($section->{'extra'}->{'section_level'} <= 1
                and $directions->{'FastForward'}) {
@@ -1373,11 +1420,13 @@ sub elements_directions($$$)
     # Not done in the default case.
     if ($customization_information->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
         and !$directions->{'Up'} and defined($node)
-        and $node->{'structure'}->{'node_up'}
+        and $node->{'extra'}->{'node_directions'}
+        and $node->{'extra'}->{'node_directions'}->{'up'}
         and (!$node_top or ($node ne $node_top))) {
       #print STDERR "Node for up: ".root_or_external_element_cmd_texi($tree_unit)."\n";
       my $up_node_element
-        = _label_target_unit_element($node->{'structure'}->{'node_up'});
+        = _label_target_unit_element(
+               $node->{'extra'}->{'node_directions'}->{'up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
     if ($tree_unit->{'directions'}) {
@@ -1633,7 +1682,7 @@ sub get_node_node_childs_from_sectioning
 
   if ($node->{'extra'}
       and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'structure'}
+      and $node->{'extra'}->{'associated_section'}->{'extra'}
       and $node->{'extra'}->{'associated_section'}
                                       ->{'extra'}->{'section_childs'}) {
     foreach my $child (@{$node->{'extra'}->{'associated_section'}

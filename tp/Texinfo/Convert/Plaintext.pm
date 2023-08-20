@@ -33,7 +33,7 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 use Texinfo::Commands;
 use Texinfo::Common;
@@ -1003,11 +1003,12 @@ sub process_footnotes($;$)
             = [@$node_contents, {'text' => '-Footnotes'}];
       my $footnotes_node = {
         'cmdname' => 'node',
-        'structure' => {'node_up' => $node_element},
         'args' => [{'contents' => $footnotes_node_contents}],
         'extra' => {'is_target' => 1,
                 'normalized'
-                  => $node_element->{'extra'}->{'normalized'}.'-Footnotes'}
+                  => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
+                    'node_directions' => {'up' => $node_element},
+                   }
       };
       $result .= $self->format_node($footnotes_node);
       $self->{'current_node'} = $footnotes_node;
@@ -1738,6 +1739,10 @@ sub _convert($$);
 sub _convert($$)
 {
   my ($self, $element) = @_;
+
+  if (!defined($element)) {
+    cluck("BUG? Plaintext _convert element undef\n");
+  }
 
   my $formatter = $self->{'formatters'}->[-1];
 
@@ -2973,7 +2978,7 @@ sub _convert($$)
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
                                                                $self, $element);
-      $result .= _convert($self, $expansion);
+      $result .= _convert($self, $expansion) if (defined($expansion));
       return $result;
     } elsif ($command eq 'insertcopying') {
       if ($self->{'global_commands'}

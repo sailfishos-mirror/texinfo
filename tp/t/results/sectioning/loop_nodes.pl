@@ -632,55 +632,62 @@ $result_nodes{'loop_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'menus' => [
+            {
+              'cmdname' => 'menu'
+            }
+          ],
+          'node_directions' => {
+            'prev' => {},
+            'up' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'node_directions' => {
+                  'up' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'menus' => [
+                        {
+                          'cmdname' => 'menu'
+                        }
+                      ],
+                      'node_directions' => {
+                        'up' => {}
+                      },
+                      'normalized' => 'node-middle'
+                    },
+                    'structure' => {
+                      'menu_child' => {}
+                    }
+                  }
+                },
+                'normalized' => 'node-down'
+              },
+              'structure' => {}
+            }
+          },
+          'normalized' => 'chap-node-up'
+        },
+        'structure' => {
+          'menu_child' => {}
+        }
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menus' => [
-          {
-            'cmdname' => 'menu'
-          }
-        ],
-        'normalized' => 'chap-node-up'
-      },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menus' => [
-              {
-                'cmdname' => 'menu'
-              }
-            ],
-            'normalized' => 'node-middle'
-          },
-          'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => 'node-down'
-              },
-              'structure' => {
-                'node_up' => {}
-              }
-            },
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'loop_nodes'}{'structure'}{'menu_child'};
-$result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'loop_nodes'};
-$result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'loop_nodes'}{'structure'}{'node_next'} = $result_nodes{'loop_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'loop_nodes'};
+$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'};
+$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'};
+$result_nodes{'loop_nodes'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'loop_nodes'} = {
   'cmdname' => 'node',

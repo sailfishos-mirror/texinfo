@@ -245,10 +245,8 @@ $result_sectioning{'section_before_after_top_node'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_after_top_node'};
 $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[0];

@@ -631,8 +631,7 @@ $result_sectioning{'only_special_spaces_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -642,8 +641,7 @@ $result_sectioning{'only_special_spaces_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -701,8 +699,7 @@ $result_sectioning{'only_special_spaces_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_0085_00a0_1680'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -723,8 +720,7 @@ $result_sectioning{'only_special_spaces_node'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_180e_2003'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -746,7 +742,6 @@ $result_sectioning{'only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000'
                   },
-                  'structure' => {}
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -790,8 +785,7 @@ $result_sectioning{'only_special_spaces_node'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'only_special_spaces_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'only_special_spaces_node'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'only_special_spaces_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'only_special_spaces_node'}{'extra'}{'section_childs'}[0];
@@ -825,47 +819,46 @@ $result_nodes{'only_special_spaces_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => '_2002_2003_2002'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_number' => 2
-              }
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
             }
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'chapter',
+                  'extra' => {
+                    'section_number' => 2
+                  }
+                }
+              }
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => '_2002_2003_2002'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'only_special_spaces_node'};
-$result_nodes{'only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'only_special_spaces_node'};
+$result_nodes{'only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'only_special_spaces_node'};
+$result_nodes{'only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'only_special_spaces_node'};
 
 $result_menus{'only_special_spaces_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'only_special_spaces_node'} = [

@@ -444,31 +444,34 @@ $result_nodes{'split_test_before_first_node'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap1'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chap1'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'split_test_before_first_node'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'split_test_before_first_node'};
-$result_nodes{'split_test_before_first_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'split_test_before_first_node'};
-$result_nodes{'split_test_before_first_node'}{'structure'}{'node_next'} = $result_nodes{'split_test_before_first_node'}{'structure'}{'menu_child'};
+$result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'split_test_before_first_node'};
+$result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_test_before_first_node'};
+$result_nodes{'split_test_before_first_node'}{'structure'}{'menu_child'} = $result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'split_test_before_first_node'} = {
   'cmdname' => 'node',

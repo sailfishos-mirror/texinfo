@@ -1038,8 +1038,7 @@ $result_sectioning{'float_copying'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'float_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'float_copying'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'float_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'float_copying'}{'extra'}{'section_childs'}[0];
@@ -1058,32 +1057,35 @@ $result_nodes{'float_copying'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'appendix',
+            'extra' => {
+              'section_number' => 'A'
+            }
+          },
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Copying-and-floats'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'appendix',
-          'extra' => {
-            'section_number' => 'A'
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'Copying-and-floats'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'float_copying'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'float_copying'};
-$result_nodes{'float_copying'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'float_copying'};
-$result_nodes{'float_copying'}{'structure'}{'node_next'} = $result_nodes{'float_copying'}{'structure'}{'menu_child'};
+$result_nodes{'float_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'float_copying'};
+$result_nodes{'float_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'float_copying'};
+$result_nodes{'float_copying'}{'structure'}{'menu_child'} = $result_nodes{'float_copying'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'float_copying'} = {
   'cmdname' => 'node',

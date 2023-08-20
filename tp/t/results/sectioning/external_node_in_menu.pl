@@ -531,8 +531,7 @@ $result_sectioning{'external_node_in_menu'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'external_node_in_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'external_node_in_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'external_node_in_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'external_node_in_menu'}{'extra'}{'section_childs'}[0];
@@ -555,49 +554,53 @@ $result_nodes{'external_node_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'chapter',
+                  'extra' => {
+                    'section_number' => 2
+                  }
+                },
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'nchapter2'
+              },
+              'structure' => {}
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'nchapter1'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'nchapter1'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_number' => 2
-              }
-            },
-            'normalized' => 'nchapter2'
-          },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'};
-$result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'external_node_in_menu'};
-$result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'external_node_in_menu'};
-$result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'external_node_in_menu'};
-$result_nodes{'external_node_in_menu'}{'structure'}{'node_next'} = $result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'};
+$result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'external_node_in_menu'};
+$result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'external_node_in_menu'};
+$result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'external_node_in_menu'};
+$result_nodes{'external_node_in_menu'}{'structure'}{'menu_child'} = $result_nodes{'external_node_in_menu'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'external_node_in_menu'} = {
   'cmdname' => 'node',

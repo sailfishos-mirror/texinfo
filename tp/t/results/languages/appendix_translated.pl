@@ -239,8 +239,7 @@ $result_sectioning{'appendix_translated'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];

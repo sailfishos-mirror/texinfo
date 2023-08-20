@@ -150,8 +150,7 @@ $result_sectioning{'filenameconflictwithnonsplit'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'filenameconflictwithnonsplit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'filenameconflictwithnonsplit'};
 

@@ -260,19 +260,19 @@ $result_texts{'on_node_line'} = '';
 $result_nodes{'on_node_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a'
-  },
-  'structure' => {
-    'node_next' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'cmdname' => 'pxref'
-          }
-        ],
-        'normalized' => '-'
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'cmdname' => 'pxref'
+            }
+          ],
+          'normalized' => '-'
+        }
       }
-    }
+    },
+    'normalized' => 'a'
   }
 };
 
@@ -280,8 +280,7 @@ $result_menus{'on_node_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'on_node_line'} = [

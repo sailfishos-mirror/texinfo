@@ -381,8 +381,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0];
@@ -405,31 +404,34 @@ $result_nodes{'chapter_between_nodes_with_appendix'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'appendix',
+            'extra' => {
+              'section_number' => 'A'
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Additional'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'appendix',
-          'extra' => {
-            'section_number' => 'A'
-          }
-        },
-        'normalized' => 'Additional'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'chapter_between_nodes_with_appendix'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'chapter_between_nodes_with_appendix'};
-$result_nodes{'chapter_between_nodes_with_appendix'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'chapter_between_nodes_with_appendix'};
-$result_nodes{'chapter_between_nodes_with_appendix'}{'structure'}{'node_next'} = $result_nodes{'chapter_between_nodes_with_appendix'}{'structure'}{'menu_child'};
+$result_nodes{'chapter_between_nodes_with_appendix'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chapter_between_nodes_with_appendix'};
+$result_nodes{'chapter_between_nodes_with_appendix'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes_with_appendix'};
+$result_nodes{'chapter_between_nodes_with_appendix'}{'structure'}{'menu_child'} = $result_nodes{'chapter_between_nodes_with_appendix'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'chapter_between_nodes_with_appendix'} = {
   'cmdname' => 'node',

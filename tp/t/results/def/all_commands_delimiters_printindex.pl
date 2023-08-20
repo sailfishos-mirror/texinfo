@@ -13119,29 +13119,28 @@ Variables
 $result_nodes{'all_commands_delimiters_printindex'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'all_commands_delimiters_printindex'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'all_commands_delimiters_printindex'};
+$result_nodes{'all_commands_delimiters_printindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_commands_delimiters_printindex'};
 
 $result_menus{'all_commands_delimiters_printindex'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'all_commands_delimiters_printindex'} = [];

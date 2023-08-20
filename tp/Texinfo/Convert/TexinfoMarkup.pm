@@ -821,10 +821,10 @@ sub _convert($$;$)
           my $pending_empty_directions = '';
           foreach my $direction(@node_directions) {
             my $format_element = 'node'.lc($direction);
-            if ($element->{'structure'}
-                and $element->{'structure'}->{'node_'.lc($direction)}) {
+            if ($element->{'extra'}->{'node_directions'}
+                and $element->{'extra'}->{'node_directions'}->{lc($direction)}) {
               my $node_direction
-                     = $element->{'structure'}->{'node_'.lc($direction)};
+                  = $element->{'extra'}->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
               if ($element->{'args'}->[$direction_index]) {

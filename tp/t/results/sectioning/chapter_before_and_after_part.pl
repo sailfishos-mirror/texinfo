@@ -253,10 +253,8 @@ $result_sectioning{'chapter_before_and_after_part'} = {
       },
       {}
     ],
-    'section_directions' => {},
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'chapter_before_and_after_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_before_and_after_part'};
 $result_sectioning{'chapter_before_and_after_part'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'chapter_before_and_after_part'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

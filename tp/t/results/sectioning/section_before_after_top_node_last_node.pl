@@ -258,8 +258,7 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'prev' => {},
@@ -287,10 +286,8 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_after_top_node_last_node'};
 $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[0];
@@ -308,28 +305,27 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'node-after'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'node-after'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'section_before_after_top_node_last_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'section_before_after_top_node_last_node'};
+$result_nodes{'section_before_after_top_node_last_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_before_after_top_node_last_node'};
 
 $result_menus{'section_before_after_top_node_last_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'section_before_after_top_node_last_node'} = [

@@ -90,19 +90,19 @@ $result_texts{'node_up_direction_for_top_with_manual'} = '';
 $result_nodes{'node_up_direction_for_top_with_manual'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ],
-        'normalized' => 'Top'
+    'node_directions' => {
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ],
+          'normalized' => 'Top'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
 
@@ -110,8 +110,7 @@ $result_menus{'node_up_direction_for_top_with_manual'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_up_direction_for_top_with_manual'} = [];

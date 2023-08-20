@@ -4434,49 +4434,53 @@ $result_nodes{'bib_example'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'chapter',
+                  'extra' => {
+                    'section_number' => 2
+                  }
+                },
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'References'
+              },
+              'structure' => {}
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Introduction'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'Introduction'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_number' => 2
-              }
-            },
-            'normalized' => 'References'
-          },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'bib_example'}{'structure'}{'menu_child'};
-$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'bib_example'};
-$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'bib_example'};
-$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'bib_example'};
-$result_nodes{'bib_example'}{'structure'}{'node_next'} = $result_nodes{'bib_example'}{'structure'}{'menu_child'};
+$result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'structure'}{'menu_child'} = $result_nodes{'bib_example'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'bib_example'} = {
   'cmdname' => 'node',

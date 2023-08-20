@@ -314,24 +314,26 @@ $result_nodes{'multiple_menus'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'b'
+            }
+          ],
+          'normalized' => 'b'
+        },
+        'type' => 'menu_entry_node'
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'b'
-          }
-        ],
-        'normalized' => 'b'
-      },
-      'type' => 'menu_entry_node'
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'multiple_menus'}{'structure'}{'node_next'} = $result_nodes{'multiple_menus'}{'structure'}{'menu_child'};
+$result_nodes{'multiple_menus'}{'structure'}{'menu_child'} = $result_nodes{'multiple_menus'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'multiple_menus'} = {
   'cmdname' => 'node',

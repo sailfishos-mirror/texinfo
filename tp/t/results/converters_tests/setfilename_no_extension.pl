@@ -206,8 +206,7 @@ $result_sectioning{'setfilename_no_extension'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -217,8 +216,7 @@ $result_sectioning{'setfilename_no_extension'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'setfilename_no_extension'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'setfilename_no_extension'};
 
@@ -229,28 +227,27 @@ $result_nodes{'setfilename_no_extension'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'setfilename_no_extension'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'setfilename_no_extension'};
+$result_nodes{'setfilename_no_extension'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'setfilename_no_extension'};
 
 $result_menus{'setfilename_no_extension'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'setfilename_no_extension'} = [];

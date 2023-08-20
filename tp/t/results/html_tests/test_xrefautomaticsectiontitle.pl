@@ -492,8 +492,7 @@ $result_sectioning{'test_xrefautomaticsectiontitle'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'test_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'test_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'test_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0];
@@ -512,31 +511,34 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'test_xrefautomaticsectiontitle'};
-$result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'test_xrefautomaticsectiontitle'};
-$result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'node_next'} = $result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'};
+$result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_xrefautomaticsectiontitle'};
+$result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_xrefautomaticsectiontitle'};
+$result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'} = $result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_xrefautomaticsectiontitle'} = {
   'cmdname' => 'node',

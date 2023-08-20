@@ -417,29 +417,28 @@ AAA1: AAA2 arg3
 $result_nodes{'space_in_def_for_index'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'space_in_def_for_index'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'space_in_def_for_index'};
+$result_nodes{'space_in_def_for_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'space_in_def_for_index'};
 
 $result_menus{'space_in_def_for_index'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'space_in_def_for_index'} = [];

@@ -267,8 +267,7 @@ $result_sectioning{'html_in_copying'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'html_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'html_in_copying'};
 

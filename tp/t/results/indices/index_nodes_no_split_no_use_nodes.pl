@@ -1578,70 +1578,78 @@ $result_nodes{'index_nodes_no_split_no_use_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'isindex' => 1,
+          'menus' => [
+            {
+              'cmdname' => 'menu'
+            }
+          ],
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-first'
+        },
+        'structure' => {
+          'menu_child' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'isindex' => 1,
+              'menus' => [
+                {
+                  'cmdname' => 'menu'
+                }
+              ],
+              'node_directions' => {
+                'up' => {}
+              },
+              'normalized' => 'second'
+            },
+            'structure' => {
+              'menu_child' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'isindex' => 1,
+                  'node_directions' => {
+                    'next' => {
+                      'cmdname' => 'node',
+                      'extra' => {
+                        'node_directions' => {
+                          'prev' => {},
+                          'up' => {}
+                        },
+                        'normalized' => 'another'
+                      },
+                      'structure' => {}
+                    },
+                    'up' => {}
+                  },
+                  'normalized' => 'a-node'
+                },
+                'structure' => {}
+              }
+            }
+          }
+        }
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menus' => [
-          {
-            'cmdname' => 'menu'
-          }
-        ],
-        'normalized' => 'chap-first'
-      },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'menus' => [
-              {
-                'cmdname' => 'menu'
-              }
-            ],
-            'normalized' => 'second'
-          },
-          'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'isindex' => 1,
-                'normalized' => 'a-node'
-              },
-              'structure' => {
-                'node_next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => 'another'
-                  },
-                  'structure' => {
-                    'node_prev' => {},
-                    'node_up' => {}
-                  }
-                },
-                'node_up' => {}
-              }
-            },
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'index_nodes_no_split_no_use_nodes'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'};
-$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'node_next'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_nodes_no_split_no_use_nodes'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'};
+$result_nodes{'index_nodes_no_split_no_use_nodes'}{'structure'}{'menu_child'} = $result_nodes{'index_nodes_no_split_no_use_nodes'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'index_nodes_no_split_no_use_nodes'} = {
   'cmdname' => 'node',

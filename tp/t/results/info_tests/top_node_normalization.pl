@@ -245,17 +245,19 @@ $result_nodes{'top_node_normalization'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {},
+      'prev' => {}
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {},
-    'node_next' => {},
-    'node_prev' => {}
+    'menu_child' => {}
   }
 };
+$result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'};
+$result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_normalization'};
 $result_nodes{'top_node_normalization'}{'structure'}{'menu_child'} = $result_nodes{'top_node_normalization'};
-$result_nodes{'top_node_normalization'}{'structure'}{'node_next'} = $result_nodes{'top_node_normalization'};
-$result_nodes{'top_node_normalization'}{'structure'}{'node_prev'} = $result_nodes{'top_node_normalization'};
 
 $result_menus{'top_node_normalization'} = {
   'cmdname' => 'node',

@@ -275,8 +275,7 @@ $result_sectioning{'comment_on_menu_line'} = {
       }
     ],
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'comment_on_menu_line'};
 
@@ -294,25 +293,28 @@ $result_nodes{'comment_on_menu_line'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'first'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'first'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'structure'}{'node_next'} = $result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'};
+$result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_on_menu_line'};
+$result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_on_menu_line'};
+$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'} = $result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'comment_on_menu_line'} = {
   'cmdname' => 'node',

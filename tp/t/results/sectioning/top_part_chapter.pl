@@ -224,8 +224,7 @@ $result_sectioning{'top_part_chapter'} = {
       {}
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'top_part_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_part_chapter'};
 $result_sectioning{'top_part_chapter'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'top_part_chapter'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

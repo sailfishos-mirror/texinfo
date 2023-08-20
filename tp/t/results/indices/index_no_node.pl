@@ -1296,10 +1296,8 @@ $result_sectioning{'index_no_node'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'index_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_no_node'};
 $result_sectioning{'index_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_no_node'}{'extra'}{'section_childs'}[1];

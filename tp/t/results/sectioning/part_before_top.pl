@@ -144,8 +144,7 @@ $result_sectioning{'part_before_top'} = {
       {}
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0];

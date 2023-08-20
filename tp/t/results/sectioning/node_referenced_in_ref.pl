@@ -301,25 +301,28 @@ $result_nodes{'node_referenced_in_ref'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-first-level-node'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-first-level-node'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'structure'}{'node_next'} = $result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'};
+$result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_referenced_in_ref'};
+$result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_referenced_in_ref'};
+$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'} = $result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'node_referenced_in_ref'} = {
   'cmdname' => 'node',

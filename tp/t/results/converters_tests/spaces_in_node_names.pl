@@ -669,49 +669,54 @@ $result_nodes{'spaces_in_node_names'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'node_directions' => {
+                  'next' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'node_directions' => {
+                        'prev' => {},
+                        'up' => {}
+                      },
+                      'normalized' => 'c-'
+                    },
+                    'structure' => {}
+                  },
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'b-'
+              },
+              'structure' => {}
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'b-'
-          },
-          'structure' => {
-            'node_next' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => 'c-'
-              },
-              'structure' => {
-                'node_prev' => {},
-                'node_up' => {}
-              }
-            },
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'spaces_in_node_names'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'spaces_in_node_names'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'spaces_in_node_names'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'spaces_in_node_names'};
-$result_nodes{'spaces_in_node_names'}{'structure'}{'node_next'} = $result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'spaces_in_node_names'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'spaces_in_node_names'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'spaces_in_node_names'};
+$result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'spaces_in_node_names'};
+$result_nodes{'spaces_in_node_names'}{'structure'}{'menu_child'} = $result_nodes{'spaces_in_node_names'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'spaces_in_node_names'} = {
   'cmdname' => 'node',

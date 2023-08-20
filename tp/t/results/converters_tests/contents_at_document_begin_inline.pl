@@ -423,8 +423,7 @@ $result_sectioning{'contents_at_document_begin_inline'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'contents_at_document_begin_inline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_at_document_begin_inline'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'contents_at_document_begin_inline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'contents_at_document_begin_inline'}{'extra'}{'section_childs'}[0];
@@ -443,31 +442,34 @@ $result_nodes{'contents_at_document_begin_inline'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'contents_at_document_begin_inline'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'contents_at_document_begin_inline'};
-$result_nodes{'contents_at_document_begin_inline'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'contents_at_document_begin_inline'};
-$result_nodes{'contents_at_document_begin_inline'}{'structure'}{'node_next'} = $result_nodes{'contents_at_document_begin_inline'}{'structure'}{'menu_child'};
+$result_nodes{'contents_at_document_begin_inline'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_document_begin_inline'};
+$result_nodes{'contents_at_document_begin_inline'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_document_begin_inline'};
+$result_nodes{'contents_at_document_begin_inline'}{'structure'}{'menu_child'} = $result_nodes{'contents_at_document_begin_inline'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'contents_at_document_begin_inline'} = {
   'cmdname' => 'node',

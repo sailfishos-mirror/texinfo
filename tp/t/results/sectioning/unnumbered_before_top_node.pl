@@ -166,8 +166,7 @@ $result_sectioning{'unnumbered_before_top_node'} = {
       }
     ],
     'section_level' => 0
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_before_top_node'};
 $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

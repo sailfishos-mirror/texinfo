@@ -99,28 +99,27 @@ $result_texts{'undefined_node_filename'} = '
 $result_nodes{'undefined_node_filename'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-Other'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap-Other'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'undefined_node_filename'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'undefined_node_filename'};
+$result_nodes{'undefined_node_filename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'undefined_node_filename'};
 
 $result_menus{'undefined_node_filename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'undefined_node_filename'} = [];

@@ -195,8 +195,7 @@ $result_sectioning{'file_name_conflict_with_section'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];

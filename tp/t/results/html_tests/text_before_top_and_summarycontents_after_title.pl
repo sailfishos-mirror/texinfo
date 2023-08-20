@@ -244,8 +244,7 @@ $result_sectioning{'text_before_top_and_summarycontents_after_title'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'extra'}{'section_childs'}[0];

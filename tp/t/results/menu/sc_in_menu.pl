@@ -802,15 +802,16 @@ $result_nodes{'sc_in_menu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'node_directions' => {
+          'up' => {}
+        },
         'normalized' => 'node'
       },
-      'structure' => {
-        'node_up' => {}
-      }
+      'structure' => {}
     }
   }
 };
-$result_nodes{'sc_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'sc_in_menu'};
+$result_nodes{'sc_in_menu'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'sc_in_menu'};
 
 $result_menus{'sc_in_menu'} = {
   'cmdname' => 'node',

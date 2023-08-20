@@ -182,7 +182,6 @@ $result_sectioning{'section_chapter_before_top'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 1
   }
 };

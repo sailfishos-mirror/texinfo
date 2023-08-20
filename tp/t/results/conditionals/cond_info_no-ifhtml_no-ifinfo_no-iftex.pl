@@ -832,8 +832,7 @@ $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -854,28 +853,27 @@ $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'};
+$result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'};
 
 $result_menus{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = [];

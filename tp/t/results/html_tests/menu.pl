@@ -1729,8 +1729,7 @@ $result_sectioning{'menu'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menu'};
 
@@ -1746,23 +1745,25 @@ $result_nodes{'menu'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'ggg'
+            }
+          ]
+        },
+        'type' => 'menu_entry_node'
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'ggg'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'menu'}{'structure'}{'node_next'} = $result_nodes{'menu'}{'structure'}{'menu_child'};
+$result_nodes{'menu'}{'structure'}{'menu_child'} = $result_nodes{'menu'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'menu'} = {
   'cmdname' => 'node',

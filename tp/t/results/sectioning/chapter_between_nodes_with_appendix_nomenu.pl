@@ -381,8 +381,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'}{'extra'}{'section_childs'}[0];
@@ -417,15 +416,16 @@ $result_nodes{'chapter_between_nodes_with_appendix_nomenu'} = {
             'section_number' => 'A'
           }
         },
+        'node_directions' => {
+          'up' => {}
+        },
         'normalized' => 'Additional'
       },
-      'structure' => {
-        'node_up' => {}
-      }
+      'structure' => {}
     }
   }
 };
-$result_nodes{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'chapter_between_nodes_with_appendix_nomenu'};
+$result_nodes{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes_with_appendix_nomenu'};
 
 $result_menus{'chapter_between_nodes_with_appendix_nomenu'} = {
   'cmdname' => 'node',

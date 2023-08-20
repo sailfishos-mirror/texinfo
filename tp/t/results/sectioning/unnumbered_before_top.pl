@@ -121,7 +121,6 @@ $result_sectioning{'unnumbered_before_top'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => 0
   }
 };

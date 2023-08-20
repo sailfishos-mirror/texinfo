@@ -544,23 +544,26 @@ $result_nodes{'equivalent_nodes_defined_linked'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'up' => {}
+          },
+          'normalized' => 'chap'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'equivalent_nodes_defined_linked'};
-$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'node_next'} = $result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'};
+$result_nodes{'equivalent_nodes_defined_linked'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes_defined_linked'};
+$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'} = $result_nodes{'equivalent_nodes_defined_linked'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'equivalent_nodes_defined_linked'} = {
   'cmdname' => 'node',

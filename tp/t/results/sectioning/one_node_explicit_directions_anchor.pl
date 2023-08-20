@@ -184,18 +184,18 @@ ref to ref ref.
 $result_nodes{'one_node_explicit_directions_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-node'
-  },
-  'structure' => {
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
+    'node_directions' => {
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
       }
-    }
+    },
+    'normalized' => 'one-node'
   }
 };
 
@@ -203,8 +203,7 @@ $result_menus{'one_node_explicit_directions_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-node'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'one_node_explicit_directions_anchor'} = [];

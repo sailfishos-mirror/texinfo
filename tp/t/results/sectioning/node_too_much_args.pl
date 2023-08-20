@@ -90,18 +90,18 @@ $result_texts{'node_too_much_args'} = '';
 $result_nodes{'node_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'dir'
-          }
-        ]
+    'node_directions' => {
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'dir'
+            }
+          ]
+        }
       }
-    }
+    },
+    'normalized' => 'first'
   }
 };
 
@@ -109,8 +109,7 @@ $result_menus{'node_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_too_much_args'} = [

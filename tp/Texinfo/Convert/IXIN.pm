@@ -499,8 +499,7 @@ sub output_ixin($$)
   my $document_output = '';
   if ($tree_units) {
     foreach my $node_element (@$tree_units) {
-      next if (not defined ($node_element->{'extra'})
-               or not defined($node_element->{'unit_command'}));
+      next if (not defined($node_element->{'unit_command'}));
       $node_nr++;
       my $node = $node_element->{'unit_command'};
       push @nodes, $node;
@@ -546,8 +545,10 @@ sub output_ixin($$)
     my @attributes = (['name', $normalized_node_name],
                       ['length', $node_byte_sizes{$normalized_node_name}]);
     foreach my $direction (@node_directions) {
-      if ($node->{'node_'.lc($direction)}) {
-        my $node_direction = $node->{'node_'.lc($direction)};
+      if ($node->{'extra'}->{'node_directions'}
+          and $node->{'extra'}->{'node_directions'}->{lc($direction)}) {
+        my $node_direction
+           = $node->{'extra'}->{'node_directions'}->{lc($direction)};
         if ($node_direction->{'extra'}->{'manual_content'}) {
           # FIXME?
           push @attributes, ['node'.lc($direction), -2];

@@ -1274,8 +1274,7 @@ $result_sectioning{'combined_fonts'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1285,8 +1284,7 @@ $result_sectioning{'combined_fonts'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1309,8 +1307,7 @@ $result_sectioning{'combined_fonts'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'combined_fonts'}{'extra'}{'section_childs'}[0];
@@ -1324,36 +1321,35 @@ $result_nodes{'combined_fonts'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'combined_fonts'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'combined_fonts'};
-$result_nodes{'combined_fonts'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'combined_fonts'};
+$result_nodes{'combined_fonts'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'combined_fonts'};
+$result_nodes{'combined_fonts'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'combined_fonts'};
 
 $result_menus{'combined_fonts'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'combined_fonts'} = [];

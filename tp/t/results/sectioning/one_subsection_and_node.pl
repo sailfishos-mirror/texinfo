@@ -109,8 +109,7 @@ $result_sectioning{'one_subsection_and_node'} = {
       }
     ],
     'section_level' => 2
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'one_subsection_and_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'one_subsection_and_node'};
 

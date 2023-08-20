@@ -506,8 +506,7 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -517,8 +516,7 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Mixed-english-and-chinese'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -555,36 +553,35 @@ $result_nodes{'chinese_mixed_with_en_EUC_CN'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'Mixed-english-and-chinese'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'Mixed-english-and-chinese'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
-$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
+$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
+$result_nodes{'chinese_mixed_with_en_EUC_CN'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chinese_mixed_with_en_EUC_CN'};
 
 $result_menus{'chinese_mixed_with_en_EUC_CN'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'chinese_mixed_with_en_EUC_CN'} = [

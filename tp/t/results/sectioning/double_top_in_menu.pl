@@ -338,15 +338,17 @@ $result_nodes{'double_top_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {}
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {},
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
+$result_nodes{'double_top_in_menu'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top_in_menu'};
 $result_nodes{'double_top_in_menu'}{'structure'}{'menu_child'} = $result_nodes{'double_top_in_menu'};
-$result_nodes{'double_top_in_menu'}{'structure'}{'node_next'} = $result_nodes{'double_top_in_menu'};
 
 $result_menus{'double_top_in_menu'} = {
   'cmdname' => 'node',

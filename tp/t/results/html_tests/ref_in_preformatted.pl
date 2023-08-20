@@ -324,25 +324,28 @@ $result_nodes{'ref_in_preformatted'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-nnn-the-node-name'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-nnn-the-node-name'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_preformatted'};
-$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'ref_in_preformatted'};
-$result_nodes{'ref_in_preformatted'}{'structure'}{'node_next'} = $result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'};
+$result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_preformatted'};
+$result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_preformatted'};
+$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'} = $result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'ref_in_preformatted'} = {
   'cmdname' => 'node',

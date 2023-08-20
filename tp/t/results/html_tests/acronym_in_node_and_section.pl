@@ -456,8 +456,7 @@ $result_sectioning{'acronym_in_node_and_section'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -467,8 +466,7 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'chap'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -478,8 +476,7 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'sec-define'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'up' => {}
@@ -495,8 +492,7 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'sec-here-is-GHJ'
-                        },
-                        'structure' => {}
+                        }
                       },
                       'section_directions' => {
                         'prev' => {},
@@ -528,8 +524,7 @@ $result_sectioning{'acronym_in_node_and_section'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'acronym_in_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'acronym_in_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'acronym_in_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'acronym_in_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
@@ -546,36 +541,35 @@ $result_nodes{'acronym_in_node_and_section'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'acronym_in_node_and_section'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'acronym_in_node_and_section'};
-$result_nodes{'acronym_in_node_and_section'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'acronym_in_node_and_section'};
+$result_nodes{'acronym_in_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'acronym_in_node_and_section'};
+$result_nodes{'acronym_in_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'acronym_in_node_and_section'};
 
 $result_menus{'acronym_in_node_and_section'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'acronym_in_node_and_section'} = [];

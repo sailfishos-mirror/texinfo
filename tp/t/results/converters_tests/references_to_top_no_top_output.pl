@@ -1241,8 +1241,7 @@ $result_sectioning{'references_to_top_no_top_output'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1253,8 +1252,7 @@ $result_sectioning{'references_to_top_no_top_output'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'chapter'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'up' => {}
@@ -1277,8 +1275,7 @@ $result_sectioning{'references_to_top_no_top_output'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'references_to_top_no_top_output'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'references_to_top_no_top_output'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'references_to_top_no_top_output'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'references_to_top_no_top_output'}{'extra'}{'section_childs'}[0];
@@ -1292,37 +1289,36 @@ $result_nodes{'references_to_top_no_top_output'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'chapter'
-      },
-      'structure' => {
-        'node_prev' => {},
-        'node_up' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'isindex' => 1,
+          'node_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chapter'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'references_to_top_no_top_output'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'references_to_top_no_top_output'};
-$result_nodes{'references_to_top_no_top_output'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'references_to_top_no_top_output'};
+$result_nodes{'references_to_top_no_top_output'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'references_to_top_no_top_output'};
+$result_nodes{'references_to_top_no_top_output'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'references_to_top_no_top_output'};
 
 $result_menus{'references_to_top_no_top_output'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'references_to_top_no_top_output'} = [];

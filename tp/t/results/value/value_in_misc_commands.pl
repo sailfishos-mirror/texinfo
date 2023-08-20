@@ -3929,8 +3929,7 @@ $result_sectioning{'value_in_misc_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -3951,35 +3950,34 @@ $result_nodes{'value_in_misc_commands'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'source_marks' => [
-        {
-          'counter' => 43,
-          'sourcemark_type' => 'value_expansion',
-          'status' => 'end'
-        }
-      ],
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        },
+        'source_marks' => [
+          {
+            'counter' => 43,
+            'sourcemark_type' => 'value_expansion',
+            'status' => 'end'
+          }
+        ]
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'value_in_misc_commands'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'value_in_misc_commands'};
+$result_nodes{'value_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_misc_commands'};
 
 $result_menus{'value_in_misc_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'value_in_misc_commands'} = [

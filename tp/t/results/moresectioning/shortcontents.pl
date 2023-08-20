@@ -670,7 +670,6 @@ $result_sectioning{'shortcontents'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => -1
   }
 };

@@ -159,10 +159,8 @@ $result_sectioning{'chapter_before_part'} = {
       },
       {}
     ],
-    'section_directions' => {},
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_before_part'};
 $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'Back'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'};

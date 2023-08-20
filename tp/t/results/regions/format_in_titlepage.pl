@@ -245,28 +245,27 @@ $result_texts{'format_in_titlepage'} = '
 $result_nodes{'format_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'chap'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'format_in_titlepage'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'format_in_titlepage'};
+$result_nodes{'format_in_titlepage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'format_in_titlepage'};
 
 $result_menus{'format_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'format_in_titlepage'} = [];

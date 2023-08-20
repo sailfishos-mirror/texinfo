@@ -1816,36 +1816,36 @@ T
 $result_nodes{'commands_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
+    'node_directions' => {
+      'next' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'b'
+            }
+          ]
+        }
+      },
+      'prev' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'c'
+            }
+          ]
+        }
+      },
+      'up' => {
+        'extra' => {
+          'manual_content' => [
+            {
+              'text' => 'd'
+            }
+          ]
+        }
+      }
+    },
     'normalized' => 'a'
-  },
-  'structure' => {
-    'node_next' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'b'
-          }
-        ]
-      }
-    },
-    'node_prev' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'c'
-          }
-        ]
-      }
-    },
-    'node_up' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'd'
-          }
-        ]
-      }
-    }
   }
 };
 
@@ -1853,8 +1853,7 @@ $result_menus{'commands_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'commands_and_spaces'} = [

@@ -191,8 +191,7 @@ $result_sectioning{'top_no_sectioning_command'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Chapter'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -210,34 +209,33 @@ $result_sectioning{'top_no_sectioning_command'}{'extra'}{'section_childs'}[0]{'e
 $result_nodes{'top_no_sectioning_command'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'normalized' => 'Chapter'
-      },
-      'structure' => {
-        'node_prev' => {}
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'section_number' => 1
+            }
+          },
+          'node_directions' => {
+            'prev' => {}
+          },
+          'normalized' => 'Chapter'
+        }
       }
-    }
+    },
+    'normalized' => 'Top'
   }
 };
-$result_nodes{'top_no_sectioning_command'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'top_no_sectioning_command'};
+$result_nodes{'top_no_sectioning_command'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_no_sectioning_command'};
 
 $result_menus{'top_no_sectioning_command'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'top_no_sectioning_command'} = [];

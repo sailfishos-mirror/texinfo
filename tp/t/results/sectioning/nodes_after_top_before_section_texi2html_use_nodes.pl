@@ -461,8 +461,7 @@ $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'} = {
       }
     ],
     'section_level' => 2
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'};
 
@@ -474,43 +473,47 @@ $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
+    'node_directions' => {
+      'next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'node_directions' => {
+            'next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'subsection',
+                  'extra' => {
+                    'section_number' => 1
+                  }
+                },
+                'node_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'normalized' => 'third-node'
+              },
+              'structure' => {}
+            },
+            'prev' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-node'
+        },
+        'structure' => {}
+      }
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-node'
-      },
-      'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'subsection',
-              'extra' => {
-                'section_number' => 1
-              }
-            },
-            'normalized' => 'third-node'
-          },
-          'structure' => {
-            'node_prev' => {},
-            'node_up' => {}
-          }
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      }
-    },
-    'node_next' => {}
+    'menu_child' => {}
   }
 };
-$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'};
-$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'node_next'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
+$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
+$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'};
+$result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'structure'}{'menu_child'} = $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'nodes_after_top_before_section_texi2html_use_nodes'} = {
   'cmdname' => 'node',

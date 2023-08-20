@@ -645,7 +645,6 @@ $result_sectioning{'sections_test'} = {
         }
       }
     ],
-    'section_directions' => {},
     'section_level' => -1
   }
 };

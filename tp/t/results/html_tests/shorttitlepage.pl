@@ -277,8 +277,7 @@ $result_sectioning{'shorttitlepage'} = {
       }
     ],
     'section_level' => -1
-  },
-  'structure' => {}
+  }
 };
 $result_sectioning{'shorttitlepage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'shorttitlepage'};
 
