@@ -6,15 +6,15 @@ texinfo_register_file_id_setting_function('tree_unit_file_name',
 sub test_misc_file_name($$$$)
 {
   my $converter = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $filename = shift;
   my $filepath = shift;
 
   return ($filename, $filepath) if (defined($filepath));
 
-  if ($converter->element_is_tree_unit_top($element)
+  if ($converter->unit_is_top_output_unit($output_unit)
       or ($converter->{'tree_units'}->[2]
-          and $converter->{'tree_units'}->[2] eq $element)) {
+          and $converter->{'tree_units'}->[2] eq $output_unit)) {
     my $extension = $converter->get_conf('EXTENSION');
     my $prefix = $converter->{'document_name'};
     $filename = "${prefix}_abt"

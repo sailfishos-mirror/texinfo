@@ -1,5 +1,19 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (unit_is_top_output_unit): rename
+	element_is_tree_unit_top as unit_is_top_output_unit.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm ($self->{'global_target_directions'}):
+	rename global_target_elements_directions as global_target_directions.
+
+	* tp/Texinfo/Convert/HTML.pm, tp/init/book.pm: rename $tree_unit as
+	$output_unit and similar variable names renaming all over.
+
+	* doc/texi2any_api.texi: rename all over element units, elements
+	output element units, tree units as output units when relevant.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl ($nr_comparisons, test): enable comparison of
 	floats results.
 

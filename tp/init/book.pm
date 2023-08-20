@@ -120,16 +120,16 @@ sub book_format_navigation_header($$$$)
   my $cmdname = shift;
   my $element = shift;
 
-  my $tree_unit = $element->{'associated_unit'};
-  if ($tree_unit and $tree_unit->{'unit_command'}
-      and not $tree_unit->{'unit_command'}->{'cmdname'} eq 'node'
-      and ($tree_unit->{'contents'}->[0] eq $element
-          or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
-              and $tree_unit->{'contents'}->[1] eq $element))
-      and defined($tree_unit->{'unit_filename'})
+  my $output_unit = $element->{'associated_unit'};
+  if ($output_unit and $output_unit->{'unit_command'}
+      and not $output_unit->{'unit_command'}->{'cmdname'} eq 'node'
+      and ($output_unit->{'contents'}->[0] eq $element
+          or (!$output_unit->{'contents'}->[0]->{'cmdname'}
+              and $output_unit->{'contents'}->[1] eq $element))
+      and defined($output_unit->{'unit_filename'})
       and $self->count_elements_in_filename('current',
-                         $tree_unit->{'unit_filename'}) == 1) {
-    return book_print_up_toc($self, $tree_unit->{'unit_command'}) .
+                         $output_unit->{'unit_filename'}) == 1) {
+    return book_print_up_toc($self, $output_unit->{'unit_command'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $element);
 
@@ -199,15 +199,15 @@ sub book_convert_heading_command($$$$$)
         #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
-  my $tree_unit;
+  my $output_unit;
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and $element->{'associated_unit'}) {
-    $tree_unit = $element->{'associated_unit'};
+    $output_unit = $element->{'associated_unit'};
   }
   my $element_header = '';
-  if ($tree_unit) {
+  if ($output_unit) {
     $element_header = &{$self->formatting_function('format_element_header')}(
-                                        $self, $cmdname, $element, $tree_unit);
+                                        $self, $cmdname, $element, $output_unit);
   }
 
   my $tables_of_contents = '';
@@ -312,13 +312,13 @@ sub book_convert_heading_command($$$$$)
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    # FIXME what to do if the $tree_unit extra does not contain any
+    # FIXME what to do if the $output_unit extra does not contain any
     # unit_command, but tree_unit is defined (it can contain only
     # 'first_in_page')
-    if ((!$tree_unit
-         # or !$tree_unit->{'unit_command'}
-         or ($tree_unit->{'unit_command'}
-             and $tree_unit->{'unit_command'} eq $element
+    if ((!$output_unit
+         # or !$output_unit->{'unit_command'}
+         or ($output_unit->{'unit_command'}
+             and $output_unit->{'unit_command'} eq $element
              and (not $element->{'extra'}
                   or not $element->{'extra'}->{'associated_section'})))
         and defined($element->{'extra'})
@@ -448,7 +448,7 @@ foreach my $command (keys(%Texinfo::Commands::sectioning_heading_commands),
 sub book_element_file_name($$$$)
 {
   my $converter = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $filename = shift;
   my $filepath = shift;
 
@@ -466,16 +466,16 @@ sub book_element_file_name($$$$)
   my $prefix = $converter->{'document_name'};
   my $new_file_name;
   my $command;
-  if ($element->{'unit_command'}) {
-    if ($element->{'unit_command'}->{'cmdname'} ne 'node') {
-      $command = $element->{'unit_command'};
-    } elsif ($element->{'unit_command'}->{'extra'}
-             and $element->{'unit_command'}->{'extra'}->{'associated_section'}) {
-      $command = $element->{'unit_command'}->{'extra'}->{'associated_section'};
+  if ($output_unit->{'unit_command'}) {
+    if ($output_unit->{'unit_command'}->{'cmdname'} ne 'node') {
+      $command = $output_unit->{'unit_command'};
+    } elsif ($output_unit->{'unit_command'}->{'extra'}
+             and $output_unit->{'unit_command'}->{'extra'}->{'associated_section'}) {
+      $command = $output_unit->{'unit_command'}->{'extra'}->{'associated_section'};
     }
   }
   return undef unless ($command);
-  if ($converter->element_is_tree_unit_top($element)) {
+  if ($converter->unit_is_top_output_unit($output_unit)) {
     $new_file_name = "${prefix}_top.html";
   } elsif (defined($command->{'extra'}->{'section_number'})
            and ($command->{'extra'}->{'section_number'} ne '')) {

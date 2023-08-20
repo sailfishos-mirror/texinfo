@@ -7,7 +7,7 @@ sub mini_ker_element_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  if ($self->element_is_tree_unit_top($element)) {
+  if ($self->unit_is_top_output_unit($element)) {
     my $result = '';
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
           $self->get_conf('MISC_BUTTONS'), $type, $element)
