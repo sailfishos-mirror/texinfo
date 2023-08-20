@@ -1907,24 +1907,23 @@ name that has been already set.  The function should return the node file name
 (@var{$node_file}).
 @end deftypefn
 
-The other function reference, @code{tree_unit_file_name}, is used to
+The other function reference, @code{unit_file_name}, is used to
 customize the file names associated with each normal output unit
 (@pxref{Output Units}).
 
-@deftypefn {Function Reference} {(@var{$file}, @var{$path})} tree_unit_file_name (@var{$converter}, @
-                  @var{\%unit_element}, @var{$file_name}, @var{$file_path})
-@var{$converter} is a converter object.  @var{\%unit_element} is the Texinfo
-element corresponding to the unit element.  @var{$file_name} is the file
-name that has been already set.  @var{$file_path} is the file path that has
-been already set.  @var{$file_path} is @samp{undef} if the file is relative to
-the output directory, which is the case if the output is split.  The
-function should return the file name for the unit element, @var{$file}, and the
-file path for the unit element, @var{$path}, which should be @samp{undef} if
-the file path is to be constructed by putting @var{$file} in the destination
-directory.
+@deftypefn {Function Reference} {(@var{$file}, @var{$path})} unit_file_name (@var{$converter}, @
+                  @var{\%output_unit}, @var{$file_name}, @var{$file_path})
+@var{$converter} is a converter object.  @var{\%output_unit} is the output unit.
+@var{$file_name} is the file name that has been already set.  @var{$file_path}
+is the file path that has been already set.  @var{$file_path} is @samp{undef}
+if the file is relative to the output directory, which is the case if the output
+is split.  The function should return the file name for the output unit,
+@var{$file}, and the file path for the output unit, @var{$path}, which should
+be @samp{undef} if the file path is to be constructed by putting @var{$file}
+in the destination directory.
 @end deftypefn
 
-In the user defined functions, the information that a unit element
+In the user defined functions, the information that an output unit
 is associated with @code{@@top} or @code{@@node Top} or more generally
 considered to be the Top element may be determined with
 @example
@@ -3514,10 +3513,10 @@ the counter does not exist.  The counter returned depends on @var{$specification
 
 @table @emph
 @item current
-Return the number of unit elements associated with @var{$file_name}
+Return the number of output units associated with @var{$file_name}
 having already been processed.
 @item remaining
-Return the number of unit elements associated with @var{$file_name}
+Return the number of output units associated with @var{$file_name}
 that remains to be processed.
 @item total
 Return the total number of output units associated with the file.

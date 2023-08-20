@@ -1,6 +1,6 @@
 use strict;
 
-texinfo_register_file_id_setting_function('tree_unit_file_name',
+texinfo_register_file_id_setting_function('unit_file_name',
                                           \&test_misc_file_name);
 
 sub test_misc_file_name($$$$)

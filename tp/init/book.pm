@@ -445,7 +445,7 @@ foreach my $command (keys(%Texinfo::Commands::sectioning_heading_commands),
                                 \&book_convert_heading_command);
 }
 
-sub book_element_file_name($$$$)
+sub book_unit_file_name($$$$)
 {
   my $converter = shift;
   my $output_unit = shift;
@@ -491,7 +491,7 @@ sub book_element_file_name($$$$)
   return ($new_file_name, undef);
 }
 
-texinfo_register_file_id_setting_function('tree_unit_file_name',
-                                          \&book_element_file_name);
+texinfo_register_file_id_setting_function('unit_file_name',
+                                          \&book_unit_file_name);
 
 1;

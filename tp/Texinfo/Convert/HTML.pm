@@ -7442,7 +7442,7 @@ my %customizable_file_id_setting_references;
 foreach my $customized_reference ('external_target_split_name',
                 'external_target_non_split_name',
                 'label_target_name', 'node_file_name',
-                'sectioning_command_target_name', 'tree_unit_file_name',
+                'sectioning_command_target_name', 'unit_file_name',
                 'special_element_target_file_name') {
   $customizable_file_id_setting_references{$customized_reference} = 1;
 }
@@ -9000,11 +9000,11 @@ sub _html_set_pages_files($$$$$$$$)
       print STDERR "BUG: no files_source_info: $filename\n";
     }
     my $filepath = $filenames_paths{$filename};
-    if (defined($self->{'file_id_setting'}->{'tree_unit_file_name'})) {
+    if (defined($self->{'file_id_setting'}->{'unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->unit_is_top_output_unit($output_unit);
       my ($user_filename, $user_filepath)
-         = &{$self->{'file_id_setting'}->{'tree_unit_file_name'}}(
+         = &{$self->{'file_id_setting'}->{'unit_file_name'}}(
                $self, $output_unit, $filename, $filepath);
       if (defined($user_filename)) {
         $filename = $user_filename;
