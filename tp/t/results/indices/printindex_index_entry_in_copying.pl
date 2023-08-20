@@ -935,8 +935,7 @@ $result_sectioning{'printindex_index_entry_in_copying'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -985,11 +984,6 @@ $result_nodes{'printindex_index_entry_in_copying'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1011,39 +1005,35 @@ $result_nodes{'printindex_index_entry_in_copying'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'printindex_index_entry_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'printindex_index_entry_in_copying'};
 $result_nodes{'printindex_index_entry_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_index_entry_in_copying'};
-$result_nodes{'printindex_index_entry_in_copying'}{'structure'}{'menu_child'} = $result_nodes{'printindex_index_entry_in_copying'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'printindex_index_entry_in_copying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'printindex_index_entry_in_copying'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'printindex_index_entry_in_copying'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'printindex_index_entry_in_copying'};
+];
+$result_menus{'printindex_index_entry_in_copying'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'printindex_index_entry_in_copying'}[0];
 
 $result_errors{'printindex_index_entry_in_copying'} = [];
 

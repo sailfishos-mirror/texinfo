@@ -609,12 +609,13 @@ $result_nodes{'ref_in_def'} = {
   }
 };
 
-$result_menus{'ref_in_def'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'ref_in_def'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'ref_in_def'} = [];
 

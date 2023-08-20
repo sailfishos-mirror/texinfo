@@ -2030,12 +2030,23 @@ $result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'ext
 $result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'frenchspacing_and_code'};
 $result_nodes{'frenchspacing_and_code'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'frenchspacing_and_code'};
 
-$result_menus{'frenchspacing_and_code'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'frenchspacing_and_code'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-frenchspacing'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap-no'
+    }
   }
-};
+];
 
 $result_errors{'frenchspacing_and_code'} = [];
 

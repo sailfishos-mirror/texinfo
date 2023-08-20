@@ -209,11 +209,6 @@ A para.
 $result_nodes{'space_at_menu_end'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -227,31 +222,19 @@ $result_nodes{'space_at_menu_end'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
-$result_nodes{'space_at_menu_end'}{'structure'}{'menu_child'} = $result_nodes{'space_at_menu_end'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'space_at_menu_end'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'out'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'space_at_menu_end'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     }
   }
-};
+];
 
 $result_errors{'space_at_menu_end'} = [];
 

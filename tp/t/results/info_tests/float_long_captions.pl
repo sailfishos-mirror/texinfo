@@ -350,12 +350,13 @@ $result_nodes{'float_long_captions'} = {
   }
 };
 
-$result_menus{'float_long_captions'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'float_long_captions'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'float_long_captions'} = [];
 

@@ -208,12 +208,13 @@ $result_nodes{'contents_in_document'} = {
   }
 };
 
-$result_menus{'contents_in_document'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'contents_in_document'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'contents_in_document'} = [];
 

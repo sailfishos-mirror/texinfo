@@ -146,12 +146,13 @@ $result_nodes{'note_in_strong_end_of_line'} = {
   }
 };
 
-$result_menus{'note_in_strong_end_of_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'note_in_strong_end_of_line'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'note_in_strong_end_of_line'} = [];
 

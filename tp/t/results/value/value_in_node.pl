@@ -800,8 +800,7 @@ $result_sectioning{'value_in_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -849,11 +848,6 @@ $result_nodes{'value_in_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -884,87 +878,50 @@ $result_nodes{'value_in_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => 1
-          }
-        },
-        'menus' => [
-          {
-            'cmdname' => 'menu'
-          }
-        ],
-        'node_directions' => {
-          'prev' => {},
-          'up' => {}
-        },
-        'normalized' => 'Node-1'
-      },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {},
-              'up' => {}
-            },
-            'normalized' => 'Section-1_002e1'
-          },
-          'structure' => {}
-        }
-      }
-    }
   }
 };
-$result_nodes{'value_in_node'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_node'};
-$result_nodes{'value_in_node'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'value_in_node'};
-$result_nodes{'value_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_node'}{'structure'}{'menu_child'};
-$result_nodes{'value_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'value_in_node'}{'structure'}{'menu_child'};
 
-$result_menus{'value_in_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'value_in_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Node-1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'Section-1_002e1'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Node-1' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Node-1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'Section-1_002e1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Node-1' => 1
       }
     }
   }
-};
-$result_menus{'value_in_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'value_in_node'};
-$result_menus{'value_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'value_in_node'}{'structure'}{'menu_child'};
+];
+$result_menus{'value_in_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'value_in_node'}[0];
+$result_menus{'value_in_node'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'value_in_node'}[1];
 
 $result_errors{'value_in_node'} = [];
 

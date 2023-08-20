@@ -2340,12 +2340,13 @@ $result_nodes{'accentenc'} = {
   }
 };
 
-$result_menus{'accentenc'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'accentenc'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'accentenc'} = [];
 

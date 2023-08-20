@@ -814,12 +814,18 @@ $result_nodes{'inter_item_commands_in_itemize'} = {
 $result_nodes{'inter_item_commands_in_itemize'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'inter_item_commands_in_itemize'};
 $result_nodes{'inter_item_commands_in_itemize'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'inter_item_commands_in_itemize'};
 
-$result_menus{'inter_item_commands_in_itemize'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'inter_item_commands_in_itemize'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'inter_item_commands_in_itemize'} = [];
 

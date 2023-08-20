@@ -409,12 +409,13 @@ $result_nodes{'paragraphindent_in_preamble_and_in_document'} = {
   }
 };
 
-$result_menus{'paragraphindent_in_preamble_and_in_document'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'paragraphindent_in_preamble_and_in_document'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'paragraphindent_in_preamble_and_in_document'} = [];
 

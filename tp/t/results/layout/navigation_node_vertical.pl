@@ -968,8 +968,7 @@ $result_sectioning{'navigation_node_vertical'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1057,11 +1056,6 @@ $result_nodes{'navigation_node_vertical'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1072,124 +1066,79 @@ $result_nodes{'navigation_node_vertical'} = {
               'section_number' => 1
             }
           },
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chapter'
         },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'section',
-                'extra' => {
-                  'section_number' => '1.1'
-                }
-              },
-              'menus' => [
-                {
-                  'cmdname' => 'menu'
-                }
-              ],
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'section'
-            },
-            'structure' => {
-              'menu_child' => {
-                'cmdname' => 'node',
-                'extra' => {
-                  'associated_section' => {
-                    'cmdname' => 'subsection',
-                    'extra' => {
-                      'section_number' => '1.1.1'
-                    }
-                  },
-                  'node_directions' => {
-                    'up' => {}
-                  },
-                  'normalized' => 'subsection'
-                },
-                'structure' => {}
-              }
-            }
-          }
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'navigation_node_vertical'};
 $result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'navigation_node_vertical'};
-$result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'};
-$result_nodes{'navigation_node_vertical'}{'structure'}{'menu_child'} = $result_nodes{'navigation_node_vertical'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'navigation_node_vertical'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'navigation_node_vertical'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'section'
-          },
-          'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'menu_directions' => {
-                  'up' => {}
-                },
-                'normalized' => 'subsection'
-              },
-              'structure' => {
-                'menu_up_hash' => {
-                  'section' => 1
-                }
-              }
-            },
-            'menu_up_hash' => {
-              'chapter' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'section'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'chapter' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'subsection'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'section' => 1
       }
     }
   }
-};
-$result_menus{'navigation_node_vertical'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'};
-$result_menus{'navigation_node_vertical'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'}{'structure'}{'menu_child'};
-$result_menus{'navigation_node_vertical'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+];
+$result_menus{'navigation_node_vertical'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'}[0];
+$result_menus{'navigation_node_vertical'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'}[1];
+$result_menus{'navigation_node_vertical'}[3]{'extra'}{'menu_directions'}{'up'} = $result_menus{'navigation_node_vertical'}[2];
 
 $result_errors{'navigation_node_vertical'} = [];
 

@@ -282,12 +282,13 @@ $result_nodes{'html_in_copying'} = {
   }
 };
 
-$result_menus{'html_in_copying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'html_in_copying'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'html_in_copying'} = [];
 

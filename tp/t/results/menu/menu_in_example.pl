@@ -536,12 +536,13 @@ $result_nodes{'menu_in_example'} = {
   }
 };
 
-$result_menus{'menu_in_example'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'menu_in_example'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'menu_in_example'} = [
   {

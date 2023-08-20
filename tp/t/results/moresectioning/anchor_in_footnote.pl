@@ -403,8 +403,7 @@ $result_sectioning{'anchor_in_footnote'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -452,11 +451,6 @@ $result_nodes{'anchor_in_footnote'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -477,38 +471,35 @@ $result_nodes{'anchor_in_footnote'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'anchor_in_footnote'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_footnote'};
 $result_nodes{'anchor_in_footnote'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_in_footnote'};
-$result_nodes{'anchor_in_footnote'}{'structure'}{'menu_child'} = $result_nodes{'anchor_in_footnote'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'anchor_in_footnote'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_in_footnote'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'anchor_in_footnote'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'anchor_in_footnote'};
+];
+$result_menus{'anchor_in_footnote'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'anchor_in_footnote'}[0];
 
 $result_errors{'anchor_in_footnote'} = [];
 

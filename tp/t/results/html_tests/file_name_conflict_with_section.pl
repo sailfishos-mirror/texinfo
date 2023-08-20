@@ -213,12 +213,13 @@ $result_nodes{'file_name_conflict_with_section'} = {
   }
 };
 
-$result_menus{'file_name_conflict_with_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_conflict_with_section'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'file_name_conflict_with_section'} = [];
 

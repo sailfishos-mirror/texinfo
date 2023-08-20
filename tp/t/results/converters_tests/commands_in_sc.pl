@@ -830,12 +830,18 @@ $result_nodes{'commands_in_sc'} = {
 $result_nodes{'commands_in_sc'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'commands_in_sc'};
 $result_nodes{'commands_in_sc'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'commands_in_sc'};
 
-$result_menus{'commands_in_sc'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'commands_in_sc'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'commands_in_sc'} = [];
 

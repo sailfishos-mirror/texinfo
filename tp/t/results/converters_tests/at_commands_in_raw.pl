@@ -1302,12 +1302,18 @@ $result_nodes{'at_commands_in_raw'} = {
 $result_nodes{'at_commands_in_raw'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'at_commands_in_raw'};
 $result_nodes{'at_commands_in_raw'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'at_commands_in_raw'};
 
-$result_menus{'at_commands_in_raw'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'at_commands_in_raw'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'at_commands_in_raw'} = [
   {

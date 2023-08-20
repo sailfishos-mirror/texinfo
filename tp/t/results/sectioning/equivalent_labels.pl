@@ -388,66 +388,20 @@ In float
 $result_nodes{'equivalent_labels'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'anchor',
-      'extra' => {
-        'normalized' => 'anch'
-      },
-      'structure' => {}
-    }
   }
 };
 
-$result_menus{'equivalent_labels'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'anchor',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'float',
-            'extra' => {
-              'float_type' => 'truc',
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'floa'
-            },
-            'structure' => {
-              'float_number' => 1,
-              'menu_up_hash' => {
-                'first' => 1
-              }
-            }
-          },
-          'up' => {}
-        },
-        'normalized' => 'anch'
-      },
-      'structure' => {
-        'menu_up_hash' => {
-          'first' => 1
-        }
-      }
+$result_menus{'equivalent_labels'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'equivalent_labels'}{'structure'}{'menu_child'};
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_labels'};
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_labels'};
+];
 
 $result_errors{'equivalent_labels'} = [
   {

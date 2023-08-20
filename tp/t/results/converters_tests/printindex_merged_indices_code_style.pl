@@ -788,12 +788,18 @@ $result_nodes{'printindex_merged_indices_code_style'} = {
 $result_nodes{'printindex_merged_indices_code_style'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'printindex_merged_indices_code_style'};
 $result_nodes{'printindex_merged_indices_code_style'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_merged_indices_code_style'};
 
-$result_menus{'printindex_merged_indices_code_style'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'printindex_merged_indices_code_style'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'printindex_merged_indices_code_style'} = [];
 

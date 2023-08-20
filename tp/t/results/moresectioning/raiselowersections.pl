@@ -1644,8 +1644,7 @@ $result_sectioning{'raiselowersections'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1782,11 +1781,6 @@ $result_nodes{'raiselowersections'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1797,11 +1791,6 @@ $result_nodes{'raiselowersections'} = {
               'section_number' => 1
             }
           },
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'next' => {
               'cmdname' => 'node',
@@ -1825,173 +1814,110 @@ $result_nodes{'raiselowersections'} = {
           },
           'normalized' => 'Chapter'
         },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'chapter',
-                'extra' => {
-                  'level_modifier' => -1,
-                  'section_number' => '1.1'
-                }
-              },
-              'menus' => [
-                {
-                  'cmdname' => 'menu'
-                }
-              ],
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'Chapter-in-included-file'
-            },
-            'structure' => {
-              'menu_child' => {
-                'cmdname' => 'node',
-                'extra' => {
-                  'associated_section' => {
-                    'cmdname' => 'section',
-                    'extra' => {
-                      'level_modifier' => -1,
-                      'section_number' => '1.1.1'
-                    }
-                  },
-                  'menus' => [
-                    {
-                      'cmdname' => 'menu'
-                    }
-                  ],
-                  'node_directions' => {
-                    'up' => {}
-                  },
-                  'normalized' => 'Section'
-                },
-                'structure' => {
-                  'menu_child' => {
-                    'cmdname' => 'node',
-                    'extra' => {
-                      'associated_section' => {
-                        'cmdname' => 'subsection',
-                        'extra' => {
-                          'level_modifier' => -1,
-                          'section_number' => '1.1.1.1'
-                        }
-                      },
-                      'node_directions' => {
-                        'up' => {}
-                      },
-                      'normalized' => 'Subsection'
-                    },
-                    'structure' => {}
-                  }
-                }
-              }
-            }
-          }
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'raiselowersections'};
 $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'raiselowersections'};
 $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'raiselowersections'};
-$result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'};
-$result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_nodes{'raiselowersections'}{'structure'}{'menu_child'} = $result_nodes{'raiselowersections'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'raiselowersections'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'raiselowersections'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'Second-chapter'
-            },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
-          },
-          'up' => {}
-        },
-        'normalized' => 'Chapter'
-      },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
           'extra' => {
             'menu_directions' => {
+              'prev' => {},
               'up' => {}
             },
-            'normalized' => 'Chapter-in-included-file'
+            'normalized' => 'Second-chapter'
           },
           'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'menu_directions' => {
-                  'up' => {}
-                },
-                'normalized' => 'Section'
-              },
-              'structure' => {
-                'menu_child' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'menu_directions' => {
-                      'up' => {}
-                    },
-                    'normalized' => 'Subsection'
-                  },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Section' => 1
-                    }
-                  }
-                },
-                'menu_up_hash' => {
-                  'Chapter-in-included-file' => 1
-                }
-              }
-            },
             'menu_up_hash' => {
-              'Chapter' => 1
+              'Top' => 1
             }
           }
         },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'raiselowersections'}{'structure'}{'menu_child'};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}{'structure'}{'menu_child'};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Chapter-in-included-file'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Chapter' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Section'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Chapter-in-included-file' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'Subsection'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Section' => 1
+      }
+    }
+  },
+  {}
+];
+$result_menus{'raiselowersections'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'raiselowersections'}[1];
+$result_menus{'raiselowersections'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}[0];
+$result_menus{'raiselowersections'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}[0];
+$result_menus{'raiselowersections'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}[1];
+$result_menus{'raiselowersections'}[3]{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}[2];
+$result_menus{'raiselowersections'}[4]{'extra'}{'menu_directions'}{'up'} = $result_menus{'raiselowersections'}[3];
+$result_menus{'raiselowersections'}[5] = $result_menus{'raiselowersections'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'raiselowersections'} = [];
 

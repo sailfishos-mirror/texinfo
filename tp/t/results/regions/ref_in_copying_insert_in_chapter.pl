@@ -509,8 +509,7 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Intro'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -577,34 +576,11 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
               'section_number' => 1
             }
           },
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Intro'
-        },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'section',
-                'extra' => {
-                  'section_number' => '1.1'
-                }
-              },
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'GFDL'
-            },
-            'structure' => {}
-          }
         }
       }
     },
@@ -613,14 +589,36 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
 };
 $result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_copying_insert_in_chapter'};
 $result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying_insert_in_chapter'};
-$result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'ref_in_copying_insert_in_chapter'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ref_in_copying_insert_in_chapter'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Intro'
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'GFDL'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Intro' => 1
+      }
+    }
   }
-};
+];
+$result_menus{'ref_in_copying_insert_in_chapter'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_copying_insert_in_chapter'}[1];
 
 $result_errors{'ref_in_copying_insert_in_chapter'} = [];
 

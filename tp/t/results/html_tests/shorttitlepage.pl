@@ -292,12 +292,13 @@ $result_nodes{'shorttitlepage'} = {
   }
 };
 
-$result_menus{'shorttitlepage'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'shorttitlepage'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'shorttitlepage'} = [];
 

@@ -737,8 +737,7 @@ $result_sectioning{'check_htmlxref_no_use_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -786,11 +785,6 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -830,46 +824,59 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
-$result_nodes{'check_htmlxref_no_use_nodes'}{'structure'}{'menu_child'} = $result_nodes{'check_htmlxref_no_use_nodes'}{'extra'}{'node_directions'}{'prev'};
 
-$result_menus{'check_htmlxref_no_use_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'check_htmlxref_no_use_nodes'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'other_no_existing_no_manual'
-                }
-              ]
-            },
-            'type' => 'menu_entry_node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'other_no_existing_no_manual'
+              }
+            ]
           },
-          'up' => {}
+          'type' => 'menu_entry_node'
         },
-        'normalized' => 'first'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'first'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'prev' => {},
+        'up' => {}
+      },
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'check_htmlxref_no_use_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'check_htmlxref_no_use_nodes'};
+];
+$result_menus{'check_htmlxref_no_use_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'check_htmlxref_no_use_nodes'}[0];
+$result_menus{'check_htmlxref_no_use_nodes'}[2]{'extra'}{'menu_directions'}{'prev'} = $result_menus{'check_htmlxref_no_use_nodes'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'check_htmlxref_no_use_nodes'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'check_htmlxref_no_use_nodes'}[0];
 
 $result_errors{'check_htmlxref_no_use_nodes'} = [];
 

@@ -145,12 +145,13 @@ $result_nodes{'anchor_zero'} = {
   }
 };
 
-$result_menus{'anchor_zero'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_zero'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'anchor_zero'} = [];
 

@@ -497,12 +497,18 @@ $result_nodes{'translation_in_parser_in_translation'} = {
 $result_nodes{'translation_in_parser_in_translation'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'translation_in_parser_in_translation'};
 $result_nodes{'translation_in_parser_in_translation'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'translation_in_parser_in_translation'};
 
-$result_menus{'translation_in_parser_in_translation'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'translation_in_parser_in_translation'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'translation_in_parser_in_translation'} = [];
 

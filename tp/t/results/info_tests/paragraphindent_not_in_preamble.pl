@@ -349,12 +349,13 @@ $result_nodes{'paragraphindent_not_in_preamble'} = {
   }
 };
 
-$result_menus{'paragraphindent_not_in_preamble'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'paragraphindent_not_in_preamble'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'paragraphindent_not_in_preamble'} = [];
 

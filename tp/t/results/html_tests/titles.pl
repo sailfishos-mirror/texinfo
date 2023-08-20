@@ -292,12 +292,13 @@ $result_nodes{'titles'} = {
   }
 };
 
-$result_menus{'titles'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'titles'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'titles'} = [];
 

@@ -380,12 +380,18 @@ $result_nodes{'index_and_node_same_name'} = {
 $result_nodes{'index_and_node_same_name'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_and_node_same_name'};
 $result_nodes{'index_and_node_same_name'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_and_node_same_name'};
 
-$result_menus{'index_and_node_same_name'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_and_node_same_name'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'index-node'
+    }
   }
-};
+];
 
 $result_errors{'index_and_node_same_name'} = [];
 

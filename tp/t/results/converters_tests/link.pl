@@ -622,12 +622,18 @@ $result_nodes{'link'} = {
   }
 };
 
-$result_menus{'link'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'One'
+$result_menus{'link'} = [
+  {
+    'extra' => {
+      'normalized' => 'One'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Two'
+    }
   }
-};
+];
 
 $result_errors{'link'} = [
   {

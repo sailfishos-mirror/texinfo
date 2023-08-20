@@ -413,12 +413,18 @@ $result_nodes{'omit_def_space'} = {
 };
 $result_nodes{'omit_def_space'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'omit_def_space'};
 
-$result_menus{'omit_def_space'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'omit_def_space'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'omit_def_space'} = [];
 

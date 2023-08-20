@@ -126,12 +126,13 @@ $result_nodes{'one_subsection_and_node'} = {
   }
 };
 
-$result_menus{'one_subsection_and_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'one-node'
+$result_menus{'one_subsection_and_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'one-node'
+    }
   }
-};
+];
 
 $result_errors{'one_subsection_and_node'} = [];
 

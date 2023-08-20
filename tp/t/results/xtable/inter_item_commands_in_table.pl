@@ -2775,12 +2775,18 @@ $result_nodes{'inter_item_commands_in_table'} = {
 $result_nodes{'inter_item_commands_in_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'inter_item_commands_in_table'};
 $result_nodes{'inter_item_commands_in_table'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'inter_item_commands_in_table'};
 
-$result_menus{'inter_item_commands_in_table'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'inter_item_commands_in_table'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'inter_item_commands_in_table'} = [];
 

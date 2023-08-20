@@ -1059,12 +1059,23 @@ $result_nodes{'documentation_examples'} = {
 $result_nodes{'documentation_examples'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples'};
 $result_nodes{'documentation_examples'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentation_examples'};
 
-$result_menus{'documentation_examples'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'documentation_examples'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'my-node'
+    }
   }
-};
+];
 
 $result_errors{'documentation_examples'} = [];
 

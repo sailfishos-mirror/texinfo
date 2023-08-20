@@ -521,12 +521,18 @@ $result_nodes{'syncode_index_print_both'} = {
 $result_nodes{'syncode_index_print_both'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'syncode_index_print_both'};
 $result_nodes{'syncode_index_print_both'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'syncode_index_print_both'};
 
-$result_menus{'syncode_index_print_both'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'syncode_index_print_both'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'syncode_index_print_both'} = [
   {

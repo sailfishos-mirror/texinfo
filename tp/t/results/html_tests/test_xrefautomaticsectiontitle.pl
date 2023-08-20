@@ -457,8 +457,7 @@ $result_sectioning{'test_xrefautomaticsectiontitle'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -506,11 +505,6 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -531,38 +525,35 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_xrefautomaticsectiontitle'};
 $result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_xrefautomaticsectiontitle'};
-$result_nodes{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'} = $result_nodes{'test_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'test_xrefautomaticsectiontitle'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_xrefautomaticsectiontitle'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'test_xrefautomaticsectiontitle'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_xrefautomaticsectiontitle'};
+];
+$result_menus{'test_xrefautomaticsectiontitle'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_xrefautomaticsectiontitle'}[0];
 
 $result_errors{'test_xrefautomaticsectiontitle'} = [];
 

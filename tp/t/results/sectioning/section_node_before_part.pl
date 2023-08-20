@@ -187,12 +187,13 @@ $result_nodes{'section_node_before_part'} = {
   }
 };
 
-$result_menus{'section_node_before_part'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'section_node_before_part'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'section_node_before_part'} = [
   {

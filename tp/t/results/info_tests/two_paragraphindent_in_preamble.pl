@@ -391,12 +391,13 @@ $result_nodes{'two_paragraphindent_in_preamble'} = {
   }
 };
 
-$result_menus{'two_paragraphindent_in_preamble'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'two_paragraphindent_in_preamble'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'two_paragraphindent_in_preamble'} = [];
 

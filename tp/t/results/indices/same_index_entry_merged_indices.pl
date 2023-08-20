@@ -631,12 +631,18 @@ $result_nodes{'same_index_entry_merged_indices'} = {
 $result_nodes{'same_index_entry_merged_indices'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'same_index_entry_merged_indices'};
 $result_nodes{'same_index_entry_merged_indices'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'same_index_entry_merged_indices'};
 
-$result_menus{'same_index_entry_merged_indices'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'same_index_entry_merged_indices'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'same_index_entry_merged_indices'} = [];
 

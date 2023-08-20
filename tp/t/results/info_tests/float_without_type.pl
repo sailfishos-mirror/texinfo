@@ -201,12 +201,13 @@ $result_nodes{'float_without_type'} = {
   }
 };
 
-$result_menus{'float_without_type'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'float_without_type'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'float_without_type'} = [];
 

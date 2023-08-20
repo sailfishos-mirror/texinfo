@@ -676,13 +676,13 @@ $result_nodes{'nested_multitable_anchor_index'} = {
   }
 };
 
-$result_menus{'nested_multitable_anchor_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_menus{'nested_multitable_anchor_index'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'nested_multitable_anchor_index'} = [];
 

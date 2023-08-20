@@ -338,12 +338,23 @@ $result_nodes{'node_before_top'} = {
 $result_nodes{'node_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_before_top'};
 $result_nodes{'node_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_before_top'};
 
-$result_menus{'node_before_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'node_before_top'} = [
+  {
+    'extra' => {
+      'normalized' => 'before-Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
   }
-};
+];
 
 $result_errors{'node_before_top'} = [];
 

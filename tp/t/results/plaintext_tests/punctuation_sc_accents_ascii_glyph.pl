@@ -1265,12 +1265,18 @@ $result_nodes{'punctuation_sc_accents_ascii_glyph'} = {
 $result_nodes{'punctuation_sc_accents_ascii_glyph'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'punctuation_sc_accents_ascii_glyph'};
 $result_nodes{'punctuation_sc_accents_ascii_glyph'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'punctuation_sc_accents_ascii_glyph'};
 
-$result_menus{'punctuation_sc_accents_ascii_glyph'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'punctuation_sc_accents_ascii_glyph'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'punctuation_sc_accents_ascii_glyph'} = [];
 

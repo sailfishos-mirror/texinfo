@@ -399,12 +399,13 @@ $result_nodes{'error_in_footnote'} = {
   }
 };
 
-$result_menus{'error_in_footnote'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'error_in_footnote'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'error_in_footnote'} = [
   {

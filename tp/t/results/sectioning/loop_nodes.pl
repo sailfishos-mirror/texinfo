@@ -605,8 +605,7 @@ $result_sectioning{'loop_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -627,20 +626,10 @@ $result_nodes{'loop_nodes'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
         'extra' => {
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {
@@ -650,19 +639,12 @@ $result_nodes{'loop_nodes'} = {
                   'up' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'menus' => [
-                        {
-                          'cmdname' => 'menu'
-                        }
-                      ],
                       'node_directions' => {
                         'up' => {}
                       },
                       'normalized' => 'node-middle'
                     },
-                    'structure' => {
-                      'menu_child' => {}
-                    }
+                    'structure' => {}
                   }
                 },
                 'normalized' => 'node-down'
@@ -672,76 +654,73 @@ $result_nodes{'loop_nodes'} = {
           },
           'normalized' => 'chap-node-up'
         },
-        'structure' => {
-          'menu_child' => {}
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'loop_nodes'};
 $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'};
-$result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'};
-$result_nodes{'loop_nodes'}{'structure'}{'menu_child'} = $result_nodes{'loop_nodes'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'loop_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'loop_nodes'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap-node-up'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'node-middle'
-          },
-          'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'menu_directions' => {
-                  'up' => {}
-                },
-                'normalized' => 'node-down'
-              },
-              'structure' => {
-                'menu_up_hash' => {
-                  'node-middle' => 1
-                }
-              }
-            },
-            'menu_up_hash' => {
-              'chap-node-up' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'chap-node-up'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'node-middle'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'chap-node-up' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'node-down'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'node-middle' => 1
       }
     }
   }
-};
-$result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'};
-$result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'}{'structure'}{'menu_child'};
-$result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+];
+$result_menus{'loop_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'}[0];
+$result_menus{'loop_nodes'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'}[1];
+$result_menus{'loop_nodes'}[3]{'extra'}{'menu_directions'}{'up'} = $result_menus{'loop_nodes'}[2];
 
 $result_errors{'loop_nodes'} = [
   {

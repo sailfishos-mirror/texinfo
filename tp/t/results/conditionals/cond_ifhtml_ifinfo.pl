@@ -869,12 +869,18 @@ $result_nodes{'cond_ifhtml_ifinfo'} = {
 };
 $result_nodes{'cond_ifhtml_ifinfo'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cond_ifhtml_ifinfo'};
 
-$result_menus{'cond_ifhtml_ifinfo'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'cond_ifhtml_ifinfo'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'cond_ifhtml_ifinfo'} = [];
 

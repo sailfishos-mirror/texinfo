@@ -838,8 +838,7 @@ $result_sectioning{'japanese_utf8'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -913,11 +912,6 @@ $result_nodes{'japanese_utf8'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -955,57 +949,55 @@ $result_nodes{'japanese_utf8'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'japanese_utf8'};
 $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'japanese_utf8'};
 $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'japanese_utf8'};
-$result_nodes{'japanese_utf8'}{'structure'}{'menu_child'} = $result_nodes{'japanese_utf8'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'japanese_utf8'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'japanese_utf8'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'Introduction'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'Introduction'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'Preface'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Preface'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'japanese_utf8'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'japanese_utf8'}{'structure'}{'menu_child'};
-$result_menus{'japanese_utf8'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'japanese_utf8'};
-$result_menus{'japanese_utf8'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'japanese_utf8'};
+  },
+  {}
+];
+$result_menus{'japanese_utf8'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'japanese_utf8'}[1];
+$result_menus{'japanese_utf8'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'japanese_utf8'}[0];
+$result_menus{'japanese_utf8'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'japanese_utf8'}[0];
+$result_menus{'japanese_utf8'}[2] = $result_menus{'japanese_utf8'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'japanese_utf8'} = [];
 

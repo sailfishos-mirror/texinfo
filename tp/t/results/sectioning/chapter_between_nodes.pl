@@ -427,8 +427,7 @@ $result_sectioning{'chapter_between_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -489,11 +488,6 @@ $result_nodes{'chapter_between_nodes'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -514,38 +508,35 @@ $result_nodes{'chapter_between_nodes'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'chapter_between_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chapter_between_nodes'};
 $result_nodes{'chapter_between_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes'};
-$result_nodes{'chapter_between_nodes'}{'structure'}{'menu_child'} = $result_nodes{'chapter_between_nodes'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'chapter_between_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'chapter_between_nodes'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'section-node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'section-node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'chapter_between_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'chapter_between_nodes'};
+];
+$result_menus{'chapter_between_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'chapter_between_nodes'}[0];
 
 $result_errors{'chapter_between_nodes'} = [];
 

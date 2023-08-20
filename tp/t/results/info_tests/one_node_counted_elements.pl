@@ -467,11 +467,6 @@ $result_nodes{'one_node_counted_elements'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'up' => {
         'extra' => {
@@ -484,40 +479,19 @@ $result_nodes{'one_node_counted_elements'} = {
       }
     },
     'normalized' => 'one-node'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'some_manual_name_with_gcc'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'one_node_counted_elements'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'one-node'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'some_manual_name_with_gcc'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'one_node_counted_elements'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'one-node'
     }
   }
-};
+];
 
 $result_errors{'one_node_counted_elements'} = [
   {

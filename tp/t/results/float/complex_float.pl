@@ -3705,8 +3705,7 @@ $result_sectioning{'complex_float'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -3754,11 +3753,6 @@ $result_nodes{'complex_float'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -3779,38 +3773,35 @@ $result_nodes{'complex_float'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'complex_float'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'complex_float'};
 $result_nodes{'complex_float'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'complex_float'};
-$result_nodes{'complex_float'}{'structure'}{'menu_child'} = $result_nodes{'complex_float'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'complex_float'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'complex_float'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'complex_float'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'complex_float'};
+];
+$result_menus{'complex_float'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'complex_float'}[0];
 
 $result_errors{'complex_float'} = [
   {

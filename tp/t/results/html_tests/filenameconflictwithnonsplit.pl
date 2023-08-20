@@ -165,12 +165,13 @@ $result_nodes{'filenameconflictwithnonsplit'} = {
   }
 };
 
-$result_menus{'filenameconflictwithnonsplit'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'filenameconflictwithnonsplit'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'filenameconflictwithnonsplit'} = [];
 

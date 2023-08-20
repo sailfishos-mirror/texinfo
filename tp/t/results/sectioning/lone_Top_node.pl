@@ -310,11 +310,6 @@ $result_nodes{'lone_Top_node'} = {
   },
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'associated_unit' => {},
@@ -331,9 +326,6 @@ $result_nodes{'lone_Top_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'lone_Top_node'}{'associated_unit'}{'directions'}{'NodePrev'} = $result_nodes{'lone_Top_node'}{'associated_unit'};
@@ -344,52 +336,51 @@ $result_nodes{'lone_Top_node'}{'extra'}{'node_directions'}{'next'}{'associated_u
 $result_nodes{'lone_Top_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'associated_section'} = $result_nodes{'lone_Top_node'}{'associated_unit'}{'unit_command'};
 $result_nodes{'lone_Top_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'lone_Top_node'};
 $result_nodes{'lone_Top_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'lone_Top_node'};
-$result_nodes{'lone_Top_node'}{'structure'}{'menu_child'} = $result_nodes{'lone_Top_node'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'lone_Top_node'} = {
-  'associated_unit' => {
-    'directions' => {
-      'NodePrev' => {},
-      'NodeUp' => {},
-      'This' => {}
-    },
-    'type' => 'unit',
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
+$result_menus{'lone_Top_node'} = [
+  {
+    'associated_unit' => {
+      'directions' => {
+        'NodePrev' => {},
+        'NodeUp' => {},
+        'This' => {}
+      },
+      'type' => 'unit',
+      'unit_command' => {
+        'associated_unit' => {},
+        'extra' => {
+          'section_number' => 1
+        }
       }
+    },
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     }
   },
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'associated_unit' => {},
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'First'
+  {
+    'associated_unit' => {},
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'First'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'lone_Top_node'}{'associated_unit'}{'directions'}{'NodePrev'} = $result_menus{'lone_Top_node'}{'associated_unit'};
-$result_menus{'lone_Top_node'}{'associated_unit'}{'directions'}{'NodeUp'} = $result_menus{'lone_Top_node'}{'associated_unit'};
-$result_menus{'lone_Top_node'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'lone_Top_node'}{'associated_unit'};
-$result_menus{'lone_Top_node'}{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_menus{'lone_Top_node'}{'associated_unit'};
-$result_menus{'lone_Top_node'}{'structure'}{'menu_child'}{'associated_unit'} = $result_menus{'lone_Top_node'}{'associated_unit'};
-$result_menus{'lone_Top_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'lone_Top_node'};
+];
+$result_menus{'lone_Top_node'}[0]{'associated_unit'}{'directions'}{'NodePrev'} = $result_menus{'lone_Top_node'}[0]{'associated_unit'};
+$result_menus{'lone_Top_node'}[0]{'associated_unit'}{'directions'}{'NodeUp'} = $result_menus{'lone_Top_node'}[0]{'associated_unit'};
+$result_menus{'lone_Top_node'}[0]{'associated_unit'}{'directions'}{'This'} = $result_menus{'lone_Top_node'}[0]{'associated_unit'};
+$result_menus{'lone_Top_node'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_menus{'lone_Top_node'}[0]{'associated_unit'};
+$result_menus{'lone_Top_node'}[1]{'associated_unit'} = $result_menus{'lone_Top_node'}[0]{'associated_unit'};
+$result_menus{'lone_Top_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'lone_Top_node'}[0];
 
 $result_errors{'lone_Top_node'} = [
   {

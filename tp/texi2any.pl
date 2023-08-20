@@ -1627,7 +1627,8 @@ while(@input_files) {
       if (defined($nodes_list)) {
 
         Texinfo::Structuring::complete_node_tree_with_menus($registrar,
-                                 $main_configuration, $nodes_list, $top_node);
+                                 $main_configuration, $nodes_list,
+                                 $identifier_target, $top_node);
         Texinfo::Structuring::check_nodes_are_referenced($registrar,
                                     $main_configuration, $nodes_list, $top_node,
                                     $identifier_target, $refs);

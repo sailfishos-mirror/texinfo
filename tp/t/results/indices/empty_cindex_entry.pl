@@ -140,12 +140,18 @@ $result_nodes{'empty_cindex_entry'} = {
 };
 $result_nodes{'empty_cindex_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_cindex_entry'};
 
-$result_menus{'empty_cindex_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'empty_cindex_entry'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'empty_cindex_entry'} = [
   {

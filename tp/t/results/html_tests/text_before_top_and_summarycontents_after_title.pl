@@ -262,12 +262,13 @@ $result_nodes{'text_before_top_and_summarycontents_after_title'} = {
   }
 };
 
-$result_menus{'text_before_top_and_summarycontents_after_title'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'text_before_top_and_summarycontents_after_title'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'text_before_top_and_summarycontents_after_title'} = [];
 

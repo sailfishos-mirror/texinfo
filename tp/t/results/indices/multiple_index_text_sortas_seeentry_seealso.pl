@@ -554,12 +554,18 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
 $result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
 $result_nodes{'multiple_index_text_sortas_seeentry_seealso'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_index_text_sortas_seeentry_seealso'};
 
-$result_menus{'multiple_index_text_sortas_seeentry_seealso'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'multiple_index_text_sortas_seeentry_seealso'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'multiple_index_text_sortas_seeentry_seealso'} = [];
 

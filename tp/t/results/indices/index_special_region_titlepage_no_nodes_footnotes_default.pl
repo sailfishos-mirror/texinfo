@@ -1846,8 +1846,7 @@ $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} 
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1915,11 +1914,6 @@ $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1941,39 +1935,35 @@ $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'};
 $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'};
-$result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'menu_child'} = $result_nodes{'index_special_region_titlepage_no_nodes_footnotes_default'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Copying-and-indices'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Copying-and-indices'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'};
+];
+$result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_special_region_titlepage_no_nodes_footnotes_default'}[0];
 
 $result_errors{'index_special_region_titlepage_no_nodes_footnotes_default'} = [
   {

@@ -210,12 +210,13 @@ $result_nodes{'contents_at_end_document'} = {
   }
 };
 
-$result_menus{'contents_at_end_document'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'contents_at_end_document'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'contents_at_end_document'} = [];
 

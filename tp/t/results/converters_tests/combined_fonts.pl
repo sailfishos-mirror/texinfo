@@ -1345,12 +1345,18 @@ $result_nodes{'combined_fonts'} = {
 $result_nodes{'combined_fonts'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'combined_fonts'};
 $result_nodes{'combined_fonts'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'combined_fonts'};
 
-$result_menus{'combined_fonts'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'combined_fonts'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'combined_fonts'} = [];
 

@@ -465,12 +465,18 @@ $result_nodes{'pagesizes'} = {
 $result_nodes{'pagesizes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'pagesizes'};
 $result_nodes{'pagesizes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'pagesizes'};
 
-$result_menus{'pagesizes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'pagesizes'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'pagesizes'} = [
   {

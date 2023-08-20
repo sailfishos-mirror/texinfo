@@ -791,51 +791,34 @@ EXAMPLE COMMENT
 $result_nodes{'sc_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'node_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node'
-      },
-      'structure' => {}
-    }
   }
 };
-$result_nodes{'sc_in_menu'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'sc_in_menu'};
 
-$result_menus{'sc_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'sc_in_menu'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'first' => 1
-        }
+      'normalized' => 'node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'first' => 1
       }
     }
   }
-};
-$result_menus{'sc_in_menu'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'sc_in_menu'};
+];
+$result_menus{'sc_in_menu'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'sc_in_menu'}[0];
 
 $result_errors{'sc_in_menu'} = [
   {

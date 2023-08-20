@@ -306,14 +306,6 @@ $result_texts{'multiple_menus'} = '
 $result_nodes{'multiple_menus'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      },
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -328,32 +320,20 @@ $result_nodes{'multiple_menus'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
-$result_nodes{'multiple_menus'}{'structure'}{'menu_child'} = $result_nodes{'multiple_menus'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'multiple_menus'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'a'
-          }
-        ],
-        'normalized' => 'a'
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'multiple_menus'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {},
+        {}
+      ],
+      'normalized' => 'Top'
     }
   }
-};
+];
 
 $result_errors{'multiple_menus'} = [
   {

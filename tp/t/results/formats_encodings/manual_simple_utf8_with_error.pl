@@ -333,12 +333,23 @@ $result_nodes{'manual_simple_utf8_with_error'} = {
 $result_nodes{'manual_simple_utf8_with_error'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'manual_simple_utf8_with_error'};
 $result_nodes{'manual_simple_utf8_with_error'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'manual_simple_utf8_with_error'};
 
-$result_menus{'manual_simple_utf8_with_error'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'manual_simple_utf8_with_error'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_00e9sseul_00e9'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapitr_00e9'
+    }
   }
-};
+];
 
 $result_errors{'manual_simple_utf8_with_error'} = [
   {

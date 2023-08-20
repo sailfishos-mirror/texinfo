@@ -305,12 +305,18 @@ $result_nodes{'accent_argument_non_ascii'} = {
 $result_nodes{'accent_argument_non_ascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'accent_argument_non_ascii'};
 $result_nodes{'accent_argument_non_ascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'accent_argument_non_ascii'};
 
-$result_menus{'accent_argument_non_ascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'accent_argument_non_ascii'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'accent_argument_non_ascii'} = [];
 

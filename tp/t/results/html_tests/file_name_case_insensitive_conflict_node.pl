@@ -659,12 +659,33 @@ $result_nodes{'file_name_case_insensitive_conflict_node'} = {
 $result_nodes{'file_name_case_insensitive_conflict_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node'};
 $result_nodes{'file_name_case_insensitive_conflict_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'};
 
-$result_menus{'file_name_case_insensitive_conflict_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_case_insensitive_conflict_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Foo'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Bar'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'foo'
+    }
   }
-};
+];
 
 $result_errors{'file_name_case_insensitive_conflict_node'} = [];
 

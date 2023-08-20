@@ -233,12 +233,13 @@ $result_nodes{'empty_caption'} = {
   }
 };
 
-$result_menus{'empty_caption'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'empty_caption'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'empty_caption'} = [];
 

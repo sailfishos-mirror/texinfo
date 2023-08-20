@@ -342,12 +342,23 @@ $result_nodes{'automatic_menu_referencing_node'} = {
 $result_nodes{'automatic_menu_referencing_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'automatic_menu_referencing_node'};
 $result_nodes{'automatic_menu_referencing_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'automatic_menu_referencing_node'};
 
-$result_menus{'automatic_menu_referencing_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'automatic_menu_referencing_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'section'
+    }
   }
-};
+];
 
 $result_errors{'automatic_menu_referencing_node'} = [];
 

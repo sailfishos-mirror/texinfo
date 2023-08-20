@@ -610,12 +610,18 @@ $result_nodes{'weird_accents_disable_encoding'} = {
 $result_nodes{'weird_accents_disable_encoding'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'weird_accents_disable_encoding'};
 $result_nodes{'weird_accents_disable_encoding'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'weird_accents_disable_encoding'};
 
-$result_menus{'weird_accents_disable_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'weird_accents_disable_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'weird_accents_disable_encoding'} = [];
 

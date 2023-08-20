@@ -390,45 +390,20 @@ $result_texts{'node_nested_parentheses'} = '
 $result_nodes{'node_nested_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => '(some) file'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'node_nested_parentheses'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => '(some) file'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'node_nested_parentheses'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
+];
 
 $result_errors{'node_nested_parentheses'} = [
   {

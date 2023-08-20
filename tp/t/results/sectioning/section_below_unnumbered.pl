@@ -574,8 +574,7 @@ $result_sectioning{'section_below_unnumbered'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -641,11 +640,6 @@ $result_nodes{'section_below_unnumbered'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -654,84 +648,62 @@ $result_nodes{'section_below_unnumbered'} = {
             'cmdname' => 'unnumbered',
             'extra' => {}
           },
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'Unn'
         },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'section',
-                'extra' => {}
-              },
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'Sec'
-            },
-            'structure' => {}
-          }
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'section_below_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_below_unnumbered'};
 $result_nodes{'section_below_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'section_below_unnumbered'};
-$result_nodes{'section_below_unnumbered'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'section_below_unnumbered'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'section_below_unnumbered'}{'structure'}{'menu_child'} = $result_nodes{'section_below_unnumbered'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'section_below_unnumbered'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'section_below_unnumbered'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Unn'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'Sec'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'Unn' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Unn'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'Sec'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Unn' => 1
       }
     }
   }
-};
-$result_menus{'section_below_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'section_below_unnumbered'};
-$result_menus{'section_below_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'section_below_unnumbered'}{'structure'}{'menu_child'};
+];
+$result_menus{'section_below_unnumbered'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'section_below_unnumbered'}[0];
+$result_menus{'section_below_unnumbered'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'section_below_unnumbered'}[1];
 
 $result_errors{'section_below_unnumbered'} = [];
 

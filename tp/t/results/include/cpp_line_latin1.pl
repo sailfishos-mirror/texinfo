@@ -288,12 +288,18 @@ $result_nodes{'cpp_line_latin1'} = {
 };
 $result_nodes{'cpp_line_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_line_latin1'};
 
-$result_menus{'cpp_line_latin1'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'cpp_line_latin1'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'cpp_line_latin1'} = [
   {

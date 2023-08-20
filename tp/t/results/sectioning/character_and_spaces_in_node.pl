@@ -452,12 +452,33 @@ $result_nodes{'character_and_spaces_in_node'}{'extra'}{'node_directions'}{'next'
 $result_nodes{'character_and_spaces_in_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'character_and_spaces_in_node'};
 $result_nodes{'character_and_spaces_in_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'character_and_spaces_in_node'};
 
-$result_menus{'character_and_spaces_in_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'character_and_spaces_in_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap-nodes'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'local-node'
+    }
   }
-};
+];
 
 $result_errors{'character_and_spaces_in_node'} = [];
 

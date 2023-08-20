@@ -401,12 +401,23 @@ $result_nodes{'file_name_conflict_with_user_defined'}{'extra'}{'node_directions'
 $result_nodes{'file_name_conflict_with_user_defined'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_conflict_with_user_defined'};
 $result_nodes{'file_name_conflict_with_user_defined'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_conflict_with_user_defined'};
 
-$result_menus{'file_name_conflict_with_user_defined'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_conflict_with_user_defined'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-2'
+    }
   }
-};
+];
 
 $result_errors{'file_name_conflict_with_user_defined'} = [];
 

@@ -192,12 +192,13 @@ $result_nodes{'anchor_in_command'} = {
   }
 };
 
-$result_menus{'anchor_in_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_in_command'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'anchor_in_command'} = [];
 

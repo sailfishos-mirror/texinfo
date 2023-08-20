@@ -1333,12 +1333,18 @@ $result_nodes{'form_feeds'} = {
 };
 $result_nodes{'form_feeds'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'form_feeds'};
 
-$result_menus{'form_feeds'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'form_feeds'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap-node'
+    }
   }
-};
+];
 
 $result_errors{'form_feeds'} = [];
 

@@ -1877,12 +1877,18 @@ $result_nodes{'float_and_refs'} = {
 $result_nodes{'float_and_refs'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'float_and_refs'};
 $result_nodes{'float_and_refs'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'float_and_refs'};
 
-$result_menus{'float_and_refs'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'float_and_refs'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'float_and_refs'} = [];
 

@@ -1308,12 +1308,18 @@ $result_nodes{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {
 $result_nodes{'test_accents_sc_enable_encoding_to_utf8_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_latin1'};
 $result_nodes{'test_accents_sc_enable_encoding_to_utf8_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_latin1'};
 
-$result_menus{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_accents_sc_enable_encoding_to_utf8_latin1'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'test_accents_sc_enable_encoding_to_utf8_latin1'} = [];
 

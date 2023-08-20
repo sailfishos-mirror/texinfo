@@ -109,12 +109,13 @@ $result_nodes{'ref_to_top_in_anchor'} = {
   }
 };
 
-$result_menus{'ref_to_top_in_anchor'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ref_to_top_in_anchor'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'ref_to_top_in_anchor'} = [
   {

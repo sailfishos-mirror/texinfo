@@ -429,12 +429,18 @@ $result_nodes{'informative_commands_in_top_node'} = {
 $result_nodes{'informative_commands_in_top_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'informative_commands_in_top_node'};
 $result_nodes{'informative_commands_in_top_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'informative_commands_in_top_node'};
 
-$result_menus{'informative_commands_in_top_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'informative_commands_in_top_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'next-node'
+    }
   }
-};
+];
 
 $result_errors{'informative_commands_in_top_node'} = [];
 

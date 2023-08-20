@@ -393,12 +393,18 @@ $result_nodes{'syncodeindex_to_plain'} = {
 };
 $result_nodes{'syncodeindex_to_plain'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'syncodeindex_to_plain'};
 
-$result_menus{'syncodeindex_to_plain'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'syncodeindex_to_plain'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'syncodeindex_to_plain'} = [];
 

@@ -262,11 +262,6 @@ unknown ref.
 $result_nodes{'novalidate'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -278,12 +273,16 @@ $result_nodes{'novalidate'} = {
   }
 };
 
-$result_menus{'novalidate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'novalidate'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'novalidate'} = [];
 

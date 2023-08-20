@@ -565,12 +565,28 @@ $result_nodes{'acronym_in_node_and_section'} = {
 $result_nodes{'acronym_in_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'acronym_in_node_and_section'};
 $result_nodes{'acronym_in_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'acronym_in_node_and_section'};
 
-$result_menus{'acronym_in_node_and_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'acronym_in_node_and_section'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'sec-define'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'sec-here-is-GHJ'
+    }
   }
-};
+];
 
 $result_errors{'acronym_in_node_and_section'} = [];
 

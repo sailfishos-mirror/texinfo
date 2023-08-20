@@ -833,12 +833,18 @@ $result_nodes{'documentlanguage'} = {
 $result_nodes{'documentlanguage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentlanguage'};
 $result_nodes{'documentlanguage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentlanguage'};
 
-$result_menus{'documentlanguage'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'documentlanguage'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'documentlanguage'} = [];
 

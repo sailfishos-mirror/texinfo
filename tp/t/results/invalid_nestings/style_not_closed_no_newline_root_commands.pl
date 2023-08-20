@@ -357,8 +357,7 @@ $result_sectioning{'style_not_closed_no_newline_root_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -406,11 +405,6 @@ $result_nodes{'style_not_closed_no_newline_root_commands'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -431,38 +425,35 @@ $result_nodes{'style_not_closed_no_newline_root_commands'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
 $result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'style_not_closed_no_newline_root_commands'};
-$result_nodes{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'} = $result_nodes{'style_not_closed_no_newline_root_commands'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'style_not_closed_no_newline_root_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'style_not_closed_no_newline_root_commands'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'style_not_closed_no_newline_root_commands'};
+];
+$result_menus{'style_not_closed_no_newline_root_commands'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'style_not_closed_no_newline_root_commands'}[0];
 
 $result_errors{'style_not_closed_no_newline_root_commands'} = [
   {

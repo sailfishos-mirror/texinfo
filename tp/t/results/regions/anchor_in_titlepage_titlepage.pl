@@ -384,12 +384,18 @@ $result_nodes{'anchor_in_titlepage_titlepage'} = {
 };
 $result_nodes{'anchor_in_titlepage_titlepage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_titlepage_titlepage'};
 
-$result_menus{'anchor_in_titlepage_titlepage'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_in_titlepage_titlepage'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'nchap'
+    }
   }
-};
+];
 
 $result_errors{'anchor_in_titlepage_titlepage'} = [];
 

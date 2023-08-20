@@ -462,12 +462,18 @@ $result_nodes{'index_entry_in_preformatted'} = {
 $result_nodes{'index_entry_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_in_preformatted'};
 $result_nodes{'index_entry_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_in_preformatted'};
 
-$result_menus{'index_entry_in_preformatted'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_entry_in_preformatted'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'index_entry_in_preformatted'} = [];
 

@@ -2019,12 +2019,18 @@ $result_nodes{'image_formatting'} = {
 $result_nodes{'image_formatting'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'image_formatting'};
 $result_nodes{'image_formatting'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'image_formatting'};
 
-$result_menus{'image_formatting'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'image_formatting'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'image_formatting'} = [];
 

@@ -119,12 +119,13 @@ $result_nodes{'a_comma_after_node'} = {
   }
 };
 
-$result_menus{'a_comma_after_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Commands'
+$result_menus{'a_comma_after_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Commands'
+    }
   }
-};
+];
 
 $result_errors{'a_comma_after_node'} = [
   {

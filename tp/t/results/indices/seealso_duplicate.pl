@@ -382,12 +382,18 @@ $result_nodes{'seealso_duplicate'} = {
 };
 $result_nodes{'seealso_duplicate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'seealso_duplicate'};
 
-$result_menus{'seealso_duplicate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'seealso_duplicate'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'seealso_duplicate'} = [];
 

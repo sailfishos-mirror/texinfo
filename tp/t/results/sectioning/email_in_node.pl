@@ -156,12 +156,13 @@ $result_nodes{'email_in_node'} = {
   }
 };
 
-$result_menus{'email_in_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'a-c-'
+$result_menus{'email_in_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'a-c-'
+    }
   }
-};
+];
 
 $result_errors{'email_in_node'} = [];
 

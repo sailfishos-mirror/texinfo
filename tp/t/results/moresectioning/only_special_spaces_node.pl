@@ -854,12 +854,33 @@ $result_nodes{'only_special_spaces_node'} = {
 $result_nodes{'only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'only_special_spaces_node'};
 $result_nodes{'only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'only_special_spaces_node'};
 
-$result_menus{'only_special_spaces_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'only_special_spaces_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_2002_2003_2002'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_0085_00a0_1680'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_180e_2003'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
+    }
   }
-};
+];
 
 $result_errors{'only_special_spaces_node'} = [
   {

@@ -130,12 +130,13 @@ $result_nodes{'inforef_too_much_args'} = {
   }
 };
 
-$result_menus{'inforef_too_much_args'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'chapter'
+$result_menus{'inforef_too_much_args'} = [
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'inforef_too_much_args'} = [
   {

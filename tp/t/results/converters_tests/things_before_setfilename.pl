@@ -1224,12 +1224,18 @@ $result_nodes{'things_before_setfilename'} = {
 $result_nodes{'things_before_setfilename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'things_before_setfilename'};
 $result_nodes{'things_before_setfilename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'things_before_setfilename'};
 
-$result_menus{'things_before_setfilename'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'things_before_setfilename'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'things_before_setfilename'} = [
   {

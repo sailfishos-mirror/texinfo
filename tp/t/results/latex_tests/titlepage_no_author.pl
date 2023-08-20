@@ -364,12 +364,18 @@ $result_nodes{'titlepage_no_author'} = {
 $result_nodes{'titlepage_no_author'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'titlepage_no_author'};
 $result_nodes{'titlepage_no_author'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'titlepage_no_author'};
 
-$result_menus{'titlepage_no_author'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'titlepage_no_author'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'titlepage_no_author'} = [];
 

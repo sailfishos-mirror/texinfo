@@ -781,11 +781,6 @@ node one
 $result_nodes{'colons_in_index_entries_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -812,58 +807,55 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'colons_in_index_entries_and_node'};
 $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'colons_in_index_entries_and_node'};
 $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'colons_in_index_entries_and_node'};
-$result_nodes{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'} = $result_nodes{'colons_in_index_entries_and_node'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'colons_in_index_entries_and_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'colons_in_index_entries_and_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'isindex' => 1,
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'Concept-Index'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'Concept-Index'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'One_003a_003anode_002c-with-entries_002e'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'One_003a_003anode_002c-with-entries_002e'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'};
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'};
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'};
+  },
+  {}
+];
+$result_menus{'colons_in_index_entries_and_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'colons_in_index_entries_and_node'}[1];
+$result_menus{'colons_in_index_entries_and_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'}[0];
+$result_menus{'colons_in_index_entries_and_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'}[0];
+$result_menus{'colons_in_index_entries_and_node'}[2] = $result_menus{'colons_in_index_entries_and_node'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'colons_in_index_entries_and_node'} = [];
 

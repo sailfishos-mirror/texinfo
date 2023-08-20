@@ -337,12 +337,18 @@ $result_nodes{'unknown_region'} = {
 };
 $result_nodes{'unknown_region'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'unknown_region'};
 
-$result_menus{'unknown_region'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'unknown_region'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'unknown_region'} = [
   {

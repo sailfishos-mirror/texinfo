@@ -262,8 +262,7 @@ $result_sectioning{'menu_pointing_to_anchor'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -284,11 +283,6 @@ $result_nodes{'menu_pointing_to_anchor'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'anchor',
@@ -302,37 +296,20 @@ $result_nodes{'menu_pointing_to_anchor'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'menu_pointing_to_anchor'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'menu_pointing_to_anchor'};
-$result_nodes{'menu_pointing_to_anchor'}{'structure'}{'menu_child'} = $result_nodes{'menu_pointing_to_anchor'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'menu_pointing_to_anchor'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'anchor',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'An-anchor'
-      },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
-      }
+$result_menus{'menu_pointing_to_anchor'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     }
   }
-};
-$result_menus{'menu_pointing_to_anchor'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'menu_pointing_to_anchor'};
+];
 
 $result_errors{'menu_pointing_to_anchor'} = [];
 

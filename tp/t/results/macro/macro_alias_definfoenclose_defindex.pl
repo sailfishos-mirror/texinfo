@@ -1464,12 +1464,18 @@ $result_nodes{'macro_alias_definfoenclose_defindex'} = {
 $result_nodes{'macro_alias_definfoenclose_defindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'macro_alias_definfoenclose_defindex'};
 $result_nodes{'macro_alias_definfoenclose_defindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'macro_alias_definfoenclose_defindex'};
 
-$result_menus{'macro_alias_definfoenclose_defindex'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'macro_alias_definfoenclose_defindex'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'macro_alias_definfoenclose_defindex'} = [
   {

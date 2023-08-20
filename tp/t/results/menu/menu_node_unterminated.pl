@@ -170,21 +170,20 @@ $result_texts{'menu_node_unterminated'} = '
 $result_nodes{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
   }
 };
 
-$result_menus{'menu_node_unterminated'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'menu_node_unterminated'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'menu_node_unterminated'} = [
   {

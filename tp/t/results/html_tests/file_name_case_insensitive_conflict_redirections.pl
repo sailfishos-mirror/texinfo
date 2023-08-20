@@ -593,12 +593,13 @@ $result_nodes{'file_name_case_insensitive_conflict_redirections'} = {
   }
 };
 
-$result_menus{'file_name_case_insensitive_conflict_redirections'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_case_insensitive_conflict_redirections'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'file_name_case_insensitive_conflict_redirections'} = [];
 

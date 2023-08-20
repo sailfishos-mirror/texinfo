@@ -91,12 +91,13 @@ $result_nodes{'node_in_copying'} = {
   }
 };
 
-$result_menus{'node_in_copying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'node'
+$result_menus{'node_in_copying'} = [
+  {
+    'extra' => {
+      'normalized' => 'node'
+    }
   }
-};
+];
 
 $result_errors{'node_in_copying'} = [
   {

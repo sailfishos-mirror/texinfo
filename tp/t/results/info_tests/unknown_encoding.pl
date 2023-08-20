@@ -118,12 +118,13 @@ $result_nodes{'unknown_encoding'} = {
   }
 };
 
-$result_menus{'unknown_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'unknown_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'unknown_encoding'} = [
   {

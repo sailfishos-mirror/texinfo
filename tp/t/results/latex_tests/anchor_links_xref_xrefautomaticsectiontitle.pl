@@ -864,12 +864,28 @@ $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = {
 $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'};
 $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'};
 
-$result_menus{'anchor_links_xref_xrefautomaticsectiontitle'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_links_xref_xrefautomaticsectiontitle'} = [
+  {
+    'extra' => {
+      'normalized' => 'node-before'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'after'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
   {

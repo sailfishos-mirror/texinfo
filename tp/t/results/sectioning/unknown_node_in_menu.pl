@@ -169,21 +169,20 @@ $result_texts{'unknown_node_in_menu'} = '
 $result_nodes{'unknown_node_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
   }
 };
 
-$result_menus{'unknown_node_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'unknown_node_in_menu'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'unknown_node_in_menu'} = [
   {

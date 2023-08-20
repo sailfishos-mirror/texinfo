@@ -591,12 +591,18 @@ $result_nodes{'all_spaces'} = {
 };
 $result_nodes{'all_spaces'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_spaces'};
 
-$result_menus{'all_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'all_spaces'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'all_spaces'} = [];
 

@@ -4621,12 +4621,18 @@ $result_nodes{'all_commands_printindex'} = {
 };
 $result_nodes{'all_commands_printindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_commands_printindex'};
 
-$result_menus{'all_commands_printindex'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'all_commands_printindex'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'all_commands_printindex'} = [];
 

@@ -426,12 +426,18 @@ $result_nodes{'unknown_language'} = {
 $result_nodes{'unknown_language'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'unknown_language'};
 $result_nodes{'unknown_language'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'unknown_language'};
 
-$result_menus{'unknown_language'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'unknown_language'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'unknown_language'} = [
   {

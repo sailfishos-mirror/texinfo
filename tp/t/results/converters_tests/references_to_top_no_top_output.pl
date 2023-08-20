@@ -1314,12 +1314,18 @@ $result_nodes{'references_to_top_no_top_output'} = {
 $result_nodes{'references_to_top_no_top_output'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'references_to_top_no_top_output'};
 $result_nodes{'references_to_top_no_top_output'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'references_to_top_no_top_output'};
 
-$result_menus{'references_to_top_no_top_output'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'references_to_top_no_top_output'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'references_to_top_no_top_output'} = [];
 

@@ -257,12 +257,13 @@ $result_nodes{'appendix_translated'} = {
   }
 };
 
-$result_menus{'appendix_translated'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'appendix_translated'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'appendix_translated'} = [];
 

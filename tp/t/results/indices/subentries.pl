@@ -1050,12 +1050,18 @@ $result_nodes{'subentries'} = {
 $result_nodes{'subentries'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'subentries'};
 $result_nodes{'subentries'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'subentries'};
 
-$result_menus{'subentries'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'subentries'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'subentries'} = [
   {

@@ -1329,12 +1329,18 @@ $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {
 $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'};
 $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'};
 
-$result_menus{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [];
 

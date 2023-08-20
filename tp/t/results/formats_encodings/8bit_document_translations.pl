@@ -478,12 +478,23 @@ $result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{
 $result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'8bit_document_translations'};
 $result_nodes{'8bit_document_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'8bit_document_translations'};
 
-$result_menus{'8bit_document_translations'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'8bit_document_translations'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'appendix'
+    }
   }
-};
+];
 
 $result_errors{'8bit_document_translations'} = [];
 

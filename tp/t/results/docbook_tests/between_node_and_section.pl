@@ -359,12 +359,23 @@ $result_nodes{'between_node_and_section'} = {
   }
 };
 
-$result_menus{'between_node_and_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'chap'
+$result_menus{'between_node_and_section'} = [
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'sec1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'sec2'
+    }
   }
-};
+];
 
 $result_errors{'between_node_and_section'} = [];
 

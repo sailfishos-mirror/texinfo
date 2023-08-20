@@ -276,12 +276,13 @@ $result_nodes{'on_node_line'} = {
   }
 };
 
-$result_menus{'on_node_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'a'
+$result_menus{'on_node_line'} = [
+  {
+    'extra' => {
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_errors{'on_node_line'} = [
   {

@@ -200,45 +200,20 @@ $result_texts{'menu_in_style_command'} = '
 $result_nodes{'menu_in_style_command'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'truc'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'menu_in_style_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'truc'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'menu_in_style_command'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
+];
 
 $result_errors{'menu_in_style_command'} = [
   {

@@ -231,12 +231,18 @@ $result_nodes{'top_no_sectioning_command'} = {
 };
 $result_nodes{'top_no_sectioning_command'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_no_sectioning_command'};
 
-$result_menus{'top_no_sectioning_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'top_no_sectioning_command'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
   }
-};
+];
 
 $result_errors{'top_no_sectioning_command'} = [];
 

@@ -254,12 +254,13 @@ $result_nodes{'node_on_index_entry_line'} = {
   }
 };
 
-$result_menus{'node_on_index_entry_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'a'
+$result_menus{'node_on_index_entry_line'} = [
+  {
+    'extra' => {
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_errors{'node_on_index_entry_line'} = [
   {

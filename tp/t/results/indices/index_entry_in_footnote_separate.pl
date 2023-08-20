@@ -553,11 +553,6 @@ chap node
 $result_nodes{'index_entry_in_footnote_separate'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -584,58 +579,55 @@ $result_nodes{'index_entry_in_footnote_separate'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_in_footnote_separate'};
 $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_in_footnote_separate'};
 $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_in_footnote_separate'};
-$result_nodes{'index_entry_in_footnote_separate'}{'structure'}{'menu_child'} = $result_nodes{'index_entry_in_footnote_separate'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'index_entry_in_footnote_separate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_entry_in_footnote_separate'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'isindex' => 1,
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'First'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'First'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'chap'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'index_entry_in_footnote_separate'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'index_entry_in_footnote_separate'}{'structure'}{'menu_child'};
-$result_menus{'index_entry_in_footnote_separate'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_entry_in_footnote_separate'};
-$result_menus{'index_entry_in_footnote_separate'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_entry_in_footnote_separate'};
+  },
+  {}
+];
+$result_menus{'index_entry_in_footnote_separate'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'index_entry_in_footnote_separate'}[1];
+$result_menus{'index_entry_in_footnote_separate'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_entry_in_footnote_separate'}[0];
+$result_menus{'index_entry_in_footnote_separate'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_entry_in_footnote_separate'}[0];
+$result_menus{'index_entry_in_footnote_separate'}[2] = $result_menus{'index_entry_in_footnote_separate'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'index_entry_in_footnote_separate'} = [];
 

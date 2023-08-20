@@ -292,11 +292,6 @@ $result_texts{'top_node_no_menu_direction'} = '
 $result_nodes{'top_node_no_menu_direction'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -312,48 +307,48 @@ $result_nodes{'top_node_no_menu_direction'} = {
     },
     'normalized' => 'Top'
   },
-  'structure' => {
-    'menu_child' => {}
-  }
+  'structure' => {}
 };
 $result_nodes{'top_node_no_menu_direction'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_no_menu_direction'};
 $result_nodes{'top_node_no_menu_direction'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_no_menu_direction'};
-$result_nodes{'top_node_no_menu_direction'}{'structure'}{'menu_child'} = $result_nodes{'top_node_no_menu_direction'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'top_node_no_menu_direction'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'menu_directions' => {
-      'prev' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'menu_directions' => {
-            'next' => {},
-            'up' => {}
+$result_menus{'top_node_no_menu_direction'} = [
+  {
+    'extra' => {
+      'menu_directions' => {
+        'prev' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap-node'
           },
-          'normalized' => 'chap-node'
-        },
-        'structure' => {
-          'menu_up_hash' => {
-            'Top' => 1
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
           }
-        }
+        },
+        'up' => {}
       },
-      'up' => {}
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     },
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
     }
-  }
-};
-$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'top_node_no_menu_direction'};
-$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'};
-$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'};
-$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_child'} = $result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'};
+  },
+  {}
+];
+$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'top_node_no_menu_direction'}[0];
+$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'}[0];
+$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'}[0];
+$result_menus{'top_node_no_menu_direction'}[1] = $result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'};
 
 $result_errors{'top_node_no_menu_direction'} = [
   {

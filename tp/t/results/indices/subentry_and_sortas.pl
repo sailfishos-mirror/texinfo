@@ -572,12 +572,18 @@ $result_nodes{'subentry_and_sortas'} = {
 $result_nodes{'subentry_and_sortas'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'subentry_and_sortas'};
 $result_nodes{'subentry_and_sortas'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'subentry_and_sortas'};
 
-$result_menus{'subentry_and_sortas'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'subentry_and_sortas'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'subentry_and_sortas'} = [];
 

@@ -1005,12 +1005,18 @@ $result_nodes{'macro_in_early_commands'} = {
 };
 $result_nodes{'macro_in_early_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'macro_in_early_commands'};
 
-$result_menus{'macro_in_early_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'macro_in_early_commands'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'macro_in_early_commands'} = [];
 

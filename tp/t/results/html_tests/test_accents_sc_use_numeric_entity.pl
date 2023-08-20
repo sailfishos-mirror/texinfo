@@ -1265,12 +1265,18 @@ $result_nodes{'test_accents_sc_use_numeric_entity'} = {
 $result_nodes{'test_accents_sc_use_numeric_entity'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_use_numeric_entity'};
 $result_nodes{'test_accents_sc_use_numeric_entity'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_use_numeric_entity'};
 
-$result_menus{'test_accents_sc_use_numeric_entity'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_accents_sc_use_numeric_entity'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'test_accents_sc_use_numeric_entity'} = [];
 

@@ -1719,8 +1719,7 @@ $result_sectioning{'glossary'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1768,11 +1767,6 @@ $result_nodes{'glossary'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1793,38 +1787,35 @@ $result_nodes{'glossary'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'glossary'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'glossary'};
 $result_nodes{'glossary'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'glossary'};
-$result_nodes{'glossary'}{'structure'}{'menu_child'} = $result_nodes{'glossary'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'glossary'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'glossary'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'glossary'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'glossary'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'glossary'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'glossary'};
+];
+$result_menus{'glossary'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'glossary'}[0];
 
 $result_errors{'glossary'} = [
   {

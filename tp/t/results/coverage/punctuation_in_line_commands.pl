@@ -914,13 +914,13 @@ $result_nodes{'punctuation_in_line_commands'} = {
   }
 };
 
-$result_menus{'punctuation_in_line_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'node_0021-After-punc'
+$result_menus{'punctuation_in_line_commands'} = [
+  {
+    'extra' => {
+      'normalized' => 'node_0021-After-punc'
+    }
   }
-};
+];
 
 $result_errors{'punctuation_in_line_commands'} = [];
 

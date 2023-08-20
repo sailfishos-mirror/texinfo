@@ -1080,12 +1080,18 @@ $result_nodes{'value_in_index_commands'} = {
 };
 $result_nodes{'value_in_index_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_index_commands'};
 
-$result_menus{'value_in_index_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'value_in_index_commands'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'value_in_index_commands'} = [
   {

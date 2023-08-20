@@ -475,12 +475,28 @@ $result_nodes{'no_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_dire
 $result_nodes{'no_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'no_menu'};
 $result_nodes{'no_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'no_menu'};
 
-$result_menus{'no_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'no_menu'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'c1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'c2'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'c3'
+    }
   }
-};
+];
 
 $result_errors{'no_menu'} = [];
 

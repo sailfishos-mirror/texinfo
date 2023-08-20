@@ -700,12 +700,18 @@ $result_nodes{'explicit_sort_key'} = {
 };
 $result_nodes{'explicit_sort_key'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'explicit_sort_key'};
 
-$result_menus{'explicit_sort_key'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'explicit_sort_key'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'explicit_sort_key'} = [
   {

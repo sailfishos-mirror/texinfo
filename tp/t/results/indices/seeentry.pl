@@ -590,12 +590,18 @@ $result_nodes{'seeentry'} = {
 $result_nodes{'seeentry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'seeentry'};
 $result_nodes{'seeentry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'seeentry'};
 
-$result_menus{'seeentry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'seeentry'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'seeentry'} = [];
 

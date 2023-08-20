@@ -659,12 +659,33 @@ $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'} = {
 $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'};
 $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node_no_redirections'};
 
-$result_menus{'file_name_case_insensitive_conflict_node_no_redirections'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_case_insensitive_conflict_node_no_redirections'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Foo'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Bar'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'foo'
+    }
   }
-};
+];
 
 $result_errors{'file_name_case_insensitive_conflict_node_no_redirections'} = [];
 

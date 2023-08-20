@@ -1265,12 +1265,18 @@ $result_nodes{'punctuation_sc_accents_default'} = {
 $result_nodes{'punctuation_sc_accents_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'punctuation_sc_accents_default'};
 $result_nodes{'punctuation_sc_accents_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'punctuation_sc_accents_default'};
 
-$result_menus{'punctuation_sc_accents_default'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'punctuation_sc_accents_default'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'punctuation_sc_accents_default'} = [];
 

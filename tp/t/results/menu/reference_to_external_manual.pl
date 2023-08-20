@@ -183,45 +183,20 @@ $result_texts{'reference_to_external_manual'} = '
 $result_nodes{'reference_to_external_manual'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'info'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'reference_to_external_manual'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'info'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'reference_to_external_manual'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
+];
 
 $result_errors{'reference_to_external_manual'} = [];
 

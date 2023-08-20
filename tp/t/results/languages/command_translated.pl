@@ -349,12 +349,18 @@ $result_nodes{'command_translated'} = {
 $result_nodes{'command_translated'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'command_translated'};
 $result_nodes{'command_translated'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'command_translated'};
 
-$result_menus{'command_translated'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'command_translated'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-error_002d_002d_003e'
+    }
   }
-};
+];
 
 $result_errors{'command_translated'} = [];
 

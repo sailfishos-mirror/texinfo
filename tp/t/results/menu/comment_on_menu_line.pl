@@ -263,8 +263,7 @@ $result_sectioning{'comment_on_menu_line'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -288,11 +287,6 @@ $result_nodes{'comment_on_menu_line'} = {
         'section_number' => 1
       }
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -307,38 +301,35 @@ $result_nodes{'comment_on_menu_line'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_on_menu_line'};
 $result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'} = $result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'comment_on_menu_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'comment_on_menu_line'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'first'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'first'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'comment_on_menu_line'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'comment_on_menu_line'};
+];
+$result_menus{'comment_on_menu_line'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'comment_on_menu_line'}[0];
 
 $result_errors{'comment_on_menu_line'} = [];
 

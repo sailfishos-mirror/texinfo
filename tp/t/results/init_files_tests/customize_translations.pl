@@ -905,12 +905,38 @@ $result_nodes{'customize_translations'}{'extra'}{'node_directions'}{'next'}{'ext
 $result_nodes{'customize_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'customize_translations'};
 $result_nodes{'customize_translations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'customize_translations'};
 
-$result_menus{'customize_translations'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'customize_translations'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-fr'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'section-fr'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-de'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Last-chapter'
+    }
   }
-};
+];
 
 $result_errors{'customize_translations'} = [];
 

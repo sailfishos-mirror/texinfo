@@ -2943,12 +2943,18 @@ $result_nodes{'encoding_index_ascii'} = {
 };
 $result_nodes{'encoding_index_ascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'encoding_index_ascii'};
 
-$result_menus{'encoding_index_ascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'encoding_index_ascii'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'encoding_index_ascii'} = [];
 

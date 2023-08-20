@@ -397,12 +397,18 @@ $result_nodes{'titlepage_no_title'} = {
 $result_nodes{'titlepage_no_title'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'titlepage_no_title'};
 $result_nodes{'titlepage_no_title'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'titlepage_no_title'};
 
-$result_menus{'titlepage_no_title'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'titlepage_no_title'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'titlepage_no_title'} = [];
 

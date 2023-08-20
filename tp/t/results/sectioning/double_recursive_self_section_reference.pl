@@ -295,12 +295,18 @@ $result_nodes{'double_recursive_self_section_reference'} = {
 };
 $result_nodes{'double_recursive_self_section_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_reference'};
 
-$result_menus{'double_recursive_self_section_reference'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'n1'
+$result_menus{'double_recursive_self_section_reference'} = [
+  {
+    'extra' => {
+      'normalized' => 'n1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'n2'
+    }
   }
-};
+];
 
 $result_errors{'double_recursive_self_section_reference'} = [];
 

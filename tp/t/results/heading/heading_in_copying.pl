@@ -354,12 +354,18 @@ $result_nodes{'heading_in_copying'} = {
 };
 $result_nodes{'heading_in_copying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'heading_in_copying'};
 
-$result_menus{'heading_in_copying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'heading_in_copying'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'heading_in_copying'} = [];
 

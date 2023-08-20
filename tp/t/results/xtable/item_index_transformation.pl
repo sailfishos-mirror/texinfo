@@ -1458,12 +1458,13 @@ $result_nodes{'item_index_transformation'} = {
   }
 };
 
-$result_menus{'item_index_transformation'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'chap'
+$result_menus{'item_index_transformation'} = [
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'item_index_transformation'} = [];
 

@@ -255,12 +255,13 @@ $result_nodes{'top_without_node_texi2html_no_use_nodes'} = {
   }
 };
 
-$result_menus{'top_without_node_texi2html_no_use_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'second'
+$result_menus{'top_without_node_texi2html_no_use_nodes'} = [
+  {
+    'extra' => {
+      'normalized' => 'second'
+    }
   }
-};
+];
 
 $result_errors{'top_without_node_texi2html_no_use_nodes'} = [];
 

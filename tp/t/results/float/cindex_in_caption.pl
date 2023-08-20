@@ -381,12 +381,18 @@ $result_nodes{'cindex_in_caption'} = {
 };
 $result_nodes{'cindex_in_caption'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cindex_in_caption'};
 
-$result_menus{'cindex_in_caption'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'cindex_in_caption'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'cindex_in_caption'} = [];
 

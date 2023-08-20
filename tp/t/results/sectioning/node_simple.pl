@@ -53,12 +53,13 @@ $result_nodes{'node_simple'} = {
   }
 };
 
-$result_menus{'node_simple'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'node_simple'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'node_simple'} = [];
 

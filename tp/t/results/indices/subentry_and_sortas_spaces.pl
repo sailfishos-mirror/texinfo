@@ -707,12 +707,18 @@ $result_nodes{'subentry_and_sortas_spaces'} = {
 $result_nodes{'subentry_and_sortas_spaces'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'subentry_and_sortas_spaces'};
 $result_nodes{'subentry_and_sortas_spaces'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'subentry_and_sortas_spaces'};
 
-$result_menus{'subentry_and_sortas_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'subentry_and_sortas_spaces'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'subentry_and_sortas_spaces'} = [];
 

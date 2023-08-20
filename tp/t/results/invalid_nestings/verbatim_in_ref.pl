@@ -179,12 +179,13 @@ $result_nodes{'verbatim_in_ref'} = {
   }
 };
 
-$result_menus{'verbatim_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'verbatim_in_ref'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'verbatim_in_ref'} = [
   {

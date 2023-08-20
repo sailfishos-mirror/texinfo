@@ -430,11 +430,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -456,12 +451,16 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
 };
 $result_nodes{'in_menu_only_special_ascii_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_ascii_spaces_node'};
 
-$result_menus{'in_menu_only_special_ascii_spaces_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'in_menu_only_special_ascii_spaces_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
   {

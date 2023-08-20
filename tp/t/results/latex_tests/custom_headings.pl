@@ -874,12 +874,18 @@ $result_nodes{'custom_headings'} = {
 $result_nodes{'custom_headings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'custom_headings'};
 $result_nodes{'custom_headings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'custom_headings'};
 
-$result_menus{'custom_headings'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'custom_headings'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'custom_headings'} = [];
 

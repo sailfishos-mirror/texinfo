@@ -3023,12 +3023,13 @@ $result_nodes{'refs_formatting'} = {
   }
 };
 
-$result_menus{'refs_formatting'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'chapter'
+$result_menus{'refs_formatting'} = [
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'refs_formatting'} = [
   {

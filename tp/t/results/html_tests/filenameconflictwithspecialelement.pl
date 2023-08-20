@@ -348,12 +348,18 @@ $result_nodes{'filenameconflictwithspecialelement'} = {
 $result_nodes{'filenameconflictwithspecialelement'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'filenameconflictwithspecialelement'};
 $result_nodes{'filenameconflictwithspecialelement'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'filenameconflictwithspecialelement'};
 
-$result_menus{'filenameconflictwithspecialelement'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'filenameconflictwithspecialelement'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'filenameconflictwithspecialelement'} = [];
 

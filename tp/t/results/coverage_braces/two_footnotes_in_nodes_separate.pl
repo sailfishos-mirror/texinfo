@@ -576,8 +576,7 @@ $result_sectioning{'two_footnotes_in_nodes_separate'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -625,11 +624,6 @@ $result_nodes{'two_footnotes_in_nodes_separate'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -650,38 +644,35 @@ $result_nodes{'two_footnotes_in_nodes_separate'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'two_footnotes_in_nodes_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'two_footnotes_in_nodes_separate'};
 $result_nodes{'two_footnotes_in_nodes_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'two_footnotes_in_nodes_separate'};
-$result_nodes{'two_footnotes_in_nodes_separate'}{'structure'}{'menu_child'} = $result_nodes{'two_footnotes_in_nodes_separate'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'two_footnotes_in_nodes_separate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'two_footnotes_in_nodes_separate'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'two_footnotes_in_nodes_separate'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_footnotes_in_nodes_separate'};
+];
+$result_menus{'two_footnotes_in_nodes_separate'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_footnotes_in_nodes_separate'}[0];
 
 $result_errors{'two_footnotes_in_nodes_separate'} = [];
 

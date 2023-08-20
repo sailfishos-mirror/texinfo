@@ -750,12 +750,18 @@ $result_nodes{'index_entries_relate_to_item_transformation'} = {
 $result_nodes{'index_entries_relate_to_item_transformation'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entries_relate_to_item_transformation'};
 $result_nodes{'index_entries_relate_to_item_transformation'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entries_relate_to_item_transformation'};
 
-$result_menus{'index_entries_relate_to_item_transformation'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_entries_relate_to_item_transformation'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'index_entries_relate_to_item_transformation'} = [];
 

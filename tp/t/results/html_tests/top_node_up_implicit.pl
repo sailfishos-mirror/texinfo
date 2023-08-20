@@ -323,8 +323,7 @@ $result_sectioning{'top_node_up_implicit'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -372,11 +371,6 @@ $result_nodes{'top_node_up_implicit'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -397,38 +391,35 @@ $result_nodes{'top_node_up_implicit'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'top_node_up_implicit'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_up_implicit'};
 $result_nodes{'top_node_up_implicit'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_up_implicit'};
-$result_nodes{'top_node_up_implicit'}{'structure'}{'menu_child'} = $result_nodes{'top_node_up_implicit'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'top_node_up_implicit'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'top_node_up_implicit'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Chap'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Chap'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'top_node_up_implicit'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_up_implicit'};
+];
+$result_menus{'top_node_up_implicit'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_up_implicit'}[0];
 
 $result_errors{'top_node_up_implicit'} = [];
 

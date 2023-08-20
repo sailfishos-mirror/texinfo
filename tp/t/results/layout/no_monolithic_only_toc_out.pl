@@ -511,8 +511,7 @@ $result_sectioning{'no_monolithic_only_toc_out'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -561,11 +560,6 @@ $result_nodes{'no_monolithic_only_toc_out'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -587,39 +581,35 @@ $result_nodes{'no_monolithic_only_toc_out'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'no_monolithic_only_toc_out'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'no_monolithic_only_toc_out'};
 $result_nodes{'no_monolithic_only_toc_out'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'no_monolithic_only_toc_out'};
-$result_nodes{'no_monolithic_only_toc_out'}{'structure'}{'menu_child'} = $result_nodes{'no_monolithic_only_toc_out'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'no_monolithic_only_toc_out'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'no_monolithic_only_toc_out'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'no_monolithic_only_toc_out'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'no_monolithic_only_toc_out'};
+];
+$result_menus{'no_monolithic_only_toc_out'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'no_monolithic_only_toc_out'}[0];
 
 $result_errors{'no_monolithic_only_toc_out'} = [];
 

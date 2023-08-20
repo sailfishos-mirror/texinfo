@@ -2759,12 +2759,18 @@ $result_nodes{'test_deftypefnnewline'} = {
 $result_nodes{'test_deftypefnnewline'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_deftypefnnewline'};
 $result_nodes{'test_deftypefnnewline'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_deftypefnnewline'};
 
-$result_menus{'test_deftypefnnewline'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_deftypefnnewline'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'test_deftypefnnewline'} = [];
 

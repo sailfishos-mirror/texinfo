@@ -747,13 +747,23 @@ $result_nodes{'printindex_between_part_chapter'}{'extra'}{'node_directions'}{'ne
 $result_nodes{'printindex_between_part_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_between_part_chapter'};
 $result_nodes{'printindex_between_part_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_preceding_part'} = $result_nodes{'printindex_between_part_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'associated_section'}{'extra'}{'associated_part'};
 
-$result_menus{'printindex_between_part_chapter'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_menus{'printindex_between_part_chapter'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap2'
+    }
   }
-};
+];
 
 $result_errors{'printindex_between_part_chapter'} = [
   {

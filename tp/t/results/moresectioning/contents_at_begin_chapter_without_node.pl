@@ -210,12 +210,13 @@ $result_nodes{'contents_at_begin_chapter_without_node'} = {
   }
 };
 
-$result_menus{'contents_at_begin_chapter_without_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'contents_at_begin_chapter_without_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'contents_at_begin_chapter_without_node'} = [];
 

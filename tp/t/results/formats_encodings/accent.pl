@@ -2297,12 +2297,13 @@ $result_nodes{'accent'} = {
   }
 };
 
-$result_menus{'accent'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'accent'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'accent'} = [];
 

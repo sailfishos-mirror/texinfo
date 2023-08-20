@@ -1516,8 +1516,7 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1565,11 +1564,6 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1590,38 +1584,35 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'some_at_commands_in_ref_nodes'};
 $result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'some_at_commands_in_ref_nodes'};
-$result_nodes{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'} = $result_nodes{'some_at_commands_in_ref_nodes'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'some_at_commands_in_ref_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'some_at_commands_in_ref_nodes'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'some_at_commands_in_ref_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'some_at_commands_in_ref_nodes'};
+];
+$result_menus{'some_at_commands_in_ref_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'some_at_commands_in_ref_nodes'}[0];
 
 $result_errors{'some_at_commands_in_ref_nodes'} = [];
 

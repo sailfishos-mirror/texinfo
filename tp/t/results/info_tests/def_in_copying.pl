@@ -802,13 +802,13 @@ $result_nodes{'def_in_copying'} = {
   }
 };
 
-$result_menus{'def_in_copying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_menus{'def_in_copying'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'def_in_copying'} = [];
 

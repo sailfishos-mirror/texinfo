@@ -752,8 +752,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -876,11 +875,6 @@ $result_nodes{'special_docbook_unnumbered'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -946,9 +940,6 @@ $result_nodes{'special_docbook_unnumbered'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
@@ -959,82 +950,85 @@ $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{
 $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'special_docbook_unnumbered'};
 $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'special_docbook_unnumbered'};
 $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'} = $result_nodes{'special_docbook_unnumbered'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'special_docbook_unnumbered'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'special_docbook_unnumbered'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'menu_directions' => {
-                      'next' => {
-                        'cmdname' => 'node',
-                        'extra' => {
-                          'menu_directions' => {
-                            'prev' => {},
-                            'up' => {}
-                          },
-                          'normalized' => 'acknowledgements'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {
+                'extra' => {
+                  'menu_directions' => {
+                    'next' => {
+                      'extra' => {
+                        'menu_directions' => {
+                          'prev' => {},
+                          'up' => {}
                         },
-                        'structure' => {
-                          'menu_up_hash' => {
-                            'Top' => 1
-                          }
-                        }
+                        'normalized' => 'acknowledgements'
                       },
-                      'prev' => {},
-                      'up' => {}
+                      'structure' => {
+                        'menu_up_hash' => {
+                          'Top' => 1
+                        }
+                      }
                     },
-                    'normalized' => 'colophon'
+                    'prev' => {},
+                    'up' => {}
                   },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Top' => 1
-                    }
-                  }
+                  'normalized' => 'colophon'
                 },
-                'prev' => {},
-                'up' => {}
+                'structure' => {
+                  'menu_up_hash' => {
+                    'Top' => 1
+                  }
+                }
               },
-              'normalized' => 'preface'
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'preface'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'Dedication'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Dedication'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'};
+  },
+  {},
+  {},
+  {}
+];
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'}[0];
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'}[0];
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'special_docbook_unnumbered'}[1];
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'}[0];
+$result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'special_docbook_unnumbered'}[0];
+$result_menus{'special_docbook_unnumbered'}[2] = $result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'special_docbook_unnumbered'}[3] = $result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'special_docbook_unnumbered'}[4] = $result_menus{'special_docbook_unnumbered'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'special_docbook_unnumbered'} = [];
 

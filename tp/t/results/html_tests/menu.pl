@@ -1718,8 +1718,7 @@ $result_sectioning{'menu'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -1740,11 +1739,6 @@ $result_nodes{'menu'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -1758,31 +1752,19 @@ $result_nodes{'menu'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
-$result_nodes{'menu'}{'structure'}{'menu_child'} = $result_nodes{'menu'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'ggg'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'menu'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     }
   }
-};
+];
 
 $result_errors{'menu'} = [];
 

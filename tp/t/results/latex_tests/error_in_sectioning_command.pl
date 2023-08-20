@@ -397,12 +397,18 @@ $result_nodes{'error_in_sectioning_command'} = {
 $result_nodes{'error_in_sectioning_command'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'error_in_sectioning_command'};
 $result_nodes{'error_in_sectioning_command'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'error_in_sectioning_command'};
 
-$result_menus{'error_in_sectioning_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'error_in_sectioning_command'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
+    }
   }
-};
+];
 
 $result_errors{'error_in_sectioning_command'} = [];
 

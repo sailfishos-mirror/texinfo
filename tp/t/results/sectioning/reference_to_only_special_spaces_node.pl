@@ -585,12 +585,23 @@ $result_nodes{'reference_to_only_special_spaces_node'}{'extra'}{'node_directions
 $result_nodes{'reference_to_only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'reference_to_only_special_spaces_node'};
 $result_nodes{'reference_to_only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'reference_to_only_special_spaces_node'};
 
-$result_menus{'reference_to_only_special_spaces_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'reference_to_only_special_spaces_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_2002_2003_2002'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_2002_2003_2002'
+    }
   }
-};
+];
 
 $result_errors{'reference_to_only_special_spaces_node'} = [
   {

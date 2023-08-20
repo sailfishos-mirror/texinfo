@@ -333,12 +333,13 @@ $result_nodes{'empty_ref_arg'} = {
   }
 };
 
-$result_menus{'empty_ref_arg'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'empty_ref_arg'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'empty_ref_arg'} = [
   {

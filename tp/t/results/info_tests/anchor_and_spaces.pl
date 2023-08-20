@@ -237,12 +237,13 @@ $result_nodes{'anchor_and_spaces'} = {
   }
 };
 
-$result_menus{'anchor_and_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_and_spaces'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'anchor_and_spaces'} = [];
 

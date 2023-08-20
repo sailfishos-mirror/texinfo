@@ -722,11 +722,6 @@ bidule:.
 $result_nodes{'invalid_node_name_no_warning'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -763,9 +758,6 @@ $result_nodes{'invalid_node_name_no_warning'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
@@ -774,65 +766,67 @@ $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'
 $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'invalid_node_name_no_warning'};
 $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'invalid_node_name_no_warning'};
 $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'invalid_node_name_no_warning'};
-$result_nodes{'invalid_node_name_no_warning'}{'structure'}{'menu_child'} = $result_nodes{'invalid_node_name_no_warning'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'invalid_node_name_no_warning'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'invalid_node_name_no_warning'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'menu_directions' => {
-                      'prev' => {},
-                      'up' => {}
-                    },
-                    'normalized' => 'bidule_003a'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {
+                'extra' => {
+                  'menu_directions' => {
+                    'prev' => {},
+                    'up' => {}
                   },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Top' => 1
-                    }
-                  }
+                  'normalized' => 'bidule_003a'
                 },
-                'prev' => {},
-                'up' => {}
+                'structure' => {
+                  'menu_up_hash' => {
+                    'Top' => 1
+                  }
+                }
               },
-              'normalized' => 'node_002ccomma'
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'node_002ccomma'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'nodename_002e-a'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'nodename_002e-a'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'};
-$result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'};
-$result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'};
-$result_menus{'invalid_node_name_no_warning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'};
+  },
+  {},
+  {}
+];
+$result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'}[0];
+$result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'invalid_node_name_no_warning'}[1];
+$result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'}[0];
+$result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'invalid_node_name_no_warning'}[0];
+$result_menus{'invalid_node_name_no_warning'}[2] = $result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'invalid_node_name_no_warning'}[3] = $result_menus{'invalid_node_name_no_warning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'invalid_node_name_no_warning'} = [];
 

@@ -342,12 +342,13 @@ $result_nodes{'text_before_line_command'} = {
   }
 };
 
-$result_menus{'text_before_line_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'LD-Version-Scripts'
+$result_menus{'text_before_line_command'} = [
+  {
+    'extra' => {
+      'normalized' => 'LD-Version-Scripts'
+    }
   }
-};
+];
 
 $result_errors{'text_before_line_command'} = [
   {

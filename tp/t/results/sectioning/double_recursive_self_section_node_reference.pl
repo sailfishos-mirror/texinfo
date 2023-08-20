@@ -340,12 +340,23 @@ $result_nodes{'double_recursive_self_section_node_reference'} = {
 $result_nodes{'double_recursive_self_section_node_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_node_reference'};
 $result_nodes{'double_recursive_self_section_node_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_recursive_self_section_node_reference'};
 
-$result_menus{'double_recursive_self_section_node_reference'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'double_recursive_self_section_node_reference'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'to-node1'
+    }
   }
-};
+];
 
 $result_errors{'double_recursive_self_section_node_reference'} = [
   {

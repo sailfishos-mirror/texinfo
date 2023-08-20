@@ -833,12 +833,18 @@ $result_nodes{'documentlanguage_unknown'} = {
 $result_nodes{'documentlanguage_unknown'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentlanguage_unknown'};
 $result_nodes{'documentlanguage_unknown'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentlanguage_unknown'};
 
-$result_menus{'documentlanguage_unknown'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'documentlanguage_unknown'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'documentlanguage_unknown'} = [];
 

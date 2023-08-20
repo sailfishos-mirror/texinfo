@@ -134,12 +134,13 @@ $result_nodes{'non_break_spaces'} = {
   }
 };
 
-$result_menus{'non_break_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'non_break_spaces'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'non_break_spaces'} = [];
 

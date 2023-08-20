@@ -156,12 +156,13 @@ $result_nodes{'recursive_self_section_reference'} = {
   }
 };
 
-$result_menus{'recursive_self_section_reference'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'sharp'
+$result_menus{'recursive_self_section_reference'} = [
+  {
+    'extra' => {
+      'normalized' => 'sharp'
+    }
   }
-};
+];
 
 $result_errors{'recursive_self_section_reference'} = [];
 

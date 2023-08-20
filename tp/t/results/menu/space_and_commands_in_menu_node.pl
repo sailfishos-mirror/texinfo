@@ -789,8 +789,7 @@ $result_sectioning{'space_and_commands_in_menu_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -838,11 +837,6 @@ $result_nodes{'space_and_commands_in_menu_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -864,43 +858,40 @@ $result_nodes{'space_and_commands_in_menu_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'space_and_commands_in_menu_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'space_and_commands_in_menu_node'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'space_and_commands_in_menu_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'space_and_commands_in_menu_node'};
 $result_nodes{'space_and_commands_in_menu_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'space_and_commands_in_menu_node'};
-$result_nodes{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'} = $result_nodes{'space_and_commands_in_menu_node'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'space_and_commands_in_menu_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'space_and_commands_in_menu_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {},
-          'prev' => {},
-          'up' => {}
-        },
-        'normalized' => 'chap-b'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {},
+        'prev' => {},
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap-b'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'};
-$result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'};
-$result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'space_and_commands_in_menu_node'};
+];
+$result_menus{'space_and_commands_in_menu_node'}[1]{'extra'}{'menu_directions'}{'next'} = $result_menus{'space_and_commands_in_menu_node'}[1];
+$result_menus{'space_and_commands_in_menu_node'}[1]{'extra'}{'menu_directions'}{'prev'} = $result_menus{'space_and_commands_in_menu_node'}[1];
+$result_menus{'space_and_commands_in_menu_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'space_and_commands_in_menu_node'}[0];
 
 $result_errors{'space_and_commands_in_menu_node'} = [
   {

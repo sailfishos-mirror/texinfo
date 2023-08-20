@@ -2298,12 +2298,18 @@ $result_nodes{'test_allowcodebreaks'} = {
 };
 $result_nodes{'test_allowcodebreaks'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_allowcodebreaks'};
 
-$result_menus{'test_allowcodebreaks'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_allowcodebreaks'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'test_allowcodebreaks'} = [
   {

@@ -415,8 +415,7 @@ $result_sectioning{'protected_node_parentheses'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'first'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -437,51 +436,34 @@ $result_nodes{'protected_node_parentheses'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'node_directions' => {
-          'up' => {}
-        },
-        'normalized' => '_0028manual_0029-name'
-      },
-      'structure' => {}
-    }
   }
 };
-$result_nodes{'protected_node_parentheses'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'protected_node_parentheses'};
 
-$result_menus{'protected_node_parentheses'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'protected_node_parentheses'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => '_0028manual_0029-name'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'first' => 1
-        }
+      'normalized' => '_0028manual_0029-name'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'first' => 1
       }
     }
   }
-};
-$result_menus{'protected_node_parentheses'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'protected_node_parentheses'};
+];
+$result_menus{'protected_node_parentheses'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'protected_node_parentheses'}[0];
 
 $result_errors{'protected_node_parentheses'} = [];
 

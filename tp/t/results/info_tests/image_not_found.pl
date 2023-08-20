@@ -89,12 +89,13 @@ $result_nodes{'image_not_found'} = {
   }
 };
 
-$result_menus{'image_not_found'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'image_not_found'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'image_not_found'} = [];
 

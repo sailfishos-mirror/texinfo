@@ -108,12 +108,13 @@ $result_nodes{'style_not_closed_before_first_node'} = {
   }
 };
 
-$result_menus{'style_not_closed_before_first_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'style_not_closed_before_first_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'style_not_closed_before_first_node'} = [
   {

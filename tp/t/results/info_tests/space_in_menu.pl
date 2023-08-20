@@ -323,8 +323,7 @@ $result_sectioning{'space_in_menu'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -372,11 +371,6 @@ $result_nodes{'space_in_menu'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -397,38 +391,35 @@ $result_nodes{'space_in_menu'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'space_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'space_in_menu'};
 $result_nodes{'space_in_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'space_in_menu'};
-$result_nodes{'space_in_menu'}{'structure'}{'menu_child'} = $result_nodes{'space_in_menu'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'space_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'space_in_menu'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'space_in_menu'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'space_in_menu'};
+];
+$result_menus{'space_in_menu'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'space_in_menu'}[0];
 
 $result_errors{'space_in_menu'} = [];
 

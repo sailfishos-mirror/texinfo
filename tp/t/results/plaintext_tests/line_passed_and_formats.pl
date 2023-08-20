@@ -2452,11 +2452,6 @@ end menu
 $result_nodes{'line_passed_and_formats'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'extra' => {
@@ -2471,32 +2466,19 @@ $result_nodes{'line_passed_and_formats'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
-$result_nodes{'line_passed_and_formats'}{'structure'}{'menu_child'} = $result_nodes{'line_passed_and_formats'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'line_passed_and_formats'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'manual'
-          }
-        ],
-        'normalized' => 'node'
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'line_passed_and_formats'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     }
   }
-};
+];
 
 $result_errors{'line_passed_and_formats'} = [];
 

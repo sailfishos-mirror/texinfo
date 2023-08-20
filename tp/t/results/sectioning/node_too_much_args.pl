@@ -105,12 +105,13 @@ $result_nodes{'node_too_much_args'} = {
   }
 };
 
-$result_menus{'node_too_much_args'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'node_too_much_args'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'node_too_much_args'} = [
   {

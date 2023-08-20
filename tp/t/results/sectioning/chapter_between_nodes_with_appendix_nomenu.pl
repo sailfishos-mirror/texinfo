@@ -331,8 +331,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix_nomenu'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -399,57 +398,34 @@ $result_nodes{'chapter_between_nodes_with_appendix_nomenu'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'appendix',
-          'extra' => {
-            'section_number' => 'A'
-          }
-        },
-        'node_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Additional'
-      },
-      'structure' => {}
-    }
   }
 };
-$result_nodes{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes_with_appendix_nomenu'};
 
-$result_menus{'chapter_between_nodes_with_appendix_nomenu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'chapter_between_nodes_with_appendix_nomenu'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Additional'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Additional'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'chapter_between_nodes_with_appendix_nomenu'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'chapter_between_nodes_with_appendix_nomenu'};
+];
+$result_menus{'chapter_between_nodes_with_appendix_nomenu'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'chapter_between_nodes_with_appendix_nomenu'}[0];
 
 $result_errors{'chapter_between_nodes_with_appendix_nomenu'} = [];
 

@@ -1879,8 +1879,7 @@ $result_sectioning{'ref_in_sectioning'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -2123,11 +2122,6 @@ $result_nodes{'ref_in_sectioning'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -2165,57 +2159,55 @@ $result_nodes{'ref_in_sectioning'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_sectioning'};
 $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_sectioning'};
 $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_sectioning'};
-$result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'} = $result_nodes{'ref_in_sectioning'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'ref_in_sectioning'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ref_in_sectioning'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'chap'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'chap'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'node'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'};
-$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_sectioning'};
-$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_sectioning'};
+  },
+  {}
+];
+$result_menus{'ref_in_sectioning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'ref_in_sectioning'}[1];
+$result_menus{'ref_in_sectioning'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_sectioning'}[0];
+$result_menus{'ref_in_sectioning'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_sectioning'}[0];
+$result_menus{'ref_in_sectioning'}[2] = $result_menus{'ref_in_sectioning'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'ref_in_sectioning'} = [
   {

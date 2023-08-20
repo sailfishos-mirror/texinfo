@@ -109,12 +109,13 @@ $result_nodes{'top_no_argument_and_top_node'} = {
   }
 };
 
-$result_menus{'top_no_argument_and_top_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'top_no_argument_and_top_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'top_no_argument_and_top_node'} = [];
 

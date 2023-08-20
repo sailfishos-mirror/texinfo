@@ -743,12 +743,23 @@ $result_nodes{'value_node_directions'} = {
 $result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'};
 
-$result_menus{'value_node_directions'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'value_node_directions'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'bar'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'BarFoo'
+    }
   }
-};
+];
 
 $result_errors{'value_node_directions'} = [];
 

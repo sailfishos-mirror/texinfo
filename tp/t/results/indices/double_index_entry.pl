@@ -440,11 +440,6 @@ Text
 $result_nodes{'double_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -460,39 +455,35 @@ $result_nodes{'double_index_entry'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_index_entry'};
 $result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_index_entry'};
-$result_nodes{'double_index_entry'}{'structure'}{'menu_child'} = $result_nodes{'double_index_entry'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'double_index_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'double_index_entry'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap-other-node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap-other-node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'double_index_entry'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_index_entry'};
+];
+$result_menus{'double_index_entry'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_index_entry'}[0];
 
 $result_errors{'double_index_entry'} = [];
 

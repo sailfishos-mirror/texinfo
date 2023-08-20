@@ -553,47 +553,20 @@ $result_texts{'invalid_info_menu_entry'} = '
 $result_nodes{'invalid_info_menu_entry'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'f'
-          }
-        ],
-        'normalized' => 'a_003a'
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'invalid_info_menu_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'f'
-          }
-        ],
-        'normalized' => 'a_003a'
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'invalid_info_menu_entry'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
+];
 
 $result_errors{'invalid_info_menu_entry'} = [];
 

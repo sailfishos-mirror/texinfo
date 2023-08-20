@@ -514,12 +514,18 @@ $result_nodes{'backslash_in_arg'} = {
 };
 $result_nodes{'backslash_in_arg'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'backslash_in_arg'};
 
-$result_menus{'backslash_in_arg'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'backslash_in_arg'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'backslash_in_arg'} = [];
 

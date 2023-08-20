@@ -194,12 +194,13 @@ $result_nodes{'setfilename_on_top_and_after_node'} = {
   }
 };
 
-$result_menus{'setfilename_on_top_and_after_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'setfilename_on_top_and_after_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'setfilename_on_top_and_after_node'} = [
   {

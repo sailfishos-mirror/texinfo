@@ -1030,12 +1030,18 @@ $result_nodes{'multiple_in_preamble'} = {
 $result_nodes{'multiple_in_preamble'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_in_preamble'};
 $result_nodes{'multiple_in_preamble'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_in_preamble'};
 
-$result_menus{'multiple_in_preamble'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'multiple_in_preamble'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'multiple_in_preamble'} = [];
 

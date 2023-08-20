@@ -525,12 +525,18 @@ $result_nodes{'special_characters_in_float_type'} = {
 $result_nodes{'special_characters_in_float_type'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'special_characters_in_float_type'};
 $result_nodes{'special_characters_in_float_type'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'special_characters_in_float_type'};
 
-$result_menus{'special_characters_in_float_type'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'special_characters_in_float_type'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'special_characters_in_float_type'} = [];
 

@@ -119,12 +119,13 @@ $result_nodes{'known_encoding'} = {
   }
 };
 
-$result_menus{'known_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'known_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'known_encoding'} = [
   {

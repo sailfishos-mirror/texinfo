@@ -318,11 +318,6 @@ node.
 $result_nodes{'equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -336,37 +331,34 @@ $result_nodes{'equivalent_nodes'} = {
       }
     },
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'equivalent_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes'};
-$result_nodes{'equivalent_nodes'}{'structure'}{'menu_child'} = $result_nodes{'equivalent_nodes'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'equivalent_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'equivalent_nodes'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'first' => 1
-        }
+      'normalized' => 'node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'first' => 1
       }
     }
   }
-};
-$result_menus{'equivalent_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes'};
+];
+$result_menus{'equivalent_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes'}[0];
 
 $result_errors{'equivalent_nodes'} = [
   {

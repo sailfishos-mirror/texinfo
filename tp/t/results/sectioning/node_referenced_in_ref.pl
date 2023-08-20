@@ -296,11 +296,6 @@ second level node.
 $result_nodes{'node_referenced_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -315,38 +310,40 @@ $result_nodes{'node_referenced_in_ref'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_referenced_in_ref'};
 $result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'} = $result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'node_referenced_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'node_referenced_in_ref'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap-first-level-node'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap-first-level-node'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
+  },
+  {
+    'extra' => {
+      'normalized' => 'second-level-node'
+    }
   }
-};
-$result_menus{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'node_referenced_in_ref'};
+];
+$result_menus{'node_referenced_in_ref'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'node_referenced_in_ref'}[0];
 
 $result_errors{'node_referenced_in_ref'} = [];
 

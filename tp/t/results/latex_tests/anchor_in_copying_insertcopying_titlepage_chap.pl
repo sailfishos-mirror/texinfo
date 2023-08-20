@@ -588,12 +588,18 @@ $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'} = {
 $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'};
 $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'};
 
-$result_menus{'anchor_in_copying_insertcopying_titlepage_chap'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_in_copying_insertcopying_titlepage_chap'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
   }
-};
+];
 
 $result_errors{'anchor_in_copying_insertcopying_titlepage_chap'} = [];
 

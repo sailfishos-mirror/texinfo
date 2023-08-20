@@ -189,12 +189,13 @@ $result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
   }
 };
 
-$result_menus{'empty_lines_at_beginning_no_setfilename'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'empty_lines_at_beginning_no_setfilename'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'empty_lines_at_beginning_no_setfilename'} = [];
 

@@ -535,12 +535,23 @@ $result_nodes{'customize_special_element'}{'extra'}{'node_directions'}{'next'}{'
 $result_nodes{'customize_special_element'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'customize_special_element'};
 $result_nodes{'customize_special_element'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'customize_special_element'};
 
-$result_menus{'customize_special_element'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'customize_special_element'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-fr'
+    }
   }
-};
+];
 
 $result_errors{'customize_special_element'} = [];
 

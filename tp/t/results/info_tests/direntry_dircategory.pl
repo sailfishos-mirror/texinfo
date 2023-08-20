@@ -944,8 +944,7 @@ $result_sectioning{'direntry_dircategory'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -993,11 +992,6 @@ $result_nodes{'direntry_dircategory'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1018,38 +1012,35 @@ $result_nodes{'direntry_dircategory'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'direntry_dircategory'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'direntry_dircategory'};
 $result_nodes{'direntry_dircategory'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'direntry_dircategory'};
-$result_nodes{'direntry_dircategory'}{'structure'}{'menu_child'} = $result_nodes{'direntry_dircategory'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'direntry_dircategory'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'direntry_dircategory'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'direntry_dircategory'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'direntry_dircategory'};
+];
+$result_menus{'direntry_dircategory'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'direntry_dircategory'}[0];
 
 $result_errors{'direntry_dircategory'} = [
   {

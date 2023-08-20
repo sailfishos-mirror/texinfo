@@ -369,8 +369,7 @@ $result_sectioning{'split_nocopying'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -418,11 +417,6 @@ $result_nodes{'split_nocopying'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -443,38 +437,35 @@ $result_nodes{'split_nocopying'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'split_nocopying'};
 $result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_nocopying'};
-$result_nodes{'split_nocopying'}{'structure'}{'menu_child'} = $result_nodes{'split_nocopying'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'split_nocopying'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'split_nocopying'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'Ch1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'Ch1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'split_nocopying'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_nocopying'};
+];
+$result_menus{'split_nocopying'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_nocopying'}[0];
 
 $result_errors{'split_nocopying'} = [];
 

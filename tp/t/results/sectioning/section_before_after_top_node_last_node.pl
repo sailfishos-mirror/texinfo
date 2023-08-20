@@ -321,12 +321,18 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
 };
 $result_nodes{'section_before_after_top_node_last_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_before_after_top_node_last_node'};
 
-$result_menus{'section_before_after_top_node_last_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'section_before_after_top_node_last_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-after'
+    }
   }
-};
+];
 
 $result_errors{'section_before_after_top_node_last_node'} = [
   {

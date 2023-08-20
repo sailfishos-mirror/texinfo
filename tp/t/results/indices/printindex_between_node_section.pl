@@ -640,12 +640,23 @@ $result_nodes{'printindex_between_node_section'} = {
 $result_nodes{'printindex_between_node_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'printindex_between_node_section'};
 $result_nodes{'printindex_between_node_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_between_node_section'};
 
-$result_menus{'printindex_between_node_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'printindex_between_node_section'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap1'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-sec1'
+    }
   }
-};
+];
 
 $result_errors{'printindex_between_node_section'} = [];
 

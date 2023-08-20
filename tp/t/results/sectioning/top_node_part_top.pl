@@ -231,32 +231,31 @@ $result_nodes{'top_node_part_top'}{'associated_unit'}{'unit_command'}{'associate
 $result_nodes{'top_node_part_top'}{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'}{'associated_unit'} = $result_nodes{'top_node_part_top'}{'associated_unit'};
 $result_nodes{'top_node_part_top'}{'extra'}{'associated_section'} = $result_nodes{'top_node_part_top'}{'associated_unit'}{'unit_command'};
 
-$result_menus{'top_node_part_top'} = {
-  'associated_unit' => {
-    'directions' => {
-      'This' => {}
-    },
-    'type' => 'unit',
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_part' => {
-          'associated_unit' => {},
-          'cmdname' => 'part',
-          'extra' => {}
+$result_menus{'top_node_part_top'} = [
+  {
+    'associated_unit' => {
+      'directions' => {
+        'This' => {}
+      },
+      'type' => 'unit',
+      'unit_command' => {
+        'associated_unit' => {},
+        'extra' => {
+          'associated_part' => {
+            'associated_unit' => {},
+            'extra' => {}
+          }
         }
       }
+    },
+    'extra' => {
+      'normalized' => 'Top'
     }
-  },
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
   }
-};
-$result_menus{'top_node_part_top'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'top_node_part_top'}{'associated_unit'};
-$result_menus{'top_node_part_top'}{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_menus{'top_node_part_top'}{'associated_unit'};
-$result_menus{'top_node_part_top'}{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'}{'associated_unit'} = $result_menus{'top_node_part_top'}{'associated_unit'};
+];
+$result_menus{'top_node_part_top'}[0]{'associated_unit'}{'directions'}{'This'} = $result_menus{'top_node_part_top'}[0]{'associated_unit'};
+$result_menus{'top_node_part_top'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_menus{'top_node_part_top'}[0]{'associated_unit'};
+$result_menus{'top_node_part_top'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'}{'associated_unit'} = $result_menus{'top_node_part_top'}[0]{'associated_unit'};
 
 $result_errors{'top_node_part_top'} = [
   {

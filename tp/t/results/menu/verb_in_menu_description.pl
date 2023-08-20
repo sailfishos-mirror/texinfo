@@ -269,8 +269,7 @@ $result_sectioning{'verb_in_menu_description'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'first'
-            },
-            'structure' => {}
+            }
           },
           'section_directions' => {
             'up' => {}
@@ -291,45 +290,20 @@ $result_nodes{'verb_in_menu_description'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'manual'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'verb_in_menu_description'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'manual'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
+$result_menus{'verb_in_menu_description'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
     }
   }
-};
+];
 
 $result_errors{'verb_in_menu_description'} = [];
 

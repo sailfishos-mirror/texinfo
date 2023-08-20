@@ -2297,12 +2297,13 @@ $result_nodes{'accent_enable_encoding'} = {
   }
 };
 
-$result_menus{'accent_enable_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'accent_enable_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'accent_enable_encoding'} = [];
 

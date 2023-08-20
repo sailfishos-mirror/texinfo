@@ -341,12 +341,18 @@ $result_nodes{'anchor_before_top'} = {
 $result_nodes{'anchor_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_before_top'};
 $result_nodes{'anchor_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_before_top'};
 
-$result_menus{'anchor_before_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_before_top'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
   }
-};
+];
 
 $result_errors{'anchor_before_top'} = [];
 

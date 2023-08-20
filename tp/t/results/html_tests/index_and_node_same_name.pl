@@ -204,13 +204,13 @@ $result_nodes{'index_and_node_same_name'} = {
   }
 };
 
-$result_menus{'index_and_node_same_name'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'index-node'
+$result_menus{'index_and_node_same_name'} = [
+  {
+    'extra' => {
+      'normalized' => 'index-node'
+    }
   }
-};
+];
 
 $result_errors{'index_and_node_same_name'} = [];
 

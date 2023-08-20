@@ -539,11 +539,6 @@ Ref to @samp{chap} chap.
 $result_nodes{'equivalent_nodes_defined_linked'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -557,37 +552,34 @@ $result_nodes{'equivalent_nodes_defined_linked'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'equivalent_nodes_defined_linked'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes_defined_linked'};
-$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'} = $result_nodes{'equivalent_nodes_defined_linked'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'equivalent_nodes_defined_linked'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'equivalent_nodes_defined_linked'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_defined_linked'};
+];
+$result_menus{'equivalent_nodes_defined_linked'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_defined_linked'}[0];
 
 $result_errors{'equivalent_nodes_defined_linked'} = [
   {

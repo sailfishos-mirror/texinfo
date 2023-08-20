@@ -427,12 +427,18 @@ $result_nodes{'alias_of_added_index_before_added_index'} = {
 $result_nodes{'alias_of_added_index_before_added_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'alias_of_added_index_before_added_index'};
 $result_nodes{'alias_of_added_index_before_added_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'alias_of_added_index_before_added_index'};
 
-$result_menus{'alias_of_added_index_before_added_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'alias_of_added_index_before_added_index'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'alias_of_added_index_before_added_index'} = [];
 

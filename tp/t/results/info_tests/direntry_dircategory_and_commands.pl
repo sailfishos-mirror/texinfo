@@ -526,12 +526,13 @@ $result_nodes{'direntry_dircategory_and_commands'} = {
   }
 };
 
-$result_menus{'direntry_dircategory_and_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'direntry_dircategory_and_commands'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'direntry_dircategory_and_commands'} = [];
 

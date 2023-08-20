@@ -2335,12 +2335,13 @@ $result_nodes{'accentenc_enable_encoding'} = {
   }
 };
 
-$result_menus{'accentenc_enable_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'accentenc_enable_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'accentenc_enable_encoding'} = [];
 

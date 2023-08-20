@@ -515,8 +515,7 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -565,11 +564,6 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       'extra' => {}
     },
     'isindex' => 1,
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -590,39 +584,35 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'char_latin2_latin2_in_refs'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'char_latin2_latin2_in_refs'};
 $result_nodes{'char_latin2_latin2_in_refs'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'char_latin2_latin2_in_refs'};
-$result_nodes{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'} = $result_nodes{'char_latin2_latin2_in_refs'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'char_latin2_latin2_in_refs'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_menus{'char_latin2_latin2_in_refs'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => '_0104-_0105-_02db-_0118-_0119'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => '_0104-_0105-_02db-_0118-_0119'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin2_latin2_in_refs'};
+];
+$result_menus{'char_latin2_latin2_in_refs'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin2_latin2_in_refs'}[0];
 
 $result_errors{'char_latin2_latin2_in_refs'} = [];
 

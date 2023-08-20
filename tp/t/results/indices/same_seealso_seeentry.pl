@@ -749,12 +749,18 @@ $result_nodes{'same_seealso_seeentry'} = {
 $result_nodes{'same_seealso_seeentry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'same_seealso_seeentry'};
 $result_nodes{'same_seealso_seeentry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'same_seealso_seeentry'};
 
-$result_menus{'same_seealso_seeentry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'same_seealso_seeentry'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node'
+    }
   }
-};
+];
 
 $result_errors{'same_seealso_seeentry'} = [];
 

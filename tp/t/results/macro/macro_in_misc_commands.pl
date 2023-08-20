@@ -5614,8 +5614,7 @@ $result_sectioning{'macro_in_misc_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -5670,11 +5669,6 @@ $result_nodes{'macro_in_misc_commands'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -5702,38 +5696,35 @@ $result_nodes{'macro_in_misc_commands'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'macro_in_misc_commands'};
 $result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'macro_in_misc_commands'};
-$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'} = $result_nodes{'macro_in_misc_commands'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'macro_in_misc_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'macro_in_misc_commands'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node-atext'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'node-atext'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'macro_in_misc_commands'};
+];
+$result_menus{'macro_in_misc_commands'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'macro_in_misc_commands'}[0];
 
 $result_errors{'macro_in_misc_commands'} = [
   {

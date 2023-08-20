@@ -268,12 +268,13 @@ $result_nodes{'section_before_after_top_node'} = {
   }
 };
 
-$result_menus{'section_before_after_top_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'section_before_after_top_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'section_before_after_top_node'} = [
   {

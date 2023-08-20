@@ -1265,12 +1265,18 @@ $result_nodes{'test_accents_sc_default'} = {
 $result_nodes{'test_accents_sc_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_default'};
 $result_nodes{'test_accents_sc_default'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_default'};
 
-$result_menus{'test_accents_sc_default'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_accents_sc_default'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'test_accents_sc_default'} = [];
 

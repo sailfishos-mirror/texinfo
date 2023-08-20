@@ -335,12 +335,18 @@ $result_nodes{'footnotestyle_separate_html_text_no_monolithic'} = {
 $result_nodes{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'footnotestyle_separate_html_text_no_monolithic'};
 $result_nodes{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'footnotestyle_separate_html_text_no_monolithic'};
 
-$result_menus{'footnotestyle_separate_html_text_no_monolithic'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'footnotestyle_separate_html_text_no_monolithic'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'footnotestyle_separate_html_text_no_monolithic'} = [];
 

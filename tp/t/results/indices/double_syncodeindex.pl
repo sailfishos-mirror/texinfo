@@ -360,12 +360,18 @@ $result_nodes{'double_syncodeindex'} = {
 };
 $result_nodes{'double_syncodeindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_syncodeindex'};
 
-$result_menus{'double_syncodeindex'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'double_syncodeindex'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'double_syncodeindex'} = [
   {

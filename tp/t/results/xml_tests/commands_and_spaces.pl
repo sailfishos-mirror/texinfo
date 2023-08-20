@@ -1849,12 +1849,13 @@ $result_nodes{'commands_and_spaces'} = {
   }
 };
 
-$result_menus{'commands_and_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'a'
+$result_menus{'commands_and_spaces'} = [
+  {
+    'extra' => {
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_errors{'commands_and_spaces'} = [
   {

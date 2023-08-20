@@ -869,12 +869,18 @@ $result_nodes{'cond_xml'} = {
 };
 $result_nodes{'cond_xml'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cond_xml'};
 
-$result_menus{'cond_xml'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'cond_xml'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'cond_xml'} = [];
 

@@ -399,12 +399,18 @@ $result_nodes{'index_entry_in_footnote_sections_separate'} = {
 $result_nodes{'index_entry_in_footnote_sections_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_in_footnote_sections_separate'};
 $result_nodes{'index_entry_in_footnote_sections_separate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_in_footnote_sections_separate'};
 
-$result_menus{'index_entry_in_footnote_sections_separate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_entry_in_footnote_sections_separate'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Index'
+    }
   }
-};
+];
 
 $result_errors{'index_entry_in_footnote_sections_separate'} = [];
 

@@ -274,12 +274,18 @@ $result_nodes{'comment_space_comand_in_float'} = {
 };
 $result_nodes{'comment_space_comand_in_float'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_space_comand_in_float'};
 
-$result_menus{'comment_space_comand_in_float'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'comment_space_comand_in_float'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'comment_space_comand_in_float'} = [];
 

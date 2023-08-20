@@ -1000,8 +1000,7 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1193,11 +1192,6 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1229,89 +1223,89 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'in_menu_only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_spaces_node'};
 $result_nodes{'in_menu_only_special_spaces_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'in_menu_only_special_spaces_node'};
-$result_nodes{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'} = $result_nodes{'in_menu_only_special_spaces_node'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'in_menu_only_special_spaces_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'in_menu_only_special_spaces_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'menu_directions' => {
-                      'next' => {
-                        'cmdname' => 'node',
-                        'extra' => {
-                          'menu_directions' => {
-                            'prev' => {},
-                            'up' => {}
-                          },
-                          'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {
+                'extra' => {
+                  'menu_directions' => {
+                    'next' => {
+                      'extra' => {
+                        'menu_directions' => {
+                          'prev' => {},
+                          'up' => {}
                         },
-                        'structure' => {
-                          'menu_up_hash' => {
-                            'Top' => 1
-                          }
-                        }
+                        'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
                       },
-                      'prev' => {},
-                      'up' => {}
+                      'structure' => {
+                        'menu_up_hash' => {
+                          'Top' => 1
+                        }
+                      }
                     },
-                    'normalized' => '_180e_2003'
+                    'prev' => {},
+                    'up' => {}
                   },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Top' => 1
-                    }
-                  }
+                  'normalized' => '_180e_2003'
                 },
-                'prev' => {},
-                'up' => {}
+                'structure' => {
+                  'menu_up_hash' => {
+                    'Top' => 1
+                  }
+                }
               },
-              'normalized' => '_0085_00a0_1680'
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => '_0085_00a0_1680'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => '_2002_2003_2002'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => '_2002_2003_2002'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'};
-$result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'};
+  },
+  {},
+  {},
+  {}
+];
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'}[0];
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'}[0];
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node'}[1];
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'}[0];
+$result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node'}[0];
+$result_menus{'in_menu_only_special_spaces_node'}[2] = $result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'in_menu_only_special_spaces_node'}[3] = $result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'in_menu_only_special_spaces_node'}[4] = $result_menus{'in_menu_only_special_spaces_node'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'in_menu_only_special_spaces_node'} = [
   {

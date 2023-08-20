@@ -436,12 +436,18 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
 };
 $result_nodes{'ignored_sort_char_empty_entries'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ignored_sort_char_empty_entries'};
 
-$result_menus{'ignored_sort_char_empty_entries'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ignored_sort_char_empty_entries'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'ignored_sort_char_empty_entries'} = [
   {

@@ -399,14 +399,14 @@ my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
   'node_description', 'node_long_description', 'is_target',
   'tree_document_descriptor');
-my @menus_keys = ('menu_directions', 'menu_up_hash');
+my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
 my @sections_keys = ('section_directions',
   'section_childs', 'associated_node', 'part_associated_section',
   'part_following_node', 'section_level',
   'toplevel_directions');
-my @node_keys = ('node_directions', 'menus',
+my @node_keys = ('node_directions',
   'associated_section', 'node_preceding_part');
 
 # in general, the 'parent' keys adds lot of non legible information,
@@ -416,7 +416,7 @@ my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
-    'structure', 'menu_child', 'tree_unit_directions', 'directions',
+    'structure', 'tree_unit_directions', 'directions',
     'page_next', 'parent', 'associated_unit',
     # only set with the XS parser
     'tree_document_descriptor');
@@ -427,7 +427,7 @@ sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
 
 my %avoided_keys_sectioning;
 my @avoided_keys_sectioning = ('next', @contents_keys, @menus_keys,
-  @node_keys, 'menu_child', 'manual_content');
+  @node_keys, 'manual_content');
 foreach my $avoided_key(@avoided_keys_sectioning) {
   $avoided_keys_sectioning{$avoided_key} = 1;
 }
@@ -443,7 +443,8 @@ sub filter_nodes_keys { [grep {!$avoided_keys_nodes{$_}}
    ( sort keys %{$_[0]} )] }
 
 my %avoided_keys_menus;
-my @avoided_keys_menus = (@sections_keys, @contents_keys, @node_keys);
+my @avoided_keys_menus = (@sections_keys, @contents_keys, @node_keys,
+    'cmdname', 'isindex');
 foreach my $avoided_key(@avoided_keys_menus) {
   $avoided_keys_menus{$avoided_key} = 1;
 }
@@ -461,7 +462,7 @@ sub filter_floats_keys { [grep {!$avoided_keys_floats{$_}}
 
 my %avoided_keys_elements;
 my @avoided_keys_elements = (@contents_keys, @sections_keys, @node_keys,
-  'tree_unit_directions');
+  'tree_unit_directions', 'menus');
 foreach my $avoided_key(@avoided_keys_elements) {
   $avoided_keys_elements{$avoided_key} = 1;
 }
@@ -1053,7 +1054,8 @@ sub test($$)
       and (not defined($main_configuration->get_conf('FORMAT_MENU'))
            or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
     Texinfo::Structuring::complete_node_tree_with_menus($registrar,
-                                $main_configuration, $nodes_list, $top_node);
+                                $main_configuration, $nodes_list,
+                                $identifier_target, $top_node);
     my $refs = $document->internal_references_information();
     Texinfo::Structuring::check_nodes_are_referenced($registrar,
                                       $main_configuration, $nodes_list,
@@ -1359,9 +1361,11 @@ sub test($$)
         $out_result .= Data::Dumper->Dump([$top_node],
                                ['$result_nodes{\''.$test_name.'\'}'])."\n";
       }
+    }
+    if ($nodes_list and scalar(@$nodes_list)) {
       {
         local $Data::Dumper::Sortkeys = \&filter_menus_keys;
-        $out_result .= Data::Dumper->Dump([$top_node],
+        $out_result .= Data::Dumper->Dump([$nodes_list],
                              ['$result_menus{\''.$test_name.'\'}'])."\n";
       }
     }

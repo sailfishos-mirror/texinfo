@@ -999,8 +999,7 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'new-n'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_directions' => {
                   'prev' => {},
@@ -1063,19 +1062,11 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
                     'section_number' => 2
                   }
                 },
-                'menus' => [
-                  {
-                    'cmdname' => 'menu'
-                  }
-                ],
                 'node_directions' => {
                   'prev' => {},
                   'up' => {}
                 },
                 'normalized' => 'new-n'
-              },
-              'structure' => {
-                'menu_child' => {}
               }
             },
             'prev' => {},
@@ -1091,16 +1082,56 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
 };
 $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'end_of_line_command_in_node_lines'};
-$result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'} = $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'end_of_line_command_in_node_lines'};
 $result_nodes{'end_of_line_command_in_node_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'end_of_line_command_in_node_lines'};
 
-$result_menus{'end_of_line_command_in_node_lines'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  }
-};
+$result_menus{'end_of_line_command_in_node_lines'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {},
+              'prev' => {},
+              'up' => {
+                'extra' => {
+                  'menus' => [
+                    {}
+                  ],
+                  'normalized' => 'new-n'
+                }
+              }
+            },
+            'normalized' => 'ankh-p'
+          },
+          'structure' => {
+            'menu_up_hash' => {
+              'new-n' => 1
+            }
+          }
+        },
+        'up' => {}
+      },
+      'normalized' => 'chap-f-nl-Something_003f-After-punct'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'new-n' => 1
+      }
+    }
+  },
+  {}
+];
+$result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'};
+$result_menus{'end_of_line_command_in_node_lines'}[2] = $result_menus{'end_of_line_command_in_node_lines'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'};
 
 $result_errors{'end_of_line_command_in_node_lines'} = [
   {

@@ -1195,12 +1195,18 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
 $result_nodes{'inter_item_commands_in_enumerate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'inter_item_commands_in_enumerate'};
 $result_nodes{'inter_item_commands_in_enumerate'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'inter_item_commands_in_enumerate'};
 
-$result_menus{'inter_item_commands_in_enumerate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'inter_item_commands_in_enumerate'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'inter_item_commands_in_enumerate'} = [];
 

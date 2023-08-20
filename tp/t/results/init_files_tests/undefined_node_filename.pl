@@ -115,12 +115,18 @@ $result_nodes{'undefined_node_filename'} = {
 };
 $result_nodes{'undefined_node_filename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'undefined_node_filename'};
 
-$result_menus{'undefined_node_filename'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'undefined_node_filename'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap-Other'
+    }
   }
-};
+];
 
 $result_errors{'undefined_node_filename'} = [];
 

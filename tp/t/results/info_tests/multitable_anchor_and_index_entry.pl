@@ -976,13 +976,13 @@ $result_nodes{'multitable_anchor_and_index_entry'} = {
   }
 };
 
-$result_menus{'multitable_anchor_and_index_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_menus{'multitable_anchor_and_index_entry'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'multitable_anchor_and_index_entry'} = [];
 

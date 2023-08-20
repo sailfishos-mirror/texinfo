@@ -282,12 +282,18 @@ $result_nodes{'empty_index_entry'} = {
 };
 $result_nodes{'empty_index_entry'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_index_entry'};
 
-$result_menus{'empty_index_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'empty_index_entry'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'empty_index_entry'} = [
   {

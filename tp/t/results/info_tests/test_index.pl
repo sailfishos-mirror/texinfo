@@ -3401,8 +3401,7 @@ $result_sectioning{'test_index'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -3553,11 +3552,6 @@ $result_nodes{'test_index'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -3596,58 +3590,55 @@ $result_nodes{'test_index'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
 $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'};
 $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'structure'}{'menu_child'} = $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'test_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'test_index'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'isindex' => 1,
-              'menu_directions' => {
-                'prev' => {},
-                'up' => {}
-              },
-              'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'name'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'name'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'test_index'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'test_index'}{'structure'}{'menu_child'};
-$result_menus{'test_index'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_index'};
-$result_menus{'test_index'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_index'};
+  },
+  {}
+];
+$result_menus{'test_index'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'test_index'}[1];
+$result_menus{'test_index'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_index'}[0];
+$result_menus{'test_index'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_index'}[0];
+$result_menus{'test_index'}[2] = $result_menus{'test_index'}[1]{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'test_index'} = [
   {

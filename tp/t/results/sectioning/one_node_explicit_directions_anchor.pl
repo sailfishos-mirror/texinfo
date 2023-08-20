@@ -199,12 +199,13 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
   }
 };
 
-$result_menus{'one_node_explicit_directions_anchor'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'one-node'
+$result_menus{'one_node_explicit_directions_anchor'} = [
+  {
+    'extra' => {
+      'normalized' => 'one-node'
+    }
   }
-};
+];
 
 $result_errors{'one_node_explicit_directions_anchor'} = [];
 

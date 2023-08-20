@@ -669,12 +669,18 @@ $result_nodes{'deftypefnnewline_for_copying_before'} = {
 $result_nodes{'deftypefnnewline_for_copying_before'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'deftypefnnewline_for_copying_before'};
 $result_nodes{'deftypefnnewline_for_copying_before'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'deftypefnnewline_for_copying_before'};
 
-$result_menus{'deftypefnnewline_for_copying_before'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'deftypefnnewline_for_copying_before'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'deftypefnnewline_for_copying_before'} = [];
 

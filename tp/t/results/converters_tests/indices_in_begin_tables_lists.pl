@@ -4313,12 +4313,23 @@ $result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next
 $result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_in_begin_tables_lists'};
 $result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_in_begin_tables_lists'};
 
-$result_menus{'indices_in_begin_tables_lists'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'indices_in_begin_tables_lists'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'printindex'
+    }
   }
-};
+];
 
 $result_errors{'indices_in_begin_tables_lists'} = [];
 

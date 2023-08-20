@@ -2348,8 +2348,7 @@ $result_sectioning{'multiple_include_encodings'} = {
                   'extra' => {
                     'isindex' => 1,
                     'normalized' => 'char-latin2-latin2'
-                  },
-                  'structure' => {}
+                  }
                 },
                 'section_childs' => [
                   {
@@ -2510,11 +2509,6 @@ $result_nodes{'multiple_include_encodings'} = {
                               }
                             },
                             'isindex' => 1,
-                            'menus' => [
-                              {
-                                'cmdname' => 'menu'
-                              }
-                            ],
                             'node_directions' => {
                               'next' => {
                                 'cmdname' => 'node',
@@ -2552,24 +2546,6 @@ $result_nodes{'multiple_include_encodings'} = {
                               'up' => {}
                             },
                             'normalized' => 'char-latin2-latin2'
-                          },
-                          'structure' => {
-                            'menu_child' => {
-                              'cmdname' => 'node',
-                              'extra' => {
-                                'associated_section' => {
-                                  'cmdname' => 'section',
-                                  'extra' => {
-                                    'section_number' => '4.1'
-                                  }
-                                },
-                                'node_directions' => {
-                                  'up' => {}
-                                },
-                                'normalized' => '_0104-_0105-_02db-_0118-_0119'
-                              },
-                              'structure' => {}
-                            }
                           }
                         },
                         'prev' => {},
@@ -2600,7 +2576,6 @@ $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
-$result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'};
@@ -2608,12 +2583,60 @@ $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_include_encodings'};
 $result_nodes{'multiple_include_encodings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_include_encodings'};
 
-$result_menus{'multiple_include_encodings'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'multiple_include_encodings'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Preface'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Introduction'
+    }
+  },
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'char-latin2-latin2'
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => '_0104-_0105-_02db-_0118-_0119'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'char-latin2-latin2' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Mixed-english-and-chinese-EUC_002dCN'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Mixed-chinese-and-english-utf_002d8'
+    }
   }
-};
+];
+$result_menus{'multiple_include_encodings'}[5]{'extra'}{'menu_directions'}{'up'} = $result_menus{'multiple_include_encodings'}[4];
 
 $result_errors{'multiple_include_encodings'} = [
   {

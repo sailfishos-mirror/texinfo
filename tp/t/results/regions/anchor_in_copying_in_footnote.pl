@@ -370,12 +370,18 @@ $result_nodes{'anchor_in_copying_in_footnote'} = {
 };
 $result_nodes{'anchor_in_copying_in_footnote'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_copying_in_footnote'};
 
-$result_menus{'anchor_in_copying_in_footnote'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'anchor_in_copying_in_footnote'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'anchor_in_copying_in_footnote'} = [];
 

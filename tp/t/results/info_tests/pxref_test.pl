@@ -281,12 +281,13 @@ $result_nodes{'pxref_test'} = {
   }
 };
 
-$result_menus{'pxref_test'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'pxref_test'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'pxref_test'} = [];
 

@@ -390,8 +390,7 @@ $result_sectioning{'split_test_before_first_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -439,11 +438,6 @@ $result_nodes{'split_test_before_first_node'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -464,38 +458,35 @@ $result_nodes{'split_test_before_first_node'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'split_test_before_first_node'};
 $result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_test_before_first_node'};
-$result_nodes{'split_test_before_first_node'}{'structure'}{'menu_child'} = $result_nodes{'split_test_before_first_node'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'split_test_before_first_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'split_test_before_first_node'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'split_test_before_first_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_test_before_first_node'};
+];
+$result_menus{'split_test_before_first_node'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_test_before_first_node'}[0];
 
 $result_errors{'split_test_before_first_node'} = [];
 

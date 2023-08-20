@@ -319,11 +319,6 @@ node name
 $result_nodes{'ref_in_preformatted'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -338,38 +333,35 @@ $result_nodes{'ref_in_preformatted'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_preformatted'};
 $result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_preformatted'};
-$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'} = $result_nodes{'ref_in_preformatted'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'ref_in_preformatted'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ref_in_preformatted'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chap-nnn-the-node-name'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chap-nnn-the-node-name'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'ref_in_preformatted'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_preformatted'};
+];
+$result_menus{'ref_in_preformatted'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_preformatted'}[0];
 
 $result_errors{'ref_in_preformatted'} = [];
 

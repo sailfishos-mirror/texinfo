@@ -1371,8 +1371,7 @@ $result_sectioning{'split_chapter_index'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -1461,11 +1460,6 @@ $result_nodes{'split_chapter_index'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -1477,125 +1471,79 @@ $result_nodes{'split_chapter_index'} = {
             }
           },
           'isindex' => 1,
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'first'
         },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'section',
-                'extra' => {
-                  'section_number' => '1.1'
-                }
-              },
-              'menus' => [
-                {
-                  'cmdname' => 'menu'
-                }
-              ],
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'section-1'
-            },
-            'structure' => {
-              'menu_child' => {
-                'cmdname' => 'node',
-                'extra' => {
-                  'associated_section' => {
-                    'cmdname' => 'subsection',
-                    'extra' => {
-                      'section_number' => '1.1.1'
-                    }
-                  },
-                  'node_directions' => {
-                    'up' => {}
-                  },
-                  'normalized' => 'subsection-1'
-                },
-                'structure' => {}
-              }
-            }
-          }
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'split_chapter_index'};
 $result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_chapter_index'};
-$result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'};
-$result_nodes{'split_chapter_index'}{'structure'}{'menu_child'} = $result_nodes{'split_chapter_index'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'split_chapter_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'split_chapter_index'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'first'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'section-1'
-          },
-          'structure' => {
-            'menu_child' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'menu_directions' => {
-                  'up' => {}
-                },
-                'normalized' => 'subsection-1'
-              },
-              'structure' => {
-                'menu_up_hash' => {
-                  'section-1' => 1
-                }
-              }
-            },
-            'menu_up_hash' => {
-              'first' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'section-1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'first' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'subsection-1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'section-1' => 1
       }
     }
   }
-};
-$result_menus{'split_chapter_index'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'};
-$result_menus{'split_chapter_index'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'}{'structure'}{'menu_child'};
-$result_menus{'split_chapter_index'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+];
+$result_menus{'split_chapter_index'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'}[0];
+$result_menus{'split_chapter_index'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'}[1];
+$result_menus{'split_chapter_index'}[3]{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_chapter_index'}[2];
 
 $result_errors{'split_chapter_index'} = [];
 

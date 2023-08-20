@@ -333,44 +333,43 @@ second node.
 $result_nodes{'double_top_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {}
     },
     'normalized' => 'Top'
   },
-  'structure' => {
-    'menu_child' => {}
-  }
+  'structure' => {}
 };
 $result_nodes{'double_top_in_menu'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top_in_menu'};
-$result_nodes{'double_top_in_menu'}{'structure'}{'menu_child'} = $result_nodes{'double_top_in_menu'};
 
-$result_menus{'double_top_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'menu_directions' => {
-      'next' => {},
-      'prev' => {},
-      'up' => {}
+$result_menus{'double_top_in_menu'} = [
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {},
+        'prev' => {},
+        'up' => {}
+      },
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
     },
-    'normalized' => 'Top'
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
   },
-  'structure' => {
-    'menu_child' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  {
+    'extra' => {
+      'normalized' => 'Top'
     }
   }
-};
-$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'structure'}{'menu_child'} = $result_menus{'double_top_in_menu'};
+];
+$result_menus{'double_top_in_menu'}[0]{'extra'}{'menu_directions'}{'next'} = $result_menus{'double_top_in_menu'}[0];
+$result_menus{'double_top_in_menu'}[0]{'extra'}{'menu_directions'}{'prev'} = $result_menus{'double_top_in_menu'}[0];
+$result_menus{'double_top_in_menu'}[0]{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_top_in_menu'}[0];
 
 $result_errors{'double_top_in_menu'} = [
   {

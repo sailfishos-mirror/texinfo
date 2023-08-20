@@ -1329,12 +1329,18 @@ $result_nodes{'punctuation_sc_accents_ascii_glyph_usascii'} = {
 $result_nodes{'punctuation_sc_accents_ascii_glyph_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'punctuation_sc_accents_ascii_glyph_usascii'};
 $result_nodes{'punctuation_sc_accents_ascii_glyph_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'punctuation_sc_accents_ascii_glyph_usascii'};
 
-$result_menus{'punctuation_sc_accents_ascii_glyph_usascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'punctuation_sc_accents_ascii_glyph_usascii'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'punctuation_sc_accents_ascii_glyph_usascii'} = [];
 

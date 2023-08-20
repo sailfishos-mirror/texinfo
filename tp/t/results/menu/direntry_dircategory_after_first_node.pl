@@ -281,12 +281,13 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
   }
 };
 
-$result_menus{'direntry_dircategory_after_first_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'direntry_dircategory_after_first_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'direntry_dircategory_after_first_node'} = [
   {

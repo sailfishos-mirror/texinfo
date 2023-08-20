@@ -349,12 +349,13 @@ $result_nodes{'paragraphindent_and_preamble'} = {
   }
 };
 
-$result_menus{'paragraphindent_and_preamble'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'paragraphindent_and_preamble'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'paragraphindent_and_preamble'} = [];
 

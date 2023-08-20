@@ -545,8 +545,7 @@ $result_sectioning{'two_nodes_at_the_end_texi2html'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -594,11 +593,6 @@ $result_nodes{'two_nodes_at_the_end_texi2html'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -641,9 +635,6 @@ $result_nodes{'two_nodes_at_the_end_texi2html'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
@@ -652,65 +643,67 @@ $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'nex
 $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'two_nodes_at_the_end_texi2html'};
 $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'two_nodes_at_the_end_texi2html'};
 $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'two_nodes_at_the_end_texi2html'};
-$result_nodes{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'} = $result_nodes{'two_nodes_at_the_end_texi2html'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'two_nodes_at_the_end_texi2html'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'two_nodes_at_the_end_texi2html'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'next' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'menu_directions' => {
-                'next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'menu_directions' => {
-                      'prev' => {},
-                      'up' => {}
-                    },
-                    'normalized' => 'last-node-in-chapter-1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'next' => {
+          'extra' => {
+            'menu_directions' => {
+              'next' => {
+                'extra' => {
+                  'menu_directions' => {
+                    'prev' => {},
+                    'up' => {}
                   },
-                  'structure' => {
-                    'menu_up_hash' => {
-                      'Top' => 1
-                    }
-                  }
+                  'normalized' => 'last-node-in-chapter-1'
                 },
-                'prev' => {},
-                'up' => {}
+                'structure' => {
+                  'menu_up_hash' => {
+                    'Top' => 1
+                  }
+                }
               },
-              'normalized' => 'node-after-chapter-1'
+              'prev' => {},
+              'up' => {}
             },
-            'structure' => {
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            }
+            'normalized' => 'node-after-chapter-1'
           },
-          'up' => {}
+          'structure' => {
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'normalized' => 'chapter-1'
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'chapter-1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
-  }
-};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
+  },
+  {},
+  {}
+];
+$result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'}[0];
+$result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}[1];
+$result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'}[0];
+$result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'}[0];
+$result_menus{'two_nodes_at_the_end_texi2html'}[2] = $result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'};
+$result_menus{'two_nodes_at_the_end_texi2html'}[3] = $result_menus{'two_nodes_at_the_end_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'two_nodes_at_the_end_texi2html'} = [];
 

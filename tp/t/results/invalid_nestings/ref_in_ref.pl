@@ -114,12 +114,13 @@ $result_nodes{'ref_in_ref'} = {
   }
 };
 
-$result_menus{'ref_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'ref_in_ref'} = [
+  {
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_errors{'ref_in_ref'} = [
   {

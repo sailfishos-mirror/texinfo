@@ -741,12 +741,18 @@ $result_nodes{'fonttextsize'} = {
 $result_nodes{'fonttextsize'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'fonttextsize'};
 $result_nodes{'fonttextsize'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'fonttextsize'};
 
-$result_menus{'fonttextsize'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'fonttextsize'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'fonttextsize'} = [
   {

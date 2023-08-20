@@ -175,12 +175,13 @@ $result_nodes{'ref_to_top'} = {
   }
 };
 
-$result_menus{'ref_to_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ref_to_top'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'ref_to_top'} = [
   {

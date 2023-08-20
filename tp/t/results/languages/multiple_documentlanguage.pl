@@ -1150,12 +1150,18 @@ $result_nodes{'multiple_documentlanguage'} = {
 $result_nodes{'multiple_documentlanguage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_documentlanguage'};
 $result_nodes{'multiple_documentlanguage'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_documentlanguage'};
 
-$result_menus{'multiple_documentlanguage'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'multiple_documentlanguage'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'multiple_documentlanguage'} = [];
 

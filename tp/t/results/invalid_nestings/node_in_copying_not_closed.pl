@@ -198,12 +198,13 @@ $result_nodes{'node_in_copying_not_closed'} = {
   }
 };
 
-$result_menus{'node_in_copying_not_closed'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'node_in_copying_not_closed'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'node_in_copying_not_closed'} = [
   {

@@ -198,12 +198,18 @@ $result_nodes{'double_top'} = {
 };
 $result_nodes{'double_top'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top'};
 
-$result_menus{'double_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'double_top'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'double_top'} = [
   {

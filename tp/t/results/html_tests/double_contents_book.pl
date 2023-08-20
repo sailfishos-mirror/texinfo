@@ -609,8 +609,7 @@ $result_sectioning{'double_contents_book'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -678,11 +677,6 @@ $result_nodes{'double_contents_book'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -693,86 +687,62 @@ $result_nodes{'double_contents_book'} = {
               'section_number' => 1
             }
           },
-          'menus' => [
-            {
-              'cmdname' => 'menu'
-            }
-          ],
           'node_directions' => {
             'prev' => {},
             'up' => {}
           },
           'normalized' => 'chapter'
         },
-        'structure' => {
-          'menu_child' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'associated_section' => {
-                'cmdname' => 'section',
-                'extra' => {
-                  'section_number' => '1.1'
-                }
-              },
-              'node_directions' => {
-                'up' => {}
-              },
-              'normalized' => 'section'
-            },
-            'structure' => {}
-          }
-        }
+        'structure' => {}
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'double_contents_book'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_contents_book'};
 $result_nodes{'double_contents_book'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_contents_book'};
-$result_nodes{'double_contents_book'}{'extra'}{'node_directions'}{'next'}{'structure'}{'menu_child'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_contents_book'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'double_contents_book'}{'structure'}{'menu_child'} = $result_nodes{'double_contents_book'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'double_contents_book'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'double_contents_book'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'chapter'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'menu_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'section'
-          },
-          'structure' => {
-            'menu_up_hash' => {
-              'chapter' => 1
-            }
-          }
-        },
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'chapter'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
+      }
+    }
+  },
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'section'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'chapter' => 1
       }
     }
   }
-};
-$result_menus{'double_contents_book'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_contents_book'};
-$result_menus{'double_contents_book'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_contents_book'}{'structure'}{'menu_child'};
+];
+$result_menus{'double_contents_book'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_contents_book'}[0];
+$result_menus{'double_contents_book'}[2]{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_contents_book'}[1];
 
 $result_errors{'double_contents_book'} = [];
 

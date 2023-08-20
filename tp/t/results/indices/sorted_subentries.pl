@@ -2039,12 +2039,23 @@ $result_nodes{'sorted_subentries'}{'extra'}{'node_directions'}{'next'}{'extra'}{
 $result_nodes{'sorted_subentries'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'sorted_subentries'};
 $result_nodes{'sorted_subentries'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'sorted_subentries'};
 
-$result_menus{'sorted_subentries'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'sorted_subentries'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-one'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter-second'
+    }
   }
-};
+];
 
 $result_errors{'sorted_subentries'} = [
   {

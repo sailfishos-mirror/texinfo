@@ -577,12 +577,18 @@ $result_nodes{'chinese_mixed_with_en'} = {
 $result_nodes{'chinese_mixed_with_en'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chinese_mixed_with_en'};
 $result_nodes{'chinese_mixed_with_en'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chinese_mixed_with_en'};
 
-$result_menus{'chinese_mixed_with_en'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'chinese_mixed_with_en'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Mixed-english-and-chinese'
+    }
   }
-};
+];
 
 $result_errors{'chinese_mixed_with_en'} = [];
 

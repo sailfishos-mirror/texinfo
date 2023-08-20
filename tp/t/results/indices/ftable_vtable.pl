@@ -747,12 +747,18 @@ $result_nodes{'ftable_vtable'} = {
 };
 $result_nodes{'ftable_vtable'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ftable_vtable'};
 
-$result_menus{'ftable_vtable'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'ftable_vtable'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'ftable_vtable'} = [];
 

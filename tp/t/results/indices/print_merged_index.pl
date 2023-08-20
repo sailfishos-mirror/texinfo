@@ -176,12 +176,18 @@ $result_nodes{'print_merged_index'} = {
 };
 $result_nodes{'print_merged_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'print_merged_index'};
 
-$result_menus{'print_merged_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'print_merged_index'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'print_merged_index'} = [
   {

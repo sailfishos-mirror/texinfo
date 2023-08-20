@@ -1381,12 +1381,18 @@ $result_nodes{'cpp_lines'} = {
 };
 $result_nodes{'cpp_lines'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_lines'};
 
-$result_menus{'cpp_lines'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'cpp_lines'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'cpp_lines'} = [
   {

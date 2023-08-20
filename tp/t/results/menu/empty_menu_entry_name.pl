@@ -278,45 +278,44 @@ $result_texts{'empty_menu_entry_name'} = '
 $result_nodes{'empty_menu_entry_name'} = {
   'cmdname' => 'node',
   'extra' => {
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'normalized' => 'first'
-  },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'vvv'
-          }
-        ]
-      },
-      'type' => 'menu_entry_node'
-    }
   }
 };
 
-$result_menus{'empty_menu_entry_name'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_menus{'empty_menu_entry_name'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'first'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'vvv'
-          }
-        ]
+  {
+    'extra' => {
+      'menu_directions' => {
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'vvv'
+              }
+            ]
+          },
+          'type' => 'menu_entry_node'
+        },
+        'up' => {}
       },
-      'type' => 'menu_entry_node'
+      'normalized' => 'aaa'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'first' => 1
+      }
     }
   }
-};
+];
+$result_menus{'empty_menu_entry_name'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'empty_menu_entry_name'}[0];
 
 $result_errors{'empty_menu_entry_name'} = [
   {

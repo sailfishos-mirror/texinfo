@@ -18434,12 +18434,18 @@ $result_nodes{'definition_commands'} = {
 $result_nodes{'definition_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'definition_commands'};
 $result_nodes{'definition_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'definition_commands'};
 
-$result_menus{'definition_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'definition_commands'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'definition_commands'} = [];
 

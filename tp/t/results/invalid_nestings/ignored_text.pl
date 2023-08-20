@@ -97,12 +97,13 @@ $result_nodes{'ignored_text'} = {
   }
 };
 
-$result_menus{'ignored_text'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'before-ignore'
+$result_menus{'ignored_text'} = [
+  {
+    'extra' => {
+      'normalized' => 'before-ignore'
+    }
   }
-};
+];
 
 $result_errors{'ignored_text'} = [
   {

@@ -1517,12 +1517,18 @@ $result_nodes{'def_syn_indices'} = {
 $result_nodes{'def_syn_indices'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'def_syn_indices'};
 $result_nodes{'def_syn_indices'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'def_syn_indices'};
 
-$result_menus{'def_syn_indices'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'def_syn_indices'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter-index'
+    }
   }
-};
+];
 
 $result_errors{'def_syn_indices'} = [
   {

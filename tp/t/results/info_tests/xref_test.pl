@@ -323,12 +323,13 @@ $result_nodes{'xref_test'} = {
   }
 };
 
-$result_menus{'xref_test'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'xref_test'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'xref_test'} = [];
 

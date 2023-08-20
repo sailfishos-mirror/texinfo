@@ -691,8 +691,7 @@ $result_sectioning{'before_node_and_section'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           },
           'section_childs' => [
             {
@@ -741,11 +740,6 @@ $result_nodes{'before_node_and_section'} = {
       'cmdname' => 'top',
       'extra' => {}
     },
-    'menus' => [
-      {
-        'cmdname' => 'menu'
-      }
-    ],
     'node_directions' => {
       'next' => {
         'cmdname' => 'node',
@@ -767,39 +761,35 @@ $result_nodes{'before_node_and_section'} = {
       }
     },
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'menu_child' => {}
   }
 };
 $result_nodes{'before_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'before_node_and_section'};
 $result_nodes{'before_node_and_section'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'before_node_and_section'};
-$result_nodes{'before_node_and_section'}{'structure'}{'menu_child'} = $result_nodes{'before_node_and_section'}{'extra'}{'node_directions'}{'next'};
 
-$result_menus{'before_node_and_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'before_node_and_section'} = [
+  {
+    'extra' => {
+      'menus' => [
+        {}
+      ],
+      'normalized' => 'Top'
+    }
   },
-  'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'isindex' => 1,
-        'menu_directions' => {
-          'up' => {}
-        },
-        'normalized' => 'node1'
+  {
+    'extra' => {
+      'menu_directions' => {
+        'up' => {}
       },
-      'structure' => {
-        'menu_up_hash' => {
-          'Top' => 1
-        }
+      'normalized' => 'node1'
+    },
+    'structure' => {
+      'menu_up_hash' => {
+        'Top' => 1
       }
     }
   }
-};
-$result_menus{'before_node_and_section'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'before_node_and_section'};
+];
+$result_menus{'before_node_and_section'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'before_node_and_section'}[0];
 
 $result_errors{'before_node_and_section'} = [
   {

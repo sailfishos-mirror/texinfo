@@ -501,6 +501,42 @@ sub check_nodes_are_referenced
   }
 }
 
+# In $NODE, find the first menu entry node in the first menu.  If the
+# node in menu refers to a target element in the document, return that
+# element
+sub _first_menu_node($$)
+{
+  my $node = shift;
+  my $identifier_target = shift;
+  if ($node->{'extra'}->{'menus'}) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+      foreach my $menu_content (@{$menu->{'contents'}}) {
+        if ($menu_content->{'type'}
+            and $menu_content->{'type'} eq 'menu_entry') {
+          my $menu_node;
+          foreach my $arg (@{$menu_content->{'contents'}}) {
+            if ($arg->{'type'} eq 'menu_entry_node') {
+              if ($arg->{'extra'}) {
+                if (!$arg->{'extra'}->{'manual_content'}) {
+                  if (defined($arg->{'extra'}->{'normalized'})) {
+                    $menu_node
+                      = $identifier_target->{$arg->{'extra'}->{'normalized'}};
+                  }
+                } else {
+                  $menu_node = $arg;
+                }
+              }
+              last;
+            }
+          }
+          return $menu_node if ($menu_node);
+        }
+      }
+    }
+  }
+  return undef;
+}
+
 # set menu_directions
 sub set_menus_node_directions($$$$$)
 {
@@ -592,10 +628,6 @@ sub set_menus_node_directions($$$$$)
                   $previous_node->{'extra'}->{'menu_directions'}->{'next'}
                             = $menu_node;
                 }
-              } else {
-                $node->{'structure'} = {} if (!$node->{'structure'});
-                $node->{'structure'}->{'menu_child'} = $menu_node
-                   if (!$node->{'structure'}->{'menu_child'});
               }
               $previous_node = $menu_node;
             }
@@ -654,11 +686,12 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub complete_node_tree_with_menus($$$$)
+sub complete_node_tree_with_menus($$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $nodes_list = shift;
+  my $identifier_target = shift;
   my $top_node = shift;
 
   return undef unless ($nodes_list and @{$nodes_list});
@@ -748,8 +781,7 @@ sub complete_node_tree_with_menus($$$$)
                or not $node->{'extra'}->{'node_directions'}
                or not $node->{'extra'}->{'node_directions'}->{'next'}) {
         # use first menu entry if available as next for Top
-        my $menu_child = $node->{'structure'}->{'menu_child'}
-           if ($node->{'structure'} and $node->{'structure'}->{'menu_child'});
+        my $menu_child = _first_menu_node($node, $identifier_target);
         if ($menu_child) {
           $node->{'extra'}->{'node_directions'} = {}
              if (!$node->{'extra'}->{'node_directions'});
@@ -1265,9 +1297,10 @@ sub elements_directions($$$)
       # Now do NodeForward which is something like the following node.
       my $automatic_directions
         = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
-      if ($node->{'structure'} and $node->{'structure'}->{'menu_child'}) {
+      my $menu_child = _first_menu_node($node, $identifier_target);
+      if ($menu_child) {
         $directions->{'NodeForward'}
-          = _label_target_unit_element($node->{'structure'}->{'menu_child'});
+          = _label_target_unit_element($menu_child);
       } elsif ($automatic_directions and $node->{'associated_section'}
        and $node->{'associated_section'}->{'extra'}->{'section_childs'}
        and $node->{'associated_section'}->{'extra'}->{'section_childs'}->[0]) {
@@ -2799,10 +2832,6 @@ Goes through menu and set directions.  Register errors in I<$registrar>.
 This functions sets, in the C<structure> node element hash reference:
 
 =over
-
-=item menu_child
-
-The first child in the menu of the node.
 
 =item menu_up
 

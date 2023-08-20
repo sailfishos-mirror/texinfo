@@ -431,12 +431,18 @@ $result_nodes{'index_entries_locations'} = {
 };
 $result_nodes{'index_entries_locations'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entries_locations'};
 
-$result_menus{'index_entries_locations'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'index_entries_locations'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'index_entries_locations'} = [];
 

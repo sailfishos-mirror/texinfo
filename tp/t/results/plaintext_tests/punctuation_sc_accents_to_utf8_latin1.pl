@@ -1308,12 +1308,18 @@ $result_nodes{'punctuation_sc_accents_to_utf8_latin1'} = {
 $result_nodes{'punctuation_sc_accents_to_utf8_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'punctuation_sc_accents_to_utf8_latin1'};
 $result_nodes{'punctuation_sc_accents_to_utf8_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'punctuation_sc_accents_to_utf8_latin1'};
 
-$result_menus{'punctuation_sc_accents_to_utf8_latin1'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'punctuation_sc_accents_to_utf8_latin1'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'node-chap'
+    }
   }
-};
+];
 
 $result_errors{'punctuation_sc_accents_to_utf8_latin1'} = [];
 

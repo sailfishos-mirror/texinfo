@@ -243,12 +243,18 @@ $result_nodes{'setfilename_no_extension'} = {
 };
 $result_nodes{'setfilename_no_extension'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'setfilename_no_extension'};
 
-$result_menus{'setfilename_no_extension'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'setfilename_no_extension'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'setfilename_no_extension'} = [];
 

@@ -190,12 +190,13 @@ $result_nodes{'node_sectop_before_chapter_no_node'} = {
   }
 };
 
-$result_menus{'node_sectop_before_chapter_no_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'node_sectop_before_chapter_no_node'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_errors{'node_sectop_before_chapter_no_node'} = [];
 

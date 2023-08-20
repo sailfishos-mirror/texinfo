@@ -3012,12 +3012,18 @@ $result_nodes{'top_in_ref'} = {
 };
 $result_nodes{'top_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_in_ref'};
 
-$result_menus{'top_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'top_in_ref'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap-refs-node'
+    }
   }
-};
+];
 
 $result_errors{'top_in_ref'} = [
   {

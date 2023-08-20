@@ -1311,12 +1311,18 @@ $result_nodes{'indices_disable_encoding'} = {
 $result_nodes{'indices_disable_encoding'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_disable_encoding'};
 $result_nodes{'indices_disable_encoding'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_disable_encoding'};
 
-$result_menus{'indices_disable_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'indices_disable_encoding'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_errors{'indices_disable_encoding'} = [
   {

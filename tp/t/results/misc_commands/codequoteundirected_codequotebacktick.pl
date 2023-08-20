@@ -4270,12 +4270,18 @@ $result_nodes{'codequoteundirected_codequotebacktick'} = {
 $result_nodes{'codequoteundirected_codequotebacktick'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'codequoteundirected_codequotebacktick'};
 $result_nodes{'codequoteundirected_codequotebacktick'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'codequoteundirected_codequotebacktick'};
 
-$result_menus{'codequoteundirected_codequotebacktick'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'codequoteundirected_codequotebacktick'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'chap'
+    }
   }
-};
+];
 
 $result_errors{'codequoteundirected_codequotebacktick'} = [
   {

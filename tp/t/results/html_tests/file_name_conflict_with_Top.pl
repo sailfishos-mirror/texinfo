@@ -282,12 +282,18 @@ $result_nodes{'file_name_conflict_with_Top'} = {
 $result_nodes{'file_name_conflict_with_Top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_conflict_with_Top'};
 $result_nodes{'file_name_conflict_with_Top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_conflict_with_Top'};
 
-$result_menus{'file_name_conflict_with_Top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_menus{'file_name_conflict_with_Top'} = [
+  {
+    'extra' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Chapter'
+    }
   }
-};
+];
 
 $result_errors{'file_name_conflict_with_Top'} = [];
 
