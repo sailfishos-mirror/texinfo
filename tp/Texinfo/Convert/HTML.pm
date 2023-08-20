@@ -9263,8 +9263,8 @@ sub _prepare_special_elements($$$$)
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'type' => 'special_element',
-                   'extra' => 'special_element_variety'
-                                  => $special_element_variety};
+                     'extra' => {'special_element_variety'
+                                  => $special_element_variety}};
 
       # only the filename is used
       my ($target, $filename);
