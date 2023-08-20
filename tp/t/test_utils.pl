@@ -226,14 +226,9 @@ sub unsplit($)
   }
   my $unsplit_needed = 0;
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'structure'}) {
-      if ($content->{'structure'}->{'associated_unit'}) {
-        delete $content->{'structure'}->{'associated_unit'};
-        $unsplit_needed = 1;
-      }
-      if (scalar(keys(%{$content->{'structure'}})) == 0) {
-        delete $content->{'structure'};
-      }
+    if ($content->{'associated_unit'}) {
+      delete $content->{'associated_unit'};
+      $unsplit_needed = 1;
     }
   }
   return $unsplit_needed;
@@ -421,8 +416,8 @@ my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
-    'structure', 'menu_child', 'tree_unit_directions', 'directions', 'page_next',
-    'parent',
+    'structure', 'menu_child', 'tree_unit_directions', 'directions',
+    'page_next', 'parent', 'associated_unit',
     # only set with the XS parser
     'tree_document_descriptor');
 foreach my $avoided_key(@avoided_keys_tree) {

@@ -182,7 +182,6 @@ sub sectioning_structure($$$)
       }
     }
     my $level;
-    $content->{'structure'} = {} if (! $content->{'structure'});
     $content->{'extra'} = {} if (! $content->{'extra'});
     $level = $content->{'extra'}->{'section_level'}
          = Texinfo::Common::section_level($content);
@@ -1041,22 +1040,20 @@ sub split_by_node($)
     if (@pending_parts) {
       foreach my $part (@pending_parts) {
         push @{$current->{'contents'}}, $part;
-        $part->{'structure'}->{'associated_unit'} = $current;
+        $part->{'associated_unit'} = $current;
       }
       @pending_parts = ();
     }
     push @{$current->{'contents'}}, $content;
-    #if (defined($content->{'structure'})
-    #    and defined($content->{'structure'}->{'associated_unit'})) {
+    #if (defined($content->{'associated_unit'})) {
     #  print STDERR "Resetting node associated_unit for $content\n";
     #}
-    $content->{'structure'} = {} if (! $content->{'structure'});
-    $content->{'structure'}->{'associated_unit'} = $current;
+    $content->{'associated_unit'} = $current;
   }
   if (@pending_parts) {
     foreach my $part (@pending_parts) {
       push @{$current->{'contents'}}, $part;
-      $part->{'structure'}->{'associated_unit'} = $current;
+      $part->{'associated_unit'} = $current;
     }
     @pending_parts = ();
   }
@@ -1115,11 +1112,10 @@ sub split_by_section($)
     }
     push @{$current->{'contents'}}, $content;
     #if (defined($content->{'structure'})
-    #    and defined($content->{'structure'}->{'associated_unit'})) {
+    #    and defined($content->{'associated_unit'})) {
     #  print STDERR "Resetting section associated_unit for $content\n";
     #}
-    $content->{'structure'} = {} if (! $content->{'structure'});
-    $content->{'structure'}->{'associated_unit'} = $current;
+    $content->{'associated_unit'} = $current;
   }
   return $tree_units;
 }
@@ -1188,7 +1184,7 @@ sub _label_target_unit_element($)
     }
     return $external_node;
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
-    return $label->{'structure'}->{'associated_unit'};
+    return $label->{'associated_unit'};
   } else {
     # case of a @float or an @anchor, no target element defined at this stage
     return undef;
@@ -1272,7 +1268,7 @@ sub elements_directions($$$)
       # Now do NodeForward which is something like the following node.
       my $automatic_directions
         = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
-      if ($node->{'structure'}->{'menu_child'}) {
+      if ($node->{'structure'} and $node->{'structure'}->{'menu_child'}) {
         $directions->{'NodeForward'}
           = _label_target_unit_element($node->{'structure'}->{'menu_child'});
       } elsif ($automatic_directions and $node->{'associated_section'}
@@ -1280,7 +1276,7 @@ sub elements_directions($$$)
        and $node->{'associated_section'}->{'extra'}->{'section_childs'}->[0]) {
         $directions->{'NodeForward'}
           = $node->{'associated_section'}->{'extra'}
-                  ->{'section_childs'}->[0]->{'structure'}->{'associated_unit'};
+                  ->{'section_childs'}->[0]->{'associated_unit'};
       } elsif ($node->{'extra'}->{'node_directions'}
                and $node->{'extra'}->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
@@ -1352,7 +1348,7 @@ sub elements_directions($$$)
                             ['Prev', 'prev']) {
         # in most cases $section->{'extra'}->{'section_directions'}
         #          ->{$direction->[1]}
-        #                 ->{'structure'}->{'associated_unit'} is defined
+        #                 ->{'associated_unit'} is defined
         # but it may not be the case for the up of @top.
         # The section may be its own up in cases like
         #  @part part
@@ -1360,18 +1356,15 @@ sub elements_directions($$$)
         # in that cas the direction is not set up
         $directions->{$direction->[0]}
          = $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-             ->{'structure'}->{'associated_unit'}
+             ->{'associated_unit'}
        if ($section->{'extra'}->{'section_directions'}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-                                           ->{'structure'}
-           and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-                                           ->{'structure'}->{'associated_unit'}
-           and (!$section->{'structure'}
-                or !$section->{'structure'}->{'associated_unit'}
+                                           ->{'associated_unit'}
+           and (!$section->{'associated_unit'}
                 or $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-                    ->{'structure'}->{'associated_unit'}
-                       ne $section->{'structure'}->{'associated_unit'}));
+                    ->{'associated_unit'}
+                       ne $section->{'associated_unit'}));
       }
 
       my $up = $section;
@@ -1388,24 +1381,23 @@ sub elements_directions($$$)
           and $up->{'extra'}->{'section_childs'}
           and @{$up->{'extra'}->{'section_childs'}}) {
         $directions->{'FastForward'}
-           = $up->{'extra'}->{'section_childs'}->[0]
-                            ->{'structure'}->{'associated_unit'};
+           = $up->{'extra'}->{'section_childs'}->[0]->{'associated_unit'};
       } elsif ($up->{'extra'}->{'toplevel_directions'}
                and $up->{'extra'}->{'toplevel_directions'}->{'next'}) {
         $directions->{'FastForward'}
           = $up->{'extra'}->{'toplevel_directions'}->{'next'}
-                                 ->{'structure'}->{'associated_unit'};
+                                 ->{'associated_unit'};
       } elsif ($up->{'extra'}->{'section_directions'}
                and $up->{'extra'}->{'section_directions'}->{'next'}) {
         $directions->{'FastForward'}
           = $up->{'extra'}->{'section_directions'}->{'next'}
-                              ->{'structure'}->{'associated_unit'};
+                              ->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the
       # highest parent element
-      if ($up and $up ne $section and $up->{'structure'}
-          and $up->{'structure'}->{'associated_unit'}) {
-        $directions->{'FastBack'} = $up->{'structure'}->{'associated_unit'};
+      if ($up and $up ne $section
+          and $up->{'associated_unit'}) {
+        $directions->{'FastBack'} = $up->{'associated_unit'};
       } elsif ($section->{'extra'}->{'section_level'} <= 1
                and $directions->{'FastForward'}) {
         # the element is a top level element, we adjust the next

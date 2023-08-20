@@ -120,7 +120,7 @@ sub book_format_navigation_header($$$$)
   my $cmdname = shift;
   my $element = shift;
 
-  my $tree_unit = $element->{'structure'}->{'associated_unit'};
+  my $tree_unit = $element->{'associated_unit'};
   if ($tree_unit and $tree_unit->{'unit_command'}
       and not $tree_unit->{'unit_command'}->{'cmdname'} eq 'node'
       and ($tree_unit->{'contents'}->[0] eq $element
@@ -201,8 +201,8 @@ sub book_convert_heading_command($$$$$)
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
-      and $element->{'structure'}->{'associated_unit'}) {
-    $tree_unit = $element->{'structure'}->{'associated_unit'};
+      and $element->{'associated_unit'}) {
+    $tree_unit = $element->{'associated_unit'};
   }
   my $element_header = '';
   if ($tree_unit) {

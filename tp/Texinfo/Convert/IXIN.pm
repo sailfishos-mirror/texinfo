@@ -229,7 +229,7 @@ sub ixin_none_element($$)
 # end output specific subs
 
 # FIXME this is rather non specific. Move to Converter?
-# FIXME need to be changed for {'structure'}->{'associated_unit'}.
+# FIXME need to be changed for {'associated_unit'}.
 # There is a version HTML specific, _html_get_tree_root_element
 # which is up to date and handles better content in @insertcopying
 # or @titlepage, but has specific HTML code related to separate

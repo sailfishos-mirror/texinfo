@@ -4142,8 +4142,8 @@ sub _convert_heading_command($$$$$)
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
-      and $element->{'structure'}->{'associated_unit'}) {
-    $tree_unit = $element->{'structure'}->{'associated_unit'};
+      and $element->{'associated_unit'}) {
+    $tree_unit = $element->{'associated_unit'};
   }
   my $element_header = '';
   if ($tree_unit) {
@@ -8815,10 +8815,9 @@ sub _html_get_tree_root_element($$;$)
         }
       }
     }
-    if ($current->{'structure'}
-        and $current->{'structure'}->{'associated_unit'}) {
-      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element($current->{'structure'}->{'associated_unit'})."\n" if ($debug);
-      $current = $current->{'structure'}->{'associated_unit'};
+    if ($current->{'associated_unit'}) {
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element($current->{'associated_unit'})."\n" if ($debug);
+      $current = $current->{'associated_unit'};
     } elsif ($current->{'parent'}) {
       #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
       $current = $current->{'parent'};
@@ -9393,9 +9392,9 @@ sub _prepare_tree_units_global_targets($$)
                and $root_command->{'extra'}->{'section_directions'}
                and $root_command->{'extra'}->{'section_directions'}->{'up'}
                and $root_command->{'extra'}->{'section_directions'}->{'up'}
-                                        ->{'structure'}->{'associated_unit'}) {
+                                        ->{'associated_unit'}) {
           $root_command = $root_command->{'extra'}->{'section_directions'}->{'up'};
-          $root_element = $root_command->{'structure'}->{'associated_unit'};
+          $root_element = $root_command->{'associated_unit'};
         }
       }
       $self->{'global_target_elements_directions'}->{'Index'} = $root_element;
@@ -9410,9 +9409,9 @@ sub _prepare_tree_units_global_targets($$)
                                        if ($self->{'global_commands'});
   if ($section_top) {
     $self->{'global_target_elements_directions'}->{'Top'}
-            = $section_top->{'structure'}->{'associated_unit'};
+            = $section_top->{'associated_unit'};
   } elsif ($node_top) {
-    my $tree_unit_top = $node_top->{'structure'}->{'associated_unit'};
+    my $tree_unit_top = $node_top->{'associated_unit'};
     if (!$tree_unit_top) {
       die "No associated unit for node_top: "
          .Texinfo::Common::debug_print_element($node_top, 1);

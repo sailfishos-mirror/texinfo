@@ -76,36 +76,32 @@ $result_texts{'top_node_and_bye'} = '
 ';
 
 $result_nodes{'top_node_and_bye'} = {
+  'associated_unit' => {
+    'directions' => {
+      'This' => {}
+    },
+    'type' => 'unit'
+  },
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'associated_unit' => {
-      'directions' => {
-        'This' => {}
-      },
-      'type' => 'unit'
-    }
   }
 };
-$result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'};
+$result_nodes{'top_node_and_bye'}{'associated_unit'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}{'associated_unit'};
 
 $result_menus{'top_node_and_bye'} = {
+  'associated_unit' => {
+    'directions' => {
+      'This' => {}
+    },
+    'type' => 'unit'
+  },
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {
-    'associated_unit' => {
-      'directions' => {
-        'This' => {}
-      },
-      'type' => 'unit'
-    }
   }
 };
-$result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'};
+$result_menus{'top_node_and_bye'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'top_node_and_bye'}{'associated_unit'};
 
 $result_errors{'top_node_and_bye'} = [];
 
