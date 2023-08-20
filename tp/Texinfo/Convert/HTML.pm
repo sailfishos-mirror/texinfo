@@ -1258,14 +1258,14 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 #
 # This is used both for tree unit elements and external nodes
 #
-# If $SOURCE_ELEMENT is undef, $self->{'current_root_element'} is used.
+# If $SOURCE_ELEMENT is undef, $self->{'current_output_unit'} is used.
 #
 # $SOURCE_FOR_MESSAGES is an element used for messages formatting, to get a
 # location in input file.  It is better to choose the node and not the
 # sectioning command associated with the element, as the error messages
 # are about external nodes not found.
 #
-# $self->{'current_root_element'} undef happens at least when there is no
+# $self->{'current_output_unit'} undef happens at least when there is no
 # output file, or for the table of content when frames are used.  That call
 # would result for instance from from_element_direction being called from
 # _get_links, itself called from 'format_begin_file' which, in the default case
@@ -1285,7 +1285,7 @@ sub from_element_direction($$$;$$$)
   my $command;
   my $target;
 
-  $source_element = $self->{'current_root_element'} if (!defined($source_element));
+  $source_element = $self->{'current_output_unit'} if (!defined($source_element));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
   if (!$valid_direction_return_type{$type}) {
@@ -7805,9 +7805,9 @@ sub _load_htmlxref_files {
 #  translated_special_element_info
 #
 #    API exists
-#  elements_in_file_count    # the number of tree unit elements in file
+#  elements_in_file_count    # the number of output units in file
 #  file_counters             # begin at elements_in_file_count decrease
-#                            # each time the tree unit element is closed
+#                            # each time the unit is closed
 #
 #     API exists
 #  document_global_context_css
@@ -7819,7 +7819,7 @@ sub _load_htmlxref_files {
 #     No API, converter internals
 #  tree_units
 #  out_filepaths          (partially common with Texinfo::Converter)
-#  current_root_element
+#  current_output_unit
 #  seen_ids
 #  ignore_notice
 #  options_latex_math
@@ -11955,7 +11955,7 @@ sub _convert($$;$)
                                                    ->{'preformatted_number'}++;
     } elsif ($type_name eq 'unit'
              or $type_name eq 'special_element') {
-      $self->{'current_root_element'} = $element;
+      $self->{'current_output_unit'} = $element;
     } elsif ($self->{'pre_class_types'}->{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
         $self->{'pre_class_types'}->{$type_name};
@@ -11999,7 +11999,7 @@ sub _convert($$;$)
       $self->{'document_context'}->[-1]->{'string'}--;
     }
     if ($type_name eq 'unit' or $type_name eq 'special_element') {
-      delete $self->{'current_root_element'};
+      delete $self->{'current_output_unit'};
     } elsif ($self->{'pre_class_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
