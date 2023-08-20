@@ -7235,12 +7235,11 @@ sub _convert_special_element_type($$$$)
 
 $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 
-# Function for converting the top-level elements in the conversion corresponding to
-# a section or a node.  The node and associated section appear together in
-# the tree unit top-level element.  $ELEMENT was created in this module (in
+# Function for converting the output units.  The node and associated section
+# appear together in the output unit.  $ELEMENT was created in this module (in
 # _prepare_conversion_units), with type 'unit' (it's not a tree element created
 # by the parser).  $CONTENT is the contents of the node/section, already converted.
-sub _convert_tree_unit_type($$$$)
+sub _convert_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -7286,7 +7285,7 @@ sub _convert_tree_unit_type($$$$)
   return $result;
 }
 
-$default_types_conversion{'unit'} = \&_convert_tree_unit_type;
+$default_types_conversion{'unit'} = \&_convert_unit_type;
 
 # for output units and special elements
 sub _default_format_element_footer($$$$;$)

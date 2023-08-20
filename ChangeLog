@@ -1,5 +1,12 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML (_convert_unit_type), tp/ext/epub3.pm
+	(epub_convert_unit_type): rename _convert_tree_unit_type as
+	_convert_unit_type and epub_convert_tree_unit_type as
+	epub_convert_unit_type.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML (_prepare_conversion_units): rename
 	_prepare_conversion_tree_units as _prepare_conversion_units.
 	Rename 'tree_units' as 'document_units'.
