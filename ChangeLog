@@ -1,5 +1,18 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_output_unit_file)
+	(_set_output_units_files, initialize_output_units_files)
+	(_convert_document_units): rename set_tree_unit_file as
+	set_output_unit_file, rename _set_tree_units_files as
+	_set_output_units_files, rename initialize_tree_units_files as
+	initialize_output_units_files.  Update callers.  Rename
+	_convert_document_tree_units as _convert_document_units.
+
+	* tp/Texinfo/Convert/HTML.pm (global_direction): rename
+	global_direction_element as global_direction.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (unit_or_external_element_texi):
 	rename root_or_external_element_cmd_texi as
 	unit_or_external_element_texi.  Update callers.

@@ -250,7 +250,7 @@ sub converter(;$)
   return $converter;
 }
 
-sub _convert_document_tree_units($$;$$)
+sub _convert_document_units($$;$$)
 {
   my $self = shift;
   my $root = shift;
@@ -277,7 +277,7 @@ sub convert_document_sections($$;$)
   my $fh = shift;
 
   my $output_units = Texinfo::Structuring::split_by_section($root);
-  return $self->_convert_document_tree_units($root, $output_units, $fh);
+  return $self->_convert_document_units($root, $output_units, $fh);
 }
 
 sub convert_document_nodes($$;$)
@@ -287,7 +287,7 @@ sub convert_document_nodes($$;$)
   my $fh = shift;
 
   my $output_units = Texinfo::Structuring::split_by_node($root);
-  return $self->_convert_document_tree_units($root, $output_units, $fh);
+  return $self->_convert_document_units($root, $output_units, $fh);
 }
 
 # In general, converters override this method, but simple
@@ -337,8 +337,9 @@ sub output($$)
 
   # determine file names associated with the different pages
   if ($output_file ne '') {
-    $self->_set_tree_units_files($output_units, $output_file, $destination_directory,
-                                 $output_filename, $document_name);
+    $self->_set_output_units_files($output_units, $output_file,
+                                   $destination_directory,
+                                   $output_filename, $document_name);
   }
 
   #print STDERR "$output_units $output_units->[0]->{'unit_filename'}\n";
@@ -729,7 +730,7 @@ sub node_information_filename($$$)
   return $filename;
 }
 
-sub initialize_tree_units_files($)
+sub initialize_output_units_files($)
 {
   my $self = shift;
 
@@ -788,14 +789,14 @@ sub registered_filename($$)
 }
 
 # Sets $output_unit->{'unit_filename'}.
-sub set_tree_unit_file($$$)
+sub set_output_unit_file($$$)
 {
   my $self = shift;
   my $output_unit = shift;
   my $filename = shift;
 
   if (!defined($filename)) {
-    cluck("set_tree_unit_file: filename not defined\n");
+    cluck("set_output_unit_file: filename not defined\n");
   }
   if (!defined($output_unit)) {
     cluck("set_output_unit_file: output_unit not defined\n");
@@ -903,7 +904,7 @@ sub _get_root_element($$)
 }
 
 # set file_counters converter state
-sub _set_tree_units_files($$$$$$)
+sub _set_output_units_files($$$$$$)
 {
   my $self = shift;
   my $output_units = shift;
@@ -915,7 +916,7 @@ sub _set_tree_units_files($$$$$$)
   # Ensure that the document has pages
   return undef if (!defined($output_units) or !@$output_units);
 
-  $self->initialize_tree_units_files();
+  $self->initialize_output_units_files();
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')
@@ -925,7 +926,7 @@ sub _set_tree_units_files($$$$$$)
   if (!$self->get_conf('SPLIT')) {
     $self->set_file_path($output_filename, undef, $output_file);
     foreach my $output_unit (@$output_units) {
-      $self->set_tree_unit_file($output_unit, $output_filename);
+      $self->set_output_unit_file($output_unit, $output_filename);
     }
   } else {
     my $node_top;
@@ -941,7 +942,7 @@ sub _set_tree_units_files($$$$$$)
          if ($self->get_conf('DEBUG'));
       } else {
         $self->set_file_path($top_node_filename, $destination_directory);
-        $self->set_tree_unit_file($node_top_unit, $top_node_filename);
+        $self->set_output_unit_file($node_top_unit, $top_node_filename);
       }
     }
     my $file_nr = 0;
@@ -971,7 +972,7 @@ sub _set_tree_units_files($$$$$$)
             }
             $node_filename .= $extension;
             $self->set_file_path($node_filename,$destination_directory);
-            $self->set_tree_unit_file($file_output_unit, $node_filename);
+            $self->set_output_unit_file($file_output_unit, $node_filename);
             last;
           }
         }
@@ -982,29 +983,29 @@ sub _set_tree_units_files($$$$$$)
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
-              $self->set_tree_unit_file($file_output_unit, $top_node_filename);
+              $self->set_output_unit_file($file_output_unit, $top_node_filename);
             } else {
               my ($normalized_name, $filename)
                  = $self->normalized_sectioning_command_filename($command);
               $self->set_file_path($filename, $destination_directory);
-              $self->set_tree_unit_file($file_output_unit, $filename);
+              $self->set_output_unit_file($file_output_unit, $filename);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
-              $self->set_tree_unit_file($file_output_unit, $top_node_filename);
+              $self->set_output_unit_file($file_output_unit, $top_node_filename);
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
               $self->set_file_path($filename, $destination_directory);
-              $self->set_tree_unit_file($output_unit, $filename);
+              $self->set_output_unit_file($output_unit, $filename);
             }
             $file_nr++;
           }
         }
       }
-      $self->set_tree_unit_file($output_unit,
+      $self->set_output_unit_file($output_unit,
                     $file_output_unit->{'unit_filename'});
     }
   }

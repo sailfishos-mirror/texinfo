@@ -3470,9 +3470,9 @@ output unit is not output.
 
 To get the output unit associated with other global element
 directions, such as @samp{Top} or @samp{Index}, use
-@code{global_direction_element}:
+@code{global_direction}:
 
-@deftypefun {@var{\%element} =} @var{$converter}->global_direction_element (@var{$direction})
+@deftypefun {@var{\%unit} =} @var{$converter}->global_direction (@var{$direction})
 Return the output unit corresponding to direction
 @var{$direction}, or @code{undef} if the direction is not a global direction.
 @end deftypefun

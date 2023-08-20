@@ -1195,7 +1195,7 @@ sub command_name_special_element_information($$)
           $special_element_direction);
 }
 
-sub global_direction_element($$)
+sub global_direction($$)
 {
   my $self = shift;
   my $direction = shift;
@@ -1292,7 +1292,7 @@ sub from_element_direction($$$;$$$)
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
-  my $global_target_element = $self->global_direction_element($direction);
+  my $global_target_element = $self->global_direction($direction);
   if ($global_target_element) {
     $target_element = $global_target_element;
   # output TOP_NODE_UP related infos even if element is not
@@ -1559,7 +1559,7 @@ sub unit_is_top_output_unit($$)
 {
   my $self = shift;
   my $output_unit = shift;
-  my $top_output_unit = $self->global_direction_element('Top');
+  my $top_output_unit = $self->global_direction('Top');
   return (defined($top_output_unit) and $top_output_unit eq $output_unit
           and $output_unit->{'unit_command'}
           and ($output_unit->{'unit_command'}->{'cmdname'} eq 'node'
@@ -5886,7 +5886,7 @@ sub _convert_printindex_command($$$$)
           # Use Top if not associated command found
           $associated_command
             = $self->tree_unit_element_command(
-                                   $self->global_direction_element('Top'));
+                                   $self->global_direction('Top'));
           # NOTE the warning here catches the most relevant cases of
           # index entry that is not associated to the right command, which
           # are very few in the test suite.  There is also a warning in the
@@ -8841,7 +8841,7 @@ sub _html_set_pages_files($$$$$$$$)
   # Ensure that the document has pages
   return undef if (!defined($output_units) or !@$output_units);
 
-  $self->initialize_tree_units_files();
+  $self->initialize_output_units_files();
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')
@@ -9021,7 +9021,7 @@ sub _html_set_pages_files($$$$$$$$)
                                          'file_info_name' => 'user_defined'};
       }
     }
-    $self->set_tree_unit_file($output_unit, $filename);
+    $self->set_output_unit_file($output_unit, $filename);
     my $output_unit_filename = $output_unit->{'unit_filename'};
     $self->{'file_counters'}->{$output_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$output_unit_filename}));
@@ -9041,7 +9041,7 @@ sub _html_set_pages_files($$$$$$$$)
         push @filenames_order, $filename
           unless exists($filenames_paths{$filename});
         $filenames_paths{$filename} = undef;
-        $self->set_tree_unit_file($special_element, $filename);
+        $self->set_output_unit_file($special_element, $filename);
         $self->{'file_counters'}->{$filename} = 0
            if (!exists($self->{'file_counters'}->{$filename}));
         $self->{'file_counters'}->{$filename}++;
@@ -9424,8 +9424,8 @@ sub _prepare_output_units_global_targets($$)
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
-      if (defined($self->global_direction_element($global_direction))) {
-        my $global_unit = $self->global_direction_element($global_direction);
+      if (defined($self->global_direction($global_direction))) {
+        my $global_unit = $self->global_direction($global_direction);
         print STDERR "$global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
@@ -10572,7 +10572,7 @@ sub _default_format_frame_files($$)
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $root_html_element_attributes = $self->_root_html_element_attributes_string();
     my $top_file = '';
-    my $top_element = $self->global_direction_element('Top');
+    my $top_element = $self->global_direction('Top');
     if ($top_element) {
       $top_file = $top_element->{'unit_filename'};
     }
