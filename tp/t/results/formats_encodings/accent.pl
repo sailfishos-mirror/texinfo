@@ -2274,25 +2274,24 @@ $result_sectioning{'accent'} = {
               'normalized' => 'first'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'accent'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'accent'};
+$result_sectioning{'accent'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'accent'};
 
 $result_nodes{'accent'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'first'
   }

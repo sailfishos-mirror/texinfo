@@ -228,18 +228,18 @@ $result_sectioning{'settitle_and_headings'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'settitle_and_headings'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_headings'};
+$result_sectioning{'settitle_and_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'settitle_and_headings'};
 
 $result_errors{'settitle_and_headings'} = [];
 

@@ -100,11 +100,11 @@ $result_sectioning{'one_subsection_and_node'} = {
               'normalized' => 'one-node'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 3,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -112,7 +112,7 @@ $result_sectioning{'one_subsection_and_node'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'one_subsection_and_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection_and_node'};
+$result_sectioning{'one_subsection_and_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'one_subsection_and_node'};
 
 $result_nodes{'one_subsection_and_node'} = {
   'cmdname' => 'node',
@@ -121,8 +121,7 @@ $result_nodes{'one_subsection_and_node'} = {
       'cmdname' => 'subsection',
       'extra' => {
         'section_number' => 1
-      },
-      'structure' => {}
+      }
     },
     'normalized' => 'one-node'
   }

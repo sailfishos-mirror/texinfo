@@ -1654,6 +1654,9 @@ $result_menus{'index_nodes'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap-first'
       },
       'structure' => {
@@ -1661,6 +1664,9 @@ $result_menus{'index_nodes'} = {
           'cmdname' => 'node',
           'extra' => {
             'isindex' => 1,
+            'menu_directions' => {
+              'up' => {}
+            },
             'normalized' => 'second'
           },
           'structure' => {
@@ -1668,35 +1674,37 @@ $result_menus{'index_nodes'} = {
               'cmdname' => 'node',
               'extra' => {
                 'isindex' => 1,
+                'menu_directions' => {
+                  'next' => {
+                    'cmdname' => 'node',
+                    'extra' => {
+                      'menu_directions' => {
+                        'prev' => {},
+                        'up' => {}
+                      },
+                      'normalized' => 'another'
+                    },
+                    'structure' => {
+                      'menu_up_hash' => {
+                        'second' => 1
+                      }
+                    }
+                  },
+                  'up' => {}
+                },
                 'normalized' => 'a-node'
               },
               'structure' => {
-                'menu_next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => 'another'
-                  },
-                  'structure' => {
-                    'menu_prev' => {},
-                    'menu_up' => {},
-                    'menu_up_hash' => {
-                      'second' => 1
-                    }
-                  }
-                },
-                'menu_up' => {},
                 'menu_up_hash' => {
                   'second' => 1
                 }
               }
             },
-            'menu_up' => {},
             'menu_up_hash' => {
               'chap-first' => 1
             }
           }
         },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -1704,11 +1712,11 @@ $result_menus{'index_nodes'} = {
     }
   }
 };
-$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
-$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'};
-$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'index_nodes'};
+$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_nodes'};
+$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'};
+$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
+$result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'index_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_child'};
 
 $result_errors{'index_nodes'} = [];
 

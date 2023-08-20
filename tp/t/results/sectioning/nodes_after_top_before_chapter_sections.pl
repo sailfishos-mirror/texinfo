@@ -466,12 +466,14 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'} = {
               }
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1,
           'section_number' => 1
         },
         'structure' => {
-          'associated_unit' => {},
-          'section_up' => {}
+          'associated_unit' => {}
         }
       }
     ],
@@ -483,8 +485,8 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'directions'}{'NodeUp'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'};
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'};
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'unit_command'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_sections'};
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'structure'}{'associated_unit'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'};
-$result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_chapter_sections'};
 
 $result_nodes{'nodes_after_top_before_chapter_sections'} = {
   'cmdname' => 'node',
@@ -579,25 +581,29 @@ $result_menus{'nodes_after_top_before_chapter_sections'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'menu_directions' => {
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => 'third-node'
+            },
+            'structure' => {
+              'associated_unit' => {},
+              'menu_up_hash' => {
+                'Top' => 1
+              }
+            }
+          },
+          'up' => {}
+        },
         'normalized' => 'second-node'
       },
       'structure' => {
         'associated_unit' => {},
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'third-node'
-          },
-          'structure' => {
-            'associated_unit' => {},
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
-            }
-          }
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -609,11 +615,11 @@ $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associate
 $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'}{'directions'}{'NodeUp'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
 $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
 $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'}{'unit_command'}{'structure'}{'associated_unit'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
+$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'};
+$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'nodes_after_top_before_chapter_sections'};
+$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'structure'}{'associated_unit'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
+$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'nodes_after_top_before_chapter_sections'};
 $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'structure'}{'associated_unit'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
-$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'associated_unit'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'associated_unit'};
-$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'};
-$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_chapter_sections'};
-$result_menus{'nodes_after_top_before_chapter_sections'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_chapter_sections'};
 
 $result_errors{'nodes_after_top_before_chapter_sections'} = [];
 

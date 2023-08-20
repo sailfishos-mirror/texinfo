@@ -503,25 +503,24 @@ $result_sectioning{'direntry_dircategory_and_commands'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'direntry_dircategory_and_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_and_commands'};
+$result_sectioning{'direntry_dircategory_and_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'direntry_dircategory_and_commands'};
 
 $result_nodes{'direntry_dircategory_and_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

@@ -65,18 +65,18 @@ $result_sectioning{'customize_informative_commands'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'customize_informative_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'customize_informative_commands'};
+$result_sectioning{'customize_informative_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'customize_informative_commands'};
 
 $result_errors{'customize_informative_commands'} = [];
 

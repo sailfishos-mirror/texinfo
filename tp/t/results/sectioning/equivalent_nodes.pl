@@ -350,10 +350,12 @@ $result_menus{'equivalent_nodes'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'node'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'first' => 1
         }
@@ -361,7 +363,7 @@ $result_menus{'equivalent_nodes'} = {
     }
   }
 };
-$result_menus{'equivalent_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes'};
+$result_menus{'equivalent_nodes'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes'};
 
 $result_errors{'equivalent_nodes'} = [
   {

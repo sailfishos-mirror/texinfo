@@ -65,18 +65,18 @@ $result_sectioning{'one_subsection'} = {
       {
         'cmdname' => 'subsection',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 3,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 2
   }
 };
-$result_sectioning{'one_subsection'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection'};
+$result_sectioning{'one_subsection'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'one_subsection'};
 
 $result_errors{'one_subsection'} = [];
 

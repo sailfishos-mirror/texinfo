@@ -4368,13 +4368,15 @@ $result_sectioning{'bib_example'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -4387,43 +4389,45 @@ $result_sectioning{'bib_example'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 2
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 2,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'bib_example'};
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'bib_example'};
 
 $result_nodes{'bib_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -4440,8 +4444,7 @@ $result_nodes{'bib_example'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'Introduction'
       },
@@ -4453,8 +4456,7 @@ $result_nodes{'bib_example'} = {
               'cmdname' => 'chapter',
               'extra' => {
                 'section_number' => 2
-              },
-              'structure' => {}
+              }
             },
             'normalized' => 'References'
           },
@@ -4485,23 +4487,27 @@ $result_menus{'bib_example'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'menu_directions' => {
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => 'References'
+            },
+            'structure' => {
+              'menu_up_hash' => {
+                'Top' => 1
+              }
+            }
+          },
+          'up' => {}
+        },
         'normalized' => 'Introduction'
       },
       'structure' => {
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'References'
-          },
-          'structure' => {
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
-            }
-          }
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -4509,9 +4515,9 @@ $result_menus{'bib_example'} = {
     }
   }
 };
-$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'bib_example'}{'structure'}{'menu_child'};
-$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'bib_example'};
-$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'bib_example'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'bib_example'}{'structure'}{'menu_child'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'bib_example'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'bib_example'};
 
 $result_errors{'bib_example'} = [
   {

@@ -206,33 +206,36 @@ $result_sectioning{'section_in_math'} = {
       {
         'cmdname' => 'section',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 2,
-          'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_number' => 1,
+          'toplevel_directions' => {}
         }
       },
       {
         'cmdname' => 'section',
         'extra' => {
+          'section_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
           'section_level' => 2,
-          'section_number' => 2
-        },
-        'structure' => {
-          'section_prev' => {},
-          'section_up' => {},
-          'toplevel_prev' => {}
+          'section_number' => 2,
+          'toplevel_directions' => {
+            'prev' => {}
+          }
         }
       }
     ],
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_math'};
-$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_in_math'};
-$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_math'};
+$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_math'};
+$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'section_in_math'} = [
   {

@@ -1,5 +1,11 @@
 2023-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm, tp/t/test_utils.pl: replace menu
+	directions {'structure'}->{'menu_*'} by
+	{'extra'}->{'menu_directions'}->{'*'}.
+
+2023-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/*.pm,
 	tp/t/test_utils.pl: Replace {'structure'}->{'section_*'} by
 	{'extra'}->{'section_directions'}->{*} and {'structure'}->{'toplevel_*'}

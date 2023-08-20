@@ -571,10 +571,12 @@ $result_menus{'equivalent_nodes_defined_linked'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -582,7 +584,7 @@ $result_menus{'equivalent_nodes_defined_linked'} = {
     }
   }
 };
-$result_menus{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes_defined_linked'};
+$result_menus{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_defined_linked'};
 
 $result_errors{'equivalent_nodes_defined_linked'} = [
   {

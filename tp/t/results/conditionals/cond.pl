@@ -835,10 +835,10 @@ $result_sectioning{'cond'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -846,15 +846,14 @@ $result_sectioning{'cond'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'cond'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond'};
+$result_sectioning{'cond'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'cond'};
 
 $result_nodes{'cond'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },

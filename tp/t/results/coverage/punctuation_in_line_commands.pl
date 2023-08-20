@@ -890,25 +890,24 @@ $result_sectioning{'punctuation_in_line_commands'} = {
               'normalized' => 'node_0021-After-punc'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_in_line_commands'};
+$result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'punctuation_in_line_commands'};
 
 $result_nodes{'punctuation_in_line_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc'
@@ -933,8 +932,7 @@ $result_floats{'punctuation_in_line_commands'} = {
       'extra' => {
         'float_section' => {
           'cmdname' => 'top',
-          'extra' => {},
-          'structure' => {}
+          'extra' => {}
         },
         'float_type' => 'float type! After punc',
         'normalized' => 'float-label_0021-After-punc',

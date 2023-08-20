@@ -351,22 +351,24 @@ $result_nodes{'double_top_in_menu'}{'structure'}{'node_next'} = $result_nodes{'d
 $result_menus{'double_top_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
+    'menu_directions' => {
+      'next' => {},
+      'prev' => {},
+      'up' => {}
+    },
     'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {},
-    'menu_next' => {},
-    'menu_prev' => {},
-    'menu_up' => {},
     'menu_up_hash' => {
       'Top' => 1
     }
   }
 };
+$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'double_top_in_menu'};
+$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'double_top_in_menu'};
+$result_menus{'double_top_in_menu'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_top_in_menu'};
 $result_menus{'double_top_in_menu'}{'structure'}{'menu_child'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'structure'}{'menu_next'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'structure'}{'menu_prev'} = $result_menus{'double_top_in_menu'};
-$result_menus{'double_top_in_menu'}{'structure'}{'menu_up'} = $result_menus{'double_top_in_menu'};
 
 $result_errors{'double_top_in_menu'} = [
   {

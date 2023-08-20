@@ -498,7 +498,7 @@ sub check_nodes_are_referenced
   }
 }
 
-# set menu directions
+# set menu_directions
 sub set_menus_node_directions($$$$$)
 {
   my $registrar = shift;
@@ -512,7 +512,7 @@ sub set_menus_node_directions($$$$$)
   my $check_menu_entries = (!$customization_information->get_conf('novalidate')
       and $customization_information->get_conf('FORMAT_MENU') eq 'menu');
 
-  # First go through all the menus and set menu_up, menu_next and menu_prev,
+  # First go through all the menus and set menu up, menu next and menu prev,
   # and warn for unknown nodes.
   # Remark: since the @menu are only checked if they are in @node,
   # menu entries before the first node, or @menu nested inside
@@ -557,9 +557,11 @@ sub set_menus_node_directions($$$$$)
                       $menu_node
                         = $identifier_target->{$arg->{'extra'}->{'normalized'}};
                       if ($menu_node) {
+                        $menu_node->{'extra'}->{'menu_directions'} = {}
+                           if (!$menu_node->{'extra'}->{'menu_directions'});
+                        $menu_node->{'extra'}->{'menu_directions'}->{'up'} = $node;
                         $menu_node->{'structure'} = {}
                                                if (!$menu_node->{'structure'});
-                        $menu_node->{'structure'}->{'menu_up'} = $node;
                         $menu_node->{'structure'}->{'menu_up_hash'} = {}
                             if (!$menu_node->{'structure'}->{'menu_up_hash'});
                         $menu_node->{'structure'}->{'menu_up_hash'}
@@ -576,14 +578,16 @@ sub set_menus_node_directions($$$$$)
             if ($menu_node) {
               if ($previous_node) {
                 if (!$menu_node->{'extra'}->{'manual_content'}) {
-                  $menu_node->{'structure'} = {}
-                      if (!$menu_node->{'structure'});
-                  $menu_node->{'structure'}->{'menu_prev'} = $previous_node;
+                  $menu_node->{'extra'}->{'menu_directions'} = {}
+                     if (!$menu_node->{'extra'}->{'menu_directions'});
+                  $menu_node->{'extra'}->{'menu_directions'}->{'prev'}
+                       = $previous_node;
                 }
                 if (!$previous_node->{'extra'}->{'manual_content'}) {
-                  $previous_node->{'structure'} = {}
-                      if (!$previous_node->{'structure'});
-                  $previous_node->{'structure'}->{'menu_next'} = $menu_node;
+                  $previous_node->{'extra'}->{'menu_directions'} = {}
+                     if (!$previous_node->{'extra'}->{'menu_directions'});
+                  $previous_node->{'extra'}->{'menu_directions'}->{'next'}
+                            = $menu_node;
                 }
               } else {
                 $node->{'structure'} = {} if (!$node->{'structure'});
@@ -696,7 +700,8 @@ sub complete_node_tree_with_menus($$$$)
                         ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}
           and @{$section->{'extra'}->{'section_directions'}->{'up'}
                         ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}}
-                    and !$node->{'structure'}->{'menu_'.$direction}) {
+                    and (!$node->{'extra'}->{'menu_directions'}
+                         or !$node->{'extra'}->{'menu_directions'}->{$direction})) {
                   $registrar->line_warn($customization_information,
            sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
                    $direction,
@@ -710,10 +715,12 @@ sub complete_node_tree_with_menus($$$$)
           # no direction was found using sections, use menus.  This allows
           # using only automatic direction for manuals without sectioning
           # commands.
-          if ($node->{'structure'}
+          if ($node->{'extra'}
+              and $node->{'structure'}
               and !$node->{'structure'}->{'node_'.$direction}
-              and $node->{'structure'}->{'menu_'.$direction}
-              and !$node->{'structure'}->{'menu_'.$direction}->{'extra'}
+              and $node->{'extra'}->{'menu_directions'}
+              and $node->{'extra'}->{'menu_directions'}->{$direction}
+              and !$node->{'extra'}->{'menu_directions'}->{$direction}->{'extra'}
                                                         ->{'manual_content'}) {
             if ($customization_information->get_conf(
                                                   'CHECK_NORMAL_MENU_STRUCTURE')
@@ -721,14 +728,14 @@ sub complete_node_tree_with_menus($$$$)
               $registrar->line_warn($customization_information,
           sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
                 target_element_to_texi_label(
-                         $node->{'structure'}->{'menu_'.$direction}),
+                         $node->{'extra'}->{'menu_directions'}->{$direction}),
                                    $direction,
                 target_element_to_texi_label($node),
                   ),
                 $node->{'source_info'});
             }
             $node->{'structure'}->{'node_'.$direction}
-               = $node->{'structure'}->{'menu_'.$direction};
+               = $node->{'extra'}->{'menu_directions'}->{$direction};
           }
         }
       } elsif (not $node->{'structure'}
@@ -767,10 +774,11 @@ sub complete_node_tree_with_menus($$$$)
       foreach my $direction (@node_directions) {
         if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
             and $node->{'structure'}->{'node_'.$direction}
-            and $node->{'structure'}->{'menu_'.$direction}
-            and $node->{'structure'}->{'menu_'.$direction}
+            and $node->{'extra'}->{'menu_directions'}
+            and $node->{'extra'}->{'menu_directions'}->{$direction}
+            and $node->{'extra'}->{'menu_directions'}->{$direction}
                ne $node->{'structure'}->{'node_'.$direction}
-            and not $node->{'structure'}->{'menu_'.$direction}
+            and not $node->{'extra'}->{'menu_directions'}->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
           $registrar->line_warn($customization_information,
             sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
@@ -780,7 +788,7 @@ sub complete_node_tree_with_menus($$$$)
                                $node->{'structure'}->{'node_'.$direction}),
                   $direction,
                   target_element_to_texi_label(
-                      $node->{'structure'}->{'menu_'.$direction})),
+                      $node->{'extra'}->{'menu_directions'}->{$direction})),
                  $node->{'source_info'});
         }
       }

@@ -104,17 +104,17 @@ $result_sectioning{'footnote_no_node'} = {
       {
         'cmdname' => 'top',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'footnote_no_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'footnote_no_node'};
+$result_sectioning{'footnote_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'footnote_no_node'};
 
 $result_errors{'footnote_no_node'} = [];
 

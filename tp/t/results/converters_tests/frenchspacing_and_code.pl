@@ -1930,13 +1930,15 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -1949,43 +1951,45 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 2
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 2,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'frenchspacing_and_code'};
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'frenchspacing_and_code'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'frenchspacing_and_code'};
 
 $result_nodes{'frenchspacing_and_code'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },
@@ -1997,8 +2001,7 @@ $result_nodes{'frenchspacing_and_code'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'chapter-frenchspacing'
       },
@@ -2010,8 +2013,7 @@ $result_nodes{'frenchspacing_and_code'} = {
               'cmdname' => 'chapter',
               'extra' => {
                 'section_number' => 2
-              },
-              'structure' => {}
+              }
             },
             'normalized' => 'chap-no'
           },

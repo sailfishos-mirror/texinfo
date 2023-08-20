@@ -86,10 +86,10 @@ $result_sectioning{'top_no_argument_and_top_node'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -97,15 +97,14 @@ $result_sectioning{'top_no_argument_and_top_node'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'top_no_argument_and_top_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_top_node'};
+$result_sectioning{'top_no_argument_and_top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_no_argument_and_top_node'};
 
 $result_nodes{'top_no_argument_and_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

@@ -260,10 +260,12 @@ $result_menus{'menu_title_before_entries'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap-subnode'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -271,7 +273,7 @@ $result_menus{'menu_title_before_entries'} = {
     }
   }
 };
-$result_menus{'menu_title_before_entries'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'menu_title_before_entries'};
+$result_menus{'menu_title_before_entries'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'menu_title_before_entries'};
 
 $result_errors{'menu_title_before_entries'} = [];
 

@@ -218,20 +218,23 @@ $result_sectioning{'appendix_translated'} = {
             {
               'cmdname' => 'appendix',
               'extra' => {
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 'A'
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 'A',
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
@@ -239,18 +242,17 @@ $result_sectioning{'appendix_translated'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'appendix_translated'};
+$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'appendix_translated'};
 
 $result_nodes{'appendix_translated'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

@@ -404,7 +404,7 @@ my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
   'node_description', 'node_long_description', 'is_target',
   'tree_document_descriptor');
-my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
+my @menus_keys = ('menu_directions', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
 my @sections_keys = ('section_directions',

@@ -123,18 +123,18 @@ $result_sectioning{'loweredheading'} = {
         'cmdname' => 'section',
         'extra' => {
           'level_modifier' => -1,
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 3,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 2
   }
 };
-$result_sectioning{'loweredheading'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loweredheading'};
+$result_sectioning{'loweredheading'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'loweredheading'};
 
 $result_errors{'loweredheading'} = [];
 

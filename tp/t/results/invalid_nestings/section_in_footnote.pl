@@ -105,18 +105,18 @@ $result_sectioning{'section_in_footnote'} = {
       {
         'cmdname' => 'section',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 2,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_footnote'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_footnote'};
+$result_sectioning{'section_in_footnote'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_footnote'};
 
 $result_errors{'section_in_footnote'} = [
   {

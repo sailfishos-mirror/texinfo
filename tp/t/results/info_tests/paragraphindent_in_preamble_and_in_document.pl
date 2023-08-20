@@ -386,25 +386,24 @@ $result_sectioning{'paragraphindent_in_preamble_and_in_document'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'paragraphindent_in_preamble_and_in_document'};
+$result_sectioning{'paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'paragraphindent_in_preamble_and_in_document'};
 
 $result_nodes{'paragraphindent_in_preamble_and_in_document'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

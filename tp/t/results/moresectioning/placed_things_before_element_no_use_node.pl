@@ -718,11 +718,11 @@ $result_sectioning{'placed_things_before_element_no_use_node'} = {
       {
         'cmdname' => 'section',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 2,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -730,7 +730,7 @@ $result_sectioning{'placed_things_before_element_no_use_node'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'placed_things_before_element_no_use_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element_no_use_node'};
+$result_sectioning{'placed_things_before_element_no_use_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'placed_things_before_element_no_use_node'};
 
 $result_errors{'placed_things_before_element_no_use_node'} = [
   {

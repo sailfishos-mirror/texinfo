@@ -311,11 +311,12 @@ $result_sectioning{'section_before_top'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 2,
-          'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_number' => 1,
+          'toplevel_directions' => {}
         }
       },
       {
@@ -328,31 +329,33 @@ $result_sectioning{'section_before_top'} = {
             },
             'structure' => {}
           },
-          'section_level' => 2
-        },
-        'structure' => {
-          'section_prev' => {},
-          'section_up' => {},
-          'toplevel_prev' => {}
+          'section_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'section_level' => 2,
+          'toplevel_directions' => {
+            'prev' => {}
+          }
         }
       }
     ],
+    'section_directions' => {},
     'section_level' => 1
   },
   'structure' => {}
 };
-$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_before_top'};
-$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_before_top'};
-$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_top'};
+$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_top'};
+$result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0];
 
 $result_nodes{'section_before_top'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -369,8 +372,7 @@ $result_nodes{'section_before_top'} = {
           'cmdname' => 'section',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'section-node'
       },
@@ -395,10 +397,12 @@ $result_menus{'section_before_top'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'section-node'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -406,7 +410,7 @@ $result_menus{'section_before_top'} = {
     }
   }
 };
-$result_menus{'section_before_top'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'section_before_top'};
+$result_menus{'section_before_top'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'section_before_top'};
 
 $result_errors{'section_before_top'} = [
   {

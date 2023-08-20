@@ -353,10 +353,12 @@ $result_menus{'ref_in_preformatted'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap-nnn-the-node-name'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -364,7 +366,7 @@ $result_menus{'ref_in_preformatted'} = {
     }
   }
 };
-$result_menus{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'ref_in_preformatted'};
+$result_menus{'ref_in_preformatted'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'ref_in_preformatted'};
 
 $result_errors{'ref_in_preformatted'} = [];
 

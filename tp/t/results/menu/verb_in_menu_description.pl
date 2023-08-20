@@ -272,10 +272,10 @@ $result_sectioning{'verb_in_menu_description'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -283,15 +283,14 @@ $result_sectioning{'verb_in_menu_description'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'verb_in_menu_description'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_in_menu_description'};
+$result_sectioning{'verb_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'verb_in_menu_description'};
 
 $result_nodes{'verb_in_menu_description'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {

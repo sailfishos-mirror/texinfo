@@ -596,18 +596,18 @@ $result_sectioning{'link'} = {
               'normalized' => 'One'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'link'};
+$result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'link'};
 
 $result_nodes{'link'} = {
   'cmdname' => 'node',
@@ -616,8 +616,7 @@ $result_nodes{'link'} = {
       'cmdname' => 'chapter',
       'extra' => {
         'section_number' => 1
-      },
-      'structure' => {}
+      }
     },
     'normalized' => 'One'
   }

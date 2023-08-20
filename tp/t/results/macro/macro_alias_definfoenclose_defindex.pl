@@ -1406,38 +1406,40 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
 
 $result_nodes{'macro_alias_definfoenclose_defindex'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },
@@ -1449,8 +1451,7 @@ $result_nodes{'macro_alias_definfoenclose_defindex'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'isindex' => 1,
         'normalized' => 'chap'

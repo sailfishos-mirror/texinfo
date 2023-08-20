@@ -828,24 +828,28 @@ $result_menus{'colons_in_index_entries_and_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'isindex' => 1,
+              'menu_directions' => {
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => 'Concept-Index'
+            },
+            'structure' => {
+              'menu_up_hash' => {
+                'Top' => 1
+              }
+            }
+          },
+          'up' => {}
+        },
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
       'structure' => {
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'normalized' => 'Concept-Index'
-          },
-          'structure' => {
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
-            }
-          }
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -853,9 +857,9 @@ $result_menus{'colons_in_index_entries_and_node'} = {
     }
   }
 };
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'};
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'colons_in_index_entries_and_node'};
-$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'colons_in_index_entries_and_node'};
+$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'};
+$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'};
+$result_menus{'colons_in_index_entries_and_node'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'colons_in_index_entries_and_node'};
 
 $result_errors{'colons_in_index_entries_and_node'} = [];
 

@@ -559,20 +559,23 @@ $result_sectioning{'two_nodes_at_the_end_texi2html'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
@@ -580,18 +583,17 @@ $result_sectioning{'two_nodes_at_the_end_texi2html'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'};
+$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'two_nodes_at_the_end_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_nodes_at_the_end_texi2html'};
 
 $result_nodes{'two_nodes_at_the_end_texi2html'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -608,8 +610,7 @@ $result_nodes{'two_nodes_at_the_end_texi2html'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'chapter-1'
       },
@@ -658,36 +659,42 @@ $result_menus{'two_nodes_at_the_end_texi2html'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'menu_directions' => {
+                'next' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'menu_directions' => {
+                      'prev' => {},
+                      'up' => {}
+                    },
+                    'normalized' => 'last-node-in-chapter-1'
+                  },
+                  'structure' => {
+                    'menu_up_hash' => {
+                      'Top' => 1
+                    }
+                  }
+                },
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => 'node-after-chapter-1'
+            },
+            'structure' => {
+              'menu_up_hash' => {
+                'Top' => 1
+              }
+            }
+          },
+          'up' => {}
+        },
         'normalized' => 'chapter-1'
       },
       'structure' => {
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'node-after-chapter-1'
-          },
-          'structure' => {
-            'menu_next' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => 'last-node-in-chapter-1'
-              },
-              'structure' => {
-                'menu_prev' => {},
-                'menu_up' => {},
-                'menu_up_hash' => {
-                  'Top' => 1
-                }
-              }
-            },
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
-            }
-          }
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -695,11 +702,11 @@ $result_menus{'two_nodes_at_the_end_texi2html'} = {
     }
   }
 };
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_next'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
-$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
+$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
+$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'};
+$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
+$result_menus{'two_nodes_at_the_end_texi2html'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'two_nodes_at_the_end_texi2html'};
 
 $result_errors{'two_nodes_at_the_end_texi2html'} = [];
 

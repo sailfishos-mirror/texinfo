@@ -476,10 +476,12 @@ $result_menus{'double_index_entry'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap-other-node'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -487,7 +489,7 @@ $result_menus{'double_index_entry'} = {
     }
   }
 };
-$result_menus{'double_index_entry'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'double_index_entry'};
+$result_menus{'double_index_entry'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'double_index_entry'};
 
 $result_errors{'double_index_entry'} = [];
 

@@ -100,25 +100,25 @@ $result_sectioning{'section_below_unnumbered_no_top'} = {
             {
               'cmdname' => 'section',
               'extra' => {
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 2
-              },
-              'structure' => {
-                'section_up' => {}
               }
             }
           ],
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'};
+$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_below_unnumbered_no_top'};
 
 $result_errors{'section_below_unnumbered_no_top'} = [];
 

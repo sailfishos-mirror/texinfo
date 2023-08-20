@@ -418,10 +418,10 @@ $result_sectioning{'protected_node_parentheses'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -429,15 +429,14 @@ $result_sectioning{'protected_node_parentheses'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'protected_node_parentheses'};
+$result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'protected_node_parentheses'};
 
 $result_nodes{'protected_node_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -469,10 +468,12 @@ $result_menus{'protected_node_parentheses'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => '_0028manual_0029-name'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'first' => 1
         }
@@ -480,7 +481,7 @@ $result_menus{'protected_node_parentheses'} = {
     }
   }
 };
-$result_menus{'protected_node_parentheses'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'protected_node_parentheses'};
+$result_menus{'protected_node_parentheses'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'protected_node_parentheses'};
 
 $result_errors{'protected_node_parentheses'} = [];
 

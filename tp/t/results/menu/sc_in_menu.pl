@@ -821,10 +821,12 @@ $result_menus{'sc_in_menu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'node'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'first' => 1
         }
@@ -832,7 +834,7 @@ $result_menus{'sc_in_menu'} = {
     }
   }
 };
-$result_menus{'sc_in_menu'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'sc_in_menu'};
+$result_menus{'sc_in_menu'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'sc_in_menu'};
 
 $result_errors{'sc_in_menu'} = [
   {

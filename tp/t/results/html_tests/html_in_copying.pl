@@ -259,10 +259,10 @@ $result_sectioning{'html_in_copying'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -270,15 +270,14 @@ $result_sectioning{'html_in_copying'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'html_in_copying'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'html_in_copying'};
+$result_sectioning{'html_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'html_in_copying'};
 
 $result_nodes{'html_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

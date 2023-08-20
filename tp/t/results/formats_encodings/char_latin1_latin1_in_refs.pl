@@ -1350,13 +1350,15 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -1369,14 +1371,16 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 2
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 2,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -1389,14 +1393,16 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 3
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 3,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -1409,14 +1415,16 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 4
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 4,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             },
             {
@@ -1429,21 +1437,24 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 5
-              },
-              'structure' => {
-                'section_prev' => {},
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 5,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
@@ -1451,34 +1462,33 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'};
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin1_latin1_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin1_latin1_in_refs'};
 
 $result_nodes{'char_latin1_latin1_in_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'isindex' => 1,
     'menus' => [
@@ -1496,8 +1506,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
@@ -1509,8 +1518,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
               'cmdname' => 'chapter',
               'extra' => {
                 'section_number' => 2
-              },
-              'structure' => {}
+              }
             },
             'normalized' => '_00e9'
           },
@@ -1522,8 +1530,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'chapter',
                   'extra' => {
                     'section_number' => 3
-                  },
-                  'structure' => {}
+                  }
                 },
                 'normalized' => '_00e0-_00e8-_00f9'
               },
@@ -1535,8 +1542,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                       'cmdname' => 'chapter',
                       'extra' => {
                         'section_number' => 4
-                      },
-                      'structure' => {}
+                      }
                     },
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
@@ -1548,8 +1554,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                           'cmdname' => 'chapter',
                           'extra' => {
                             'section_number' => 5
-                          },
-                          'structure' => {}
+                          }
                         },
                         'normalized' => '_00e7'
                       },
@@ -1599,62 +1604,72 @@ $result_menus{'char_latin1_latin1_in_refs'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
-      },
-      'structure' => {
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => '_00e9'
-          },
-          'structure' => {
-            'menu_next' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => '_00e0-_00e8-_00f9'
-              },
-              'structure' => {
-                'menu_next' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'menu_directions' => {
+                'next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
+                    'menu_directions' => {
+                      'next' => {
+                        'cmdname' => 'node',
+                        'extra' => {
+                          'menu_directions' => {
+                            'next' => {
+                              'cmdname' => 'node',
+                              'extra' => {
+                                'menu_directions' => {
+                                  'prev' => {},
+                                  'up' => {}
+                                },
+                                'normalized' => '_00e7'
+                              },
+                              'structure' => {
+                                'menu_up_hash' => {
+                                  'Top' => 1
+                                }
+                              }
+                            },
+                            'prev' => {},
+                            'up' => {}
+                          },
+                          'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
+                        },
+                        'structure' => {
+                          'menu_up_hash' => {
+                            'Top' => 1
+                          }
+                        }
+                      },
+                      'prev' => {},
+                      'up' => {}
+                    },
+                    'normalized' => '_00e0-_00e8-_00f9'
                   },
                   'structure' => {
-                    'menu_next' => {
-                      'cmdname' => 'node',
-                      'extra' => {
-                        'normalized' => '_00e7'
-                      },
-                      'structure' => {
-                        'menu_prev' => {},
-                        'menu_up' => {},
-                        'menu_up_hash' => {
-                          'Top' => 1
-                        }
-                      }
-                    },
-                    'menu_prev' => {},
-                    'menu_up' => {},
                     'menu_up_hash' => {
                       'Top' => 1
                     }
                   }
                 },
-                'menu_prev' => {},
-                'menu_up' => {},
-                'menu_up_hash' => {
-                  'Top' => 1
-                }
-              }
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => '_00e9'
             },
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
+            'structure' => {
+              'menu_up_hash' => {
+                'Top' => 1
+              }
             }
-          }
+          },
+          'up' => {}
         },
-        'menu_up' => {},
+        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
+      },
+      'structure' => {
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -1662,15 +1677,15 @@ $result_menus{'char_latin1_latin1_in_refs'} = {
     }
   }
 };
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'char_latin1_latin1_in_refs'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'char_latin1_latin1_in_refs'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'char_latin1_latin1_in_refs'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'char_latin1_latin1_in_refs'};
-$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'char_latin1_latin1_in_refs'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin1_latin1_in_refs'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin1_latin1_in_refs'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin1_latin1_in_refs'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin1_latin1_in_refs'};
+$result_menus{'char_latin1_latin1_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin1_latin1_in_refs'};
 
 $result_errors{'char_latin1_latin1_in_refs'} = [];
 

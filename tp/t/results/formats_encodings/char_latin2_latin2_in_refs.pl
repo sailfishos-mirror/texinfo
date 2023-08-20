@@ -529,20 +529,23 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
@@ -550,18 +553,17 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'};
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin2_latin2_in_refs'};
 
 $result_nodes{'char_latin2_latin2_in_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'isindex' => 1,
     'menus' => [
@@ -579,8 +581,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
@@ -606,10 +607,12 @@ $result_menus{'char_latin2_latin2_in_refs'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -617,7 +620,7 @@ $result_menus{'char_latin2_latin2_in_refs'} = {
     }
   }
 };
-$result_menus{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'char_latin2_latin2_in_refs'};
+$result_menus{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'char_latin2_latin2_in_refs'};
 
 $result_errors{'char_latin2_latin2_in_refs'} = [];
 

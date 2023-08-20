@@ -258,25 +258,24 @@ $result_sectioning{'direntry_dircategory_after_first_node'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'direntry_dircategory_after_first_node'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_after_first_node'};
+$result_sectioning{'direntry_dircategory_after_first_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'direntry_dircategory_after_first_node'};
 
 $result_nodes{'direntry_dircategory_after_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

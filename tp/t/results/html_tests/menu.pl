@@ -1721,10 +1721,10 @@ $result_sectioning{'menu'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -1732,15 +1732,14 @@ $result_sectioning{'menu'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'menu'};
+$result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menu'};
 
 $result_nodes{'menu'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {

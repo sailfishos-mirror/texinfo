@@ -2908,10 +2908,10 @@ $result_sectioning{'encoding_index_ascii_enable_encoding'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -2919,15 +2919,14 @@ $result_sectioning{'encoding_index_ascii_enable_encoding'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'encoding_index_ascii_enable_encoding'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'encoding_index_ascii_enable_encoding'};
+$result_sectioning{'encoding_index_ascii_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'encoding_index_ascii_enable_encoding'};
 
 $result_nodes{'encoding_index_ascii_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },

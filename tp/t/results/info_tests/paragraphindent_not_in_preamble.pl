@@ -326,25 +326,24 @@ $result_sectioning{'paragraphindent_not_in_preamble'} = {
               'normalized' => 'Top'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'paragraphindent_not_in_preamble'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'paragraphindent_not_in_preamble'};
+$result_sectioning{'paragraphindent_not_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'paragraphindent_not_in_preamble'};
 
 $result_nodes{'paragraphindent_not_in_preamble'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   }

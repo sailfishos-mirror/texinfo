@@ -835,25 +835,24 @@ $result_sectioning{'cond_info_ifhtml_ifinfo_iftex'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'cond_info_ifhtml_ifinfo_iftex'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_info_ifhtml_ifinfo_iftex'};
+$result_sectioning{'cond_info_ifhtml_ifinfo_iftex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'cond_info_ifhtml_ifinfo_iftex'};
 
 $result_nodes{'cond_info_ifhtml_ifinfo_iftex'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },

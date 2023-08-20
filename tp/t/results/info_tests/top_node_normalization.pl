@@ -260,18 +260,20 @@ $result_nodes{'top_node_normalization'}{'structure'}{'node_prev'} = $result_node
 $result_menus{'top_node_normalization'} = {
   'cmdname' => 'node',
   'extra' => {
+    'menu_directions' => {
+      'up' => {}
+    },
     'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {},
-    'menu_up' => {},
     'menu_up_hash' => {
       'Top' => 1
     }
   }
 };
+$result_menus{'top_node_normalization'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_normalization'};
 $result_menus{'top_node_normalization'}{'structure'}{'menu_child'} = $result_menus{'top_node_normalization'};
-$result_menus{'top_node_normalization'}{'structure'}{'menu_up'} = $result_menus{'top_node_normalization'};
 
 $result_errors{'top_node_normalization'} = [
   {

@@ -480,20 +480,23 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
@@ -501,18 +504,17 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'};
+$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'};
 
 $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -529,8 +531,7 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'chap'
       },
@@ -555,10 +556,12 @@ $result_menus{'test_xrefautomaticsectiontitle_off_first'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -566,7 +569,7 @@ $result_menus{'test_xrefautomaticsectiontitle_off_first'} = {
     }
   }
 };
-$result_menus{'test_xrefautomaticsectiontitle_off_first'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'test_xrefautomaticsectiontitle_off_first'};
+$result_menus{'test_xrefautomaticsectiontitle_off_first'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'test_xrefautomaticsectiontitle_off_first'};
 
 $result_errors{'test_xrefautomaticsectiontitle_off_first'} = [];
 

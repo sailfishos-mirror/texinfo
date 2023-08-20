@@ -138,33 +138,36 @@ $result_sectioning{'double_top_section'} = {
       {
         'cmdname' => 'top',
         'extra' => {
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       },
       {
         'cmdname' => 'top',
         'extra' => {
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_prev' => {},
-          'section_up' => {},
-          'toplevel_prev' => {},
-          'toplevel_up' => {}
+          'section_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {
+            'prev' => {},
+            'up' => {}
+          }
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_top_section'};
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'double_top_section'};
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_top_section'};
+$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_top_section'};
+$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'double_top_section'} = [
   {

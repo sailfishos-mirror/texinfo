@@ -2718,38 +2718,40 @@ $result_sectioning{'inter_item_commands_in_table'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_table'};
+$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'inter_item_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'inter_item_commands_in_table'};
 
 $result_nodes{'inter_item_commands_in_table'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },
@@ -2761,8 +2763,7 @@ $result_nodes{'inter_item_commands_in_table'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'chapter'
       },

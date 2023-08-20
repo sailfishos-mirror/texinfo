@@ -415,25 +415,29 @@ $result_menus{'equivalent_labels'} = {
     'menu_child' => {
       'cmdname' => 'anchor',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'cmdname' => 'float',
+            'extra' => {
+              'float_type' => 'truc',
+              'menu_directions' => {
+                'prev' => {},
+                'up' => {}
+              },
+              'normalized' => 'floa'
+            },
+            'structure' => {
+              'float_number' => 1,
+              'menu_up_hash' => {
+                'first' => 1
+              }
+            }
+          },
+          'up' => {}
+        },
         'normalized' => 'anch'
       },
       'structure' => {
-        'menu_next' => {
-          'cmdname' => 'float',
-          'extra' => {
-            'float_type' => 'truc',
-            'normalized' => 'floa'
-          },
-          'structure' => {
-            'float_number' => 1,
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'first' => 1
-            }
-          }
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'first' => 1
         }
@@ -441,9 +445,9 @@ $result_menus{'equivalent_labels'} = {
     }
   }
 };
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'equivalent_labels'}{'structure'}{'menu_child'};
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'equivalent_labels'};
-$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_labels'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'equivalent_labels'}{'structure'}{'menu_child'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_labels'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_labels'};
 
 $result_errors{'equivalent_labels'} = [
   {

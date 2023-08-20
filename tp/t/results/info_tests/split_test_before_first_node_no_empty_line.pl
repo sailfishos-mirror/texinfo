@@ -397,38 +397,40 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'};
+$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'};
 
 $result_nodes{'split_test_before_first_node_no_empty_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -445,8 +447,7 @@ $result_nodes{'split_test_before_first_node_no_empty_line'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'chap1'
       },
@@ -471,10 +472,12 @@ $result_menus{'split_test_before_first_node_no_empty_line'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap1'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -482,7 +485,7 @@ $result_menus{'split_test_before_first_node_no_empty_line'} = {
     }
   }
 };
-$result_menus{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'split_test_before_first_node_no_empty_line'};
+$result_menus{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'split_test_before_first_node_no_empty_line'};
 
 $result_errors{'split_test_before_first_node_no_empty_line'} = [];
 

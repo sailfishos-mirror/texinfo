@@ -2997,18 +2997,18 @@ $result_sectioning{'refs_formatting'} = {
               'normalized' => 'chapter'
             }
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 1,
           'section_number' => 1
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'refs_formatting'};
+$result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'refs_formatting'};
 
 $result_nodes{'refs_formatting'} = {
   'cmdname' => 'node',
@@ -3017,8 +3017,7 @@ $result_nodes{'refs_formatting'} = {
       'cmdname' => 'chapter',
       'extra' => {
         'section_number' => 1
-      },
-      'structure' => {}
+      }
     },
     'normalized' => 'chapter'
   }

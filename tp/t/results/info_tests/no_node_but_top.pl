@@ -58,17 +58,17 @@ $result_sectioning{'no_node_but_top'} = {
       {
         'cmdname' => 'top',
         'extra' => {
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'no_node_but_top'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_node_but_top'};
+$result_sectioning{'no_node_but_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'no_node_but_top'};
 
 $result_errors{'no_node_but_top'} = [];
 

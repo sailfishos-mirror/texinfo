@@ -330,10 +330,12 @@ $result_menus{'node_referenced_in_ref'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap-first-level-node'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -341,7 +343,7 @@ $result_menus{'node_referenced_in_ref'} = {
     }
   }
 };
-$result_menus{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'node_referenced_in_ref'};
+$result_menus{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'node_referenced_in_ref'};
 
 $result_errors{'node_referenced_in_ref'} = [];
 

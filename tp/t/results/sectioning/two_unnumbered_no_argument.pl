@@ -77,32 +77,35 @@ $result_sectioning{'two_unnumbered_no_argument'} = {
         'cmdname' => 'unnumbered',
         'extra' => {
           'missing_argument' => 1,
-          'section_level' => 1
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 1,
+          'toplevel_directions' => {}
         }
       },
       {
         'cmdname' => 'unnumbered',
         'extra' => {
           'missing_argument' => 1,
-          'section_level' => 1
-        },
-        'structure' => {
-          'section_prev' => {},
-          'section_up' => {},
-          'toplevel_prev' => {}
+          'section_directions' => {
+            'prev' => {},
+            'up' => {}
+          },
+          'section_level' => 1,
+          'toplevel_directions' => {
+            'prev' => {}
+          }
         }
       }
     ],
     'section_level' => 0
   }
 };
-$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
-$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
-$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_unnumbered_no_argument'};
+$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_unnumbered_no_argument'};
+$result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'two_unnumbered_no_argument'} = [
   {

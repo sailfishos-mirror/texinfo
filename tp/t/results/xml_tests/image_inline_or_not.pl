@@ -1566,38 +1566,40 @@ $result_sectioning{'image_inline_or_not'} = {
                   },
                   'structure' => {}
                 },
+                'section_directions' => {
+                  'up' => {}
+                },
                 'section_level' => 1,
-                'section_number' => 1
-              },
-              'structure' => {
-                'section_up' => {},
-                'toplevel_prev' => {},
-                'toplevel_up' => {}
+                'section_number' => 1,
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
               }
             }
           ],
-          'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
+          'section_directions' => {
+            'up' => {}
+          },
+          'section_level' => 0,
+          'toplevel_directions' => {}
         }
       }
     ],
     'section_level' => -1
   }
 };
-$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'image_inline_or_not'};
+$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'image_inline_or_not'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'image_inline_or_not'};
 
 $result_nodes{'image_inline_or_not'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -1614,8 +1616,7 @@ $result_nodes{'image_inline_or_not'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'node_005fimage'
       },
@@ -1640,21 +1641,23 @@ $result_menus{'image_inline_or_not'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'next' => {
+            'extra' => {
+              'manual_content' => [
+                {
+                  'text' => 'somewhere'
+                }
+              ],
+              'normalized' => 'extnode'
+            },
+            'type' => 'menu_entry_node'
+          },
+          'up' => {}
+        },
         'normalized' => 'node_005fimage'
       },
       'structure' => {
-        'menu_next' => {
-          'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'somewhere'
-              }
-            ],
-            'normalized' => 'extnode'
-          },
-          'type' => 'menu_entry_node'
-        },
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -1662,7 +1665,7 @@ $result_menus{'image_inline_or_not'} = {
     }
   }
 };
-$result_menus{'image_inline_or_not'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'image_inline_or_not'};
+$result_menus{'image_inline_or_not'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'image_inline_or_not'};
 
 $result_errors{'image_inline_or_not'} = [];
 
@@ -1682,8 +1685,7 @@ $result_floats{'image_inline_or_not'} = {
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => 1
-          },
-          'structure' => {}
+          }
         },
         'float_type' => 'F',
         'normalized' => 'g'

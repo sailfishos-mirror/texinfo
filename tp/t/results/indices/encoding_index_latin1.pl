@@ -2854,10 +2854,10 @@ $result_sectioning{'encoding_index_latin1'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -2865,15 +2865,14 @@ $result_sectioning{'encoding_index_latin1'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'encoding_index_latin1'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'encoding_index_latin1'};
+$result_sectioning{'encoding_index_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'encoding_index_latin1'};
 
 $result_nodes{'encoding_index_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'normalized' => 'Top'
   },

@@ -253,10 +253,10 @@ $result_sectioning{'empty_top_node_up'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -264,15 +264,14 @@ $result_sectioning{'empty_top_node_up'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'empty_top_node_up'};
+$result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_top_node_up'};
 
 $result_nodes{'empty_top_node_up'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -308,10 +307,12 @@ $result_menus{'empty_top_node_up'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'chap'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -319,7 +320,7 @@ $result_menus{'empty_top_node_up'} = {
     }
   }
 };
-$result_menus{'empty_top_node_up'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'empty_top_node_up'};
+$result_menus{'empty_top_node_up'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'empty_top_node_up'};
 
 $result_errors{'empty_top_node_up'} = [];
 

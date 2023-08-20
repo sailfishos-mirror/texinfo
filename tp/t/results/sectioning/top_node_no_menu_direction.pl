@@ -320,33 +320,37 @@ $result_nodes{'top_node_no_menu_direction'}{'structure'}{'node_next'} = $result_
 $result_menus{'top_node_no_menu_direction'} = {
   'cmdname' => 'node',
   'extra' => {
+    'menu_directions' => {
+      'prev' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'menu_directions' => {
+            'next' => {},
+            'up' => {}
+          },
+          'normalized' => 'chap-node'
+        },
+        'structure' => {
+          'menu_up_hash' => {
+            'Top' => 1
+          }
+        }
+      },
+      'up' => {}
+    },
     'normalized' => 'Top'
   },
   'structure' => {
-    'menu_child' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'chap-node'
-      },
-      'structure' => {
-        'menu_next' => {},
-        'menu_up' => {},
-        'menu_up_hash' => {
-          'Top' => 1
-        }
-      }
-    },
-    'menu_prev' => {},
-    'menu_up' => {},
+    'menu_child' => {},
     'menu_up_hash' => {
       'Top' => 1
     }
   }
 };
-$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_child'}{'structure'}{'menu_next'} = $result_menus{'top_node_no_menu_direction'};
-$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'top_node_no_menu_direction'};
-$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_prev'} = $result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_child'};
-$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_up'} = $result_menus{'top_node_no_menu_direction'};
+$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'top_node_no_menu_direction'};
+$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'};
+$result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'};
+$result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_child'} = $result_menus{'top_node_no_menu_direction'}{'extra'}{'menu_directions'}{'prev'};
 
 $result_errors{'top_node_no_menu_direction'} = [
   {

@@ -265,10 +265,10 @@ $result_sectioning{'menu_pointing_to_anchor'} = {
             },
             'structure' => {}
           },
+          'section_directions' => {
+            'up' => {}
+          },
           'section_level' => 0
-        },
-        'structure' => {
-          'section_up' => {}
         }
       }
     ],
@@ -276,15 +276,14 @@ $result_sectioning{'menu_pointing_to_anchor'} = {
   },
   'structure' => {}
 };
-$result_sectioning{'menu_pointing_to_anchor'}{'extra'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'menu_pointing_to_anchor'};
+$result_sectioning{'menu_pointing_to_anchor'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menu_pointing_to_anchor'};
 
 $result_nodes{'menu_pointing_to_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {},
-      'structure' => {}
+      'extra' => {}
     },
     'menus' => [
       {
@@ -318,10 +317,12 @@ $result_menus{'menu_pointing_to_anchor'} = {
     'menu_child' => {
       'cmdname' => 'anchor',
       'extra' => {
+        'menu_directions' => {
+          'up' => {}
+        },
         'normalized' => 'An-anchor'
       },
       'structure' => {
-        'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
@@ -329,7 +330,7 @@ $result_menus{'menu_pointing_to_anchor'} = {
     }
   }
 };
-$result_menus{'menu_pointing_to_anchor'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'menu_pointing_to_anchor'};
+$result_menus{'menu_pointing_to_anchor'}{'structure'}{'menu_child'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'menu_pointing_to_anchor'};
 
 $result_errors{'menu_pointing_to_anchor'} = [];
 
