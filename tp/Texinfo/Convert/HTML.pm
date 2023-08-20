@@ -796,17 +796,17 @@ sub command_root_element_command($$)
   return undef;
 }
 
-sub tree_unit_element_command($$)
+sub unit_element_command($$)
 {
   my $self = shift;
-  my $element = shift;
+  my $unit = shift;
 
-  if ($element) {
-    if ($element->{'unit_command'}) {
-      return $element->{'unit_command'};
-    } elsif (defined($element->{'type'})
-             and $element->{'type'} eq 'special_element') {
-      return $element;
+  if ($unit) {
+    if ($unit->{'unit_command'}) {
+      return $unit->{'unit_command'};
+    } elsif (defined($unit->{'type'})
+             and $unit->{'type'} eq 'special_element') {
+      return $unit;
     }
   }
   return undef;
@@ -5885,7 +5885,7 @@ sub _convert_printindex_command($$$$)
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
-            = $self->tree_unit_element_command(
+            = $self->unit_element_command(
                                    $self->global_direction('Top'));
           # NOTE the warning here catches the most relevant cases of
           # index entry that is not associated to the right command, which
@@ -7288,34 +7288,34 @@ sub _convert_tree_unit_type($$$$)
 
 $default_types_conversion{'unit'} = \&_convert_tree_unit_type;
 
-# for tree unit elements and special elements
+# for output units and special elements
 sub _default_format_element_footer($$$$;$)
 {
   my $self = shift;
   my $type = shift;
-  my $element = shift;
+  my $unit = shift;
   my $content = shift;
   my $command = shift;
 
   my $result = '';
-  my $is_top = $self->unit_is_top_output_unit($element);
-  my $next_is_top = ($element->{'tree_unit_directions'}->{'next'}
+  my $is_top = $self->unit_is_top_output_unit($unit);
+  my $next_is_top = ($unit->{'tree_unit_directions'}->{'next'}
                      and $self->unit_is_top_output_unit(
-                            $element->{'tree_unit_directions'}->{'next'}));
-  my $next_is_special = (defined($element->{'tree_unit_directions'}->{'next'})
-               and defined($element->{'tree_unit_directions'}->{'next'}->{'type'})
-               and $element->{'tree_unit_directions'}->{'next'}
+                            $unit->{'tree_unit_directions'}->{'next'}));
+  my $next_is_special = (defined($unit->{'tree_unit_directions'}->{'next'})
+               and defined($unit->{'tree_unit_directions'}->{'next'}->{'type'})
+               and $unit->{'tree_unit_directions'}->{'next'}
                                        ->{'type'} eq 'special_element');
 
-  my $end_page = (!$element->{'tree_unit_directions'}->{'next'}
-       or (defined($element->{'unit_filename'})
-           and $element->{'unit_filename'}
-               ne $element->{'tree_unit_directions'}->{'next'}->{'unit_filename'}
+  my $end_page = (!$unit->{'tree_unit_directions'}->{'next'}
+       or (defined($unit->{'unit_filename'})
+           and $unit->{'unit_filename'}
+               ne $unit->{'tree_unit_directions'}->{'next'}->{'unit_filename'}
            and $self->count_elements_in_filename('remaining',
-                         $element->{'unit_filename'}) == 1));
+                         $unit->{'unit_filename'}) == 1));
 
-  my $is_special = (defined($element->{'type'})
-                    and $element->{'type'} eq 'special_element');
+  my $is_special = (defined($unit->{'type'})
+                    and $unit->{'type'} eq 'special_element');
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
@@ -7366,10 +7366,10 @@ sub _default_format_element_footer($$$$;$)
   # FIXME the following condition is almost a duplication of the
   # condition appearing in end_page except that the file counter
   # needs not to be 1
-  if ((!$element->{'tree_unit_directions'}->{'next'}
-       or (defined($element->{'unit_filename'})
-           and $element->{'unit_filename'}
-               ne $element->{'tree_unit_directions'}->{'next'}->{'unit_filename'}))
+  if ((!$unit->{'tree_unit_directions'}->{'next'}
+       or (defined($unit->{'unit_filename'})
+           and $unit->{'unit_filename'}
+               ne $unit->{'tree_unit_directions'}->{'next'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
     $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
   }
@@ -8933,7 +8933,7 @@ sub _html_set_pages_files($$$$$$$$)
         }
         if (not defined($unit_file_name_paths{$file_output_unit})) {
           # use section to do the file name if there is no node
-          my $command = $self->tree_unit_element_command($file_output_unit);
+          my $command = $self->unit_element_command($file_output_unit);
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
@@ -10148,11 +10148,11 @@ sub _default_format_begin_file($$$)
 {
   my $self = shift;
   my $filename = shift;
-  my $element = shift;
+  my $output_unit = shift;
 
   my ($element_command, $node_command, $command_for_title);
-  if ($element) {
-    $element_command = $self->tree_unit_element_command($element);
+  if ($output_unit) {
+    $element_command = $self->unit_element_command($output_unit);
     $node_command = $element_command;
     if ($element_command and $element_command->{'cmdname'}
         and $element_command->{'cmdname'} ne 'node'
@@ -10170,7 +10170,7 @@ sub _default_format_begin_file($$$)
           $program, $generator) = $self->_file_header_information($command_for_title,
                                                                   $filename);
 
-  my $links = $self->_get_links($filename, $element, $node_command);
+  my $links = $self->_get_links($filename, $output_unit, $node_command);
 
   my $result = "$doctype
 <html${root_html_element_attributes}>
@@ -10764,7 +10764,7 @@ sub output_internal_links($)
     foreach my $output_unit (@{$self->{'tree_units'}}) {
       my $text;
       my $href;
-      my $command = $self->tree_unit_element_command($output_unit);
+      my $command = $self->unit_element_command($output_unit);
       if (defined($command)) {
         # Use '' for filename, to force a filename in href.
         $href = $self->command_href($command, '');
@@ -11347,13 +11347,13 @@ sub output($$)
       # only when file_counters reach 0, to be sure that all the
       # elements have been converted.
       if (!exists($files{$output_unit_filename})) {
-        $files{$output_unit_filename} = {'first_element' => $output_unit,
+        $files{$output_unit_filename} = {'first_unit' => $output_unit,
                                      'body' => ''};
       }
       $files{$output_unit_filename}->{'body'} .= $body;
       $self->{'file_counters'}->{$output_unit_filename}--;
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
-        my $file_element = $files{$output_unit_filename}->{'first_element'};
+        my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
         my ($encoded_out_filepath, $path_encoding)
           = $self->encoded_output_file_name($out_filepath);
         my ($file_fh, $error_message)
@@ -11371,7 +11371,7 @@ sub output($$)
                                                            $output_unit_filename,
                                                            $output_unit);
         print $file_fh "".&{$self->formatting_function('format_begin_file')}(
-                                       $self, $output_unit_filename, $file_element);
+                                       $self, $output_unit_filename, $file_output_unit);
         print $file_fh "".$files{$output_unit_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;

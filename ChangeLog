@@ -1,5 +1,11 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML (unit_element_command): rename
+	tree_unit_element_command as unit_element_command.  Change variables
+	names.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML: rename tree_unit_file_name as
 	unit_file_name.
 

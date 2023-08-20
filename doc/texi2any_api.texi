@@ -3998,12 +3998,12 @@ Similarly, the function associated with @code{format_element_footer}
 formats the footer and navigation panel of a output unit.
 
 @deftypefn {Function Reference} @var{$formatted_footer} format_element_footer @
-   (@var{$converter}, @var{$tree_unit_type}, @var{\%tree_unit_element}, @
+   (@var{$converter}, @var{$tree_unit_type}, @var{\%output_unit}, @
     @var{$content}, @var{$command})
-@var{\%tree_unit_element} is the output unit element in which the
+@var{\%output_unit} is the output unit in which the
 navigation footer is formatted.  @var{$tree_unit_type} is the associated type.
 @var{$content} is the formatted element content.  @var{$command} is an optional
-argument, the @@-command associated with the @var{\%tree_unit_element}.
+argument, the @@-command associated with the @var{\%output_unit}.
 
 Returns the formatted navigation footer and panel.
 
