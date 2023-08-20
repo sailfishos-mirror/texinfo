@@ -11,6 +11,9 @@ other copyright notice are hereby placed in the public domain.
 
 See also the tests in the tp/tests directory.
 
+See tp/README for the Perl module requirements for running these
+tests.
+
 These tests are run by "make check" under tp/.  (The test files are
 listed in tp/Makefile.tres, which is a generated file.)
 
