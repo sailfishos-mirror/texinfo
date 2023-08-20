@@ -594,7 +594,8 @@ sub set_menus_node_directions($$$$$)
                 }
               } else {
                 $node->{'structure'} = {} if (!$node->{'structure'});
-                $node->{'structure'}->{'menu_child'} = $menu_node;
+                $node->{'structure'}->{'menu_child'} = $menu_node
+                   if (!$node->{'structure'}->{'menu_child'});
               }
               $previous_node = $menu_node;
             }
@@ -747,23 +748,19 @@ sub complete_node_tree_with_menus($$$$)
                or not $node->{'extra'}->{'node_directions'}
                or not $node->{'extra'}->{'node_directions'}->{'next'}) {
         # use first menu entry if available as next for Top
-        if ($node->{'structure'} and $node->{'structure'}->{'menu_child'}) {
+        my $menu_child = $node->{'structure'}->{'menu_child'}
+           if ($node->{'structure'} and $node->{'structure'}->{'menu_child'});
+        if ($menu_child) {
           $node->{'extra'}->{'node_directions'} = {}
              if (!$node->{'extra'}->{'node_directions'});
           $node->{'extra'}->{'node_directions'}->{'next'}
-             = $node->{'structure'}->{'menu_child'};
-          if (!$node->{'structure'}->{'menu_child'}
-                                            ->{'extra'}->{'manual_content'}
-              and (!$node->{'structure'}->{'menu_child'}
-                               ->{'extra'}->{'node_directions'}
-                   or !$node->{'structure'}->{'menu_child'}
-                               ->{'extra'}->{'node_directions'}->{'prev'})) {
-            $node->{'structure'}->{'menu_child'}
-                         ->{'extra'}->{'node_directions'} = {}
-              if (!$node->{'structure'}->{'menu_child'}
-                           ->{'extra'}->{'node_directions'});
-            $node->{'structure'}->{'menu_child'}
-                         ->{'extra'}->{'node_directions'}->{'prev'}
+             = $menu_child;
+          if (!$menu_child->{'extra'}->{'manual_content'}
+              and (!$menu_child->{'extra'}->{'node_directions'}
+                   or !$menu_child->{'extra'}->{'node_directions'}->{'prev'})) {
+            $menu_child->{'extra'}->{'node_directions'} = {}
+              if (!$menu_child->{'extra'}->{'node_directions'});
+            $menu_child->{'extra'}->{'node_directions'}->{'prev'}
                 = $node;
           }
         } else {

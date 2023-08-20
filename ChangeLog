@@ -1,5 +1,13 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (set_menus_node_directions): set
+	menu_child only for the first menu when there are multiple menus.
+
+	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus): use
+	a variable to hold $node->{'structure'}->{'menu_child'} once for all.
+
+2023-08-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/t/test_utils.pl: move associated_unit from structure directly in
 	the element.

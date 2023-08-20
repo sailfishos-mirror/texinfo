@@ -319,10 +319,10 @@ $result_nodes{'multiple_menus'} = {
         'extra' => {
           'manual_content' => [
             {
-              'text' => 'b'
+              'text' => 'a'
             }
           ],
-          'normalized' => 'b'
+          'normalized' => 'a'
         },
         'type' => 'menu_entry_node'
       }
@@ -345,10 +345,10 @@ $result_menus{'multiple_menus'} = {
       'extra' => {
         'manual_content' => [
           {
-            'text' => 'b'
+            'text' => 'a'
           }
         ],
-        'normalized' => 'b'
+        'normalized' => 'a'
       },
       'type' => 'menu_entry_node'
     }
