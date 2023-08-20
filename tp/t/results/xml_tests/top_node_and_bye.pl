@@ -82,16 +82,14 @@ $result_nodes{'top_node_and_bye'} = {
   },
   'structure' => {
     'associated_unit' => {
-      'structure' => {
-        'directions' => {
-          'This' => {}
-        }
+      'directions' => {
+        'This' => {}
       },
       'type' => 'unit'
     }
   }
 };
-$result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'}{'structure'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'};
+$result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}{'structure'}{'associated_unit'};
 
 $result_menus{'top_node_and_bye'} = {
   'cmdname' => 'node',
@@ -100,16 +98,14 @@ $result_menus{'top_node_and_bye'} = {
   },
   'structure' => {
     'associated_unit' => {
-      'structure' => {
-        'directions' => {
-          'This' => {}
-        }
+      'directions' => {
+        'This' => {}
       },
       'type' => 'unit'
     }
   }
 };
-$result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'}{'structure'}{'directions'}{'This'} = $result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'};
+$result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_menus{'top_node_and_bye'}{'structure'}{'associated_unit'};
 
 $result_errors{'top_node_and_bye'} = [];
 
@@ -119,15 +115,13 @@ $result_floats{'top_node_and_bye'} = {};
 
 $result_elements{'top_node_and_bye'} = [
   {
-    'structure' => {
-      'directions' => {
-        'This' => {}
-      }
+    'directions' => {
+      'This' => {}
     },
     'type' => 'unit'
   }
 ];
-$result_elements{'top_node_and_bye'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'top_node_and_bye'}[0];
+$result_elements{'top_node_and_bye'}[0]{'directions'}{'This'} = $result_elements{'top_node_and_bye'}[0];
 
 
 

@@ -398,206 +398,190 @@ $result_sectioning{'chapter_sections'} = {
         'cmdname' => 'unnumbered',
         'structure' => {
           'associated_unit' => {
-            'structure' => {
-              'directions' => {
-                'FastForward' => {
-                  'structure' => {
+            'directions' => {
+              'FastForward' => {
+                'directions' => {
+                  'Back' => {},
+                  'FastBack' => {},
+                  'FastForward' => {
                     'directions' => {
-                      'Back' => {},
-                      'FastBack' => {},
-                      'FastForward' => {
-                        'structure' => {
-                          'directions' => {
-                            'Back' => {
-                              'structure' => {
-                                'directions' => {
-                                  'Back' => {},
-                                  'FastBack' => {},
-                                  'FastForward' => {},
-                                  'Forward' => {},
-                                  'This' => {},
-                                  'Up' => {}
-                                }
-                              },
-                              'tree_unit_directions' => {
-                                'next' => {},
-                                'prev' => {}
-                              },
-                              'type' => 'unit',
-                              'unit_command' => {
-                                'cmdname' => 'section',
-                                'structure' => {
-                                  'associated_unit' => {},
-                                  'section_level' => 2,
-                                  'section_number' => '1.1',
-                                  'section_up' => {
-                                    'cmdname' => 'chapter',
-                                    'structure' => {
-                                      'associated_unit' => {},
-                                      'section_childs' => [
-                                        {}
-                                      ],
-                                      'section_level' => 1,
-                                      'section_number' => 1,
-                                      'section_prev' => {},
-                                      'section_up' => {},
-                                      'toplevel_prev' => {}
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            'FastBack' => {},
-                            'FastForward' => {
-                              'structure' => {
-                                'directions' => {
-                                  'Back' => {
-                                    'structure' => {
-                                      'directions' => {
-                                        'Back' => {
-                                          'structure' => {
-                                            'directions' => {
-                                              'Back' => {
-                                                'structure' => {
-                                                  'directions' => {
-                                                    'Back' => {},
-                                                    'FastBack' => {},
-                                                    'FastForward' => {},
-                                                    'Forward' => {},
-                                                    'This' => {},
-                                                    'Up' => {}
-                                                  }
-                                                },
-                                                'tree_unit_directions' => {
-                                                  'next' => {},
-                                                  'prev' => {}
-                                                },
-                                                'type' => 'unit',
-                                                'unit_command' => {
-                                                  'cmdname' => 'section',
-                                                  'structure' => {
-                                                    'associated_unit' => {},
-                                                    'section_childs' => [
-                                                      {
-                                                        'cmdname' => 'subsection',
-                                                        'structure' => {
-                                                          'associated_unit' => {},
-                                                          'section_level' => 3,
-                                                          'section_number' => '2.1.1',
-                                                          'section_up' => {}
-                                                        }
-                                                      },
-                                                      {
-                                                        'cmdname' => 'subsection',
-                                                        'structure' => {
-                                                          'associated_unit' => {},
-                                                          'section_level' => 3,
-                                                          'section_number' => '2.1.2',
-                                                          'section_prev' => {},
-                                                          'section_up' => {}
-                                                        }
-                                                      }
-                                                    ],
-                                                    'section_level' => 2,
-                                                    'section_number' => '2.1',
-                                                    'section_up' => {
-                                                      'cmdname' => 'chapter',
-                                                      'structure' => {
-                                                        'associated_unit' => {},
-                                                        'section_childs' => [
-                                                          {}
-                                                        ],
-                                                        'section_level' => 1,
-                                                        'section_number' => 2,
-                                                        'section_prev' => {},
-                                                        'section_up' => {},
-                                                        'toplevel_prev' => {}
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              'FastBack' => {},
-                                              'FastForward' => {},
-                                              'Forward' => {},
-                                              'Next' => {},
-                                              'This' => {},
-                                              'Up' => {}
-                                            }
-                                          },
-                                          'tree_unit_directions' => {
-                                            'next' => {},
-                                            'prev' => {}
-                                          },
-                                          'type' => 'unit',
-                                          'unit_command' => {}
-                                        },
-                                        'FastBack' => {},
-                                        'FastForward' => {},
-                                        'Forward' => {},
-                                        'Prev' => {},
-                                        'This' => {},
-                                        'Up' => {}
-                                      }
-                                    },
-                                    'tree_unit_directions' => {
-                                      'next' => {},
-                                      'prev' => {}
-                                    },
-                                    'type' => 'unit',
-                                    'unit_command' => {}
-                                  },
-                                  'FastBack' => {},
-                                  'Prev' => {},
-                                  'This' => {}
-                                }
-                              },
-                              'tree_unit_directions' => {
-                                'prev' => {}
-                              },
-                              'type' => 'unit',
-                              'unit_command' => {
-                                'cmdname' => 'chapter',
-                                'structure' => {
-                                  'associated_unit' => {},
-                                  'section_level' => 1,
-                                  'section_number' => 3,
-                                  'section_prev' => {},
-                                  'section_up' => {},
-                                  'toplevel_prev' => {}
-                                }
-                              }
-                            },
-                            'Forward' => {},
-                            'Next' => {},
-                            'Prev' => {},
-                            'This' => {}
-                          }
+                      'Back' => {
+                        'directions' => {
+                          'Back' => {},
+                          'FastBack' => {},
+                          'FastForward' => {},
+                          'Forward' => {},
+                          'This' => {},
+                          'Up' => {}
                         },
                         'tree_unit_directions' => {
                           'next' => {},
                           'prev' => {}
                         },
                         'type' => 'unit',
-                        'unit_command' => {}
+                        'unit_command' => {
+                          'cmdname' => 'section',
+                          'structure' => {
+                            'associated_unit' => {},
+                            'section_level' => 2,
+                            'section_number' => '1.1',
+                            'section_up' => {
+                              'cmdname' => 'chapter',
+                              'structure' => {
+                                'associated_unit' => {},
+                                'section_childs' => [
+                                  {}
+                                ],
+                                'section_level' => 1,
+                                'section_number' => 1,
+                                'section_prev' => {},
+                                'section_up' => {},
+                                'toplevel_prev' => {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      'FastBack' => {},
+                      'FastForward' => {
+                        'directions' => {
+                          'Back' => {
+                            'directions' => {
+                              'Back' => {
+                                'directions' => {
+                                  'Back' => {
+                                    'directions' => {
+                                      'Back' => {},
+                                      'FastBack' => {},
+                                      'FastForward' => {},
+                                      'Forward' => {},
+                                      'This' => {},
+                                      'Up' => {}
+                                    },
+                                    'tree_unit_directions' => {
+                                      'next' => {},
+                                      'prev' => {}
+                                    },
+                                    'type' => 'unit',
+                                    'unit_command' => {
+                                      'cmdname' => 'section',
+                                      'structure' => {
+                                        'associated_unit' => {},
+                                        'section_childs' => [
+                                          {
+                                            'cmdname' => 'subsection',
+                                            'structure' => {
+                                              'associated_unit' => {},
+                                              'section_level' => 3,
+                                              'section_number' => '2.1.1',
+                                              'section_up' => {}
+                                            }
+                                          },
+                                          {
+                                            'cmdname' => 'subsection',
+                                            'structure' => {
+                                              'associated_unit' => {},
+                                              'section_level' => 3,
+                                              'section_number' => '2.1.2',
+                                              'section_prev' => {},
+                                              'section_up' => {}
+                                            }
+                                          }
+                                        ],
+                                        'section_level' => 2,
+                                        'section_number' => '2.1',
+                                        'section_up' => {
+                                          'cmdname' => 'chapter',
+                                          'structure' => {
+                                            'associated_unit' => {},
+                                            'section_childs' => [
+                                              {}
+                                            ],
+                                            'section_level' => 1,
+                                            'section_number' => 2,
+                                            'section_prev' => {},
+                                            'section_up' => {},
+                                            'toplevel_prev' => {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  'FastBack' => {},
+                                  'FastForward' => {},
+                                  'Forward' => {},
+                                  'Next' => {},
+                                  'This' => {},
+                                  'Up' => {}
+                                },
+                                'tree_unit_directions' => {
+                                  'next' => {},
+                                  'prev' => {}
+                                },
+                                'type' => 'unit',
+                                'unit_command' => {}
+                              },
+                              'FastBack' => {},
+                              'FastForward' => {},
+                              'Forward' => {},
+                              'Prev' => {},
+                              'This' => {},
+                              'Up' => {}
+                            },
+                            'tree_unit_directions' => {
+                              'next' => {},
+                              'prev' => {}
+                            },
+                            'type' => 'unit',
+                            'unit_command' => {}
+                          },
+                          'FastBack' => {},
+                          'Prev' => {},
+                          'This' => {}
+                        },
+                        'tree_unit_directions' => {
+                          'prev' => {}
+                        },
+                        'type' => 'unit',
+                        'unit_command' => {
+                          'cmdname' => 'chapter',
+                          'structure' => {
+                            'associated_unit' => {},
+                            'section_level' => 1,
+                            'section_number' => 3,
+                            'section_prev' => {},
+                            'section_up' => {},
+                            'toplevel_prev' => {}
+                          }
+                        }
                       },
                       'Forward' => {},
                       'Next' => {},
                       'Prev' => {},
                       'This' => {}
-                    }
+                    },
+                    'tree_unit_directions' => {
+                      'next' => {},
+                      'prev' => {}
+                    },
+                    'type' => 'unit',
+                    'unit_command' => {}
                   },
-                  'tree_unit_directions' => {
-                    'next' => {},
-                    'prev' => {}
-                  },
-                  'type' => 'unit',
-                  'unit_command' => {}
+                  'Forward' => {},
+                  'Next' => {},
+                  'Prev' => {},
+                  'This' => {}
                 },
-                'Forward' => {},
-                'Next' => {},
-                'This' => {}
-              }
+                'tree_unit_directions' => {
+                  'next' => {},
+                  'prev' => {}
+                },
+                'type' => 'unit',
+                'unit_command' => {}
+              },
+              'Forward' => {},
+              'Next' => {},
+              'This' => {}
             },
             'tree_unit_directions' => {
               'next' => {}
@@ -616,91 +600,91 @@ $result_sectioning{'chapter_sections'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_childs'}[0] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_childs'}[0] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1];
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_childs'}[0] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_childs'}[0] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_childs'}[1];
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'section_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'toplevel_prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'Forward'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'Next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'tree_unit_directions'}{'next'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'};
 $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_sections'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[1] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[2] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
-$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[3] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[1] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[2] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'section_up'};
+$result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[3] = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'};
 
 $result_errors{'chapter_sections'} = [];
 
@@ -710,126 +694,98 @@ $result_floats{'chapter_sections'} = {};
 
 $result_elements{'chapter_sections'} = [
   {
-    'structure' => {
-      'directions' => {
-        'FastForward' => {
-          'structure' => {
+    'directions' => {
+      'FastForward' => {
+        'directions' => {
+          'Back' => {},
+          'FastBack' => {},
+          'FastForward' => {
             'directions' => {
-              'Back' => {},
+              'Back' => {
+                'directions' => {
+                  'Back' => {},
+                  'FastBack' => {},
+                  'FastForward' => {},
+                  'Forward' => {},
+                  'This' => {},
+                  'Up' => {}
+                },
+                'type' => 'unit',
+                'unit_command' => {
+                  'cmdname' => 'section',
+                  'structure' => {
+                    'associated_unit' => {},
+                    'section_number' => '1.1'
+                  }
+                }
+              },
               'FastBack' => {},
               'FastForward' => {
-                'structure' => {
-                  'directions' => {
-                    'Back' => {
-                      'structure' => {
-                        'directions' => {
-                          'Back' => {},
-                          'FastBack' => {},
-                          'FastForward' => {},
-                          'Forward' => {},
-                          'This' => {},
-                          'Up' => {}
-                        }
-                      },
-                      'type' => 'unit',
-                      'unit_command' => {
-                        'cmdname' => 'section',
-                        'structure' => {
-                          'associated_unit' => {},
-                          'section_number' => '1.1'
-                        }
-                      }
-                    },
-                    'FastBack' => {},
-                    'FastForward' => {
-                      'structure' => {
+                'directions' => {
+                  'Back' => {
+                    'directions' => {
+                      'Back' => {
                         'directions' => {
                           'Back' => {
-                            'structure' => {
-                              'directions' => {
-                                'Back' => {
-                                  'structure' => {
-                                    'directions' => {
-                                      'Back' => {
-                                        'structure' => {
-                                          'directions' => {
-                                            'Back' => {},
-                                            'FastBack' => {},
-                                            'FastForward' => {},
-                                            'Forward' => {},
-                                            'This' => {},
-                                            'Up' => {}
-                                          }
-                                        },
-                                        'type' => 'unit',
-                                        'unit_command' => {
-                                          'cmdname' => 'section',
-                                          'structure' => {
-                                            'associated_unit' => {},
-                                            'section_number' => '2.1'
-                                          }
-                                        }
-                                      },
-                                      'FastBack' => {},
-                                      'FastForward' => {},
-                                      'Forward' => {},
-                                      'Next' => {},
-                                      'This' => {},
-                                      'Up' => {}
-                                    }
-                                  },
-                                  'type' => 'unit',
-                                  'unit_command' => {
-                                    'cmdname' => 'subsection',
-                                    'structure' => {
-                                      'associated_unit' => {},
-                                      'section_number' => '2.1.1'
-                                    }
-                                  }
-                                },
-                                'FastBack' => {},
-                                'FastForward' => {},
-                                'Forward' => {},
-                                'Prev' => {},
-                                'This' => {},
-                                'Up' => {}
-                              }
+                            'directions' => {
+                              'Back' => {},
+                              'FastBack' => {},
+                              'FastForward' => {},
+                              'Forward' => {},
+                              'This' => {},
+                              'Up' => {}
                             },
                             'type' => 'unit',
                             'unit_command' => {
-                              'cmdname' => 'subsection',
+                              'cmdname' => 'section',
                               'structure' => {
                                 'associated_unit' => {},
-                                'section_number' => '2.1.2'
+                                'section_number' => '2.1'
                               }
                             }
                           },
                           'FastBack' => {},
-                          'Prev' => {},
-                          'This' => {}
+                          'FastForward' => {},
+                          'Forward' => {},
+                          'Next' => {},
+                          'This' => {},
+                          'Up' => {}
+                        },
+                        'type' => 'unit',
+                        'unit_command' => {
+                          'cmdname' => 'subsection',
+                          'structure' => {
+                            'associated_unit' => {},
+                            'section_number' => '2.1.1'
+                          }
                         }
                       },
-                      'type' => 'unit',
-                      'unit_command' => {
-                        'cmdname' => 'chapter',
-                        'structure' => {
-                          'associated_unit' => {},
-                          'section_number' => 3
-                        }
-                      }
+                      'FastBack' => {},
+                      'FastForward' => {},
+                      'Forward' => {},
+                      'Prev' => {},
+                      'This' => {},
+                      'Up' => {}
                     },
-                    'Forward' => {},
-                    'Next' => {},
-                    'Prev' => {},
-                    'This' => {}
-                  }
+                    'type' => 'unit',
+                    'unit_command' => {
+                      'cmdname' => 'subsection',
+                      'structure' => {
+                        'associated_unit' => {},
+                        'section_number' => '2.1.2'
+                      }
+                    }
+                  },
+                  'FastBack' => {},
+                  'Prev' => {},
+                  'This' => {}
                 },
                 'type' => 'unit',
                 'unit_command' => {
                   'cmdname' => 'chapter',
                   'structure' => {
                     'associated_unit' => {},
-                    'section_number' => 2
+                    'section_number' => 3
                   }
                 }
               },
@@ -837,21 +793,33 @@ $result_elements{'chapter_sections'} = [
               'Next' => {},
               'Prev' => {},
               'This' => {}
+            },
+            'type' => 'unit',
+            'unit_command' => {
+              'cmdname' => 'chapter',
+              'structure' => {
+                'associated_unit' => {},
+                'section_number' => 2
+              }
             }
           },
-          'type' => 'unit',
-          'unit_command' => {
-            'cmdname' => 'chapter',
-            'structure' => {
-              'associated_unit' => {},
-              'section_number' => 1
-            }
-          }
+          'Forward' => {},
+          'Next' => {},
+          'Prev' => {},
+          'This' => {}
         },
-        'Forward' => {},
-        'Next' => {},
-        'This' => {}
-      }
+        'type' => 'unit',
+        'unit_command' => {
+          'cmdname' => 'chapter',
+          'structure' => {
+            'associated_unit' => {},
+            'section_number' => 1
+          }
+        }
+      },
+      'Forward' => {},
+      'Next' => {},
+      'This' => {}
     },
     'type' => 'unit',
     'unit_command' => {
@@ -869,62 +837,62 @@ $result_elements{'chapter_sections'} = [
   {},
   {}
 ];
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0];
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0];
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0];
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0];
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0];
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0];
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'FastForward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Up'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastBack'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'Prev'} = $result_elements{'chapter_sections'}[0];
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'This'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'Forward'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'Next'} = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[0]{'directions'}{'This'} = $result_elements{'chapter_sections'}[0];
 $result_elements{'chapter_sections'}[0]{'unit_command'}{'structure'}{'associated_unit'} = $result_elements{'chapter_sections'}[0];
-$result_elements{'chapter_sections'}[1] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[2] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[3] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
-$result_elements{'chapter_sections'}[4] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[5] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[6] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'};
-$result_elements{'chapter_sections'}[7] = $result_elements{'chapter_sections'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[1] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[2] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[3] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'};
+$result_elements{'chapter_sections'}[4] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[5] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[6] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'};
+$result_elements{'chapter_sections'}[7] = $result_elements{'chapter_sections'}[0]{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'};
 
 
 

@@ -1177,7 +1177,7 @@ sub _tree_unit_node($)
 }
 
 # Do element directions (like in texi2html) and store them
-# in 'structure->'directions'.
+# in 'directions'.
 # The directions are only created if pointing to other 'unit' elements.
 # In practice there are only tree unit passed to the function, but
 # other root elements could probably be used, in theory.
@@ -1245,15 +1245,12 @@ sub elements_directions($$$)
 
       if ($directions->{'NodeForward'}
           and $directions->{'NodeForward'}->{'type'} eq 'unit'
-          and (!$directions->{'NodeForward'}->{'structure'}
-               or !$directions->{'NodeForward'}->{'structure'}->{'directions'}
-               or !$directions->{'NodeForward'}->{'structure'}->{'directions'}
+          and (!$directions->{'NodeForward'}->{'directions'}
+               or !$directions->{'NodeForward'}->{'directions'}
                                                               ->{'NodeBack'})) {
-        $directions->{'NodeForward'}->{'structure'} = {}
-            if (! $directions->{'NodeForward'}->{'structure'});
-        $directions->{'NodeForward'}->{'structure'}->{'directions'} = {}
-            if (! $directions->{'NodeForward'}->{'structure'}->{'directions'});
-        $directions->{'NodeForward'}->{'structure'}->{'directions'}
+        $directions->{'NodeForward'}->{'directions'} = {}
+            if (! $directions->{'NodeForward'}->{'directions'});
+        $directions->{'NodeForward'}->{'directions'}
                                                    ->{'NodeBack'} = $tree_unit;
       }
     }
@@ -1274,15 +1271,15 @@ sub elements_directions($$$)
         }
       }
       if ($section_element) {
-        if ($section_element->{'structure'}->{'directions'}->{'FastForward'}) {
+        if ($section_element->{'directions'}->{'FastForward'}) {
           $directions->{'FastForward'}
-            = $section_element->{'structure'}->{'directions'}->{'FastForward'};
+            = $section_element->{'directions'}->{'FastForward'};
         }
         if ($section->{'structure'}->{'section_level'} <= 1) {
           $directions->{'FastBack'} = $section_element;
-        } elsif ($section_element->{'structure'}->{'directions'}->{'Fastback'}) {
+        } elsif ($section_element->{'directions'}->{'Fastback'}) {
           $directions->{'FastBack'}
-            = $section_element->{'structure'}->{'directions'}->{'Fastback'};
+            = $section_element->{'directions'}->{'Fastback'};
         }
       }
     } else {
@@ -1338,11 +1335,9 @@ sub elements_directions($$$)
                and $directions->{'FastForward'}) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback
-        $directions->{'FastForward'}->{'structure'} = {}
-           if (! $directions->{'FastForward'}->{'structure'});
-        $directions->{'FastForward'}->{'structure'}->{'directions'} = {}
-           if (! $directions->{'FastForward'}->{'structure'}->{'directions'});
-        $directions->{'FastForward'}->{'structure'}->{'directions'}->{'FastBack'}
+        $directions->{'FastForward'}->{'directions'} = {}
+           if (! $directions->{'FastForward'}->{'directions'});
+        $directions->{'FastForward'}->{'directions'}->{'FastBack'}
           = $tree_unit if ($directions and $directions->{'FastForward'});
       }
     }
@@ -1357,12 +1352,11 @@ sub elements_directions($$$)
         = _label_target_unit_element($node->{'structure'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
-    $tree_unit->{'structure'} = {} if (! $tree_unit->{'structure'});
-    if ($tree_unit->{'structure'}->{'directions'}) {
-      %{$tree_unit->{'structure'}->{'directions'}}
-        = (%{$tree_unit->{'structure'}->{'directions'}}, %$directions);
+    if ($tree_unit->{'directions'}) {
+      %{$tree_unit->{'directions'}}
+        = (%{$tree_unit->{'directions'}}, %$directions);
     } else {
-      $tree_unit->{'structure'}->{'directions'} = $directions;
+      $tree_unit->{'directions'} = $directions;
     }
   }
   if ($customization_information->get_conf('DEBUG')) {
@@ -1397,7 +1391,7 @@ sub elements_file_directions($)
           or $filename ne $current_filename) {
         $first_element_in_file = $tree_unit;
         @first_element_in_file_directions
-            = keys %{$tree_unit->{'structure'}->{'directions'}};
+            = keys %{$tree_unit->{'directions'}};
         $current_filename = $filename;
       }
       while ($current_tree_unit->{'tree_unit_directions'}
@@ -1405,7 +1399,7 @@ sub elements_file_directions($)
         $current_tree_unit = $current_tree_unit->{'tree_unit_directions'}->{'prev'};
         if (defined($current_tree_unit->{'unit_filename'})) {
           if ($current_tree_unit->{'unit_filename'} ne $filename) {
-            $tree_unit->{'structure'}->{'directions'}->{'PrevFile'}
+            $tree_unit->{'directions'}->{'PrevFile'}
                  = $current_tree_unit;
             last;
           }
@@ -1419,7 +1413,7 @@ sub elements_file_directions($)
         $current_tree_unit = $current_tree_unit->{'tree_unit_directions'}->{'next'};
         if (defined($current_tree_unit->{'unit_filename'})) {
           if ($current_tree_unit->{'unit_filename'} ne $filename) {
-            $tree_unit->{'structure'}->{'directions'}->{'NextFile'}
+            $tree_unit->{'directions'}->{'NextFile'}
                = $current_tree_unit;
             last;
           }
@@ -1433,9 +1427,9 @@ sub elements_file_directions($)
     if (defined($first_element_in_file)) {
       foreach my $first_in_file_direction
                 (@first_element_in_file_directions) {
-        $tree_unit->{'structure'}->{'directions'}
+        $tree_unit->{'directions'}
                                 ->{'FirstInFile'.$first_in_file_direction}
-          = $first_element_in_file->{'structure'}->{'directions'}
+          = $first_element_in_file->{'directions'}
                                          ->{$first_in_file_direction};
       }
     }
@@ -1486,11 +1480,11 @@ sub print_element_directions($)
   my $element = shift;
   my $result = 'element: '.root_or_external_element_cmd_texi($element)."\n";
 
-  if ($element->{'structure'} and $element->{'structure'}->{'directions'}) {
-    foreach my $direction (sort(keys(%{$element->{'structure'}->{'directions'}}))) {
+  if ($element->{'directions'}) {
+    foreach my $direction (sort(keys(%{$element->{'directions'}}))) {
       $result .= "  $direction: ".
        root_or_external_element_cmd_texi(
-         $element->{'structure'}->{'directions'}->{$direction})."\n";
+         $element->{'directions'}->{$direction})."\n";
     }
   } else {
     $result .= "  NO DIRECTION\n";
@@ -2519,7 +2513,7 @@ X<C<elements_directions>>
 
 Directions are set up for the tree unit elements in the array reference
 I<$tree_units> given in argument.  The corresponding hash is in
-C<< {'structure'}->{'directions'} >>
+C<< {'directions'} >>
 and keys correspond to directions while values are elements.
 
 The following directions are set up:

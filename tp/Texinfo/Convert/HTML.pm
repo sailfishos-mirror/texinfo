@@ -1071,7 +1071,7 @@ sub command_text($$;$)
       if (defined($command->{'type'})
           and $command->{'type'} eq 'special_element') {
         my $special_element_variety
-           = $command->{'extra'}->{'special_element_variety'};
+           = $command->{'special_element_variety'};
         $tree
           = $self->special_element_info('heading_tree',
                                         $special_element_variety);
@@ -1315,11 +1315,10 @@ sub from_element_direction($$$;$$$)
       return '';
     }
   } elsif (not $target_element and $source_element
-           and $source_element->{'structure'}
-           and $source_element->{'structure'}->{'directions'}
-           and $source_element->{'structure'}->{'directions'}->{$direction}) {
+           and $source_element->{'directions'}
+           and $source_element->{'directions'}->{$direction}) {
     $target_element
-      = $source_element->{'structure'}->{'directions'}->{$direction};
+      = $source_element->{'directions'}->{$direction};
   }
 
   if ($target_element) {
@@ -7193,7 +7192,7 @@ sub _convert_special_element_type($$$$)
 
   my $result = '';
 
-  my $special_element_variety = $element->{'extra'}->{'special_element_variety'};
+  my $special_element_variety = $element->{'special_element_variety'};
   $result .= join('', $self->close_registered_sections_level(0));
 
   my $special_element_body
@@ -9208,10 +9207,10 @@ sub _prepare_special_elements($$$$)
     next unless ($do_special{$special_element_variety});
 
     my $element = {'type' => 'special_element',
-                   'extra' => {'special_element_variety'
-                                   => $special_element_variety,},
-                   'structure' => {'directions' => {}}};
-    $element->{'structure'}->{'directions'}->{'This'} = $element;
+                   'special_element_variety'
+                                   => $special_element_variety,
+                   'directions' => {}};
+    $element->{'directions'}->{'This'} = $element;
     my $special_element_direction
      = $self->special_element_info('direction', $special_element_variety);
     $self->{'special_elements_directions'}->{$special_element_direction}
@@ -9267,8 +9266,8 @@ sub _prepare_special_elements($$$$)
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'type' => 'special_element',
-                   'extra' => {'special_element_variety'
-                                  => $special_element_variety, }};
+                   'extra' => 'special_element_variety'
+                                  => $special_element_variety};
 
       # only the filename is used
       my ($target, $filename);
@@ -9332,8 +9331,8 @@ sub _prepare_contents_elements($)
         }
 
         my $contents_element = {'type' => 'special_element',
-                        'extra' => {'special_element_variety'
-                                             => $special_element_variety}};
+                                'special_element_variety'
+                                             => $special_element_variety};
         my $special_element_direction
          = $self->special_element_info('direction', $special_element_variety);
         $self->{'special_elements_directions'}->{$special_element_direction}
@@ -11552,7 +11551,7 @@ sub output($$)
           } elsif ($file_info_type eq 'special_element') {
             my $special_element = $file_source->{'file_info_element'};
             my $element_variety
-              = $special_element->{'extra'}->{'special_element_variety'};
+              = $special_element->{'special_element_variety'};
             $self->document_warn($self,
                sprintf(__("conflict with %s special element"),
                        $element_variety), 1);
