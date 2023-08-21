@@ -207,12 +207,12 @@ $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt 
 
 $(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
-           < $(srcdir)/main/command_data.c \
-              $(srcdir)/main/cmd_normalization.c \
-              $(srcdir)/main/cmd_unicode.c \
-              $(srcdir)/main/cmd_structuring.c \
-              $(srcdir)/main/cmd_symbol.c \
-              $(srcdir)/main/cmd_text.c
+	    < $(srcdir)/main/command_data.c \
+	      $(srcdir)/main/cmd_normalization.c \
+	      $(srcdir)/main/cmd_unicode.c \
+	      $(srcdir)/main/cmd_structuring.c \
+	      $(srcdir)/main/cmd_symbol.c \
+	      $(srcdir)/main/cmd_text.c
 
 
 ########################## shared perl XS library for texinfo XS codes
