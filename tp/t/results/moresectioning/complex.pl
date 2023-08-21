@@ -2991,6 +2991,7 @@ $result_sectioning{'complex'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -3206,6 +3207,7 @@ $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_ch
 $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2] = $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'section_directions'}{'prev'};
 $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3] = $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'};
 $result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'complex'};
+$result_sectioning{'complex'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'complex'};
 
 $result_nodes{'complex'} = {
   'associated_unit' => {

@@ -290,7 +290,8 @@ $result_sectioning{'inlineraw_in_menu_description'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -298,6 +299,7 @@ $result_sectioning{'inlineraw_in_menu_description'} = {
   }
 };
 $result_sectioning{'inlineraw_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'inlineraw_in_menu_description'};
+$result_sectioning{'inlineraw_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'inlineraw_in_menu_description'};
 
 $result_nodes{'inlineraw_in_menu_description'} = {
   'cmdname' => 'node',

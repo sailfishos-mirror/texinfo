@@ -1436,7 +1436,8 @@ $result_sectioning{'item_index_transformation'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -1444,6 +1445,7 @@ $result_sectioning{'item_index_transformation'} = {
   }
 };
 $result_sectioning{'item_index_transformation'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'item_index_transformation'};
+$result_sectioning{'item_index_transformation'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'item_index_transformation'};
 
 $result_nodes{'item_index_transformation'} = {
   'cmdname' => 'node',

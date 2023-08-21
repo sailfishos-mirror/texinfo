@@ -543,6 +543,7 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -554,6 +555,7 @@ $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'char_latin2_latin2_in_refs'};
+$result_sectioning{'char_latin2_latin2_in_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'char_latin2_latin2_in_refs'};
 
 $result_nodes{'char_latin2_latin2_in_refs'} = {
   'cmdname' => 'node',

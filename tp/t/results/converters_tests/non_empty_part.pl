@@ -967,7 +967,8 @@ $result_sectioning{'non_empty_part'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       },
       {},
@@ -1126,6 +1127,7 @@ $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'par
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'non_empty_part'};
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_following_node'} = $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_node'};
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'non_empty_part'};
+$result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'non_empty_part'};
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[1] = $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[2];
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[2];

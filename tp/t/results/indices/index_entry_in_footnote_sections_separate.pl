@@ -355,6 +355,7 @@ $result_sectioning{'index_entry_in_footnote_sections_separate'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -366,6 +367,7 @@ $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'sectio
 $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_entry_in_footnote_sections_separate'};
+$result_sectioning{'index_entry_in_footnote_sections_separate'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_entry_in_footnote_sections_separate'};
 
 $result_nodes{'index_entry_in_footnote_sections_separate'} = {
   'cmdname' => 'node',

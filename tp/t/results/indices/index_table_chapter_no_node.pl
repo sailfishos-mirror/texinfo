@@ -6762,6 +6762,7 @@ $result_sectioning{'index_table_chapter_no_node'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -6782,6 +6783,7 @@ $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{
 $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_table_chapter_no_node'};
+$result_sectioning{'index_table_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_table_chapter_no_node'};
 
 $result_nodes{'index_table_chapter_no_node'} = {
   'cmdname' => 'node',

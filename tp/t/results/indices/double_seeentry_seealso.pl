@@ -634,6 +634,7 @@ $result_sectioning{'double_seeentry_seealso'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -645,6 +646,7 @@ $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0]{'ext
 $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_seeentry_seealso'};
+$result_sectioning{'double_seeentry_seealso'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_seeentry_seealso'};
 
 $result_nodes{'double_seeentry_seealso'} = {
   'cmdname' => 'node',

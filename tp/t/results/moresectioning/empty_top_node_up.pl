@@ -255,7 +255,8 @@ $result_sectioning{'empty_top_node_up'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -263,6 +264,7 @@ $result_sectioning{'empty_top_node_up'} = {
   }
 };
 $result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_top_node_up'};
+$result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_top_node_up'};
 
 $result_nodes{'empty_top_node_up'} = {
   'cmdname' => 'node',

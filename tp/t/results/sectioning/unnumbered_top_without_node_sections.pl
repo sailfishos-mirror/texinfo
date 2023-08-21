@@ -428,6 +428,7 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
             'up' => {}
           },
           'section_level' => 1,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -465,6 +466,7 @@ $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_chi
 $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_top_without_node_sections'};
+$result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_top_without_node_sections'};
 $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[1] = $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'section_directions'}{'prev'};
 $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[2] = $result_sectioning{'unnumbered_top_without_node_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'};
 

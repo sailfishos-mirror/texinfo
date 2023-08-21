@@ -292,6 +292,7 @@ $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -303,6 +304,7 @@ $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'s
 $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'};
+$result_sectioning{'footnotestyle_separate_html_text_no_monolithic'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'};
 
 $result_nodes{'footnotestyle_separate_html_text_no_monolithic'} = {
   'cmdname' => 'node',

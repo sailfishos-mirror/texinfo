@@ -1267,6 +1267,7 @@ $result_sectioning{'indices_disable_encoding'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1278,6 +1279,7 @@ $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0]{'ex
 $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'indices_disable_encoding'};
+$result_sectioning{'indices_disable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'indices_disable_encoding'};
 
 $result_nodes{'indices_disable_encoding'} = {
   'cmdname' => 'node',

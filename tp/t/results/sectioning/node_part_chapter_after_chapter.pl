@@ -621,6 +621,7 @@ $result_sectioning{'node_part_chapter_after_chapter'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -671,6 +672,7 @@ $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}
 $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'toplevel_directions'}{'prev'};
 $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_part_chapter_after_chapter'};
+$result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_part_chapter_after_chapter'};
 $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[1] = $result_sectioning{'node_part_chapter_after_chapter'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'associated_part'};
 
 $result_nodes{'node_part_chapter_after_chapter'} = {

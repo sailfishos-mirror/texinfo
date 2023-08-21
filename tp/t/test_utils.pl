@@ -405,7 +405,7 @@ my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
 my @sections_keys = ('section_directions',
   'section_childs', 'associated_node', 'part_associated_section',
   'part_following_node', 'section_level',
-  'toplevel_directions');
+  'toplevel_directions', 'sectioning_root');
 my @node_keys = ('node_directions',
   'associated_section', 'node_preceding_part');
 

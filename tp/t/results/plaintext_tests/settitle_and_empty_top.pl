@@ -97,7 +97,8 @@ $result_sectioning{'settitle_and_empty_top'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -105,6 +106,7 @@ $result_sectioning{'settitle_and_empty_top'} = {
   }
 };
 $result_sectioning{'settitle_and_empty_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'settitle_and_empty_top'};
+$result_sectioning{'settitle_and_empty_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'settitle_and_empty_top'};
 
 $result_errors{'settitle_and_empty_top'} = [];
 

@@ -616,7 +616,8 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 1
+          'section_level' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -656,6 +657,7 @@ $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_ch
 $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'} = $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
 $result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'transliterated_split_equivalent_nodes'};
+$result_sectioning{'transliterated_split_equivalent_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'transliterated_split_equivalent_nodes'};
 
 $result_nodes{'transliterated_split_equivalent_nodes'} = {
   'associated_unit' => {

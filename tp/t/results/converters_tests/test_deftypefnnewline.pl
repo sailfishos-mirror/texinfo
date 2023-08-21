@@ -2716,6 +2716,7 @@ $result_sectioning{'test_deftypefnnewline'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -2727,6 +2728,7 @@ $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_deftypefnnewline'};
+$result_sectioning{'test_deftypefnnewline'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'test_deftypefnnewline'};
 
 $result_nodes{'test_deftypefnnewline'} = {
   'cmdname' => 'node',

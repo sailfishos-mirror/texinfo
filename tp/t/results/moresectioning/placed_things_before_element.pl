@@ -722,7 +722,8 @@ $result_sectioning{'placed_things_before_element'} = {
             'up' => {}
           },
           'section_level' => 2,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -730,6 +731,7 @@ $result_sectioning{'placed_things_before_element'} = {
   }
 };
 $result_sectioning{'placed_things_before_element'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'placed_things_before_element'};
+$result_sectioning{'placed_things_before_element'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'placed_things_before_element'};
 
 $result_errors{'placed_things_before_element'} = [
   {

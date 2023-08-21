@@ -893,7 +893,8 @@ $result_sectioning{'punctuation_in_line_commands'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -901,6 +902,7 @@ $result_sectioning{'punctuation_in_line_commands'} = {
   }
 };
 $result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'punctuation_in_line_commands'};
+$result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'punctuation_in_line_commands'};
 
 $result_nodes{'punctuation_in_line_commands'} = {
   'cmdname' => 'node',

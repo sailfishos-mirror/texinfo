@@ -278,6 +278,7 @@ $result_sectioning{'contents_in_html_text'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -294,6 +295,7 @@ $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_in_html_text'};
+$result_sectioning{'contents_in_html_text'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_in_html_text'};
 
 $result_errors{'contents_in_html_text'} = [];
 

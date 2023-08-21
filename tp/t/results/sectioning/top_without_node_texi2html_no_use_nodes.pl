@@ -219,6 +219,7 @@ $result_sectioning{'top_without_node_texi2html_no_use_nodes'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -230,6 +231,7 @@ $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_
 $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'};
+$result_sectioning{'top_without_node_texi2html_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_without_node_texi2html_no_use_nodes'};
 
 $result_nodes{'top_without_node_texi2html_no_use_nodes'} = {
   'cmdname' => 'node',

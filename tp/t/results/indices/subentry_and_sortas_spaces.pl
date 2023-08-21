@@ -663,6 +663,7 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -674,6 +675,7 @@ $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'subentry_and_sortas_spaces'};
+$result_sectioning{'subentry_and_sortas_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'subentry_and_sortas_spaces'};
 
 $result_nodes{'subentry_and_sortas_spaces'} = {
   'cmdname' => 'node',

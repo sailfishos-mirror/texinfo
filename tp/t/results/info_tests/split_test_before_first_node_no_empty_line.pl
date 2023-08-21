@@ -411,6 +411,7 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -422,6 +423,7 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'secti
 $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'split_test_before_first_node_no_empty_line'};
+$result_sectioning{'split_test_before_first_node_no_empty_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'split_test_before_first_node_no_empty_line'};
 
 $result_nodes{'split_test_before_first_node_no_empty_line'} = {
   'cmdname' => 'node',

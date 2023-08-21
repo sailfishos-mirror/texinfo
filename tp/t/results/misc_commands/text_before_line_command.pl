@@ -320,7 +320,8 @@ $result_sectioning{'text_before_line_command'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -328,6 +329,7 @@ $result_sectioning{'text_before_line_command'} = {
   }
 };
 $result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'text_before_line_command'};
+$result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'text_before_line_command'};
 
 $result_nodes{'text_before_line_command'} = {
   'cmdname' => 'node',

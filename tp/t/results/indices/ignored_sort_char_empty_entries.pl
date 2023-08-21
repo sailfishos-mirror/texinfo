@@ -403,7 +403,8 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -411,6 +412,7 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
   }
 };
 $result_sectioning{'ignored_sort_char_empty_entries'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'ignored_sort_char_empty_entries'};
+$result_sectioning{'ignored_sort_char_empty_entries'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'ignored_sort_char_empty_entries'};
 
 $result_nodes{'ignored_sort_char_empty_entries'} = {
   'cmdname' => 'node',

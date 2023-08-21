@@ -69,7 +69,8 @@ $result_sectioning{'one_subsection'} = {
             'up' => {}
           },
           'section_level' => 3,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -77,6 +78,7 @@ $result_sectioning{'one_subsection'} = {
   }
 };
 $result_sectioning{'one_subsection'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'one_subsection'};
+$result_sectioning{'one_subsection'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'one_subsection'};
 
 $result_errors{'one_subsection'} = [];
 

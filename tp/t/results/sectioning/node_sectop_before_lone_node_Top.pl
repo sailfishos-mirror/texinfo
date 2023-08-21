@@ -306,6 +306,7 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -317,6 +318,7 @@ $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'
 $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_sectop_before_lone_node_Top'};
+$result_sectioning{'node_sectop_before_lone_node_Top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_sectop_before_lone_node_Top'};
 
 $result_nodes{'node_sectop_before_lone_node_Top'} = {
   'cmdname' => 'node',

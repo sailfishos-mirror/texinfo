@@ -2856,7 +2856,8 @@ $result_sectioning{'encoding_index_latin1'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -2864,6 +2865,7 @@ $result_sectioning{'encoding_index_latin1'} = {
   }
 };
 $result_sectioning{'encoding_index_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'encoding_index_latin1'};
+$result_sectioning{'encoding_index_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'encoding_index_latin1'};
 
 $result_nodes{'encoding_index_latin1'} = {
   'cmdname' => 'node',

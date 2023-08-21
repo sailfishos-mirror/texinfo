@@ -375,7 +375,8 @@ $result_sectioning{'transparent_sort_chars'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -383,6 +384,7 @@ $result_sectioning{'transparent_sort_chars'} = {
   }
 };
 $result_sectioning{'transparent_sort_chars'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'transparent_sort_chars'};
+$result_sectioning{'transparent_sort_chars'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'transparent_sort_chars'};
 
 $result_nodes{'transparent_sort_chars'} = {
   'cmdname' => 'node',

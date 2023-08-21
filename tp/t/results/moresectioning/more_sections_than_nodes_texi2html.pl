@@ -1358,6 +1358,7 @@ $result_sectioning{'more_sections_than_nodes_texi2html'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1395,6 +1396,7 @@ $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_child
 $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
 $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'more_sections_than_nodes_texi2html'};
+$result_sectioning{'more_sections_than_nodes_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'more_sections_than_nodes_texi2html'};
 
 $result_nodes{'more_sections_than_nodes_texi2html'} = {
   'cmdname' => 'node',

@@ -1635,6 +1635,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1670,6 +1671,7 @@ $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]
 $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5];
 $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodedescription_descriptions'};
+$result_sectioning{'nodedescription_descriptions'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodedescription_descriptions'};
 
 $result_nodes{'nodedescription_descriptions'} = {
   'cmdname' => 'node',

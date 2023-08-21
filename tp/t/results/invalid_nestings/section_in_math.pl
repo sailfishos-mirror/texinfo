@@ -211,6 +211,7 @@ $result_sectioning{'section_in_math'} = {
           },
           'section_level' => 2,
           'section_number' => 1,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -233,6 +234,7 @@ $result_sectioning{'section_in_math'} = {
   }
 };
 $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_math'};
+$result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_math'};
 $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_math'};
 $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_in_math'}{'extra'}{'section_childs'}[0];

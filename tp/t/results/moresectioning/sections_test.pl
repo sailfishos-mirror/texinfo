@@ -557,6 +557,7 @@ $result_sectioning{'sections_test'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -655,6 +656,7 @@ $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'sect
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sections_test'};
+$result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'sections_test'};
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'sections_test'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];

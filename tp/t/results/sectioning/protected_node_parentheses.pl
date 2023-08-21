@@ -420,7 +420,8 @@ $result_sectioning{'protected_node_parentheses'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -428,6 +429,7 @@ $result_sectioning{'protected_node_parentheses'} = {
   }
 };
 $result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'protected_node_parentheses'};
+$result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'protected_node_parentheses'};
 
 $result_nodes{'protected_node_parentheses'} = {
   'cmdname' => 'node',

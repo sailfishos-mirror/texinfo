@@ -545,6 +545,7 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -557,6 +558,7 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'
 $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'ref_in_copying_insert_in_chapter'};
+$result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'ref_in_copying_insert_in_chapter'};
 
 $result_nodes{'ref_in_copying_insert_in_chapter'} = {
   'cmdname' => 'node',

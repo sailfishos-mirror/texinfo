@@ -454,6 +454,7 @@ $result_sectioning{'translation_in_parser_in_translation'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -465,6 +466,7 @@ $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_chi
 $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'translation_in_parser_in_translation'};
+$result_sectioning{'translation_in_parser_in_translation'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'translation_in_parser_in_translation'};
 
 $result_nodes{'translation_in_parser_in_translation'} = {
   'cmdname' => 'node',

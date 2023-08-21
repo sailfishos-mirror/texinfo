@@ -1149,6 +1149,7 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1180,6 +1181,7 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_ch
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4];
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'};
+$result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'};
 
 $result_nodes{'in_menu_only_special_spaces_node_menu'} = {
   'cmdname' => 'node',

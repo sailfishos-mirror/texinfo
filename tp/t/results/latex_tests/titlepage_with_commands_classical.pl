@@ -753,6 +753,7 @@ $result_sectioning{'titlepage_with_commands_classical'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -764,6 +765,7 @@ $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs
 $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'titlepage_with_commands_classical'};
+$result_sectioning{'titlepage_with_commands_classical'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'titlepage_with_commands_classical'};
 
 $result_nodes{'titlepage_with_commands_classical'} = {
   'cmdname' => 'node',

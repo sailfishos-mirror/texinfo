@@ -848,6 +848,7 @@ $result_sectioning{'sectioning_part_appendix'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -960,6 +961,7 @@ $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'as
 $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'}{'extra'}{'section_directions'}{'up'};
 $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sectioning_part_appendix'};
+$result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'sectioning_part_appendix'};
 $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[1] = $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'section_directions'}{'up'}{'extra'}{'section_directions'}{'prev'};
 $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[2] = $result_sectioning{'sectioning_part_appendix'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'section_directions'}{'up'};
 

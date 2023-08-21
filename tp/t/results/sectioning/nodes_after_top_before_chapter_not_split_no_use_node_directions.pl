@@ -460,7 +460,8 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directi
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -468,6 +469,7 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directi
   }
 };
 $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'};
+$result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'};
 
 $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = {
   'cmdname' => 'node',

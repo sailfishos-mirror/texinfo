@@ -2774,6 +2774,7 @@ $result_sectioning{'htmlxref_nodes'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -2785,6 +2786,7 @@ $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sec
 $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'htmlxref_nodes'};
+$result_sectioning{'htmlxref_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'htmlxref_nodes'};
 
 $result_nodes{'htmlxref_nodes'} = {
   'cmdname' => 'node',

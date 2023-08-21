@@ -383,6 +383,7 @@ $result_sectioning{'alias_of_added_index_before_added_index'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -394,6 +395,7 @@ $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_
 $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'alias_of_added_index_before_added_index'};
+$result_sectioning{'alias_of_added_index_before_added_index'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'alias_of_added_index_before_added_index'};
 
 $result_nodes{'alias_of_added_index_before_added_index'} = {
   'cmdname' => 'node',

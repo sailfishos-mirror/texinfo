@@ -1032,6 +1032,7 @@ $result_sectioning{'navigation_test_misc_file_collision'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1045,6 +1046,7 @@ $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_chil
 $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'navigation_test_misc_file_collision'};
+$result_sectioning{'navigation_test_misc_file_collision'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'navigation_test_misc_file_collision'};
 
 $result_nodes{'navigation_test_misc_file_collision'} = {
   'cmdname' => 'node',

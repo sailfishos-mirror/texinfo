@@ -1079,7 +1079,8 @@ $result_sectioning{'node_footnote_end'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -1087,6 +1088,7 @@ $result_sectioning{'node_footnote_end'} = {
   }
 };
 $result_sectioning{'node_footnote_end'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_footnote_end'};
+$result_sectioning{'node_footnote_end'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_footnote_end'};
 
 $result_nodes{'node_footnote_end'} = {
   'cmdname' => 'node',

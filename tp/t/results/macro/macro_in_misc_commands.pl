@@ -5649,6 +5649,7 @@ $result_sectioning{'macro_in_misc_commands'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -5660,6 +5661,7 @@ $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extr
 $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'macro_in_misc_commands'};
+$result_sectioning{'macro_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'macro_in_misc_commands'};
 
 $result_nodes{'macro_in_misc_commands'} = {
   'cmdname' => 'node',

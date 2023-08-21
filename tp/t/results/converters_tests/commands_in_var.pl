@@ -787,6 +787,7 @@ $result_sectioning{'commands_in_var'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -798,6 +799,7 @@ $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0]{'extra'}{'se
 $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'commands_in_var'};
+$result_sectioning{'commands_in_var'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'commands_in_var'};
 
 $result_nodes{'commands_in_var'} = {
   'cmdname' => 'node',

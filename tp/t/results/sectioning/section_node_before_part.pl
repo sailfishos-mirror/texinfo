@@ -155,7 +155,8 @@ $result_sectioning{'section_node_before_part'} = {
             'up' => {}
           },
           'section_level' => 2,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       },
       {
@@ -172,6 +173,7 @@ $result_sectioning{'section_node_before_part'} = {
   }
 };
 $result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_node_before_part'};
+$result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_node_before_part'};
 $result_sectioning{'section_node_before_part'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_node_before_part'};
 
 $result_nodes{'section_node_before_part'} = {

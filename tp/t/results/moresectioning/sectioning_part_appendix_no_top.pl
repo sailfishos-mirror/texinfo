@@ -763,6 +763,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
           },
           'section_level' => 1,
           'section_number' => 1,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -858,6 +859,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'directions'}{'Back'}{'directions'}{'Back'}{'unit_command'};
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sectioning_part_appendix_no_top'};
+$result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'sectioning_part_appendix_no_top'};
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[1] = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'section_directions'}{'up'}{'extra'}{'section_directions'}{'prev'};
 $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[2] = $result_sectioning{'sectioning_part_appendix_no_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'section_directions'}{'up'};
 

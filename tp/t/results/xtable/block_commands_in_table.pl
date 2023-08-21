@@ -1487,6 +1487,7 @@ $result_sectioning{'block_commands_in_table'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1498,6 +1499,7 @@ $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0]{'ext
 $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'block_commands_in_table'};
+$result_sectioning{'block_commands_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'block_commands_in_table'};
 
 $result_nodes{'block_commands_in_table'} = {
   'cmdname' => 'node',

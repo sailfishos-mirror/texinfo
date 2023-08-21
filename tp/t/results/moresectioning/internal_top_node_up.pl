@@ -298,7 +298,8 @@ $result_sectioning{'internal_top_node_up'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -319,6 +320,7 @@ $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'associ
 $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'} = $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
 $result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'internal_top_node_up'};
+$result_sectioning{'internal_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'internal_top_node_up'};
 
 $result_nodes{'internal_top_node_up'} = {
   'associated_unit' => {

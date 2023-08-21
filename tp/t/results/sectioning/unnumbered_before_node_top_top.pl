@@ -223,6 +223,7 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
             'up' => {}
           },
           'section_level' => 1,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -246,6 +247,7 @@ $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_before_node_top_top'};
+$result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_before_node_top_top'};
 $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[1] = $result_sectioning{'unnumbered_before_node_top_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'unit_command'};
 
 $result_nodes{'unnumbered_before_node_top_top'} = {

@@ -600,7 +600,8 @@ $result_sectioning{'link'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -608,6 +609,7 @@ $result_sectioning{'link'} = {
   }
 };
 $result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'link'};
+$result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'link'};
 
 $result_nodes{'link'} = {
   'cmdname' => 'node',

@@ -789,6 +789,7 @@ $result_sectioning{'documentlanguage'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -800,6 +801,7 @@ $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'s
 $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'documentlanguage'};
+$result_sectioning{'documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'documentlanguage'};
 
 $result_nodes{'documentlanguage'} = {
   'cmdname' => 'node',

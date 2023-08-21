@@ -230,8 +230,6 @@ sub sectioning_structure($$$)
           }
           if ($level <= $up->{'extra'}->{'section_level'}) {
             if ($content->{'cmdname'} eq 'part') {
-              # in case of a part, the up is either @top or sec_root
-              # or another @part
               $new_upper_part_element = 1;
               if ($level < $up->{'extra'}->{'section_level'}) {
                 # in this case, up is necessarily the sec_root
@@ -263,12 +261,11 @@ sub sectioning_structure($$$)
           $number_top_level = $level;
           $number_top_level++ if (!$number_top_level);
         } else {
-          push @{$up->{'extra'}->{'section_childs'}}, $content;
           $content->{'extra'}->{'section_directions'}->{'up'} = $up;
-          $content->{'extra'}->{'section_directions'}->{'prev'}
-                = $up->{'extra'}->{'section_childs'}->[-2];
-          $content->{'extra'}->{'section_directions'}->{'prev'}
-                   ->{'extra'}->{'section_directions'}->{'next'} = $content;
+          my $prev = $up->{'extra'}->{'section_childs'}->[-1];
+          $content->{'extra'}->{'section_directions'}->{'prev'} = $prev;
+          $prev->{'extra'}->{'section_directions'}->{'next'} = $content;
+          push @{$up->{'extra'}->{'section_childs'}}, $content;
         }
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
           $command_numbers[$level]++;
@@ -284,6 +281,9 @@ sub sectioning_structure($$$)
       $sec_root->{'extra'}->{'section_level'} = $level - 1;
       $sec_root->{'extra'}->{'section_childs'} = [$content];
       $content->{'extra'}->{'section_directions'}->{'up'} = $sec_root;
+      # put sec_root more directly in the tree as an out of tree element
+      # in extra, not only as direction. Especially of use for XS.
+      $content->{'extra'}->{'sectioning_root'} = $sec_root;
       $number_top_level = $level;
       # if $level of top sectioning element is 0, which means that
       # it is a @top, $number_top_level is 1 as it is associated to

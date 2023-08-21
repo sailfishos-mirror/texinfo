@@ -1473,6 +1473,7 @@ $result_sectioning{'def_syn_indices'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1484,6 +1485,7 @@ $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0]{'extra'}{'se
 $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'def_syn_indices'};
+$result_sectioning{'def_syn_indices'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'def_syn_indices'};
 
 $result_nodes{'def_syn_indices'} = {
   'cmdname' => 'node',

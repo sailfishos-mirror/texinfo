@@ -1880,6 +1880,7 @@ $result_sectioning{'index_special_region_no_insertcopying'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1895,6 +1896,7 @@ $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_ch
 $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_special_region_no_insertcopying'};
+$result_sectioning{'index_special_region_no_insertcopying'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_special_region_no_insertcopying'};
 
 $result_nodes{'index_special_region_no_insertcopying'} = {
   'cmdname' => 'node',

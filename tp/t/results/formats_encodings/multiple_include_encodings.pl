@@ -2427,6 +2427,7 @@ $result_sectioning{'multiple_include_encodings'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -2459,6 +2460,7 @@ $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4];
 $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'multiple_include_encodings'};
+$result_sectioning{'multiple_include_encodings'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'multiple_include_encodings'};
 
 $result_nodes{'multiple_include_encodings'} = {
   'cmdname' => 'node',

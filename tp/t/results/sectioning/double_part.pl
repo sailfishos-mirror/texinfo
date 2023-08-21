@@ -529,6 +529,7 @@ $result_sectioning{'double_part'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       },
@@ -576,6 +577,7 @@ $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'associated_unit
 $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_part'};
+$result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_part'};
 $result_sectioning{'double_part'}{'extra'}{'section_childs'}[1] = $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'Back'}{'unit_command'};
 $result_sectioning{'double_part'}{'extra'}{'section_childs'}[2] = $result_sectioning{'double_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'associated_part'};
 

@@ -655,6 +655,7 @@ $result_sectioning{'double_contents_after_title'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -667,6 +668,7 @@ $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0]{
 $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_contents_after_title'};
+$result_sectioning{'double_contents_after_title'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_contents_after_title'};
 
 $result_nodes{'double_contents_after_title'} = {
   'cmdname' => 'node',

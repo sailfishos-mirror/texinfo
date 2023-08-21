@@ -1032,6 +1032,7 @@ $result_sectioning{'navigation_node_no_header'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1045,6 +1046,7 @@ $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0]{'e
 $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'navigation_node_no_header'};
+$result_sectioning{'navigation_node_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'navigation_node_no_header'};
 
 $result_nodes{'navigation_node_no_header'} = {
   'cmdname' => 'node',

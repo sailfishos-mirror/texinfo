@@ -336,6 +336,7 @@ $result_sectioning{'index_and_node_same_name'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -347,6 +348,7 @@ $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'ex
 $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_and_node_same_name'};
+$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_and_node_same_name'};
 
 $result_nodes{'index_and_node_same_name'} = {
   'cmdname' => 'node',

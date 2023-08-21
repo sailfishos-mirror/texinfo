@@ -887,6 +887,7 @@ $result_sectioning{'japanese_shift_jis'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -902,6 +903,7 @@ $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{
 $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'japanese_shift_jis'};
+$result_sectioning{'japanese_shift_jis'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'japanese_shift_jis'};
 
 $result_nodes{'japanese_shift_jis'} = {
   'cmdname' => 'node',

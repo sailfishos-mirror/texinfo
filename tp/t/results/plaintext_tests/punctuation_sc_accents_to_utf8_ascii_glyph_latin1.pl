@@ -1265,6 +1265,7 @@ $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1276,6 +1277,7 @@ $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}
 $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'};
+$result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'};
 
 $result_nodes{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'} = {
   'cmdname' => 'node',

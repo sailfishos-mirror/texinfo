@@ -107,7 +107,8 @@ $result_sectioning{'footnote_no_node'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -115,6 +116,7 @@ $result_sectioning{'footnote_no_node'} = {
   }
 };
 $result_sectioning{'footnote_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'footnote_no_node'};
+$result_sectioning{'footnote_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'footnote_no_node'};
 
 $result_errors{'footnote_no_node'} = [];
 

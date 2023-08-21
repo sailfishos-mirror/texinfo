@@ -1826,6 +1826,7 @@ $result_sectioning{'float_and_refs'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1845,6 +1846,7 @@ $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'sec
 $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'float_and_refs'};
+$result_sectioning{'float_and_refs'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'float_and_refs'};
 
 $result_nodes{'float_and_refs'} = {
   'cmdname' => 'node',

@@ -304,7 +304,8 @@ $result_sectioning{'documentdescription'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -312,6 +313,7 @@ $result_sectioning{'documentdescription'} = {
   }
 };
 $result_sectioning{'documentdescription'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'documentdescription'};
+$result_sectioning{'documentdescription'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'documentdescription'};
 
 $result_errors{'documentdescription'} = [];
 

@@ -5397,6 +5397,7 @@ $result_sectioning{'section_in_unnumbered_plaintext'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -5464,6 +5465,7 @@ $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}
 $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
 $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_unnumbered_plaintext'};
+$result_sectioning{'section_in_unnumbered_plaintext'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_unnumbered_plaintext'};
 
 $result_nodes{'section_in_unnumbered_plaintext'} = {
   'cmdname' => 'node',

@@ -840,6 +840,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -863,6 +864,7 @@ $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
 $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'special_docbook_unnumbered'};
+$result_sectioning{'special_docbook_unnumbered'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'special_docbook_unnumbered'};
 
 $result_nodes{'special_docbook_unnumbered'} = {
   'cmdname' => 'node',

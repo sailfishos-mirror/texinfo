@@ -290,6 +290,7 @@ $result_sectioning{'manual_simple_utf8_with_error'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -301,6 +302,7 @@ $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0
 $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'manual_simple_utf8_with_error'};
+$result_sectioning{'manual_simple_utf8_with_error'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'manual_simple_utf8_with_error'};
 
 $result_nodes{'manual_simple_utf8_with_error'} = {
   'cmdname' => 'node',

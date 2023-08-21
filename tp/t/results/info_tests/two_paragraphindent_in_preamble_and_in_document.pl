@@ -431,7 +431,8 @@ $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'} = {
           'section_directions' => {
             'up' => {}
           },
-          'section_level' => 0
+          'section_level' => 0,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -439,6 +440,7 @@ $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'} = {
   }
 };
 $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'};
+$result_sectioning{'two_paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'two_paragraphindent_in_preamble_and_in_document'};
 
 $result_nodes{'two_paragraphindent_in_preamble_and_in_document'} = {
   'cmdname' => 'node',

@@ -134,7 +134,8 @@ $result_sectioning{'recursive_self_section_reference'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -142,6 +143,7 @@ $result_sectioning{'recursive_self_section_reference'} = {
   }
 };
 $result_sectioning{'recursive_self_section_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'recursive_self_section_reference'};
+$result_sectioning{'recursive_self_section_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'recursive_self_section_reference'};
 
 $result_nodes{'recursive_self_section_reference'} = {
   'cmdname' => 'node',

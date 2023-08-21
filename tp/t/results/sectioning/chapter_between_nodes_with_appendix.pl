@@ -374,6 +374,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -389,6 +390,7 @@ $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_chil
 $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_between_nodes_with_appendix'};
+$result_sectioning{'chapter_between_nodes_with_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'chapter_between_nodes_with_appendix'};
 
 $result_nodes{'chapter_between_nodes_with_appendix'} = {
   'cmdname' => 'node',

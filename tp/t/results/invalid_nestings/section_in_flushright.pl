@@ -113,7 +113,8 @@ $result_sectioning{'section_in_flushright'} = {
             'up' => {}
           },
           'section_level' => 2,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -121,6 +122,7 @@ $result_sectioning{'section_in_flushright'} = {
   }
 };
 $result_sectioning{'section_in_flushright'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_flushright'};
+$result_sectioning{'section_in_flushright'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_flushright'};
 
 $result_errors{'section_in_flushright'} = [
   {

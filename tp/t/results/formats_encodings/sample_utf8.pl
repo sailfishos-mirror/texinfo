@@ -1549,6 +1549,7 @@ $result_sectioning{'sample_utf8'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -1568,6 +1569,7 @@ $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'sectio
 $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'sample_utf8'};
+$result_sectioning{'sample_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'sample_utf8'};
 
 $result_nodes{'sample_utf8'} = {
   'cmdname' => 'node',

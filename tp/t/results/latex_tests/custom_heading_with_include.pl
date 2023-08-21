@@ -2617,6 +2617,7 @@ $result_sectioning{'custom_heading_with_include'} = {
             'up' => {}
           },
           'section_level' => 0,
+          'sectioning_root' => {},
           'toplevel_directions' => {}
         }
       }
@@ -2662,6 +2663,7 @@ $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{
 $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5];
 $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'custom_heading_with_include'};
+$result_sectioning{'custom_heading_with_include'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'custom_heading_with_include'};
 
 $result_nodes{'custom_heading_with_include'} = {
   'cmdname' => 'node',

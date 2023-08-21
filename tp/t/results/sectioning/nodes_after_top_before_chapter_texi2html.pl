@@ -455,7 +455,8 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html'} = {
             'up' => {}
           },
           'section_level' => 1,
-          'section_number' => 1
+          'section_number' => 1,
+          'sectioning_root' => {}
         }
       }
     ],
@@ -463,6 +464,7 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html'} = {
   }
 };
 $result_sectioning{'nodes_after_top_before_chapter_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_texi2html'};
+$result_sectioning{'nodes_after_top_before_chapter_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_chapter_texi2html'};
 
 $result_nodes{'nodes_after_top_before_chapter_texi2html'} = {
   'cmdname' => 'node',
