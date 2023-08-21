@@ -1268,6 +1268,13 @@ in chap
 
 @appendix Appendix
 '],
+['part_section_part',
+'@part Part1
+
+@section section 1
+
+@part Part 2
+'],
 ['contents_in_html_text',
 '@top top
 

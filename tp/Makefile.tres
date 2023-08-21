@@ -1860,6 +1860,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/part_node_node_part_appendix.pl \
   t/results/sectioning/part_node_part_appendix.pl \
   t/results/sectioning/part_node_part_node_appendix.pl \
+  t/results/sectioning/part_section_part.pl \
   t/results/sectioning/protected_node_parentheses.pl \
   t/results/sectioning/recursive_self_section_reference.pl \
   t/results/sectioning/ref_to_top.pl \
