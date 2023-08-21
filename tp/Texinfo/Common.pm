@@ -2002,6 +2002,16 @@ sub _collect_commands_list_in_tree($$$)
 # seen are the same in both cases, such that _counter is at 0 in
 # _copy_extra_info when all the dependent elements have been seen
 # and going through the target element.
+
+# the *_directions extra items are not elements, they contain
+# up, next and prev that point to elements.
+# it could also have been possible to determine that it is
+# an extra_directions if the keys are only up, next and prev
+my %extra_directions;
+foreach my $type ('menu', 'node', 'section', 'toplevel') {
+  $extra_directions{$type.'_directions'} = 1;
+}
+
 sub _copy_tree($$);
 sub _copy_tree($$)
 {
@@ -2071,14 +2081,27 @@ sub _copy_tree($$)
         }
       } elsif (ref($value) eq 'HASH') {
         #print STDERR "II HASH $key $value\n";
-        if ($value->{'_copy'}) {
-          $new->{$info_type}->{$key} = $value->{'_copy'};
+        if ($extra_directions{$key}) {
+          $new->{$info_type}->{$key} = {};
+          foreach my $direction (sort (keys(%$value))) {
+            my $target = $value->{$direction};
+            if ($target->{'_copy'}) {
+              $new->{$info_type}->{$key}->{$direction} = $target->{'_copy'};
+            } else {
+              $target->{'_counter'}++;
+            }
+            _copy_tree($target, undef);
+          }
         } else {
-          $value->{'_counter'}++;
-          #print STDERR "AC $value ".debug_print_element($value)
-          #   .": $value->{'_counter'}\n";
+          if ($value->{'_copy'}) {
+            $new->{$info_type}->{$key} = $value->{'_copy'};
+          } else {
+            $value->{'_counter'}++;
+            #print STDERR "AC $value ".debug_print_element($value)
+            #   .": $value->{'_counter'}\n";
+          }
+          _copy_tree($value, undef);
         }
-        _copy_tree($value, undef);
       }
     }
   }
@@ -2172,12 +2195,33 @@ sub _copy_extra_info($$;$)
       } elsif (ref($value) eq 'HASH') {
         #print STDERR (' ' x $level)
         #         . "Hash $command_or_type $info_type -> $key\n";
-        if (!exists($new->{$info_type}->{$key})) {
-          my $context = "${info_type}[$command_or_type]{$key}";
-          $new->{$info_type}->{$key} = _get_copy_ref($value, $context);
-        }
-        if ($value->{'_copy'}) {
-          _copy_extra_info($value, $value->{'_copy'}, $level);
+        if ($extra_directions{$key}) {
+          my $new_directions = $new->{$info_type}->{$key};
+          foreach my $direction (sort(keys(%$value))) {
+            if (!exists($new_directions->{$direction})) {
+              my $context = "$info_type [$command_or_type]{$key} {$direction}";
+              $new_directions->{$direction}
+                = _get_copy_ref($value->{$direction}, $context);
+            }
+            _copy_extra_info($value->{$direction},
+                             $value->{$direction}->{'_copy'}, $level)
+              if ($value->{$direction}->{'_copy'});
+          }
+        } else {
+          if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
+              and not defined($value->{'text'}) and not defined($value->{'extra'})
+              and not defined($value->{'contents'})
+              and not defined($value->{'args'})
+              and scalar(keys(%$value))) {
+            print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
+          }
+          if (!exists($new->{$info_type}->{$key})) {
+            my $context = "${info_type}[$command_or_type]{$key}";
+            $new->{$info_type}->{$key} = _get_copy_ref($value, $context);
+          }
+          if ($value->{'_copy'}) {
+            _copy_extra_info($value, $value->{'_copy'}, $level);
+          }
         }
       } else {
         print STDERR "Unexpected $info_type [$command_or_type]{$key}: "

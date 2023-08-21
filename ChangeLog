@@ -1,5 +1,14 @@
 2023-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%extra_directions, _copy_tree)
+	(_copy_extra_info): handle *_directions extra keys that do not contain
+	directly a reference to tree elements, but contain next, prev and up
+	keys which values are references to tree elements.
+
+	* tp/t/test_tree_copy.t: test copy with sectioning structure set.
+
+2023-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am: indent all the lines of a rule with tabs.
 
 2023-08-21  Patrice Dumas  <pertusus@free.fr>

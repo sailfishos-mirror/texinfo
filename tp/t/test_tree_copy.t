@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 6; }
+BEGIN { plan tests => 7; }
 #BEGIN { plan tests => 1; }
 
 use Data::Dumper;
@@ -127,9 +127,10 @@ T
 
 ';
 
-my $document = Texinfo::Parser::parse_texi_piece(undef, $text);
+my $test_parser = Texinfo::Parser::parser();
+my $document = Texinfo::Parser::parse_texi_piece($test_parser, $text);
 my $tree = $document->tree();
-my $reference_associations = {};
+my $test_registrar = $test_parser->registered_errors();
 my $copy = Texinfo::Structuring::copy_tree($tree, undef);
 
 my $texi_tree = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -138,6 +139,19 @@ is ($text, $texi_tree, "tree to texi and original match");
 
 my $texi_copy = Texinfo::Convert::Texinfo::convert_to_texinfo($copy);
 is ($texi_copy, $texi_tree, "tree and copy to texi match");
+
+# set sectioning structure and redo a copy
+my ($sectioning_root, $sections_list)
+      = Texinfo::Structuring::sectioning_structure($test_registrar,
+                                                   $test_parser, $tree);
+
+my $copy_with_sec = Texinfo::Structuring::copy_tree($tree, undef);
+
+my $texi_tree_with_sec = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+my $texi_copy_with_sec
+  = Texinfo::Convert::Texinfo::convert_to_texinfo($copy_with_sec); 
+is ($texi_tree_with_sec, $texi_copy_with_sec,
+    "tree after sectioning and copy to texi match");
 
 my $updir = File::Spec->updir();
 my $manual_file = File::Spec->catfile($srcdir, $updir, 'doc', 'texinfo.texi');
