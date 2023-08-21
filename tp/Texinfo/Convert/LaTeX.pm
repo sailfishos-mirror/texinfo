@@ -1826,7 +1826,7 @@ sub _begin_document($)
 
   if (exists($self->{'global_commands'}->{'contents'})
       and $self->{'structuring'}
-      and $self->{'structuring'}->{'sectioning_root'}
+      and $self->{'structuring'}->{'sections_list'}
       and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
                and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
     if (exists($self->{'global_commands'}->{'titlepage'})
@@ -3995,14 +3995,14 @@ sub _convert($$)
       if (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
           and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
           and $self->{'structuring'}
-          and $self->{'structuring'}->{'sectioning_root'}
+          and $self->{'structuring'}->{'sections_list'}
           and not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
         $result .= "\\tableofcontents\\newpage\n";
       }
       return $result;
     } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
       if ($self->{'structuring'}
-            and $self->{'structuring'}->{'sectioning_root'}) {
+            and $self->{'structuring'}->{'sections_list'}) {
         # TODO see notes at the beginning
         $result .= '';
       }

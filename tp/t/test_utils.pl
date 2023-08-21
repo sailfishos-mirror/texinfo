@@ -1014,15 +1014,16 @@ sub test($$)
   Texinfo::Structuring::associate_internal_references($registrar,
                                      $main_configuration, $document);
   my $structure_information = {};
-  my ($sectioning_root, $sections_list)
+  my $sections_list
         = Texinfo::Structuring::sectioning_structure($registrar,
                                       $main_configuration, $tree);
-  if ($sectioning_root) {
+  my $sectioning_root;
+  if ($sections_list) {
     Texinfo::Structuring::warn_non_empty_parts($registrar,
                                                $main_configuration,
                                                $global_commands);
-    $structure_information->{'sectioning_root'} = $sectioning_root;
     $structure_information->{'sections_list'} = $sections_list;
+    $sectioning_root = $sections_list->[0]->{'extra'}->{'sectioning_root'};
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {

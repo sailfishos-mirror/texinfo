@@ -589,8 +589,9 @@ sub output_ixin($$)
   # do sectioning tree
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
-    my $section_root = $self->{'structuring'}->{'sectioning_root'};
+  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}) {
+    my $section_root = $self->{'structuring'}->{'sections_list'}->[0]
+                                   ->{'extra'}->{'sectioning_root'};
     foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
       my $section = $top_section;
  SECTION:

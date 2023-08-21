@@ -311,8 +311,9 @@ sub chm_init($)
   }
   print $hhc_fh "</OBJECT>\n";
 
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
-    my $section_root = $self->{'structuring'}->{'sectioning_root'};
+  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}) {
+    my $section_root = $self->{'structuring'}->{'sections_list'}->[0]
+                                         ->{'extra'}->{'sectioning_root'};
     my $upper_level = $section_root->{'extra'}->{'section_childs'}->[0]
                                                ->{'extra'}->{'section_level'};
     foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {

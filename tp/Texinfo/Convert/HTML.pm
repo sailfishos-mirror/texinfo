@@ -4155,7 +4155,7 @@ sub _convert_heading_command($$$$$)
   my $structuring = $self->get_info('structuring');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
-      and $structuring and $structuring->{'sectioning_root'}
+      and $structuring and $structuring->{'sections_list'}
       and scalar(@{$structuring->{'sections_list'}}) > 1) {
     foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
@@ -6097,7 +6097,7 @@ sub _convert_contents_command($$$)
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
       and $self->get_conf($cmdname)
-      and $structuring and $structuring->{'sectioning_root'}
+      and $structuring and $structuring->{'sections_list'}
       and scalar(@{$structuring->{'sections_list'}}) > 1) {
     return $self->_contents_inline_element($cmdname, $command);
   }
@@ -7108,7 +7108,7 @@ sub _contents_shortcontents_in_title($)
   my $result = '';
 
   my $structuring = $self->get_info('structuring');
-  if ($structuring and $structuring->{'sectioning_root'}
+  if ($structuring and $structuring->{'sections_list'}
       and scalar(@{$structuring->{'sections_list'}}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
     foreach my $cmdname ('shortcontents', 'contents') {
@@ -9150,7 +9150,7 @@ sub _prepare_special_elements($$$$)
   my $document_name = shift;
 
   my %do_special;
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
+  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}
       and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
     if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'separate_element') {
       foreach my $cmdname ('shortcontents', 'contents') {
@@ -9286,7 +9286,7 @@ sub _prepare_contents_elements($)
 {
   my $self = shift;
 
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
+  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}
       and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
     foreach my $cmdname ('contents', 'shortcontents') {
       my $special_element_variety
@@ -9757,9 +9757,10 @@ sub _default_format_contents($$;$$)
 
   my $structuring = $self->get_info('structuring');
   return ''
-   if (!$structuring or !$structuring->{'sectioning_root'});
+   if (!$structuring or !$structuring->{'sections_list'});
 
-  my $section_root = $structuring->{'sectioning_root'};
+  my $section_root = $structuring->{'sections_list'}->[0]
+                                   ->{'extra'}->{'sectioning_root'};
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 

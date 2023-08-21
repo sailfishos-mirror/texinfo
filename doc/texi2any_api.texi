@@ -1816,10 +1816,8 @@ is the @@-command name used for the simpletitle, without the leading @@.
 
 @item structuring
 Information on the document structure.  Gathered before the conversion.
-Two hash keys correspond to interesting information, @code{sectioning_root}
-which points to the top level sectioning command tree element, and
-@code{sections_list} which holds the list of the sectioning commands in the
-document.
+One hash key correspond to interesting information, @code{sections_list} which
+holds the list of the sectioning commands in the document.
 
 @item title_titlepage
 The formatted title, possibly based on @code{@@titlepage}, or on

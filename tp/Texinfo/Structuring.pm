@@ -349,7 +349,11 @@ sub sectioning_structure($$$)
           $content->{'cmdname'}), $content->{'source_info'});
     }
   }
-  return $sec_root, \@sections_list;
+  if (scalar(@sections_list) == 0) {
+    return undef;
+  } else {
+    return \@sections_list;
+  }
 }
 
 # for debugging
@@ -2502,7 +2506,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   # associated Texinfo document tree.  $parser is a Texinfo::Parser
   # object. $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
-  my $sections_root = sectioning_structure ($registrar, $config, $tree);
+  my $sections_list = sectioning_structure ($registrar, $config, $tree);
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my ($top_node, $nodes_list)
@@ -2786,13 +2790,12 @@ Return the sectioning command name corresponding to the sectioning
 element I<$element>, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-=item $sections_root, $sections_list = sectioning_structure($registrar, $customization_information, $tree)
+=item $sections_list = sectioning_structure($registrar, $customization_information, $tree)
 X<C<sectioning_structure>>
 
 This function goes through the tree and gather information on the document
-structure for sectioning commands.  It returns I<$sections_root> the root
-of the sectioning commands tree and a reference on the sections elements
-list.  Errors are registered in I<$registrar>.
+structure for sectioning commands.  It returns a reference on the sections
+elements list.  Errors are registered in I<$registrar>.
 
 It sets section elements C<extra> hash values:
 
@@ -2825,6 +2828,11 @@ for elements like C<@top>, C<@chapter>, C<@appendix>, not taking into
 account C<@part> elements.
 
 =back
+
+An element is created and used as the root of the sectioning commands tree.
+This element is associated to the C<extra> I<sectioning_root> key of the first
+section element of the sections list.  It is also at the top of the tree when
+following the I<up> I<section_directions>.
 
 =item set_menus_node_directions($registrar, $customization_information, $global_commands, $nodes_list, $identifier_target);
 X<C<set_menus_node_directions>>

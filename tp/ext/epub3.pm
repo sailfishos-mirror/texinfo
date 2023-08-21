@@ -653,7 +653,7 @@ EOT
   my $nav_id = 'nav';
   my $nav_file_path_name;
   my $title = _epub_convert_tree_to_text($self, $self->get_info('title_tree'));
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
+  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}) {
     $nav_file_path_name
      = File::Spec->catfile($epub_document_destination_directory, $nav_filename);
     my ($encoded_nav_file_path_name, $nav_path_encoding)
@@ -684,7 +684,8 @@ EOT
 EOT
 
     # similar code as in chm.pm
-    my $section_root = $self->{'structuring'}->{'sectioning_root'};
+    my $section_root = $self->{'structuring'}->{'sections_list'}->[0]
+                                         ->{'extra'}->{'sectioning_root'};
     my $upper_level = $section_root->{'extra'}->{'section_childs'}->[0]
                                             ->{'extra'}->{'section_level'};
     foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {

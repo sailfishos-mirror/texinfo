@@ -1573,12 +1573,11 @@ while(@input_files) {
   # should be documented.
   my $structure_information = {};
   # every format needs the sectioning structure
-  my ($sectioning_root, $sections_list)
+  my $sections_list
             = Texinfo::Structuring::sectioning_structure($registrar,
                                                $main_configuration, $tree);
 
-  if ($sectioning_root) {
-    $structure_information->{'sectioning_root'} = $sectioning_root;
+  if ($sections_list) {
     $structure_information->{'sections_list'} = $sections_list;
     if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
       Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
