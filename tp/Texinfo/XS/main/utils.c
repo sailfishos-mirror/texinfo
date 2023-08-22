@@ -27,6 +27,7 @@
 #include "extra.h"
 #include "errors.h"
 #include "debug.h"
+#include "builtin_commands.h"
 #include "utils.h"
 
 #include "cmd_structuring.c"
@@ -300,6 +301,62 @@ section_level (ELEMENT *section)
         level = max_level;
     }
   return level;
+}
+
+/* from Common.pm */
+int
+is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
+{
+  int i;
+  if (!tree || !tree->contents.number)
+    return 1;
+
+  for (i = 0; i < tree->contents.number; i++)
+    {
+      ELEMENT *content = tree->contents.list[i];
+      if (content->cmd)
+        {
+          if (content->type == ET_index_entry_command)
+            {
+              if (do_not_ignore_index_entries)
+                return 0;
+              else
+               continue;
+            }
+          if (builtin_command_flags(content) & CF_line)
+            {
+              if (command_other_flags(content) & CF_formatted_line
+                  || command_other_flags(content) & CF_formattable_line)
+                return 0;
+              else
+                continue;
+            }
+          else if (builtin_command_flags(content) & CF_nobrace)
+            {
+              if (command_other_flags(content) & CF_formatted_nobrace)
+                return 0;
+              else
+                continue;
+            }
+          else if (command_other_flags(content) & CF_non_formatted_brace
+                   || command_other_flags(content) & CF_non_formatted_block)
+            continue;
+          else
+            return 0;
+        }
+      if (content->type == ET_paragraph)
+        return 0;
+      if (content->text.end > 0)
+        {
+          char *text = element_text (content);
+          /* only whitespace characters */
+          if (! text[strspn (text, whitespace_chars)] == '\0')
+            return 0;
+        }
+      if (! is_content_empty (content, do_not_ignore_index_entries))
+        return 0;
+    }
+  return 1;
 }
 
 /* could have been in tree, but it would add a dependency on extra.h

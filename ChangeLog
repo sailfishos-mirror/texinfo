@@ -1,5 +1,15 @@
 2023-08-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/builtin_commands.h (command_other_flags):
+	rename builtin_command_other_flags as command_other_flags as there is
+	no ambiguity.  Update callers.
+
+	* tp/Texinfo/XS/main/utils.c (is_content_empty),
+	tp/Texinfo/XS/structuring_transfo/transformations.c: move from
+	transformations.c to utils.c.
+
+2023-08-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (%appendix_commands)
 	(%unnumbered_commands), tp/Texinfo/XS/main/builtin_commands.h,
 	tp/Texinfo/XS/main/command_data.awk, tp/Texinfo/command_data.txt: add

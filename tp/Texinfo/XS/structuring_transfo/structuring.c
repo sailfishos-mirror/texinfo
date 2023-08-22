@@ -190,11 +190,11 @@ sectioning_structure (ELEMENT *root)
                 if the up is unnumbered, the number information has to be kept,
                 to avoid reusing an already used number.
                 */
-              if (!(builtin_command_other_flags (previous_section) & CF_unnumbered))
+              if (!(command_other_flags (previous_section) & CF_unnumbered))
                 command_numbers[level] = -1;
-              else if (!(builtin_command_other_flags (content) & CF_unnumbered))
+              else if (!(command_other_flags (content) & CF_unnumbered))
                 command_numbers[level]++;
-              if (builtin_command_other_flags (previous_section) & CF_unnumbered)
+              if (command_other_flags (previous_section) & CF_unnumbered)
                 command_unnumbered[level] = 1;
               else
                 command_unnumbered[level] = 0;
@@ -249,7 +249,7 @@ sectioning_structure (ELEMENT *root)
                          }
                     }
                 }
-              if ((builtin_command_other_flags (content) & CF_appendix)
+              if ((command_other_flags (content) & CF_appendix)
                   && !in_appendix && level <= number_top_level
                   && up->cmd == CM_part)
                 {
@@ -310,7 +310,7 @@ sectioning_structure (ELEMENT *root)
              number_top_level = 1;
            if (content->cmd != CM_top)
              {
-               if (!(builtin_command_other_flags (content) & CF_unnumbered))
+               if (!(command_other_flags (content) & CF_unnumbered))
                  command_unnumbered[level] = 0;
                else
                  command_unnumbered[level] = 1;
@@ -320,18 +320,18 @@ sectioning_structure (ELEMENT *root)
 
       if (command_numbers[level] < 0)
         {
-          if (builtin_command_other_flags (content) & CF_unnumbered)
+          if (command_other_flags (content) & CF_unnumbered)
             command_numbers[level] = 0;
           else
             command_numbers[level] = 1;
         }
-      if ((builtin_command_other_flags (content) & CF_appendix)
+      if ((command_other_flags (content) & CF_appendix)
           && !in_appendix)
         {
           in_appendix = 1;
           command_numbers[level] = 'A';
         }
-      if (!(builtin_command_other_flags (content) & CF_unnumbered))
+      if (!(command_other_flags (content) & CF_unnumbered))
         {
           /* construct the number, if not below an unnumbered */
           if (!command_unnumbered[number_top_level])

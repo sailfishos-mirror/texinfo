@@ -503,65 +503,6 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
   modify_tree (tree, &move_index_entries_after_items_internal, 0);
 }
 
-/* from Common.pm */
-int
-is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
-
-int
-is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
-{
-  int i;
-  if (!tree || !tree->contents.number)
-    return 1;
-
-  for (i = 0; i < tree->contents.number; i++)
-    {
-      ELEMENT *content = tree->contents.list[i];
-      if (content->cmd)
-        {
-          if (content->type == ET_index_entry_command)
-            {
-              if (do_not_ignore_index_entries)
-                return 0;
-              else
-               continue;
-            }
-          if (builtin_command_flags(content) & CF_line)
-            {
-              if (builtin_command_other_flags(content) & CF_formatted_line
-                  || builtin_command_other_flags(content) & CF_formattable_line)
-                return 0;
-              else
-                continue;
-            }
-          else if (builtin_command_flags(content) & CF_nobrace)
-            {
-              if (builtin_command_other_flags(content) & CF_formatted_nobrace)
-                return 0;
-              else
-                continue;
-            }
-          else if (builtin_command_other_flags(content) & CF_non_formatted_brace
-                   || builtin_command_other_flags(content) & CF_non_formatted_block)
-            continue;
-          else
-            return 0;
-        }
-      if (content->type == ET_paragraph)
-        return 0;
-      if (content->text.end > 0)
-        {
-          char *text = element_text (content);
-          /* only whitespace characters */
-          if (! text[strspn (text, whitespace_chars)] == '\0')
-            return 0;
-        }
-      if (! is_content_empty (content, do_not_ignore_index_entries))
-        return 0;
-    }
-  return 1;
-}
-
 /* also in node_name_normalization.c */
 int ref_3_args_order[] = {0, 1, 2, -1};
 int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};

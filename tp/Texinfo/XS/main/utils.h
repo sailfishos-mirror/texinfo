@@ -132,6 +132,7 @@ ELEMENT *get_label_element (ELEMENT *e);
 char *read_flag_name (char **ptr);
 int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);
+int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 
 struct expanded_format *new_expanded_formats (char *format);
 void clear_expanded_formats (struct expanded_format *formats);
