@@ -97,14 +97,16 @@ char *element_command_name (ELEMENT *e);
 #define CF_inline_format		0x0002
 #define CF_inline_conditional		0x0004
 #define CF_in_index		0x0008
-#define CF_in_def		0x00010000
-#define CF_brace_code		0x00020000
-#define CF_explained		0x00040000
-#define CF_formatted_line		0x00080000
-#define CF_formatted_nobrace		0x00100000
-#define CF_formattable_line		0x00200000
-#define CF_non_formatted_block		0x00400000
-#define CF_non_formatted_brace		0x00800000
+#define CF_in_def		0x0010
+#define CF_brace_code		0x0020
+#define CF_explained		0x0040
+#define CF_formatted_line		0x0080
+#define CF_formatted_nobrace		0x0100
+#define CF_formattable_line		0x0200
+#define CF_non_formatted_block		0x0400
+#define CF_non_formatted_brace		0x0800
+#define CF_appendix		0x1000
+#define CF_unnumbered		0x2000
 /*
 #define CF_		0x00800000
 */

@@ -20,6 +20,7 @@
 #include "tree_types.h"
 
 extern const char *whitespace_chars;
+extern enum command_id level_to_structuring_command[][5];
 
 enum error_type { error, warning };
 
@@ -129,6 +130,7 @@ void bug (char *);
 char *normalize_encoding_name (char *text, int *possible_encoding);
 ELEMENT *get_label_element (ELEMENT *e);
 char *read_flag_name (char **ptr);
+int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);
 
 struct expanded_format *new_expanded_formats (char *format);

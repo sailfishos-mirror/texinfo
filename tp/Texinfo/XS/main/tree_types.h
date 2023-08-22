@@ -27,6 +27,7 @@ enum extra_type {
     extra_element,
     extra_element_oot,
     extra_contents,
+    extra_directions,
     extra_text,
     extra_misc_args,
     extra_string,
@@ -59,6 +60,12 @@ enum source_mark_status {
     SM_status_none,
     SM_status_start,
     SM_status_end,
+};
+
+enum directions {
+    D_prev,
+    D_next,
+    D_up,
 };
 
 typedef struct KEY_PAIR {

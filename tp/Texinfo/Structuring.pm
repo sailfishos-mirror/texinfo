@@ -94,6 +94,10 @@ sub import {
         "Texinfo::Structuring::_XS_associate_internal_references",
         "Texinfo::StructTransf::associate_internal_references"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_sectioning_structure",
+        "Texinfo::StructTransf::sectioning_structure"
+      );
     }
     $module_loaded = 1;
   }
@@ -111,18 +115,8 @@ foreach my $type_to_enter ('brace_command_arg', 'line_arg',
 
 my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 
-my %appendix_commands;
-my %unnumbered_commands;
-foreach my $command (keys(%command_structuring_level)) {
-  if ($command =~ /appendix/) {
-    $appendix_commands{$command} = 1;
-  } elsif ($command =~ /unnumbered/) {
-    $unnumbered_commands{$command} = 1;
-  }
-}
-$unnumbered_commands{'top'} = 1;
-$unnumbered_commands{'centerchap'} = 1;
-$unnumbered_commands{'part'} = 1;
+my %appendix_commands = %Texinfo::Commands::appendix_commands;
+my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
 sub copy_tree($;$)
 {
@@ -165,6 +159,8 @@ sub sectioning_structure($$$)
   my $section_top;
   my @sections_list;
 
+  _XS_sectioning_structure($root);
+
   # holds the current number for all the levels.  It is not possible to use
   # something like the last child index, because of @unnumbered.
   my @command_numbers;
@@ -176,32 +172,29 @@ sub sectioning_structure($$$)
       next;
     }
     push @sections_list, $content;
-    if ($content->{'cmdname'} eq 'top') {
-      if (! $section_top) {
-        $section_top = $content;
-      }
-    }
-    my $level;
-    $content->{'extra'} = {} if (! $content->{'extra'});
-    $level = $content->{'extra'}->{'section_level'}
-         = Texinfo::Common::section_level($content);
-    if (!defined($level)) {
-      warn "BUG: level not defined for $content->{'cmdname'} "
-           .Texinfo::Common::debug_print_element($content)."\n";
-      $level = $content->{'extra'}->{'section_level'} = 0;
+    if ($content->{'cmdname'} eq 'top' and not $section_top) {
+      $section_top = $content;
     }
 
+    $content->{'extra'} = {} if (! $content->{'extra'});
     $content->{'extra'}->{'section_directions'} = {};
+
+    my $level = Texinfo::Common::section_level($content);
+    if (!defined($level)) {
+      warn "BUG: level not defined for "
+           .Texinfo::Common::debug_print_element($content)."\n";
+      $level = 0;
+    }
+
     if ($previous_section) {
-      # new command is below
-      if ($previous_section->{'extra'}->{'section_level'} < $level) {
-        if ($level - $previous_section->{'extra'}->{'section_level'} > 1) {
+      my $prev_section_level = $previous_section->{'extra'}->{'section_level'};
+      if ($prev_section_level < $level) {
+        # new command is below
+        if ($level - $prev_section_level > 1) {
           $registrar->line_error($customization_information,
            sprintf(__("raising the section level of \@%s which is too low"),
               $content->{'cmdname'}), $content->{'source_info'});
-          $content->{'extra'}->{'section_level'}
-              = $previous_section->{'extra'}->{'section_level'} + 1;
-          $level = $content->{'extra'}->{'section_level'};
+          $level = $prev_section_level + 1;
         }
         $previous_section->{'extra'}->{'section_childs'} = [$content];
         $content->{'extra'}->{'section_directions'}->{'up'} = $previous_section;
@@ -221,7 +214,7 @@ sub sectioning_structure($$$)
       } else {
         my $up = $previous_section->{'extra'}->{'section_directions'}->{'up'};
         my $new_upper_part_element;
-        if ($previous_section->{'extra'}->{'section_level'} != $level) {
+        if ($prev_section_level != $level) {
           # means it is above the previous command, the up is to be found
           while ($up->{'extra'}->{'section_directions'}
                  and $up->{'extra'}->{'section_directions'}->{'up'}
@@ -241,9 +234,7 @@ sub sectioning_structure($$$)
               $registrar->line_warn($customization_information,
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'});
-              $content->{'extra'}->{'section_level'}
-                 = $up->{'extra'}->{'section_level'} + 1;
-              $level = $content->{'extra'}->{'section_level'};
+              $level = $up->{'extra'}->{'section_level'} + 1;
             }
           }
         }
@@ -259,7 +250,7 @@ sub sectioning_structure($$$)
           push @{$sec_root->{'extra'}->{'section_childs'}}, $content;
           $content->{'extra'}->{'section_directions'}->{'up'} = $sec_root;
           $number_top_level = $level;
-          $number_top_level++ if (!$number_top_level);
+          $number_top_level = 1 if (!$number_top_level);
         } else {
           $content->{'extra'}->{'section_directions'}->{'up'} = $up;
           my $prev = $up->{'extra'}->{'section_childs'}->[-1];
@@ -288,7 +279,7 @@ sub sectioning_structure($$$)
       # if $level of top sectioning element is 0, which means that
       # it is a @top, $number_top_level is 1 as it is associated to
       # the level of chapter/unnumbered...
-      $number_top_level++ if (!$number_top_level);
+      $number_top_level = 1 if (!$number_top_level);
       if ($content->{'cmdname'} ne 'top') {
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
           $command_unnumbered[$level] = 0;
@@ -297,6 +288,9 @@ sub sectioning_structure($$$)
         }
       }
     }
+
+    $content->{'extra'}->{'section_level'} = $level;
+
     if (!defined($command_numbers[$level])) {
       if ($unnumbered_commands{$content->{'cmdname'}}) {
         $command_numbers[$level] = 0;
@@ -327,20 +321,19 @@ sub sectioning_structure($$$)
     }
     $previous_section = $content;
     if ($content->{'cmdname'} ne 'part' and $level <= $number_top_level) {
-      if ($previous_toplevel) {
-        $previous_toplevel->{'extra'}->{'toplevel_directions'} = {}
-           if (!$previous_toplevel->{'extra'}->{'toplevel_directions'});
-        $previous_toplevel->{'extra'}->{'toplevel_directions'}->{'next'} = $content;
-        $content->{'extra'}->{'toplevel_directions'} = {}
-           if (!$content->{'extra'}->{'toplevel_directions'});
-        $content->{'extra'}->{'toplevel_directions'}->{'prev'} = $previous_toplevel;
+      if ($previous_toplevel or ($section_top and $content ne $section_top)) {
+        $content->{'extra'}->{'toplevel_directions'} = {};
+        if ($previous_toplevel) {
+          $previous_toplevel->{'extra'}->{'toplevel_directions'} = {}
+             if (!$previous_toplevel->{'extra'}->{'toplevel_directions'});
+          $previous_toplevel->{'extra'}->{'toplevel_directions'}->{'next'} = $content;
+          $content->{'extra'}->{'toplevel_directions'}->{'prev'} = $previous_toplevel;
+        }
+        if ($section_top and $content ne $section_top) {
+          $content->{'extra'}->{'toplevel_directions'}->{'up'} = $section_top;
+        }
       }
       $previous_toplevel = $content;
-      if ($section_top and $content ne $section_top) {
-        $content->{'extra'}->{'toplevel_directions'} = {}
-           if (!$content->{'extra'}->{'toplevel_directions'});
-        $content->{'extra'}->{'toplevel_directions'}->{'up'} = $section_top;
-      }
     } elsif ($content->{'cmdname'} eq 'part'
              and not ($content->{'extra'}
                       and $content->{'extra'}->{'part_associated_section'})) {
@@ -354,6 +347,11 @@ sub sectioning_structure($$$)
   } else {
     return \@sections_list;
   }
+}
+
+sub _XS_sectioning_structure($)
+{
+  return undef;
 }
 
 # for debugging

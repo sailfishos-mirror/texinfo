@@ -33,31 +33,6 @@
 #include "debug.h"
 #include "transformations.h"
 
-#include "cmd_structuring.c"
-
-#define min_level command_structuring_level[CM_chapter]
-#define max_level command_structuring_level[CM_subsubsection]
-
-/* in Common.pm */
-int
-section_level (ELEMENT *section)
-{
-  int level = command_structuring_level[section->cmd];
-  KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
-  if (k_level_modifier)
-    {
-      int section_modifier = (intptr_t) k_level_modifier->value;
-      level -= section_modifier;
-      if (level < min_level)
-        if (command_structuring_level[section->cmd] < min_level)
-          level = command_structuring_level[section->cmd];
-        else
-          level = min_level;
-      else if (level > max_level)
-        level = max_level;
-    }
-  return level;
-}
 
 /* FIXME in indices.c, but for within parser only,
    use only one? */

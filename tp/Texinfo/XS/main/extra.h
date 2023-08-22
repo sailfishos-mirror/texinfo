@@ -22,6 +22,7 @@
 void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents (ELEMENT *e, char *key, ELEMENT *value);
+void add_extra_directions (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_string (ELEMENT *e, char *key, char *value);
@@ -35,6 +36,8 @@ KEY_PAIR *lookup_info (ELEMENT *e, char *key);
 ELEMENT *lookup_extra_element (ELEMENT *e, char *key);
 ELEMENT *lookup_info_element (ELEMENT *e, char *key);
 ELEMENT *lookup_extra_contents (ELEMENT *e, char *key, int create);
+ELEMENT *lookup_extra_directions (ELEMENT *e, char *key, int create);
+int lookup_extra_integer (ELEMENT *e, char *key, int *ret);
 
 KEY_PAIR *lookup_associated_info (ASSOCIATED_INFO *a, char *key);
 

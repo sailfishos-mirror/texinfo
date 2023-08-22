@@ -86,6 +86,23 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
                            key, (intptr_t) value, extra_contents);
 }
 
+static enum directions last_direction = D_up;
+
+/* similar to extra_contents, but holds 3 elements corresponding to
+   directions in enum directions.  Another difference, more
+   generally with other elements, is that a pointer to the element
+   in the list set to 0 is ok, it means that there is no such direction
+   In other elements, in general, all the pointer elements are non
+   NULL in contents for the first contents.number elements.
+*/
+void
+add_extra_directions (ELEMENT *e, char *key, ELEMENT *value)
+{
+  element_set_empty_contents (value, last_direction+1);
+  add_associated_info_key (&e->extra_info,
+                           key, (intptr_t) value, extra_directions);
+}
+
 /* Add an extra key that is a reference to the text field of another
    element. */
 /*
@@ -169,6 +186,27 @@ lookup_extra (ELEMENT *e, char *key)
 {
   return lookup_associated_info (&e->extra_info, key);
 }
+
+/* *ret is negative if not found or not an integer */
+int
+lookup_extra_integer (ELEMENT *e, char *key, int *ret)
+{
+  KEY_PAIR *k;
+  k = lookup_associated_info (&e->extra_info, key);
+  if (!k)
+    {
+      *ret = -1;
+      return 0;
+    }
+  if (k->type != extra_integer)
+    {
+      *ret = -2;
+      return 0;
+    }
+  *ret = 0;
+  return (int)k->value;
+}
+
 /* if CREATE is true, create an extra contents element if there is none */
 ELEMENT *
 lookup_extra_contents (ELEMENT *e, char *key, int create)
@@ -179,6 +217,20 @@ lookup_extra_contents (ELEMENT *e, char *key, int create)
     {
       contents_e = new_element (ET_NONE);
       add_extra_contents (e, key, contents_e);
+    }
+  return contents_e;
+}
+
+/* if CREATE is true, create an extra directions element if there is none */
+ELEMENT *
+lookup_extra_directions (ELEMENT *e, char *key, int create)
+{
+  ELEMENT *contents_e;
+  contents_e = lookup_extra_element (e, key);
+  if (!contents_e && create)
+    {
+      contents_e = new_element (ET_NONE);
+      add_extra_directions (e, key, contents_e);
     }
   return contents_e;
 }

@@ -249,3 +249,39 @@ associate_internal_references (document_in)
                                        document->internal_references);
 
 
+# FIXME return a list of sections?  How to match elements with perl tree
+# element?
+void
+sectioning_structure (tree_in)
+        SV *tree_in
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_tree_in;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+          /* FIXME warn?
+            fprintf (stderr, "ERROR: reference_to_arg_in_tree:"
+                             "no tree_document_descriptor\n");
+           */
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        sectioning_structure (document->tree);
+
+

@@ -124,6 +124,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_element_and_children ((ELEMENT *) a->info[i].value);
           break;
         case extra_contents:
+        case extra_directions:
           if (a->info[i].value)
             destroy_element ((ELEMENT *) a->info[i].value);
           break;
@@ -324,6 +325,23 @@ insert_slice_into_args (ELEMENT *to, int where, ELEMENT *from,
            num * sizeof (ELEMENT *));
 
   to->args.number += num;
+}
+
+/* ensure that there are n slots, and void them */
+void
+element_set_empty_contents (ELEMENT *parent, int n)
+{
+  int i;
+  if (n <= 0)
+    return;
+
+  if (parent->contents.number < n)
+    {
+      reallocate_list_for (n - parent->contents.number, &parent->contents);
+      parent->contents.number = n;
+    }
+  for (i = 0; i < n; i++)
+    parent->contents.list[i] = 0;
 }
 
 ELEMENT *

@@ -1,3 +1,38 @@
+2023-08-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (%appendix_commands)
+	(%unnumbered_commands), tp/Texinfo/XS/main/builtin_commands.h,
+	tp/Texinfo/XS/main/command_data.awk, tp/Texinfo/command_data.txt: add
+	appendix and unnumbered flags to commands data.
+
+	* tp/Texinfo/Structuring.pm (sectioning_structure): use only $level in
+	code determining the section number, and set the extra section_level
+	afterwards.  Rearrange code.
+
+	* tp/Texinfo/XS/main/extra.c (lookup_extra_integer): new function to
+	ease getting an integer from extra information.
+
+	* tp/Texinfo/XS/main/utils.c (section_level),
+	tp/Texinfo/XS/structuring_transfo/transformations.c: move from
+	transformations.c.  Return a negative value if the command is not
+	supposed to be associated to a level.
+
+	* tp/Texinfo/XS/main/extra.c (add_extra_directions)
+	(lookup_extra_directions), tp/Texinfo/XS/main/tree.c
+	(destroy_associated_info, element_set_empty_contents),
+	tp/Texinfo/XS/main/tree_types.h (enum extra_type, enum directions),
+	tp/Texinfo/XS/main/utils.c (copy_associated_info)
+	(associate_info_references): add extra_directions extra type, similar
+	to extra_contents, but accepting null elements in contents and always
+	initialized with 3 elements.
+
+	* tp/Texinfo/Structuring.pm (import, sectioning_structure)
+	(_XS_sectioning_structure),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(sectioning_structure),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure): implement sectioning_structure in XS.
+
 2023-08-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (sectioning_structure): do not return

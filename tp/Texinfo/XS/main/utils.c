@@ -29,6 +29,11 @@
 #include "debug.h"
 #include "utils.h"
 
+#include "cmd_structuring.c"
+
+#define min_level command_structuring_level[CM_chapter]
+#define max_level command_structuring_level[CM_subsubsection]
+
 const char *whitespace_chars = " \t\v\f\r\n";
 
 /* duplicated when creating a new expanded_formats */
@@ -274,6 +279,29 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
 #undef GLOBAL_CASE
 }
 
+/* in Common.pm */
+/* the returned level will be < 0 if the command is not supposed
+   to be associated to a level. */
+int
+section_level (ELEMENT *section)
+{
+  int level = command_structuring_level[section->cmd];
+  KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
+  if (k_level_modifier && level >= 0)
+    {
+      int section_modifier = (intptr_t) k_level_modifier->value;
+      level -= section_modifier;
+      if (level < min_level)
+        if (command_structuring_level[section->cmd] < min_level)
+          level = command_structuring_level[section->cmd];
+        else
+          level = min_level;
+      else if (level > max_level)
+        level = max_level;
+    }
+  return level;
+}
+
 /* could have been in tree, but it would add a dependency on extra.h
  * Move somewhere else ? */
 
@@ -327,22 +355,30 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           copy_tree_internal (f, 0);
           break;
         case extra_contents:
+        case extra_directions:
           new_extra_contents = new_element (ET_NONE);
           add_associated_info_key (new_info, key, (intptr_t)new_extra_contents,
                                    info->info[i].type);
           for (j = 0; j < f->contents.number; j++)
             {
               ELEMENT *e = f->contents.list[j];
-              k_copy = lookup_extra_by_index (e, "_copy", -1);
-              if (k_copy)
-                add_to_contents_as_array (new_extra_contents,
-                                          (ELEMENT *)k_copy->value);
-              else
+              if (!e && info->info[i].type == extra_directions)
                 {
-                  increase_ref_counter (e);
                   add_to_contents_as_array (new_extra_contents, 0);
                 }
-              copy_tree_internal (e, 0);
+              else
+                {
+                  k_copy = lookup_extra_by_index (e, "_copy", -1);
+                  if (k_copy)
+                    add_to_contents_as_array (new_extra_contents,
+                                              (ELEMENT *)k_copy->value);
+                  else
+                    {
+                      increase_ref_counter (e);
+                      add_to_contents_as_array (new_extra_contents, 0);
+                    }
+                  copy_tree_internal (e, 0);
+                }
             }
         default:
           break;
@@ -455,6 +491,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             break;
           }
         case extra_contents:
+        case extra_directions:
           {
             KEY_PAIR *k = lookup_associated_info (new_info, key);
             new_extra_contents = (ELEMENT *)k->value;
@@ -463,16 +500,22 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                 KEY_PAIR *k_copy;
                 ELEMENT *e = f->contents.list[j];
                 ELEMENT *new_e = new_extra_contents->contents.list[j];
-                if (!new_e)
+                if (!e && info->info[i].type == extra_directions)
                   {
-                    ELEMENT *new_ref = get_copy_ref (e);
-                    new_extra_contents->contents.list[j] = new_ref;
                   }
+                else
+                  {
+                    if (!new_e)
+                      {
+                        ELEMENT *new_ref = get_copy_ref (e);
+                        new_extra_contents->contents.list[j] = new_ref;
+                      }
 
-                k_copy = lookup_extra_by_index (e, "_copy", -1);
-                if (k_copy)
-                  copy_extra_info (e, (ELEMENT *) k_copy->value);
-              }
+                    k_copy = lookup_extra_by_index (e, "_copy", -1);
+                    if (k_copy)
+                      copy_extra_info (e, (ELEMENT *) k_copy->value);
+                  }
+                }
               break;
             }
         case extra_string:

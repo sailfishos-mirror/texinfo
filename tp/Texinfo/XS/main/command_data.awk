@@ -168,6 +168,8 @@ END {
                     && flags_array[flag_idx] != "in_def" \
                     && flags_array[flag_idx] != "brace_code" \
                     && flags_array[flag_idx] != "explained" \
+                    && flags_array[flag_idx] != "unnumbered" \
+                    && flags_array[flag_idx] != "appendix" \
                     && flags_array[flag_idx] != "formatted_line" \
                     && flags_array[flag_idx] != "formatted_nobrace" \
                     && flags_array[flag_idx] != "formattable_line" \

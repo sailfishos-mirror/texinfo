@@ -7,5 +7,6 @@
 
 void associate_internal_references (LABEL_LIST *identifiers_target,
                                     ELEMENT_LIST *refs);
+ELEMENT *sectioning_structure (ELEMENT *root);
 
 #endif
