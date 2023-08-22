@@ -98,6 +98,10 @@ sub import {
         "Texinfo::Structuring::_XS_sectioning_structure",
         "Texinfo::StructTransf::sectioning_structure"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_warn_non_empty_parts",
+        "Texinfo::StructTransf::warn_non_empty_parts"
+      );
     }
     $module_loaded = 1;
   }
@@ -370,9 +374,12 @@ sub _print_sectioning_tree($)
 
 sub warn_non_empty_parts($$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $global_commands = shift;
+  my $global_commands = $document->global_commands_information();
+
+  _XS_warn_non_empty_parts($document);
 
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
@@ -383,6 +390,10 @@ sub warn_non_empty_parts($$$)
       }
     }
   }
+}
+
+sub _XS_warn_non_empty_parts($)
+{
 }
 
 my @node_directions = ('next', 'prev', 'up');
@@ -2929,12 +2940,11 @@ No splitting, only one page is returned, holding all the output units.
 
 =back
 
-=item warn_non_empty_parts($registrar, $customization_information, $global_commands)
+=item warn_non_empty_parts($document, $registrar, $customization_information)
 X<C<warn_non_empty_parts>>
 
-Register a warning in I<$registrar> for each C<@part> that is not empty
-in I<$global_commands> information (typically obtained by calling
-C<global_commands_information()> on a document).
+Register a warning in I<$registrar> for each C<@part> in global commands
+information of I<$document> that is not empty.
 
 =back
 

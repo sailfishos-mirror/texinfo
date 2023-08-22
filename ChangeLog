@@ -1,5 +1,17 @@
 2023-08-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (warn_non_empty_parts): take a document in
+	argument instead of global_commands information.  Update callers.
+
+	* tp/Texinfo/Structuring.pm (import, warn_non_empty_parts)
+	(_XS_warn_non_empty_parts),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(warn_non_empty_parts),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(warn_non_empty_parts): implement warn_non_empty_parts in XS.
+
+2023-08-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/builtin_commands.h (command_other_flags):
 	rename builtin_command_other_flags as command_other_flags as there is
 	no ambiguity.  Update callers.

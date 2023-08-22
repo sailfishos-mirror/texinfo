@@ -1580,8 +1580,8 @@ while(@input_files) {
   if ($sections_list) {
     $structure_information->{'sections_list'} = $sections_list;
     if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
-      Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
-                                                 $global_commands);
+      Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
+                                                 $main_configuration);
     }
   }
 

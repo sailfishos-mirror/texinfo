@@ -32,6 +32,7 @@
 #include "builtin_commands.h"
 /* for get_label_element and section_level */
 #include "utils.h"
+#include "document.h"
 #include "structuring.h"
 
 void
@@ -400,4 +401,19 @@ sectioning_structure (ELEMENT *root)
       return 0;
     }
   return sections_list;
+}
+
+void
+warn_non_empty_parts (DOCUMENT *document)
+{
+  GLOBAL_INFO *global_info = document->global_info;
+  int i;
+
+  for (i = 0; i < global_info->part.contents.number; i++)
+    {
+      ELEMENT *part = global_info->part.contents.list[i];
+      if (!is_content_empty (part, 0))
+        command_warn (part, "@%s not empty",
+                      builtin_command_name (part->cmd));
+    }
 }

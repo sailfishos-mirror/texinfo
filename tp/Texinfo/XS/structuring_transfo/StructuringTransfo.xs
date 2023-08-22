@@ -284,4 +284,22 @@ sectioning_structure (tree_in)
           }
         sectioning_structure (document->tree);
 
-
+void
+warn_non_empty_parts (document_in)
+        SV *document_in
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_document_in;
+    CODE:
+        hv_document_in = (HV *)SvRV (document_in);
+        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
+                                           strlen ("document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        warn_non_empty_parts (document);

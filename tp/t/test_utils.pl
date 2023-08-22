@@ -1019,9 +1019,8 @@ sub test($$)
                                       $main_configuration, $tree);
   my $sectioning_root;
   if ($sections_list) {
-    Texinfo::Structuring::warn_non_empty_parts($registrar,
-                                               $main_configuration,
-                                               $global_commands);
+    Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
+                                               $main_configuration);
     $structure_information->{'sections_list'} = $sections_list;
     $sectioning_root = $sections_list->[0]->{'extra'}->{'sectioning_root'};
   }
