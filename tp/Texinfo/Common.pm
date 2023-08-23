@@ -2240,15 +2240,16 @@ sub copy_tree($;$)
   return $copy;
 }
 
-sub copy_contents($)
+sub copy_contents($;$)
 {
-  my $contents = shift;
-  if (ref($contents) ne 'ARRAY') {
-    cluck "$contents not an array";
-    return undef;
+  my $element = shift;
+  my $type = shift;
+  my $tmp = {'contents' => $element->{'contents'}};
+  my $copy = copy_tree($tmp);
+  if (defined($type)) {
+    $copy->{'type'} = $type;
   }
-  my $copy = copy_tree({'contents' => $contents});
-  return $copy->{'contents'};
+  return $copy;
 }
 
 sub modify_tree($$;$);

@@ -64,6 +64,10 @@ sub import {
         "Texinfo::Transformations::_XS_reference_to_arg_in_tree",
         "Texinfo::StructTransf::reference_to_arg_in_tree"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_complete_tree_nodes_menus",
+        "Texinfo::StructTransf::complete_tree_nodes_menus"
+      );
     }
     $module_loaded = 1;
   }
@@ -489,8 +493,8 @@ sub complete_node_menu($;$)
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-            my ($normalized_entry_node, $node)
-              = Texinfo::Structuring::_normalized_entry_associated_internal_node($entry);
+            my $normalized_entry_node
+              = Texinfo::Structuring::normalized_menu_entry_internal_node($entry);
             if (defined($normalized_entry_node)) {
               $existing_entries{$normalized_entry_node} = [$menu, $entry];
             }
@@ -515,8 +519,8 @@ sub complete_node_menu($;$)
             last if ($current_menu->{'contents'}->[$index] eq $entry);
           }
           splice (@{$current_menu->{'contents'}}, $index, 0, @pending);
-          foreach my $entry (@pending) {
-            $entry->{'parent'} = $current_menu;
+          foreach my $pending_entry (@pending) {
+            $pending_entry->{'parent'} = $current_menu;
           }
           @pending = ();
         }
@@ -531,13 +535,10 @@ sub complete_node_menu($;$)
     if (scalar(@pending)) {
       if (!$current_menu) {
         my $section = $node->{'extra'}->{'associated_section'};
-        $current_menu =
-          Texinfo::Structuring::new_block_command(\@pending, $section, 'menu');
+        $current_menu = {'contents' => \@pending, 'parent' => $section};
+        Texinfo::Structuring::new_block_command($current_menu, 'menu');
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
       } else {
-        foreach my $entry (@pending) {
-          $entry->{'parent'} = $current_menu;
-        }
         if ($current_menu->{'contents'}->[-1]->{'cmdname'}
             and $current_menu->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           splice (@{$current_menu->{'contents'}}, -1, 0, @pending);
@@ -545,6 +546,9 @@ sub complete_node_menu($;$)
           # Should probably only happen with menu without end
           push @{$current_menu->{'contents'}}, @pending;
         }
+      }
+      foreach my $entry (@pending) {
+        $entry->{'parent'} = $current_menu;
       }
     }
   }
@@ -576,6 +580,12 @@ sub complete_tree_nodes_menus($;$)
   foreach my $node (@{$non_automatic_nodes}) {
     complete_node_menu($node, $use_sections);
   }
+
+  _XS_complete_tree_nodes_menus($root, $use_sections);
+}
+
+sub _XS_complete_tree_nodes_menus($$)
+{
 }
 
 # this only complete menus if there was no menu

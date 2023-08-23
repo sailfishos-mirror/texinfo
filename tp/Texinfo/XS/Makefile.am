@@ -292,7 +292,7 @@ StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la
 StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.
-StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## ConvertXS
 

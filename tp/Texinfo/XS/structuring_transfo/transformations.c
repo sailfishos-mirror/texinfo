@@ -31,6 +31,8 @@
 #include "extra.h"
 #include "text.h"
 #include "debug.h"
+#include "structuring.h"
+#include "convert_to_texinfo.h"
 #include "transformations.h"
 
 
@@ -575,4 +577,277 @@ ELEMENT *
 reference_to_arg_in_tree (ELEMENT *tree)
 {
   return modify_tree (tree, &reference_to_arg_internal, 0);
+}
+
+void
+prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
+                                  ELEMENT *current_menu)
+{
+  ELEMENT *empty_line = new_element (ET_empty_line);
+  ELEMENT *menus = lookup_extra_contents (node, "menus", 1);
+
+  add_to_element_contents (section, current_menu); 
+  text_append (&empty_line->text, "\n");
+  add_to_element_contents (section, empty_line);
+
+  add_to_contents_as_array (menus, current_menu);
+}
+
+typedef struct EXISTING_ENTRY {
+  char *normalized;
+  ELEMENT *menu;
+  ELEMENT *entry;
+} EXISTING_ENTRY;
+
+void
+complete_node_menu (ELEMENT *node, int use_sections)
+{
+  ELEMENT *node_childs = get_node_node_childs_from_sectioning (node);
+
+  if (node_childs->contents.number)
+    {
+      int existing_entries_nr = 0;
+      int existing_entries_space = 5;
+      EXISTING_ENTRY *existing_entries = 0;
+
+      ELEMENT *pending = new_element (ET_NONE);
+      ELEMENT *current_menu = 0;
+
+      int i;
+      ELEMENT* menus = lookup_extra_element (node, "menus");
+
+      if (menus)
+        {
+          existing_entries
+           = malloc(existing_entries_space * sizeof (EXISTING_ENTRY));
+
+          for (i = 0; i < menus->contents.number; i++)
+            {
+              ELEMENT *menu = menus->contents.list[i];
+              int j;
+              for (j = 0; j < menu->contents.number; j++)
+                {
+                  ELEMENT *entry = menu->contents.list[j];
+                  if (entry->type == ET_menu_entry)
+                    {
+                      char *normalized_entry_node
+                        = normalized_menu_entry_internal_node (entry);
+                      if (normalized_entry_node)
+                        {
+                          if (existing_entries_nr == existing_entries_space)
+                            {
+                              existing_entries_space += 5;
+                              existing_entries = realloc(existing_entries,
+                           existing_entries_space * sizeof (EXISTING_ENTRY));
+                            }
+                          existing_entries[existing_entries_nr].normalized
+                            = normalized_entry_node;
+                          existing_entries[existing_entries_nr].menu = menu;
+                          existing_entries[existing_entries_nr].entry = entry;
+                          existing_entries_nr++;
+                        }
+                    }
+                }
+            }
+        }
+
+      for (i = 0; i < node_childs->contents.number; i++)
+        {
+          ELEMENT *node_entry = node_childs->contents.list[i];
+          KEY_PAIR *k_normalized = lookup_extra (node_entry, "normalized");
+          if (k_normalized && k_normalized->value)
+            {
+              char *normalized = (char *)k_normalized->value;
+              int j;
+              ELEMENT *entry = 0;
+
+              for (j = 0; j < existing_entries_nr; j++)
+                {
+                  if (!strcmp (existing_entries[j].normalized, normalized))
+                    {
+                      current_menu = existing_entries[j].menu;
+                      entry = existing_entries[j].entry;
+                      break;
+                    }
+                }
+              if (entry)
+                {
+                  if (pending->contents.number)
+                    {
+                      int k;
+                      for (j = 0; j < current_menu->contents.number; j++)
+                      if (current_menu->contents.list[j] == entry)
+                        break;
+                      insert_slice_into_contents (current_menu, j,
+                                                  pending, 0,
+                                                  pending->contents.number);
+                      for (k = 0; k < pending->contents.number; k++)
+                        pending->contents.list[k]->parent = current_menu;
+
+                      pending->contents.number = 0;
+                    }
+                }
+              else
+                {
+                  entry = new_node_menu_entry (node_entry, use_sections);
+             /*
+              not set entry should mean an empty node.  We do not warn as
+              we try, in general, to be silent in the transformations.
+              */
+                  if (entry)
+                    add_to_contents_as_array (pending, entry);
+                }
+            }
+        }
+
+      if (pending->contents.number)
+        {
+          int j;
+          if (!current_menu)
+            {
+              ELEMENT *section = lookup_extra_element (node,
+                                                       "associated_section");
+              current_menu = pending;
+              current_menu->parent = section;
+              new_block_command (current_menu, CM_menu);
+              prepend_new_menu_in_node_section (node, section,
+                                                current_menu);
+            }
+          else
+            {
+              int offset_at_end = -1;
+              ELEMENT *last_menu_content = last_contents_child (current_menu);
+
+              if (last_menu_content->cmd != CM_end)
+                offset_at_end = 0;
+              insert_slice_into_contents (current_menu,
+                                current_menu->contents.number + offset_at_end,
+                                        pending, 0, pending->contents.number);
+            }
+          for (j = 0; j < pending->contents.number; j++)
+            pending->contents.list[j]->parent = current_menu;
+        }
+      if (current_menu != pending)
+        destroy_element (pending);
+      free (existing_entries);
+    }
+}
+
+ELEMENT *
+get_non_automatic_nodes_with_sections (ELEMENT *root)
+{
+  ELEMENT *non_automatic_nodes = new_element (ET_NONE);
+  int i;
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      if (content->cmd && content->cmd == CM_node
+          && content->args.number <= 1)
+        {
+          ELEMENT *associated_section
+            = lookup_extra_element (content, "associated_section");
+          if (associated_section)
+            add_to_contents_as_array (non_automatic_nodes, content);
+        }
+    }
+  return non_automatic_nodes;
+}
+
+/* This should be called after structuring.c sectioning_structure */
+void
+complete_tree_nodes_menus (ELEMENT *root, int use_sections)
+{
+  ELEMENT *non_automatic_nodes
+     = get_non_automatic_nodes_with_sections (root);
+  int i;
+  for (i = 0; i < non_automatic_nodes->contents.number; i++)
+    {
+      ELEMENT *node = non_automatic_nodes->contents.list[i];
+      complete_node_menu (node, use_sections);
+    }
+  destroy_element (non_automatic_nodes);
+}
+
+ELEMENT *
+new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
+{
+  ELEMENT *new_command = new_element (ET_NONE);
+  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+  ELEMENT *text_elt = new_element (type);
+  new_command->cmd = CM_asis;
+  new_command->parent = parent;
+  add_to_element_args (new_command, brace_command_arg);
+  text_append (&text_elt->text, text);
+  add_to_element_contents (brace_command_arg, text_elt);
+  return new_command;
+}
+
+ELEMENT *
+protect_text (ELEMENT *current, char *to_protect)
+{
+  if (current->text.end > 0 && !(current->type == ET_raw)
+      && strpbrk (current->text.text, to_protect))
+    {
+      ELEMENT *container = new_element (ET_NONE);
+      char *p = current->text.text;
+      while (*p)
+        {
+          int leading_nr = strcspn (p, to_protect);
+          if (leading_nr)
+            {
+              ELEMENT *text_elt = new_element (current->type);
+              text_elt->parent = current->parent;
+              text_append_n (&text_elt->text, p, leading_nr);
+              add_to_contents_as_array (container, text_elt);
+              p += leading_nr;
+            }
+          if (*p)
+            {
+              int to_protect_nr = strspn (p, to_protect);
+              if (!strcmp (to_protect, ","))
+                {
+                  int i;
+                  for (i = 0; i < to_protect_nr; i++)
+                    {
+                      ELEMENT *comma = new_element (ET_NONE);
+                      ELEMENT *brace_command_arg
+                           = new_element (ET_brace_command_arg);
+                      comma->cmd = CM_comma;
+                      comma->parent = current->parent;
+                      add_to_element_args (comma, brace_command_arg);
+                      add_to_contents_as_array (container, comma);
+                    }
+                  p += to_protect_nr;
+                }
+              else
+                {
+                  ELEMENT *new_command;
+                  char saved = p[to_protect_nr];
+                  p[to_protect_nr] = '\0';
+                  new_command = new_asis_command_with_text(p, current->parent,
+                                                           current->type);
+                  add_to_contents_as_array (container, new_command);
+                  p += to_protect_nr;
+                  *p = saved;
+                }
+            }
+        }
+      destroy_element (current);
+      return container;
+    }
+  else
+    return 0;
+}
+
+ELEMENT *
+protect_colon (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text(current, ":");
+}
+
+ELEMENT *
+protect_colon_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_colon, 0);
 }

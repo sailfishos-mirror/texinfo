@@ -33,7 +33,66 @@
 /* for get_label_element and section_level */
 #include "utils.h"
 #include "document.h"
+#include "transformations.h"
+/* FIXME in parsetexi/. Move to main/?  Some ties to parser */
+#include "labels.h"
 #include "structuring.h"
+
+void
+new_block_command (ELEMENT *element, enum command_id cmd)
+{
+  ELEMENT *args = new_element (ET_block_line_arg);
+  ELEMENT *arg_spaces_after = new_element (ET_NONE);
+  ELEMENT *end = new_element (ET_NONE);
+  ELEMENT *end_args = new_element (ET_line_arg);
+  ELEMENT *end_spaces_before = new_element (ET_NONE);
+  ELEMENT *end_spaces_after = new_element (ET_NONE);
+  ELEMENT *command_name_text = new_element (ET_NONE);
+  char *command_name = builtin_command_name(cmd);
+
+  element->cmd = cmd;
+
+  text_append (&arg_spaces_after->text, "\n");
+  add_info_element_oot (args, "spaces_after_argument", arg_spaces_after);
+  add_to_element_args (element, args);
+
+  end->cmd = CM_end;
+  add_extra_string_dup (end, "text_arg", command_name);
+  text_append (&end_spaces_before->text, " ");
+  add_info_element_oot (end, "spaces_before_argument", end_spaces_before);
+
+  text_append (&end_spaces_after->text, "\n");
+  add_info_element_oot (end_args, "spaces_after_argument", end_spaces_after);
+  add_to_element_args (end, end_args);
+
+  text_append (&command_name_text->text, command_name);
+  add_to_element_contents (end_args, command_name_text);
+
+  add_to_element_contents (element, end);
+}
+
+char *
+normalized_menu_entry_internal_node (ELEMENT *entry)
+{
+  int i;
+  for (i = 0; i < entry->contents.number; i++)
+    {
+      ELEMENT *content = entry->contents.list[i];
+      if (content->type == ET_menu_entry_node)
+        {
+          if (!lookup_extra_element (content, "manual_content"))
+            {
+              KEY_PAIR *k = lookup_extra (content, "normalized");
+              if (k && k->value)
+                return (char *)k->value;
+              else
+                return 0;
+            }
+          return 0;
+        }
+    }
+  return 0;
+}
 
 void
 associate_internal_references (LABEL_LIST *identifiers_target,
@@ -416,4 +475,201 @@ warn_non_empty_parts (DOCUMENT *document)
         command_warn (part, "@%s not empty",
                       builtin_command_name (part->cmd));
     }
+}
+
+ELEMENT *
+get_node_node_childs_from_sectioning (ELEMENT *node)
+{
+  ELEMENT *node_childs = new_element (ET_NONE);
+
+  ELEMENT *associated_section = lookup_extra_element (node, "associated_section");
+  if (associated_section)
+    {
+      ELEMENT *section_childs = lookup_extra_element (associated_section,
+                                                      "section_childs");
+      if (section_childs)
+        {
+          int i;
+          for (i = 0; i < section_childs->contents.number; i++)
+            {
+              ELEMENT *child = section_childs->contents.list[i];
+              ELEMENT *associated_node = lookup_extra_element (child,
+                                                               "associated_node");
+              if (associated_node)
+                add_to_contents_as_array (node_childs, associated_node);
+            }
+        }
+       /* Special case for @top.  Gather all the children of the @part following
+          @top. */
+      if (associated_section->cmd == CM_top)
+        {
+          ELEMENT *current = associated_section;
+          while (1)
+            {
+              ELEMENT *section_directions = lookup_extra_element (current,
+                                                        "section_directions");
+              if (section_directions && section_directions->contents.list[D_next])
+                {
+                  current = section_directions->contents.list[D_next];
+                  if (current->cmd == CM_part)
+                    {
+                      ELEMENT *section_childs = lookup_extra_element (current,
+                                                                "section_childs");
+                      if (section_childs)
+                        {
+                          int i;
+                          for (i = 0; i < section_childs->contents.number; i++)
+                            {
+                              ELEMENT *child = section_childs->contents.list[i];
+                              ELEMENT *associated_node
+                                   = lookup_extra_element (child,
+                                                           "associated_node");
+                              if (associated_node)
+                                add_to_contents_as_array (node_childs,
+                                                          associated_node);
+                            }
+                        }
+                    }
+                  else
+                    {
+                      ELEMENT *associated_node = lookup_extra_element (current,
+                                                              "associated_node");
+                      /*
+                    for @appendix, and what follows, as it stops a @part, but is
+                    not below @top
+                       */
+                      if (associated_node)
+                        add_to_contents_as_array (node_childs, associated_node);
+                    }
+                }
+              else
+                break;
+            }
+        }
+    }
+  return node_childs;
+}
+
+
+/*
+  returns the texinfo tree corresponding to a single menu entry pointing
+  to NODE.
+  if USE_SECTIONS is set, use the section name as menu entry name. */
+ELEMENT *
+new_node_menu_entry (ELEMENT *node, int use_sections)
+{
+  ELEMENT *node_name_element = 0;
+  ELEMENT *menu_entry_name;
+  ELEMENT *menu_entry_node;
+  ELEMENT *entry;
+  ELEMENT *description;
+  ELEMENT *preformatted;
+  ELEMENT *description_text;
+  ELEMENT *menu_entry_leading_text;
+  NODE_SPEC_EXTRA *parsed_entry_node;
+  int i;
+  int status;
+  int is_target = lookup_extra_integer (node, "is_target", &status);
+  if (is_target)
+    node_name_element = node->args.list[0];
+
+  if (!node_name_element)
+    return 0;
+
+  if (use_sections)
+    {
+      int i;
+      ELEMENT *name_element;
+      ELEMENT *associated_section
+        = lookup_extra_element (node, "associated_section");
+      if (associated_section)
+        name_element = associated_section->args.list[0];
+      else
+        name_element = node_name_element; /* shouldn't happen */
+
+      menu_entry_name = copy_contents (name_element, ET_menu_entry_name);
+      for (i = 0; i < menu_entry_name->contents.number; i++)
+        {
+          ELEMENT *content = menu_entry_name->contents.list[i];
+          content->parent = menu_entry_name;
+        }
+      /*
+      colons could be doubly protected, but it is probably better
+      than not protected at all.
+       */
+      protect_colon_in_tree (menu_entry_name);
+    }
+
+  entry = new_element (ET_menu_entry);
+
+  menu_entry_node = copy_contents (node_name_element, ET_menu_entry_node);
+  for (i = 0; i < menu_entry_node->contents.number; i++)
+    {
+      ELEMENT *content = menu_entry_node->contents.list[i];
+      content->parent = menu_entry_node;
+    }
+
+  /* do not protect here, as it could already be protected, and
+     the menu entry should be the same as the node
+  protect_colon_in_tree (menu_entry_node);
+   */
+
+  description = new_element (ET_menu_entry_description);
+  preformatted = new_element (ET_preformatted);
+  add_to_element_contents (description, preformatted);
+  description_text = new_element (ET_NONE);
+  text_append (&description_text->text, "\n");
+  add_to_element_contents (preformatted, description_text);
+
+  menu_entry_leading_text = new_element (ET_menu_entry_leading_text);
+  text_append (&menu_entry_leading_text->text, "* ");
+
+  add_to_element_contents (entry, menu_entry_leading_text);
+
+  if (use_sections)
+    {
+      ELEMENT *menu_entry_separator = new_element (ET_menu_entry_separator);
+      ELEMENT *menu_entry_after_node = new_element (ET_menu_entry_separator);
+      text_append (&menu_entry_separator->text, ": ");
+      text_append (&menu_entry_after_node->text, ".");
+      add_to_element_contents (entry, menu_entry_name);
+      add_to_element_contents (entry, menu_entry_separator);
+      add_to_element_contents (entry, menu_entry_node);
+      add_to_element_contents (entry, menu_entry_after_node);
+    }
+  else
+    {
+      ELEMENT *menu_entry_separator = new_element (ET_menu_entry_separator);
+      add_to_element_contents (entry, menu_entry_node);
+      text_append (&menu_entry_separator->text, "::");
+      add_to_element_contents (entry, menu_entry_separator);
+    }
+
+  add_to_element_contents (entry, description);
+
+  parsed_entry_node = parse_node_manual (menu_entry_node, 1);
+  if (parsed_entry_node->node_content)
+    {
+      char *normalized;
+      add_extra_contents (menu_entry_node, "node_content",
+                          parsed_entry_node->node_content);
+      normalized = convert_to_identifier (parsed_entry_node->node_content);
+      if (normalized)
+        {
+          if (strlen (normalized))
+            {
+              add_extra_string (menu_entry_node, "normalized",
+                                normalized);
+            }
+          else
+            free (normalized);
+         }
+    }
+  /* seems that it may happen, if there is leading parenthesised text? */
+  if (parsed_entry_node->manual_content)
+    add_extra_contents (menu_entry_node, "manual_content",
+                        parsed_entry_node->manual_content);
+  free (parsed_entry_node);
+
+  return entry;
 }

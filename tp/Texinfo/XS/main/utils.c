@@ -650,3 +650,19 @@ copy_tree (ELEMENT *current, ELEMENT *parent)
   copy_extra_info (current, copy);
   return copy;
 }
+
+ELEMENT *
+copy_contents (ELEMENT *element, enum element_type type)
+{
+  ELEMENT *tmp = new_element (type);
+  ELEMENT *result;
+  tmp->contents = element->contents;
+
+  result = copy_tree (tmp, 0);
+
+  tmp->contents.list = 0;
+  destroy_element (tmp);
+
+  return result;
+}
+

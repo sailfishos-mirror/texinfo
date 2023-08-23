@@ -1596,9 +1596,6 @@ while(@input_files) {
                                                      $identifier_target);
   }
 
-  # this can be done for every format, since information is already gathered
-  my $floats = $document->floats_information();
-
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
     my ($top_node, $nodes_list)
          = Texinfo::Structuring::nodes_tree($registrar,
@@ -1635,6 +1632,7 @@ while(@input_files) {
     }
   }
   if ($formats_table{$converted_format}->{'floats'}) {
+    my $floats = $document->floats_information();
     Texinfo::Structuring::number_floats($floats);
   }
 

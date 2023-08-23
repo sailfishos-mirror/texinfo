@@ -450,18 +450,10 @@ sub _register_menu_node_targets($$$)
       foreach my $menu_content (@{$menu->{'contents'}}) {
         if ($menu_content->{'type'}
             and $menu_content->{'type'} eq 'menu_entry') {
-          foreach my $arg (@{$menu_content->{'contents'}}) {
-            if ($arg->{'type'} eq 'menu_entry_node') {
-              if ($arg->{'extra'}
-                  and !$arg->{'extra'}->{'manual_content'}
-                  and defined($arg->{'extra'}->{'normalized'})) {
-                my $menu_node
-                  = $identifier_target->{$arg->{'extra'}->{'normalized'}};
-                $register->{$menu_node} = 1 if (defined($menu_node));
-              }
-              last;
-            }
-          }
+          my ($normalized_entry_node, $menu_node)
+            = _normalized_entry_associated_internal_node($menu_content,
+                                                         $identifier_target);
+          $register->{$menu_node} = 1 if (defined($menu_node));
         }
       }
     }
@@ -1727,38 +1719,38 @@ sub get_node_node_childs_from_sectioning
   my @node_childs;
 
   if ($node->{'extra'}
-      and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'extra'}
-      and $node->{'extra'}->{'associated_section'}
-                                      ->{'extra'}->{'section_childs'}) {
-    foreach my $child (@{$node->{'extra'}->{'associated_section'}
-                                        ->{'extra'}->{'section_childs'}}) {
-      if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-        push @node_childs, $child->{'extra'}->{'associated_node'};
+      and $node->{'extra'}->{'associated_section'}) {
+    my $associated_section = $node->{'extra'}->{'associated_section'};
+
+    if ($associated_section->{'extra'}
+        and $associated_section->{'extra'}->{'section_childs'}) {
+      foreach my $child (@{$associated_section->{'extra'}->{'section_childs'}}) {
+        if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
+          push @node_childs, $child->{'extra'}->{'associated_node'};
+        }
       }
     }
-  }
-  # Special case for @top.  Gather all the children of the @part following
-  # @top.
-  if ($node->{'extra'}
-      and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $current = $node->{'extra'}->{'associated_section'};
-    while ($current->{'extra'}->{'section_directions'}
-           and $current->{'extra'}->{'section_directions'}->{'next'}) {
-      $current = $current->{'extra'}->{'section_directions'}->{'next'};
-      if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part'
-          and $current->{'extra'}->{'section_childs'}) {
-        foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
-          if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-            push @node_childs, $child->{'extra'}->{'associated_node'};
+    # Special case for @top.  Gather all the children of the @part following
+    # @top.
+    if ($associated_section->{'cmdname'} eq 'top') {
+      my $current = $associated_section;
+      while ($current->{'extra'}->{'section_directions'}
+             and $current->{'extra'}->{'section_directions'}->{'next'}) {
+        $current = $current->{'extra'}->{'section_directions'}->{'next'};
+        if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
+          if ($current->{'extra'}->{'section_childs'}) {
+            foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
+              if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
+                push @node_childs, $child->{'extra'}->{'associated_node'};
+              }
+            }
           }
+        } elsif ($current->{'extra'}
+                 and $current->{'extra'}->{'associated_node'}) {
+          # for @appendix, and what follows, as it stops a @part, but is
+          # not below @top
+          push @node_childs, $current->{'extra'}->{'associated_node'};
         }
-      } elsif ($current->{'extra'}
-               and $current->{'extra'}->{'associated_node'}) {
-        # for @appendix, and what follows, as it stops a @part, but is
-        # not below @top
-        push @node_childs, $current->{'extra'}->{'associated_node'};
       }
     }
   }
@@ -1772,28 +1764,26 @@ sub new_node_menu_entry
 {
   my ($node, $use_sections) = @_;
 
-  my $node_contents;
+  my $node_name_element;
   if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
-    $node_contents = $node->{'args'}->[0]->{'contents'};
+    $node_name_element = $node->{'args'}->[0];
   }
 
   # can happen with node without argument or with empty argument
-  return undef if (not defined($node_contents));
+  return undef if (not defined($node_name_element));
 
-  my ($name_contents, $menu_entry_name);
+  my $menu_entry_name;
   if ($use_sections) {
+    my $name_element;
     if (defined $node->{'extra'}->{'associated_section'}) {
-      $name_contents
-        = $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'};
+      $name_element
+        = $node->{'extra'}->{'associated_section'}->{'args'}->[0];
     } else {
-      $name_contents = $node_contents; # shouldn't happen
+      $name_element = $node_name_element; # shouldn't happen
     }
-  }
 
-  if ($use_sections) {
-    $menu_entry_name = {'type' => 'menu_entry_name'};
-    $menu_entry_name->{'contents'}
-        = Texinfo::Common::copy_contents($name_contents);
+    $menu_entry_name
+        = Texinfo::Common::copy_contents($name_element, 'menu_entry_name');
     foreach my $content (@{$menu_entry_name->{'contents'}}) {
       $content->{'parent'} = $menu_entry_name;
     }
@@ -1802,15 +1792,14 @@ sub new_node_menu_entry
     Texinfo::Common::protect_colon_in_tree($menu_entry_name);
   }
 
-  my $entry = {'type' => 'menu_entry', 'extra' => {}};
+  my $entry = {'type' => 'menu_entry'};
 
-  my $menu_entry_node = {'type' => 'menu_entry_node'};
-  $menu_entry_node->{'contents'}
-    = Texinfo::Common::copy_contents($node_contents);
-
+  my $menu_entry_node
+    = Texinfo::Common::copy_contents($node_name_element, 'menu_entry_node');
   foreach my $content (@{$menu_entry_node->{'contents'}}) {
     $content->{'parent'} = $menu_entry_node;
   }
+
   # do not protect here, as it could already be protected, and
   # the menu entry should be the same as the node
   #Texinfo::Common::protect_colon_in_tree($menu_entry_node);
@@ -1862,36 +1851,34 @@ sub new_node_menu_entry
   return $entry;
 }
 
-sub new_block_command($$$)
+sub new_block_command($$)
 {
-  my $block_contents = shift;
-  my $parent = shift;
+  my $element = shift;
   my $command_name = shift;
 
-  my $new_block = {'cmdname' => $command_name, 'parent' => $parent};
-  $new_block->{'args'} = [{'type' => 'block_line_arg', 'parent' => $new_block,
+  $element->{'cmdname'} = $command_name;
+
+  $element->{'args'} = [{'type' => 'block_line_arg', 'parent' => $element,
                            'info' => { 'spaces_after_argument' =>
                                         {'text' => "\n",}}}];
 
-  foreach my $content (@$block_contents) {
-    confess("new_block_command: undef \$block_contents content")
-      if (!defined($content));
-    $content->{'parent'} = $new_block;
-  }
-
-  my $end = {'cmdname' => 'end', 'parent' => $new_block,
+  my $end = {'cmdname' => 'end', 'parent' => $element,
              'extra' => {'text_arg' => $command_name}};
   $end->{'info'} = {'spaces_before_argument' =>
                                          {'text' => ' '}};
-  $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end,
-                     'info' => {'spaces_after_argument' =>
-                                     {'text' => "\n"}}}];
-  push @{$end->{'args'}->[0]->{'contents'}},
-         {'text' => $command_name, 'parent' => $end->{'args'}->[0]};
+  my $end_args = {'type' => 'line_arg', 'parent' => $end,
+                  'contents' => [],
+                  'info' => {'spaces_after_argument' =>
+                                        {'text' => "\n"}}};
+  $end->{'args'} = [$end_args];
 
-  $new_block->{'contents'} = [@$block_contents, $end];
+  my $command_name_text = {'text' => $command_name,
+                           'parent' => $end_args};
+  push @{$end_args->{'contents'}}, $command_name_text;
 
-  return $new_block;
+  push @{$element->{'contents'}}, $end;
+
+  return $element;
 }
 
 sub new_complete_node_menu
@@ -1904,14 +1891,19 @@ sub new_complete_node_menu
     return;
   }
 
-  my @pending;
+  # only holds contents here, will be turned into a proper block
+  # command in new_block_command
+  my $section = $node->{'extra'}->{'associated_section'};
+  my $new_menu = {'contents' => [], 'parent' => $section};
   foreach my $child (@node_childs) {
     my $entry = new_node_menu_entry($child, $use_sections);
-    push @pending, $entry if defined($entry);
+    if (defined($entry)) {
+      $entry->{'parent'} = $new_menu;
+      push @{$new_menu->{'contents'}}, $entry;
+    }
   }
 
-  my $section = $node->{'extra'}->{'associated_section'};
-  my $new_menu = new_block_command(\@pending, $section, 'menu');
+  new_block_command($new_menu, 'menu');
 
   return $new_menu;
 }
@@ -1926,6 +1918,25 @@ sub _sort_string($$)
                  : (($a =~ /^[[:alpha:]]/ && 1) || -1);
 }
 
+# return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
+# the internal node referred to by menu entry $ENTRY
+sub normalized_menu_entry_internal_node($)
+{
+  my $entry = shift;
+
+  foreach my $content (@{$entry->{'contents'}}) {
+    if ($content->{'type'} eq 'menu_entry_node') {
+      if ($content->{'extra'}) {
+        if (! $content->{'extra'}->{'manual_content'}) {
+          return $content->{'extra'}->{'normalized'};
+        }
+      }
+      return undef;
+    }
+  }
+  return undef;
+}
+
 # Return ($NORMALIZED_ENTRY_NODE, $NODE) where $NODE is the node referred to
 # by menu entry $ENTRY, and $NORMALIZED_ENTRY_NODE is the name of this node.
 sub _normalized_entry_associated_internal_node($;$)
@@ -1933,20 +1944,14 @@ sub _normalized_entry_associated_internal_node($;$)
   my $entry = shift;
   my $identifier_target = shift;
 
-  foreach my $arg (@{$entry->{'contents'}}) {
-    if ($arg->{'type'} eq 'menu_entry_node') {
-      if (! $arg->{'extra'}->{'manual_content'}) {
-        my $normalized_entry_node = $arg->{'extra'}->{'normalized'};
-        if (defined($normalized_entry_node)) {
-          if ($identifier_target) {
-            return ($normalized_entry_node,
-                      $identifier_target->{$normalized_entry_node});
-          } else {
-            return ($normalized_entry_node, undef);
-          }
-        }
-      }
-      last;
+  my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
+
+  if (defined($normalized_entry_node)) {
+    if ($identifier_target) {
+      return ($normalized_entry_node,
+                $identifier_target->{$normalized_entry_node});
+    } else {
+      return ($normalized_entry_node, undef);
     }
   }
   return (undef, undef);
@@ -1959,7 +1964,9 @@ sub new_master_menu($$$)
   my $identifier_target = shift;
   my $menus = shift;
 
-  my @master_menu_contents;
+  # only holds contents here, will be turned into a proper block
+  # command in new_block_command
+  my $master_menu = {'contents' => []};
   if (defined($menus) and @$menus) {
     foreach my $menu (@$menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
@@ -1968,15 +1975,16 @@ sub new_master_menu($$$)
                = _normalized_entry_associated_internal_node($entry,
                                                             $identifier_target);
           if (defined($node) and $node->{'extra'}) {
-            push @master_menu_contents, _print_down_menus($node,
+            push @{$master_menu->{'contents'}}, _print_down_menus($node,
                                                           $identifier_target);
           }
         }
       }
     }
   }
-  if (scalar(@master_menu_contents)) {
-    my $first_preformatted = $master_menu_contents[0]->{'contents'}->[0];
+  if (scalar(@{$master_menu->{'contents'}})) {
+    # FIXME check what this preformatted corresponds to
+    my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
     my $master_menu_title
            = Texinfo::Translations::gdt($customization_information,
                                         ' --- The Detailed Node Listing ---');
@@ -1986,8 +1994,11 @@ sub new_master_menu($$$)
       push @master_menu_title_contents, $content;
     }
     unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
-    return Texinfo::Structuring::new_block_command(\@master_menu_contents, undef,
-                                                   'detailmenu');
+    foreach my $content (@{$master_menu->{'contents'}}) {
+      $content->{'parent'} = $master_menu;
+    }
+    Texinfo::Structuring::new_block_command($master_menu, 'detailmenu');
+    return $master_menu;
   } else {
     return undef;
   }
@@ -2066,23 +2077,20 @@ sub _print_down_menus($$)
     }
     if (scalar(@master_menu_contents)) {
       # Prepend node title
-      my $node_title_contents;
-      if ($node->{'extra'}->{'associated_section'}
-          and $node->{'extra'}->{'associated_section'}->{'args'}
-          and $node->{'extra'}->{'associated_section'}->{'args'}->[0]
-          and $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'}) {
-        $node_title_contents
-          = Texinfo::Common::copy_contents(
-                      $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'});
+      my $node_name_element;
+      if ($node->{'extra'}->{'associated_section'}) {
+        my $associated_section = $node->{'extra'}->{'associated_section'};
+        $node_name_element = $associated_section->{'args'}->[0];
       } else {
-        $node_title_contents
-           = Texinfo::Common::copy_contents($node->{'args'}->[0]->{'contents'});
+        $node_name_element = $node->{'args'}->[0];
       }
+      my $node_title_copy = Texinfo::Common::copy_contents($node_name_element);
       my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
       $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',
                                           'parent' => $menu_comment};
       $menu_comment->{'contents'}->[0]->{'contents'}
-        = [{'text' => "\n", 'type' => 'empty_line'}, @$node_title_contents,
+        = [{'text' => "\n", 'type' => 'empty_line'},
+           @{$node_title_copy->{'contents'}},
            {'text' => "\n", 'type' => 'empty_line'},
            {'text' => "\n", 'type' => 'empty_line'}];
       foreach my $content (@{$menu_comment->{'contents'}->[0]->{'contents'}}) {
@@ -2740,11 +2748,11 @@ The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Document/index_entries>.
 
-=item $new_block = new_block_command($content, $parent, $command_name)
+=item new_block_command($element, $command_name)
 X<C<new_block_command>>
 
-Returns the texinfo tree corresponding to a block command named
-I<$command_name> with contents I<$content> and parent in tree I<$parent>.
+Complete I<$element> by adding the I<$command_name>, the command line
+argument and C<@end> to turn the element to a proper block command.
 
 =item $new_menu = new_complete_node_menu($node, $use_sections)
 X<C<new_complete_node_menu>>
