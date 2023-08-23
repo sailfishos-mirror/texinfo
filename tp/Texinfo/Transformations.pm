@@ -68,6 +68,10 @@ sub import {
         "Texinfo::Transformations::_XS_complete_tree_nodes_menus",
         "Texinfo::StructTransf::complete_tree_nodes_menus"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_complete_tree_nodes_missing_menu",
+        "Texinfo::StructTransf::complete_tree_nodes_missing_menu"
+      );
     }
     $module_loaded = 1;
   }
@@ -606,6 +610,12 @@ sub complete_tree_nodes_missing_menu($;$)
       }
     }
   }
+
+  _XS_complete_tree_nodes_missing_menu($root, $use_sections);
+}
+
+sub _XS_complete_tree_nodes_missing_menu($$)
+{
 }
 
 # customization_information is used to pass down a translatable object with

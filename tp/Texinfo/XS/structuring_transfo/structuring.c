@@ -673,3 +673,36 @@ new_node_menu_entry (ELEMENT *node, int use_sections)
 
   return entry;
 }
+
+ELEMENT *
+new_complete_node_menu (ELEMENT *node, int use_sections)
+{
+  ELEMENT *node_childs = get_node_node_childs_from_sectioning (node);
+  ELEMENT *section;
+  ELEMENT *new_menu;
+  int i;
+
+  if (node_childs->contents.number <= 0)
+    return 0;
+
+  /* only holds contents here, will be turned into a proper block
+     command in new_block_command */
+
+  section = lookup_extra_element (node, "associated_section");
+  new_menu = new_element (ET_NONE);
+  new_menu->parent = section;
+
+  for (i = 0; i < node_childs->contents.number; i++)
+    {
+      ELEMENT *child = node_childs->contents.list[i];
+      ELEMENT *entry = new_node_menu_entry (child, use_sections);
+      if (entry)
+        {
+          add_to_element_contents (new_menu, entry);
+        }
+    }
+
+  new_block_command (new_menu, CM_menu);
+
+  return (new_menu);
+}

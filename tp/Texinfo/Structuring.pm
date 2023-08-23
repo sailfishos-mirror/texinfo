@@ -1888,7 +1888,7 @@ sub new_complete_node_menu
   my @node_childs = get_node_node_childs_from_sectioning($node);
 
   if (not scalar(@node_childs)) {
-    return;
+    return undef;
   }
 
   # only holds contents here, will be turned into a proper block

@@ -769,6 +769,27 @@ complete_tree_nodes_menus (ELEMENT *root, int use_sections)
   destroy_element (non_automatic_nodes);
 }
 
+void
+complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
+{
+  ELEMENT *non_automatic_nodes
+     = get_non_automatic_nodes_with_sections (root);
+  int i;
+  for (i = 0; i < non_automatic_nodes->contents.number; i++)
+    {
+      ELEMENT *node = non_automatic_nodes->contents.list[i];
+      ELEMENT *menus = lookup_extra_element (node, "menus");
+      if (!(menus && menus->contents.number > 0))
+        {
+          ELEMENT *section = lookup_extra_element (node, "associated_section");
+          ELEMENT *current_menu = new_complete_node_menu (node, use_sections);
+          if (current_menu)
+            prepend_new_menu_in_node_section (node, section, current_menu);
+        }
+    }
+  destroy_element (non_automatic_nodes);
+}
+
 ELEMENT *
 new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
 {

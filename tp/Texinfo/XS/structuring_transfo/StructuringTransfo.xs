@@ -341,3 +341,40 @@ complete_tree_nodes_menus (tree_in, use_sections_in)
           }
         complete_tree_nodes_menus (document->tree, use_sections);
 
+void
+complete_tree_nodes_missing_menu (tree_in, use_sections_in)
+        SV *tree_in
+        SV *use_sections_in;
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_tree_in;
+        int use_sections = 0;
+     CODE:
+        hv_tree_in = (HV *)SvRV (tree_in);
+        document_descriptor_sv = hv_fetch (hv_tree_in,
+                                           "tree_document_descriptor",
+                                           strlen ("tree_document_descriptor"), 0);
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: complete_tree_nodes_missing_menu:"
+                             "no tree_document_descriptor\n");
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        if (SvOK (use_sections_in))
+          {
+            use_sections = SvIV (use_sections_in);
+          }
+        complete_tree_nodes_missing_menu (document->tree, use_sections);
+
