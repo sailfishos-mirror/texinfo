@@ -124,11 +124,11 @@ my $no_detailmenu = _get_in('');
 
 my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_piece($in_detailmenu);
-my $tree = $document->tree();
 my $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
 my $identifier_target = $document->labels_information();
+# FIXME does not test XS
 my $top_node = $identifier_target->{'Top'};
 my $master_menu = Texinfo::Structuring::new_master_menu($parser,
                                                $identifier_target,
@@ -167,11 +167,11 @@ unnumbered1
 @end detailmenu
 ';
 #print STDERR $out;
+
 is ($out, $reference, 'master menu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
-$tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
@@ -185,12 +185,11 @@ is ($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
-$tree = $document->tree();
+my $tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
-$identifier_target = $document->labels_information();
-Texinfo::Transformations::regenerate_master_menu($parser, $identifier_target);
+Texinfo::Transformations::regenerate_master_menu($document, $parser);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in($reference), 'regenerate with existing detailmenu');
@@ -203,8 +202,7 @@ $tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
-$identifier_target = $document->labels_information();
-Texinfo::Transformations::regenerate_master_menu($parser, $identifier_target);
+Texinfo::Transformations::regenerate_master_menu($document, $parser);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in('',"\n".$reference), 'regenerate with no detailmenu');

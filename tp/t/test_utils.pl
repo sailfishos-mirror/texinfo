@@ -1032,8 +1032,8 @@ sub test($$)
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($main_configuration,
-                                                     $identifier_target);
+    Texinfo::Transformations::regenerate_master_menu($document,
+                                                     $main_configuration);
   }
 
   my $floats = $document->floats_information();

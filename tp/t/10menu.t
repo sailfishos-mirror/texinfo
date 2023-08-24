@@ -121,6 +121,14 @@ Horizontal space
 
 @end menu
 '],
+['empty_leading_menu_comment',
+'@node first
+
+@menu
+
+* (f)b:: desc
+@end menu
+'],
 ['detailmenu',
 '
 @menu

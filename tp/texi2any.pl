@@ -1592,8 +1592,8 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($main_configuration,
-                                                     $identifier_target);
+    Texinfo::Transformations::regenerate_master_menu($document,
+                                                     $main_configuration);
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {

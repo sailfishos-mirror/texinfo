@@ -1,3 +1,33 @@
+2023-08-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu): use a
+	document as input.  Update callers.
+
+	* tp/Texinfo/Structuring.pm
+	(_normalized_entry_associated_internal_node): $identifier_target
+	argument is not optional, and return only the node.  Update callers.
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu),
+	tp/Texinfo/Structuring.pm (new_master_menu, _print_down_menus): pass
+	$use_sections down to new_complete_node_menu.
+
+	* tp/Texinfo/Structuring.pm (_print_down_menus): reorganize code.
+
+	* tp/Texinfo/Structuring.pm (regenerate_master_menu): reorganize code.
+
+	* tp/Texinfo/Transformations.pm (import, regenerate_master_menu)
+	(_XS_regenerate_master_menu),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(regenerate_master_menu),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(normalized_entry_associated_internal_node, print_down_menus)
+	(new_master_menu), tp/Texinfo/XS/structuring_transfo/transformations.c
+	(regenerate_master_menu): implement regenerate_master_menu in XS.
+
+	* tp/t/do_master_menu.t: remove unused trees setting.
+
+	* tp/t/10menu.t (empty_leading_menu_comment), tp/Makefile.tres: new test.
+
 2023-08-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Transformations.pm (import)

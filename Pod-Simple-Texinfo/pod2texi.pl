@@ -345,8 +345,8 @@ sub _fix_texinfo_tree($$$$;$$)
                           $do_node_menus);
   if ($do_master_menu) {
     if ($do_node_menus) {
-      Texinfo::Transformations::regenerate_master_menu($texi_parser,
-                                                       $updated_labels);
+      Texinfo::Transformations::regenerate_master_menu($document,
+                                                       $texi_parser);
     } else {
       # note that that situation cannot happen with the code as it
       # is now.  When _fix_texinfo_tree is called from _do_top_node_menu

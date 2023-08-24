@@ -72,6 +72,10 @@ sub import {
         "Texinfo::Transformations::_XS_complete_tree_nodes_missing_menu",
         "Texinfo::StructTransf::complete_tree_nodes_missing_menu"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_regenerate_master_menu",
+        "Texinfo::StructTransf::regenerate_master_menu"
+      );
     }
     $module_loaded = 1;
   }
@@ -618,12 +622,22 @@ sub _XS_complete_tree_nodes_missing_menu($$)
 {
 }
 
+sub _XS_regenerate_master_menu($$)
+{
+}
+
 # customization_information is used to pass down a translatable object with
 # customization information for the gdt() call.
-sub regenerate_master_menu($$)
+sub regenerate_master_menu($$;$)
 {
+  my $document = shift;
   my $customization_information = shift;
-  my $identifier_target = shift;
+  my $use_sections = shift;
+
+  _XS_regenerate_master_menu($document, $use_sections);
+
+  my $identifier_target = $document->labels_information();
+
   my $top_node = $identifier_target->{'Top'};
 
   return undef if (!defined($top_node)
@@ -633,7 +647,8 @@ sub regenerate_master_menu($$)
 
   my $new_master_menu
       = Texinfo::Structuring::new_master_menu($customization_information,
-                      $identifier_target, $top_node->{'extra'}->{'menus'});
+                      $identifier_target, $top_node->{'extra'}->{'menus'},
+                      $use_sections);
   return undef if (!defined($new_master_menu));
 
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
@@ -659,29 +674,33 @@ sub regenerate_master_menu($$)
   }
 
   $new_master_menu->{'parent'} = $last_menu;
-  if ($index
-      and $last_menu->{'contents'}->[$index-1]->{'type'}
-      and $last_menu->{'contents'}->[$index-1]->{'type'} eq 'menu_comment'
-      and $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]->{'type'}
-      and $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]->{'type'}
-             eq 'preformatted') {
-    # there is already a menu comment at the end of the menu, add an empty line
-    my $empty_line = {'type' => 'empty_line', 'text' => "\n", 'parent' =>
-               $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]};
-    push @{$last_menu->{'contents'}->[$index-1]->{'contents'}}, $empty_line;
-  } elsif ($index
-           and $last_menu->{'contents'}->[$index-1]->{'type'}
-           and $last_menu->{'contents'}->[$index-1]->{'type'} eq 'menu_entry') {
-    # there is a last menu entry, add a menu comment containing an empty line
-    # after it
-    my $menu_comment = {'type' => 'menu_comment', 'parent' => $last_menu};
-    splice (@{$last_menu->{'contents'}}, $index, 0, $menu_comment);
-    $index++;
-    my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
-    push @{$menu_comment->{'contents'}}, $preformatted;
-    my $empty_line = {'type' => 'after_menu_description_line', 'text' => "\n",
-                      'parent' => $preformatted};
-    push @{$preformatted->{'contents'}}, $empty_line;
+  if ($index) {
+    my $last_element = $last_menu->{'contents'}->[$index-1];
+    if ($last_element->{'type'} and $last_element->{'type'} eq 'menu_comment'
+        and scalar(@{$last_element->{'contents'}})
+        and $last_element->{'contents'}->[-1]->{'type'}
+        and $last_element->{'contents'}->[-1]->{'type'} eq 'preformatted') {
+      {
+      # there is already a menu comment at the end of the menu, add an empty line
+        # FIXME this case is not covered in tests
+        my $preformatted = $last_element->{'contents'}->[-1];
+        my $empty_line = {'type' => 'empty_line', 'text' => "\n",
+                          'parent' => $preformatted};
+        push @{$preformatted->{'contents'}}, $empty_line;
+      }
+    } elsif ($last_element->{'type'}
+             and $last_element->{'type'} eq 'menu_entry') {
+      # there is a last menu entry, add a menu comment containing an empty line
+      # after it
+      my $menu_comment = {'type' => 'menu_comment', 'parent' => $last_menu};
+      splice (@{$last_menu->{'contents'}}, $index, 0, $menu_comment);
+      $index++;
+      my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
+      push @{$menu_comment->{'contents'}}, $preformatted;
+      my $empty_line = {'type' => 'after_menu_description_line', 'text' => "\n",
+                        'parent' => $preformatted};
+      push @{$preformatted->{'contents'}}, $empty_line;
+    }
   }
   # insert master menu
   splice (@{$last_menu->{'contents'}}, $index, 0, $new_master_menu);

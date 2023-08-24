@@ -378,3 +378,41 @@ complete_tree_nodes_missing_menu (tree_in, use_sections_in)
           }
         complete_tree_nodes_missing_menu (document->tree, use_sections);
 
+
+void
+regenerate_master_menu (document_in, use_sections_in)
+        SV *document_in
+        SV *use_sections_in;
+    PREINIT:
+        SV** document_descriptor_sv;
+        DOCUMENT *document = 0;
+        int document_descriptor;
+        HV *hv_document_in;
+        int use_sections = 0;
+    CODE:
+        hv_document_in = (HV *)SvRV (document_in);
+        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
+                                           strlen ("document_descriptor"), 0);
+        /* FIXME warning/error if not found? */
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            document = retrieve_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: regenerate_master_menu:"
+                             "no tree_document_descriptor\n");
+            return;
+          }
+        if (! document)
+          {
+            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
+            return;
+          }
+        if (SvOK (use_sections_in))
+          {
+            use_sections = SvIV (use_sections_in);
+          }
+        regenerate_master_menu (document, use_sections);
+

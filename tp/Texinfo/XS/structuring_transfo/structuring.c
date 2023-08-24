@@ -36,6 +36,7 @@
 #include "transformations.h"
 /* FIXME in parsetexi/. Move to main/?  Some ties to parser */
 #include "labels.h"
+#include "translations.h"
 #include "structuring.h"
 
 void
@@ -94,6 +95,20 @@ normalized_menu_entry_internal_node (ELEMENT *entry)
   return 0;
 }
 
+ELEMENT *
+normalized_entry_associated_internal_node (ELEMENT *entry,
+                                           LABEL_LIST *identifiers_target)
+{
+  char *normalized_entry_node = normalized_menu_entry_internal_node (entry);
+  if (normalized_entry_node)
+    {
+      ELEMENT *node = find_identifier_target (identifiers_target,
+                                              normalized_entry_node);
+      return node;
+    }
+  return 0;
+}
+
 void
 associate_internal_references (LABEL_LIST *identifiers_target,
                                ELEMENT_LIST *refs)
@@ -143,7 +158,7 @@ associate_internal_references (LABEL_LIST *identifiers_target,
             {
               char *normalized = (char *)k_normalized->value;
               node_target
-                = find_identifier_target(identifiers_target,
+                = find_identifier_target (identifiers_target,
                                          normalized);
             }
 
@@ -705,4 +720,182 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
   new_block_command (new_menu, CM_menu);
 
   return (new_menu);
+}
+
+ELEMENT *
+print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
+                 int use_sections)
+{
+  ELEMENT *master_menu_contents = new_element (ET_NONE);
+  ELEMENT *menus;
+  ELEMENT *node_menus = lookup_extra_element (node, "menus");
+  ELEMENT *node_children;
+  int i;
+
+  if (node_menus && node_menus->contents.number > 0)
+    menus = node_menus;
+  else
+    {
+      ELEMENT *current_menu = new_complete_node_menu (node, use_sections);
+      node_menus = 0;
+      if (current_menu)
+        {
+          menus = new_element (ET_NONE);
+          add_to_contents_as_array (menus, current_menu);
+        }
+      else
+        return master_menu_contents;
+    }
+
+  node_children = new_element (ET_NONE);
+
+  for (i = 0; i < menus->contents.number; i++)
+    {
+      ELEMENT *menu = menus->contents.list[i];
+      int j;
+      for (j = 0; j < menu->contents.number; j++)
+        {
+          ELEMENT *entry = menu->contents.list[j];
+          if (entry->type == ET_menu_entry)
+            {
+              ELEMENT *entry_copy = copy_tree (entry, 0);
+              ELEMENT *node;
+              add_to_contents_as_array (master_menu_contents, entry_copy);
+              /* gather node children to recursively print their menus */
+              node = normalized_entry_associated_internal_node (entry,
+                                                        identifiers_target);
+              if (node)
+                add_to_contents_as_array (node_children, node);
+            }
+        }
+    }
+
+  if (master_menu_contents->contents.number > 0)
+    {
+      ELEMENT *node_name_element;
+      ELEMENT *node_title_copy;
+      ELEMENT *menu_comment = new_element (ET_menu_comment);
+      ELEMENT *preformatted = new_element (ET_preformatted);
+      ELEMENT *empty_line_before = new_element (ET_empty_line);
+      ELEMENT *empty_line_first_after = new_element (ET_empty_line);
+      ELEMENT *empty_line_second_after = new_element (ET_empty_line);
+      ELEMENT *associated_section
+       = lookup_extra_element (node, "associated_section");
+      if (associated_section)
+        node_name_element = associated_section->args.list[0];
+      else
+        node_name_element = node->args.list[0];
+
+      node_title_copy = copy_contents (node_name_element, ET_NONE);
+
+      for (i = 0; i < node_title_copy->contents.number; i++)
+        node_title_copy->contents.list[i]->parent = preformatted;
+
+      add_to_element_contents (menu_comment, preformatted);
+
+      text_append (&empty_line_before->text, "\n");
+      text_append (&empty_line_first_after->text, "\n");
+      text_append (&empty_line_second_after->text, "\n");
+
+      add_to_element_contents (preformatted, empty_line_before);
+      insert_slice_into_contents (preformatted, 1, node_title_copy,
+                                  0, node_title_copy->contents.number);
+      add_to_element_contents (preformatted, empty_line_first_after);
+      add_to_element_contents (preformatted, empty_line_second_after);
+
+      insert_into_contents (master_menu_contents, menu_comment, 0);
+      menu_comment->parent = 0;
+
+      /* now recurse in the children */
+      for (i = 0; i < node_children->contents.number; i++)
+        {
+          ELEMENT *child = node_children->contents.list[i];
+          ELEMENT *child_menu_content
+           = print_down_menus (child, identifiers_target, use_sections);
+          insert_slice_into_contents (master_menu_contents,
+                                      master_menu_contents->contents.number,
+                                      child_menu_content, 0,
+                                      child_menu_content->contents.number);
+          destroy_element (child_menu_content);
+        }
+    }
+
+  destroy_element (node_children);
+
+  if (!node_menus)
+    destroy_element (menus);
+
+  return master_menu_contents;
+}
+
+/* FIXME in perl there is a $customization_information argument */
+ELEMENT *
+new_master_menu (LABEL_LIST *identifiers_target, ELEMENT *menus,
+                 int use_sections)
+{
+  /*  only holds contents here, will be turned into a proper block
+      in new_block_command */
+  ELEMENT *master_menu = new_element (ET_NONE);
+
+  if (menus && menus->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < menus->contents.number; i++)
+        {
+          ELEMENT *menu = menus->contents.list[i];
+          int j;
+          for (j = 0; j < menu->contents.number; j++)
+            {
+              ELEMENT *entry = menu->contents.list[j];
+              if (entry->type == ET_menu_entry)
+                {
+                  ELEMENT *menu_node
+                   = normalized_entry_associated_internal_node(entry,
+                                                  identifiers_target);
+                  if (menu_node)
+                    {
+                      ELEMENT *down_menus = print_down_menus(menu_node,
+                                       identifiers_target, use_sections);
+                      if (down_menus)
+                        {
+                          int k;
+                          for (k = 0; k < down_menus->contents.number; k++)
+                            down_menus->contents.list[k]->parent = master_menu;
+                          insert_slice_into_contents (master_menu,
+                                                 master_menu->contents.number,
+                                                 down_menus, 0,
+                                                 down_menus->contents.number);
+                          destroy_element (down_menus);
+                        }
+                    }
+                }
+            }
+        }
+    }
+  if (master_menu->contents.number > 0)
+    {
+      int i;
+      ELEMENT *master_menu_title;
+      ELEMENT *new_line = new_element (ET_NONE);
+    /* There is a menu comment with a preformatted added in front of each
+       detailed menu section with the node section name */
+      ELEMENT *first_preformatted
+        = master_menu->contents.list[0]->contents.list[0];
+      master_menu_title = gdt (" --- The Detailed Node Listing ---", 0, 0, 0);
+
+      for (i = 0; i < master_menu_title->contents.number; i++)
+        master_menu_title->contents.list[i]->parent = first_preformatted;
+
+      text_append (&new_line->text, "\n");
+      new_line->parent = first_preformatted;
+      insert_into_contents (first_preformatted, new_line, 0);
+
+      insert_slice_into_contents (first_preformatted, 0, master_menu_title, 0,
+                                  master_menu_title->contents.number);
+
+      new_block_command (master_menu, CM_detailmenu);
+      return master_menu;
+    }
+  else
+    return 0;
 }

@@ -33,6 +33,8 @@
 #include "debug.h"
 #include "structuring.h"
 #include "convert_to_texinfo.h"
+#include "targets.h"
+#include "document.h"
 #include "transformations.h"
 
 
@@ -586,7 +588,7 @@ prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
   ELEMENT *empty_line = new_element (ET_empty_line);
   ELEMENT *menus = lookup_extra_contents (node, "menus", 1);
 
-  add_to_element_contents (section, current_menu); 
+  add_to_element_contents (section, current_menu);
   text_append (&empty_line->text, "\n");
   add_to_element_contents (section, empty_line);
 
@@ -788,6 +790,99 @@ complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
         }
     }
   destroy_element (non_automatic_nodes);
+}
+
+/* FIXME in perl there is a customization_information argument:
+# customization_information is used to pass down a translatable object with
+# customization information for the gdt() call.
+*/
+int
+regenerate_master_menu (DOCUMENT *document, int use_sections)
+{
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+  ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
+  ELEMENT *menus;
+  ELEMENT *master_menu;
+  ELEMENT *last_menu;
+  ELEMENT *last_content;
+  int i;
+  int index;
+
+  if (top_node)
+    {
+      menus = lookup_extra_element (top_node, "menus");
+      if (!menus || (menus->contents.number <= 0))
+        return 0;
+    }
+  else
+    return 0;
+
+  master_menu = new_master_menu (identifiers_target,
+                                 menus, use_sections);
+
+  for (i = 0; i < menus->contents.number; i++)
+    {
+      int detailmenu_index = 0;
+      ELEMENT *menu = menus->contents.list[i];
+      for (detailmenu_index = 0; detailmenu_index < menu->contents.number;
+           detailmenu_index++)
+        {
+          ELEMENT *entry = menu->contents.list[detailmenu_index];
+          if (entry->cmd == CM_detailmenu)
+            {
+              destroy_element_and_children (
+                 remove_from_contents (menu, detailmenu_index));
+              insert_into_contents (menu, master_menu, detailmenu_index);
+              return 1;
+            }
+        }
+    }
+
+  last_menu = last_contents_child (menus);
+  index = last_menu->contents.number;
+  last_content = last_contents_child (last_menu);
+  if (last_content && last_content->cmd == CM_end)
+    index--;
+
+  master_menu->parent = last_menu;
+
+  if (index)
+    {
+      ELEMENT *last_element = last_menu->contents.list[index-1];
+      ELEMENT *preformatted = 0;
+      if (last_element->type == ET_menu_comment
+          && last_element->contents.number > 0)
+        {
+          ELEMENT *last_menu_comment_elt = last_contents_child(last_element);
+          if (last_menu_comment_elt->type == ET_preformatted)
+            preformatted = last_menu_comment_elt;
+        }
+
+      if (preformatted)
+        {
+          ELEMENT *empty_line = new_element (ET_empty_line);
+          text_append (&empty_line->text, "\n");
+          add_to_element_contents (preformatted, empty_line);
+        }
+      else if (last_element->type == ET_menu_entry)
+        {
+        /*
+        there is a last menu entry, add a menu comment containing an empty line
+        after it
+         */
+          ELEMENT *after_line = new_element (ET_after_menu_description_line);
+          ELEMENT *menu_comment = new_element (ET_menu_comment);
+          insert_into_contents (last_menu, menu_comment, index);
+          index++;
+          preformatted = new_element (ET_preformatted);
+          add_to_element_contents (menu_comment, preformatted);
+          text_append (&after_line->text, "\n");
+          add_to_element_contents (preformatted, after_line);
+        }
+    }
+  /* insert master menu */
+  insert_into_contents (last_menu, master_menu, index);
+  return 1;
 }
 
 ELEMENT *
