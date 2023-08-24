@@ -1,5 +1,19 @@
 2023-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (register_document): put document
+	descriptor in the document structure for use in error messages in
+	downstream code.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
+	main/get_perl_info.c (get_document_or_warn, get_sv_tree_document)
+	(get_sv_document_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs: add
+	functions to get document from tree or doocument for use in XS code.
+
+	* tp/t/automatic_nodes.t: remove unneeded code, update.
+
+2023-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (regenerate_master_menu): use a
 	document as input.  Update callers.
 

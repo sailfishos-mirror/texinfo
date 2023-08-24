@@ -15,6 +15,7 @@ use Data::Dumper;
 
 ok(1);
 
+# FIXME tests in test_new_node do not test the transformations XS codes
 sub test_new_node($$$$)
 {
   my $in = shift;
@@ -77,10 +78,8 @@ my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node a node
 ');
 my $tree = $document->tree();
-my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $registrar = $parser->registered_errors();
-Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $document);
+my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $node = Texinfo::Transformations::_new_node($line_tree, $document);
 is ('@node a node 1
 ',  Texinfo::Convert::Texinfo::convert_to_texinfo($node), 'duplicate node added');
@@ -182,7 +181,7 @@ Texinfo::Structuring::associate_internal_references($registrar, $parser,
 $added_nodes
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
-my ($indices_information, $merged_indices) = $document->indices_information();
+my $indices_information = $document->indices_information();
 ok (($identifier_target->{'chap'}->{'extra'}->{'menus'}
      and @{$identifier_target->{'chap'}->{'extra'}->{'menus'}}
      and scalar(@{$identifier_target->{'chap'}->{'extra'}->{'menus'}}) == 1

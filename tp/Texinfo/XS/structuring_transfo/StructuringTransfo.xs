@@ -36,6 +36,7 @@
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
+#include "get_perl_info.h"
 #include "build_perl_info.h"
 
 MODULE = Texinfo::StructTransf		PACKAGE = Texinfo::StructTransf
@@ -47,59 +48,35 @@ fill_gaps_in_sectioning (tree_in)
         SV *tree_in
     PREINIT:
         ELEMENT *added_sections;
-        SV** document_descriptor_sv;
-        DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
+        DOCUMENT *document;
         HV *result_tree;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        /* FIXME warning/error if document not found? */
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
+        document = get_sv_tree_document (tree_in, "fill_gaps_in_sectioning");
+        if (!document)
+          RETVAL = newSV(0);
         else
           {
-            fprintf (stderr, "ERROR: fill_gaps_in_sectioning: "
-                             "no tree_document_descriptor\n");
-            return;
+            added_sections = fill_gaps_in_sectioning (document->tree);
+            result_tree = build_texinfo_tree (added_sections);
+            destroy_element (added_sections);
+            RETVAL = newRV_inc ((SV *) result_tree);
           }
-        added_sections = fill_gaps_in_sectioning (document->tree);
-        result_tree = build_texinfo_tree (added_sections);
-        destroy_element (added_sections);
-        RETVAL = newRV_inc ((SV *) result_tree);
     OUTPUT:
         RETVAL
 
 # FIXME what to do with the parent argument?
-# FIXME returns a fake element instead?
+# FIXME add another way to call that returns a fake tree?
 int
 copy_tree (tree_in, parent_in)
         SV *tree_in
         SV *parent_in
     PREINIT:
         ELEMENT *result;
-        SV** document_descriptor_sv;
-        DOCUMENT *document = 0;
-        int document_descriptor;
+        DOCUMENT *document;
         int copy_document_descriptor;
-        HV *hv_tree_in;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
         /* FIXME warning/error if not found? */
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
+        document = get_sv_tree_document (tree_in, 0);
         if (document)
           {
             result = copy_tree (document->tree, 0);
@@ -127,69 +104,32 @@ void
 relate_index_entries_to_table_items_in_tree (tree_in)
         SV *tree_in
     PREINIT:
-        SV** document_descriptor_sv;
-        DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
+        DOCUMENT *document;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
+        document = get_sv_tree_document (tree_in,
+                   "relate_index_entries_to_table_items_in_tree");
+        if (document)
           {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
+            if (!document->index_names)
+              {
+                fprintf (stderr, "ERROR: %d: no index_names\n",
+                                          document->descriptor);
+              }
+            else
+              relate_index_entries_to_table_items_in_tree (document->tree,
+                                                      document->index_names);
           }
-        else
-          {
-            fprintf (stderr, "ERROR: relate_index_entries_to_table_items_in_tree:"
-                             "no tree_document_descriptor\n");
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
-        if (!document->index_names)
-          {
-            fprintf (stderr, "ERROR: %d: no index_names\n", document_descriptor);
-          }
-        relate_index_entries_to_table_items_in_tree (document->tree,
-                                                     document->index_names);
-
 
 void
 move_index_entries_after_items_in_tree (tree_in)
         SV *tree_in
     PREINIT:
-        SV** document_descriptor_sv;
-        DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
+        DOCUMENT *document;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-            fprintf (stderr, "ERROR: move_index_entries_after_items_in_tree:"
-                             "no tree_document_descriptor\n");
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
-        move_index_entries_after_items_in_tree (document->tree);
+        document = get_sv_tree_document (tree_in,
+                                        "move_index_entries_after_items_in_tree");
+        if (document)
+          move_index_entries_after_items_in_tree (document->tree);
 
 # the root of a registered tree will not be modified, so it is not particularly
 # interesting to return it.
@@ -197,56 +137,25 @@ void
 reference_to_arg_in_tree (tree_in)
         SV *tree_in
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-          /* FIXME warn?  This happens with direct calls of _new_node,
-                          for example
-            fprintf (stderr, "ERROR: reference_to_arg_in_tree:"
-                             "no tree_document_descriptor\n");
-           */
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
-        reference_to_arg_in_tree (document->tree);
+          /* FIXME warn?  Document not found happens with direct calls of _new_node,
+                          for example */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          reference_to_arg_in_tree (document->tree);
 
 void
 associate_internal_references (document_in)
         SV *document_in
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_document_in;
     CODE:
-        hv_document_in = (HV *)SvRV (document_in);
-        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
-                                           strlen ("document_descriptor"), 0);
         /* FIXME warning/error if not found? */
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        associate_internal_references (document->identifiers_target,
-                                       document->internal_references);
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          associate_internal_references (document->identifiers_target,
+                                         document->internal_references);
 
 
 # FIXME return a list of sections?  How to match elements with perl tree
@@ -255,128 +164,56 @@ void
 sectioning_structure (tree_in)
         SV *tree_in
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-          /* FIXME warn?
-            fprintf (stderr, "ERROR: reference_to_arg_in_tree:"
-                             "no tree_document_descriptor\n");
-           */
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
-        sectioning_structure (document->tree);
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          sectioning_structure (document->tree);
 
 void
 warn_non_empty_parts (document_in)
         SV *document_in
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_document_in;
     CODE:
-        hv_document_in = (HV *)SvRV (document_in);
-        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
-                                           strlen ("document_descriptor"), 0);
         /* FIXME warning/error if not found? */
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        warn_non_empty_parts (document);
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          warn_non_empty_parts (document);
 
 void
 complete_tree_nodes_menus (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
         int use_sections = 0;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-            fprintf (stderr, "ERROR: complete_tree_nodes_menus:"
-                             "no tree_document_descriptor\n");
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
+        document = get_sv_tree_document (tree_in, "complete_tree_nodes_menus");
         if (SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
-        complete_tree_nodes_menus (document->tree, use_sections);
+        if (document)
+          complete_tree_nodes_menus (document->tree, use_sections);
 
 void
 complete_tree_nodes_missing_menu (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_tree_in;
         int use_sections = 0;
      CODE:
-        hv_tree_in = (HV *)SvRV (tree_in);
-        document_descriptor_sv = hv_fetch (hv_tree_in,
-                                           "tree_document_descriptor",
-                                           strlen ("tree_document_descriptor"), 0);
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-            fprintf (stderr, "ERROR: complete_tree_nodes_missing_menu:"
-                             "no tree_document_descriptor\n");
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
+        document = get_sv_tree_document (tree_in,
+                             "complete_tree_nodes_missing_menu");
         if (SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
-        complete_tree_nodes_missing_menu (document->tree, use_sections);
+        if (document)
+          complete_tree_nodes_missing_menu (document->tree, use_sections);
 
 
 void
@@ -384,35 +221,15 @@ regenerate_master_menu (document_in, use_sections_in)
         SV *document_in
         SV *use_sections_in;
     PREINIT:
-        SV** document_descriptor_sv;
         DOCUMENT *document = 0;
-        int document_descriptor;
-        HV *hv_document_in;
         int use_sections = 0;
     CODE:
-        hv_document_in = (HV *)SvRV (document_in);
-        document_descriptor_sv = hv_fetch (hv_document_in, "document_descriptor",
-                                           strlen ("document_descriptor"), 0);
-        /* FIXME warning/error if not found? */
-        if (document_descriptor_sv)
-          {
-            document_descriptor = SvIV (*document_descriptor_sv);
-            document = retrieve_document (document_descriptor);
-          }
-        else
-          {
-            fprintf (stderr, "ERROR: regenerate_master_menu:"
-                             "no tree_document_descriptor\n");
-            return;
-          }
-        if (! document)
-          {
-            fprintf (stderr, "ERROR: no document %d\n", document_descriptor);
-            return;
-          }
+        document = get_sv_document_document (document_in,
+                                             "regenerate_master_menu");
         if (SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
-        regenerate_master_menu (document, use_sections);
+        if (document)
+          regenerate_master_menu (document, use_sections);
 

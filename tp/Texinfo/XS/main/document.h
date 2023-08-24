@@ -17,6 +17,7 @@ typedef struct SMALL_STRINGS_LIST {
 } SMALL_STRINGS_LIST;
 
 typedef struct DOCUMENT {
+  int descriptor;
   ELEMENT *tree;
   INDEX **index_names;
   FLOAT_RECORD_LIST *floats;

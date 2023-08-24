@@ -82,6 +82,7 @@ register_document (ELEMENT *root, INDEX **index_names,
       document_number++;
     }
   document = &document_list[document_index];
+  document->descriptor = document_index +1;
   document->tree = root;
   document->index_names = index_names;
   document->floats = floats_list;

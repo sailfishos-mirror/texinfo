@@ -225,7 +225,9 @@ endif
 
 libtexinfoxs_la_SOURCES= \
 		      main/build_perl_info.c \
-		      main/build_perl_info.h
+		      main/build_perl_info.h \
+		      main/get_perl_info.c \
+		      main/get_perl_info.h
 
 libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
