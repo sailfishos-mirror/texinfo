@@ -35,6 +35,7 @@
 #include "convert_to_texinfo.h"
 #include "targets.h"
 #include "document.h"
+#include "node_name_normalization.h"
 #include "transformations.h"
 
 
@@ -76,6 +77,57 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
       result->index_entry = &index_info->index_entries[entry_number -1];
     }
   return result;
+}
+
+ELEMENT *
+new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
+{
+  ELEMENT *new_command = new_element (ET_NONE);
+  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+  ELEMENT *text_elt = new_element (type);
+  new_command->cmd = CM_asis;
+  new_command->parent = parent;
+  add_to_element_args (new_command, brace_command_arg);
+  text_append (&text_elt->text, text);
+  add_to_element_contents (brace_command_arg, text_elt);
+  return new_command;
+}
+
+/* FIXME move source marks */
+void
+protect_first_parenthesis (ELEMENT *element)
+{
+  ELEMENT *content;
+  char *p;
+  if (element->contents.number <= 0)
+    return;
+  content = element->contents.list[0];
+  if (content->text.end == 0)
+    return;
+  p = content->text.text;
+  if (*p == '(')
+    {
+      ELEMENT *new_command;
+      ELEMENT *removed = 0;
+      if (!*(p+1))
+        /* should be the same as content */
+        removed = remove_from_contents (element, 0);
+      else
+        {
+          /* remove leading open brace */
+          char *new_text = strdup (p+1);
+          text_reset (&content->text);
+          text_append (&content->text, new_text);
+          free (new_text);
+        }
+      new_command
+       = new_asis_command_with_text ("(", content->parent, content->type);
+      insert_into_contents (element, new_command, 0);
+      /* could destroy children too, but it should only be text, no
+         children */
+      if (removed)
+        destroy_element (removed);
+    }
 }
 
 /* in Common.pm */
@@ -507,6 +559,272 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
   modify_tree (tree, &move_index_entries_after_items_internal, 0);
 }
 
+/* in perl REGISTRAR and CUSTOMIZATION_INFORMATION, but
+# $REGISTRAR and $CUSTOMIZATION_INFORMATION are used for error
+# reporting, but they may not be useful, as the code checks that
+# the new node target label does not exist already.
+ */
+ELEMENT *
+new_node (ELEMENT *node_tree, DOCUMENT *document)
+{
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+  int empty_node = 0;
+  int appended_number;
+  int new_line_at_end = 0;
+  TEXT spaces_after_argument;
+  ELEMENT *last_content;
+  ELEMENT *comment_at_end = 0;
+  ELEMENT *node = 0;
+  char *normalized;
+  /*
+   We protect for all the contexts, as the node name should be
+   the same in the different contexts, even if some protections
+   are not needed for the parsing.  Also, this way the node tree
+   can be directly reused in the menus for example, without
+   additional protection, some parts could be double protected
+   otherwise, those that are protected with @asis.
+
+   needed in nodes lines, @*ref and in menus with a label
+   */
+  node_tree = protect_comma_in_tree (node_tree);
+  /* always */
+  protect_first_parenthesis (node_tree);
+  /* in menu entry without label */
+  node_tree = protect_colon_in_tree (node_tree);
+  /* in menu entry with label */
+  node_tree = protect_node_after_label_in_tree (node_tree);
+  node_tree = reference_to_arg_in_tree (node_tree);
+
+  if (node_tree->contents.number <= 0)
+    {
+      ELEMENT *empty_text = new_element (ET_NONE);
+      text_append (&empty_text->text, "");
+      add_to_element_contents (node_tree, empty_text);
+      empty_node = 1;
+    }
+
+  last_content = last_contents_child (node_tree);
+  if (last_content->cmd == CM_c || last_content->cmd == CM_comment)
+    comment_at_end = pop_element_from_contents (node_tree);
+
+  text_init (&spaces_after_argument);
+  text_append (&spaces_after_argument, "");
+  last_content = last_contents_child (node_tree);
+  if (last_content->text.end > 0)
+    {
+      int end = last_content->text.end;
+      char *p = last_content->text.text + end-1;
+      for (; p >= last_content->text.text; p--)
+        {
+          if (!strchr (whitespace_chars, *p))
+            break;
+          if (*p == '\n')
+            new_line_at_end = 1;
+          end--;
+        }
+      text_append (&spaces_after_argument, p+1);
+      last_content->text.end = end;
+    }
+  if (!new_line_at_end && !comment_at_end)
+    text_append (&spaces_after_argument, "\n");
+
+  appended_number = 0+empty_node;
+
+  while (1)
+    {
+      int i;
+      char *non_hyphen_char;
+      ELEMENT *target = 0;
+      ELEMENT *node_line_arg = new_element (ET_line_arg);
+      ELEMENT *spaces_before = new_element (ET_NONE);
+      ELEMENT *spaces_after = new_element (ET_NONE);
+
+      node = new_element (ET_NONE);
+      node->cmd = CM_node;
+      add_to_element_args (node, node_line_arg);
+      text_append (&spaces_before->text, " ");
+      text_append (&spaces_after->text, spaces_after_argument.text);
+      add_info_element_oot (node, "spaces_before_argument", spaces_before);
+      add_info_element_oot (node_line_arg, "spaces_after_argument",
+                            spaces_after);
+
+      if (comment_at_end)
+        add_info_element_oot (node_line_arg, "comment_at_end", comment_at_end);
+      insert_slice_into_contents (node_line_arg, 0, node_tree, 0,
+                                  node_tree->contents.number);
+
+      for (i = 0; i < node_line_arg->contents.number; i++)
+        node_line_arg->contents.list[i]->parent = node_line_arg;
+
+      if (appended_number)
+        {
+          ELEMENT *appended_text = new_element (ET_NONE);
+          text_printf (&appended_text->text, " %d", appended_number);
+          add_to_element_contents (node_line_arg, appended_text);
+        }
+      normalized = convert_contents_to_identifier (node_line_arg);
+
+      non_hyphen_char = normalized + strspn (normalized, "-");
+      if (*non_hyphen_char)
+        {
+          if (identifiers_target)
+            {
+              target = find_identifier_target (identifiers_target, normalized);
+            }
+          if (!target)
+            break;
+        }
+
+      free (normalized);
+      destroy_element (node_line_arg);
+      destroy_element (node);
+      appended_number++;
+    }
+
+  add_extra_string (node, "normalized", normalized);
+
+  register_label_element (document, node);
+
+  free (spaces_after_argument.text);
+
+  return node;
+}
+
+ELEMENT *
+reassociate_to_node (const char *type, ELEMENT *current, void *argument)
+{
+  ELEMENT *new_previous = (ELEMENT *) argument;
+  ELEMENT *added_node = new_previous->contents.list[0];
+  ELEMENT *previous_node = new_previous->contents.list[1];
+
+  if (current->cmd == CM_menu)
+    {
+      ELEMENT *added_node_menus;
+      if (previous_node)
+        {
+          ELEMENT *menus = lookup_extra_element (previous_node, "menus");
+          int previous_idx = -1;
+          if (menus)
+            {
+              int i;
+              for (i = 0; i < menus->contents.number; i++)
+                {
+                  if (menus->contents.list[i] == previous_node)
+                    {
+                      previous_idx = i;
+                      break;
+                    }
+                }
+            }
+          if (previous_idx < 0)
+            fprintf (stderr, "BUG: menu %p not in previous node %p\n",
+                             current, previous_node);
+          else
+            {
+              /* removed element should be current */
+              remove_from_contents (menus, previous_idx);
+          /* FIXME destroy element, remove menus/turn to deleted from extra? */
+          /*
+              if (menus->contents.number <= 0)
+                ....
+           */
+            }
+        }
+      added_node_menus = lookup_extra_contents (added_node, "menus", 1);
+      add_to_contents_as_array (added_node_menus, current);
+    }
+  else
+    {
+      ELEMENT *element_node = lookup_extra_element (current, "element_node");
+      if (element_node)
+        {
+          if (previous_node && element_node != previous_node)
+            {
+              char *element_debug = print_element_debug (current, 0);
+              char *previous_node_texi
+                = root_heading_command_to_texinfo (previous_node);
+              char *element_node_texi
+                = root_heading_command_to_texinfo (element_node);
+              fprintf (stderr, "BUG: element %p not in previous node %p; %s\n"
+                       "  previous node: %s\n"
+                       "  current node: %s\n", current, previous_node,
+                       element_debug, previous_node_texi, element_node_texi);
+              free (element_debug);
+              free (previous_node_texi);
+              free (element_node_texi);
+            }
+          add_extra_element (current, "element_node", added_node);
+        }
+    }
+  return 0;
+}
+
+/* in perl registrar and configuration */
+ELEMENT *
+insert_nodes_for_sectioning_commands (DOCUMENT *document)
+{
+  ELEMENT *root = document->tree;
+  ELEMENT *added_nodes = new_element (ET_NONE);
+  int idx;
+  ELEMENT *previous_node = 0;
+
+  for (idx = 0; idx < root->contents.number; idx++)
+    {
+      ELEMENT *content = root->contents.list[idx];
+      if (content->cmd && content->cmd != CM_node
+          && content->cmd != CM_part
+          && builtin_command_flags(content) & CF_root)
+        {
+          ELEMENT *associated_node = lookup_extra_element (content,
+                                                 "associated_node");
+          if (!associated_node)
+            {
+              ELEMENT *added_node;
+              ELEMENT *new_node_tree;
+              if (content->cmd == CM_top)
+                {
+                  ELEMENT *top_node_text = new_element (ET_NONE);
+                  new_node_tree = new_element (ET_NONE);
+                  text_append (&top_node_text->text, "Top");
+                  add_to_element_contents (new_node_tree, top_node_text);
+                }
+              else
+                {
+                  new_node_tree = copy_contents(content->args.list[0],
+                                                ET_NONE);
+                }
+              added_node = new_node (new_node_tree, document);
+              destroy_element (new_node_tree);
+              if (added_node)
+                {
+                  ELEMENT *new_previous = new_element (ET_NONE);
+                  insert_into_contents (root, added_node, idx);
+                  idx++;
+                  add_to_contents_as_array (added_nodes, added_node);
+                  add_extra_element (added_node, "associated_section",
+                                     content);
+                  add_extra_element (content, "associated_node", added_node);
+                  added_node->parent = content->parent;
+                  /* reassociate index entries and menus */
+                  add_to_contents_as_array (new_previous, added_node);
+                  add_to_contents_as_array (new_previous, previous_node);
+                  modify_tree (content, &reassociate_to_node,
+                               (void *)new_previous);
+                  destroy_element (new_previous);
+                }
+            }
+        }
+      if (content->cmd == CM_node)
+        {
+          int status;
+          int is_target = lookup_extra_integer (content, "is_target", &status);
+          if (status && is_target)
+            previous_node = content;
+        }
+    }
+  return added_nodes;
+}
+
 /* also in node_name_normalization.c */
 int ref_3_args_order[] = {0, 1, 2, -1};
 int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
@@ -886,20 +1204,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 }
 
 ELEMENT *
-new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
-{
-  ELEMENT *new_command = new_element (ET_NONE);
-  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
-  ELEMENT *text_elt = new_element (type);
-  new_command->cmd = CM_asis;
-  new_command->parent = parent;
-  add_to_element_args (new_command, brace_command_arg);
-  text_append (&text_elt->text, text);
-  add_to_element_contents (brace_command_arg, text_elt);
-  return new_command;
-}
-
-ELEMENT *
 protect_text (ELEMENT *current, char *to_protect)
 {
   if (current->text.end > 0 && !(current->type == ET_raw)
@@ -966,4 +1270,28 @@ ELEMENT *
 protect_colon_in_tree (ELEMENT *tree)
 {
   return modify_tree (tree, &protect_colon, 0);
+}
+
+ELEMENT *
+protect_comma (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text(current, ",");
+}
+
+ELEMENT *
+protect_comma_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_comma, 0);
+}
+
+ELEMENT *
+protect_node_after_label (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text(current, ".\t,");
+}
+
+ELEMENT *
+protect_node_after_label_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_node_after_label, 0);
 }

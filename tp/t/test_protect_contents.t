@@ -40,12 +40,10 @@ sub run_test($$$$)
   my $texi_result = {};
   foreach my $tree_type (keys(%$trees)) {
     if ($do->{'protect_first_parenthesis'}) {
-      $result_contents->{$tree_type} = protect_first_parenthesis(
-                          $trees->{$tree_type}->{'contents'})
+      protect_first_parenthesis($trees->{$tree_type});
     }
     $texi_result->{$tree_type}
-        = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                        {'contents' => $result_contents->{$tree_type}});
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($trees->{$tree_type});
   }
 
   if (!defined($out)) {

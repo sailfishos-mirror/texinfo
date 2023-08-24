@@ -36,6 +36,7 @@
 #include "text.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "debug.h"
 #include "unicode.h"
 #include "node_name_normalization.h"
 

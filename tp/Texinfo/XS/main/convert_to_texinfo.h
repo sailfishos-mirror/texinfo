@@ -12,5 +12,6 @@ char *target_element_to_texi_label (ELEMENT *element);
 
 int check_node_same_texinfo_code(ELEMENT *reference_node,
                                  ELEMENT *node_content);
+char *root_heading_command_to_texinfo (ELEMENT *element);
 
 #endif

@@ -157,7 +157,7 @@ sub root_heading_command_to_texinfo($)
       $tree = $element->{'args'}->[0]->{'contents'};
     }
   } else {
-    return "Not a root command";
+    return "Not a command";
   }
   return '@'.$element->{'cmdname'}.' '.convert_to_texinfo({'contents' => $tree})
           if ($tree);

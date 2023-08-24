@@ -332,3 +332,29 @@ check_node_same_texinfo_code (ELEMENT *reference_node, ELEMENT *node_content)
   return equal_texi;
 }
 
+/* for debugging */
+char *
+root_heading_command_to_texinfo (ELEMENT *element)
+{
+  ELEMENT *tree;
+  TEXT text;
+
+  if (element->cmd)
+    if ((element->cmd == CM_node
+         || (builtin_command_flags (element) & CF_sectioning_heading))
+        && element->args.number > 0)
+      tree = element->args.list[0];
+  else
+    return strdup("Not a command");
+
+  text_init (&text);
+  if (tree)
+    {
+      text_printf (&text, "@%s %s", builtin_command_name (element->cmd),
+                                   convert_contents_to_texinfo (tree));
+    }
+  else
+   text_printf (&text, "@%s", builtin_command_name (element->cmd));
+
+  return (text.text);
+}

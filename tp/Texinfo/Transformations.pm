@@ -76,6 +76,10 @@ sub import {
         "Texinfo::Transformations::_XS_regenerate_master_menu",
         "Texinfo::StructTransf::regenerate_master_menu"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_insert_nodes_for_sectioning_commands",
+        "Texinfo::StructTransf::insert_nodes_for_sectioning_commands"
+      );
     }
     $module_loaded = 1;
   }
@@ -297,9 +301,7 @@ sub _new_node($$;$$)
   # needed in nodes lines, @*ref and in menus with a label
   $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
   # always
-  $node_tree->{'contents'}
-   = Texinfo::Common::protect_first_parenthesis($node_tree->{'contents'})
-     if ($node_tree->{'contents'});
+  Texinfo::Common::protect_first_parenthesis($node_tree);
   # in menu entry without label
   $node_tree = Texinfo::Common::protect_colon_in_tree($node_tree);
   # in menu entry with label
@@ -335,14 +337,10 @@ sub _new_node($$;$$)
   while (!defined($node)
          or ($identifier_target and $identifier_target->{$normalized})) {
 
-    $node = {'cmdname' => 'node',
-             'args' => [
-               {'type' => 'line_arg',}
-             ],
-             'extra' => {}};
+    $node = {'cmdname' => 'node', 'extra' => {}};
     $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
-    my $node_line_arg = $node->{'args'}->[0];
-    $node_line_arg->{'parent'} = $node;
+    my $node_line_arg = {'type' => 'line_arg', 'parent' => $node};
+    $node->{'args'} = [$node_line_arg];
     $node_line_arg->{'info'} = {'spaces_after_argument' =>
                                      {'text' => $spaces_after_argument}};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
@@ -390,7 +388,7 @@ sub _reassociate_to_node($$$)
           or not defined($previous_node->{'extra'}->{'menus'})
           or not scalar(@{$previous_node->{'extra'}->{'menus'}})
           or not (grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
-        print STDERR "Bug: menu $current not in previous node $previous_node\n";
+        print STDERR "BUG: menu $current not in previous node $previous_node\n";
       } else {
         @{$previous_node->{'extra'}->{'menus'}}
           = grep {$_ ne $current} @{$previous_node->{'extra'}->{'menus'}};
@@ -405,17 +403,17 @@ sub _reassociate_to_node($$$)
           .Texinfo::Common::debug_print_element($current)."\n";
       print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
-      if ($current->{'extra'}->{'element_node'}) {
-        print STDERR "  current node: ".
+      print STDERR "  current node: ".
          Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                            $current->{'extra'}->{'element_node'})."\n";
-      } else {
-        print STDERR "  current node not set\n";
-      }
+                          $current->{'extra'}->{'element_node'})."\n";
     }
     $current->{'extra'}->{'element_node'} = $new_node;
   }
   return undef;
+}
+
+sub _XS_insert_nodes_for_sectioning_commands($)
+{
 }
 
 sub insert_nodes_for_sectioning_commands($;$$)
@@ -423,6 +421,8 @@ sub insert_nodes_for_sectioning_commands($;$$)
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
+
+  _XS_insert_nodes_for_sectioning_commands($document);
 
   my $root = $document->tree();
 
@@ -440,8 +440,8 @@ sub insert_nodes_for_sectioning_commands($;$$)
       if ($content->{'cmdname'} eq 'top') {
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
-        $new_node_tree = Texinfo::Common::copy_tree({'contents'
-          => $content->{'args'}->[0]->{'contents'}});
+        $new_node_tree
+           = Texinfo::Common::copy_contents($content->{'args'}->[0]);
       }
       my $new_node = _new_node($new_node_tree, $document, $registrar,
                                $customization_information);
@@ -911,7 +911,7 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands($document, $registrar, $customization_information)
+=item $added_nodes = insert_nodes_for_sectioning_commands($document, $registrar, $customization_information)
 X<C<insert_nodes_for_sectioning_commands>>
 
 Insert nodes for sectioning commands without node in C<$document>
@@ -920,9 +920,7 @@ defined they are used for error reporting, though there should not
 be any errors as the node names are adapted such as not to clash with
 existing label targets.
 
-An array reference is returned, containing the root contents
-with added nodes, as well as an array reference containing the
-added nodes.
+An array reference is returned containing the added nodes.
 
 =item menu_to_simple_menu($menu)
 

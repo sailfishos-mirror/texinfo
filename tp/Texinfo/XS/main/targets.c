@@ -21,14 +21,23 @@
 
 #include "tree_types.h"
 #include "tree.h"
-/* for get_label_element */
+/* for get_label_element and fatal */
 #include "utils.h"
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
 #include "extra.h"
 #include "convert_to_texinfo.h"
+#include "document.h"
 #include "targets.h"
+
+void
+destroy_label_list (LABEL_LIST *label_list)
+{
+  if (label_list->space > 0)
+    free (label_list->list);
+  free (label_list);
+}
 
 int
 compare_targets (const void *a, const void *b)
@@ -162,3 +171,107 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
   return result;
 }
 
+LABEL_LIST *
+sort_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
+{
+  LABEL *targets = malloc (labels_number * sizeof(LABEL));
+  LABEL_LIST *result = malloc (sizeof(LABEL_LIST));
+
+  memcpy (targets, list_of_labels, labels_number * sizeof(LABEL));
+  qsort (targets, labels_number, sizeof(LABEL), compare_labels);
+
+  result->list = targets;
+  result->number = labels_number;
+  result->space = labels_number;
+  return result;
+}
+
+
+void
+register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
+                        char *normalized)
+{
+  size_t labels_number = labels_list->number;
+  if (labels_number == labels_list->space)
+   {
+      labels_list->space += 1;
+      labels_list->space *= 1.5;
+      labels_list->list = realloc (labels_list->list,
+                             labels_list->space * sizeof (LABEL));
+      if (!labels_list)
+        fatal ("realloc failed");
+    }
+  labels_list->list[labels_number].element = element;
+  labels_list->list[labels_number].label_number = labels_number;
+  labels_list->list[labels_number].identifier = normalized;
+  labels_list->number++;
+}
+
+/* *STATUS 0 means success, 1 or 2 means error */
+char *
+add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
+                                   int *status)
+{
+  KEY_PAIR *k_normalized = lookup_extra (element, "normalized");
+  char *normalized = 0;
+  *status = 2;
+  if (k_normalized && k_normalized->value)
+    {
+      normalized = (char *)k_normalized->value;
+      LABEL_LIST *identifiers_target = document->identifiers_target;
+      ELEMENT *target = find_identifier_target (identifiers_target,
+                                                normalized);
+      if (!target)
+        {
+          LABEL_LIST *sorted_identifiers_target;
+          register_label_in_list (document->identifiers_target, element,
+                                  normalized);
+          sorted_identifiers_target
+            = sort_labels_identifiers_target (
+                           document->identifiers_target->list,
+                           document->identifiers_target->number);
+          destroy_label_list (document->identifiers_target);
+          document->identifiers_target = sorted_identifiers_target;
+          *status = 0;
+          return normalized;
+        }
+      *status = 1;
+    }
+  return normalized;
+}
+
+/* FIXME $registrar and $customization_information */
+void
+existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized)
+{
+  if (normalized)
+    {
+      ELEMENT *existing_target
+        = find_identifier_target (document->identifiers_target, normalized);
+      ELEMENT *label_element = get_label_element (element);
+      char *label_element_texi = convert_contents_to_texinfo (label_element);
+      command_error (element, "@%s `%s' previously defined",
+                     builtin_command_name (element->cmd),
+                     label_element_texi);
+      line_error_ext (error, 1, &existing_target->source_info,
+                      "here is the previous definition as @%s",
+                      builtin_command_name (existing_target->cmd));
+      free (label_element_texi);
+    }
+}
+
+/* return value is 1 for success, 0 for failure */
+int
+register_label_element (DOCUMENT* document, ELEMENT *element)
+{
+  int status;
+  char *normalized = add_element_to_identifiers_target (document, element,
+                                                        &status);
+  if (!status)
+    {
+      existing_label_error(document, element, normalized);
+    }
+  register_label_in_list (document->labels_list, element,
+                          normalized);
+  return !status;
+}

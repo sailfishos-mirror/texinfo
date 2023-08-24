@@ -158,7 +158,7 @@ my $added_nodes
  = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-is ($reference, $result, 'add nodes');
+is ($result, $reference, 'add nodes');
 #print STDERR "$result";
 
 $parser = Texinfo::Parser::parser();

@@ -233,3 +233,21 @@ regenerate_master_menu (document_in, use_sections_in)
         if (document)
           regenerate_master_menu (document, use_sections);
 
+# FIXME insert_nodes_for_sectioning_commands returns a list
+# of elements.  Turn to perl structure?
+void
+insert_nodes_for_sectioning_commands (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in,
+                               "insert_nodes_for_sectioning_commands");
+        if (document)
+          {
+            ELEMENT *added_nodes
+              = insert_nodes_for_sectioning_commands (document);
+            destroy_element (added_nodes);
+          }
+

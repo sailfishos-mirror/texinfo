@@ -2413,28 +2413,25 @@ sub protect_node_after_label_in_tree($)
 
 sub protect_first_parenthesis($)
 {
-  my $contents = shift;
-  confess("BUG: protect_first_parenthesis contents undef")
-    if (!defined($contents));
+  my $element = shift;
+  confess("BUG: protect_first_parenthesis element undef")
+    if (!defined($element));
+  confess("BUG: protect_first_parenthesis not a hash")
+    if (ref($element) ne 'HASH');
   #print STDERR "protect_first_parenthesis: $contents\n";
-  my @contents = @$contents;
-  my $brace;
-  if ($contents[0] and $contents->[0]{'text'} and $contents[0]->{'text'} =~ /^\(/) {
-    if ($contents[0]->{'text'} !~ /^\($/) {
-      $brace = shift @contents;
-      my $brace_text = $brace->{'text'};
-      $brace_text =~ s/^\(//;
-      unshift @contents, { 'text' => $brace_text,
-                           'type' => $brace->{'type'},
-                           'parent' => $brace->{'parent'} }
-                                                   if $brace_text ne '';
+  return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
+  my $content = $element->{'contents'}->[0];
+  return if (!defined($content->{'text'}));
+  if ($content->{'text'} =~ /^\(/) {
+    if ($content->{'text'} !~ /^\($/) {
+      $content->{'text'} =~ s/^\(//;
     } else {
-      $brace = shift @contents;
+      shift @{$element->{'contents'}};
     }
-    unshift @contents, _new_asis_command_with_text('(', $brace->{'parent'},
-                                                    $brace->{'type'});
+    unshift @{$element->{'contents'}},
+      _new_asis_command_with_text('(', $content->{'parent'},
+                                       $content->{'type'});
   }
-  return \@contents;
 }
 
 sub move_index_entries_after_items($)
@@ -3065,12 +3062,11 @@ X<C<protect_comma_in_tree>>
 
 Protect comma characters, replacing C<,> with @comma{} in tree.
 
-=item $contents_result = protect_first_parenthesis($contents)
+=item protect_first_parenthesis($element)
 X<C<protect_first_parenthesis>>
 
-Return a contents array reference with first parenthesis in the
-contents array reference protected.  If I<$contents> is undef
-a fatal error with a backtrace will be emitted.
+Modify I<$element> contents by protecting the first parenthesis.
+If I<$element> is undef a fatal error with a backtrace will be emitted.
 
 =item $level = section_level($section)
 X<C<section_level>>
