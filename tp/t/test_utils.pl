@@ -1038,28 +1038,28 @@ sub test($$)
 
   my $floats = $document->floats_information();
 
-
-  my ($top_node, $nodes_list)
+  my $nodes_list
           = Texinfo::Structuring::nodes_tree($document, $registrar,
                                              $main_configuration);
+
+  my $top_node = $identifier_target->{'Top'};
+  $top_node = $nodes_list->[0]
+    if (!$top_node and $nodes_list and scalar (@$nodes_list));
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $global_commands, $nodes_list,
                                                       $identifier_target);
-  if (defined($top_node)) {
-    $structure_information->{'top_node'} = $top_node;
-  }
 
   if (defined($nodes_list)
       and (not defined($main_configuration->get_conf('FORMAT_MENU'))
            or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
     Texinfo::Structuring::complete_node_tree_with_menus($registrar,
                                 $main_configuration, $nodes_list,
-                                $identifier_target, $top_node);
+                                $identifier_target);
     my $refs = $document->internal_references_information();
     Texinfo::Structuring::check_nodes_are_referenced($registrar,
                                       $main_configuration, $nodes_list,
-                                      $top_node, $identifier_target, $refs);
+                                      $identifier_target, $refs);
   }
 
   Texinfo::Structuring::number_floats($floats);

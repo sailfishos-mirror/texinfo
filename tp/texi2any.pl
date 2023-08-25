@@ -1597,8 +1597,8 @@ while(@input_files) {
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
-    my ($top_node, $nodes_list)
-         = Texinfo::Structuring::nodes_tree($document, $registrar,
+    my $nodes_list
+        = Texinfo::Structuring::nodes_tree($document, $registrar,
                                             $main_configuration);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
@@ -1615,18 +1615,15 @@ while(@input_files) {
                $main_configuration, $global_commands,
                $nodes_list, $identifier_target);
     }
-    if (defined($top_node)) {
-      $structure_information->{'top_node'} = $top_node;
-    }
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
       if (defined($nodes_list)) {
 
         Texinfo::Structuring::complete_node_tree_with_menus($registrar,
                                  $main_configuration, $nodes_list,
-                                 $identifier_target, $top_node);
+                                 $identifier_target);
         Texinfo::Structuring::check_nodes_are_referenced($registrar,
-                                    $main_configuration, $nodes_list, $top_node,
+                                    $main_configuration, $nodes_list,
                                     $identifier_target, $refs);
       }
     }

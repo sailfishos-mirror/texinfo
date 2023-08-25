@@ -133,8 +133,8 @@ sub output($$)
       $result = $output;
     }
   } else {
-    unless ($self->{'structuring'} and $self->{'structuring'}->{'top_node'}
-     and $self->{'structuring'}->{'top_node'}->{'extra'}->{'normalized'} eq 'Top') {
+    unless ($self->{'identifiers_target'}
+            and $self->{'identifiers_target'}->{'Top'}) {
       $self->line_warn($self, __("document without Top node"),
              {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
     }

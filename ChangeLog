@@ -1,5 +1,20 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test), tp/texi2any.pl b/tp/texi2any.pl, 
+	tp/Texinfo/Convert/Info.pm (output): determine top node with
+	identifiers_target instead of {'structuring'}->{'top_node'}
+	in Info.pm.  Remove now unused {'structuring'}->{'top_node'}.
+
+	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced)
+	(complete_node_tree_with_menus, nodes_tree), tp/t/test_utils.pl
+	(test), tp/texi2any.pl: do not have nodes_tree return the 'top_node'.
+	Codes needing a top node are better off deciding what a top node means
+	in their context.  Remove unused top_node argument of
+	complete_node_tree_with_menus.  Set top_node explicitely in
+	test_utils.pl and check_nodes_are_referenced.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (import, _XS_protect_colon_in_tree)
 	(protect_colon_in_tree, _XS_protect_comma_in_tree)
 	(protect_comma_in_tree, _XS_protect_node_after_label_in_tree)
