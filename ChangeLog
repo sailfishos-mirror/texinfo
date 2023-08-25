@@ -1,5 +1,17 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (import, _XS_protect_colon_in_tree)
+	(protect_colon_in_tree, _XS_protect_comma_in_tree)
+	(protect_comma_in_tree, _XS_protect_node_after_label_in_tree)
+	(protect_node_after_label_in_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(protect_colon_in_tree, protect_comma_in_tree)
+	(protect_node_after_label_in_tree): XS overrides for
+	protect_colon_in_tree, protect_comma_in_tree and
+	protect_node_after_label_in_tree.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (nodes_tree): use a document in input.
 	Update callers.
 

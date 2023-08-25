@@ -90,6 +90,18 @@ sub import {
         "Texinfo::Common::_XS_move_index_entries_after_items_in_tree",
         "Texinfo::StructTransf::move_index_entries_after_items_in_tree"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_protect_colon_in_tree",
+        "Texinfo::StructTransf::protect_colon_in_tree"
+      );
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_protect_comma_in_tree",
+        "Texinfo::StructTransf::protect_comma_in_tree"
+      );
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_protect_node_after_label_in_tree",
+        "Texinfo::StructTransf::protect_node_after_label_in_tree"
+      );
     }
     $module_loaded = 1;
   }
@@ -2318,9 +2330,16 @@ sub _protect_comma($$)
   return _protect_text($current, quotemeta(','));
 }
 
+sub _XS_protect_comma_in_tree($)
+{
+}
+
 sub protect_comma_in_tree($)
 {
   my $tree = shift;
+
+  _XS_protect_comma_in_tree($tree);
+
   return modify_tree($tree, \&_protect_comma);
 }
 
@@ -2391,9 +2410,16 @@ sub _protect_colon($$)
   return _protect_text($current, quotemeta(':'));
 }
 
+sub _XS_protect_colon_in_tree($)
+{
+}
+
 sub protect_colon_in_tree($)
 {
   my $tree = shift;
+
+  _XS_protect_colon_in_tree($tree);
+
   return modify_tree($tree, \&_protect_colon);
 }
 
@@ -2405,9 +2431,16 @@ sub _protect_node_after_label($$)
   return _protect_text($current, '['. quotemeta(".\t,") .']');
 }
 
+sub _XS_protect_node_after_label_in_tree($)
+{
+}
+
 sub protect_node_after_label_in_tree($)
 {
   my $tree = shift;
+
+  _XS_protect_node_after_label_in_tree($tree);
+
   return modify_tree($tree, \&_protect_node_after_label);
 }
 

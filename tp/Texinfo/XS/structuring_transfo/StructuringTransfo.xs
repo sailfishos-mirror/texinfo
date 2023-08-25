@@ -241,7 +241,6 @@ insert_nodes_for_sectioning_commands (document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
         document = get_sv_document_document (document_in,
                                "insert_nodes_for_sectioning_commands");
         if (document)
@@ -259,7 +258,6 @@ nodes_tree (document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
         document = get_sv_document_document (document_in, "nodes_tree");
         if (document)
           {
@@ -268,4 +266,42 @@ nodes_tree (document_in)
             destroy_element (nodes_list);
           }
 
+# FIXME return something?
+void
+protect_colon_in_tree (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        /* there is no need to replace the root of the tree */
+        if (document)
+          protect_colon_in_tree (document->tree);
+
+# FIXME return something?
+void
+protect_comma_in_tree (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        /* there is no need to replace the root of the tree */
+        if (document)
+          protect_comma_in_tree (document->tree);
+
+# FIXME return something?
+void
+protect_node_after_label_in_tree (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        /* there is no need to replace the root of the tree */
+        if (document)
+          protect_node_after_label_in_tree (document->tree);
 
