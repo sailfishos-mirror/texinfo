@@ -261,8 +261,7 @@ nodes_tree (document_in)
         document = get_sv_document_document (document_in, "nodes_tree");
         if (document)
           {
-            ELEMENT *node_top;
-            ELEMENT *nodes_list = nodes_tree (document, &node_top);
+            ELEMENT *nodes_list = nodes_tree (document);
             destroy_element (nodes_list);
           }
 

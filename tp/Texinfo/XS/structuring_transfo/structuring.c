@@ -505,7 +505,7 @@ section_direction_associated_node (ELEMENT *section, enum directions direction)
 /* set node directions based on sectioning and @node explicit directions */
 /* in perl: registrar and customization_information */
 ELEMENT *
-nodes_tree (DOCUMENT *document, ELEMENT **top_node_out)
+nodes_tree (DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = document->identifiers_target;
   ELEMENT *root = document->tree;
@@ -691,9 +691,6 @@ nodes_tree (DOCUMENT *document, ELEMENT **top_node_out)
             }
         }
     }
-  if (!top_node && nodes_list->contents.number > 0)
-    top_node = nodes_list->contents.list[0];
-  *top_node_out = top_node;
   return nodes_list;
 }
 

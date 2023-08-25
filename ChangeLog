@@ -1,5 +1,11 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(nodes_tree), tp/Texinfo/XS/structuring_transfo/structuring.c
+	(nodes_tree): remove top_node out argument.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test), tp/texi2any.pl b/tp/texi2any.pl, 
 	tp/Texinfo/Convert/Info.pm (output): determine top node with
 	identifiers_target instead of {'structuring'}->{'top_node'}
