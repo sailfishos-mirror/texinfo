@@ -524,9 +524,9 @@ sub check_nodes_are_referenced
   }
 
   foreach my $node (@{$nodes_list}) {
-    if (not exists($referenced_nodes{$node})
-        # it is normal that a redundant node is not referenced
-        and $node->{'extra'}->{'is_target'}) {
+    # it is normal that a redundant node is not referenced
+    if ($node->{'extra'}->{'is_target'}
+        and not exists($referenced_nodes{$node})) {
       $registrar->line_warn($customization_information,
                             sprintf(__("node `%s' unreferenced"),
                                     target_element_to_texi_label($node)),
@@ -603,14 +603,7 @@ sub set_menus_node_directions($$$$$)
       }
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         my $previous_node;
-        my $menu_contents = $menu;
-        # simple menu
-        if (scalar(@{$menu->{'contents'}}) > 0
-            and $menu->{'contents'}->[0]->{'type'}
-            and $menu->{'contents'}->[0]->{'type'} eq 'preformatted') {
-          $menu_contents = $menu->{'contents'}->[0];
-        }
-        foreach my $menu_content (@{$menu_contents->{'contents'}}) {
+        foreach my $menu_content (@{$menu->{'contents'}}) {
           if ($menu_content->{'type'}
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
@@ -2549,7 +2542,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   complete_node_tree_with_menus($registrar, $config, $nodes_list,
                                 $identifier_target);
   my $refs = $document->internal_references_information();
-  check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
+  check_nodes_are_referenced($registrar, $config, $nodes_list,
                              $identifier_target, $refs);
   associate_internal_references($registrar, $config, $document);
   number_floats($document->floats_information());
@@ -2640,7 +2633,7 @@ Set the I<normalized> key in the C<extra> hash of C<menu_entry_node> container
 for menu entries and in the first argument C<extra> hash for internal
 references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
 
-=item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $top_node, $identifier_target, $refs)
+=item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $identifier_target, $refs)
 X<C<check_nodes_are_referenced>>
 
 Check that all the nodes are referenced (in menu, @*ref or node direction).

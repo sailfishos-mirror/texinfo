@@ -936,6 +936,9 @@ A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
 container anymore, their content are merged directly in the menu in
 I<preformatted> container.
 
+Note that this kind of tree is not supported by other codes, so this
+transformation should be avoided unless one knows exactly what to expect.
+
 =item protect_hashchar_at_line_beginning($registrar, $customization_information, $tree)
 X<C<protect_hashchar_at_line_beginning>>
 
