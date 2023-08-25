@@ -1615,26 +1615,23 @@ while(@input_files) {
     # is never used.
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($registrar,
-               $main_configuration, $global_commands,
-               $nodes_list, $identifier_target);
+      Texinfo::Structuring::set_menus_node_directions($document, $registrar,
+                                                      $main_configuration);
     }
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
       if (defined($nodes_list)) {
 
-        Texinfo::Structuring::complete_node_tree_with_menus($registrar,
-                                 $main_configuration, $nodes_list,
-                                 $identifier_target);
-        Texinfo::Structuring::check_nodes_are_referenced($registrar,
-                                    $main_configuration, $nodes_list,
-                                    $identifier_target, $refs);
+        Texinfo::Structuring::complete_node_tree_with_menus($document,
+                                                            $registrar,
+                                                            $main_configuration);
+        Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
+                                                         $main_configuration);
       }
     }
   }
   if ($formats_table{$converted_format}->{'floats'}) {
-    my $floats = $document->floats_information();
-    Texinfo::Structuring::number_floats($floats);
+    Texinfo::Structuring::number_floats($document);
   }
 
   $error_count = handle_errors($registrar, $error_count, \@opened_files);

@@ -121,13 +121,14 @@ sub _correct_level($$;$)
   }
 }
 
+sub _XS_fill_gaps_in_sectioning($)
+{
+}
+
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
 
-  # Returns a valid added sections array held in contents,
-  # but not the one corresponding to the perl tree returned by
-  # fill_gaps_in_sectioning.
   _XS_fill_gaps_in_sectioning($root);
 
   my $contents_nr = scalar(@{$root->{'contents'}});
@@ -217,11 +218,6 @@ sub fill_gaps_in_sectioning($)
   return \@added_sections;
 }
 
-sub _XS_fill_gaps_in_sectioning($)
-{
-  return undef;
-}
-
 # This converts a reference @-command to simple text using one of the
 # arguments.  This is used to remove reference @-command from
 # constructed node names trees, as node names cannot contain
@@ -267,16 +263,17 @@ sub _reference_to_arg($$$)
   }
 }
 
+sub _XS_reference_to_arg_in_tree($)
+{
+}
+
 sub reference_to_arg_in_tree($)
 {
   my $tree = shift;
-  _XS_reference_to_arg_in_tree($tree);
-  return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
-}
 
-sub _XS_reference_to_arg_in_tree($)
-{
-  return undef;
+  _XS_reference_to_arg_in_tree($tree);
+
+  return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
 }
 
 # prepare and add a new node as a possible cross reference targets
@@ -578,21 +575,26 @@ sub _get_non_automatic_nodes_with_sections($)
   return [ @non_automatic_nodes ];
 }
 
+sub _XS_complete_tree_nodes_menus($$)
+{
+}
+
 # This should be called after Texinfo::Structuring::sectioning_structure.
 sub complete_tree_nodes_menus($;$)
 {
   my $root = shift;
   my $use_sections = shift;
 
+  _XS_complete_tree_nodes_menus($root, $use_sections);
+
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
     complete_node_menu($node, $use_sections);
   }
 
-  _XS_complete_tree_nodes_menus($root, $use_sections);
 }
 
-sub _XS_complete_tree_nodes_menus($$)
+sub _XS_complete_tree_nodes_missing_menu($$)
 {
 }
 
@@ -601,6 +603,8 @@ sub complete_tree_nodes_missing_menu($;$)
 {
   my $root = shift;
   my $use_sections = shift;
+
+  _XS_complete_tree_nodes_missing_menu($root, $use_sections);
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -614,12 +618,6 @@ sub complete_tree_nodes_missing_menu($;$)
       }
     }
   }
-
-  _XS_complete_tree_nodes_missing_menu($root, $use_sections);
-}
-
-sub _XS_complete_tree_nodes_missing_menu($$)
-{
 }
 
 sub _XS_regenerate_master_menu($$)

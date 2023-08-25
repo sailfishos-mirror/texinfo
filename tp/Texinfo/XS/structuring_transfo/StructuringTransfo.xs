@@ -49,7 +49,9 @@ fill_gaps_in_sectioning (tree_in)
     PREINIT:
         ELEMENT *added_sections;
         DOCUMENT *document;
+        /*
         HV *result_tree;
+        */
      CODE:
         document = get_sv_tree_document (tree_in, "fill_gaps_in_sectioning");
         if (!document)
@@ -57,9 +59,12 @@ fill_gaps_in_sectioning (tree_in)
         else
           {
             added_sections = fill_gaps_in_sectioning (document->tree);
+            /* cannot easily be used as it does not match with perl tree
             result_tree = build_texinfo_tree (added_sections);
-            destroy_element (added_sections);
             RETVAL = newRV_inc ((SV *) result_tree);
+             */
+            RETVAL = newSV(0);
+            destroy_element (added_sections);
           }
     OUTPUT:
         RETVAL
@@ -139,8 +144,8 @@ reference_to_arg_in_tree (tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-          /* FIXME warn?  Document not found happens with direct calls of _new_node,
-                          for example */
+          /* FIXME warn?  Document not found happens with direct calls of
+                          _new_node, for example */
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           reference_to_arg_in_tree (document->tree);
@@ -237,7 +242,8 @@ regenerate_master_menu (document_in, use_sections_in)
           regenerate_master_menu (document, use_sections);
 
 # FIXME insert_nodes_for_sectioning_commands returns a list
-# of elements.  Turn to perl structure?
+# of elements.  Building a perl structure would not give elements
+# matching with perl tree.
 void
 insert_nodes_for_sectioning_commands (document_in)
         SV *document_in
@@ -253,8 +259,9 @@ insert_nodes_for_sectioning_commands (document_in)
             destroy_element (added_nodes);
           }
 
-# FIXME returns a list of elements, determines top node.
-# Turn to perl structure?  Register in document?
+# FIXME Return a list of nodes?
+# Building a perl structure from nodes list would not give elements
+# matching with perl tree.
 void
 nodes_tree (document_in)
         SV *document_in

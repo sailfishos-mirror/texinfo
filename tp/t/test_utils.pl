@@ -1047,23 +1047,20 @@ sub test($$)
   Texinfo::Document::register_document_nodes_list($document,
                                                   $nodes_list);
 
-  Texinfo::Structuring::set_menus_node_directions($registrar,
-                      $main_configuration, $global_commands, $nodes_list,
-                                                      $identifier_target);
+  Texinfo::Structuring::set_menus_node_directions($document, $registrar,
+                                                  $main_configuration);
 
   if (defined($nodes_list)
       and (not defined($main_configuration->get_conf('FORMAT_MENU'))
            or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
-    Texinfo::Structuring::complete_node_tree_with_menus($registrar,
-                                $main_configuration, $nodes_list,
-                                $identifier_target);
+    Texinfo::Structuring::complete_node_tree_with_menus($document, $registrar,
+                                                        $main_configuration);
     my $refs = $document->internal_references_information();
-    Texinfo::Structuring::check_nodes_are_referenced($registrar,
-                                      $main_configuration, $nodes_list,
-                                      $identifier_target, $refs);
+    Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
+                                                     $main_configuration);
   }
 
-  Texinfo::Structuring::number_floats($floats);
+  Texinfo::Structuring::number_floats($document);
 
   my ($errors, $error_nrs) = $registrar->errors();
   # FIXME maybe it would be good to compare $merged_index_entries?

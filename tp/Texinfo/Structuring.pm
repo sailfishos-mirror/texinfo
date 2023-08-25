@@ -126,6 +126,11 @@ my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
+sub _XS_copy_tree($$)
+{
+  return 0;
+}
+
 sub copy_tree($;$)
 {
   my $tree = shift;
@@ -138,9 +143,8 @@ sub copy_tree($;$)
   return $result;
 }
 
-sub _XS_copy_tree($$)
+sub _XS_sectioning_structure($)
 {
-  return 0;
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
@@ -156,6 +160,8 @@ sub sectioning_structure($$$)
   my $customization_information = shift;
   my $root = shift;
 
+  _XS_sectioning_structure($root);
+
   my $sec_root;
   my $previous_section;
   my $previous_toplevel;
@@ -166,8 +172,6 @@ sub sectioning_structure($$$)
 
   my $section_top;
   my @sections_list;
-
-  _XS_sectioning_structure($root);
 
   # holds the current number for all the levels.  It is not possible to use
   # something like the last child index, because of @unnumbered.
@@ -357,11 +361,6 @@ sub sectioning_structure($$$)
   }
 }
 
-sub _XS_sectioning_structure($)
-{
-  return undef;
-}
-
 # for debugging
 sub _print_sectioning_tree($);
 sub _print_sectioning_tree($)
@@ -376,14 +375,19 @@ sub _print_sectioning_tree($)
 }
 
 
+sub _XS_warn_non_empty_parts($)
+{
+}
+
 sub warn_non_empty_parts($$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $global_commands = $document->global_commands_information();
 
   _XS_warn_non_empty_parts($document);
+
+  my $global_commands = $document->global_commands_information();
 
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
@@ -394,10 +398,6 @@ sub warn_non_empty_parts($$$)
       }
     }
   }
-}
-
-sub _XS_warn_non_empty_parts($)
-{
 }
 
 my @node_directions = ('next', 'prev', 'up');
@@ -468,8 +468,11 @@ sub _register_menu_node_targets($$$)
 # to try to generate menus automatically before checking.
 sub check_nodes_are_referenced
 {
-  my ($registrar, $customization_information, $nodes_list,
-      $identifier_target, $refs) = @_;
+  my ($document, $registrar, $customization_information) = @_;
+
+  my $nodes_list = $document->nodes_list();
+  my $identifier_target = $document->labels_information();
+  my $refs = $document->internal_references_information();
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -572,13 +575,15 @@ sub _first_menu_node($$)
 }
 
 # set menu_directions
-sub set_menus_node_directions($$$$$)
+sub set_menus_node_directions($$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $global_commands = shift;
-  my $nodes_list = shift;
-  my $identifier_target = shift;
+
+  my $global_commands = $document->global_commands_information();
+  my $nodes_list = $document->nodes_list();
+  my $identifier_target = $document->labels_information();
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -704,12 +709,14 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub complete_node_tree_with_menus($$$$)
+sub complete_node_tree_with_menus($$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $nodes_list = shift;
-  my $identifier_target = shift;
+
+  my $nodes_list = $document->nodes_list();
+  my $identifier_target = $document->labels_information();
 
   return undef unless ($nodes_list and @{$nodes_list});
 
@@ -1616,6 +1623,10 @@ sub print_element_directions($)
   return $result;
 }
 
+sub _XS_associate_internal_references($)
+{
+}
+
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
 sub associate_internal_references($$$)
@@ -1680,16 +1691,15 @@ sub associate_internal_references($$$)
   }
 }
 
-sub _XS_associate_internal_references($)
-{
-  return undef;
-}
-
 
 sub number_floats($)
 {
-  my $floats = shift;
+  my $document = shift;
+
+  my $floats = $document->floats_information();
+
   return if (!defined($floats));
+
   foreach my $style (keys(%$floats)) {
     my %nr_in_chapter;
     my $float_index = 0;
@@ -2537,13 +2547,10 @@ Texinfo::Structuring - information on Texinfo::Document tree
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my $nodes_list = nodes_tree($document, $registrar, $config);
-  set_menus_node_directions($registrar, $config, $global_commands,
-                            $nodes_list, $identifier_target);
-  complete_node_tree_with_menus($registrar, $config, $nodes_list,
-                                $identifier_target);
+  set_menus_node_directions($document, $registrar, $config);
+  complete_node_tree_with_menus($document, $registrar, $config);
   my $refs = $document->internal_references_information();
-  check_nodes_are_referenced($registrar, $config, $nodes_list,
-                             $identifier_target, $refs);
+  check_nodes_are_referenced($document, $registrar, $config);
   associate_internal_references($registrar, $config, $document);
   number_floats($document->floats_information());
   my $output_units;
@@ -2633,7 +2640,7 @@ Set the I<normalized> key in the C<extra> hash of C<menu_entry_node> container
 for menu entries and in the first argument C<extra> hash for internal
 references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
 
-=item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $identifier_target, $refs)
+=item check_nodes_are_referenced($document, $registrar, $customization_information)
 X<C<check_nodes_are_referenced>>
 
 Check that all the nodes are referenced (in menu, @*ref or node direction).
@@ -2642,7 +2649,7 @@ Register errors in I<$registrar>.
 Should be called after C<complete_node_tree_with_menus> in order to
 have the autogenerated menus available.
 
-=item complete_node_tree_with_menus($registrar, $customization_information, $nodes_list, $identifier_target)
+=item complete_node_tree_with_menus($document, $registrar, $customization_information)
 X<C<complete_node_tree_with_menus>>
 
 Complete nodes directions with menu directions.  Check consistency
@@ -2859,7 +2866,7 @@ This element is associated to the C<extra> I<sectioning_root> key of the first
 section element of the sections list.  It is also at the top of the tree when
 following the I<up> I<section_directions>.
 
-=item set_menus_node_directions($registrar, $customization_information, $global_commands, $nodes_list, $identifier_target);
+=item set_menus_node_directions($document, $registrar, $customization_information);
 X<C<set_menus_node_directions>>
 
 Goes through menu and set directions.  Register errors in I<$registrar>.
