@@ -20,9 +20,6 @@ use output_units_conversion in HTML API.
 
 Handle extra directions in build_perl_info.c
 
-Add a tree transformation that protects first parenthesis of @node, @anchor
-and @float, that could be used in Pod Simple Texinfo in _normalize_texinfo_name.
-
 HTML API
 ========
 

@@ -1296,6 +1296,7 @@ protect_node_after_label_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_node_after_label, 0);
 }
 
+/* FIXME move source marks */
 /* $registrar, $customization_information in argument in perl */
 ELEMENT *
 protect_hashchar_at_line_beginning_internal (const char *type,
@@ -1385,7 +1386,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                               add_to_contents_as_array (container,
                                                         leading_spaces);
                             }
-                          /* past # */
+                          /* advance past # */
                           p++;
                           text_reset (&current->text);
                           text_append (&current->text, p);
@@ -1411,4 +1412,21 @@ ELEMENT *
 protect_hashchar_at_line_beginning (ELEMENT *tree)
 {
   return modify_tree (tree, &protect_hashchar_at_line_beginning_internal, 0);
+}
+
+ELEMENT *
+protect_first_parenthesis_in_targets_internal (const char *type,
+                                               ELEMENT *current,
+                                               void *argument)
+{
+  ELEMENT *element_label = get_label_element (current);
+  if (element_label)
+    protect_first_parenthesis (element_label);
+  return 0;
+}
+
+void
+protect_first_parenthesis_in_targets (ELEMENT *tree)
+{
+  modify_tree (tree, &protect_first_parenthesis_in_targets_internal, 0);
 }

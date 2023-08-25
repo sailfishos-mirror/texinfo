@@ -84,6 +84,10 @@ sub import {
         "Texinfo::Transformations::_XS_protect_hashchar_at_line_beginning",
         "Texinfo::StructTransf::protect_hashchar_at_line_beginning"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_protect_first_parenthesis_in_targets",
+        "Texinfo::StructTransf::protect_first_parenthesis_in_targets"
+      );
     }
     $module_loaded = 1;
   }
@@ -858,6 +862,32 @@ sub protect_hashchar_at_line_beginning($$$)
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);
+}
+
+sub _protect_first_parenthesis_in_targets($$$)
+{
+  my $type = shift;
+  my $current = shift;
+  my $argument = shift;
+
+  my $element_label = Texinfo::Common::get_label_element($current);
+  if ($element_label) {
+    Texinfo::Common::protect_first_parenthesis($element_label);
+  }
+  return undef;
+}
+
+sub _XS_protect_first_parenthesis_in_targets($)
+{
+}
+
+sub protect_first_parenthesis_in_targets($)
+{
+  my $tree = shift;
+
+  _XS_protect_first_parenthesis_in_targets($tree);
+
+  Texinfo::Common::modify_tree($tree, \&_protect_first_parenthesis_in_targets);
 }
 
 1;

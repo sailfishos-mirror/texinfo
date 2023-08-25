@@ -2669,9 +2669,10 @@ sub _XS_relate_index_entries_to_table_items_in_tree($)
 sub get_label_element($)
 {
   my $current = shift;
+  return undef if (!defined($current->{'cmdname'}));
   if (($current->{'cmdname'} eq 'node' or $current->{'cmdname'} eq 'anchor')
       and $current->{'args'} and scalar(@{$current->{'args'}})) {
-    return $current->{'args'}->[0]
+    return $current->{'args'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
       and $current->{'args'} and scalar(@{$current->{'args'}}) >= 2) {
     return $current->{'args'}->[1];

@@ -327,3 +327,14 @@ protect_hashchar_at_line_beginning (tree_in)
         if (document)
           protect_hashchar_at_line_beginning (document->tree);
 
+void
+protect_first_parenthesis_in_targets (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          protect_first_parenthesis_in_targets (document->tree);
+

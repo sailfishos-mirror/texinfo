@@ -443,21 +443,7 @@ sub _normalize_texinfo_name($$)
   }
   my $tree = $document->tree();
   if ($command eq 'anchor') {
-    # FIXME this works to find the anchor command only if
-    # the tree structure always leads to the interesting
-    # elements being first in the contents.
-    my $current = $tree;
-    while ((not exists($current->{'cmdname'})
-            or $current->{'cmdname'} ne 'anchor')
-           and $current->{'contents'}
-           and scalar(@{$current->{'contents'}})) {
-      $current = $current->{'contents'}->[0];
-    }
-    if (not exists($current->{'cmdname'}) or $current->{'cmdname'} ne 'anchor') {
-      cluck "BUG: could not find anchor: $texinfo_text";
-    } elsif ($current->{'args'}->[0]) {
-      protect_first_parenthesis($current->{'args'}->[0]);
-    }
+    Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
   }
   my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   my $result = $fixed_text;

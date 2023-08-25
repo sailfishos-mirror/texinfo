@@ -1,5 +1,31 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	New transformation to protect first parenthesis in tree label elements
+
+	* tp/Texinfo/Transformations.pm (import)
+	(_protect_first_parenthesis_in_targets)
+	(_XS_protect_first_parenthesis_in_targets)
+	(protect_first_parenthesis_in_targets),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(protect_first_parenthesis_in_targets),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis_in_targets_internal)
+	(protect_first_parenthesis_in_targets)
+	Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): new transformation,
+	protect_first_parenthesis_in_targets, based on
+	protect_first_parenthesis, that protect the first parenthesis in all
+	the target element labels.  Use it in
+	Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm.
+
+	* tp/t/test_protect_contents.t: base test on
+	protect_first_parenthesis_in_targets.
+
+	* tp/Texinfo/Common.pm (get_label_element): handle an input element
+	without command name.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (digit_chars, parse_line_directive),
 	tp/Texinfo/XS/parsetexi/parser.c (check_line_directive): put the
 	parsing of a line directive out of parser.c check_line_directive
