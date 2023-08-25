@@ -39,6 +39,7 @@ use Texinfo::Report;
 
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Structuring;
@@ -1461,7 +1462,6 @@ sub sort_element_counts($$;$$)
   my $max_count = 0;
   my @name_counts_array;
 
-  require Texinfo::Convert::Texinfo;
   foreach my $element (@$elements) {
     my $name;
     if ($element->{'unit_command'}) {

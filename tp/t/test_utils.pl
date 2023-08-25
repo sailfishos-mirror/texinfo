@@ -75,7 +75,7 @@ use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
 
 # the tests reference perl results file is loaded through a require
-# with those variables.
+# of a file containing code setting those variables.
 use vars qw(%result_texis %result_texts %result_trees %result_errors
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors
@@ -973,8 +973,10 @@ sub test($$)
   }
 
   # require instead of use for speed when this module is not needed
-  require Texinfo::Transformations
-    if (scalar(keys(%tree_transformations)));
+  if (scalar(keys(%tree_transformations))) {
+    require Texinfo::Transformations;
+    Texinfo::Transformations->import();
+  }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     my $added_sections

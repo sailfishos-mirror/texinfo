@@ -1251,7 +1251,10 @@ sub handle_errors($$$)
 require Texinfo::Parser;
 require Texinfo::Translations;
 require Texinfo::Structuring;
+Texinfo::Structuring->import();
 require Texinfo::Transformations;
+Texinfo::Transformations->import();
+
 # Avoid loading these modules until down here to speed up the case
 # when they are not needed.
 

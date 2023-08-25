@@ -1,5 +1,13 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm: use Texinfo::Convert::Texinfo
+	instead of requiring.
+
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: call import method
+	of modules if they aree require'd and not use'd.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced)
 	(set_menus_node_directions, complete_node_tree_with_menus)
 	(number_floats), tp/t/test_utils.pl (test), tp/texi2any.pl: use a
