@@ -191,6 +191,17 @@ warn_non_empty_parts (document_in)
           warn_non_empty_parts (document);
 
 void
+set_menus_node_directions (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          set_menus_node_directions (document);
+
+void
 complete_tree_nodes_menus (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;
@@ -222,7 +233,6 @@ complete_tree_nodes_missing_menu (tree_in, use_sections_in)
           }
         if (document)
           complete_tree_nodes_missing_menu (document->tree, use_sections);
-
 
 void
 regenerate_master_menu (document_in, use_sections_in)
@@ -337,4 +347,5 @@ protect_first_parenthesis_in_targets (tree_in)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           protect_first_parenthesis_in_targets (document->tree);
+
 

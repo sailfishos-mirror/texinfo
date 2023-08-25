@@ -106,6 +106,10 @@ sub import {
         "Texinfo::Structuring::_XS_nodes_tree",
         "Texinfo::StructTransf::nodes_tree"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_set_menus_node_directions",
+        "Texinfo::StructTransf::set_menus_node_directions"
+      );
     }
     $module_loaded = 1;
   }
@@ -574,12 +578,18 @@ sub _first_menu_node($$)
   return undef;
 }
 
+sub _XS_set_menus_node_directions($)
+{
+}
+
 # set menu_directions
 sub set_menus_node_directions($$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
+
+  _XS_set_menus_node_directions($document);
 
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
@@ -612,18 +622,18 @@ sub set_menus_node_directions($$$)
           if ($menu_content->{'type'}
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
-            foreach my $arg (@{$menu_content->{'contents'}}) {
-              if ($arg->{'type'} eq 'menu_entry_node') {
-                if ($arg->{'extra'}) {
-                  if (!$arg->{'extra'}->{'manual_content'}) {
+            foreach my $content (@{$menu_content->{'contents'}}) {
+              if ($content->{'type'} eq 'menu_entry_node') {
+                if ($content->{'extra'}) {
+                  if (!$content->{'extra'}->{'manual_content'}) {
                     if ($check_menu_entries) {
                       _check_menu_entry($registrar, $customization_information,
                                         $identifier_target, 'menu',
-                                        $menu_content, $arg);
+                                        $menu_content, $content);
                     }
-                    if (defined($arg->{'extra'}->{'normalized'})) {
+                    if (defined($content->{'extra'}->{'normalized'})) {
                       $menu_node
-                        = $identifier_target->{$arg->{'extra'}->{'normalized'}};
+                        = $identifier_target->{$content->{'extra'}->{'normalized'}};
                       if ($menu_node) {
                         $menu_node->{'extra'}->{'menu_directions'} = {}
                            if (!$menu_node->{'extra'}->{'menu_directions'});
@@ -631,7 +641,7 @@ sub set_menus_node_directions($$$)
                       }
                     }
                   } else {
-                    $menu_node = $arg;
+                    $menu_node = $content;
                   }
                 }
                 last;
@@ -660,18 +670,19 @@ sub set_menus_node_directions($$$)
     }
   }
   # Check @detailmenu
-  if ($check_menu_entries) {
-    if ($global_commands->{'detailmenu'}) {
-      foreach my $detailmenu (@{$global_commands->{'detailmenu'}}) {
-        foreach my $menu_content (@{$detailmenu->{'contents'}}) {
-          if ($menu_content->{'type'}
-              and $menu_content->{'type'} eq 'menu_entry') {
-            foreach my $arg (@{$menu_content->{'contents'}}) {
-              if ($arg->{'type'} eq 'menu_entry_node' and $arg->{'extra'}
-                  and !$arg->{'extra'}->{'node_manual'}) {
+  if ($check_menu_entries and $global_commands->{'detailmenu'}) {
+    foreach my $detailmenu (@{$global_commands->{'detailmenu'}}) {
+      foreach my $menu_content (@{$detailmenu->{'contents'}}) {
+        if ($menu_content->{'type'}
+            and $menu_content->{'type'} eq 'menu_entry') {
+          foreach my $content (@{$menu_content->{'contents'}}) {
+            if ($content->{'type'} eq 'menu_entry_node') {
+              if (not ($content->{'extra'}
+                       and $content->{'extra'}->{'manual_content'})) {
                 _check_menu_entry($registrar, $customization_information,
-                      $identifier_target, 'detailmenu', $menu_content, $arg);
+                    $identifier_target, 'detailmenu', $menu_content, $content);
               }
+              last;
             }
           }
         }

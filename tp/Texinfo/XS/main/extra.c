@@ -179,6 +179,16 @@ lookup_extra_element (ELEMENT *e, char *key)
   return (ELEMENT *) k->value;
 }
 
+char *
+lookup_extra_string (ELEMENT *e, char *key)
+{
+  KEY_PAIR *k;
+  k = lookup_associated_info (&e->extra_info, key);
+  if (!k || !k->value)
+    return 0;
+  return (char *) k->value;
+}
+
 KEY_PAIR *
 lookup_extra (ELEMENT *e, char *key)
 {

@@ -1,5 +1,21 @@
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/extra.c (lookup_extra_string),
+	tp/Texinfo/XS/structuring_transfo/structuring.c: add lookup extra
+	function tailored for strings.
+
+	* tp/Texinfo/Structuring.pm (set_menus_node_directions): change
+	variable names, correct code for detailmenu.
+
+	* tp/Texinfo/Structuring.pm (import, _XS_set_menus_node_directions)
+	(set_menus_node_directions),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(set_menus_node_directions),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (check_menu_entry)
+	(set_menus_node_directions): implement set_menus_node_directions XS.
+
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	New transformation to protect first parenthesis in tree label elements
 
 	* tp/Texinfo/Transformations.pm (import)

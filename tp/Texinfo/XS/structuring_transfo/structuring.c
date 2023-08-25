@@ -83,11 +83,7 @@ normalized_menu_entry_internal_node (ELEMENT *entry)
         {
           if (!lookup_extra_element (content, "manual_content"))
             {
-              KEY_PAIR *k = lookup_extra (content, "normalized");
-              if (k && k->value)
-                return (char *)k->value;
-              else
-                return 0;
+              return lookup_extra_string (content, "normalized");
             }
           return 0;
         }
@@ -153,10 +149,9 @@ associate_internal_references (LABEL_LIST *identifiers_target,
       else
         {
           ELEMENT *node_target = 0;
-          KEY_PAIR *k_normalized = lookup_extra (label_element, "normalized");
-          if (k_normalized && k_normalized->value)
+          char *normalized = lookup_extra_string (label_element, "normalized");
+          if (normalized)
             {
-              char *normalized = (char *)k_normalized->value;
               node_target
                 = find_identifier_target (identifiers_target,
                                          normalized);
@@ -518,7 +513,6 @@ nodes_tree (DOCUMENT *document)
   for (i = 0; i < root->contents.number; i++)
     {
       ELEMENT *node = root->contents.list[i];
-      KEY_PAIR *k_normalized;
       char *normalized;
       int is_target;
       int status;
@@ -527,10 +521,8 @@ nodes_tree (DOCUMENT *document)
       if (node->cmd != CM_node)
         continue;
 
-      k_normalized = lookup_extra (node, "normalized");
-      if (k_normalized && k_normalized->value)
-        normalized = (char *)k_normalized->value;
-      else
+      normalized = lookup_extra_string (node, "normalized");
+      if (!normalized)
         continue;
 
       add_to_element_contents (nodes_list, node);
@@ -556,12 +548,10 @@ nodes_tree (DOCUMENT *document)
                     && node_directions->contents.list[d])
                   {
                     ELEMENT *prev_element = node_directions->contents.list[d];
-                    KEY_PAIR *k_prev_normalized
-                      = lookup_extra (prev_element, "normalized");
-                    if (k_prev_normalized && k_prev_normalized->value)
+                    char *prev_normalized
+                      = lookup_extra_string (prev_element, "normalized");
+                    if (prev_normalized)
                       {
-                        char *prev_normalized
-                           = (char *)k_prev_normalized->value;
                         if (!strcmp (prev_normalized, "Top"))
                           continue;
                       }
@@ -637,12 +627,10 @@ nodes_tree (DOCUMENT *document)
                 }
               else
                 {
-                  KEY_PAIR *k_direction_normalized
-                    = lookup_extra (direction_element, "normalized");
-                  if (k_direction_normalized && k_direction_normalized->value)
+                  char *direction_normalized
+                    = lookup_extra_string (direction_element, "normalized");
+                  if (direction_normalized)
                     {
-                      char *direction_normalized
-                         = (char *)k_direction_normalized->value;
                       ELEMENT *node_target
                         = find_identifier_target (identifiers_target,
                                                   direction_normalized);
@@ -706,6 +694,181 @@ warn_non_empty_parts (DOCUMENT *document)
       if (!is_content_empty (part, 0))
         command_warn (part, "@%s not empty",
                       builtin_command_name (part->cmd));
+    }
+}
+
+void
+check_menu_entry (LABEL_LIST *identifiers_target, enum command_id cmd,
+                  ELEMENT *menu_content, ELEMENT *menu_entry_node)
+{
+  char *normalized_menu_node = lookup_extra_string (menu_entry_node,
+                                                    "normalized");
+  if (normalized_menu_node)
+    {
+      ELEMENT *menu_node = find_identifier_target (identifiers_target,
+                                                   normalized_menu_node);
+      if (!menu_node)
+        command_error (menu_content, "@%s reference to nonexistent node `%s'",
+                       builtin_command_name (cmd),
+                       link_element_to_texi (menu_entry_node));
+
+      else
+        {
+          ELEMENT *node_content = lookup_extra_element (menu_entry_node,
+                                                        "node_content");
+          if (!check_node_same_texinfo_code (menu_node, node_content))
+            command_warn (menu_content,
+                  "@%s entry node name `%s' different from %s name `%s'",
+                  builtin_command_name (cmd),
+                  link_element_to_texi (menu_entry_node),
+                  builtin_command_name (menu_node->cmd),
+                  target_element_to_texi_label (menu_node));
+        }
+    }
+}
+
+/* set menu_directions */
+/* FIXME $registrar and $customization_information in perl */
+void
+set_menus_node_directions (DOCUMENT *document)
+{
+  GLOBAL_INFO *global_info = document->global_info;
+  ELEMENT *nodes_list = document->nodes_list;
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+
+  int check_menu_entries = 1;
+  int i;
+
+  if (!nodes_list || nodes_list->contents.number <= 0)
+    return;
+
+/*
+  my $check_menu_entries = (!$customization_information->get_conf('novalidate')
+      and $customization_information->get_conf('FORMAT_MENU') eq 'menu');
+*/
+
+  /*
+  First go through all the menus and set menu up, menu next and menu prev,
+  and warn for unknown nodes.
+  Remark: since the @menu are only checked if they are in @node,
+  menu entries before the first node, or @menu nested inside
+  another command such as @format, may be treated slightly
+  differently; at least, there are no error messages for them.
+   */
+
+  for (i = 0; i < nodes_list->contents.number; i++)
+    {
+      int j;
+      ELEMENT *node = nodes_list->contents.list[i];
+      ELEMENT *menus = lookup_extra_element (node, "menus");
+      if (menus->contents.number > 1)
+        {
+          for (j = 1; j < menus->contents.number; j++)
+            {
+               ELEMENT *menu = menus->contents.list[j];
+               command_warn (menu, "multiple @%s",
+                             builtin_command_name (menu->cmd));
+            }
+        }
+
+      for (j = 1; j < menus->contents.number; j++)
+        {
+          ELEMENT *menu = menus->contents.list[j];
+          ELEMENT *previous_node = 0;
+          int k;
+          for (k = 0; k < menu->contents.number; k++)
+            {
+              ELEMENT *menu_content = menu->contents.list[k];
+              if (menu_content->type == ET_menu_entry)
+                {
+                  ELEMENT *menu_node = 0;
+                  int l;
+                  for (l = 0; l < menu_content->contents.number; l++)
+                    {
+                      ELEMENT *content = menu_content->contents.list[l];
+                      if (content->type == ET_menu_entry_node)
+                        {
+                          ELEMENT *manual_content
+                           = lookup_extra_element (content, "manual_content");
+
+                          if (!manual_content)
+                            {
+                              if (check_menu_entries)
+                                check_menu_entry (identifiers_target, menu->cmd,
+                                                  menu_content, content);
+                            }
+                          else
+                            {
+                              menu_node = content;
+                            }
+                          break;
+                        }
+                    }
+                  if (menu_node)
+                    {
+                      if (previous_node)
+                        {
+                          ELEMENT *manual_content
+                           = lookup_extra_element (menu_node, "manual_content");
+                          ELEMENT *prev_manual_content
+                           = lookup_extra_element (previous_node,
+                                                   "manual_content");
+                          if (!manual_content)
+                            {
+                              ELEMENT *menu_directions
+                                = lookup_extra_directions (menu_node,
+                                                    "menu_directions", 1);
+                               menu_directions->contents.list[D_prev]
+                                 = previous_node;
+                            }
+                          if (!prev_manual_content)
+                            {
+                              ELEMENT *menu_directions
+                                = lookup_extra_directions (previous_node,
+                                                    "menu_directions", 1);
+                              menu_directions->contents.list[D_next]
+                                 = menu_node;
+                            }
+                        }
+                      previous_node = menu_node;
+                    }
+                }
+            } /* end menu */
+        }
+    }
+
+  /* Check @detailmenu */
+  if (check_menu_entries && global_info->detailmenu.contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < global_info->detailmenu.contents.number; i++)
+        {
+          ELEMENT *detailmenu = global_info->detailmenu.contents.list[i];
+          int k;
+          for (k = 0; k < detailmenu->contents.number; k++)
+            {
+              ELEMENT *menu_content = detailmenu->contents.list[k];
+              if (menu_content->type == ET_menu_entry)
+                {
+                  int l;
+                  for (l = 0; l < menu_content->contents.number; l++)
+                    {
+                      ELEMENT *content = menu_content->contents.list[l];
+                      if (content->type == ET_menu_entry_node)
+                        {
+                          ELEMENT *manual_content
+                           = lookup_extra_element (content, "manual_content");
+
+                          if (!manual_content)
+                            check_menu_entry (identifiers_target,
+                                              detailmenu->cmd,
+                                              menu_content, content);
+                          break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
