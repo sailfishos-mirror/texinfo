@@ -13,12 +13,15 @@ Before next release
 Bugs
 ====
 
-Do specific conversion functions for output units.  And maybe, to see if
+Consider doing specific conversion functions for output units.  And maybe, to see if
 better or not, change contents to element_contents or something like than, and
 maybe type to unit_type, and also maybe instead of 'types_conversion'
 use output_units_conversion in HTML API.
 
-Add directions to extra in XS and add support to copy
+Handle extra directions in build_perl_info.c
+
+Add a tree transformation that protects first parenthesis of @node, @anchor
+and @float, that could be used in Pod Simple Texinfo in _normalize_texinfo_name.
 
 HTML API
 ========

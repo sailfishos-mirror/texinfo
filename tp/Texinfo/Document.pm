@@ -484,7 +484,7 @@ information returned by the other methods.
 =back
 
 Further information can be registered in the document.  Those
-methoods should be called during the processing of document structure.
+methods should be called during the processing of document structure.
 
 =over
 
