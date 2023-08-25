@@ -1578,6 +1578,8 @@ while(@input_files) {
                                                $main_configuration, $tree);
 
   if ($sections_list) {
+    Texinfo::Document::register_document_sections_list($document,
+                                                       $sections_list);
     $structure_information->{'sections_list'} = $sections_list;
     if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
       Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
@@ -1600,6 +1602,8 @@ while(@input_files) {
     my $nodes_list
         = Texinfo::Structuring::nodes_tree($document, $registrar,
                                             $main_configuration);
+    Texinfo::Document::register_document_nodes_list($document,
+                                                    $nodes_list);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if

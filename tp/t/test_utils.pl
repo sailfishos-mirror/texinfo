@@ -1019,6 +1019,8 @@ sub test($$)
                                       $main_configuration, $tree);
   my $sectioning_root;
   if ($sections_list) {
+    Texinfo::Document::register_document_sections_list($document,
+                                                       $sections_list);
     Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
                                                $main_configuration);
     $structure_information->{'sections_list'} = $sections_list;
@@ -1041,6 +1043,9 @@ sub test($$)
   my $nodes_list
           = Texinfo::Structuring::nodes_tree($document, $registrar,
                                              $main_configuration);
+
+  Texinfo::Document::register_document_nodes_list($document,
+                                                  $nodes_list);
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $global_commands, $nodes_list,

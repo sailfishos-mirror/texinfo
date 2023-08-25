@@ -53,6 +53,20 @@ sub register
   return $document;
 }
 
+sub register_document_nodes_list($$)
+{
+  my $document = shift;
+  my $nodes_list = shift;
+  $document->{'nodes_list'} = $nodes_list;
+}
+
+sub register_document_sections_list($$)
+{
+  my $document = shift;
+  my $sections_list = shift;
+  $document->{'sections_list'} = $sections_list;
+}
+
 sub tree($)
 {
   my $self = shift;
@@ -94,6 +108,18 @@ sub labels_information($)
 {
   my $self = shift;
   return $self->{'identifiers_target'};
+}
+
+sub nodes_list($)
+{
+  my $self = shift;
+  return $self->{'nodes_list'};
+}
+
+sub sections_list($)
+{
+  my $self = shift;
+  return $self->{'sections_list'};
 }
 
 sub _existing_label_error($$;$$)
@@ -344,16 +370,28 @@ in the texinfo document.
 
 =back
 
-Internal references, that is, @-commands that refer to node, anchors
-or floats within the document are also available:
+Internal references, nodes and section lists may also be available.
 
 =over
 
 =item $internal_references_array = internal_references_information($document)
 X<C<internal_references_information>>
 
-The function returns a list of cross-reference commands referring to
-the same document.
+The function returns an aray reference of cross-reference commands referring to
+the same document with @-commands that refer to node, anchors
+or floats.
+
+=item $nodes_list = nodes_list($document)
+
+Returns an array reference containing the document nodes.  In general set to the
+nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $registrar, $customization_information)>,
+by a call to L<register_document_nodes_list|/register_document_nodes_list ($document, $nodes_list)>.
+
+=item $sections_list = sections_list($document)
+
+Returns an array reference containing the document sections.  In general set to the
+sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($registrar, $customization_information, $tree)>,
+by a call to L<register_document_sections_list|/register_document_sections_list ($document, $sections_list)>.
 
 =back
 
@@ -445,9 +483,28 @@ information returned by the other methods.
 
 =back
 
+Further information can be registered in the document.  Those
+methoods should be called during the processing of document structure.
+
+=over
+
+=item register_document_nodes_list ($document, $nodes_list)
+X<C<register_document_nodes_list>>
+
+Register the I<$nodes_list> array reference as I<$document> nodes
+list.
+
+=item register_document_sections_list ($document, $sections_list)
+X<C<register_document_sections_list>>
+
+Register the I<$sections_list> array reference as I<$document> sections
+list.
+
+=back
+
 =head1 SEE ALSO
 
-L<Texinfo::Parser>.
+L<Texinfo::Parser>. L<Texinfo::Structuring>.
 
 =head1 AUTHOR
 

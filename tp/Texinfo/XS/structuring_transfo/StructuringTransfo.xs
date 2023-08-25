@@ -169,7 +169,10 @@ sectioning_structure (tree_in)
         /* FIXME warning/error if not found? */
         document = get_sv_tree_document (tree_in, 0);
         if (document)
-          sectioning_structure (document->tree);
+          {
+            ELEMENT *sections_list = sectioning_structure (document->tree);
+            register_document_sections_list (document, sections_list);
+          }
 
 void
 warn_non_empty_parts (document_in)
@@ -262,7 +265,7 @@ nodes_tree (document_in)
         if (document)
           {
             ELEMENT *nodes_list = nodes_tree (document);
-            destroy_element (nodes_list);
+            register_document_nodes_list (document, nodes_list);
           }
 
 # FIXME return something?

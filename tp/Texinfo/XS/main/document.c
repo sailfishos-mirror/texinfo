@@ -82,6 +82,7 @@ register_document (ELEMENT *root, INDEX **index_names,
       document_number++;
     }
   document = &document_list[document_index];
+  memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
   document->tree = root;
   document->index_names = index_names;
@@ -98,6 +99,18 @@ register_document (ELEMENT *root, INDEX **index_names,
                        document->tree, document->index_names);
    */
   return document_index +1;
+}
+
+void
+register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list)
+{
+  document->nodes_list = nodes_list;
+}
+
+void
+register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
+{
+  document->sections_list = sections_list;
 }
 
 /* very similar to parsetexi/input.c free_small_strings */

@@ -26,6 +26,8 @@ typedef struct DOCUMENT {
   LABEL_LIST *identifiers_target;
   GLOBAL_INFO *global_info;
   SMALL_STRINGS_LIST *small_strings;
+  ELEMENT *nodes_list; /* nodes in contents of this element */
+  ELEMENT *sections_list; /* sections in contents of this element */
   ERROR_MESSAGE_LIST *error_messages;
 } DOCUMENT;
 
@@ -40,6 +42,9 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           GLOBAL_INFO *global_info,
                           SMALL_STRINGS_LIST *small_strings,
                           ERROR_MESSAGE_LIST *error_messages);
+void register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list);
+void register_document_sections_list (DOCUMENT *document,
+                                      ELEMENT *sections_list);
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
 
