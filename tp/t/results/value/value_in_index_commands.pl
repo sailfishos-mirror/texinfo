@@ -1060,25 +1060,29 @@ value truc
 value cp
 ';
 
-$result_nodes{'value_in_index_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'value_in_index_commands'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'value_in_index_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_index_commands'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'value_in_index_commands'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_index_commands'}[0];
+$result_nodes{'value_in_index_commands'}[1] = $result_nodes{'value_in_index_commands'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'value_in_index_commands'} = [
   {

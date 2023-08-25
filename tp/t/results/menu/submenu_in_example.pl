@@ -665,12 +665,14 @@ subheading in menu
 
 ';
 
-$result_nodes{'submenu_in_example'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'submenu_in_example'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'submenu_in_example'} = [
   {

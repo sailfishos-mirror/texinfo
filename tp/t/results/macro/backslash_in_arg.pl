@@ -494,25 +494,29 @@ $result_texts{'backslash_in_arg'} = '
 
 ';
 
-$result_nodes{'backslash_in_arg'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'backslash_in_arg'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'backslash_in_arg'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'backslash_in_arg'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'backslash_in_arg'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'backslash_in_arg'}[0];
+$result_nodes{'backslash_in_arg'}[1] = $result_nodes{'backslash_in_arg'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'backslash_in_arg'} = [
   {

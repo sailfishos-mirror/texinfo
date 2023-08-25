@@ -198,13 +198,15 @@ $result_sectioning{'index_and_node_same_name'} = {
 $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_and_node_same_name'};
 $result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_and_node_same_name'};
 
-$result_nodes{'index_and_node_same_name'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'index-node'
+$result_nodes{'index_and_node_same_name'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'isindex' => 1,
+      'normalized' => 'index-node'
+    }
   }
-};
+];
 
 $result_menus{'index_and_node_same_name'} = [
   {

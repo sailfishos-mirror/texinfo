@@ -3545,55 +3545,61 @@ $result_sectioning{'test_index'}{'extra'}{'section_childs'}[0]{'extra'}{'section
 $result_sectioning{'test_index'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_index'};
 $result_sectioning{'test_index'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'test_index'};
 
-$result_nodes{'test_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'next' => {
-              'cmdname' => 'node',
+$result_nodes{'test_index'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
               'extra' => {
-                'associated_section' => {
-                  'cmdname' => 'appendix',
-                  'extra' => {
-                    'section_number' => 'A'
-                  }
-                },
-                'isindex' => 1,
-                'node_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                },
-                'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+                'section_number' => 1
               }
             },
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'name'
+            'node_directions' => {
+              'next' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'associated_section' => {
+                    'cmdname' => 'appendix',
+                    'extra' => {
+                      'section_number' => 'A'
+                    }
+                  },
+                  'isindex' => 1,
+                  'node_directions' => {
+                    'prev' => {},
+                    'up' => {}
+                  },
+                  'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+                }
+              },
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'name'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {}
+];
+$result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'}[0];
+$result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_index'}[0];
+$result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_index'}[0];
+$result_nodes{'test_index'}[1] = $result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'test_index'}[2] = $result_nodes{'test_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_index'} = [
   {

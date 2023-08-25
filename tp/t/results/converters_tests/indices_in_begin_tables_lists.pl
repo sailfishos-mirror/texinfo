@@ -4265,55 +4265,61 @@ $result_sectioning{'indices_in_begin_tables_lists'}{'extra'}{'section_childs'}[0
 $result_sectioning{'indices_in_begin_tables_lists'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'indices_in_begin_tables_lists'};
 $result_sectioning{'indices_in_begin_tables_lists'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'indices_in_begin_tables_lists'};
 
-$result_nodes{'indices_in_begin_tables_lists'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'next' => {
-              'cmdname' => 'node',
+$result_nodes{'indices_in_begin_tables_lists'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
               'extra' => {
-                'associated_section' => {
-                  'cmdname' => 'chapter',
-                  'extra' => {
-                    'section_number' => 2
-                  }
-                },
-                'isindex' => 1,
-                'node_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                },
-                'normalized' => 'printindex'
+                'section_number' => 1
               }
             },
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chapter'
+            'node_directions' => {
+              'next' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'associated_section' => {
+                    'cmdname' => 'chapter',
+                    'extra' => {
+                      'section_number' => 2
+                    }
+                  },
+                  'isindex' => 1,
+                  'node_directions' => {
+                    'prev' => {},
+                    'up' => {}
+                  },
+                  'normalized' => 'printindex'
+                }
+              },
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chapter'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_in_begin_tables_lists'};
-$result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_in_begin_tables_lists'};
-$result_nodes{'indices_in_begin_tables_lists'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_in_begin_tables_lists'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {}
+];
+$result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_in_begin_tables_lists'}[0];
+$result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'indices_in_begin_tables_lists'}[0];
+$result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'indices_in_begin_tables_lists'}[0];
+$result_nodes{'indices_in_begin_tables_lists'}[1] = $result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'indices_in_begin_tables_lists'}[2] = $result_nodes{'indices_in_begin_tables_lists'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'indices_in_begin_tables_lists'} = [
   {

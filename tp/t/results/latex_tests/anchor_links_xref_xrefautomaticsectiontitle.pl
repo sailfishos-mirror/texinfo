@@ -835,36 +835,52 @@ $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'sect
 $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'};
 $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'};
 
-$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'node-before'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'};
-$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'after'
+    }
+  },
+  {}
+];
+$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[1]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[1];
+$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[1]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[1];
+$result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[3] = $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'}[1]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'anchor_links_xref_xrefautomaticsectiontitle'} = [
   {

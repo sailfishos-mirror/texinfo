@@ -749,37 +749,41 @@ $result_sectioning{'comment_space_command_on_line'}{'extra'}{'section_childs'}[0
 $result_sectioning{'comment_space_command_on_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'comment_space_command_on_line'};
 $result_sectioning{'comment_space_command_on_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'comment_space_command_on_line'};
 
-$result_nodes{'comment_space_command_on_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'comment_space_command_on_line'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'comment_space_command_on_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_space_command_on_line'};
-$result_nodes{'comment_space_command_on_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_space_command_on_line'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'comment_space_command_on_line'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_space_command_on_line'}[0];
+$result_nodes{'comment_space_command_on_line'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_space_command_on_line'}[0];
+$result_nodes{'comment_space_command_on_line'}[1] = $result_nodes{'comment_space_command_on_line'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'comment_space_command_on_line'} = [
   {

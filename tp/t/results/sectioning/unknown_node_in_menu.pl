@@ -166,12 +166,14 @@ $result_texts{'unknown_node_in_menu'} = '
 * unknown::
 ';
 
-$result_nodes{'unknown_node_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'unknown_node_in_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'unknown_node_in_menu'} = [
   {

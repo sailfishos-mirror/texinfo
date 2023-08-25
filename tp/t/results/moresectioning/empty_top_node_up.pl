@@ -266,30 +266,34 @@ $result_sectioning{'empty_top_node_up'} = {
 $result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_top_node_up'};
 $result_sectioning{'empty_top_node_up'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_top_node_up'};
 
-$result_nodes{'empty_top_node_up'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'empty_top_node_up'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'empty_top_node_up'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_top_node_up'};
-$result_nodes{'empty_top_node_up'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'empty_top_node_up'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'empty_top_node_up'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_top_node_up'}[0];
+$result_nodes{'empty_top_node_up'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'empty_top_node_up'}[0];
+$result_nodes{'empty_top_node_up'}[1] = $result_nodes{'empty_top_node_up'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'empty_top_node_up'} = [
   {

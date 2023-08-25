@@ -438,48 +438,66 @@ $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0]{'extra'
 $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_node_up_explicit'};
 $result_sectioning{'top_node_up_explicit'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_node_up_explicit'};
 
-$result_nodes{'top_node_up_explicit'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
+$result_nodes{'top_node_up_explicit'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
       },
-      'prev' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'weird'
-            }
-          ]
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         },
-        'type' => 'line_arg'
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'weird'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
       },
-      'up' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
         'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'Top'
+          'section_number' => 1
+        }
+      },
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'Chap'
+    }
   }
-};
+];
+$result_nodes{'top_node_up_explicit'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_up_explicit'}[0];
 
 $result_menus{'top_node_up_explicit'} = [
   {

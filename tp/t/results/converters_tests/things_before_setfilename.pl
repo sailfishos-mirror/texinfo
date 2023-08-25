@@ -1195,36 +1195,40 @@ $result_sectioning{'things_before_setfilename'}{'extra'}{'section_childs'}[0]{'e
 $result_sectioning{'things_before_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'things_before_setfilename'};
 $result_sectioning{'things_before_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'things_before_setfilename'};
 
-$result_nodes{'things_before_setfilename'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'things_before_setfilename'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'things_before_setfilename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'things_before_setfilename'};
-$result_nodes{'things_before_setfilename'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'things_before_setfilename'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'things_before_setfilename'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'things_before_setfilename'}[0];
+$result_nodes{'things_before_setfilename'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'things_before_setfilename'}[0];
+$result_nodes{'things_before_setfilename'}[1] = $result_nodes{'things_before_setfilename'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'things_before_setfilename'} = [
   {

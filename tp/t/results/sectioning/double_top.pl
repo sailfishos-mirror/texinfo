@@ -187,16 +187,30 @@ $result_texts{'double_top'} = '
 .
 ';
 
-$result_nodes{'double_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'double_top'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {}
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'prev' => {},
+        'up' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
-$result_nodes{'double_top'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top'};
+];
+$result_nodes{'double_top'}[0]{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top'}[0];
+$result_nodes{'double_top'}[1]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_top'}[0];
+$result_nodes{'double_top'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_top'}[0];
 
 $result_menus{'double_top'} = [
   {

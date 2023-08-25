@@ -414,25 +414,29 @@ AAA1: AAA2 arg3
 
 ';
 
-$result_nodes{'space_in_def_for_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'space_in_def_for_index'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'space_in_def_for_index'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'space_in_def_for_index'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'space_in_def_for_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'space_in_def_for_index'}[0];
+$result_nodes{'space_in_def_for_index'}[1] = $result_nodes{'space_in_def_for_index'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'space_in_def_for_index'} = [
   {

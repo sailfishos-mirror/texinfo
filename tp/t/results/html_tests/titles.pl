@@ -283,16 +283,18 @@ $result_sectioning{'titles'} = {
 $result_sectioning{'titles'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'titles'};
 $result_sectioning{'titles'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'titles'};
 
-$result_nodes{'titles'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'titles'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'titles'} = [
   {

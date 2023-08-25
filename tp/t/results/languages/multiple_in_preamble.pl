@@ -1001,36 +1001,40 @@ $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'multiple_in_preamble'};
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'multiple_in_preamble'};
 
-$result_nodes{'multiple_in_preamble'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chapter'
+$result_nodes{'multiple_in_preamble'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chapter'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'multiple_in_preamble'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_in_preamble'};
-$result_nodes{'multiple_in_preamble'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_in_preamble'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'multiple_in_preamble'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'multiple_in_preamble'}[0];
+$result_nodes{'multiple_in_preamble'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'multiple_in_preamble'}[0];
+$result_nodes{'multiple_in_preamble'}[1] = $result_nodes{'multiple_in_preamble'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'multiple_in_preamble'} = [
   {

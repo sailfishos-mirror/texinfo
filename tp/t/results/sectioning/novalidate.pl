@@ -259,20 +259,22 @@ $result_texts{'novalidate'} = '
 unknown ref.
 ';
 
-$result_nodes{'novalidate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'normalized' => 'unknown-node'
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'first'
+$result_nodes{'novalidate'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'normalized' => 'unknown-node'
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'novalidate'} = [
   {

@@ -842,48 +842,80 @@ $result_sectioning{'value_in_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sect
 $result_sectioning{'value_in_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'value_in_node'};
 $result_sectioning{'value_in_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'value_in_node'};
 
-$result_nodes{'value_in_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
+$result_nodes{'value_in_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
       },
-      'prev' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         },
-        'type' => 'line_arg'
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
       },
-      'up' => {
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
         'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'Top'
+          'section_number' => 1
+        }
+      },
+      'node_directions' => {
+        'prev' => {},
+        'up' => {}
+      },
+      'normalized' => 'Node-1'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'prev' => {},
+        'up' => {}
+      },
+      'normalized' => 'Section-1_002e1'
+    }
   }
-};
+];
+$result_nodes{'value_in_node'}[1]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_node'}[0];
+$result_nodes{'value_in_node'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'value_in_node'}[0];
+$result_nodes{'value_in_node'}[2]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_node'}[1];
+$result_nodes{'value_in_node'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'value_in_node'}[1];
 
 $result_menus{'value_in_node'} = [
   {

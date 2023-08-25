@@ -275,12 +275,24 @@ $result_texts{'empty_menu_entry_name'} = '
 
 ';
 
-$result_nodes{'empty_menu_entry_name'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'empty_menu_entry_name'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'aaa'
+    }
   }
-};
+];
+$result_nodes{'empty_menu_entry_name'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'empty_menu_entry_name'}[0];
 
 $result_menus{'empty_menu_entry_name'} = [
   {

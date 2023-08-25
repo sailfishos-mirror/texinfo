@@ -727,25 +727,29 @@ var3
 
 ';
 
-$result_nodes{'ftable_vtable'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'ftable_vtable'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'ftable_vtable'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ftable_vtable'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'ftable_vtable'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ftable_vtable'}[0];
+$result_nodes{'ftable_vtable'}[1] = $result_nodes{'ftable_vtable'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'ftable_vtable'} = [
   {

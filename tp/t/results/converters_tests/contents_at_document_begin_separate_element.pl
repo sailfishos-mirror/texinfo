@@ -430,36 +430,40 @@ $result_sectioning{'contents_at_document_begin_separate_element'}{'extra'}{'sect
 $result_sectioning{'contents_at_document_begin_separate_element'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_at_document_begin_separate_element'};
 $result_sectioning{'contents_at_document_begin_separate_element'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_at_document_begin_separate_element'};
 
-$result_nodes{'contents_at_document_begin_separate_element'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chapter'
+$result_nodes{'contents_at_document_begin_separate_element'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chapter'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'contents_at_document_begin_separate_element'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_document_begin_separate_element'};
-$result_nodes{'contents_at_document_begin_separate_element'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_document_begin_separate_element'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'contents_at_document_begin_separate_element'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_document_begin_separate_element'}[0];
+$result_nodes{'contents_at_document_begin_separate_element'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_document_begin_separate_element'}[0];
+$result_nodes{'contents_at_document_begin_separate_element'}[1] = $result_nodes{'contents_at_document_begin_separate_element'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'contents_at_document_begin_separate_element'} = [
   {

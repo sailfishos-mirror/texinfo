@@ -664,90 +664,96 @@ $result_sectioning{'value_node_directions'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'value_node_directions'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'value_node_directions'};
 $result_sectioning{'value_node_directions'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'value_node_directions'};
 
-$result_nodes{'value_node_directions'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'next' => {
-              'cmdname' => 'node',
+$result_nodes{'value_node_directions'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
               'extra' => {
-                'associated_section' => {
-                  'cmdname' => 'chapter',
-                  'extra' => {
-                    'section_number' => 2
-                  }
-                },
-                'node_directions' => {
-                  'prev' => {},
-                  'up' => {
-                    'extra' => {
-                      'manual_content' => [
-                        {
-                          'text' => 'dir'
-                        }
-                      ]
-                    },
-                    'type' => 'line_arg'
-                  }
-                },
-                'normalized' => 'BarFoo'
+                'section_number' => 1
               }
             },
-            'prev' => {},
-            'up' => {
-              'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'dir'
-                  }
-                ]
+            'node_directions' => {
+              'next' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'associated_section' => {
+                    'cmdname' => 'chapter',
+                    'extra' => {
+                      'section_number' => 2
+                    }
+                  },
+                  'node_directions' => {
+                    'prev' => {},
+                    'up' => {
+                      'extra' => {
+                        'manual_content' => [
+                          {
+                            'text' => 'dir'
+                          }
+                        ]
+                      },
+                      'type' => 'line_arg'
+                    }
+                  },
+                  'normalized' => 'BarFoo'
+                }
               },
-              'type' => 'line_arg'
-            }
+              'prev' => {},
+              'up' => {
+                'extra' => {
+                  'manual_content' => [
+                    {
+                      'text' => 'dir'
+                    }
+                  ]
+                },
+                'type' => 'line_arg'
+              }
+            },
+            'normalized' => 'bar'
+          }
+        },
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
           },
-          'normalized' => 'bar'
+          'type' => 'line_arg'
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         }
       },
-      'prev' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      },
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'value_node_directions'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'};
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {}
+];
+$result_nodes{'value_node_directions'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'value_node_directions'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_node_directions'}[0];
+$result_nodes{'value_node_directions'}[1] = $result_nodes{'value_node_directions'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'value_node_directions'}[2] = $result_nodes{'value_node_directions'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'value_node_directions'} = [
   {

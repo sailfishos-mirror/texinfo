@@ -226,12 +226,14 @@ aa
 
 ';
 
-$result_nodes{'empty_caption'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'empty_caption'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'empty_caption'} = [
   {

@@ -2331,16 +2331,18 @@ $result_sectioning{'accentenc'} = {
 $result_sectioning{'accentenc'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'accentenc'};
 $result_sectioning{'accentenc'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'accentenc'};
 
-$result_nodes{'accentenc'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'first'
+$result_nodes{'accentenc'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'accentenc'} = [
   {

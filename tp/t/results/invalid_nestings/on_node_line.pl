@@ -257,25 +257,27 @@ $result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{(someman
 
 $result_texts{'on_node_line'} = '';
 
-$result_nodes{'on_node_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'cmdname' => 'pxref'
-            }
-          ],
-          'normalized' => '-'
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'a'
+$result_nodes{'on_node_line'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'cmdname' => 'pxref'
+              }
+            ],
+            'normalized' => '-'
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_menus{'on_node_line'} = [
   {

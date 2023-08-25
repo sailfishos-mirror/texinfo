@@ -348,18 +348,56 @@ $result_sectioning{'between_node_and_section'}{'extra'}{'section_childs'}[0]{'ex
 $result_sectioning{'between_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'between_node_and_section'};
 $result_sectioning{'between_node_and_section'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'between_node_and_section'};
 
-$result_nodes{'between_node_and_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
-      }
-    },
-    'normalized' => 'chap'
-  }
-};
+$result_nodes{'between_node_and_section'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'section_number' => 1
+        }
+      },
+      'normalized' => 'chap'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'section',
+        'extra' => {
+          'section_number' => '1.1'
+        }
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'section',
+              'extra' => {
+                'section_number' => '1.2'
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'sec2'
+          }
+        },
+        'up' => {}
+      },
+      'normalized' => 'sec1'
+    }
+  },
+  {}
+];
+$result_nodes{'between_node_and_section'}[1]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'between_node_and_section'}[1];
+$result_nodes{'between_node_and_section'}[1]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'between_node_and_section'}[0];
+$result_nodes{'between_node_and_section'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'between_node_and_section'}[0];
+$result_nodes{'between_node_and_section'}[2] = $result_nodes{'between_node_and_section'}[1]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'between_node_and_section'} = [
   {

@@ -326,12 +326,14 @@ first
 first
 ';
 
-$result_nodes{'empty_ref_arg'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'empty_ref_arg'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'empty_ref_arg'} = [
   {

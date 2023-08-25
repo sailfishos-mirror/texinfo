@@ -630,36 +630,96 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'}{'extra'}{'section
 $result_sectioning{'file_name_case_insensitive_conflict_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_case_insensitive_conflict_node'};
 $result_sectioning{'file_name_case_insensitive_conflict_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'file_name_case_insensitive_conflict_node'};
 
-$result_nodes{'file_name_case_insensitive_conflict_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'file_name_case_insensitive_conflict_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'file_name_case_insensitive_conflict_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node'};
-$result_nodes{'file_name_case_insensitive_conflict_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'section',
+        'extra' => {
+          'section_number' => '1.1'
+        }
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'section',
+              'extra' => {
+                'section_number' => '1.2'
+              }
+            },
+            'node_directions' => {
+              'next' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'associated_section' => {
+                    'cmdname' => 'section',
+                    'extra' => {
+                      'section_number' => '1.3'
+                    }
+                  },
+                  'node_directions' => {
+                    'prev' => {},
+                    'up' => {}
+                  },
+                  'normalized' => 'foo'
+                }
+              },
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'Bar'
+          }
+        },
+        'up' => {}
+      },
+      'normalized' => 'Foo'
+    }
+  },
+  {},
+  {}
+];
+$result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[0];
+$result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[0];
+$result_nodes{'file_name_case_insensitive_conflict_node'}[1] = $result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[2];
+$result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'file_name_case_insensitive_conflict_node'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[3] = $result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'file_name_case_insensitive_conflict_node'}[4] = $result_nodes{'file_name_case_insensitive_conflict_node'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'file_name_case_insensitive_conflict_node'} = [
   {

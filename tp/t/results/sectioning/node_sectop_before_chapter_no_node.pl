@@ -181,16 +181,18 @@ $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_child
 $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_sectop_before_chapter_no_node'};
 $result_sectioning{'node_sectop_before_chapter_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_sectop_before_chapter_no_node'};
 
-$result_nodes{'node_sectop_before_chapter_no_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'node_sectop_before_chapter_no_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'node_sectop_before_chapter_no_node'} = [
   {

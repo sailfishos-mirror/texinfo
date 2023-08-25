@@ -180,16 +180,18 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
 
-$result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'empty_lines_at_beginning_no_setfilename'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'empty_lines_at_beginning_no_setfilename'} = [
   {

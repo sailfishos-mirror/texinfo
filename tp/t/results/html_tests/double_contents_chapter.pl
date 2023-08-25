@@ -670,36 +670,56 @@ $result_sectioning{'double_contents_chapter'}{'extra'}{'section_childs'}[0]{'ext
 $result_sectioning{'double_contents_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_contents_chapter'};
 $result_sectioning{'double_contents_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_contents_chapter'};
 
-$result_nodes{'double_contents_chapter'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chapter'
+$result_nodes{'double_contents_chapter'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chapter'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'section',
+        'extra' => {
+          'section_number' => '1.1'
+        }
+      },
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'section'
+    }
   }
-};
-$result_nodes{'double_contents_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_contents_chapter'};
-$result_nodes{'double_contents_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_contents_chapter'};
+];
+$result_nodes{'double_contents_chapter'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_contents_chapter'}[0];
+$result_nodes{'double_contents_chapter'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_contents_chapter'}[0];
+$result_nodes{'double_contents_chapter'}[1] = $result_nodes{'double_contents_chapter'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'double_contents_chapter'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_contents_chapter'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'double_contents_chapter'} = [
   {

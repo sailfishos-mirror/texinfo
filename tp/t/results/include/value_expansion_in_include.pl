@@ -763,24 +763,28 @@ test_var include: This is the included file (include-value2.txi) <> --.
 
 test_var verbatiminclude: ';
 
-$result_nodes{'value_expansion_in_include'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'value_expansion_in_include'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'value_expansion_in_include'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_expansion_in_include'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'value_expansion_in_include'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_expansion_in_include'}[0];
+$result_nodes{'value_expansion_in_include'}[1] = $result_nodes{'value_expansion_in_include'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'value_expansion_in_include'} = [
   {

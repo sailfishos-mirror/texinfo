@@ -463,25 +463,27 @@ Some text.
 
 ';
 
-$result_nodes{'one_node_counted_elements'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'node_directions' => {
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'one-node'
+$result_nodes{'one_node_counted_elements'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'isindex' => 1,
+      'node_directions' => {
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'one-node'
+    }
   }
-};
+];
 
 $result_menus{'one_node_counted_elements'} = [
   {

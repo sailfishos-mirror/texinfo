@@ -425,33 +425,35 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'}{'extra'}{'sect
 $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'};
 $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'};
 
-$result_nodes{'in_menu_only_special_ascii_spaces_node_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
+$result_nodes{'in_menu_only_special_ascii_spaces_node_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {}
             }
-          },
-          'node_directions' => {
-            'prev' => {}
           }
         }
-      }
-    },
-    'normalized' => 'Top'
+      },
+      'normalized' => 'Top'
+    }
   }
-};
-$result_nodes{'in_menu_only_special_ascii_spaces_node_menu'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'};
+];
+$result_nodes{'in_menu_only_special_ascii_spaces_node_menu'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'}[0];
 
 $result_menus{'in_menu_only_special_ascii_spaces_node_menu'} = [
   {

@@ -2803,24 +2803,28 @@ In text f@i--le..  a@<"%@  < & @ % " .
 
 ';
 
-$result_nodes{'test_image'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chapter'
+$result_nodes{'test_image'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chapter'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'test_image'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_image'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'test_image'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_image'}[0];
+$result_nodes{'test_image'}[1] = $result_nodes{'test_image'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_image'} = [
   {

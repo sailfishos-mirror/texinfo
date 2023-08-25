@@ -171,12 +171,14 @@ $result_texts{'ignore_in_xref'} = '
 first.
 ';
 
-$result_nodes{'ignore_in_xref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'ignore_in_xref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'ignore_in_xref'} = [
   {

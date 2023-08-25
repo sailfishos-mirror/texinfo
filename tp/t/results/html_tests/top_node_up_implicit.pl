@@ -365,36 +365,40 @@ $result_sectioning{'top_node_up_implicit'}{'extra'}{'section_childs'}[0]{'extra'
 $result_sectioning{'top_node_up_implicit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_node_up_implicit'};
 $result_sectioning{'top_node_up_implicit'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_node_up_implicit'};
 
-$result_nodes{'top_node_up_implicit'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'Chap'
+$result_nodes{'top_node_up_implicit'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'Chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'top_node_up_implicit'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_up_implicit'};
-$result_nodes{'top_node_up_implicit'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_up_implicit'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'top_node_up_implicit'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_up_implicit'}[0];
+$result_nodes{'top_node_up_implicit'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_up_implicit'}[0];
+$result_nodes{'top_node_up_implicit'}[1] = $result_nodes{'top_node_up_implicit'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'top_node_up_implicit'} = [
   {

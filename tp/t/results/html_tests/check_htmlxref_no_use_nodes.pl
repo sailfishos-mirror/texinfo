@@ -779,56 +779,95 @@ $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0]{
 $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'check_htmlxref_no_use_nodes'};
 $result_sectioning{'check_htmlxref_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'check_htmlxref_no_use_nodes'};
 
-$result_nodes{'check_htmlxref_no_use_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => '../there/no_existing_no_manual_direction'
-            }
-          ]
-        },
-        'type' => 'line_arg'
+$result_nodes{'check_htmlxref_no_use_nodes'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
       },
-      'prev' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'next' => {
-              'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'no_existing_no_manual.info'
-                  }
-                ]
-              },
-              'type' => 'line_arg'
-            }
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => '../there/no_existing_no_manual_direction'
+              }
+            ]
           },
-          'normalized' => 'first'
+          'type' => 'line_arg'
+        },
+        'prev' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'next' => {
+                'extra' => {
+                  'manual_content' => [
+                    {
+                      'text' => 'no_existing_no_manual.info'
+                    }
+                  ]
+                },
+                'type' => 'line_arg'
+              }
+            },
+            'normalized' => 'first'
+          }
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         }
       },
-      'up' => {
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
         'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
+          'section_number' => 1
+        }
+      },
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'chap_not_existing'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'Top'
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ],
+            'normalized' => 'node-in-dir'
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'chapter'
+    }
   }
-};
+];
+$result_nodes{'check_htmlxref_no_use_nodes'}[1] = $result_nodes{'check_htmlxref_no_use_nodes'}[0]{'extra'}{'node_directions'}{'prev'};
 
 $result_menus{'check_htmlxref_no_use_nodes'} = [
   {

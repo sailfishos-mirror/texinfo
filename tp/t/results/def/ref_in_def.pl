@@ -602,12 +602,14 @@ T
 
 ';
 
-$result_nodes{'ref_in_def'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'ref_in_def'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'ref_in_def'} = [
   {

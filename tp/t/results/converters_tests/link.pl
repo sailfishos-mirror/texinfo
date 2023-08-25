@@ -611,18 +611,26 @@ $result_sectioning{'link'} = {
 $result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'link'};
 $result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'link'};
 
-$result_nodes{'link'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
-      }
-    },
-    'normalized' => 'One'
+$result_nodes{'link'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'section_number' => 1
+        }
+      },
+      'normalized' => 'One'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Two'
+    }
   }
-};
+];
 
 $result_menus{'link'} = [
   {

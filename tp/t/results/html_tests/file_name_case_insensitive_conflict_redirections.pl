@@ -584,16 +584,18 @@ $result_sectioning{'file_name_case_insensitive_conflict_redirections'}{'extra'}{
 $result_sectioning{'file_name_case_insensitive_conflict_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_case_insensitive_conflict_redirections'};
 $result_sectioning{'file_name_case_insensitive_conflict_redirections'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'file_name_case_insensitive_conflict_redirections'};
 
-$result_nodes{'file_name_case_insensitive_conflict_redirections'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'file_name_case_insensitive_conflict_redirections'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'file_name_case_insensitive_conflict_redirections'} = [
   {

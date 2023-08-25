@@ -87,25 +87,27 @@ $result_texis{'node_up_direction_for_top_with_manual'} = '@node Top,,,(dir)top
 
 $result_texts{'node_up_direction_for_top_with_manual'} = '';
 
-$result_nodes{'node_up_direction_for_top_with_manual'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ],
-          'normalized' => 'Top'
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'Top'
+$result_nodes{'node_up_direction_for_top_with_manual'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ],
+            'normalized' => 'Top'
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'node_up_direction_for_top_with_manual'} = [
   {

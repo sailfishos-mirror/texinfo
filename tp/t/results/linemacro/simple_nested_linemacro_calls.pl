@@ -631,12 +631,14 @@ $result_texts{'simple_nested_linemacro_calls'} = '
 type: a function inside X operator Y ( remaining, type typed )
 ';
 
-$result_nodes{'simple_nested_linemacro_calls'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'simple_nested_linemacro_calls'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'simple_nested_linemacro_calls'} = [
   {

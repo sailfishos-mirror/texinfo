@@ -94,12 +94,14 @@ $result_texis{'contents_with_only_top_node'} = '
 $result_texts{'contents_with_only_top_node'} = '
 ';
 
-$result_nodes{'contents_with_only_top_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'contents_with_only_top_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'contents_with_only_top_node'} = [
   {

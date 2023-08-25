@@ -968,13 +968,15 @@ mark
 anchor in multitable
 ';
 
-$result_nodes{'multitable_anchor_and_index_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_nodes{'multitable_anchor_and_index_entry'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'isindex' => 1,
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'multitable_anchor_and_index_entry'} = [
   {

@@ -593,13 +593,15 @@ x:y: z:t n m o
 
 ';
 
-$result_nodes{'colon_in_index_entry'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_nodes{'colon_in_index_entry'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'isindex' => 1,
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'colon_in_index_entry'} = [
   {

@@ -140,12 +140,14 @@ seond para}.}';
 $result_texts{'footnote_in_ref'} = '
 first';
 
-$result_nodes{'footnote_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'footnote_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'footnote_in_ref'} = [
   {

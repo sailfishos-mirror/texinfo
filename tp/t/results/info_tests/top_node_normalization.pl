@@ -237,18 +237,20 @@ TOP. tOP.
 * tOP::
 ';
 
-$result_nodes{'top_node_normalization'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {},
-      'prev' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'top_node_normalization'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {},
+        'prev' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
-$result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'};
-$result_nodes{'top_node_normalization'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_normalization'};
+];
+$result_nodes{'top_node_normalization'}[0]{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'}[0];
+$result_nodes{'top_node_normalization'}[0]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_normalization'}[0];
 
 $result_menus{'top_node_normalization'} = [
   {

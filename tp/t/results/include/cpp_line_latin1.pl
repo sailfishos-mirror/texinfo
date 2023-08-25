@@ -267,28 +267,32 @@ $result_sectioning{'cpp_line_latin1'} = {
 $result_sectioning{'cpp_line_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'cpp_line_latin1'};
 $result_sectioning{'cpp_line_latin1'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'cpp_line_latin1'};
 
-$result_nodes{'cpp_line_latin1'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'cpp_line_latin1'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'cpp_line_latin1'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_line_latin1'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'cpp_line_latin1'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_line_latin1'}[0];
+$result_nodes{'cpp_line_latin1'}[1] = $result_nodes{'cpp_line_latin1'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'cpp_line_latin1'} = [
   {

@@ -112,12 +112,14 @@ $result_texts{'known_encoding'} = '
 
 ';
 
-$result_nodes{'known_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'known_encoding'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'known_encoding'} = [
   {

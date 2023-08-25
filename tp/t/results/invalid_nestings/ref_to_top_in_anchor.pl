@@ -102,12 +102,14 @@ $result_texis{'ref_to_top_in_anchor'} = '@node Top
 
 $result_texts{'ref_to_top_in_anchor'} = '';
 
-$result_nodes{'ref_to_top_in_anchor'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'ref_to_top_in_anchor'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'ref_to_top_in_anchor'} = [
   {

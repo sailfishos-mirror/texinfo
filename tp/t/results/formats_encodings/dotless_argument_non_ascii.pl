@@ -281,36 +281,40 @@ $result_sectioning{'dotless_argument_non_ascii'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'dotless_argument_non_ascii'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'dotless_argument_non_ascii'};
 $result_sectioning{'dotless_argument_non_ascii'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'dotless_argument_non_ascii'};
 
-$result_nodes{'dotless_argument_non_ascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'dotless_argument_non_ascii'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'dotless_argument_non_ascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'dotless_argument_non_ascii'};
-$result_nodes{'dotless_argument_non_ascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'dotless_argument_non_ascii'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'dotless_argument_non_ascii'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'dotless_argument_non_ascii'}[0];
+$result_nodes{'dotless_argument_non_ascii'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'dotless_argument_non_ascii'}[0];
+$result_nodes{'dotless_argument_non_ascii'}[1] = $result_nodes{'dotless_argument_non_ascii'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'dotless_argument_non_ascii'} = [
   {

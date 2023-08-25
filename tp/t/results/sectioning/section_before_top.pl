@@ -348,36 +348,40 @@ $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{
 $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_top'};
 $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_top'}{'extra'}{'section_childs'}[0];
 
-$result_nodes{'section_before_top'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
+$result_nodes{'section_before_top'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'section',
         'extra' => {
-          'associated_section' => {
-            'cmdname' => 'section',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'section-node'
+          'section_number' => 1
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'section_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_before_top'};
-$result_nodes{'section_before_top'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'section_before_top'};
+      },
+      'node_directions' => {
+        'prev' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'top',
+              'extra' => {}
+            },
+            'node_directions' => {
+              'next' => {}
+            },
+            'normalized' => 'Top'
+          }
+        },
+        'up' => {}
+      },
+      'normalized' => 'section-node'
+    }
+  },
+  {}
+];
+$result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'section_before_top'}[0];
+$result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'up'} = $result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'};
+$result_nodes{'section_before_top'}[1] = $result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'};
 
 $result_menus{'section_before_top'} = [
   {

@@ -2288,16 +2288,18 @@ $result_sectioning{'accent_enable_encoding'} = {
 $result_sectioning{'accent_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'accent_enable_encoding'};
 $result_sectioning{'accent_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'accent_enable_encoding'};
 
-$result_nodes{'accent_enable_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'first'
+$result_nodes{'accent_enable_encoding'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'accent_enable_encoding'} = [
   {

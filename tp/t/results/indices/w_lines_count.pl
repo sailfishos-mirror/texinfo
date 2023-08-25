@@ -301,17 +301,19 @@ $result_sectioning{'w_lines_count'} = {
 $result_sectioning{'w_lines_count'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'w_lines_count'};
 $result_sectioning{'w_lines_count'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'w_lines_count'};
 
-$result_nodes{'w_lines_count'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_nodes{'w_lines_count'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'isindex' => 1,
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'w_lines_count'} = [
   {

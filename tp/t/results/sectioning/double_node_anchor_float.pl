@@ -513,12 +513,32 @@ Text, float1
 
 ';
 
-$result_nodes{'double_node_anchor_float'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'node1'
+$result_nodes{'double_node_anchor_float'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'node1'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'node1'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'anchor1'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'float1'
+    }
   }
-};
+];
 
 $result_menus{'double_node_anchor_float'} = [
   {

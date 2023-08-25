@@ -189,16 +189,18 @@ $result_sectioning{'node_in_copying_not_closed'} = {
 $result_sectioning{'node_in_copying_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_in_copying_not_closed'};
 $result_sectioning{'node_in_copying_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_in_copying_not_closed'};
 
-$result_nodes{'node_in_copying_not_closed'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'node_in_copying_not_closed'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'node_in_copying_not_closed'} = [
   {

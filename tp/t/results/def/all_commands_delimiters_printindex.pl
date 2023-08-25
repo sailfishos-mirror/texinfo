@@ -13116,25 +13116,29 @@ Variables
 =========
 ';
 
-$result_nodes{'all_commands_delimiters_printindex'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'all_commands_delimiters_printindex'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'all_commands_delimiters_printindex'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_commands_delimiters_printindex'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'all_commands_delimiters_printindex'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_commands_delimiters_printindex'}[0];
+$result_nodes{'all_commands_delimiters_printindex'}[1] = $result_nodes{'all_commands_delimiters_printindex'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'all_commands_delimiters_printindex'} = [
   {

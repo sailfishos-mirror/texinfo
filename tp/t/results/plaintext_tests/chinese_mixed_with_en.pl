@@ -548,36 +548,40 @@ $result_sectioning{'chinese_mixed_with_en'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'chinese_mixed_with_en'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chinese_mixed_with_en'};
 $result_sectioning{'chinese_mixed_with_en'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'chinese_mixed_with_en'};
 
-$result_nodes{'chinese_mixed_with_en'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'Mixed-english-and-chinese'
+$result_nodes{'chinese_mixed_with_en'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'Mixed-english-and-chinese'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'chinese_mixed_with_en'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chinese_mixed_with_en'};
-$result_nodes{'chinese_mixed_with_en'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chinese_mixed_with_en'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'chinese_mixed_with_en'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chinese_mixed_with_en'}[0];
+$result_nodes{'chinese_mixed_with_en'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chinese_mixed_with_en'}[0];
+$result_nodes{'chinese_mixed_with_en'}[1] = $result_nodes{'chinese_mixed_with_en'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'chinese_mixed_with_en'} = [
   {

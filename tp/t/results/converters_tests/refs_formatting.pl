@@ -3012,18 +3012,20 @@ $result_sectioning{'refs_formatting'} = {
 $result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'refs_formatting'};
 $result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'refs_formatting'};
 
-$result_nodes{'refs_formatting'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
-      }
-    },
-    'normalized' => 'chapter'
+$result_nodes{'refs_formatting'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'section_number' => 1
+        }
+      },
+      'normalized' => 'chapter'
+    }
   }
-};
+];
 
 $result_menus{'refs_formatting'} = [
   {

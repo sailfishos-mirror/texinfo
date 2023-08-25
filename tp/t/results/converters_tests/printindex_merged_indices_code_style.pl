@@ -758,37 +758,41 @@ $result_sectioning{'printindex_merged_indices_code_style'}{'extra'}{'section_chi
 $result_sectioning{'printindex_merged_indices_code_style'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'printindex_merged_indices_code_style'};
 $result_sectioning{'printindex_merged_indices_code_style'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'printindex_merged_indices_code_style'};
 
-$result_nodes{'printindex_merged_indices_code_style'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'printindex_merged_indices_code_style'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'printindex_merged_indices_code_style'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'printindex_merged_indices_code_style'};
-$result_nodes{'printindex_merged_indices_code_style'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_merged_indices_code_style'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'printindex_merged_indices_code_style'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'printindex_merged_indices_code_style'}[0];
+$result_nodes{'printindex_merged_indices_code_style'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'printindex_merged_indices_code_style'}[0];
+$result_nodes{'printindex_merged_indices_code_style'}[1] = $result_nodes{'printindex_merged_indices_code_style'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'printindex_merged_indices_code_style'} = [
   {

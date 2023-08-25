@@ -181,24 +181,26 @@ anchor ref .
 ref to ref ref.
 ';
 
-$result_nodes{'one_node_explicit_directions_anchor'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'one-node'
+$result_nodes{'one_node_explicit_directions_anchor'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'one-node'
+    }
   }
-};
+];
 
 $result_menus{'one_node_explicit_directions_anchor'} = [
   {

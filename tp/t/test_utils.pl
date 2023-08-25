@@ -1042,10 +1042,6 @@ sub test($$)
           = Texinfo::Structuring::nodes_tree($document, $registrar,
                                              $main_configuration);
 
-  my $top_node = $identifier_target->{'Top'};
-  $top_node = $nodes_list->[0]
-    if (!$top_node and $nodes_list and scalar (@$nodes_list));
-
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $global_commands, $nodes_list,
                                                       $identifier_target);
@@ -1355,14 +1351,12 @@ sub test($$)
                            ['$result_sectioning{\''.$test_name.'\'}'])."\n"
         if ($sectioning_root);
     }
-    if ($top_node) {
+    if ($nodes_list and scalar(@$nodes_list)) {
       {
         local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
-        $out_result .= Data::Dumper->Dump([$top_node],
+        $out_result .= Data::Dumper->Dump([$nodes_list],
                                ['$result_nodes{\''.$test_name.'\'}'])."\n";
       }
-    }
-    if ($nodes_list and scalar(@$nodes_list)) {
       {
         local $Data::Dumper::Sortkeys = \&filter_menus_keys;
         $out_result .= Data::Dumper->Dump([$nodes_list],
@@ -1431,7 +1425,9 @@ sub test($$)
                 $test_name.' tree');
     cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
                  \@avoided_keys_sectioning, $test_name.' sectioning' );
-    cmp_trimmed($top_node, $result_nodes{$test_name}, \@avoided_keys_nodes,
+    my $nodes_result;
+    $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
+    cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
                 $test_name.' nodes');
     my $menus_result;
     $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));

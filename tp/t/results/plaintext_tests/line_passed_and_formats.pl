@@ -2449,25 +2449,27 @@ menu
 end menu
 ';
 
-$result_nodes{'line_passed_and_formats'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'manual'
-            }
-          ],
-          'normalized' => 'node'
-        },
-        'type' => 'menu_entry_node'
-      }
-    },
-    'normalized' => 'Top'
+$result_nodes{'line_passed_and_formats'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'manual'
+              }
+            ],
+            'normalized' => 'node'
+          },
+          'type' => 'menu_entry_node'
+        }
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'line_passed_and_formats'} = [
   {

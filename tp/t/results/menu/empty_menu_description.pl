@@ -200,12 +200,14 @@ $result_texts{'empty_menu_description'} = '
 
 ';
 
-$result_nodes{'empty_menu_description'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'empty_menu_description'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'empty_menu_description'} = [
   {

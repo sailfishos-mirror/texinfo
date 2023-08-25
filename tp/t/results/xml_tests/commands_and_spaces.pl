@@ -1813,44 +1813,46 @@ T
 
 ';
 
-$result_nodes{'commands_and_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'b'
-            }
-          ]
+$result_nodes{'commands_and_spaces'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'b'
+              }
+            ]
+          },
+          'type' => 'line_arg'
         },
-        'type' => 'line_arg'
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'c'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'd'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
       },
-      'prev' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'c'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      },
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'd'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'a'
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_menus{'commands_and_spaces'} = [
   {

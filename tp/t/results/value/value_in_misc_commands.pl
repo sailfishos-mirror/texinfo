@@ -3945,35 +3945,39 @@ $result_sectioning{'value_in_misc_commands'} = {
 $result_sectioning{'value_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'value_in_misc_commands'};
 $result_sectioning{'value_in_misc_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'value_in_misc_commands'};
 
-$result_nodes{'value_in_misc_commands'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
+$result_nodes{'value_in_misc_commands'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
           },
-          'normalized' => 'chap'
-        },
-        'source_marks' => [
-          {
-            'counter' => 43,
-            'sourcemark_type' => 'value_expansion',
-            'status' => 'end'
-          }
-        ]
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'value_in_misc_commands'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_misc_commands'};
+          'source_marks' => [
+            {
+              'counter' => 43,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
+            }
+          ]
+        }
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'value_in_misc_commands'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'value_in_misc_commands'}[0];
+$result_nodes{'value_in_misc_commands'}[1] = $result_nodes{'value_in_misc_commands'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'value_in_misc_commands'} = [
   {

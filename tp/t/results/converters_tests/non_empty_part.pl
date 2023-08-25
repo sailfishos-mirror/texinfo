@@ -1164,51 +1164,77 @@ $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[7]{'extra'}{'sec
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[7]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[6];
 $result_sectioning{'non_empty_part'}{'extra'}{'section_childs'}[7]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'non_empty_part'};
 
-$result_nodes{'non_empty_part'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_part' => {
-          'cmdname' => 'part',
-          'extra' => {}
-        }
-      }
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
+$result_nodes{'non_empty_part'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
         'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'associated_part' => {
-                'cmdname' => 'part',
-                'extra' => {}
-              },
-              'section_number' => 2
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'node_preceding_part' => {
+          'associated_part' => {
+            'cmdname' => 'part',
+            'extra' => {}
+          }
+        }
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_part' => {
+                  'cmdname' => 'part',
+                  'extra' => {}
+                },
+                'section_number' => 2
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'node_preceding_part' => {
+              'cmdname' => 'part',
+              'extra' => {}
+            },
+            'normalized' => 'part-chapter-node'
+          }
+        }
+      },
+      'node_preceding_part' => {},
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'associated_part' => {
             'cmdname' => 'part',
             'extra' => {}
           },
-          'normalized' => 'part-chapter-node'
+          'section_number' => 4
         }
-      }
-    },
-    'node_preceding_part' => {},
-    'normalized' => 'Top'
+      },
+      'node_directions' => {
+        'up' => {}
+      },
+      'node_preceding_part' => {},
+      'normalized' => 'node-between-part-and-chapter'
+    }
   }
-};
-$result_nodes{'non_empty_part'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'non_empty_part'};
-$result_nodes{'non_empty_part'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'non_empty_part'};
-$result_nodes{'non_empty_part'}{'extra'}{'node_preceding_part'} = $result_nodes{'non_empty_part'}{'extra'}{'associated_section'}{'extra'}{'associated_part'};
+];
+$result_nodes{'non_empty_part'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'non_empty_part'}[0];
+$result_nodes{'non_empty_part'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'non_empty_part'}[0];
+$result_nodes{'non_empty_part'}[0]{'extra'}{'node_preceding_part'} = $result_nodes{'non_empty_part'}[0]{'extra'}{'associated_section'}{'extra'}{'associated_part'};
+$result_nodes{'non_empty_part'}[1] = $result_nodes{'non_empty_part'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'non_empty_part'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'non_empty_part'}[0];
+$result_nodes{'non_empty_part'}[2]{'extra'}{'node_preceding_part'} = $result_nodes{'non_empty_part'}[2]{'extra'}{'associated_section'}{'extra'}{'associated_part'};
 
 $result_menus{'non_empty_part'} = [
   {

@@ -204,16 +204,18 @@ $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}
 $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_section'};
 $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'file_name_conflict_with_section'};
 
-$result_nodes{'file_name_conflict_with_section'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'file_name_conflict_with_section'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'file_name_conflict_with_section'} = [
   {

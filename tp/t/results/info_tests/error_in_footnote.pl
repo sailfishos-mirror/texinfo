@@ -392,12 +392,14 @@ Float text1
 
 ';
 
-$result_nodes{'error_in_footnote'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'error_in_footnote'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'error_in_footnote'} = [
   {

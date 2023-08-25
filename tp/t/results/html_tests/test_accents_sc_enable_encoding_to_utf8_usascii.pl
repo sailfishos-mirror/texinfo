@@ -1300,36 +1300,40 @@ $result_sectioning{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'
 $result_sectioning{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_accents_sc_enable_encoding_to_utf8_usascii'};
 $result_sectioning{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'test_accents_sc_enable_encoding_to_utf8_usascii'};
 
-$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'node-chap'
+$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'node-chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'};
-$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[0];
+$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[0];
+$result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[1] = $result_nodes{'test_accents_sc_enable_encoding_to_utf8_usascii'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [
   {

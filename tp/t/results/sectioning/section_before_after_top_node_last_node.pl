@@ -300,28 +300,32 @@ $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_
 $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'section_before_after_top_node_last_node'}{'extra'}{'section_childs'}[1];
 
-$result_nodes{'section_before_after_top_node_last_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'node-after'
+$result_nodes{'section_before_after_top_node_last_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'node-after'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'section_before_after_top_node_last_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_before_after_top_node_last_node'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'section_before_after_top_node_last_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'section_before_after_top_node_last_node'}[0];
+$result_nodes{'section_before_after_top_node_last_node'}[1] = $result_nodes{'section_before_after_top_node_last_node'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'section_before_after_top_node_last_node'} = [
   {

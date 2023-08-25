@@ -167,12 +167,14 @@ $result_texts{'menu_node_unterminated'} = '
 * Example: Examples of Login Verification Functions
 ';
 
-$result_nodes{'menu_node_unterminated'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'menu_node_unterminated'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'menu_node_unterminated'} = [
   {

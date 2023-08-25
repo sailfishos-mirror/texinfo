@@ -197,12 +197,14 @@ $result_texts{'menu_in_style_command'} = '
 * (truc)::
 ';
 
-$result_nodes{'menu_in_style_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'menu_in_style_command'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'menu_in_style_command'} = [
   {

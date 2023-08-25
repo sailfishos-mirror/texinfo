@@ -508,36 +508,40 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section
 $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'};
 $result_sectioning{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'test_xrefautomaticsectiontitle_off_first'};
 
-$result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'test_xrefautomaticsectiontitle_off_first'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_xrefautomaticsectiontitle_off_first'};
-$result_nodes{'test_xrefautomaticsectiontitle_off_first'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_xrefautomaticsectiontitle_off_first'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'test_xrefautomaticsectiontitle_off_first'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_xrefautomaticsectiontitle_off_first'}[0];
+$result_nodes{'test_xrefautomaticsectiontitle_off_first'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'test_xrefautomaticsectiontitle_off_first'}[0];
+$result_nodes{'test_xrefautomaticsectiontitle_off_first'}[1] = $result_nodes{'test_xrefautomaticsectiontitle_off_first'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_xrefautomaticsectiontitle_off_first'} = [
   {

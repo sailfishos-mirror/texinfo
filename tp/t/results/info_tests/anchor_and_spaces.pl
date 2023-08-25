@@ -228,16 +228,18 @@ $result_sectioning{'anchor_and_spaces'} = {
 $result_sectioning{'anchor_and_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'anchor_and_spaces'};
 $result_sectioning{'anchor_and_spaces'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'anchor_and_spaces'};
 
-$result_nodes{'anchor_and_spaces'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'anchor_and_spaces'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'anchor_and_spaces'} = [
   {

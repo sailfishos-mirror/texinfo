@@ -185,16 +185,18 @@ $result_sectioning{'setfilename_on_top_and_after_node'} = {
 $result_sectioning{'setfilename_on_top_and_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'setfilename_on_top_and_after_node'};
 $result_sectioning{'setfilename_on_top_and_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'setfilename_on_top_and_after_node'};
 
-$result_nodes{'setfilename_on_top_and_after_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'setfilename_on_top_and_after_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'setfilename_on_top_and_after_node'} = [
   {

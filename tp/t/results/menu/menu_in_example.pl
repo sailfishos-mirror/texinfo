@@ -529,12 +529,14 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node. 
 ';
 
-$result_nodes{'menu_in_example'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'menu_in_example'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'menu_in_example'} = [
   {

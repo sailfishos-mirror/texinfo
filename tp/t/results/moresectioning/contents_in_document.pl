@@ -199,16 +199,18 @@ $result_sectioning{'contents_in_document'}{'extra'}{'section_childs'}[0]{'extra'
 $result_sectioning{'contents_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_in_document'};
 $result_sectioning{'contents_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_in_document'};
 
-$result_nodes{'contents_in_document'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'contents_in_document'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'contents_in_document'} = [
   {

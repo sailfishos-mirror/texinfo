@@ -788,12 +788,24 @@ EXAMPLE COMMENT
 
 ';
 
-$result_nodes{'sc_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'sc_in_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'node'
+    }
   }
-};
+];
+$result_nodes{'sc_in_menu'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'sc_in_menu'}[0];
 
 $result_menus{'sc_in_menu'} = [
   {

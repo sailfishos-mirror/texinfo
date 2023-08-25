@@ -1734,28 +1734,30 @@ $result_sectioning{'menu'} = {
 $result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menu'};
 $result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'menu'};
 
-$result_nodes{'menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'ggg'
-            }
-          ]
-        },
-        'type' => 'menu_entry_node'
-      }
-    },
-    'normalized' => 'Top'
+$result_nodes{'menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'ggg'
+              }
+            ]
+          },
+          'type' => 'menu_entry_node'
+        }
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'menu'} = [
   {

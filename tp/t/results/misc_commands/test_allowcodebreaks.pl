@@ -2279,24 +2279,28 @@ anc-hor
 in-example
 ';
 
-$result_nodes{'test_allowcodebreaks'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'test_allowcodebreaks'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'test_allowcodebreaks'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_allowcodebreaks'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'test_allowcodebreaks'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'test_allowcodebreaks'}[0];
+$result_nodes{'test_allowcodebreaks'}[1] = $result_nodes{'test_allowcodebreaks'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'test_allowcodebreaks'} = [
   {

@@ -668,13 +668,15 @@ mark.
 mark inside.
 ';
 
-$result_nodes{'nested_multitable_anchor_index'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'isindex' => 1,
-    'normalized' => 'Top'
+$result_nodes{'nested_multitable_anchor_index'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'isindex' => 1,
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'nested_multitable_anchor_index'} = [
   {

@@ -385,12 +385,14 @@ In float
 * floa::
 ';
 
-$result_nodes{'equivalent_labels'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'equivalent_labels'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'equivalent_labels'} = [
   {

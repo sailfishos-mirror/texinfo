@@ -364,36 +364,42 @@ $result_texts{'next_no_prev_to_node'} = '
 
 ';
 
-$result_nodes{'next_no_prev_to_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'next' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'node_directions' => {
-                  'up' => {}
-                },
-                'normalized' => 'no-return'
-              }
+$result_nodes{'next_no_prev_to_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'next' => {
+                'cmdname' => 'node',
+                'extra' => {
+                  'node_directions' => {
+                    'up' => {}
+                  },
+                  'normalized' => 'no-return'
+                }
+              },
+              'prev' => {},
+              'up' => {}
             },
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap-first-node'
+            'normalized' => 'chap-first-node'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'next_no_prev_to_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'};
-$result_nodes{'next_no_prev_to_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'next_no_prev_to_node'};
-$result_nodes{'next_no_prev_to_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {}
+];
+$result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'}[0];
+$result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'next_no_prev_to_node'}[0];
+$result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'}[0];
+$result_nodes{'next_no_prev_to_node'}[1] = $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'next_no_prev_to_node'}[2] = $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'next_no_prev_to_node'} = [
   {

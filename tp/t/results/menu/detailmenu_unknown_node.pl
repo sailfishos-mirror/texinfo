@@ -221,12 +221,14 @@ $result_texts{'detailmenu_unknown_node'} = '
 * unknown::
 ';
 
-$result_nodes{'detailmenu_unknown_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'detailmenu_unknown_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'detailmenu_unknown_node'} = [
   {

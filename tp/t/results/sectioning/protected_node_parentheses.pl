@@ -431,16 +431,28 @@ $result_sectioning{'protected_node_parentheses'} = {
 $result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'protected_node_parentheses'};
 $result_sectioning{'protected_node_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'protected_node_parentheses'};
 
-$result_nodes{'protected_node_parentheses'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'first'
+$result_nodes{'protected_node_parentheses'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'first'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => '_0028manual_0029-name'
+    }
   }
-};
+];
+$result_nodes{'protected_node_parentheses'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'protected_node_parentheses'}[0];
 
 $result_menus{'protected_node_parentheses'} = [
   {

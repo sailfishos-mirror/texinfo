@@ -311,36 +311,46 @@ $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'sec
 $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_recursive_self_section_node_reference'};
 $result_sectioning{'double_recursive_self_section_node_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_recursive_self_section_node_reference'};
 
-$result_nodes{'double_recursive_self_section_node_reference'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'node1'
+$result_nodes{'double_recursive_self_section_node_reference'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'node1'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'to-node1'
+    }
   }
-};
-$result_nodes{'double_recursive_self_section_node_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_node_reference'};
-$result_nodes{'double_recursive_self_section_node_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_recursive_self_section_node_reference'};
+];
+$result_nodes{'double_recursive_self_section_node_reference'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_node_reference'}[0];
+$result_nodes{'double_recursive_self_section_node_reference'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_recursive_self_section_node_reference'}[0];
+$result_nodes{'double_recursive_self_section_node_reference'}[1] = $result_nodes{'double_recursive_self_section_node_reference'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'double_recursive_self_section_node_reference'} = [
   {

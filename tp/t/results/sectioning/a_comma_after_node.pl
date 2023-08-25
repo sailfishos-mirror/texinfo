@@ -111,12 +111,14 @@ $result_texts{'a_comma_after_node'} = '
 A comma in text, end.
 ';
 
-$result_nodes{'a_comma_after_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Commands'
+$result_nodes{'a_comma_after_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Commands'
+    }
   }
-};
+];
 
 $result_menus{'a_comma_after_node'} = [
   {

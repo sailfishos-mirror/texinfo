@@ -293,26 +293,36 @@ second level node.
 
 ';
 
-$result_nodes{'node_referenced_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap-first-level-node'
+$result_nodes{'node_referenced_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap-first-level-node'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'second-level-node'
+    }
   }
-};
-$result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_referenced_in_ref'};
+];
+$result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_referenced_in_ref'}[0];
+$result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_referenced_in_ref'}[0];
+$result_nodes{'node_referenced_in_ref'}[1] = $result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'node_referenced_in_ref'} = [
   {

@@ -54,12 +54,14 @@ $result_texis{'node_empty_direction'} = '@node name, ';
 
 $result_texts{'node_empty_direction'} = '';
 
-$result_nodes{'node_empty_direction'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'name'
+$result_nodes{'node_empty_direction'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'name'
+    }
   }
-};
+];
 
 $result_menus{'node_empty_direction'} = [
   {

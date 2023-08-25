@@ -2993,24 +2993,28 @@ $result_texts{'top_in_ref'} = '
 @inforef{Top,,file name} Top
 ';
 
-$result_nodes{'top_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap-refs-node'
+$result_nodes{'top_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap-refs-node'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'top_in_ref'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_in_ref'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'top_in_ref'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_in_ref'}[0];
+$result_nodes{'top_in_ref'}[1] = $result_nodes{'top_in_ref'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'top_in_ref'} = [
   {

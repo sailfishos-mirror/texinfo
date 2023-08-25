@@ -215,47 +215,49 @@ $result_texts{'node_on_index_entry_line'} = '
 Content
 ';
 
-$result_nodes{'node_on_index_entry_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'm'
-            }
-          ],
-          'normalized' => 'b'
+$result_nodes{'node_on_index_entry_line'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'm'
+              }
+            ],
+            'normalized' => 'b'
+          },
+          'type' => 'line_arg'
         },
-        'type' => 'line_arg'
+        'prev' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'm'
+              }
+            ],
+            'normalized' => 'c'
+          },
+          'type' => 'line_arg'
+        },
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'h'
+              }
+            ],
+            'normalized' => 'd'
+          },
+          'type' => 'line_arg'
+        }
       },
-      'prev' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'm'
-            }
-          ],
-          'normalized' => 'c'
-        },
-        'type' => 'line_arg'
-      },
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'h'
-            }
-          ],
-          'normalized' => 'd'
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'a'
+      'normalized' => 'a'
+    }
   }
-};
+];
 
 $result_menus{'node_on_index_entry_line'} = [
   {

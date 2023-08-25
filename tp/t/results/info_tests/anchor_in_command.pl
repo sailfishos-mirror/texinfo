@@ -185,12 +185,14 @@ aaa TeX in emph after
 emph emph2 .
 ';
 
-$result_nodes{'anchor_in_command'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'anchor_in_command'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'anchor_in_command'} = [
   {

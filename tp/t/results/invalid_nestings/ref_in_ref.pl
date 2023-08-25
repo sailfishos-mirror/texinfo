@@ -107,12 +107,14 @@ $result_texis{'ref_in_ref'} = '@node first
 
 $result_texts{'ref_in_ref'} = 'first';
 
-$result_nodes{'ref_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'ref_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'ref_in_ref'} = [
   {

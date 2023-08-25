@@ -330,16 +330,30 @@ $result_texts{'double_top_in_menu'} = 'Top node
 second node.
 ';
 
-$result_nodes{'double_top_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'double_top_in_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {}
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'prev' => {},
+        'up' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
-$result_nodes{'double_top_in_menu'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top_in_menu'};
+];
+$result_nodes{'double_top_in_menu'}[0]{'extra'}{'node_directions'}{'next'} = $result_nodes{'double_top_in_menu'}[0];
+$result_nodes{'double_top_in_menu'}[1]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_top_in_menu'}[0];
+$result_nodes{'double_top_in_menu'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_top_in_menu'}[0];
 
 $result_menus{'double_top_in_menu'} = [
   {

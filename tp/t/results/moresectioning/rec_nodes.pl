@@ -1009,26 +1009,60 @@ in node following second
 * node up node following second::
 ';
 
-$result_nodes{'rec_nodes'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap-node'
+$result_nodes{'rec_nodes'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap-node'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'rec_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'rec_nodes'};
-$result_nodes{'rec_nodes'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'rec_nodes'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'other-node'
+    }
+  },
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'up' => {}
+            },
+            'normalized' => 'node-following-second'
+          }
+        }
+      },
+      'normalized' => 'node-up-node-following-second'
+    }
+  },
+  {}
+];
+$result_nodes{'rec_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'rec_nodes'}[0];
+$result_nodes{'rec_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'rec_nodes'}[0];
+$result_nodes{'rec_nodes'}[1] = $result_nodes{'rec_nodes'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'rec_nodes'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'rec_nodes'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'rec_nodes'}[3]{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'rec_nodes'}[3];
+$result_nodes{'rec_nodes'}[4] = $result_nodes{'rec_nodes'}[3]{'extra'}{'node_directions'}{'up'};
 
 $result_menus{'rec_nodes'} = [
   {

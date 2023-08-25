@@ -280,32 +280,36 @@ $result_sectioning{'comment_on_menu_line'} = {
 $result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'comment_on_menu_line'};
 $result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'comment_on_menu_line'};
 
-$result_nodes{'comment_on_menu_line'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
-      }
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
+$result_nodes{'comment_on_menu_line'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
         'extra' => {
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'first'
+          'section_number' => 1
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_on_menu_line'};
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'first'
+          }
+        }
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'comment_on_menu_line'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'comment_on_menu_line'}[0];
+$result_nodes{'comment_on_menu_line'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'comment_on_menu_line'}[0];
+$result_nodes{'comment_on_menu_line'}[1] = $result_nodes{'comment_on_menu_line'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'comment_on_menu_line'} = [
   {

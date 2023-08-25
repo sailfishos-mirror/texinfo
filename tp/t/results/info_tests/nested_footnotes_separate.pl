@@ -180,12 +180,14 @@ $result_texts{'nested_footnotes_separate'} = '
 F
 ';
 
-$result_nodes{'nested_footnotes_separate'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'nested_footnotes_separate'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'nested_footnotes_separate'} = [
   {

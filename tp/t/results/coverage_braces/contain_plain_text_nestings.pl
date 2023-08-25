@@ -797,37 +797,41 @@ $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{
 $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contain_plain_text_nestings'};
 $result_sectioning{'contain_plain_text_nestings'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contain_plain_text_nestings'};
 
-$result_nodes{'contain_plain_text_nestings'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'contain_plain_text_nestings'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'contain_plain_text_nestings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contain_plain_text_nestings'};
-$result_nodes{'contain_plain_text_nestings'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contain_plain_text_nestings'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'contain_plain_text_nestings'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contain_plain_text_nestings'}[0];
+$result_nodes{'contain_plain_text_nestings'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contain_plain_text_nestings'}[0];
+$result_nodes{'contain_plain_text_nestings'}[1] = $result_nodes{'contain_plain_text_nestings'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'contain_plain_text_nestings'} = [
   {

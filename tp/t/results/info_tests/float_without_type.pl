@@ -194,12 +194,14 @@ aa
 
 ';
 
-$result_nodes{'float_without_type'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'float_without_type'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'float_without_type'} = [
   {

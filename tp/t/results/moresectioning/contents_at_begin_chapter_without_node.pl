@@ -201,16 +201,18 @@ $result_sectioning{'contents_at_begin_chapter_without_node'}{'extra'}{'section_c
 $result_sectioning{'contents_at_begin_chapter_without_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_at_begin_chapter_without_node'};
 $result_sectioning{'contents_at_begin_chapter_without_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_at_begin_chapter_without_node'};
 
-$result_nodes{'contents_at_begin_chapter_without_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'contents_at_begin_chapter_without_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'contents_at_begin_chapter_without_node'} = [
   {

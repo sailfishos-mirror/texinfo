@@ -266,36 +266,40 @@ $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_
 $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'double_recursive_self_section_reference'};
 $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'double_recursive_self_section_reference'}{'extra'}{'section_childs'}[0];
 
-$result_nodes{'double_recursive_self_section_reference'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => 1
-      }
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
+$result_nodes{'double_recursive_self_section_reference'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
         'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 2
-            }
-          },
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'n2'
+          'section_number' => 1
         }
-      }
-    },
-    'normalized' => 'n1'
-  }
-};
-$result_nodes{'double_recursive_self_section_reference'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_reference'};
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 2
+              }
+            },
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'n2'
+          }
+        }
+      },
+      'normalized' => 'n1'
+    }
+  },
+  {}
+];
+$result_nodes{'double_recursive_self_section_reference'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_recursive_self_section_reference'}[0];
+$result_nodes{'double_recursive_self_section_reference'}[1] = $result_nodes{'double_recursive_self_section_reference'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'double_recursive_self_section_reference'} = [
   {

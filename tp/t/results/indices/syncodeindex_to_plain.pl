@@ -373,25 +373,29 @@ cp index.
 vr index.
 ';
 
-$result_nodes{'syncodeindex_to_plain'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'isindex' => 1,
-          'node_directions' => {
-            'prev' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'syncodeindex_to_plain'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'node_directions' => {
+              'prev' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'syncodeindex_to_plain'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'syncodeindex_to_plain'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'syncodeindex_to_plain'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'syncodeindex_to_plain'}[0];
+$result_nodes{'syncodeindex_to_plain'}[1] = $result_nodes{'syncodeindex_to_plain'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'syncodeindex_to_plain'} = [
   {

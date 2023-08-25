@@ -259,16 +259,18 @@ $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[2
 $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'section_before_after_top_node'}{'extra'}{'section_childs'}[1];
 
-$result_nodes{'section_before_after_top_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'section_before_after_top_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'section_before_after_top_node'} = [
   {

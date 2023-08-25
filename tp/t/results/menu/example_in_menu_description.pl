@@ -326,16 +326,18 @@ $result_sectioning{'example_in_menu_description'} = {
 $result_sectioning{'example_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'example_in_menu_description'};
 $result_sectioning{'example_in_menu_description'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'example_in_menu_description'};
 
-$result_nodes{'example_in_menu_description'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'first'
+$result_nodes{'example_in_menu_description'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'example_in_menu_description'} = [
   {

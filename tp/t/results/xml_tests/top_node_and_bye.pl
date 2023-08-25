@@ -75,19 +75,21 @@ $result_texis{'top_node_and_bye'} = '@node Top
 $result_texts{'top_node_and_bye'} = '
 ';
 
-$result_nodes{'top_node_and_bye'} = {
-  'associated_unit' => {
-    'directions' => {
-      'This' => {}
+$result_nodes{'top_node_and_bye'} = [
+  {
+    'associated_unit' => {
+      'directions' => {
+        'This' => {}
+      },
+      'type' => 'unit'
     },
-    'type' => 'unit'
-  },
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
-$result_nodes{'top_node_and_bye'}{'associated_unit'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}{'associated_unit'};
+];
+$result_nodes{'top_node_and_bye'}[0]{'associated_unit'}{'directions'}{'This'} = $result_nodes{'top_node_and_bye'}[0]{'associated_unit'};
 
 $result_menus{'top_node_and_bye'} = [
   {

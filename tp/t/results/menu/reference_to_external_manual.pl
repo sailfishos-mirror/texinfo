@@ -180,12 +180,14 @@ $result_texts{'reference_to_external_manual'} = '
 * (info)::
 ';
 
-$result_nodes{'reference_to_external_manual'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'reference_to_external_manual'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'reference_to_external_manual'} = [
   {

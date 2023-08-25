@@ -248,16 +248,18 @@ $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}
 $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'appendix_translated'};
 $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'appendix_translated'};
 
-$result_nodes{'appendix_translated'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'appendix_translated'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'appendix_translated'} = [
   {

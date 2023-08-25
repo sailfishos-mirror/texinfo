@@ -100,16 +100,18 @@ $result_sectioning{'top_no_argument_and_node'} = {
 $result_sectioning{'top_no_argument_and_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_no_argument_and_node'};
 $result_sectioning{'top_no_argument_and_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_no_argument_and_node'};
 
-$result_nodes{'top_no_argument_and_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'start'
+$result_nodes{'top_no_argument_and_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'start'
+    }
   }
-};
+];
 
 $result_menus{'top_no_argument_and_node'} = [
   {

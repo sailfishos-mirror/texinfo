@@ -755,12 +755,14 @@ Menu comment
 
 ';
 
-$result_nodes{'formats_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'formats_in_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'formats_in_menu'} = [
   {

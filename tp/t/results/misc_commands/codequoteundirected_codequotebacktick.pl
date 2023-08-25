@@ -4241,36 +4241,40 @@ $result_sectioning{'codequoteundirected_codequotebacktick'}{'extra'}{'section_ch
 $result_sectioning{'codequoteundirected_codequotebacktick'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'codequoteundirected_codequotebacktick'};
 $result_sectioning{'codequoteundirected_codequotebacktick'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'codequoteundirected_codequotebacktick'};
 
-$result_nodes{'codequoteundirected_codequotebacktick'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'chap'
+$result_nodes{'codequoteundirected_codequotebacktick'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'chap'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'codequoteundirected_codequotebacktick'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'codequoteundirected_codequotebacktick'};
-$result_nodes{'codequoteundirected_codequotebacktick'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'codequoteundirected_codequotebacktick'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'codequoteundirected_codequotebacktick'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'codequoteundirected_codequotebacktick'}[0];
+$result_nodes{'codequoteundirected_codequotebacktick'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'codequoteundirected_codequotebacktick'}[0];
+$result_nodes{'codequoteundirected_codequotebacktick'}[1] = $result_nodes{'codequoteundirected_codequotebacktick'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'codequoteundirected_codequotebacktick'} = [
   {

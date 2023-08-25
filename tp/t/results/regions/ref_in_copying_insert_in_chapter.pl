@@ -560,36 +560,56 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'
 $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'ref_in_copying_insert_in_chapter'};
 $result_sectioning{'ref_in_copying_insert_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'ref_in_copying_insert_in_chapter'};
 
-$result_nodes{'ref_in_copying_insert_in_chapter'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'section_number' => 1
-            }
-          },
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'Intro'
+$result_nodes{'ref_in_copying_insert_in_chapter'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'section_number' => 1
+              }
+            },
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'Intro'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'section',
+        'extra' => {
+          'section_number' => '1.1'
+        }
+      },
+      'node_directions' => {
+        'up' => {}
+      },
+      'normalized' => 'GFDL'
+    }
   }
-};
-$result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_copying_insert_in_chapter'};
-$result_nodes{'ref_in_copying_insert_in_chapter'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying_insert_in_chapter'};
+];
+$result_nodes{'ref_in_copying_insert_in_chapter'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'ref_in_copying_insert_in_chapter'}[0];
+$result_nodes{'ref_in_copying_insert_in_chapter'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying_insert_in_chapter'}[0];
+$result_nodes{'ref_in_copying_insert_in_chapter'}[1] = $result_nodes{'ref_in_copying_insert_in_chapter'}[0]{'extra'}{'node_directions'}{'next'};
+$result_nodes{'ref_in_copying_insert_in_chapter'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'ref_in_copying_insert_in_chapter'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'ref_in_copying_insert_in_chapter'} = [
   {

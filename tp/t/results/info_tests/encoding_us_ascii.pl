@@ -112,12 +112,14 @@ $result_texts{'encoding_us_ascii'} = '
 
 ';
 
-$result_nodes{'encoding_us_ascii'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'encoding_us_ascii'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'encoding_us_ascii'} = [
   {

@@ -87,24 +87,26 @@ $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 
 $result_texts{'node_too_much_args'} = '';
 
-$result_nodes{'node_too_much_args'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
-            }
-          ]
-        },
-        'type' => 'line_arg'
-      }
-    },
-    'normalized' => 'first'
+$result_nodes{'node_too_much_args'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'line_arg'
+        }
+      },
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'node_too_much_args'} = [
   {

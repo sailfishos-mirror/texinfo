@@ -172,12 +172,14 @@ firstverbat text
 
 .';
 
-$result_nodes{'verbatim_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'verbatim_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'verbatim_in_ref'} = [
   {

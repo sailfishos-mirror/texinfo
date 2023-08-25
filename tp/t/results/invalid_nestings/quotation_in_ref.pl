@@ -172,12 +172,14 @@ firstquotation in ref
 .
 ';
 
-$result_nodes{'quotation_in_ref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'quotation_in_ref'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'quotation_in_ref'} = [
   {

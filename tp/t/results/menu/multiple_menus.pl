@@ -303,25 +303,27 @@ $result_texts{'multiple_menus'} = '
 * (b)b::
 ';
 
-$result_nodes{'multiple_menus'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'node_directions' => {
-      'next' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'a'
-            }
-          ],
-          'normalized' => 'a'
-        },
-        'type' => 'menu_entry_node'
-      }
-    },
-    'normalized' => 'Top'
+$result_nodes{'multiple_menus'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'a'
+              }
+            ],
+            'normalized' => 'a'
+          },
+          'type' => 'menu_entry_node'
+        }
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'multiple_menus'} = [
   {

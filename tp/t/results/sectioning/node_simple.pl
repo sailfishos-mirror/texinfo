@@ -46,12 +46,14 @@ $result_texis{'node_simple'} = '@node first';
 
 $result_texts{'node_simple'} = '';
 
-$result_nodes{'node_simple'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'node_simple'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'node_simple'} = [
   {

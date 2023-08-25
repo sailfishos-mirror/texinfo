@@ -133,12 +133,14 @@ $result_texts{'no_colon_in_menu'} = '
 * a
 ';
 
-$result_nodes{'no_colon_in_menu'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'no_colon_in_menu'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'no_colon_in_menu'} = [
   {

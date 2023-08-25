@@ -111,12 +111,14 @@ $result_texts{'unknown_encoding'} = '
 
 ';
 
-$result_nodes{'unknown_encoding'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
+$result_nodes{'unknown_encoding'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'unknown_encoding'} = [
   {

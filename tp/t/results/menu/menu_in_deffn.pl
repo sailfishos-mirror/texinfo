@@ -291,12 +291,14 @@ a: b c
 * (mynode)::
 ';
 
-$result_nodes{'menu_in_deffn'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'first'
+$result_nodes{'menu_in_deffn'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'first'
+    }
   }
-};
+];
 
 $result_menus{'menu_in_deffn'} = [
   {

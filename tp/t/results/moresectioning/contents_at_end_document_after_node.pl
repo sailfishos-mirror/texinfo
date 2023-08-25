@@ -376,30 +376,34 @@ $result_sectioning{'contents_at_end_document_after_node'}{'extra'}{'section_chil
 $result_sectioning{'contents_at_end_document_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_at_end_document_after_node'};
 $result_sectioning{'contents_at_end_document_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_at_end_document_after_node'};
 
-$result_nodes{'contents_at_end_document_after_node'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'node_directions' => {
-      'next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'node_directions' => {
-            'prev' => {},
-            'up' => {}
-          },
-          'normalized' => 'a-node'
+$result_nodes{'contents_at_end_document_after_node'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'node_directions' => {
+        'next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'node_directions' => {
+              'prev' => {},
+              'up' => {}
+            },
+            'normalized' => 'a-node'
+          }
         }
-      }
-    },
-    'normalized' => 'Top'
-  }
-};
-$result_nodes{'contents_at_end_document_after_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_end_document_after_node'};
-$result_nodes{'contents_at_end_document_after_node'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_end_document_after_node'};
+      },
+      'normalized' => 'Top'
+    }
+  },
+  {}
+];
+$result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_end_document_after_node'}[0];
+$result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_end_document_after_node'}[0];
+$result_nodes{'contents_at_end_document_after_node'}[1] = $result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'contents_at_end_document_after_node'} = [
   {

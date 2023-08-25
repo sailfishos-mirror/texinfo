@@ -156,16 +156,18 @@ $result_sectioning{'filenameconflictwithnonsplit'} = {
 $result_sectioning{'filenameconflictwithnonsplit'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'filenameconflictwithnonsplit'};
 $result_sectioning{'filenameconflictwithnonsplit'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'filenameconflictwithnonsplit'};
 
-$result_nodes{'filenameconflictwithnonsplit'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'associated_section' => {
-      'cmdname' => 'top',
-      'extra' => {}
-    },
-    'normalized' => 'Top'
+$result_nodes{'filenameconflictwithnonsplit'} = [
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'top',
+        'extra' => {}
+      },
+      'normalized' => 'Top'
+    }
   }
-};
+];
 
 $result_menus{'filenameconflictwithnonsplit'} = [
   {
