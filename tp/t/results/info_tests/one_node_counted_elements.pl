@@ -475,7 +475,8 @@ $result_nodes{'one_node_counted_elements'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'one-node'

@@ -857,7 +857,8 @@ $result_nodes{'value_in_node'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'prev' => {
         'extra' => {
@@ -866,7 +867,8 @@ $result_nodes{'value_in_node'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
@@ -875,7 +877,8 @@ $result_nodes{'value_in_node'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

@@ -485,7 +485,8 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
               'up' => {
                 'extra' => {
                   'manual_content' => []
-                }
+                },
+                'type' => 'line_arg'
               }
             },
             'normalized' => 'chap'
@@ -534,12 +535,14 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
       'prev' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

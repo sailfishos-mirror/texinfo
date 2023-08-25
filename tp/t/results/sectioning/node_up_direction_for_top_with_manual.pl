@@ -99,7 +99,8 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = {
             }
           ],
           'normalized' => 'Top'
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

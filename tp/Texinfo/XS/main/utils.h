@@ -22,6 +22,10 @@
 extern const char *whitespace_chars;
 extern enum command_id level_to_structuring_command[][5];
 
+extern const char *direction_names[];
+extern const char *direction_texts[];
+extern const size_t directions_length;
+
 enum error_type { error, warning };
 
 typedef struct {

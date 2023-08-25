@@ -3554,7 +3554,8 @@ $result_nodes{'complex'} = {
       'prev' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

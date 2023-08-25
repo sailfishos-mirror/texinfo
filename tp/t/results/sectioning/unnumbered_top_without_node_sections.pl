@@ -553,7 +553,8 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
       'up' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'a-node'

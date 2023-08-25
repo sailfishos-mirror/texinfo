@@ -1824,7 +1824,8 @@ $result_nodes{'commands_and_spaces'} = {
               'text' => 'b'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'prev' => {
         'extra' => {
@@ -1833,7 +1834,8 @@ $result_nodes{'commands_and_spaces'} = {
               'text' => 'c'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
@@ -1842,7 +1844,8 @@ $result_nodes{'commands_and_spaces'} = {
               'text' => 'd'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'a'

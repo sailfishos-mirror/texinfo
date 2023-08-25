@@ -86,8 +86,6 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
                            key, (intptr_t) value, extra_contents);
 }
 
-static enum directions last_direction = D_up;
-
 /* similar to extra_contents, but holds 3 elements corresponding to
    directions in enum directions.  Another difference, more
    generally with other elements, is that a pointer to the element
@@ -98,7 +96,7 @@ static enum directions last_direction = D_up;
 void
 add_extra_directions (ELEMENT *e, char *key, ELEMENT *value)
 {
-  element_set_empty_contents (value, last_direction+1);
+  element_set_empty_contents (value, directions_length);
   add_associated_info_key (&e->extra_info,
                            key, (intptr_t) value, extra_directions);
 }

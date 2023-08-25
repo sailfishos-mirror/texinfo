@@ -2681,7 +2681,8 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
                     'text' => 'dir'
                   }
                 ]
-              }
+              },
+              'type' => 'line_arg'
             }
           },
           'normalized' => 'first-before-top'

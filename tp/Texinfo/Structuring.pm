@@ -102,6 +102,10 @@ sub import {
         "Texinfo::Structuring::_XS_warn_non_empty_parts",
         "Texinfo::StructTransf::warn_non_empty_parts"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_nodes_tree",
+        "Texinfo::StructTransf::nodes_tree"
+      );
     }
     $module_loaded = 1;
   }
@@ -676,8 +680,8 @@ sub set_menus_node_directions($$$$$)
 }
 
 # determine node found through section directions, usually
-# from section_$direction.  It could also be from
-# toplevel_$direction if going through parts, except for @top
+# from section_directions.  It could also be from
+# toplevel_directions if going through parts, except for @top
 # as prev or next.
 sub _section_direction_associated_node($$)
 {
@@ -898,14 +902,21 @@ sub complete_node_tree_with_menus($$$$$)
   }
 }
 
+sub _XS_nodes_tree($)
+{
+}
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($$$$)
+sub nodes_tree($$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $root = shift;
-  my $identifier_target = shift;
+
+  _XS_nodes_tree($document);
+
+  my $root = $document->tree();
+  my $identifier_target = $document->labels_information();
 
   my $top_node;
   my @nodes_list = ();
@@ -991,26 +1002,29 @@ sub nodes_tree($$$$)
     } else { # explicit directions
       for (my $i = 1; $i < scalar(@{$node->{'args'}}); $i++) {
         my $direction_element = $node->{'args'}->[$i];
-        next if (!$direction_element->{'extra'});
-        my $node_direction = $direction_element->{'extra'};
         my $direction = $node_directions[$i-1];
 
-        $node->{'extra'}->{'node_directions'} = {}
-           if (!defined($node->{'extra'}->{'node_directions'}));
         # external node
-        if ($node_direction->{'manual_content'}) {
+        if ($direction_element->{'extra'}
+            and $direction_element->{'extra'}->{'manual_content'}) {
+          $node->{'extra'}->{'node_directions'} = {}
+             if (!defined($node->{'extra'}->{'node_directions'}));
           $node->{'extra'}->{'node_directions'}->{$direction}
-                            = { 'extra' => $node_direction };
-        } elsif (defined($node_direction->{'normalized'})) {
-          if ($identifier_target->{$node_direction->{'normalized'}}) {
+             = $direction_element;
+        } elsif ($direction_element->{'extra'}
+                 and defined($direction_element->{'extra'}->{'normalized'})) {
+          my $direction_normalized = $direction_element->{'extra'}->{'normalized'};
+          if ($identifier_target->{$direction_normalized}) {
             my $node_target
-               = $identifier_target->{$node_direction->{'normalized'}};
+               = $identifier_target->{$direction_normalized};
+            $node->{'extra'}->{'node_directions'} = {}
+               if (!defined($node->{'extra'}->{'node_directions'}));
             $node->{'extra'}->{'node_directions'}->{$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
-                                      $node_target,
-                                      $node_direction->{'node_content'})) {
+                                 $node_target,
+                                 $direction_element->{'extra'}->{'node_content'})) {
               $registrar->line_warn($customization_information,
                 sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
@@ -1023,8 +1037,10 @@ sub nodes_tree($$$$)
             }
           } else {
             if ($customization_information->get_conf('novalidate')) {
+              $node->{'extra'}->{'node_directions'} = {}
+                 if (!defined($node->{'extra'}->{'node_directions'}));
               $node->{'extra'}->{'node_directions'}->{$direction}
-                           = { 'extra' => $node_direction };
+                 = $direction_element;
             } else {
               $registrar->line_error($customization_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
@@ -2528,8 +2544,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my ($top_node, $nodes_list)
-              = nodes_tree($registrar, $config,
-                            $tree, $identifier_target);
+              = nodes_tree($document, $registrar, $config);
   set_menus_node_directions($registrar, $config, $global_commands,
                             $nodes_list, $identifier_target);
   complete_node_tree_with_menus($registrar, $config, $nodes_list,
@@ -2777,11 +2792,11 @@ Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $top_node, $nodes_list = nodes_tree($registrar, $customization_information, $tree, $identifier_target)
+=item $top_node, $nodes_list = nodes_tree($document, $registrar, $customization_information)
 X<C<nodes_tree>>
 
-Goes through nodes in I<$tree> and set directions.  Returns the top
-node and the list of nodes.  Register errors in I<$registrar>.
+Goes through nodes in I<$document> tree and set directions.  Returns the
+top node and the list of nodes.  Register errors in I<$registrar>.
 
 This functions sets, in the C<extra> node element hash:
 

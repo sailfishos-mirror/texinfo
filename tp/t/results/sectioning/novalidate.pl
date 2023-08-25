@@ -266,7 +266,8 @@ $result_nodes{'novalidate'} = {
       'next' => {
         'extra' => {
           'normalized' => 'unknown-node'
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'first'

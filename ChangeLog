@@ -1,3 +1,21 @@
+2023-08-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (nodes_tree): use a document in input.
+	Update callers.
+
+	* tp/Texinfo/Structuring.pm (nodes_tree): directions to external
+	manuals point to the node arguments elements directly.
+
+	* tp/Texinfo/XS/main/utils.c (direction_names, direction_texts)
+	(directions_length): setup extern structures related to directions in
+	utils.c.
+
+	* tp/Texinfo/Structuring.pm (import, _XS_nodes_tree, nodes_tree), 
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (nodes_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(section_direction_associated_node, nodes_tree): implement nodes_tree
+	in XS.
+
 2023-08-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (protect_first_parenthesis): take an element in

@@ -477,6 +477,226 @@ sectioning_structure (ELEMENT *root)
   return sections_list;
 }
 
+static char *direction_bases[] = {"section_directions", "toplevel_directions"};
+
+ELEMENT *
+section_direction_associated_node (ELEMENT *section, enum directions direction)
+{
+  int i;
+  for (i = 0; i < sizeof (direction_bases) / sizeof (direction_bases[0]);
+       i++)
+    {
+      ELEMENT *directions = lookup_extra_element (section, direction_bases[i]);
+      if (directions && directions->contents.list[direction])
+        {
+          ELEMENT *section_to = directions->contents.list[direction];
+          ELEMENT *associated_node = lookup_extra_element (section_to,
+                                                       "associated_node");
+          if ((strcmp (direction_bases[i], "toplevel_directions")
+               || direction == D_up
+               || section_to->cmd != CM_top)
+              && associated_node)
+            return associated_node;
+        }
+    }
+  return 0;
+}
+
+/* set node directions based on sectioning and @node explicit directions */
+/* in perl: registrar and customization_information */
+ELEMENT *
+nodes_tree (DOCUMENT *document, ELEMENT **top_node_out)
+{
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+  ELEMENT *root = document->tree;
+
+  ELEMENT *top_node = 0;
+  ELEMENT *nodes_list = new_element (ET_NONE);
+
+  int i;
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *node = root->contents.list[i];
+      KEY_PAIR *k_normalized;
+      char *normalized;
+      int is_target;
+      int status;
+      int automatic_directions;
+
+      if (node->cmd != CM_node)
+        continue;
+
+      k_normalized = lookup_extra (node, "normalized");
+      if (k_normalized && k_normalized->value)
+        normalized = (char *)k_normalized->value;
+      else
+        continue;
+
+      add_to_element_contents (nodes_list, node);
+      is_target = lookup_extra_integer (node, "is_target", &status);
+      if (is_target && !strcmp (normalized, "Top"))
+        top_node = node;
+
+      automatic_directions = (node->args.number <= 1);
+
+      if (automatic_directions)
+        if (!top_node || node != top_node)
+          {
+            enum directions d;
+            ELEMENT *node_directions = lookup_extra_element (node,
+                                                   "node_directions");
+            for (d = 0; d < directions_length; d++)
+              {
+                ELEMENT *section;
+                ELEMENT *part_section;
+                ELEMENT *direction_associated_node;
+           /* prev already defined for the node first Top node menu entry */
+                if (d == D_prev && node_directions
+                    && node_directions->contents.list[d])
+                  {
+                    ELEMENT *prev_element = node_directions->contents.list[d];
+                    KEY_PAIR *k_prev_normalized
+                      = lookup_extra (prev_element, "normalized");
+                    if (k_prev_normalized && k_prev_normalized->value)
+                      {
+                        char *prev_normalized
+                           = (char *)k_prev_normalized->value;
+                        if (!strcmp (prev_normalized, "Top"))
+                          continue;
+                      }
+                  }
+                section = lookup_extra_element (node, "associated_section");
+                if (section)
+                  {
+
+          /* Prefer the section associated with a @part for node directions. */
+                    part_section = lookup_extra_element (section,
+                                                 "part_associated_section");
+                    if (part_section)
+                      section = part_section;
+                    direction_associated_node
+                      = section_direction_associated_node(section, d);
+                    if (direction_associated_node)
+                      {
+                        node_directions = lookup_extra_directions (node,
+                                                    "node_directions", 1);
+                        node_directions->contents.list[d]
+                           = direction_associated_node;
+                      }
+                  }
+              }
+          }
+        else /* Special case for Top node, use first section */
+          {
+            ELEMENT *section
+              = lookup_extra_element (node, "associated_section");
+            if (section)
+              {
+                ELEMENT *section_childs
+                  = lookup_extra_element (section, "section_childs");
+                if (section_childs && section_childs->contents.number > 0)
+                  {
+                    ELEMENT *first_sec = section_childs->contents.list[0];
+                    ELEMENT *top_node_section_child
+                      = lookup_extra_element (first_sec, "associated_node");
+                    if (top_node_section_child)
+                      {
+                        ELEMENT *top_directions = lookup_extra_directions (node,
+                                                    "node_directions", 1);
+                        top_directions->contents.list[D_next]
+                          = top_node_section_child;
+                        if (top_node_section_child->args.number <= 1)
+                          {
+                            ELEMENT *top_section_child_directions
+                               = lookup_extra_directions (node,
+                                                    "node_directions", 1);
+                            top_section_child_directions->contents.list[D_prev]
+                              = node;
+                          }
+                      }
+                  }
+              }
+          }
+      else /* explicit directions */
+        {
+          int i;
+          for (i = 1; i < node->args.number; i++)
+            {
+              ELEMENT *direction_element = node->args.list[i];
+              int direction = i - 1;
+              ELEMENT *manual_content
+                            = lookup_extra_element (direction_element,
+                                                     "manual_content");
+              if (manual_content)
+                {
+                  ELEMENT *node_directions = lookup_extra_directions (node,
+                                                    "node_directions", 1);
+                  node_directions->contents.list[direction]
+                      = direction_element;
+                }
+              else
+                {
+                  KEY_PAIR *k_direction_normalized
+                    = lookup_extra (direction_element, "normalized");
+                  if (k_direction_normalized && k_direction_normalized->value)
+                    {
+                      char *direction_normalized
+                         = (char *)k_direction_normalized->value;
+                      ELEMENT *node_target
+                        = find_identifier_target (identifiers_target,
+                                                  direction_normalized);
+                      if (node_target)
+                        {
+                          ELEMENT *node_directions
+                            = lookup_extra_directions (node,
+                                                    "node_directions", 1);
+                          node_directions->contents.list[direction]
+                            = node_target;
+             /*
+            if (!$customization_information->get_conf('novalidate')
+              */
+                          ELEMENT *direction_node_content
+                            = lookup_extra_element (direction_element,
+                                                    "node_content");
+                          if (!check_node_same_texinfo_code (node_target,
+                                                    direction_node_content))
+                             {
+                               command_warn (node,
+                "%s pointer `%s' (for node `%s') different from %s name `%s'",
+                                  direction_texts[direction],
+                                  link_element_to_texi (direction_element),
+                                  target_element_to_texi_label (node),
+                                  builtin_command_name (node_target->cmd),
+                                  target_element_to_texi_label (node_target));
+                             }
+                        }
+                      else
+                        {
+                           /*
+            if ($customization_information->get_conf('novalidate')) {
+              $node->{'extra'}->{'node_directions'} = {}
+                 if (!defined($node->{'extra'}->{'node_directions'}));
+              $node->{'extra'}->{'node_directions'}->{$direction}
+                 = $direction_element;
+            } else {
+                           */
+                           command_error (node,
+                                     "%s reference to nonexistent `%s'",
+                                     direction_texts[direction],
+                                     link_element_to_texi(direction_element));
+                        }
+                    }
+                }
+            }
+        }
+    }
+  if (!top_node && nodes_list->contents.number > 0)
+    top_node = nodes_list->contents.list[0];
+  *top_node_out = top_node;
+  return nodes_list;
+}
+
 void
 warn_non_empty_parts (DOCUMENT *document)
 {

@@ -3793,7 +3793,8 @@ $result_nodes{'complex_split_at_node'} = {
       'prev' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

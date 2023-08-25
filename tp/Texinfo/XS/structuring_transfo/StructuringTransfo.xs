@@ -251,3 +251,21 @@ insert_nodes_for_sectioning_commands (document_in)
             destroy_element (added_nodes);
           }
 
+# FIXME returns a list of elements, determines top node.
+# Turn to perl structure?  Register in document?
+void
+nodes_tree (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, "nodes_tree");
+        if (document)
+          {
+            ELEMENT *node_top;
+            ELEMENT *nodes_list = nodes_tree (document, &node_top);
+            destroy_element (nodes_list);
+          }
+
+

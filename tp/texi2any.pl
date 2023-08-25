@@ -1598,8 +1598,8 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
     my ($top_node, $nodes_list)
-         = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $tree, $identifier_target);
+         = Texinfo::Structuring::nodes_tree($document, $registrar,
+                                            $main_configuration);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if

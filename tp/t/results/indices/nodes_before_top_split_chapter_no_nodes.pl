@@ -2091,7 +2091,8 @@ $result_nodes{'nodes_before_top_split_chapter_no_nodes'} = {
                     'text' => 'dir'
                   }
                 ]
-              }
+              },
+              'type' => 'line_arg'
             }
           },
           'normalized' => 'first-before-top'

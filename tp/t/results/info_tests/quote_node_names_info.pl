@@ -2241,7 +2241,8 @@ $result_nodes{'quote_node_names_info'} = {
                               }
                             ],
                             'normalized' => 'direction'
-                          }
+                          },
+                          'type' => 'line_arg'
                         },
                         'prev' => {
                           'extra' => {
@@ -2251,7 +2252,8 @@ $result_nodes{'quote_node_names_info'} = {
                               }
                             ],
                             'normalized' => 'direct_002cion'
-                          }
+                          },
+                          'type' => 'line_arg'
                         },
                         'up' => {
                           'extra' => {
@@ -2261,7 +2263,8 @@ $result_nodes{'quote_node_names_info'} = {
                               }
                             ],
                             'normalized' => 'direct_003a_003ai_002eon'
-                          }
+                          },
+                          'type' => 'line_arg'
                         }
                       },
                       'normalized' => 'normal-node'

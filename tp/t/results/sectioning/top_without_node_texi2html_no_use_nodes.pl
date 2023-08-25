@@ -250,7 +250,8 @@ $result_nodes{'top_without_node_texi2html_no_use_nodes'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'second'

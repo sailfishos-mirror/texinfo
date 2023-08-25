@@ -794,7 +794,8 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
               'text' => '../there/no_existing_no_manual_direction'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'prev' => {
         'cmdname' => 'node',
@@ -807,7 +808,8 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
                     'text' => 'no_existing_no_manual.info'
                   }
                 ]
-              }
+              },
+              'type' => 'line_arg'
             }
           },
           'normalized' => 'first'
@@ -820,7 +822,8 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

@@ -2091,7 +2091,8 @@ $result_nodes{'nodes_before_top'} = {
                     'text' => 'dir'
                   }
                 ]
-              }
+              },
+              'type' => 'line_arg'
             }
           },
           'normalized' => 'first-before-top'

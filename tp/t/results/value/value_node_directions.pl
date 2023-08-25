@@ -700,7 +700,8 @@ $result_nodes{'value_node_directions'} = {
                           'text' => 'dir'
                         }
                       ]
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 },
                 'normalized' => 'BarFoo'
@@ -714,7 +715,8 @@ $result_nodes{'value_node_directions'} = {
                     'text' => 'dir'
                   }
                 ]
-              }
+              },
+              'type' => 'line_arg'
             }
           },
           'normalized' => 'bar'
@@ -727,7 +729,8 @@ $result_nodes{'value_node_directions'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
@@ -736,7 +739,8 @@ $result_nodes{'value_node_directions'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

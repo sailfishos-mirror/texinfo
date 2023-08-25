@@ -356,17 +356,20 @@ $result_nodes{'node_up_external_node'} = {
               'next' => {
                 'extra' => {
                   'manual_content' => []
-                }
+                },
+                'type' => 'line_arg'
               },
               'prev' => {
                 'extra' => {
                   'manual_content' => []
-                }
+                },
+                'type' => 'line_arg'
               },
               'up' => {
                 'extra' => {
                   'manual_content' => []
-                }
+                },
+                'type' => 'line_arg'
               }
             },
             'normalized' => 'chap-first'

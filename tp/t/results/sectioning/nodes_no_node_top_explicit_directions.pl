@@ -353,7 +353,8 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
       'up' => {
         'extra' => {
           'manual_content' => []
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'first'

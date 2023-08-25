@@ -453,7 +453,8 @@ $result_nodes{'top_node_up_explicit_no_nodes'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'prev' => {
         'extra' => {
@@ -462,7 +463,8 @@ $result_nodes{'top_node_up_explicit_no_nodes'} = {
               'text' => 'weird'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
@@ -471,7 +473,8 @@ $result_nodes{'top_node_up_explicit_no_nodes'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

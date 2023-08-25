@@ -227,7 +227,8 @@ $result_nodes{'node_on_index_entry_line'} = {
             }
           ],
           'normalized' => 'b'
-        }
+        },
+        'type' => 'line_arg'
       },
       'prev' => {
         'extra' => {
@@ -237,7 +238,8 @@ $result_nodes{'node_on_index_entry_line'} = {
             }
           ],
           'normalized' => 'c'
-        }
+        },
+        'type' => 'line_arg'
       },
       'up' => {
         'extra' => {
@@ -247,7 +249,8 @@ $result_nodes{'node_on_index_entry_line'} = {
             }
           ],
           'normalized' => 'd'
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'a'

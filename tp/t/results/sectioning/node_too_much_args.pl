@@ -98,7 +98,8 @@ $result_nodes{'node_too_much_args'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'first'

@@ -2703,7 +2703,8 @@ $result_nodes{'sectioning_frames'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'Top'

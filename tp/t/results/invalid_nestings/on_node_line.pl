@@ -269,7 +269,8 @@ $result_nodes{'on_node_line'} = {
             }
           ],
           'normalized' => '-'
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'a'

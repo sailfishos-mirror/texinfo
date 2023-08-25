@@ -1040,8 +1040,8 @@ sub test($$)
 
 
   my ($top_node, $nodes_list)
-          = Texinfo::Structuring::nodes_tree($registrar,
-                         $main_configuration, $tree, $identifier_target);
+          = Texinfo::Structuring::nodes_tree($document, $registrar,
+                                             $main_configuration);
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $global_commands, $nodes_list,

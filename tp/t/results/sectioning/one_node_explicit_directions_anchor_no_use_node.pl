@@ -192,7 +192,8 @@ $result_nodes{'one_node_explicit_directions_anchor_no_use_node'} = {
               'text' => 'dir'
             }
           ]
-        }
+        },
+        'type' => 'line_arg'
       }
     },
     'normalized' => 'one-node'
