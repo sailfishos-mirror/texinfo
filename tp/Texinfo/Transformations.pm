@@ -80,6 +80,10 @@ sub import {
         "Texinfo::Transformations::_XS_insert_nodes_for_sectioning_commands",
         "Texinfo::StructTransf::insert_nodes_for_sectioning_commands"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Transformations::_XS_protect_hashchar_at_line_beginning",
+        "Texinfo::StructTransf::protect_hashchar_at_line_beginning"
+      );
     }
     $module_loaded = 1;
   }
@@ -840,11 +844,17 @@ sub _protect_hashchar_at_line_beginning($$$)
   return undef;
 }
 
+sub _XS_protect_hashchar_at_line_beginning($)
+{
+}
+
 sub protect_hashchar_at_line_beginning($$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $tree = shift;
+
+  _XS_protect_hashchar_at_line_beginning ($tree);
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);

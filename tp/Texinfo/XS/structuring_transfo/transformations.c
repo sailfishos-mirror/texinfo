@@ -1295,3 +1295,120 @@ protect_node_after_label_in_tree (ELEMENT *tree)
 {
   return modify_tree (tree, &protect_node_after_label, 0);
 }
+
+/* $registrar, $customization_information in argument in perl */
+ELEMENT *
+protect_hashchar_at_line_beginning_internal (const char *type,
+                                             ELEMENT *current,
+                                             void *argument)
+{
+  if (current->text.end > 0)
+    {
+      char *filename;
+      int line_no = 0;
+      int status = 0;
+      filename = parse_line_directive (current->text.text, &status, &line_no);
+
+      if (status)
+        {
+     /*
+      find the $current element index in parent to check if first or preceded
+      by a new line
+      */
+          ELEMENT *parent = current->parent;
+          int i;
+
+          if (filename)
+            free (filename);
+
+          for (i = 0; i < parent->contents.number; i++)
+            {
+              if (parent->contents.list[i] == current)
+                {
+                  int do_protect = 0;
+                  if (i == 0)
+                    do_protect = 1;
+                  else
+                    {
+                      ELEMENT *previous = parent->contents.list[i-1];
+                      if (previous->text.end > 0)
+                         {
+                           int end = previous->text.end;
+                           if (previous->text.text[end -1] == '\n')
+                             do_protect = 1;
+                         }
+                    }
+                  if (do_protect)
+                    {
+                  /* do not actually protect in raw block command, but warn */
+                      if (current->type == ET_raw)
+                        {
+                          ELEMENT *parent_for_warn = parent;
+                          while (parent_for_warn)
+                            {
+                              if (parent_for_warn->cmd
+                                  && parent_for_warn->source_info.line_nr)
+                                {
+                 /*
+                if ($registrar) {}
+                  */
+                                  command_warn (parent_for_warn ,
+                                    "could not protect hash character in @%s",
+                                builtin_command_name (parent_for_warn->cmd));
+                                  break;
+                                }
+                              parent_for_warn = parent_for_warn->parent;
+                            }
+                          return 0;
+                        }
+                      else
+                        {
+                          ELEMENT *container = new_element (ET_NONE);
+                          char *current_text = strdup (current->text.text);
+                          char *p = current_text;
+                          int leading_spaces_nr;
+                          ELEMENT *leading_spaces;
+                          ELEMENT *hashchar = new_element (ET_NONE);
+                          ELEMENT *arg = new_element (ET_brace_command_arg);
+
+                          /* NOTE not exactly the perl code, but use similar
+                             code as line directive parsing so should be ok */
+
+                          leading_spaces_nr = strspn (p, " \t");
+                          if (leading_spaces_nr)
+                            {
+                              leading_spaces = new_element (ET_NONE);
+                              leading_spaces->parent = parent;
+                              p += leading_spaces_nr;
+                              *p = '\0'; /* as a side note, it replaces the # */
+                              text_append (&leading_spaces->text, current_text);
+                              add_to_contents_as_array (container,
+                                                        leading_spaces);
+                            }
+                          /* past # */
+                          p++;
+                          text_reset (&current->text);
+                          text_append (&current->text, p);
+                          free (current_text);
+
+                          hashchar->cmd = CM_hashchar;
+                          hashchar->parent = parent;
+                          add_to_element_args (hashchar, arg);
+                          add_to_contents_as_array (container, hashchar);
+                          add_to_contents_as_array (container, current);
+                          return container;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  return 0;
+}
+
+/* FIXME $registrar and $customization_information in perl */
+ELEMENT *
+protect_hashchar_at_line_beginning (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_hashchar_at_line_beginning_internal, 0);
+}

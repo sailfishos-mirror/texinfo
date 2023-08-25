@@ -36,6 +36,7 @@
 #define max_level command_structuring_level[CM_subsubsection]
 
 const char *whitespace_chars = " \t\v\f\r\n";
+const char *digit_chars = "0123456789";
 
 /* to keep synchronized with enum directions in tree_types.h */
 const char *direction_names[] = {"prev", "next", "up"};
@@ -210,6 +211,69 @@ collapse_spaces (char *text)
         }
     }
   return result.text;
+}
+
+/* Parse a #line directive.
+   The filename of the line directive is returned.
+   The line number value is in OUT_LINE_NO.
+   RETVAL value is 1 for valid line directive, 0 otherwise.
+*/
+char *
+parse_line_directive (char *line, int *retval, int *out_line_no)
+{
+  char *p = line, *q;
+  char *filename = 0;
+  int line_no = 0;
+
+  *out_line_no = 0;
+  *retval = 0;
+
+  p += strspn (p, " \t");
+  if (*p != '#')
+    return 0;
+  p++;
+
+  q = p + strspn (p, " \t");
+  if (!memcmp (q, "line", strlen ("line")))
+    p = q + strlen ("line");
+
+  if (!strchr (" \t", *p))
+    return 0;
+  p += strspn (p, " \t");
+
+  /* p should now be at the line number */
+  if (!strchr (digit_chars, *p))
+    return 0;
+  line_no = strtoul (p, &p, 10);
+
+  p += strspn (p, " \t");
+  if (*p == '"')
+    {
+      char saved;
+      p++;
+      q = strchr (p, '"');
+      if (!q)
+        return 0;
+      saved = *q;
+      *q = 0;
+      filename = strdup (p);
+      *q = saved;
+      p = q + 1;
+      p += strspn (p, " \t");
+
+      p += strspn (p, digit_chars);
+      p += strspn (p, " \t");
+    }
+  if (*p && *p != '\n')
+    {
+      free (filename);
+      return 0; /* trailing text on line */
+    }
+
+  *retval = 1;
+  *out_line_no = line_no;
+
+  return filename;
 }
 
 char *

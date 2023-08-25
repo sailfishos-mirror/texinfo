@@ -25,8 +25,8 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for isascii_alnum, whitespace_chars, read_flag_name
- * and delete_global_info */
+/* for isascii_alnum, whitespace_chars, read_flag_name,
+   delete_global_info, parse_line_directive */
 #include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"
@@ -54,7 +54,6 @@
 #include "parser.h"
 
 
-const char *digit_chars = "0123456789";
 
 /* in the perl parser, comments including whitespace_chars_except_newline
    show where code should be changed if the list of characters changes here */
@@ -2509,9 +2508,10 @@ funexit:
 static int
 check_line_directive (char *line)
 {
-  char *p = line, *q;
   int line_no = 0;
+  int status = 0;
   char *filename = 0;
+  char *parsed_filename;
 
   if (!conf.cpp_line_directives)
     return 0;
@@ -2521,48 +2521,19 @@ check_line_directive (char *line)
       || (current_source_info.macro && *current_source_info.macro))
     return 0;
 
-  p += strspn (p, " \t");
-  if (*p != '#')
-    return 0;
-  p++;
-
-  q = p + strspn (p, " \t");
-  if (!memcmp (q, "line", strlen ("line")))
-    p = q + strlen ("line");
-
-  if (!strchr (" \t", *p))
-    return 0;
-  p += strspn (p, " \t");
-
-  /* p should now be at the line number */
-  if (!strchr (digit_chars, *p))
-    return 0;
-  line_no = strtoul (p, &p, 10);
-
-  p += strspn (p, " \t");
-  if (*p == '"')
+  parsed_filename = parse_line_directive (line, &status, &line_no);
+  if (status)
     {
-      char saved;
-      p++;
-      q = strchr (p, '"');
-      if (!q)
-        return 0;
-      saved = *q;
-      *q = 0;
-      filename = save_string (p);
-      *q = saved;
-      p = q + 1;
-      p += strspn (p, " \t");
+      if (parsed_filename)
+        {
+          filename = save_string (parsed_filename);
+          free (parsed_filename);
+        }
+      save_line_directive (line_no, filename);
 
-      p += strspn (p, digit_chars);
-      p += strspn (p, " \t");
+      return 1;
     }
-  if (*p && *p != '\n')
-    return 0; /* trailing text on line */
-
-  save_line_directive (line_no, filename);
-
-  return 1;
+  return 0;
 }
 
 /* Pass in a root of "Texinfo tree".  Starting point for adding

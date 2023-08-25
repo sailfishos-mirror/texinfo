@@ -314,3 +314,16 @@ protect_node_after_label_in_tree (tree_in)
         if (document)
           protect_node_after_label_in_tree (document->tree);
 
+# FIXME return something?
+void
+protect_hashchar_at_line_beginning (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        /* there is no need to replace the root of the tree */
+        if (document)
+          protect_hashchar_at_line_beginning (document->tree);
+

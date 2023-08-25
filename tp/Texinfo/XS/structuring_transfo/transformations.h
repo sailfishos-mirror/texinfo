@@ -17,6 +17,7 @@ void complete_tree_nodes_menus (ELEMENT *root, int use_sections);
 void complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections);
 int regenerate_master_menu (DOCUMENT *document, int use_sections);
 ELEMENT *insert_nodes_for_sectioning_commands (DOCUMENT *document);
+ELEMENT *protect_hashchar_at_line_beginning (ELEMENT *tree);
 
 
 #endif

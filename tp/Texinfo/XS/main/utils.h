@@ -20,6 +20,7 @@
 #include "tree_types.h"
 
 extern const char *whitespace_chars;
+extern const char *digit_chars;
 extern enum command_id level_to_structuring_command[][5];
 
 extern const char *direction_names[];
@@ -136,6 +137,7 @@ ELEMENT *get_label_element (ELEMENT *e);
 char *read_flag_name (char **ptr);
 int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);
+char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 
 struct expanded_format *new_expanded_formats (char *format);

@@ -117,7 +117,6 @@ char *parse_command_name (char **ptr, int *single_char);
 
 extern const char *whitespace_chars_except_newline;
 extern const char *linecommand_expansion_delimiters;
-extern const char *digit_chars;
 
 extern ELEMENT *current_node;
 extern ELEMENT *current_section;
