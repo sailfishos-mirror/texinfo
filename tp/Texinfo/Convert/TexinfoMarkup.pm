@@ -802,7 +802,7 @@ sub _convert($$;$)
       } elsif ($type eq 'line') {
         if ($cmdname eq 'node') {
           my $nodename;
-          if ($element->{'extra'}->{'is_target'}) {
+          if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
             $nodename = $element->{'extra'}->{'normalized'};
           } else {
             $nodename = '';
@@ -821,13 +821,13 @@ sub _convert($$;$)
           my $pending_empty_directions = '';
           foreach my $direction(@node_directions) {
             my $format_element = 'node'.lc($direction);
-            if ($element->{'extra'}->{'node_directions'}
+            if ($element->{'extra'} and $element->{'extra'}->{'node_directions'}
                 and $element->{'extra'}->{'node_directions'}->{lc($direction)}) {
               my $node_direction
                   = $element->{'extra'}->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
-              if ($element->{'args'}->[$direction_index]) {
+              if ($element->{'args'} and $element->{'args'}->[$direction_index]) {
                 push @$attributes, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
