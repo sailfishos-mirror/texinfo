@@ -213,6 +213,17 @@ complete_node_tree_with_menus (document_in)
           complete_node_tree_with_menus (document);
 
 void
+check_nodes_are_referenced (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          check_nodes_are_referenced (document);
+
+void
 complete_tree_nodes_menus (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;

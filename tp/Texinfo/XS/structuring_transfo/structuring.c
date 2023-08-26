@@ -433,6 +433,338 @@ normalized_entry_associated_internal_node (ELEMENT *entry,
 }
 
 ELEMENT *
+get_node_node_childs_from_sectioning (ELEMENT *node)
+{
+  ELEMENT *node_childs = new_element (ET_NONE);
+
+  ELEMENT *associated_section = lookup_extra_element (node, "associated_section");
+  if (associated_section)
+    {
+      ELEMENT *section_childs = lookup_extra_element (associated_section,
+                                                      "section_childs");
+      if (section_childs)
+        {
+          int i;
+          for (i = 0; i < section_childs->contents.number; i++)
+            {
+              ELEMENT *child = section_childs->contents.list[i];
+              ELEMENT *associated_node = lookup_extra_element (child,
+                                                             "associated_node");
+              if (associated_node)
+                add_to_contents_as_array (node_childs, associated_node);
+            }
+        }
+       /* Special case for @top.  Gather all the children of the @part following
+          @top. */
+      if (associated_section->cmd == CM_top)
+        {
+          ELEMENT *current = associated_section;
+          while (1)
+            {
+              ELEMENT *section_directions = lookup_extra_element (current,
+                                                        "section_directions");
+              if (section_directions
+                  && section_directions->contents.list[D_next])
+                {
+                  current = section_directions->contents.list[D_next];
+                  if (current->cmd == CM_part)
+                    {
+                      ELEMENT *section_childs = lookup_extra_element (current,
+                                                              "section_childs");
+                      if (section_childs)
+                        {
+                          int i;
+                          for (i = 0; i < section_childs->contents.number; i++)
+                            {
+                              ELEMENT *child = section_childs->contents.list[i];
+                              ELEMENT *associated_node
+                                   = lookup_extra_element (child,
+                                                           "associated_node");
+                              if (associated_node)
+                                add_to_contents_as_array (node_childs,
+                                                          associated_node);
+                            }
+                        }
+                    }
+                  else
+                    {
+                      ELEMENT *associated_node = lookup_extra_element (current,
+                                                            "associated_node");
+                      /*
+                    for @appendix, and what follows, as it stops a @part, but is
+                    not below @top
+                       */
+                      if (associated_node)
+                        add_to_contents_as_array (node_childs, associated_node);
+                    }
+                }
+              else
+                break;
+            }
+        }
+    }
+  return node_childs;
+}
+
+char **
+register_referenced_node (ELEMENT *node, char **referenced_identifiers,
+                          size_t *referenced_identifier_space_ptr,
+                          size_t *referenced_identifier_number_ptr)
+{
+  size_t referenced_identifier_space = *referenced_identifier_space_ptr;
+  size_t referenced_identifier_number = *referenced_identifier_number_ptr;
+  char *normalized;
+
+  if (node->cmd != CM_node)
+    return referenced_identifiers;
+
+  normalized = lookup_extra_string (node, "normalized");
+  if (normalized)
+    {
+      if (referenced_identifier_space == referenced_identifier_number)
+        {
+          referenced_identifier_space *= 2;
+          referenced_identifiers
+             = realloc (referenced_identifiers,
+                        referenced_identifier_space * sizeof (char *));
+        }
+      referenced_identifiers[referenced_identifier_number] = normalized;
+      referenced_identifier_number++;
+    }
+  *referenced_identifier_space_ptr = referenced_identifier_space;
+  *referenced_identifier_number_ptr = referenced_identifier_number;
+  return referenced_identifiers;
+}
+
+int
+compare_strings (const void *a, const void *b)
+{
+  const char **str_a = (const char **) a;
+  const char **str_b = (const char **) b;
+
+  return strcmp (*str_a, *str_b);
+}
+
+void
+check_nodes_are_referenced (DOCUMENT *document)
+{
+  ELEMENT *nodes_list = document->nodes_list;
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+  ELEMENT_LIST *refs = document->internal_references;
+  char **referenced_identifiers;
+  size_t referenced_identifier_space;
+  size_t referenced_identifier_number = 1;
+  size_t i;
+  size_t nr_nodes_to_find = 0;
+  size_t nr_not_found = 0;
+
+  ELEMENT *top_node;
+
+  if (!nodes_list || nodes_list->contents.number <= 0)
+    return;
+
+  referenced_identifier_space = nodes_list->contents.number * 2;
+  referenced_identifiers
+    = malloc (referenced_identifier_space * sizeof (char *));
+
+  top_node = find_identifier_target (identifiers_target,
+                                     "Top");
+  if (!top_node)
+    {
+      top_node = nodes_list->contents.list[0];
+      char *normalized = lookup_extra_string (top_node, "normalized");
+      if (normalized)
+        referenced_identifiers[0] = normalized;
+      else
+        referenced_identifier_number = 0;
+    }
+  else
+    referenced_identifiers[0] = "Top";
+
+  for (i = 0; i < nodes_list->contents.number; i++)
+    {
+      int status;
+      ELEMENT *node = nodes_list->contents.list[i];
+      int is_target = lookup_extra_integer (node, "is_target", &status);
+      ELEMENT *node_directions = lookup_extra_element (node,
+                                                    "node_directions");
+      ELEMENT *menus = lookup_extra_element (node, "menus");
+
+      if (is_target)
+        nr_nodes_to_find++;
+
+      /* gather referenced nodes based on node pointers */
+      if (node_directions)
+        {
+          int d;
+          for (d = 0; d < directions_length; d++)
+            {
+              if (node_directions->contents.list[d])
+                referenced_identifiers =
+                 register_referenced_node (node_directions->contents.list[d],
+                                           referenced_identifiers,
+                                           &referenced_identifier_space,
+                                           &referenced_identifier_number);
+            }
+        }
+      if (menus)
+        {
+          int j;
+          for (j = 0; j < menus->contents.number; j++)
+            {
+              ELEMENT *menu = menus->contents.list[j];
+              int k;
+              for (k = 0; k < menu->contents.number; k++)
+                {
+                  ELEMENT *menu_content = menu->contents.list[k];
+                  if (menu_content->type == ET_menu_entry)
+                    {
+                      ELEMENT *menu_node
+                        = normalized_entry_associated_internal_node(
+                                            menu_content, identifiers_target);
+                      if (menu_node)
+                        referenced_identifiers =
+                         register_referenced_node (menu_node,
+                                                   referenced_identifiers,
+                                                &referenced_identifier_space,
+                                                &referenced_identifier_number);
+                    }
+                }
+            }
+        }
+      else
+        {
+      /* If an automatic menu can be setup, consider that all
+         the nodes appearing in the automatic menu are referenced.
+         Note that the menu may not be actually setup, but
+         it is better not to warn for nothing. */
+          int automatic_directions = (node->args.number <= 1);
+          if (automatic_directions)
+            {
+              ELEMENT *node_childs
+                = get_node_node_childs_from_sectioning (node);
+              int j;
+              for (j = 0; j < node_childs->contents.number; j++)
+                {
+                  referenced_identifiers =
+                   register_referenced_node (node_childs->contents.list[j],
+                                             referenced_identifiers,
+                                             &referenced_identifier_space,
+                                             &referenced_identifier_number);
+
+                }
+            }
+        }
+    }
+  /* consider nodes in internal @*ref commands to be referenced */
+  if (refs)
+    {
+      int i;
+      for (i = 0; i < refs->number; i++)
+        {
+          ELEMENT *ref = refs->list[i];
+          if (ref->args.number > 0)
+            {
+              ELEMENT *label_arg = ref->args.list[0];
+              char *ref_normalized = lookup_extra_string (label_arg,
+                                                          "normalized");
+              if (ref_normalized)
+                {
+                  ELEMENT *target = find_identifier_target (identifiers_target,
+                                                            ref_normalized);
+                  if (target)
+                    referenced_identifiers =
+                     register_referenced_node (target, referenced_identifiers,
+                                               &referenced_identifier_space,
+                                               &referenced_identifier_number);
+                }
+            }
+        }
+    }
+   /*
+  fprintf (stderr, "DEBUG: referenced_identifiers (%zu): %zu\n",
+           referenced_identifier_space, referenced_identifier_number);
+  for (i =0; i < referenced_identifier_number; i++)
+    fprintf (stderr, " %zu: %s\n", i, referenced_identifiers[i]);
+   */
+
+  qsort (referenced_identifiers, referenced_identifier_number,
+         sizeof (char *), compare_strings);
+
+   /*
+  fprintf (stderr, "DEBUG: sorted referenced: %zu\n",
+           referenced_identifier_number);
+  for (i =0; i < referenced_identifier_number; i++)
+    fprintf (stderr, " %zu: %s\n", i, referenced_identifiers[i]);
+   */
+
+  /* remove duplicates */
+  if (referenced_identifier_number > 1)
+    {
+      i = 0;
+      while (i < referenced_identifier_number -1)
+        {
+          size_t j = i;
+          while (j < referenced_identifier_number - 1
+                 && !strcmp (referenced_identifiers[i],
+                             referenced_identifiers[j+1]))
+            {
+              j++;
+            }
+          if (j > i)
+            {
+              if (j < referenced_identifier_number - 1)
+                {
+                  memmove (&referenced_identifiers[i+1],
+                           &referenced_identifiers[j+1],
+                    (referenced_identifier_number - (j + 1))* sizeof(char*));
+                }
+              referenced_identifier_number -= (j - i);
+            }
+          i++;
+        }
+    }
+   /*
+  fprintf (stderr, "DEBUG: trimmed referenced: %zu\n",
+           referenced_identifier_number);
+  for (i =0; i < referenced_identifier_number; i++)
+    fprintf (stderr, " %zu: %s\n", i, referenced_identifiers[i]);
+    */
+
+  /* FIXME we could return here if there is no non referenced node:
+   if (nr_nodes_to_find == referenced_identifier_number)
+     return;
+   */
+
+  for (i = 0; i < nodes_list->contents.number; i++)
+    {
+      int status;
+      ELEMENT *node = nodes_list->contents.list[i];
+      int is_target = lookup_extra_integer (node, "is_target", &status);
+
+      if (is_target)
+        {
+          char *normalized = lookup_extra_string (node, "normalized");
+          char *found = (char *)bsearch (&normalized, referenced_identifiers,
+                             referenced_identifier_number, sizeof(char *),
+                             compare_strings);
+          if (!found)
+            {
+              nr_not_found++;
+              command_warn (node, "node `%s' unreferenced",
+                            target_element_to_texi_label(node));
+            }
+        }
+    }
+
+  if (nr_nodes_to_find - referenced_identifier_number != nr_not_found)
+    {
+      fprintf (stderr, "BUG: to find: %zu; found: %zu; not found: %zu\n",
+               nr_nodes_to_find, referenced_identifier_number, nr_not_found);
+    }
+}
+
+ELEMENT *
 first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
 {
   ELEMENT *menus = lookup_extra_element (node, "menus");
@@ -450,7 +782,7 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
                 {
                   int k;
                   ELEMENT *menu_node
-                    = normalized_entry_associated_internal_node(menu_content,
+                    = normalized_entry_associated_internal_node (menu_content,
                                                           identifiers_target);
                   /* an internal node */
                   if (menu_node)
@@ -1216,80 +1548,6 @@ associate_internal_references (LABEL_LIST *identifiers_target,
         }
     }
 }
-
-ELEMENT *
-get_node_node_childs_from_sectioning (ELEMENT *node)
-{
-  ELEMENT *node_childs = new_element (ET_NONE);
-
-  ELEMENT *associated_section = lookup_extra_element (node, "associated_section");
-  if (associated_section)
-    {
-      ELEMENT *section_childs = lookup_extra_element (associated_section,
-                                                      "section_childs");
-      if (section_childs)
-        {
-          int i;
-          for (i = 0; i < section_childs->contents.number; i++)
-            {
-              ELEMENT *child = section_childs->contents.list[i];
-              ELEMENT *associated_node = lookup_extra_element (child,
-                                                               "associated_node");
-              if (associated_node)
-                add_to_contents_as_array (node_childs, associated_node);
-            }
-        }
-       /* Special case for @top.  Gather all the children of the @part following
-          @top. */
-      if (associated_section->cmd == CM_top)
-        {
-          ELEMENT *current = associated_section;
-          while (1)
-            {
-              ELEMENT *section_directions = lookup_extra_element (current,
-                                                        "section_directions");
-              if (section_directions && section_directions->contents.list[D_next])
-                {
-                  current = section_directions->contents.list[D_next];
-                  if (current->cmd == CM_part)
-                    {
-                      ELEMENT *section_childs = lookup_extra_element (current,
-                                                                "section_childs");
-                      if (section_childs)
-                        {
-                          int i;
-                          for (i = 0; i < section_childs->contents.number; i++)
-                            {
-                              ELEMENT *child = section_childs->contents.list[i];
-                              ELEMENT *associated_node
-                                   = lookup_extra_element (child,
-                                                           "associated_node");
-                              if (associated_node)
-                                add_to_contents_as_array (node_childs,
-                                                          associated_node);
-                            }
-                        }
-                    }
-                  else
-                    {
-                      ELEMENT *associated_node = lookup_extra_element (current,
-                                                              "associated_node");
-                      /*
-                    for @appendix, and what follows, as it stops a @part, but is
-                    not below @top
-                       */
-                      if (associated_node)
-                        add_to_contents_as_array (node_childs, associated_node);
-                    }
-                }
-              else
-                break;
-            }
-        }
-    }
-  return node_childs;
-}
-
 
 /*
   returns the texinfo tree corresponding to a single menu entry pointing

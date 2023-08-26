@@ -1,5 +1,29 @@
 2023-08-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/targets.c (set_labels_identifiers_target): remove
+	check of index on redundant entries being past the end of the list,
+	as it may happen legitimately if there are many redundant entries not
+	exactly at the end.
+
+	* tp/Texinfo/Structuring.pm,
+	tp/Texinfo/XS/structuring_transfo/structuring.c: move functions to
+	earlier in file to be before their use.
+
+	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced): minor
+	modifications, use more intermediary variables, set variables earlier
+	if used in diverse conditions.
+
+	* tp/Texinfo/Structuring.pm (import, _XS_check_nodes_are_referenced)
+	(check_nodes_are_referenced),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(check_nodes_are_referenced),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(register_referenced_node, compare_strings)
+	(check_nodes_are_referenced): implement check_nodes_are_referenced in
+	XS.
+
+2023-08-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (@node_directions_names): rename
 	@node_directions as @node_directions_names.
 

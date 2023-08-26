@@ -114,6 +114,10 @@ sub import {
         "Texinfo::Structuring::_XS_complete_node_tree_with_menus",
         "Texinfo::StructTransf::complete_node_tree_with_menus"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_check_nodes_are_referenced",
+        "Texinfo::StructTransf::check_nodes_are_referenced"
+      );
     }
     $module_loaded = 1;
   }
@@ -451,101 +455,6 @@ sub _check_menu_entry($$$$$$)
   }
 }
 
-sub _register_menu_node_targets($$$)
-{
-  my $identifier_target = shift;
-  my $node = shift;
-  my $register = shift;
-
-  if ($node->{'extra'}->{'menus'}) {
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
-      foreach my $menu_content (@{$menu->{'contents'}}) {
-        if ($menu_content->{'type'}
-            and $menu_content->{'type'} eq 'menu_entry') {
-          my $menu_node
-            = _normalized_entry_associated_internal_node($menu_content,
-                                                         $identifier_target);
-          $register->{$menu_node} = 1 if ($menu_node);
-        }
-      }
-    }
-  }
-}
-
-# In general should be called only after complete_node_tree_with_menus
-# to try to generate menus automatically before checking.
-sub check_nodes_are_referenced
-{
-  my ($document, $registrar, $customization_information) = @_;
-
-  my $nodes_list = $document->nodes_list();
-  my $identifier_target = $document->labels_information();
-  my $refs = $document->internal_references_information();
-
-  return undef unless ($nodes_list and scalar(@{$nodes_list}));
-
-  my $top_node = $identifier_target->{'Top'};
-  $top_node = $nodes_list->[0] if (!$top_node);
-
-  my %referenced_nodes = ($top_node => 1);
-  foreach my $node (@{$nodes_list}) {
-    next if (!$node->{'extra'});
-    # gather referenced nodes based on node pointers
-    foreach my $direction (@node_directions_names) {
-      if ($node->{'extra'}->{'node_directions'}
-          and $node->{'extra'}->{'node_directions'}->{$direction}
-          and not $node->{'extra'}->{'node_directions'}->{$direction}
-                                     ->{'extra'}->{'manual_content'}) {
-        $referenced_nodes{
-             $node->{'extra'}->{'node_directions'}->{$direction}} = 1;
-      }
-    }
-    if ($node->{'extra'}->{'menus'}) {
-      _register_menu_node_targets($identifier_target, $node,
-                                 \%referenced_nodes);
-    } else {
-      # If an automatic menu can be setup, consider that all
-      # the nodes appearing in the automatic menu are referenced.
-      # Note that the menu may not be actually setup, but
-      # it is better not to warn for nothing.
-      my $automatic_directions
-        = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
-      if ($automatic_directions) {
-        my @node_childs = get_node_node_childs_from_sectioning($node);
-        foreach my $node_child (@node_childs) {
-          $referenced_nodes{$node_child} = 1;
-        }
-      }
-    }
-  }
-
-  # consider nodes in @*ref commands to be referenced
-  if (defined($refs)) {
-    foreach my $ref (@$refs) {
-      if ($ref->{'args'} and scalar(@{$ref->{'args'}})
-          and $ref->{'args'}->[0]->{'extra'}
-          and defined($ref->{'args'}->[0]->{'extra'}->{'normalized'})) {
-        my $normalized = $ref->{'args'}->[0]->{'extra'}->{'normalized'};
-        my $node_target = $identifier_target->{$normalized};
-        if ($node_target) {
-          $referenced_nodes{$node_target} = 1;
-        }
-      }
-    }
-  }
-
-  foreach my $node (@{$nodes_list}) {
-    # it is normal that a redundant node is not referenced
-    if ($node->{'extra'}->{'is_target'}
-        and not exists($referenced_nodes{$node})) {
-      $registrar->line_warn($customization_information,
-                            sprintf(__("node `%s' unreferenced"),
-                                    target_element_to_texi_label($node)),
-                            $node->{'source_info'});
-    }
-  }
-}
-
 # return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
 # the internal node referred to by menu entry $ENTRY
 sub normalized_menu_entry_internal_node($)
@@ -577,6 +486,155 @@ sub _normalized_entry_associated_internal_node($$)
     return $identifier_target->{$normalized_entry_node};
   }
   return undef;
+}
+
+sub _register_menu_node_targets($$$)
+{
+  my $identifier_target = shift;
+  my $node = shift;
+  my $register = shift;
+
+  if ($node->{'extra'}->{'menus'}) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+      foreach my $menu_content (@{$menu->{'contents'}}) {
+        if ($menu_content->{'type'}
+            and $menu_content->{'type'} eq 'menu_entry') {
+          my $menu_node
+            = _normalized_entry_associated_internal_node($menu_content,
+                                                         $identifier_target);
+          $register->{$menu_node} = 1 if ($menu_node);
+        }
+      }
+    }
+  }
+}
+
+sub get_node_node_childs_from_sectioning
+{
+  my ($node) = @_;
+
+  my @node_childs;
+
+  if ($node->{'extra'}
+      and $node->{'extra'}->{'associated_section'}) {
+    my $associated_section = $node->{'extra'}->{'associated_section'};
+
+    if ($associated_section->{'extra'}
+        and $associated_section->{'extra'}->{'section_childs'}) {
+      foreach my $child (@{$associated_section->{'extra'}->{'section_childs'}}) {
+        if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
+          push @node_childs, $child->{'extra'}->{'associated_node'};
+        }
+      }
+    }
+    # Special case for @top.  Gather all the children of the @part following
+    # @top.
+    if ($associated_section->{'cmdname'} eq 'top') {
+      my $current = $associated_section;
+      while ($current->{'extra'}->{'section_directions'}
+             and $current->{'extra'}->{'section_directions'}->{'next'}) {
+        $current = $current->{'extra'}->{'section_directions'}->{'next'};
+        if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
+          if ($current->{'extra'}->{'section_childs'}) {
+            foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
+              if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
+                push @node_childs, $child->{'extra'}->{'associated_node'};
+              }
+            }
+          }
+        } elsif ($current->{'extra'}
+                 and $current->{'extra'}->{'associated_node'}) {
+          # for @appendix, and what follows, as it stops a @part, but is
+          # not below @top
+          push @node_childs, $current->{'extra'}->{'associated_node'};
+        }
+      }
+    }
+  }
+  return @node_childs;
+}
+
+sub _XS_check_nodes_are_referenced($)
+{
+}
+
+# In general should be called only after complete_node_tree_with_menus
+# to try to generate menus automatically before checking.
+sub check_nodes_are_referenced
+{
+  my ($document, $registrar, $customization_information) = @_;
+
+  _XS_check_nodes_are_referenced($document);
+
+  my $nodes_list = $document->nodes_list();
+  my $identifier_target = $document->labels_information();
+  my $refs = $document->internal_references_information();
+
+  return unless ($nodes_list and scalar(@{$nodes_list}));
+
+  my $top_node = $identifier_target->{'Top'};
+  $top_node = $nodes_list->[0] if (!$top_node);
+
+  my %referenced_nodes = ($top_node => 1);
+  foreach my $node (@{$nodes_list}) {
+    next if (!$node->{'extra'});
+    # gather referenced nodes based on node pointers
+    my $node_directions = $node->{'extra'}->{'node_directions'};
+    if ($node_directions) {
+      foreach my $direction (@node_directions_names) {
+        if ($node_directions->{$direction}
+            and not $node_directions->{$direction}
+                                   ->{'extra'}->{'manual_content'}) {
+          $referenced_nodes{$node_directions->{$direction}} = 1;
+        }
+      }
+    }
+    if ($node->{'extra'}->{'menus'}) {
+      _register_menu_node_targets($identifier_target, $node,
+                                 \%referenced_nodes);
+    } else {
+      # If an automatic menu can be setup, consider that all
+      # the nodes appearing in the automatic menu are referenced.
+      # Note that the menu may not be actually setup, but
+      # it is better not to warn for nothing.
+      my $automatic_directions
+        = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
+      if ($automatic_directions) {
+        my @node_childs = get_node_node_childs_from_sectioning($node);
+        foreach my $node_child (@node_childs) {
+          $referenced_nodes{$node_child} = 1;
+        }
+      }
+    }
+  }
+
+  # consider nodes in internal @*ref commands to be referenced
+  if (defined($refs)) {
+    foreach my $ref (@$refs) {
+      if ($ref->{'args'} and scalar(@{$ref->{'args'}})
+          and $ref->{'args'}->[0]->{'extra'}) {
+        my $label_arg = $ref->{'args'}->[0];
+        my $label_normalized = $label_arg->{'extra'}->{'normalized'};
+        if ($label_normalized) {
+          my $node_target = $identifier_target->{$label_normalized};
+          if ($node_target and $node_target->{'cmdname'} eq 'node') {
+            $referenced_nodes{$node_target} = 1;
+          }
+        }
+      }
+    }
+  }
+
+  foreach my $node (@{$nodes_list}) {
+    # it is normal that a redundant node is not referenced
+    if ($node->{'extra'}->{'is_target'}
+        and not exists($referenced_nodes{$node})) {
+      $registrar->line_warn($customization_information,
+                            sprintf(__("node `%s' unreferenced"),
+                                    target_element_to_texi_label($node)),
+                            $node->{'source_info'});
+    }
+  }
 }
 
 # In $NODE, find the first menu entry node in the first menu.  If the
@@ -1798,51 +1856,6 @@ sub number_floats($)
       $float->{'extra'}->{'float_number'} = $number;
     }
   }
-}
-
-sub get_node_node_childs_from_sectioning
-{
-  my ($node) = @_;
-
-  my @node_childs;
-
-  if ($node->{'extra'}
-      and $node->{'extra'}->{'associated_section'}) {
-    my $associated_section = $node->{'extra'}->{'associated_section'};
-
-    if ($associated_section->{'extra'}
-        and $associated_section->{'extra'}->{'section_childs'}) {
-      foreach my $child (@{$associated_section->{'extra'}->{'section_childs'}}) {
-        if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-          push @node_childs, $child->{'extra'}->{'associated_node'};
-        }
-      }
-    }
-    # Special case for @top.  Gather all the children of the @part following
-    # @top.
-    if ($associated_section->{'cmdname'} eq 'top') {
-      my $current = $associated_section;
-      while ($current->{'extra'}->{'section_directions'}
-             and $current->{'extra'}->{'section_directions'}->{'next'}) {
-        $current = $current->{'extra'}->{'section_directions'}->{'next'};
-        if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
-          if ($current->{'extra'}->{'section_childs'}) {
-            foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
-              if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-                push @node_childs, $child->{'extra'}->{'associated_node'};
-              }
-            }
-          }
-        } elsif ($current->{'extra'}
-                 and $current->{'extra'}->{'associated_node'}) {
-          # for @appendix, and what follows, as it stops a @part, but is
-          # not below @top
-          push @node_childs, $current->{'extra'}->{'associated_node'};
-        }
-      }
-    }
-  }
-  return @node_childs;
 }
 
 # returns the texinfo tree corresponding to a single menu entry pointing

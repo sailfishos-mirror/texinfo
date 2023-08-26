@@ -156,8 +156,6 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
                          (targets_number - (j + 1))* sizeof(LABEL));
                 }
               targets_number -= (j - i);
-              if (j >= targets_number)
-                break;
             }
           i++;
         }
