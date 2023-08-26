@@ -105,6 +105,50 @@ normalized_entry_associated_internal_node (ELEMENT *entry,
   return 0;
 }
 
+ELEMENT *
+first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
+{
+  ELEMENT *menus = lookup_extra_element (node, "menus");
+  if (menus)
+    {
+      int i;
+      for (i = 0; i < menus->contents.number; i++)
+        {
+          ELEMENT *menu = menus->contents.list[i];
+          int j;
+          for (j = 0; j < menu->contents.number; j++)
+            {
+              ELEMENT *menu_content = menu->contents.list[j];
+              if (menu_content->type == ET_menu_entry)
+                {
+                  int k;
+                  ELEMENT *menu_node
+                    = normalized_entry_associated_internal_node(menu_content,
+                                                          identifiers_target);
+                  /* an internal node */
+                  if (menu_node)
+                    return menu_node;
+
+                  for (k = 0; menu_content->contents.number; k++)
+                    {
+                      ELEMENT *content = menu_content->contents.list[k];
+                      if (content->type == ET_menu_entry_node)
+                        {
+                          ELEMENT *manual_content
+                           = lookup_extra_element (content, "manual_content");
+                          /* a reference to an external manual */
+                          if (manual_content)
+                            return content;
+                          break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  return 0;
+}
+
 void
 associate_internal_references (LABEL_LIST *identifiers_target,
                                ELEMENT_LIST *refs)
@@ -472,6 +516,51 @@ sectioning_structure (ELEMENT *root)
   return sections_list;
 }
 
+void
+warn_non_empty_parts (DOCUMENT *document)
+{
+  GLOBAL_INFO *global_info = document->global_info;
+  int i;
+
+  for (i = 0; i < global_info->part.contents.number; i++)
+    {
+      ELEMENT *part = global_info->part.contents.list[i];
+      if (!is_content_empty (part, 0))
+        command_warn (part, "@%s not empty",
+                      builtin_command_name (part->cmd));
+    }
+}
+
+void
+check_menu_entry (LABEL_LIST *identifiers_target, enum command_id cmd,
+                  ELEMENT *menu_content, ELEMENT *menu_entry_node)
+{
+  char *normalized_menu_node = lookup_extra_string (menu_entry_node,
+                                                    "normalized");
+  if (normalized_menu_node)
+    {
+      ELEMENT *menu_node = find_identifier_target (identifiers_target,
+                                                   normalized_menu_node);
+      if (!menu_node)
+        command_error (menu_content, "@%s reference to nonexistent node `%s'",
+                       builtin_command_name (cmd),
+                       link_element_to_texi (menu_entry_node));
+
+      else
+        {
+          ELEMENT *node_content = lookup_extra_element (menu_entry_node,
+                                                        "node_content");
+          if (!check_node_same_texinfo_code (menu_node, node_content))
+            command_warn (menu_content,
+                  "@%s entry node name `%s' different from %s name `%s'",
+                  builtin_command_name (cmd),
+                  link_element_to_texi (menu_entry_node),
+                  builtin_command_name (menu_node->cmd),
+                  target_element_to_texi_label (menu_node));
+        }
+    }
+}
+
 static char *direction_bases[] = {"section_directions", "toplevel_directions"};
 
 ELEMENT *
@@ -495,6 +584,288 @@ section_direction_associated_node (ELEMENT *section, enum directions direction)
         }
     }
   return 0;
+}
+
+/*
+ complete automatic directions with menus (and first node
+ for Top node).
+ Checks on structure related to menus.
+*/
+void
+complete_node_tree_with_menus (DOCUMENT *document)
+{
+  ELEMENT *nodes_list = document->nodes_list;
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+
+  int i;
+
+  if (!nodes_list || nodes_list->contents.number <= 0)
+    return;
+
+  /* Go through all the nodes */
+
+  for (i = 0; i < nodes_list->contents.number; i++)
+    {
+      ELEMENT *node = nodes_list->contents.list[i];
+      char *normalized = lookup_extra_string (node, "normalized");
+      ELEMENT *menu_directions = lookup_extra_element (node,
+                                                      "menu_directions");
+      int automatic_directions = (node->args.number <= 1);
+
+      if (automatic_directions)
+        {
+          ELEMENT *node_directions = lookup_extra_element (node,
+                                                          "node_directions");
+          if (strcmp (normalized, "Top"))
+            {
+              int d;
+              for (d = 0; d < directions_length; d++)
+                {
+                  ELEMENT *section;
+              /* prev already defined for the node first Top node menu entry */
+                  if (d == D_prev)
+                    {
+                      if (node_directions && node_directions->contents.list[d])
+                        {
+                          ELEMENT *prev = node_directions->contents.list[d];
+                          char *prev_normalized = lookup_extra_string (prev,
+                                                               "normalized");
+                          if (prev_normalized && !strcmp (normalized, "Top"))
+                            continue;
+                        }
+                    }
+                  section = lookup_extra_element (node, "associated_section");
+                  if (section
+                      && (0))
+/*
+                     and $customization_information->get_conf(
+                                               'CHECK_NORMAL_MENU_STRUCTURE')) {}
+*/
+                    {
+                      ELEMENT *node_direction_section = section;
+                      ELEMENT *part_section;
+                      ELEMENT *direction_associated_node;
+          /* Prefer the section associated with a @part for node directions. */
+                      part_section = lookup_extra_element (section,
+                                                   "part_associated_section");
+                      if (part_section)
+                        node_direction_section = part_section;
+                      direction_associated_node
+                        = section_direction_associated_node(
+                                                  node_direction_section, d);
+                      if (direction_associated_node)
+                        {
+                          ELEMENT *menus = 0;
+                          ELEMENT *section_directions
+                            = lookup_extra_element (node_direction_section,
+                                                    "section_directions");
+                          if (section_directions
+                              && section_directions->contents.list[D_up])
+                            {
+                              ELEMENT *up_sec
+                               = section_directions->contents.list[D_up];
+                              ELEMENT *up_node = lookup_extra_element (up_sec,
+                                                            "associated_node");
+                              if (up_node)
+                                menus 
+                                  = lookup_extra_element (up_node, "menus");
+                            }
+
+                          if (menus
+                              && menus->contents.number > 0
+                              && (!menu_directions
+                                  || !menu_directions->contents.list[d]))
+                            command_warn (node,
+                      "node %s for `%s' is `%s' in sectioning but not in menu",
+                                       direction_names[d],
+                                       target_element_to_texi_label (node),
+                      target_element_to_texi_label (direction_associated_node));
+                        }
+                    }
+          /*
+            Direction was not set with sections, use menus.  This allows
+            using only automatic direction for manuals without sectioning
+            commands but with explicit menus.
+           */
+                  if ((!node_directions
+                       || !node_directions->contents.list[d])
+                      && menu_directions
+                      && menu_directions->contents.list[d])
+                    {
+                      ELEMENT *elt_menu_direction
+                       = menu_directions->contents.list[d];
+                      ELEMENT *menu_direction_manual_content
+                        = lookup_extra_element (elt_menu_direction,
+                                                "manual_content");
+                      if (!menu_direction_manual_content)
+                        {
+                          if (0 && section)
+          /*
+            if ($customization_information->get_conf(
+                                               'CHECK_NORMAL_MENU_STRUCTURE')
+           */
+                            command_warn (node,
+               "node `%s' is %s for `%s' in menu but not in sectioning",
+                       target_element_to_texi_label (elt_menu_direction),
+                                           direction_names[d],
+                                 target_element_to_texi_label(node));
+
+                          node_directions = lookup_extra_directions (node,
+                                                      "node_directions", 1);
+                          node_directions->contents.list[d]
+                             = elt_menu_direction;
+                        }
+                    }
+                }
+            }
+          else if (!node_directions
+                   || !node_directions->contents.list[D_next])
+            {
+              /* use first menu entry if available as next for Top */
+              ELEMENT *menu_child = first_menu_node(node, identifiers_target);
+              if (menu_child)
+                {
+                  node_directions = lookup_extra_directions (node,
+                                                "node_directions", 1);
+                  node_directions->contents.list[D_next] = menu_child;
+                  ELEMENT *menu_child_manual_content
+                    = lookup_extra_element (menu_child, "manual_content");
+                  if (!menu_child_manual_content)
+                    {
+                      ELEMENT *child_node_directions
+                        = lookup_extra_directions (menu_child,
+                                                   "node_directions", 1);
+                      if (!child_node_directions->contents.list[D_prev])
+                        child_node_directions->contents.list[D_prev] = node;
+                    }
+                }
+              else
+                {
+                  /* use the first non top node as next for Top */
+                  int j;
+                  for (j = 0; j < nodes_list->contents.number; j++)
+                    {
+                      ELEMENT *first_non_top_node
+                        = nodes_list->contents.list[j];
+                      if (first_non_top_node != node)
+                        {
+                          node_directions = lookup_extra_directions (node,
+                                                      "node_directions", 1);
+                          node_directions->contents.list[D_next]
+                              = first_non_top_node;
+                          int first_non_top_node_automatic
+                            = (first_non_top_node->args.number <= 1);
+                          if (first_non_top_node_automatic)
+                            {
+                              ELEMENT *non_top_node_directions
+                               = lookup_extra_directions (first_non_top_node,
+                                                        "node_directions", 1);
+                              non_top_node_directions->contents.list[D_prev]
+                               = node;
+                            }
+                          break;
+                        }
+                    }
+                }
+            }
+        }
+  /* check consistency between node pointer and node entries menu order */
+      if (0 && strcmp (normalized, "Top"))
+  /* 0 corresponds to
+    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+   */
+
+        {
+          ELEMENT *node_directions = lookup_extra_element (node,
+                                                           "node_directions");
+          if (node_directions && menu_directions)
+            {
+              int d;
+              for (d = 0; d < directions_length; d++)
+                {
+                  if (node_directions->contents.list[d]
+                      && menu_directions->contents.list[d]
+                      && node_directions->contents.list[d]
+                           != menu_directions->contents.list[d])
+                    {
+                      ELEMENT *menu_direction
+                       = menu_directions->contents.list[d];
+                      ELEMENT *menu_dir_manual_content
+                       = lookup_extra_element (menu_direction, "manual_content");
+                      if (!menu_dir_manual_content)
+                        {
+                          command_warn (node,
+                    "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                                           direction_names[d],
+                                target_element_to_texi_label (node),
+               target_element_to_texi_label (node_directions->contents.list[d]),
+                                           direction_names[d],
+                                target_element_to_texi_label (menu_direction));
+                        }
+                    }
+                }
+            }
+        }
+      /* check for node up / menu up mismatch */
+      if (1)
+  /*
+    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
+   */
+        {
+          ELEMENT *node_directions = lookup_extra_element (node,
+                                                           "node_directions");
+          ELEMENT *up_node = 0;
+          if (node_directions && node_directions->contents.list[D_up])
+            up_node = node_directions->contents.list[D_up];
+          if (up_node)
+            {
+              int status;
+              ELEMENT *manual_content = lookup_extra_element (up_node,
+                                                          "manual_content");
+              int is_target = lookup_extra_integer (node, "is_target",
+                                                    &status);
+              ELEMENT *menus = lookup_extra_element (up_node, "menus");
+
+              /* No check if node up is an external manual */
+              if (!manual_content
+            /* no check for a redundant node, the node registered in the menu
+               was the main equivalent node */
+                  && is_target
+               /* check only if there are menus */
+                  && menus)
+                {
+                  int j;
+                  int found = 0;
+                  for (j = 0; j < menus->contents.number; j++)
+                    {
+                      ELEMENT *menu = menus->contents.list[j];
+                      int k;
+                      for (k = 0; k < menu->contents.number; k++)
+                        {
+                          ELEMENT *menu_content = menu->contents.list[k];
+                          if (menu_content->type == ET_menu_entry)
+                            {
+                              ELEMENT *menu_node
+                                = normalized_entry_associated_internal_node(
+                                                         menu_content,
+                                                          identifiers_target);
+                              if (menu_node == node)
+                                {
+                                  found = 1;
+                                  break;
+                                }
+                            }
+                        }
+                    }
+                  if (!found)
+                    command_warn (up_node,
+           "node `%s' lacks menu item for `%s' despite being its Up target",
+                                  target_element_to_texi_label (up_node),
+                                  target_element_to_texi_label (node));
+                }
+            }
+        }
+    }
 }
 
 /* set node directions based on sectioning and @node explicit directions */
@@ -559,7 +930,6 @@ nodes_tree (DOCUMENT *document)
                 section = lookup_extra_element (node, "associated_section");
                 if (section)
                   {
-
           /* Prefer the section associated with a @part for node directions. */
                     part_section = lookup_extra_element (section,
                                                  "part_associated_section");
@@ -682,51 +1052,6 @@ nodes_tree (DOCUMENT *document)
   return nodes_list;
 }
 
-void
-warn_non_empty_parts (DOCUMENT *document)
-{
-  GLOBAL_INFO *global_info = document->global_info;
-  int i;
-
-  for (i = 0; i < global_info->part.contents.number; i++)
-    {
-      ELEMENT *part = global_info->part.contents.list[i];
-      if (!is_content_empty (part, 0))
-        command_warn (part, "@%s not empty",
-                      builtin_command_name (part->cmd));
-    }
-}
-
-void
-check_menu_entry (LABEL_LIST *identifiers_target, enum command_id cmd,
-                  ELEMENT *menu_content, ELEMENT *menu_entry_node)
-{
-  char *normalized_menu_node = lookup_extra_string (menu_entry_node,
-                                                    "normalized");
-  if (normalized_menu_node)
-    {
-      ELEMENT *menu_node = find_identifier_target (identifiers_target,
-                                                   normalized_menu_node);
-      if (!menu_node)
-        command_error (menu_content, "@%s reference to nonexistent node `%s'",
-                       builtin_command_name (cmd),
-                       link_element_to_texi (menu_entry_node));
-
-      else
-        {
-          ELEMENT *node_content = lookup_extra_element (menu_entry_node,
-                                                        "node_content");
-          if (!check_node_same_texinfo_code (menu_node, node_content))
-            command_warn (menu_content,
-                  "@%s entry node name `%s' different from %s name `%s'",
-                  builtin_command_name (cmd),
-                  link_element_to_texi (menu_entry_node),
-                  builtin_command_name (menu_node->cmd),
-                  target_element_to_texi_label (menu_node));
-        }
-    }
-}
-
 /* set menu_directions */
 /* FIXME $registrar and $customization_information in perl */
 void
@@ -761,6 +1086,10 @@ set_menus_node_directions (DOCUMENT *document)
       int j;
       ELEMENT *node = nodes_list->contents.list[i];
       ELEMENT *menus = lookup_extra_element (node, "menus");
+
+      if (!menus)
+        continue;
+
       if (menus->contents.number > 1)
         {
           for (j = 1; j < menus->contents.number; j++)
@@ -796,6 +1125,22 @@ set_menus_node_directions (DOCUMENT *document)
                               if (check_menu_entries)
                                 check_menu_entry (identifiers_target, menu->cmd,
                                                   menu_content, content);
+                              char *normalized
+                                = lookup_extra_string (content, "normalized");
+                              if (normalized)
+                                {
+                                  menu_node
+                                   = find_identifier_target (identifiers_target,
+                                                             normalized);
+                                  if (menu_node)
+                                    {
+                                      ELEMENT *menu_directions
+                                       = lookup_extra_directions (menu_node,
+                                                          "menu_directions", 1);
+                                      menu_directions->contents.list[D_up]
+                                        = node;
+                                    }
+                                }
                             }
                           else
                             {

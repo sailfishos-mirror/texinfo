@@ -1,5 +1,33 @@
 2023-08-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (@node_directions_names): rename
+	@node_directions as @node_directions_names.
+
+	* tp/Texinfo/Structuring.pm (_first_menu_node): use
+	_normalized_entry_associated_internal_node in _first_menu_node.
+	Move code around.
+
+	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus): update
+	code to use more intermediary variables, rearrange conditions, set
+	variables earlier if used in diverse conditions.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(set_menus_node_directions): do nothing if there are no menu. Complete
+	missing code.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c: move code around.
+
+	* tp/Texinfo/Structuring.pm (import, complete_node_tree_with_menus)
+	(_XS_complete_node_tree_with_menus),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(complete_node_tree_with_menus),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (first_menu_node)
+	(complete_node_tree_with_menus): implement
+	complete_node_tree_with_menus in XS (without the use of configuration
+	variables).
+
+2023-08-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): avoid unwanted
 	autovivification.
 

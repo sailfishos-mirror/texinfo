@@ -202,6 +202,17 @@ set_menus_node_directions (document_in)
           set_menus_node_directions (document);
 
 void
+complete_node_tree_with_menus (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          complete_node_tree_with_menus (document);
+
+void
 complete_tree_nodes_menus (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;

@@ -110,6 +110,10 @@ sub import {
         "Texinfo::Structuring::_XS_set_menus_node_directions",
         "Texinfo::StructTransf::set_menus_node_directions"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_complete_node_tree_with_menus",
+        "Texinfo::StructTransf::complete_node_tree_with_menus"
+      );
     }
     $module_loaded = 1;
   }
@@ -404,7 +408,7 @@ sub warn_non_empty_parts($$$)
   }
 }
 
-my @node_directions = ('next', 'prev', 'up');
+my @node_directions_names = ('next', 'prev', 'up');
 # No translation of those special Info keywords.
 my %direction_texts = (
  'prev' => 'Prev',
@@ -487,7 +491,7 @@ sub check_nodes_are_referenced
   foreach my $node (@{$nodes_list}) {
     next if (!$node->{'extra'});
     # gather referenced nodes based on node pointers
-    foreach my $direction (@node_directions) {
+    foreach my $direction (@node_directions_names) {
       if ($node->{'extra'}->{'node_directions'}
           and $node->{'extra'}->{'node_directions'}->{$direction}
           and not $node->{'extra'}->{'node_directions'}->{$direction}
@@ -542,6 +546,39 @@ sub check_nodes_are_referenced
   }
 }
 
+# return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
+# the internal node referred to by menu entry $ENTRY
+sub normalized_menu_entry_internal_node($)
+{
+  my $entry = shift;
+
+  foreach my $content (@{$entry->{'contents'}}) {
+    if ($content->{'type'} eq 'menu_entry_node') {
+      if ($content->{'extra'}) {
+        if (! $content->{'extra'}->{'manual_content'}) {
+          return $content->{'extra'}->{'normalized'};
+        }
+      }
+      return undef;
+    }
+  }
+  return undef;
+}
+
+# Return $NODE where $NODE is the node referred to by menu entry $ENTRY.
+sub _normalized_entry_associated_internal_node($$)
+{
+  my $entry = shift;
+  my $identifier_target = shift;
+
+  my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
+
+  if (defined($normalized_entry_node)) {
+    return $identifier_target->{$normalized_entry_node};
+  }
+  return undef;
+}
+
 # In $NODE, find the first menu entry node in the first menu.  If the
 # node in menu refers to a target element in the document, return that
 # element
@@ -554,23 +591,21 @@ sub _first_menu_node($$)
       foreach my $menu_content (@{$menu->{'contents'}}) {
         if ($menu_content->{'type'}
             and $menu_content->{'type'} eq 'menu_entry') {
-          my $menu_node;
-          foreach my $arg (@{$menu_content->{'contents'}}) {
-            if ($arg->{'type'} eq 'menu_entry_node') {
-              if ($arg->{'extra'}) {
-                if (!$arg->{'extra'}->{'manual_content'}) {
-                  if (defined($arg->{'extra'}->{'normalized'})) {
-                    $menu_node
-                      = $identifier_target->{$arg->{'extra'}->{'normalized'}};
-                  }
-                } else {
-                  $menu_node = $arg;
-                }
+          my $menu_node
+            = _normalized_entry_associated_internal_node($menu_content,
+                                                        $identifier_target);
+          # an internal node
+          return $menu_node if ($menu_node);
+          foreach my $content (@{$menu_content->{'contents'}}) {
+            if ($content->{'type'} eq 'menu_entry_node') {
+              # a reference to an external manual
+              if ($content->{'extra'}
+                  and $content->{'extra'}->{'manual_content'}) {
+                return $content
               }
               last;
             }
           }
-          return $menu_node if ($menu_node);
         }
       }
     }
@@ -717,6 +752,10 @@ sub _section_direction_associated_node($$)
   return undef;
 }
 
+sub _XS_complete_node_tree_with_menus($)
+{
+}
+
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
@@ -726,10 +765,12 @@ sub complete_node_tree_with_menus($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
+  _XS_complete_node_tree_with_menus($document);
+
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
 
-  return undef unless ($nodes_list and @{$nodes_list});
+  return unless ($nodes_list and @{$nodes_list});
 
   my %cached_menu_nodes;
   # Go through all the nodes
@@ -737,72 +778,86 @@ sub complete_node_tree_with_menus($$$)
     my $automatic_directions
       = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
 
+    my $normalized = $node->{'extra'}->{'normalized'};
+    my $menu_directions = $node->{'extra'}->{'menu_directions'};
+
     if ($automatic_directions) {
-      if ($node->{'extra'}->{'normalized'} ne 'Top') {
-        foreach my $direction (@node_directions) {
+
+      my $node_directions = $node->{'extra'}->{'node_directions'};
+
+      if ($normalized ne 'Top') {
+        foreach my $direction (@node_directions_names) {
           # prev already defined for the node first Top node menu entry
-          if ($direction eq 'prev' and $node->{'extra'}->{'node_directions'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
-              and $node->{'extra'}->{'node_directions'}->{$direction}->{'extra'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
+          if ($direction eq 'prev' and $node_directions
+              and $node_directions->{$direction}
+              and $node_directions->{$direction}->{'extra'}
+              and $node_directions->{$direction}
                                       ->{'extra'}->{'normalized'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
+              and $node_directions->{$direction}
                                       ->{'extra'}->{'normalized'} eq 'Top') {
             next;
           }
-          if ($node->{'extra'}->{'associated_section'}) {
-            my $section = $node->{'extra'}->{'associated_section'};
+          my $section = $node->{'extra'}->{'associated_section'};
+          if ($section
+              and $customization_information->get_conf(
+                                             'CHECK_NORMAL_MENU_STRUCTURE')) {
+            # Check consistency with section and menu structure
+            my $direction_section = $section;
 
             # Prefer the section associated with a @part for node directions.
             if ($section->{'extra'}->{'part_associated_section'}) {
-              $section = $section->{'extra'}->{'part_associated_section'};
+              $direction_section
+                = $section->{'extra'}->{'part_associated_section'};
             }
-            # Check consistency with section and menu structure
             my $direction_associated_node
-              = _section_direction_associated_node($section, $direction);
+              = _section_direction_associated_node($direction_section, $direction);
             if ($direction_associated_node) {
-              if ($customization_information->get_conf(
-                                               'CHECK_NORMAL_MENU_STRUCTURE')) {
-                if ($section->{'extra'}->{'section_directions'}
-                    and $section->{'extra'}->{'section_directions'}->{'up'}
-               and $section->{'extra'}->{'section_directions'}->{'up'}->{'extra'}
-          and $section->{'extra'}->{'section_directions'}->{'up'}
-                        ->{'extra'}->{'associated_node'}
-          and $section->{'extra'}->{'section_directions'}->{'up'}
-                        ->{'extra'}->{'associated_node'}->{'extra'}
-          and $section->{'extra'}->{'section_directions'}->{'up'}
-                        ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}
-          and @{$section->{'extra'}->{'section_directions'}->{'up'}
-                        ->{'extra'}->{'associated_node'}->{'extra'}->{'menus'}}
-                    and (!$node->{'extra'}->{'menu_directions'}
-                         or !$node->{'extra'}->{'menu_directions'}->{$direction})) {
-                  $registrar->line_warn($customization_information,
-           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
-                   $direction,
-                   target_element_to_texi_label($node),
-                   target_element_to_texi_label($direction_associated_node)),
-                                        $node->{'source_info'});
+              my $section_directions
+                 = $direction_section->{'extra'}->{'section_directions'};
+
+              my $menus;
+              if ($section_directions
+                  and $section_directions->{'up'}) {
+                my $up_sec = $section_directions->{'up'};
+
+                if ($up_sec->{'extra'}
+                    and $up_sec->{'extra'}->{'associated_node'}) {
+                  my $up_node = $up_sec->{'extra'}->{'associated_node'};
+                  if ($up_node and $up_node->{'extra'}
+                      and $up_node->{'extra'}->{'menus'}
+                      and scalar(@{$up_node->{'extra'}->{'menus'}})) {
+                    $menus = $up_node->{'extra'}->{'menus'};
+                  }
                 }
+              }
+
+              if ($menus
+                  and (!$menu_directions
+                       or !$menu_directions->{$direction})) {
+                $registrar->line_warn($customization_information,
+           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
+                          $direction,
+                          target_element_to_texi_label($node),
+                      target_element_to_texi_label($direction_associated_node)),
+                                      $node->{'source_info'});
               }
             }
           }
-          # no direction was found using sections, use menus.  This allows
+          # Direction was not set with sections, use menus.  This allows
           # using only automatic direction for manuals without sectioning
-          # commands.
-          if ($node->{'extra'}
-              and (!$node->{'extra'}->{'node_directions'}
-                   or !$node->{'extra'}->{'node_directions'}->{$direction})
-              and $node->{'extra'}->{'menu_directions'}
-              and $node->{'extra'}->{'menu_directions'}->{$direction}
-              and !$node->{'extra'}->{'menu_directions'}->{$direction}
+          # commands but with explicit menus.
+          if ((!$node_directions or !$node_directions->{$direction})
+              and $menu_directions
+              and $menu_directions->{$direction}
+              and !$menu_directions->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
             if ($customization_information->get_conf(
                                                'CHECK_NORMAL_MENU_STRUCTURE')
-                  and $node->{'extra'}->{'associated_section'}) {
+                and $section) {
               $registrar->line_warn($customization_information,
           sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
                 target_element_to_texi_label(
-                         $node->{'extra'}->{'menu_directions'}->{$direction}),
+                         $menu_directions->{$direction}),
                                    $direction,
                 target_element_to_texi_label($node),
                   ),
@@ -811,12 +866,11 @@ sub complete_node_tree_with_menus($$$)
             $node->{'extra'}->{'node_directions'} = {}
                if (!$node->{'extra'}->{'node_directions'});
             $node->{'extra'}->{'node_directions'}->{$direction}
-               = $node->{'extra'}->{'menu_directions'}->{$direction};
+               = $menu_directions->{$direction};
           }
         }
-      } elsif (not $node->{'extra'}
-               or not $node->{'extra'}->{'node_directions'}
-               or not $node->{'extra'}->{'node_directions'}->{'next'}) {
+      } elsif (not $node_directions
+               or not $node_directions->{'next'}) {
         # use first menu entry if available as next for Top
         my $menu_child = _first_menu_node($node, $identifier_target);
         if ($menu_child) {
@@ -824,13 +878,13 @@ sub complete_node_tree_with_menus($$$)
              if (!$node->{'extra'}->{'node_directions'});
           $node->{'extra'}->{'node_directions'}->{'next'}
              = $menu_child;
-          if (!$menu_child->{'extra'}->{'manual_content'}
-              and (!$menu_child->{'extra'}->{'node_directions'}
-                   or !$menu_child->{'extra'}->{'node_directions'}->{'prev'})) {
+          if (!$menu_child->{'extra'}->{'manual_content'}) {
             $menu_child->{'extra'}->{'node_directions'} = {}
               if (!$menu_child->{'extra'}->{'node_directions'});
-            $menu_child->{'extra'}->{'node_directions'}->{'prev'}
+            if (!$menu_child->{'extra'}->{'node_directions'}->{'prev'}) {
+              $menu_child->{'extra'}->{'node_directions'}->{'prev'}
                 = $node;
+            }
           }
         } else {
           # use the first non top node as next for Top
@@ -856,58 +910,62 @@ sub complete_node_tree_with_menus($$$)
       }
     }
     # check consistency between node pointer and node entries menu order
-    if ($node->{'extra'}->{'normalized'} ne 'Top') {
-      foreach my $direction (@node_directions) {
-        if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-            and $node->{'extra'}->{'node_directions'}
-            and $node->{'extra'}->{'node_directions'}->{$direction}
-            and $node->{'extra'}->{'menu_directions'}
-            and $node->{'extra'}->{'menu_directions'}->{$direction}
-            and $node->{'extra'}->{'menu_directions'}->{$direction}
-               ne $node->{'extra'}->{'node_directions'}->{$direction}
-            and not $node->{'extra'}->{'menu_directions'}->{$direction}
-                                          ->{'extra'}->{'manual_content'}) {
-          $registrar->line_warn($customization_information,
-            sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+        and $normalized ne 'Top') {
+      my $node_directions = $node->{'extra'}->{'node_directions'};
+      if ($node_directions and $menu_directions) {
+        foreach my $direction (@node_directions_names) {
+          if ($node_directions->{$direction}
+              and $menu_directions->{$direction}
+              and $menu_directions->{$direction}
+                ne $node_directions->{$direction}
+              and not $menu_directions->{$direction}
+                            ->{'extra'}->{'manual_content'}) {
+            $registrar->line_warn($customization_information,
+           sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                   $direction,
                   target_element_to_texi_label($node),
                   target_element_to_texi_label(
-                      $node->{'extra'}->{'node_directions'}->{$direction}),
+                      $node_directions->{$direction}),
                   $direction,
                   target_element_to_texi_label(
-                      $node->{'extra'}->{'menu_directions'}->{$direction})),
-                 $node->{'source_info'});
+                      $menu_directions->{$direction})),
+                                  $node->{'source_info'});
+          }
         }
       }
     }
 
     # check for node up / menu up mismatch
-    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')
-        and $node->{'extra'}
-        and $node->{'extra'}->{'node_directions'}
-        and $node->{'extra'}->{'node_directions'}->{'up'}
-        # No check if node up is an external manual
-        and (!$node->{'extra'}->{'node_directions'}->{'up'}
-                                      ->{'extra'}->{'manual_content'})
-        # no check for a redundant node, the node registered in the menu
-        # was the main equivalent node
-        and $node->{'extra'}->{'is_target'}
-        # check only if there are menus
-        and $node->{'extra'}->{'node_directions'}->{'up'}->{'extra'}->{'menus'}) {
-      my $up_node = $node->{'extra'}->{'node_directions'}->{'up'};
-      if (!$cached_menu_nodes{$up_node}) {
-        $cached_menu_nodes{$up_node} = {};
-        _register_menu_node_targets($identifier_target, $up_node,
-                                   $cached_menu_nodes{$up_node});
+    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
+      my $node_directions = $node->{'extra'}->{'node_directions'};
+      my $up_node;
+      if ($node_directions
+          and $node_directions->{'up'}) {
+        $up_node = $node_directions->{'up'};
       }
-      if (!$cached_menu_nodes{$up_node}->{$node}) {
-        $registrar->line_warn($customization_information,
-         sprintf(
-           __("node `%s' lacks menu item for `%s' despite being its Up target"),
-           target_element_to_texi_label(
-                             $node->{'extra'}->{'node_directions'}->{'up'}),
-           target_element_to_texi_label($node)),
-         $node->{'extra'}->{'node_directions'}->{'up'}->{'source_info'});
+      if ($up_node
+          # No check if node up is an external manual
+          and not $up_node->{'extra'}->{'manual_content'}
+          # no check for a redundant node, the node registered in the menu
+          # was the main equivalent node
+          and $node->{'extra'}->{'is_target'}
+          # check only if there are menus
+          and $up_node->{'extra'}->{'menus'}) {
+
+        if (!$cached_menu_nodes{$up_node}) {
+          $cached_menu_nodes{$up_node} = {};
+          _register_menu_node_targets($identifier_target, $up_node,
+                                      $cached_menu_nodes{$up_node});
+        }
+        if (!$cached_menu_nodes{$up_node}->{$node}) {
+          $registrar->line_warn($customization_information,
+           sprintf(
+             __("node `%s' lacks menu item for `%s' despite being its Up target"),
+             target_element_to_texi_label($up_node),
+             target_element_to_texi_label($node)),
+            $up_node->{'source_info'});
+        }
       }
       # FIXME check that the all the nodes are in a menu (except for Top)?
       # FIXME check that node_up is not an external node (except for Top)?
@@ -950,7 +1008,7 @@ sub nodes_tree($$$)
 
     if ($automatic_directions) {
       if (!$top_node or $node ne $top_node) {
-        foreach my $direction (@node_directions) {
+        foreach my $direction (@node_directions_names) {
           # prev already defined for the node first Top node menu entry
           if ($direction eq 'prev' and $node->{'extra'}->{'node_directions'}
               and $node->{'extra'}->{'node_directions'}->{$direction}
@@ -1015,7 +1073,7 @@ sub nodes_tree($$$)
     } else { # explicit directions
       for (my $i = 1; $i < scalar(@{$node->{'args'}}); $i++) {
         my $direction_element = $node->{'args'}->[$i];
-        my $direction = $node_directions[$i-1];
+        my $direction = $node_directions_names[$i-1];
 
         # external node
         if ($direction_element->{'extra'}
@@ -1946,39 +2004,6 @@ sub _sort_string($$)
               or ($a !~ /^[[:alpha:]]/ and $b !~ /^[[:alpha:]]/))
                  ? ($a cmp $b)
                  : (($a =~ /^[[:alpha:]]/ && 1) || -1);
-}
-
-# return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
-# the internal node referred to by menu entry $ENTRY
-sub normalized_menu_entry_internal_node($)
-{
-  my $entry = shift;
-
-  foreach my $content (@{$entry->{'contents'}}) {
-    if ($content->{'type'} eq 'menu_entry_node') {
-      if ($content->{'extra'}) {
-        if (! $content->{'extra'}->{'manual_content'}) {
-          return $content->{'extra'}->{'normalized'};
-        }
-      }
-      return undef;
-    }
-  }
-  return undef;
-}
-
-# Return $NODE where $NODE is the node referred to by menu entry $ENTRY.
-sub _normalized_entry_associated_internal_node($$)
-{
-  my $entry = shift;
-  my $identifier_target = shift;
-
-  my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
-
-  if (defined($normalized_entry_node)) {
-    return $identifier_target->{$normalized_entry_node};
-  }
-  return undef;
 }
 
 # used in Plaintext converter and tree transformations
