@@ -370,9 +370,10 @@ sub output_ixin($$)
   $result .= $self->ixin_list_element('lang', [['name', $lang]]);
   # FIXME title: use simpletitle or fulltitle
 
-  if ($self->{'parser_info'}->{'dircategory_direntry'}) {
+  if ($self->{'document_info'}->{'dircategory_direntry'}) {
     my $current_category;
-    foreach my $dircategory_direntry (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
+    foreach my $dircategory_direntry
+                  (@{$self->{'document_info'}->{'dircategory_direntry'}}) {
       if ($dircategory_direntry->{'cmdname'}
           and $dircategory_direntry->{'cmdname'} eq 'dircategory') {
         if ($current_category) {

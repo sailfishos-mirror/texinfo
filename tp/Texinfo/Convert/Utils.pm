@@ -446,9 +446,9 @@ sub encoded_output_file_name($$)
   if ($output_file_name_encoding) {
     $encoding = $output_file_name_encoding;
   } elsif ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
-    $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-      if ($self->{'parser_info'}
-        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    $encoding = $self->{'document_info'}->{'input_perl_encoding'}
+      if ($self->{'document_info'}
+        and defined($self->{'document_info'}->{'input_perl_encoding'}));
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
@@ -472,9 +472,9 @@ sub encoded_input_file_name($$;$)
     if (defined($input_file_encoding)) {
       $encoding = $input_file_encoding;
     } else {
-      $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-        if ($self->{'parser_info'}
-          and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+      $encoding = $self->{'document_info'}->{'input_perl_encoding'}
+        if ($self->{'document_info'}
+          and defined($self->{'document_info'}->{'input_perl_encoding'}));
     }
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');

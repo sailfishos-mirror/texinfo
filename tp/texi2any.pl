@@ -1490,10 +1490,10 @@ while(@input_files) {
   # needing access to the configuration information.
   my $main_configuration = Texinfo::MainConfig::new();
 
-  my $parser_information = $document->global_information();
+  my $document_information = $document->global_information();
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
-  Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
+  Texinfo::Common::set_output_encodings($main_configuration, $document_information);
   my $global_commands = $document->global_commands_information();
   if (not defined($main_configuration->get_conf('documentlanguage'))) {
     my $element = Texinfo::Common::set_global_document_command($main_configuration,

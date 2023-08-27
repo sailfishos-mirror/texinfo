@@ -1584,12 +1584,12 @@ sub lookup_index_entry($$)
 sub set_output_encodings($$)
 {
   my $customization_information = shift;
-  my $parser_information = shift;
+  my $document_information = shift;
 
   $customization_information->set_conf('OUTPUT_ENCODING_NAME',
-               $parser_information->{'input_encoding_name'})
-     if ($parser_information
-         and $parser_information->{'input_encoding_name'});
+               $document_information->{'input_encoding_name'})
+     if ($document_information
+         and $document_information->{'input_encoding_name'});
   if (not defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))
       and defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))) {
     my $conversion_encoding
@@ -3152,7 +3152,7 @@ a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.  Return true if the command
 argument was found and the customization variable was set.
 
-=item set_output_encodings($customization_information, $parser_information)
+=item set_output_encodings($customization_information, $document_information)
 X<C<set_output_encodings>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file

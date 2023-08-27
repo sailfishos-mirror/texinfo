@@ -730,7 +730,8 @@ sub converter($)
 
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
   if ($converter->{'document'}) {
-    $converter->{'parser_info'} = $converter->{'document'}->global_information();
+    $converter->{'document_info'}
+       = $converter->{'document'}->global_information();
     $converter->{'global_commands'}
        = $converter->{'document'}->global_commands_information();
     foreach my $global_command ('documentencoding') {
@@ -759,8 +760,9 @@ sub converter($)
     }
   }
 
-  Texinfo::Common::set_output_encodings($converter, $converter->{'parser_info'})
-    if ($converter->{'parser_info'});
+  Texinfo::Common::set_output_encodings($converter,
+                                        $converter->{'document_info'})
+    if ($converter->{'document_info'});
 
   bless $converter;
   return $converter;
@@ -795,8 +797,8 @@ sub output($$)
 
   #print STDERR "OUTPUT\n";
   my $input_basename;
-  if (defined($self->{'parser_info'}->{'input_file_name'})) {
-    my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
+  if (defined($self->{'document_info'}->{'input_file_name'})) {
+    my $input_file_name = $self->{'document_info'}->{'input_file_name'};
     my $encoding = $self->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_name);

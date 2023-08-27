@@ -7690,9 +7690,9 @@ sub _load_htmlxref_files {
       # directories if TEST is set.
       @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
 
-      if (defined($self->{'parser_info'})
-          and defined($self->{'parser_info'}->{'input_directory'})) {
-        my $input_directory = $self->{'parser_info'}->{'input_directory'};
+      if (defined($self->{'document_info'})
+          and defined($self->{'document_info'}->{'input_directory'})) {
+        my $input_directory = $self->{'document_info'}->{'input_directory'};
         if ($input_directory ne '.' and $input_directory ne '') {
           unshift @htmlxref_dirs, $input_directory;
         }
@@ -11152,7 +11152,7 @@ sub output($$)
           'title_string');
     $self->line_warn($self, __(
                          "must specify a title with a title command or \@top"),
-                     {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
+               {'file_name' => $self->{'document_info'}->{'input_file_name'}});
   } else {
     $self->{'title_string'} = $html_title_string;
   }

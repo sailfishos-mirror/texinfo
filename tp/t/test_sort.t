@@ -46,9 +46,9 @@ $tree = $document->tree();
 my $registrar = $parser->registered_errors();
 my $indices_information = $document->indices_information();
 my $index_entries = Texinfo::Structuring::merge_indices($indices_information);
-my $parser_information = $document->global_information();
+my $document_information = $document->global_information();
 my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
-Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
+Texinfo::Common::set_output_encodings($main_configuration, $document_information);
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
                                        $index_entries, $indices_information);

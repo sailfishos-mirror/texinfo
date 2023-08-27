@@ -119,7 +119,7 @@ sub output($$)
   if (!defined($tree_units) or not defined($tree_units->[0])
       or not defined($tree_units->[0]->{'unit_command'})) {
     $self->line_warn($self, __("document without nodes"),
-             {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
+             {'file_name' => $self->{'document_info'}->{'input_file_name'}});
     my $output = $header.$self->convert_tree($root);
     $self->count_context_bug_message('no element ');
 
@@ -136,7 +136,7 @@ sub output($$)
     unless ($self->{'identifiers_target'}
             and $self->{'identifiers_target'}->{'Top'}) {
       $self->line_warn($self, __("document without Top node"),
-             {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
+             {'file_name' => $self->{'document_info'}->{'input_file_name'}});
     }
     $out_file_nr = 1;
     my $first_node = 0;
@@ -381,9 +381,9 @@ sub _info_header($$$)
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
 
-  if ($self->{'parser_info'}->{'dircategory_direntry'}) {
+  if ($self->{'document_info'}->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;
-    foreach my $command (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
+    foreach my $command (@{$self->{'document_info'}->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {

@@ -193,7 +193,7 @@ sub converter(;$)
     if ($conf->{'document'}) {
       $converter->{'global_commands'}
          = $conf->{'document'}->global_commands_information();
-      $converter->{'parser_info'} = $conf->{'document'}->global_information();
+      $converter->{'document_info'} = $conf->{'document'}->global_information();
       my $floats = $conf->{'document'}->floats_information();
       my $identifier_target = $conf->{'document'}->labels_information();
       my $sections_list = $conf->{'document'}->sections_list();
@@ -230,7 +230,8 @@ sub converter(;$)
     }
   }
 
-  Texinfo::Common::set_output_encodings($converter, $converter->{'parser_info'});
+  Texinfo::Common::set_output_encodings($converter,
+                                        $converter->{'document_info'});
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
@@ -542,12 +543,12 @@ sub determine_files_and_directory($;$)
 
   # determine input file base name
   my $input_basefile;
-  if (defined($self->{'parser_info'}->{'input_file_name'})) {
+  if (defined($self->{'document_info'}->{'input_file_name'})) {
     # 'input_file_name' is not decoded, as it is derived from input
     # file which is not decoded either.  We want to return only
     # decoded character strings such that they can easily be mixed
     # with other character strings, so we decode here.
-    my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
+    my $input_file_name = $self->{'document_info'}->{'input_file_name'};
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_name, sub { '?' });
@@ -1869,7 +1870,7 @@ B<TODO what about the other options (all are used in converters>
 B<TODO change?
 The document should not be available directly anymore after getting the
 associated information.> B<TODO document this associated information
-('parser_info', 'indices_information', 'floats'..., most available
+('document_info', 'indices_information', 'floats'..., most available
 in HTML converter, either through $converter-E<gt>get_info() or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash
