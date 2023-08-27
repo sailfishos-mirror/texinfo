@@ -1576,14 +1576,14 @@ while(@input_files) {
   my $sections_list
             = Texinfo::Structuring::sectioning_structure($registrar,
                                                $main_configuration, $tree);
-
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
-    if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
-      Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
-                                                 $main_configuration);
-    }
+  }
+
+  if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
+    Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
+                                               $main_configuration);
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1616,13 +1616,11 @@ while(@input_files) {
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($document, $registrar,
                                                       $main_configuration);
-    }
-    if (not defined(get_conf('FORMAT_MENU'))
-        or get_conf('FORMAT_MENU') eq 'menu') {
 
       Texinfo::Structuring::complete_node_tree_with_menus($document,
                                                           $registrar,
                                                           $main_configuration);
+
       Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
                                                        $main_configuration);
     }

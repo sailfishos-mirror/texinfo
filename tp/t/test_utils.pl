@@ -1018,14 +1018,12 @@ sub test($$)
   my $sections_list
         = Texinfo::Structuring::sectioning_structure($registrar,
                                       $main_configuration, $tree);
-  my $sectioning_root;
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
-    Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
-                                               $main_configuration);
-    $sectioning_root = $sections_list->[0]->{'extra'}->{'sectioning_root'};
   }
+  Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
+                                             $main_configuration);
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
     Texinfo::Transformations::complete_tree_nodes_menus($tree);
@@ -1038,24 +1036,21 @@ sub test($$)
                                                      $main_configuration);
   }
 
-  my $floats = $document->floats_information();
-
-  my $nodes_list
+  my $nodes_tree_nodes_list
           = Texinfo::Structuring::nodes_tree($document, $registrar,
                                              $main_configuration);
 
   Texinfo::Document::register_document_nodes_list($document,
-                                                  $nodes_list);
+                                                  $nodes_tree_nodes_list);
 
   Texinfo::Structuring::set_menus_node_directions($document, $registrar,
                                                   $main_configuration);
 
-  if (defined($nodes_list)
-      and (not defined($main_configuration->get_conf('FORMAT_MENU'))
-           or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
+  if (not defined($main_configuration->get_conf('FORMAT_MENU'))
+      or $main_configuration->get_conf('FORMAT_MENU') eq 'menu') {
     Texinfo::Structuring::complete_node_tree_with_menus($document, $registrar,
                                                         $main_configuration);
-    my $refs = $document->internal_references_information();
+
     Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
                                                      $main_configuration);
   }
@@ -1346,12 +1341,16 @@ sub test($$)
           .protect_perl_string($texi_string_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
           .protect_perl_string($converted_text)."';\n\n";
-    {
+
+    my $sections_list = $document->sections_list();
+    if ($sections_list and scalar(@$sections_list)) {
       local $Data::Dumper::Sortkeys = \&filter_sectioning_keys;
+      my $sectioning_root
+           = $sections_list->[0]->{'extra'}->{'sectioning_root'};
       $out_result .=  Data::Dumper->Dump([$sectioning_root],
                            ['$result_sectioning{\''.$test_name.'\'}'])."\n"
-        if ($sectioning_root);
     }
+    my $nodes_list = $document->nodes_list();
     if ($nodes_list and scalar(@$nodes_list)) {
       {
         local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
@@ -1377,6 +1376,7 @@ sub test($$)
                             ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
     }
+    my $floats = $document->floats_information();
     if ($floats) {
       local $Data::Dumper::Sortkeys = \&filter_floats_keys;
       $out_result .= Data::Dumper->Dump([$floats],
@@ -1424,8 +1424,15 @@ sub test($$)
 
     cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
                 $test_name.' tree');
+
+    my $sections_list = $document->sections_list();
+    my $sectioning_root
+        = $sections_list->[0]->{'extra'}->{'sectioning_root'}
+      if ($sections_list and scalar(@$sections_list));
     cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
                  \@avoided_keys_sectioning, $test_name.' sectioning' );
+
+    my $nodes_list = $document->nodes_list();
     my $nodes_result;
     $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
     cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
@@ -1435,6 +1442,7 @@ sub test($$)
     cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
                 $test_name.' menus');
 
+    my $floats = $document->floats_information();
     cmp_trimmed($floats, $result_floats{$test_name},
                 \@avoided_keys_floats, $test_name.' floats');
 
