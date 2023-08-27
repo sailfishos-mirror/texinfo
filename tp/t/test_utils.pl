@@ -1015,7 +1015,6 @@ sub test($$)
 
   Texinfo::Structuring::associate_internal_references($registrar,
                                      $main_configuration, $document);
-  my $structure_information = {};
   my $sections_list
         = Texinfo::Structuring::sectioning_structure($registrar,
                                       $main_configuration, $tree);
@@ -1025,7 +1024,6 @@ sub test($$)
                                                        $sections_list);
     Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
                                                $main_configuration);
-    $structure_information->{'sections_list'} = $sections_list;
     $sectioning_root = $sections_list->[0]->{'extra'}->{'sectioning_root'};
   }
 
@@ -1114,7 +1112,6 @@ sub test($$)
   my %converted;
   my %converted_errors;
   $converter_options = {} if (!defined($converter_options));
-  $converter_options->{'structuring'} = $structure_information;
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
       my $format_converter_options = {%$converter_options};

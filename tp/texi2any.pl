@@ -1572,9 +1572,6 @@ while(@input_files) {
                                             $main_configuration, $document);
   # information obtained through Texinfo::Structuring
   # and useful in converters.
-  # FIXME the keys are not documented anywhere.  It is unclear where they
-  # should be documented.
-  my $structure_information = {};
   # every format needs the sectioning structure
   my $sections_list
             = Texinfo::Structuring::sectioning_structure($registrar,
@@ -1583,7 +1580,6 @@ while(@input_files) {
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
-    $structure_information->{'sections_list'} = $sections_list;
     if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
       Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
                                                  $main_configuration);
@@ -1623,14 +1619,12 @@ while(@input_files) {
     }
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
-      if (defined($nodes_list)) {
 
-        Texinfo::Structuring::complete_node_tree_with_menus($document,
-                                                            $registrar,
-                                                            $main_configuration);
-        Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
-                                                         $main_configuration);
-      }
+      Texinfo::Structuring::complete_node_tree_with_menus($document,
+                                                          $registrar,
+                                                          $main_configuration);
+      Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
+                                                       $main_configuration);
     }
   }
   if ($formats_table{$converted_format}->{'floats'}) {
@@ -1669,7 +1663,6 @@ while(@input_files) {
   # for instance to have some consistent information for Structuring
   # and Converters.
   $converter_options->{'document'} = $document;
-  $converter_options->{'structuring'} = $structure_information;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
@@ -1753,7 +1746,6 @@ while(@input_files) {
                                          };
 
     $sort_element_converter_options->{'document'} = $document;
-    $sort_element_converter_options->{'structuring'} = $structure_information;
     # This is not clear that this is correct.  On the one hand it could
     # be more consistent with the formatting to have nothing here or a
     # format corresponding to Texinfo::Convert::TextContent.  On the other

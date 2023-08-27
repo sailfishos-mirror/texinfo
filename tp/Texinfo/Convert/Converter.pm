@@ -82,7 +82,6 @@ my %common_converters_defaults = (
   # can be different from the converted_format, for example, epub3
   # output format converted format is html.
   'output_format'        => undef,
-  'structuring'          => undef,
 
   # Not set in the main program
   'translated_commands'  => {'error' => 'error@arrow{}',},
@@ -196,10 +195,12 @@ sub converter(;$)
       $converter->{'parser_info'} = $conf->{'document'}->global_information();
       my $floats = $conf->{'document'}->floats_information();
       my $identifier_target = $conf->{'document'}->labels_information();
+      my $sections_list = $conf->{'document'}->sections_list();
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'identifiers_target'} = $identifier_target
                                              if ($identifier_target);
+      $converter->{'sections_list'} = $sections_list if ($sections_list);
       $converter->{'indices_information'}
              = $conf->{'document'}->indices_information();
       $converter->{'values'} = $conf->{'document'}->{'values'};
@@ -1863,8 +1864,7 @@ are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
 are described in the Texinfo manual.
 Those customization options, when appropriate, override the document content.
-B<TODO what about the other options (all are used in converters;
-'structuring' is available in HTML $converter-E<gt>get_info()?>
+B<TODO what about the other options (all are used in converters>
 B<TODO change?
 The document should not be available directly anymore after getting the
 associated information.> B<TODO document this associated information

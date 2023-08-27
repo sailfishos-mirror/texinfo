@@ -1794,16 +1794,16 @@ sub get_file_information($$;$)
 
 # information from converter available 'read-only', in general set up before
 # really starting the formatting (except for current_filename).
-# 'floats', 'global_commands' and 'structuring' are set up in the generic
+# 'floats', 'global_commands', 'sections_list' are set up in the generic
 # converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document_name', 'documentdescription_string',
    'floats', 'global_commands',
    'index_entries', 'index_entries_by_letter', 'indices_information',
-   'jslicenses', 'labels',
+   'jslicenses', 'identifiers_target',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
-   'simpletitle_command_name', 'simpletitle_tree', 'structuring',
+   'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
 }
@@ -4152,11 +4152,11 @@ sub _convert_heading_command($$$$$)
   }
 
   my $tables_of_contents = '';
-  my $structuring = $self->get_info('structuring');
+  my $sections_list = $self->get_info('sections_list');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
-      and $structuring and $structuring->{'sections_list'}
-      and scalar(@{$structuring->{'sections_list'}}) > 1) {
+      and $sections_list
+      and scalar(@{$sections_list}) > 1) {
     foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text
@@ -6093,12 +6093,12 @@ sub _convert_contents_command($$$)
 
   Texinfo::Common::set_informative_command_value($self, $command);
 
-  my $structuring = $self->get_info('structuring');
+  my $sections_list = $self->get_info('sections_list');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
       and $self->get_conf($cmdname)
-      and $structuring and $structuring->{'sections_list'}
-      and scalar(@{$structuring->{'sections_list'}}) > 1) {
+      and $sections_list
+      and scalar(@{$sections_list}) > 1) {
     return $self->_contents_inline_element($cmdname, $command);
   }
   return '';
@@ -7107,9 +7107,9 @@ sub _contents_shortcontents_in_title($)
 
   my $result = '';
 
-  my $structuring = $self->get_info('structuring');
-  if ($structuring and $structuring->{'sections_list'}
-      and scalar(@{$structuring->{'sections_list'}}) > 1
+  my $sections_list = $self->get_info('sections_list');
+  if ($sections_list
+      and scalar(@{$sections_list}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
     foreach my $cmdname ('shortcontents', 'contents') {
       if ($self->get_conf($cmdname)) {
@@ -9150,8 +9150,8 @@ sub _prepare_special_elements($$$$)
   my $document_name = shift;
 
   my %do_special;
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
+  if ($self->{'sections_list'}
+      and scalar(@{$self->{'sections_list'}}) > 1) {
     if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'separate_element') {
       foreach my $cmdname ('shortcontents', 'contents') {
         my $special_element_variety
@@ -9286,8 +9286,8 @@ sub _prepare_contents_elements($)
 {
   my $self = shift;
 
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sections_list'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
+  if ($self->{'sections_list'}
+      and scalar(@{$self->{'sections_list'}}) > 1) {
     foreach my $cmdname ('contents', 'shortcontents') {
       my $special_element_variety
            = $contents_command_special_element_variety{$cmdname};
@@ -9755,11 +9755,11 @@ sub _default_format_contents($$;$$)
 
   $filename = $self->get_info('current_filename') if (!defined($filename));
 
-  my $structuring = $self->get_info('structuring');
+  my $sections_list = $self->get_info('sections_list');
   return ''
-   if (!$structuring or !$structuring->{'sections_list'});
+   if (!$sections_list or !scalar(@$sections_list));
 
-  my $section_root = $structuring->{'sections_list'}->[0]
+  my $section_root = $sections_list->[0]
                                    ->{'extra'}->{'sectioning_root'};
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');

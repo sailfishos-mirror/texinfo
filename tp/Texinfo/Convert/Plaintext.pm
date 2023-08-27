@@ -3090,9 +3090,8 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'contents') {
-      if ($self->{'structuring'}
-          and $self->{'structuring'}->{'sections_list'}) {
-        my $sectioning_root = $self->{'structuring'}->{'sections_list'}->[0]
+      if ($self->{'sections_list'}) {
+        my $sectioning_root = $self->{'sections_list'}->[0]
                                 ->{'extra'}->{'sectioning_root'};
         my $lines_count;
         ($result, $lines_count)
@@ -3104,9 +3103,8 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'shortcontents'
                or $command eq 'summarycontents') {
-      if ($self->{'structuring'}
-          and $self->{'structuring'}->{'sections_list'}) {
-        my $sectioning_root = $self->{'structuring'}->{'sections_list'}->[0]
+      if ($self->{'sections_list'}) {
+        my $sectioning_root = $self->{'sections_list'}->[0]
                                 ->{'extra'}->{'sectioning_root'};
         my $lines_count;
         ($result, $lines_count)

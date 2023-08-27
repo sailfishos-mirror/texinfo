@@ -211,11 +211,10 @@ sub book_convert_heading_command($$$$$)
   }
 
   my $tables_of_contents = '';
-  my $structuring = $self->get_info('structuring');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
-      and $structuring and $structuring->{'sections_list'}
-      and scalar(@{$structuring->{'sections_list'}}) > 1) {
+      and $self->{'sections_list'}
+      and scalar(@{$self->{'sections_list'}}) > 1) {
     foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text

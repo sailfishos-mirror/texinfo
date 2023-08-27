@@ -82,6 +82,7 @@ register_document (ELEMENT *root, INDEX **index_names,
       document_number++;
     }
   document = &document_list[document_index];
+  /* this initializes nodes_list and sections_list */
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
   document->tree = root;
