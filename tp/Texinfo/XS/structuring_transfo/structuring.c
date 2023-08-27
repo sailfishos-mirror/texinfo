@@ -864,7 +864,7 @@ set_menus_node_directions (DOCUMENT *document)
             }
         }
 
-      for (j = 1; j < menus->contents.number; j++)
+      for (j = 0; j < menus->contents.number; j++)
         {
           ELEMENT *menu = menus->contents.list[j];
           ELEMENT *previous_node = 0;
