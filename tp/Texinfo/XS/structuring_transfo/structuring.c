@@ -1389,8 +1389,8 @@ nodes_tree (DOCUMENT *document)
                         if (top_node_section_child->args.number <= 1)
                           {
                             ELEMENT *top_section_child_directions
-                               = lookup_extra_directions (node,
-                                                    "node_directions", 1);
+                             = lookup_extra_directions (top_node_section_child,
+                                                         "node_directions", 1);
                             top_section_child_directions->contents.list[D_prev]
                               = node;
                           }
