@@ -192,20 +192,13 @@ sub get_parser_info($$$) {
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  # FIXME need to bless in XS code to remove the call to
-  # Texinfo::Document::register.
-  my $XS_document = build_document ($document_descriptor);
-  my $document = Texinfo::Document::register($XS_document->{'tree'},
-     $XS_document->{'info'}, $XS_document->{'index_names'},
-     $XS_document->{'listoffloats_list'},
-     $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
-     $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
+  my $document = build_document ($document_descriptor);
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
 
   _get_errors ($registrar, $configuration_information,
-               $XS_document->{'errors'});
+               $document->{'errors'});
 
   # additional info relevant in perl only.
   $document->{'info'}->{'input_perl_encoding'} = 'utf-8';

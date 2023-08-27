@@ -949,10 +949,11 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 
-HV *
+SV *
 build_document (size_t document_descriptor)
 {
   HV *hv;
+  SV *sv;
   DOCUMENT *document;
   HV *hv_tree;
   HV *hv_info;
@@ -963,6 +964,7 @@ build_document (size_t document_descriptor)
   HV *hv_identifiers_target;
   AV *av_labels_list;
   AV *av_errors_list;
+  HV *hv_stash;
 
   dTHX;
 
@@ -1001,18 +1003,23 @@ build_document (size_t document_descriptor)
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
+  /* need to be kept in sync with Texinfo::Document register keys */
   STORE("tree", hv_tree);
-  STORE("info", hv_info);
-  STORE("index_names", hv_index_names);
+  STORE("indices", hv_index_names);
   STORE("listoffloats_list", hv_listoffloats_list);
   STORE("internal_references", av_internal_xref);
   STORE("commands_info", hv_global_info);
+  STORE("info", hv_info);
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);
   STORE("errors", av_errors_list);
 
 #undef STORE
 
-  return hv;
+  hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
+  /* FIXME why _noinc? */
+  sv = newRV_noinc ((SV *) hv);
+  sv_bless (sv, hv_stash);
+  return sv;
 }
 

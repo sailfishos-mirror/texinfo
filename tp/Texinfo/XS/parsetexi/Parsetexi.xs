@@ -85,7 +85,7 @@ parse_text(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
-HV *
+SV *
 build_document (int document_descriptor)
 
 void
