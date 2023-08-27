@@ -118,6 +118,10 @@ sub import {
         "Texinfo::Structuring::_XS_check_nodes_are_referenced",
         "Texinfo::StructTransf::check_nodes_are_referenced"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_number_floats",
+        "Texinfo::StructTransf::number_floats"
+      );
     }
     $module_loaded = 1;
   }
@@ -1818,10 +1822,15 @@ sub associate_internal_references($$$)
   }
 }
 
+sub XS_number_floats($)
+{
+}
 
 sub number_floats($)
 {
   my $document = shift;
+
+  _XS_number_floats($document);
 
   my $floats = $document->floats_information();
 

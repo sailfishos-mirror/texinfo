@@ -22,6 +22,7 @@
 extern const char *whitespace_chars;
 extern const char *digit_chars;
 extern enum command_id level_to_structuring_command[][5];
+extern int command_structuring_level[];
 
 extern const char *direction_names[];
 extern const char *direction_texts[];
@@ -139,6 +140,10 @@ int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
+
+FLOAT_RECORD_LIST *float_list_to_listoffloats_list (
+                                      FLOAT_RECORD_LIST *floats_list);
+void destroy_listoffloats_list (FLOAT_RECORD_LIST *listoffloats_list);
 
 struct expanded_format *new_expanded_formats (char *format);
 void clear_expanded_formats (struct expanded_format *formats);

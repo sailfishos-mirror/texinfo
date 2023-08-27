@@ -41,7 +41,7 @@ sub register
   my $document = {
     'tree' => $tree,
     'indices' => $indices_information,
-    'floats' => $floats_information,
+    'listoffloats_list' => $floats_information,
     'internal_references' => $internal_references_information,
     'commands_info' => $global_commands_information,
     'info' => $global_information,
@@ -83,7 +83,7 @@ sub indices_information($)
 sub floats_information($)
 {
   my $self = shift;
-  return $self->{'floats'};
+  return $self->{'listoffloats_list'};
 }
 
 sub internal_references_information($)

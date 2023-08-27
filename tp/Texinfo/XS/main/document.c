@@ -94,6 +94,8 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->small_strings = small_strings;
   document->error_messages = error_messages;
 
+  document->listoffloats = float_list_to_listoffloats_list (floats_list);
+
   /*
   fprintf(stderr, "REGISTER %d %p %p\n", document_index +1,
                        document->tree, document->index_names);
@@ -140,6 +142,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->internal_references);
       free (document->floats->float_types);
       free (document->floats);
+      destroy_listoffloats_list (document->listoffloats);
       free (document->labels_list->list);
       free (document->labels_list);
       free (document->identifiers_target->list);

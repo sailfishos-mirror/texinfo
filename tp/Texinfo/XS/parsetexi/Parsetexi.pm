@@ -197,7 +197,7 @@ sub get_parser_info($$$) {
   my $XS_document = build_document ($document_descriptor);
   my $document = Texinfo::Document::register($XS_document->{'tree'},
      $XS_document->{'info'}, $XS_document->{'index_names'},
-     $XS_document->{'floats'},
+     $XS_document->{'listoffloats_list'},
      $XS_document->{'internal_references'}, $XS_document->{'commands_info'},
      $XS_document->{'identifiers_target'}, $XS_document->{'labels_list'});
 

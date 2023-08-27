@@ -16,6 +16,7 @@ void warn_non_empty_parts (DOCUMENT *document);
 void set_menus_node_directions (DOCUMENT *document);
 void complete_node_tree_with_menus (DOCUMENT *document);
 void check_nodes_are_referenced (DOCUMENT *document);
+void number_floats (DOCUMENT *document);
 
 ELEMENT *new_node_menu_entry (ELEMENT *node, int use_sections);
 ELEMENT *new_complete_node_menu (ELEMENT *node, int use_sections);

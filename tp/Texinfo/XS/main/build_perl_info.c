@@ -580,7 +580,7 @@ build_internal_xref_list (ELEMENT **internal_xref_list,
 
 /* Return hash for list of @float's that appeared in the file. */
 HV *
-build_float_list (FLOAT_RECORD *floats_list, size_t floats_number)
+build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
 {
   HV *float_hash;
   SV *sv;
@@ -958,7 +958,7 @@ build_document (size_t document_descriptor)
   HV *hv_info;
   HV *hv_global_info;
   HV *hv_index_names;
-  HV *hv_floats;
+  HV *hv_listoffloats_list;
   AV *av_internal_xref;
   HV *hv_identifiers_target;
   AV *av_labels_list;
@@ -978,8 +978,14 @@ build_document (size_t document_descriptor)
 
   hv_index_names = build_index_data (document->index_names);
 
-  hv_floats = build_float_list (document->floats->float_types,
-                                document->floats->number);
+  /* NOTE there is also a document->listoffloats which structure
+     is more like the hv_listoffloats_list, so it could be
+     possible to replace build_float_types_list by a new function,
+     for example build_listoffloats_list that would create the
+     hv_listoffloats_list based on document->listoffloats. */
+  hv_listoffloats_list
+         = build_float_types_list (document->floats->float_types,
+                                   document->floats->number);
 
   av_internal_xref = build_internal_xref_list (
                     document->internal_references->list,
@@ -998,7 +1004,7 @@ build_document (size_t document_descriptor)
   STORE("tree", hv_tree);
   STORE("info", hv_info);
   STORE("index_names", hv_index_names);
-  STORE("floats", hv_floats);
+  STORE("listoffloats_list", hv_listoffloats_list);
   STORE("internal_references", av_internal_xref);
   STORE("commands_info", hv_global_info);
   STORE("identifiers_target", hv_identifiers_target);

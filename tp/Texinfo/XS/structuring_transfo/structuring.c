@@ -1079,7 +1079,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               ELEMENT *up_node = lookup_extra_element (up_sec,
                                                             "associated_node");
                               if (up_node)
-                                menus 
+                                menus
                                   = lookup_extra_element (up_node, "menus");
                             }
 
@@ -1519,7 +1519,7 @@ associate_internal_references (LABEL_LIST *identifiers_target,
           if (!node_target)
             {
               /*
-        if (!$customization_information->get_conf('novalidate')) {
+        if (!$customization_information->get_conf('novalidate'))
                */
                /* FIXME registrar */
               command_error (ref, "@%s reference to nonexistent node `%s'",
@@ -1545,6 +1545,82 @@ associate_internal_references (LABEL_LIST *identifiers_target,
                                 target_element_to_texi_label (node_target));
                 }
             }
+        }
+    }
+}
+
+void
+number_floats (DOCUMENT *document)
+{
+  FLOAT_RECORD_LIST *listoffloats_list = document->listoffloats;
+  size_t i;
+
+  if (!listoffloats_list)
+    return;
+
+  for (i = 0; i < listoffloats_list->number; i++)
+    {
+      FLOAT_RECORD *listoffloats = &listoffloats_list->float_types[i];
+      int float_index = 0;
+      size_t j;
+      size_t nr_in_chapter_space = 5;
+      size_t *nr_in_chapter = malloc (nr_in_chapter_space * sizeof (size_t));
+      memset (nr_in_chapter, 0, nr_in_chapter_space * sizeof (size_t));
+      for (j = 0; j < listoffloats->element->contents.number; j++)
+        {
+          static TEXT number;
+          ELEMENT *float_elt = listoffloats->element->contents.list[j];
+          char *normalized = lookup_extra_string (float_elt, "normalized");
+          ELEMENT *up;
+          if (!normalized)
+            continue;
+
+          text_reset (&number);
+          float_index ++;
+          up = lookup_extra_element (float_elt, "float_section");
+          if (up)
+            {
+              while (1)
+                {
+                  ELEMENT *section_directions
+                    = lookup_extra_element (up, "section_directions");
+                  if (section_directions
+                      && section_directions->contents.list[D_up])
+                    {
+                      ELEMENT *up_elt = section_directions->contents.list[D_up];
+                      if (up_elt->cmd
+                          && command_structuring_level[up_elt->cmd] > 0)
+                        {
+                          up = up_elt;
+                          continue;
+                        }
+                    }
+                  break;
+                }
+              if (!(command_other_flags (up) & CF_unnumbered))
+                {
+                  int status;
+                  int chapter_nr = lookup_extra_integer (up, "section_number",
+                                                         &status);
+                  if (chapter_nr > nr_in_chapter_space -1)
+                    {
+                      size_t nr_in_chapter_space_prev = nr_in_chapter_space;
+                      nr_in_chapter_space
+                           += chapter_nr - nr_in_chapter_space -1 +5;
+                      nr_in_chapter = realloc (nr_in_chapter,
+                                         nr_in_chapter_space * sizeof (size_t));
+                      memset (nr_in_chapter + nr_in_chapter_space_prev,
+                              0, (nr_in_chapter_space - nr_in_chapter_space_prev)
+                                 * sizeof (size_t));
+                    }
+                  nr_in_chapter[chapter_nr]++;
+                  text_printf (&number, "%d.%zu", chapter_nr,
+                                                  nr_in_chapter[chapter_nr]);
+                }
+            }
+          if (number.end == 0)
+            text_printf (&number, "%d", float_index);
+          add_extra_string_dup (float_elt, "float_number", number.text);
         }
     }
 }

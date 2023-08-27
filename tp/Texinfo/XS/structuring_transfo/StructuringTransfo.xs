@@ -224,6 +224,17 @@ check_nodes_are_referenced (document_in)
           check_nodes_are_referenced (document);
 
 void
+number_floats (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          number_floats (document);
+
+void
 complete_tree_nodes_menus (tree_in, use_sections_in)
         SV *tree_in
         SV *use_sections_in;
