@@ -1260,7 +1260,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1846,7 +1846,7 @@ $result_sectioning{'index_special_region_no_insertcopying_titlepage_no_nodes_foo
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

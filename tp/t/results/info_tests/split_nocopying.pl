@@ -297,7 +297,7 @@ $result_trees{'split_nocopying'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -385,7 +385,7 @@ $result_sectioning{'split_nocopying'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -422,7 +422,7 @@ $result_nodes{'split_nocopying'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

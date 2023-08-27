@@ -221,7 +221,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -294,7 +294,7 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -331,7 +331,7 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

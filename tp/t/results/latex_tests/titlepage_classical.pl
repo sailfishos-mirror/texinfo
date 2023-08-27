@@ -496,7 +496,7 @@ $result_trees{'titlepage_classical'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -582,7 +582,7 @@ $result_sectioning{'titlepage_classical'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -619,7 +619,7 @@ $result_nodes{'titlepage_classical'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

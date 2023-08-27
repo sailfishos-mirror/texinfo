@@ -390,7 +390,7 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -522,7 +522,7 @@ $result_sectioning{'chinese_mixed_with_en_EUC_CN'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -559,7 +559,7 @@ $result_nodes{'chinese_mixed_with_en_EUC_CN'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

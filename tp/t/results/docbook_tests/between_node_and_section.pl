@@ -76,7 +76,7 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -331,7 +331,7 @@ $result_sectioning{'between_node_and_section'} = {
             }
           ],
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -351,7 +351,7 @@ $result_nodes{'between_node_and_section'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'chap'

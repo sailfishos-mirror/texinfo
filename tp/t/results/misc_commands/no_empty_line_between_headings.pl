@@ -90,7 +90,7 @@ $result_trees{'no_empty_line_between_headings'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -182,7 +182,7 @@ $result_sectioning{'no_empty_line_between_headings'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

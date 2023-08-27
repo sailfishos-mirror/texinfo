@@ -42,7 +42,7 @@ $result_trees{'chapter_before_part'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -144,7 +144,7 @@ $result_sectioning{'chapter_before_part'} = {
         'cmdname' => 'chapter',
         'extra' => {
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       },
@@ -200,7 +200,7 @@ $result_elements{'chapter_before_part'} = [
       'associated_unit' => {},
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       }
     }
   },

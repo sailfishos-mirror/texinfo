@@ -410,7 +410,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -620,7 +620,7 @@ $result_sectioning{'contents_in_middle_chapter_inline'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -658,7 +658,7 @@ $result_nodes{'contents_in_middle_chapter_inline'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

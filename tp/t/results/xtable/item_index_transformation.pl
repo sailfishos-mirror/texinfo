@@ -1312,7 +1312,7 @@ $result_trees{'item_index_transformation'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1433,7 +1433,7 @@ $result_sectioning{'item_index_transformation'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -1450,7 +1450,7 @@ $result_nodes{'item_index_transformation'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'chap'

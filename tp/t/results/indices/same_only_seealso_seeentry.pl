@@ -560,7 +560,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -646,7 +646,7 @@ $result_sectioning{'same_only_seealso_seeentry'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -683,7 +683,7 @@ $result_nodes{'same_only_seealso_seeentry'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

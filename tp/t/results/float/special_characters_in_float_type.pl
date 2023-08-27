@@ -398,7 +398,7 @@ $result_trees{'special_characters_in_float_type'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -470,7 +470,7 @@ $result_sectioning{'special_characters_in_float_type'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -507,7 +507,7 @@ $result_nodes{'special_characters_in_float_type'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -558,7 +558,7 @@ $result_floats{'special_characters_in_float_type'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         },
         'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',

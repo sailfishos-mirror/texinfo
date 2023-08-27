@@ -527,7 +527,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -599,7 +599,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -671,7 +671,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -743,7 +743,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 4
+        'section_number' => '4'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1198,7 +1198,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 5
+        'section_number' => '5'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1352,7 +1352,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1373,7 +1373,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1394,7 +1394,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1415,7 +1415,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 4,
+                'section_number' => '4',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1436,7 +1436,7 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 5,
+                'section_number' => '5',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1490,7 +1490,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -1500,7 +1500,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {
@@ -1510,7 +1510,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 3
+                            'section_number' => '3'
                           }
                         },
                         'node_directions' => {
@@ -1520,7 +1520,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = [
                               'associated_section' => {
                                 'cmdname' => 'chapter',
                                 'extra' => {
-                                  'section_number' => 4
+                                  'section_number' => '4'
                                 }
                               },
                               'node_directions' => {
@@ -1530,7 +1530,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = [
                                     'associated_section' => {
                                       'cmdname' => 'chapter',
                                       'extra' => {
-                                        'section_number' => 5
+                                        'section_number' => '5'
                                       }
                                     },
                                     'node_directions' => {

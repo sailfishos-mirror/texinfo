@@ -388,7 +388,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
       ],
       'cmdname' => 'subsection',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -452,7 +452,7 @@ $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes_chapter'}
             }
           },
           'section_level' => 3,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -477,7 +477,7 @@ $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = [
                   'associated_section' => {
                     'cmdname' => 'subsection',
                     'extra' => {
-                      'section_number' => 1
+                      'section_number' => '1'
                     }
                   },
                   'node_directions' => {

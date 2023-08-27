@@ -828,7 +828,7 @@ $result_trees{'node_footnote_end'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1076,7 +1076,7 @@ $result_sectioning{'node_footnote_end'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -1105,7 +1105,7 @@ $result_nodes{'node_footnote_end'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 1
+                            'section_number' => '1'
                           }
                         },
                         'node_directions' => {

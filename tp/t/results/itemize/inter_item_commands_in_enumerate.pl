@@ -1016,7 +1016,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1140,7 +1140,7 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1177,7 +1177,7 @@ $result_nodes{'inter_item_commands_in_enumerate'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

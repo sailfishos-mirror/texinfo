@@ -361,7 +361,7 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -526,7 +526,7 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -648,7 +648,7 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -757,7 +757,7 @@ $result_sectioning{'nodename_parentheses'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -778,7 +778,7 @@ $result_sectioning{'nodename_parentheses'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -799,7 +799,7 @@ $result_sectioning{'nodename_parentheses'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -844,7 +844,7 @@ $result_nodes{'nodename_parentheses'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -854,7 +854,7 @@ $result_nodes{'nodename_parentheses'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {
@@ -864,7 +864,7 @@ $result_nodes{'nodename_parentheses'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 3
+                            'section_number' => '3'
                           }
                         },
                         'node_directions' => {

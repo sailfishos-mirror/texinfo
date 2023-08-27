@@ -367,7 +367,7 @@ $result_trees{'navigation_test_misc_file_collision'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1020,7 +1020,7 @@ $result_sectioning{'navigation_test_misc_file_collision'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1059,7 +1059,7 @@ $result_nodes{'navigation_test_misc_file_collision'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

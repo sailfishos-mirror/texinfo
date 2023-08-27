@@ -1013,7 +1013,7 @@ $result_trees{'index_no_node_no_top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1066,7 +1066,7 @@ $result_trees{'index_no_node_no_top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1223,7 +1223,7 @@ $result_sectioning{'index_no_node_no_top'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'toplevel_directions' => {
             'prev' => {}
           }
@@ -1236,7 +1236,7 @@ $result_sectioning{'index_no_node_no_top'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }

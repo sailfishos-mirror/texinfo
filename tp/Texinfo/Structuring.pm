@@ -261,7 +261,7 @@ sub sectioning_structure($$$)
                and $up->{'extra'}->{'section_level'} >= $level) {
           $up = $up->{'extra'}->{'section_directions'}->{'up'};
         }
-        # no fup ound.  The element is below the sectioning root
+        # no up found.  The element is below the sectioning root
         if ($level <= $up->{'extra'}->{'section_level'}) {
           $up = $sec_root;
           if ($level <= $sec_root->{'extra'}->{'section_level'}) {
@@ -356,7 +356,7 @@ sub sectioning_structure($$$)
     if (!$unnumbered_commands{$content->{'cmdname'}}) {
       # construct the number, if not below an unnumbered
       if (!$command_unnumbered[$number_top_level]) {
-        my $section_number = $command_numbers[$number_top_level];
+        my $section_number = "$command_numbers[$number_top_level]";
         for (my $i = $number_top_level+1; $i <= $level; $i++) {
           $section_number .= ".$command_numbers[$i]";
           # If there is an unnumbered above, then no number is added.

@@ -379,7 +379,7 @@ $result_trees{'syncode_index_print_both'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -465,7 +465,7 @@ $result_sectioning{'syncode_index_print_both'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -502,7 +502,7 @@ $result_nodes{'syncode_index_print_both'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

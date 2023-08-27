@@ -878,7 +878,7 @@ $result_trees{'index_table'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1058,7 +1058,7 @@ $result_trees{'index_table'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -6153,7 +6153,7 @@ $result_trees{'index_table'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -6688,7 +6688,7 @@ $result_sectioning{'index_table'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -6710,7 +6710,7 @@ $result_sectioning{'index_table'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -6750,7 +6750,7 @@ $result_sectioning{'index_table'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -6796,7 +6796,7 @@ $result_nodes{'index_table'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -6806,7 +6806,7 @@ $result_nodes{'index_table'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'isindex' => 1,
@@ -6817,7 +6817,7 @@ $result_nodes{'index_table'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 3
+                            'section_number' => '3'
                           }
                         },
                         'isindex' => 1,

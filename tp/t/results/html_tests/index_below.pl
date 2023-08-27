@@ -80,7 +80,7 @@ $result_trees{'index_below'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -277,7 +277,7 @@ $result_sectioning{'index_below'} = {
                               'up' => {}
                             },
                             'section_level' => 1,
-                            'section_number' => 1,
+                            'section_number' => '1',
                             'toplevel_directions' => {
                               'prev' => {},
                               'up' => {}
@@ -387,7 +387,7 @@ $result_elements{'index_below'} = [
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         }
       },

@@ -619,7 +619,7 @@ $result_trees{'comment_space_command_on_line'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -723,7 +723,7 @@ $result_sectioning{'comment_space_command_on_line'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -760,7 +760,7 @@ $result_nodes{'comment_space_command_on_line'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,
@@ -806,7 +806,7 @@ $result_floats{'comment_space_command_on_line'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         },
         'float_type' => 'Text',

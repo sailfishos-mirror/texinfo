@@ -531,7 +531,7 @@ $result_trees{'redirection_same_labels'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -853,7 +853,7 @@ $result_trees{'redirection_same_labels'} = [
           }
         ],
         'extra' => {
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -1036,7 +1036,7 @@ $result_sectioning{'redirection_same_labels'} = {
                               'up' => {}
                             },
                             'section_level' => 1,
-                            'section_number' => 1,
+                            'section_number' => '1',
                             'toplevel_directions' => {
                               'prev' => {},
                               'up' => {}
@@ -1046,7 +1046,7 @@ $result_sectioning{'redirection_same_labels'} = {
                         'up' => {}
                       },
                       'section_level' => 1,
-                      'section_number' => 2,
+                      'section_number' => '2',
                       'toplevel_directions' => {
                         'prev' => {},
                         'up' => {}
@@ -1172,7 +1172,7 @@ $result_nodes{'redirection_same_labels'} = [
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
                 'extra' => {
-                  'section_number' => 2
+                  'section_number' => '2'
                 }
               }
             },
@@ -1195,7 +1195,7 @@ $result_nodes{'redirection_same_labels'} = [
             'associated_unit' => {},
             'cmdname' => 'chapter',
             'extra' => {
-              'section_number' => 1
+              'section_number' => '1'
             }
           }
         },
@@ -1359,7 +1359,7 @@ $result_menus{'redirection_same_labels'} = [
               'unit_command' => {
                 'associated_unit' => {},
                 'extra' => {
-                  'section_number' => 2
+                  'section_number' => '2'
                 }
               }
             },
@@ -1381,7 +1381,7 @@ $result_menus{'redirection_same_labels'} = [
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
-              'section_number' => 1
+              'section_number' => '1'
             }
           }
         },
@@ -1538,7 +1538,7 @@ $result_elements{'redirection_same_labels'} = [
               'associated_unit' => {},
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 2
+                'section_number' => '2'
               }
             }
           },
@@ -1557,7 +1557,7 @@ $result_elements{'redirection_same_labels'} = [
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         }
       },

@@ -81,7 +81,7 @@ $result_trees{'part_chapter_appendix'} = {
       ],
       'extra' => {
         'associated_part' => {},
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -165,7 +165,7 @@ $result_sectioning{'part_chapter_appendix'} = {
                 'up' => {}
               },
               'section_level' => 1,
-              'section_number' => 1,
+              'section_number' => '1',
               'toplevel_directions' => {}
             }
           },

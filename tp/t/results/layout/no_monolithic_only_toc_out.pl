@@ -430,7 +430,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -528,7 +528,7 @@ $result_sectioning{'no_monolithic_only_toc_out'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -565,7 +565,7 @@ $result_nodes{'no_monolithic_only_toc_out'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

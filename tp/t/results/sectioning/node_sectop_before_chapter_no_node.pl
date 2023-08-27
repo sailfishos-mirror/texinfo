@@ -104,7 +104,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -155,7 +155,7 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

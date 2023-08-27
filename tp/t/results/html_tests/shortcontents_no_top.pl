@@ -36,7 +36,7 @@ $result_trees{'shortcontents_no_top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -75,7 +75,7 @@ $result_trees{'shortcontents_no_top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -175,7 +175,7 @@ $result_sectioning{'shortcontents_no_top'} = {
         'extra' => {
           'section_directions' => {},
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -199,7 +199,7 @@ $result_sectioning{'shortcontents_no_top'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }

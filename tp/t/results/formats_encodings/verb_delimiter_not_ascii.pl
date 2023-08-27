@@ -170,7 +170,7 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -230,7 +230,7 @@ $result_sectioning{'verb_delimiter_not_ascii'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -267,7 +267,7 @@ $result_nodes{'verb_delimiter_not_ascii'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

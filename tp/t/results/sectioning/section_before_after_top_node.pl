@@ -157,7 +157,7 @@ $result_trees{'section_before_after_top_node'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -234,7 +234,7 @@ $result_sectioning{'section_before_after_top_node'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'toplevel_directions' => {
             'prev' => {},
             'up' => {}

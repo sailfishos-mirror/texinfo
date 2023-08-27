@@ -1118,7 +1118,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1210,7 +1210,7 @@ $result_sectioning{'test_accents_sc_use_numeric_entity'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1247,7 +1247,7 @@ $result_nodes{'test_accents_sc_use_numeric_entity'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

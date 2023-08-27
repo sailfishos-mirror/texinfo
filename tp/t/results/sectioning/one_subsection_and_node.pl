@@ -62,7 +62,7 @@ $result_trees{'one_subsection_and_node'} = {
       ],
       'cmdname' => 'subsection',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -101,7 +101,7 @@ $result_sectioning{'one_subsection_and_node'} = {
             }
           },
           'section_level' => 3,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -118,7 +118,7 @@ $result_nodes{'one_subsection_and_node'} = [
       'associated_section' => {
         'cmdname' => 'subsection',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'one-node'

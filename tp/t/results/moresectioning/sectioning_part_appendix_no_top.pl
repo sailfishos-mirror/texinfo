@@ -37,7 +37,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -255,7 +255,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
         ],
         'extra' => {
           'associated_part' => {},
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -300,7 +300,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'extra' => {
-          'section_number' => 3
+          'section_number' => '3'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -645,7 +645,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                                     'up' => {}
                                                   },
                                                   'section_level' => 1,
-                                                  'section_number' => 2,
+                                                  'section_number' => '2',
                                                   'toplevel_directions' => {
                                                     'prev' => {}
                                                   }
@@ -662,7 +662,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                                       'up' => {}
                                                     },
                                                     'section_level' => 1,
-                                                    'section_number' => 3,
+                                                    'section_number' => '3',
                                                     'toplevel_directions' => {
                                                       'prev' => {}
                                                     }
@@ -756,7 +756,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
             {}
           ],
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -981,7 +981,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
               'associated_unit' => {},
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 3
+                'section_number' => '3'
               }
             }
           },
@@ -999,7 +999,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
               'cmdname' => 'part',
               'extra' => {}
             },
-            'section_number' => 2
+            'section_number' => '2'
           }
         }
       },
@@ -1011,7 +1011,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
       'associated_unit' => {},
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       }
     }
   },

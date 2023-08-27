@@ -1058,6 +1058,7 @@ sub test($$)
   Texinfo::Structuring::number_floats($document);
 
   #$document = Texinfo::Structuring::rebuild_document($document);
+  #$tree = $document->tree();
 
   my ($errors, $error_nrs) = $registrar->errors();
   # FIXME maybe it would be good to compare $merged_index_entries?

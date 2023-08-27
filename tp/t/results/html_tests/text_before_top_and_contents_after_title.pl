@@ -161,7 +161,7 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -227,7 +227,7 @@ $result_sectioning{'text_before_top_and_contents_after_title'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

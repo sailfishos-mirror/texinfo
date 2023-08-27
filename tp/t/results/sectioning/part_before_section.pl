@@ -68,7 +68,7 @@ $result_trees{'part_before_section'} = [
         'cmdname' => 'section',
         'extra' => {
           'associated_part' => {},
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -120,7 +120,7 @@ $result_sectioning{'part_before_section'} = {
                 'up' => {}
               },
               'section_level' => 1,
-              'section_number' => 1
+              'section_number' => '1'
             }
           }
         },
@@ -177,7 +177,7 @@ $result_elements{'part_before_section'} = [
           'cmdname' => 'part',
           'extra' => {}
         },
-        'section_number' => 1
+        'section_number' => '1'
       }
     }
   }

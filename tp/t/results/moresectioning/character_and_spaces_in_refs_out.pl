@@ -745,7 +745,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -1074,7 +1074,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           }
         ],
         'extra' => {
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -1640,7 +1640,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1657,7 +1657,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1806,7 +1806,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                                                   'associated_unit' => {},
                                                   'cmdname' => 'chapter',
                                                   'extra' => {
-                                                    'section_number' => 2
+                                                    'section_number' => '2'
                                                   }
                                                 },
                                                 'node_directions' => {
@@ -1900,7 +1900,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
                 'extra' => {
-                  'section_number' => 1
+                  'section_number' => '1'
                 }
               },
               'node_directions' => {

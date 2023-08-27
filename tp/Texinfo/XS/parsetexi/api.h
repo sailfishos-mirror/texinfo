@@ -5,7 +5,7 @@
 #include <config.h>
 #include "tree_types.h"
 
-int parse_file (char *filename);
+int parse_file (char *filename, char *input_file_name, char *input_directory);
 int parse_piece (char *, int line_nr);
 int parse_string (char *, int line_nr);
 int parse_text (char *, int line_nr);

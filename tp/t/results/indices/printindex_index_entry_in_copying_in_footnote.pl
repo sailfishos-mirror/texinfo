@@ -491,7 +491,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -579,7 +579,7 @@ $result_sectioning{'printindex_index_entry_in_copying_in_footnote'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -616,7 +616,7 @@ $result_nodes{'printindex_index_entry_in_copying_in_footnote'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

@@ -83,7 +83,7 @@ $result_trees{'link'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -597,7 +597,7 @@ $result_sectioning{'link'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -614,7 +614,7 @@ $result_nodes{'link'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'One'

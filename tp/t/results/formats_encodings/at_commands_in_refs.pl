@@ -3955,7 +3955,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -4123,7 +4123,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -4343,7 +4343,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -4627,7 +4627,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 4
+        'section_number' => '4'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -4879,7 +4879,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 5
+        'section_number' => '5'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -5035,7 +5035,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 6
+        'section_number' => '6'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -5319,7 +5319,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 7
+        'section_number' => '7'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -5539,7 +5539,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 8
+        'section_number' => '8'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -6047,7 +6047,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 9
+        'section_number' => '9'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -6599,7 +6599,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 10
+        'section_number' => '10'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -6953,7 +6953,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 11
+        'section_number' => '11'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -7199,7 +7199,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 12
+        'section_number' => '12'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -7451,7 +7451,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 13
+        'section_number' => '13'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -7703,7 +7703,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 14
+        'section_number' => '14'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -7775,7 +7775,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 15
+        'section_number' => '15'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -7987,7 +7987,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 16
+        'section_number' => '16'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -8272,7 +8272,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 17
+        'section_number' => '17'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -8466,7 +8466,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 18
+        'section_number' => '18'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -8759,7 +8759,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 19
+        'section_number' => '19'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -8942,7 +8942,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 20
+        'section_number' => '20'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -9464,7 +9464,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 21
+        'section_number' => '21'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -9854,7 +9854,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 22
+        'section_number' => '22'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -9962,7 +9962,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 23
+        'section_number' => '23'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -10106,7 +10106,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 24
+        'section_number' => '24'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -10208,7 +10208,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 25
+        'section_number' => '25'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -10352,7 +10352,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 26
+        'section_number' => '26'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -14233,7 +14233,7 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'extra' => {
-        'section_number' => 27
+        'section_number' => '27'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -15093,7 +15093,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15114,7 +15114,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15135,7 +15135,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15156,7 +15156,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 4,
+                'section_number' => '4',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15177,7 +15177,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 5,
+                'section_number' => '5',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15198,7 +15198,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 6,
+                'section_number' => '6',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15219,7 +15219,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 7,
+                'section_number' => '7',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15240,7 +15240,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 8,
+                'section_number' => '8',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15261,7 +15261,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 9,
+                'section_number' => '9',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15282,7 +15282,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 10,
+                'section_number' => '10',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15303,7 +15303,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 11,
+                'section_number' => '11',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15324,7 +15324,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 12,
+                'section_number' => '12',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15345,7 +15345,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 13,
+                'section_number' => '13',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15366,7 +15366,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 14,
+                'section_number' => '14',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15387,7 +15387,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 15,
+                'section_number' => '15',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15408,7 +15408,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 16,
+                'section_number' => '16',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15429,7 +15429,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 17,
+                'section_number' => '17',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15450,7 +15450,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 18,
+                'section_number' => '18',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15471,7 +15471,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 19,
+                'section_number' => '19',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15492,7 +15492,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 20,
+                'section_number' => '20',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15513,7 +15513,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 21,
+                'section_number' => '21',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15534,7 +15534,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 22,
+                'section_number' => '22',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15555,7 +15555,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 23,
+                'section_number' => '23',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15576,7 +15576,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 24,
+                'section_number' => '24',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15597,7 +15597,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 25,
+                'section_number' => '25',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15618,7 +15618,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 26,
+                'section_number' => '26',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15639,7 +15639,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 27,
+                'section_number' => '27',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -15780,7 +15780,7 @@ $result_nodes{'at_commands_in_refs'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -15790,7 +15790,7 @@ $result_nodes{'at_commands_in_refs'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {
@@ -15800,7 +15800,7 @@ $result_nodes{'at_commands_in_refs'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 3
+                            'section_number' => '3'
                           }
                         },
                         'node_directions' => {
@@ -15810,7 +15810,7 @@ $result_nodes{'at_commands_in_refs'} = [
                               'associated_section' => {
                                 'cmdname' => 'chapter',
                                 'extra' => {
-                                  'section_number' => 4
+                                  'section_number' => '4'
                                 }
                               },
                               'node_directions' => {
@@ -15820,7 +15820,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                     'associated_section' => {
                                       'cmdname' => 'chapter',
                                       'extra' => {
-                                        'section_number' => 5
+                                        'section_number' => '5'
                                       }
                                     },
                                     'node_directions' => {
@@ -15830,7 +15830,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                           'associated_section' => {
                                             'cmdname' => 'chapter',
                                             'extra' => {
-                                              'section_number' => 6
+                                              'section_number' => '6'
                                             }
                                           },
                                           'node_directions' => {
@@ -15840,7 +15840,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                 'associated_section' => {
                                                   'cmdname' => 'chapter',
                                                   'extra' => {
-                                                    'section_number' => 7
+                                                    'section_number' => '7'
                                                   }
                                                 },
                                                 'node_directions' => {
@@ -15850,7 +15850,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                       'associated_section' => {
                                                         'cmdname' => 'chapter',
                                                         'extra' => {
-                                                          'section_number' => 8
+                                                          'section_number' => '8'
                                                         }
                                                       },
                                                       'node_directions' => {
@@ -15860,7 +15860,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                             'associated_section' => {
                                                               'cmdname' => 'chapter',
                                                               'extra' => {
-                                                                'section_number' => 9
+                                                                'section_number' => '9'
                                                               }
                                                             },
                                                             'node_directions' => {
@@ -15870,7 +15870,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                   'associated_section' => {
                                                                     'cmdname' => 'chapter',
                                                                     'extra' => {
-                                                                      'section_number' => 10
+                                                                      'section_number' => '10'
                                                                     }
                                                                   },
                                                                   'node_directions' => {
@@ -15880,7 +15880,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                         'associated_section' => {
                                                                           'cmdname' => 'chapter',
                                                                           'extra' => {
-                                                                            'section_number' => 11
+                                                                            'section_number' => '11'
                                                                           }
                                                                         },
                                                                         'node_directions' => {
@@ -15890,7 +15890,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                               'associated_section' => {
                                                                                 'cmdname' => 'chapter',
                                                                                 'extra' => {
-                                                                                  'section_number' => 12
+                                                                                  'section_number' => '12'
                                                                                 }
                                                                               },
                                                                               'node_directions' => {
@@ -15900,7 +15900,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                     'associated_section' => {
                                                                                       'cmdname' => 'chapter',
                                                                                       'extra' => {
-                                                                                        'section_number' => 13
+                                                                                        'section_number' => '13'
                                                                                       }
                                                                                     },
                                                                                     'node_directions' => {
@@ -15910,7 +15910,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                           'associated_section' => {
                                                                                             'cmdname' => 'chapter',
                                                                                             'extra' => {
-                                                                                              'section_number' => 14
+                                                                                              'section_number' => '14'
                                                                                             }
                                                                                           },
                                                                                           'node_directions' => {
@@ -15920,7 +15920,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                 'associated_section' => {
                                                                                                   'cmdname' => 'chapter',
                                                                                                   'extra' => {
-                                                                                                    'section_number' => 15
+                                                                                                    'section_number' => '15'
                                                                                                   }
                                                                                                 },
                                                                                                 'node_directions' => {
@@ -15930,7 +15930,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                       'associated_section' => {
                                                                                                         'cmdname' => 'chapter',
                                                                                                         'extra' => {
-                                                                                                          'section_number' => 16
+                                                                                                          'section_number' => '16'
                                                                                                         }
                                                                                                       },
                                                                                                       'node_directions' => {
@@ -15940,7 +15940,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                             'associated_section' => {
                                                                                                               'cmdname' => 'chapter',
                                                                                                               'extra' => {
-                                                                                                                'section_number' => 17
+                                                                                                                'section_number' => '17'
                                                                                                               }
                                                                                                             },
                                                                                                             'node_directions' => {
@@ -15950,7 +15950,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                   'associated_section' => {
                                                                                                                     'cmdname' => 'chapter',
                                                                                                                     'extra' => {
-                                                                                                                      'section_number' => 18
+                                                                                                                      'section_number' => '18'
                                                                                                                     }
                                                                                                                   },
                                                                                                                   'node_directions' => {
@@ -15960,7 +15960,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                         'associated_section' => {
                                                                                                                           'cmdname' => 'chapter',
                                                                                                                           'extra' => {
-                                                                                                                            'section_number' => 19
+                                                                                                                            'section_number' => '19'
                                                                                                                           }
                                                                                                                         },
                                                                                                                         'node_directions' => {
@@ -15970,7 +15970,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                               'associated_section' => {
                                                                                                                                 'cmdname' => 'chapter',
                                                                                                                                 'extra' => {
-                                                                                                                                  'section_number' => 20
+                                                                                                                                  'section_number' => '20'
                                                                                                                                 }
                                                                                                                               },
                                                                                                                               'node_directions' => {
@@ -15980,7 +15980,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                     'associated_section' => {
                                                                                                                                       'cmdname' => 'chapter',
                                                                                                                                       'extra' => {
-                                                                                                                                        'section_number' => 21
+                                                                                                                                        'section_number' => '21'
                                                                                                                                       }
                                                                                                                                     },
                                                                                                                                     'node_directions' => {
@@ -15990,7 +15990,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                           'associated_section' => {
                                                                                                                                             'cmdname' => 'chapter',
                                                                                                                                             'extra' => {
-                                                                                                                                              'section_number' => 22
+                                                                                                                                              'section_number' => '22'
                                                                                                                                             }
                                                                                                                                           },
                                                                                                                                           'node_directions' => {
@@ -16000,7 +16000,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                                 'associated_section' => {
                                                                                                                                                   'cmdname' => 'chapter',
                                                                                                                                                   'extra' => {
-                                                                                                                                                    'section_number' => 23
+                                                                                                                                                    'section_number' => '23'
                                                                                                                                                   }
                                                                                                                                                 },
                                                                                                                                                 'node_directions' => {
@@ -16010,7 +16010,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                                       'associated_section' => {
                                                                                                                                                         'cmdname' => 'chapter',
                                                                                                                                                         'extra' => {
-                                                                                                                                                          'section_number' => 24
+                                                                                                                                                          'section_number' => '24'
                                                                                                                                                         }
                                                                                                                                                       },
                                                                                                                                                       'node_directions' => {
@@ -16020,7 +16020,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                                             'associated_section' => {
                                                                                                                                                               'cmdname' => 'chapter',
                                                                                                                                                               'extra' => {
-                                                                                                                                                                'section_number' => 25
+                                                                                                                                                                'section_number' => '25'
                                                                                                                                                               }
                                                                                                                                                             },
                                                                                                                                                             'node_directions' => {
@@ -16030,7 +16030,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                                                   'associated_section' => {
                                                                                                                                                                     'cmdname' => 'chapter',
                                                                                                                                                                     'extra' => {
-                                                                                                                                                                      'section_number' => 26
+                                                                                                                                                                      'section_number' => '26'
                                                                                                                                                                     }
                                                                                                                                                                   },
                                                                                                                                                                   'node_directions' => {
@@ -16040,7 +16040,7 @@ $result_nodes{'at_commands_in_refs'} = [
                                                                                                                                                                         'associated_section' => {
                                                                                                                                                                           'cmdname' => 'chapter',
                                                                                                                                                                           'extra' => {
-                                                                                                                                                                            'section_number' => 27
+                                                                                                                                                                            'section_number' => '27'
                                                                                                                                                                           }
                                                                                                                                                                         },
                                                                                                                                                                         'node_directions' => {

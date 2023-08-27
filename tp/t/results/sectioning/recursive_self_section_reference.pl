@@ -91,7 +91,7 @@ $result_trees{'recursive_self_section_reference'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -131,7 +131,7 @@ $result_sectioning{'recursive_self_section_reference'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -148,7 +148,7 @@ $result_nodes{'recursive_self_section_reference'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'sharp'

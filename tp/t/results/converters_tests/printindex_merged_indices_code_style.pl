@@ -632,7 +632,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -732,7 +732,7 @@ $result_sectioning{'printindex_merged_indices_code_style'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -769,7 +769,7 @@ $result_nodes{'printindex_merged_indices_code_style'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

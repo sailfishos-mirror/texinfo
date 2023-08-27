@@ -235,7 +235,11 @@ sub parse_texi_file ($$)
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
-  my $document_descriptor = parse_file ($input_file_path);
+  # FIXME instead of using fileparse here, reimplement fileparse
+  # in XS, or use a file name parsing code from somewhere else?
+  my ($basename, $directories, $suffix) = fileparse($input_file_path);
+  my $document_descriptor = parse_file ($input_file_path,
+                                        $basename, $directories);
   if (!$document_descriptor) {
     my ($registrar, $configuration_information) = _get_error_registrar($self);
     my $input_file_name = $input_file_path;
@@ -249,10 +253,6 @@ sub parse_texi_file ($$)
   }
 
   my $document = get_parser_info($self, $document_descriptor, 1);
-
-  my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  $document->{'info'}->{'input_file_name'} = $basename;
-  $document->{'info'}->{'input_directory'} = $directories;
 
   return $document;
 }

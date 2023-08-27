@@ -390,7 +390,7 @@ $result_trees{'two_nodes_between_chapters_nodes'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -495,7 +495,7 @@ $result_trees{'two_nodes_between_chapters_nodes'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -578,7 +578,7 @@ $result_sectioning{'two_nodes_between_chapters_nodes'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -599,7 +599,7 @@ $result_sectioning{'two_nodes_between_chapters_nodes'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -640,7 +640,7 @@ $result_nodes{'two_nodes_between_chapters_nodes'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -655,7 +655,7 @@ $result_nodes{'two_nodes_between_chapters_nodes'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 2
+                            'section_number' => '2'
                           }
                         },
                         'node_directions' => {

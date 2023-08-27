@@ -2497,7 +2497,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -3717,7 +3717,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -5412,7 +5412,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -5487,7 +5487,7 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -5584,7 +5584,7 @@ $result_nodes{'numbering_captions_listoffloats'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -5602,7 +5602,7 @@ $result_nodes{'numbering_captions_listoffloats'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 2
+                            'section_number' => '2'
                           }
                         },
                         'node_directions' => {
@@ -5930,7 +5930,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         },
         'float_type' => '',
@@ -6135,7 +6135,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 2
+            'section_number' => '2'
           }
         },
         'float_type' => 'Text',

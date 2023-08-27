@@ -396,6 +396,8 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
   free (global_info.footnotes.contents.list);
 
   free (global_info.global_input_encoding_name);
+  free (global_info.input_file_name);
+  free (global_info.input_directory);
 
 #define GLOBAL_CASE(cmx) \
   free (global_info.cmx.contents.list)

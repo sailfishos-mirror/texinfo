@@ -196,7 +196,7 @@ $result_trees{'section_on_defx_line'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -239,7 +239,7 @@ $result_sectioning{'section_on_defx_line'} = {
         'cmdname' => 'section',
         'extra' => {
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }

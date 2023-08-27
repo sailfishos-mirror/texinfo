@@ -211,7 +211,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -278,7 +278,7 @@ $result_sectioning{'manual_simple_utf8_with_error'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -315,7 +315,7 @@ $result_nodes{'manual_simple_utf8_with_error'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

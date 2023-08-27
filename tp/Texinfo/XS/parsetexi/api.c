@@ -163,7 +163,7 @@ reset_parser (int local_debug_output)
    Set ROOT to root of tree obtained by parsing FILENAME.
    Used for parse_texi_file. */
 int
-parse_file (char *filename)
+parse_file (char *filename, char *input_file_name, char *input_directory)
 {
   int document_descriptor;
   char *p, *q;
@@ -173,6 +173,11 @@ parse_file (char *filename)
   status = input_push_file (filename);
   if (status)
     return 0;
+
+  free (global_info.input_file_name);
+  free (global_info.input_directory);
+  global_info.input_file_name = strdup (input_file_name);
+  global_info.input_directory = strdup (input_directory);
 
   /* Strip off a leading directory path, by looking for the last
      '/' in filename. */
@@ -285,6 +290,12 @@ store_document (ELEMENT *root)
   if (global_info.global_input_encoding_name)
     doc_global_info->global_input_encoding_name
       = strdup (global_info.global_input_encoding_name);
+  if (global_info.input_file_name)
+    doc_global_info->input_file_name
+      = strdup (global_info.input_file_name);
+  if (global_info.input_directory)
+    doc_global_info->input_directory
+      = strdup (global_info.input_directory);
   #define COPY_GLOBAL_ARRAY(cmd) \
    doc_global_info->cmd.contents.list = 0;                          \
    doc_global_info->cmd.contents.number = 0;                         \

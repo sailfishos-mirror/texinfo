@@ -171,7 +171,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -236,7 +236,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -303,7 +303,7 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -324,7 +324,7 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -365,7 +365,7 @@ $result_nodes{'file_name_conflict_with_user_defined'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -375,7 +375,7 @@ $result_nodes{'file_name_conflict_with_user_defined'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {

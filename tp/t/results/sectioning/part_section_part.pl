@@ -74,7 +74,7 @@ $result_trees{'part_section_part'} = {
       ],
       'extra' => {
         'associated_part' => {},
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -154,7 +154,7 @@ $result_sectioning{'part_section_part'} = {
                 'up' => {}
               },
               'section_level' => 1,
-              'section_number' => 1
+              'section_number' => '1'
             }
           },
           'section_childs' => [

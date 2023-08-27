@@ -29,7 +29,7 @@ $result_trees{'sections'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -61,7 +61,7 @@ $result_sectioning{'sections'} = {
         'cmdname' => 'chapter',
         'extra' => {
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }

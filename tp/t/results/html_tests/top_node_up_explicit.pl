@@ -336,7 +336,7 @@ $result_trees{'top_node_up_explicit'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -412,7 +412,7 @@ $result_sectioning{'top_node_up_explicit'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -483,7 +483,7 @@ $result_nodes{'top_node_up_explicit'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {

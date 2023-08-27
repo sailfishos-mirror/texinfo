@@ -74,7 +74,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -250,7 +250,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -492,7 +492,7 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
           },
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -510,7 +510,7 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }
@@ -551,7 +551,7 @@ $result_nodes{'section_chapter_before_top_nodes'} = [
       'associated_section' => {
         'cmdname' => 'section',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {
@@ -561,7 +561,7 @@ $result_nodes{'section_chapter_before_top_nodes'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 2
+                'section_number' => '2'
               }
             },
             'node_directions' => {

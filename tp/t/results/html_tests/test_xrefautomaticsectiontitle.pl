@@ -392,7 +392,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -473,7 +473,7 @@ $result_sectioning{'test_xrefautomaticsectiontitle'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -510,7 +510,7 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

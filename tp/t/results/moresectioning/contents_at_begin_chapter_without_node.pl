@@ -121,7 +121,7 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -175,7 +175,7 @@ $result_sectioning{'contents_at_begin_chapter_without_node'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

@@ -2843,7 +2843,7 @@ $result_trees{'refs_formatting'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -2998,7 +2998,7 @@ $result_sectioning{'refs_formatting'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -3015,7 +3015,7 @@ $result_nodes{'refs_formatting'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'normalized' => 'chapter'

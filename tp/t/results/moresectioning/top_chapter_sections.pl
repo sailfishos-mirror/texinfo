@@ -123,7 +123,7 @@ $result_trees{'top_chapter_sections'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -213,7 +213,7 @@ $result_trees{'top_chapter_sections'} = [
           }
         ],
         'extra' => {
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -386,7 +386,7 @@ $result_trees{'top_chapter_sections'} = [
         ],
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 3
+          'section_number' => '3'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -521,7 +521,7 @@ $result_sectioning{'top_chapter_sections'} = {
                                       'up' => {}
                                     },
                                     'section_level' => 1,
-                                    'section_number' => 1,
+                                    'section_number' => '1',
                                     'toplevel_directions' => {
                                       'prev' => {},
                                       'up' => {}
@@ -596,7 +596,7 @@ $result_sectioning{'top_chapter_sections'} = {
                                                   'up' => {}
                                                 },
                                                 'section_level' => 1,
-                                                'section_number' => 2,
+                                                'section_number' => '2',
                                                 'toplevel_directions' => {
                                                   'prev' => {},
                                                   'up' => {}
@@ -653,7 +653,7 @@ $result_sectioning{'top_chapter_sections'} = {
                                 'up' => {}
                               },
                               'section_level' => 1,
-                              'section_number' => 3,
+                              'section_number' => '3',
                               'toplevel_directions' => {
                                 'prev' => {},
                                 'up' => {}
@@ -920,7 +920,7 @@ $result_elements{'top_chapter_sections'} = [
                       'associated_unit' => {},
                       'cmdname' => 'chapter',
                       'extra' => {
-                        'section_number' => 3
+                        'section_number' => '3'
                       }
                     }
                   },
@@ -935,7 +935,7 @@ $result_elements{'top_chapter_sections'} = [
                   'associated_unit' => {},
                   'cmdname' => 'chapter',
                   'extra' => {
-                    'section_number' => 2
+                    'section_number' => '2'
                   }
                 }
               },
@@ -950,7 +950,7 @@ $result_elements{'top_chapter_sections'} = [
               'associated_unit' => {},
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             }
           },

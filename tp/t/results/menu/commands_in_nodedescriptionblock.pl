@@ -641,7 +641,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'section_number' => 1
+                    'section_number' => '1'
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1041,7 +1041,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1166,7 +1166,7 @@ $result_sectioning{'commands_in_nodedescriptionblock'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1188,7 +1188,7 @@ $result_sectioning{'commands_in_nodedescriptionblock'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1229,7 +1229,7 @@ $result_nodes{'commands_in_nodedescriptionblock'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -1239,7 +1239,7 @@ $result_nodes{'commands_in_nodedescriptionblock'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'isindex' => 1,
@@ -1324,7 +1324,7 @@ $result_floats{'commands_in_nodedescriptionblock'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         },
         'float_type' => 'tfloat',

@@ -291,7 +291,7 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -373,7 +373,7 @@ $result_sectioning{'style_not_closed_no_newline_root_commands'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -410,7 +410,7 @@ $result_nodes{'style_not_closed_no_newline_root_commands'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

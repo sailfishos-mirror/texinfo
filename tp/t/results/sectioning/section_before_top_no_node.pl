@@ -36,7 +36,7 @@ $result_trees{'section_before_top_no_node'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -104,7 +104,7 @@ $result_sectioning{'section_before_top_no_node'} = {
         'extra' => {
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }

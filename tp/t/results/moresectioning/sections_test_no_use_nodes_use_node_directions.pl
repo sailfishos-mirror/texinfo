@@ -78,7 +78,7 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -272,7 +272,7 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       ],
       'extra' => {
         'associated_part' => {},
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -311,7 +311,7 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -545,7 +545,7 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -570,7 +570,7 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
                 'up' => {}
               },
               'section_level' => 1,
-              'section_number' => 2,
+              'section_number' => '2',
               'toplevel_directions' => {
                 'prev' => {},
                 'up' => {}
@@ -587,7 +587,7 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

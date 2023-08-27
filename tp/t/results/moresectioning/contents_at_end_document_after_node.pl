@@ -210,7 +210,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -350,7 +350,7 @@ $result_sectioning{'contents_at_end_document_after_node'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}

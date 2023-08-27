@@ -1109,7 +1109,7 @@ $result_trees{'references_to_top_no_top_output'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1258,7 +1258,7 @@ $result_sectioning{'references_to_top_no_top_output'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1295,7 +1295,7 @@ $result_nodes{'references_to_top_no_top_output'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,
@@ -1365,7 +1365,7 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 1
+            'section_number' => '1'
           }
         },
         'float_type' => 'list',

@@ -730,6 +730,28 @@ build_internal_xref_list (ELEMENT **internal_xref_list,
   return list_av;
 }
 
+AV *
+build_elements_contents_list (ELEMENT *element)
+{
+  AV *list_av;
+  SV *sv;
+  int i;
+
+  dTHX;
+
+  list_av = newAV ();
+
+  av_unshift (list_av, element->contents.number);
+
+  for (i = 0; i < element->contents.number; i++)
+    {
+      sv = newRV_inc (element->contents.list[i]->hv);
+      av_store (list_av, i, sv);
+    }
+
+  return list_av;
+}
+
 /* Return hash for list of @float's that appeared in the file. */
 HV *
 build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
@@ -868,6 +890,12 @@ build_global_info (GLOBAL_INFO *global_info_ref)
   if (global_info.global_input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
               newSVpv (global_info.global_input_encoding_name, 0), 0);
+  if (global_info.input_file_name)
+    hv_store (hv, "input_file_name", strlen ("input_file_name"),
+              newSVpv (global_info.input_file_name, 0), 0);
+  if (global_info.input_directory)
+    hv_store (hv, "input_directory", strlen ("input_directory"),
+              newSVpv (global_info.input_directory, 0), 0);
 
   if (global_info.dircategory_direntry.contents.number > 0)
     {
@@ -1116,6 +1144,8 @@ build_document (size_t document_descriptor)
   HV *hv_identifiers_target;
   AV *av_labels_list;
   AV *av_errors_list;
+  AV *av_nodes_list = 0;
+  AV *av_sections_list = 0;
   HV *hv_stash;
 
   dTHX;
@@ -1153,6 +1183,12 @@ build_document (size_t document_descriptor)
   av_errors_list = get_errors (document->error_messages->list,
                                document->error_messages->number);
 
+  if (document->nodes_list)
+    av_nodes_list = build_elements_contents_list (document->nodes_list);
+
+  if (document->sections_list)
+    av_sections_list = build_elements_contents_list (document->sections_list);
+
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
   /* need to be kept in sync with Texinfo::Document register keys */
@@ -1165,6 +1201,12 @@ build_document (size_t document_descriptor)
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);
   STORE("errors", av_errors_list);
+
+  if (av_nodes_list)
+    STORE("nodes_list", av_nodes_list);
+
+  if (av_sections_list)
+    STORE("sections_list", av_sections_list);
 
 #undef STORE
 

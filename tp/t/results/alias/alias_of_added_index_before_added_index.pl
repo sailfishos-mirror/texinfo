@@ -299,7 +299,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -371,7 +371,7 @@ $result_sectioning{'alias_of_added_index_before_added_index'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -408,7 +408,7 @@ $result_nodes{'alias_of_added_index_before_added_index'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

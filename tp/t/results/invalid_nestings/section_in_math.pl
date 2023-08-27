@@ -128,7 +128,7 @@ $result_trees{'section_in_math'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -160,7 +160,7 @@ $result_trees{'section_in_math'} = {
       ],
       'cmdname' => 'section',
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -208,7 +208,7 @@ $result_sectioning{'section_in_math'} = {
         'extra' => {
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -220,7 +220,7 @@ $result_sectioning{'section_in_math'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }

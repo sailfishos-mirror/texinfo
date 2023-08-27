@@ -1273,7 +1273,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1408,7 +1408,7 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1445,7 +1445,7 @@ $result_nodes{'macro_alias_definfoenclose_defindex'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'isindex' => 1,

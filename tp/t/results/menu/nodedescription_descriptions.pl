@@ -686,7 +686,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -796,7 +796,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -906,7 +906,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1016,7 +1016,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 4
+        'section_number' => '4'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1126,7 +1126,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 5
+        'section_number' => '5'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1236,7 +1236,7 @@ $result_trees{'nodedescription_descriptions'} = {
         }
       ],
       'extra' => {
-        'section_number' => 6
+        'section_number' => '6'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1341,7 +1341,7 @@ $result_trees{'nodedescription_descriptions'} = {
         {}
       ],
       'extra' => {
-        'section_number' => 7
+        'section_number' => '7'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1497,7 +1497,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1518,7 +1518,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1539,7 +1539,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 3,
+                'section_number' => '3',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1560,7 +1560,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 4,
+                'section_number' => '4',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1581,7 +1581,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 5,
+                'section_number' => '5',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1602,7 +1602,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 6,
+                'section_number' => '6',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1623,7 +1623,7 @@ $result_sectioning{'nodedescription_descriptions'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 7,
+                'section_number' => '7',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1684,7 +1684,7 @@ $result_nodes{'nodedescription_descriptions'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
@@ -1694,7 +1694,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {
@@ -1704,7 +1704,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 3
+                            'section_number' => '3'
                           }
                         },
                         'node_directions' => {
@@ -1714,7 +1714,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                               'associated_section' => {
                                 'cmdname' => 'chapter',
                                 'extra' => {
-                                  'section_number' => 4
+                                  'section_number' => '4'
                                 }
                               },
                               'node_directions' => {
@@ -1724,7 +1724,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                                     'associated_section' => {
                                       'cmdname' => 'chapter',
                                       'extra' => {
-                                        'section_number' => 5
+                                        'section_number' => '5'
                                       }
                                     },
                                     'node_directions' => {
@@ -1734,7 +1734,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                                           'associated_section' => {
                                             'cmdname' => 'chapter',
                                             'extra' => {
-                                              'section_number' => 6
+                                              'section_number' => '6'
                                             }
                                           },
                                           'node_directions' => {
@@ -1744,7 +1744,7 @@ $result_nodes{'nodedescription_descriptions'} = [
                                                 'associated_section' => {
                                                   'cmdname' => 'chapter',
                                                   'extra' => {
-                                                    'section_number' => 7
+                                                    'section_number' => '7'
                                                   }
                                                 },
                                                 'node_directions' => {

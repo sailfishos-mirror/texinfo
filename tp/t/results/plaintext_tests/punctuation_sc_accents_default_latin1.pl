@@ -1158,7 +1158,7 @@ $result_trees{'punctuation_sc_accents_default_latin1'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1253,7 +1253,7 @@ $result_sectioning{'punctuation_sc_accents_default_latin1'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1290,7 +1290,7 @@ $result_nodes{'punctuation_sc_accents_default_latin1'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

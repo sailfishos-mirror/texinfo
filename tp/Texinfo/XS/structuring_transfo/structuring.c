@@ -89,7 +89,7 @@ sectioning_structure (ELEMENT *root)
      something like the last child index, because of @unnumbered. */
   int command_numbers[5] = {-1, -1, -1, -1, -1};
   /* keep track of the unnumbered */
-  int command_unnumbered[5] = {-1, -1, -1, -1, -1};
+  int command_unnumbered[5] = {0, 0, 0, 0, 0};
 
   for (i = 0; i < root->contents.number; i++)
     {
@@ -145,8 +145,12 @@ sectioning_structure (ELEMENT *root)
               if (!(command_other_flags (previous_section) & CF_unnumbered))
                 command_numbers[level] = -1;
               else if (!(command_other_flags (content) & CF_unnumbered))
-                command_numbers[level]++;
-              if (command_other_flags (previous_section) & CF_unnumbered)
+                {
+                  if (command_numbers[level] < 0)
+                    command_numbers[level] = 0;
+                  command_numbers[level]++;
+                }
+              if (command_other_flags (content) & CF_unnumbered)
                 command_unnumbered[level] = 1;
               else
                 command_unnumbered[level] = 0;
@@ -330,12 +334,12 @@ sectioning_structure (ELEMENT *root)
                   prev_toplvl_directions->contents.list[D_next] = content;
                   toplevel_directions->contents.list[D_prev] = previous_toplevel;
                 }
-              if (section_top && section_top != content)
+              if (section_top && content != section_top)
                 {
                   toplevel_directions->contents.list[D_up] = section_top;
                 }
-              previous_toplevel = content;
             }
+          previous_toplevel = content;
         }
       else if (content->cmd == CM_part)
         {
@@ -1620,6 +1624,7 @@ number_floats (DOCUMENT *document)
                   nr_in_chapter[chapter_nr]++;
                   text_printf (&number, "%d.%zu", chapter_nr,
                                                   nr_in_chapter[chapter_nr]);
+                  add_extra_string_dup (float_elt, "float_number", number.text);
                 }
             }
           if (number.end == 0)

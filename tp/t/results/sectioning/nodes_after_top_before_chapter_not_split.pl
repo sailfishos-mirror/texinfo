@@ -393,7 +393,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -457,7 +457,7 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -482,7 +482,7 @@ $result_nodes{'nodes_after_top_before_chapter_not_split'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 1
+                      'section_number' => '1'
                     }
                   },
                   'node_directions' => {

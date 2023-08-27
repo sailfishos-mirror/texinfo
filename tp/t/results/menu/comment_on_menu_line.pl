@@ -184,7 +184,7 @@ $result_trees{'comment_on_menu_line'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -266,7 +266,7 @@ $result_sectioning{'comment_on_menu_line'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -283,7 +283,7 @@ $result_nodes{'comment_on_menu_line'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {

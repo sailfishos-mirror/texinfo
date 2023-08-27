@@ -166,7 +166,7 @@ $result_trees{'transliterated_names_conflicts'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -370,7 +370,7 @@ $result_trees{'transliterated_names_conflicts'} = [
           }
         ],
         'extra' => {
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -522,7 +522,7 @@ $result_sectioning{'transliterated_names_conflicts'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -539,7 +539,7 @@ $result_sectioning{'transliterated_names_conflicts'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -629,7 +629,7 @@ $result_nodes{'transliterated_names_conflicts'} = [
                     'associated_unit' => {},
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 2
+                      'section_number' => '2'
                     }
                   },
                   'node_directions' => {
@@ -641,7 +641,7 @@ $result_nodes{'transliterated_names_conflicts'} = [
                           'associated_unit' => {},
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'section_number' => 1
+                            'section_number' => '1'
                           }
                         },
                         'node_directions' => {
@@ -928,7 +928,7 @@ $result_floats{'transliterated_names_conflicts'} = {
           },
           'cmdname' => 'chapter',
           'extra' => {
-            'section_number' => 2
+            'section_number' => '2'
           }
         },
         'float_type' => 'Figure',

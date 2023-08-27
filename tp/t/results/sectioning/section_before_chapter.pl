@@ -36,7 +36,7 @@ $result_trees{'section_before_chapter'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -68,7 +68,7 @@ $result_trees{'section_before_chapter'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -106,7 +106,7 @@ $result_sectioning{'section_before_chapter'} = {
         'extra' => {
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -118,7 +118,7 @@ $result_sectioning{'section_before_chapter'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }

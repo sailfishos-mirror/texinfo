@@ -111,7 +111,7 @@ $result_trees{'top_part_chapter'} = [
         'cmdname' => 'chapter',
         'extra' => {
           'associated_part' => {},
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -189,7 +189,7 @@ $result_sectioning{'top_part_chapter'} = {
                     'up' => {}
                   },
                   'section_level' => 1,
-                  'section_number' => 1,
+                  'section_number' => '1',
                   'toplevel_directions' => {
                     'prev' => {},
                     'up' => {}
@@ -262,7 +262,7 @@ $result_elements{'top_part_chapter'} = [
               'cmdname' => 'part',
               'extra' => {}
             },
-            'section_number' => 1
+            'section_number' => '1'
           }
         }
       },

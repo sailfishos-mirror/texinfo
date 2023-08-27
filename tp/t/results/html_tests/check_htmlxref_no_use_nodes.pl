@@ -662,7 +662,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -753,7 +753,7 @@ $result_sectioning{'check_htmlxref_no_use_nodes'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -833,7 +833,7 @@ $result_nodes{'check_htmlxref_no_use_nodes'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {

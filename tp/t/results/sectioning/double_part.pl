@@ -356,7 +356,7 @@ $result_trees{'double_part'} = [
         ],
         'extra' => {
           'associated_part' => {},
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -495,7 +495,7 @@ $result_sectioning{'double_part'} = {
                     'up' => {}
                   },
                   'section_level' => 1,
-                  'section_number' => 1,
+                  'section_number' => '1',
                   'toplevel_directions' => {
                     'prev' => {},
                     'up' => {}
@@ -621,7 +621,7 @@ $result_nodes{'double_part'} = [
                 'cmdname' => 'part',
                 'extra' => {}
               },
-              'section_number' => 1
+              'section_number' => '1'
             }
           }
         },
@@ -744,7 +744,7 @@ $result_menus{'double_part'} = [
                 'associated_unit' => {},
                 'extra' => {}
               },
-              'section_number' => 1
+              'section_number' => '1'
             }
           }
         },
@@ -884,7 +884,7 @@ $result_elements{'double_part'} = [
               'cmdname' => 'part',
               'extra' => {}
             },
-            'section_number' => 1
+            'section_number' => '1'
           }
         }
       },

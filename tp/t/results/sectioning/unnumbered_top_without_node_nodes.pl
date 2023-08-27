@@ -265,7 +265,7 @@ $result_trees{'unnumbered_top_without_node_nodes'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -395,7 +395,7 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'toplevel_directions' => {
             'prev' => {},
             'up' => {}
@@ -460,7 +460,7 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = [
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
                 'extra' => {
-                  'section_number' => 1
+                  'section_number' => '1'
                 }
               },
               'node_directions' => {

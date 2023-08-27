@@ -89,7 +89,7 @@ $result_trees{'section_before_top'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -312,7 +312,7 @@ $result_sectioning{'section_before_top'} = {
           },
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -350,7 +350,7 @@ $result_nodes{'section_before_top'} = [
       'associated_section' => {
         'cmdname' => 'section',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {

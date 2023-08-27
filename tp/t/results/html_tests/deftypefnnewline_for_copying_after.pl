@@ -567,7 +567,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -653,7 +653,7 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -690,7 +690,7 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

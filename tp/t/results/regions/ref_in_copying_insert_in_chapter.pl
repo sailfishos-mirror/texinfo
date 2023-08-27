@@ -361,7 +361,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -533,7 +533,7 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -571,7 +571,7 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

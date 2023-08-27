@@ -95,7 +95,7 @@ $result_trees{'double_recursive_self_section_reference'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -181,7 +181,7 @@ $result_trees{'double_recursive_self_section_reference'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -229,7 +229,7 @@ $result_sectioning{'double_recursive_self_section_reference'} = {
           },
           'section_directions' => {},
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -247,7 +247,7 @@ $result_sectioning{'double_recursive_self_section_reference'} = {
             'prev' => {}
           },
           'section_level' => 1,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }
@@ -268,7 +268,7 @@ $result_nodes{'double_recursive_self_section_reference'} = [
       'associated_section' => {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         }
       },
       'node_directions' => {
@@ -278,7 +278,7 @@ $result_nodes{'double_recursive_self_section_reference'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 2
+                'section_number' => '2'
               }
             },
             'node_directions' => {

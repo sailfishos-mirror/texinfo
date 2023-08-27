@@ -104,7 +104,7 @@ $result_trees{'section_on_xtable_line'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -180,7 +180,7 @@ $result_trees{'section_on_xtable_line'} = {
         }
       ],
       'extra' => {
-        'section_number' => 2
+        'section_number' => '2'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -259,7 +259,7 @@ $result_trees{'section_on_xtable_line'} = {
         }
       ],
       'extra' => {
-        'section_number' => 3
+        'section_number' => '3'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -291,7 +291,7 @@ $result_trees{'section_on_xtable_line'} = {
       ],
       'cmdname' => 'section',
       'extra' => {
-        'section_number' => 4
+        'section_number' => '4'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -343,7 +343,7 @@ $result_sectioning{'section_on_xtable_line'} = {
         'extra' => {
           'section_directions' => {},
           'section_level' => 2,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {},
           'toplevel_directions' => {}
         }
@@ -355,7 +355,7 @@ $result_sectioning{'section_on_xtable_line'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 2,
+          'section_number' => '2',
           'toplevel_directions' => {
             'prev' => {}
           }
@@ -368,7 +368,7 @@ $result_sectioning{'section_on_xtable_line'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 3,
+          'section_number' => '3',
           'toplevel_directions' => {
             'prev' => {}
           }
@@ -381,7 +381,7 @@ $result_sectioning{'section_on_xtable_line'} = {
             'prev' => {}
           },
           'section_level' => 2,
-          'section_number' => 4,
+          'section_number' => '4',
           'toplevel_directions' => {
             'prev' => {}
           }

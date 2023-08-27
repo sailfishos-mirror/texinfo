@@ -147,7 +147,7 @@ $result_trees{'top_no_sectioning_command'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -194,7 +194,7 @@ $result_sectioning{'top_no_sectioning_command'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -215,7 +215,7 @@ $result_nodes{'top_no_sectioning_command'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

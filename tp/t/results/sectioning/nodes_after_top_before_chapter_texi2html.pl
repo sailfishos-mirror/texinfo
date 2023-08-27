@@ -388,7 +388,7 @@ $result_trees{'nodes_after_top_before_chapter_texi2html'} = {
       ],
       'cmdname' => 'chapter',
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -452,7 +452,7 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html'} = {
             }
           },
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }
@@ -477,7 +477,7 @@ $result_nodes{'nodes_after_top_before_chapter_texi2html'} = [
                   'associated_section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
-                      'section_number' => 1
+                      'section_number' => '1'
                     }
                   },
                   'node_directions' => {

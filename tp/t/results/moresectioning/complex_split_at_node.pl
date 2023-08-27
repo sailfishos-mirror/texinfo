@@ -754,7 +754,7 @@ $result_trees{'complex_split_at_node'} = [
           }
         ],
         'extra' => {
-          'section_number' => 1
+          'section_number' => '1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -1939,7 +1939,7 @@ $result_trees{'complex_split_at_node'} = [
           }
         ],
         'extra' => {
-          'section_number' => 2
+          'section_number' => '2'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -2983,7 +2983,7 @@ $result_sectioning{'complex_split_at_node'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -3000,7 +3000,7 @@ $result_sectioning{'complex_split_at_node'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -3357,7 +3357,7 @@ $result_nodes{'complex_split_at_node'} = [
                                                                           'associated_unit' => {},
                                                                           'cmdname' => 'chapter',
                                                                           'extra' => {
-                                                                            'section_number' => 1
+                                                                            'section_number' => '1'
                                                                           }
                                                                         },
                                                                         'node_directions' => {
@@ -3664,7 +3664,7 @@ $result_nodes{'complex_split_at_node'} = [
                                                   'associated_unit' => {},
                                                   'cmdname' => 'chapter',
                                                   'extra' => {
-                                                    'section_number' => 2
+                                                    'section_number' => '2'
                                                   }
                                                 },
                                                 'node_directions' => {

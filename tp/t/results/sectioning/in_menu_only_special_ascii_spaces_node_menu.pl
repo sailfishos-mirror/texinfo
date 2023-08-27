@@ -376,7 +376,7 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -395,7 +395,7 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node_menu'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 2,
+                'section_number' => '2',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -436,7 +436,7 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {

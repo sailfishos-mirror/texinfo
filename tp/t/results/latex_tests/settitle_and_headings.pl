@@ -175,7 +175,7 @@ $result_trees{'settitle_and_headings'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -229,7 +229,7 @@ $result_sectioning{'settitle_and_headings'} = {
         'cmdname' => 'chapter',
         'extra' => {
           'section_level' => 1,
-          'section_number' => 1,
+          'section_number' => '1',
           'sectioning_root' => {}
         }
       }

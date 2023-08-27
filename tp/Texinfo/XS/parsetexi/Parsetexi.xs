@@ -67,8 +67,10 @@ wipe_errors ()
 
 # file path, can be in any encoding
 int
-parse_file(filename)
+parse_file(filename, input_file_name, input_directory)
         char *filename = (char *)SvPVbyte_nolen($arg);
+        char *input_file_name = (char *)SvPVbyte_nolen($arg);
+        char *input_directory = (char *)SvPVbyte_nolen($arg);
 
 int
 parse_piece(string, line_nr)

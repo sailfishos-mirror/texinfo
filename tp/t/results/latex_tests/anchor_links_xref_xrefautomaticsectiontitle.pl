@@ -695,7 +695,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         }
       ],
       'extra' => {
-        'section_number' => 1
+        'section_number' => '1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -809,7 +809,7 @@ $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                   'up' => {}
                 },
                 'section_level' => 1,
-                'section_number' => 1,
+                'section_number' => '1',
                 'toplevel_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -852,7 +852,7 @@ $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = [
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {
-                'section_number' => 1
+                'section_number' => '1'
               }
             },
             'node_directions' => {
