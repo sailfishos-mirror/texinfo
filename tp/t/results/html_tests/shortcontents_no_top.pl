@@ -283,7 +283,6 @@ $result_converted_errors{'html'}->{'shortcontents_no_top'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'shortcontents_no_top.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

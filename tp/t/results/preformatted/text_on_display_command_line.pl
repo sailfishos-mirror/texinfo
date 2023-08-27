@@ -455,7 +455,6 @@ $result_converted_errors{'html'}->{'text_on_display_command_line'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'text_on_display_command_line.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

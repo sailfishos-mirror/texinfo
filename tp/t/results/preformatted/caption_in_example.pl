@@ -314,7 +314,6 @@ $result_converted_errors{'html'}->{'caption_in_example'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'caption_in_example.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

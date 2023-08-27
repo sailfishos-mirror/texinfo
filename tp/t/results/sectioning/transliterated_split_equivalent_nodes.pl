@@ -9,6 +9,11 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
   {
     'contents' => [
       {
+        'contents' => [
+          {
+            'type' => 'preamble_before_content'
+          }
+        ],
         'type' => 'before_node_section'
       },
       {

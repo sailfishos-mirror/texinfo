@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'top_without_node_texi2html_no_use_nodes'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

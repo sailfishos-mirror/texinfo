@@ -10,9 +10,17 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
     {
       'contents' => [
         {
-          'text' => '
+          'contents' => [
+            {
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'type' => 'preamble_before_content'
         },
         {
           'args' => [
@@ -4698,16 +4706,16 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[17]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[21]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[21]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[29]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[29]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[33]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[47]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[47]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[49]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[49]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[55]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[55]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[59]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[59]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[64]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[64]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[18]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[18]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[30]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[34]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[34]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[48]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[48]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[50]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[50]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[56]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[56]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[60]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[60]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[65]{'extra'}{'command_as_argument'} = $result_trees{'itemize_arguments_enable_encoding'}{'contents'}[0]{'contents'}[65]{'args'}[0]{'contents'}[0];
 
 $result_texis{'itemize_arguments_enable_encoding'} = '
 @itemize ---
@@ -4844,8 +4852,7 @@ $result_texis{'itemize_arguments_enable_encoding'} = '
 ';
 
 
-$result_texts{'itemize_arguments_enable_encoding'} = '
-item --
+$result_texts{'itemize_arguments_enable_encoding'} = 'item --
 
 item a"b\'c
 

@@ -320,7 +320,6 @@ $result_converted_errors{'html'}->{'mathjax_with_texinfo'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'mathjax_with_texinfo.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

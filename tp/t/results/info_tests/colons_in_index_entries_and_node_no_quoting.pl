@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

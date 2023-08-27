@@ -336,7 +336,6 @@ $result_converted_errors{'html'}->{'example_multi_class'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'example_multi_class.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

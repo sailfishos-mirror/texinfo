@@ -1399,8 +1399,10 @@ $two_nodes_at_the_end_text,
 );
 
 foreach my $test (@test_out_files) {
-  push @{$test->[2]->{'test_formats'}}, 'file_html'
-    if (!$test->[2]->{'test_formats'});
+  if (!$test->[2]->{'test_formats'}) {
+    push @{$test->[2]->{'test_formats'}}, 'file_html';
+    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+  }
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 

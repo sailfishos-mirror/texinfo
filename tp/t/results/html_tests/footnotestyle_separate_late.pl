@@ -9,6 +9,11 @@ $result_trees{'footnotestyle_separate_late'} = [
   {
     'contents' => [
       {
+        'contents' => [
+          {
+            'type' => 'preamble_before_content'
+          }
+        ],
         'type' => 'before_node_section'
       },
       {

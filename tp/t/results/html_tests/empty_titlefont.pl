@@ -85,7 +85,6 @@ $result_converted_errors{'html'}->{'empty_titlefont'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'empty_titlefont.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

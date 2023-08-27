@@ -478,7 +478,6 @@ $result_converted_errors{'html'}->{'comment_example_and_blank_lines'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'comment_example_and_blank_lines.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

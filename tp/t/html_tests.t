@@ -643,7 +643,8 @@ in html
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
 $mathjax_with_texinfo, {'test_formats' => ['latex_text', 'file_latex'],
-                        'full_document' => 1},
+                        'full_document' => 1,
+       'test_input_file_name' => 'mathjax_with_texinfo_enable_encoding.texi'},
 {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
@@ -1224,7 +1225,6 @@ $check_htmlxref_text
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html';
-  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 foreach my $test (@test_cases_text) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
@@ -1232,6 +1232,7 @@ foreach my $test (@test_cases_text) {
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 foreach my $test (@test_cases_file_text) {
   push @{$test->[2]->{'test_formats'}}, ('html_text', 'file_html');

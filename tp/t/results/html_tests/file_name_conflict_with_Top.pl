@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'file_name_conflict_with_Top'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

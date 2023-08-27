@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

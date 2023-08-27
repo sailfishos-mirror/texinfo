@@ -10,9 +10,17 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
     {
       'contents' => [
         {
-          'text' => '
+          'contents' => [
+            {
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
@@ -711,8 +719,7 @@ $result_texis{'check_htmlxref_no_use_nodes'} = '
 ';
 
 
-$result_texts{'check_htmlxref_no_use_nodes'} = '
-top
+$result_texts{'check_htmlxref_no_use_nodes'} = 'top
 ***
 
 a

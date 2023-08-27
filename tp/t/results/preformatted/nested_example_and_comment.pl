@@ -584,7 +584,6 @@ $result_converted_errors{'html'}->{'nested_example_and_comment'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'nested_example_and_comment.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

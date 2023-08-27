@@ -142,7 +142,6 @@ $result_converted_errors{'html'}->{'spaces_in_line_break_in_verb_w'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'spaces_in_line_break_in_verb_w.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

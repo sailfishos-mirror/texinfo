@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'end_of_line_command_in_node_lines'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

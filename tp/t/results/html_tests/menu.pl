@@ -1773,7 +1773,7 @@ $result_floats{'menu'} = {};
 
 
 
-$result_converted{'info'}->{'menu'} = 'This is , produced from menu.texi.
+$result_converted{'info'}->{'menu'} = 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: (ggg),  Up: (dir)
@@ -1823,7 +1823,7 @@ in detaildescription
 
 
 Tag Table:
-Node: Top36
+Node: Top27
 
 End Tag Table
 
@@ -1952,7 +1952,6 @@ $result_converted_errors{'html'}->{'menu'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'menu.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

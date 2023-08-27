@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'undefined_node_filename'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

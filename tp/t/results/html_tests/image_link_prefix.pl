@@ -78,7 +78,6 @@ $result_converted_errors{'html'}->{'image_link_prefix'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'image_link_prefix.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   },

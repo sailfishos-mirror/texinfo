@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'two_nodes_between_chapters_nodes'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

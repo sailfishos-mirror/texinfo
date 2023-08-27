@@ -10,41 +10,46 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'split_test_before_first_node_no_empty_line.info'
+                  'contents' => [
+                    {
+                      'text' => 'split_test_before_first_node_no_empty_line.info'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
+              'extra' => {
+                'text_arg' => 'split_test_before_first_node_no_empty_line.info'
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'text_arg' => 'split_test_before_first_node_no_empty_line.info'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         },
         {
           'contents' => [

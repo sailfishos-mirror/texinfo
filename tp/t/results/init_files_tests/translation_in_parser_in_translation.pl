@@ -10,41 +10,46 @@ $result_trees{'translation_in_parser_in_translation'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'fr'
+                  'contents' => [
+                    {
+                      'text' => 'fr'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentlanguage',
+              'extra' => {
+                'text_arg' => 'fr'
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentlanguage',
-          'extra' => {
-            'text_arg' => 'fr'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'

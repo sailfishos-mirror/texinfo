@@ -205,7 +205,6 @@ $result_converted_errors{'html'}->{'xml_protected_in_verb'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'xml_protected_in_verb.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

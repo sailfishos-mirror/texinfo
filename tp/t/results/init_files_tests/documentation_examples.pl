@@ -10,130 +10,140 @@ $result_trees{'documentation_examples'} = {
     {
       'contents' => [
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'someone'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'example.com'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'me'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'email',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in--title'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'sansserif',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
-                    {
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'error',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
-                    {
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'equiv',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'text_before_beginning'
             }
           ],
-          'cmdname' => 'settitle',
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          }
+          'type' => 'preamble_before_beginning'
         },
         {
-          'text' => '
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'someone'
+                            },
+                            {
+                              'cmdname' => '@'
+                            },
+                            {
+                              'text' => 'example.com'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'me'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'email',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'in--title'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'sansserif',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'error',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'equiv',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'settitle',
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'empty_line'
+            }
+          ],
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
@@ -948,7 +958,6 @@ $result_texis{'documentation_examples'} = '
 
 
 $result_texts{'documentation_examples'} = '
-
 top
 ***
 

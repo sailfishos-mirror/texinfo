@@ -10,29 +10,39 @@ $result_trees{'customize_translations'} = {
     {
       'contents' => [
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
               'text' => '
 ',
-              'type' => 'rawline_arg'
+              'type' => 'text_before_beginning'
             }
           ],
-          'cmdname' => 'contents',
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          }
+          'type' => 'preamble_before_beginning'
         },
         {
-          'text' => '
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'text' => '
 ',
-          'type' => 'empty_line'
+                  'type' => 'rawline_arg'
+                }
+              ],
+              'cmdname' => 'contents',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
@@ -649,7 +659,6 @@ $result_texis{'customize_translations'} = '
 
 
 $result_texts{'customize_translations'} = '
-
 top
 ***
 

@@ -1137,6 +1137,7 @@ foreach my $test (@test_cases) {
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('info_tests', [@test_cases, @file_tests]);

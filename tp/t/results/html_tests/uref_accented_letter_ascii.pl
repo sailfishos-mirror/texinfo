@@ -165,7 +165,6 @@ $result_converted_errors{'html'}->{'uref_accented_letter_ascii'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'uref_accented_letter_ascii.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

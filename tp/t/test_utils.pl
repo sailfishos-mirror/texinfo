@@ -949,6 +949,9 @@ sub test($$)
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
       $document = $parser->parse_texi_piece($test_text);
+      if (defined($test_input_file_name)) {
+        warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
+      }
     }
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that

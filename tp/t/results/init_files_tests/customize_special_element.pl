@@ -10,83 +10,93 @@ $result_trees{'customize_special_element'} = {
     {
       'contents' => [
         {
-          'text' => '
+          'contents' => [
+            {
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'separate'
+                  'contents' => [
+                    {
+                      'text' => 'separate'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'footnotestyle',
+              'extra' => {
+                'misc_args' => [
+                  'separate'
+                ]
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'footnotestyle',
-          'extra' => {
-            'misc_args' => [
-              'separate'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              }
+            },
             {
               'text' => '
 ',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'cmdname' => 'contents',
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          }
-        },
-        {
-          'args' => [
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'text' => '
+',
+                  'type' => 'rawline_arg'
+                }
+              ],
+              'cmdname' => 'contents',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              }
+            },
+            {
+              'args' => [
+                {
+                  'text' => '
+',
+                  'type' => 'rawline_arg'
+                }
+              ],
+              'cmdname' => 'shortcontents',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              }
+            },
             {
               'text' => '
 ',
-              'type' => 'rawline_arg'
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'shortcontents',
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
@@ -397,7 +407,6 @@ Text@footnote{In footnote}.
 
 
 $result_texts{'customize_special_element'} = '
-
 
 top
 ***
