@@ -1346,6 +1346,8 @@ foreach my $test (@test_cases) {
   if ($file_html_tests{$test->[0]}
       or $file_latex_tests{$test->[0]}) {
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+    $test->[2]->{'full_document'} = 1
+        unless (exists($test->[2]->{'full_document'}));
   }
   if ($file_html_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'file_html';
@@ -1357,8 +1359,6 @@ foreach my $test (@test_cases) {
     push @{$test->[2]->{'test_formats'}}, 'docbook';
   }
   if ($file_latex_tests{$test->[0]}) {
-    $test->[2]->{'full_document'} = 1
-        unless (exists($test->[2]->{'full_document'}));
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
   } else {
     push @{$test->[2]->{'test_formats'}}, 'latex_text';
