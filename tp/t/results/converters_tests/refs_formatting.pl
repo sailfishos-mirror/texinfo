@@ -2997,9 +2997,6 @@ $result_sectioning{'refs_formatting'} = {
               'normalized' => 'chapter'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -3009,7 +3006,6 @@ $result_sectioning{'refs_formatting'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'refs_formatting'};
 $result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'refs_formatting'};
 
 $result_nodes{'refs_formatting'} = [

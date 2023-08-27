@@ -175,9 +175,6 @@ $result_sectioning{'node_in_copying_not_closed'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -186,7 +183,6 @@ $result_sectioning{'node_in_copying_not_closed'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'node_in_copying_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_in_copying_not_closed'};
 $result_sectioning{'node_in_copying_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_in_copying_not_closed'};
 
 $result_nodes{'node_in_copying_not_closed'} = [

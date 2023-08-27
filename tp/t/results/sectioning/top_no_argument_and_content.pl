@@ -71,9 +71,6 @@ $result_sectioning{'top_no_argument_and_content'} = {
       {
         'cmdname' => 'top',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -82,7 +79,6 @@ $result_sectioning{'top_no_argument_and_content'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'top_no_argument_and_content'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_no_argument_and_content'};
 $result_sectioning{'top_no_argument_and_content'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_no_argument_and_content'};
 
 $result_errors{'top_no_argument_and_content'} = [];

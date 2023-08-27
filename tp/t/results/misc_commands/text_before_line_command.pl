@@ -316,9 +316,6 @@ $result_sectioning{'text_before_line_command'} = {
               'normalized' => 'LD-Version-Scripts'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -328,7 +325,6 @@ $result_sectioning{'text_before_line_command'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'text_before_line_command'};
 $result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'text_before_line_command'};
 
 $result_nodes{'text_before_line_command'} = [

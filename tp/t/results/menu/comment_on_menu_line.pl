@@ -265,9 +265,6 @@ $result_sectioning{'comment_on_menu_line'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -277,7 +274,6 @@ $result_sectioning{'comment_on_menu_line'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'comment_on_menu_line'};
 $result_sectioning{'comment_on_menu_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'comment_on_menu_line'};
 
 $result_nodes{'comment_on_menu_line'} = [

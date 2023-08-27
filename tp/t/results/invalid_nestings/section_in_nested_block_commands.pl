@@ -215,9 +215,6 @@ $result_sectioning{'section_in_nested_block_commands'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -227,7 +224,6 @@ $result_sectioning{'section_in_nested_block_commands'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_nested_block_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_nested_block_commands'};
 $result_sectioning{'section_in_nested_block_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_nested_block_commands'};
 
 $result_errors{'section_in_nested_block_commands'} = [

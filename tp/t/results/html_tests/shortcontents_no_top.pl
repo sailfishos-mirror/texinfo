@@ -173,9 +173,7 @@ $result_sectioning{'shortcontents_no_top'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {},
@@ -198,8 +196,7 @@ $result_sectioning{'shortcontents_no_top'} = {
             }
           ],
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 1,
           'section_number' => 2,
@@ -212,11 +209,9 @@ $result_sectioning{'shortcontents_no_top'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'shortcontents_no_top'};
 $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'shortcontents_no_top'};
 $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'shortcontents_no_top'};
 $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'shortcontents_no_top'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'shortcontents_no_top'} = [];

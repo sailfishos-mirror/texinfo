@@ -2312,9 +2312,6 @@ $result_sectioning{'accentenc_enable_encoding'} = {
               'normalized' => 'first'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -2323,7 +2320,6 @@ $result_sectioning{'accentenc_enable_encoding'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'accentenc_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'accentenc_enable_encoding'};
 $result_sectioning{'accentenc_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'accentenc_enable_encoding'};
 
 $result_nodes{'accentenc_enable_encoding'} = [

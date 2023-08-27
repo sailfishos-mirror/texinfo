@@ -168,9 +168,7 @@ $result_sectioning{'section_on_enumerate_line'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {},
@@ -181,8 +179,7 @@ $result_sectioning{'section_on_enumerate_line'} = {
         'cmdname' => 'section',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 2,
           'section_number' => 2,
@@ -195,10 +192,8 @@ $result_sectioning{'section_on_enumerate_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_on_enumerate_line'};
 $result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_on_enumerate_line'};
 $result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_on_enumerate_line'};
 $result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_on_enumerate_line'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'section_on_enumerate_line'} = [

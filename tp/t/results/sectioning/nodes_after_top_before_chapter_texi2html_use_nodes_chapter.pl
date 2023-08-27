@@ -451,9 +451,6 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'}
               'normalized' => 'third-node'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -463,7 +460,6 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'}
     'section_level' => 0
   }
 };
-$result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'};
 $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'};
 
 $result_nodes{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = [

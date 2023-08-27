@@ -465,9 +465,6 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'} = {
               'normalized' => 'third-node'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -482,7 +479,6 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_sections'};
 $result_sectioning{'nodes_after_top_before_chapter_sections'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_chapter_sections'};
 
 $result_nodes{'nodes_after_top_before_chapter_sections'} = [

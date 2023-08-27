@@ -350,9 +350,6 @@ $result_sectioning{'error_in_sectioning_command'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -365,7 +362,6 @@ $result_sectioning{'error_in_sectioning_command'} = {
 $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'error_in_sectioning_command'};
 $result_sectioning{'error_in_sectioning_command'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'error_in_sectioning_command'};
 
 $result_nodes{'error_in_sectioning_command'} = [

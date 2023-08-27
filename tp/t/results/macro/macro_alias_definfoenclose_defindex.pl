@@ -1416,9 +1416,6 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -1431,7 +1428,6 @@ $result_sectioning{'macro_alias_definfoenclose_defindex'} = {
 $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
 $result_sectioning{'macro_alias_definfoenclose_defindex'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'macro_alias_definfoenclose_defindex'};
 
 $result_nodes{'macro_alias_definfoenclose_defindex'} = [

@@ -1092,9 +1092,7 @@ $result_sectioning{'menutextorder'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {},
@@ -1163,8 +1161,7 @@ $result_sectioning{'menutextorder'} = {
             }
           ],
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 1,
           'section_number' => 2,
@@ -1180,7 +1177,6 @@ $result_sectioning{'menutextorder'} = {
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'};
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'menutextorder'};
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[0];
@@ -1188,7 +1184,6 @@ $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'sect
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1];
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'menutextorder'};
 $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'menutextorder'}{'extra'}{'section_childs'}[0];
 
 $result_nodes{'menutextorder'} = [

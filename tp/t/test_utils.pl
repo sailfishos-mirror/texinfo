@@ -987,10 +987,10 @@ sub test($$)
   }
 
   my $identifier_target = $document->labels_information();
-  my $parser_information = $document->global_information();
+  my $document_information = $document->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
-                                        $parser_information);
+                                        $document_information);
 
   my $global_commands = $document->global_commands_information();
   if ($global_commands->{'novalidate'}) {
@@ -1056,6 +1056,8 @@ sub test($$)
   }
 
   Texinfo::Structuring::number_floats($document);
+
+  #$document = Texinfo::Structuring::rebuild_document($document);
 
   my ($errors, $error_nrs) = $registrar->errors();
   # FIXME maybe it would be good to compare $merged_index_entries?

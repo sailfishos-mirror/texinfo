@@ -463,9 +463,6 @@ $result_sectioning{'chapter_between_nodes'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -479,7 +476,6 @@ $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'chapter_between_nodes'};
 $result_sectioning{'chapter_between_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'chapter_between_nodes'};
 
 $result_nodes{'chapter_between_nodes'} = [

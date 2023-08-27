@@ -607,9 +607,6 @@ $result_sectioning{'loop_nodes'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -618,7 +615,6 @@ $result_sectioning{'loop_nodes'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'loop_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'loop_nodes'};
 $result_sectioning{'loop_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'loop_nodes'};
 
 $result_nodes{'loop_nodes'} = [

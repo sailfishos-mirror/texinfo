@@ -87,6 +87,10 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} ne '0') {
       Texinfo::XSLoader::override(
+        "Texinfo::Structuring::rebuild_document",
+        "Texinfo::StructTransf::rebuild_document",
+      );
+      Texinfo::XSLoader::override(
         "Texinfo::Structuring::_XS_copy_tree",
         "Texinfo::StructTransf::copy_tree"
       );
@@ -141,6 +145,14 @@ my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
+
+# this method does nothing, but the XS override rebuild the perl based
+# on XS data.
+sub rebuild_document($)
+{
+  my $document = shift;
+  return $document;
+}
 
 sub _XS_copy_tree($$)
 {
@@ -205,7 +217,6 @@ sub sectioning_structure($$$)
     }
 
     $content->{'extra'} = {} if (! $content->{'extra'});
-    $content->{'extra'}->{'section_directions'} = {};
 
     my $level = Texinfo::Common::section_level($content);
     if (!defined($level)) {
@@ -225,6 +236,8 @@ sub sectioning_structure($$$)
           $level = $prev_section_level + 1;
         }
         $previous_section->{'extra'}->{'section_childs'} = [$content];
+
+        $content->{'extra'}->{'section_directions'} = {};
         $content->{'extra'}->{'section_directions'}->{'up'} = $previous_section;
 
         # if the up is unnumbered, the number information has to be kept,
@@ -240,20 +253,28 @@ sub sectioning_structure($$$)
           $command_unnumbered[$level] = 0;
         }
       } else {
-        my $up = $previous_section->{'extra'}->{'section_directions'}->{'up'};
         my $new_upper_part_element;
-        if ($prev_section_level != $level) {
-          # means it is above the previous command, the up is to be found
-          while ($up->{'extra'}->{'section_directions'}
-                 and $up->{'extra'}->{'section_directions'}->{'up'}
-                 and $up->{'extra'}->{'section_level'} >= $level) {
-            $up = $up->{'extra'}->{'section_directions'}->{'up'};
-          }
-          if ($level <= $up->{'extra'}->{'section_level'}) {
+        # try to find the up in the sectioning hierarchy
+        my $up = $previous_section;
+        while ($up->{'extra'}->{'section_directions'}
+               and $up->{'extra'}->{'section_directions'}->{'up'}
+               and $up->{'extra'}->{'section_level'} >= $level) {
+          $up = $up->{'extra'}->{'section_directions'}->{'up'};
+        }
+        # no fup ound.  The element is below the sectioning root
+        if ($level <= $up->{'extra'}->{'section_level'}) {
+          $up = $sec_root;
+          if ($level <= $sec_root->{'extra'}->{'section_level'}) {
+            # in that case, the level of the element is not in line
+            # with being below the sectioning root, something need to
+            # be done
             if ($content->{'cmdname'} eq 'part') {
+              # the first part just appeared, and there was no @top first in
+              # document.  Mark that the sectioning root level needs to be updated
               $new_upper_part_element = 1;
-              if ($level < $up->{'extra'}->{'section_level'}) {
-                # in this case, up is necessarily the sec_root
+              if ($level < $sec_root->{'extra'}->{'section_level'}) {
+                # level is 0 for part and section level -1 for sec root. The
+                # condition means section level > 1, ie below chapter-level.
                 $registrar->line_warn($customization_information,
                  sprintf(__("no chapter-level command before \@%s"),
                     $content->{'cmdname'}), $content->{'source_info'});
@@ -262,27 +283,31 @@ sub sectioning_structure($$$)
               $registrar->line_warn($customization_information,
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'});
-              $level = $up->{'extra'}->{'section_level'} + 1;
+              $level = $sec_root->{'extra'}->{'section_level'} + 1;
             }
           }
         }
         if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
             and $level <= $number_top_level
             and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
-          $up = $up->{'extra'}->{'section_directions'}->{'up'};
+          $up = $sec_root;
         }
         if ($new_upper_part_element) {
-          # In that case the root has to be updated because the first
-          # 'part' just appeared
+          # In that case the root level has to be updated because the first
+          # 'part' just appeared, no direction to set.
           $sec_root->{'extra'}->{'section_level'} = $level - 1;
           push @{$sec_root->{'extra'}->{'section_childs'}}, $content;
-          $content->{'extra'}->{'section_directions'}->{'up'} = $sec_root;
           $number_top_level = $level;
           $number_top_level = 1 if (!$number_top_level);
         } else {
-          $content->{'extra'}->{'section_directions'}->{'up'} = $up;
+          $content->{'extra'}->{'section_directions'} = {};
+          # do not set sec_root as up, but always put in section_childs.
+          $content->{'extra'}->{'section_directions'}->{'up'} = $up
+            if ($up ne $sec_root);
           my $prev = $up->{'extra'}->{'section_childs'}->[-1];
           $content->{'extra'}->{'section_directions'}->{'prev'} = $prev;
+          $prev->{'extra'}->{'section_directions'} = {}
+              if (!$prev->{'extra'}->{'section_directions'});
           $prev->{'extra'}->{'section_directions'}->{'next'} = $content;
           push @{$up->{'extra'}->{'section_childs'}}, $content;
         }
@@ -299,9 +324,7 @@ sub sectioning_structure($$$)
       # typically -1 when there is a @top.
       $sec_root->{'extra'}->{'section_level'} = $level - 1;
       $sec_root->{'extra'}->{'section_childs'} = [$content];
-      $content->{'extra'}->{'section_directions'}->{'up'} = $sec_root;
-      # put sec_root more directly in the tree as an out of tree element
-      # in extra, not only as direction. Especially of use for XS.
+      # in the tree as an out of tree element in extra.
       $content->{'extra'}->{'sectioning_root'} = $sec_root;
       $number_top_level = $level;
       # if $level of top sectioning element is 0, which means that

@@ -834,9 +834,6 @@ $result_sectioning{'cond_xml'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -845,7 +842,6 @@ $result_sectioning{'cond_xml'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'cond_xml'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'cond_xml'};
 $result_sectioning{'cond_xml'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'cond_xml'};
 
 $result_nodes{'cond_xml'} = [

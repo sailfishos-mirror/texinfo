@@ -188,9 +188,6 @@ $result_sectioning{'section_in_table'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -200,7 +197,6 @@ $result_sectioning{'section_in_table'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_table'};
 $result_sectioning{'section_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_table'};
 
 $result_errors{'section_in_table'} = [

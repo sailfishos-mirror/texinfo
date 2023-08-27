@@ -146,9 +146,7 @@ $result_sectioning{'section_chapter_before_top'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {},
@@ -159,8 +157,7 @@ $result_sectioning{'section_chapter_before_top'} = {
         'cmdname' => 'chapter',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 2,
           'section_number' => 2,
@@ -173,8 +170,7 @@ $result_sectioning{'section_chapter_before_top'} = {
         'cmdname' => 'top',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 2,
           'toplevel_directions' => {
@@ -186,13 +182,10 @@ $result_sectioning{'section_chapter_before_top'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_chapter_before_top'};
 $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_chapter_before_top'};
 $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_chapter_before_top'};
 $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[1];
-$result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_chapter_before_top'};
 $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_chapter_before_top'}{'extra'}{'section_childs'}[1];
 
 $result_errors{'section_chapter_before_top'} = [

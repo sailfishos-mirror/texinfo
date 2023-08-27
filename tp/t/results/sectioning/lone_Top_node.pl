@@ -273,9 +273,6 @@ $result_sectioning{'lone_Top_node'} = {
               'normalized' => 'First'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -290,7 +287,6 @@ $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'associated_un
 $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'lone_Top_node'};
 $result_sectioning{'lone_Top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'lone_Top_node'};
 
 $result_nodes{'lone_Top_node'} = [

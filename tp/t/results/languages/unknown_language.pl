@@ -379,9 +379,6 @@ $result_sectioning{'unknown_language'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -394,7 +391,6 @@ $result_sectioning{'unknown_language'} = {
 $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unknown_language'};
 $result_sectioning{'unknown_language'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unknown_language'};
 
 $result_nodes{'unknown_language'} = [

@@ -617,9 +617,6 @@ $result_sectioning{'two_nodes_at_the_end'} = {
           'section_childs' => [
             {}
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -651,7 +648,6 @@ $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'associ
 $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'unit_command'};
-$result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_nodes_at_the_end'};
 $result_sectioning{'two_nodes_at_the_end'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'two_nodes_at_the_end'};
 
 $result_nodes{'two_nodes_at_the_end'} = [

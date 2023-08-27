@@ -154,9 +154,6 @@ $result_sectioning{'section_on_def_line'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -166,7 +163,6 @@ $result_sectioning{'section_on_def_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_on_def_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_on_def_line'};
 $result_sectioning{'section_on_def_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_on_def_line'};
 
 $result_errors{'section_on_def_line'} = [

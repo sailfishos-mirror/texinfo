@@ -664,9 +664,6 @@ $result_sectioning{'explicit_sort_key'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -675,7 +672,6 @@ $result_sectioning{'explicit_sort_key'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'explicit_sort_key'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'explicit_sort_key'};
 $result_sectioning{'explicit_sort_key'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'explicit_sort_key'};
 
 $result_nodes{'explicit_sort_key'} = [

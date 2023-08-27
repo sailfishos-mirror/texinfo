@@ -349,9 +349,6 @@ $result_sectioning{'defcondx_Ubar'} = {
       {
         'cmdname' => 'top',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -360,7 +357,6 @@ $result_sectioning{'defcondx_Ubar'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'defcondx_Ubar'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'defcondx_Ubar'};
 $result_sectioning{'defcondx_Ubar'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'defcondx_Ubar'};
 
 $result_errors{'defcondx_Ubar'} = [

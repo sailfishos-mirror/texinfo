@@ -75,12 +75,12 @@ new_block_command (ELEMENT *element, enum command_id cmd)
 ELEMENT *
 sectioning_structure (ELEMENT *root)
 {
-  ELEMENT *sec_root;
+  ELEMENT *sec_root = 0;
   ELEMENT *previous_section = 0;
   ELEMENT *previous_toplevel = 0;
   int in_appendix = 0;
   /* lowest level with a number.  This is the lowest level above 0. */
-  int number_top_level;
+  int number_top_level = 0;
   ELEMENT *sections_list = new_element (ET_NONE);;
   ELEMENT *section_top = 0;
   int i;
@@ -114,8 +114,6 @@ sectioning_structure (ELEMENT *root)
           free (str_element);
           level = 0;
         }
-      add_extra_directions (content, "section_directions",
-                            section_directions);
 
       if (previous_section)
         {
@@ -137,6 +135,8 @@ sectioning_structure (ELEMENT *root)
               add_to_contents_as_array (section_childs, content);
               add_extra_contents (previous_section, "section_childs",
                                    section_childs);
+              add_extra_directions (content, "section_directions",
+                                    section_directions);
               section_directions->contents.list[D_up] = previous_section;
                /*
                 if the up is unnumbered, the number information has to be kept,
@@ -154,72 +154,73 @@ sectioning_structure (ELEMENT *root)
           else
             {
               int new_upper_part_element = 0;
-              ELEMENT *up;
-              ELEMENT *prev_section_directions
-                = lookup_extra_element (previous_section, "section_directions");
-              up = prev_section_directions->contents.list[D_up];
-              if (prev_section_level != level)
+              /* try to find the up in the sectioning hierarchy */
+              ELEMENT *up = previous_section;
+              int up_level;
+              while (1)
                 {
-                  int up_level;
-                  /*
-                  means it is above the previous command, the up is to be found
-                   */
-                  while (1)
-                    {
-                      ELEMENT *up_section_directions
-                        = lookup_extra_element (up, "section_directions");
-                      up_level = lookup_extra_integer (up, "section_level",
-                                                       &status);
-                      if (up_section_directions
-                          && up_section_directions->contents.list[D_up]
-                          && up_level >= level)
-                        up = up_section_directions->contents.list[D_up];
-                      else
-                        break;
-                    }
-                  if (level <= up_level)
+                  ELEMENT *up_section_directions
+                    = lookup_extra_element (up, "section_directions");
+                  up_level = lookup_extra_integer (up, "section_level",
+                                                   &status);
+                  if (up_section_directions
+                      && up_section_directions->contents.list[D_up]
+                      && up_level >= level)
+                    up = up_section_directions->contents.list[D_up];
+                  else
+                    break;
+                }
+              /* no up found.  The element is below the sectioning root */
+              if (level <= up_level)
+                {
+                  up = sec_root;
+                  int sec_root_level
+                    = lookup_extra_integer (sec_root, "section_level",
+                                                               &status);
+                  if (level <= sec_root_level)
+                 /* in that case, the level of the element is not in line
+                    with being below the sectioning root, something need to
+                    be done */
                     {
                       if (builtin_command_name (content->cmd == CM_part))
-                         {
-                           new_upper_part_element = 1;
-                           if (level < up_level)
-                              {
-                                /*
-                                  in this case, up is necessarily the sec_root
-                                 */
-                                command_warn (content,
-                                  "no chapter-level command before @%s",
-                                       builtin_command_name (content->cmd));
-                              }
-                            else
-                              {
-                                command_warn (content,
+                        {
+         /* the first part just appeared, and there was no @top first in
+            document.  Mark that the sectioning root level needs to be updated
+          */
+                          new_upper_part_element = 1;
+                          if (level < sec_root_level)
+                /* level is 0 for part and section level -1 for sec root. The
+                   condition means section level > 1, ie below chapter-level.
+                 */
+                            command_warn (content,
+                              "no chapter-level command before @%s",
+                                   builtin_command_name (content->cmd));
+                        }
+                      else
+                        {
+                          command_warn (content,
           "lowering the section level of @%s appearing after a lower element",
-                                       builtin_command_name (content->cmd));
-                                level = up_level +1;
-                              }
-                         }
+                                 builtin_command_name (content->cmd));
+                          level = sec_root_level +1;
+                        }
                     }
                 }
               if ((command_other_flags (content) & CF_appendix)
                   && !in_appendix && level <= number_top_level
                   && up->cmd == CM_part)
                 {
-                  ELEMENT *up_section_directions
-                    = lookup_extra_element (up, "section_directions");
-                  up = up_section_directions->contents.list[D_up];
+                  up = sec_root;
                 }
               if (new_upper_part_element)
                 {
+                  /*
+                  In that case the root level has to be updated because the
+                  first 'part' just appeared, no direction to set.
+                   */
                   ELEMENT *sec_root_childs
                     = lookup_extra_element (sec_root, "section_childs");
-                  /*
-                  In that case the root has to be updated because the first
-                  'part' just appeared
-                   */
                   add_extra_integer (sec_root, "section_level", level -1);
                   add_to_contents_as_array (sec_root_childs, content);
-                  section_directions->contents.list[D_up] = sec_root;
                   number_top_level = level;
                   if (number_top_level == 0)
                     number_top_level = 1;
@@ -230,9 +231,14 @@ sectioning_structure (ELEMENT *root)
                     = lookup_extra_element (up, "section_childs");
                   ELEMENT *prev = last_contents_child (up_section_childs);
                   ELEMENT *prev_section_directions
-                    = lookup_extra_element (prev, "section_directions");
-                  section_directions->contents.list[D_up] = up;
+                    = lookup_extra_directions (prev, "section_directions", 1);
+                  add_extra_directions (content, "section_directions",
+                                        section_directions);
+              /* do not set sec_root as up, but always put in section_childs */
+                  if (up != sec_root)
+                    section_directions->contents.list[D_up] = up;
                   section_directions->contents.list[D_prev] = prev;
+
                   prev_section_directions->contents.list[D_next] = content;
                   add_to_contents_as_array (up_section_childs, content);
                 }
@@ -247,10 +253,8 @@ sectioning_structure (ELEMENT *root)
           add_extra_integer (sec_root, "section_level", level -1);
           add_to_contents_as_array (sec_root_childs, content);
           add_extra_contents (sec_root, "section_childs", sec_root_childs);
-          section_directions->contents.list[D_up] = sec_root;
            /*
-            put sec_root more directly in the tree as an out of tree element
-            in extra, not only as direction. Especially of use for XS. */
+            in the tree as an out of tree element in extra */
           add_extra_element_oot (content, "sectioning_root", sec_root);
           number_top_level = level;
            /*
@@ -1308,7 +1312,7 @@ nodes_tree (DOCUMENT *document)
       if (!normalized)
         continue;
 
-      add_to_element_contents (nodes_list, node);
+      add_to_contents_as_array (nodes_list, node);
       is_target = lookup_extra_integer (node, "is_target", &status);
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;

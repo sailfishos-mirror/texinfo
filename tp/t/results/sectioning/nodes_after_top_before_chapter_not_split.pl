@@ -456,9 +456,6 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split'} = {
               'normalized' => 'third-node'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -468,7 +465,6 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'nodes_after_top_before_chapter_not_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split'};
 $result_sectioning{'nodes_after_top_before_chapter_not_split'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_chapter_not_split'};
 
 $result_nodes{'nodes_after_top_before_chapter_not_split'} = [

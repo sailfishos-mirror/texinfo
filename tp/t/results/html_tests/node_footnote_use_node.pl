@@ -1075,9 +1075,6 @@ $result_sectioning{'node_footnote_use_node'} = {
               'normalized' => 'chapter'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -1087,7 +1084,6 @@ $result_sectioning{'node_footnote_use_node'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'node_footnote_use_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'node_footnote_use_node'};
 $result_sectioning{'node_footnote_use_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_footnote_use_node'};
 
 $result_nodes{'node_footnote_use_node'} = [

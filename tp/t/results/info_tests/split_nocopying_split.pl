@@ -393,9 +393,6 @@ $result_sectioning{'split_nocopying_split'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -408,7 +405,6 @@ $result_sectioning{'split_nocopying_split'} = {
 $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'split_nocopying_split'};
 $result_sectioning{'split_nocopying_split'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'split_nocopying_split'};
 
 $result_nodes{'split_nocopying_split'} = [

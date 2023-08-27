@@ -2274,9 +2274,6 @@ $result_sectioning{'accent'} = {
               'normalized' => 'first'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -2285,7 +2282,6 @@ $result_sectioning{'accent'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'accent'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'accent'};
 $result_sectioning{'accent'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'accent'};
 
 $result_nodes{'accent'} = [

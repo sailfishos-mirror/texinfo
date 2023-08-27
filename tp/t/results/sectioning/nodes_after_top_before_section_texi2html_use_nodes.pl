@@ -451,9 +451,6 @@ $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'} = {
               'normalized' => 'third-node'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 3,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -463,7 +460,6 @@ $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'} = {
     'section_level' => 2
   }
 };
-$result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'};
 $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodes_after_top_before_section_texi2html_use_nodes'};
 
 $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'} = [

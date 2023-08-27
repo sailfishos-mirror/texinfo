@@ -368,9 +368,6 @@ $result_sectioning{'two_paragraphindent_in_preamble'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -379,7 +376,6 @@ $result_sectioning{'two_paragraphindent_in_preamble'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'two_paragraphindent_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_paragraphindent_in_preamble'};
 $result_sectioning{'two_paragraphindent_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'two_paragraphindent_in_preamble'};
 
 $result_nodes{'two_paragraphindent_in_preamble'} = [

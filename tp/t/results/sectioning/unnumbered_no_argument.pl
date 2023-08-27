@@ -49,9 +49,6 @@ $result_sectioning{'unnumbered_no_argument'} = {
         'cmdname' => 'unnumbered',
         'extra' => {
           'missing_argument' => 1,
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 1,
           'sectioning_root' => {}
         }
@@ -60,7 +57,6 @@ $result_sectioning{'unnumbered_no_argument'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'unnumbered_no_argument'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_no_argument'};
 $result_sectioning{'unnumbered_no_argument'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_no_argument'};
 
 $result_errors{'unnumbered_no_argument'} = [

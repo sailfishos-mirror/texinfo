@@ -208,9 +208,6 @@ $result_sectioning{'setfilename_no_extension'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -219,7 +216,6 @@ $result_sectioning{'setfilename_no_extension'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'setfilename_no_extension'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'setfilename_no_extension'};
 $result_sectioning{'setfilename_no_extension'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'setfilename_no_extension'};
 
 $result_nodes{'setfilename_no_extension'} = [

@@ -1092,9 +1092,6 @@ $result_sectioning{'redirection_same_labels'} = {
             {},
             {}
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -1145,7 +1142,6 @@ $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'ass
 $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'}{'extra'}{'section_directions'}{'prev'};
 $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1] = $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'FastForward'}{'directions'}{'FastForward'}{'unit_command'};
-$result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'redirection_same_labels'};
 $result_sectioning{'redirection_same_labels'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'redirection_same_labels'};
 
 $result_nodes{'redirection_same_labels'} = [

@@ -818,9 +818,6 @@ $result_sectioning{'custom_headings'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -842,7 +839,6 @@ $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'se
 $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'custom_headings'};
 $result_sectioning{'custom_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'custom_headings'};
 
 $result_nodes{'custom_headings'} = [

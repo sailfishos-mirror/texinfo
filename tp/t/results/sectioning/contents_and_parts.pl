@@ -675,9 +675,7 @@ $result_sectioning{'contents_and_parts'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -733,8 +731,7 @@ $result_sectioning{'contents_and_parts'} = {
             }
           ],
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 0
         }
@@ -768,8 +765,7 @@ $result_sectioning{'contents_and_parts'} = {
             {}
           ],
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 0
         }
@@ -778,7 +774,6 @@ $result_sectioning{'contents_and_parts'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_and_parts'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'contents_and_parts'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1];
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1];
@@ -791,7 +786,6 @@ $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_and_parts'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2];
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2];
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1];
@@ -799,7 +793,6 @@ $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_following_node'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'}{'extra'}{'associated_node'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'section_childs'}[0] = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'part_associated_section'};
 $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[1];
-$result_sectioning{'contents_and_parts'}{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'contents_and_parts'};
 
 $result_nodes{'contents_and_parts'} = [
   {

@@ -91,9 +91,6 @@ $result_sectioning{'unclosed_verb_on_section_line'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {}
@@ -103,7 +100,6 @@ $result_sectioning{'unclosed_verb_on_section_line'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'unclosed_verb_on_section_line'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unclosed_verb_on_section_line'};
 $result_sectioning{'unclosed_verb_on_section_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unclosed_verb_on_section_line'};
 
 $result_errors{'unclosed_verb_on_section_line'} = [

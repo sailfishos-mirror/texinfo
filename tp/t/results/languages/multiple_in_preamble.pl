@@ -983,9 +983,6 @@ $result_sectioning{'multiple_in_preamble'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -998,7 +995,6 @@ $result_sectioning{'multiple_in_preamble'} = {
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'multiple_in_preamble'};
 $result_sectioning{'multiple_in_preamble'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'multiple_in_preamble'};
 
 $result_nodes{'multiple_in_preamble'} = [

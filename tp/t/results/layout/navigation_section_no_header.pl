@@ -1028,9 +1028,6 @@ $result_sectioning{'navigation_section_no_header'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -1045,7 +1042,6 @@ $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]
 $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'navigation_section_no_header'};
 $result_sectioning{'navigation_section_no_header'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'navigation_section_no_header'};
 
 $result_nodes{'navigation_section_no_header'} = [

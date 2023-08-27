@@ -807,9 +807,6 @@ $result_sectioning{'nodename_parentheses'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -830,7 +827,6 @@ $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'
 $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'nodename_parentheses'};
 $result_sectioning{'nodename_parentheses'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'nodename_parentheses'};
 
 $result_nodes{'nodename_parentheses'} = [

@@ -44,6 +44,31 @@ MODULE = Texinfo::StructTransf		PACKAGE = Texinfo::StructTransf
 PROTOTYPES: ENABLE
 
 SV *
+rebuild_document (document_in)
+        SV *document_in
+    PREINIT:
+        int document_descriptor;
+        SV** document_descriptor_sv;
+        char *key = "document_descriptor";
+        HV *hv_in;
+    CODE:
+        hv_in = (HV *)SvRV (document_in);
+        document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+        if (document_descriptor_sv)
+          {
+            document_descriptor = SvIV (*document_descriptor_sv);
+            RETVAL = build_document (document_descriptor);
+          }
+        else
+          {
+            fprintf (stderr, "ERROR: document rebuild: no %s\n", key);
+            RETVAL = newSV(0);
+          }
+    OUTPUT:
+        RETVAL
+
+
+SV *
 fill_gaps_in_sectioning (tree_in)
         SV *tree_in
     PREINIT:

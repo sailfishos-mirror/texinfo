@@ -15723,9 +15723,6 @@ $result_sectioning{'at_commands_in_refs_utf8'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -15842,7 +15839,6 @@ $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'ex
 $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[26]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[26]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[25];
 $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[26]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'at_commands_in_refs_utf8'};
 $result_sectioning{'at_commands_in_refs_utf8'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'at_commands_in_refs_utf8'};
 
 $result_nodes{'at_commands_in_refs_utf8'} = [

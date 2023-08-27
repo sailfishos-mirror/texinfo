@@ -791,9 +791,6 @@ $result_sectioning{'customize_translations'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -819,7 +816,6 @@ $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extr
 $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
 $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'customize_translations'};
 $result_sectioning{'customize_translations'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'customize_translations'};
 
 $result_nodes{'customize_translations'} = [

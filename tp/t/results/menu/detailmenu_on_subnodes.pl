@@ -1326,9 +1326,6 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -1349,7 +1346,6 @@ $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extr
 $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'detailmenu_on_subnodes'};
 $result_sectioning{'detailmenu_on_subnodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'detailmenu_on_subnodes'};
 
 $result_nodes{'detailmenu_on_subnodes'} = [

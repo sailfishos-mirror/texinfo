@@ -100,9 +100,7 @@ $result_sectioning{'unnumbered_before_top'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 1,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -112,8 +110,7 @@ $result_sectioning{'unnumbered_before_top'} = {
         'cmdname' => 'top',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 1,
           'toplevel_directions' => {
@@ -125,10 +122,8 @@ $result_sectioning{'unnumbered_before_top'} = {
     'section_level' => 0
   }
 };
-$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_before_top'};
 $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_before_top'};
 $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'unnumbered_before_top'};
 $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'unnumbered_before_top'} = [

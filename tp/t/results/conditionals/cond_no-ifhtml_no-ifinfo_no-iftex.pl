@@ -834,9 +834,6 @@ $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -845,7 +842,6 @@ $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'};
 $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'};
 
 $result_nodes{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [

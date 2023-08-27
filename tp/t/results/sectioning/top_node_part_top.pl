@@ -171,8 +171,7 @@ $result_sectioning{'top_node_part_top'} = {
               },
               'associated_part' => {},
               'section_directions' => {
-                'prev' => {},
-                'up' => {}
+                'prev' => {}
               },
               'section_level' => 0
             }
@@ -181,9 +180,7 @@ $result_sectioning{'top_node_part_top'} = {
         'cmdname' => 'part',
         'extra' => {
           'part_associated_section' => {},
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -198,9 +195,7 @@ $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associate
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_node'}{'associated_unit'} = $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'} = $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_node_part_top'};
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'} = $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-$result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'top_node_part_top'};
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_node_part_top'};
 $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[1] = $result_sectioning{'top_node_part_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
 

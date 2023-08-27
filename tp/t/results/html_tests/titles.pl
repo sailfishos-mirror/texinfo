@@ -269,9 +269,6 @@ $result_sectioning{'titles'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -280,7 +277,6 @@ $result_sectioning{'titles'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'titles'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'titles'};
 $result_sectioning{'titles'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'titles'};
 
 $result_nodes{'titles'} = [

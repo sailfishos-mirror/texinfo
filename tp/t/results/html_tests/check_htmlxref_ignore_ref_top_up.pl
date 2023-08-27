@@ -761,9 +761,6 @@ $result_sectioning{'check_htmlxref_ignore_ref_top_up'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -776,7 +773,6 @@ $result_sectioning{'check_htmlxref_ignore_ref_top_up'} = {
 $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'check_htmlxref_ignore_ref_top_up'};
 $result_sectioning{'check_htmlxref_ignore_ref_top_up'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'check_htmlxref_ignore_ref_top_up'};
 
 $result_nodes{'check_htmlxref_ignore_ref_top_up'} = [

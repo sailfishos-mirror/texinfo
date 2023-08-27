@@ -607,9 +607,6 @@ $result_sectioning{'two_nodes_between_chapters_texi2html'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -626,7 +623,6 @@ $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_chi
 $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'two_nodes_between_chapters_texi2html'};
 $result_sectioning{'two_nodes_between_chapters_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'two_nodes_between_chapters_texi2html'};
 
 $result_nodes{'two_nodes_between_chapters_texi2html'} = [

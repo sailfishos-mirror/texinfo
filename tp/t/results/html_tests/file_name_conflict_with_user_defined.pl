@@ -332,9 +332,6 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -351,7 +348,6 @@ $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_chi
 $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
 $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_user_defined'};
 $result_sectioning{'file_name_conflict_with_user_defined'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'file_name_conflict_with_user_defined'};
 
 $result_nodes{'file_name_conflict_with_user_defined'} = [

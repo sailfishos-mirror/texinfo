@@ -478,9 +478,6 @@ $result_sectioning{'special_characters_in_float_type'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -493,7 +490,6 @@ $result_sectioning{'special_characters_in_float_type'} = {
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'special_characters_in_float_type'};
 $result_sectioning{'special_characters_in_float_type'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'special_characters_in_float_type'};
 
 $result_nodes{'special_characters_in_float_type'} = [

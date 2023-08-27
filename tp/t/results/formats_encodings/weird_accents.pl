@@ -563,9 +563,6 @@ $result_sectioning{'weird_accents'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -578,7 +575,6 @@ $result_sectioning{'weird_accents'} = {
 $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'weird_accents'};
 $result_sectioning{'weird_accents'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'weird_accents'};
 
 $result_nodes{'weird_accents'} = [

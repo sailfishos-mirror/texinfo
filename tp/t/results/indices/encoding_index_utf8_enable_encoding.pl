@@ -2853,9 +2853,6 @@ $result_sectioning{'encoding_index_utf8_enable_encoding'} = {
               'normalized' => 'Top'
             }
           },
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -2864,7 +2861,6 @@ $result_sectioning{'encoding_index_utf8_enable_encoding'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'encoding_index_utf8_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'encoding_index_utf8_enable_encoding'};
 $result_sectioning{'encoding_index_utf8_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'encoding_index_utf8_enable_encoding'};
 
 $result_nodes{'encoding_index_utf8_enable_encoding'} = [

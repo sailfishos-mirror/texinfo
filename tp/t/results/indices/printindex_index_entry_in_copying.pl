@@ -960,9 +960,6 @@ $result_sectioning{'printindex_index_entry_in_copying'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -975,7 +972,6 @@ $result_sectioning{'printindex_index_entry_in_copying'} = {
 $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'printindex_index_entry_in_copying'};
 $result_sectioning{'printindex_index_entry_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'printindex_index_entry_in_copying'};
 
 $result_nodes{'printindex_index_entry_in_copying'} = [

@@ -6758,9 +6758,6 @@ $result_sectioning{'index_table'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -6782,7 +6779,6 @@ $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'sectio
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'index_table'};
 $result_sectioning{'index_table'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_table'};
 
 $result_nodes{'index_table'} = [

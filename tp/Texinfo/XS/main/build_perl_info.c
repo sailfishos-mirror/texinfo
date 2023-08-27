@@ -39,6 +39,9 @@
 #include "element_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE and fatal */
 #include "utils.h"
+/* for debugging */
+#include "debug.h"
+#include "convert_to_texinfo.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
@@ -113,6 +116,8 @@ build_perl_array (ELEMENT_LIST *e)
             e->list[i]->hv = newHV ();
           else
             {
+              /* FIXME should not be possible, all the elements in
+                 extra_contents should be in-tree */
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (e->list[i]);
@@ -122,6 +127,52 @@ build_perl_array (ELEMENT_LIST *e)
     }
   return sv;
 }
+
+static SV *
+build_perl_directions (ELEMENT_LIST *e)
+{
+  SV *sv;
+  HV *hv;
+  int d;
+
+  dTHX;
+
+  hv = newHV ();
+  sv = newRV_inc ((SV *) hv);
+
+  for (d = 0; d < directions_length; d++)
+    {
+      if (e->list[d])
+        {
+          const char *key = direction_names[d];
+          if (!e->list[d]->hv)
+            {
+              if (e->list[d]->parent)
+                e->list[d]->hv = newHV ();
+              else
+                {
+                  /* FIXME Can this happen?  Would probably trigger an error
+                     like double element oot seen both here and in
+                     extra additional information processing */
+                  /* Out-of-tree element */
+                  /* WARNING: This is possibly recursive. */
+                  element_to_perl_hash (e->list[d]);
+                  static TEXT message;
+                  char *debug_str = print_element_debug (e->list[d], 1);
+                  text_init (&message);
+                  text_printf (&message,
+                        "build_perl_directions oot %s: %s\n", key, debug_str);
+                  free (debug_str);
+                  fprintf (stderr, message.text);
+                }
+            }
+          hv_store (hv, key, strlen (key),
+                    newRV_inc ((SV *) e->list[d]->hv), 0);
+        }
+    }
+  return sv;
+}
+
 
 /* Used to create a "Perl-internal" string that represents a sequence
    of Unicode codepoints with no specific encoding. */
@@ -183,7 +234,16 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                  commands or containers)
                */
               if (f->hv)
-                fatal ("element_to_perl_hash extra_element_oot twice\n");
+                {
+                  static TEXT message;
+                  char *debug_str = print_element_debug (e, 1);
+                  text_init (&message);
+                  text_printf (&message,
+                        "element_to_perl_hash oot %s double in %s\n",
+                               key, debug_str);
+                  free (debug_str);
+                  fatal (message.text);
+                }
               element_to_perl_hash (f);
               STORE(newRV_inc ((SV *)f->hv));
               break;
@@ -191,6 +251,12 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               {
               if (f)
                 STORE(build_perl_array (&f->contents));
+              break;
+              }
+            case extra_directions:
+              {
+              if (f)
+                STORE(build_perl_directions (&f->contents));
               break;
               }
             case extra_string:
@@ -370,6 +436,9 @@ element_to_perl_hash (ELEMENT *e)
 
   dTHX;
 
+   /*
+  fprintf (stderr, "ETPH %p %s\n", e, print_element_debug (e, 0));
+    */
   /* e->hv may already exist if there was an extra value elsewhere
      referring to e. */
   if (!e->hv)
@@ -398,7 +467,15 @@ element_to_perl_hash (ELEMENT *e)
   if (e->parent)
     {
       if (!e->parent->hv)
-        fatal ("parent hv not already set\n");
+        {
+          static TEXT message;
+          char *debug_str = print_element_debug (e, 1);
+          text_init (&message);
+          text_printf (&message, "parent %p hv not set in %s '%s'\n",
+                            e->parent, debug_str, convert_to_texinfo (e));
+          free (debug_str);
+          fatal (message.text);
+        }
       sv = newRV_inc ((SV *) e->parent->hv);
       hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
@@ -506,8 +583,83 @@ build_texinfo_tree (ELEMENT *root)
          and should not happen with the current calling code.
       */
       root = new_element (ET_NONE);
+  /*
+  fprintf (stderr, "BTT ------------------------------------------------\n");
+   */
   element_to_perl_hash (root);
   return root->hv;
+}
+
+/* remove elements hv such that the tree can be rebuilt later */
+void
+clean_texinfo_tree (ELEMENT *e);
+
+void
+clean_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
+{
+  if (a->info_number > 0)
+    {
+      int i;
+      for (i = 0; i < a->info_number; i++)
+        {
+          /*
+          char *key = a->info[i].key;
+           */
+
+          switch (a->info[i].type)
+            {
+            case extra_element_oot:
+              {
+                ELEMENT *f = (ELEMENT *) a->info[i].value;
+                clean_texinfo_tree (f);
+              }
+              break;
+            default:
+              break;
+            }
+        }
+    }
+}
+
+void
+clean_source_mark_list (ELEMENT *e)
+{
+  if (e->source_mark_list.number > 0)
+    {
+      int i;
+      for (i = 0; i < e->source_mark_list.number; i++)
+        {
+          SOURCE_MARK *s_mark = e->source_mark_list.list[i];
+          if (s_mark->element)
+            {
+              clean_texinfo_tree (s_mark->element);
+            }
+        }
+    }
+}
+
+void
+clean_texinfo_tree (ELEMENT *e)
+{
+  e->hv = 0;
+
+  if (e->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < e->contents.number; i++)
+        clean_texinfo_tree (e->contents.list[i]);
+    }
+
+  if (e->args.number > 0)
+    {
+      int i;
+      for (i = 0; i < e->args.number; i++)
+        clean_texinfo_tree (e->args.list[i]);
+    }
+  clean_additional_info (e, &e->extra_info, "extra");
+  clean_additional_info (e, &e->info_info, "info");
+
+  clean_source_mark_list (e);
 }
 
 /* Return array of target elements.  build_texinfo_tree must
@@ -1015,6 +1167,8 @@ build_document (size_t document_descriptor)
   STORE("errors", av_errors_list);
 
 #undef STORE
+
+  clean_texinfo_tree (document->tree);
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   /* FIXME why _noinc? */

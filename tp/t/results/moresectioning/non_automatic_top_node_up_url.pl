@@ -425,9 +425,6 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
         'cmdname' => 'top',
         'extra' => {
           'associated_node' => {},
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -448,7 +445,6 @@ $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-$result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'non_automatic_top_node_up_url'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'non_automatic_top_node_up_url'};
 
 $result_nodes{'non_automatic_top_node_up_url'} = [

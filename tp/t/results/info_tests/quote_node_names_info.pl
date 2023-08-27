@@ -2159,9 +2159,6 @@ $result_sectioning{'quote_node_names_info'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -2186,7 +2183,6 @@ $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra
 $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
 $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'quote_node_names_info'};
 $result_sectioning{'quote_node_names_info'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'quote_node_names_info'};
 
 $result_nodes{'quote_node_names_info'} = [

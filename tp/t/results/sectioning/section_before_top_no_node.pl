@@ -102,9 +102,7 @@ $result_sectioning{'section_before_top_no_node'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 2,
           'section_number' => 1,
           'sectioning_root' => {},
@@ -115,8 +113,7 @@ $result_sectioning{'section_before_top_no_node'} = {
         'cmdname' => 'top',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 2,
           'toplevel_directions' => {
@@ -128,10 +125,8 @@ $result_sectioning{'section_before_top_no_node'} = {
     'section_level' => 1
   }
 };
-$result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_top_no_node'};
 $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_before_top_no_node'};
 $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_before_top_no_node'};
 $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0];
 
 $result_errors{'section_before_top_no_node'} = [

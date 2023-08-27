@@ -160,9 +160,7 @@ $result_sectioning{'part_section_part'} = {
           'section_childs' => [
             {}
           ],
-          'section_directions' => {
-            'up' => {}
-          },
+          'section_directions' => {},
           'section_level' => 0,
           'sectioning_root' => {}
         }
@@ -171,8 +169,7 @@ $result_sectioning{'part_section_part'} = {
         'cmdname' => 'part',
         'extra' => {
           'section_directions' => {
-            'prev' => {},
-            'up' => {}
+            'prev' => {}
           },
           'section_level' => 0
         }
@@ -184,10 +181,8 @@ $result_sectioning{'part_section_part'} = {
 $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_section_part'};
 $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'part_section_part'};
 $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_section_part'};
 
 $result_errors{'part_section_part'} = [
   {

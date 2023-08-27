@@ -5393,9 +5393,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
               }
             }
           ],
-          'section_directions' => {
-            'up' => {}
-          },
           'section_level' => 0,
           'sectioning_root' => {},
           'toplevel_directions' => {}
@@ -5464,7 +5461,6 @@ $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'
 $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3];
 $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'section_in_unnumbered_info'};
 $result_sectioning{'section_in_unnumbered_info'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_unnumbered_info'};
 
 $result_nodes{'section_in_unnumbered_info'} = [
