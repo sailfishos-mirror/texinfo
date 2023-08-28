@@ -2623,7 +2623,7 @@ sub _relate_index_entries_to_table_items_in($$)
             ($index_entry, $index_info)
               = Texinfo::Common::lookup_index_entry(
                               $content->{'extra'}->{'index_entry'},
-                              $indices_information)
+                              $indices_information);
           }
         } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
           $item = $content unless $item;

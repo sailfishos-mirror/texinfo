@@ -1,5 +1,14 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_single_index_data):
+	store entry_associated_element.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(relate_index_entries_to_table_items_in): @table @item command in tree
+	is CM_item and not CM_item_LINE.
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree_types.h (enum directions),
 	tp/Texinfo/XS/main/utils.c (direction_names, direction_texts): follow
 	the nodes directions order.

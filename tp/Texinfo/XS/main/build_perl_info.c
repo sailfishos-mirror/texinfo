@@ -840,6 +840,9 @@ build_single_index_data (INDEX *i)
           STORE2("index_name", newSVpv_utf8 (i->name, 0));
           STORE2("entry_element",
                  newRV_inc ((SV *)e->command->hv));
+          if (e->entry_associated_element)
+            STORE2("entry_associated_element",
+                   newRV_inc ((SV *)e->entry_associated_element->hv));
           STORE2("entry_number", newSViv (entry_number));
 
           av_store (entries, j, newRV_noinc ((SV *)entry));

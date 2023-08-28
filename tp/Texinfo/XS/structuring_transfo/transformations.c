@@ -422,7 +422,8 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                         index_entry = idx_info->index_entry;
                    }
                 }
-              else if (content->cmd && content->cmd == CM_item_LINE)
+              /* the command in the tree is CM_item, not CM_item_LINE */
+              else if (content->cmd == CM_item)
                 {
                   if (!item)
                     item = content;
