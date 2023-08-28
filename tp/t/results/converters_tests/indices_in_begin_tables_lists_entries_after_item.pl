@@ -340,7 +340,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'cmdname' => 'itemize',
           'contents' => [
             {
-              'contents' => [],
               'type' => 'before_item'
             },
             {
@@ -1359,7 +1358,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'cmdname' => 'enumerate',
           'contents' => [
             {
-              'contents' => [],
               'type' => 'before_item'
             },
             {

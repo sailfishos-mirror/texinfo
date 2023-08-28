@@ -2538,6 +2538,8 @@ sub move_index_entries_after_items($)
                     # at $last_entry_idx and returns the contents to be inserted
                     splice (@{$previous_ending_container->{'contents'}},
                             $last_entry_idx, $contents_nr - $last_entry_idx));
+        delete $previous_ending_container->{'contents'}
+          if (!scalar(@{$previous_ending_container->{'contents'}}))
       }
     }
     $previous = $item;
