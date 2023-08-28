@@ -1,5 +1,10 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/18itemize.t (enumerate_more_letters): test representation
+	above zz.
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (number_floats),
 	tp/Texinfo/XS/structuring_transfo/structuring.c (number_floats):
 	simpler implementation tracking only the number of float in last

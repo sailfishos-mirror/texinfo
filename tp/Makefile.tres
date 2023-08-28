@@ -1064,6 +1064,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/itemize/enumerate_argument_item.pl \
   t/results/itemize/enumerate_in_example.pl \
   t/results/itemize/enumerate_letters.pl \
+  t/results/itemize/enumerate_more_letters.pl \
   t/results/itemize/headitem_itemx_in_enumerate.pl \
   t/results/itemize/headitem_itemx_in_itemize.pl \
   t/results/itemize/inter_item_commands_in_enumerate.pl \

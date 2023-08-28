@@ -1648,7 +1648,10 @@ sub trim_spaces_comment_from_content($)
   }
 }
 
-# decompose a decimal number on a given base.
+# decompose a decimal number on a given base.  It is not the
+# decomposition used for counting as we start at 0, not 1 for all
+# the factors.  This is in order to get aa and not ba in calling
+# code.
 sub _decompose_integer($$)
 {
   my $number = shift;

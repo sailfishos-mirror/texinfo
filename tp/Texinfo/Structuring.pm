@@ -351,6 +351,9 @@ sub sectioning_structure($$$)
     }
     if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix) {
       $in_appendix = 1;
+      # NOTE we rely on perl auto-increment operator 'magic' for variables
+      # in string context, the increment is done as a string, preserving each
+      # character within its range, with carry (see perlop).
       $command_numbers[$level] = 'A';
     }
     if (!$unnumbered_commands{$content->{'cmdname'}}) {

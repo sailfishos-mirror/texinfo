@@ -288,6 +288,13 @@ my @test_cases = (
 @item aaa
 @end enumerate
 '],
+['enumerate_more_letters',
+'@enumerate c
+'
+.'@item bb
+' x (26+26*26+100)
+.'@end enumerate
+'],
 ['enumerate_in_example',
 '
 @example
