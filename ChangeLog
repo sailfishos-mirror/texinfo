@@ -1,5 +1,10 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure): missed code for section numbers.
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (number_floats): quote float index to
 	force a representation as string in perl.
 

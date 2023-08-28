@@ -246,6 +246,13 @@ sectioning_structure (ELEMENT *root)
                   prev_section_directions->contents.list[D_next] = content;
                   add_to_contents_as_array (up_section_childs, content);
                 }
+              if (!(command_other_flags (previous_section) & CF_unnumbered))
+                {
+                  command_numbers[level]++;
+                  command_unnumbered[level] = 0;
+                }
+              else
+                command_unnumbered[level] = 1;
             }
         }
       else
