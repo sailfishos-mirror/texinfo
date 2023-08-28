@@ -44,6 +44,7 @@
 #  setenv \
 #  strchrnul \
 #  strndup \
+#  unicase/u8-toupper \
 #  uniconv/u8-strconv-from-enc \
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
@@ -68,6 +69,7 @@ gl_MODULES([
   setenv
   strchrnul
   strndup
+  unicase/u8-toupper
   uniconv/u8-strconv-from-enc
   uniconv/u8-strconv-to-enc
   unictype/category-L

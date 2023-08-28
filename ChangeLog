@@ -1,5 +1,9 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	in tp/Texinfo/XS gnulib-tool --add-import unicase/u8-toupper
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (nodes_tree): do not produce a different
 	tree with novalidate.
 
