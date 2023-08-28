@@ -62,9 +62,10 @@ enum source_mark_status {
     SM_status_end,
 };
 
+/* need to be in the same order as explicit nodes directions */
 enum directions {
-    D_prev,
     D_next,
+    D_prev,
     D_up,
 };
 

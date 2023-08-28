@@ -39,8 +39,8 @@ const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
 /* to keep synchronized with enum directions in tree_types.h */
-const char *direction_names[] = {"prev", "next", "up"};
-const char *direction_texts[] = {"Prev", "Next", "Up"};
+const char *direction_names[] = {"next", "prev", "up"};
+const char *direction_texts[] = {"Next", "Prev", "Up"};
 const size_t directions_length = sizeof (direction_names) / sizeof (direction_names[0]);
 
 
