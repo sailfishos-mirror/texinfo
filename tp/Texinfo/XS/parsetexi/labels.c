@@ -18,6 +18,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* definitions of labels_list, labels_number and identifiers_target
+   as extern are in parser.h */
+#include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
 /* for whitespace_chars and count_convert_u8 */
@@ -29,10 +32,10 @@
 #include "extra.h"
 #include "labels.h"
 
-/* Array of recorded elements with labels. */
+/* Array of recorded elements with labels space. */
 LABEL *labels_list = 0;
 size_t labels_number = 0;
-size_t labels_space = 0;
+static size_t labels_space = 0;
 
 /* Array of target elements with unique identifiers, sorted by identifier */
 LABEL_LIST *identifiers_target = 0;

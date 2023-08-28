@@ -20,9 +20,9 @@
 
 #include "tree_types.h"
 
-extern LABEL *labels_list;
-extern LABEL_LIST *identifiers_target;
-extern size_t labels_number;
+/* declaration of extern data is in parser.h to avoid exposure
+   to code including labels.h */
+
 void reset_labels (void);
 void forget_labels (void);
 void check_register_target_element_label (ELEMENT *label_element,

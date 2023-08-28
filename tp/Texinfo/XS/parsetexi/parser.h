@@ -61,6 +61,10 @@ extern FLOAT_RECORD *floats_list;
 extern size_t floats_number;
 extern size_t floats_space;
 
+/* In labels.c */
+extern LABEL *labels_list;
+extern LABEL_LIST *identifiers_target;
+extern size_t labels_number;
 
 /* In separator.c */
 ELEMENT * handle_open_brace (ELEMENT *current, char **line_inout);
