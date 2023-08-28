@@ -666,7 +666,7 @@ $result_floats{'no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => '',
         'normalized' => 'float-anchor'
       }

@@ -1886,7 +1886,7 @@ $result_floats{'commands_and_spaces'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'ff',
         'normalized' => 'b',
         'shortcaption' => {

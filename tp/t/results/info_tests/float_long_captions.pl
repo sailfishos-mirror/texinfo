@@ -374,7 +374,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Text',
         'normalized' => 'text1'
       }
@@ -388,7 +388,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'float_number' => 2,
+        'float_number' => '2',
         'float_type' => 'Text',
         'normalized' => 'text2'
       }

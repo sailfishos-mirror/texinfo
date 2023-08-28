@@ -1343,7 +1343,7 @@ $result_floats{'references_to_top_no_top_output'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {}

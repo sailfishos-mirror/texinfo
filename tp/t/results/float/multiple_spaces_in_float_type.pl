@@ -165,7 +165,7 @@ $result_floats{'multiple_spaces_in_float_type'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Type of Float',
         'normalized' => 'myfloat'
       }

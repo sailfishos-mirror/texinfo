@@ -257,7 +257,7 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'a',
         'normalized' => 'b'
       }

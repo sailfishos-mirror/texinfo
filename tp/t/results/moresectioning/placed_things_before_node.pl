@@ -939,7 +939,7 @@ $result_floats{'placed_things_before_node'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => '',
         'normalized' => 'float-anchor'
       }

@@ -1883,7 +1883,7 @@ sub number_floats($)
             '.' . $nr_in_chapter{$up->{'extra'}->{'section_number'}};
         }
       }
-      $number = $float_index if (!defined($number));
+      $number = "$float_index" if (!defined($number));
       $float->{'extra'} = {} if (! $float->{'extra'});
       $float->{'extra'}->{'float_number'} = $number;
     }

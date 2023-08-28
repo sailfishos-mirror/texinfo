@@ -584,7 +584,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Text',
         'normalized' => 'in-example'
       }
@@ -598,7 +598,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_number' => 2,
+        'float_number' => '2',
         'float_type' => 'Text',
         'normalized' => 'in-quotation'
       }
@@ -612,7 +612,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_number' => 3,
+        'float_number' => '3',
         'float_type' => 'Text',
         'normalized' => 'in-cartouche'
       }

@@ -442,7 +442,7 @@ $result_floats{'error_in_footnote'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Text',
         'normalized' => 'label'
       }

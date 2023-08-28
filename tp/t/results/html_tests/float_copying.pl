@@ -1557,7 +1557,7 @@ $result_floats{'float_copying'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Copyright notice',
         'normalized' => 'public-domain'
       }

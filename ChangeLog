@@ -1,5 +1,10 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (number_floats): quote float index to
+	force a representation as string in perl.
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): if $ENV{TEXINFO_XS_CONVERT} is set,
 	rebuild the tree based on the state of the XS tree after structuring.
 

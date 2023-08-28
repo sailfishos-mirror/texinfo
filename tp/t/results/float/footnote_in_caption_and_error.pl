@@ -360,7 +360,7 @@ $result_floats{'footnote_in_caption_and_error'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'fl',
         'normalized' => 'label'
       }

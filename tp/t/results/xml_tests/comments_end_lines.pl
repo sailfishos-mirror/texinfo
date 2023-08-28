@@ -1031,7 +1031,7 @@ $result_floats{'comments_end_lines'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'f',
         'normalized' => 'g'
       }

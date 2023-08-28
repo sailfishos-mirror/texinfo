@@ -166,7 +166,7 @@ $result_floats{'simple'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Type',
         'normalized' => 'Label'
       }

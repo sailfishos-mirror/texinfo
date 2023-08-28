@@ -321,7 +321,7 @@ $result_floats{'float_type_with_tieaccent'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text",
         'normalized' => 'label'
       }

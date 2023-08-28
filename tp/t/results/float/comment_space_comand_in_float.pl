@@ -299,7 +299,7 @@ $result_floats{'comment_space_comand_in_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'Text  ',
         'normalized' => 'label-'
       }

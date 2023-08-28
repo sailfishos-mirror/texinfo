@@ -432,7 +432,7 @@ $result_floats{'equivalent_labels'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 'truc',
         'normalized' => 'floa'
       }

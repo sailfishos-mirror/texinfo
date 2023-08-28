@@ -3822,7 +3822,7 @@ $result_floats{'complex_float'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {}

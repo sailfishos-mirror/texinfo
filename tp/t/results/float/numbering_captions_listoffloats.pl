@@ -5846,7 +5846,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {}
@@ -5864,7 +5864,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 2,
+        'float_number' => '2',
         'float_section' => {},
         'float_type' => '',
         'normalized' => 'label-but-no-type-and-no-caption'
@@ -5905,7 +5905,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 3,
+        'float_number' => '3',
         'float_section' => {},
         'float_type' => '',
         'normalized' => 'label-but-no-type-2',
@@ -5952,7 +5952,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 5,
+        'float_number' => '5',
         'float_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {}
@@ -6002,7 +6002,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_section' => {},
         'float_type' => 'Text',
         'normalized' => 'text-with-a-lot-of-features',
@@ -6086,7 +6086,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 5,
+        'float_number' => '5',
         'float_section' => {},
         'float_type' => 'Text',
         'normalized' => 'unnumbered-float',
@@ -6107,7 +6107,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 6,
+        'float_number' => '6',
         'float_section' => {
           'cmdname' => 'section',
           'extra' => {}
@@ -6206,7 +6206,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
             'float' => {}
           }
         },
-        'float_number' => 1,
+        'float_number' => '1',
         'float_section' => {},
         'float_type' => 'Warning',
         'normalized' => 'warning-in-top',

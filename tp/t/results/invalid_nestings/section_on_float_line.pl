@@ -154,7 +154,7 @@ $result_floats{'section_on_float_line'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => 't',
         'normalized' => 'l'
       }

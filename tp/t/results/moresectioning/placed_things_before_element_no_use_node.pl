@@ -747,7 +747,7 @@ $result_floats{'placed_things_before_element_no_use_node'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_number' => 1,
+        'float_number' => '1',
         'float_type' => '',
         'normalized' => 'float-anchor'
       }
