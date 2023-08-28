@@ -208,13 +208,9 @@ sub get_parser_info($$$) {
   $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
-  my $tree = $document->tree();
-  $tree->{'tree_document_descriptor'} = $document_descriptor;
-  $document->{'document_descriptor'} = $document_descriptor;
-
   # FIXME need to think more about the interface.  The tests using
   # parse_texi_piece will fail with XS converters if the document
-  # is ot registered.
+  # is not registered.
   #if ($store) {
   #} else {
   #  # TODO
