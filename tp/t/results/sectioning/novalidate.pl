@@ -263,14 +263,6 @@ $result_nodes{'novalidate'} = [
   {
     'cmdname' => 'node',
     'extra' => {
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'normalized' => 'unknown-node'
-          },
-          'type' => 'line_arg'
-        }
-      },
       'normalized' => 'first'
     }
   }

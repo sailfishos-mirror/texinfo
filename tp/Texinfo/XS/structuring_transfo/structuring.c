@@ -1469,12 +1469,7 @@ nodes_tree (DOCUMENT *document)
                       else
                         {
                            /*
-            if ($customization_information->get_conf('novalidate')) {
-              $node->{'extra'}->{'node_directions'} = {}
-                 if (!defined($node->{'extra'}->{'node_directions'}));
-              $node->{'extra'}->{'node_directions'}->{$direction}
-                 = $direction_element;
-            } else {
+            if (!$customization_information->get_conf('novalidate'))
                            */
                            command_error (node,
                                      "%s reference to nonexistent `%s'",

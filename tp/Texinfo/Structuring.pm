@@ -1195,12 +1195,7 @@ sub nodes_tree($$$)
                 $node->{'source_info'});
             }
           } else {
-            if ($customization_information->get_conf('novalidate')) {
-              $node->{'extra'}->{'node_directions'} = {}
-                 if (!defined($node->{'extra'}->{'node_directions'}));
-              $node->{'extra'}->{'node_directions'}->{$direction}
-                 = $direction_element;
-            } else {
+            if (!$customization_information->get_conf('novalidate')) {
               $registrar->line_error($customization_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
