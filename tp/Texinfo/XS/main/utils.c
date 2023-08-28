@@ -20,6 +20,9 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "tree_types.h"
 #include "tree.h"
@@ -88,6 +91,20 @@ int
 isascii_upper (int c)
 {
   return (((c & ~0x7f) == 0) && isupper(c));
+}
+
+/* count characters, not bytes. */
+size_t
+count_convert_u8 (const char *text)
+{
+  /* FIXME error checking? */
+  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  size_t result = u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
+
+  free (resultbuf);
+
+  return result;
 }
 
 void

@@ -73,7 +73,6 @@ typedef struct {
     SOURCE_MARK *source_mark;
 } CONDITIONAL_STACK_ITEM;
 
-size_t count_convert_u8 (const char *text);
 int parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
 CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);

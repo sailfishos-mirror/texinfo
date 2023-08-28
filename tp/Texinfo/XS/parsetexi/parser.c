@@ -18,15 +18,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include <stdbool.h>
-#include "uniconv.h"
-#include "unistr.h"
 
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
 /* for isascii_alnum, whitespace_chars, read_flag_name,
-   delete_global_info, parse_line_directive */
+   delete_global_info, parse_line_directive, count_convert_u8 */
 #include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"
@@ -63,20 +60,6 @@ const char *whitespace_chars_except_newline = WHITESPACE_CHARS_EXCEPT_NEWLINE;
 const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
                                                "{}@";
 #undef WHITESPACE_CHARS_EXCEPT_NEWLINE
-
-/* count characters, not bytes. */
-size_t
-count_convert_u8 (const char *text)
-{
-  /* FIXME error checking? */
-  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
-  size_t result = u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
-
-  free (resultbuf);
-
-  return result;
-}
 
 /* Check if the contents of S2 appear at S1). */
 int

@@ -128,6 +128,7 @@ int isascii_alnum (int c);
 int isascii_alpha (int c);
 int isascii_lower (int c);
 int isascii_upper (int c);
+size_t count_convert_u8 (const char *text);
 
 void delete_global_info (GLOBAL_INFO *global_info_ref);
 

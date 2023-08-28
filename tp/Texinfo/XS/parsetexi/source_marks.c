@@ -17,10 +17,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* for count_convert_u8 */
-#include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
+/* for count_convert_u8 and other */
 #include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"

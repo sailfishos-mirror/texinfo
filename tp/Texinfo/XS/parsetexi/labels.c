@@ -18,11 +18,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* for count_convert_u8 */
-#include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for whitespace_chars */
+/* for whitespace_chars and count_convert_u8 */
 #include "utils.h"
 #include "errors.h"
 #include "convert_to_texinfo.h"
