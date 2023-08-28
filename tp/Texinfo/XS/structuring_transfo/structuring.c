@@ -1577,10 +1577,9 @@ number_floats (DOCUMENT *document)
     {
       FLOAT_RECORD *listoffloats = &listoffloats_list->float_types[i];
       int float_index = 0;
+      int nr_in_chapter = 0;
+      ELEMENT *current_chapter = 0;
       size_t j;
-      size_t nr_in_chapter_space = 5;
-      size_t *nr_in_chapter = malloc (nr_in_chapter_space * sizeof (size_t));
-      memset (nr_in_chapter, 0, nr_in_chapter_space * sizeof (size_t));
       for (j = 0; j < listoffloats->element->contents.number; j++)
         {
           static TEXT number;
@@ -1612,25 +1611,18 @@ number_floats (DOCUMENT *document)
                     }
                   break;
                 }
+              if (!current_chapter || current_chapter != up)
+                {
+                  nr_in_chapter = 0;
+                  current_chapter = up;
+                }
               if (!(command_other_flags (up) & CF_unnumbered))
                 {
-                  int status;
-                  int chapter_nr = lookup_extra_integer (up, "section_number",
-                                                         &status);
-                  if (chapter_nr > nr_in_chapter_space -1)
-                    {
-                      size_t nr_in_chapter_space_prev = nr_in_chapter_space;
-                      nr_in_chapter_space
-                           += chapter_nr - nr_in_chapter_space -1 +5;
-                      nr_in_chapter = realloc (nr_in_chapter,
-                                         nr_in_chapter_space * sizeof (size_t));
-                      memset (nr_in_chapter + nr_in_chapter_space_prev,
-                              0, (nr_in_chapter_space - nr_in_chapter_space_prev)
-                                 * sizeof (size_t));
-                    }
-                  nr_in_chapter[chapter_nr]++;
-                  text_printf (&number, "%d.%zu", chapter_nr,
-                                                  nr_in_chapter[chapter_nr]);
+                  char *section_number
+                       = lookup_extra_string (up, "section_number");
+                  nr_in_chapter++;
+                  text_printf (&number, "%s.%zu", section_number,
+                                                  nr_in_chapter);
                   add_extra_string_dup (float_elt, "float_number", number.text);
                 }
             }

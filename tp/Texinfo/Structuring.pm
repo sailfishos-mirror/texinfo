@@ -1860,8 +1860,9 @@ sub number_floats($)
   return if (!defined($floats));
 
   foreach my $style (keys(%$floats)) {
-    my %nr_in_chapter;
     my $float_index = 0;
+    my $current_chapter;
+    my $nr_in_chapter = 0;
     foreach my $float (@{$floats->{$style}}) {
       next if (!$float->{'extra'}
                or !defined($float->{'extra'}->{'normalized'}));
@@ -1877,10 +1878,14 @@ sub number_floats($)
                  $up->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}}) {
           $up = $up->{'extra'}->{'section_directions'}->{'up'};
         }
+        if (!defined($current_chapter) or $current_chapter ne $up) {
+          $nr_in_chapter = 0;
+          $current_chapter = $up;
+        }
         if (!$unnumbered_commands{$up->{'cmdname'}}) {
-          $nr_in_chapter{$up->{'extra'}->{'section_number'}}++;
+          $nr_in_chapter++;
           $number = $up->{'extra'}->{'section_number'} .
-            '.' . $nr_in_chapter{$up->{'extra'}->{'section_number'}};
+            '.' . $nr_in_chapter;
         }
       }
       $number = "$float_index" if (!defined($number));
