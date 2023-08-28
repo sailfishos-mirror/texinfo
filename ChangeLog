@@ -1,5 +1,10 @@
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): use newly obtained $identifier_target for
+	Texinfo::Structuring::units_directions.
+
+2023-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c
 	(sectioning_structure): fix incrementation of section number.
 	Handle appendix number better.

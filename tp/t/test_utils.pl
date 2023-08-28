@@ -990,7 +990,6 @@ sub test($$)
     }
   }
 
-  my $identifier_target = $document->labels_information();
   my $document_information = $document->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
@@ -1284,6 +1283,7 @@ sub test($$)
     $output_units = Texinfo::Structuring::split_by_section($tree);
   }
   if ($test_split) {
+    my $identifier_target = $document->labels_information();
     Texinfo::Structuring::units_directions($main_configuration,
                                            $identifier_target,
                                            $output_units);
