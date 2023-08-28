@@ -956,6 +956,8 @@ sub test($$)
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that
       # $test_input_file_name is already bytes?
+      # FIXME it is incorrect to do that outside of an API.  It is actually
+      # more to set the output file, so maybe it should be done differently.
       $document->{'info'}->{'input_file_name'} = $test_input_file_name;
     }
   } else {
@@ -963,7 +965,6 @@ sub test($$)
     $document = $parser->parse_texi_file($test_file);
   }
   my $tree = $document->tree();
-
   my $registrar = $parser->registered_errors();
 
   if (not defined($tree)) {
@@ -1060,8 +1061,13 @@ sub test($$)
 
   Texinfo::Structuring::number_floats($document);
 
-  #$document = Texinfo::Structuring::rebuild_document($document);
-  #$tree = $document->tree();
+  if (defined $ENV{TEXINFO_XS_CONVERT}
+      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    $document = Texinfo::Structuring::rebuild_document($document);
+    $tree = $document->tree();
+    $document->{'info'}->{'input_file_name'} = $test_input_file_name
+      if (!$test_file and defined($test_input_file_name));
+  }
 
   my ($errors, $error_nrs) = $registrar->errors();
   # FIXME maybe it would be good to compare $merged_index_entries?
