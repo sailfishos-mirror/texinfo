@@ -246,8 +246,10 @@ sectioning_structure (ELEMENT *root)
                   prev_section_directions->contents.list[D_next] = content;
                   add_to_contents_as_array (up_section_childs, content);
                 }
-              if (!(command_other_flags (previous_section) & CF_unnumbered))
+              if (!(command_other_flags (content) & CF_unnumbered))
                 {
+                  if (command_numbers[level] < 0)
+                    command_numbers[level] = 0;
                   command_numbers[level]++;
                   command_unnumbered[level] = 0;
                 }
@@ -296,7 +298,7 @@ sectioning_structure (ELEMENT *root)
           && !in_appendix)
         {
           in_appendix = 1;
-          command_numbers[level] = 'A';
+          command_numbers[level] = 1;
         }
       if (!(command_other_flags (content) & CF_unnumbered))
         {
@@ -306,8 +308,16 @@ sectioning_structure (ELEMENT *root)
               int i;
               TEXT section_number;
               text_init (&section_number);
-              text_printf (&section_number, "%d",
-                           command_numbers[number_top_level]);
+              if (!in_appendix)
+                text_printf (&section_number, "%d",
+                             command_numbers[number_top_level]);
+              else
+                {
+                  /* FIXME do better than that, see in perl
+                     enumerate_item_representation */
+                  char appendix_nr = 'A' -1 +command_numbers[number_top_level];
+                  text_append_n (&section_number, &appendix_nr, 1);
+                }
               for (i = number_top_level+1; i <= level; i++)
                 {
                   text_printf (&section_number, ".%d",
