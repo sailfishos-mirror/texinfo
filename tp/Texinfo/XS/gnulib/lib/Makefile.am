@@ -50,6 +50,7 @@
 #  unistr/u8-next \
 #  unistr/u8-strlen \
 #  unistr/u8-uctomb \
+#  uniwidth/u8-width \
 #  unsetenv \
 #  vasprintf \
 #  wcwidth
@@ -1976,6 +1977,14 @@ MOSTLYCLEANFILES += uniwidth.h uniwidth.h-t
 EXTRA_DIST += localcharset.h uniwidth.in.h
 
 ## end   gnulib module uniwidth/base
+
+## begin gnulib module uniwidth/u8-width
+
+if LIBUNISTRING_COMPILE_UNIWIDTH_U8_WIDTH
+libgnu_la_SOURCES += uniwidth/u8-width.c
+endif
+
+## end   gnulib module uniwidth/u8-width
 
 ## begin gnulib module uniwidth/width
 
