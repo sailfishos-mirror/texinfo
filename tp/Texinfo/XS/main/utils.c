@@ -23,6 +23,7 @@
 #include <stdbool.h>
 #include "uniconv.h"
 #include "unistr.h"
+#include "unicase.h"
 
 #include "tree_types.h"
 #include "tree.h"
@@ -95,7 +96,7 @@ isascii_upper (int c)
 
 /* count characters, not bytes. */
 size_t
-count_convert_u8 (const char *text)
+count_multibyte (const char *text)
 {
   /* FIXME error checking? */
   uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
@@ -104,6 +105,29 @@ count_convert_u8 (const char *text)
 
   free (resultbuf);
 
+  return result;
+}
+
+char *
+to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
+{
+  char *result;
+  size_t lengthp;
+  /* FIXME error checking? */
+  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  uint8_t *u8_result;
+  if (lower_or_upper > 0)
+    u8_result = u8_toupper (resultbuf, u8_strlen (resultbuf),
+                            NULL, NULL, NULL, &lengthp);
+  else
+    u8_result = u8_tolower (resultbuf, u8_strlen (resultbuf),
+                            NULL, NULL, NULL, &lengthp);
+
+  free (resultbuf);
+  result = u8_strconv_to_encoding (u8_result, "UTF-8",
+                                   iconveh_question_mark);
+  free (u8_result);
   return result;
 }
 

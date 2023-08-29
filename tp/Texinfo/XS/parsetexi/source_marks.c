@@ -19,7 +19,7 @@
 
 #include "tree_types.h"
 #include "tree.h"
-/* for count_convert_u8 and other */
+/* for count_multibyte and other */
 #include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"
@@ -110,7 +110,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       ELEMENT *last_child = last_contents_child (e);
       mark_element = last_child;
       if (last_child->text.end > 0)
-        source_mark->position = count_convert_u8 (last_child->text.text);
+        source_mark->position = count_multibyte (last_child->text.text);
     }
   else
     {

@@ -1,3 +1,36 @@
+2023-08-29  Patrice Dumas  <pertusus@free.fr>
+
+	Implementation of accents on conversion to text (untested)
+
+	* tp/Texinfo/XS/main/utils.c (count_multibyte): rename
+	count_convert_u8 as count_multibyte.  Update callers.
+
+	* tp/Texinfo/XS/main/utils.c (to_upper_or_lower_multibyte): add.
+
+	* tp/Texinfo/Convert/Unicode.pm (%unicode_to_eight_bit),
+	tp/Texinfo/XS/Makefile.am, tp/Texinfo/XS/main/unicode.c,
+	tp/maintain/setup_accent_tables.pl: make %unicode_to_eight_bit our and
+	generate a corresponding C structure with setup_accent_tables.pl in
+	a file included in unicode.c.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c (protect_unicode_char):
+	handle 0xFFFF with 4 characters hex string protected characters.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accents_internal),
+	tp/Texinfo/XS/main/unicode.c (format_eight_bit_accents_stack)
+	(format_unicode_accents_stack_internal): use
+	to_upper_or_lower_multibyte to uppercase or lowercase in
+	ascii_accents_internal, format_eight_bit_accents_stack and
+	format_unicode_accents_stack_internal.
+
+	* tp/Texinfo/XS/main/unicode.c (compare_strings)
+	(format_eight_bit_accents_stack)
+	(format_unicode_accents_stack_internal), tp/Texinfo/XS/main/unicode.h
+	(ENCODING_CODEPOINTS), tp/Texinfo/XS/main/convert_to_text.c
+	(text_accents): implement format_eight_bit_accents_stack and
+	finish implementation of other functions to have a complete
+	implementation of text_accents.
+
 2023-08-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/labels.c, tp/Texinfo/XS/parsetexi/labels.h,

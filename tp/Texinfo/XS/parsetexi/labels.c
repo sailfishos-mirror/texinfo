@@ -23,7 +23,7 @@
 #include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for whitespace_chars and count_convert_u8 */
+/* for whitespace_chars and count_multibyte */
 #include "utils.h"
 #include "errors.h"
 #include "convert_to_texinfo.h"
@@ -271,10 +271,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
                           size_t current_position
                             = relocate_source_marks (&(first->source_mark_list),
                                                      opening_brace, 0,
-                                   count_convert_u8 (opening_brace->text.text));
+                                   count_multibyte (opening_brace->text.text));
                           relocate_source_marks (&(first->source_mark_list),
                                                  new_first, current_position,
-                                       count_convert_u8 (new_first->text.text));
+                                       count_multibyte (new_first->text.text));
                         }
                       destroy_element (first);
                     }
@@ -303,7 +303,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  last_manual_element,
                                                  current_position,
-                            count_convert_u8 (last_manual_element->text.text));
+                            count_multibyte (last_manual_element->text.text));
                     }
                   else
                     result->out_of_tree_elements[1] = last_manual_element;
@@ -318,7 +318,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     = relocate_source_marks (&(e->source_mark_list),
                                              closing_brace,
                                              current_position,
-                        count_convert_u8 (closing_brace->text.text));
+                        count_multibyte (closing_brace->text.text));
                 }
 
               /* Skip ')' and any following whitespace.
@@ -335,7 +335,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     = relocate_source_marks (&(e->source_mark_list),
                                              spaces_element,
                                              current_position,
-                        count_convert_u8 (spaces_element->text.text));
+                        count_multibyte (spaces_element->text.text));
                 }
 
               p = q;
@@ -355,7 +355,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  leading_node_content,
                                                  current_position,
-                            count_convert_u8 (leading_node_content->text.text));
+                            count_multibyte (leading_node_content->text.text));
                     }
                   else
                     result->out_of_tree_elements[2] = leading_node_content;

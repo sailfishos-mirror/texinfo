@@ -714,7 +714,8 @@ foreach my $command (keys(%unicode_accented_letters)) {
 # Also note that values below A0, which correspond to the ascii range
 # are not in the values and therefore should be handled differently by the
 # codes using the hash.
-my %unicode_to_eight_bit = (
+# used in code generating C data structure.
+our %unicode_to_eight_bit = (
    'iso-8859-1' => {
       '00A0' => 'A0',
       '00A1' => 'A1',
@@ -1404,13 +1405,13 @@ sub _format_unicode_accents_stack($$$$;$)
 sub _format_eight_bit_accents_stack($$$$$;$)
 {
   my $converter = shift;
-  my $unicode_formatted = shift;
+  my $text = shift;
   my $stack = shift;
   my $encoding = shift;
   my $convert_accent = shift;
   my $set_case = shift;
 
-  my $result = $unicode_formatted;
+  my $result = $text;
 
   my $debug;
   #$debug = 1;
@@ -1423,6 +1424,7 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   # that we can return the maximum of multiaccented letters that can be
   # rendered with a given eight bit formatting.  undef is stored when
   # there is no corresponding unicode anymore.
+  my $unicode_formatted = $text;
   my @results_stack = ([$unicode_formatted, undef]);
 
   while (@$stack) {

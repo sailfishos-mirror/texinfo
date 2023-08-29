@@ -18,6 +18,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdbool.h>
 #include "uniconv.h"
 #include "unictype.h"
@@ -26,10 +27,14 @@
 
 #include "tree_types.h"
 #include "text.h"
+/* for xasprintf */
+#include "errors.h"
 #include "utils.h"
 #include "unicode.h"
 
 #include "cmd_unicode.c"
+
+#include "accent_tables_8bit_codepoints.c"
 
 char *
 normalize_NFC (const char *text)
@@ -137,6 +142,152 @@ unicode_accent (const char *text, ELEMENT *e)
   return result;
 }
 
+int
+compare_strings (const void *a, const void *b)
+{
+  const char **str_a = (const char **) a;
+  const char **str_b = (const char **) b;
+
+  return strcmp (*str_a, *str_b);
+}
+
+
+
+char *
+format_eight_bit_accents_stack (char *text, ELEMENT *stack, int encoding_index,
+  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+  int set_case)
+{
+  int i, j, k;
+  char *result = strdup (text);
+  char *prev_eight_bit;
+  char *new_eight_bit;
+  int stack_nr = stack->contents.number;
+  char **results_stack
+     = malloc ((stack_nr +1) * sizeof (char *));
+
+  memset (results_stack, 0, (stack_nr +1) * sizeof (char *));
+
+  results_stack[stack_nr] = strdup (text);
+
+  for (i = stack_nr -1; i >= 0; i--)
+    {
+      ELEMENT *accent_command = stack->contents.list[i];
+      results_stack[i] = unicode_accent (results_stack[i+1],
+                                         accent_command);
+      if (!results_stack[i])
+        break;
+      else if (set_case)
+        {
+          char *cased = to_upper_or_lower_multibyte (results_stack[i], set_case);
+          free (results_stack[i]);
+          results_stack[i] = cased;
+        }
+    }
+
+  /*
+    At this point we have the unicode character results for the accent
+    commands stack, with all the intermediate results.
+    For each one we'll check if it is possible to encode it in the
+    current eight bit output encoding table and, if so set the result
+    to the character.
+   */
+
+  prev_eight_bit = strdup("");
+
+  for (j = stack_nr; j >= i; j--)
+    {
+      new_eight_bit = 0;
+      if (!results_stack[j])
+        break;
+
+      uint8_t *encoded_u8 = u8_strconv_from_encoding (
+                                               results_stack[j], "UTF-8",
+                                               iconveh_question_mark);
+      ucs4_t first_char;
+      u8_next (&first_char, encoded_u8);
+      if (first_char < 127)
+        xasprintf(&new_eight_bit, "%02lx", first_char);
+      else
+        {
+          char *codepoint;
+          if (first_char <= 0xFFFF)
+            {
+              char *p;
+              xasprintf (&codepoint, "%04lx", first_char);
+              for (p = codepoint; *p; p++)
+                {
+                  if (isascii_lower (*p))
+                    *p = toupper (*p);
+                }
+              char *found = (char *)bsearch (&codepoint,
+                             unicode_to_eight_bit[encoding_index].codepoints,
+                             unicode_to_eight_bit[encoding_index].number,
+                             sizeof(char *), compare_strings);
+              if (found)
+                new_eight_bit = strdup (found);
+
+              free (codepoint);
+            }
+        }
+      if (!new_eight_bit)
+        break;
+
+   /*
+    # in that case, the new eight bit character is the same than the one
+    # found with one less character (and it isn't a @dotless{i}). It may
+    # hapen in 2 case, both meaning that there is no corresponding 8bit char:
+    #
+    # -> there are 2 characters in accent. This could happen, for example
+    #    if an accent that cannot be rendered is found and it leads to
+    #    appending or prepending a character. For example this happens for
+    #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to a 2 character:
+    #    n with a tilde, followed by a ,
+    #    In that case, the additional diacritic is appended, which
+    #    means that it is composed with the , and leaves n with a tilde
+    #    untouched.
+    # -> the diacritic is appended but the normal form doesn't lead
+    #    to a composed character, such that the first character
+    #    of the string is unchanged. This, for example, happens for
+    #    @ubaraccent{a} since there is no composed accent with a and an
+    #    underbar.
+    */
+      if (!strcmp (new_eight_bit, prev_eight_bit)
+          && !(stack->contents.list[j]->cmd == CM_dotless
+               && !strcmp (results_stack[j], "i")))
+        break;
+      free (result);
+      result = strdup (results_stack[j]);
+      prev_eight_bit = strdup (new_eight_bit);
+      free (new_eight_bit);
+    }
+
+  free (prev_eight_bit);
+  free (new_eight_bit);
+
+  /*
+    handle the remaining accents, that have not been converted to 8bit
+    compatible unicode
+   */
+  for (; j >= 0; j--)
+    {
+      ELEMENT *accent_command = stack->contents.list[j];
+      char *formatted_result
+          = (*format_accent) (result, accent_command, set_case);
+      free (result);
+      result = formatted_result;
+    }
+
+  for (k = stack_nr; k >= i; k--)
+    {
+      free (results_stack[k]);
+    }
+  free (results_stack);
+
+  return result;
+}
+
+
 /* FIXME converter in perl */
 char *
 format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
@@ -146,7 +297,7 @@ format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
   int i;
   char *result = strdup (text);
 
-  for (i = stack->contents.number; i >= 0; i--)
+  for (i = stack->contents.number - 1; i >= 0; i--)
     {
       ELEMENT *accent_command = stack->contents.list[i];
       char *formatted_result = unicode_accent (result, accent_command);
@@ -159,16 +310,12 @@ format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
         break;
     }
 
-/* FIXME uc/lc on multibyte characters?
-   use libunistring u8_toupper
-  if ($set_case) {
-    if ($set_case > 0) {
-      $result = uc ($result);
-    } else {
-      $result = lc ($result);
+  if (set_case)
+    {
+      char *cased = to_upper_or_lower_multibyte (result, set_case);
+      free (result);
+      result = cased;
     }
-  }
- */
 
   for (; i >= 0; i--)
     {
@@ -202,18 +349,28 @@ encoded_accents (char *text, ELEMENT *stack, char *encoding,
                                       (encoding, &possible_encoding);
       if (possible_encoding)
         {
+          int encoding_index = -1;
+          int i;
           if (!strcmp (normalized_encoding, "utf-8"))
             {
               return format_unicode_accents_stack_internal (text, stack,
                                                 format_accent, set_case);
             }
-          /*
-               } elsif ($unicode_to_eight_bit{$encoding}) {
-      return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
-                               $format_accent, $set_case);
-    }
-
-           */
+          for (i = 0; i < sizeof (unicode_to_eight_bit)
+                         / sizeof (unicode_to_eight_bit[0]); i++)
+            {
+              if (!strcmp (normalized_encoding,
+                           unicode_to_eight_bit[i].encoding))
+                {
+                  encoding_index = i;
+                  break;
+                }
+            }
+          if (encoding_index >= 0)
+            {
+              return format_eight_bit_accents_stack (text, stack, encoding_index,
+                                                     format_accent, set_case);
+            }
         }
     }
   return 0;

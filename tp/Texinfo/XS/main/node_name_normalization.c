@@ -197,7 +197,7 @@ protect_unicode_char (char *text, TEXT *result)
     bug ("Something left on next_str/encoded_u8\n");
   free (encoded_u8);
 
-  if (next_char < 0xFFFF)
+  if (next_char <= 0xFFFF)
     {
       xasprintf(&str, "%04lx", next_char);
       text_append_n (result, "_", 1);

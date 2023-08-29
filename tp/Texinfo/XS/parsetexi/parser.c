@@ -23,7 +23,7 @@
 #include "tree_types.h"
 #include "tree.h"
 /* for isascii_alnum, whitespace_chars, read_flag_name,
-   delete_global_info, parse_line_directive, count_convert_u8 */
+   delete_global_info, parse_line_directive, count_multibyte */
 #include "utils.h"
 #include "debug.h"
 #include "debug_parser.h"
@@ -768,7 +768,7 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list.number > 0)
         {
-          size_t additional_length = count_convert_u8 (last_child->text.text);
+          size_t additional_length = count_multibyte (last_child->text.text);
           SOURCE_MARK_LIST *s_mark_list
              = &(transfer_marks_element->source_mark_list);
           int i;
@@ -922,9 +922,9 @@ isolate_last_space_internal (ELEMENT *current)
       text[text_len - trailing_spaces] = '\0';
       if (last_elt->source_mark_list.number > 0)
         {
-          size_t begin_position = count_convert_u8 (text);
+          size_t begin_position = count_multibyte (text);
           relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
-                                 begin_position, count_convert_u8 (t.text));
+                                 begin_position, count_multibyte (t.text));
         }
       last_elt->text.end -= trailing_spaces;
 

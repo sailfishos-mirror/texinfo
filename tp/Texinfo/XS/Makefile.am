@@ -183,7 +183,8 @@ libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBIC
 # To locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
-BUILT_SOURCES=main/element_types.c \
+BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
+              main/element_types.c \
               main/element_types.h \
               main/command_data.c \
               main/cmd_normalization.c \
@@ -214,6 +215,9 @@ $(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
 	      $(srcdir)/main/cmd_symbol.c \
 	      $(srcdir)/main/cmd_text.c
 
+$(srcdir)/main/accent_tables_8bit_codepoints.c:
+	$(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
+	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 
 ########################## shared perl XS library for texinfo XS codes
 

@@ -27,6 +27,7 @@
 #include "utils.h"
 #include "convert_utils.h"
 #include "builtin_commands.h"
+#include "unicode.h"
 #include "convert_to_text.h"
 
 #include "cmd_symbol.c"
@@ -46,7 +47,7 @@ ascii_accent (char *text, ELEMENT *command)
       text_append (&accent_text, ".");
       text_append (&accent_text, text);
     }
-  else 
+  else
     {
       text_append (&accent_text, text);
       if (cmd == CM_H)
@@ -75,39 +76,15 @@ ascii_accent (char *text, ELEMENT *command)
 char *
 ascii_accents_internal (char *text, ELEMENT *stack, int set_case)
 {
-  char *result = strdup (text);
-  char *p;
+  char *result;
   int i;
 
-  /* FIXME should use UTF-8 case change instead */
   if (set_case)
-    {
-      char *q = result;
-      int only_ascii_letters = 1;
-      for (p = text; *p; p++)
-        {
-          if (isascii_alpha (*p))
-            {
-              if (set_case > 0)
-                *q = toupper (*p);
-              else
-                *q = tolower (*p);
-              q++;
-            }
-          else
-            {
-              only_ascii_letters = 0;
-              break;
-            }
-        }
-      if (!only_ascii_letters)
-        {
-          free (result);
-          result = strdup (text);
-        }
-    }
-  
-  for (i = stack->contents.number; i >= 0; i--)
+    result = to_upper_or_lower_multibyte (text, set_case);
+  else
+    result = strdup (text);
+
+  for (i = stack->contents.number - 1; i >= 0; i--)
     {
       ELEMENT *accent_command = stack->contents.list[i];
       char *formatted_accent = ascii_accent (result, accent_command);
@@ -151,11 +128,10 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
     text = convert_to_text (accent_stack->argument, options);
   else
     text = strdup ("");
-  /*
-  my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
-                   $stack, $encoding, \&ascii_accent_fallback, $set_case);
-  result = 
-   */
+
+  result = encoded_accents (text, accent_stack->stack, encoding,
+                            ascii_accents_internal, set_case);
+
   if (!result)
     result = ascii_accents_internal (text, accent_stack->stack, set_case);
   free (text);
