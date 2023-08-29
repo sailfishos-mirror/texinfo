@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # Copyright 2023 Free Software Foundation, Inc.
-#   
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
@@ -27,7 +27,7 @@ use File::Spec;
 use File::Basename;
 
 BEGIN
-{   
+{
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
@@ -120,10 +120,15 @@ my $text_file = $ARGV[4];
 die "Need a file for text tables\n" if (!defined($text_file));
 
 my %unicode_diacritics = %Texinfo::Convert::Unicode::unicode_diacritics;
+my %unicode_character_brace_no_arg_commands
+   = %Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands;
+my %unicode_map = %Texinfo::Convert::Unicode::unicode_map;
+my %extra_unicode_map = %Texinfo::Convert::Unicode::extra_unicode_map;
 
 open (UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
 
-print UNIC "char * unicode_diacritics[] = {\n";
+print UNIC '#include "unicode.h"'."\n\n";
+print UNIC "char *unicode_diacritics[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -141,6 +146,37 @@ foreach my $command_name (@commands_order) {
 }
 print UNIC "};\n\n";
 
+print UNIC "COMMAND_UNICODE unicode_character_brace_no_arg_commands[] = {\n";
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  #print UNIC "$command; ";
+
+  if (defined($unicode_map{$command_name})
+      or defined($unicode_character_brace_no_arg_commands{$command_name})) {
+    my $result = 0;
+    my $protected = 0;
+    if (defined($unicode_character_brace_no_arg_commands{$command_name})) {
+      $result = $unicode_character_brace_no_arg_commands{$command_name};
+      $protected = '"'.join ('', map {_protect_char($_)} split ('', $result)).'"';
+    }
+    my $codepoint = 0;
+    if (defined($unicode_map{$command_name})) {
+      $codepoint = '"'.$unicode_map{$command_name}.'"';
+    }
+    my $is_extra = 0;
+    if (defined($extra_unicode_map{$command_name})) {
+      $is_extra = 1;
+    }
+    print UNIC "{$codepoint, $protected, $is_extra},   /* $command */\n";
+  } else {
+    print UNIC "{0, 0, -1},\n";
+  }
+}
+print UNIC "};\n\n";
+
 close(UNIC);
 
 my %command_structuring_level = %Texinfo::Common::command_structuring_level;
@@ -154,7 +190,7 @@ foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
     $command = $name_commands{$command_name};
-  } 
+  }
   if (defined($command_structuring_level{$command_name})) {
     print STRUC "$command_structuring_level{$command_name},  /* $command */\n";
   } else {

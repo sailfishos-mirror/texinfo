@@ -5,11 +5,12 @@
 #include "tree_types.h"
 
 typedef struct TEXT_OPTIONS {
-  int sc; /* sc */
+  int set_case; /* sc and lc */
   char *encoding; /* enabled_encoding */
   int code_state; /* code */
   int raw_state;
   int sort_string;
+  int ascii_glyph; /* ASCII_GLYPH */
   int test; /* TEST */
   int number_sections; /* NUMBER_SECTIONS */
   struct expanded_format *expanded_formats; /* expanded_formats_hash */

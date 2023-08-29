@@ -1,5 +1,18 @@
 2023-08-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/setup_converters_code_tables.pl,
+	tp/Texinfo/XS/main/unicode.h (COMMAND_UNICODE): add Texinfo::Unicode
+	%unicode_character_brace_no_arg_commands, %unicode_map and
+	%extra_unicode_map to a generated table in cmd_unicode.c named
+	unicode_character_brace_no_arg_commands.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (brace_no_arg_command),
+	tp/Texinfo/XS/main/unicode.c (unicode_point_decoded_in_encoding)
+	(unicode_brace_no_arg_command): implement brace command formatting in
+	text. Not tested.
+
+2023-08-29  Patrice Dumas  <pertusus@free.fr>
+
 	Implementation of accents on conversion to text (untested)
 
 	* tp/Texinfo/XS/main/utils.c (count_multibyte): rename

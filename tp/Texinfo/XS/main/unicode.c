@@ -18,6 +18,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 #include "uniconv.h"
@@ -374,4 +375,57 @@ encoded_accents (char *text, ELEMENT *stack, char *encoding,
         }
     }
   return 0;
+}
+
+/* UNICODE_POINT is a string describing an hexadecimal number with
+   letters in upper case */
+/* returns the index in unicode_to_eight_bit +1 if > 0 */
+int unicode_point_decoded_in_encoding (char *encoding, char *codepoint)
+{
+  if (encoding)
+    {
+      int possible_encoding;
+      char *normalized_encoding = normalize_encoding_name
+                                      (encoding, &possible_encoding);
+      if (possible_encoding)
+        {
+          int i;
+          if (!strcmp (normalized_encoding, "utf-8"))
+            {
+              return -1;
+            }
+          for (i = 0; i < sizeof (unicode_to_eight_bit)
+                         / sizeof (unicode_to_eight_bit[0]); i++)
+            {
+              if (!strcmp (normalized_encoding,
+                           unicode_to_eight_bit[i].encoding))
+                {
+                  unsigned long point_nr = strtoul (codepoint, NULL, 16);
+                  /* excludes 127 \x{7F} DEL */
+                  if (point_nr < 127)
+                    return i + 1;
+                  char *found = (char *)bsearch (&codepoint,
+                             unicode_to_eight_bit[i].codepoints,
+                             unicode_to_eight_bit[i].number,
+                             sizeof(char *), compare_strings);
+                  if (found)
+                    return i + 1;
+                  break;
+                }
+            }
+        }
+    }
+  return 0;
+}
+
+char *
+unicode_brace_no_arg_command (enum command_id cmd, char *encoding)
+{
+  if (unicode_character_brace_no_arg_commands[cmd].text
+      && unicode_point_decoded_in_encoding (
+          unicode_character_brace_no_arg_commands[cmd].codepoint,
+          encoding))
+    return unicode_character_brace_no_arg_commands[cmd].text;
+  else
+    return 0;
 }

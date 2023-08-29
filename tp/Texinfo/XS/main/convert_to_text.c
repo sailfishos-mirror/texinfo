@@ -27,6 +27,7 @@
 #include "utils.h"
 #include "convert_utils.h"
 #include "builtin_commands.h"
+#include "extra.h"
 #include "unicode.h"
 #include "convert_to_text.h"
 
@@ -122,7 +123,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   TEXT_OPTIONS *options = new_text_options ();
 
   options->encoding = encoding;
-  options->sc = set_case;
+  options->set_case = set_case;
 
   if (accent_stack->argument)
     text = convert_to_text (accent_stack->argument, options);
@@ -137,6 +138,67 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   free (text);
   destroy_accent_stack (accent_stack);
   destroy_options (options);
+  return result;
+}
+
+/* result to be freed by caller */
+char *
+brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
+{
+  char *result;
+  enum command_id cmd = e->cmd;
+  char *encoding = 0;
+
+  if (options && options->encoding)
+    encoding = options->encoding;
+
+  if (cmd == CM_click)
+    {
+      char *clickstyle = lookup_extra_string (e, "clickstyle");
+      if (clickstyle)
+        {
+          enum command_id clickstyle_cmd = lookup_builtin_command (clickstyle);
+          if (clickstyle_cmd && text_brace_no_arg_commands[clickstyle_cmd])
+            {
+              cmd = clickstyle_cmd;
+            }
+        }
+    }
+
+  if (!(options && options->ascii_glyph)
+      || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0))
+    {
+      result = strdup (unicode_brace_no_arg_command (cmd, encoding));
+    }
+
+  /* no converter in options yet, interface to be done
+  if (!defined($result) and $options and $options->{'converter'}) {
+    my $tree
+     = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
+                                                        $command);
+    if ($tree) {
+      $result = _convert($tree, $options);
+    }
+  }
+  */
+  if (!result)
+    {
+      if (options && options->sort_string
+          && sort_brace_no_arg_commands[cmd]
+          && strlen (sort_brace_no_arg_commands[cmd]))
+        result = strdup (sort_brace_no_arg_commands[cmd]);
+      else
+        result = strdup (text_brace_no_arg_commands[cmd]);
+    }
+
+  if (options && options->set_case
+      && (command_other_flags (e) & CF_letter_no_arg))
+    {
+      char *cased = to_upper_or_lower_multibyte (result, options->set_case);
+      free (result);
+      result = cased;
+    }
+
   return result;
 }
 
