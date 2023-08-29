@@ -1,5 +1,5 @@
 /* Copyright 2010-2023 Free Software Foundation, Inc.
-            
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -24,6 +24,7 @@
 #include "element_types.h"
 #include "builtin_commands.h"
 #include "tree.h"
+#include "extra.h"
 #include "convert_utils.h"
 
 ACCENTS_STACK *
@@ -72,7 +73,7 @@ find_innermost_accent_contents (ELEMENT *element)
                 {
                   if (!argument)
                     argument = new_element (ET_NONE);
-                  add_to_contents_as_array (argument, content); 
+                  add_to_contents_as_array (argument, content);
                 }
             }
         }
@@ -92,3 +93,51 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
     destroy_element (accent_stack->argument);
   free (accent_stack);
 }
+
+/* optional $self argument in perl */
+/* caller should free return */
+char *
+add_heading_number (ELEMENT *current, char *text, int numbered)
+{
+  TEXT result;
+  char *number = 0;
+  if (numbered != 0)
+    number = lookup_extra_string (current, "section_number");
+
+  /* TODO need $self argument for translation
+  if ($self) {
+    if (defined($number)) {
+      if ($current->{'cmdname'} eq 'appendix'
+          and $current->{'extra'}->{'section_level'} == 1) {
+        $result = $self->gdt_string('Appendix {number} {section_title}',
+                   {'number' => $number, 'section_title' => $text});
+      } else {
+        $result = $self->gdt_string('{number} {section_title}',
+                   {'number' => $number, 'section_title' => $text});
+      }
+    } else {
+      $result = $text;
+    }
+  } else {
+*/
+
+  {
+    text_init (&result);
+    if (current->cmd == CM_appendix)
+      {
+        int status;
+        int section_level = lookup_extra_integer (current, "section_level",
+                                                  &status);
+        if (section_level == 1)
+          text_append (&result, "Appendix ");
+      }
+    if (number)
+      {
+        text_append (&result, number);
+        text_append (&result, " ");
+      }
+    text_append (&result, text);
+   }
+  return result.text;
+}
+

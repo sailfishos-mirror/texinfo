@@ -202,6 +202,60 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
   return result;
 }
 
+static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
+
+/* Return the text of an underlined heading, possibly indented. */
+/* FIXME converter argument in perl */
+/* result to be freed by caller */
+char *
+text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
+{
+  int i;
+  TEXT result;
+  int level;
+  int status;
+  int text_width;
+
+  text_init (&result);
+
+  text_append (&result, text);
+
+  /* end of lines spaces are ignored in conversion.  However in
+     rare cases, invalid nestings leave an end of line, so we chomp.
+   */
+  if (result.end > 0 && result.text[result.end - 1] == '\n')
+    result.text[--result.end] = '\0';
+
+  if (result.text[strspn (result.text, whitespace_chars)] == '\0')
+    {
+      free (result.text);
+      return strdup ("");
+    }
+
+  text_append (&result, "\n");
+
+  if (indent_length > 0)
+    {
+      for (i = 0; i < indent_length; i++)
+        text_append_n (&result, " ", 1);
+    }
+  else
+   indent_length = 0;
+
+  level = lookup_extra_integer (current, "section_level", &status);
+  if (!status)
+    level = section_level (current);
+
+  text_width = width_multibyte (text);
+  /* FIXME it seems strange to remove the indent length from the underlined
+     width? */
+  for (i = 0; i < text_width - indent_length; i++)
+    text_append (&result, underline_symbol[level]);
+  text_append (&result, "\n");
+
+  return result.text;
+}
+
 char *
 convert_to_text (ELEMENT *root, TEXT_OPTIONS *options)
 {

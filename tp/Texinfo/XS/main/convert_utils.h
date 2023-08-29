@@ -12,4 +12,6 @@ typedef struct ACCENTS_STACK {
 ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
+char *add_heading_number (ELEMENT *current, char *text, int numbered);
+
 #endif

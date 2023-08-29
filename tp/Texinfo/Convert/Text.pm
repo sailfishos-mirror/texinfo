@@ -313,6 +313,7 @@ sub text_heading($$$;$$)
   chomp($text);
   $text = Texinfo::Convert::Utils::add_heading_number($converter, $current,
                                                       $text, $numbered);
+  # What about non-ascii spaces?
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
   if (defined($indent_length)) {
@@ -330,6 +331,8 @@ sub text_heading($$$;$$)
   } else {
     $section_level = $current->{'extra'}->{'section_level'};
   }
+  # FIXME it seems strange to remove the indent length from the underlined
+  # width?
   $result .= ($underline_symbol{$section_level}
      x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
   return $result;

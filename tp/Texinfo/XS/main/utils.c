@@ -24,6 +24,7 @@
 #include "uniconv.h"
 #include "unistr.h"
 #include "unicase.h"
+#include "uniwidth.h"
 
 #include "tree_types.h"
 #include "tree.h"
@@ -128,6 +129,24 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   result = u8_strconv_to_encoding (u8_result, "UTF-8",
                                    iconveh_question_mark);
   free (u8_result);
+  return result;
+}
+
+int
+width_multibyte (const char *text)
+{
+  int result;
+  /* FIXME error checking? */
+  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  /* FIXME the libunistring documentation described encoding as
+     The encoding argument identifies the encoding (e.g. "ISO-8859-2"
+     for Polish).  Looking at the code, it seems that it is only
+     used to determine if it is a CJK encoding in a list of upper-case
+     encodings.  We probably do not want to have this dependency to
+     encoding, so use UTF-8. */
+  result = u8_strwidth (resultbuf, "UTF-8");
+  free (resultbuf);
   return result;
 }
 

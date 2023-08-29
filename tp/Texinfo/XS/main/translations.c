@@ -141,6 +141,7 @@ switch_messages_locale (void)
     }
 }
 
+/* FIXME $self argument in perl */
 char *
 translate_string (char * string, const char *translation_context,
                   char *in_lang)
