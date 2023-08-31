@@ -16,4 +16,6 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 char *add_heading_number (ELEMENT *current, char *text, int numbered);
 
+ELEMENT *expand_verbatiminclude (ELEMENT *current);
+
 #endif

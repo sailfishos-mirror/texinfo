@@ -23,6 +23,7 @@
 #include <time.h>
 
 #include "tree_types.h"
+#include "tree.h"
 #include "command_ids.h"
 #include "text.h"
 #include "utils.h"
@@ -678,6 +679,16 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       else if (element->cmd && CM_item
                && element->parent->cmd == CM_enumerate)
         {
+          int status;
+          char *enumerate_specification = lookup_extra_string (element->parent,
+                                               "enumerate_specification");
+          int item_number = lookup_extra_integer (element, "item_number",
+                                                  &status);
+          char *spec = enumerate_item_representation (enumerate_specification,
+                                                      item_number);
+          ADD(spec);
+          ADD(". ");
+          free (spec);
         }
     }
 }

@@ -31,6 +31,7 @@
 
 #include "tree_types.h"
 #include "tree.h"
+#include "text.h"
 #include "command_ids.h"
 #include "extra.h"
 #include "errors.h"
@@ -1110,3 +1111,73 @@ copy_contents (ELEMENT *element, enum element_type type)
   return result;
 }
 
+/*
+  decompose a decimal number on a given base.  It is not the
+  decomposition used for counting as we start at 0, not 1 for all
+  the factors.  This is in order to get aa and not ba in calling
+  code.
+
+  DECOMPOSED_NR points to the number of factors value.  There is
+  also a -1 after the last factor in the return array.
+ */
+static int *
+decompose_integer (int number, int base, int *decomposed_nr)
+{
+  int i;
+  /* in practice we are with letters in base 26, 10 is
+     more than enough */
+  int space = 11;
+  int *result = malloc (space * sizeof(int));
+  *decomposed_nr = space - 1;
+  for (i = 0; i < space; i++)
+    {
+      if (number >= 0)
+        {
+          int factor = number % base;
+          result[i] = factor;
+          number = (number - factor) / base - 1;
+        }
+      else
+        {
+          *decomposed_nr = i;
+          break;
+        }
+    }
+  result[*decomposed_nr] = -1;
+
+  return result;
+}
+
+char *
+enumerate_item_representation (char *specification, int number)
+{
+  TEXT result;
+  int i;
+  int decomposed_nr;
+
+  if (!strlen (specification))
+    return strdup ("");
+
+  text_init (&result);
+
+  if (specification[strspn (specification, digit_chars)] == '\0')
+    {
+      int spec = strtol(specification, NULL, 10) + number -1;
+      text_printf (&result, "%d", spec);
+      return result.text;
+    }
+
+  char base_letter = 'a';
+  if (isascii_alpha (specification[0]) && isascii_upper (specification[0]))
+    base_letter = 'A';
+
+  int *letter_ords
+    = decompose_integer (specification[0] - base_letter + number - 1, 26,
+                         &decomposed_nr);
+
+  for (i = decomposed_nr - 1; i >= 0; i--)
+    text_printf (&result, "%c", base_letter + letter_ords[i]);
+
+  free (letter_ords);
+  return result.text;
+}

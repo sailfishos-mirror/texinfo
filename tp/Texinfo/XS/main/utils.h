@@ -176,6 +176,8 @@ void clear_expanded_formats (struct expanded_format *formats);
 void add_expanded_format (struct expanded_format *formats, char *format);
 int format_expanded_p (struct expanded_format *formats, char *format);
 
+char *enumerate_item_representation (char *specification, int number);
+
 ELEMENT *copy_tree (ELEMENT *current, ELEMENT *parent);
 ELEMENT *copy_contents (ELEMENT *element, enum element_type type);
 
