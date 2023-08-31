@@ -196,4 +196,10 @@ typedef struct {
     FLOAT_RECORD *float_types;
 } FLOAT_RECORD_LIST;
 
+typedef struct STRING_LIST {
+  char **list;
+  size_t number;
+  size_t space;
+} STRING_LIST;
+
 #endif

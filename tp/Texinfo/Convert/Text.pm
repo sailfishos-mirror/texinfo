@@ -65,9 +65,13 @@ foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
 
 my %ignored_block_commands;
 foreach my $ignored_command ('titlepage', 'copying', 'documentdescription',
-  'html', 'tex', 'xml', 'docbook', 'latex', 'ignore', 'macro', 'rmacro',
-  'linemacro', 'nodedescriptionblock') {
+  'ignore', 'macro', 'rmacro', 'linemacro', 'nodedescriptionblock') {
   $ignored_block_commands{$ignored_command} = 1;
+}
+
+my %ignored_format_raw_commands;
+foreach my $ignored_command ('html', 'tex', 'xml', 'docbook', 'latex') {
+  $ignored_format_raw_commands{$ignored_command} = 1;
 }
 
 # used by Texinfo::Convert::NodeNormalization
@@ -283,6 +287,9 @@ sub brace_no_arg_command($;$)
   if ($options and $Texinfo::Commands::letter_no_arg_commands{$command}) {
     if ($options->{'sc'}) {
       $result = uc($result);
+    # NOTE does not seems to be set anywhere.  Not a big deal to keep it,
+    # but if it become used, it should be checked whether code elsewhere
+    # should be changed to look for lc too.  XS should be ok.
     } elsif ($options->{'lc'}) {
       $result = lc($result);
     }
@@ -395,8 +402,6 @@ sub _convert($;$)
   my $element = shift;
   my $options = shift;
 
-  $options = {} if (!defined($options));
-
   #print STDERR "E: c: ".(defined($options->{'_code_state'})
   #                         ? $options->{'_code_state'} : 'UNDEF')
   #   ." r: ".(defined($options->{'_raw_state'})
@@ -411,7 +416,8 @@ sub _convert($;$)
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
-                 or ($ignored_block_commands{$element->{'cmdname'}}
+                 or $ignored_block_commands{$element->{'cmdname'}}
+                 or ($ignored_format_raw_commands{$element->{'cmdname'}}
                      and !(defined($options->{'expanded_formats_hash'})
                            and $options->{'expanded_formats_hash'}
                                                     ->{$element->{'cmdname'}}))
@@ -492,7 +498,7 @@ sub _convert($;$)
         my($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
           = localtime(time);
         $year += ($year < 70) ? 2000 : 1900;
-        return "$Texinfo::Convert::Utils::MONTH_NAMES[$mon] $mday, $year";
+        return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
       }
     } elsif (defined($text_brace_no_arg_commands{$element->{'cmdname'}})) {
       return brace_no_arg_command($element, $options);
@@ -507,13 +513,13 @@ sub _convert($;$)
       $options->{'_code_state'}--;
       return $text;
     } elsif ($element->{'cmdname'} eq 'email') {
-      $options->{'_code_state'}++;
-      my $mail = _convert($element->{'args'}->[0], $options);
-      $options->{'_code_state'}--;
       my $text;
       $text = _convert($element->{'args'}->[1], $options)
          if (defined($element->{'args'}->[1]));
       return $text if (defined($text) and ($text ne ''));
+      $options->{'_code_state'}++;
+      my $mail = _convert($element->{'args'}->[0], $options);
+      $options->{'_code_state'}--;
       return $mail;
     } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
       my $replacement;
@@ -776,7 +782,9 @@ sub convert_tree($$)
   my $self = shift;
   my $element = shift;
 
-  return _convert($element);
+  my $options = {};
+
+  return _convert($element, $options);
 }
 
 sub convert($$)
@@ -786,7 +794,9 @@ sub convert($$)
 
   my $root = $document->tree();
 
-  return _convert($root);
+  my $options = {};
+
+  return _convert($root, $options);
 }
 
 # determine outfile and output to that file

@@ -17,16 +17,16 @@ int input_push_file (char *filename);
 void input_pushback (char *line);
 void set_input_source_mark (SOURCE_MARK *source_mark);
 void input_reset_input_stack (void);
-void reset_encoding_list (void);
+void parser_reset_encoding_list (void);
 int expanding_macro (char *macro);
 int top_file_index (void);
 
-char *locate_include_file (char *filename);
+char *parser_locate_include_file (char *filename);
 char *encode_file_name (char *filename);
 char *convert_to_utf8 (char *s);
 int set_input_encoding (char *encoding);
-void add_include_directory (char *filename);
-void clear_include_directories (void);
+void parser_add_include_directory (char *filename);
+void parser_clear_include_directories (void);
 
 extern char **small_strings;
 extern size_t small_strings_num;

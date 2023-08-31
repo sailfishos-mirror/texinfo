@@ -61,7 +61,7 @@ add_heading_number
 $VERSION = '7.1';
 
 
-our @MONTH_NAMES =
+our @month_name =
     (
      'January', 'February', 'March', 'April', 'May',
      'June', 'July', 'August', 'September', 'October',
@@ -104,7 +104,7 @@ sub expand_today($)
 
   $year += ($year < 70) ? 2000 : 1900;
   return $self->gdt('{month} {day}, {year}',
-          { 'month' => $self->gdt($MONTH_NAMES[$mon]),
+          { 'month' => $self->gdt($month_name[$mon]),
             'day' => {'text' => $mday}, 'year' => {'text' => $year} });
 }
 
@@ -290,8 +290,7 @@ sub expand_verbatiminclude($$$)
       $verbatiminclude = { 'cmdname' => 'verbatim',
                            'parent' => $current->{'parent'},
                            'contents' => [],
-                           'extra' =>
-                        {'text_arg' => $current->{'extra'}->{'text_arg'}} };
+                         };
       while (<VERBINCLUDE>) {
         push @{$verbatiminclude->{'contents'}},
                   {'type' => 'raw', 'text' => $_ };

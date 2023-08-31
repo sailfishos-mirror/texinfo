@@ -27,7 +27,7 @@
 /* for set_debug_output */
 #include "debug.h"
 #include "tree.h"
-/* for add_include_directory, set_input_file_name_encoding */
+/* for parser_add_include_directory, set_input_file_name_encoding ... */
 #include "input.h"
 #include "source_marks.h"
 #include "labels.h"
@@ -111,7 +111,7 @@ reset_parser_except_conf (void)
   /* it is not totally obvious that is it better to reset the
      list to avoid memory leaks rather than reuse the iconv
      opened handlers */
-  reset_encoding_list ();
+  parser_reset_encoding_list ();
   set_input_encoding ("utf-8");
   input_reset_input_stack ();
   source_marks_reset_counters ();
@@ -146,7 +146,7 @@ reset_parser (int local_debug_output)
   reset_parser_except_conf ();
   wipe_values ();
   clear_parser_expanded_formats ();
-  clear_include_directories ();
+  parser_clear_include_directories ();
   reset_conf ();
 
   global_documentlanguage_fixed = 0;
@@ -193,7 +193,7 @@ parse_file (char *filename, char *input_file_name, char *input_directory)
     {
       char saved = *p;
       *p = '\0';
-      add_include_directory (filename);
+      parser_add_include_directory (filename);
       *p = saved;
     }
 
@@ -255,7 +255,7 @@ store_document (ELEMENT *root)
   LABEL_LIST *labels;
   FLOAT_RECORD_LIST *floats;
   ELEMENT_LIST *internal_references;
-  SMALL_STRINGS_LIST *small_strings_list;
+  STRING_LIST *small_strings_list;
   ERROR_MESSAGE_LIST *error_messages;
   GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
 
@@ -343,7 +343,7 @@ store_document (ELEMENT *root)
   COPY_GLOBAL_ARRAY(xrefautomaticsectiontitle);
 
   small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
-  small_strings_list = malloc (sizeof (SMALL_STRINGS_LIST));
+  small_strings_list = malloc (sizeof (STRING_LIST));
   small_strings_list->list = small_strings;
   small_strings_list->number = small_strings_num;
   small_strings_list->space = small_strings_num;
@@ -409,12 +409,6 @@ void
 parser_store_value (char *name, char *value)
 {
   store_value (name, value);
-}
-
-void
-parser_add_include_directory (char *filename)
-{
-  add_include_directory (filename);
 }
 
 void

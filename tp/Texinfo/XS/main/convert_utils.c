@@ -18,14 +18,47 @@
 #include <config.h>
 
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <errno.h>
 
 #include "tree_types.h"
+#include "utils.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
+#include "errors.h"
 #include "convert_utils.h"
+
+char *convert_utils_month_name[12] = {
+       "January", "February", "March", "April", "May",
+     "June", "July", "August", "September", "October",
+     "November", "December"
+};
+
+static ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
+static ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
+
+/* in Texinfo::Common */
+char *
+element_associated_processing_encoding (ELEMENT *element)
+{
+  char *input_encoding = lookup_extra_string (element, "input_encoding_name");
+  /* should correspond to
+     Texinfo::Common::encoding_name_conversion_map.
+     Thoughts on this mapping are available near
+     Texinfo::Common::encoding_name_conversion_map definition
+  */
+  /* FIXME check if needed, may not if always used through
+     get_encoding_conversion
+  if (input_encoding)
+    if (!strcmp (input_encoding, "us-ascii"))
+      input_encoding = "iso-8859-1";
+  */
+  return input_encoding;
+}
 
 ACCENTS_STACK *
 find_innermost_accent_contents (ELEMENT *element)
@@ -118,7 +151,7 @@ add_heading_number (ELEMENT *current, char *text, int numbered)
     } else {
       $result = $text;
     }
-  } else {
+  } else
 */
 
   {
@@ -139,5 +172,194 @@ add_heading_number (ELEMENT *current, char *text, int numbered)
     text_append (&result, text);
    }
   return result.text;
+}
+
+static char *
+decode_string (char *input_string, char *encoding, int *status)
+{
+  char *result;
+  *status = 0;
+  /* not sure this can happen */
+  if (!encoding)
+    return strdup(input_string);
+
+  ENCODING_CONVERSION *conversion
+    = get_encoding_conversion (encoding, &input_conversions);
+
+  if (!conversion)
+    return strdup(input_string);
+
+  *status = 1;
+
+  result = encode_with_iconv (conversion->iconv, input_string);
+  return result;
+}
+
+static char *
+encode_string (char *input_string, char *encoding, int *status)
+{
+  char *result;
+  *status = 0;
+  /* not sure this can happen */
+  if (!encoding)
+    return strdup(input_string);
+
+  ENCODING_CONVERSION *conversion
+    = get_encoding_conversion (encoding, &output_conversions);
+
+  if (!conversion)
+    return strdup(input_string);
+
+  *status = 1;
+
+  result = encode_with_iconv (conversion->iconv, input_string);
+  return result;
+}
+
+static char *
+convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion)
+{
+  char *result;
+  if (!conversion)
+    return strdup (s);
+  result = encode_with_iconv (conversion->iconv, s);
+  return result;
+}
+
+/*
+# this requires a converter argument
+# Reverse the decoding of the file name from the input encoding.
+*/
+char *
+encoded_input_file_name (char *file_name, char *input_file_encoding,
+                         char **file_name_encoding)
+{
+  char *result;
+  char *encoding;
+  int status;
+/*
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    if (defined($input_file_encoding)) {
+      $encoding = $input_file_encoding;
+    } else {
+      $encoding = $self->{'document_info'}->{'input_perl_encoding'}
+        if ($self->{'document_info'}
+          and defined($self->{'document_info'}->{'input_perl_encoding'}));
+    }
+  } else {
+    $encoding = $self->get_conf('LOCALE_ENCODING');
+  }
+*/
+  if (input_file_encoding)
+    encoding = input_file_encoding;
+
+  result = encode_string (file_name, encoding, &status);
+
+  if (status)
+    *file_name_encoding = strdup(encoding);
+   else
+    *file_name_encoding = 0;
+  return result;
+}
+
+/*
+# $REGISTRAR argument (in practice, a converter) is optional.
+# $CONFIGURATION_INFORMATION is also optional, but without this
+# argument and the 'INCLUDE_DIRECTORIES' available through
+# get_conf(), the included file can only be found in specific
+# circumstances.
+*/
+ELEMENT *
+expand_verbatiminclude (ELEMENT *current)
+{
+  char *file_name_encoding;
+  char *file_name_text = lookup_extra_string (current, "text_arg");
+  char *file_name;
+  char *file;
+
+  if (!file_name_text)
+    return 0;
+
+  char *input_encoding = element_associated_processing_encoding (current);
+
+  file_name = encoded_input_file_name (file_name_text, input_encoding,
+                                       &file_name_encoding);
+
+  /* FIXME STRING_LIST *include_dirs_list argument */
+  file = locate_include_file (file_name, 0);
+
+  if (file)
+    {
+      FILE *stream = 0;
+      ELEMENT *verbatiminclude;
+      ENCODING_CONVERSION *conversion;
+
+      stream = fopen (file, "r");
+      if (!stream)
+      /* if ($registrar) */
+        {
+          int status;
+          char *decoded_file;
+          if (file_name_encoding)
+            decoded_file = decode_string (file, file_name_encoding,
+                                          &status);
+          else
+            decoded_file = file;
+          command_error (current, "could not read %s: %s",
+                         decoded_file, strerror (errno));
+          if (file_name_encoding)
+            free (decoded_file);
+        }
+      conversion = get_encoding_conversion (input_encoding, &input_conversions);
+      verbatiminclude = new_element (ET_NONE);
+      verbatiminclude->cmd = CM_verbatim;
+      verbatiminclude->parent = current->parent;
+      while (1)
+        {
+          size_t n;
+          char *line = 0;
+          char *text;
+          ELEMENT *raw;
+          ssize_t status = getline (&line, &n, stream);
+          if (status == -1)
+            {
+              free (line);
+              break;
+            }
+
+          text = convert_to_utf8 (line, conversion);
+          free (line);
+          raw = new_element (ET_raw);
+          text_append (&raw->text, text);
+          free (text);
+        }
+      if (fclose (stream) == EOF)
+        {
+      /* if ($registrar) */
+          int status;
+          char *decoded_file;
+          if (file_name_encoding)
+            decoded_file = decode_string (file, file_name_encoding,
+                                          &status);
+          else
+            decoded_file = file;
+          command_error (current,
+                         "error on closing @verbatiminclude file %s: %s",
+                         decoded_file, strerror (errno));
+          if (file_name_encoding)
+            free (decoded_file);
+        }
+    }
+  else
+  /* elsif ($registrar) */
+    {
+      command_error (current, "@%s: could not find %s",
+                     builtin_command_name (current->cmd),
+                     file_name_text);
+   }
+  free (file_name);
 }
 

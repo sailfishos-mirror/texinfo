@@ -1283,7 +1283,7 @@ end_line_misc_line (ELEMENT *current)
               char *fullpath, *sys_filename;
 
               sys_filename = encode_file_name (text);
-              fullpath = locate_include_file (sys_filename);
+              fullpath = parser_locate_include_file (sys_filename);
 
               if (!fullpath)
                 {

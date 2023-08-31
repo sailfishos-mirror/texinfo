@@ -4,6 +4,8 @@
 
 #include "tree_types.h"
 
+extern char *convert_utils_month_name[12];
+
 typedef struct ACCENTS_STACK {
   ELEMENT *stack;
   ELEMENT *argument;

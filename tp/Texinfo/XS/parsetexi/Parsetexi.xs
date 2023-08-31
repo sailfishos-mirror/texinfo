@@ -33,6 +33,7 @@
 #include "api.h"
 #include "conf.h"
 #include "build_perl_info.h"
+#include "input.h"
 /* for remove_document
  FIXME should it be a separate API?
  */

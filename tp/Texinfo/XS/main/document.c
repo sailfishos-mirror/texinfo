@@ -49,7 +49,7 @@ register_document (ELEMENT *root, INDEX **index_names,
                    LABEL_LIST *labels_list,
                    LABEL_LIST *identifiers_target,
                    GLOBAL_INFO *global_info,
-                   SMALL_STRINGS_LIST *small_strings,
+                   STRING_LIST *small_strings,
                    ERROR_MESSAGE_LIST *error_messages)
 {
   size_t document_index;
@@ -118,7 +118,7 @@ register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
 
 /* very similar to parsetexi/input.c free_small_strings */
 void
-free_small_document_strings (SMALL_STRINGS_LIST *small_strings)
+free_small_document_strings (STRING_LIST *small_strings)
 {
   size_t i;
   for (i = 0; i < small_strings->number; i++)

@@ -20,10 +20,10 @@
 #include <string.h>
 #include <iconv.h>
 #include <errno.h>
-#include <sys/stat.h>
 
 /* for global_info */
 #include "parser.h"
+#include "utils.h"
 /* for xasprintf and other */
 #include "errors.h"
 #include "debug.h"
@@ -55,14 +55,7 @@ static char *input_pushback_string;
 
 static iconv_t reverse_iconv; /* used in encode_file_name */
 
-typedef struct {
-  char *encoding_name;
-  iconv_t iconv;
-} ENCODING_CONVERSION;
-
-static ENCODING_CONVERSION *encodings_list = 0;
-int encoding_number = 0;
-int encoding_space = 0;
+static ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
@@ -73,17 +66,7 @@ static ENCODING_CONVERSION *current_encoding_conversion = 0;
 int
 set_input_encoding (char *encoding)
 {
-  int encoding_index = -1;
   int encoding_set = 0;
-  char *conversion_encoding = encoding;
-
-  /* should correspond to
-     Texinfo::Common::encoding_name_conversion_map.
-     Thoughts on this mapping are available near
-     Texinfo::Common::encoding_name_conversion_map definition
-  */
-  if (!strcmp (encoding, "us-ascii"))
-    conversion_encoding = "iso-8859-1";
 
   if (reverse_iconv)
     {
@@ -91,46 +74,10 @@ set_input_encoding (char *encoding)
       reverse_iconv = (iconv_t) 0;
     }
 
-  if (!strcmp (encoding, "utf-8"))
+  current_encoding_conversion
+    = get_encoding_conversion (encoding, &input_conversions);
+  if (current_encoding_conversion)
     {
-      if (encoding_number > 0)
-        encoding_index = 0;
-    }
-  else if (encoding_number > 1)
-    {
-      int i;
-      for (i = 1; i < encoding_number; i++)
-        {
-          if (!strcmp (encoding, encodings_list[i].encoding_name))
-            {
-              encoding_index = i;
-              break;
-            }
-        }
-    }
-
-  if (encoding_index == -1)
-    {
-      if (encoding_number >= encoding_space)
-        {
-          encodings_list = realloc (encodings_list,
-                   (encoding_space += 3) * sizeof (ENCODING_CONVERSION));
-        }
-      encodings_list[encoding_number].encoding_name
-           = strdup (conversion_encoding);
-      /* Initialize conversions for the first time.  iconv_open returns
-         (iconv_t) -1 on failure so these should only be called once. */
-      encodings_list[encoding_number].iconv
-           = iconv_open ("UTF-8", conversion_encoding);
-      encoding_index = encoding_number;
-      encoding_number++;
-    }
-
-  if (encodings_list[encoding_index].iconv == (iconv_t) -1)
-    current_encoding_conversion = 0;
-  else
-    {
-      current_encoding_conversion = &encodings_list[encoding_index];
       encoding_set = 1;
       free (global_info.global_input_encoding_name);
       global_info.global_input_encoding_name = strdup (encoding);
@@ -180,79 +127,6 @@ new_line (ELEMENT *current)
     return 0;
 }
 
-
-/* Run iconv using text buffer as output buffer. */
-size_t
-text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
-                   ICONV_CONST char **inbuf, size_t *inbytesleft)
-{
-  size_t out_bytes_left;
-  char *outptr;
-  size_t iconv_ret;
-
-  outptr = buf->text + buf->end;
-  if (buf->end == buf->space - 1)
-    {
-      errno = E2BIG;
-      return (size_t) -1;
-    }
-  out_bytes_left = buf->space - buf->end - 1;
-  iconv_ret = iconv (iconv_state, inbuf, inbytesleft,
-                     &outptr, &out_bytes_left);
-
-  buf->end = outptr - buf->text;
-
-  return iconv_ret;
-}
-
-
-static char *
-encode_with_iconv (iconv_t our_iconv,  char *s)
-{
-  static TEXT t;
-  ICONV_CONST char *inptr; size_t bytes_left;
-  size_t iconv_ret;
-
-  t.end = 0; /* reset internal TEXT buffer */
-  inptr = s;
-  bytes_left = strlen (s);
-  text_alloc (&t, 10);
-
-  while (1)
-    {
-      iconv_ret = text_buffer_iconv (&t, our_iconv,
-                                     &inptr, &bytes_left);
-
-      /* Make sure libiconv flushes out the last converted character.
-         This is required when the conversion is stateful, in which
-         case libiconv might not output the last character, waiting to
-         see whether it should be combined with the next one.  */
-      if (iconv_ret != (size_t) -1
-          && text_buffer_iconv (&t, our_iconv, 0, 0) != (size_t) -1)
-        /* Success: all of input converted. */
-        break;
-
-      if (bytes_left == 0)
-        break;
-
-      switch (errno)
-        {
-        case E2BIG:
-          text_alloc (&t, t.space + 20);
-          break;
-        case EILSEQ:
-        default:
-          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
-            current_source_info.file_name, current_source_info.line_nr,
-                                                 *(unsigned char *)inptr);
-          inptr++; bytes_left--;
-          break;
-        }
-    }
-
-  t.text[t.end] = '\0';
-  return strdup (t.text);
-}
 
 /* Return conversion of S according to input_encoding.  This function
    frees S if S is converted. */
@@ -702,20 +576,9 @@ input_reset_input_stack (void)
 }
 
 void
-reset_encoding_list (void)
+parser_reset_encoding_list (void)
 {
-  int i;
-  /* never reset the utf-8 encoding in position 0 */
-  if (encoding_number > 1)
-    {
-      for (i = 1; i < encoding_number; i++)
-        {
-          free (encodings_list[i].encoding_name);
-          if (encodings_list[i].iconv != (iconv_t) -1)
-            iconv_close (encodings_list[i].iconv);
-        }
-      encoding_number = 1;
-    }
+  reset_encoding_list (&input_conversions);
   /* could be named global_encoding_conversion and reset in wipe_global_info,
      but we prefer to keep it static as long as it is only used in one
      file */
@@ -732,72 +595,27 @@ top_file_index (void)
 }
 
 
-static char **include_dirs;
-static size_t include_dirs_number;
-static size_t include_dirs_space;
+static STRING_LIST parser_include_dirs_list = {0, 0, 0};
 
 void
-add_include_directory (char *filename)
+parser_add_include_directory (char *filename)
 {
-  int len;
-  if (include_dirs_number == include_dirs_space)
-    {
-      include_dirs = realloc (include_dirs,
-                              sizeof (char *) * (include_dirs_space += 5));
-    }
-  filename = strdup (filename);
-  include_dirs[include_dirs_number++] = filename;
-  len = strlen (filename);
-  if (len > 0 && filename[len - 1] == '/')
-    filename[len - 1] = '\0';
+  add_include_directory (filename, &parser_include_dirs_list);
 }
 
 void
-clear_include_directories (void)
+parser_clear_include_directories (void)
 {
-  int i;
-  for (i = 0; i < include_dirs_number; i++)
-    {
-      free (include_dirs[i]);
-    }
-  include_dirs_number = 0;
+  clear_include_directories (&parser_include_dirs_list);
 }
 
-/* Return value to be freed by caller. */
 char *
-locate_include_file (char *filename)
+parser_locate_include_file (char *filename)
 {
-  char *fullpath;
-  struct stat dummy;
-  int i, status;
-
-  /* Checks if filename is absolute or relative to current directory. */
-  /* Note: the Perl code (in Common.pm, 'locate_include_file') handles 
-     a volume in a path (like "A:") using the File::Spec module. */
-  if (!memcmp (filename, "/", 1)
-      || !memcmp (filename, "../", 3)
-      || !memcmp (filename, "./", 2))
-    {
-      status = stat (filename, &dummy);
-      if (status == 0)
-        return strdup (filename);
-    }
-  else
-    {
-      for (i = 0; i < include_dirs_number; i++)
-        {
-          xasprintf (&fullpath, "%s/%s", include_dirs[i], filename);
-          status = stat (fullpath, &dummy);
-          if (status == 0)
-            return fullpath;
-          free (fullpath);
-        }
-    }
-  return 0;
+  locate_include_file (filename, &parser_include_dirs_list);
 }
 
-/* Try to open a file called FILENAME, looking for it in the list of include
-   directories. */
+/* Try to open a file called FILENAME */
 int
 input_push_file (char *filename)
 {

@@ -10,12 +10,6 @@
 /* for ERROR_MESSAGE_LIST */
 #include "errors.h"
 
-typedef struct SMALL_STRINGS_LIST {
-  char **list;
-  size_t number;
-  size_t space;
-} SMALL_STRINGS_LIST;
-
 typedef struct DOCUMENT {
   int descriptor;
   ELEMENT *tree;
@@ -26,7 +20,7 @@ typedef struct DOCUMENT {
   LABEL_LIST *labels_list;
   LABEL_LIST *identifiers_target;
   GLOBAL_INFO *global_info;
-  SMALL_STRINGS_LIST *small_strings;
+  STRING_LIST *small_strings;
   ELEMENT *nodes_list; /* nodes in contents of this element */
   ELEMENT *sections_list; /* sections in contents of this element */
   ERROR_MESSAGE_LIST *error_messages;
@@ -41,7 +35,7 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           LABEL_LIST *labels_list,
                           LABEL_LIST *identifiers_target,
                           GLOBAL_INFO *global_info,
-                          SMALL_STRINGS_LIST *small_strings,
+                          STRING_LIST *small_strings,
                           ERROR_MESSAGE_LIST *error_messages);
 void register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list);
 void register_document_sections_list (DOCUMENT *document,

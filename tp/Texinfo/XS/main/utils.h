@@ -17,6 +17,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <iconv.h>
 #include "tree_types.h"
 
 extern const char *whitespace_chars;
@@ -42,6 +43,18 @@ typedef struct {
   size_t number;
   size_t space;
 } ERROR_MESSAGE_LIST;
+
+typedef struct {
+  char *encoding_name;
+  iconv_t iconv;
+} ENCODING_CONVERSION;
+
+typedef struct {
+  ENCODING_CONVERSION *list;
+  size_t number;
+  size_t space;
+  int direction;  /* if > 0 converts from the encodings to UTF-8 */
+} ENCODING_CONVERSION_LIST;
 
 struct expanded_format {
     char *format;
@@ -144,6 +157,15 @@ int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
+
+void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
+void clear_include_directories (STRING_LIST *include_dirs_list);
+char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
+
+ENCODING_CONVERSION *get_encoding_conversion (char *encoding,
+                                    ENCODING_CONVERSION_LIST *encodings_list);
+char *encode_with_iconv (iconv_t our_iconv,  char *s);
+void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
 
 FLOAT_RECORD_LIST *float_list_to_listoffloats_list (
                                       FLOAT_RECORD_LIST *floats_list);

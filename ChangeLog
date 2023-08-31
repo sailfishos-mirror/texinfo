@@ -1,5 +1,65 @@
 2023-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (%ignored_format_raw_commands): specific
+	category for raw output formatting block commands.
+
+	* tp/Texinfo/Convert/Text.pm (convert_tree, convert, _convert): always
+	set options in functions calling _convert.
+
+	* tp/Texinfo/Convert/Utils.pm (%month_name),
+	tp/Texinfo/Convert/Text.pm (_convert): rename Texinfo::Convert::Utils
+	%MONTH_NAMES as %month_name.
+
+	* tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude): do not set
+	useless 'text_arg' extra of generated verbatim tree element.
+
+	* tp/Texinfo/XS/main/tree_types.h (STRING_LIST),
+	tp/Texinfo/XS/main/document.h: rename SMALL_STRINGS_LIST as
+	STRING_LIST and move to main/tree_types.h.
+
+	* tp/Texinfo/XS/main/utils.c (get_encoding_conversion)
+	(reset_encoding_list, text_buffer_iconv, encode_with_iconv),
+	tp/Texinfo/XS/main/utils.h (ENCODING_CONVERSION)
+	(ENCODING_CONVERSION_LIST), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser_except_conf), tp/Texinfo/XS/parsetexi/input.c
+	(input_conversions, set_input_encoding, parser_reset_encoding_list):  
+	move code related to setting up conversions from set_input_encoding in
+	parsetexi/input.c to main/utils.c, move reset_encoding_list,
+	text_buffer_iconv and encode_with_iconv.  Use an
+	ENCODING_CONVERSION_LIST structure to hold the list, space and number
+	passed in argument to the functions.  Add parser_reset_encoding_list
+	that calls the corresponding function with the parser
+	ENCODING_CONVERSION_LIST.
+
+	* tp/Texinfo/XS/main/utils.c (add_include_directory)
+	(clear_include_directories, locate_include_file),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser, parse_file),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/input.c (parser_include_dirs_list)
+	(parser_add_include_directory, parser_clear_include_directories)
+	(parser_locate_include_file): move include directoories related
+	functions from parsetexi/input.c to main/utils.c.  Add a STRING_LIST
+	structure as arguments to those functions, and add parser specific
+	corresponding functions, parser_add_include_directory,
+	parser_clear_include_directories and parser_locate_include_file that
+	call the functions with the parser directories list as argument.
+
+	* tp/Texinfo/XS/main/convert_utils.c (convert_utils_month_name)
+	(element_associated_processing_encoding, decode_string, encode_string)
+	(convert_to_utf8, encoded_input_file_name, expand_verbatiminclude):
+	implement expand_verbatiminclude, element_associated_processing_encoding
+	and encoded_input_file_name.  For that also add decode_string,
+	encode_string and convert_to_utf8 that allows to encode/decode from/to
+	UTF-8, similarly to Encode::decode and Encode::encode. convert_to_utf8
+	is a static version here, as it clashes with the version in
+	parsetexi/input.c.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal)
+	(convert_to_text): implementation of arguments conversion for most
+	commands.
+
+2023-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_texinfo.c: remove the unused function
 	node_extra_to_texi, link_element_to_texi is the functionnaly
 	equivalent function adapted to the new calling and with the same name

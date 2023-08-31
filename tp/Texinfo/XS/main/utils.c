@@ -20,6 +20,9 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <sys/stat.h>
+#include <iconv.h>
+#include <errno.h>
 #include <stdbool.h>
 #include "uniconv.h"
 #include "unistr.h"
@@ -148,6 +151,169 @@ width_multibyte (const char *text)
   result = u8_strwidth (resultbuf, "UTF-8");
   free (resultbuf);
   return result;
+}
+
+/* ENCODING should always be lower cased */
+ENCODING_CONVERSION *
+get_encoding_conversion (char *encoding,
+                         ENCODING_CONVERSION_LIST *encodings_list)
+{
+  char *conversion_encoding = encoding;
+  int encoding_index = -1;
+
+  /* should correspond to
+     Texinfo::Common::encoding_name_conversion_map.
+     Thoughts on this mapping are available near
+     Texinfo::Common::encoding_name_conversion_map definition
+  */
+  if (!strcmp (encoding, "us-ascii"))
+    conversion_encoding = "iso-8859-1";
+
+  if (!strcmp (encoding, "utf-8"))
+    {
+      if (encodings_list->number > 0)
+        encoding_index = 0;
+      else
+        encoding_index = -2;
+    }
+  else if (encodings_list->number > 1)
+    {
+      int i;
+      for (i = 1; i < encodings_list->number; i++)
+        {
+          if (!strcmp (conversion_encoding,
+                       encodings_list->list[i].encoding_name))
+            {
+              encoding_index = i;
+              break;
+            }
+        }
+    }
+
+  if (encoding_index < 0)
+    {
+      if (encodings_list->number == 0)
+        encodings_list->number++;
+      if (encoding_index == -2) /* utf-8 */
+        encoding_index = 0;
+      else
+        {
+          encoding_index = encodings_list->number;
+          encodings_list->number++;
+        }
+
+      if (encodings_list->number - 1 >= encodings_list->space)
+        {
+          encodings_list->list = realloc (encodings_list->list,
+              (encodings_list->space += 3) * sizeof (ENCODING_CONVERSION));
+        }
+
+      encodings_list->list[encoding_index].encoding_name
+           = strdup (conversion_encoding);
+      /* Initialize conversions for the first time.  iconv_open returns
+         (iconv_t) -1 on failure so these should only be called once. */
+      if (encodings_list->direction > 0)
+        encodings_list->list[encoding_index].iconv
+           = iconv_open ("UTF-8", conversion_encoding);
+      else
+        encodings_list->list[encoding_index].iconv
+           = iconv_open (conversion_encoding, "UTF-8");
+    }
+
+  if (encodings_list->list[encoding_index].iconv == (iconv_t) -1)
+    return 0;
+  else
+    /* FIXME this will change when the list is reallocated */
+    return &encodings_list->list[encoding_index];
+}
+
+void
+reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list)
+{
+  int i;
+  /* never reset the utf-8 encoding in position 0 */
+  if (encodings_list->number > 1)
+    {
+      for (i = 1; i < encodings_list->number; i++)
+        {
+          free (encodings_list->list[i].encoding_name);
+          if (encodings_list->list[i].iconv != (iconv_t) -1)
+            iconv_close (encodings_list->list[i].iconv);
+        }
+      encodings_list->number = 1;
+    }
+}
+
+/* Run iconv using text buffer as output buffer. */
+size_t
+text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
+                   ICONV_CONST char **inbuf, size_t *inbytesleft)
+{
+  size_t out_bytes_left;
+  char *outptr;
+  size_t iconv_ret;
+
+  outptr = buf->text + buf->end;
+  if (buf->end == buf->space - 1)
+    {
+      errno = E2BIG;
+      return (size_t) -1;
+    }
+  out_bytes_left = buf->space - buf->end - 1;
+  iconv_ret = iconv (iconv_state, inbuf, inbytesleft,
+                     &outptr, &out_bytes_left);
+
+  buf->end = outptr - buf->text;
+
+  return iconv_ret;
+}
+
+char *
+encode_with_iconv (iconv_t our_iconv,  char *s)
+{
+  static TEXT t;
+  ICONV_CONST char *inptr; size_t bytes_left;
+  size_t iconv_ret;
+
+  t.end = 0; /* reset internal TEXT buffer */
+  inptr = s;
+  bytes_left = strlen (s);
+  text_alloc (&t, 10);
+
+  while (1)
+    {
+      iconv_ret = text_buffer_iconv (&t, our_iconv,
+                                     &inptr, &bytes_left);
+
+      /* Make sure libiconv flushes out the last converted character.
+         This is required when the conversion is stateful, in which
+         case libiconv might not output the last character, waiting to
+         see whether it should be combined with the next one.  */
+      if (iconv_ret != (size_t) -1
+          && text_buffer_iconv (&t, our_iconv, 0, 0) != (size_t) -1)
+        /* Success: all of input converted. */
+        break;
+
+      if (bytes_left == 0)
+        break;
+
+      switch (errno)
+        {
+        case E2BIG:
+          text_alloc (&t, t.space + 20);
+          break;
+        case EILSEQ:
+        default:
+          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
+            current_source_info.file_name, current_source_info.line_nr,
+                                                 *(unsigned char *)inptr);
+          inptr++; bytes_left--;
+          break;
+        }
+    }
+
+  t.text[t.end] = '\0';
+  return strdup (t.text);
 }
 
 void
@@ -363,6 +529,70 @@ normalize_encoding_name (char *text, int *possible_encoding)
     }
   *q = '\0';
   return normalized_text;
+}
+
+/* include directories and include file */
+
+void
+add_include_directory (char *filename, STRING_LIST *include_dirs_list)
+{
+  int len;
+  if (include_dirs_list->number == include_dirs_list->space)
+    {
+      include_dirs_list->list = realloc (include_dirs_list->list,
+                   sizeof (char *) * (include_dirs_list->space += 5));
+    }
+  filename = strdup (filename);
+  include_dirs_list->list[include_dirs_list->number++] = filename;
+  len = strlen (filename);
+  if (len > 0 && filename[len - 1] == '/')
+    filename[len - 1] = '\0';
+}
+
+void
+clear_include_directories (STRING_LIST *include_dirs_list)
+{
+  int i;
+  for (i = 0; i < include_dirs_list->number; i++)
+    {
+      free (include_dirs_list->list[i]);
+    }
+  include_dirs_list->number = 0;
+}
+
+/* Return value to be freed by caller. */
+/* try to locate a file called FILENAME, looking for it in the list of include
+   directories. */
+char *
+locate_include_file (char *filename, STRING_LIST *include_dirs_list)
+{
+  char *fullpath;
+  struct stat dummy;
+  int i, status;
+
+  /* Checks if filename is absolute or relative to current directory. */
+  /* Note: the Perl code (in Common.pm, 'locate_include_file') handles
+     a volume in a path (like "A:") using the File::Spec module. */
+  if (!memcmp (filename, "/", 1)
+      || (strlen (filename) >= 3 && !memcmp (filename, "../", 3))
+      || (strlen (filename) >= 2 && !memcmp (filename, "./", 2)))
+    {
+      status = stat (filename, &dummy);
+      if (status == 0)
+        return strdup (filename);
+    }
+  else
+    {
+      for (i = 0; i < include_dirs_list->number; i++)
+        {
+          xasprintf (&fullpath, "%s/%s", include_dirs_list->list[i], filename);
+          status = stat (fullpath, &dummy);
+          if (status == 0)
+            return fullpath;
+          free (fullpath);
+        }
+    }
+  return 0;
 }
 
 /* floats records related functions.
