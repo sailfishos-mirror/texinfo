@@ -1843,7 +1843,7 @@ sub associate_internal_references($$$)
   }
 }
 
-sub XS_number_floats($)
+sub _XS_number_floats($)
 {
 }
 
