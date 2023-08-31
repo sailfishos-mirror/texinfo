@@ -275,6 +275,7 @@ encoded_input_file_name (char *file_name, char *input_file_encoding,
 ELEMENT *
 expand_verbatiminclude (ELEMENT *current)
 {
+  ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
   char *file_name_text = lookup_extra_string (current, "text_arg");
   char *file_name;
@@ -294,7 +295,6 @@ expand_verbatiminclude (ELEMENT *current)
   if (file)
     {
       FILE *stream = 0;
-      ELEMENT *verbatiminclude;
       ENCODING_CONVERSION *conversion;
 
       stream = fopen (file, "r");
@@ -313,44 +313,48 @@ expand_verbatiminclude (ELEMENT *current)
           if (file_name_encoding)
             free (decoded_file);
         }
-      conversion = get_encoding_conversion (input_encoding, &input_conversions);
-      verbatiminclude = new_element (ET_NONE);
-      verbatiminclude->cmd = CM_verbatim;
-      verbatiminclude->parent = current->parent;
-      while (1)
+      else
         {
-          size_t n;
-          char *line = 0;
-          char *text;
-          ELEMENT *raw;
-          ssize_t status = getline (&line, &n, stream);
-          if (status == -1)
+          conversion
+           = get_encoding_conversion (input_encoding, &input_conversions);
+          verbatiminclude = new_element (ET_NONE);
+          verbatiminclude->cmd = CM_verbatim;
+          verbatiminclude->parent = current->parent;
+          while (1)
             {
-              free (line);
-              break;
-            }
+              size_t n;
+              char *line = 0;
+              char *text;
+              ELEMENT *raw;
+              ssize_t status = getline (&line, &n, stream);
+              if (status == -1)
+                {
+                  free (line);
+                  break;
+                }
 
-          text = convert_to_utf8 (line, conversion);
-          free (line);
-          raw = new_element (ET_raw);
-          text_append (&raw->text, text);
-          free (text);
-        }
-      if (fclose (stream) == EOF)
-        {
-      /* if ($registrar) */
-          int status;
-          char *decoded_file;
-          if (file_name_encoding)
-            decoded_file = decode_string (file, file_name_encoding,
-                                          &status);
-          else
-            decoded_file = file;
-          command_error (current,
-                         "error on closing @verbatiminclude file %s: %s",
-                         decoded_file, strerror (errno));
-          if (file_name_encoding)
-            free (decoded_file);
+              text = convert_to_utf8 (line, conversion);
+              free (line);
+              raw = new_element (ET_raw);
+              text_append (&raw->text, text);
+              free (text);
+            }
+          if (fclose (stream) == EOF)
+            {
+          /* if ($registrar) */
+              int status;
+              char *decoded_file;
+              if (file_name_encoding)
+                decoded_file = decode_string (file, file_name_encoding,
+                                              &status);
+              else
+                decoded_file = file;
+              command_error (current,
+                             "error on closing @verbatiminclude file %s: %s",
+                             decoded_file, strerror (errno));
+              if (file_name_encoding)
+                free (decoded_file);
+            }
         }
     }
   else
@@ -361,5 +365,6 @@ expand_verbatiminclude (ELEMENT *current)
                      file_name_text);
    }
   free (file_name);
+  return verbatiminclude;
 }
 
