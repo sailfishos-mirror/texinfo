@@ -41,33 +41,6 @@ static void convert_to_texinfo_internal (ELEMENT *e, TEXT *result);
 
 #define ADD(x) text_append (result, x)
 
-/* Currently unused, but could be used to implement link_element_to_texi
-   from Texinfo::Convert::Texinfo */
-/* Return value to be freed by caller. */
-char *
-node_extra_to_texi (NODE_SPEC_EXTRA *nse)
-{
-  TEXT result;
-
-  if (!nse)
-    return "";
-  text_init (&result);
-
-  if (nse->manual_content
-      && nse->manual_content->contents.number > 0)
-    {
-      text_append_n (&result, "(", 1);
-      convert_to_texinfo_internal (nse->manual_content, &result);
-      text_append_n (&result, ")", 1);
-    }
-  if (nse->node_content
-      && nse->node_content->contents.number > 0)
-    {
-      convert_to_texinfo_internal (nse->node_content, &result);
-    }
-  return result.text;
-}
-
 static void
 expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 {
@@ -246,6 +219,7 @@ convert_contents_to_texinfo (ELEMENT *e)
   return result;
 }
 
+/* Return value to be freed by caller. */
 char *
 link_element_to_texi (ELEMENT *element)
 {
