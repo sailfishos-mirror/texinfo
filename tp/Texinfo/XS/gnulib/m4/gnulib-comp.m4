@@ -147,6 +147,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u8-uctomb:
   # Code from module unitypes:
   # Code from module uniwidth/base:
+  # Code from module uniwidth/u8-strwidth:
   # Code from module uniwidth/u8-width:
   # Code from module uniwidth/width:
   # Code from module unsetenv:
@@ -427,6 +428,7 @@ AC_DEFUN([gl_INIT],
   ])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([1.1], [uniwidth/u8-strwidth])
   gl_LIBUNISTRING_MODULE([1.1], [uniwidth/u8-width])
   gl_LIBUNISTRING_MODULE([1.1], [uniwidth/width])
   gl_FUNC_UNSETENV
@@ -775,6 +777,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unitypes.in.h
   lib/uniwidth.in.h
   lib/uniwidth/cjk.h
+  lib/uniwidth/u8-strwidth.c
   lib/uniwidth/u8-width.c
   lib/uniwidth/width.c
   lib/uniwidth/width0.h

@@ -55,6 +55,7 @@
 #  unistr/u8-next \
 #  unistr/u8-strlen \
 #  unistr/u8-uctomb \
+#  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
 #  unsetenv \
 #  vasprintf \
@@ -81,6 +82,7 @@ gl_MODULES([
   unistr/u8-next
   unistr/u8-strlen
   unistr/u8-uctomb
+  uniwidth/u8-strwidth
   uniwidth/u8-width
   unsetenv
   vasprintf
