@@ -315,7 +315,7 @@ ConvertXS_la_SOURCES = \
 
 EXTRA_DIST += convert/ConvertXS.xs
 
-ConvertXS_la_LIBADD = libtexinfo.la
+ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 # To locate include files under out-of-source builds.

@@ -31,6 +31,8 @@ use Data::Dumper;
 use Carp qw(cluck carp confess);
 use Encode qw(decode);
 
+use Texinfo::Convert::ConvertXS;
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
@@ -52,6 +54,24 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 $VERSION = '7.1';
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+      # We do not simply override, we must check at runtime
+      # that the document tree was stored by the XS parser.
+      Texinfo::XSLoader::override(
+        "Texinfo::Convert::Text::_convert_tree_with_XS",
+        "Texinfo::Convert::ConvertXS::text_convert_tree"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'
@@ -377,6 +397,16 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
+# This is used if the document is available for XS, but XS is not
+# used (most likely $TEXINFO_XS_CONVERT is 0).
+sub _convert_tree_with_XS($$)
+{
+  my $options = shift;
+  my $root = shift;
+
+  return _convert($root, $options);
+}
+
 sub convert_to_text($;$)
 {
   my $root = shift;
@@ -392,6 +422,11 @@ sub convert_to_text($;$)
       $options->{'_code_state'} = 1;
     }
   }
+
+  if (defined($root->{'tree_document_descriptor'})) {
+    return _convert_tree_with_XS($options, $root);
+  }
+
   return _convert($root, $options);
 }
 
@@ -787,6 +822,7 @@ sub convert_tree($$)
   return _convert($element, $options);
 }
 
+# FIXME set options with $self if defined?
 sub convert($$)
 {
   my $self = shift;

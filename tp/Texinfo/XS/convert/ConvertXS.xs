@@ -102,7 +102,8 @@ text_convert (converter, document_in)
     OUTPUT:
         RETVAL
 
-
+# Note that specific Convert::Text options hash passed is in converter,
+# so it should be possible to setup C options and pass to text_convert
 SV *
 text_convert_tree (converter, tree_in)
         SV *converter

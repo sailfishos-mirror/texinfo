@@ -1,5 +1,13 @@
 2023-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_LIBADD): add
+	libtexinfoxs.la.
+
+	* tp/Texinfo/Convert/Text.pm (import, _convert_tree_with_XS)
+	(convert_to_text): interface to XS.
+
+2023-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
 	tp/Texinfo/XS/main/convert_utils.c (definition_arguments_content)
 	(destroy_parsed_def, definition_category_tree),
