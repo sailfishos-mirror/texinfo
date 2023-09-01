@@ -11,11 +11,23 @@ typedef struct ACCENTS_STACK {
   ELEMENT *argument;
 } ACCENTS_STACK;
 
+typedef struct PARSED_DEF {
+  ELEMENT *name;
+  ELEMENT *class;
+  ELEMENT *category;
+  ELEMENT *type;
+  ELEMENT *args;
+} PARSED_DEF;
+
 ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 char *add_heading_number (ELEMENT *current, char *text, int numbered);
 
 ELEMENT *expand_verbatiminclude (ELEMENT *current);
+
+PARSED_DEF *definition_arguments_content (ELEMENT *element);
+void destroy_parsed_def (PARSED_DEF *parsed_def);
+ELEMENT *definition_category_tree (ELEMENT *current);
 
 #endif

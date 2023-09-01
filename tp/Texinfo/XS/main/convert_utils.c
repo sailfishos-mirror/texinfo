@@ -30,6 +30,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "errors.h"
+#include "translations.h"
 #include "convert_utils.h"
 
 char *convert_utils_month_name[12] = {
@@ -368,3 +369,161 @@ expand_verbatiminclude (ELEMENT *current)
   return verbatiminclude;
 }
 
+PARSED_DEF *
+definition_arguments_content (ELEMENT *element)
+{
+  PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
+  memset (result, 0, sizeof (PARSED_DEF));
+  if (element->args.number >= 0)
+    {
+      int i;
+      ELEMENT *def_line = element->args.list[0];
+      for (i = 0; i < def_line->contents.number; i++)
+        {
+          ELEMENT *arg = def_line->contents.list[i];
+          char *role = lookup_extra_string (arg, "role");
+          if (!strcmp (role, "class"))
+            result->class = arg;
+          else if (!strcmp (role, "category"))
+            result->category = arg;
+          else if (!strcmp (role, "type"))
+            result->type = arg;
+          else if (!strcmp (role, "name"))
+            result->name = arg;
+          else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
+                   || !strcmp (role, "delimiter"))
+            {
+              i--;
+              break;
+            }
+        }
+      if (i < def_line->contents.number - 1)
+        {
+          ELEMENT *args = new_element (ET_NONE);
+          insert_slice_into_contents (args, 0, def_line,
+                                      i + 1, def_line->contents.number);
+          result->args = args;
+        }
+    }
+  return result;
+}
+
+void
+destroy_parsed_def (PARSED_DEF *parsed_def)
+{
+  if (parsed_def->args)
+    destroy_element (parsed_def->args);
+  free (parsed_def);
+}
+
+ELEMENT *
+definition_category_tree (ELEMENT *current)
+{
+  ELEMENT *result;
+  ELEMENT *arg_category;
+  ELEMENT *arg_class;
+  ELEMENT *arg_class_code;
+  ELEMENT *class_copy;
+  char *def_command;
+
+  if (current->args.number >= 0)
+    {
+      int i;
+      ELEMENT *def_line = current->args.list[0];
+      for (i = 0; i < def_line->contents.number; i++)
+        {
+          ELEMENT *arg = def_line->contents.list[i];
+          char *role = lookup_extra_string (arg, "role");
+          if (!strcmp (role, "class"))
+            arg_class = arg;
+          else if (!strcmp (role, "category"))
+            arg_category = arg;
+          else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
+                   || !strcmp (role, "delimiter"))
+            break;
+        }
+    }
+
+  if (!arg_class)
+    return arg_category;
+
+  class_copy = copy_tree (arg_class, 0);
+/*
+  if (! $self)
+*/
+  {
+    ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+    arg_class_code = new_element (ET_NONE);
+    arg_class_code->cmd = CM_code;
+    add_to_contents_as_array (brace_command_arg, class_copy);
+    add_to_element_args (arg_class_code, brace_command_arg);
+  }
+
+  def_command = lookup_extra_string (current, "def_command");
+
+  /* do something more efficient */
+  if (!strcmp(def_command, "defop")
+      || !strcmp(def_command, "deftypeop")
+      || !strcmp(def_command, "defmethod")
+      || !strcmp(def_command, "deftypefmethod"))
+    {
+      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      if (0)
+    /* if self */
+        {
+          NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+          add_element_to_named_string_element_list (substrings,
+                                                     "category", category_copy);
+          add_element_to_named_string_element_list (substrings,
+                                                           "class", class_copy);
+          /*
+          TRANSLATORS: association of a method or operation name with a class
+          in descriptions of object-oriented programming methods or operations.
+           */
+
+          result = gdt ("{category} on @code{{class}}", substrings, 0, 0);
+          destroy_named_string_element_list (substrings);
+        }
+      else
+        {
+          result = new_element (ET_NONE);
+          ELEMENT *text_element = new_element (ET_NONE);
+          add_to_contents_as_array (result, category_copy);
+          text_append (&text_element->text, " on ");
+          add_to_contents_as_array (result, arg_class_code);
+        }
+    } else if (!strcmp(def_command, "defivar")
+      || !strcmp(def_command, "deftypeivar")
+      || !strcmp(def_command, "defcv")
+      || !strcmp(def_command, "deftypecv"))
+    {
+      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      if (0)
+    /* if self */
+        {
+          NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+          add_element_to_named_string_element_list (substrings,
+                                                     "category", category_copy);
+          add_element_to_named_string_element_list (substrings,
+                                                           "class", class_copy);
+          /*
+          TRANSLATORS: association of a method or operation name with a class
+          in descriptions of object-oriented programming methods or operations.
+           */
+
+          result = gdt ("{category} of @code{{class}}", substrings, 0, 0);
+          destroy_named_string_element_list (substrings);
+        }
+      else
+        {
+          result = new_element (ET_NONE);
+          ELEMENT *text_element = new_element (ET_NONE);
+          add_to_contents_as_array (result, category_copy);
+          text_append (&text_element->text, " of ");
+          add_to_contents_as_array (result, arg_class_code);
+        }
+    }
+  return result;
+}

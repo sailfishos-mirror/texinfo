@@ -15,18 +15,20 @@
 
 #include <config.h>
 
-#include "plain_texinfo.h"
+#include <string.h>
+
 #include "convert_to_texinfo.h"
 #include "document.h"
+#include "convert_plain_texinfo.h"
 
 char *
 plain_texinfo_convert (DOCUMENT *document)
 {
   char *result;
-  /* FIXME warn/error?  Or in the .xs code (a FIXME there too)?  */
+  /* FIXME warn/error?  Or in the .xs code? */
   if (!document)
     {
-      return "";
+      return strdup ("");
     }
   result = convert_to_texinfo (document->tree);
 

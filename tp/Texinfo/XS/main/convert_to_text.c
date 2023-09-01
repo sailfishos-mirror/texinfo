@@ -31,6 +31,7 @@
 #include "builtin_commands.h"
 #include "extra.h"
 #include "unicode.h"
+#include "document.h"
 #include "convert_to_text.h"
 
 #include "cmd_symbol.c"
@@ -690,6 +691,102 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           ADD(". ");
           free (spec);
         }
+    }
+  if (element->type == ET_def_line)
+    {
+      PARSED_DEF *parsed_def = definition_arguments_content (element);
+      ELEMENT *parsed_definition_category
+         = definition_category_tree(/* $options->{'converter'} */
+                                    element);
+      if (parsed_definition_category)
+        {
+          ELEMENT *converted_element = new_element (ET_NONE);
+          ELEMENT *text_colon = new_element (ET_NONE);
+          ELEMENT *text_eol = new_element (ET_NONE);
+          ELEMENT *type_text_space;
+          ELEMENT *args_text_space;
+          add_to_contents_as_array (converted_element,
+                                    parsed_definition_category);
+          text_append (&text_colon->text, ": ");
+          add_to_contents_as_array (converted_element, text_colon);
+          if (parsed_def->type)
+            {
+              type_text_space = new_element (ET_NONE);
+              add_to_contents_as_array (converted_element, parsed_def->type);
+              text_append (&type_text_space->text, " ");
+              add_to_contents_as_array (converted_element, type_text_space);
+            }
+          if (parsed_def->name)
+            add_to_contents_as_array (converted_element, parsed_def->name);
+          if (parsed_def->args)
+            {
+              args_text_space = new_element (ET_NONE);
+              text_append (&args_text_space->text, " ");
+              add_to_contents_as_array (converted_element, args_text_space);
+              add_to_contents_as_array (converted_element, parsed_def->args);
+            }
+          text_append (&text_eol->text, "\n");
+          add_to_contents_as_array (converted_element, text_eol);
+
+          options->code_state++;
+          convert_to_text_internal (converted_element,
+                                    options, result);
+          options->code_state--;
+
+          destroy_element (converted_element);
+          destroy_element (text_colon);
+          destroy_element (parsed_definition_category);
+          if (parsed_def->type)
+            {
+              destroy_element (type_text_space);
+            }
+          if (parsed_def->args)
+            {
+              destroy_element (args_text_space);
+            }
+          destroy_parsed_def (parsed_def);
+        }
+    }
+  if (element->contents.number)
+    {
+      int i;
+      int in_code;
+      int in_raw;
+      if ((element->cmd
+           && (builtin_command_flags (element) & CF_preformatted_code)
+               || builtin_command_flags (element) & CF_math
+               || (builtin_command_flags (element) & CF_block
+                   && builtin_command_data[element->cmd].data == BLOCK_raw))
+          || element->type == ET_menu_entry_node)
+        in_code = 1;
+      else if (element->cmd
+               && builtin_command_flags (element) & CF_block
+               && builtin_command_data[element->cmd].data == BLOCK_format_raw)
+        in_raw = 1;
+
+      if (in_raw)
+        options->raw_state++;
+      if (in_code)
+        options->code_state++;
+      if (in_raw)
+
+      for (i = 0; i < element->contents.number; i++)
+        {
+          ELEMENT *content = element->contents.list[i];
+          convert_to_text_internal (content,
+                                    options, result);
+        }
+
+        options->raw_state--;
+      if (in_code)
+        options->code_state--;
+    }
+  if (element->type == ET_menu_entry
+      && element->parent->type != ET_preformatted
+      && element->parent->type != ET_rawpreformatted)
+    {
+      if (result->end > 0 && result->text[result->end - 1] == '\n')
+        result->text[--result->end] = '\0';
     }
 }
 #undef ADD

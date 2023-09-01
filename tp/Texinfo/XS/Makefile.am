@@ -308,8 +308,10 @@ endif
 
 ConvertXS_la_SOURCES = \
                        convert/ConvertXS.c \
-                       convert/plain_texinfo.h \
-                       convert/plain_texinfo.c
+                       convert/convert_plain_texinfo.h \
+                       convert/convert_plain_texinfo.c \
+                       convert/convert_text.h \
+                       convert/convert_text.c
 
 EXTRA_DIST += convert/ConvertXS.xs
 

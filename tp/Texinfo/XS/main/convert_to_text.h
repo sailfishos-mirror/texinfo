@@ -19,6 +19,7 @@ typedef struct TEXT_OPTIONS {
 } TEXT_OPTIONS;
 
 char *convert_to_text (ELEMENT *root, TEXT_OPTIONS *options);
+TEXT_OPTIONS *new_text_options (void);
 void destroy_options (TEXT_OPTIONS *options);
 
 #endif
