@@ -31,6 +31,7 @@
 #include "extra.h"
 #include "errors.h"
 #include "translations.h"
+#include "debug.h"
 #include "convert_utils.h"
 
 char *convert_utils_month_name[12] = {
@@ -381,7 +382,9 @@ definition_arguments_content (ELEMENT *element)
       for (i = 0; i < def_line->contents.number; i++)
         {
           ELEMENT *arg = def_line->contents.list[i];
-          char *role = lookup_extra_string (arg, "role");
+          char *role = lookup_extra_string (arg, "def_role");
+          if (!role)
+            fprintf (stderr, "BUG: NO ROLE %s\n", print_element_debug (arg, 0));
           if (!strcmp (role, "class"))
             result->class = arg;
           else if (!strcmp (role, "category"))
@@ -420,8 +423,8 @@ ELEMENT *
 definition_category_tree (ELEMENT *current)
 {
   ELEMENT *result;
-  ELEMENT *arg_category;
-  ELEMENT *arg_class;
+  ELEMENT *arg_category = 0;
+  ELEMENT *arg_class = 0;
   ELEMENT *arg_class_code;
   ELEMENT *class_copy;
   char *def_command;
@@ -433,7 +436,7 @@ definition_category_tree (ELEMENT *current)
       for (i = 0; i < def_line->contents.number; i++)
         {
           ELEMENT *arg = def_line->contents.list[i];
-          char *role = lookup_extra_string (arg, "role");
+          char *role = lookup_extra_string (arg, "def_role");
           if (!strcmp (role, "class"))
             arg_class = arg;
           else if (!strcmp (role, "category"))
@@ -445,7 +448,13 @@ definition_category_tree (ELEMENT *current)
     }
 
   if (!arg_class)
-    return arg_category;
+    {
+      if (arg_category)
+        {
+          ELEMENT *category_copy = copy_tree (arg_category, 0);
+          return category_copy;
+        }
+    }
 
   class_copy = copy_tree (arg_class, 0);
 /*
@@ -491,6 +500,7 @@ definition_category_tree (ELEMENT *current)
           ELEMENT *text_element = new_element (ET_NONE);
           add_to_contents_as_array (result, category_copy);
           text_append (&text_element->text, " on ");
+          add_to_contents_as_array (result, text_element);
           add_to_contents_as_array (result, arg_class_code);
         }
     } else if (!strcmp(def_command, "defivar")
@@ -522,6 +532,7 @@ definition_category_tree (ELEMENT *current)
           ELEMENT *text_element = new_element (ET_NONE);
           add_to_contents_as_array (result, category_copy);
           text_append (&text_element->text, " of ");
+          add_to_contents_as_array (result, text_element);
           add_to_contents_as_array (result, arg_class_code);
         }
     }

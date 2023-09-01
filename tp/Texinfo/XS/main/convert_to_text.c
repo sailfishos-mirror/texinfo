@@ -33,6 +33,7 @@
 #include "extra.h"
 #include "unicode.h"
 #include "document.h"
+#include "convert_to_texinfo.h"
 #include "debug.h"
 #include "convert_to_text.h"
 
@@ -274,7 +275,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                           TEXT *result)
 {
   /*
-  fprintf (stderr, "CTTI: %s '%s'\n", print_element_debug (element, 1),
+  fprintf (stderr, "CTTI: %s '%.20s'\n", print_element_debug (element, 1),
            result->text);
    */
   if (!(element->type == ET_def_line)
@@ -353,7 +354,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       #                  undef, $element->{'extra'}->{'documentlanguage'});
       my $tree = $options->{'converter'}->gdt($element->{'text'});
       $result = _convert($tree, $options);
-    } else {
+    } else
 */
         {
           char *p;
@@ -606,6 +607,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           if (element->args.number >= 0)
             {
               int i;
+              TEXT args_line;
+              text_init (&args_line);
               for (i = 0; i < element->args.number; i++)
                 {
                   ELEMENT *arg = element->args.list[i];
@@ -618,18 +621,21 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                         = strspn (converted_arg.text, whitespace_chars);
                       if (converted_arg.text[spaces_nr])
                         {
-                          ADD(converted_arg.text);
+                          text_append (&args_line, converted_arg.text);
                           if (i < element->args.number - 1)
-                            ADD(", ");
+                            text_append (&args_line, ", ");
                         }
                       free (converted_arg.text);
                     }
                 }
-              if (result->end > 0 && result->text[result->end - 1] == '\n')
-                result->text[--result->end] = '\0';
+              if (args_line.end > 0
+                  && args_line.text[args_line.end - 1] == '\n')
+                args_line.text[--args_line.end] = '\0';
 
-              if (result->text[strspn (result->text, whitespace_chars)] == '\0')
-                text_append (result, "\n");
+              if (args_line.text[strspn (args_line.text, whitespace_chars)] != '\0')
+                text_append (&args_line, "\n");
+              ADD(args_line.text);
+              free (args_line.text);
             }
         }
       else if (command_other_flags (element) & CF_formatted_line)
@@ -742,6 +748,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           destroy_element (converted_element);
           destroy_element (text_colon);
           destroy_element (parsed_definition_category);
+          destroy_element (text_eol);
           if (parsed_def->type)
             {
               destroy_element (type_text_space);
@@ -756,8 +763,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
   if (element->contents.number)
     {
       int i;
-      int in_code;
-      int in_raw;
+      int in_code = 0;
+      int in_raw = 0;
       if ((element->cmd
            && (builtin_command_flags (element) & CF_preformatted_code)
                || builtin_command_flags (element) & CF_math
@@ -774,7 +781,6 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         options->raw_state++;
       if (in_code)
         options->code_state++;
-      if (in_raw)
 
       for (i = 0; i < element->contents.number; i++)
         {
@@ -783,6 +789,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                                     options, result);
         }
 
+      if (in_raw)
         options->raw_state--;
       if (in_code)
         options->code_state--;

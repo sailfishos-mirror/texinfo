@@ -1,5 +1,19 @@
 2023-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	separate TEXT for block commands lines.  Initialize in_code and
+	in_raw.  Other misc fixes.
+
+	* tp/Texinfo/XS/main/convert_utils.c (definition_category_tree):
+	initialize arg_category and arg_class.  Fix extra key, is def_role not
+	role.  Copy arg_category before returning it.  Add element texts to
+	output.
+
+	* tp/Texinfo/XS/main/utils.c (locate_include_file): handle missing
+	include directories.
+
+2023-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_LIBADD): add
 	libtexinfoxs.la.
 

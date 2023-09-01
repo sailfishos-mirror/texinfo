@@ -118,10 +118,10 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
 {
   char *result;
   size_t lengthp;
+  uint8_t *u8_result;
   /* FIXME error checking? */
   uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
-  uint8_t *u8_result;
   if (lower_or_upper > 0)
     u8_result = u8_toupper (resultbuf, u8_strlen (resultbuf),
                             NULL, NULL, NULL, &lengthp);
@@ -581,6 +581,10 @@ locate_include_file (char *filename, STRING_LIST *include_dirs_list)
       status = stat (filename, &dummy);
       if (status == 0)
         return strdup (filename);
+    }
+  else if (!include_dirs_list)
+    {
+      return 0;
     }
   else
     {
