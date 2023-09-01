@@ -1,3 +1,9 @@
+2023-09-01  Patrice Dumas <pertusus@free.fr>
+
+	Run 'gnulib-tool --add-import libunistring' under tp/Texinfo/XS.
+
+	Update gnulib.
+
 2023-08-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/README: Add Unicode::Collate to list of modules.  Mention

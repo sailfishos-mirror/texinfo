@@ -71,6 +71,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module include_next:
   # Code from module inline:
   # Code from module inttypes-incomplete:
+  # Code from module libunistring:
   # Code from module limits-h:
   # Code from module localcharset:
   # Code from module malloca:
@@ -199,6 +200,7 @@ AC_DEFUN([gl_INIT],
   gl_INTTYPES_INCOMPLETE
   gl_INTTYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING
   gl_LIMITS_H
   gl_CONDITIONAL_HEADER([limits.h])
   AC_PROG_MKDIR_P
@@ -578,6 +580,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/intprops-internal.h
   lib/inttypes.in.h
   lib/itold.c
+  lib/libunistring.valgrind
   lib/limits.in.h
   lib/localcharset.c
   lib/localcharset.h
@@ -680,6 +683,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/lib-link.m4
   m4/lib-prefix.m4
   m4/libunistring-base.m4
+  m4/libunistring.m4
   m4/limits-h.m4
   m4/localcharset.m4
   m4/locale-fr.m4

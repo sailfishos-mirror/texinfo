@@ -34,6 +34,7 @@
 #  --macro-prefix=gl \
 #  getline \
 #  iconv \
+#  libunistring \
 #  obstack \
 #  strchrnul \
 #  strndup \
@@ -426,6 +427,13 @@ MOSTLYCLEANFILES += inttypes.h inttypes.h-t
 EXTRA_DIST += inttypes.in.h
 
 ## end   gnulib module inttypes-incomplete
+
+## begin gnulib module libunistring
+
+
+EXTRA_DIST += libunistring.valgrind
+
+## end   gnulib module libunistring
 
 ## begin gnulib module limits-h
 
