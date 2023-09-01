@@ -21,6 +21,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 #include "tree.h"
@@ -32,6 +33,7 @@
 #include "extra.h"
 #include "unicode.h"
 #include "document.h"
+#include "debug.h"
 #include "convert_to_text.h"
 
 #include "cmd_symbol.c"
@@ -271,6 +273,10 @@ void
 convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                           TEXT *result)
 {
+  /*
+  fprintf (stderr, "CTTI: %s '%s'\n", print_element_debug (element, 1),
+           result->text);
+   */
   if (!(element->type == ET_def_line)
       && ((element->type == ET_ignorable_spaces_after_command
            || element->type == ET_postamble_after_end
