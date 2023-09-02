@@ -1,5 +1,15 @@
 2023-09-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accents_internal),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	do not call to_upper_or_lower_multibyte, there is an issue with memory
+	management.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	handle better some cases of missing arguments or invalid arguments.
+
+2023-09-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd),
 	tp/Texinfo/command_data.txt, tp/Texinfo/XS/main/builtin_commands.h:
 	add element_builtin_cmd to map user-defined element commands to

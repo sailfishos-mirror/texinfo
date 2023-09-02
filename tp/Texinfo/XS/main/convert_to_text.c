@@ -86,7 +86,7 @@ ascii_accents_internal (char *text, ELEMENT *stack, int set_case)
   char *result;
   int i;
 
-  if (set_case)
+  if (0 && set_case)
     result = to_upper_or_lower_multibyte (text, set_case);
   else
     result = strdup (text);
@@ -376,7 +376,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               char *cased = 0;
               char *text;
 
-              if (options->set_case)
+              /* FIXME some problem with memory management in
+                 to_upper_or_lower_multibyte needs to be fixed */
+              if (0 && options->set_case)
                 {
                   char *cased
                     = to_upper_or_lower_multibyte (element->text.text,
@@ -503,7 +505,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (element->cmd == CM_uref || element->cmd == CM_url)
         {
-          TEXT url;
+          TEXT url_text;
 
           if (element->args.number >= 3)
             {
@@ -519,10 +521,10 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                 }
             }
 
-          text_init (&url);
+          text_init (&url_text);
           options->code_state++;
           convert_to_text_internal (element->args.list[0],
-                                    options, &url);
+                                    options, &url_text);
           options->code_state--;
           if (element->args.number >= 2)
             {
@@ -532,15 +534,18 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                                         options, &text);
               if (text.end > 0)
                 {
-                  text_printf (result, "%s (%s)", url.text, text.text);
+                  text_printf (result, "%s (%s)", url_text.text, text.text);
                   free (text.text);
-                  free (url.text);
+                  free (url_text.text);
                   return;
                 }
             }
 
-          ADD(url.text);
-          free (url.text);
+          if (url_text.text)
+            {
+              ADD(url_text.text);
+              free (url_text.text);
+            }
           return;
         }
       else if ((builtin_command_data[data_cmd].other_flags & CF_explained)
@@ -684,7 +689,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       else if (element->cmd == CM_sp)
         {
           ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
-          if (misc_args->contents.number > 0)
+          /* misc_args can be 0 with invalid args */
+          if (misc_args && misc_args->contents.number > 0)
             {
               char *sp_arg = misc_args->contents.list[0]->text.text;
               int sp_nr = strtoul (sp_arg, NULL, 10);
