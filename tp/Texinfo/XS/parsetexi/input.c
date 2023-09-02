@@ -612,7 +612,7 @@ parser_clear_include_directories (void)
 char *
 parser_locate_include_file (char *filename)
 {
-  locate_include_file (filename, &parser_include_dirs_list);
+  return locate_include_file (filename, &parser_include_dirs_list);
 }
 
 /* Try to open a file called FILENAME */

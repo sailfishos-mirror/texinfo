@@ -1,3 +1,21 @@
+2023-09-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd),
+	tp/Texinfo/command_data.txt, tp/Texinfo/XS/main/builtin_commands.h:
+	add element_builtin_cmd to map user-defined element commands to
+	internal commands for class of user-defined commands,
+	definfoenclose_command for @definfoenclose defined commands,
+	and index_entry_command for @*index commands.  The internal
+	commands flags are the right ones.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	use element_builtin_cmd to have a command id in the range of the
+	arrays of builtin_command_data and other similar arrays.
+	Check of unset text.
+
+	* tp/Texinfo/XS/parsetexi/input.c (parser_locate_include_file):
+	return result.
+
 2023-09-01  Patrice Dumas  <pertusus@free.fr>
 
 	in tp/Texinfo/XS gnulib-tool --add-import uniwidth/u8-strwidth.

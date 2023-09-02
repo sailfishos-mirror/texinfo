@@ -17,10 +17,12 @@
   
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "command_ids.h"
 #include "tree_types.h"
 #include "extra.h"
+#include "debug.h"
 #include "builtin_commands.h"
 
 #include "command_data.c"
@@ -64,7 +66,7 @@ char *
 element_command_name (ELEMENT *e)
 {
   if (e->cmd && e->cmd <
-             sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
+        sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
     return builtin_command_data[e->cmd].cmdname;
   else
     {
@@ -76,3 +78,24 @@ element_command_name (ELEMENT *e)
 
   return 0;
 }
+
+/* map user-defined element commands to internal commands with the right
+   flags associated */
+enum command_id
+element_builtin_cmd (ELEMENT *e)
+{
+  if (e->cmd && e->cmd <
+        sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
+    return e->cmd;
+  else if (e->type == ET_definfoenclose_command)
+    return CM_definfoenclose_command;
+  else if (e->type == ET_index_entry_command)
+    return CM_index_entry_command;
+  else if (e->cmd)
+    {
+      fprintf (stderr, "FIXME: element_builtin_cmd: code needed for %s\n",
+               print_element_debug (e, 0));
+      return e->cmd;
+    }
+}
+

@@ -37,6 +37,7 @@ extern COMMAND builtin_command_data[];
 
 enum command_id lookup_builtin_command (char *cmdname);
 char *element_command_name (ELEMENT *e);
+enum command_id element_builtin_cmd (ELEMENT *e);
 
 /* Base command flags, .flags in COMMAND */
 
@@ -158,5 +159,6 @@ char *element_command_name (ELEMENT *e);
 
 /* Types of internal commands (CF_internal). */
 #define INTERNAL_brace -1
+#define INTERNAL_line -2
 
 #endif

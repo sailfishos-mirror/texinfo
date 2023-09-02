@@ -274,6 +274,15 @@ void
 convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                           TEXT *result)
 {
+  enum command_id data_cmd = 0;
+
+  /* in data_cmd, user-defined commands are mapped to internal commands
+     with the right flags.  If an element can be a user-defined element,
+     data_cmd need to be used for all access to arrays of command_id to
+     avoid an index > max index of builtin command  */
+  if (element->cmd)
+      data_cmd = element_builtin_cmd (element);
+
   /*
   fprintf (stderr, "CTTI: %s '%.20s'\n", print_element_debug (element, 1),
            result->text);
@@ -315,16 +324,17 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                   || (element->args.number > 0
                       && (element->args.list[0]->type == ET_line_arg
                           || element->args.list[0]->type == ET_rawline_arg)
-                      && !(command_other_flags(element) & CF_formatted_line)
+                      && !(builtin_command_data[data_cmd].other_flags
+                                                         & CF_formatted_line)
                       && !(element->cmd == CM_sp
                            || element->cmd == CM_verbatiminclude))))))
     return;
 
-  if (element->cmd
-      && builtin_command_flags (element) & CF_brace
-      && builtin_command_data[element->cmd].data == BRACE_inline
+  if (data_cmd
+      && builtin_command_data[data_cmd].flags & CF_brace
+      && builtin_command_data[data_cmd].data == BRACE_inline
       && element->cmd != CM_inlinefmtifelse)
-    if (command_other_flags (element) & CF_inline_format)
+    if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
       {
         char *format = lookup_extra_string (element, "format");
         if (!format
@@ -422,20 +432,19 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
             }
         }
     }
-  if (element->cmd)
+  if (data_cmd)
     {
-      enum command_id cmd = element->cmd;
-      if (nobrace_symbol_text[cmd])
+      if (nobrace_symbol_text[data_cmd])
         {
-          ADD(nobrace_symbol_text[cmd]);
+          ADD(nobrace_symbol_text[data_cmd]);
           return;
         }
-      else if (cmd == CM_today)
+      else if (data_cmd == CM_today)
         {
           if (options->sort_string
-              && sort_brace_no_arg_commands[cmd])
+              && sort_brace_no_arg_commands[data_cmd])
             {
-              ADD(sort_brace_no_arg_commands[cmd]);
+              ADD(sort_brace_no_arg_commands[data_cmd]);
               return;
             }
 /* TODO
@@ -464,12 +473,12 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               return;
             }
         }
-      else if (text_brace_no_arg_commands[cmd])
+      else if (text_brace_no_arg_commands[data_cmd])
         {
-          ADD(text_brace_no_arg_commands[cmd]);
+          ADD(text_brace_no_arg_commands[data_cmd]);
           return;
         }
-      else if (builtin_command_flags (element) & CF_accent)
+      else if (builtin_command_data[data_cmd].flags & CF_accent)
         {
           char *text = text_accents (element, options->encoding,
                                      options->set_case);
@@ -534,7 +543,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           free (url.text);
           return;
         }
-      else if ((command_other_flags (element) & CF_explained)
+      else if ((builtin_command_data[data_cmd].other_flags & CF_explained)
                && element->args.number >= 2)
         {
           TEXT explanation;
@@ -551,8 +560,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
             }
           return;
         }
-      else if ((builtin_command_flags (element) & CF_brace)
-               && builtin_command_data[cmd].data == BRACE_inline)
+      else if ((builtin_command_data[data_cmd].flags & CF_brace)
+               && builtin_command_data[data_cmd].data == BRACE_inline)
         {
           int arg_index = 1;
           if (element->cmd == CM_inlineraw)
@@ -576,15 +585,15 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (element->args.number > 0
                 && (element->args.list[0]->type == ET_brace_command_arg
-                    || (builtin_command_flags (element) & CF_brace
-                        && builtin_command_flags (element) & CF_math)))
+                    || (builtin_command_data[data_cmd].flags & CF_brace
+                        && builtin_command_data[data_cmd].flags & CF_math)))
         {
           int in_code = 0;
           if (element->cmd == CM_sc)
             options->set_case++;
 
-          if (command_other_flags (element) & CF_brace_code
-              || builtin_command_flags (element) & CF_math)
+          if (builtin_command_data[data_cmd].other_flags & CF_brace_code
+              || builtin_command_data[data_cmd].flags & CF_math)
             in_code = 1;
 
           if (in_code)
@@ -628,17 +637,23 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                       free (converted_arg.text);
                     }
                 }
-              if (args_line.end > 0
-                  && args_line.text[args_line.end - 1] == '\n')
-                args_line.text[--args_line.end] = '\0';
+              /* remain 0, args_line.space 0 if all args are empty */
+              if (args_line.text)
+                {
+                  size_t spaces_nr;
+                  if (args_line.end > 0
+                      && args_line.text[args_line.end - 1] == '\n')
+                  args_line.text[--args_line.end] = '\0';
 
-              if (args_line.text[strspn (args_line.text, whitespace_chars)] != '\0')
-                text_append (&args_line, "\n");
-              ADD(args_line.text);
-              free (args_line.text);
+                  spaces_nr = strspn (args_line.text, whitespace_chars);
+                  if (args_line.text[spaces_nr] != '\0')
+                    text_append (&args_line, "\n");
+                  ADD(args_line.text);
+                  free (args_line.text);
+                }
             }
         }
-      else if (command_other_flags (element) & CF_formatted_line)
+      else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
               /*  && element->args.number > 0) */
         {
           if (element->cmd != CM_node)
@@ -648,7 +663,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               if (element->cmd != CM_page)
                 convert_to_text_internal (element->args.list[0],
                                           options, &text);
-              if (builtin_command_flags (element) & CF_sectioning_heading)
+              /* text.text == 0 can happen with empty @top */
+              if (builtin_command_data[data_cmd].flags & CF_sectioning_heading
+                  && text.text != 0)
                 { /* FIXME $options->{'converter'} */
                   char *heading = text_heading (element, text.text,
                                                 options->number_sections, 0);
@@ -765,15 +782,15 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       int i;
       int in_code = 0;
       int in_raw = 0;
-      if ((element->cmd
-           && (builtin_command_flags (element) & CF_preformatted_code)
-               || builtin_command_flags (element) & CF_math
-               || (builtin_command_flags (element) & CF_block
+      if ((data_cmd
+           && (builtin_command_data[data_cmd].flags & CF_preformatted_code)
+               || builtin_command_data[data_cmd].flags & CF_math
+               || (builtin_command_data[data_cmd].flags & CF_block
                    && builtin_command_data[element->cmd].data == BLOCK_raw))
           || element->type == ET_menu_entry_node)
         in_code = 1;
       else if (element->cmd
-               && builtin_command_flags (element) & CF_block
+               && builtin_command_data[data_cmd].flags & CF_block
                && builtin_command_data[element->cmd].data == BLOCK_format_raw)
         in_raw = 1;
 
