@@ -1,3 +1,19 @@
+2023-09-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fatal error for init file loading
+
+	* tp/Texinfo/Config.pm (_GNUT_document_fatal): copy
+	from _GNUT_document_warn and exit program.
+	(_GNUT_load_init_file): Load init file with "do" rather than
+	"require".  As calling code has already located the file with
+	Texinfo::Common::locate_init_file, we do not need "require" to
+	locate the file in @INC.  Call _GNUT_document_fatal if "do"
+	could not load or parse the file.
+
+	Report from Jonas Hahnfeld who is working on an init file for
+	GNU Lilypond.  It was not helpful to continue on if there
+	was a syntax error in the init file.
+
 2023-09-01  Patrice Dumas <pertusus@free.fr>
 
 	Run 'gnulib-tool --add-import libunistring' under tp/Texinfo/XS.

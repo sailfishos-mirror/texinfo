@@ -121,23 +121,45 @@ sub _GNUT_document_warn($) {
                    "%s: warning: %s"), $real_command_name, $text)."\n"));
 }
 
+sub _GNUT_document_fatal($) {
+  my $text = shift;
+  chomp ($text);
+  die(_GNUT_encode_message(
+        sprintf(__p("program name: error_message",
+                   "%s: %s"), $real_command_name, $text)."\n"));
+}
+
 # used to register messages by the user with texinfo_register_init_loading_*
 my @init_file_loading_messages;
+
 # called from texi2any.pl main program and t/test_utils.pl.
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
   my $file = shift;
   push @init_file_loading_messages, [];
-  eval { require($file) ;};
-  my $e = $@;
-  if ($e ne '') {
-    # $e may not be correctly encoded, but it is not clear what is to
-    # be expected.  In the eval documentation there is only information
-    # on the string eval case, not the block eval used here, and the
-    # information is not particularly clear.
-    _GNUT_document_warn(sprintf(__("error loading %s: %s"),
-                _GNUT_decode_input($file), $e));
+
+  my $result = do($file);
+  my $message = $@;
+  my $read_error = $!;
+
+  if (!defined($result)) {
+    if (defined($message)) {
+      _GNUT_document_fatal(sprintf
+                 (__("error parsing %s: %s"),
+                  _GNUT_decode_input($file), $message));
+    } elsif (defined($read_error)) {
+      _GNUT_document_fatal(sprintf
+                 (__("error reading %s: %s"),
+                  _GNUT_decode_input($file), $read_error));
+    }
   }
+
+  # Note: $message or $read_error may be incorrectly "double encoded" if they
+  # are encoded byte strings.  However, it appears that they are unencoded
+  # character strings if the init file uses the "use utf8" pragma to mark the
+  # file as UTF-8 encoded, which may become the default in the future according
+  # to the Perl documentation.
+
   my $file_loading_messages = pop @init_file_loading_messages;
   my $error_nr = 0;
   for my $error (@{$file_loading_messages}) {
