@@ -223,16 +223,25 @@ text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
   int level;
   int status;
   int text_width;
-
-  text_init (&result);
-
-  text_append (&result, text);
+  char *heading = strdup (text);
+  char *heading_with_number;
 
   /* end of lines spaces are ignored in conversion.  However in
      rare cases, invalid nestings leave an end of line, so we chomp.
-   */
   if (result.end > 0 && result.text[result.end - 1] == '\n')
     result.text[--result.end] = '\0';
+   */
+  if (strlen (heading))
+    if (heading[strlen (heading) - 1] == '\n')
+      heading[strlen (heading) - 1] = '\0';
+
+  heading_with_number = add_heading_number (current, heading,
+                                            numbered);
+
+  free (heading);
+
+  text_init (&result);
+  text_append (&result, heading_with_number);
 
   if (result.text[strspn (result.text, whitespace_chars)] == '\0')
     {
@@ -254,7 +263,10 @@ text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
   if (!status)
     level = section_level (current);
 
-  text_width = width_multibyte (text);
+  text_width = width_multibyte (heading_with_number);
+
+  free (heading_with_number);
+
   /* FIXME it seems strange to remove the indent length from the underlined
      width? */
   for (i = 0; i < text_width - indent_length; i++)
