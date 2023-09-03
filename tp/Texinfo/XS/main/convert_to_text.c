@@ -262,7 +262,8 @@ text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
    indent_length = 0;
 
   level = lookup_extra_integer (current, "section_level", &status);
-  if (!status)
+  /* could also be status < 0 */
+  if (status != 0)
     level = section_level (current);
 
   text_width = width_multibyte (heading_with_number);
