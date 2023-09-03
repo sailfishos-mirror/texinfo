@@ -1,5 +1,17 @@
 2023-09-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	add an end of line at the end of menu_entry instead of removing.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	call brace_no_arg_command.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (brace_no_arg_command): check
+	return value of unicode_brace_no_arg_command, initialize result, do
+	not use to_upper_or_lower_multibyte.
+
+2023-09-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd): map
 	item to item_LINE if in table_term.
 

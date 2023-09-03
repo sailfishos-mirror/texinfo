@@ -153,7 +153,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
 char *
 brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
 {
-  char *result;
+  char *result = 0;
   enum command_id cmd = e->cmd;
   char *encoding = 0;
 
@@ -176,7 +176,9 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
   if (!(options->ascii_glyph)
       || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0))
     {
-      result = strdup (unicode_brace_no_arg_command (cmd, encoding));
+      char *brace_no_arg_unicode = unicode_brace_no_arg_command (cmd, encoding);
+      if (brace_no_arg_unicode)
+        result = strdup (brace_no_arg_unicode);
     }
 
   /* no converter in options yet, interface to be done
@@ -199,7 +201,7 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (text_brace_no_arg_commands[cmd]);
     }
 
-  if (options->set_case
+  if (0 && options->set_case
       && (command_other_flags (e) & CF_letter_no_arg))
     {
       char *cased = to_upper_or_lower_multibyte (result, options->set_case);
@@ -490,7 +492,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (text_brace_no_arg_commands[data_cmd])
         {
-          ADD(text_brace_no_arg_commands[data_cmd]);
+          char *brace_no_args_text = brace_no_arg_command (element, options);
+          ADD(brace_no_args_text);
+          free (brace_no_args_text);
           return;
         }
       else if (builtin_command_data[data_cmd].flags & CF_accent)
@@ -834,8 +838,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       && element->parent->type != ET_preformatted
       && element->parent->type != ET_rawpreformatted)
     {
-      if (result->end > 0 && result->text[result->end - 1] == '\n')
-        result->text[--result->end] = '\0';
+      if (result->end == 0 || result->text[result->end - 1] != '\n')
+        ADD("\n");
     }
 }
 #undef ADD
