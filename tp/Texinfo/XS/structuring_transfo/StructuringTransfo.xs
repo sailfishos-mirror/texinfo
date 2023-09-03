@@ -124,7 +124,7 @@ copy_tree (tree_in, parent_in)
           }
         else
           /*
-          RETVAL = newRV_inc (newSV(0));
+          RETVAL = newSV(0);
            */
           RETVAL = 0;
     OUTPUT:

@@ -58,7 +58,7 @@ plain_texinfo_convert (converter, document_in)
             SvUTF8_on (RETVAL);
           }
         else
-          RETVAL = newRV_inc (newSV(0));
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 
@@ -79,7 +79,7 @@ plain_texinfo_convert_tree (converter, tree_in)
             SvUTF8_on (RETVAL);
           }
         else
-          RETVAL = newRV_inc (newSV(0));
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 
@@ -101,7 +101,7 @@ text_convert (converter, document_in)
             SvUTF8_on (RETVAL);
           }
         else
-          RETVAL = newRV_inc (newSV(0));
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 
@@ -125,7 +125,7 @@ text_convert_tree (converter, tree_in)
             SvUTF8_on (RETVAL);
           }
         else
-          RETVAL = newRV_inc (newSV(0));
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 

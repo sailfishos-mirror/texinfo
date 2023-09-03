@@ -36,7 +36,8 @@ static size_t document_space;
 DOCUMENT *
 retrieve_document (int document_descriptor)
 {
-  if (document_descriptor <= document_number)
+  if (document_descriptor <= document_number
+      && document_list[document_descriptor -1].tree != 0)
     return &document_list[document_descriptor -1];
   return 0;
 }

@@ -550,7 +550,7 @@ replace_convert_substrings (char *translated_string,
 
   result_tree = substitute (tree, replaced_substrings);
 /*
-  fprintf (stderr, "RESULT GDT %s\n", convert_to_texinfo (result_tree));
+  fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor, convert_to_texinfo (result_tree));
 */
 
   return result_tree;

@@ -184,10 +184,10 @@ sub _get_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-sub get_parser_info($$$) {
+sub get_parser_info($$;$) {
   my $self = shift;
   my $document_descriptor = shift;
-  my $store = shift;
+  my $no_store = shift;
 
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
@@ -211,14 +211,12 @@ sub get_parser_info($$$) {
   # FIXME need to think more about the interface.  The tests using
   # parse_texi_piece will fail with XS converters if the document
   # is not registered.
-  #if ($store) {
-  #} else {
-  #  # TODO
-  #  # for now leads to double free, but could be because memory
-  #  # is reused in obstacks.  Test when this is fixed.  Until then,
-  #  # leak.
-  #  #remove_document ($document_descriptor);
-  #}
+  if ($no_store) {
+    remove_document ($document_descriptor);
+    my $tree = $document->tree();
+    delete $tree->{'tree_document_descriptor'};
+    delete $document->{'document_descriptor'};
+  }
   return $document;
 }
 
@@ -248,7 +246,7 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = get_parser_info($self, $document_descriptor, 1);
+  my $document = get_parser_info($self, $document_descriptor);
 
   return $document;
 }
@@ -280,7 +278,7 @@ sub _get_errors($$$)
 # Used in tests under tp/t.
 sub parse_texi_piece($$;$$)
 {
-  my ($self, $text, $line_nr, $store) = @_;
+  my ($self, $text, $line_nr, $no_store) = @_;
 
   return undef if (!defined($text));
 
@@ -292,7 +290,7 @@ sub parse_texi_piece($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor, $store);
+  my $document = get_parser_info($self, $document_descriptor, $no_store);
 
   return $document;
 }
@@ -312,14 +310,14 @@ sub parse_texi_text($$;$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_text($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor, 1);
+  my $document = get_parser_info($self, $document_descriptor);
 
   return $document;
 }
 
 sub parse_texi_line($$;$$)
 {
-  my ($self, $text, $line_nr, $store) = @_;
+  my ($self, $text, $line_nr, $no_store) = @_;
 
   return undef if (!defined($text));
 
@@ -331,7 +329,7 @@ sub parse_texi_line($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor, $store);
+  my $document = get_parser_info($self, $document_descriptor, $no_store);
 
   return $document->tree();
 }

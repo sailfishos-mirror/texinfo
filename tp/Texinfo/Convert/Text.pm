@@ -424,7 +424,13 @@ sub convert_to_text($;$)
   }
 
   if (defined($root->{'tree_document_descriptor'})) {
-    return _convert_tree_with_XS($options, $root);
+    my $XS_result = _convert_tree_with_XS($options, $root);
+    if (defined ($XS_result)) {
+      return $XS_result;
+    } else {
+      print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
+      cluck();
+    }
   }
 
   return _convert($root, $options);

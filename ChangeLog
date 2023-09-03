@@ -1,5 +1,30 @@
 2023-09-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(parse_texi_file, parse_texi_piece, parse_texi_text, parse_texi_line):
+	turn the unused store argument into a no_store argument.  With
+	no_store set in get_parser_info, XS tree and document information is
+	removed as well as tree_document_descriptor and document_descriptor
+	keys.
+
+	* tp/Texinfo/TranslationsNonXS.pm (replace_convert_substrings):
+	call parse_texi_line with the no_store XS data argument set, such that
+	those trees cannot be retrieved by the XS converters.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert)
+	(plain_texinfo_convert_tree, text_convert, text_convert_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (copy_tree):
+	return undef and not a reference on undef.  Also modify copy_tree code
+	in comments.
+
+	* tp/Texinfo/Convert/Text.pm (convert_to_text): add debugging
+	information for undefined XS Text, when XS Text is expected.
+
+	* tp/Texinfo/XS/main/document.c (retrieve_document): do not retrieve a
+	document with a tree unset.
+
+2023-09-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
 	pass empty string to text_heading.
 
