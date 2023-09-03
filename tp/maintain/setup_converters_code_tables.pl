@@ -54,6 +54,7 @@ my %commands_map = (
  '\\n' => "\n",
  '\\x20' => ' ',
   '\"' => '"',
+  '\\\\' => '\\',
 );
 
 my %name_commands;
@@ -289,10 +290,14 @@ foreach my $command_name (@commands_order) {
   }
   #print NORM "$command; ";
 
+  my $result;
   if (defined($normalize_node_nobrace_symbol_text{$command_name})) {
-    print NORM "\"$normalize_node_nobrace_symbol_text{$command_name}\",  /* $command */\n";
+    $result = $normalize_node_nobrace_symbol_text{$command_name};
   } elsif (defined($normalize_node_brace_no_arg_commands{$command_name})) {
-    my $result = $normalize_node_brace_no_arg_commands{$command_name};
+    $result = $normalize_node_brace_no_arg_commands{$command_name};
+  }
+
+  if (defined($result)) {
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
     print NORM "\"$protected\",  /* $command */\n";
   } else {
