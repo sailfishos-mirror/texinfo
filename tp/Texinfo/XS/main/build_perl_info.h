@@ -9,7 +9,7 @@
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
-SV *build_document (size_t document_descriptor);
+SV *build_document (size_t document_descriptor, int no_store);
 
 HV *build_texinfo_tree (ELEMENT *root);
 AV *get_errors (ERROR_MESSAGE* error_list, size_t error_number);

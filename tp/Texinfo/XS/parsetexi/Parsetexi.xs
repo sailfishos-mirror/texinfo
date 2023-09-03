@@ -89,7 +89,17 @@ parse_text(string, line_nr)
         int line_nr
 
 SV *
-build_document (int document_descriptor)
+build_document (int document_descriptor, ...)
+      PROTOTYPE: $;$
+      PREINIT:
+        int no_store = 0;
+      CODE:
+        if (items > 1)
+          if (SvOK(ST(1)))
+            no_store = SvIV (ST(1));
+        RETVAL = build_document (document_descriptor, no_store);
+      OUTPUT:
+        RETVAL
 
 void
 remove_document (int document_descriptor)

@@ -44,20 +44,26 @@ MODULE = Texinfo::StructTransf		PACKAGE = Texinfo::StructTransf
 PROTOTYPES: ENABLE
 
 SV *
-rebuild_document (document_in)
+rebuild_document (document_in, ...)
         SV *document_in
+    PROTOTYPE: $;$
     PREINIT:
+        int no_store = 0;
         int document_descriptor;
         SV** document_descriptor_sv;
         char *key = "document_descriptor";
         HV *hv_in;
     CODE:
+        if (items > 1)
+          if (SvOK(ST(1)))
+            no_store = SvIV (ST(1));
+
         hv_in = (HV *)SvRV (document_in);
         document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
         if (document_descriptor_sv)
           {
             document_descriptor = SvIV (*document_descriptor_sv);
-            RETVAL = build_document (document_descriptor);
+            RETVAL = build_document (document_descriptor, no_store);
           }
         else
           {

@@ -1,5 +1,17 @@
 2023-09-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (rebuild_document),
+	tp/Texinfo/XS/main/build_perl_info.c (build_document),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (build_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(rebuild_document): pass no_store as an optionnal possibly undef
+	argument to the XS functions build_document and rebuild_document and
+	handle it there instead of handling it in Parsetexi.pm
+	get_parser_info.
+
+2023-09-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
 	(parse_texi_file, parse_texi_piece, parse_texi_text, parse_texi_line):
 	turn the unused store argument into a no_store argument.  With

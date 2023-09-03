@@ -146,11 +146,13 @@ my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
-# this method does nothing, but the XS override rebuild the perl based
-# on XS data.
-sub rebuild_document($)
+# this method does nothing, but the XS override rebuilds the perl
+# document based on XS data.
+sub rebuild_document($;$)
 {
   my $document = shift;
+  my $no_store = shift;
+
   return $document;
 }
 

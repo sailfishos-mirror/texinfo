@@ -192,7 +192,7 @@ sub get_parser_info($$;$) {
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  my $document = build_document ($document_descriptor);
+  my $document = build_document ($document_descriptor, $no_store);
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
@@ -208,15 +208,6 @@ sub get_parser_info($$;$) {
   $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
-  # FIXME need to think more about the interface.  The tests using
-  # parse_texi_piece will fail with XS converters if the document
-  # is not registered.
-  if ($no_store) {
-    remove_document ($document_descriptor);
-    my $tree = $document->tree();
-    delete $tree->{'tree_document_descriptor'};
-    delete $document->{'document_descriptor'};
-  }
   return $document;
 }
 

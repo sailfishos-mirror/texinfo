@@ -1133,7 +1133,7 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 SV *
-build_document (size_t document_descriptor)
+build_document (size_t document_descriptor, int no_store)
 {
   HV *hv;
   SV *sv;
@@ -1158,9 +1158,6 @@ build_document (size_t document_descriptor)
   document = retrieve_document (document_descriptor);
 
   hv_tree = build_texinfo_tree (document->tree);
-  hv_store (hv_tree, "tree_document_descriptor",
-            strlen ("tree_document_descriptor"),
-            newSViv (document_descriptor), 0);
 
   hv_info = build_global_info (document->global_info);
 
@@ -1213,12 +1210,21 @@ build_document (size_t document_descriptor)
 
   if (av_sections_list)
     STORE("sections_list", av_sections_list);
-
-  hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-            newSViv (document_descriptor), 0);
 #undef STORE
 
-  clean_texinfo_tree (document->tree);
+  if (no_store)
+    remove_document (document_descriptor);
+  else
+    {
+      hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
+                newSViv (document_descriptor), 0);
+
+      hv_store (hv_tree, "tree_document_descriptor",
+                strlen ("tree_document_descriptor"),
+                newSViv (document_descriptor), 0);
+
+      clean_texinfo_tree (document->tree);
+    }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   /* FIXME why _noinc? */
