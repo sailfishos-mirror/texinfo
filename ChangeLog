@@ -1,10 +1,16 @@
+2023-09-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Config.pm (GNUT_load_init_file): Check if
+	message is non-empty as well as defined before printing.
+	(_GNUT_document_fatal): Keep going if FORCE is set.
+
 2023-09-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fatal error for init file loading
 
 	* tp/Texinfo/Config.pm (_GNUT_document_fatal): copy
 	from _GNUT_document_warn and exit program.
-	(_GNUT_load_init_file): Load init file with "do" rather than
+	(GNUT_load_init_file): Load init file with "do" rather than
 	"require".  As calling code has already located the file with
 	Texinfo::Common::locate_init_file, we do not need "require" to
 	locate the file in @INC.  Call _GNUT_document_fatal if "do"

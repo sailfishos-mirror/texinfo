@@ -124,9 +124,10 @@ sub _GNUT_document_warn($) {
 sub _GNUT_document_fatal($) {
   my $text = shift;
   chomp ($text);
-  die(_GNUT_encode_message(
+  warn(_GNUT_encode_message(
         sprintf(__p("program name: error_message",
                    "%s: %s"), $real_command_name, $text)."\n"));
+  exit 1 unless (texinfo_get_conf('FORCE'));
 }
 
 # used to register messages by the user with texinfo_register_init_loading_*
@@ -139,11 +140,12 @@ sub GNUT_load_init_file($) {
   push @init_file_loading_messages, [];
 
   my $result = do($file);
+
   my $message = $@;
   my $read_error = $!;
 
   if (!defined($result)) {
-    if (defined($message)) {
+    if (defined($message) and $message ne '') {
       _GNUT_document_fatal(sprintf
                  (__("error parsing %s: %s"),
                   _GNUT_decode_input($file), $message));
