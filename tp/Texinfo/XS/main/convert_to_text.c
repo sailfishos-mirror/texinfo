@@ -702,13 +702,16 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                 convert_to_text_internal (element->args.list[0],
                                           options, &text);
               /* text.text == 0 can happen with empty @top */
-              if (builtin_command_data[data_cmd].flags & CF_sectioning_heading
-                  && text.text != 0)
-                { /* FIXME $options->{'converter'} */
-                  char *heading = text_heading (element, text.text,
-                                                options->number_sections, 0);
-                  ADD(heading);
-                  free (heading);
+              if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
+                {
+                  if (text.text != 0)
+                    {
+                      /* FIXME $options->{'converter'} */
+                      char *heading = text_heading (element, text.text,
+                                                    options->number_sections, 0);
+                      ADD(heading);
+                      free (heading);
+                    }
                 }
               else
                 {
