@@ -22,7 +22,7 @@
 #include "convert_text.h"
 
 char *
-text_convert (DOCUMENT *document)
+text_convert (DOCUMENT *document, TEXT_OPTIONS *options)
 {
   char *result;
   /* FIXME warn/error?  Or in the .xs code? */
@@ -31,14 +31,16 @@ text_convert (DOCUMENT *document)
       return strdup ("");
     }
 
-  TEXT_OPTIONS *options = new_text_options ();
+  if (!options)
+    options = new_text_options ();
 
   result = convert_to_text (document->tree, options);
 
   /*
   fprintf (stderr, "EXPERIMENTAL: using XS: '%.100s'\n", result);
    */
-
+  /* FIXME check that this is correct even if the options
+     were given as argument */
   destroy_options (options);
 
   return result;

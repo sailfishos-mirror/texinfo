@@ -33,6 +33,7 @@
 #include "get_perl_info.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
+#include "convert_to_text.h"
 #include "document.h"
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
@@ -88,12 +89,14 @@ text_convert (converter, document_in)
         SV *document_in
     PREINIT:
         DOCUMENT *document = 0;
+        TEXT_OPTIONS *options = 0;
     CODE:
         /* FIXME warning/error if not found? */
         document = get_sv_document_document (document_in, 0);
+        options = copy_sv_options_for_convert_text (converter);
         if (document)
           {
-            char *result = text_convert (document);
+            char *result = text_convert (document, options);
             RETVAL = newSVpv (result, strlen(result));
             SvUTF8_on (RETVAL);
           }
@@ -102,20 +105,22 @@ text_convert (converter, document_in)
     OUTPUT:
         RETVAL
 
-# Note that specific Convert::Text options hash passed is in converter,
-# so it should be possible to setup C options and pass to text_convert
+# TODO the converter is interpreted as a hash with convert_to_text options.
+# a real converter may need other code.
 SV *
 text_convert_tree (converter, tree_in)
         SV *converter
         SV *tree_in
     PREINIT:
         DOCUMENT *document = 0;
+        TEXT_OPTIONS *options = 0;
     CODE:
         /* FIXME warning/error if not found? */
         document = get_sv_tree_document (tree_in, 0);
+        options = copy_sv_options_for_convert_text (converter);
         if (document)
           {
-            char *result = text_convert (document);
+            char *result = text_convert (document, options);
             RETVAL = newSVpv (result, strlen(result));
             SvUTF8_on (RETVAL);
           }

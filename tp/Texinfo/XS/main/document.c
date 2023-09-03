@@ -116,19 +116,6 @@ register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
   document->sections_list = sections_list;
 }
 
-/* very similar to parsetexi/input.c free_small_strings */
-void
-free_small_document_strings (STRING_LIST *small_strings)
-{
-  size_t i;
-  for (i = 0; i < small_strings->number; i++)
-    {
-      free (small_strings->list[i]);
-    }
-  free (small_strings->list);
-  free (small_strings);
-}
-
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
@@ -178,7 +165,7 @@ remove_document (int document_descriptor)
   if (document->tree)
     {
       destroy_element_and_children (document->tree);
-      free_small_document_strings (document->small_strings);
+      free_strings_list (document->small_strings);
     }
   document->tree = 0;
   /*

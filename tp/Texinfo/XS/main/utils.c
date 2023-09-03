@@ -600,6 +600,19 @@ locate_include_file (char *filename, STRING_LIST *include_dirs_list)
   return 0;
 }
 
+/* very similar to parsetexi/input.c free_small_strings */
+void
+free_strings_list (STRING_LIST *strings)
+{
+  size_t i;
+  for (i = 0; i < strings->number; i++)
+    {
+      free (strings->list[i]);
+    }
+  free (strings->list);
+  free (strings);
+}
+
 /* floats records related functions.
    FIXME Move to a floats.c file? */
 void

@@ -14,7 +14,7 @@ typedef struct TEXT_OPTIONS {
   int test; /* TEST */
   int number_sections; /* NUMBER_SECTIONS */
   struct expanded_format *expanded_formats; /* expanded_formats_hash */
-  STRING_LIST *include_directories;
+  STRING_LIST include_directories;
   /* converter? */
 } TEXT_OPTIONS;
 

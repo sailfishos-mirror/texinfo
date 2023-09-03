@@ -39,6 +39,7 @@ FIXME add an initialization of translations?
 */
 
 #include "document.h"
+#include "convert_to_text.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -89,3 +90,65 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
+/* Texinfo/Convert/Text.pm copy_options_for_convert_text */
+/* TODO more to do */
+TEXT_OPTIONS *
+copy_sv_options_for_convert_text (SV *sv_in)
+{
+  HV *hv_in;
+  SV **test_option_sv;
+  SV **include_directories_sv;
+  SV **expanded_formats_hash_sv;
+  TEXT_OPTIONS *options = new_text_options ();
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+
+  test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
+  if (test_option_sv)
+    options->test = SvIV (*test_option_sv);
+
+  include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
+                                     strlen ("INCLUDE_DIRECTORIES"), 0);
+  if (include_directories_sv)
+    {
+      int i;
+      SSize_t inc_dirs_nr;
+      AV *include_directories = (AV *)SvRV (*include_directories_sv);
+      inc_dirs_nr = av_top_index (include_directories);
+      for (i = 0; i < inc_dirs_nr; i++)
+        {
+          SV** include_dir_sv = av_fetch (include_directories, i, 0);
+          if (include_dir_sv)
+            {
+              char *include_dir = SvPVbyte_nolen (*include_dir_sv);
+              add_include_directory (include_dir, &options->include_directories);
+            }
+        }
+    }
+
+  expanded_formats_hash_sv = hv_fetch (hv_in, "expanded_formats_hash",
+                                       strlen ("expanded_formats_hash"), 0);
+  if (expanded_formats_hash_sv)
+    {
+      I32 hv_number;
+      I32 i;
+      HV *expanded_formats_hash = (HV *)SvRV (*expanded_formats_hash_sv);
+
+      hv_number = hv_iterinit (expanded_formats_hash);
+      for (i = 0; i < hv_number; i++)
+        {
+          int int_value;
+          char *key;
+          I32 retlen;
+          SV *value = hv_iternextsv(expanded_formats_hash,
+                                    &key, &retlen);
+          int_value = SvIV (value);
+          if (int_value)
+            add_expanded_format (options->expanded_formats, key);
+        }
+    }
+
+  return options;
+}
