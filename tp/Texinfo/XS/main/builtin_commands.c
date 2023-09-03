@@ -84,6 +84,10 @@ element_command_name (ELEMENT *e)
 enum command_id
 element_builtin_cmd (ELEMENT *e)
 {
+  if (e->cmd == CM_item
+      && e->parent->type == ET_table_term)
+    return CM_item_LINE;
+
   if (e->cmd && e->cmd <
         sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
     return e->cmd;

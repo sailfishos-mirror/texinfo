@@ -1,5 +1,10 @@
 2023-09-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd): map
+	item to item_LINE if in table_term.
+
+2023-09-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (text_heading): add heading
 	number.
 
