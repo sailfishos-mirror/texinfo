@@ -516,6 +516,19 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (element->cmd == CM_email)
         {
+          if (element->args.number >= 2)
+            {
+              TEXT replacement;
+              text_init (&replacement);
+              convert_to_text_internal (element->args.list[1],
+                                        options, &replacement);
+              if (replacement.end > 0)
+                {
+                  ADD(replacement.text);
+                  free (replacement.text);
+                  return;
+                }
+            }
           options->code_state++;
           convert_to_text_internal (element->args.list[0],
                                     options, result);
@@ -541,6 +554,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
             }
 
           text_init (&url_text);
+          text_append (&url_text, "");
           options->code_state++;
           convert_to_text_internal (element->args.list[0],
                                     options, &url_text);
@@ -654,9 +668,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                         = strspn (converted_arg.text, whitespace_chars);
                       if (converted_arg.text[spaces_nr])
                         {
-                          text_append (&args_line, converted_arg.text);
-                          if (i < element->args.number - 1)
+                          if (args_line.end > 0 && i > 0)
                             text_append (&args_line, ", ");
+                          text_append (&args_line, converted_arg.text);
                         }
                       free (converted_arg.text);
                     }
