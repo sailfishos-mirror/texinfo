@@ -291,6 +291,11 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
 {
   enum command_id data_cmd = 0;
 
+  /*
+  fprintf (stderr, "CTTI: %s '%.20s'\n", print_element_debug (element, 1),
+           result->text);
+   */
+
   /* in data_cmd, user-defined commands are mapped to internal commands
      with the right flags.  If an element can be a user-defined element,
      data_cmd need to be used for all access to arrays of command_id to
@@ -298,10 +303,6 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
   if (element->cmd)
       data_cmd = element_builtin_cmd (element);
 
-  /*
-  fprintf (stderr, "CTTI: %s '%.20s'\n", print_element_debug (element, 1),
-           result->text);
-   */
   if (!(element->type == ET_def_line)
       && ((element->type == ET_ignorable_spaces_after_command
            || element->type == ET_postamble_after_end

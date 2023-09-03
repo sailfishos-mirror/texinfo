@@ -32,6 +32,7 @@
 #include "errors.h"
 #include "translations.h"
 #include "debug.h"
+#include "convert_to_texinfo.h"
 #include "convert_utils.h"
 
 char *convert_utils_month_name[12] = {
@@ -379,33 +380,36 @@ definition_arguments_content (ELEMENT *element)
     {
       int i;
       ELEMENT *def_line = element->args.list[0];
-      for (i = 0; i < def_line->contents.number; i++)
+      if (def_line->contents.number > 0)
         {
-          ELEMENT *arg = def_line->contents.list[i];
-          char *role = lookup_extra_string (arg, "def_role");
-          if (!role)
-            fprintf (stderr, "BUG: NO ROLE %s\n", print_element_debug (arg, 0));
-          if (!strcmp (role, "class"))
-            result->class = arg;
-          else if (!strcmp (role, "category"))
-            result->category = arg;
-          else if (!strcmp (role, "type"))
-            result->type = arg;
-          else if (!strcmp (role, "name"))
-            result->name = arg;
-          else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
-                   || !strcmp (role, "delimiter"))
+          for (i = 0; i < def_line->contents.number; i++)
             {
-              i--;
-              break;
+              ELEMENT *arg = def_line->contents.list[i];
+              char *role = lookup_extra_string (arg, "def_role");
+              if (!role)
+                fprintf (stderr, "BUG: NO ROLE %s\n", print_element_debug (arg, 0));
+              if (!strcmp (role, "class"))
+                result->class = arg;
+              else if (!strcmp (role, "category"))
+                result->category = arg;
+              else if (!strcmp (role, "type"))
+                result->type = arg;
+              else if (!strcmp (role, "name"))
+                result->name = arg;
+              else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
+                       || !strcmp (role, "delimiter"))
+                {
+                  i--;
+                  break;
+                }
             }
-        }
-      if (i < def_line->contents.number - 1)
-        {
-          ELEMENT *args = new_element (ET_NONE);
-          insert_slice_into_contents (args, 0, def_line,
-                                      i + 1, def_line->contents.number);
-          result->args = args;
+          if (i < def_line->contents.number - 1)
+            {
+              ELEMENT *args = new_element (ET_NONE);
+              insert_slice_into_contents (args, 0, def_line,
+                                          i + 1, def_line->contents.number);
+              result->args = args;
+            }
         }
     }
   return result;
@@ -422,7 +426,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 ELEMENT *
 definition_category_tree (ELEMENT *current)
 {
-  ELEMENT *result;
+  ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
   ELEMENT *arg_class = 0;
   ELEMENT *arg_class_code;
@@ -446,6 +450,8 @@ definition_category_tree (ELEMENT *current)
             break;
         }
     }
+  else
+    return 0;
 
   if (!arg_class)
     {
@@ -454,6 +460,8 @@ definition_category_tree (ELEMENT *current)
           ELEMENT *category_copy = copy_tree (arg_category, 0);
           return category_copy;
         }
+      else
+       return 0;
     }
 
   class_copy = copy_tree (arg_class, 0);
@@ -474,7 +482,7 @@ definition_category_tree (ELEMENT *current)
   if (!strcmp(def_command, "defop")
       || !strcmp(def_command, "deftypeop")
       || !strcmp(def_command, "defmethod")
-      || !strcmp(def_command, "deftypefmethod"))
+      || !strcmp(def_command, "deftypemethod"))
     {
       ELEMENT *category_copy = copy_tree (arg_category, 0);
       if (0)
