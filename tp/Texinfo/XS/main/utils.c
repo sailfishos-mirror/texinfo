@@ -136,6 +136,11 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   return result;
 }
 
+/* FIXME as described in the u8_strwidth documentation, the function
+   ignores control characters in the string, as a consequence the output
+   is different from perl equivalent function, which does not ignore
+   control characters
+ */
 int
 width_multibyte (const char *text)
 {
