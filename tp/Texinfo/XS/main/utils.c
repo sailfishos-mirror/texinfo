@@ -132,6 +132,9 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   free (u8_text);
   result = u8_strconv_to_encoding (u8_result, "UTF-8",
                                    iconveh_question_mark);
+  /*
+  fprintf (stderr, "T: '%s', R: '%s'\n", text, result);
+   */
   free (u8_result);
   return result;
 }

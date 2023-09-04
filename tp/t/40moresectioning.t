@@ -681,6 +681,7 @@ foreach my $test (@test_out_files) {
   push @{$test->[2]->{'test_formats'}}, 'file_html'
     if (!$test->[2]->{'test_formats'});
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 my %xml_tests_info_tests = (
