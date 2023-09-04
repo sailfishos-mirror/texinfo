@@ -1,3 +1,13 @@
+2023-09-04  Patrice Dumas <pertusus@free.fr>
+
+	Add last element argument to format_end_file
+
+	* doc/texi2any_api.texi (Customizing HTML File End),
+	tp/Texinfo/Convert/HTML.pm (_default_format_end_file, output): add the
+	last element to the call of format_end_file in output.  Idea from
+	LilyPond init file commit from Jonas Hahnfeld where converter state
+	is used, to be able to get the output unit directly instead.
+
 2023-09-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Config.pm (GNUT_load_init_file): Check if

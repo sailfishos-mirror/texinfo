@@ -4096,8 +4096,9 @@ The @code{format_end_file} function reference give full control over the page
 footer formatting done at the bottom of each HTML output file.
 
 @deftypefn {Function Reference} @var{$file_end} format_end_file @
-                                         (@var{$converter}, @var{$filename})
+                 (@var{$converter}, @var{$filename}, @var{\%tree_unit_element})
 @var{$filename} is the name of the file output.
+@var{\%tree_unit_element} is the last output unit of the file.
 @cindex @code{</body>} tag, outputting
 This function should print the page footer, including
 the @code{</body>} element.

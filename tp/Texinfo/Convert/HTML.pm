@@ -9837,10 +9837,11 @@ sub _default_format_program_string($)
   }
 }
 
-sub _default_format_end_file($$)
+sub _default_format_end_file($$$)
 {
   my $self = shift;
   my $filename = shift;
+  my $output_unit = shift;
 
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
@@ -11200,7 +11201,7 @@ sub output($$)
 
     # do end file first, in case it needs some CSS
     my $footer = &{$self->formatting_function('format_end_file')}($self,
-                                                       $output_filename);
+                                                  $output_filename, undef);
     my $header = &{$self->formatting_function('format_begin_file')}($self,
                                                   $output_filename, undef);
     $output .= $self->write_or_return($header, $fh);
@@ -11282,7 +11283,8 @@ sub output($$)
         }
         # do end file first in case it requires some CSS
         my $end_file = &{$self->formatting_function('format_end_file')}($self,
-                                                           $element_filename);
+                                                           $element_filename,
+                                                           $element);
         print $file_fh "".&{$self->formatting_function('format_begin_file')}(
                                        $self, $element_filename, $file_element);
         print $file_fh "".$files{$element_filename}->{'body'};
