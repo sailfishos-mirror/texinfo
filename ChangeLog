@@ -1,3 +1,10 @@
+2023-09-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.c (count_multibyte)
+	(to_upper_or_lower_multibyte, width_multibyte): change resultbuf
+	variable name to u8_text.
+	Minor changes in comments.
+
 2023-09-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (rebuild_document),

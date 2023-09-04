@@ -104,11 +104,11 @@ size_t
 count_multibyte (const char *text)
 {
   /* FIXME error checking? */
-  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
-  size_t result = u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
+  size_t result = u8_mbsnlen (u8_text, u8_strlen (u8_text));
 
-  free (resultbuf);
+  free (u8_text);
 
   return result;
 }
@@ -120,16 +120,16 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   size_t lengthp;
   uint8_t *u8_result;
   /* FIXME error checking? */
-  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
+  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
+                                               iconveh_question_mark);
   if (lower_or_upper > 0)
-    u8_result = u8_toupper (resultbuf, u8_strlen (resultbuf),
+    u8_result = u8_toupper (u8_text, u8_strlen (u8_text),
                             NULL, NULL, NULL, &lengthp);
   else
-    u8_result = u8_tolower (resultbuf, u8_strlen (resultbuf),
+    u8_result = u8_tolower (u8_text, u8_strlen (u8_text),
                             NULL, NULL, NULL, &lengthp);
 
-  free (resultbuf);
+  free (u8_text);
   result = u8_strconv_to_encoding (u8_result, "UTF-8",
                                    iconveh_question_mark);
   free (u8_result);
@@ -146,7 +146,7 @@ width_multibyte (const char *text)
 {
   int result;
   /* FIXME error checking? */
-  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   /* FIXME the libunistring documentation described encoding as
      The encoding argument identifies the encoding (e.g. "ISO-8859-2"
@@ -154,8 +154,8 @@ width_multibyte (const char *text)
      used to determine if it is a CJK encoding in a list of upper-case
      encodings.  We probably do not want to have this dependency to
      encoding, so use UTF-8. */
-  result = u8_strwidth (resultbuf, "UTF-8");
-  free (resultbuf);
+  result = u8_strwidth (u8_text, "UTF-8");
+  free (u8_text);
   return result;
 }
 

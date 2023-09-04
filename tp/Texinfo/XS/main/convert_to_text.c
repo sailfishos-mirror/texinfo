@@ -394,7 +394,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               char *text;
 
               /* FIXME some problem with memory management in
-                 to_upper_or_lower_multibyte needs to be fixed */
+                 to_upper_or_lower_multibyte needs to be fixed
+              if (options->set_case)
+               */
               if (0 && options->set_case)
                 {
                   char *cased
