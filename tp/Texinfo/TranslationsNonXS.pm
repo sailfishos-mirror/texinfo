@@ -355,12 +355,20 @@ sub replace_convert_substrings($$;$)
 
   # general customization relevant for parser
   if ($customization_information) {
-    foreach my $conf_variable ('DEBUG') {
-      if (defined($customization_information->get_conf($conf_variable))) {
-        $parser_conf->{$conf_variable}
-          = $customization_information->get_conf($conf_variable);
+    my $debug_level = $customization_information->get_conf('DEBUG');
+    # one less debug level for the gdt parser.
+    if (defined($debug_level)) {
+      if ($debug_level > 0) {
+        $debug_level--;
       }
+      $parser_conf->{'DEBUG'} = $debug_level;
     }
+    #foreach my $conf_variable () {
+    #  if (defined($customization_information->get_conf($conf_variable))) {
+    #    $parser_conf->{$conf_variable}
+    #      = $customization_information->get_conf($conf_variable);
+    #  }
+    #}
   }
   my $parser = Texinfo::Parser::parser($parser_conf);
 
