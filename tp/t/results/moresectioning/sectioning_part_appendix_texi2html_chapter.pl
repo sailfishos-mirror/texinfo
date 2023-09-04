@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'sectioning_part_appendix_texi2html_chapter'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {

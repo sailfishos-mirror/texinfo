@@ -10,38 +10,43 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'separate'
+                  'contents' => [
+                    {
+                      'text' => 'separate'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'footnotestyle',
+              'extra' => {
+                'misc_args' => [
+                  'separate'
+                ]
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              }
             }
           ],
-          'cmdname' => 'footnotestyle',
-          'extra' => {
-            'misc_args' => [
-              'separate'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
