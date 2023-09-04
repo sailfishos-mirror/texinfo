@@ -1954,10 +1954,11 @@ The following function reference is for target items (nodes, anchors,
 floats), including for external manuals:
 
 @deftypefn {Function Reference} @var{$target} label_target_name @
-           (@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target})
+           (@var{$converter}, @var{$normalized}, @var{\%element}, @var{$default_target})
 @var{$converter} is a converter object.  @var{$normalized} is the
-normalized node name, @var{\@@node_contents} is a reference on an
-array containing the Texinfo tree contents of the command label.
+normalized node name, @var{\%element} is a reference on a
+Texinfo tree command label element whose contents correspond
+to the node name.
 @var{$default_target} is the target that has been already set.  The function
 should return the target (@var{$target}).
 @end deftypefn

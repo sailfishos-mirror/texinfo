@@ -136,7 +136,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 
 
 sub my_label_target_name($$$$) {
-  my ($converter, $normalized, $node_contents, $default_target) = @_;
+  my ($converter, $normalized, $label_element, $default_target) = @_;
   if (defined($normalized)) {
     my $element = $converter->label_command($normalized);
     return 'prepended_to_labels-'.$element->{'extra'}->{'normalized'};

@@ -709,7 +709,7 @@ sub node_information_filename($$$)
 {
   my $self = shift;
   my $normalized = shift;
-  my $node_contents = shift;
+  my $label_element = shift;
 
   my $no_unidecode;
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
@@ -719,14 +719,14 @@ sub node_information_filename($$$)
   if (defined($normalized)) {
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
       $filename = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-       {'contents' => $node_contents},
+       {'contents' => $label_element->{'contents'}},
             $no_unidecode);
     } else {
       $filename = $normalized;
     }
-  } elsif (defined($node_contents)) {
+  } elsif (defined($label_element)) {
     $filename = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-             { 'contents' => $node_contents });
+             { 'contents' => $label_element->{'contents'} });
   } else {
     $filename = '';
   }
@@ -972,7 +972,7 @@ sub _set_output_units_files($$$$$$)
               $node_filename
                = $self->node_information_filename(
                                $root_command->{'extra'}->{'normalized'},
-                               $root_command->{'args'}->[0]->{'contents'});
+                               $root_command->{'args'}->[0]);
             }
             $node_filename .= $extension;
             $self->set_file_path($node_filename,$destination_directory);
@@ -2100,11 +2100,11 @@ better formatted with new lines added independently of the presence
 of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
 
-=item $filename = sub $converter->node_information_filename($normalized, $node_contents)
+=item $filename = sub $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>
 
 Returns the normalized file name corresponding to the I<$normalized>
-node name and to the I<$node_contents> node name contents.
+node name and to the I<$label_element> node name element contents.
 
 =item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
 X<C<normalized_sectioning_command_filename>>

@@ -1,5 +1,14 @@
 2023-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (node_information_filename)
+	(_set_output_units_files), tp/Texinfo/Convert/HTML.pm (command_href)
+	(from_element_direction, _convert_xref_commands)
+	(_convert_menu_entry_type, _normalized_label_id_file)
+	(_set_root_commands_targets_node_files, _external_node_href): setup
+	and pass elements for external nodes.
+
+2023-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/TranslationsNonXS.pm (replace_convert_substrings):
 	decrease DEBUG level by one for the gdt parser to avoid having
 	parser and converter debug together for a level of 1.
