@@ -9502,8 +9502,6 @@ sub _external_node_href($$$;$)
       = $self->_normalized_label_id_file($external_node->{'normalized'},
                                          $external_node->{'node_content'});
 
-  my $xml_target = _normalized_to_id($target);
-
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
 
   my $external_file_extension = '';
@@ -9520,7 +9518,7 @@ sub _external_node_href($$$;$)
        {'contents' => $external_node->{'manual_content'}},
        { 'code' => 1,
          Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-    if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $xml_target eq '') {
+    if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $target eq '') {
       my $top_node_up = $self->get_conf('TOP_NODE_UP');
       if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
         return '';
@@ -9617,7 +9615,7 @@ sub _external_node_href($$$;$)
   }
 
   if (! $target_split) {
-    return $file . '#' . $xml_target;
+    return $file . '#' . $target;
   } else {
     my $file_name;
     if ($target eq 'Top' and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
@@ -9625,7 +9623,7 @@ sub _external_node_href($$$;$)
     } else {
       $file_name = $target_filebase . $external_file_extension;
     }
-    return $file . $file_name . '#' . $xml_target;
+    return $file . $file_name . '#' . $target;
   }
 }
 

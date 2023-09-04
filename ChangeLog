@@ -1,5 +1,11 @@
 2023-09-04  Patrice Dumas <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href): do not call
+	_normalized_to_id in $target, it is already done in
+	_normalized_label_id_file.
+
+2023-09-04  Patrice Dumas <pertusus@free.fr>
+
 	Add last element argument to format_end_file
 
 	* doc/texi2any_api.texi (Customizing HTML File End),
