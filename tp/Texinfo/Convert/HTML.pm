@@ -9493,7 +9493,8 @@ sub _external_node_href($$$;$)
 {
   my $self = shift;
   my $external_node = shift;
-  my $filename = shift;
+  # unused
+  my $source_filename = shift;
   # for messages only
   my $source_command = shift;
 
@@ -9502,6 +9503,7 @@ sub _external_node_href($$$;$)
       = $self->_normalized_label_id_file($external_node->{'normalized'},
                                          $external_node->{'node_content'});
 
+  # undef if conversion is called through convert()
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
 
   my $external_file_extension = '';
@@ -9511,8 +9513,17 @@ sub _external_node_href($$$;$)
   $external_file_extension = '.' . $external_extension
     if (defined($external_extension) and $external_extension ne '');
 
+  # initialize to $default_target_split
   my $target_split;
-  my $file;
+  if (defined($default_target_split) and $default_target_split) {
+    $target_split = 1;
+  } else {
+    $target_split = 0;
+  }
+  # used if !$target_split
+  my $file = '';
+  # used if $target_split
+  my $directory = '';
   if ($external_node->{'manual_content'}) {
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $external_node->{'manual_content'}},
@@ -9542,9 +9553,12 @@ sub _external_node_href($$$;$)
       }
     }
     if (defined($split_found)) {
-      $target_split = 1 unless ($split_found eq 'mono');
+      if ($split_found eq 'mono') {
+        $target_split = 0;
+      } else {
+        $target_split = 1;
+      }
     } else { # nothing specified for that manual, use default
-      $target_split = $default_target_split;
       if ($self->get_conf('CHECK_HTMLXREF')) {
         if (defined($source_command) and $source_command->{'source_info'}) {
           my $node_manual_key = $source_command.'-'.$manual_name;
@@ -9568,20 +9582,20 @@ sub _external_node_href($$$;$)
 
     if ($target_split) {
       if (defined($href)) {
-        $file = $href;
+        $directory = $href;
       } else {
         my $manual_dir = $manual_base;
         if (defined($self->{'output_format'}) and $self->{'output_format'} ne '') {
           $manual_dir .= '_'.$self->{'output_format'};
         }
         if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_dir";
+          $directory = $self->get_conf('EXTERNAL_DIR')."/$manual_dir";
         } elsif ($self->get_conf('SPLIT')) {
-          $file = "../$manual_dir";
+          $directory = "../$manual_dir";
         }
-        $file = $self->url_protect_file_text($file);
+        $directory = $self->url_protect_file_text($directory);
       }
-      $file .= "/";
+      $directory .= "/";
     } else {# target not split
       if (defined($href)) {
         $file = $href;
@@ -9597,33 +9611,26 @@ sub _external_node_href($$$;$)
         $file = $self->url_protect_file_text($file);
       }
     }
-  } else {
-    $file = '';
-    $target_split = $default_target_split;
   }
 
-  if ($target eq '') {
-    if ($target_split) {
-      if (defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
-        return $file . $self->get_conf('TOP_NODE_FILE_TARGET');
-      } else {
-        return $file;
-      }
-    } else {
-      return $file . '#Top';
-    }
-  }
-
-  if (! $target_split) {
-    return $file . '#' . $target;
-  } else {
+  if ($target_split) {
     my $file_name;
-    if ($target eq 'Top' and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
+    if (($target eq 'Top' or $target eq '')
+        and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
       $file_name = $self->get_conf('TOP_NODE_FILE_TARGET');
     } else {
       $file_name = $target_filebase . $external_file_extension;
     }
-    return $file . $file_name . '#' . $target;
+    my $result = $directory . $file_name;
+    if ($target ne '') {
+      $result .= '#' . $target;
+    }
+    return $result;
+  } else {
+    if ($target eq '') {
+      $target = 'Top';
+    }
+    return $file . '#' . $target;
   }
 }
 
@@ -11988,8 +11995,6 @@ sub _set_variables_texi2html($)
                              'Top', 'Contents', 'Index', 'About' ]],
   );
   foreach my $option (@texi2html_options) {
-    #no warnings 'once';
-    #$defaults{$option->[0]} = $option->[1];
     $options->{$option->[0]} = $option->[1];
   }
 }

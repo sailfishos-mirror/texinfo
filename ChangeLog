@@ -1,5 +1,15 @@
 2023-09-04  Patrice Dumas <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href): initialize
+	explicitly $target_split.  Use a different variable for the case of
+	$target_split ($file) and !$target_split ($directory).  Rearrange code
+	returning the final href to have less conditions.  If target is empty
+	and TOP_NODE_FILE_TARGET is not set use the directory and
+	target_filebase as in the other cases.  This case probably never
+	happens, though, as TOP_NODE_FILE_TARGET is always set.
+
+2023-09-04  Patrice Dumas <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_external_node_href): do not call
 	_normalized_to_id in $target, it is already done in
 	_normalized_label_id_file.
