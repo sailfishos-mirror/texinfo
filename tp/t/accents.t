@@ -41,9 +41,9 @@ sub test_accent_stack ($)
   my $parser = Texinfo::Parser::parser();
   my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
-  my ($contents, $commands_stack) = 
+  my ($contents_element, $commands_stack) =
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
-  my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
+  my $text = Texinfo::Convert::Text::convert_to_text($contents_element);
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
     ok ($reference eq join('|',($text, @stack)), 'innermost '.$name);
@@ -91,25 +91,25 @@ sub test_enable_encoding ($)
   my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
 
-  my ($contents, $commands_stack) = 
+  my ($contents_element, $commands_stack) =
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
-  my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
+  my $text = Texinfo::Convert::Text::convert_to_text($contents_element);
 
-  my $result = 
+  my $result =
        Texinfo::Convert::Unicode::_format_eight_bit_accents_stack(undef, $text,
                                                  $commands_stack, 'iso-8859-1',
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   my $html_converter = Texinfo::Convert::HTML->converter();
-  my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter, 
+  my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter,
                                                             $accent_tree);
   $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 1;
   my $result_xml_numeric_entity
       = Texinfo::Convert::Converter::xml_accents($html_converter, $accent_tree);
 
-  ($contents, $commands_stack) =
+  ($contents_element, $commands_stack) =
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
-  $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents},
+  $text = Texinfo::Convert::Text::convert_to_text($contents_element,
                                {'enabled_encoding' => 'utf-8'});
   my $result_unicode = Texinfo::Convert::Unicode::_format_unicode_accents_stack(
                                                    undef, $text, $commands_stack,

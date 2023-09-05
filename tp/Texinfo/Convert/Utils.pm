@@ -215,16 +215,16 @@ sub find_innermost_accent_contents($)
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       #print STDERR Data::Dumper->Dump([$current]);
-      return ([], \@accent_commands);
+      return ({}, \@accent_commands);
     }
     push @accent_commands, $current;
     # A bogus accent, that may happen
     if (!$current->{'args'}) {
-      return ([], \@accent_commands);
+      return ({}, \@accent_commands);
     }
     my $arg = $current->{'args'}->[0];
     if (!$arg->{'contents'}) {
-      return ([], \@accent_commands);
+      return ({}, \@accent_commands);
     }
     # inside the argument of an accent
     my $text_contents = [];
@@ -241,7 +241,7 @@ sub find_innermost_accent_contents($)
       }
     }
     # we go here if there was no nested accent
-    return ($text_contents, \@accent_commands);
+    return ({'contents' => $text_contents}, \@accent_commands);
   }
 }
 
@@ -613,11 +613,11 @@ returns a C<@verbatim> tree elements after finding the included file and
 reading it.  If I<$registrar> is not defined, error messages are not
 registered.
 
-=item (\@contents, \@accent_commands) = find_innermost_accent_contents($element)
+=item ($contents_element, \@accent_commands) = find_innermost_accent_contents($element)
 X<C<find_innermost_accent_contents>>
 
 I<$element> should be an accent command Texinfo tree element.  Returns
-an array reference containing the innermost accent @-command contents,
+an element containing the innermost accent @-command contents,
 normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
 I<$element>).

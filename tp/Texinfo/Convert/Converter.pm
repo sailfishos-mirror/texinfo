@@ -1400,9 +1400,9 @@ sub convert_accents($$$;$$)
   my $output_encoded_characters = shift;
   my $in_upper_case = shift;
 
-  my ($contents, $stack)
+  my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
-  my $result = $self->convert_tree({'contents' => $contents});
+  my $result = $self->convert_tree($contents_element);
 
   my $encoded;
   if ($output_encoded_characters) {

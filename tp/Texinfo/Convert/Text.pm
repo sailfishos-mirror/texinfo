@@ -251,13 +251,13 @@ sub text_accents($;$$)
   my $encoding = shift;
   my $set_case = shift;
 
-  my ($contents, $stack)
+  my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
 
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
   $options->{'sc'} = $set_case if (defined($set_case));
-  my $text = convert_to_text({'contents' => $contents}, $options);
+  my $text = convert_to_text($contents_element, $options);
 
   my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
                      $stack, $encoding, \&ascii_accent_fallback, $set_case);
@@ -411,6 +411,10 @@ sub convert_to_text($;$)
 {
   my $root = shift;
   my $options = shift;
+
+  if (ref($root) ne 'HASH') {
+    cluck;
+  }
 
   #print STDERR "CONVERT\n";
   # this is needed for locate_include_file which uses

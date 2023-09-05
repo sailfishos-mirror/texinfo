@@ -1715,11 +1715,11 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
                                    unicode_text);
   use Texinfo::Convert::Text qw(convert_to_text);
 
-  my ($innermost_contents, $stack)
+  my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
   
   my $formatted_accents = encoded_accents ($converter,
-                 convert_to_text($innermost_contents), $stack, $encoding,
+                 convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
 
   my $accent_text = unicode_accent('e', $accent_command);
@@ -1774,7 +1774,7 @@ their content are passed with I<$text> and I<$stack>.  I<$text> is the text
 appearing within nested accent commands.  I<$stack> is an array reference
 holding the nested accents texinfo tree elements.  In general, I<$text> is
 the formatted contents and I<$stack> the stack returned by
-L<Texinfo::Convert::Utils::find_innermost_accent_contents|Texinfo::Convert::Utils/(\@contents,
+L<Texinfo::Convert::Utils::find_innermost_accent_contents|Texinfo::Convert::Utils/($contents_element,
 \@accent_commands) = find_innermost_accent_contents($element)>.  The function
 tries to convert as much as possible the accents to I<$encoding> starting from the
 innermost accent.
