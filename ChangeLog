@@ -1,5 +1,10 @@
 2023-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/accents.t (test_enable_encoding): use encoded_accents instead
+	of internal functions in the tests.
+
+2023-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Utils.pm (find_innermost_accent_contents):
 	return tree element containing the innermost accent @-command contents
 	instead of the contents.  Update callers.

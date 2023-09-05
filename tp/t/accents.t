@@ -32,6 +32,7 @@ sub _find_accent($)
   return $current;
 }
 
+# FIXME does not test the XS code
 sub test_accent_stack ($)
 {
   my $test = shift;
@@ -78,6 +79,7 @@ sub ord_hex_string($)
   return ($ord, $hex);
 }
 
+# FIXME does not test the XS code
 sub test_enable_encoding ($)
 {
   my $test = shift;
@@ -96,7 +98,7 @@ sub test_enable_encoding ($)
   my $text = Texinfo::Convert::Text::convert_to_text($contents_element);
 
   my $result =
-       Texinfo::Convert::Unicode::_format_eight_bit_accents_stack(undef, $text,
+       Texinfo::Convert::Unicode::encoded_accents(undef, $text,
                                                  $commands_stack, 'iso-8859-1',
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
@@ -111,9 +113,9 @@ sub test_enable_encoding ($)
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
   $text = Texinfo::Convert::Text::convert_to_text($contents_element,
                                {'enabled_encoding' => 'utf-8'});
-  my $result_unicode = Texinfo::Convert::Unicode::_format_unicode_accents_stack(
-                                                   undef, $text, $commands_stack,
-                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
+  my $result_unicode = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
+                                 $commands_stack, 'utf-8',
+                               \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   if (defined($reference)) {
     is (Encode::encode('iso-8859-1', $result), $reference, $name);
