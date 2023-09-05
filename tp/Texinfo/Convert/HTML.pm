@@ -9683,7 +9683,7 @@ sub _external_node_href($$$;$)
     if (defined($self->{'file_id_setting'}->{'external_target_split_name'})) {
       ($target, $directory, $file_name)
         = &{$self->{'file_id_setting'}->{'external_target_split_name'}}($self,
-                             $normalized, $node_contents, $target,
+                             $normalized, $external_node, $target,
                              $directory, $file_name);
       $directory = '' if (!defined($directory));
       $file_name = '' if (!defined($file_name));
@@ -9702,7 +9702,7 @@ sub _external_node_href($$$;$)
                           'external_target_non_split_name'})) {
       ($target, $file)
        = &{$self->{'file_id_setting'}->{'external_target_non_split_name'}}($self,
-                             $normalized, $node_contents, $target, $file);
+                             $normalized, $external_node, $target, $file);
       $file = '' if (!defined($file));
       $target = '' if (!defined($target));
     }

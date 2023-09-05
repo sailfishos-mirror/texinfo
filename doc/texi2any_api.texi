@@ -2015,11 +2015,11 @@ to be split, and @code{external_target_non_split_name} if the external
 target is non split.
 
 @deftypefn {Function Reference} {(@var{$target}, @var{$host_directory}, @var{$file_name})} @
-  external_target_split_name(@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target}, @
+  external_target_split_name(@var{$converter}, @var{$normalized}, @var{\%element}, @var{$default_target}, @
     @var{$default_host_directory}, @var{$default_file_name})
 @var{$converter} is a converter object. @var{$normalized} is the
-normalized node name, @var{\@@node_contents} is a reference
-on an array containing the Texinfo tree contents of the external target.
+normalized node name, @var{\%element} is a reference
+on an element containing information on the external node.
 
 @var{$default_target}, @var{$default_host_directory} and
 @var{$default_file_name} are the target, host and directory URL part and file name
@@ -2030,11 +2030,11 @@ The function should return the @var{$target}, @var{$host_directory} and
 @end deftypefn
 
 @deftypefn {Function Reference} {(@var{$target}, @var{$host_directory_file})} @
-  external_target_non_split_name(@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target}, @
+  external_target_non_split_name(@var{$converter}, @var{$normalized}, @var{\%element}, @var{$default_target}, @
     @var{$default_host_directory_file})
 @var{$converter} is a converter object. @var{$normalized} is the
-normalized node name, @var{\@@node_contents} is a reference
-on an array containing the Texinfo tree contents of the external target.
+normalized node name, @var{\%element} is a reference
+on an element containing information on the external node.
 
 @var{$default_target} is the target and @var{$default_host_directory_file}
 is the host and file name part of the URL that have been already

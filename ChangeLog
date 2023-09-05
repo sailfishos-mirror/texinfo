@@ -1,3 +1,9 @@
+2023-09-05  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Customizing External Node Output Names),
+	tp/Texinfo/Convert/HTML.pm (_external_node_href): pass elements for
+	external_target_split_name and external_target_non_split_name.
+
 2023-09-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (node_information_filename)
