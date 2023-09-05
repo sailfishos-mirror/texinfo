@@ -1,3 +1,14 @@
+2023-09-05  Patrice Dumas <pertusus@free.fr>
+
+	Add customization of external node reference names
+
+	* doc/texi2any_api.texi (Customizing Output Target Names)
+	(Customizing External Node Output Names), tp/Texinfo/Convert/HTML.pm
+	(%customizable_file_id_setting_references, _external_node_href):
+	add external_target_split_name and external_target_non_split_name
+	file id setting customization function reference.  Based on
+	Jonas Hahnfeld feedback.
+
 2023-09-04  Patrice Dumas <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_external_node_href): initialize

@@ -7399,7 +7399,9 @@ sub _pop_document_context($)
 
 # can be set through Texinfo::Config::texinfo_register_file_id_setting_function
 my %customizable_file_id_setting_references;
-foreach my $customized_reference ('label_target_name', 'node_file_name',
+foreach my $customized_reference ('external_target_split_name',
+                'external_target_non_split_name',
+                'label_target_name', 'node_file_name',
                 'sectioning_command_target_name', 'tree_unit_file_name',
                 'special_element_target_file_name') {
   $customizable_file_id_setting_references{$customized_reference} = 1;
@@ -9498,10 +9500,11 @@ sub _external_node_href($$$;$)
   # for messages only
   my $source_command = shift;
 
+  my $normalized = $external_node->{'normalized'};
+  my $node_contents = $external_node->{'node_content'};
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $target)
-      = $self->_normalized_label_id_file($external_node->{'normalized'},
-                                         $external_node->{'node_content'});
+      = $self->_normalized_label_id_file($normalized, $node_contents);
 
   # undef if conversion is called through convert()
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
@@ -9621,6 +9624,15 @@ sub _external_node_href($$$;$)
     } else {
       $file_name = $target_filebase . $external_file_extension;
     }
+    if (defined($self->{'file_id_setting'}->{'external_target_split_name'})) {
+      ($target, $directory, $file_name)
+        = &{$self->{'file_id_setting'}->{'external_target_split_name'}}($self,
+                             $normalized, $node_contents, $target,
+                             $directory, $file_name);
+      $directory = '' if (!defined($directory));
+      $file_name = '' if (!defined($file_name));
+      $target = '' if (!defined($target));
+    }
     my $result = $directory . $file_name;
     if ($target ne '') {
       $result .= '#' . $target;
@@ -9630,7 +9642,19 @@ sub _external_node_href($$$;$)
     if ($target eq '') {
       $target = 'Top';
     }
-    return $file . '#' . $target;
+    if (defined($self->{'file_id_setting'}->{
+                          'external_target_non_split_name'})) {
+      ($target, $file)
+       = &{$self->{'file_id_setting'}->{'external_target_non_split_name'}}($self,
+                             $normalized, $node_contents, $target, $file);
+      $file = '' if (!defined($file));
+      $target = '' if (!defined($target));
+    }
+    my $result = $file;
+    if ($target ne '') {
+      $result .= '#' . $target;
+    }
+    return $result;
   }
 }
 

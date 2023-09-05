@@ -1859,6 +1859,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 @menu
 * File: Customizing Output File Names.
 * Target: Customizing Output Target Names.
+* External Node: Customizing External Node Output Names.
 * Special Elements: Customizing Special Elements Output Names.
 @end menu
 
@@ -1947,7 +1948,7 @@ described here.
 @c xx target for a section is the node id.
 
 The following function reference is for target items (nodes, anchors,
-floats):
+floats), including for external manuals:
 
 @deftypefn {Function Reference} @var{$target} label_target_name @
            (@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target})
@@ -1959,6 +1960,7 @@ should return the target (@var{$target}).
 @end deftypefn
 
 The element corresponding to the label can be found with @code{label_command}
+if the label corresponds to an internal reference
 (@pxref{Target Commands Links@comma{} Texts and Associated Commands}):
 @example
 my $element;
@@ -1986,6 +1988,56 @@ The function should return the @var{$target}, @var{$target_contents} and
 @var{$target_shortcontents} sectioning element target and sectioning element in
 table of contents and in short table of contents targets, and the file name for
 the sectioning element (@var{$file}).
+@end deftypefn
+
+
+@node Customizing External Node Output Names
+@section Customizing External Node Output Names
+
+In the default case references to external nodes are set as described
+in the Texinfo manual (@pxref{HTML Xref,,, texinfo, Texinfo}).  Some
+customization is already possible for external manuals URLs as explained in
+the Texinfo manual (@pxref{HTML Xref Configuration,,, texinfo, Texinfo}),
+and by setting @code{EXTERNAL_CROSSREF_SPLIT},
+@code{EXTERNAL_CROSSREF_EXTENSION}, @code{EXTERNAL_DIR},
+@code{TOP_NODE_FILE_TARGET} or @code{IGNORE_REF_TO_TOP_NODE_UP}
+(@pxref{HTML Customization Variables,,, texinfo, Texinfo}).
+
+If the external reference is not already ignored because of
+@code{IGNORE_REF_TO_TOP_NODE_UP}, two function references give
+full control over the external node target output names, with
+@code{external_target_split_name} if the external target is considered
+to be split, and @code{external_target_non_split_name} if the external
+target is non split.
+
+@deftypefn {Function Reference} {(@var{$target}, @var{$host_directory}, @var{$file_name})} @
+  external_target_split_name(@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target}, @
+    @var{$default_host_directory}, @var{$default_file_name})
+@var{$converter} is a converter object. @var{$normalized} is the
+normalized node name, @var{\@@node_contents} is a reference
+on an array containing the Texinfo tree contents of the external target.
+
+@var{$default_target}, @var{$default_host_directory} and
+@var{$default_file_name} are the target, host and directory URL part and file name
+URL part that have been already set.
+
+The function should return the @var{$target}, @var{$host_directory} and
+@var{$file_name} URL parts.
+@end deftypefn
+
+@deftypefn {Function Reference} {(@var{$target}, @var{$host_directory_file})} @
+  external_target_non_split_name(@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target}, @
+    @var{$default_host_directory_file})
+@var{$converter} is a converter object. @var{$normalized} is the
+normalized node name, @var{\@@node_contents} is a reference
+on an array containing the Texinfo tree contents of the external target.
+
+@var{$default_target} is the target and @var{$default_host_directory_file}
+is the host and file name part of the URL that have been already
+set.
+
+The function should return the @var{$target} and @var{$host_directory_file}
+URL parts.
 @end deftypefn
 
 
