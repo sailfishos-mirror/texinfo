@@ -86,7 +86,7 @@ ascii_accents_internal (char *text, ELEMENT *stack, int set_case)
   char *result;
   int i;
 
-  if (0 && set_case)
+  if (set_case)
     result = to_upper_or_lower_multibyte (text, set_case);
   else
     result = strdup (text);
@@ -201,7 +201,7 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (text_brace_no_arg_commands[cmd]);
     }
 
-  if (0 && options->set_case
+  if (options->set_case
       && (command_other_flags (e) & CF_letter_no_arg))
     {
       char *cased = to_upper_or_lower_multibyte (result, options->set_case);
@@ -393,11 +393,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               char *cased = 0;
               char *text;
 
-              /* FIXME some problem with memory management in
-                 to_upper_or_lower_multibyte needs to be fixed
               if (options->set_case)
-               */
-              if (0 && options->set_case)
                 {
                   char *cased
                     = to_upper_or_lower_multibyte (element->text.text,

@@ -1,5 +1,12 @@
 2023-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (to_upper_or_lower_multibyte),
+	tp/Texinfo/XS/main/convert_to_text.c: use u8_strlen (u8_text) + 1
+	to include the NULL character in u8_toupper and u8_tolower
+	input strings.  From Bruno Haible.
+
+2023-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Customizing External Node Output Names),
 	tp/Texinfo/Convert/HTML.pm (_external_node_href): pass elements for
 	external_target_split_name and external_target_non_split_name.

@@ -123,18 +123,16 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                iconveh_question_mark);
   if (lower_or_upper > 0)
-    u8_result = u8_toupper (u8_text, u8_strlen (u8_text),
+    /* the + 1 is there to hold the terminating NULL */
+    u8_result = u8_toupper (u8_text, u8_strlen (u8_text) + 1,
                             NULL, NULL, NULL, &lengthp);
   else
-    u8_result = u8_tolower (u8_text, u8_strlen (u8_text),
+    u8_result = u8_tolower (u8_text, u8_strlen (u8_text) + 1,
                             NULL, NULL, NULL, &lengthp);
 
   free (u8_text);
   result = u8_strconv_to_encoding (u8_result, "UTF-8",
                                    iconveh_question_mark);
-  /*
-  fprintf (stderr, "T: '%s', R: '%s'\n", text, result);
-   */
   free (u8_result);
   return result;
 }
