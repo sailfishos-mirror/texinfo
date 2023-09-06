@@ -79,7 +79,7 @@ T}';
 $result_texts{'unclosed_verb_on_section_line'} = '1 in section ruc
 
 Now text.
-===========================
+=========================
 ';
 
 $result_sectioning{'unclosed_verb_on_section_line'} = {

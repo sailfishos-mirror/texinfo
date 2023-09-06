@@ -1,3 +1,12 @@
+2023-09-06  Patrice Dumas <pertusus@free.fr>
+
+	Consider control characters to have a 0 width
+
+	* tp/Texinfo/Convert/Unicode.pm (string_width): do not consider space
+	control characters especially.  This is better for line feed, carriage
+	return and form feed, and vertical or horizontal tabs should not
+	happen in situations where we want to know the width of strings.
+
 2023-09-05  Patrice Dumas <pertusus@free.fr>
 
 	Add customization of external node reference names
