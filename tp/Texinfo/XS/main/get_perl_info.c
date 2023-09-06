@@ -90,7 +90,9 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
-/* Texinfo/Convert/Text.pm copy_options_for_convert_text */
+/* Similar to Texinfo/Convert/Text.pm copy_options_for_convert_text
+   but for a hash of options in the Texinfo::Convert::Text format
+ */
 /* TODO more to do */
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
@@ -99,6 +101,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **test_option_sv;
   SV **include_directories_sv;
   SV **expanded_formats_hash_sv;
+  SV **enabled_encoding_sv;
   TEXT_OPTIONS *options = new_text_options ();
 
   dTHX;
@@ -108,6 +111,11 @@ copy_sv_options_for_convert_text (SV *sv_in)
   test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
   if (test_option_sv)
     options->test = SvIV (*test_option_sv);
+
+  enabled_encoding_sv = hv_fetch (hv_in, "enabled_encoding",
+                                  strlen ("enabled_encoding"), 0);
+  if (enabled_encoding_sv)
+    options->encoding = strdup (SvPVbyte_nolen (*enabled_encoding_sv));
 
   include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
                                      strlen ("INCLUDE_DIRECTORIES"), 0);

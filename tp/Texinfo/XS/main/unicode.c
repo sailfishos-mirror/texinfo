@@ -422,9 +422,8 @@ char *
 unicode_brace_no_arg_command (enum command_id cmd, char *encoding)
 {
   if (unicode_character_brace_no_arg_commands[cmd].text
-      && unicode_point_decoded_in_encoding (
-          unicode_character_brace_no_arg_commands[cmd].codepoint,
-          encoding))
+      && unicode_point_decoded_in_encoding (encoding,
+          unicode_character_brace_no_arg_commands[cmd].codepoint))
     return unicode_character_brace_no_arg_commands[cmd].text;
   else
     return 0;

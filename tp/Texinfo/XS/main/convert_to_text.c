@@ -116,7 +116,7 @@ new_text_options (void)
 void
 destroy_options (TEXT_OPTIONS *options)
 {
-  /* encoding? */
+  free (options->encoding);
   free (options->expanded_formats);
   free (options);
 }
@@ -130,7 +130,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   char *result;
   TEXT_OPTIONS *options = new_text_options ();
 
-  options->encoding = encoding;
+  options->encoding = strdup (encoding);
   options->set_case = set_case;
 
   if (accent_stack->argument)

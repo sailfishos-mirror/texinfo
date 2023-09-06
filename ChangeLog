@@ -1,3 +1,14 @@
+2023-09-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/convert_to_text.c (new_text_options)
+	(text_accents): strdup and free options->encoding.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(copy_sv_options_for_convert_text): pass enabled_encoding.
+
+	* tp/Texinfo/XS/main/unicode.c (unicode_brace_no_arg_command):
+	fix the order of unicode_point_decoded_in_encoding arguments.
+
 2023-09-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/accents.t (test_enable_encoding): use encoded_accents instead
