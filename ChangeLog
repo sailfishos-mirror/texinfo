@@ -1,5 +1,12 @@
 2023-09-06  Patrice Dumas <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (string_width): consider
+	Default_Ignorable_Code_Point to be of zero width.  These codepoints
+	are described as having no visible glyph or advance width in and of
+	themselves.
+
+2023-09-06  Patrice Dumas <pertusus@free.fr>
+
 	Consider control characters to have a 0 width
 
 	* tp/Texinfo/Convert/Unicode.pm (string_width): do not consider space

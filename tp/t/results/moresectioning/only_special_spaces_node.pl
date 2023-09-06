@@ -525,7 +525,7 @@ $result_texts{'only_special_spaces_node'} = 'top
 *********************************************************
 
 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
-******************************************
+*****************************************
 
 
 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
@@ -812,7 +812,7 @@ File: ,  Node:   ,  Next: ᠎ ,  Prev: ,  Up: Top
 File: ,  Node: ᠎ ,  Next:            　,  Prev:   ,  Up: Top
 
 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
-******************************************
+*****************************************
 
 
 File: ,  Node:            　,  Prev: ᠎ ,  Up: Top
@@ -827,7 +827,7 @@ Node: Top56
 Node:    205
 Node:   499
 Node: ᠎ 681
-Node:            　868
+Node:            　867
 
 End Tag Table
 

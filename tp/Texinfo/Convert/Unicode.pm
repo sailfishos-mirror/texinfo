@@ -1667,12 +1667,13 @@ sub string_width($)
   # of the string.  These regexes are faster than making the substitutions
   # below.
   if ($string =~ /^[\p{IsPrint}]*$/
-      and $string !~ /[\p{InFullwidth}\pM]/) {
+      and $string !~ /[\p{InFullwidth}\pM\p{Default_Ignorable_Code_Point}]/) {
     return length($string);
   }
 
   $string =~ s/\p{InFullwidth}/\x{02}/g;
   $string =~ s/\pM/\x{00}/g;
+  $string =~ s/\p{Default_Ignorable_Code_Point}/\x{00}/g;
   $string =~ s/\p{IsPrint}/\x{01}/g;
   $string =~ s/[^\x{01}\x{02}]/\x{00}/g;
 
@@ -1688,8 +1689,9 @@ sub string_width($)
   foreach my $character(split '', $string) {
     if ($character =~ /\p{InFullwidth}/) {
       $width += 2;
-    } elsif ($character =~ /\pM/) {
-      # a mark set at length 0
+    } elsif ($character =~ /[\pM\p{Default_Ignorable_Code_Point}]/) {
+      # a mark set at length 0 or a Default Ignorable Code Point
+      # that have no visible glyph or advance width in and of themselves
     } elsif ($character =~ /\p{IsPrint}/) {
       $width += 1;
     } elsif ($character =~ /\p{IsControl}/) {
