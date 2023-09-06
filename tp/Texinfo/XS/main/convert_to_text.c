@@ -130,7 +130,8 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   char *result;
   TEXT_OPTIONS *options = new_text_options ();
 
-  options->encoding = strdup (encoding);
+  if (encoding)
+    options->encoding = strdup (encoding);
   options->set_case = set_case;
 
   if (accent_stack->argument)

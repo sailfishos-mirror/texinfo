@@ -90,9 +90,7 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
-/* Similar to Texinfo/Convert/Text.pm copy_options_for_convert_text
-   but for a hash of options in the Texinfo::Convert::Text format
- */
+/* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* TODO more to do */
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
@@ -102,6 +100,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **include_directories_sv;
   SV **expanded_formats_hash_sv;
   SV **enabled_encoding_sv;
+  SV **sort_string_option_sv;
   TEXT_OPTIONS *options = new_text_options ();
 
   dTHX;
@@ -111,6 +110,11 @@ copy_sv_options_for_convert_text (SV *sv_in)
   test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
   if (test_option_sv)
     options->test = SvIV (*test_option_sv);
+
+  sort_string_option_sv = hv_fetch (hv_in, "sort_string",
+                                    strlen ("sort_string"), 0);
+  if (sort_string_option_sv)
+    options->sort_string = SvIV (*sort_string_option_sv);
 
   enabled_encoding_sv = hv_fetch (hv_in, "enabled_encoding",
                                   strlen ("enabled_encoding"), 0);
