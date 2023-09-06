@@ -1,5 +1,11 @@
 2023-09-06  Patrice Dumas <pertusus@free.fr>
 
+	* tp/t/input_files/in_menu_only_special_spaces_node.texi,
+	tp/t/input_files/only_special_spaces_node.texi: separate node for
+	LINE SEPARATOR and PARAGRAPH SEPARATOR in test files.
+
+2023-09-06  Patrice Dumas <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Unicode.pm (string_width): consider
 	Default_Ignorable_Code_Point to be of zero width.  These codepoints
 	are described as having no visible glyph or advance width in and of
