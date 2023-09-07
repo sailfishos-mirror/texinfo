@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document-6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-08-15 11:56+0100\n"
+"POT-Creation-Date: 2023-09-07 19:54+0100\n"
 "PO-Revision-Date: 2023-04-09 21:02+0200\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -104,7 +104,7 @@ msgctxt ""
 msgid "Method"
 msgstr "Método"
 
-#: tp/Texinfo/Structuring.pm:1914
+#: tp/Texinfo/Structuring.pm:1915
 msgid " --- The Detailed Node Listing ---"
 msgstr " --- Listado detallado de nodos ---"
 
@@ -1043,7 +1043,7 @@ msgstr "{category}:@* "
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tp/Texinfo/Convert/HTML.pm:9831
+#: tp/Texinfo/Convert/HTML.pm:9860
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1052,51 +1052,51 @@ msgstr ""
 "Este documento se generó el @emph{@today{}} utilizando "
 "@uref{{program_homepage}, @emph{{program}}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9836
+#: tp/Texinfo/Convert/HTML.pm:9865
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Este documento se generó el @emph{@today{}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9875
+#: tp/Texinfo/Convert/HTML.pm:9905
 msgid "JavaScript license information"
 msgstr "Información de licencia de JavaScript"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9923
+#: tp/Texinfo/Convert/HTML.pm:9953
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tp/Texinfo/Convert/HTML.pm:10136
+#: tp/Texinfo/Convert/HTML.pm:10166
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "El nodo que busca se encuentra en {href}."
 
-#: tp/Texinfo/Convert/HTML.pm:10249
+#: tp/Texinfo/Convert/HTML.pm:10279
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr ""
 "  Los botones de los paneles de navegación tienen el significado siguiente:"
 
 #. TRANSLATORS: direction column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10257
+#: tp/Texinfo/Convert/HTML.pm:10287
 msgid "Button"
 msgstr "Botón"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10259
+#: tp/Texinfo/Convert/HTML.pm:10289
 msgid "Name"
 msgstr "Nombre"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10261
+#: tp/Texinfo/Convert/HTML.pm:10291
 msgid "Go to"
 msgstr "Ir a"
 
 #. TRANSLATORS: section reached column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10263
+#: tp/Texinfo/Convert/HTML.pm:10293
 msgid "From 1.2.3 go to"
 msgstr "Desde 1.2.3 ir a"
 
-#: tp/Texinfo/Convert/HTML.pm:10308
+#: tp/Texinfo/Convert/HTML.pm:10338
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1107,55 +1107,55 @@ msgstr ""
 "siguiente:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:10320
+#: tp/Texinfo/Convert/HTML.pm:10350
 msgid "Section One"
 msgstr "Sección Uno"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:10323
+#: tp/Texinfo/Convert/HTML.pm:10353
 msgid "Subsection One-One"
 msgstr "Subsección uno-uno"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:10331
+#: tp/Texinfo/Convert/HTML.pm:10361
 msgid "Subsection One-Two"
 msgstr "Subsección uno-dos"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:10334
+#: tp/Texinfo/Convert/HTML.pm:10364
 msgid "Subsubsection One-Two-One"
 msgstr "Sub-subsección uno-dos-uno"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:10336
+#: tp/Texinfo/Convert/HTML.pm:10366
 msgid "Subsubsection One-Two-Two"
 msgstr "Sub-subsección uno-dos-dos"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10338
+#: tp/Texinfo/Convert/HTML.pm:10368
 msgid "Subsubsection One-Two-Three"
 msgstr "Sub-subsección uno-dos-tres"
 
-#: tp/Texinfo/Convert/HTML.pm:10341
+#: tp/Texinfo/Convert/HTML.pm:10371
 msgid "Current Position"
 msgstr "Posición actual"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10343
+#: tp/Texinfo/Convert/HTML.pm:10373
 msgid "Subsubsection One-Two-Four"
 msgstr "Sub-subsección uno-dos-cuatro"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:10347
+#: tp/Texinfo/Convert/HTML.pm:10377
 msgid "Subsection One-Three"
 msgstr "Subsección uno-tres"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:10355
+#: tp/Texinfo/Convert/HTML.pm:10385
 msgid "Subsection One-Four"
 msgstr "Subsección uno-cuatro"
 
-#: tp/Texinfo/Convert/HTML.pm:11063
+#: tp/Texinfo/Convert/HTML.pm:11093
 msgid "Untitled Document"
 msgstr "Documento sin título"
 
