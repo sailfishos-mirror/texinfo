@@ -1666,14 +1666,17 @@ sub string_width($)
   # Optimise for the common case where we can just return the length
   # of the string.  These regexes are faster than making the substitutions
   # below.
+  # DefaultIgnorableCodePoint is documented in perl 5.10.1. In 2023 perl,
+  # it is Default_Ignorable_Code_Point, but DefaultIgnorableCodePoint
+  # seems to work too.
   if ($string =~ /^[\p{IsPrint}]*$/
-      and $string !~ /[\p{InFullwidth}\pM\p{Default_Ignorable_Code_Point}]/) {
+      and $string !~ /[\p{InFullwidth}\pM\p{DefaultIgnorableCodePoint}]/) {
     return length($string);
   }
 
   $string =~ s/\p{InFullwidth}/\x{02}/g;
   $string =~ s/\pM/\x{00}/g;
-  $string =~ s/\p{Default_Ignorable_Code_Point}/\x{00}/g;
+  $string =~ s/\p{DefaultIgnorableCodePoint}/\x{00}/g;
   $string =~ s/\p{IsPrint}/\x{01}/g;
   $string =~ s/[^\x{01}\x{02}]/\x{00}/g;
 
@@ -1689,7 +1692,7 @@ sub string_width($)
   foreach my $character(split '', $string) {
     if ($character =~ /\p{InFullwidth}/) {
       $width += 2;
-    } elsif ($character =~ /[\pM\p{Default_Ignorable_Code_Point}]/) {
+    } elsif ($character =~ /[\pM\p{DefaultIgnorableCodePoint}]/) {
       # a mark set at length 0 or a Default Ignorable Code Point
       # that have no visible glyph or advance width in and of themselves
     } elsif ($character =~ /\p{IsPrint}/) {
