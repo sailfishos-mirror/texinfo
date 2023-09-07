@@ -1,3 +1,7 @@
+2023-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: add note re *.pot versions.
+
 2023-09-06  Patrice Dumas <pertusus@free.fr>
 
 	* tp/t/input_files/in_menu_only_special_spaces_node.texi,

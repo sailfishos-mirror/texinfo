@@ -397,6 +397,11 @@ git commit and push
 
 (If on a release branch, copy the NEWS message to NEWS on master)
 
+Check if version number in po/texinfo.pot and
+po_document/texinfo_document.pot is what it should be.  If not, fix it
+and update these instructions.  See
+<https://lists.gnu.org/archive/html/bug-texinfo/2023-09/msg00007.html>.
+
 -------------------------------------------------------------------------
 
 - To do the actual upload:
