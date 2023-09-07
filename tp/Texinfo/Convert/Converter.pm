@@ -155,26 +155,15 @@ sub output_internal_links($)
 }
 
 # this function is designed so as to be used in specific Converters
-sub converter(;$)
+sub converter($;$)
 {
   my $class = shift;
+  my $conf = shift;
+
   my $converter = { 'set' => {} };
 
-  my $conf;
-  my $name = 'converter';
+  bless $converter, $class;
 
-  if (ref($class) eq 'HASH') {
-    $conf = $class;
-    bless $converter;
-  } elsif (defined($class)) {
-    bless $converter, $class;
-    $name = ref($converter);
-    $conf = shift;
-  } else {
-    bless $converter;
-    $conf = shift;
-    $name = ref($converter);
-  }
   my %defaults = $converter->converter_defaults($conf);
   foreach my $key (keys(%all_converters_defaults)) {
     $defaults{$key} = $all_converters_defaults{$key}
@@ -211,7 +200,7 @@ sub converter(;$)
       if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
       } elsif (!exists($defaults{$key})) {
-        warn "$key not a possible configuration in $name\n";
+        warn "$key not a possible configuration in $class\n";
       } else {
         $converter->{$key} = $conf->{$key};
       }

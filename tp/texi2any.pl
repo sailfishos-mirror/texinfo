@@ -1309,7 +1309,6 @@ if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
 
 add_to_option_list('EXPANDED_FORMATS', $default_expanded_format);
 
-my $converter_class;
 my %converter_defaults;
 
 if (defined($formats_table{$converted_format}->{'module'})) {
@@ -1338,12 +1337,11 @@ if (defined($formats_table{$converted_format}->{'module'})) {
 # command line is set_format_menu_from_cmdline_header_option.
 my $conversion_format_menu_default;
 if (defined($formats_table{$converted_format}->{'module'})) {
-  $converter_class = $formats_table{$converted_format}->{'module'};
+  my $converter_class = $formats_table{$converted_format}->{'module'};
   # $cmdline_options is passed to have command line settings, here
   # in practice TEXI2HTML set, for conversion to HTML to select
   # possibly different customization variable values.
   %converter_defaults = $converter_class->converter_defaults($cmdline_options);
-  $conversion_format_menu_default = undef;
   if (defined($converter_defaults{'FORMAT_MENU'})) {
     # could be done for other customization options
     set_main_program_default('FORMAT_MENU', $converter_defaults{'FORMAT_MENU'});

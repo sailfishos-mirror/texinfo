@@ -12,8 +12,6 @@ Before next release
 
 Bugs
 ====
-l 398 convert_to_text.c set if (options->set_case)
-valgrind perl -w t/03coverage_braces.t nested_in_sc
 
 Consider doing specific conversion functions for output units.  And maybe, to see if
 better or not, change contents to element_contents or something like than, and

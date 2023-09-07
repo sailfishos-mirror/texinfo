@@ -761,21 +761,13 @@ sub _convert($;$)
 
 # Implement the converters API, but as simply as possible
 # initialization
-sub converter($)
+sub converter($;$)
 {
   my $class = shift;
-  my $conf;
+  my $conf = shift;
+
   my $converter = {};
-  if (ref($class) eq 'HASH') {
-    $conf = $class;
-    bless $converter;
-  } elsif (defined($class)) {
-    bless $converter, $class;
-    $conf = shift;
-  } else {
-    bless $converter;
-    $conf = shift;
-  }
+  bless $converter, $class;
 
   if ($conf) {
     %{$converter} = %{$conf};

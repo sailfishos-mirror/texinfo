@@ -1,5 +1,14 @@
 2023-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/Text.pm (converter): set the class argument to be
+	mandatory and only handle the case of class and optionally
+	configuration hash to be in arguments.
+
+	* tp/texi2any.pltp/texi2any.pl: minor code simplifications.
+
+2023-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/input_files/in_menu_only_special_spaces_node.texi,
 	tp/t/input_files/only_special_spaces_node.texi: remove testing of
 	U+2028 and U+2029 LINE SEPARATOR and PARAGRAPH SEPARATOR characters,
