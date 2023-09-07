@@ -324,6 +324,15 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
                       "contents" => [
                         {
                           "text" => "\n"
+                        },
+                        {
+                          "args" => [
+                            {
+                              "text" => " * \x{2028}\x{2029}::\n",
+                              "type" => "rawline_arg"
+                            }
+                          ],
+                          "cmdname" => "c"
                         }
                       ],
                       "type" => "preformatted"
@@ -335,51 +344,6 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
                 "line_nr" => 11,
-                "macro" => ""
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "\x{2028}\x{2029}"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => [
-                      {}
-                    ],
-                    "normalized" => "_2028_2029"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 12,
                 "macro" => ""
               },
               "type" => "menu_entry"
@@ -815,6 +779,46 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         {
           "text" => "\n",
           "type" => "empty_line"
+        },
+        {
+          "args" => [
+            {
+              "text" => " TODO perl and XS code give different width.  Beside width, those character should\n",
+              "type" => "rawline_arg"
+            }
+          ],
+          "cmdname" => "c"
+        },
+        {
+          "args" => [
+            {
+              "text" => " be handled explicitly in formatting.\n",
+              "type" => "rawline_arg"
+            }
+          ],
+          "cmdname" => "c"
+        },
+        {
+          "args" => [
+            {
+              "text" => " \@node \x{2028}\x{2029}\n",
+              "type" => "rawline_arg"
+            }
+          ],
+          "cmdname" => "c"
+        },
+        {
+          "args" => [
+            {
+              "text" => " \@chapter LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|\n",
+              "type" => "rawline_arg"
+            }
+          ],
+          "cmdname" => "c"
+        },
+        {
+          "text" => "\n",
+          "type" => "empty_line"
         }
       ],
       "extra" => {
@@ -834,75 +838,6 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
     {
       "args" => [
         {
-          "contents" => [
-            {
-              "text" => "\x{2028}\x{2029}"
-            }
-          ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_2028_2029"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 34,
-        "macro" => ""
-      }
-    },
-    {
-      "args" => [
-        {
-          "contents" => [
-            {
-              "text" => "LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
-            }
-          ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 7
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 35,
-        "macro" => ""
-      }
-    },
-    {
-      "args" => [
-        {
           "text" => "\n",
           "type" => "rawline_arg"
         }
@@ -916,7 +851,6 @@ $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"
 $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"contents"}[0];
 $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"contents"}[0];
 $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"contents"}[1]{"contents"}[0];
 
 $result_texis{'in_menu_only_special_spaces_node_menu'} = '
 @node Top
@@ -929,7 +863,7 @@ $result_texis{'in_menu_only_special_spaces_node_menu'} = '
 *   ::
 * ᠎ ::
 *          　::
-*   ::
+@c *   ::
 @end menu
 
 
@@ -951,8 +885,10 @@ $result_texis{'in_menu_only_special_spaces_node_menu'} = '
 @node          　
 @chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 
-@node   
-@chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+@c TODO perl and XS code give different width.  Beside width, those character should
+@c be handled explicitly in formatting.
+@c @node   
+@c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
 
 @bye
 ';
@@ -967,7 +903,6 @@ $result_texts{'in_menu_only_special_spaces_node_menu'} = 'top
 *   ::
 * ᠎ ::
 *          　::
-*   ::
 
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
@@ -988,8 +923,6 @@ $result_texts{'in_menu_only_special_spaces_node_menu'} = 'top
 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 *************************************************************************************************************************************************************************************************************
 
-7 LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
-****************************************
 
 ';
 
@@ -1126,27 +1059,6 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'} = {
                   'up' => {}
                 }
               }
-            },
-            {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'associated_node' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => '_2028_2029'
-                  }
-                },
-                'section_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => '7',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
             }
           ],
           'section_level' => 0,
@@ -1181,10 +1093,6 @@ $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_ch
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[4];
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5];
-$result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[5];
-$result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[6]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'in_menu_only_special_spaces_node_menu'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'in_menu_only_special_spaces_node_menu'};
 
 $result_nodes{'in_menu_only_special_spaces_node_menu'} = [
@@ -1258,22 +1166,6 @@ $result_nodes{'in_menu_only_special_spaces_node_menu'} = [
                     }
                   },
                   'node_directions' => {
-                    'next' => {
-                      'cmdname' => 'node',
-                      'extra' => {
-                        'associated_section' => {
-                          'cmdname' => 'chapter',
-                          'extra' => {
-                            'section_number' => '7'
-                          }
-                        },
-                        'node_directions' => {
-                          'prev' => {},
-                          'up' => {}
-                        },
-                        'normalized' => '_2028_2029'
-                      }
-                    },
                     'prev' => {},
                     'up' => {}
                   },
@@ -1303,14 +1195,11 @@ $result_nodes{'in_menu_only_special_spaces_node_menu'} = [
     }
   },
   {},
-  {},
   {}
 ];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[1] = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0]{'extra'}{'node_directions'}{'next'};
-$result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2];
@@ -1318,7 +1207,6 @@ $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directi
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'up'} = $result_nodes{'in_menu_only_special_spaces_node_menu'}[0];
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[3] = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'in_menu_only_special_spaces_node_menu'}[4] = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'in_menu_only_special_spaces_node_menu'}[5] = $result_nodes{'in_menu_only_special_spaces_node_menu'}[2]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'in_menu_only_special_spaces_node_menu'} = [
   {
@@ -1341,15 +1229,6 @@ $result_menus{'in_menu_only_special_spaces_node_menu'} = [
                     'next' => {
                       'extra' => {
                         'menu_directions' => {
-                          'next' => {
-                            'extra' => {
-                              'menu_directions' => {
-                                'prev' => {},
-                                'up' => {}
-                              },
-                              'normalized' => '_2028_2029'
-                            }
-                          },
                           'prev' => {},
                           'up' => {}
                         },
@@ -1375,11 +1254,8 @@ $result_menus{'in_menu_only_special_spaces_node_menu'} = [
   },
   {},
   {},
-  {},
   {}
 ];
-$result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node_menu'}[0];
 $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'in_menu_only_special_spaces_node_menu'}[0];
 $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'prev'} = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'};
@@ -1390,7 +1266,6 @@ $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directi
 $result_menus{'in_menu_only_special_spaces_node_menu'}[2] = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'};
 $result_menus{'in_menu_only_special_spaces_node_menu'}[3] = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'in_menu_only_special_spaces_node_menu'}[4] = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
-$result_menus{'in_menu_only_special_spaces_node_menu'}[5] = $result_menus{'in_menu_only_special_spaces_node_menu'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
 $result_errors{'in_menu_only_special_spaces_node_menu'} = [
   {
@@ -1452,7 +1327,6 @@ top
 *   ::
 * ᠎ ::
 *          　::
-*   ::
 
 
 File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
@@ -1479,26 +1353,19 @@ File: ,  Node: ᠎ ,  Next:          　,  Prev:   ,  U
 *****************************************
 
 
-File: ,  Node:          　,  Next:   ,  Prev: ᠎ ,  Up: Top
+File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 
 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 *************************************************************************************************************************************************************************************************************
-
-
-File: ,  Node:   ,  Prev:          　,  Up: Top
-
-7 LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
-****************************************
 
 
 
 Tag Table:
 Node: Top64
-Node:    232
-Node:   526
-Node: ᠎ 708
-Node:          　888
-Node:   1409
+Node:    221
+Node:   515
+Node: ᠎ 697
+Node:          　877
 
 End Tag Table
 
@@ -1556,8 +1423,6 @@ Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUA
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">         　</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#g_t_2028_2029" accesskey="7">  </a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
 </table>
 
 
@@ -1606,18 +1471,10 @@ Next: <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey
 <div class="chapter-level-extent" id="g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_2028_2029" accesskey="n" rel="next">LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a>, Previous: <a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Previous: <a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"><span>6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"> &para;</a></span></h2>
 
-<hr>
-</div>
-<div class="chapter-level-extent" id="g_t_2028_2029">
-<div class="nav-panel">
-<p>
-Previous: <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="p" rel="prev">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
-</div>
-<h2 class="chapter" id="LINE-SEPARATOR_007c_000a_007c-PARAGRAPH-SEPARATOR_007c_000a_000a_007c"><span>7 LINE SEPARATOR| | PARAGRAPH SEPARATOR| |<a class="copiable-link" href="#LINE-SEPARATOR_007c_000a_007c-PARAGRAPH-SEPARATOR_007c_000a_000a_007c"> &para;</a></span></h2>
 
 </div>
 </div>

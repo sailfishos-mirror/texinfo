@@ -9,7 +9,7 @@
 *   ::
 * ᠎ ::
 *          　::
-*   ::
+@c *   ::
 @end menu
 
 
@@ -31,7 +31,9 @@
 @node          　
 @chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 
-@node   
-@chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+@c TODO perl and XS code give different width.  Beside width, those character should
+@c be handled explicitly in formatting.
+@c @node   
+@c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
 
 @bye

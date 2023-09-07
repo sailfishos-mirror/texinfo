@@ -1,6 +1,15 @@
+2023-09-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/input_files/in_menu_only_special_spaces_node.texi,
+	tp/t/input_files/only_special_spaces_node.texi: remove testing of
+	U+2028 and U+2029 LINE SEPARATOR and PARAGRAPH SEPARATOR characters,
+	as the perl and XS code give different width.  Those character should
+	be handled explicitly in formatting, before that it is not an issue t
+	o have different behaviours.
+
 2023-09-06  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/main/convert_to_text.c (text_accents): handle nULL
+	* tp/Texinfo/XS/main/convert_to_text.c (text_accents): handle Null
 	encoding.
 
 	* tp/Texinfo/XS/main/get_perl_info.c
