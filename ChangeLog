@@ -1,5 +1,14 @@
 2023-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (converter): remove code setting output
+	encoding redundant with Texinfo::Common::set_output_encodings call.
+
+	* tp/Texinfo/Convert/Text.pm (output): add a possible way to call XS
+	converter incomments.  To pass the tests, would need to pass include
+	directories to expand_verbatiminclude.
+
+2023-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter),
 	tp/Texinfo/Convert/Text.pm (converter): set the class argument to be
 	mandatory and only handle the case of class and optionally

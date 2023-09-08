@@ -780,23 +780,6 @@ sub converter($;$)
        = $converter->{'document'}->global_information();
     $converter->{'global_commands'}
        = $converter->{'document'}->global_commands_information();
-    foreach my $global_command ('documentencoding') {
-      if (defined($converter->{'global_commands'}->{$global_command})) {
-        my $element = $converter->{'global_commands'}->{$global_command}->[0];
-        if ($global_command eq 'documentencoding'
-            and defined($element->{'extra'})
-            and defined($element->{'extra'}->{'input_encoding_name'})) {
-          $converter->{'OUTPUT_ENCODING_NAME'}
-             = $element->{'extra'}->{'input_encoding_name'};
-          # can be undef
-          $converter->{'OUTPUT_PERL_ENCODING'}
-             = Texinfo::Common::element_associated_processing_encoding($element);
-        }
-      }
-    }
-    #if (!$expanded_formats and $converter->{'parser'}->{'EXPANDED_FORMATS'}) {
-    #  $expanded_formats = $converter->{'parser'}->{'EXPANDED_FORMATS'};
-    #}
     delete $converter->{'document'};
   }
   if ($expanded_formats) {
@@ -939,7 +922,22 @@ sub output($$)
   # reference, merge specific Text options with $self (possibly
   # overwriting/ignoring but values should be the same).
   %$self = (%$self, %options);
-  my $result = _convert($root, $self);
+
+  my $result;
+  # TODO possible way to interface with XS converter.  To pass the tests,
+  # need to pass include directories to expand_verbatiminclude.
+  #if (defined($root->{'tree_document_descriptor'})) {
+  #  my $XS_result = _convert_tree_with_XS($self, $root);
+  #  if (defined ($XS_result)) {
+  #    $result = $XS_result;
+  #  } else {
+  #    print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
+  #    cluck();
+  #  }
+  #} else {
+    $result = _convert($root, $self);
+  #}
+
   if ($fh) {
     print $fh $result;
     Texinfo::Common::output_files_register_closed(
