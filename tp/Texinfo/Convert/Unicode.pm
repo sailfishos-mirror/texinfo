@@ -1669,7 +1669,8 @@ sub string_width($)
   # DefaultIgnorableCodePoint is documented in perl 5.10.1. In 2023 perl,
   # it is Default_Ignorable_Code_Point, but DefaultIgnorableCodePoint
   # seems to work too.
-  if ($string =~ /^[\p{IsPrint}]*$/
+  #if ($string =~ /^[\p{IsPrint}]*$/
+  if ($string =~ /^[\p{L}\p{N}\p{P}\p{S}\p{Zs}]*$/
       and $string !~ /[\p{InFullwidth}\pM\p{DefaultIgnorableCodePoint}]/) {
     return length($string);
   }
@@ -1677,7 +1678,8 @@ sub string_width($)
   $string =~ s/\p{InFullwidth}/\x{02}/g;
   $string =~ s/\pM/\x{00}/g;
   $string =~ s/\p{DefaultIgnorableCodePoint}/\x{00}/g;
-  $string =~ s/\p{IsPrint}/\x{01}/g;
+  #$string =~ s/\p{IsPrint}/\x{01}/g;
+  $string =~ s/[\p{L}\p{N}\p{P}\p{S}\p{Zs}]/\x{01}/g;
   $string =~ s/[^\x{01}\x{02}]/\x{00}/g;
 
   # This sums up the byte values of the bytes in $string, which now are
@@ -1695,7 +1697,8 @@ sub string_width($)
     } elsif ($character =~ /[\pM\p{DefaultIgnorableCodePoint}]/) {
       # a mark set at length 0 or a Default Ignorable Code Point
       # that have no visible glyph or advance width in and of themselves
-    } elsif ($character =~ /\p{IsPrint}/) {
+    #} elsif ($character =~ /\p{IsPrint}/) {
+    } elsif ($character =~ /[\p{L}\p{N}\p{P}\p{S}\p{Zs}]/) {
       $width += 1;
     } elsif ($character =~ /\p{IsControl}/) {
       # Control chars may be added, for instance, as part of @image formatting

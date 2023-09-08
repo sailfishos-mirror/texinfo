@@ -1,3 +1,8 @@
+2023-09-08  Patrice Dumas <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Unicode.pm (string_width): replace IsPrint
+	by more explicit character classes.
+
 2023-09-07  Patrice Dumas <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Unicode.pm (string_width): use
