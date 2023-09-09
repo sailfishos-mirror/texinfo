@@ -1,3 +1,9 @@
+2023-09-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%available_converter_info)
+	(_convert_heading_command): update for changes introduced by rebase on
+	master.
+
 2023-09-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (converter): remove code setting output

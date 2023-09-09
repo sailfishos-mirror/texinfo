@@ -1802,6 +1802,7 @@ foreach my $converter_info ('copying_comment', 'current_filename',
    'index_entries', 'index_entries_by_letter', 'indices_information',
    'jslicenses', 'identifiers_target',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
+   'sections_list',
    'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
@@ -4186,7 +4187,7 @@ sub _convert_heading_command($$$$$)
           and $automatic_directions) {
         my $menu_node
           = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                            $self->get_info('labels'), $node);
+                                  $self->get_info('identifiers_target'), $node);
         if ($menu_node) {
           $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
         }
