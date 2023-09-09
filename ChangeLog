@@ -1,3 +1,10 @@
+2023-09-09  Patrice Dumas <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (new_complete_menu_master_menu),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): move code setting up a
+	menu and detailed menu if node is Top to Texinfo::Structuring
+	as new_complete_menu_master_menu.
+
 2023-09-08  Patrice Dumas <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Unicode.pm (string_width): remove explicit

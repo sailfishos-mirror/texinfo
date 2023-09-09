@@ -3833,29 +3833,9 @@ sub _convert($$)
       if ($node and $automatic_directions
             and !$self->{'seenmenus'}->{$node}) {
         $self->{'seenmenus'}->{$node} = 1;
-        my $menu_node;
-        $menu_node = Texinfo::Structuring::new_complete_node_menu($node);
-        if ($command eq 'top' and $menu_node
-             and $node->{'extra'}->{'normalized'} eq 'Top') {
-          my $detailmenu = Texinfo::Structuring::new_master_menu($self,
-                                                        $self->{'labels'},
-                                                        [ $menu_node ]);
-          if ($detailmenu) {
-            # add a blank line before the detailed node listing
-            my $menu_comment = {'type' => 'menu_comment',
-                                'parent' => $menu_node};
-            push @{$menu_node->{'contents'}}, $menu_comment;
-            my $preformatted = {'type' => 'preformatted',
-                                'parent' => $menu_comment};
-            push @{$menu_comment->{'contents'}}, $preformatted;
-            my $empty_line = {'type' => 'after_menu_description_line',
-                              'text' => "\n", 'parent' => $preformatted};
-            push @{$preformatted->{'contents'}}, $empty_line;
-
-            $detailmenu->{'parent'} = $menu_node;
-            push @{$menu_node->{'contents'}}, $detailmenu;
-          }
-        }
+        my $menu_node
+         = Texinfo::Structuring::new_complete_menu_master_menu($self,
+                                             $self->{'labels'}, $node);
         if ($menu_node) {
           my $menu_text = $self->_convert($menu_node);
           if ($menu_text) {

@@ -1837,6 +1837,38 @@ sub new_master_menu($$$)
   }
 }
 
+# TODO document
+sub new_complete_menu_master_menu($$$)
+{
+  my $self = shift;
+  my $labels = shift;
+  my $node = shift;
+
+  my $menu_node = new_complete_node_menu($node);
+  if ($node->{'extra'}->{'normalized'} eq 'Top'
+      and $node->{'extra'}->{'associated_section'}
+      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top'
+      and $menu_node) {
+    my $detailmenu = new_master_menu($self, $labels, [$menu_node]);
+    if ($detailmenu) {
+      # add a blank line before the detailed node listing
+      my $menu_comment = {'type' => 'menu_comment',
+                          'parent' => $menu_node};
+      push @{$menu_node->{'contents'}}, $menu_comment;
+      my $preformatted = {'type' => 'preformatted',
+                          'parent' => $menu_comment};
+      push @{$menu_comment->{'contents'}}, $preformatted;
+      my $empty_line = {'type' => 'after_menu_description_line',
+                        'text' => "\n", 'parent' => $preformatted};
+      push @{$preformatted->{'contents'}}, $empty_line;
+
+      $detailmenu->{'parent'} = $menu_node;
+      push @{$menu_node->{'contents'}}, $detailmenu;
+    }
+  }
+  return $menu_node;
+}
+
 sub _print_down_menus($$);
 sub _print_down_menus($$)
 {
@@ -2558,12 +2590,13 @@ Returns a texinfo tree menu for node I<$node>, pointing to the children
 of the node obtained with the sectioning structure.  If I<$use_sections>
 is set, use section names for the menu entry names.
 
-=item $detailmenu = new_master_menu($translations, $labels)
+=item $detailmenu = new_master_menu($translations, $labels, $menus)
 X<C<new_master_menu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$translations>, if defined, should be a L<Texinfo::Translations> object and
-should also hold customization information.
+should also hold customization information. I<$menus> is an array
+reference containing the regular menus of the Top node.
 
 =item $entry = new_node_menu_entry($node, $use_sections)
 X<C<new_node_menu_entry>>
