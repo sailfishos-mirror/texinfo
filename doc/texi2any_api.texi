@@ -1775,6 +1775,12 @@ information on each of the file licences, with content
 @item file name or source of file
 @end enumerate
 
+@item labels
+Association of identifiers to label elements. Gathered from the Texinfo
+parsing result.
+@xref{Texinfo::Parser $labels_information@comma{} $targets_list@comma{} $nodes_list = labels_information($parser),,
+Texinfo::Parser::labels_information,texi2any_internals}.
+
 @item line_break_element
 HTML line break element, based on @samp{<br>}, also taking into account
 @code{USE_XML_SYNTAX} customization variable value.

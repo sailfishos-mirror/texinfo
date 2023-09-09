@@ -1802,7 +1802,8 @@ foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document_name', 'documentdescription_string',
    'floats', 'global_commands',
    'index_entries', 'index_entries_by_letter', 'indices_information',
-   'jslicenses', 'line_break_element', 'non_breaking_space', 'paragraph_symbol',
+   'jslicenses', 'labels',
+   'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree', 'structuring',
    'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
@@ -4149,11 +4150,31 @@ sub _convert_heading_command($$$$$)
     }
   }
 
-  my $mini_toc = '';
+  my $mini_toc_or_auto_menu = '';
   if ($tables_of_contents eq ''
-      and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
       and $sectioning_heading_commands{$cmdname}) {
-    $mini_toc = _mini_toc($self, $element);
+    if ($self->get_conf('FORMAT_MENU') eq 'sectiontoc') {
+      $mini_toc_or_auto_menu = _mini_toc($self, $element);
+    } elsif ($self->get_conf('FORMAT_MENU') eq 'menu') {
+      my $node = $element->{'extra'}->{'associated_node'}
+        if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
+
+      my $automatic_directions = 1;
+      if ($node and $node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
+        $automatic_directions = 0;
+      }
+
+      if ($node->{'extra'}
+          and not $node->{'extra'}->{'menus'}
+          and $automatic_directions) {
+        my $menu_node
+          = Texinfo::Structuring::new_complete_menu_master_menu($self,
+                                            $self->get_info('labels'), $node);
+        if ($menu_node) {
+          $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
+        }
+      }
+    }
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
@@ -4182,7 +4203,7 @@ sub _convert_heading_command($$$$$)
                                                         $element_id, $id_class);
       $result .= $element_header;
       $result .= $tables_of_contents;
-      $result .= $mini_toc;
+      $result .= $mini_toc_or_auto_menu;
       return $result;
     }
   }
@@ -4349,7 +4370,7 @@ sub _convert_heading_command($$$$$)
   $result .= $content if (defined($content));
 
   $result .= $tables_of_contents;
-  $result .= $mini_toc;
+  $result .= $mini_toc_or_auto_menu;
   return $result;
 }
 
