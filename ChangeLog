@@ -1,5 +1,10 @@
 2023-09-09  Patrice Dumas <pertusus@free.fr>
 
+	* tp/t/html_tests.t (automatic_menus): test with FORMAT_MENU menu
+	and no explicit menus.
+
+2023-09-09  Patrice Dumas <pertusus@free.fr>
+
 	Automatic menu in HTML if missing and FORMAT_MENU is menu
 
 	* tp/Texinfo/Convert/HTML.pm (%available_converter_info)

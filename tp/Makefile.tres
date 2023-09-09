@@ -538,6 +538,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/heading/heading_in_example.pl \
   t/results/heading/heading_in_quotation.pl \
   t/results/html_tests/acronym_in_node_and_section.pl \
+  t/results/html_tests/automatic_menus.pl \
   t/results/html_tests/character_number_leading_toc_stoc.pl \
   t/results/html_tests/check_htmlxref.pl \
   t/results/html_tests/check_htmlxref_ignore_ref_top_up.pl \

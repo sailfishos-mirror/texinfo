@@ -622,6 +622,21 @@ in html
 @node subnode
 
 ', {'FORMAT_MENU' => 'sectiontoc'},],
+['automatic_menus',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+@nodedescription Here we begin
+
+@node sec
+@section A section
+@nodedescription Here in section
+
+@node sec after
+@section Sec after
+', {'FORMAT_MENU' => 'menu'}, {'FORMAT_MENU' => 'menu'},],
 ['mathjax_with_texinfo',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
