@@ -1,5 +1,11 @@
 2023-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: comment out tree rebuilding after document
+	structuring, as it would require passing customization for master menu
+	regeneration.
+
+2023-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
 	(rebuild_document), tp/t/test_utils.pl (test): copy input document
 	info keys values not already in new document info.  This is in order
