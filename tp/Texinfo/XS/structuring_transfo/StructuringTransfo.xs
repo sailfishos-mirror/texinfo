@@ -248,7 +248,7 @@ sectioning_structure (tree_in)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           {
-            ELEMENT *sections_list = sectioning_structure (document->tree);
+            ELEMENT *sections_list = sectioning_structure (document);
             register_document_sections_list (document, sections_list);
           }
 

@@ -348,11 +348,12 @@ store_document (ELEMENT *root)
   small_strings_list->number = small_strings_num;
   small_strings_list->space = small_strings_num;
 
-  error_list = realloc (error_list, error_number * sizeof (ERROR_MESSAGE));
+  error_messages_list.list = realloc (error_messages_list.list,
+                        error_messages_list.number * sizeof (ERROR_MESSAGE));
   error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
-  error_messages->list = error_list;
-  error_messages->number = error_number;
-  error_messages->space = error_number;
+  error_messages->list = error_messages_list.list;
+  error_messages->number = error_messages_list.number;
+  error_messages->space = error_messages_list.number;
 
   document_descriptor
    = register_document (root, index_names, floats, internal_references,

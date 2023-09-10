@@ -1,5 +1,27 @@
 2023-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/errors.c (error_messages_list)
+	(message_list_line_error_internal, line_error_internal, wipe_errors)
+	(wipe_error_message_list, forget_errors, message_list_command_error),
+	tp/Texinfo/XS/main/translations.c (replace_convert_substrings),
+	tp/Texinfo/XS/parsetexi/api.c (store_document),
+	tp/Texinfo/XS/main/document.c: use an ERROR_MESSAGE_LIST structure for
+	the parser errors instead of error_list, error_number and error_space.
+	Add message_list_line_error_internal that takes an ERROR_MESSAGE_LIST
+	as argument with the same code as line_error_internal.  Move
+	wipe_error_message_list from document.c to errors.c. Make wipe_errors
+	and line_error_internal wrappers around wipe_error_message_list and
+	message_list_line_error_internal.  Add message_list_command_error to
+	be used in structuring and converters.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(sectioning_structure),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure): pass document instead of tree to
+	sectioning_structure.
+
+2023-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: comment out tree rebuilding after document
 	structuring, as it would require passing customization for master menu
 	regeneration.

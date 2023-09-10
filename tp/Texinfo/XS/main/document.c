@@ -117,17 +117,6 @@ register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
   document->sections_list = sections_list;
 }
 
-/* same as errors.c wipe_errors */
-void
-wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
-{
-  int j;
-  for (j = 0; j < error_messages->number; j++)
-    free (error_messages->list[j].message);
-  free (error_messages->list);
-  memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-}
-
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {

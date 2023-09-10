@@ -99,14 +99,13 @@ prepare_error_line_message (ERROR_MESSAGE *error_message)
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;
 
-ERROR_MESSAGE *error_list = 0;
-size_t error_number = 0;
-static size_t error_space = 0;
+ERROR_MESSAGE_LIST error_messages_list;
 
 static void
-line_error_internal (enum error_type type, int continuation,
-                     SOURCE_INFO *cmd_source_info,
-                     char *format, va_list v)
+message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
+                                  enum error_type type, int continuation,
+                                  SOURCE_INFO *cmd_source_info,
+                                  char *format, va_list v)
 {
   char *message;
 #ifdef ENABLE_NLS
@@ -116,27 +115,41 @@ line_error_internal (enum error_type type, int continuation,
 #endif
   if (!message) fatal ("vasprintf failed");
 
-  if (error_number == error_space)
+  if (error_messages->number == error_messages->space)
     {
-      error_list = realloc (error_list,
-                            (error_space += 10) * sizeof (ERROR_MESSAGE));
+      error_messages->list = realloc (error_messages->list,
+         (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
     }
-  error_list[error_number].message = message;
-  error_list[error_number].type = type;
-  error_list[error_number].continuation = continuation;
+  error_messages->list[error_messages->number].message = message;
+  error_messages->list[error_messages->number].type = type;
+  error_messages->list[error_messages->number].continuation = continuation;
 
   if (cmd_source_info)
     {
       if (cmd_source_info->line_nr)
-        error_list[error_number++].source_info = *cmd_source_info;
+        error_messages->list[error_messages->number++].source_info
+          = *cmd_source_info;
       else
-        error_list[error_number++].source_info = current_source_info;
+        error_messages->list[error_messages->number++].source_info
+          = current_source_info;
     }
   else
-    error_list[error_number++].source_info = current_source_info;
+    error_messages->list[error_messages->number++].source_info
+      = current_source_info;
 
   if (debug_output)
-    debug_error_warning_message (&error_list[error_number -1]);
+    debug_error_warning_message (
+                       &error_messages->list[error_messages->number -1]);
+}
+
+static void
+line_error_internal (enum error_type type, int continuation,
+                     SOURCE_INFO *cmd_source_info,
+                     char *format, va_list v)
+{
+  message_list_line_error_internal (&error_messages_list,
+                      type, continuation, cmd_source_info,
+                      format, v);
 }
 
 void
@@ -187,20 +200,36 @@ command_error (ELEMENT *e, char *format, ...)
 }
 
 void
+message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
+                            ELEMENT *e, char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  message_list_line_error_internal (error_messages, error, 0, &e->source_info,
+                                    format, v);
+}
+
+void
 wipe_errors (void)
 {
-  int i;
-  for (i = 0; i < error_number; i++)
-    free (error_list[i].message);
-  error_number = 0;
+  wipe_error_message_list (&error_messages_list);
+}
+
+void
+wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  int j;
+  for (j = 0; j < error_messages->number; j++)
+    free (error_messages->list[j].message);
+  free (error_messages->list);
+  memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 }
 
 void
 forget_errors (void)
 {
-  error_number = 0;
-  error_space = 0;
-  error_list = 0;
+  memset (&error_messages_list, 0, sizeof (ERROR_MESSAGE_LIST));
 }
 
 static void

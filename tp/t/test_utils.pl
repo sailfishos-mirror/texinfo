@@ -1064,6 +1064,9 @@ sub test($$)
       and $ENV{TEXINFO_XS_CONVERT} eq '1') {
     $document = Texinfo::Structuring::rebuild_document($document);
     $tree = $document->tree();
+
+    #Texinfo::Parser::_get_errors($registrar, $main_configuration,
+    #                             $document->{'errors'});
   }
 
   my ($errors, $error_nrs) = $registrar->errors();

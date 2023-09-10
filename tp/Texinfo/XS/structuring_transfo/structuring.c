@@ -73,8 +73,9 @@ new_block_command (ELEMENT *element, enum command_id cmd)
 }
 
 ELEMENT *
-sectioning_structure (ELEMENT *root)
+sectioning_structure (DOCUMENT *document)
 {
+  ELEMENT *root = document->tree;
   ELEMENT *sec_root = 0;
   ELEMENT *previous_section = 0;
   ELEMENT *previous_toplevel = 0;
@@ -127,7 +128,7 @@ sectioning_structure (ELEMENT *root)
               ELEMENT *section_childs = new_element (ET_NONE);
               if (level - prev_section_level > 1)
                 {
-                  command_error (content,
+                  message_list_command_error(document->error_messages, content,
                         "raising the section level of @%s which is too low",
                                  builtin_command_name (content->cmd));
                   level = prev_section_level + 1;

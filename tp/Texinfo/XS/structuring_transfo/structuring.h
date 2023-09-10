@@ -8,7 +8,7 @@
 
 void associate_internal_references (LABEL_LIST *identifiers_target,
                                     ELEMENT_LIST *refs);
-ELEMENT *sectioning_structure (ELEMENT *root);
+ELEMENT *sectioning_structure (DOCUMENT *document);
 ELEMENT *nodes_tree (DOCUMENT *document);
 ELEMENT *get_node_node_childs_from_sectioning (ELEMENT *node);
 char *normalized_menu_entry_internal_node (ELEMENT *entry);

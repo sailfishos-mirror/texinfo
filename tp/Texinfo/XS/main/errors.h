@@ -21,9 +21,11 @@ void line_error_ext (enum error_type type, int continuation,
 void bug_message (char *format, ...);
 char *prepare_error_line_message (ERROR_MESSAGE *error_message);
 
-extern ERROR_MESSAGE *error_list;
-extern size_t error_number;
+void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);
+void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
+                                 ELEMENT *e, char *format, ...);
 
+extern ERROR_MESSAGE_LIST error_messages_list;
 extern SOURCE_INFO current_source_info;
 
 #endif

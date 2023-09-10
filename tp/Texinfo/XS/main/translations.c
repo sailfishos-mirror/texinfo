@@ -531,14 +531,16 @@ replace_convert_substrings (char *translated_string,
 
   debug ("IN TR PARSER '%s'", texinfo_line);
 
-  if (error_number > 0)
+  if (error_messages_list.number > 0)
     {
-      fprintf (stderr, "translation %zu error(s)\n", error_number);
+      fprintf (stderr, "translation %zu error(s)\n",
+               error_messages_list.number);
       fprintf (stderr, "translated string: %s\n", translated_string);
       fprintf (stderr, "Error messages: \n");
-      for (i = 0; i < error_number; i++)
+      for (i = 0; i < error_messages_list.number; i++)
         {
-           char *message = prepare_error_line_message (&error_list[i]);
+           char *message
+            = prepare_error_line_message (&error_messages_list.list[i]);
            fprintf (stderr, "%s\n", message);
            free (message);
         }
