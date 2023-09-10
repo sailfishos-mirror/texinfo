@@ -275,8 +275,10 @@ encoded_input_file_name (char *file_name, char *input_file_encoding,
 # get_conf(), the included file can only be found in specific
 # circumstances.
 */
+/* FIXME TEXT_OPTIONS * is too restricted, should be any converter
+   customization, but it is the only one we have for now */
 ELEMENT *
-expand_verbatiminclude (ELEMENT *current)
+expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options)
 {
   ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
@@ -292,8 +294,7 @@ expand_verbatiminclude (ELEMENT *current)
   file_name = encoded_input_file_name (file_name_text, input_encoding,
                                        &file_name_encoding);
 
-  /* FIXME STRING_LIST *include_dirs_list argument */
-  file = locate_include_file (file_name, 0);
+  file = locate_include_file (file_name, &options->include_directories);
 
   if (file)
     {
@@ -340,6 +341,7 @@ expand_verbatiminclude (ELEMENT *current)
               free (line);
               raw = new_element (ET_raw);
               text_append (&raw->text, text);
+              add_to_element_contents (verbatiminclude, raw);
               free (text);
             }
           if (fclose (stream) == EOF)

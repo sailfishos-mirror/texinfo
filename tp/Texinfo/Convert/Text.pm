@@ -925,18 +925,19 @@ sub output($$)
 
   my $result;
   # TODO possible way to interface with XS converter.  To pass the tests,
-  # need to pass include directories to expand_verbatiminclude.
-  #if (defined($root->{'tree_document_descriptor'})) {
-  #  my $XS_result = _convert_tree_with_XS($self, $root);
-  #  if (defined ($XS_result)) {
-  #    $result = $XS_result;
-  #  } else {
-  #    print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
-  #    cluck();
-  #  }
-  #} else {
+  # we pass options to expand_verbatiminclude, but the options are text
+  # options not generic converter options.
+  if (defined($root->{'tree_document_descriptor'})) {
+    my $XS_result = _convert_tree_with_XS($self, $root);
+    if (defined ($XS_result)) {
+      $result = $XS_result;
+    } else {
+      print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
+      cluck();
+    }
+  } else {
     $result = _convert($root, $self);
-  #}
+  }
 
   if ($fh) {
     print $fh $result;

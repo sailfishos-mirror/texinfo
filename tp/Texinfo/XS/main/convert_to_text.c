@@ -735,8 +735,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       else if (element->cmd == CM_verbatiminclude)
         {
           ELEMENT *verbatim_include_verbatim
-          /* FIXME options argument */
-            = expand_verbatiminclude (element);
+          /* FIXME options argument should be generic converter options */
+            = expand_verbatiminclude (element, options);
           if (verbatim_include_verbatim)
             {
               convert_to_text_internal (verbatim_include_verbatim,

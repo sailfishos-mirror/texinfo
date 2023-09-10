@@ -3,6 +3,7 @@
 #define CONVERT_UTILS_H
 
 #include "tree_types.h"
+#include "convert_to_text.h"
 
 extern char *convert_utils_month_name[12];
 
@@ -24,7 +25,7 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 char *add_heading_number (ELEMENT *current, char *text, int numbered);
 
-ELEMENT *expand_verbatiminclude (ELEMENT *current);
+ELEMENT *expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options);
 
 PARSED_DEF *definition_arguments_content (ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
