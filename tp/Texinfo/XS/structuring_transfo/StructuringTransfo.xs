@@ -50,8 +50,8 @@ rebuild_document (document_in, ...)
     PREINIT:
         int no_store = 0;
         int document_descriptor;
-        SV** document_descriptor_sv;
-        char *key = "document_descriptor";
+        SV **document_descriptor_sv;
+        char *descriptor_key = "document_descriptor";
         HV *hv_in;
     CODE:
         if (items > 1)
@@ -59,15 +59,57 @@ rebuild_document (document_in, ...)
             no_store = SvIV (ST(1));
 
         hv_in = (HV *)SvRV (document_in);
-        document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+        document_descriptor_sv = hv_fetch (hv_in, descriptor_key,
+                                           strlen (descriptor_key), 0);
         if (document_descriptor_sv)
           {
+            SV **info_sv;
+            SV *rebuilt_doc_sv;
+            HV *rebuilt_doc_hv;
+
             document_descriptor = SvIV (*document_descriptor_sv);
-            RETVAL = build_document (document_descriptor, no_store);
+            rebuilt_doc_sv = build_document (document_descriptor, no_store);
+            RETVAL = rebuilt_doc_sv;
+            rebuilt_doc_hv = (HV *)SvRV (rebuilt_doc_sv);
+            info_sv = hv_fetch (hv_in, "info", strlen ("info"), 0);
+            /* copy input document info keys values not already in new document
+               info.  Should only happen for info keys set in perl only. */
+            if (info_sv)
+              {
+                I32 hv_number;
+                I32 i;
+                HV *info_hv = (HV *)SvRV (*info_sv);
+                SV **rebuilt_info_sv = hv_fetch (rebuilt_doc_hv, "info",
+                                                strlen ("info"), 0);
+                HV *rebuilt_info_hv = 0;
+                if (!rebuilt_info_sv)
+                  {
+                    HV *rebuilt_info_hv = newHV ();
+                    SV *rebuilt_info_ref = newRV_noinc ((SV *) rebuilt_info_hv);
+                    hv_store (rebuilt_doc_hv, "info", strlen ("info"),
+                              rebuilt_info_ref, 0);
+                  }
+                else
+                  {
+                    rebuilt_info_hv = (HV *)SvRV (*rebuilt_info_sv);
+                  }
+                hv_number = hv_iterinit (info_hv);
+                for (i = 0; i < hv_number; i++)
+                  {
+                    char *key;
+                    I32 retlen;
+                    SV *value = hv_iternextsv(info_hv,
+                                              &key, &retlen);
+                    SV **existing_key_sv = hv_fetch (rebuilt_info_hv, key,
+                                                     strlen (key), 0);
+                    if (!existing_key_sv)
+                      hv_store (rebuilt_info_hv, key, strlen (key), value, 0);
+                  }
+              }
           }
         else
           {
-            fprintf (stderr, "ERROR: document rebuild: no %s\n", key);
+            fprintf (stderr, "ERROR: document rebuild: no %s\n", descriptor_key);
             RETVAL = newSV(0);
           }
     OUTPUT:

@@ -1462,6 +1462,8 @@ while(@input_files) {
     local $Data::Dumper::Purity = 1;
     no warnings 'once';
     local $Data::Dumper::Indent = 1;
+    no warnings 'once';
+    local $Data::Dumper::Sortkeys = 1;
     print STDERR Data::Dumper->Dump([$tree]);
   }
   # object registering errors and warnings
@@ -1564,8 +1566,6 @@ while(@input_files) {
                                                $registrar, $main_configuration);
   }
 
-  my $refs = $document->internal_references_information();
-
   Texinfo::Structuring::associate_internal_references($registrar,
                                             $main_configuration, $document);
   # information obtained through Texinfo::Structuring
@@ -1651,6 +1651,11 @@ while(@input_files) {
                             %$init_files_options,
                             %$file_cmdline_options,
                           };
+
+  if (defined $ENV{TEXINFO_XS_CONVERT}
+      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    $document = Texinfo::Structuring::rebuild_document($document);
+  }
 
   # NOTE nothing set in $main_configuration is passed directly, which is
   # clean, the Converters already have that information in $converter_options,
@@ -1762,8 +1767,8 @@ while(@input_files) {
            or (defined($converter_element_count->get_conf('USE_NODES'))
                        and !$converter_element_count->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)
-        = $converter_element_count->sort_element_counts($tree, $use_sections,
-                                             get_conf('SORT_ELEMENT_COUNT_WORDS'));
+        = $converter_element_count->sort_element_counts($document->tree(),
+                          $use_sections, get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
     my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');
     my ($encoded_sort_element_count_file_name, $path_encoding)

@@ -42,5 +42,6 @@ void register_document_sections_list (DOCUMENT *document,
                                       ELEMENT *sections_list);
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
+void clear_document_errors (int document_descriptor);
 
 #endif

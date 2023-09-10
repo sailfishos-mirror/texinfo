@@ -1064,8 +1064,6 @@ sub test($$)
       and $ENV{TEXINFO_XS_CONVERT} eq '1') {
     $document = Texinfo::Structuring::rebuild_document($document);
     $tree = $document->tree();
-    $document->{'info'}->{'input_file_name'} = $test_input_file_name
-      if (!$test_file and defined($test_input_file_name));
   }
 
   my ($errors, $error_nrs) = $registrar->errors();
