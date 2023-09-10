@@ -117,13 +117,23 @@ register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
   document->sections_list = sections_list;
 }
 
+/* same as errors.c wipe_errors */
+void
+wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  int j;
+  for (j = 0; j < error_messages->number; j++)
+    free (error_messages->list[j].message);
+  free (error_messages->list);
+  memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+}
+
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
   if (document->tree)
     {
       INDEX **i, *idx;
-      int j;
 
       delete_global_info (document->global_info);
       free (document->global_info);
@@ -143,9 +153,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
         }
       free (document->index_names);
       /* same as errors.c wipe_errors */
-      for (j = 0; j < document->error_messages->number; j++)
-        free (document->error_messages->list[j].message);
-      free (document->error_messages->list);
+      wipe_error_message_list (document->error_messages);
       free (document->error_messages);
     }
 }
@@ -192,3 +200,10 @@ unregister_tree (DOCUMENT *document)
   return tree;
 }
 
+void
+clear_document_errors (int document_descriptor)
+{
+  DOCUMENT *document = retrieve_document (document_descriptor);
+  if (document)
+    wipe_error_message_list (document->error_messages);
+}

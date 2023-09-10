@@ -34,7 +34,7 @@
 #include "conf.h"
 #include "build_perl_info.h"
 #include "input.h"
-/* for remove_document
+/* for remove_document and clear_document_errors
  FIXME should it be a separate API?
  */
 #include "document.h"
@@ -103,6 +103,9 @@ build_document (int document_descriptor, ...)
 
 void
 remove_document (int document_descriptor)
+
+void
+clear_document_errors (int document_descriptor)
 
 void
 parser_store_value (name, value)

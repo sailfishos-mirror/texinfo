@@ -200,6 +200,8 @@ sub get_parser_info($$;$) {
   _get_errors ($registrar, $configuration_information,
                $document->{'errors'});
 
+  clear_document_errors($document_descriptor);
+
   # additional info relevant in perl only.
   $document->{'info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
