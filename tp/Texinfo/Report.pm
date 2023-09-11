@@ -81,8 +81,6 @@ sub line_warn($$$$;$$)
 
   return if (!defined($error_location_info));
 
-  chomp ($text);
-
   my $warn_line;
 
   if (defined($error_location_info->{'macro'})
@@ -120,8 +118,6 @@ sub line_error($$$$;$)
   my $continuation = shift;
   my $silent = shift;
 
-  chomp ($text);
-
   if (defined($error_location_info)) {
     my $error_text;
     if ($error_location_info->{'macro'} ne '') {
@@ -153,8 +149,6 @@ sub document_warn($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  chomp($text);
-
   my $warn_line;
   if (defined($configuration_information)
       and defined($configuration_information->get_conf('PROGRAM'))
@@ -178,7 +172,6 @@ sub document_error($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  chomp($text);
   my $error_line;
   if (defined($configuration_information)
       and defined($configuration_information->get_conf('PROGRAM'))
