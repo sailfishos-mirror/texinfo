@@ -38,7 +38,7 @@ use Carp qw(cluck);
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
 
-$VERSION = '7.0.90';
+$VERSION = '7.0.91';
 
 
 my %defaults = (
