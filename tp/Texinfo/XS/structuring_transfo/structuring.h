@@ -6,8 +6,7 @@
 #include "document.h"
 
 
-void associate_internal_references (LABEL_LIST *identifiers_target,
-                                    ELEMENT_LIST *refs);
+void associate_internal_references (DOCUMENT *document);
 ELEMENT *sectioning_structure (DOCUMENT *document);
 ELEMENT *nodes_tree (DOCUMENT *document);
 ELEMENT *get_node_node_childs_from_sectioning (ELEMENT *node);

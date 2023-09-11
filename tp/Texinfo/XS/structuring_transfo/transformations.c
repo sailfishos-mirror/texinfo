@@ -560,9 +560,8 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
   modify_tree (tree, &move_index_entries_after_items_internal, 0);
 }
 
-/* in perl REGISTRAR and CUSTOMIZATION_INFORMATION, but
-# $REGISTRAR and $CUSTOMIZATION_INFORMATION are used for error
-# reporting, but they may not be useful, as the code checks that
+/* in perl REGISTRAR and CUSTOMIZATION_INFORMATION used for error
+# reporting, but they should not be useful, as the code checks that
 # the new node target label does not exist already.
  */
 ELEMENT *
@@ -760,7 +759,8 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   return 0;
 }
 
-/* in perl registrar and configuration */
+/* in perl registrar and configuration, but they are not useful,
+   see coment before new_node */
 ELEMENT *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
@@ -1298,12 +1298,13 @@ protect_node_after_label_in_tree (ELEMENT *tree)
 }
 
 /* FIXME move source marks */
-/* $registrar, $customization_information in argument in perl */
+/* $customization_information in argument in perl */
 ELEMENT *
 protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,
                                              void *argument)
 {
+  DOCUMENT *document = (DOCUMENT *) argument;
   if (current->text.end > 0)
     {
       char *filename;
@@ -1351,10 +1352,9 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                               if (parent_for_warn->cmd
                                   && parent_for_warn->source_info.line_nr)
                                 {
-                 /*
-                if ($registrar) {}
-                  */
-                                  command_warn (parent_for_warn ,
+                                  message_list_command_warn (
+                                    document->error_messages,
+                                    parent_for_warn ,
                                     "could not protect hash character in @%s",
                                 builtin_command_name (parent_for_warn->cmd));
                                   break;
@@ -1408,11 +1408,13 @@ protect_hashchar_at_line_beginning_internal (const char *type,
   return 0;
 }
 
-/* FIXME $registrar and $customization_information in perl */
+/* FIXME $customization_information in perl */
 ELEMENT *
-protect_hashchar_at_line_beginning (ELEMENT *tree)
+protect_hashchar_at_line_beginning (DOCUMENT *document)
 {
-  return modify_tree (tree, &protect_hashchar_at_line_beginning_internal, 0);
+  ELEMENT *tree = document->tree;
+  return modify_tree (tree, &protect_hashchar_at_line_beginning_internal,
+                      (void *) document);
 }
 
 ELEMENT *

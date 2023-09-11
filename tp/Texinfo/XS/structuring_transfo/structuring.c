@@ -128,7 +128,7 @@ sectioning_structure (DOCUMENT *document)
               ELEMENT *section_childs = new_element (ET_NONE);
               if (level - prev_section_level > 1)
                 {
-                  message_list_command_error(document->error_messages, content,
+                  message_list_command_error (document->error_messages, content,
                         "raising the section level of @%s which is too low",
                                  builtin_command_name (content->cmd));
                   level = prev_section_level + 1;
@@ -197,13 +197,14 @@ sectioning_structure (DOCUMENT *document)
                 /* level is 0 for part and section level -1 for sec root. The
                    condition means section level > 1, ie below chapter-level.
                  */
-                            command_warn (content,
-                              "no chapter-level command before @%s",
+                            message_list_command_warn (document->error_messages,
+                              content, "no chapter-level command before @%s",
                                    builtin_command_name (content->cmd));
                         }
                       else
                         {
-                          command_warn (content,
+                          message_list_command_warn (document->error_messages,
+                                 content,
           "lowering the section level of @%s appearing after a lower element",
                                  builtin_command_name (content->cmd));
                           level = sec_root_level +1;
@@ -365,9 +366,9 @@ sectioning_structure (DOCUMENT *document)
             = lookup_extra_element (content, "part_associated_section");
           if (!part_associated_section)
             {
-              command_warn (content,
-                   "no sectioning command associated with @%s",
-                            builtin_command_name (content->cmd));
+              message_list_command_warn (document->error_messages, content,
+                               "no sectioning command associated with @%s",
+                                      builtin_command_name (content->cmd));
             }
         }
     }
@@ -390,23 +391,25 @@ warn_non_empty_parts (DOCUMENT *document)
     {
       ELEMENT *part = global_info->part.contents.list[i];
       if (!is_content_empty (part, 0))
-        command_warn (part, "@%s not empty",
-                      builtin_command_name (part->cmd));
+        message_list_command_warn (document->error_messages, part,
+                      "@%s not empty", builtin_command_name (part->cmd));
     }
 }
 
 void
-check_menu_entry (LABEL_LIST *identifiers_target, enum command_id cmd,
+check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   ELEMENT *menu_content, ELEMENT *menu_entry_node)
 {
   char *normalized_menu_node = lookup_extra_string (menu_entry_node,
                                                     "normalized");
+  LABEL_LIST *identifiers_target = document->identifiers_target;
   if (normalized_menu_node)
     {
       ELEMENT *menu_node = find_identifier_target (identifiers_target,
                                                    normalized_menu_node);
       if (!menu_node)
-        command_error (menu_content, "@%s reference to nonexistent node `%s'",
+        message_list_command_error (document->error_messages, menu_content,
+                       "@%s reference to nonexistent node `%s'",
                        builtin_command_name (cmd),
                        link_element_to_texi (menu_entry_node));
 
@@ -415,7 +418,7 @@ check_menu_entry (LABEL_LIST *identifiers_target, enum command_id cmd,
           ELEMENT *node_content = lookup_extra_element (menu_entry_node,
                                                         "node_content");
           if (!check_node_same_texinfo_code (menu_node, node_content))
-            command_warn (menu_content,
+            message_list_command_warn (document->error_messages, menu_content,
                   "@%s entry node name `%s' different from %s name `%s'",
                   builtin_command_name (cmd),
                   link_element_to_texi (menu_entry_node),
@@ -777,8 +780,9 @@ check_nodes_are_referenced (DOCUMENT *document)
           if (!found)
             {
               nr_not_found++;
-              command_warn (node, "node `%s' unreferenced",
-                            target_element_to_texi_label(node));
+              message_list_command_warn (document->error_messages,
+                                    node, "node `%s' unreferenced",
+                                 target_element_to_texi_label(node));
             }
         }
     }
@@ -835,7 +839,7 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
 }
 
 /* set menu_directions */
-/* FIXME $registrar and $customization_information in perl */
+/* FIXME $customization_information in perl */
 void
 set_menus_node_directions (DOCUMENT *document)
 {
@@ -877,7 +881,8 @@ set_menus_node_directions (DOCUMENT *document)
           for (j = 1; j < menus->contents.number; j++)
             {
                ELEMENT *menu = menus->contents.list[j];
-               command_warn (menu, "multiple @%s",
+               message_list_command_warn (document->error_messages,
+                             menu, "multiple @%s",
                              builtin_command_name (menu->cmd));
             }
         }
@@ -905,7 +910,7 @@ set_menus_node_directions (DOCUMENT *document)
                           if (!manual_content)
                             {
                               if (check_menu_entries)
-                                check_menu_entry (identifiers_target, menu->cmd,
+                                check_menu_entry (document, menu->cmd,
                                                   menu_content, content);
                               char *normalized
                                 = lookup_extra_string (content, "normalized");
@@ -987,7 +992,7 @@ set_menus_node_directions (DOCUMENT *document)
                            = lookup_extra_element (content, "manual_content");
 
                           if (!manual_content)
-                            check_menu_entry (identifiers_target,
+                            check_menu_entry (document,
                                               detailmenu->cmd,
                                               menu_content, content);
                           break;
@@ -1113,7 +1118,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               && menus->contents.number > 0
                               && (!menu_directions
                                   || !menu_directions->contents.list[d]))
-                            command_warn (node,
+                            message_list_command_warn (document->error_messages,
+                                       node,
                       "node %s for `%s' is `%s' in sectioning but not in menu",
                                        direction_names[d],
                                        target_element_to_texi_label (node),
@@ -1142,7 +1148,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
             if ($customization_information->get_conf(
                                                'CHECK_NORMAL_MENU_STRUCTURE')
            */
-                            command_warn (node,
+                            message_list_command_warn (
+                                document->error_messages, node,
                "node `%s' is %s for `%s' in menu but not in sectioning",
                        target_element_to_texi_label (elt_menu_direction),
                                            direction_names[d],
@@ -1232,7 +1239,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                        = lookup_extra_element (menu_direction, "manual_content");
                       if (!menu_dir_manual_content)
                         {
-                          command_warn (node,
+                          message_list_command_warn (document->error_messages,
+                                           node,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                            direction_names[d],
                                 target_element_to_texi_label (node),
@@ -1296,7 +1304,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                         }
                     }
                   if (!found)
-                    command_warn (up_node,
+                    message_list_command_warn (document->error_messages,
+                                  up_node,
            "node `%s' lacks menu item for `%s' despite being its Up target",
                                   target_element_to_texi_label (up_node),
                                   target_element_to_texi_label (node));
@@ -1307,7 +1316,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 }
 
 /* set node directions based on sectioning and @node explicit directions */
-/* in perl: registrar and customization_information */
+/* in perl: customization_information */
 ELEMENT *
 nodes_tree (DOCUMENT *document)
 {
@@ -1458,7 +1467,8 @@ nodes_tree (DOCUMENT *document)
                           if (!check_node_same_texinfo_code (node_target,
                                                     direction_node_content))
                              {
-                               command_warn (node,
+                               message_list_command_warn (
+                                  document->error_messages, node,
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
                                   direction_texts[direction],
                                   link_element_to_texi (direction_element),
@@ -1472,7 +1482,8 @@ nodes_tree (DOCUMENT *document)
                            /*
             if (!$customization_information->get_conf('novalidate'))
                            */
-                           command_error (node,
+                           message_list_command_error (document->error_messages,
+                                     node,
                                      "%s reference to nonexistent `%s'",
                                      direction_texts[direction],
                                      link_element_to_texi(direction_element));
@@ -1486,9 +1497,10 @@ nodes_tree (DOCUMENT *document)
 }
 
 void
-associate_internal_references (LABEL_LIST *identifiers_target,
-                               ELEMENT_LIST *refs)
+associate_internal_references (DOCUMENT *document)
 {
+  LABEL_LIST *identifiers_target = document->identifiers_target;
+  ELEMENT_LIST *refs = document->internal_references;
   int i;
 
   if (!refs || !refs->number)
@@ -1542,8 +1554,8 @@ associate_internal_references (LABEL_LIST *identifiers_target,
               /*
         if (!$customization_information->get_conf('novalidate'))
                */
-               /* FIXME registrar */
-              command_error (ref, "@%s reference to nonexistent node `%s'",
+              message_list_command_error (document->error_messages,
+                             ref, "@%s reference to nonexistent node `%s'",
                              builtin_command_name (ref->cmd),
                              link_element_to_texi (label_element));
             }
@@ -1554,11 +1566,10 @@ associate_internal_references (LABEL_LIST *identifiers_target,
           /*
         if (!$customization_information->get_conf('novalidate')
           */
-               /* FIXME registrar */
               if (!check_node_same_texinfo_code (node_target,
                                                  label_node_content))
                 {
-                  command_warn (ref,
+                  message_list_command_warn (document->error_messages, ref,
                                 "@%s to `%s', different from %s name `%s'",
                                 builtin_command_name (ref->cmd),
                                 link_element_to_texi (label_element),

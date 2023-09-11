@@ -232,8 +232,7 @@ associate_internal_references (document_in)
         /* FIXME warning/error if not found? */
         document = get_sv_document_document (document_in, 0);
         if (document)
-          associate_internal_references (document->identifiers_target,
-                                         document->internal_references);
+          associate_internal_references (document);
 
 
 # FIXME return a list of sections?  How to match elements with perl tree
@@ -441,7 +440,7 @@ protect_hashchar_at_line_beginning (tree_in)
         document = get_sv_tree_document (tree_in, 0);
         /* there is no need to replace the root of the tree */
         if (document)
-          protect_hashchar_at_line_beginning (document->tree);
+          protect_hashchar_at_line_beginning (document);
 
 void
 protect_first_parenthesis_in_targets (tree_in)

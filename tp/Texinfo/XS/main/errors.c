@@ -191,6 +191,17 @@ command_warn (ELEMENT *e, char *format, ...)
 }
 
 void
+message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                           ELEMENT *e, char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  message_list_line_error_internal (error_messages, warning, 0,
+                                    &e->source_info, format, v);
+}
+
+void
 command_error (ELEMENT *e, char *format, ...)
 {
   va_list v;
