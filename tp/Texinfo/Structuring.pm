@@ -2113,10 +2113,11 @@ sub new_complete_menu_master_menu($$$)
   my $node = shift;
 
   my $menu_node = new_complete_node_menu($node);
-  if ($node->{'extra'}->{'normalized'} eq 'Top'
+  if ($menu_node
+      and $node->{'extra'}->{'normalized'}
+      and $node->{'extra'}->{'normalized'} eq 'Top'
       and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top'
-      and $menu_node) {
+      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
     my $detailmenu = new_master_menu($self, $labels, [$menu_node]);
     if ($detailmenu) {
       # add a blank line before the detailed node listing
