@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Base $XS_only in Texinfo/Transformations.pm Texinfo/Structuring.pm on
+specific values of environment variables, such as TEXINFO_XS or
+TEXINFO_XS_CONVERT.
+
 Bugs
 ====
 

@@ -129,15 +129,22 @@ sub _correct_level($$;$)
   }
 }
 
+# set to 1 if perl code is to be run only if XS is not set
+my $XS_only = 0;
+
 sub _XS_fill_gaps_in_sectioning($)
 {
+  return 1;
 }
 
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
 
-  _XS_fill_gaps_in_sectioning($root);
+  if (not _XS_fill_gaps_in_sectioning($root)
+      and $XS_only) {
+    return undef;
+  }
 
   my $contents_nr = scalar(@{$root->{'contents'}});
 
@@ -273,6 +280,7 @@ sub _reference_to_arg($$$)
 
 sub _XS_reference_to_arg_in_tree($)
 {
+  return 1;
 }
 
 sub reference_to_arg_in_tree($)
@@ -419,6 +427,7 @@ sub _reassociate_to_node($$$)
 
 sub _XS_insert_nodes_for_sectioning_commands($)
 {
+ return 1;
 }
 
 sub insert_nodes_for_sectioning_commands($;$$)
@@ -427,7 +436,10 @@ sub insert_nodes_for_sectioning_commands($;$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  _XS_insert_nodes_for_sectioning_commands($document);
+  if (not _XS_insert_nodes_for_sectioning_commands($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $root = $document->tree();
 
@@ -585,6 +597,7 @@ sub _get_non_automatic_nodes_with_sections($)
 
 sub _XS_complete_tree_nodes_menus($$)
 {
+  return 1;
 }
 
 # This should be called after Texinfo::Structuring::sectioning_structure.
@@ -593,7 +606,10 @@ sub complete_tree_nodes_menus($;$)
   my $root = shift;
   my $use_sections = shift;
 
-  _XS_complete_tree_nodes_menus($root, $use_sections);
+  if (not _XS_complete_tree_nodes_menus($root, $use_sections)
+      and $XS_only) {
+    return undef;
+  }
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -604,6 +620,7 @@ sub complete_tree_nodes_menus($;$)
 
 sub _XS_complete_tree_nodes_missing_menu($$)
 {
+  return 1;
 }
 
 # this only complete menus if there was no menu
@@ -612,7 +629,10 @@ sub complete_tree_nodes_missing_menu($;$)
   my $root = shift;
   my $use_sections = shift;
 
-  _XS_complete_tree_nodes_missing_menu($root, $use_sections);
+  if (not _XS_complete_tree_nodes_missing_menu($root, $use_sections)
+      and $XS_only) {
+    return undef;
+  }
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -630,6 +650,7 @@ sub complete_tree_nodes_missing_menu($;$)
 
 sub _XS_regenerate_master_menu($$)
 {
+  return 1;
 }
 
 # customization_information is used to pass down a translatable object with
@@ -640,7 +661,10 @@ sub regenerate_master_menu($$;$)
   my $customization_information = shift;
   my $use_sections = shift;
 
-  _XS_regenerate_master_menu($document, $use_sections);
+  if (not _XS_regenerate_master_menu($document, $use_sections)
+      and $XS_only) {
+    return undef;
+  }
 
   my $identifier_target = $document->labels_information();
 
@@ -850,6 +874,7 @@ sub _protect_hashchar_at_line_beginning($$$)
 
 sub _XS_protect_hashchar_at_line_beginning($)
 {
+  return 1;
 }
 
 sub protect_hashchar_at_line_beginning($$$)
@@ -858,7 +883,10 @@ sub protect_hashchar_at_line_beginning($$$)
   my $customization_information = shift;
   my $tree = shift;
 
-  _XS_protect_hashchar_at_line_beginning ($tree);
+  if (not _XS_protect_hashchar_at_line_beginning ($tree)
+      and $XS_only) {
+    return undef;
+  }
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);
@@ -879,13 +907,17 @@ sub _protect_first_parenthesis_in_targets($$$)
 
 sub _XS_protect_first_parenthesis_in_targets($)
 {
+  return 1;
 }
 
 sub protect_first_parenthesis_in_targets($)
 {
   my $tree = shift;
 
-  _XS_protect_first_parenthesis_in_targets($tree);
+  if (not _XS_protect_first_parenthesis_in_targets($tree)
+      and $XS_only) {
+    return undef;
+  }
 
   Texinfo::Common::modify_tree($tree, \&_protect_first_parenthesis_in_targets);
 }

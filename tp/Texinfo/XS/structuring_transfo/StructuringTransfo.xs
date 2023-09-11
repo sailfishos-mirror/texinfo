@@ -116,31 +116,21 @@ rebuild_document (document_in, ...)
         RETVAL
 
 
-SV *
+void
 fill_gaps_in_sectioning (tree_in)
         SV *tree_in
     PREINIT:
         ELEMENT *added_sections;
         DOCUMENT *document;
-        /*
-        HV *result_tree;
-        */
      CODE:
         document = get_sv_tree_document (tree_in, "fill_gaps_in_sectioning");
-        if (!document)
-          RETVAL = newSV(0);
-        else
+        if (document)
           {
             added_sections = fill_gaps_in_sectioning (document->tree);
-            /* cannot easily be used as it does not match with perl tree
-            result_tree = build_texinfo_tree (added_sections);
-            RETVAL = newRV_inc ((SV *) result_tree);
-             */
-            RETVAL = newSV(0);
+            /* cannot easily be used as it does not match with perl tree.
+               Also the return would not be usable as error status */
             destroy_element (added_sections);
           }
-    OUTPUT:
-        RETVAL
 
 # FIXME what to do with the parent argument?
 # FIXME add another way to call that returns a fake tree?

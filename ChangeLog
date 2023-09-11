@@ -1,5 +1,18 @@
 2023-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm ($XS_only, _XS_*),
+	tp/Texinfo/Transformations.pm ($XS_only, _XS_*): have all the _XS_*
+	functions return 1 (except for _XS_copy_tree) to convey that XS code
+	was not used.  In perl functions, return after calling the _XS_*
+	functions if their return value is not set, when there is no XS, and if
+	the $XS_only variable is 1.  With that system, it is easy to switch
+	from running perl code only without XS to always running perl code.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(fill_gaps_in_sectioning): do not return anything.
+
+2023-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Report.pm (add_formatted_message),
 	tp/Texinfo/XS/main/build_perl_info.c (build_source_info_hash)
 	(convert_error), tp/Texinfo/XS/parsetexi/Parsetexi.pm

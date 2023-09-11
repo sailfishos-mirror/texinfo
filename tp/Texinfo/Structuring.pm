@@ -173,8 +173,12 @@ sub copy_tree($;$)
   return $result;
 }
 
+# set to 1 if perl code is to be run only if XS is not set
+my $XS_only = 0;
+
 sub _XS_sectioning_structure($)
 {
+  return 1;
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
@@ -190,7 +194,10 @@ sub sectioning_structure($$$)
   my $customization_information = shift;
   my $root = shift;
 
-  _XS_sectioning_structure($root);
+  if (not _XS_sectioning_structure($root)
+      and $XS_only) {
+    return undef;
+  }
 
   my $sec_root;
   my $previous_section;
@@ -418,9 +425,9 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
-
 sub _XS_warn_non_empty_parts($)
 {
+  return 1;
 }
 
 sub warn_non_empty_parts($$$)
@@ -429,7 +436,10 @@ sub warn_non_empty_parts($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  _XS_warn_non_empty_parts($document);
+  if (not _XS_warn_non_empty_parts($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $global_commands = $document->global_commands_information();
 
@@ -588,6 +598,7 @@ sub get_node_node_childs_from_sectioning
 
 sub _XS_check_nodes_are_referenced($)
 {
+  return 1;
 }
 
 # In general should be called only after complete_node_tree_with_menus
@@ -596,7 +607,10 @@ sub check_nodes_are_referenced
 {
   my ($document, $registrar, $customization_information) = @_;
 
-  _XS_check_nodes_are_referenced($document);
+  if (not _XS_check_nodes_are_referenced($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
@@ -705,6 +719,7 @@ sub _first_menu_node($$)
 
 sub _XS_set_menus_node_directions($)
 {
+  return 1;
 }
 
 # set menu_directions
@@ -714,7 +729,10 @@ sub set_menus_node_directions($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  _XS_set_menus_node_directions($document);
+  if (not _XS_set_menus_node_directions($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
@@ -844,6 +862,7 @@ sub _section_direction_associated_node($$)
 
 sub _XS_complete_node_tree_with_menus($)
 {
+  return 1;
 }
 
 # complete automatic directions with menus (and first node
@@ -855,7 +874,10 @@ sub complete_node_tree_with_menus($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  _XS_complete_node_tree_with_menus($document);
+  if (not _XS_complete_node_tree_with_menus($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
@@ -1065,6 +1087,7 @@ sub complete_node_tree_with_menus($$$)
 
 sub _XS_nodes_tree($)
 {
+  return 1;
 }
 
 # set node directions based on sectioning and @node explicit directions
@@ -1074,7 +1097,10 @@ sub nodes_tree($$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  _XS_nodes_tree($document);
+  if (not _XS_nodes_tree($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $root = $document->tree();
   my $identifier_target = $document->labels_information();
@@ -1779,6 +1805,7 @@ sub print_element_directions($)
 
 sub _XS_associate_internal_references($)
 {
+  return 1;
 }
 
 # For each internal reference command, set the 'normalized' key, in the
@@ -1789,7 +1816,10 @@ sub associate_internal_references($$$)
   my $customization_information = shift;
   my $document = shift;
 
-  _XS_associate_internal_references($document);
+  if (not _XS_associate_internal_references($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
@@ -1847,13 +1877,17 @@ sub associate_internal_references($$$)
 
 sub _XS_number_floats($)
 {
+  return 1;
 }
 
 sub number_floats($)
 {
   my $document = shift;
 
-  _XS_number_floats($document);
+  if (not _XS_number_floats($document)
+      and $XS_only) {
+    return undef;
+  }
 
   my $floats = $document->floats_information();
 
