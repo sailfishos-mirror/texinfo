@@ -69,6 +69,17 @@ sub errors($)
   return ($self->{'errors_warnings'}, $self->{'error_nrs'});
 }
 
+# add an already formatted/setup message
+sub add_formatted_message($$)
+{
+  my $self = shift;
+  my $message = shift;
+
+  $self->{'error_nrs'}++ if ($message->{'type'} eq 'error'
+                             and !$message->{'continuation'});
+  push @{$self->{'errors_warnings'}}, $message;
+}
+
 # format a line warning
 sub line_warn($$$$;$$)
 {
@@ -201,12 +212,12 @@ Texinfo::Report - Error storing for Texinfo modules
   use Texinfo::Report;
 
   my $registrar = Texinfo::Report::new();
-  
+
   if ($warning_happened) {
     $registrar->line_warn($converter, sprintf(__("\@%s is wrongly used"),
                        $current->{'cmdname'}), $current->{'source_info'});
   }
-  
+
   my ($errors, $errors_count) = $registrar->errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
@@ -289,6 +300,13 @@ The user macro name that is expanded at the location of
 the error or warning.
 
 =back
+
+=item $registrar->add_formatted_message ($msg)
+X<C<add_formatted_message>>
+
+Register the I<$msg> hash reference corresponding to an error, warning or error line
+continuation.  The I<$msg> hash reference should correspond to the structure returned
+by C<errors>.
 
 =item $registrar->line_warn($text, $configuration_information, $error_location_info, $continuation, $silent)
 

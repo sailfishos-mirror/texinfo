@@ -1046,14 +1046,10 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
 
 
 
-static SV *
-build_source_info_hash (SOURCE_INFO source_info)
+static void
+build_source_info_hash (SOURCE_INFO source_info, HV *hv)
 {
-  HV *hv;
-
   dTHX;
-
-  hv = newHV ();
 
   if (source_info.file_name)
     {
@@ -1065,11 +1061,13 @@ build_source_info_hash (SOURCE_INFO source_info)
       hv_store (hv, "file_name", strlen ("file_name"),
                 newSVpv ("", 0), 0);
     }
+
   if (source_info.line_nr)
     {
       hv_store (hv, "line_nr", strlen ("line_nr"),
                 newSViv (source_info.line_nr), 0);
     }
+
   if (source_info.macro)
     {
       hv_store (hv, "macro", strlen ("macro"),
@@ -1080,8 +1078,6 @@ build_source_info_hash (SOURCE_INFO source_info)
       hv_store (hv, "macro", strlen ("macro"),
                 newSVpv_utf8 ("", 0), 0);
     }
-
-  return newRV_noinc ((SV *) hv);
 }
 
 static SV *
@@ -1089,23 +1085,27 @@ convert_error (ERROR_MESSAGE e)
 {
   HV *hv;
   SV *msg;
+  SV *err_line;
 
   dTHX;
 
   hv = newHV ();
 
   msg = newSVpv_utf8 (e.message, 0);
+  err_line = newSVpv_utf8 (e.error_line, 0);
 
-  hv_store (hv, "message", strlen ("message"), msg, 0);
+  hv_store (hv, "text", strlen ("text"), msg, 0);
+  hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
   hv_store (hv, "type", strlen ("type"),
               e.type == error ? newSVpv("error", strlen("error"))
                               : newSVpv("warning", strlen("warning")),
             0);
-  hv_store (hv, "continuation", strlen ("continuation"),
-            newSViv (e.continuation), 0);
 
-  hv_store (hv, "source_info", strlen ("source_info"),
-            build_source_info_hash(e.source_info), 0);
+  if (e.continuation)
+    hv_store (hv, "continuation", strlen ("continuation"),
+              newSViv (e.continuation), 0);
+
+  build_source_info_hash (e.source_info, hv);
 
   return newRV_noinc ((SV *) hv);
 }

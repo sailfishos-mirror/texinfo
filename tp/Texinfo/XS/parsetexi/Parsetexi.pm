@@ -197,8 +197,10 @@ sub get_parser_info($$;$) {
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
 
-  _get_errors ($registrar, $configuration_information,
-               $document->{'errors'});
+  # Copy the errors into the error list in Texinfo::Report.
+  foreach my $error (@{$document->{'errors'}}) {
+    $registrar->add_formatted_message($error);
+  }
 
   clear_document_errors($document_descriptor);
 
@@ -242,29 +244,6 @@ sub parse_texi_file ($$)
   my $document = get_parser_info($self, $document_descriptor);
 
   return $document;
-}
-
-# Copy the errors into the error list in Texinfo::Report.
-sub _get_errors($$$)
-{
-  my $registrar = shift;
-  my $configuration_information = shift;
-  my $errors = shift;
-
-  for my $error (@{$errors}) {
-    # The message output in case of debugging set has already been issued,
-    # therefore we set the optional argument to silence the same message
-    # that could be output here.
-    if ($error->{'type'} eq 'error') {
-      $registrar->line_error ($configuration_information,
-                              $error->{'message'}, $error->{'source_info'},
-                              $error->{'continuation'}, 1);
-    } else {
-      $registrar->line_warn ($configuration_information,
-                             $error->{'message'}, $error->{'source_info'},
-                             $error->{'continuation'}, 1);
-    }
-  }
 }
 
 

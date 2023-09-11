@@ -1065,8 +1065,9 @@ sub test($$)
     $document = Texinfo::Structuring::rebuild_document($document);
     $tree = $document->tree();
 
-    #Texinfo::Parser::_get_errors($registrar, $main_configuration,
-    #                             $document->{'errors'});
+    #foreach my $error (@{$document->{'errors'}}) {
+    #  $registrar->add_formatted_message($error);
+    #}
   }
 
   my ($errors, $error_nrs) = $registrar->errors();

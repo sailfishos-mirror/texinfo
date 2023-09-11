@@ -1,5 +1,16 @@
 2023-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Report.pm (add_formatted_message),
+	tp/Texinfo/XS/main/build_perl_info.c (build_source_info_hash)
+	(convert_error), tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(get_parser_info): store the source_info information directly in
+	convert_error returned hash, pass the hv to build_source_info_hash.
+	Add error_line to convert_error returned hash. Add
+	add_formatted_message in Texinfo::Report to add an already setup error
+	message structure.  Use it in get_parser_info and remove _get_errors.
+
+2023-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/text.c (text_printf): set format to be
 	const.
 
