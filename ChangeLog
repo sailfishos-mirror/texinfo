@@ -1,5 +1,18 @@
 2023-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/text.c (text_printf): set format to be
+	const.
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal)
+	tp/Texinfo/XS/main/utils.h (ERROR_MESSAGE): add error_line to
+	ERROR_MESSAGE. Set the error_line using pgettext as is done in perl.
+	Remove debug_error_warning_message and prepare_error_line_message.
+
+	* po/Makevars (XGETTEXT_OPTIONS): add message_list_command_error,
+	message_list_command_warn and pgettext.
+
+2023-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Report.pm (line_warn, line_error, document_warn)
 	(document_error): remove chomping, messages should not have end of
 	lines.

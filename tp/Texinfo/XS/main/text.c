@@ -50,7 +50,7 @@ text_alloc (TEXT *t, size_t len)
 }
 
 void
-text_printf (TEXT *t, char *format, ...)
+text_printf (TEXT *t, const char *format, ...)
 {
   va_list v;
   char *s;

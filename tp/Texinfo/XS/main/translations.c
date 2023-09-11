@@ -538,12 +538,7 @@ replace_convert_substrings (char *translated_string,
       fprintf (stderr, "translated string: %s\n", translated_string);
       fprintf (stderr, "Error messages: \n");
       for (i = 0; i < error_messages_list.number; i++)
-        {
-           char *message
-            = prepare_error_line_message (&error_messages_list.list[i]);
-           fprintf (stderr, "%s\n", message);
-           free (message);
-        }
+        fprintf (stderr, "%s", error_messages_list.list[i].error_line);
     }
   parser_set_accept_internalvalue (0);
 

@@ -252,9 +252,9 @@ sub _get_errors($$$)
   my $errors = shift;
 
   for my $error (@{$errors}) {
-    # The message output in case of debugging set is already issued by
-    # the parser, therefore we set the optional argument to silence
-    # the same message that could be output here.
+    # The message output in case of debugging set has already been issued,
+    # therefore we set the optional argument to silence the same message
+    # that could be output here.
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
                               $error->{'message'}, $error->{'source_info'},

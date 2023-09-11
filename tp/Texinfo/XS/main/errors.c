@@ -16,6 +16,8 @@
 #include <config.h>
 
 #ifdef ENABLE_NLS
+#include <locale.h>
+#include <gettext.h>
 #include <libintl.h>
 #endif
 
@@ -39,63 +41,6 @@ xasprintf (char **ptr, const char *template, ...)
   return xvasprintf (ptr, template, v);
 }
 
-
-/* these are not full line messages, but the part that are output along
-   with debug messages, as is done in Texinfo::Register::line_warn/line_error
-   called by the perl parser.  Here without using the gettext framework
-   for the translations.
-   FIXME could use prepare_error_line_message below, or be set earlier
-*/
-void
-debug_error_warning_message (ERROR_MESSAGE *error_message)
-{
-  if (error_message->type == warning)
-    fprintf (stderr, "warning: ");
-
-  if (error_message->source_info.macro)
-    fprintf (stderr, "%s (possibly involving @%s)\n",
-             error_message->message, error_message->source_info.macro);
-  else
-    fprintf (stderr, "%s\n", error_message->message);
-}
-
-/* TODO
-   in Perl, this is in the 'error_line' field of the structure somewhat
-   equivalent with ERROR_MESSAGE.  Put it in ERROR_MESSAGE too?
-   TODO
-   first 3 translated in perl, see perl code
- */
-char *
-prepare_error_line_message (ERROR_MESSAGE *error_message)
-{
-  char *result;
-  TEXT text;
-
-  text_init (&text);
-  text_append (&text, "");
-
-  if (error_message->type == warning)
-    {
-      if (error_message->source_info.macro)
-        text_printf (&text, "warning: %s (possibly involving @%s)\n",
-          error_message->message, error_message->source_info.macro);
-      else
-        text_printf (&text, "warning: %s\n", error_message->message);
-    }
-  else
-    {
-      if (error_message->source_info.macro)
-        text_printf (&text, "%s (possibly involving @%s)\n",
-          error_message->message, error_message->source_info.macro);
-      else
-        text_printf (&text, "%s\n", error_message->message);
-    }
-
-  result = strdup (text.text);
-  free (text.text);
-  return result;
-}
-
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;
 
@@ -108,6 +53,9 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
                                   char *format, va_list v)
 {
   char *message;
+  TEXT error_line;
+  ERROR_MESSAGE *error_message;
+
 #ifdef ENABLE_NLS
   xvasprintf (&message, gettext(format), v);
 #else
@@ -120,26 +68,73 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
       error_messages->list = realloc (error_messages->list,
          (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
     }
-  error_messages->list[error_messages->number].message = message;
-  error_messages->list[error_messages->number].type = type;
-  error_messages->list[error_messages->number].continuation = continuation;
+  error_message = &error_messages->list[error_messages->number];
+  error_message->message = message;
+  error_message->type = type;
+  error_message->continuation = continuation;
 
   if (cmd_source_info)
     {
       if (cmd_source_info->line_nr)
-        error_messages->list[error_messages->number++].source_info
-          = *cmd_source_info;
+        error_message->source_info = *cmd_source_info;
       else
-        error_messages->list[error_messages->number++].source_info
-          = current_source_info;
+        error_message->source_info = current_source_info;
     }
   else
-    error_messages->list[error_messages->number++].source_info
-      = current_source_info;
+    error_message->source_info = current_source_info;
+
+  text_init (&error_line);
+  text_append (&error_line, "");
+  if (error_message->source_info.macro)
+    {
+#ifdef ENABLE_NLS
+      if (type == warning)
+        {
+          text_printf (&error_line,
+                       pgettext ("Texinfo source file warning",
+                                 "warning: %s (possibly involving @%s)"),
+                       error_message->message, error_message->source_info.macro);
+        }
+      else
+        {
+          text_printf (&error_line,
+                       pgettext ("Texinfo source file error in macro",
+                                 "%s (possibly involving @%s)"),
+                       error_message->message, error_message->source_info.macro);
+        }
+#else
+      if (type == warning)
+        text_printf (&error_line, "warning: %s (possibly involving @%s)",
+                     error_message->message, error_message->source_info.macro);
+      else
+        text_printf (&error_line, "%s (possibly involving @%s)",
+                     error_message->message, error_message->source_info.macro);
+#endif
+    }
+  else
+    {
+      if (type == warning)
+        {
+#ifdef ENABLE_NLS
+          text_printf (&error_line, pgettext ("Texinfo source file warning",
+                                              "warning: %s"),
+                       error_message->message);
+#else
+          text_printf (&error_line, "warning: %s",
+                       error_message->message);
+#endif
+        }
+      else
+        text_printf (&error_line, "%s", error_message->message);
+    }
+  text_append (&error_line, "\n");
+
+  error_message->error_line = error_line.text;
 
   if (debug_output)
-    debug_error_warning_message (
-                       &error_messages->list[error_messages->number -1]);
+    fprintf (stderr, error_message->error_line);
+
+  error_messages->number++;
 }
 
 static void
@@ -232,7 +227,10 @@ wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
 {
   int j;
   for (j = 0; j < error_messages->number; j++)
-    free (error_messages->list[j].message);
+    {
+      free (error_messages->list[j].message);
+      free (error_messages->list[j].error_line);
+    }
   free (error_messages->list);
   memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 }

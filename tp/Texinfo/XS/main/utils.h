@@ -33,6 +33,7 @@ enum error_type { error, warning };
 
 typedef struct {
     char *message;
+    char *error_line;
     enum error_type type;
     int continuation;
     SOURCE_INFO source_info;
