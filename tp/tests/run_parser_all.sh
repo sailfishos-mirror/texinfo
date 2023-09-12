@@ -169,7 +169,7 @@ post_process_output ()
 
 #LC_ALL=C; export LC_ALL
 # Temporary to have translations of messages in document with XS code
-LC_ALL=en_US; export LC_ALL
+LC_ALL=en_US.utf-8; export LC_ALL
 LANGUAGE=en; export LANGUAGE
 
 prepended_command=
