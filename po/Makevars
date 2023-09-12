@@ -29,7 +29,7 @@ XGETTEXT_OPTIONS = \
  -kmessage_list_command_error:3 \
  -kcommand_warn:2 \
  -kmessage_list_command_warn:3 \
- -kline_error_ext:3
+ -kline_error_ext:3 \
  -kpgettext:1c,2 \
  --flag=error:1:c-format\
  --flag=warning:1:c-format\
@@ -44,7 +44,7 @@ XGETTEXT_OPTIONS = \
  --flag=info_error:1:c-format\
  --flag=window_message_in_echo_area:1:c-format\
  --flag=message_in_echo_area:1:c-format\
- --flag=format_message_node:1:c-format
+ --flag=format_message_node:1:c-format\
  --flag=format_message_buffer:1:c-format
 
 # This is the copyright holder that gets inserted into the header of the
