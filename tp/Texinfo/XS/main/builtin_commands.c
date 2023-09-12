@@ -101,5 +101,7 @@ element_builtin_cmd (ELEMENT *e)
                print_element_debug (e, 0));
       return e->cmd;
     }
+  /* should never reach here */
+  return 0;
 }
 
