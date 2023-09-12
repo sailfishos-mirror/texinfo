@@ -1,3 +1,10 @@
+2023-09-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\newlineloadsconf): Hook into definitions
+	made with \envdef as well as ends-of-lines and commands defined
+	with \parsearg.  Werner Lemberg reported an error when a @tex block
+	followed "\input texinfo" immediately.
+
 2023-09-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.0.91
