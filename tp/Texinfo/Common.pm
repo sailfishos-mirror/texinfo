@@ -373,7 +373,7 @@ our %converter_customization_options = (
 
 # Some are for all converters, EXTENSION for instance, some for
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
-# for HTML.  Could be added to %converter_customization_options.
+# for HTML.
 # Defaults are documented in manual and set in the various converters.
 # used in util/txicustomvars
 my @variable_string_settables = (
@@ -517,9 +517,13 @@ my @variable_other_settables = (
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
 );
 
-our %other_options;
-foreach my $option (@variable_string_settables, @variable_other_settables) {
-  $other_options{$option} = undef;
+foreach my $option (@variable_string_settables) {
+  $converter_customization_options{$option} = undef;
+}
+
+my %converter_other_options;
+foreach my $option (@variable_other_settables) {
+  $converter_other_options{$option} = undef;
 }
 
 # set from command line.
@@ -542,7 +546,7 @@ foreach my $var (keys(%document_settable_at_commands),
          keys(%program_customization_options),
          keys(%parser_options),
          keys(%converter_customization_options),
-         keys(%other_options),
+         keys(%converter_other_options),
          keys(%array_cmdline_options)) {
   $valid_customization_options{$var} = 1;
 }
@@ -2885,7 +2889,7 @@ Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %other_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
+%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
 
 =over
 

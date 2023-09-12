@@ -21,9 +21,7 @@
 
 # Most flags (second column) should be documented (with _commands
 # postpended) in Texinfo/Commands.pod.
-# Some documentation of the flags is in commands.h, but only for
-# flags used in the XS parser, not for the flags not used in the
-# XS parser and filtered out.
+# Some documentation of the flags is in commands.h.
 
 ##############################################################
 # Internal commands
