@@ -34,6 +34,7 @@ use Encode qw(decode);
 
 use Carp qw(cluck confess);
 
+use Texinfo::Options;
 use Texinfo::Common;
 
 use Texinfo::Report;
@@ -98,10 +99,10 @@ my %common_converters_defaults = (
 );
 
 my %all_converters_defaults
- = (%Texinfo::Common::converter_cmdline_options,
-    %Texinfo::Common::converter_customization_options,
-    %Texinfo::Common::unique_at_command_options,
-    %Texinfo::Common::multiple_at_command_options,
+ = (%Texinfo::Options::converter_cmdline_options,
+    %Texinfo::Options::converter_customization_options,
+    %Texinfo::Options::unique_at_command_options,
+    %Texinfo::Options::multiple_at_command_options,
     %common_converters_defaults
 );
 

@@ -72,6 +72,7 @@ use MIME::Base64;
 use Carp qw(cluck);
 
 use Texinfo::Commands;
+use Texinfo::Options;
 use Texinfo::Common;
 use Texinfo::Convert::TexinfoSXML;
 
@@ -411,9 +412,9 @@ sub output_ixin($$)
          or $additional_setting_commands{$global_command})
         and !$global_line_not_setting_commands{$global_command}) {
       if (ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
-        if (defined($Texinfo::Common::multiple_at_command_options{$global_command})) {
+        if (defined($Texinfo::Options::multiple_at_command_options{$global_command})) {
           $setting_commands_defaults{$global_command}
-            = $Texinfo::Common::multiple_at_command_options{$global_command};
+            = $Texinfo::Options::multiple_at_command_options{$global_command};
         }
         foreach my $command (@{$self->{'global_commands'}->{$global_command}}) {
           my ($element, $root_command) = _get_element($self, $command);

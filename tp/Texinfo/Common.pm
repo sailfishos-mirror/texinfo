@@ -45,6 +45,7 @@ use Locale::Messages;
 
 use Texinfo::Documentlanguages;
 use Texinfo::Commands;
+use Texinfo::Options;
 
 # FIXME do we really want XS in that file?  Move to
 # Structuring.pm?
@@ -196,73 +197,11 @@ my %parser_options = (
 # also used in util/txicustomvars
 our %default_parser_customization_values = (%common_parser_options, %parser_options);
 
-
-# @-commands that can be used multiple time in a document and default
-# values.  Associated with customization values too.
-# also used in util/txicustomvars
-our %multiple_at_command_options = (
-  'allowcodebreaks' => 'true',
-  'clickstyle' => '@arrow',
-  'codequotebacktick' => 'off',
-  'codequoteundirected' => 'off',
-  'contents' => 0,
-  'deftypefnnewline' => 'off',
-  'documentencoding' => 'utf-8',
-  'documentlanguage' => undef, # Documented as en, but no @documentlanguage
-                               # really means that the language is not set.
-                               # --document-language
-  'evenfooting'       => undef,
-  'evenheading'       => undef,
-  'everyfooting'      => undef,
-  'everyheading'      => undef,
-  # is N ems in TeX, 0.4 in.
-  'exampleindent' => 5,
-  'firstparagraphindent' => 'none',
-  'frenchspacing' => 'off',
-  'headings' => 'on',
-  'kbdinputstyle' => 'distinct',
-  'microtype'         => undef,
-  'oddheading'        => undef,
-  'oddfooting'        => undef,
-  'paragraphindent' => 3,
-  'shortcontents' => 0,
-  'summarycontents' => 0,
-  'urefbreakstyle' => 'after',
-  'xrefautomaticsectiontitle' => 'off',
-);
-
-# @-commands that should be unique.  Associated with customization values too.
-# also used in util/txicustomvars
-our %unique_at_command_options = (
-  'afivepaper' => undef,
-  'afourpaper' => undef,
-  'afourlatex' => undef,
-  'afourwide' => undef,
-  'bsixpaper' => undef,
-  # when passed through a customization variable, documentdescription
-  # should be already formatted for HTML.  There is no default,
-  # what is determined to be the title is used if not set.
-  'documentdescription' => undef,
-  'evenfootingmarks' => undef,
-  'evenheadingmarks' => undef,
-  'everyfootingmarks' => 'bottom',
-  'everyheadingmarks' => 'bottom',
-  'fonttextsize' => 11,
-  'footnotestyle' => 'end',    # --footnote-style
-  'novalidate' => 0,           # --no-validate
-  'oddfootingmarks' => undef,
-  'oddheadingmarks' => undef,
-  'pagesizes' => undef,
-  'setchapternewpage' => 'on',
-  'setfilename' => undef,
-  'smallbook' => undef,
-);
-
 # check that settable commands are contained in global commands
 # from command_data.txt
 if (0) {
 #if (1) {
-  my @global_unique_settable = keys(%unique_at_command_options);
+  my @global_unique_settable = keys(%Texinfo::Options::unique_at_command_options);
   my @global_unique_commands = keys(%Texinfo::Commands::global_unique_commands);
   my $lcu = List::Compare->new(\@global_unique_settable, \@global_unique_commands);
   # only in the first list
@@ -274,7 +213,7 @@ if (0) {
                               .join(',', $lcu->get_complement)."\n";
   }
 
-  my @global_multi_settable = keys(%multiple_at_command_options);
+  my @global_multi_settable = keys(%Texinfo::Options::multiple_at_command_options);
   my @global_multi_commands = keys(%Texinfo::Commands::global_commands);
   my $lcm = List::Compare->new(\@global_multi_settable, \@global_multi_commands);
   if (scalar($lcm->get_unique)) {
@@ -286,268 +225,25 @@ if (0) {
   }
 }
 
-# a value corresponds to defaults that are the same for every output format
-# otherwise undef is used
-our %converter_cmdline_options = (
-  'SPLIT_SIZE'           => 300000,  # --split-size
-  'FILLCOLUMN'           => 72,      # --fill-column
-  'NUMBER_SECTIONS'      => 1,       # --number-sections
-  'NUMBER_FOOTNOTES'     => 1,       # --number-footnotes
-  # only in HTML
-  'TRANSLITERATE_FILE_NAMES' => 1,   # --transliterate-file-names
-  'SPLIT'                => undef,   # --split
-  'HEADERS'              => 1,       # --headers.  Used to set diverse
-                                     # customization options in main program.
-                                     # Only directly used in HTML converter
-  'NODE_FILES'           => undef,   # --node-files.  Depend on SPLIT
-  'VERBOSE'              => undef,   # --verbose
-  'OUTFILE'              => undef,   # --output    If non split and not ending by /.
-                                     # Setting can be format dependent
-  'SUBDIR'               => undef,   # --output    If split or ending by /.
-                                     # Setting can be format dependent
-  'ENABLE_ENCODING'      => 1,       # --disable-encoding/--enable-encoding.
-                                     # The option is directly used in
-                                     # Info/Plaintext, and used in diverse formats
-                                     # for index sorting and plain text output.
-);
-
-# used in main program, defaults documented in manual
-my %program_cmdline_options = (
-  'MACRO_EXPAND'         => undef,   # --macro-expand.  Only for main program
-  # used in HTML only, called from main program
-  'INTERNAL_LINKS'       => undef,   # --internal-links
-  'ERROR_LIMIT'          => 100,     # --error-limit
-  'FORCE'                => undef,   # --force
-  'NO_WARN'              => undef,   # --no-warn
-  'SILENT'               => undef,   # --silent.    Not used.  For completeness
-
-  # following also set in converters
-  'FORMAT_MENU'          => 'menu',  # --headers.  Modified by the format.
-);
-
-# used in main program, defaults documented in manual
-# also used in util/txicustomvars
-our %program_customization_options = (
-  'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
-            # automatic direction and directions in menu are not consistent
-            # with sectionning, and when node directions are not consistent
-            # with menu directions.
-  'CHECK_MISSING_MENU_ENTRY'    => 1,
-  'DUMP_TREE'                   => undef,
-  'DUMP_TEXI'                   => undef,
-  'SHOW_BUILTIN_CSS_RULES'      => 0,
-  'SORT_ELEMENT_COUNT'          => undef,
-  'SORT_ELEMENT_COUNT_WORDS'    => undef,
-  'TEXI2DVI'                    => 'texi2dvi',
-  'TREE_TRANSFORMATIONS'        => undef,
-);
-
 # defaults for the main program.  In general transmitted to converters as defaults
 our %default_main_program_customization_options = (
- %program_cmdline_options, %program_customization_options);
-
-# used in converters, default documented in manual
-# also used in util/txicustomvars
-our %converter_customization_options = (
-  'TOP_NODE_UP'           => '(dir)',   # up node of Top node default value
-  'BASEFILENAME_LENGTH'   => 255 - 10,
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
-  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0,
-  # only used in HTML
-  'IMAGE_LINK_PREFIX'     => undef,
-  'CASE_INSENSITIVE_FILENAMES' => 0,
-  'DEBUG'                 => 0,
-  # only used in HTML
-  'HANDLER_FATAL_ERROR_LEVEL' => 100,
-  'TEST'                  => 0,
-  'TEXTCONTENT_COMMENT'   => undef,  # in textcontent format
-  # used in TexinfoXML/SXML
-  # Reset by the main program, therefore this value is only used in converter
-  # tests that use the perl modules directly.  Does not need to match with the
-  # documented value used in the main program, nor to be updated every time a
-  # DTD is released, to have a fixed value for the tests.  However, it should
-  # be good to update from time to time to avoid test results that are not
-  # valid against their reported DTD.
-  'TEXINFO_DTD_VERSION'   => '7.1',
-);
-
-# Some are for all converters, EXTENSION for instance, some for
-# some converters, for example CLOSE_QUOTE_SYMBOL and many
-# for HTML.
-# Defaults are documented in manual and set in the various converters.
-# used in util/txicustomvars
-my @variable_string_settables = (
-'AFTER_BODY_OPEN',
-'AFTER_SHORT_TOC_LINES',
-'AFTER_TOC_LINES',
-'ASCII_DASHES_AND_QUOTES',
-'ASCII_GLYPH',
-'ASCII_PUNCTUATION',
-'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN',
-'AUTO_MENU_MAX_WIDTH',
-'AVOID_MENU_REDUNDANCY',
-'BEFORE_SHORT_TOC_LINES',
-'BEFORE_TOC_LINES',
-'BIG_RULE',
-'BODYTEXT',
-'CLASS_BEGIN_USEPACKAGE', # for LaTeX
-'COPIABLE_LINKS',
-'CHAPTER_HEADER_LEVEL',
-'CHECK_HTMLXREF',
-'CLOSE_DOUBLE_QUOTE_SYMBOL',
-'CLOSE_QUOTE_SYMBOL',
-'COMMAND_LINE_ENCODING',
-'COMPLEX_FORMAT_IN_TABLE',
-'CONTENTS_OUTPUT_LOCATION',
-'CONVERT_TO_LATEX_IN_MATH',
-'DATE_IN_HEADER',
-'DEFAULT_RULE',
-'DEF_TABLE',
-'DO_ABOUT',
-'DOC_ENCODING_FOR_INPUT_FILE_NAME',
-'DOC_ENCODING_FOR_OUTPUT_FILE_NAME',
-'DOCTYPE',
-'END_USEPACKAGE', # for LaTeX
-'EPUB_CREATE_CONTAINER_FILE', # for ext/epub3.pm
-'EPUB_KEEP_CONTAINER_FOLDER', # for ext/epub3.pm
-'EXTENSION',
-'EXTERNAL_CROSSREF_EXTENSION',
-'EXTERNAL_CROSSREF_SPLIT',
-'EXTERNAL_DIR',
-'EXTRA_HEAD',
-'FOOTNOTE_END_HEADER_LEVEL',
-'FOOTNOTE_SEPARATE_HEADER_LEVEL',
-'FRAMES',
-'FRAMESET_DOCTYPE',
-'HEADER_IN_TABLE',
-'HIGHLIGHT_SYNTAX', # for ext/highlight_syntax.pm
-'HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE', # for ext/highlight_syntax.pm
-'HTML_MATH',
-'HTML_ROOT_ELEMENT_ATTRIBUTES',
-'HTMLXREF_FILE',
-'HTMLXREF_MODE',
-'ICONS',
-'IMAGE_LINK_PREFIX',
-'INDEX_ENTRY_COLON',
-'INDEX_SPECIAL_CHARS_WARNING',
-'INFO_JS_DIR',
-'INFO_SPECIAL_CHARS_QUOTE',
-'INFO_SPECIAL_CHARS_WARNING',
-'IGNORE_REF_TO_TOP_NODE_UP',
-'INLINE_CSS_STYLE',
-'INPUT_FILE_NAME_ENCODING',
-'JS_WEBLABELS',
-'JS_WEBLABELS_FILE',
-'LOCALE_ENCODING',
-'L2H_CLEAN',
-'L2H_FILE',
-'L2H_HTML_VERSION',
-'L2H_L2H',
-'L2H_SKIP',
-'L2H_TMP',
-'MATHJAX_SCRIPT',
-'MATHJAX_SOURCE',
-'MAX_HEADER_LEVEL',
-'MENU_ENTRY_COLON',
-'MENU_SYMBOL',
-'MESSAGE_ENCODING',
-'MONOLITHIC',
-'NO_CSS',
-'NO_NUMBER_FOOTNOTE_SYMBOL',
-'NO_CUSTOM_HTML_ATTRIBUTE',
-'NODE_NAME_IN_INDEX',
-'NODE_NAME_IN_MENU',
-'NO_TOP_NODE_OUTPUT',
-'NO_USE_SETFILENAME',
-'OPEN_DOUBLE_QUOTE_SYMBOL',
-'OPEN_QUOTE_SYMBOL',
-'OUTPUT_CHARACTERS',
-'OUTPUT_ENCODING_NAME',
-'OUTPUT_FILE_NAME_ENCODING',
-'OUTPUT_PERL_ENCODING',
-'PACKAGE',
-'PACKAGE_AND_VERSION',
-'PACKAGE_NAME',
-'PACKAGE_URL',
-'PACKAGE_VERSION',
-'PRE_BODY_CLOSE',
-'PREFIX',
-'PROGRAM',
-'PROGRAM_NAME_IN_ABOUT',
-'PROGRAM_NAME_IN_FOOTER',
-'SECTION_NAME_IN_TITLE',
-'SHORT_TOC_LINK_TO_TOC',
-'SHOW_TITLE',
-'SORT_ELEMENT_COUNT',
-'T4H_LATEX_CONVERSION',
-'T4H_MATH_CONVERSION',
-'T4H_TEX_CONVERSION',
-'TEXI2HTML',
-'TEXINFO_OUTPUT_FORMAT',
-'TOC_LINKS',
-'TOP_FILE',
-'TOP_NODE_FILE_TARGET',
-'TOP_NODE_UP_URL',
-'USE_ACCESSKEY',
-'USE_ISO',
-'USE_LINKS',
-'USE_NEXT_HEADING_FOR_LONE_NODE',
-'USE_NODES',
-'USE_NODE_DIRECTIONS',
-'USE_NUMERIC_ENTITY',
-'USE_REL_REV',
-'USE_SETFILENAME_EXTENSION',
-'USE_TITLEPAGE_FOR_TITLE',
-'USE_UNIDECODE',
-'USE_UP_NODE_FOR_ELEMENT_UP',
-'USE_XML_SYNTAX',
-'VERTICAL_HEAD_NAVIGATION',
-'WORDS_IN_PAGE',
-'XREF_USE_FLOAT_LABEL',
-'XREF_USE_NODE_NAME_ARG',
-);
-
-# Not strings.
-my @variable_other_settables = (
-  # Documented in the texi2any_api manual
-  'LINKS_BUTTONS', 'TOP_BUTTONS', 'SECTION_BUTTONS',
-  'CHAPTER_FOOTER_BUTTONS', 'SECTION_FOOTER_BUTTONS',
-  'NODE_FOOTER_BUTTONS',
-  'MISC_BUTTONS', 'CHAPTER_BUTTONS',
-  'ACTIVE_ICONS', 'PASSIVE_ICONS',
-);
-
-foreach my $option (@variable_string_settables) {
-  $converter_customization_options{$option} = undef;
-}
-
-my %converter_other_options;
-foreach my $option (@variable_other_settables) {
-  $converter_other_options{$option} = undef;
-}
-
-# set from command line.
-# TODO not documented.  Value could be undef.
-my %array_cmdline_options = (
-  'CSS_FILES' => [],            # --css-include
-  'CSS_REFS' => [],             # --css-ref
-  'EXPANDED_FORMATS' => [],     # --if*
-  'INCLUDE_DIRECTORIES' => [],  # -I
-);
+ %Texinfo::Options::program_cmdline_options,
+ %Texinfo::Options::program_customization_options);
 
 # used in converters
-our %document_settable_at_commands = (%multiple_at_command_options,
-   %unique_at_command_options);
+our %document_settable_at_commands
+  = (%Texinfo::Options::multiple_at_command_options,
+     %Texinfo::Options::unique_at_command_options);
 
 my %valid_customization_options;
 foreach my $var (keys(%document_settable_at_commands),
-         keys(%program_cmdline_options),
-         keys(%converter_cmdline_options),
-         keys(%program_customization_options),
+         keys(%Texinfo::Options::program_cmdline_options),
+         keys(%Texinfo::Options::converter_cmdline_options),
+         keys(%Texinfo::Options::program_customization_options),
          keys(%parser_options),
-         keys(%converter_customization_options),
-         keys(%converter_other_options),
-         keys(%array_cmdline_options)) {
+         keys(%Texinfo::Options::converter_customization_options),
+         keys(%Texinfo::Options::converter_other_options),
+         keys(%Texinfo::Options::array_cmdline_options)) {
   $valid_customization_options{$var} = 1;
 }
 

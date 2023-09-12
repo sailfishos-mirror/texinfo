@@ -85,7 +85,8 @@ dist_noinst_DATA = \
 
 modules_DATA = \
  Texinfo/ModulePath.pm \
- Texinfo/Commands.pm
+ Texinfo/Commands.pm \
+ Texinfo/Options.pm
 
 convertersdir = $(pkgdatadir)/Texinfo/Convert
 dist_converters_DATA = \
@@ -308,6 +309,7 @@ maintenance_files = \
   maintain/regenerate_documentlanguages-loc.pl \
   maintain/regenerate_file_lists.pl \
   maintain/regenerate_commands_perl_info.pl \
+  maintain/regenerate_options_info.pl \
   maintain/setup_converters_code_tables.pl \
   maintain/template.pod \
   maintain/catalog.xml.in
@@ -319,7 +321,8 @@ EXTRA_DIST = \
   $(tp_tests) \
   $(maintenance_files) \
   maintain/lib \
-  Texinfo/command_data.txt
+  Texinfo/command_data.txt \
+  Texinfo/options_data.txt
 
 # template.pod is the basis for the .pm documentation, and the script
 # invoked here updates them; to be run when template.pod changes.
@@ -346,6 +349,10 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 Texinfo/Commands.pm: Texinfo/command_data.txt
 	$(MKDIR_P) Texinfo
 	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $(srcdir)/Texinfo/command_data.txt
+
+Texinfo/Options.pm: Texinfo/options_data.txt
+	$(MKDIR_P) Texinfo
+	$(srcdir)/maintain/regenerate_options_info.pl < $(srcdir)/Texinfo/options_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
 
@@ -391,4 +398,4 @@ distclean-local:
 	rm -rf po po_document
 
 CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
-DISTCLEANFILES = maintain/catalog.xml Texinfo/Commands.pm
+DISTCLEANFILES = maintain/catalog.xml Texinfo/Commands.pm Texinfo/Options.pm

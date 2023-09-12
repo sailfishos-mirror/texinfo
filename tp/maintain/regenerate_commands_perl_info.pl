@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # regenerate_perl_command_infos.pl: generate perl hashes based on
-# commands information setup for the XS parser.
+# commands information also used in the XS parser.
 #
 # Copyright 2022-2023 Free Software Foundation, Inc.
 #
@@ -127,9 +127,6 @@ print OUT "# flag hashes\n";
 # for those flags, the information of multi category commands is
 # duplicated.  So, for example, item_LINE has the formatted_line flag
 # associated, it will be associated to item.
-#
-# In general, the hash here should be in the excluded flags in
-# Texinfo/XS/parsetexi/command_data.awk
 my %converter_flag = (
   'formatted_line' => 1,
   'formattable_line' => 1,

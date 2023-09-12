@@ -59,6 +59,7 @@ use Getopt::Long qw(GetOptions);
 use Locale::Messages ();
 
 use Texinfo::Commands;
+use Texinfo::Options;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Config;
@@ -171,7 +172,7 @@ my %extensions = (
 # is set in the texi2any main program.  This value should only be
 # used in t/*.t tests.
 my $XML_DTD_VERSION
-  = $Texinfo::Common::converter_customization_options{'TEXINFO_DTD_VERSION'};
+  = $Texinfo::Options::converter_customization_options{'TEXINFO_DTD_VERSION'};
 
 my %outfile_preamble = (
   'docbook' => ['<?xml version="1.0"?>
