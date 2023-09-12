@@ -323,7 +323,7 @@ store_document (ELEMENT *root)
   COPY_GLOBAL_ARRAY(footnotes);
   COPY_GLOBAL_ARRAY(floats);
 
-  /* from Common.pm %document_settable_multiple_at_commands */
+  /* from Common.pm %multiple_at_command_options */
   COPY_GLOBAL_ARRAY(allowcodebreaks);
   COPY_GLOBAL_ARRAY(clickstyle);
   COPY_GLOBAL_ARRAY(codequotebacktick);

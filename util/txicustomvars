@@ -36,8 +36,8 @@ my $do_customization_variable_commands = $ARGV[0] eq "--commands";
 
 if ($do_customization_variable_commands) {
   print join("\n",
-          sort(keys(%Texinfo::Common::document_settable_multiple_at_commands),
-               keys(%Texinfo::Common::document_settable_unique_at_commands)));
+          sort(keys(%Texinfo::Common::multiple_at_command_options),
+               keys(%Texinfo::Common::unique_at_command_options)));
   exit 0;
 }
 
@@ -51,6 +51,6 @@ my @parser_string_non_command_customization
 
 print join("\n",
      sort(@parser_string_non_command_customization,
-          keys(%Texinfo::Common::default_main_program_customization),
-          keys(%Texinfo::Common::default_converter_customization),
-          @Texinfo::Common::variable_string_settables));
+          keys(%Texinfo::Common::program_customization_options),
+          keys(%Texinfo::Common::converter_customization_options),
+          keys(%Texinfo::Common::other_options)));

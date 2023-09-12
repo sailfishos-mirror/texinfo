@@ -167,7 +167,7 @@ if ($Config{osname} eq 'dos' and $Config{osvers} eq 'djgpp') {
 # variables not specific of Parser, used in other contexts.  Spread over
 # the different categories set below.  The default values are in general
 # the same as elsewhere, but occasionally may be specific of the Parser.
-my %default_parser_common_customization = (
+my %common_parser_options = (
   'INCLUDE_DIRECTORIES' => [ '.' ],
   'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
                                 # need for translation since the strings are in english
@@ -185,7 +185,7 @@ my %default_parser_common_customization = (
 );
 
 # Customization variables obeyed only by the parser, and the default values.
-my %default_parser_specific_customization = (
+my %parser_options = (
   'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
   'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
@@ -194,14 +194,13 @@ my %default_parser_specific_customization = (
 # this serves both to set defaults and list customization variable
 # valid for the parser.
 # also used in util/txicustomvars
-our %default_parser_customization_values = (%default_parser_common_customization,
-  %default_parser_specific_customization);
+our %default_parser_customization_values = (%common_parser_options, %parser_options);
 
 
 # @-commands that can be used multiple time in a document and default
 # values.  Associated with customization values too.
 # also used in util/txicustomvars
-our %document_settable_multiple_at_commands = (
+our %multiple_at_command_options = (
   'allowcodebreaks' => 'true',
   'clickstyle' => '@arrow',
   'codequotebacktick' => 'off',
@@ -234,7 +233,7 @@ our %document_settable_multiple_at_commands = (
 
 # @-commands that should be unique.  Associated with customization values too.
 # also used in util/txicustomvars
-our %document_settable_unique_at_commands = (
+our %unique_at_command_options = (
   'afivepaper' => undef,
   'afourpaper' => undef,
   'afourlatex' => undef,
@@ -263,7 +262,7 @@ our %document_settable_unique_at_commands = (
 # from command_data.txt
 if (0) {
 #if (1) {
-  my @global_unique_settable = keys(%document_settable_unique_at_commands);
+  my @global_unique_settable = keys(%unique_at_command_options);
   my @global_unique_commands = keys(%Texinfo::Commands::global_unique_commands);
   my $lcu = List::Compare->new(\@global_unique_settable, \@global_unique_commands);
   # only in the first list
@@ -275,7 +274,7 @@ if (0) {
                               .join(',', $lcu->get_complement)."\n";
   }
 
-  my @global_multi_settable = keys(%document_settable_multiple_at_commands);
+  my @global_multi_settable = keys(%multiple_at_command_options);
   my @global_multi_commands = keys(%Texinfo::Commands::global_commands);
   my $lcm = List::Compare->new(\@global_multi_settable, \@global_multi_commands);
   if (scalar($lcm->get_unique)) {
@@ -289,7 +288,7 @@ if (0) {
 
 # a value corresponds to defaults that are the same for every output format
 # otherwise undef is used
-our %default_converter_command_line_options = (
+our %converter_cmdline_options = (
   'SPLIT_SIZE'           => 300000,  # --split-size
   'FILLCOLUMN'           => 72,      # --fill-column
   'NUMBER_SECTIONS'      => 1,       # --number-sections
@@ -313,7 +312,7 @@ our %default_converter_command_line_options = (
 );
 
 # used in main program, defaults documented in manual
-my %default_main_program_command_line_options = (
+my %program_cmdline_options = (
   'MACRO_EXPAND'         => undef,   # --macro-expand.  Only for main program
   # used in HTML only, called from main program
   'INTERNAL_LINKS'       => undef,   # --internal-links
@@ -328,7 +327,7 @@ my %default_main_program_command_line_options = (
 
 # used in main program, defaults documented in manual
 # also used in util/txicustomvars
-our %default_main_program_customization = (
+our %program_customization_options = (
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
             # automatic direction and directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
@@ -345,11 +344,11 @@ our %default_main_program_customization = (
 
 # defaults for the main program.  In general transmitted to converters as defaults
 our %default_main_program_customization_options = (
- %default_main_program_command_line_options,  %default_main_program_customization);
+ %program_cmdline_options, %program_customization_options);
 
 # used in converters, default documented in manual
 # also used in util/txicustomvars
-our %default_converter_customization = (
+our %converter_customization_options = (
   'TOP_NODE_UP'           => '(dir)',   # up node of Top node default value
   'BASEFILENAME_LENGTH'   => 255 - 10,
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
@@ -374,10 +373,10 @@ our %default_converter_customization = (
 
 # Some are for all converters, EXTENSION for instance, some for
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
-# for HTML.  Could be added to %default_converter_customization.
+# for HTML.  Could be added to %converter_customization_options.
 # Defaults are documented in manual and set in the various converters.
 # used in util/txicustomvars
-our @variable_string_settables = (
+my @variable_string_settables = (
 'AFTER_BODY_OPEN',
 'AFTER_SHORT_TOC_LINES',
 'AFTER_TOC_LINES',
@@ -516,26 +515,35 @@ my @variable_other_settables = (
   'NODE_FOOTER_BUTTONS',
   'MISC_BUTTONS', 'CHAPTER_BUTTONS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
-  # set from command line.
-  # TODO not documented.
-  'CSS_FILES',            # --css-include
-  'CSS_REFS',             # --css-ref
-  'EXPANDED_FORMATS',     # --if*
-  'INCLUDE_DIRECTORIES',  # -I
 );
 
-our %document_settable_at_commands = (%document_settable_multiple_at_commands,
-   %document_settable_unique_at_commands);
+our %other_options;
+foreach my $option (@variable_string_settables, @variable_other_settables) {
+  $other_options{$option} = undef;
+}
+
+# set from command line.
+# TODO not documented.  Value could be undef.
+my %array_cmdline_options = (
+  'CSS_FILES' => [],            # --css-include
+  'CSS_REFS' => [],             # --css-ref
+  'EXPANDED_FORMATS' => [],     # --if*
+  'INCLUDE_DIRECTORIES' => [],  # -I
+);
+
+# used in converters
+our %document_settable_at_commands = (%multiple_at_command_options,
+   %unique_at_command_options);
 
 my %valid_customization_options;
 foreach my $var (keys(%document_settable_at_commands),
-         keys(%default_main_program_command_line_options),
-         keys(%default_converter_command_line_options),
-         keys(%default_main_program_customization),
-         keys(%default_parser_specific_customization),
-         keys(%default_converter_customization),
-         @variable_string_settables,
-         @variable_other_settables) {
+         keys(%program_cmdline_options),
+         keys(%converter_cmdline_options),
+         keys(%program_customization_options),
+         keys(%parser_options),
+         keys(%converter_customization_options),
+         keys(%other_options),
+         keys(%array_cmdline_options)) {
   $valid_customization_options{$var} = 1;
 }
 
@@ -2877,7 +2885,7 @@ Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
+%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %other_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
 
 =over
 

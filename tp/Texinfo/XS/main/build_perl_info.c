@@ -1022,7 +1022,7 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
   BUILD_GLOBAL_ARRAY(subtitle);
   BUILD_GLOBAL_ARRAY(titlefont);
 
-  /* from Common.pm %document_settable_multiple_at_commands */
+  /* from Common.pm %multiple_at_command_options */
   BUILD_GLOBAL_ARRAY(allowcodebreaks);
   BUILD_GLOBAL_ARRAY(clickstyle);
   BUILD_GLOBAL_ARRAY(codequotebacktick);

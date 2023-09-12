@@ -98,10 +98,10 @@ my %common_converters_defaults = (
 );
 
 my %all_converters_defaults
- = (%Texinfo::Common::default_converter_command_line_options,
-    %Texinfo::Common::default_converter_customization,
-    %Texinfo::Common::document_settable_unique_at_commands,
-    %Texinfo::Common::document_settable_multiple_at_commands,
+ = (%Texinfo::Common::converter_cmdline_options,
+    %Texinfo::Common::converter_customization_options,
+    %Texinfo::Common::unique_at_command_options,
+    %Texinfo::Common::multiple_at_command_options,
     %common_converters_defaults
 );
 

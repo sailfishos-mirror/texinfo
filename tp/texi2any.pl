@@ -736,13 +736,11 @@ sub set_format($;$$)
 sub _get_converter_default($)
 {
   my $option = shift;
-  if (defined($Texinfo::Common::default_converter_command_line_options{$option})) {
-    return $Texinfo::Common::default_converter_command_line_options{$option};
-  } elsif (defined($Texinfo::Common::document_settable_multiple_at_commands{$option})) {
-    return $Texinfo::Common::document_settable_multiple_at_commands{$option};
-  } #elsif (defined(%Texinfo::Common::document_settable_unique_at_commands{$option})) {
-  #  return $Texinfo::Common::document_settable_unique_at_commands{$option};
-  #}
+  if (defined($Texinfo::Common::converter_cmdline_options{$option})) {
+    return $Texinfo::Common::converter_cmdline_options{$option};
+  } elsif (defined($Texinfo::Common::multiple_at_command_options{$option})) {
+    return $Texinfo::Common::multiple_at_command_options{$option};
+  }
   return undef;
 }
 

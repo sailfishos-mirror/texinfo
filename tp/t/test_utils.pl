@@ -171,7 +171,7 @@ my %extensions = (
 # is set in the texi2any main program.  This value should only be
 # used in t/*.t tests.
 my $XML_DTD_VERSION
-  = $Texinfo::Common::default_converter_customization{'TEXINFO_DTD_VERSION'};
+  = $Texinfo::Common::converter_customization_options{'TEXINFO_DTD_VERSION'};
 
 my %outfile_preamble = (
   'docbook' => ['<?xml version="1.0"?>

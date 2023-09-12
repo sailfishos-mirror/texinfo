@@ -378,7 +378,7 @@ register_global_command (ELEMENT *current)
         GLOBAL_CASE(subtitle);
         GLOBAL_CASE(titlefont);
 
-        /* from Common.pm %document_settable_multiple_at_commands */
+        /* from Common.pm %multiple_at_command_options */
         GLOBAL_CASE(allowcodebreaks);
         GLOBAL_CASE(clickstyle);
         GLOBAL_CASE(codequotebacktick);
