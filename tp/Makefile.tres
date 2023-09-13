@@ -1427,6 +1427,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/no_colon_in_menu.pl \
   t/results/menu/nodedescription_descriptions.pl \
   t/results/menu/nodedescriptionblock_descriptions.pl \
+  t/results/menu/non_existent_entry_node.pl \
   t/results/menu/reference_to_external_manual.pl \
   t/results/menu/sc_in_menu.pl \
   t/results/menu/simple.pl \
@@ -1789,6 +1790,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/empty_refs.pl \
   t/results/sectioning/equivalent_labels.pl \
   t/results/sectioning/equivalent_nodes.pl \
+  t/results/sectioning/equivalent_nodes_novalidate.pl \
   t/results/sectioning/explicit_node_directions.pl \
   t/results/sectioning/external_node_in_menu.pl \
   t/results/sectioning/hole_in_sectioning.pl \
@@ -1912,7 +1914,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/two_nodes_between_chapters_texi2html.pl \
   t/results/sectioning/two_nodes_between_chapters_texi2html/res_html \
   t/results/sectioning/two_unnumbered_no_argument.pl \
+  t/results/sectioning/unknown_node_direction_novalidate.pl \
   t/results/sectioning/unknown_node_in_menu.pl \
+  t/results/sectioning/unknown_node_in_menu_novalidate.pl \
   t/results/sectioning/unnumbered_before_node_top_top.pl \
   t/results/sectioning/unnumbered_before_top.pl \
   t/results/sectioning/unnumbered_before_top_node.pl \

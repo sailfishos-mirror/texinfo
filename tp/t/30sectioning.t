@@ -455,6 +455,19 @@ In float
 
 @xref{node}.
 '],
+['equivalent_nodes_novalidate',
+'@novalidate
+
+@node first, @emph{node}
+
+@menu
+* @strong{node}::
+@end menu
+
+@node @samp{node}
+
+@xref{node}.
+'],
 ['explicit_node_directions',
 '@node Top
 Top node
@@ -935,6 +948,11 @@ my @test_cases = (
 
 @node arg1 @comma{} arg2, @,cedilla, @strong{comma in strong,} @c comma , end
 '],
+['unknown_node_direction_novalidate',
+'@novalidate
+
+@node one arg2, two arg
+'],
 ['empty_nodes_with_commands',
 '
 @node @c comment
@@ -1022,6 +1040,15 @@ Dummy section with (manual)node node syntax.
 ],
 ['unknown_node_in_menu',
 '@node first
+
+@menu
+* unknown::
+@end menu
+'],
+['unknown_node_in_menu_novalidate',
+'@novalidate
+
+@node first
 
 @menu
 * unknown::

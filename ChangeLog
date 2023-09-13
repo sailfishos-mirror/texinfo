@@ -1,5 +1,15 @@
 2023-09-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(set_menus_node_directions, complete_node_tree_with_menus, nodes_tree)
+	(associate_internal_references): use options set in document.
+
+	* tp/Makefile.tres, tp/t/30sectioning.t (equivalent_nodes_novalidate)
+	(unknown_node_direction_novalidate, unknown_node_in_menu_novalidate):
+	test all the possible cases with novalidate effect.
+
+2023-09-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm ($XS_only, _XS_*): have all the _XS_*
 	functions return 1 (except for _XS_copy_tree) to convey that XS code
 	was not used.  In perl functions, return after calling the _XS_*

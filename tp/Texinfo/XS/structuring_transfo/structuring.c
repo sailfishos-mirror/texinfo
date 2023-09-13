@@ -839,7 +839,6 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
 }
 
 /* set menu_directions */
-/* FIXME $customization_information in perl */
 void
 set_menus_node_directions (DOCUMENT *document)
 {
@@ -853,10 +852,9 @@ set_menus_node_directions (DOCUMENT *document)
   if (!nodes_list || nodes_list->contents.number <= 0)
     return;
 
-/*
-  my $check_menu_entries = (!$customization_information->get_conf('novalidate')
-      and $customization_information->get_conf('FORMAT_MENU') eq 'menu');
-*/
+  if (document->options && (document->options->novalidate > 0
+                            || strcmp (document->options->FORMAT_MENU, "menu")))
+    check_menu_entries = 0;
 
   /*
   First go through all the menus and set menu up, menu next and menu prev,
@@ -1079,11 +1077,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                     }
                   section = lookup_extra_element (node, "associated_section");
                   if (section
-                      && (0))
-/*
-                     and $customization_information->get_conf(
-                                               'CHECK_NORMAL_MENU_STRUCTURE')) {}
-*/
+                      && ((!document->options)
+                          || document->options->CHECK_NORMAL_MENU_STRUCTURE > 0))
                     {
                       ELEMENT *node_direction_section = section;
                       ELEMENT *part_section;
@@ -1143,11 +1138,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                 "manual_content");
                       if (!menu_direction_manual_content)
                         {
-                          if (0 && section)
-          /*
-            if ($customization_information->get_conf(
-                                               'CHECK_NORMAL_MENU_STRUCTURE')
-           */
+                          if (((!document->options)
+                               || document->options->CHECK_NORMAL_MENU_STRUCTURE > 0)
+                              && section)
                             message_list_command_warn (
                                 document->error_messages, node,
                "node `%s' is %s for `%s' in menu but not in sectioning",
@@ -1215,11 +1208,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
             }
         }
   /* check consistency between node pointer and node entries menu order */
-      if (0 && strcmp (normalized, "Top"))
-  /* 0 corresponds to
-    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-   */
-
+      if (((!document->options)
+           || document->options->CHECK_NORMAL_MENU_STRUCTURE > 0)
+          && strcmp (normalized, "Top"))
         {
           ELEMENT *node_directions = lookup_extra_element (node,
                                                            "node_directions");
@@ -1253,10 +1244,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
             }
         }
       /* check for node up / menu up mismatch */
-      if (1)
-  /*
-    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
-   */
+      if ((!document->options)
+          || document->options->CHECK_MISSING_MENU_ENTRY > 0)
         {
           ELEMENT *node_directions = lookup_extra_element (node,
                                                            "node_directions");
@@ -1316,7 +1305,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
 }
 
 /* set node directions based on sectioning and @node explicit directions */
-/* in perl: customization_information */
 ELEMENT *
 nodes_tree (DOCUMENT *document)
 {
@@ -1458,16 +1446,16 @@ nodes_tree (DOCUMENT *document)
                                                     "node_directions", 1);
                           node_directions->contents.list[direction]
                             = node_target;
-             /*
-            if (!$customization_information->get_conf('novalidate')
-              */
-                          ELEMENT *direction_node_content
-                            = lookup_extra_element (direction_element,
+                          if ((!document->options)
+                               || document->options->novalidate <= 0)
+                            {
+                              ELEMENT *direction_node_content
+                                = lookup_extra_element (direction_element,
                                                     "node_content");
-                          if (!check_node_same_texinfo_code (node_target,
-                                                    direction_node_content))
-                             {
-                               message_list_command_warn (
+                               if (!check_node_same_texinfo_code (node_target,
+                                                       direction_node_content))
+                                 {
+                                   message_list_command_warn (
                                   document->error_messages, node,
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
                                   direction_texts[direction],
@@ -1475,14 +1463,15 @@ nodes_tree (DOCUMENT *document)
                                   target_element_to_texi_label (node),
                                   builtin_command_name (node_target->cmd),
                                   target_element_to_texi_label (node_target));
+                                 }
                              }
                         }
                       else
                         {
-                           /*
-            if (!$customization_information->get_conf('novalidate'))
-                           */
-                           message_list_command_error (document->error_messages,
+                          if ((!document->options)
+                               || document->options->novalidate <= 0)
+                            message_list_command_error (
+                                     document->error_messages,
                                      node,
                                      "%s reference to nonexistent `%s'",
                                      direction_texts[direction],
@@ -1551,10 +1540,9 @@ associate_internal_references (DOCUMENT *document)
 
           if (!node_target)
             {
-              /*
-        if (!$customization_information->get_conf('novalidate'))
-               */
-              message_list_command_error (document->error_messages,
+              if ((!document->options)
+                  || document->options->novalidate <= 0)
+                message_list_command_error (document->error_messages,
                              ref, "@%s reference to nonexistent node `%s'",
                              builtin_command_name (ref->cmd),
                              link_element_to_texi (label_element));
@@ -1563,18 +1551,19 @@ associate_internal_references (DOCUMENT *document)
             {
               label_node_content = lookup_extra_element (label_element,
                                                          "node_content");
-          /*
-        if (!$customization_information->get_conf('novalidate')
-          */
-              if (!check_node_same_texinfo_code (node_target,
-                                                 label_node_content))
+              if ((!document->options)
+                  || document->options->novalidate <= 0)
                 {
-                  message_list_command_warn (document->error_messages, ref,
+                  if (!check_node_same_texinfo_code (node_target,
+                                                     label_node_content))
+                    {
+                      message_list_command_warn (document->error_messages, ref,
                                 "@%s to `%s', different from %s name `%s'",
                                 builtin_command_name (ref->cmd),
                                 link_element_to_texi (label_element),
                                 builtin_command_name (node_target->cmd),
                                 target_element_to_texi_label (node_target));
+                    }
                 }
             }
         }
@@ -1912,7 +1901,7 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
   return master_menu_contents;
 }
 
-/* FIXME in perl there is a $customization_information argument */
+/* FIXME in perl there is a $customization_information argument for gdt */
 ELEMENT *
 new_master_menu (LABEL_LIST *identifiers_target, ELEMENT *menus,
                  int use_sections)
