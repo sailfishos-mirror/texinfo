@@ -1230,8 +1230,10 @@ sub _parse_macro_command_line($$$$$;$)
     # accept an @-command after the arguments in case there is a @c or
     # @comment
     if ($args_def =~ /^\s*[^\@]/) {
+      my $no_eol_args = $args_def;
+      chomp ($no_eol_args);
       $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
-                                 $command, $args_def),
+                                 $command, $no_eol_args),
                          $source_info);
       $macro->{'extra'} = {'invalid_syntax' => 1};
     }
