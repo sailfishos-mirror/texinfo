@@ -1648,12 +1648,16 @@ while(@input_files) {
                             %$file_cmdline_options,
                           };
 
-  # TODO Need to pass customization information for documentlanguage for
-  # new detailed master menu heading translation.
-  #if (defined $ENV{TEXINFO_XS_CONVERT}
-  #    and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-  #  $document = Texinfo::Structuring::rebuild_document($document);
-  #}
+  if (defined $ENV{TEXINFO_XS_CONVERT}
+      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    $document = Texinfo::Structuring::rebuild_document($document);
+
+    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+      foreach my $error (@{$document->{'errors'}}) {
+        $registrar->add_formatted_message($error);
+      }
+    }
+  }
 
   # NOTE nothing set in $main_configuration is passed directly, which is
   # clean, the Converters already have that information in $converter_options,

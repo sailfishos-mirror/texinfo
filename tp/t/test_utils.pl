@@ -1068,10 +1068,11 @@ sub test($$)
     $document = Texinfo::Structuring::rebuild_document($document);
     $tree = $document->tree();
 
-    # FIXME Uncomment if $XS_only set to 1 in modules.  Need customization.
-    #foreach my $error (@{$document->{'errors'}}) {
-    #  $registrar->add_formatted_message($error);
-    #}
+    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+      foreach my $error (@{$document->{'errors'}}) {
+        $registrar->add_formatted_message($error);
+      }
+    }
   }
 
   my ($errors, $error_nrs) = $registrar->errors();

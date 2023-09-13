@@ -133,6 +133,11 @@ sub import {
   goto &Exporter::import;
 }
 
+# set to 1 if perl code is to be run only if XS is not set
+my $XS_only = 0;
+$XS_only = 1 if (defined($ENV{'TEXINFO_XS'})
+                 and $ENV{'TEXINFO_XS'} eq 'require');
+
 
 my %types_to_enter;
 foreach my $type_to_enter ('brace_command_arg', 'line_arg',
@@ -172,9 +177,6 @@ sub copy_tree($;$)
   }
   return $result;
 }
-
-# set to 1 if perl code is to be run only if XS is not set
-my $XS_only = 0;
 
 sub _XS_sectioning_structure($)
 {

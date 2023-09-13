@@ -114,6 +114,12 @@ sub import {
   goto &Exporter::import;
 }
 
+# set to 1 if perl code is to be run only if XS is not set
+my $XS_only = 0;
+$XS_only = 1 if (defined($ENV{'TEXINFO_XS'})
+                 and $ENV{'TEXINFO_XS'} eq 'require');
+
+
 # i18n
 # For the messages translations.
 my $messages_textdomain = 'texinfo';
@@ -2053,13 +2059,17 @@ sub _protect_comma($$)
 
 sub _XS_protect_comma_in_tree($)
 {
+  return 1;
 }
 
 sub protect_comma_in_tree($)
 {
   my $tree = shift;
 
-  _XS_protect_comma_in_tree($tree);
+  if (not _XS_protect_comma_in_tree($tree)
+      and $XS_only) {
+    return undef;
+  }
 
   return modify_tree($tree, \&_protect_comma);
 }
@@ -2133,13 +2143,17 @@ sub _protect_colon($$)
 
 sub _XS_protect_colon_in_tree($)
 {
+  return 1;
 }
 
 sub protect_colon_in_tree($)
 {
   my $tree = shift;
 
-  _XS_protect_colon_in_tree($tree);
+  if (not _XS_protect_colon_in_tree($tree)
+      and $XS_only) {
+    return undef;
+  }
 
   return modify_tree($tree, \&_protect_colon);
 }
@@ -2154,13 +2168,17 @@ sub _protect_node_after_label($$)
 
 sub _XS_protect_node_after_label_in_tree($)
 {
+  return 1;
 }
 
 sub protect_node_after_label_in_tree($)
 {
   my $tree = shift;
 
-  _XS_protect_node_after_label_in_tree($tree);
+  if (not _XS_protect_node_after_label_in_tree($tree)
+      and $XS_only) {
+    return undef;
+  }
 
   return modify_tree($tree, \&_protect_node_after_label);
 }
@@ -2281,15 +2299,20 @@ sub _move_index_entries_after_items($$)
 
 sub _XS_move_index_entries_after_items_in_tree($)
 {
+  return 1;
 }
 
 # For @itemize/@enumerate
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
-  modify_tree($tree, \&_move_index_entries_after_items);
 
-  _XS_move_index_entries_after_items_in_tree($tree);
+  if (not _XS_move_index_entries_after_items_in_tree($tree)
+      and $XS_only) {
+    return undef;
+  }
+
+  modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 sub _relate_index_entries_to_table_items_in($$)
@@ -2373,6 +2396,7 @@ sub _relate_index_entries_to_table_items($$$)
 
 sub _XS_relate_index_entries_to_table_items_in_tree($)
 {
+  return 1;
 }
 
 sub relate_index_entries_to_table_items_in_tree($$)
@@ -2380,10 +2404,14 @@ sub relate_index_entries_to_table_items_in_tree($$)
   my $tree = shift;
   my $indices_information = shift;
 
+  # The XS function retrieves the indices information associated with the tree.
+  if (not _XS_relate_index_entries_to_table_items_in_tree($tree)
+      and $XS_only) {
+    return undef;
+  }
+
   modify_tree($tree, \&_relate_index_entries_to_table_items,
               $indices_information);
-  # The XS function retrieves the indices information associated with the tree.
-  _XS_relate_index_entries_to_table_items_in_tree($tree);
 }
 
 # Common to different module, but not meant to be used in user-defined

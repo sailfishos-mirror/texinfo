@@ -1,3 +1,18 @@
+2023-09-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm ($XS_only, _XS_*): have all the _XS_*
+	functions return 1 (except for _XS_copy_tree) to convey that XS code
+	was not used.  In perl functions, return after calling the _XS_*
+	functions if their return value is not set, when there is no XS, and if
+	the $XS_only variable is 1.
+
+	* tp/Texinfo/Common.pm ($XS_only), tp/Texinfo/Structuring.pm
+	($XS_only), tp/Texinfo/Transformations.pm ($XS_only),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: set $XS_only to 1 if
+	environment variable $TEXINFO_XS is require.  Call
+	add_formatted_message on XS rebuilt document error if
+	$TEXINFO_XS is require.
+
 2023-09-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/options_data.txt: remove duplicates, fix
@@ -38,8 +53,6 @@
 
 	* tp/maintain/regenerate_commands_perl_info.pl: use explicitely
 	<STDIN>.
-
-
 
 2023-09-12  Patrice Dumas  <pertusus@free.fr>
 
