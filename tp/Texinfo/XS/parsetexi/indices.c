@@ -490,8 +490,10 @@ complete_indices (int document_descriptor)
                           || def_command == CM_deftypeop
                           || def_command == CM_defmethod
                           || def_command == CM_deftypemethod)
-                        {
-                          index_entry = gdt ("{name} on {class}",
+                        { /* note that at that point, options are unlikely
+                          to be set, but we use the language of the element */
+                          index_entry = gdt (document->options,
+                                             "{name} on {class}",
                                              substrings, 0, lang);
 
                           text_append (&text_element->text, " on ");
@@ -501,7 +503,8 @@ complete_indices (int document_descriptor)
                                || def_command == CM_deftypeivar
                                || def_command == CM_deftypecv)
                         {
-                          index_entry = gdt ("{name} of {class}",
+                          index_entry = gdt (document->options,
+                                             "{name} of {class}",
                                              substrings, 0, lang);
 
                           text_append (&text_element->text, " of ");

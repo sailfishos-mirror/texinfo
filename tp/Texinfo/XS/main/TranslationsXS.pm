@@ -25,6 +25,8 @@ package Texinfo::Translations;
 
 use Encode qw(encode);
 
+# FIXME $customization_information information should be encoded,
+# and a hash
 sub gdt ($$;$$$)
 {
   my ($customization_information, $string, $replaced_substrings,
@@ -38,7 +40,8 @@ sub gdt ($$;$$$)
   my $utf8_lang;
   $utf8_lang = Encode::encode('utf-8', $lang)
     if (defined($lang));
-  my $tree = gettree ($utf8_string, $replaced_substrings,
+  my $tree = gettree ($utf8_string, $customization_information,
+                      $replaced_substrings,
                       $utf8_translation_context, $utf8_lang);
   return $tree;
 }

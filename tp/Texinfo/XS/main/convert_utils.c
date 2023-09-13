@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <errno.h>
 
+#include "options_types.h"
 #include "tree_types.h"
 #include "utils.h"
 #include "command_ids.h"
@@ -426,7 +427,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 }
 
 ELEMENT *
-definition_category_tree (ELEMENT *current)
+definition_category_tree (OPTIONS * options, ELEMENT *current)
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
@@ -467,16 +468,15 @@ definition_category_tree (ELEMENT *current)
     }
 
   class_copy = copy_tree (arg_class, 0);
-/*
-  if (! $self)
-*/
-  {
-    ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
-    arg_class_code = new_element (ET_NONE);
-    arg_class_code->cmd = CM_code;
-    add_to_contents_as_array (brace_command_arg, class_copy);
-    add_to_element_args (arg_class_code, brace_command_arg);
-  }
+
+  if (!options)
+    {
+      ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+      arg_class_code = new_element (ET_NONE);
+      arg_class_code->cmd = CM_code;
+      add_to_contents_as_array (brace_command_arg, class_copy);
+      add_to_element_args (arg_class_code, brace_command_arg);
+    }
 
   def_command = lookup_extra_string (current, "def_command");
 
@@ -487,8 +487,7 @@ definition_category_tree (ELEMENT *current)
       || !strcmp(def_command, "deftypemethod"))
     {
       ELEMENT *category_copy = copy_tree (arg_category, 0);
-      if (0)
-    /* if self */
+      if (options)
         {
           NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
@@ -501,7 +500,8 @@ definition_category_tree (ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt ("{category} on @code{{class}}", substrings, 0, 0);
+          result = gdt (options, "{category} on @code{{class}}",
+                        substrings, 0, 0);
           destroy_named_string_element_list (substrings);
         }
       else
@@ -519,8 +519,7 @@ definition_category_tree (ELEMENT *current)
       || !strcmp(def_command, "deftypecv"))
     {
       ELEMENT *category_copy = copy_tree (arg_category, 0);
-      if (0)
-    /* if self */
+      if (options)
         {
           NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
@@ -533,7 +532,8 @@ definition_category_tree (ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt ("{category} of @code{{class}}", substrings, 0, 0);
+          result = gdt (options, "{category} of @code{{class}}",
+                        substrings, 0, 0);
           destroy_named_string_element_list (substrings);
         }
       else

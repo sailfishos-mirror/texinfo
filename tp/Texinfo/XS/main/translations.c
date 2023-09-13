@@ -141,10 +141,9 @@ switch_messages_locale (void)
     }
 }
 
-/* FIXME $self argument in perl */
 char *
-translate_string (char * string, const char *translation_context,
-                  char *in_lang)
+translate_string (OPTIONS *options, char * string,
+                  const char *translation_context, char *in_lang)
 {
   char *lang = in_lang;
   char *saved_LANGUAGE;
@@ -158,9 +157,9 @@ translate_string (char * string, const char *translation_context,
   static TEXT language_locales;
   int i;
 
-/*
-  $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
- */
+  if ((!lang) && options && options->documentlanguage)
+    lang = options->documentlanguage;
+
   if (!lang)
     lang = "en";
   if (strlen (lang) == 0)
@@ -554,10 +553,12 @@ replace_convert_substrings (char *translated_string,
 }
 
 ELEMENT *
-gdt (char *string, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+gdt (OPTIONS *options, char *string,
+     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context, char *in_lang)
 {
-  char *translated_string = translate_string (string, translation_context,
+  char *translated_string = translate_string (options, string,
+                                              translation_context,
                                               in_lang);
 
   ELEMENT *result
@@ -567,10 +568,12 @@ gdt (char *string, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
 }
 
 char *
-gdt_string (char *string, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+gdt_string (OPTIONS *options, char *string,
+            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context, char *in_lang)
 {
-  char *translated_string = translate_string (string, translation_context,
+  char *translated_string = translate_string (options, string,
+                                              translation_context,
                                               in_lang);
 
   char *result = replace_substrings (translated_string, replaced_substrings);

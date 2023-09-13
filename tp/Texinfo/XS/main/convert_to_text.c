@@ -763,7 +763,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
     {
       PARSED_DEF *parsed_def = definition_arguments_content (element);
       ELEMENT *parsed_definition_category
-         = definition_category_tree(/* $options->{'converter'} */
+         = definition_category_tree(0, /* $options->{'converter'} */
                                     element);
       if (parsed_definition_category)
         {

@@ -2,6 +2,7 @@
 #ifndef STRUCTURING_H
 #define STRUCTURING_H
 
+#include "options_types.h"
 #include "tree_types.h"
 #include "document.h"
 
@@ -20,8 +21,8 @@ void number_floats (DOCUMENT *document);
 ELEMENT *new_node_menu_entry (ELEMENT *node, int use_sections);
 ELEMENT *new_complete_node_menu (ELEMENT *node, int use_sections);
 void new_block_command (ELEMENT *element, enum command_id cmd);
-ELEMENT *new_master_menu (LABEL_LIST *identifiers_target, ELEMENT *menus,
-                          int use_sections);
+ELEMENT *new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
+                          ELEMENT *menus, int use_sections);
 
 
 #endif

@@ -1,5 +1,18 @@
 2023-09-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/Translations.xs (gettree),
+	tp/Texinfo/XS/main/TranslationsXS.pm (gdt),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/convert_utils.c (definition_category_tree),
+	tp/Texinfo/XS/main/translations.c (translate_string, gdt, gdt_string),
+	tp/Texinfo/XS/parsetexi/indices.c (complete_indices),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_master_menu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(regenerate_master_menu): use OPTIONS in gdt to obtain the
+	documentlanguage.  Pass document options down to gdt.
+
+2023-09-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tests/many_input_files/different_languages_gen_master_menu.sh
 	(LC_ALL): set LC_ALL=en_US.utf-8 to have gettext do something.
 

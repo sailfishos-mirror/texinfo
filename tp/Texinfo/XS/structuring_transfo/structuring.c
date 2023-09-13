@@ -23,6 +23,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
+#include "options_types.h"
 #include "extra.h"
 #include "errors.h"
 #include "debug.h"
@@ -1901,10 +1902,9 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
   return master_menu_contents;
 }
 
-/* FIXME in perl there is a $customization_information argument for gdt */
 ELEMENT *
-new_master_menu (LABEL_LIST *identifiers_target, ELEMENT *menus,
-                 int use_sections)
+new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
+                 ELEMENT *menus, int use_sections)
 {
   /*  only holds contents here, will be turned into a proper block
       in new_block_command */
@@ -1954,7 +1954,8 @@ new_master_menu (LABEL_LIST *identifiers_target, ELEMENT *menus,
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
         = master_menu->contents.list[0]->contents.list[0];
-      master_menu_title = gdt (" --- The Detailed Node Listing ---", 0, 0, 0);
+      master_menu_title = gdt (options, " --- The Detailed Node Listing ---",
+                               0, 0, 0);
 
       for (i = 0; i < master_menu_title->contents.number; i++)
         master_menu_title->contents.list[i]->parent = first_preformatted;

@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "options_types.h"
 #include "tree_types.h"
 
 /* element or string may not always be present */
@@ -19,7 +20,8 @@ typedef struct NAMED_STRING_ELEMENT_LIST {
   NAMED_STRING_ELEMENT *list;
 } NAMED_STRING_ELEMENT_LIST;
 
-ELEMENT *gdt (char * string, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+ELEMENT *gdt (OPTIONS *options, char * string,
+              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
               const char *translation_context,
               char *in_lang);
 

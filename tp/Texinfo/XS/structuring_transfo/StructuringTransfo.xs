@@ -117,8 +117,8 @@ rebuild_document (document_in, ...)
         RETVAL
 
 void
-set_document_options (sv_in, document_in)
-        SV *sv_in
+set_document_options (sv_options_in, document_in)
+        SV *sv_options_in
         SV *document_in
     PREINIT:
         DOCUMENT *document = 0;
@@ -127,7 +127,7 @@ set_document_options (sv_in, document_in)
         document = get_sv_document_document (document_in, 0);
         if (document)
           {
-            OPTIONS *options = copy_sv_options (sv_in);
+            OPTIONS *options = copy_sv_options (sv_options_in);
             register_document_options (document, options);
           }
 

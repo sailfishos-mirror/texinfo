@@ -30,8 +30,10 @@
 
 #include "ppport.h"
 
+#include "options_types.h"
 #include "document.h"
 #include "build_perl_info.h"
+#include "get_perl_info.h"
 #include "translations.h"
 
 MODULE = Texinfo::Translations	PACKAGE = Texinfo::Translations
@@ -51,7 +53,7 @@ configure_XS (localesdir, strings_textdomain="texinfo_document")
 
 
 # optional:
-# replaced_substrings, translation_context, lang
+# options, replaced_substrings, translation_context, lang
 SV *
 gettree (string, ...)
         char *string
@@ -60,20 +62,21 @@ gettree (string, ...)
         char *in_lang = 0;
         HV *hv_replaced_substrings = 0;
         NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
+        OPTIONS *options = 0;
         ELEMENT *gdt_result;
         HV *result_tree;
         int gdt_document_descriptor;
       CODE:
+        if ( items > 4 )
+           if (SvOK(ST(4)))
+             in_lang = (char *)SvPVbyte_nolen(ST(4));
         if ( items > 3 )
            if (SvOK(ST(3)))
-             in_lang = (char *)SvPVbyte_nolen(ST(3));
+             translation_context = (char *)SvPVbyte_nolen(ST(3));
         if ( items > 2 )
-           if (SvOK(ST(2)))
-             translation_context = (char *)SvPVbyte_nolen(ST(2));
-        if ( items > 1 )
            {
-             /* TODO put in a library */
-             if (SvOK(ST(1)))
+             /* TODO put in get_perl_info.h */
+             if (SvOK(ST(2)))
                {
                  I32 hv_number;
                  I32 i;
@@ -111,7 +114,13 @@ gettree (string, ...)
                      }
                }
            }
-         gdt_result = gdt (string, replaced_substrings,
+         if ( items > 1 )
+           if (SvOK(ST(1)))
+             {
+               options = copy_sv_options (ST(1));
+             }
+
+         gdt_result = gdt (options, string, replaced_substrings,
                            translation_context, in_lang);
          /* FIXME have a similar system but for trees only? */
          gdt_document_descriptor = register_document (gdt_result, 0, 0,

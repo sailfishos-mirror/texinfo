@@ -2,6 +2,7 @@
 #ifndef CONVERT_UTILS_H
 #define CONVERT_UTILS_H
 
+#include "options_types.h"
 #include "tree_types.h"
 #include "convert_to_text.h"
 
@@ -29,6 +30,6 @@ ELEMENT *expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options);
 
 PARSED_DEF *definition_arguments_content (ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (ELEMENT *current);
+ELEMENT *definition_category_tree (OPTIONS *options, ELEMENT *current);
 
 #endif

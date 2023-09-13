@@ -118,6 +118,7 @@ add_svav_to_string_list (SV **sv, STRING_LIST *string_list, int dir_strings)
     }
 }
 
+/* contains get_sv_options (), automatically generated from options_data.txt */
 #include "options_get_perl.c"
 
 OPTIONS *
