@@ -1711,6 +1711,7 @@ reformat_new_entries (struct spec_entry *entries, int calign_cli, int align_cli,
 
       format_entry (name, name_len, desc, desc_len, calign, align, 
                     maxwidth, &entry->text, &entry->text_len);
+      free (name); free (desc);
     }
 }
 
