@@ -1,3 +1,8 @@
+2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (readfile): Do not truncate input
+	file at 8192 bytes.  Report from Andreas Schwab.
+
 2023-09-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\newlineloadsconf): Hook into definitions
