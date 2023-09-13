@@ -1623,6 +1623,17 @@ while(@input_files) {
     Texinfo::Structuring::number_floats($document);
   }
 
+  if (defined $ENV{TEXINFO_XS_CONVERT}
+      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    $document = Texinfo::Structuring::rebuild_document($document);
+
+    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+      foreach my $error (@{$document->{'errors'}}) {
+        $registrar->add_formatted_message($error);
+      }
+    }
+  }
+
   $error_count = handle_errors($registrar, $error_count, \@opened_files);
 
   if ($format eq 'structure') {
@@ -1648,16 +1659,6 @@ while(@input_files) {
                             %$file_cmdline_options,
                           };
 
-  if (defined $ENV{TEXINFO_XS_CONVERT}
-      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-    $document = Texinfo::Structuring::rebuild_document($document);
-
-    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
-      foreach my $error (@{$document->{'errors'}}) {
-        $registrar->add_formatted_message($error);
-      }
-    }
-  }
 
   # NOTE nothing set in $main_configuration is passed directly, which is
   # clean, the Converters already have that information in $converter_options,
