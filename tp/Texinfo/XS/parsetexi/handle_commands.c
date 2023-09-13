@@ -23,6 +23,7 @@
 #include "tree_types.h"
 #include "command_ids.h"
 #include "element_types.h"
+#include "text.h"
 /* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "utils.h"
 #include "counter.h"
@@ -38,7 +39,6 @@
 #include "errors.h"
 #include "tree.h"
 #include "input.h"
-#include "text.h"
 #include "extra.h"
 
 /* Return a containing @itemize or @enumerate if inside it. */

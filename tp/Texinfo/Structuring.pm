@@ -2103,7 +2103,7 @@ sub new_master_menu($$$;$)
   # only holds contents here, will be turned into a proper block
   # command in new_block_command
   my $master_menu = {'contents' => []};
-  if (defined($menus) and @$menus) {
+  if (defined($menus) and scalar(@$menus)) {
     foreach my $menu (@$menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
