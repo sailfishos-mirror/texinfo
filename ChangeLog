@@ -1,5 +1,10 @@
 2023-09-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tests/many_input_files/different_languages_gen_master_menu.sh
+	(LC_ALL): set LC_ALL=en_US.utf-8 to have gettext do something.
+
+2023-09-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: move document rebuilding and error registering to
 	before handle_errors call.
 
