@@ -34,7 +34,18 @@ sub run_test($$$;$)
   my $registrar = $parser->registered_errors();
 
   my $corrected_tree = 
-    Texinfo::Transformations::protect_hashchar_at_line_beginning($registrar, $parser, $tree);
+    Texinfo::Transformations::protect_hashchar_at_line_beginning(
+                                            $registrar, $parser, $tree);
+
+  if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    $document = Texinfo::Structuring::rebuild_document($document);
+    $corrected_tree = $document->tree();
+    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+      foreach my $error (@{$document->{'errors'}}) {
+        $registrar->add_formatted_message($error);
+      }
+    }
+  }
 
   if (defined($error_message)) {
     my ($errors, $errors_count) = $registrar->errors();
