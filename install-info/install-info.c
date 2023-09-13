@@ -2025,6 +2025,7 @@ main (int argc, char *argv[])
           {
             struct spec_entry *next;
             size_t length = strlen (optarg);
+            char *old_text;
 
             if (!entries_to_add)
               {
@@ -2055,9 +2056,11 @@ main (int argc, char *argv[])
                newline if we need one.  Prepend a space if we have no
                previous text, since eventually we will be adding the
                "* foo ()." and we want to end up with a ". " for parsing.  */
-            next->text = concat (next->text ? next->text : " ",
+            old_text = next->text;
+            next->text = concat (old_text ? old_text : " ",
                                  optarg, 
                                  optarg[length - 1] == '\n' ? "" : "\n");
+            free (old_text);
             next->text_len = strlen (next->text);
           }
           break;
