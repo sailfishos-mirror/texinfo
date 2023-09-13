@@ -890,9 +890,9 @@ build_global_info (GLOBAL_INFO *global_info_ref)
   dTHX;
 
   hv = newHV ();
-  if (global_info.global_input_encoding_name)
+  if (global_info.input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
-              newSVpv (global_info.global_input_encoding_name, 0), 0);
+              newSVpv (global_info.input_encoding_name, 0), 0);
   if (global_info.input_file_name)
     hv_store (hv, "input_file_name", strlen ("input_file_name"),
               newSVpv (global_info.input_file_name, 0), 0);

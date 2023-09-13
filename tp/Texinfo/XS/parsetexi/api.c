@@ -287,9 +287,9 @@ store_document (ELEMENT *root)
   internal_references->space = internal_xref_number;
 
   memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
-  if (global_info.global_input_encoding_name)
-    doc_global_info->global_input_encoding_name
-      = strdup (global_info.global_input_encoding_name);
+  if (global_info.input_encoding_name)
+    doc_global_info->input_encoding_name
+      = strdup (global_info.input_encoding_name);
   if (global_info.input_file_name)
     doc_global_info->input_file_name
       = strdup (global_info.input_file_name);

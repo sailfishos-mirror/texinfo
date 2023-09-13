@@ -729,7 +729,7 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
   free (global_info.dircategory_direntry.contents.list);
   free (global_info.footnotes.contents.list);
 
-  free (global_info.global_input_encoding_name);
+  free (global_info.input_encoding_name);
   free (global_info.input_file_name);
   free (global_info.input_directory);
 
