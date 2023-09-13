@@ -306,6 +306,20 @@ sub _new_node($$;$$)
   my $registrar = shift;
   my $customization_information = shift;
 
+  # If there is a tree_document_descriptor (normally could only happen
+  # in tests on especially built trees), and changes are only done to
+  # underlying XS tree, the changes by Texinfo::Common::protect_* will
+  # be done on the underlying XS tree, but the perl tree will not change,
+  # although it is the perl tree that is used to construct the node.
+  # Also protect_first_parenthesis has no XS override, only
+  # protect_first_parenthesis_in_targets.
+  # FIXME we could also rebuild the tree, after adding an override
+  # for protect_first_parenthesis?
+  my $descriptor = $node_tree->{'tree_document_descriptor'};
+  if ($descriptor) {
+    delete $node_tree->{'tree_document_descriptor'};
+  }
+
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
   # are not needed for the parsing.  Also, this way the node tree
@@ -368,7 +382,8 @@ sub _new_node($$;$$)
       $content->{'parent'} = $node_line_arg;
     }
 
-    $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+    $normalized
+       = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                        { 'contents' => $node_line_arg->{'contents'} });
 
     if ($normalized !~ /[^-]/) {

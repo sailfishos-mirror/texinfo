@@ -15,7 +15,8 @@ use Data::Dumper;
 
 ok(1);
 
-# FIXME tests in test_new_node do not test the transformations XS codes
+# FIXME tests in test_new_node do not test the transformations XS codes,
+# see comment in the beginning of _new_node.
 sub test_new_node($$$$)
 {
   my $in = shift;

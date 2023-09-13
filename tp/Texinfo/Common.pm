@@ -2067,7 +2067,7 @@ sub protect_comma_in_tree($)
   my $tree = shift;
 
   if (not _XS_protect_comma_in_tree($tree)
-      and $XS_only) {
+      and $XS_only and $tree->{'tree_document_descriptor'}) {
     return $tree;
   }
 
@@ -2151,7 +2151,7 @@ sub protect_colon_in_tree($)
   my $tree = shift;
 
   if (not _XS_protect_colon_in_tree($tree)
-      and $XS_only) {
+      and $XS_only and $tree->{'tree_document_descriptor'}) {
     return $tree;
   }
 
@@ -2176,7 +2176,7 @@ sub protect_node_after_label_in_tree($)
   my $tree = shift;
 
   if (not _XS_protect_node_after_label_in_tree($tree)
-      and $XS_only) {
+      and $XS_only and $tree->{'tree_document_descriptor'}) {
     return $tree;
   }
 
