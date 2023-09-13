@@ -1,5 +1,12 @@
 2023-09-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reassociate_to_node): fix lookup_extra_integer status check for
+	previous node.  Fix finding the menu in previous node.  Destroy menus
+	and delete extra keys if there are not menus anymore.
+
+2023-09-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line): chomp
 	argument used in error message.
 

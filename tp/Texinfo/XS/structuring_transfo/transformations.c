@@ -709,7 +709,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               int i;
               for (i = 0; i < menus->contents.number; i++)
                 {
-                  if (menus->contents.list[i] == previous_node)
+                  if (menus->contents.list[i] == current)
                     {
                       previous_idx = i;
                       break;
@@ -723,11 +723,13 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
             {
               /* removed element should be current */
               remove_from_contents (menus, previous_idx);
-          /* FIXME destroy element, remove menus/turn to deleted from extra? */
-          /*
               if (menus->contents.number <= 0)
-                ....
-           */
+                {
+                  KEY_PAIR *k = lookup_extra (previous_node, "menus");
+                  k->key = "";
+                  k->type = extra_deleted;
+                  destroy_element (menus);
+                }
             }
         }
       added_node_menus = lookup_extra_contents (added_node, "menus", 1);
@@ -819,7 +821,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
         {
           int status;
           int is_target = lookup_extra_integer (content, "is_target", &status);
-          if (status && is_target)
+          if ((!status) && is_target)
             previous_node = content;
         }
     }
