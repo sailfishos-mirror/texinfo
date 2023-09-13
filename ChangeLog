@@ -1,5 +1,10 @@
 2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* install-info/install-info.c (output_dirfile):
+	Free string passed to popen.
+
+2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (open_possibly_compressed_file):
 	Free string passed to popen.
 

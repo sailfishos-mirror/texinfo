@@ -961,6 +961,7 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
       close (tempfile);
       command = concat (compression_program, ">", tempname);
       output = popen (command, "w");
+      free (command);
     }
   else
     output = fdopen (tempfile, "w");
