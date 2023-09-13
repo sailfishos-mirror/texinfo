@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-11 18:22+0100\n"
+"POT-Creation-Date: 2023-09-13 18:27+0100\n"
 "PO-Revision-Date: 2023-03-26 22:05+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -449,7 +449,7 @@ msgstr "värde %s är inte giltigt för variabel %s"
 msgid "Try --help for more information.\n"
 msgstr "Prova --help för mer information.\n"
 
-#: info/info.c:872 install-info/install-info.c:2253
+#: info/info.c:872 install-info/install-info.c:2259
 #: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
@@ -2007,58 +2007,58 @@ msgstr ""
 msgid "%s: could not read (%s) and could not create (%s)"
 msgstr "%s: kunde inte läsa (%s) och kunde inte skapa (%s)"
 
-#: install-info/install-info.c:1163 install-info/install-info.c:1205
+#: install-info/install-info.c:1165 install-info/install-info.c:1207
 msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
 msgstr "START-INFO-DIR-ENTRY utan matchande END-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:1200
+#: install-info/install-info.c:1202
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "END-INFO-DIR-ENTRY utan matchande START-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:2078 install-info/install-info.c:2088
+#: install-info/install-info.c:2084 install-info/install-info.c:2094
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr "%s: har redan katalogfilen: %s\n"
 
-#: install-info/install-info.c:2184
+#: install-info/install-info.c:2190
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr "%s: Ange Info-filen endast en gång.\n"
 
-#: install-info/install-info.c:2217
+#: install-info/install-info.c:2223
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr "Extra reguljärt uttryck angivet, ignorerar ”%s”"
 
-#: install-info/install-info.c:2229
+#: install-info/install-info.c:2235
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr "Fel i reguljära uttrycket ”%s”: %s"
 
-#: install-info/install-info.c:2291
+#: install-info/install-info.c:2297
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "för många kommandoradsargument ”%s”"
 
-#: install-info/install-info.c:2295
+#: install-info/install-info.c:2301
 msgid "No input file specified; try --help for more information."
 msgstr "Ingen indatafil angiven; prova --help för mer information."
 
-#: install-info/install-info.c:2297
+#: install-info/install-info.c:2303
 msgid "No dir file specified; try --help for more information."
 msgstr "Ingen katalogfil angiven; prova --help för mer information."
 
-#: install-info/install-info.c:2318
+#: install-info/install-info.c:2324
 #, c-format
 msgid "Could not read %s."
 msgstr "Kunde inte läsa %s."
 
-#: install-info/install-info.c:2465
+#: install-info/install-info.c:2471
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "ingen info-katalogpost i ”%s”"
 
-#: install-info/install-info.c:2713
+#: install-info/install-info.c:2719
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "inga poster hittades för ”%s”; ingenting togs bort"

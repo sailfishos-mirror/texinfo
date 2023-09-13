@@ -1,5 +1,9 @@
 2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	pretest 7.0.92
+
+2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (main) <--description>:
 	Free string when concatenating text.
 

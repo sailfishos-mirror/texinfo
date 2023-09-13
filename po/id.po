@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-11 18:22+0100\n"
+"POT-Creation-Date: 2023-09-13 18:27+0100\n"
 "PO-Revision-Date: 2014-08-11 17:30+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -438,7 +438,7 @@ msgstr "Set nilai %s dari sebuah variabel Info %s"
 msgid "Try --help for more information.\n"
 msgstr "Coba --help untuk informasi lebih lanjut.\n"
 
-#: info/info.c:872 install-info/install-info.c:2253
+#: info/info.c:872 install-info/install-info.c:2259
 #: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
@@ -2145,63 +2145,63 @@ msgstr ""
 msgid "%s: could not read (%s) and could not create (%s)"
 msgstr "%s: tidak dapat membaca (%s) dan tidak dapat membuat (%s)"
 
-#: install-info/install-info.c:1163 install-info/install-info.c:1205
+#: install-info/install-info.c:1165 install-info/install-info.c:1207
 msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
 msgstr "START-INFO-DIR-ENTRY tanpat pasangan END-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:1200
+#: install-info/install-info.c:1202
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "END-INFO-DIR-ENTRY tanpa pasangan START-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:2078 install-info/install-info.c:2088
+#: install-info/install-info.c:2084 install-info/install-info.c:2094
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr "%s: telah memiliki berkas dir: %s\n"
 
-#: install-info/install-info.c:2184
+#: install-info/install-info.c:2190
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr "%s: Spesifikasikan berkas Info hanya sekali.\n"
 
-#: install-info/install-info.c:2217
+#: install-info/install-info.c:2223
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr "Ekstra ekspresi regular dispesifikasikan, mengabaikan `%s'"
 
-#: install-info/install-info.c:2229
+#: install-info/install-info.c:2235
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr "Error dalam ekspresi regular `%s': %s"
 
-#: install-info/install-info.c:2291
+#: install-info/install-info.c:2297
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "kelebihan argumen baris perintah `%s'"
 
-#: install-info/install-info.c:2295
+#: install-info/install-info.c:2301
 msgid "No input file specified; try --help for more information."
 msgstr ""
 "Tidak ada berkas masukan dispesifikasikan; coba --help untuk informasi lebih "
 "lanjut."
 
-#: install-info/install-info.c:2297
+#: install-info/install-info.c:2303
 msgid "No dir file specified; try --help for more information."
 msgstr ""
 "Tidak ada berkas direktori dispesifikasikan; coba --help untuk informasi "
 "lebih lanjut."
 
-#: install-info/install-info.c:2318
+#: install-info/install-info.c:2324
 #, fuzzy, c-format
 #| msgid "could not read %s: %s"
 msgid "Could not read %s."
 msgstr "%s: tidak dapat membuka --css-file: %s"
 
-#: install-info/install-info.c:2465
+#: install-info/install-info.c:2471
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "tidak ada masukan direktori info dalam `%s'"
 
-#: install-info/install-info.c:2713
+#: install-info/install-info.c:2719
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "tidak ada masukan ditemukan untuk `%s'; tidak ada yang dihapus"

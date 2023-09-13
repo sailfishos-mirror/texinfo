@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-11 18:22+0100\n"
+"POT-Creation-Date: 2023-09-13 18:27+0100\n"
 "PO-Revision-Date: 2021-07-08 08:20+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -418,7 +418,7 @@ msgstr "значение %s недопустимо для переменной %
 msgid "Try --help for more information.\n"
 msgstr "Попробуйте --help для получения более подробного описания.\n"
 
-#: info/info.c:872 install-info/install-info.c:2253
+#: info/info.c:872 install-info/install-info.c:2259
 #: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
@@ -1932,62 +1932,62 @@ msgstr ""
 msgid "%s: could not read (%s) and could not create (%s)"
 msgstr "%s: невозможно прочитать (%s) и создать (%s)"
 
-#: install-info/install-info.c:1163 install-info/install-info.c:1205
+#: install-info/install-info.c:1165 install-info/install-info.c:1207
 msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
 msgstr "START-INFO-DIR-ENTRY без соответствующего END-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:1200
+#: install-info/install-info.c:1202
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "END-INFO-DIR-ENTRY без соответствующего START-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:2078 install-info/install-info.c:2088
+#: install-info/install-info.c:2084 install-info/install-info.c:2094
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr "%s: уже существует файл dir: %s\n"
 
-#: install-info/install-info.c:2184
+#: install-info/install-info.c:2190
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr "%s: Можно задать только один Info-файл.\n"
 
-#: install-info/install-info.c:2217
+#: install-info/install-info.c:2223
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr "Указано дополнительное регулярное выражение, игнорируется «%s»"
 
-#: install-info/install-info.c:2229
+#: install-info/install-info.c:2235
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr "Ошибка в регулярном выражении «%s»: %s"
 
-#: install-info/install-info.c:2291
+#: install-info/install-info.c:2297
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "лишний аргумент командной строки «%s»"
 
-#: install-info/install-info.c:2295
+#: install-info/install-info.c:2301
 msgid "No input file specified; try --help for more information."
 msgstr ""
 "Не задан входной файл; попробуйте --help для получения более подробного "
 "описания."
 
-#: install-info/install-info.c:2297
+#: install-info/install-info.c:2303
 msgid "No dir file specified; try --help for more information."
 msgstr ""
 "Не задан файл каталога; попробуйте --help для получения более подробного "
 "описания."
 
-#: install-info/install-info.c:2318
+#: install-info/install-info.c:2324
 #, c-format
 msgid "Could not read %s."
 msgstr "Невозможно прочитать %s."
 
-#: install-info/install-info.c:2465
+#: install-info/install-info.c:2471
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "в «%s» нет элемента info dir"
 
-#: install-info/install-info.c:2713
+#: install-info/install-info.c:2719
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "не найдены элементы для «%s»; ничего не удалено"
