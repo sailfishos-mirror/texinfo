@@ -839,6 +839,7 @@ determine_file_type:
           *opened_filename = command;
           return 0;
         }
+      free (command);
     }
   else
     {
