@@ -2068,7 +2068,7 @@ sub protect_comma_in_tree($)
 
   if (not _XS_protect_comma_in_tree($tree)
       and $XS_only) {
-    return undef;
+    return $tree;
   }
 
   return modify_tree($tree, \&_protect_comma);
@@ -2152,7 +2152,7 @@ sub protect_colon_in_tree($)
 
   if (not _XS_protect_colon_in_tree($tree)
       and $XS_only) {
-    return undef;
+    return $tree;
   }
 
   return modify_tree($tree, \&_protect_colon);
@@ -2177,7 +2177,7 @@ sub protect_node_after_label_in_tree($)
 
   if (not _XS_protect_node_after_label_in_tree($tree)
       and $XS_only) {
-    return undef;
+    return $tree;
   }
 
   return modify_tree($tree, \&_protect_node_after_label);
