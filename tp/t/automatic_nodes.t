@@ -150,13 +150,12 @@ Text.
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
-$tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
-my $added_nodes
- = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
+Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
+$tree = $document->tree();
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 is ($result, $reference, 'add nodes');
 #print STDERR "$result";
@@ -173,17 +172,17 @@ $document = $parser->parse_texi_text('@node Top
 * (some_manual)::
 @end menu
 ');
-  $tree = $document->tree();
 $registrar = $parser->registered_errors();
-my $identifier_target = $document->labels_information();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
-$added_nodes
-   = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
+Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
+if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+  $document = Texinfo::Structuring::rebuild_document($document);
+}
+my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();
 ok (($identifier_target->{'chap'}->{'extra'}->{'menus'}
-     and @{$identifier_target->{'chap'}->{'extra'}->{'menus'}}
      and scalar(@{$identifier_target->{'chap'}->{'extra'}->{'menus'}}) == 1
      and !exists($identifier_target->{'Top'}->{'extra'}->{'menus'})),
     'new node has a menu');
@@ -199,5 +198,6 @@ is ($identifier_target->{'chap'},
       $indices_information->{'cp'}->{'index_entries'}->[0]
                               ->{'entry_element'}->{'extra'}->{'element_node'},
   'index entry reassociated');
+#$tree = $document->tree();
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

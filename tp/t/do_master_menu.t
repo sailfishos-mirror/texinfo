@@ -127,9 +127,12 @@ my $document = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
+if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+  $document = Texinfo::Structuring::rebuild_document($document);
+}
 my $identifier_target = $document->labels_information();
-# FIXME does not test XS
 my $top_node = $identifier_target->{'Top'};
+# FIXME does not test XS
 my $master_menu = Texinfo::Structuring::new_master_menu($parser,
                                                $identifier_target,
                                         $top_node->{'extra'}->{'menus'});
@@ -175,8 +178,12 @@ $document = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                                     $document);
+if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+  $document = Texinfo::Structuring::rebuild_document($document);
+}
 $identifier_target = $document->labels_information();
 $top_node = $identifier_target->{'Top'};
+# FIXME does not test XS
 $master_menu = Texinfo::Structuring::new_master_menu($parser,
                                                     $identifier_target,
                                            $top_node->{'extra'}->{'menus'});
