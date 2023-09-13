@@ -323,11 +323,11 @@ $texinfo_dtd_version = $configured_version
 
 # options set in the main program.
 my $main_program_set_options = {
-    'PACKAGE_VERSION' => $configured_version,
-    'PACKAGE' => $configured_package,
-    'PACKAGE_NAME' => $configured_name,
-    'PACKAGE_AND_VERSION' => $configured_name_version,
-    'PACKAGE_URL' => $configured_url,
+    'PACKAGE_VERSION_OPTION' => $configured_version,
+    'PACKAGE_OPTION' => $configured_package,
+    'PACKAGE_NAME_OPTION' => $configured_name,
+    'PACKAGE_AND_VERSION_OPTION' => $configured_name_version,
+    'PACKAGE_URL_OPTION' => $configured_url,
     'PROGRAM' => $real_command_name,
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
@@ -913,11 +913,6 @@ Texinfo home page: http://www.gnu.org/software/texinfo/") ."\n";
   return $makeinfo_help;
 }
 
-my %non_decoded_customization_variables;
-foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
-  $non_decoded_customization_variables{$variable_name} = 1;
-}
-
 my $Xopt_arg_nr = 0;
 
 my $result_options = Getopt::Long::GetOptions (
@@ -1026,7 +1021,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2023");
  },
  'set-customization-variable|c=s' => sub {
    my $var_val;
-   if ($non_decoded_customization_variables{$_[1]}) {
+   if ($Texinfo::Common::non_decoded_customization_variables{$_[1]}) {
      $var_val = $_[1];
    } else {
      $var_val = _decode_input($_[1]);
@@ -1133,11 +1128,11 @@ if ($cmdline_options->{'HIGHLIGHT_SYNTAX'}) {
 
 # For tests, set some strings to values not changing with releases
 my %test_conf = (
-    'PACKAGE_VERSION' => '',
-    'PACKAGE' => 'texinfo',
-    'PACKAGE_NAME' => 'texinfo',
-    'PACKAGE_AND_VERSION' => 'texinfo',
-    'PACKAGE_URL' => 'http://www.gnu.org/software/texinfo/',
+    'PACKAGE_VERSION_OPTION' => '',
+    'PACKAGE_OPTION' => 'texinfo',
+    'PACKAGE_NAME_OPTION' => 'texinfo',
+    'PACKAGE_AND_VERSION_OPTION' => 'texinfo',
+    'PACKAGE_URL_OPTION' => 'http://www.gnu.org/software/texinfo/',
 # maybe don't set this?
     'PROGRAM' => 'texi2any',
 );
@@ -1502,6 +1497,8 @@ while(@input_files) {
   if ($global_commands->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);
   }
+
+  $main_configuration->set_document_main_configuration($document);
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;

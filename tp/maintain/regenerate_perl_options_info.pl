@@ -26,13 +26,9 @@ BEGIN
   $^W = 1;
 }
 
-my %command_categories;
-my %flags_hashes;
-
-
 my %option_categories;
 
-while (<>) {
+while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
       my $option = $1;
@@ -71,19 +67,4 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 
 print OUT "1;\n";
-
-open (STRUCT, ">Texinfo/XS/main/options_types.h")
-      or die "Open Texinfo/XS/main/options_types.h: $!\n";
-print STRUCT "/* Automatically generated from $0 */\n\n";
-
-print STRUCT "typedef struct OPTIONS {\n";
-
-foreach my $category (sort(keys(%option_categories))) {
-  print STRUCT "\n/* ${category} */\n\n";
-    foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print STRUCT "    $type $option;\n";
-  }
-}
-print STRUCT "} OPTIONS;\n\n";
 

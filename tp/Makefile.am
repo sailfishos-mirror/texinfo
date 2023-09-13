@@ -309,7 +309,8 @@ maintenance_files = \
   maintain/regenerate_documentlanguages-loc.pl \
   maintain/regenerate_file_lists.pl \
   maintain/regenerate_commands_perl_info.pl \
-  maintain/regenerate_options_info.pl \
+  maintain/regenerate_perl_options_info.pl \
+  maintain/regenerate_C_options_info.pl \
   maintain/setup_converters_code_tables.pl \
   maintain/template.pod \
   maintain/catalog.xml.in
@@ -352,7 +353,7 @@ Texinfo/Commands.pm: Texinfo/command_data.txt
 
 Texinfo/Options.pm: Texinfo/options_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_options_info.pl < $(srcdir)/Texinfo/options_data.txt
+	$(srcdir)/maintain/regenerate_perl_options_info.pl < $(srcdir)/Texinfo/options_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
 

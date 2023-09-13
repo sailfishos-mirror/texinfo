@@ -354,7 +354,7 @@ sub _info_header($$$)
   # This ensures that spaces in file are kept.
   $result .= add_next($paragraph, $output_filename);
   my $program = $self->get_conf('PROGRAM');
-  my $version = $self->get_conf('PACKAGE_VERSION');
+  my $version = $self->get_conf('PACKAGE_VERSION_OPTION');
   if (defined($program) and $program ne '') {
     $result .=
         add_text($paragraph, ", produced by $program version $version from ");

@@ -1,5 +1,48 @@
 2023-09-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt: remove duplicates, fix
+	SORT_ELEMENT_COUNT type.
+
+	* tp/Makefile.am, maintain/regenerate_perl_options_info.pl,
+	maintain/regenerate_C_options_info.pl, tp/Texinfo/XS/Makefile.am:
+	split the C part of maintain/regenerate_options_info.pl out and put in
+	maintain/regenerate_C_options_info.pl, the perl part is now
+	maintain/regenerate_perl_options_info.pl.
+
+	* maintain/regenerate_C_options_info.pl, tp/Texinfo/XS/Makefile.am,
+	tp/Texinfo/XS/main/get_perl_info.c: generate code to get perl options
+	hash and copy to C.
+
+	* tp/Texinfo/Common.pm (import, %non_decoded_customization_variables)
+	(_XS_set_document_options, set_document_options),
+	tp/Texinfo/Config.pm, tp/Texinfo/XS/main/document.c
+	(register_document_options), tp/Texinfo/XS/main/get_perl_info.c
+	(add_svav_to_string_list, copy_sv_options)
+	(copy_sv_options_for_convert_text), tp/Texinfo/XS/main/utils.c
+	(new_options, add_include_directory, add_string),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(set_document_options), tp/t/test_utils.pl (test), tp/texi2any.pl: move
+	%non_decoded_customization_variables to Texinfo::Common. Add XS
+	override to encode MainConfig options values and pass options to store
+	in document, add add_svav_to_string_list based on
+	copy_sv_options_for_convert_text to get more generically STRING_LIST
+	from perl.
+
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
+	tp/Texinfo/Convert/HTML.pm (_default_format_program_string)
+	(convert_tree), tp/Texinfo/Convert/Info.pm (_info_header),
+	tp/Texinfo/options_data.txt, tp/t/init/t2h_singular.init,
+	tp/texi2any.pl ($main_program_set_options, %test_conf): rename
+	PACKAGE* to PACKAGE*_OPTION to avoid clashing with macros with the
+	same name defined in config.h.
+
+	* tp/maintain/regenerate_commands_perl_info.pl: use explicitely
+	<STDIN>.
+
+
+
+2023-09-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Makefile.am (modules_DATA)
 	(maintenance_files, EXTRA_DIST, DISTCLEANFILES),
 	tp/Texinfo/options_data.txt, tp/maintain/regenerate_options_info.pl,

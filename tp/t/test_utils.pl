@@ -1001,6 +1001,8 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
+  $main_configuration->set_document_main_configuration($document);
+
   my $indices_information = $document->indices_information();
   if ($tree_transformations{'relate_index_entries_to_items'}) {
     Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,

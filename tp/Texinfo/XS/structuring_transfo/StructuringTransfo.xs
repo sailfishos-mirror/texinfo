@@ -36,6 +36,7 @@
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
+#include "options_types.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -115,6 +116,20 @@ rebuild_document (document_in, ...)
     OUTPUT:
         RETVAL
 
+void
+set_document_options (sv_in, document_in)
+        SV *sv_in
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          {
+            OPTIONS *options = copy_sv_options (sv_in);
+            register_document_options (document, options);
+          }
 
 void
 fill_gaps_in_sectioning (tree_in)

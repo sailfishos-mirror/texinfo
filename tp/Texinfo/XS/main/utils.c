@@ -37,9 +37,11 @@
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
+#include "options_types.h"
 #include "utils.h"
 
 #include "cmd_structuring.c"
+#include "options_initialization.c"
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
@@ -538,22 +540,40 @@ normalize_encoding_name (char *text, int *possible_encoding)
   return normalized_text;
 }
 
+/* options */
+
+OPTIONS *
+new_options (void)
+{
+  OPTIONS *options = malloc (sizeof (OPTIONS));
+  initialize_options (options);
+  return options;
+}
+
 /* include directories and include file */
 
 void
-add_include_directory (char *filename, STRING_LIST *include_dirs_list)
+add_include_directory (char *input_filename, STRING_LIST *include_dirs_list)
 {
   int len;
-  if (include_dirs_list->number == include_dirs_list->space)
-    {
-      include_dirs_list->list = realloc (include_dirs_list->list,
-                   sizeof (char *) * (include_dirs_list->space += 5));
-    }
-  filename = strdup (filename);
-  include_dirs_list->list[include_dirs_list->number++] = filename;
+  char *filename = strdup (input_filename);
   len = strlen (filename);
   if (len > 0 && filename[len - 1] == '/')
     filename[len - 1] = '\0';
+  add_string (filename, include_dirs_list);
+  free (filename);
+}
+
+void
+add_string (char *string, STRING_LIST *strings_list)
+{
+  if (strings_list->number == strings_list->space)
+    {
+      strings_list->list = realloc (strings_list->list,
+                   sizeof (char *) * (strings_list->space += 5));
+    }
+  string = strdup (string);
+  strings_list->list[strings_list->number++] = string;
 }
 
 void

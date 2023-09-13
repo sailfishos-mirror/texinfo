@@ -153,7 +153,7 @@ CHECK_MISSING_MENU_ENTRY     program_customization 1         int
 DUMP_TREE                    program_customization undef     int
 DUMP_TEXI                    program_customization undef     int
 SHOW_BUILTIN_CSS_RULES       program_customization 0         int
-SORT_ELEMENT_COUNT           program_customization undef     int
+SORT_ELEMENT_COUNT           program_customization undef     char *
 SORT_ELEMENT_COUNT_WORDS     program_customization undef     int
 TEXI2DVI                     program_customization texi2dvi  char *
 TREE_TRANSFORMATIONS         program_customization undef     char *
@@ -215,8 +215,6 @@ DATE_IN_HEADER                     converter_customization undef   int
 DEFAULT_RULE                       converter_customization undef   char *
 DEF_TABLE                          converter_customization undef   int
 DO_ABOUT                           converter_customization undef   int
-DOC_ENCODING_FOR_INPUT_FILE_NAME   converter_customization undef   char *
-DOC_ENCODING_FOR_OUTPUT_FILE_NAME  converter_customization undef   char *
 DOCTYPE                            converter_customization undef   char *
 # for LaTeX
 END_USEPACKAGE                     converter_customization undef   char *
@@ -243,7 +241,6 @@ HTML_ROOT_ELEMENT_ATTRIBUTES       converter_customization undef   char *
 HTMLXREF_FILE                      converter_customization undef   char *
 HTMLXREF_MODE                      converter_customization undef   char *
 ICONS                              converter_customization undef   int
-IMAGE_LINK_PREFIX                  converter_customization undef   char *
 INDEX_ENTRY_COLON                  converter_customization undef   char *
 INDEX_SPECIAL_CHARS_WARNING        converter_customization undef   int
 INFO_JS_DIR                        converter_customization undef   char *
@@ -281,11 +278,11 @@ OUTPUT_CHARACTERS                  converter_customization undef   int
 OUTPUT_ENCODING_NAME               converter_customization undef   char *
 OUTPUT_FILE_NAME_ENCODING          converter_customization undef   char *
 OUTPUT_PERL_ENCODING               converter_customization undef   char *
-PACKAGE                            converter_customization undef   char *
-PACKAGE_AND_VERSION                converter_customization undef   char *
-PACKAGE_NAME                       converter_customization undef   char *
-PACKAGE_URL                        converter_customization undef   char *
-PACKAGE_VERSION                    converter_customization undef   char *
+PACKAGE_OPTION                     converter_customization undef   char *
+PACKAGE_AND_VERSION_OPTION         converter_customization undef   char *
+PACKAGE_NAME_OPTION                converter_customization undef   char *
+PACKAGE_URL_OPTION                 converter_customization undef   char *
+PACKAGE_VERSION_OPTION             converter_customization undef   char *
 PRE_BODY_CLOSE                     converter_customization undef   char *
 PREFIX                             converter_customization undef   char *
 PROGRAM                            converter_customization undef   char *
@@ -294,7 +291,6 @@ PROGRAM_NAME_IN_FOOTER             converter_customization undef   char *
 SECTION_NAME_IN_TITLE              converter_customization undef   char *
 SHORT_TOC_LINK_TO_TOC              converter_customization undef   int
 SHOW_TITLE                         converter_customization undef   int
-SORT_ELEMENT_COUNT                 converter_customization undef   int
 T4H_LATEX_CONVERSION               converter_customization undef   char *
 T4H_MATH_CONVERSION                converter_customization undef   char *
 T4H_TEX_CONVERSION                 converter_customization undef   char *
@@ -338,12 +334,12 @@ PASSIVE_ICONS                      converter_other undef   ICONS *
 
 # set from command line.
 # --css-include
-CSS_FILES            array_cmdline  undef   STRING_LIST *
+CSS_FILES            array_cmdline  undef   STRING_LIST
 # --css-ref
-CSS_REFS             array_cmdline  undef   STRING_LIST *
+CSS_REFS             array_cmdline  undef   STRING_LIST
 # --if*
-EXPANDED_FORMATS     array_cmdline  undef   STRING_LIST *
+EXPANDED_FORMATS     array_cmdline  undef   STRING_LIST
 # -I
-INCLUDE_DIRECTORIES  array_cmdline  undef   STRING_LIST *
+INCLUDE_DIRECTORIES  array_cmdline  undef   STRING_LIST
 
 

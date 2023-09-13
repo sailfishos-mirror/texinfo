@@ -103,6 +103,10 @@ sub import {
         "Texinfo::Common::_XS_protect_node_after_label_in_tree",
         "Texinfo::StructTransf::protect_node_after_label_in_tree"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_set_document_options",
+        "Texinfo::StructTransf::set_document_options"
+      );
     }
     $module_loaded = 1;
   }
@@ -164,6 +168,12 @@ if ($Config{osname} eq 'dos' and $Config{osvers} eq 'djgpp') {
 
 
 # Customization options
+
+# used in main program too
+our %non_decoded_customization_variables;
+foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
+  $non_decoded_customization_variables{$variable_name} = 1;
+}
 
 # variables not specific of Parser, used in other contexts.  Spread over
 # the different categories set below.  The default values are in general
@@ -2269,6 +2279,10 @@ sub _move_index_entries_after_items($$)
   return undef;
 }
 
+sub _XS_move_index_entries_after_items_in_tree($)
+{
+}
+
 # For @itemize/@enumerate
 sub move_index_entries_after_items_in_tree($)
 {
@@ -2276,10 +2290,6 @@ sub move_index_entries_after_items_in_tree($)
   modify_tree($tree, \&_move_index_entries_after_items);
 
   _XS_move_index_entries_after_items_in_tree($tree);
-}
-
-sub _XS_move_index_entries_after_items_in_tree($)
-{
 }
 
 sub _relate_index_entries_to_table_items_in($$)
@@ -2361,6 +2371,10 @@ sub _relate_index_entries_to_table_items($$$)
   return undef;
 }
 
+sub _XS_relate_index_entries_to_table_items_in_tree($)
+{
+}
+
 sub relate_index_entries_to_table_items_in_tree($$)
 {
   my $tree = shift;
@@ -2370,10 +2384,6 @@ sub relate_index_entries_to_table_items_in_tree($$)
               $indices_information);
   # The XS function retrieves the indices information associated with the tree.
   _XS_relate_index_entries_to_table_items_in_tree($tree);
-}
-
-sub _XS_relate_index_entries_to_table_items_in_tree($)
-{
 }
 
 # Common to different module, but not meant to be used in user-defined
@@ -2391,6 +2401,28 @@ sub get_label_element($)
     return $current->{'args'}->[1];
   }
   return undef;
+}
+
+sub _XS_set_document_options($$)
+{
+}
+
+sub set_document_options($$)
+{
+  my $options = shift;
+  my $document = shift;
+  my $encoded_options = {};
+  foreach my $option (keys(%$options)) {
+    if (defined($options->{$option})
+        and ref($options->{$option}) eq ''
+        and not $non_decoded_customization_variables{$option}) {
+      $encoded_options->{$option}
+        = Encode::encode("UTF-8", $options->{$option});
+    } else {
+      $encoded_options->{$option} = $options->{$option};
+    }
+  }
+  _XS_set_document_options($encoded_options, $document);
 }
 
 # functions used for debugging.  May be used in other modules.

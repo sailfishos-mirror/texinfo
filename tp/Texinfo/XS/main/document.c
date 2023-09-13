@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "tree_types.h"
+#include "options_types.h"
 #include "tree.h"
 /* for delete_global_info */
 #include "utils.h"
@@ -115,6 +116,12 @@ void
 register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
 {
   document->sections_list = sections_list;
+}
+
+void
+register_document_options (DOCUMENT *document, OPTIONS *options)
+{
+  document->options = options;
 }
 
 void

@@ -857,5 +857,23 @@ sub set_conf($$$)
   return 1;
 }
 
+sub set_document_main_configuration($$)
+{
+  my $self = shift;
+  my $document = shift;
+  if ($self->{'standalone'}) {
+    #print STDERR "STDALONE: ".join('|', sort(keys(%{$self->{'config'}})))."\n";
+    Texinfo::Common::set_document_options($self->{'config'}, $document);
+  } else {
+    my %options = %{$main_program_default_options};
+    foreach my $config ($self->{'config'}, $init_files_options, $cmdline_options) {
+      foreach my $option (keys(%$config)) {
+        $options{$option} = $config->{$option};
+      }
+      Texinfo::Common::set_document_options(\%options, $document);
+    }
+    #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
+  }
+}
 
 1;

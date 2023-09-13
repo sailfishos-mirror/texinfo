@@ -18,6 +18,8 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <iconv.h>
+
+#include "options_types.h"
 #include "tree_types.h"
 
 extern const char *whitespace_chars;
@@ -159,7 +161,10 @@ char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 
+OPTIONS *new_options (void);
+
 void free_strings_list (STRING_LIST *strings);
+void add_string (char *string, STRING_LIST *strings_list);
 
 void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
 void clear_include_directories (STRING_LIST *include_dirs_list);

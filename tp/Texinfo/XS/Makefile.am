@@ -176,6 +176,9 @@ EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_structuring.c
 EXTRA_DIST += main/cmd_symbol.c
 EXTRA_DIST += main/cmd_text.c
+EXTRA_DIST += main/options_initialization.c
+EXTRA_DIST += main/options_get_perl.c
+EXTRA_DIST += main/options_types.h
 
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -184,15 +187,18 @@ libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBIC
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
 BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
-              main/element_types.c \
-              main/element_types.h \
-              main/command_data.c \
               main/cmd_normalization.c \
               main/cmd_unicode.c \
               main/cmd_structuring.c \
               main/cmd_symbol.c \
               main/cmd_text.c \
-              main/command_ids.h
+              main/command_data.c \
+              main/command_ids.h \
+              main/element_types.c \
+              main/element_types.h \
+              main/options_initialization.c \
+              main/options_get_perl.c \
+              main/options_types.h
 
 # Need to be distributed
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
@@ -218,6 +224,14 @@ $(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
 $(srcdir)/main/accent_tables_8bit_codepoints.c:
 	$(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
+
+$(srcdir)/main/options_initialization.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
+	        < $(srcdir)/../options_data.txt \
+	              $(srcdir)/main/options_initialization.c \
+	              $(srcdir)/main/options_types.h \
+	              $(srcdir)/main/options_get_perl.c
+
 
 ########################## shared perl XS library for texinfo XS codes
 

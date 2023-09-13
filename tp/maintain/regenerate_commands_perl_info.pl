@@ -42,7 +42,7 @@ my %command_args_nr;
 
 my %multi_category_commands;
 
-while (<>) {
+while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     my ($command, $flags, $data, $args_nr) = split;
     my @flags = split /,/, $flags;

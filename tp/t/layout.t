@@ -101,7 +101,7 @@ foreach my $test (@test_cases) {
   }
   $test->[3]->{'TEXI2HTML'} = 1;
   $test->[3]->{'PROGRAM'} = 'texi2any';
-  $test->[3]->{'PACKAGE_URL'} = 'http://www.gnu.org/software/texinfo/';
+  $test->[3]->{'PACKAGE_URL_OPTION'} = 'http://www.gnu.org/software/texinfo/';
 }
 
 run_all('layout', [@test_cases]);

@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "options_types.h"
 #include "tree_types.h"
 /* for GLOBAL_INFO */
 #include "utils.h"
@@ -24,6 +25,7 @@ typedef struct DOCUMENT {
   ELEMENT *nodes_list; /* nodes in contents of this element */
   ELEMENT *sections_list; /* sections in contents of this element */
   ERROR_MESSAGE_LIST *error_messages;
+  OPTIONS *options; /* for options used in structuring */
 } DOCUMENT;
 
 
@@ -40,6 +42,7 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
 void register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list);
 void register_document_sections_list (DOCUMENT *document,
                                       ELEMENT *sections_list);
+void register_document_options (DOCUMENT *document, OPTIONS *options);
 void remove_document (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
 void clear_document_errors (int document_descriptor);

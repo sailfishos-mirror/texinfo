@@ -92,9 +92,9 @@ my %common_converters_defaults = (
 # values are what is used in tests of the Converters.  These variables are
 # customization options, set in the main program when a converter is
 # called from the main program.
-  'PACKAGE_AND_VERSION'  => 'texinfo',
-  'PACKAGE_VERSION'      => '',
-  'PACKAGE_URL'          => 'http://www.gnu.org/software/texinfo/',
+  'PACKAGE_AND_VERSION_OPTION'  => 'texinfo',
+  'PACKAGE_VERSION_OPTION'      => '',
+  'PACKAGE_URL_OPTION'          => 'http://www.gnu.org/software/texinfo/',
   'PROGRAM'              => '',
 );
 

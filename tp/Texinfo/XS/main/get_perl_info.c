@@ -38,8 +38,10 @@ FIXME add an initialization of translations?
 #endif
 */
 
+#include "utils.h"
 #include "document.h"
 #include "convert_to_text.h"
+#include "options_types.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -90,6 +92,42 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
+void
+add_svav_to_string_list (SV **sv, STRING_LIST *string_list, int dir_strings)
+{
+  dTHX;
+
+  if (sv)
+    {
+      int i;
+      SSize_t strings_nr;
+      AV *av = (AV *)SvRV (*sv);
+      strings_nr = av_top_index (av);
+      for (i = 0; i < strings_nr; i++)
+        {
+          SV** string_sv = av_fetch (av, i, 0);
+          if (string_sv)
+            {
+              char *string = SvPVbyte_nolen (*string_sv);
+              if (dir_strings)
+                add_include_directory (string, string_list);
+              else
+                add_string (string, string_list);
+            }
+        }
+    }
+}
+
+#include "options_get_perl.c"
+
+OPTIONS *
+copy_sv_options (SV *sv_in)
+{
+  OPTIONS *options = new_options ();
+  get_sv_options (sv_in, options);
+  return options;
+}
+
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* TODO more to do */
 TEXT_OPTIONS *
@@ -123,22 +161,9 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
                                      strlen ("INCLUDE_DIRECTORIES"), 0);
-  if (include_directories_sv)
-    {
-      int i;
-      SSize_t inc_dirs_nr;
-      AV *include_directories = (AV *)SvRV (*include_directories_sv);
-      inc_dirs_nr = av_top_index (include_directories);
-      for (i = 0; i < inc_dirs_nr; i++)
-        {
-          SV** include_dir_sv = av_fetch (include_directories, i, 0);
-          if (include_dir_sv)
-            {
-              char *include_dir = SvPVbyte_nolen (*include_dir_sv);
-              add_include_directory (include_dir, &options->include_directories);
-            }
-        }
-    }
+
+  add_svav_to_string_list (include_directories_sv,
+                           &options->include_directories, 1);
 
   expanded_formats_hash_sv = hv_fetch (hv_in, "expanded_formats_hash",
                                        strlen ("expanded_formats_hash"), 0);

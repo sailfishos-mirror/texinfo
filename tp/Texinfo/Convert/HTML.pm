@@ -9916,10 +9916,11 @@ sub _default_format_program_string($)
   my $self = shift;
   if (defined($self->get_conf('PROGRAM'))
       and $self->get_conf('PROGRAM') ne ''
-      and defined($self->get_conf('PACKAGE_URL'))) {
+      and defined($self->get_conf('PACKAGE_URL_OPTION'))) {
     return $self->convert_tree(
       $self->gdt('This document was generated on @emph{@today{}} using @uref{{program_homepage}, @emph{{program}}}.',
-         { 'program_homepage' => {'text' => $self->get_conf('PACKAGE_URL')},
+         { 'program_homepage' => {'text'
+                           => $self->get_conf('PACKAGE_URL_OPTION')},
            'program' => {'text' => $self->get_conf('PROGRAM')} }));
   } else {
     return $self->convert_tree(
@@ -10063,8 +10064,8 @@ sub _file_header_information($$;$)
   my $extra_head = '';
   $extra_head = $self->get_conf('EXTRA_HEAD')
     if (defined($self->get_conf('EXTRA_HEAD')));
-  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION');
-  my $program_homepage = $self->get_conf('PACKAGE_URL');
+  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION_OPTION');
+  my $program_homepage = $self->get_conf('PACKAGE_URL_OPTION');
   my $program = $self->get_conf('PROGRAM');
   my $generator = '';
   if (defined($program) and $program ne '') {
