@@ -84,19 +84,19 @@ plain_texinfo_convert_tree (converter, tree_in)
         RETVAL
 
 SV *
-text_convert (converter, document_in)
-        SV *converter
+text_convert (text_options_in, document_in)
+        SV *text_options_in
         SV *document_in
     PREINIT:
         DOCUMENT *document = 0;
-        TEXT_OPTIONS *options = 0;
+        TEXT_OPTIONS *text_options = 0;
     CODE:
         /* FIXME warning/error if not found? */
         document = get_sv_document_document (document_in, 0);
-        options = copy_sv_options_for_convert_text (converter);
+        text_options = copy_sv_options_for_convert_text (text_options_in);
         if (document)
           {
-            char *result = text_convert (document, options);
+            char *result = text_convert (document, text_options);
             RETVAL = newSVpv (result, strlen(result));
             SvUTF8_on (RETVAL);
           }
@@ -105,22 +105,20 @@ text_convert (converter, document_in)
     OUTPUT:
         RETVAL
 
-# TODO the converter is interpreted as a hash with convert_to_text options.
-# a real converter may need other code.
 SV *
-text_convert_tree (converter, tree_in)
-        SV *converter
+text_convert_tree (text_options_in, tree_in)
+        SV *text_options_in
         SV *tree_in
     PREINIT:
         DOCUMENT *document = 0;
-        TEXT_OPTIONS *options = 0;
+        TEXT_OPTIONS *text_options = 0;
     CODE:
         /* FIXME warning/error if not found? */
         document = get_sv_tree_document (tree_in, 0);
-        options = copy_sv_options_for_convert_text (converter);
+        text_options = copy_sv_options_for_convert_text (text_options_in);
         if (document)
           {
-            char *result = text_convert (document, options);
+            char *result = text_convert (document, text_options);
             RETVAL = newSVpv (result, strlen(result));
             SvUTF8_on (RETVAL);
           }
