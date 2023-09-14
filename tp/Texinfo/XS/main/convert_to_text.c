@@ -114,11 +114,12 @@ new_text_options (void)
 }
 
 void
-destroy_options (TEXT_OPTIONS *options)
+destroy_text_options (TEXT_OPTIONS *text_options)
 {
-  free (options->encoding);
-  free (options->expanded_formats);
-  free (options);
+  free (text_options->encoding);
+  free (text_options->expanded_formats);
+  free (text_options->converter_options);
+  free (text_options);
 }
 
 /* format an accent command and nested accents within as Text. */
@@ -128,14 +129,14 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   ACCENTS_STACK *accent_stack = find_innermost_accent_contents (accent);
   char *text;
   char *result;
-  TEXT_OPTIONS *options = new_text_options ();
+  TEXT_OPTIONS *text_options = new_text_options ();
 
   if (encoding)
-    options->encoding = strdup (encoding);
-  options->set_case = set_case;
+    text_options->encoding = strdup (encoding);
+  text_options->set_case = set_case;
 
   if (accent_stack->argument)
-    text = convert_to_text (accent_stack->argument, options);
+    text = convert_to_text (accent_stack->argument, text_options);
   else
     text = strdup ("");
 
@@ -146,7 +147,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
     result = ascii_accents_internal (text, accent_stack->stack, set_case);
   free (text);
   destroy_accent_stack (accent_stack);
-  destroy_options (options);
+  destroy_text_options (text_options);
   return result;
 }
 
@@ -284,11 +285,11 @@ text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
 #define ADD(x) text_append (result, x)
 
 void
-convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
+convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result);
 
 void
-convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
+convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result)
 {
   enum command_id data_cmd = 0;
@@ -336,7 +337,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                        || element->cmd == CM_xml
                        || element->cmd == CM_docbook
                        || element->cmd == CM_latex)
-                      && !format_expanded_p (options->expanded_formats,
+                      && !format_expanded_p (text_options->expanded_formats,
                                         builtin_command_name (element->cmd)))
                /* here ignore most of the line commands */
                   || (element->args.number > 0
@@ -356,7 +357,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
       {
         char *format = lookup_extra_string (element, "format");
         if (!format
-            || !format_expanded_p (options->expanded_formats, format))
+            || !format_expanded_p (text_options->expanded_formats, format))
           return;
       }
     else
@@ -387,18 +388,18 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         {
           char *p;
           if (element->type == ET_raw
-              || options->raw_state)
+              || text_options->raw_state)
             ADD(element->text.text);
           else
             {
               char *cased = 0;
               char *text;
 
-              if (options->set_case)
+              if (text_options->set_case)
                 {
                   char *cased
                     = to_upper_or_lower_multibyte (element->text.text,
-                                                   options->set_case);
+                                                   text_options->set_case);
                   text = cased;
                 }
               else
@@ -406,7 +407,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                   text = element->text.text;
                 }
 
-              if (options->code_state)
+              if (text_options->code_state)
                 ADD(text);
               else
                 {
@@ -459,7 +460,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (data_cmd == CM_today)
         {
-          if (options->sort_string
+          if (text_options->sort_string
               && sort_brace_no_arg_commands[data_cmd])
             {
               ADD(sort_brace_no_arg_commands[data_cmd]);
@@ -472,7 +473,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                         $options);
       }
 */
-          else if (options->test)
+          else if (text_options->test)
             {
               ADD("a sunny day");
               return;
@@ -493,24 +494,25 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         }
       else if (text_brace_no_arg_commands[data_cmd])
         {
-          char *brace_no_args_text = brace_no_arg_command (element, options);
+          char *brace_no_args_text
+            = brace_no_arg_command (element, text_options);
           ADD(brace_no_args_text);
           free (brace_no_args_text);
           return;
         }
       else if (builtin_command_data[data_cmd].flags & CF_accent)
         {
-          char *text = text_accents (element, options->encoding,
-                                     options->set_case);
+          char *text = text_accents (element, text_options->encoding,
+                                     text_options->set_case);
           ADD(text);
           free (text);
         }
       else if (element->cmd == CM_image)
         {
-          options->code_state++;
+          text_options->code_state++;
           convert_to_text_internal (element->args.list[0],
-                                    options, result);
-          options->code_state--;
+                                    text_options, result);
+          text_options->code_state--;
           return;
         }
       else if (element->cmd == CM_email)
@@ -520,7 +522,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               TEXT replacement;
               text_init (&replacement);
               convert_to_text_internal (element->args.list[1],
-                                        options, &replacement);
+                                        text_options, &replacement);
               if (replacement.end > 0)
                 {
                   ADD(replacement.text);
@@ -528,10 +530,10 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                   return;
                 }
             }
-          options->code_state++;
+          text_options->code_state++;
           convert_to_text_internal (element->args.list[0],
-                                    options, result);
-          options->code_state--;
+                                    text_options, result);
+          text_options->code_state--;
           return;
         }
       else if (element->cmd == CM_uref || element->cmd == CM_url)
@@ -543,7 +545,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               TEXT replacement;
               text_init (&replacement);
               convert_to_text_internal (element->args.list[2],
-                                        options, &replacement);
+                                        text_options, &replacement);
               if (replacement.end > 0)
                 {
                   ADD(replacement.text);
@@ -554,16 +556,16 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
 
           text_init (&url_text);
           text_append (&url_text, "");
-          options->code_state++;
+          text_options->code_state++;
           convert_to_text_internal (element->args.list[0],
-                                    options, &url_text);
-          options->code_state--;
+                                    text_options, &url_text);
+          text_options->code_state--;
           if (element->args.number >= 2)
             {
               TEXT text;
               text_init (&text);
               convert_to_text_internal (element->args.list[1],
-                                        options, &text);
+                                        text_options, &text);
               if (text.end > 0)
                 {
                   text_printf (result, "%s (%s)", url_text.text, text.text);
@@ -586,10 +588,10 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           TEXT explanation;
           text_init (&explanation);
           convert_to_text_internal (element->args.list[1],
-                                    options, &explanation);
+                                    text_options, &explanation);
 
           convert_to_text_internal (element->args.list[0],
-                                    options, result);
+                                    text_options, result);
           if (explanation.end > 0)
             {
               text_printf (result, " (%s)", explanation.text);
@@ -602,22 +604,23 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         {
           int arg_index = 1;
           if (element->cmd == CM_inlineraw)
-            options->raw_state++;
+            text_options->raw_state++;
 
           if (element->cmd == CM_inlinefmtifelse)
             {
               char *format = lookup_extra_string (element, "format");
               if (!format
-                  || !format_expanded_p (options->expanded_formats, format))
+                  || !format_expanded_p (text_options->expanded_formats,
+                                         format))
                 arg_index = 2;
             }
 
           if (element->args.number > arg_index)
             convert_to_text_internal (element->args.list[arg_index],
-                                      options, result);
+                                      text_options, result);
 
           if (element->cmd == CM_inlineraw)
-            options->raw_state--;
+            text_options->raw_state--;
           return;
         }
       else if (element->args.number > 0
@@ -627,21 +630,21 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         {
           int in_code = 0;
           if (element->cmd == CM_sc)
-            options->set_case++;
+            text_options->set_case++;
 
           if (builtin_command_data[data_cmd].other_flags & CF_brace_code
               || builtin_command_data[data_cmd].flags & CF_math)
             in_code = 1;
 
           if (in_code)
-            options->code_state++;
+            text_options->code_state++;
           convert_to_text_internal (element->args.list[0],
-                                    options, result);
+                                    text_options, result);
           if (in_code)
-            options->code_state--;
+            text_options->code_state--;
 
           if (element->cmd == CM_sc)
-            options->set_case--;
+            text_options->set_case--;
           return;
         }
       /* block commands */
@@ -660,7 +663,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
                   ELEMENT *arg = element->args.list[i];
                   TEXT converted_arg;
                   text_init (&converted_arg);
-                  convert_to_text_internal (arg, options, &converted_arg);
+                  convert_to_text_internal (arg, text_options, &converted_arg);
                   if (converted_arg.end > 0)
                     {
                       int spaces_nr
@@ -700,12 +703,13 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
               text_append (&text, "");
               if (element->cmd != CM_page)
                 convert_to_text_internal (element->args.list[0],
-                                          options, &text);
+                                          text_options, &text);
               if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
                 {
                   /* FIXME $options->{'converter'} */
-                  char *heading = text_heading (element, text.text,
-                                                options->number_sections, 0);
+                  char *heading
+                    = text_heading (element, text.text,
+                                    text_options->number_sections, 0);
                   ADD(heading);
                   free (heading);
                 }
@@ -736,11 +740,11 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         {
           ELEMENT *verbatim_include_verbatim
           /* FIXME options argument should be generic converter options */
-            = expand_verbatiminclude (element, options);
+            = expand_verbatiminclude (element, text_options);
           if (verbatim_include_verbatim)
             {
               convert_to_text_internal (verbatim_include_verbatim,
-                                        options, result);
+                                        text_options, result);
               destroy_element_and_children (verbatim_include_verbatim);
             }
         }
@@ -795,10 +799,10 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
           text_append (&text_eol->text, "\n");
           add_to_contents_as_array (converted_element, text_eol);
 
-          options->code_state++;
+          text_options->code_state++;
           convert_to_text_internal (converted_element,
-                                    options, result);
-          options->code_state--;
+                                    text_options, result);
+          text_options->code_state--;
 
           destroy_element (converted_element);
           destroy_element (text_colon);
@@ -833,21 +837,21 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
         in_raw = 1;
 
       if (in_raw)
-        options->raw_state++;
+        text_options->raw_state++;
       if (in_code)
-        options->code_state++;
+        text_options->code_state++;
 
       for (i = 0; i < element->contents.number; i++)
         {
           ELEMENT *content = element->contents.list[i];
           convert_to_text_internal (content,
-                                    options, result);
+                                    text_options, result);
         }
 
       if (in_raw)
-        options->raw_state--;
+        text_options->raw_state--;
       if (in_code)
-        options->code_state--;
+        text_options->code_state--;
     }
   if (element->type == ET_menu_entry
       && element->parent->type != ET_preformatted
@@ -861,13 +865,13 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *options,
 
 /* Return value to be freed by caller. */
 char *
-convert_to_text (ELEMENT *root, TEXT_OPTIONS *options)
+convert_to_text (ELEMENT *root, TEXT_OPTIONS *text_options)
 {
   TEXT result;
 
   text_init (&result);
   text_append (&result, "");
 
-  convert_to_text_internal (root, options, &result);
+  convert_to_text_internal (root, text_options, &result);
   return result.text;
 }

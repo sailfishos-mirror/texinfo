@@ -2,6 +2,7 @@
 #ifndef CONVERT_TO_TEXT_H
 #define CONVERT_TO_TEXT_H
 
+#include "options_types.h"
 #include "tree_types.h"
 
 typedef struct TEXT_OPTIONS {
@@ -15,11 +16,12 @@ typedef struct TEXT_OPTIONS {
   int number_sections; /* NUMBER_SECTIONS */
   struct expanded_format *expanded_formats; /* expanded_formats_hash */
   STRING_LIST include_directories;
-  /* converter? */
+  OPTIONS *converter_options;
+  int document_descriptor;
 } TEXT_OPTIONS;
 
-char *convert_to_text (ELEMENT *root, TEXT_OPTIONS *options);
+char *convert_to_text (ELEMENT *root, TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *new_text_options (void);
-void destroy_options (TEXT_OPTIONS *options);
+void destroy_text_options (TEXT_OPTIONS *text_options);
 
 #endif

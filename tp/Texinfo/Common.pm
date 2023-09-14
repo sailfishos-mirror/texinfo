@@ -2431,16 +2431,12 @@ sub get_label_element($)
   return undef;
 }
 
-sub _XS_set_document_options($$)
-{
-}
-
-sub set_document_options($$)
+sub encode_options($)
 {
   my $options = shift;
-  my $document = shift;
   my $encoded_options = {};
   foreach my $option (keys(%$options)) {
+    next unless ($valid_customization_options{$option});
     if (defined($options->{$option})
         and ref($options->{$option}) eq ''
         and not $non_decoded_customization_variables{$option}) {
@@ -2450,6 +2446,18 @@ sub set_document_options($$)
       $encoded_options->{$option} = $options->{$option};
     }
   }
+  return $encoded_options;
+}
+
+sub _XS_set_document_options($$)
+{
+}
+
+sub set_document_options($$)
+{
+  my $options = shift;
+  my $document = shift;
+  my $encoded_options = encode_options($options);
   _XS_set_document_options($encoded_options, $document);
 }
 

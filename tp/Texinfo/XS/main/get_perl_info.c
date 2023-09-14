@@ -102,7 +102,7 @@ add_svav_to_string_list (SV **sv, STRING_LIST *string_list, int dir_strings)
       int i;
       SSize_t strings_nr;
       AV *av = (AV *)SvRV (*sv);
-      strings_nr = av_top_index (av);
+      strings_nr = av_top_index (av) +1;
       for (i = 0; i < strings_nr; i++)
         {
           SV** string_sv = av_fetch (av, i, 0);
@@ -137,10 +137,12 @@ copy_sv_options_for_convert_text (SV *sv_in)
   HV *hv_in;
   SV **test_option_sv;
   SV **include_directories_sv;
-  SV **expanded_formats_hash_sv;
+  SV **expanded_formats_sv;
+  SV **converter_options_sv;
   SV **enabled_encoding_sv;
   SV **sort_string_option_sv;
-  TEXT_OPTIONS *options = new_text_options ();
+  SV **document_descriptor_sv;
+  TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
 
@@ -148,45 +150,53 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
   if (test_option_sv)
-    options->test = SvIV (*test_option_sv);
+    text_options->test = SvIV (*test_option_sv);
 
   sort_string_option_sv = hv_fetch (hv_in, "sort_string",
                                     strlen ("sort_string"), 0);
   if (sort_string_option_sv)
-    options->sort_string = SvIV (*sort_string_option_sv);
+    text_options->sort_string = SvIV (*sort_string_option_sv);
 
   enabled_encoding_sv = hv_fetch (hv_in, "enabled_encoding",
                                   strlen ("enabled_encoding"), 0);
   if (enabled_encoding_sv)
-    options->encoding = strdup (SvPVbyte_nolen (*enabled_encoding_sv));
+    text_options->encoding = strdup (SvPVbyte_nolen (*enabled_encoding_sv));
 
   include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
                                      strlen ("INCLUDE_DIRECTORIES"), 0);
 
   add_svav_to_string_list (include_directories_sv,
-                           &options->include_directories, 1);
+                           &text_options->include_directories, 1);
 
-  expanded_formats_hash_sv = hv_fetch (hv_in, "expanded_formats_hash",
-                                       strlen ("expanded_formats_hash"), 0);
-  if (expanded_formats_hash_sv)
+  expanded_formats_sv = hv_fetch (hv_in, "expanded_formats",
+                                  strlen ("expanded_formats"), 0);
+  if (expanded_formats_sv)
     {
-      I32 hv_number;
-      I32 i;
-      HV *expanded_formats_hash = (HV *)SvRV (*expanded_formats_hash_sv);
+      int i;
+      SSize_t formats_nr;
 
-      hv_number = hv_iterinit (expanded_formats_hash);
-      for (i = 0; i < hv_number; i++)
+      AV *av = (AV *)SvRV (*expanded_formats_sv);
+
+      formats_nr = av_top_index (av) +1;
+      for (i = 0; i < formats_nr; i++)
         {
-          int int_value;
-          char *key;
-          I32 retlen;
-          SV *value = hv_iternextsv(expanded_formats_hash,
-                                    &key, &retlen);
-          int_value = SvIV (value);
-          if (int_value)
-            add_expanded_format (options->expanded_formats, key);
+          SV** string_sv = av_fetch (av, i, 0);
+          if (string_sv)
+            {
+              char *string = SvPVbyte_nolen (*string_sv);
+              add_expanded_format (text_options->expanded_formats, string);
+            }
         }
     }
 
-  return options;
+  converter_options_sv = hv_fetch (hv_in, "converter_options",
+                                  strlen ("converter_options"), 0);
+
+  if (converter_options_sv)
+    {
+      text_options->converter_options
+         = copy_sv_options (*converter_options_sv);
+    }
+
+  return text_options;
 }

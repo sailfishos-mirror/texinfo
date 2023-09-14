@@ -1,5 +1,38 @@
 2023-09-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/get_perl_info.c (add_svav_to_string_list): fix
+	strings_nr, av_top_index gives the last index, not number of elements.
+
+	* tp/Texinfo/Common.pm (encode_options): add function based on
+	set_document_options.  Filter in valid_customization_options.
+
+	* tp/Texinfo/Convert/Text.pm (@text_indicator_converter_options)
+	(copy_options_for_convert_text, encode_text_options, convert_to_text)
+	(output): encode options.  Pass separately converter options and
+	specific text options to XS.  Pass expanded_formats_hash as
+	expanded_formats array.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options)
+	tp/Texinfo/XS/main/convert_to_text.h (TEXT_OPTIONS),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	add converter_options.
+
+	* tp/Texinfo/XS/convert/convert_text.c (text_convert),
+	tp/Texinfo/XS/main/convert_to_text.h (TEXT_OPTIONS): add
+	document_descriptor option.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options),
+	rename destroy_options as destroy_text_options.  Update callers.
+
+	* tp/Texinfo/XS/convert/convert_text.c (text_convert),
+	tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options)
+	(text_accents, text_heading, convert_to_text_internal)
+	(convert_to_text), tp/Texinfo/XS/main/get_perl_info.c
+	(copy_sv_options_for_convert_text): rename TEXT_OPTIONS options as
+	text_options. 
+
+2023-09-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/indices.c (complete_indices): do not reuse
 	document pointer after a call to gdt, the documents list may  have
 	been realloc'ated and the document pointer can be invalid.

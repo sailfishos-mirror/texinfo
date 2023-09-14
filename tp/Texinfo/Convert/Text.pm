@@ -365,6 +365,10 @@ sub text_heading($$$;$$)
   return $result;
 }
 
+my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST',
+    # for error registering,
+    'DEBUG');
+
 # TODO not documented, used in many converters
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
@@ -384,16 +388,22 @@ sub copy_options_for_convert_text($;$)
           and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'us-ascii')) {
     $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
-  $options{'TEST'} = 1 if ($self->get_conf('TEST'));
-  $options{'NUMBER_SECTIONS'} = $self->get_conf('NUMBER_SECTIONS');
-  $options{'converter'} = $self;
+
+  foreach my $option (@text_indicator_converter_options) {
+    my $conf = $self->get_conf($option);
+    if ($conf) {
+      $options{$option} = 1;
+    } elsif (defined($conf)) {
+      $options{$option} = 0;
+    }
+  }
   $options{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
   # for locate_include_file
   $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
-  # for error registering
-  $options{'DEBUG'} = $self->get_conf('DEBUG');
+  # FIXME remove
   $options{'PROGRAM'} = $self->get_conf('PROGRAM');
-  $options{'ASCII_GLYPH'} = $self->get_conf('ASCII_GLYPH');
+
+  $options{'converter'} = $self;
   return %options;
 }
 
@@ -405,6 +415,54 @@ sub _convert_tree_with_XS($$)
   my $root = shift;
 
   return _convert($root, $options);
+}
+
+# encode to UTF-8 bytes before passing to XS code.  Specific
+# text options are in general ASCII strings, but this is still
+# cleaner.  Also encode and select converter options passed.
+sub encode_text_options($)
+{
+  my $options = shift;
+  my $encoded_options = {};
+
+  foreach my $option ('enabled_encoding') {
+    if (defined($options->{$option})) {
+      $encoded_options->{$option}
+        = Encode::encode("UTF-8", $options->{$option});
+    }
+  }
+
+  foreach my $option (@text_indicator_converter_options,
+                      'INCLUDE_DIRECTORIES',
+                      # non-converter indicator options
+                      'sc', 'code', 'sort_string') {
+    if (defined($options->{$option})) {
+      $encoded_options->{$option} = $options->{$option};
+    }
+  }
+
+  if (defined($options->{'expanded_formats_hash'})) {
+    my $expanded_formats = [];
+    foreach my $format (keys(%{$options->{'expanded_formats_hash'}})) {
+      push @$expanded_formats, Encode::encode("UTF-8", $format);
+    }
+    $encoded_options->{'expanded_formats'} = $expanded_formats;
+  }
+
+  # called through convert_to_text with a converter in text options
+  if ($options->{'converter'}
+      and $options->{'converter'}->{'conf'}) {
+    my $encoded_converter_options
+     = Texinfo::Common::encode_options($options->{'converter'}->{'conf'});
+    $encoded_options->{'converter_options'} = $encoded_converter_options;
+  } else {
+    # called through output() as a Text converter object, or through
+    # convert_to_text without a converter in text options
+    my $encoded_converter_options
+     = Texinfo::Common::encode_options($options);
+    $encoded_options->{'converter_options'} = $encoded_converter_options;
+  }
+  return $encoded_options;
 }
 
 sub convert_to_text($;$)
@@ -428,7 +486,8 @@ sub convert_to_text($;$)
   }
 
   if (defined($root->{'tree_document_descriptor'})) {
-    my $XS_result = _convert_tree_with_XS($options, $root);
+    my $encoded_options = encode_text_options($options);
+    my $XS_result = _convert_tree_with_XS($encoded_options, $root);
     if (defined ($XS_result)) {
       return $XS_result;
     } else {
@@ -928,7 +987,8 @@ sub output($$)
   # we pass options to expand_verbatiminclude, but the options are text
   # options not generic converter options.
   if (defined($root->{'tree_document_descriptor'})) {
-    my $XS_result = _convert_tree_with_XS($self, $root);
+    my $encoded_options = encode_text_options($self);
+    my $XS_result = _convert_tree_with_XS($encoded_options, $root);
     if (defined ($XS_result)) {
       $result = $XS_result;
     } else {
