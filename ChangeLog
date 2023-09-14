@@ -1,3 +1,29 @@
+2023-09-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/indices.c (complete_indices): do not reuse
+	document pointer after a call to gdt, the documents list may  have
+	been realloc'ated and the document pointer can be invalid.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure, warn_non_empty_parts, check_menu_entry)
+	(check_nodes_are_referenced, set_menus_node_directions)
+	(complete_node_tree_with_menus, nodes_tree)
+	(associate_internal_references): get document structure member
+	pointers early in functions.
+
+	* tp/Texinfo/XS/main/Translations.xs (gettree): use
+	get_sv_tree_document.
+
+	* tp/Texinfo/XS/main/targets.c (add_element_to_identifiers_target):
+	minor change.
+
+	* tp/Texinfo/XS/main/targets.c (register_label_element): pass
+	document_descriptor, which is less likely to change than the element
+	pointer that can change if the elements list is realloc'ated.
+
+	* tp/Texinfo/XS/main/translations.c (switch_messages_locale): free and
+	strdup working_locale string to (hopefully) avoid memory issues.
+
 2023-09-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/*/*.*: rename global_info.global_input_encoding_name

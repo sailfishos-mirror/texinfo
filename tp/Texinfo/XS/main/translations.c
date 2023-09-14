@@ -137,7 +137,8 @@ switch_messages_locale (void)
           fprintf (stderr, "LANG %s != locale %s\n", current_lang, locale);
         }
       */
-      working_locale = locale;
+      free (working_locale);
+      working_locale = strdup (locale);
     }
 }
 
@@ -546,7 +547,8 @@ replace_convert_substrings (char *translated_string,
 
   result_tree = substitute (tree, replaced_substrings);
 /*
-  fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor, convert_to_texinfo (result_tree));
+  fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor,
+                                          convert_to_texinfo (result_tree));
 */
 
   return result_tree;

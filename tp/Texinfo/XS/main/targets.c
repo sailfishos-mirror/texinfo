@@ -222,13 +222,13 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
       if (!target)
         {
           LABEL_LIST *sorted_identifiers_target;
-          register_label_in_list (document->identifiers_target, element,
+          register_label_in_list (identifiers_target, element,
                                   normalized);
           sorted_identifiers_target
             = sort_labels_identifiers_target (
-                           document->identifiers_target->list,
-                           document->identifiers_target->number);
-          destroy_label_list (document->identifiers_target);
+                           identifiers_target->list,
+                           identifiers_target->number);
+          destroy_label_list (identifiers_target);
           document->identifiers_target = sorted_identifiers_target;
           *status = 0;
           return normalized;
@@ -260,9 +260,11 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized)
 
 /* return value is 1 for success, 0 for failure */
 int
-register_label_element (DOCUMENT* document, ELEMENT *element)
+register_label_element (int document_descriptor, ELEMENT *element)
 {
   int status;
+  DOCUMENT *document = retrieve_document (document_descriptor);
+
   char *normalized = add_element_to_identifiers_target (document, element,
                                                         &status);
   if (!status)

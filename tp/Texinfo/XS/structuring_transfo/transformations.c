@@ -568,6 +568,7 @@ ELEMENT *
 new_node (ELEMENT *node_tree, DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = document->identifiers_target;
+  int document_descriptor = document->descriptor;
   int empty_node = 0;
   int appended_number;
   int new_line_at_end = 0;
@@ -683,7 +684,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
 
   add_extra_string (node, "normalized", normalized);
 
-  register_label_element (document, node);
+  register_label_element (document_descriptor, node);
 
   free (spaces_after_argument.text);
 
@@ -1122,6 +1123,7 @@ int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
   LABEL_LIST *identifiers_target = document->identifiers_target;
+
   ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   ELEMENT *menus;
   ELEMENT *master_menu;
@@ -1308,6 +1310,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                              void *argument)
 {
   DOCUMENT *document = (DOCUMENT *) argument;
+  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+
   if (current->text.end > 0)
     {
       char *filename;
@@ -1356,7 +1360,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                   && parent_for_warn->source_info.line_nr)
                                 {
                                   message_list_command_warn (
-                                    document->error_messages,
+                                    error_messages,
                                     parent_for_warn ,
                                     "could not protect hash character in @%s",
                                 builtin_command_name (parent_for_warn->cmd));

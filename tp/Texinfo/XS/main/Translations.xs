@@ -88,26 +88,13 @@ gettree (string, ...)
                      {
                        char *key;
                        I32 retlen;
-                       HV *hv_tree_in;
-                       SV **document_descriptor_sv;
-                       int document_descriptor = 0;
-                       DOCUMENT *document = 0;
                        SV *value = hv_iternextsv(hv_replaced_substrings,
                                                  &key, &retlen);
-                       hv_tree_in = (HV *)SvRV (value);
-                       document_descriptor_sv = hv_fetch (hv_tree_in,
-                                          "tree_document_descriptor",
-                                     strlen ("tree_document_descriptor"), 0);
-
+                       DOCUMENT *document = get_sv_tree_document (value, 0);
                        /* TODO should warn/error if not found or return 
                           a list of missing string identifiers?  Or check
                           in caller?  In any case, it cannot be good to
                           ignore a replaced substring */
-                       if (document_descriptor_sv)
-                         {
-                           document_descriptor = SvIV (*document_descriptor_sv);
-                           document = retrieve_document (document_descriptor);
-                         }
                        if (document && document->tree)
                          add_element_to_named_string_element_list (
                            replaced_substrings, key, document->tree);

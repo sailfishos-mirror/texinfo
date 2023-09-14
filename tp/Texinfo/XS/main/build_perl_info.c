@@ -1223,7 +1223,9 @@ build_document (size_t document_descriptor, int no_store)
                 strlen ("tree_document_descriptor"),
                 newSViv (document_descriptor), 0);
 
-      /* we do it here and not when building the tree, as later
+      /* FIXME do not do that for the rebuilt tree to be able to
+         pass a tree at any level?
+         we do it here and not when building the tree, as later
          on the tree may have changed and all the hv may not be
          reachable */
       clean_texinfo_tree (document->tree);

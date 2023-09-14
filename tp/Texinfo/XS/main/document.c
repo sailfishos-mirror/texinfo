@@ -100,8 +100,8 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->listoffloats = float_list_to_listoffloats_list (floats_list);
 
   /*
-  fprintf(stderr, "REGISTER %d %p %p\n", document_index +1,
-                       document->tree, document->index_names);
+  fprintf(stderr, "REGISTER %zu %p %p %p %p\n", document_index +1, document,
+                       document->tree, document->index_names, document->options);
    */
   return document_index +1;
 }
@@ -174,7 +174,7 @@ remove_document (int document_descriptor)
     }
   document->tree = 0;
   /*
-  fprintf(stderr, "REMOVE %d\n", document_descriptor);
+  fprintf(stderr, "REMOVE %d %p\n", document_descriptor, document);
    */
 }
 
@@ -192,6 +192,9 @@ unregister_tree (DOCUMENT *document)
   tree = document->tree;
   /*
   document->tree = 0;
+   */
+  /*
+  fprintf(stderr, "UNREGISTER %p\n", document);
    */
   return tree;
 }
