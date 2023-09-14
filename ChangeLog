@@ -1,5 +1,15 @@
 2023-09-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_convert_tree_with_XS, convert_to_text)
+	(output), tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree): call
+	_convert_tree_with_XS with perl text options as an additional argument
+	in case XS is not used for the call to _convert.
+
+	* tp/Texinfo/Convert/Text.pm (converter): do not bless the converter
+	twice.
+
+2023-09-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert)
 	(text_convert_tree): rename converter as text_options_in and options
 	as text_options.

@@ -407,16 +407,6 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
-# This is used if the document is available for XS, but XS is not
-# used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_tree_with_XS($$)
-{
-  my $options = shift;
-  my $root = shift;
-
-  return _convert($root, $options);
-}
-
 # encode to UTF-8 bytes before passing to XS code.  Specific
 # text options are in general ASCII strings, but this is still
 # cleaner.  Also encode and select converter options passed.
@@ -465,6 +455,17 @@ sub encode_text_options($)
   return $encoded_options;
 }
 
+# This is used if the document is available for XS, but XS is not
+# used (most likely $TEXINFO_XS_CONVERT is 0).
+sub _convert_tree_with_XS($$;$)
+{
+  my $encoded_options = shift;
+  my $root = shift;
+  my $options = shift;
+
+  return _convert($root, $options);
+}
+
 sub convert_to_text($;$)
 {
   my $root = shift;
@@ -487,10 +488,11 @@ sub convert_to_text($;$)
 
   if (defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($options);
-    my $XS_result = _convert_tree_with_XS($encoded_options, $root);
+    my $XS_result = _convert_tree_with_XS($encoded_options, $root, $options);
     if (defined ($XS_result)) {
       return $XS_result;
     } else {
+      my $result = _convert($root, $options);
       print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
       cluck();
     }
@@ -852,7 +854,6 @@ sub converter($;$)
                                         $converter->{'document_info'})
     if ($converter->{'document_info'});
 
-  bless $converter;
   return $converter;
 }
 
@@ -988,7 +989,7 @@ sub output($$)
   # options not generic converter options.
   if (defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($self);
-    my $XS_result = _convert_tree_with_XS($encoded_options, $root);
+    my $XS_result = _convert_tree_with_XS($encoded_options, $root, $self);
     if (defined ($XS_result)) {
       $result = $XS_result;
     } else {

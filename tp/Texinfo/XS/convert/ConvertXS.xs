@@ -106,7 +106,7 @@ text_convert (text_options_in, document_in)
         RETVAL
 
 SV *
-text_convert_tree (text_options_in, tree_in)
+text_convert_tree (text_options_in, tree_in, ...)
         SV *text_options_in
         SV *tree_in
     PREINIT:
