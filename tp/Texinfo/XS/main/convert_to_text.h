@@ -16,7 +16,10 @@ typedef struct TEXT_OPTIONS {
   int number_sections; /* NUMBER_SECTIONS */
   struct expanded_format *expanded_formats; /* expanded_formats_hash */
   STRING_LIST include_directories;
-  OPTIONS *converter_options;
+  OPTIONS *other_converter_options; /* corresponds to converter passed
+                                       to convert_to_text text options */
+  OPTIONS *self_converter_options; /* text converter options available
+                                      as the OPTIONS structure */
   int document_descriptor;
 } TEXT_OPTIONS;
 

@@ -118,7 +118,8 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 {
   free (text_options->encoding);
   free (text_options->expanded_formats);
-  free (text_options->converter_options);
+  free (text_options->other_converter_options);
+  free (text_options->self_converter_options);
   free (text_options);
 }
 

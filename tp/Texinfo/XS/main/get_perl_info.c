@@ -138,7 +138,8 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **test_option_sv;
   SV **include_directories_sv;
   SV **expanded_formats_sv;
-  SV **converter_options_sv;
+  SV **other_converter_options_sv;
+  SV **self_converter_options_sv;
   SV **enabled_encoding_sv;
   SV **sort_string_option_sv;
   SV **document_descriptor_sv;
@@ -189,13 +190,22 @@ copy_sv_options_for_convert_text (SV *sv_in)
         }
     }
 
-  converter_options_sv = hv_fetch (hv_in, "converter_options",
-                                  strlen ("converter_options"), 0);
+  other_converter_options_sv = hv_fetch (hv_in, "other_converter_options",
+                                         strlen ("other_converter_options"), 0);
 
-  if (converter_options_sv)
+  if (other_converter_options_sv)
     {
-      text_options->converter_options
-         = copy_sv_options (*converter_options_sv);
+      text_options->other_converter_options
+         = copy_sv_options (*other_converter_options_sv);
+    }
+
+  self_converter_options_sv = hv_fetch (hv_in, "self_converter_options",
+                                         strlen ("self_converter_options"), 0);
+
+  if (self_converter_options_sv)
+    {
+      text_options->self_converter_options
+         = copy_sv_options (*self_converter_options_sv);
     }
 
   return text_options;

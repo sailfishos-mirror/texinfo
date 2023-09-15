@@ -444,14 +444,13 @@ sub encode_text_options($)
       and $options->{'converter'}->{'conf'}) {
     my $encoded_converter_options
      = Texinfo::Common::encode_options($options->{'converter'}->{'conf'});
-    $encoded_options->{'converter_options'} = $encoded_converter_options;
-  } else {
-    # called through output() as a Text converter object, or through
-    # convert_to_text without a converter in text options
-    my $encoded_converter_options
-     = Texinfo::Common::encode_options($options);
-    $encoded_options->{'converter_options'} = $encoded_converter_options;
+    $encoded_options->{'other_converter_options'} = $encoded_converter_options;
   }
+
+  my $encoded_converter_options
+    = Texinfo::Common::encode_options($options);
+  $encoded_options->{'self_converter_options'} = $encoded_converter_options;
+
   return $encoded_options;
 }
 
