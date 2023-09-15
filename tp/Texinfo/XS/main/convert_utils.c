@@ -120,17 +120,19 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
   free (accent_stack);
 }
 
-/* optional $self argument in perl */
 /* caller should free return */
 char *
-add_heading_number (ELEMENT *current, char *text, int numbered)
+add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
+                    int numbered)
 {
   TEXT result;
   char *number = 0;
   if (numbered != 0)
     number = lookup_extra_string (current, "section_number");
 
-  /* TODO need $self argument for translation
+  /* TODO translate code to use options as $self translation
+     to be done when this can be tested, so when Text converter
+     is called from another converter
   if ($self) {
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'

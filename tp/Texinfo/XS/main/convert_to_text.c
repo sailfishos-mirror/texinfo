@@ -218,10 +218,10 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
 static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 
 /* Return the text of an underlined heading, possibly indented. */
-/* FIXME converter argument in perl */
 /* result to be freed by caller */
 char *
-text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
+text_heading (ELEMENT *current, char *text, OPTIONS *options,
+              int numbered, int indent_length)
 {
   int i;
   TEXT result;
@@ -240,7 +240,7 @@ text_heading (ELEMENT *current, char *text, int numbered, int indent_length)
     if (heading[strlen (heading) - 1] == '\n')
       heading[strlen (heading) - 1] = '\0';
 
-  heading_with_number = add_heading_number (current, heading,
+  heading_with_number = add_heading_number (options, current, heading,
                                             numbered);
 
   free (heading);
@@ -467,7 +467,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
               ADD(sort_brace_no_arg_commands[data_cmd]);
               return;
             }
-/* TODO
+/* TODO when this can be tested with other converters
       elsif ($options->{'converter'}) {
         return _convert(Texinfo::Convert::Utils::expand_today(
                                          $options->{'converter'}),
@@ -707,9 +707,9 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
                                           text_options, &text);
               if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
                 {
-                  /* FIXME $options->{'converter'} */
                   char *heading
                     = text_heading (element, text.text,
+                                    text_options->other_converter_options,
                                     text_options->number_sections, 0);
                   ADD(heading);
                   free (heading);

@@ -24,7 +24,8 @@ typedef struct PARSED_DEF {
 ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
-char *add_heading_number (ELEMENT *current, char *text, int numbered);
+char *add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
+                          int numbered);
 
 ELEMENT *expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,

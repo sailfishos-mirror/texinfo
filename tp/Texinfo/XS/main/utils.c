@@ -139,11 +139,6 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   return result;
 }
 
-/* FIXME as described in the u8_strwidth documentation, the function
-   ignores control characters in the string, as a consequence the output
-   is different from perl equivalent function, which does not ignore
-   control characters
- */
 int
 width_multibyte (const char *text)
 {
@@ -232,7 +227,11 @@ get_encoding_conversion (char *encoding,
   if (encodings_list->list[encoding_index].iconv == (iconv_t) -1)
     return 0;
   else
-    /* FIXME this will change when the list is reallocated */
+    /* NOTE this will change when the list is reallocated.
+       This seems ok for the uses in convert_utils.c.
+       Should be ok too for parser, as there is one current encoding
+       at a time, the new current encoding is obtained after realloc.
+     */
     return &encodings_list->list[encoding_index];
 }
 
