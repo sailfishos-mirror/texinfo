@@ -733,9 +733,19 @@ sub _convert($;$)
           $result = "\n" x $sp_nr;
         }
       } elsif ($element->{'cmdname'} eq 'verbatiminclude') {
-        my $verbatim_include_verbatim
-          = Texinfo::Convert::Utils::expand_verbatiminclude(
-                               $options->{'converter'}, $options, $element);
+        my $verbatim_include_verbatim;
+        if ($options->{'converter'}) {
+          # NOTE we use $options->{'converter'} both for error registration
+          # and for other uses of customization information, to get the same
+          # output as for the main $options->{'converter'}.
+          $verbatim_include_verbatim
+            = Texinfo::Convert::Utils::expand_verbatiminclude(
+                $options->{'converter'}, $options->{'converter'}, $element);
+        } else {
+          $verbatim_include_verbatim
+            = Texinfo::Convert::Utils::expand_verbatiminclude(undef,
+                                                        $options, $element);
+        }
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($verbatim_include_verbatim, $options);
         }

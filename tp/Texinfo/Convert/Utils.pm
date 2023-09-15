@@ -465,9 +465,17 @@ sub encoded_input_file_name($$;$)
 
   my $encoding;
   my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+
   if ($input_file_name_encoding) {
     $encoding = $input_file_name_encoding;
-  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+
+  # not defined DOC_ENCODING_FOR_INPUT_FILE_NAME should not happen for
+  # converters inheriting from Converter, but can happen for the Text
+  # converter.
+  } elsif (!defined($doc_encoding_for_input_file_name)
+           or $doc_encoding_for_input_file_name) {
     if (defined($input_file_encoding)) {
       $encoding = $input_file_encoding;
     } else {

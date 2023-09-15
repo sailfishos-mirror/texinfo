@@ -1,5 +1,37 @@
 2023-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_convert): use consistently
+	$options->{'converter'} both for
+	Texinfo::Convert::Utils::expand_verbatiminclude error registration and
+	customization information.
+
+	* tp/Texinfo/Convert/Utils.pm (encoded_input_file_name): if
+	DOC_ENCODING_FOR_INPUT_FILE_NAME customization is not defined,
+	consider that it is true.
+
+	* tp/tests/encoded/Makefile.am (EXTRA_DIST),
+	tp/tests/encoded/verbatiminclude_names_latin1.texi,
+	tp/tests/encoded/list-of-tests (verbatiminclude_names_latin1_html)
+	(verbatiminclude_names_latin1_html_explicit_encoding)
+	(verbatiminclude_names_latin1_rawtext)
+	(verbatiminclude_names_latin1_explicit_encoding_rawtext): add tests
+	on how verbatiminclude file name encoding is resolved in raw text in
+	HTML and in raw text converter and how customization options are used.
+
+	* tp/Texinfo/XS/main/convert_utils.c (encoded_input_file_name): add
+	OPTIONS and GLOBAL_INFO arguments and use them to determine encoding.
+
+	* tp/Texinfo/XS/main/convert_utils.c (expand_verbatiminclude): add
+	an explicit ERROR_MESSAGE_LIST argument, conditionalize error output
+	to that argument and use message_list_command_error functions.  Use
+	normal OPTIONS as argument.  Add GLOBAL_INFO argument to pass to
+	encoded_input_file_name.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	pass OPTIONS and global information to expand_verbatiminclude.
+
+2023-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (encode_text_options),
 	tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options),
 	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):

@@ -26,7 +26,9 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 char *add_heading_number (ELEMENT *current, char *text, int numbered);
 
-ELEMENT *expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options);
+ELEMENT *expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+                        OPTIONS *options, GLOBAL_INFO *global_information,
+                        ELEMENT *current);
 
 PARSED_DEF *definition_arguments_content (ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);

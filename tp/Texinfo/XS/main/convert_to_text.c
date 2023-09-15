@@ -739,9 +739,25 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (element->cmd == CM_verbatiminclude)
         {
-          ELEMENT *verbatim_include_verbatim
-          /* FIXME options argument should be generic converter options */
-            = expand_verbatiminclude (element, text_options);
+          ELEMENT *verbatim_include_verbatim = 0;
+          if (text_options->other_converter_options) {
+            /* TODO retrieve other converter document information
+               and error messages */
+            verbatim_include_verbatim
+             = expand_verbatiminclude (0, text_options->other_converter_options,
+                                       0, element);
+          } else {
+            GLOBAL_INFO *global_information = 0;
+            if (text_options->document_descriptor) {
+              DOCUMENT *document
+                = retrieve_document (text_options->document_descriptor);
+              if (document)
+                global_information = document->global_info;
+            }
+            verbatim_include_verbatim
+              = expand_verbatiminclude (0, text_options->self_converter_options,
+                                        global_information, element);
+          }
           if (verbatim_include_verbatim)
             {
               convert_to_text_internal (verbatim_include_verbatim,

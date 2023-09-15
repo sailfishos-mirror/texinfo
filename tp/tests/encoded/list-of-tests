@@ -30,6 +30,23 @@ manual_include_accented_file_name_latin1_explicit_encoding manual_include_accent
 # of the test suite is utf8
 manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -D 'needrecodedfilenames Need recoded file names' -c MESSAGE_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8
 
+# note that this could be in t/*.t test suite, but the included
+# files are here.
+# The following tests tests how verbatiminclude file name encoding is
+# resolved in raw text in HTML and in raw text converter and how
+# customization options are used.
+# Note that the tests are not perfect, as UTF-8 corresponds to the
+# locale encoding, so the encoding of the file names could be found
+# either from the command line or the locale, depending on the value
+# of DOC_ENCODING_FOR_INPUT_FILE_NAME as seen from the converters.
+verbatiminclude_names_latin1_html verbatiminclude_names_latin1.texi --html
+
+verbatiminclude_names_latin1_html_explicit_encoding verbatiminclude_names_latin1.texi --html -c INPUT_FILE_NAME_ENCODING=UTF-8
+
+verbatiminclude_names_latin1_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
+
+verbatiminclude_names_latin1_explicit_encoding_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c INPUT_FILE_NAME_ENCODING=UTF-8
+
 # test that a file with some latin1 characters, typically used for person names
 # but no declared encoding does not give a result that is too bad, and lead
 # to a warning.  This corresponds to an actual practice when latin1 was a

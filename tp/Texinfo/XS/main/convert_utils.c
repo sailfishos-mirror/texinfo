@@ -204,7 +204,9 @@ encode_string (char *input_string, char *encoding, int *status)
 {
   char *result;
   *status = 0;
-  /* not sure this can happen */
+  /* could happen in specific cases, such as
+     DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
+     information */
   if (!encoding)
     return strdup(input_string);
 
@@ -235,30 +237,27 @@ convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion)
 # Reverse the decoding of the file name from the input encoding.
 */
 char *
-encoded_input_file_name (char *file_name, char *input_file_encoding,
+encoded_input_file_name (OPTIONS *options,
+                         GLOBAL_INFO *global_information,
+                         char *file_name, char *input_file_encoding,
                          char **file_name_encoding)
 {
   char *result;
-  char *encoding;
+  char *encoding = 0;
   int status;
-/*
-  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
-  if ($input_file_name_encoding) {
-    $encoding = $input_file_name_encoding;
-  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    if (defined($input_file_encoding)) {
-      $encoding = $input_file_encoding;
-    } else {
-      $encoding = $self->{'document_info'}->{'input_perl_encoding'}
-        if ($self->{'document_info'}
-          and defined($self->{'document_info'}->{'input_perl_encoding'}));
+
+  if (options && options->INPUT_FILE_NAME_ENCODING)
+    encoding = options->INPUT_FILE_NAME_ENCODING;
+  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME != 0
+           || (!options))
+    {
+      if (input_file_encoding)
+        encoding = input_file_encoding;
+      else if (global_information && global_information->input_encoding_name)
+        encoding = global_information->input_encoding_name;
     }
-  } else {
-    $encoding = $self->get_conf('LOCALE_ENCODING');
-  }
-*/
-  if (input_file_encoding)
-    encoding = input_file_encoding;
+  else if (options)
+    encoding = options->LOCALE_ENCODING;
 
   result = encode_string (file_name, encoding, &status);
 
@@ -269,33 +268,31 @@ encoded_input_file_name (char *file_name, char *input_file_encoding,
   return result;
 }
 
-/*
-# $REGISTRAR argument (in practice, a converter) is optional.
-# $CONFIGURATION_INFORMATION is also optional, but without this
-# argument and the 'INCLUDE_DIRECTORIES' available through
-# get_conf(), the included file can only be found in specific
-# circumstances.
-*/
-/* FIXME TEXT_OPTIONS * is too restricted, should be any converter
-   customization, but it is the only one we have for now */
 ELEMENT *
-expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options)
+expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+                        OPTIONS *options, GLOBAL_INFO *global_information,
+                        ELEMENT *current)
 {
   ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
   char *file_name_text = lookup_extra_string (current, "text_arg");
   char *file_name;
   char *file;
+  STRING_LIST *include_directories = 0;
 
   if (!file_name_text)
     return 0;
 
   char *input_encoding = element_associated_processing_encoding (current);
 
-  file_name = encoded_input_file_name (file_name_text, input_encoding,
+  file_name = encoded_input_file_name (options, global_information,
+                                       file_name_text, input_encoding,
                                        &file_name_encoding);
 
-  file = locate_include_file (file_name, &options->include_directories);
+  if (options)
+    include_directories = &options->INCLUDE_DIRECTORIES;
+
+  file = locate_include_file (file_name, include_directories);
 
   if (file)
     {
@@ -304,19 +301,22 @@ expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options)
 
       stream = fopen (file, "r");
       if (!stream)
-      /* if ($registrar) */
         {
-          int status;
-          char *decoded_file;
-          if (file_name_encoding)
-            decoded_file = decode_string (file, file_name_encoding,
-                                          &status);
-          else
-            decoded_file = file;
-          command_error (current, "could not read %s: %s",
-                         decoded_file, strerror (errno));
-          if (file_name_encoding)
-            free (decoded_file);
+          if (error_messages)
+            {
+              int status;
+              char *decoded_file;
+              if (file_name_encoding)
+                decoded_file = decode_string (file, file_name_encoding,
+                                              &status);
+              else
+                decoded_file = file;
+              message_list_command_error (error_messages, current,
+                                          "could not read %s: %s",
+                                          decoded_file, strerror (errno));
+              if (file_name_encoding)
+                free (decoded_file);
+            }
         }
       else
         {
@@ -347,29 +347,31 @@ expand_verbatiminclude (ELEMENT *current, TEXT_OPTIONS *options)
             }
           if (fclose (stream) == EOF)
             {
-          /* if ($registrar) */
-              int status;
-              char *decoded_file;
-              if (file_name_encoding)
-                decoded_file = decode_string (file, file_name_encoding,
-                                              &status);
-              else
-                decoded_file = file;
-              command_error (current,
+              if (error_messages)
+                {
+                  int status;
+                  char *decoded_file;
+                  if (file_name_encoding)
+                    decoded_file = decode_string (file, file_name_encoding,
+                                                  &status);
+                  else
+                    decoded_file = file;
+                  message_list_command_error (error_messages, current,
                              "error on closing @verbatiminclude file %s: %s",
-                             decoded_file, strerror (errno));
-              if (file_name_encoding)
-                free (decoded_file);
+                                 decoded_file, strerror (errno));
+                  if (file_name_encoding)
+                    free (decoded_file);
+                }
             }
         }
     }
-  else
-  /* elsif ($registrar) */
+  else if (error_messages)
     {
-      command_error (current, "@%s: could not find %s",
-                     builtin_command_name (current->cmd),
-                     file_name_text);
-   }
+      message_list_command_error (error_messages, current,
+                                  "@%s: could not find %s",
+                                  builtin_command_name (current->cmd),
+                                  file_name_text);
+    }
   free (file_name);
   return verbatiminclude;
 }
