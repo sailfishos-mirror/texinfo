@@ -1,5 +1,10 @@
 2023-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
+	set cmd as element_builtin_cmd to handle user-defined element cmd.
+
+2023-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (text_heading)
 	(convert_to_text_internal), tp/Texinfo/XS/main/convert_utils.c
 	(add_heading_number): add options arguments.  No actual implementation

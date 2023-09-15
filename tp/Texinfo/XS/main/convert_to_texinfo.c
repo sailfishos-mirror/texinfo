@@ -44,7 +44,7 @@ static void convert_to_texinfo_internal (ELEMENT *e, TEXT *result);
 static void
 expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 {
-  enum command_id cmd = e->cmd;
+  enum command_id cmd = element_builtin_cmd (e);
   KEY_PAIR *arg_line;
   ELEMENT *elt, *spc_before_arg;
 
@@ -84,7 +84,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
       if (braces)
         ADD("{");
 
-      if (e->cmd == CM_verb)
+      if (cmd == CM_verb)
         {
           KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
           ADD((char *)k_delimiter->value);
@@ -119,7 +119,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
           convert_to_texinfo_internal (arg, result);
         }
 
-      if (e->cmd == CM_verb)
+      if (cmd == CM_verb)
         {
           KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
           ADD((char *)k_delimiter->value);
