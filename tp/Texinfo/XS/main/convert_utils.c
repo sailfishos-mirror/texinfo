@@ -466,7 +466,7 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
       ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
       arg_class_code = new_element (ET_NONE);
       arg_class_code->cmd = CM_code;
-      add_to_contents_as_array (brace_command_arg, class_copy);
+      add_to_element_contents (brace_command_arg, class_copy);
       add_to_element_args (arg_class_code, brace_command_arg);
     }
 
@@ -500,10 +500,10 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
         {
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
-          add_to_contents_as_array (result, category_copy);
+          add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " on ");
-          add_to_contents_as_array (result, text_element);
-          add_to_contents_as_array (result, arg_class_code);
+          add_to_element_contents (result, text_element);
+          add_to_element_contents (result, arg_class_code);
         }
     } else if (!strcmp(def_command, "defivar")
       || !strcmp(def_command, "deftypeivar")
@@ -532,10 +532,10 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
         {
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
-          add_to_contents_as_array (result, category_copy);
+          add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " of ");
-          add_to_contents_as_array (result, text_element);
-          add_to_contents_as_array (result, arg_class_code);
+          add_to_element_contents (result, text_element);
+          add_to_element_contents (result, arg_class_code);
         }
     }
   return result;

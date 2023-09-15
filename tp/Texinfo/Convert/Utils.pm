@@ -146,6 +146,9 @@ sub definition_category_tree($$)
 
   return undef if (!$current->{'args'}->[0]->{'contents'});
 
+  # NOTE we take care of not changing the parent of the tree elements.
+  # We could also copy them and set the parent (as in the XS code).
+
   my $arg_category;
   my $arg_class;
   foreach my $arg (@{$current->{'args'}->[0]->{'contents'}}) {
@@ -165,8 +168,11 @@ sub definition_category_tree($$)
 
   my $arg_class_code;
   if (! $self) {
-    $arg_class_code = {'cmdname' => 'code',
-       'args' => [{'type' => 'brace_command_arg', 'contents' => [$arg_class]}]};
+    $arg_class_code = {'cmdname' => 'code'};
+    my $brace_arg
+      = {'type' => 'brace_command_arg', 'contents' => [$arg_class],
+         'parent' => $arg_class_code};
+    $arg_class_code->{'args'} = [$brace_arg];
   }
   
   my $def_command = $current->{'extra'}->{'def_command'};
@@ -181,7 +187,11 @@ sub definition_category_tree($$)
                                          {'category' => $arg_category,
                                           'class' => $arg_class});
     } else {
-      return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class_code]};
+      my $result = {};
+      $result->{'contents'}
+        = [$arg_category, {'text' => ' on ', 'parent' => $result},
+           $arg_class_code];
+      return $result;
     }
   } elsif ($def_command eq 'defivar'
            or $def_command eq 'deftypeivar'
@@ -194,7 +204,11 @@ sub definition_category_tree($$)
       return $self->gdt('{category} of @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
-      return {'contents' => [$arg_category, {'text' => ' of '}, $arg_class_code]};
+      my $result = {};
+      $result->{'contents'}
+        = [$arg_category, {'text' => ' of ', 'parent' => $result},
+           $arg_class_code];
+      return $result;
     }
   }
 }

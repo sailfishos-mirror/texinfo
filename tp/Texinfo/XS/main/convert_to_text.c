@@ -823,7 +823,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
 
           destroy_element (converted_element);
           destroy_element (text_colon);
-          destroy_element (parsed_definition_category);
+          destroy_element_and_children (parsed_definition_category);
           destroy_element (text_eol);
           if (parsed_def->type)
             {
