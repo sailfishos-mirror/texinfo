@@ -55,6 +55,7 @@ plain_texinfo_convert (converter, document_in)
           {
             char *result = plain_texinfo_convert (document);
             RETVAL = newSVpv (result, strlen(result));
+            free (result);
             SvUTF8_on (RETVAL);
           }
         else
@@ -76,6 +77,7 @@ plain_texinfo_convert_tree (converter, tree_in)
           {
             char *result = plain_texinfo_convert (document);
             RETVAL = newSVpv (result, strlen(result));
+            free (result);
             SvUTF8_on (RETVAL);
           }
         else
@@ -98,6 +100,7 @@ text_convert (text_options_in, document_in)
           {
             char *result = text_convert (document, text_options);
             RETVAL = newSVpv (result, strlen(result));
+            free (result);
             SvUTF8_on (RETVAL);
           }
         else
@@ -121,6 +124,7 @@ text_convert_tree (text_options_in, tree_in, unused=0)
           {
             char *result = text_convert (document, text_options);
             RETVAL = newSVpv (result, strlen(result));
+            free (result);
             SvUTF8_on (RETVAL);
           }
         else

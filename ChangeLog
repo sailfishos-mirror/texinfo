@@ -1,5 +1,11 @@
 2023-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert)
+	(plain_texinfo_convert_tree, text_convert, text_convert_tree): free
+	plain_texinfo_convert and text_convert results.
+
+2023-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): free
 	texinfo_line.
 
