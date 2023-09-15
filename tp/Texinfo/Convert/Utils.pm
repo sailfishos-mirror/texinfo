@@ -455,7 +455,9 @@ sub encoded_output_file_name($$)
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
-# this requires a converter argument
+# this requires a converter argument as customization is read, however
+# the encoding can also be given as $INPUT_FILE_ENCODING optional
+# argument.
 # Reverse the decoding of the file name from the input encoding.
 sub encoded_input_file_name($$;$)
 {

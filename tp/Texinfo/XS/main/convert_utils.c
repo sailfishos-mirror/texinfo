@@ -50,17 +50,6 @@ char *
 element_associated_processing_encoding (ELEMENT *element)
 {
   char *input_encoding = lookup_extra_string (element, "input_encoding_name");
-  /* should correspond to
-     Texinfo::Common::encoding_name_conversion_map.
-     Thoughts on this mapping are available near
-     Texinfo::Common::encoding_name_conversion_map definition
-  */
-  /* FIXME check if needed, may not if always used through
-     get_encoding_conversion
-  if (input_encoding)
-    if (!strcmp (input_encoding, "us-ascii"))
-      input_encoding = "iso-8859-1";
-  */
   return input_encoding;
 }
 
@@ -204,7 +193,7 @@ encode_string (char *input_string, char *encoding, int *status)
 {
   char *result;
   *status = 0;
-  /* could happen in specific cases, such as
+  /* could happen in specific cases, such as, for file names,
      DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
      information */
   if (!encoding)
@@ -233,8 +222,7 @@ convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion)
 }
 
 /*
-# this requires a converter argument
-# Reverse the decoding of the file name from the input encoding.
+  Reverse the decoding of the file name from the input encoding.
 */
 char *
 encoded_input_file_name (OPTIONS *options,
