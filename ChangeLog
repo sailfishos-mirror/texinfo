@@ -1,5 +1,11 @@
 2023-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure): create section_directions element only if
+	it is needed.
+
+2023-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi):
 	set cmd as element_builtin_cmd to handle user-defined element cmd.
 

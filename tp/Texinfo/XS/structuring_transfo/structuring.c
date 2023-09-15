@@ -98,7 +98,6 @@ sectioning_structure (DOCUMENT *document)
   for (i = 0; i < root->contents.number; i++)
     {
       ELEMENT *content = root->contents.list[i];
-      ELEMENT *section_directions = new_element (ET_NONE);
       int level;
 
       if (!content->cmd || content->cmd == CM_node
@@ -128,6 +127,7 @@ sectioning_structure (DOCUMENT *document)
           if (prev_section_level < level)
           /* new command is below */
             {
+              ELEMENT *section_directions = new_element (ET_NONE);
               ELEMENT *section_childs = new_element (ET_NONE);
               if (level - prev_section_level > 1)
                 {
@@ -235,6 +235,7 @@ sectioning_structure (DOCUMENT *document)
                 }
               else
                 {
+                  ELEMENT *section_directions = new_element (ET_NONE);
                   ELEMENT *up_section_childs
                     = lookup_extra_element (up, "section_childs");
                   ELEMENT *prev = last_contents_child (up_section_childs);
