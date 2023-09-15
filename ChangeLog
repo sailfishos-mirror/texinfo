@@ -1,5 +1,10 @@
 2023-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): free
+	texinfo_line.
+
+2023-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c
 	(sectioning_structure): create section_directions element only if
 	it is needed.

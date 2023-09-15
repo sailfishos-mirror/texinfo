@@ -545,6 +545,9 @@ replace_convert_substrings (char *translated_string,
   document = retrieve_document (document_descriptor);
   tree = unregister_tree (document);
 
+  if (replaced_substrings)
+    free (texinfo_line);
+
   result_tree = substitute (tree, replaced_substrings);
 /*
   fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor,
