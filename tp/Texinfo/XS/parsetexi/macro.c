@@ -99,6 +99,7 @@ new_macro (char *name, ELEMENT *macro)
   else
     {
       free (m->macro_name);
+      free (m->macrobody);
     }
 
   m->macro_name = strdup (name);
@@ -967,8 +968,11 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
       expanded_macro_text = expanded.text;
     }
   else
-    /* we want to always have a text for the source mark */
-    expanded_macro_text = strdup ("");
+    {
+      free (expanded.text);
+      /* we want to always have a text for the source mark */
+      expanded_macro_text = strdup ("");
+    }
 
   debug ("MACROBODY: %s||||||", expanded_macro_text);
 

@@ -1,5 +1,13 @@
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (new_macro): free macrobody when
+	reusing the same slot.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro): stll free expanded
+	text when the string is empty.
+
+2023-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
 	always destroy parsed_def.
 
