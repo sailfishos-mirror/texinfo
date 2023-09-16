@@ -44,7 +44,6 @@ char *
 ascii_accent (char *text, ELEMENT *command)
 {
   enum command_id cmd = command->cmd;
-  char *result;
   TEXT accent_text;
 
   text_init (&accent_text);
@@ -183,7 +182,7 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (brace_no_arg_unicode);
     }
 
-  /* no converter in options yet, interface to be done
+  /* TODO to do when it is possible to test
   if (!defined($result) and $options and $options->{'converter'}) {
     my $tree
      = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
@@ -217,7 +216,7 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
 static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 
 /* Return the text of an underlined heading, possibly indented. */
-/* result to be freed by caller */
+/* return to be freed by caller */
 char *
 text_heading (ELEMENT *current, char *text, OPTIONS *options,
               int numbered, int indent_length)
@@ -244,14 +243,15 @@ text_heading (ELEMENT *current, char *text, OPTIONS *options,
 
   free (heading);
 
-  text_init (&result);
-  text_append (&result, heading_with_number);
-
-  if (result.text[strspn (result.text, whitespace_chars)] == '\0')
+  if (heading_with_number[
+           strspn (heading_with_number, whitespace_chars)] == '\0')
     {
-      free (result.text);
+      free (heading_with_number);
       return strdup ("");
     }
+
+  text_init (&result);
+  text_append (&result, heading_with_number);
 
   text_append (&result, "\n");
 

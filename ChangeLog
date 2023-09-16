@@ -1,5 +1,13 @@
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (text_heading): simplify code,
+	free heading_with_number in case of empty heading.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accent): remove unused
+	variable.
+
+2023-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/labels.c
 	(check_register_target_element_label): free label_texi from error
 	message.
