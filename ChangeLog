@@ -1,5 +1,16 @@
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/labels.c
+	(check_register_target_element_label): free label_texi from error
+	message.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (check_menu_entry)
+	(check_nodes_are_referenced, complete_node_tree_with_menus, nodes_tree)
+	(associate_internal_references): free texinfo code strings used in
+	error messages.
+
+2023-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accent): do not make the
 	TEXT static, its .text needs to be free'd.
 

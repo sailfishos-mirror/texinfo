@@ -414,22 +414,28 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
       ELEMENT *menu_node = find_identifier_target (identifiers_target,
                                                    normalized_menu_node);
       if (!menu_node)
-        message_list_command_error (error_messages, menu_content,
-                       "@%s reference to nonexistent node `%s'",
-                       builtin_command_name (cmd),
-                       link_element_to_texi (menu_entry_node));
-
+        {
+          char *entry_node_texi = link_element_to_texi (menu_entry_node);
+          message_list_command_error (error_messages, menu_content,
+                         "@%s reference to nonexistent node `%s'",
+                         builtin_command_name (cmd), entry_node_texi);
+          free (entry_node_texi);
+        }
       else
         {
           ELEMENT *node_content = lookup_extra_element (menu_entry_node,
                                                         "node_content");
           if (!check_node_same_texinfo_code (menu_node, node_content))
-            message_list_command_warn (error_messages, menu_content,
+            {
+              char *entry_node_texi = link_element_to_texi (menu_entry_node);
+              char *menu_node_texi = target_element_to_texi_label (menu_node);
+              message_list_command_warn (error_messages, menu_content,
                   "@%s entry node name `%s' different from %s name `%s'",
-                  builtin_command_name (cmd),
-                  link_element_to_texi (menu_entry_node),
-                  builtin_command_name (menu_node->cmd),
-                  target_element_to_texi_label (menu_node));
+                  builtin_command_name (cmd), entry_node_texi,
+                  builtin_command_name (menu_node->cmd), menu_node_texi);
+              free (entry_node_texi);
+              free (menu_node_texi);
+            }
         }
     }
 }
@@ -791,10 +797,12 @@ check_nodes_are_referenced (DOCUMENT *document)
                              compare_strings);
           if (!found)
             {
+              char *node_texi = target_element_to_texi_label(node);
               nr_not_found++;
               message_list_command_warn (error_messages, node,
                                          "node `%s' unreferenced",
-                                 target_element_to_texi_label(node));
+                                         node_texi);
+              free (node_texi);
             }
         }
     }
@@ -1130,12 +1138,20 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               && menus->contents.number > 0
                               && (!menu_directions
                                   || !menu_directions->contents.list[d]))
-                            message_list_command_warn (error_messages,
+                            {
+                              char *node_texi
+                                = target_element_to_texi_label (node);
+                              char *direction_texi
+                               = target_element_to_texi_label
+                                               (direction_associated_node);
+                              message_list_command_warn (error_messages,
                                        node,
                       "node %s for `%s' is `%s' in sectioning but not in menu",
-                                       direction_names[d],
-                                       target_element_to_texi_label (node),
-                      target_element_to_texi_label (direction_associated_node));
+                                       direction_names[d], node_texi,
+                                       direction_texi);
+                              free (node_texi);
+                              free (direction_texi);
+                            }
                         }
                     }
           /*
@@ -1158,12 +1174,19 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           if (((!options)
                                || options->CHECK_NORMAL_MENU_STRUCTURE > 0)
                               && section)
-                            message_list_command_warn (
+                            {
+                              char *node_texi
+                                = target_element_to_texi_label(node);
+                              char *entry_texi
+                                = target_element_to_texi_label
+                                                 (elt_menu_direction);
+                              message_list_command_warn (
                                 error_messages, node,
                "node `%s' is %s for `%s' in menu but not in sectioning",
-                       target_element_to_texi_label (elt_menu_direction),
-                                           direction_names[d],
-                                 target_element_to_texi_label(node));
+                                entry_texi, direction_names[d], node_texi);
+                              free (node_texi);
+                              free (entry_texi);
+                            }
 
                           node_directions = lookup_extra_directions (node,
                                                       "node_directions", 1);
@@ -1247,13 +1270,19 @@ complete_node_tree_with_menus (DOCUMENT *document)
                        = lookup_extra_element (menu_direction, "manual_content");
                       if (!menu_dir_manual_content)
                         {
+                          char *node_texi = target_element_to_texi_label (node);
+                          char *dir_texi = target_element_to_texi_label
+                                            (node_directions->contents.list[d]);
+                          char *menu_dir_texi
+                             = target_element_to_texi_label (menu_direction);
                           message_list_command_warn (error_messages, node,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
-                                           direction_names[d],
-                                target_element_to_texi_label (node),
-               target_element_to_texi_label (node_directions->contents.list[d]),
-                                           direction_names[d],
-                                target_element_to_texi_label (menu_direction));
+                                           direction_names[d], node_texi,
+                                           dir_texi, direction_names[d],
+                                           menu_dir_texi);
+                          free (node_texi);
+                          free (dir_texi);
+                          free (menu_dir_texi);
                         }
                     }
                 }
@@ -1309,10 +1338,15 @@ complete_node_tree_with_menus (DOCUMENT *document)
                         }
                     }
                   if (!found)
-                    message_list_command_warn (error_messages, up_node,
+                    {
+                      char *up_texi = target_element_to_texi_label (up_node);
+                      char *node_texi = target_element_to_texi_label (node);
+                      message_list_command_warn (error_messages, up_node,
            "node `%s' lacks menu item for `%s' despite being its Up target",
-                                  target_element_to_texi_label (up_node),
-                                  target_element_to_texi_label (node));
+                                  up_texi, node_texi);
+                      free (up_texi);
+                      free (node_texi);
+                    }
                 }
             }
         }
@@ -1472,14 +1506,22 @@ nodes_tree (DOCUMENT *document)
                                if (!check_node_same_texinfo_code (node_target,
                                                        direction_node_content))
                                  {
+                                   char *direction_texi
+                                    = link_element_to_texi (direction_element);
+                                   char *node_texi
+                                    = target_element_to_texi_label (node);
+                                   char *node_target_texi
+                                    = target_element_to_texi_label (node_target);
                                    message_list_command_warn (
-                                  error_messages, node,
+                                       error_messages, node,
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
-                                  direction_texts[direction],
-                                  link_element_to_texi (direction_element),
-                                  target_element_to_texi_label (node),
-                                  builtin_command_name (node_target->cmd),
-                                  target_element_to_texi_label (node_target));
+                                       direction_texts[direction],
+                                       direction_texi, node_texi,
+                                       builtin_command_name (node_target->cmd),
+                                       node_target_texi);
+                                   free (direction_texi);
+                                   free (node_texi);
+                                   free (node_target_texi);
                                  }
                              }
                         }
@@ -1487,11 +1529,16 @@ nodes_tree (DOCUMENT *document)
                         {
                           if ((!options)
                                || options->novalidate <= 0)
-                            message_list_command_error (
+                            {
+                              char *direction_texi
+                                 = link_element_to_texi(direction_element);
+                              message_list_command_error (
                                      error_messages, node,
                                      "%s reference to nonexistent `%s'",
                                      direction_texts[direction],
-                                     link_element_to_texi(direction_element));
+                                     direction_texi);
+                              free (direction_texi);
+                            }
                         }
                     }
                 }
@@ -1561,10 +1608,13 @@ associate_internal_references (DOCUMENT *document)
             {
               if ((!options)
                   || options->novalidate <= 0)
-                message_list_command_error (error_messages,
+                {
+                  char *label_texi = link_element_to_texi (label_element);
+                  message_list_command_error (error_messages,
                              ref, "@%s reference to nonexistent node `%s'",
-                             builtin_command_name (ref->cmd),
-                             link_element_to_texi (label_element));
+                             builtin_command_name (ref->cmd), label_texi);
+                  free (label_texi);
+                }
             }
           else
             {
@@ -1576,12 +1626,16 @@ associate_internal_references (DOCUMENT *document)
                   if (!check_node_same_texinfo_code (node_target,
                                                      label_node_content))
                     {
+                      char *label_texi = link_element_to_texi (label_element);
+                      char *target_texi
+                         = target_element_to_texi_label (node_target);
                       message_list_command_warn (error_messages, ref,
                                 "@%s to `%s', different from %s name `%s'",
-                                builtin_command_name (ref->cmd),
-                                link_element_to_texi (label_element),
+                                builtin_command_name (ref->cmd), label_texi,
                                 builtin_command_name (node_target->cmd),
-                                target_element_to_texi_label (node_target));
+                                target_texi);
+                      free (label_texi);
+                      free (target_texi);
                     }
                 }
             }

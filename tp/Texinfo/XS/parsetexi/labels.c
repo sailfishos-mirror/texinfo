@@ -98,9 +98,11 @@ check_register_target_element_label (ELEMENT *label_element,
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (!*non_hyphen_char)
         {
+          char *label_texi = convert_contents_to_texinfo (label_element);
           line_error_ext (error, 0, &target_element->source_info,
                           "empty node name after expansion `%s'",
-                           convert_contents_to_texinfo (label_element));
+                           label_texi);
+          free (label_texi);
           free (normalized);
           normalized = 0;
         }
