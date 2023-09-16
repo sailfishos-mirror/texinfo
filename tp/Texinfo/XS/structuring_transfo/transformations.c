@@ -420,6 +420,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                                                      indices_information);
                       if (idx_info->index_entry)
                         index_entry = idx_info->index_entry;
+                      free (idx_info);
                    }
                 }
               /* the command in the tree is CM_item, not CM_item_LINE */
@@ -636,6 +637,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
       int i;
       char *non_hyphen_char;
       ELEMENT *target = 0;
+      ELEMENT *appended_text = 0;
       ELEMENT *node_line_arg = new_element (ET_line_arg);
       ELEMENT *spaces_before = new_element (ET_NONE);
       ELEMENT *spaces_after = new_element (ET_NONE);
@@ -659,7 +661,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
 
       if (appended_number)
         {
-          ELEMENT *appended_text = new_element (ET_NONE);
+          appended_text = new_element (ET_NONE);
           text_printf (&appended_text->text, " %d", appended_number);
           add_to_element_contents (node_line_arg, appended_text);
         }
@@ -678,6 +680,8 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
 
       free (normalized);
       destroy_element (node_line_arg);
+      if (appended_text)
+        destroy_element (appended_text);
       destroy_element (node);
       appended_number++;
     }
@@ -881,7 +885,6 @@ reference_to_arg_internal (const char *type,
                                               removed->contents.number);
                   for (i = 0; i < new->contents.number; i++)
                     new->contents.list[i]->parent = new;
-                  removed->contents.list = 0;
                   destroy_element (removed);
                   break;
                 }
@@ -1050,11 +1053,16 @@ complete_node_menu (ELEMENT *node, int use_sections)
             }
           for (j = 0; j < pending->contents.number; j++)
             pending->contents.list[j]->parent = current_menu;
+
+          if (current_menu != pending)
+            destroy_element (pending);
         }
-      if (current_menu != pending)
+      else
         destroy_element (pending);
+
       free (existing_entries);
     }
+  destroy_element (node_childs);
 }
 
 ELEMENT *

@@ -32,7 +32,6 @@ sub gdt ($$;$$$)
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
 
-  # FIXME pass some $customization_information?
   my $utf8_string = Encode::encode('utf-8', $string);
   my $utf8_translation_context;
   $utf8_translation_context = Encode::encode('utf-8', $translation_context)
@@ -40,9 +39,11 @@ sub gdt ($$;$$$)
   my $utf8_lang;
   $utf8_lang = Encode::encode('utf-8', $lang)
     if (defined($lang));
+
   my $tree = gettree ($utf8_string, $customization_information,
                       $replaced_substrings,
                       $utf8_translation_context, $utf8_lang);
+
   return $tree;
 }
 

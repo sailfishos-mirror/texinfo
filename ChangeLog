@@ -1,5 +1,37 @@
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	always destroy parsed_def.
+
+	* tp/Texinfo/XS/main/unicode.c (encoded_accents)
+	(unicode_point_decoded_in_encoding): free normalized_encoding.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments): free
+	command name when it is a comment.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro): check that string is
+	not empty before removing end of line.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (print_down_menus):
+	destroy node_title_copy.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(relate_index_entries_to_table_items_in): free idx_info.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c (new_node):
+	destroy appended text element.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reference_to_arg_internal): when destroying the removed reference
+	command argument element, do not set the list to 0 as it means that
+	the list will not be free'd.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(complete_node_menu): destroy node_childs and pending in every
+	relevant cases.
+
+2023-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (rearrange_tree_beginning): destroy
 	before_setfilename if empty and not used.
 

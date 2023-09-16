@@ -557,6 +557,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                   && (cmd == CM_comment || cmd == CM_c))
                 {
                   line = sep;
+                  free (command);
                   goto funexit;
                 }
               text_append_n (arg, sep, 1);
@@ -959,7 +960,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   expand_macro_body (macro_record, macro_call_element, &expanded);
 
-  if (expanded.text)
+  if (expanded.text && expanded.end > 0)
     {
       if (expanded.text[expanded.end - 1] == '\n')
         expanded.text[--expanded.end] = '\0';

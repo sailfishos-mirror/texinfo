@@ -354,6 +354,7 @@ encoded_accents (char *text, ELEMENT *stack, char *encoding,
           int i;
           if (!strcmp (normalized_encoding, "utf-8"))
             {
+              free (normalized_encoding);
               return format_unicode_accents_stack_internal (text, stack,
                                                 format_accent, set_case);
             }
@@ -369,10 +370,12 @@ encoded_accents (char *text, ELEMENT *stack, char *encoding,
             }
           if (encoding_index >= 0)
             {
+              free (normalized_encoding);
               return format_eight_bit_accents_stack (text, stack, encoding_index,
                                                      format_accent, set_case);
             }
         }
+      free (normalized_encoding);
     }
   return 0;
 }
@@ -392,6 +395,7 @@ int unicode_point_decoded_in_encoding (char *encoding, char *codepoint)
           int i;
           if (!strcmp (normalized_encoding, "utf-8"))
             {
+              free (normalized_encoding);
               return -1;
             }
           for (i = 0; i < sizeof (unicode_to_eight_bit)
@@ -403,17 +407,24 @@ int unicode_point_decoded_in_encoding (char *encoding, char *codepoint)
                   unsigned long point_nr = strtoul (codepoint, NULL, 16);
                   /* excludes 127 \x{7F} DEL */
                   if (point_nr < 127)
-                    return i + 1;
+                    {
+                      free (normalized_encoding);
+                      return i + 1;
+                    }
                   char *found = (char *)bsearch (&codepoint,
                              unicode_to_eight_bit[i].codepoints,
                              unicode_to_eight_bit[i].number,
                              sizeof(char *), compare_strings);
                   if (found)
-                    return i + 1;
+                    {
+                      free (normalized_encoding);
+                      return i + 1;
+                    }
                   break;
                 }
             }
         }
+      free (normalized_encoding);
     }
   return 0;
 }

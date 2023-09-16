@@ -510,6 +510,7 @@ parse_line_directive (char *line, int *retval, int *out_line_no)
   return filename;
 }
 
+/* return should be freed by the caller */
 char *
 normalize_encoding_name (char *text, int *possible_encoding)
 {

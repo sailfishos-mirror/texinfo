@@ -693,6 +693,9 @@ PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q perl -w $file > val_res/$bfile.out 2>&1 ; done
 
+With memory leaks
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+
 For tests in tp/tests, a way to have valgrind -q prependend is to add, in tp/defs:
 prepended_command='valgrind -q'
 

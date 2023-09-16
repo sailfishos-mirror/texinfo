@@ -40,8 +40,8 @@ MODULE = Texinfo::Translations	PACKAGE = Texinfo::Translations
 
 PROTOTYPES: ENABLE
 
-# since the module is loaded together with the NonXS, names need to
-# be different.
+# since this module and the NonXS moduels share the same package
+# namespace and are loaded together, names need to be different.
 # configure (localesdir, strings_textdomain="texinfo_document")
 
 void

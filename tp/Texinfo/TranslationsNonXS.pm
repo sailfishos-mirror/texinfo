@@ -47,7 +47,7 @@ Locale::Messages->select_package ('gettext_pp');
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    # the forst one is defined in this here perl file.
+    # the first one is defined in this here perl file.
     # the second one is defined in the Translations.xs file.
     Texinfo::XSLoader::override(
       "Texinfo::Translations::_configure_XS",

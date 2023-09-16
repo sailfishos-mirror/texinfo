@@ -1950,6 +1950,7 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
       add_to_element_contents (preformatted, empty_line_before);
       insert_slice_into_contents (preformatted, 1, node_title_copy,
                                   0, node_title_copy->contents.number);
+      destroy_element (node_title_copy);
       add_to_element_contents (preformatted, empty_line_first_after);
       add_to_element_contents (preformatted, empty_line_second_after);
 

@@ -832,8 +832,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
             {
               destroy_element (args_text_space);
             }
-          destroy_parsed_def (parsed_def);
         }
+      destroy_parsed_def (parsed_def);
     }
   if (element->contents.number)
     {
