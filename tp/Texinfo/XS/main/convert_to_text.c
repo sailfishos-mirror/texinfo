@@ -45,7 +45,7 @@ ascii_accent (char *text, ELEMENT *command)
 {
   enum command_id cmd = command->cmd;
   char *result;
-  static TEXT accent_text;
+  TEXT accent_text;
 
   text_init (&accent_text);
 
@@ -76,8 +76,7 @@ ascii_accent (char *text, ELEMENT *command)
       else if (cmd != CM_dotless)
         text_append (&accent_text, builtin_command_name (cmd));
     }
-  result = strdup (accent_text.text);
-  return result;
+  return accent_text.text;
 }
 
 char *
@@ -398,7 +397,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
 
               if (text_options->set_case)
                 {
-                  char *cased
+                  cased
                     = to_upper_or_lower_multibyte (element->text.text,
                                                    text_options->set_case);
                   text = cased;

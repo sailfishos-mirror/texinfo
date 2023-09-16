@@ -690,6 +690,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                                              &referenced_identifier_number);
 
                 }
+              destroy_element (node_childs);
             }
         }
     }
@@ -770,7 +771,10 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   /* FIXME we could return here if there is no non referenced node:
    if (nr_nodes_to_find == referenced_identifier_number)
-     return;
+     {
+       free (referenced_identifiers);
+       return;
+     }
    */
 
   for (i = 0; i < nodes_list->contents.number; i++)
@@ -800,6 +804,7 @@ check_nodes_are_referenced (DOCUMENT *document)
       fprintf (stderr, "BUG: to find: %zu; found: %zu; not found: %zu\n",
                nr_nodes_to_find, referenced_identifier_number, nr_not_found);
     }
+  free (referenced_identifiers);
 }
 
 ELEMENT *
@@ -1785,7 +1790,10 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
   int i;
 
   if (node_childs->contents.number <= 0)
-    return 0;
+    {
+      destroy_element (node_childs);
+      return 0;
+    }
 
   /* only holds contents here, will be turned into a proper block
      command in new_block_command */
@@ -1803,6 +1811,7 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
           add_to_element_contents (new_menu, entry);
         }
     }
+  destroy_element (node_childs);
 
   new_block_command (new_menu, CM_menu);
 

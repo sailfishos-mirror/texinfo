@@ -225,6 +225,8 @@ convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion)
 
 /*
   Reverse the decoding of the file name from the input encoding.
+  FILE_NAME_ENCODING is used to return the encoding.
+  The caller should free the return value and FILE_NAME_ENCODING.
 */
 char *
 encoded_input_file_name (OPTIONS *options,
@@ -363,6 +365,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                                   file_name_text);
     }
   free (file_name);
+  free (file_name_encoding);
   return verbatiminclude;
 }
 
