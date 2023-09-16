@@ -523,6 +523,8 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
         }
       if (before_setfilename->contents.number > 0)
         insert_into_contents (before_node_section, before_setfilename, 0);
+      else
+        destroy_element (before_setfilename);
     }
 
   /* _add_preamble_before_content */

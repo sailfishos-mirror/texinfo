@@ -1,5 +1,13 @@
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (rearrange_tree_beginning): destroy
+	before_setfilename if empty and not used.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (number_floats):
+	remove duplicate add_extra_string_dup.
+
+2023-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (text_heading): simplify code,
 	free heading_with_number in case of empty heading.
 

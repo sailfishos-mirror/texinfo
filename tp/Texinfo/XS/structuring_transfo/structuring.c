@@ -1665,6 +1665,7 @@ number_floats (DOCUMENT *document)
           ELEMENT *float_elt = listoffloats->element->contents.list[j];
           char *normalized = lookup_extra_string (float_elt, "normalized");
           ELEMENT *up;
+
           if (!normalized)
             continue;
 
@@ -1702,7 +1703,6 @@ number_floats (DOCUMENT *document)
                   nr_in_chapter++;
                   text_printf (&number, "%s.%zu", section_number,
                                                   nr_in_chapter);
-                  add_extra_string_dup (float_elt, "float_number", number.text);
                 }
             }
           if (number.end == 0)
