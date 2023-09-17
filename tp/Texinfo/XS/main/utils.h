@@ -20,6 +20,7 @@
 #include <iconv.h>
 
 #include "options_types.h"
+#include "global_commands_types.h"
 #include "tree_types.h"
 
 extern const char *whitespace_chars;
@@ -73,74 +74,6 @@ typedef struct GLOBAL_INFO {
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
 } GLOBAL_INFO;
-
-typedef struct GLOBAL_COMMANDS {
-    /* Elements that should be unique. */
-    ELEMENT *settitle;
-    ELEMENT *copying;
-    ELEMENT *title;
-    ELEMENT *titlepage;
-    ELEMENT *top;
-    ELEMENT *setfilename;
-    ELEMENT *documentdescription;
-    ELEMENT *pagesizes;
-    ELEMENT *fonttextsize;
-    ELEMENT *footnotestyle;
-    ELEMENT *setchapternewpage;
-    ELEMENT *everyheading;
-    ELEMENT *everyfooting;
-    ELEMENT *evenheading;
-    ELEMENT *evenfooting;
-    ELEMENT *oddheading;
-    ELEMENT *oddfooting;
-    ELEMENT *everyheadingmarks;
-    ELEMENT *everyfootingmarks;
-    ELEMENT *evenheadingmarks;
-    ELEMENT *oddheadingmarks;
-    ELEMENT *evenfootingmarks;
-    ELEMENT *oddfootingmarks;
-    ELEMENT *shorttitlepage;
-    ELEMENT *novalidate;
-    ELEMENT *afourpaper;
-    ELEMENT *afourlatex;
-    ELEMENT *afourwide;
-    ELEMENT *afivepaper;
-    ELEMENT *bsixpaper;
-    ELEMENT *smallbook;
-
-    /* Arrays of elements */
-    ELEMENT floats;
-    ELEMENT footnotes;
-
-    ELEMENT author;
-    ELEMENT detailmenu;
-    ELEMENT hyphenation;
-    ELEMENT insertcopying;
-    ELEMENT listoffloats;
-    ELEMENT part;
-    ELEMENT printindex;
-    ELEMENT subtitle;
-    ELEMENT titlefont;
-
-    ELEMENT allowcodebreaks;
-    ELEMENT clickstyle;
-    ELEMENT codequotebacktick;
-    ELEMENT codequoteundirected;
-    ELEMENT contents;
-    ELEMENT deftypefnnewline;
-    ELEMENT documentencoding;
-    ELEMENT documentlanguage;
-    ELEMENT exampleindent;
-    ELEMENT firstparagraphindent;
-    ELEMENT frenchspacing;
-    ELEMENT headings;
-    ELEMENT kbdinputstyle;
-    ELEMENT microtype;
-    ELEMENT paragraphindent;
-    ELEMENT shortcontents;
-    ELEMENT urefbreakstyle;
-    ELEMENT xrefautomaticsectiontitle;
-} GLOBAL_COMMANDS;
 
 int isascii_alnum (int c);
 int isascii_alpha (int c);

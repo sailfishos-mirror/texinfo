@@ -23,6 +23,8 @@
 #include <string.h>
 #include <errno.h>
 
+#include "global_commands_types.h"
+#include "tree_types.h"
 #include "parser.h"
 /* for set_debug_output */
 #include "debug.h"
@@ -316,37 +318,11 @@ store_document (ELEMENT *root)
   #define GLOBAL_CASE(cmd) \
    COPY_GLOBAL_ARRAY(commands,cmd)
 
-  GLOBAL_CASE(author);
-  GLOBAL_CASE(detailmenu);
-  GLOBAL_CASE(hyphenation);
-  GLOBAL_CASE(insertcopying);
-  GLOBAL_CASE(listoffloats);
-  GLOBAL_CASE(part);
-  GLOBAL_CASE(printindex);
-  GLOBAL_CASE(subtitle);
-  GLOBAL_CASE(titlefont);
-
   GLOBAL_CASE(footnotes);
   GLOBAL_CASE(floats);
 
-  GLOBAL_CASE(allowcodebreaks);
-  GLOBAL_CASE(clickstyle);
-  GLOBAL_CASE(codequotebacktick);
-  GLOBAL_CASE(codequoteundirected);
-  GLOBAL_CASE(contents);
-  GLOBAL_CASE(deftypefnnewline);
-  GLOBAL_CASE(documentencoding);
-  GLOBAL_CASE(documentlanguage);
-  GLOBAL_CASE(exampleindent);
-  GLOBAL_CASE(firstparagraphindent);
-  GLOBAL_CASE(frenchspacing);
-  GLOBAL_CASE(headings);
-  GLOBAL_CASE(kbdinputstyle);
-  GLOBAL_CASE(microtype);
-  GLOBAL_CASE(paragraphindent);
-  GLOBAL_CASE(shortcontents);
-  GLOBAL_CASE(urefbreakstyle);
-  GLOBAL_CASE(xrefautomaticsectiontitle);
+#include "global_multi_commands_case.c"
+
   #undef GLOBAL_CASE
   #undef COPY_GLOBAL_ARRAY
 

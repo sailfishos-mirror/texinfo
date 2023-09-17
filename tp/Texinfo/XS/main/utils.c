@@ -29,6 +29,8 @@
 #include "unicase.h"
 #include "uniwidth.h"
 
+#include "global_commands_types.h"
+#include "options_types.h"
 #include "tree_types.h"
 #include "tree.h"
 #include "text.h"
@@ -37,7 +39,6 @@
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
-#include "options_types.h"
 #include "utils.h"
 
 #include "cmd_structuring.c"
@@ -740,36 +741,11 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 
 #define GLOBAL_CASE(cmx) \
   free (global_commands.cmx.contents.list)
+
   GLOBAL_CASE(floats);
   GLOBAL_CASE(footnotes);
 
-  GLOBAL_CASE(author);
-  GLOBAL_CASE(detailmenu);
-  GLOBAL_CASE(hyphenation);
-  GLOBAL_CASE(insertcopying);
-  GLOBAL_CASE(printindex);
-  GLOBAL_CASE(subtitle);
-  GLOBAL_CASE(titlefont);
-  GLOBAL_CASE(listoffloats);
-  GLOBAL_CASE(part);
-  GLOBAL_CASE(allowcodebreaks);
-  GLOBAL_CASE(clickstyle);
-  GLOBAL_CASE(codequotebacktick);
-  GLOBAL_CASE(codequoteundirected);
-  GLOBAL_CASE(contents);
-  GLOBAL_CASE(deftypefnnewline);
-  GLOBAL_CASE(documentencoding);
-  GLOBAL_CASE(documentlanguage);
-  GLOBAL_CASE(exampleindent);
-  GLOBAL_CASE(firstparagraphindent);
-  GLOBAL_CASE(frenchspacing);
-  GLOBAL_CASE(headings);
-  GLOBAL_CASE(kbdinputstyle);
-  GLOBAL_CASE(microtype);
-  GLOBAL_CASE(paragraphindent);
-  GLOBAL_CASE(shortcontents);
-  GLOBAL_CASE(urefbreakstyle);
-  GLOBAL_CASE(xrefautomaticsectiontitle);
+#include "global_multi_commands_case.c"
 
 #undef GLOBAL_CASE
 }

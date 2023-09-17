@@ -20,10 +20,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "tree_types.h"
-#include "tree.h"
+#include "global_commands_types.h"
 #include "element_types.h"
 #include "options_types.h"
+#include "tree_types.h"
+#include "tree.h"
 #include "extra.h"
 #include "errors.h"
 #include "debug.h"

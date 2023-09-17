@@ -176,6 +176,9 @@ EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_structuring.c
 EXTRA_DIST += main/cmd_symbol.c
 EXTRA_DIST += main/cmd_text.c
+EXTRA_DIST += main/global_commands_types.h
+EXTRA_DIST += main/global_multi_commands_case.c
+EXTRA_DIST += main/global_unique_commands_case.c
 EXTRA_DIST += main/options_initialization.c
 EXTRA_DIST += main/options_get_perl.c
 EXTRA_DIST += main/options_types.h
@@ -196,6 +199,9 @@ BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/command_ids.h \
               main/element_types.c \
               main/element_types.h \
+              main/global_commands_types.h \
+              main/global_multi_commands_case.c \
+              main/global_unique_commands_case.c \
               main/options_initialization.c \
               main/options_get_perl.c \
               main/options_types.h
@@ -208,7 +214,7 @@ $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_type
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
 	     $(srcdir)/main/element_types.txt
 
-$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h: ../command_data.txt main/command_data.awk
+$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: ../command_data.txt main/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
 

@@ -10,17 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-main/build_perl_info.c GLOBAL_UNIQUE_CASE(everyheadingmarks);
-main/utils.h:    ELEMENT *everyheadingmarks;
-parsetexi/parser.c:        GLOBAL_UNIQUE_CASE(everyheadingmarks);
-
-main/build_perl_info.c:  GLOBAL_CASE(hyphenation);
-main/utils.c:  GLOBAL_CASE(hyphenation);
-main/utils.h:    ELEMENT hyphenation;
-parsetexi/api.c:  GLOBAL_CASE(hyphenation);
-parsetexi/parser.c:        GLOBAL_CASE(hyphenation);
-
-
 Bugs
 ====
 

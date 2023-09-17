@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#include "global_commands_types.h"
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
@@ -368,36 +369,8 @@ register_global_command (ELEMENT *current)
           add_to_contents_as_array (&global_commands.floats, current);
           break;
 
-        /* global in command_data.txt */
-        GLOBAL_CASE(author);
-        GLOBAL_CASE(detailmenu);
-        GLOBAL_CASE(hyphenation);
-        GLOBAL_CASE(insertcopying);
-        GLOBAL_CASE(listoffloats);
-        GLOBAL_CASE(part);
-        GLOBAL_CASE(printindex);
-        GLOBAL_CASE(subtitle);
-        GLOBAL_CASE(titlefont);
+#include "global_multi_commands_case.c"
 
-        /* from Common.pm %multiple_at_command_options */
-        GLOBAL_CASE(allowcodebreaks);
-        GLOBAL_CASE(clickstyle);
-        GLOBAL_CASE(codequotebacktick);
-        GLOBAL_CASE(codequoteundirected);
-        GLOBAL_CASE(contents);
-        GLOBAL_CASE(deftypefnnewline);
-        GLOBAL_CASE(documentencoding);
-        GLOBAL_CASE(documentlanguage);
-        GLOBAL_CASE(exampleindent);
-        GLOBAL_CASE(firstparagraphindent);
-        GLOBAL_CASE(frenchspacing);
-        GLOBAL_CASE(headings);
-        GLOBAL_CASE(kbdinputstyle);
-        GLOBAL_CASE(microtype);
-        GLOBAL_CASE(paragraphindent);
-        GLOBAL_CASE(shortcontents);
-        GLOBAL_CASE(urefbreakstyle);
-        GLOBAL_CASE(xrefautomaticsectiontitle);
 #undef GLOBAL_CASE
         default:
           /* do nothing; just silence -Wswitch about lots of un-covered cases */
@@ -425,38 +398,9 @@ register_global_command (ELEMENT *current)
           where = &global_commands.cmd; \
           break
 
-        GLOBAL_UNIQUE_CASE(settitle);
-        GLOBAL_UNIQUE_CASE(copying);
-        GLOBAL_UNIQUE_CASE(titlepage);
-        GLOBAL_UNIQUE_CASE(top);
-        GLOBAL_UNIQUE_CASE(documentdescription);
-        GLOBAL_UNIQUE_CASE(pagesizes);
-        GLOBAL_UNIQUE_CASE(fonttextsize);
-        GLOBAL_UNIQUE_CASE(footnotestyle);
-        GLOBAL_UNIQUE_CASE(setchapternewpage);
-        GLOBAL_UNIQUE_CASE(everyheading);
-        GLOBAL_UNIQUE_CASE(everyfooting);
-        GLOBAL_UNIQUE_CASE(evenheading);
-        GLOBAL_UNIQUE_CASE(evenfooting);
-        GLOBAL_UNIQUE_CASE(oddheading);
-        GLOBAL_UNIQUE_CASE(oddfooting);
-        GLOBAL_UNIQUE_CASE(everyheadingmarks);
-        GLOBAL_UNIQUE_CASE(everyfootingmarks);
-        GLOBAL_UNIQUE_CASE(evenheadingmarks);
-        GLOBAL_UNIQUE_CASE(oddheadingmarks);
-        GLOBAL_UNIQUE_CASE(evenfootingmarks);
-        GLOBAL_UNIQUE_CASE(oddfootingmarks);
-        GLOBAL_UNIQUE_CASE(shorttitlepage);
-        GLOBAL_UNIQUE_CASE(title);
-        GLOBAL_UNIQUE_CASE(novalidate);
-        GLOBAL_UNIQUE_CASE(afourpaper);
-        GLOBAL_UNIQUE_CASE(afourlatex);
-        GLOBAL_UNIQUE_CASE(afourwide);
-        GLOBAL_UNIQUE_CASE(afivepaper);
-        GLOBAL_UNIQUE_CASE(bsixpaper);
-        GLOBAL_UNIQUE_CASE(smallbook);
+#include "main/global_unique_commands_case.c"
+
 #undef GLOBAL_UNIQUE_CASE
-        /* NOTE: Same list in build_global_commands and wipe_global_commands. */
         default:
           /* do nothing; just silence -Wswitch about lots of un-covered cases */
           break;

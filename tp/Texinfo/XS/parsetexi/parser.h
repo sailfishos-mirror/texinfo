@@ -23,6 +23,7 @@
 
 /* for GLOBAL_INFO */
 #include "utils.h"
+#include "global_commands_types.h"
 #include "tree_types.h"
 #include "tree.h"
 #include "context_stack.h"

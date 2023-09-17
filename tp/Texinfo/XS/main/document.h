@@ -5,6 +5,7 @@
 #include <stddef.h>
 
 #include "options_types.h"
+#include "global_commands_types.h"
 #include "tree_types.h"
 /* for GLOBAL_INFO */
 #include "utils.h"

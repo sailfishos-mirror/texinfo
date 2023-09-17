@@ -19,8 +19,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tree_types.h"
+#include "global_commands_types.h"
 #include "options_types.h"
+#include "tree_types.h"
 #include "tree.h"
 /* for delete_global_info */
 #include "utils.h"

@@ -34,6 +34,7 @@
 #include <libintl.h>
 #endif
 
+#include "global_commands_types.h"
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
@@ -941,30 +942,9 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
     }
 
   GLOBAL_UNIQUE_CASE(setfilename);
-  GLOBAL_UNIQUE_CASE(settitle);
-  GLOBAL_UNIQUE_CASE(copying);
-  GLOBAL_UNIQUE_CASE(titlepage);
-  GLOBAL_UNIQUE_CASE(top);
-  GLOBAL_UNIQUE_CASE(documentdescription);
-  GLOBAL_UNIQUE_CASE(pagesizes);
-  GLOBAL_UNIQUE_CASE(fonttextsize);
-  GLOBAL_UNIQUE_CASE(footnotestyle);
-  GLOBAL_UNIQUE_CASE(setchapternewpage);
-  GLOBAL_UNIQUE_CASE(everyheading);
-  GLOBAL_UNIQUE_CASE(everyfooting);
-  GLOBAL_UNIQUE_CASE(evenheading);
-  GLOBAL_UNIQUE_CASE(evenfooting);
-  GLOBAL_UNIQUE_CASE(oddheading);
-  GLOBAL_UNIQUE_CASE(oddfooting);
-  GLOBAL_UNIQUE_CASE(everyheadingmarks);
-  GLOBAL_UNIQUE_CASE(everyfootingmarks);
-  GLOBAL_UNIQUE_CASE(evenheadingmarks);
-  GLOBAL_UNIQUE_CASE(oddheadingmarks);
-  GLOBAL_UNIQUE_CASE(evenfootingmarks);
-  GLOBAL_UNIQUE_CASE(oddfootingmarks);
-  GLOBAL_UNIQUE_CASE(shorttitlepage);
-  GLOBAL_UNIQUE_CASE(title);
-  GLOBAL_UNIQUE_CASE(novalidate);
+
+#include "main/global_unique_commands_case.c"
+
 #undef GLOBAL_UNIQUE_CASE
 
   /* NOTE: Same list in handle_commands.c:register_global_command. */
@@ -1012,33 +992,7 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
         }                                                               \
     }
 
-  GLOBAL_CASE(author);
-  GLOBAL_CASE(detailmenu);
-  GLOBAL_CASE(hyphenation);
-  GLOBAL_CASE(insertcopying);
-  GLOBAL_CASE(listoffloats);
-  GLOBAL_CASE(part);
-  GLOBAL_CASE(printindex);
-  GLOBAL_CASE(subtitle);
-  GLOBAL_CASE(titlefont);
-
-  GLOBAL_CASE(allowcodebreaks);
-  GLOBAL_CASE(clickstyle);
-  GLOBAL_CASE(codequotebacktick);
-  GLOBAL_CASE(codequoteundirected);
-  GLOBAL_CASE(contents);
-  GLOBAL_CASE(deftypefnnewline);
-  GLOBAL_CASE(documentencoding);
-  GLOBAL_CASE(documentlanguage);
-  GLOBAL_CASE(exampleindent);
-  GLOBAL_CASE(firstparagraphindent);
-  GLOBAL_CASE(frenchspacing);
-  GLOBAL_CASE(headings);
-  GLOBAL_CASE(kbdinputstyle);
-  GLOBAL_CASE(paragraphindent);
-  GLOBAL_CASE(shortcontents);
-  GLOBAL_CASE(urefbreakstyle);
-  GLOBAL_CASE(xrefautomaticsectiontitle);
+#include "global_multi_commands_case.c"
 
 #undef GLOBAL_CASE
 

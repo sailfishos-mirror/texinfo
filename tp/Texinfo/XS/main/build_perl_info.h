@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "global_commands_types.h"
 #include "tree_types.h"
 #include "utils.h"
 
