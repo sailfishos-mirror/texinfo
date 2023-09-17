@@ -1244,6 +1244,8 @@ sub handle_errors($$$)
 
 require Texinfo::Parser;
 require Texinfo::Translations;
+require Texinfo::Document;
+Texinfo::Document->import();
 require Texinfo::Structuring;
 Texinfo::Structuring->import();
 require Texinfo::Transformations;
@@ -1810,6 +1812,8 @@ while(@input_files) {
       _exit($error_count, \@opened_files);
     }
   }
+
+  Texinfo::Document::remove_document($document);
 }
 
 foreach my $unclosed_file (keys(%unclosed_files)) {

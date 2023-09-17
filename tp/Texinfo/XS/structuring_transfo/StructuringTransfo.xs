@@ -117,7 +117,19 @@ rebuild_document (document_in, ...)
         RETVAL
 
 void
-remove_document (int document_descriptor)
+remove_document_descriptor (int document_descriptor)
+
+void
+remove_document (document_in)
+        SV *document_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* it is ok not to found a document if there is no
+           document descriptor */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          remove_document_descriptor (document->descriptor);
 
 void
 set_document_options (sv_options_in, document_in)

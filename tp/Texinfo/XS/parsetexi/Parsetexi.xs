@@ -34,9 +34,7 @@
 #include "conf.h"
 #include "build_perl_info.h"
 #include "input.h"
-/* for remove_document and clear_document_errors
- FIXME should it be a separate API?
- */
+/* for clear_document_errors */
 #include "document.h"
 /* for wipe_errors */
 #include "errors.h"
@@ -100,9 +98,6 @@ build_document (int document_descriptor, ...)
         RETVAL = build_document (document_descriptor, no_store);
       OUTPUT:
         RETVAL
-
-void
-remove_document (int document_descriptor)
 
 void
 clear_document_errors (int document_descriptor)

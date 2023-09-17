@@ -1213,7 +1213,7 @@ build_document (size_t document_descriptor, int no_store)
 #undef STORE
 
   if (no_store)
-    remove_document (document_descriptor);
+    remove_document_descriptor (document_descriptor);
   else
     {
       hv_store (hv, "document_descriptor", strlen ("document_descriptor"),

@@ -253,7 +253,7 @@ sub register_label_element($$;$$)
 # do nothing, only the XS override does something.
 sub remove_document ($)
 {
-  my $document_descriptor = shift;
+  my $document = shift;
 }
 
 1;

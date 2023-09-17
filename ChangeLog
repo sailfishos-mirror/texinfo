@@ -1,5 +1,20 @@
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (remove_document),
+	tp/Texinfo/XS/main/document.c (remove_document_descriptor),
+	tp/t/test_utils.pl (test): rename main/document.c remove_document as
+	remove_document_descriptor.  Update callers.  Have both
+	remove_document_descriptor and remove_document in the XS interface.
+	Override and use remove_document in perl code.
+
+	* tp/texi2any.pl: call remove_document at the end of an input file
+	processing.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: remove interface for
+	remove_document/remove_document_descriptor.
+
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (import, document_descriptor)
 	(remove_document),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs

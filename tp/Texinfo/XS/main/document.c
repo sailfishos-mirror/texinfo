@@ -155,7 +155,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
 }
 
 void
-remove_document (int document_descriptor)
+remove_document_descriptor (int document_descriptor)
 {
   DOCUMENT *document = 0;
 

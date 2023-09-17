@@ -1557,10 +1557,7 @@ sub test($$)
     }
   }
 
-  my $document_descriptor = $document->document_descriptor();
-  if ($document_descriptor) {
-    Texinfo::Document::remove_document($document_descriptor);
-  }
+  Texinfo::Document::remove_document($document);
 
   return $tests_count;
 }

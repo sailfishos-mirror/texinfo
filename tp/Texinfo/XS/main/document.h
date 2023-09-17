@@ -43,7 +43,7 @@ void register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list);
 void register_document_sections_list (DOCUMENT *document,
                                       ELEMENT *sections_list);
 void register_document_options (DOCUMENT *document, OPTIONS *options);
-void remove_document (int document_descriptor);
+void remove_document_descriptor (int document_descriptor);
 ELEMENT *unregister_tree (DOCUMENT *document);
 void clear_document_errors (int document_descriptor);
 

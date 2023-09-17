@@ -149,12 +149,12 @@ sub _switch_messages_locale
 sub _gdt($$;$$)
 {
   my ($customization_information, $string, $translation_context, $lang) = @_;
-  # In addition to being settable from the command line,
-  # the language needs to be dynamic in case there is an untranslated string
-  # from another language that needs to be translated.
   if (ref($customization_information) eq 'Texinfo::Document') {
     cluck;
   }
+  # In addition to being settable from the command line,
+  # the language needs to be dynamic in case there is an untranslated string
+  # from another language that needs to be translated.
   $lang = $customization_information->get_conf('documentlanguage')
     if ($customization_information and !defined($lang));
   if (defined($lang) and $lang eq '') {
