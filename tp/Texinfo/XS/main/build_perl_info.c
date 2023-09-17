@@ -933,39 +933,39 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 
   /* These should be unique elements. */
 
-#define BUILD_GLOBAL_UNIQ(cmd) \
+#define GLOBAL_UNIQUE_CASE(cmd) \
   if (global_commands.cmd && global_commands.cmd->hv) \
     { \
       hv_store (hv, #cmd, strlen (#cmd), \
                 newRV_inc ((SV *) global_commands.cmd->hv), 0); \
     }
 
-  BUILD_GLOBAL_UNIQ(setfilename);
-  BUILD_GLOBAL_UNIQ(settitle);
-  BUILD_GLOBAL_UNIQ(copying);
-  BUILD_GLOBAL_UNIQ(titlepage);
-  BUILD_GLOBAL_UNIQ(top);
-  BUILD_GLOBAL_UNIQ(documentdescription);
-  BUILD_GLOBAL_UNIQ(pagesizes);
-  BUILD_GLOBAL_UNIQ(fonttextsize);
-  BUILD_GLOBAL_UNIQ(footnotestyle);
-  BUILD_GLOBAL_UNIQ(setchapternewpage);
-  BUILD_GLOBAL_UNIQ(everyheading);
-  BUILD_GLOBAL_UNIQ(everyfooting);
-  BUILD_GLOBAL_UNIQ(evenheading);
-  BUILD_GLOBAL_UNIQ(evenfooting);
-  BUILD_GLOBAL_UNIQ(oddheading);
-  BUILD_GLOBAL_UNIQ(oddfooting);
-  BUILD_GLOBAL_UNIQ(everyheadingmarks);
-  BUILD_GLOBAL_UNIQ(everyfootingmarks);
-  BUILD_GLOBAL_UNIQ(evenheadingmarks);
-  BUILD_GLOBAL_UNIQ(oddheadingmarks);
-  BUILD_GLOBAL_UNIQ(evenfootingmarks);
-  BUILD_GLOBAL_UNIQ(oddfootingmarks);
-  BUILD_GLOBAL_UNIQ(shorttitlepage);
-  BUILD_GLOBAL_UNIQ(title);
-  BUILD_GLOBAL_UNIQ(novalidate);
-#undef BUILD_GLOBAL_UNIQ
+  GLOBAL_UNIQUE_CASE(setfilename);
+  GLOBAL_UNIQUE_CASE(settitle);
+  GLOBAL_UNIQUE_CASE(copying);
+  GLOBAL_UNIQUE_CASE(titlepage);
+  GLOBAL_UNIQUE_CASE(top);
+  GLOBAL_UNIQUE_CASE(documentdescription);
+  GLOBAL_UNIQUE_CASE(pagesizes);
+  GLOBAL_UNIQUE_CASE(fonttextsize);
+  GLOBAL_UNIQUE_CASE(footnotestyle);
+  GLOBAL_UNIQUE_CASE(setchapternewpage);
+  GLOBAL_UNIQUE_CASE(everyheading);
+  GLOBAL_UNIQUE_CASE(everyfooting);
+  GLOBAL_UNIQUE_CASE(evenheading);
+  GLOBAL_UNIQUE_CASE(evenfooting);
+  GLOBAL_UNIQUE_CASE(oddheading);
+  GLOBAL_UNIQUE_CASE(oddfooting);
+  GLOBAL_UNIQUE_CASE(everyheadingmarks);
+  GLOBAL_UNIQUE_CASE(everyfootingmarks);
+  GLOBAL_UNIQUE_CASE(evenheadingmarks);
+  GLOBAL_UNIQUE_CASE(oddheadingmarks);
+  GLOBAL_UNIQUE_CASE(evenfootingmarks);
+  GLOBAL_UNIQUE_CASE(oddfootingmarks);
+  GLOBAL_UNIQUE_CASE(shorttitlepage);
+  GLOBAL_UNIQUE_CASE(title);
+  GLOBAL_UNIQUE_CASE(novalidate);
+#undef GLOBAL_UNIQUE_CASE
 
   /* NOTE: Same list in handle_commands.c:register_global_command. */
 
@@ -998,7 +998,7 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
         }
     }
 
-#define BUILD_GLOBAL_ARRAY(cmd) \
+#define GLOBAL_CASE(cmd) \
   if (global_commands.cmd.contents.number > 0)                              \
     {                                                                   \
       av = newAV ();                                                    \
@@ -1012,34 +1012,37 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
         }                                                               \
     }
 
-  BUILD_GLOBAL_ARRAY(author);
-  BUILD_GLOBAL_ARRAY(detailmenu);
-  BUILD_GLOBAL_ARRAY(hyphenation);
-  BUILD_GLOBAL_ARRAY(insertcopying);
-  BUILD_GLOBAL_ARRAY(listoffloats);
-  BUILD_GLOBAL_ARRAY(part);
-  BUILD_GLOBAL_ARRAY(printindex);
-  BUILD_GLOBAL_ARRAY(subtitle);
-  BUILD_GLOBAL_ARRAY(titlefont);
+  GLOBAL_CASE(author);
+  GLOBAL_CASE(detailmenu);
+  GLOBAL_CASE(hyphenation);
+  GLOBAL_CASE(insertcopying);
+  GLOBAL_CASE(listoffloats);
+  GLOBAL_CASE(part);
+  GLOBAL_CASE(printindex);
+  GLOBAL_CASE(subtitle);
+  GLOBAL_CASE(titlefont);
 
-  /* from Common.pm %multiple_at_command_options */
-  BUILD_GLOBAL_ARRAY(allowcodebreaks);
-  BUILD_GLOBAL_ARRAY(clickstyle);
-  BUILD_GLOBAL_ARRAY(codequotebacktick);
-  BUILD_GLOBAL_ARRAY(codequoteundirected);
-  BUILD_GLOBAL_ARRAY(contents);
-  BUILD_GLOBAL_ARRAY(deftypefnnewline);
-  BUILD_GLOBAL_ARRAY(documentencoding);
-  BUILD_GLOBAL_ARRAY(documentlanguage);
-  BUILD_GLOBAL_ARRAY(exampleindent);
-  BUILD_GLOBAL_ARRAY(firstparagraphindent);
-  BUILD_GLOBAL_ARRAY(frenchspacing);
-  BUILD_GLOBAL_ARRAY(headings);
-  BUILD_GLOBAL_ARRAY(kbdinputstyle);
-  BUILD_GLOBAL_ARRAY(paragraphindent);
-  BUILD_GLOBAL_ARRAY(shortcontents);
-  BUILD_GLOBAL_ARRAY(urefbreakstyle);
-  BUILD_GLOBAL_ARRAY(xrefautomaticsectiontitle);
+  GLOBAL_CASE(allowcodebreaks);
+  GLOBAL_CASE(clickstyle);
+  GLOBAL_CASE(codequotebacktick);
+  GLOBAL_CASE(codequoteundirected);
+  GLOBAL_CASE(contents);
+  GLOBAL_CASE(deftypefnnewline);
+  GLOBAL_CASE(documentencoding);
+  GLOBAL_CASE(documentlanguage);
+  GLOBAL_CASE(exampleindent);
+  GLOBAL_CASE(firstparagraphindent);
+  GLOBAL_CASE(frenchspacing);
+  GLOBAL_CASE(headings);
+  GLOBAL_CASE(kbdinputstyle);
+  GLOBAL_CASE(paragraphindent);
+  GLOBAL_CASE(shortcontents);
+  GLOBAL_CASE(urefbreakstyle);
+  GLOBAL_CASE(xrefautomaticsectiontitle);
+
+#undef GLOBAL_CASE
+
+
   return hv;
 }
 

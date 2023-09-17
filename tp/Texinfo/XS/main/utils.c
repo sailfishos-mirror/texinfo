@@ -738,9 +738,10 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 {
   GLOBAL_COMMANDS global_commands = *global_commands_ref;
 
-  free (global_commands.footnotes.contents.list);
 #define GLOBAL_CASE(cmx) \
   free (global_commands.cmx.contents.list)
+  GLOBAL_CASE(floats);
+  GLOBAL_CASE(footnotes);
 
   GLOBAL_CASE(author);
   GLOBAL_CASE(detailmenu);
@@ -751,7 +752,6 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
   GLOBAL_CASE(titlefont);
   GLOBAL_CASE(listoffloats);
   GLOBAL_CASE(part);
-  GLOBAL_CASE(floats);
   GLOBAL_CASE(allowcodebreaks);
   GLOBAL_CASE(clickstyle);
   GLOBAL_CASE(codequotebacktick);

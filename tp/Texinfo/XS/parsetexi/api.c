@@ -312,37 +312,43 @@ store_document (ELEMENT *root)
   COPY_GLOBAL_ARRAY(info,dircategory_direntry);
 
   memcpy (doc_global_commands, &global_commands, sizeof (GLOBAL_COMMANDS));
-  COPY_GLOBAL_ARRAY(commands,author);
-  COPY_GLOBAL_ARRAY(commands,detailmenu);
-  COPY_GLOBAL_ARRAY(commands,hyphenation);
-  COPY_GLOBAL_ARRAY(commands,insertcopying);
-  COPY_GLOBAL_ARRAY(commands,listoffloats);
-  COPY_GLOBAL_ARRAY(commands,part);
-  COPY_GLOBAL_ARRAY(commands,printindex);
-  COPY_GLOBAL_ARRAY(commands,subtitle);
-  COPY_GLOBAL_ARRAY(commands,titlefont);
 
-  COPY_GLOBAL_ARRAY(commands,footnotes);
-  COPY_GLOBAL_ARRAY(commands,floats);
+  #define GLOBAL_CASE(cmd) \
+   COPY_GLOBAL_ARRAY(commands,cmd)
 
-  COPY_GLOBAL_ARRAY(commands,allowcodebreaks);
-  COPY_GLOBAL_ARRAY(commands,clickstyle);
-  COPY_GLOBAL_ARRAY(commands,codequotebacktick);
-  COPY_GLOBAL_ARRAY(commands,codequoteundirected);
-  COPY_GLOBAL_ARRAY(commands,contents);
-  COPY_GLOBAL_ARRAY(commands,deftypefnnewline);
-  COPY_GLOBAL_ARRAY(commands,documentencoding);
-  COPY_GLOBAL_ARRAY(commands,documentlanguage);
-  COPY_GLOBAL_ARRAY(commands,exampleindent);
-  COPY_GLOBAL_ARRAY(commands,firstparagraphindent);
-  COPY_GLOBAL_ARRAY(commands,frenchspacing);
-  COPY_GLOBAL_ARRAY(commands,headings);
-  COPY_GLOBAL_ARRAY(commands,kbdinputstyle);
-  COPY_GLOBAL_ARRAY(commands,microtype);
-  COPY_GLOBAL_ARRAY(commands,paragraphindent);
-  COPY_GLOBAL_ARRAY(commands,shortcontents);
-  COPY_GLOBAL_ARRAY(commands,urefbreakstyle);
-  COPY_GLOBAL_ARRAY(commands,xrefautomaticsectiontitle);
+  GLOBAL_CASE(author);
+  GLOBAL_CASE(detailmenu);
+  GLOBAL_CASE(hyphenation);
+  GLOBAL_CASE(insertcopying);
+  GLOBAL_CASE(listoffloats);
+  GLOBAL_CASE(part);
+  GLOBAL_CASE(printindex);
+  GLOBAL_CASE(subtitle);
+  GLOBAL_CASE(titlefont);
+
+  GLOBAL_CASE(footnotes);
+  GLOBAL_CASE(floats);
+
+  GLOBAL_CASE(allowcodebreaks);
+  GLOBAL_CASE(clickstyle);
+  GLOBAL_CASE(codequotebacktick);
+  GLOBAL_CASE(codequoteundirected);
+  GLOBAL_CASE(contents);
+  GLOBAL_CASE(deftypefnnewline);
+  GLOBAL_CASE(documentencoding);
+  GLOBAL_CASE(documentlanguage);
+  GLOBAL_CASE(exampleindent);
+  GLOBAL_CASE(firstparagraphindent);
+  GLOBAL_CASE(frenchspacing);
+  GLOBAL_CASE(headings);
+  GLOBAL_CASE(kbdinputstyle);
+  GLOBAL_CASE(microtype);
+  GLOBAL_CASE(paragraphindent);
+  GLOBAL_CASE(shortcontents);
+  GLOBAL_CASE(urefbreakstyle);
+  GLOBAL_CASE(xrefautomaticsectiontitle);
+  #undef GLOBAL_CASE
+  #undef COPY_GLOBAL_ARRAY
 
   small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
   small_strings_list = malloc (sizeof (STRING_LIST));

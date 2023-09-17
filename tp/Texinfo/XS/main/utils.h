@@ -109,10 +109,11 @@ typedef struct GLOBAL_COMMANDS {
     ELEMENT *smallbook;
 
     /* Arrays of elements */
-    ELEMENT author;
-    ELEMENT detailmenu;
     ELEMENT floats;
     ELEMENT footnotes;
+
+    ELEMENT author;
+    ELEMENT detailmenu;
     ELEMENT hyphenation;
     ELEMENT insertcopying;
     ELEMENT listoffloats;
