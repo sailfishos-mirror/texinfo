@@ -95,7 +95,7 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  if (defined($document->{'document_descriptor'})) {
+  if (defined($document->document_descriptor())) {
     return _convert_document_with_XS($self, $document);
   }
   my $root = $document->tree();

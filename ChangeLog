@@ -1,5 +1,17 @@
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (import, document_descriptor)
+	(remove_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(remove_document), tp/t/test_utils.pl (test): add remove_document XS
+	in Texinfo::Document, using StructuringTransfo.xs.  Call it in
+	test_utils.pl after each test.
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (convert): use
+	document_descriptor().
+
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (store_document): add missing
 	microtype COPY_GLOBAL_ARRAY.
 

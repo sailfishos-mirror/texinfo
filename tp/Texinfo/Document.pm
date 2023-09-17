@@ -23,9 +23,28 @@ package Texinfo::Document;
 use strict;
 use warnings;
 
-our $VERSION = '7.0dev';
-
 use Texinfo::Common;
+
+use Texinfo::StructTransf;
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if (!defined $ENV{TEXINFO_XS_PARSER}
+        or $ENV{TEXINFO_XS_PARSER} eq '1') {
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::remove_document",
+        # TODO add a Document XS .xs file and move to that file?
+        "Texinfo::StructTransf::remove_document"
+      );
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
+
+our $VERSION = '7.0dev';
 
 sub register
 {
@@ -120,6 +139,13 @@ sub sections_list($)
 {
   my $self = shift;
   return $self->{'sections_list'};
+}
+
+# only set if the Texinfo::Document object has been set up by XS code.
+sub document_descriptor($)
+{
+  my $self = shift;
+  return $self->{'document_descriptor'};
 }
 
 sub _existing_label_error($$;$$)
@@ -222,6 +248,12 @@ sub register_label_element($$;$$)
   # on the element it should be after or before in the list?
   push @{$self->{'labels_list'}}, $element;
   return $retval;
+}
+
+# do nothing, only the XS override does something.
+sub remove_document ($)
+{
+  my $document_descriptor = shift;
 }
 
 1;
