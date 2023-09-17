@@ -25,6 +25,11 @@ prepended_command=
 
 . ../../defs || exit 1
 
+if test "z$PERL_UNICODE_COLLATE_OK" = 'zno' ; then
+  echo "Skipping tests that require compatible unicode collation"
+  exit 77
+fi
+
 [ -d $diffs_dir ] || mkdir $diffs_dir
 staging_dir=$diffs_dir/staging
 [ -d $staging_dir ] || mkdir $staging_dir

@@ -1,3 +1,10 @@
+2023-09-17  Patrice Dumas <pertusus@free.fr>
+
+	* tp/tests/many_input_files/different_encodings.sh: skip test if
+	$PERL_UNICODE_COLLATE_OK is no, as this test requires compatible
+	unicode collation.  Report from Gavin based on Nelson Beebe pretest
+	test results.
+
 2023-09-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.0.92
