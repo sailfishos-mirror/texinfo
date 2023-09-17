@@ -219,12 +219,12 @@ setchapternewpage       line,global_unique,preamble,contain_plain_text    LINE_s
 # arg on off
 microtype               line,global,preamble,contain_plain_text  LINE_specific  1
 
-everyheading            line,global,heading_spec,preamble,contain_basic_inline      LINE_line
-everyfooting            line,global,heading_spec,preamble,contain_basic_inline      LINE_line
-evenheading             line,global,heading_spec,preamble,contain_basic_inline      LINE_line
-evenfooting             line,global,heading_spec,preamble,contain_basic_inline      LINE_line
-oddheading              line,global,heading_spec,preamble,contain_basic_inline      LINE_line
-oddfooting              line,global,heading_spec,preamble,contain_basic_inline      LINE_line
+everyheading            line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
+everyfooting            line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
+evenheading             line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
+evenfooting             line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
+oddheading              line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
+oddfooting              line,global_unique,heading_spec,preamble,contain_basic_inline      LINE_line
 
 # args are index identifiers
 syncodeindex            line,preamble,contain_plain_text         LINE_specific  2

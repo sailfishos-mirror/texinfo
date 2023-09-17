@@ -72,7 +72,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT dircategory_direntry; /* an array of elements */
 
     /* Elements that should be unique. */
-    ELEMENT *settitle; /* Title of document. */
+    ELEMENT *settitle;
     ELEMENT *copying;
     ELEMENT *title;
     ELEMENT *titlepage;

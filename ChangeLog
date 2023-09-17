@@ -1,5 +1,10 @@
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/command_data.txt: consider everyheading, everyfooting, and
+	similar even* odd* commands to be global_unique and not global.
+
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (remove_document),
 	tp/Texinfo/XS/main/document.c (remove_document_descriptor),
 	tp/t/test_utils.pl (test): rename main/document.c remove_document as

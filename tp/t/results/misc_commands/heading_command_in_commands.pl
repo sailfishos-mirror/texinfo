@@ -288,6 +288,24 @@ $result_errors{'heading_command_in_commands'} = [
     'macro' => '',
     'text' => '@everyheading should not appear in @code',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: multiple @everyheading
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => 'multiple @everyheading',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: multiple @everyheading
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => '',
+    'text' => 'multiple @everyheading',
+    'type' => 'warning'
   }
 ];
 
