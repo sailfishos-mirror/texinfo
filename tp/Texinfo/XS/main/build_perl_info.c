@@ -919,13 +919,13 @@ build_global_info (GLOBAL_INFO *global_info_ref)
 /* Return object to be used as 'commands_info', which holds references
    to tree elements. */
 HV *
-build_global_info2 (GLOBAL_INFO *global_info_ref)
+build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 {
   HV *hv;
   AV *av;
   int i;
   ELEMENT *e;
-  GLOBAL_INFO global_info = *global_info_ref;
+  GLOBAL_COMMANDS global_commands = *global_commands_ref;
 
   dTHX;
 
@@ -934,10 +934,10 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
   /* These should be unique elements. */
 
 #define BUILD_GLOBAL_UNIQ(cmd) \
-  if (global_info.cmd && global_info.cmd->hv) \
+  if (global_commands.cmd && global_commands.cmd->hv) \
     { \
       hv_store (hv, #cmd, strlen (#cmd), \
-                newRV_inc ((SV *) global_info.cmd->hv), 0); \
+                newRV_inc ((SV *) global_commands.cmd->hv), 0); \
     }
 
   BUILD_GLOBAL_UNIQ(setfilename);
@@ -971,42 +971,42 @@ build_global_info2 (GLOBAL_INFO *global_info_ref)
 
   /* The following are arrays of elements. */
 
-  if (global_info.footnotes.contents.number > 0)
+  if (global_commands.footnotes.contents.number > 0)
     {
       av = newAV ();
       hv_store (hv, "footnote", strlen ("footnote"),
                 newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_info.footnotes.contents.number; i++)
+      for (i = 0; i < global_commands.footnotes.contents.number; i++)
         {
-          e = contents_child_by_index (&global_info.footnotes, i);
+          e = contents_child_by_index (&global_commands.footnotes, i);
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
     }
 
   /* float is a type, it does not work there, use floats instead */
-  if (global_info.floats.contents.number > 0)
+  if (global_commands.floats.contents.number > 0)
     {
       av = newAV ();
       hv_store (hv, "float", strlen ("float"),
                 newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_info.floats.contents.number; i++)
+      for (i = 0; i < global_commands.floats.contents.number; i++)
         {
-          e = contents_child_by_index (&global_info.floats, i);
+          e = contents_child_by_index (&global_commands.floats, i);
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
     }
 
 #define BUILD_GLOBAL_ARRAY(cmd) \
-  if (global_info.cmd.contents.number > 0)                              \
+  if (global_commands.cmd.contents.number > 0)                              \
     {                                                                   \
       av = newAV ();                                                    \
       hv_store (hv, #cmd, strlen (#cmd),                                \
                 newRV_noinc ((SV *) av), 0);                              \
-      for (i = 0; i < global_info.cmd.contents.number; i++)             \
+      for (i = 0; i < global_commands.cmd.contents.number; i++)             \
         {                                                               \
-          e = contents_child_by_index (&global_info.cmd, i);            \
+          e = contents_child_by_index (&global_commands.cmd, i);            \
           if (e->hv)                                                    \
             av_push (av, newRV_inc ((SV *) e->hv));                     \
         }                                                               \
@@ -1140,7 +1140,7 @@ build_document (size_t document_descriptor, int no_store)
   DOCUMENT *document;
   HV *hv_tree;
   HV *hv_info;
-  HV *hv_global_info;
+  HV *hv_commands_info;
   HV *hv_index_names;
   HV *hv_listoffloats_list;
   AV *av_internal_xref;
@@ -1161,7 +1161,7 @@ build_document (size_t document_descriptor, int no_store)
 
   hv_info = build_global_info (document->global_info);
 
-  hv_global_info = build_global_info2 (document->global_info);
+  hv_commands_info = build_global_commands (document->global_commands);
 
   hv_index_names = build_index_data (document->index_names);
 
@@ -1199,7 +1199,7 @@ build_document (size_t document_descriptor, int no_store)
   STORE("indices", hv_index_names);
   STORE("listoffloats_list", hv_listoffloats_list);
   STORE("internal_references", av_internal_xref);
-  STORE("commands_info", hv_global_info);
+  STORE("commands_info", hv_commands_info);
   STORE("info", hv_info);
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);

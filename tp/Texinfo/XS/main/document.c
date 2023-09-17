@@ -51,6 +51,7 @@ register_document (ELEMENT *root, INDEX **index_names,
                    LABEL_LIST *labels_list,
                    LABEL_LIST *identifiers_target,
                    GLOBAL_INFO *global_info,
+                   GLOBAL_COMMANDS *global_commands,
                    STRING_LIST *small_strings,
                    ERROR_MESSAGE_LIST *error_messages)
 {
@@ -94,6 +95,7 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->labels_list = labels_list;
   document->identifiers_target = identifiers_target;
   document->global_info = global_info;
+  document->global_commands = global_commands;
   document->small_strings = small_strings;
   document->error_messages = error_messages;
 
@@ -133,6 +135,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
 
       delete_global_info (document->global_info);
       free (document->global_info);
+      delete_global_commands (document->global_commands);
+      free (document->global_commands);
       free (document->internal_references->list);
       free (document->internal_references);
       free (document->floats->float_types);

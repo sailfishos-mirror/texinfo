@@ -70,7 +70,11 @@ typedef struct GLOBAL_INFO {
     char *input_encoding_name;
     int sections_level_modifier;
     ELEMENT dircategory_direntry; /* an array of elements */
+    /* Ignored characters for index sort key */
+    IGNORED_CHARS ignored_chars;
+} GLOBAL_INFO;
 
+typedef struct GLOBAL_COMMANDS {
     /* Elements that should be unique. */
     ELEMENT *settitle;
     ELEMENT *copying;
@@ -135,10 +139,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT shortcontents;
     ELEMENT urefbreakstyle;
     ELEMENT xrefautomaticsectiontitle;
-
-    /* Ignored characters for index sort key */
-    IGNORED_CHARS ignored_chars;
-} GLOBAL_INFO;
+} GLOBAL_COMMANDS;
 
 int isascii_alnum (int c);
 int isascii_alpha (int c);
@@ -149,6 +150,7 @@ char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
 int width_multibyte (const char *text);
 
 void delete_global_info (GLOBAL_INFO *global_info_ref);
+void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 void fatal (char *);
 void bug (char *);

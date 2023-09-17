@@ -21,6 +21,6 @@ AV *build_internal_xref_list (ELEMENT **internal_xref_list,
 HV *build_float_list (FLOAT_RECORD *floats_list, size_t floats_number);
 HV *build_index_data (INDEX **index_names_in);
 HV *build_global_info (GLOBAL_INFO *global_info_ref);
-HV *build_global_info2 (GLOBAL_INFO *global_info_ref);
+HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 #endif

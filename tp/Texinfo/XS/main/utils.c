@@ -727,14 +727,20 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
   GLOBAL_INFO global_info = *global_info_ref;
 
   free (global_info.dircategory_direntry.contents.list);
-  free (global_info.footnotes.contents.list);
 
   free (global_info.input_encoding_name);
   free (global_info.input_file_name);
   free (global_info.input_directory);
+}
 
+void
+delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
+{
+  GLOBAL_COMMANDS global_commands = *global_commands_ref;
+
+  free (global_commands.footnotes.contents.list);
 #define GLOBAL_CASE(cmx) \
-  free (global_info.cmx.contents.list)
+  free (global_commands.cmx.contents.list)
 
   GLOBAL_CASE(author);
   GLOBAL_CASE(detailmenu);

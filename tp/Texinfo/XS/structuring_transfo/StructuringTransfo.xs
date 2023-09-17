@@ -179,7 +179,7 @@ copy_tree (tree_in, parent_in)
           {
             result = copy_tree (document->tree, 0);
             /* FIXME have a similar system but for trees only? */
-            copy_document_descriptor = register_document (result, 0, 0,
+            copy_document_descriptor = register_document (result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
             /* to return a fake element
             HV *hv = newHV ();

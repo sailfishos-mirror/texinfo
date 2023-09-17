@@ -258,6 +258,7 @@ store_document (ELEMENT *root)
   STRING_LIST *small_strings_list;
   ERROR_MESSAGE_LIST *error_messages;
   GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
+  GLOBAL_COMMANDS *doc_global_commands = malloc (sizeof (GLOBAL_COMMANDS));
 
   labels = malloc (sizeof (LABEL_LIST));
 
@@ -296,52 +297,52 @@ store_document (ELEMENT *root)
   if (global_info.input_directory)
     doc_global_info->input_directory
       = strdup (global_info.input_directory);
-  #define COPY_GLOBAL_ARRAY(cmd) \
-   doc_global_info->cmd.contents.list = 0;                          \
-   doc_global_info->cmd.contents.number = 0;                         \
-   doc_global_info->cmd.contents.space = 0;        \
-   if (global_info.cmd.contents.number > 0)                              \
+  #define COPY_GLOBAL_ARRAY(type,cmd) \
+   doc_global_##type->cmd.contents.list = 0;                          \
+   doc_global_##type->cmd.contents.number = 0;                         \
+   doc_global_##type->cmd.contents.space = 0;        \
+   if (global_##type.cmd.contents.number > 0)                              \
     {                                                                   \
-      for (i = 0; i < global_info.cmd.contents.number; i++)             \
+      for (i = 0; i < global_##type.cmd.contents.number; i++)             \
         {                                                               \
-          ELEMENT *e = contents_child_by_index (&global_info.cmd, i);            \
-          add_to_contents_as_array (&doc_global_info->cmd, e);           \
+          ELEMENT *e = contents_child_by_index (&global_##type.cmd, i);            \
+          add_to_contents_as_array (&doc_global_##type->cmd, e);           \
         }                                                               \
     }
-  COPY_GLOBAL_ARRAY(dircategory_direntry);
+  COPY_GLOBAL_ARRAY(info,dircategory_direntry);
 
-  COPY_GLOBAL_ARRAY(author);
-  COPY_GLOBAL_ARRAY(detailmenu);
-  COPY_GLOBAL_ARRAY(hyphenation);
-  COPY_GLOBAL_ARRAY(insertcopying);
-  COPY_GLOBAL_ARRAY(listoffloats);
-  COPY_GLOBAL_ARRAY(part);
-  COPY_GLOBAL_ARRAY(printindex);
-  COPY_GLOBAL_ARRAY(subtitle);
-  COPY_GLOBAL_ARRAY(titlefont);
+  memcpy (doc_global_commands, &global_commands, sizeof (GLOBAL_COMMANDS));
+  COPY_GLOBAL_ARRAY(commands,author);
+  COPY_GLOBAL_ARRAY(commands,detailmenu);
+  COPY_GLOBAL_ARRAY(commands,hyphenation);
+  COPY_GLOBAL_ARRAY(commands,insertcopying);
+  COPY_GLOBAL_ARRAY(commands,listoffloats);
+  COPY_GLOBAL_ARRAY(commands,part);
+  COPY_GLOBAL_ARRAY(commands,printindex);
+  COPY_GLOBAL_ARRAY(commands,subtitle);
+  COPY_GLOBAL_ARRAY(commands,titlefont);
 
-  COPY_GLOBAL_ARRAY(footnotes);
-  COPY_GLOBAL_ARRAY(floats);
+  COPY_GLOBAL_ARRAY(commands,footnotes);
+  COPY_GLOBAL_ARRAY(commands,floats);
 
-  /* from Common.pm %multiple_at_command_options */
-  COPY_GLOBAL_ARRAY(allowcodebreaks);
-  COPY_GLOBAL_ARRAY(clickstyle);
-  COPY_GLOBAL_ARRAY(codequotebacktick);
-  COPY_GLOBAL_ARRAY(codequoteundirected);
-  COPY_GLOBAL_ARRAY(contents);
-  COPY_GLOBAL_ARRAY(deftypefnnewline);
-  COPY_GLOBAL_ARRAY(documentencoding);
-  COPY_GLOBAL_ARRAY(documentlanguage);
-  COPY_GLOBAL_ARRAY(exampleindent);
-  COPY_GLOBAL_ARRAY(firstparagraphindent);
-  COPY_GLOBAL_ARRAY(frenchspacing);
-  COPY_GLOBAL_ARRAY(headings);
-  COPY_GLOBAL_ARRAY(kbdinputstyle);
-  COPY_GLOBAL_ARRAY(microtype);
-  COPY_GLOBAL_ARRAY(paragraphindent);
-  COPY_GLOBAL_ARRAY(shortcontents);
-  COPY_GLOBAL_ARRAY(urefbreakstyle);
-  COPY_GLOBAL_ARRAY(xrefautomaticsectiontitle);
+  COPY_GLOBAL_ARRAY(commands,allowcodebreaks);
+  COPY_GLOBAL_ARRAY(commands,clickstyle);
+  COPY_GLOBAL_ARRAY(commands,codequotebacktick);
+  COPY_GLOBAL_ARRAY(commands,codequoteundirected);
+  COPY_GLOBAL_ARRAY(commands,contents);
+  COPY_GLOBAL_ARRAY(commands,deftypefnnewline);
+  COPY_GLOBAL_ARRAY(commands,documentencoding);
+  COPY_GLOBAL_ARRAY(commands,documentlanguage);
+  COPY_GLOBAL_ARRAY(commands,exampleindent);
+  COPY_GLOBAL_ARRAY(commands,firstparagraphindent);
+  COPY_GLOBAL_ARRAY(commands,frenchspacing);
+  COPY_GLOBAL_ARRAY(commands,headings);
+  COPY_GLOBAL_ARRAY(commands,kbdinputstyle);
+  COPY_GLOBAL_ARRAY(commands,microtype);
+  COPY_GLOBAL_ARRAY(commands,paragraphindent);
+  COPY_GLOBAL_ARRAY(commands,shortcontents);
+  COPY_GLOBAL_ARRAY(commands,urefbreakstyle);
+  COPY_GLOBAL_ARRAY(commands,xrefautomaticsectiontitle);
 
   small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
   small_strings_list = malloc (sizeof (STRING_LIST));
@@ -359,6 +360,7 @@ store_document (ELEMENT *root)
   document_descriptor
    = register_document (root, index_names, floats, internal_references,
                         labels, identifiers_target, doc_global_info,
+                        doc_global_commands,
                         small_strings_list, error_messages);
   forget_indices ();
   forget_labels ();

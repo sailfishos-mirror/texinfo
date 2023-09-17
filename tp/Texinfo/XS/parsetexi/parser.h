@@ -126,6 +126,7 @@ extern ELEMENT *current_section;
 extern ELEMENT *current_part;
 
 extern GLOBAL_INFO global_info;
+extern GLOBAL_COMMANDS global_commands;
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
 extern int global_documentlanguage_fixed;

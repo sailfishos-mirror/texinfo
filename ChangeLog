@@ -1,5 +1,25 @@
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	Separate structure for global commands from global info
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_global_commands)
+	(build_document), tp/Texinfo/XS/main/Translations.xs (gettree),
+	tp/Texinfo/XS/main/document.c (register_document)
+	(destroy_document_information_except_tree), tp/Texinfo/XS/main/utils.c
+	(delete_global_info, delete_global_commands),
+	tp/Texinfo/XS/main/utils.h (GLOBAL_INFO, GLOBAL_COMMANDS),
+	tp/Texinfo/XS/parsetexi/api.c (store_document),
+	tp/Texinfo/XS/parsetexi/parser.c (global_commands)
+	(register_global_command, wipe_parser_global_info)
+	(rearrange_tree_beginning),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (copy_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (warn_non_empty_parts)
+	(set_menus_node_directions): add a separate structure, GLOBAL_COMMANDS
+	for global commands, removing them from GLOBAL_INFO.  Rename
+	build_global_info2 as build_global_commands.
+
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/command_data.txt: consider everyheading, everyfooting, and
 	similar even* odd* commands to be global_unique and not global.
 

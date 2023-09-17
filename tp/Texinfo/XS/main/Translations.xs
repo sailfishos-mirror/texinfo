@@ -110,7 +110,7 @@ gettree (string, ...)
          gdt_result = gdt (options, string, replaced_substrings,
                            translation_context, in_lang);
          /* FIXME have a similar system but for trees only? */
-         gdt_document_descriptor = register_document (gdt_result, 0, 0,
+         gdt_document_descriptor = register_document (gdt_result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
          result_tree = build_texinfo_tree (gdt_result);
          hv_store (result_tree, "tree_document_descriptor",

@@ -21,6 +21,7 @@ typedef struct DOCUMENT {
   LABEL_LIST *labels_list;
   LABEL_LIST *identifiers_target;
   GLOBAL_INFO *global_info;
+  GLOBAL_COMMANDS *global_commands;
   STRING_LIST *small_strings;
   ELEMENT *nodes_list; /* nodes in contents of this element */
   ELEMENT *sections_list; /* sections in contents of this element */
@@ -37,6 +38,7 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           LABEL_LIST *labels_list,
                           LABEL_LIST *identifiers_target,
                           GLOBAL_INFO *global_info,
+                          GLOBAL_COMMANDS *global_commands,
                           STRING_LIST *small_strings,
                           ERROR_MESSAGE_LIST *error_messages);
 void register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list);

@@ -307,6 +307,7 @@ COUNTER count_cells;
 /* Information that is not local to where it is set in the Texinfo input,
    for example document language and encoding. */
 GLOBAL_INFO global_info;
+GLOBAL_COMMANDS global_commands;
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 int global_documentlanguage_fixed = 0;
@@ -356,15 +357,15 @@ register_global_command (ELEMENT *current)
         {
 #define GLOBAL_CASE(cmx) \
         case CM_##cmx:   \
-          add_to_contents_as_array (&global_info.cmx, current); \
+          add_to_contents_as_array (&global_commands.cmx, current); \
           break
 
         case CM_footnote:
-          add_to_contents_as_array (&global_info.footnotes, current);
+          add_to_contents_as_array (&global_commands.footnotes, current);
           break;
 
         case CM_float:
-          add_to_contents_as_array (&global_info.floats, current);
+          add_to_contents_as_array (&global_commands.floats, current);
           break;
 
         /* global in command_data.txt */
@@ -416,12 +417,12 @@ register_global_command (ELEMENT *current)
           /* Check if we are inside an @include, and if so, do nothing. */
           if (top_file_index () > 0)
             break;
-          where = &global_info.setfilename;
+          where = &global_commands.setfilename;
           break;
 
 #define GLOBAL_UNIQUE_CASE(cmd) \
         case CM_##cmd: \
-          where = &global_info.cmd; \
+          where = &global_commands.cmd; \
           break
 
         GLOBAL_UNIQUE_CASE(settitle);
@@ -455,7 +456,7 @@ register_global_command (ELEMENT *current)
         GLOBAL_UNIQUE_CASE(bsixpaper);
         GLOBAL_UNIQUE_CASE(smallbook);
 #undef GLOBAL_UNIQUE_CASE
-        /* NOTE: Same list in api.c:build_global_info2 and wipe_global_info. */
+        /* NOTE: Same list in build_global_commands and wipe_global_commands. */
         default:
           /* do nothing; just silence -Wswitch about lots of un-covered cases */
           break;
@@ -487,9 +488,11 @@ wipe_parser_global_info (void)
   global_kbdinputstyle = kbd_distinct;
 
   delete_global_info (&global_info);
+  delete_global_commands (&global_commands);
 
   /* clear the rest of the fields */
   memset (&global_info, 0, sizeof (global_info));
+  memset (&global_commands, 0, sizeof (global_commands));
 }
 
 ELEMENT *
@@ -510,8 +513,8 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
 
   /* Put everything before @setfilename in a special type.  This allows to
      ignore everything before @setfilename. */
-  if (global_info.setfilename
-      && global_info.setfilename->parent == before_node_section)
+  if (global_commands.setfilename
+      && global_commands.setfilename->parent == before_node_section)
     {
       ELEMENT *before_setfilename
          = new_element (ET_preamble_before_setfilename);
