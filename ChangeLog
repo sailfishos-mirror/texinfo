@@ -1,5 +1,10 @@
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (store_document): add missing
+	microtype COPY_GLOBAL_ARRAY.
+
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c
 	(copy_sv_options_for_convert_text): remove unused variable.
 

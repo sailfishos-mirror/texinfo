@@ -337,6 +337,7 @@ store_document (ELEMENT *root)
   COPY_GLOBAL_ARRAY(frenchspacing);
   COPY_GLOBAL_ARRAY(headings);
   COPY_GLOBAL_ARRAY(kbdinputstyle);
+  COPY_GLOBAL_ARRAY(microtype);
   COPY_GLOBAL_ARRAY(paragraphindent);
   COPY_GLOBAL_ARRAY(shortcontents);
   COPY_GLOBAL_ARRAY(urefbreakstyle);
