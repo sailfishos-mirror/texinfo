@@ -1,3 +1,8 @@
+2023-09-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): set debug to 0
+	if $conf->{'DEBUG'} is 0.
+
 2023-09-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/macro.c (new_macro): free macrobody when

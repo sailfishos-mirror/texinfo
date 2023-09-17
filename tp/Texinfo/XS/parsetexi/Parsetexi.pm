@@ -149,7 +149,7 @@ sub parser (;$$)
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
         conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
       } elsif ($key eq 'DEBUG') {
-        parser_set_debug($conf->{$key}) if $conf->{$key};
+        parser_set_debug($conf->{$key}) if (defined($conf->{$key}));
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
         parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING' and defined($conf->{$key})) {
