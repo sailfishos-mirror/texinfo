@@ -142,7 +142,6 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **self_converter_options_sv;
   SV **enabled_encoding_sv;
   SV **sort_string_option_sv;
-  SV **document_descriptor_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
