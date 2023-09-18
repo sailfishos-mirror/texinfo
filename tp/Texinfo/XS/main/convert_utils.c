@@ -356,6 +356,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                 }
             }
         }
+      free (file);
     }
   else if (error_messages)
     {

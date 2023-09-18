@@ -1,5 +1,10 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_utils.c (expand_verbatiminclude): free
+	file path.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree): destroy
 	text_options in case of unexpected document not found error.
 
