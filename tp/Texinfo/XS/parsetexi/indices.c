@@ -517,19 +517,13 @@ complete_indices (int document_descriptor)
                         }
                       destroy_named_string_element_list (substrings);
 
-                      add_to_contents_as_array
+                      add_to_element_contents
                                    (index_entry_normalized, ref_name_copy);
                       add_to_element_contents
                                    (index_entry_normalized, text_element);
-                      add_to_contents_as_array
+                      add_to_element_contents
                                    (index_entry_normalized, ref_class_copy);
                       /*
-         FIXME the 'parent' of the tree elements that correspond to name and
-         class, be them from gdt or from the elements, are in the
-         main tree in the definition command arguments, while the new text has
-         either no parent (for index_entry_normalized) or the 'root_line'
-         container returned by gdt.
-
          prefer a type-less container rather than 'root_line' returned by gdt
                        */
                       index_entry->type = ET_NONE;

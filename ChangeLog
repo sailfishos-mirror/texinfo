@@ -1,5 +1,15 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/TranslationsNonXS.pm (complete_indices),
+	tp/Texinfo/XS/parsetexi/indices.c (complete_indices): set
+	index_entry_normalized contents parent.  Remove FIXME as it has become
+	incorrect and it is normal for out of tree elements not to have
+	parents.
+
+	* tp/Texinfo/TranslationsNonXS.pm: remove _non_bracketed_contents.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/TranslationsNonXS.pm (_substitute_element_array): use a
 	for loop on indices in array, as in the XS code.
 

@@ -396,7 +396,6 @@ sub _substitute_element_array($$) {
   my $array = shift;
   my $replaced_substrings = shift;
 
-  my $idx = 0;
   my $nr = scalar(@$array);
 
   for (my $idx = 0; $idx < $nr; $idx++) {
@@ -435,21 +434,6 @@ sub pgdt($$$;$$)
       $replaced_substrings, $lang) = @_;
   return $customization_information->gdt($string, $replaced_substrings,
                                          $translation_context, $lang);
-}
-
-# FIXME currently not used.  See below how it could be used to avoid having the
-# 'bracketed_arg' type in @def* index entries trees
-sub _non_bracketed_contents($) {
-  my $current = shift;
-
-  if ($current->{'type'} and $current->{'type'} eq 'bracketed_arg') {
-    my $new = {};
-    $new->{'contents'} = $current->{'contents'} if ($current->{'contents'});
-    $new->{'parent'} = $current->{'parent'} if ($current->{'parent'});
-    return $new;
-  } else {
-    return $current;
-  }
 }
 
 if (0) {
@@ -528,22 +512,11 @@ sub complete_indices($$)
             $text_element = {'text' => ' of ',
                              'parent' => $index_entry_normalized};
           }
+          $ref_name_copy->{'parent'} = $index_entry_normalized;
+          $ref_class_copy->{'parent'} = $index_entry_normalized;
           $index_entry_normalized->{'contents'}
               = [$ref_name_copy, $text_element, $ref_class_copy];
-              #= [_non_bracketed_contents($ref_name_copy),
-              #   $text_element,
-              #   _non_bracketed_contents($ref_class_copy)];
-          #print STDERR "COMPLETE $entry_language: $def_command name: '"
-          #  .Texinfo::Convert::Texinfo::convert_to_texinfo($name)."' class: '"
-          #   .Texinfo::Convert::Texinfo::convert_to_texinfo($class)." '"
-          #   .Texinfo::Convert::Texinfo::convert_to_texinfo($index_entry)."'\n";
 
-          # FIXME the 'parent' of the tree elements that correspond to name and
-          # class, be them from gdt or from the elements, are in the
-          # main tree in the definition command arguments, while the new text has
-          # either no parent (for index_entry_normalized) or the 'root_line'
-          # container returned by gdt.
-          #
           # prefer a type-less container rather than 'root_line' returned by gdt
           delete $index_entry->{'type'};
 
