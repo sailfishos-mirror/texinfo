@@ -118,7 +118,11 @@ build_perl_array (ELEMENT_LIST *e)
           else
             {
               /* NOTE should not be possible, all the elements in
-                 extra_contents should be in-tree.  Checked in 2023 */
+                 extra_contents should be in-tree.  Checked in 2023.
+                 Also, if this happens it is likely that this will
+                 trigger errors because some elements will be processed
+                 twice.
+               */
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (e->list[i]);

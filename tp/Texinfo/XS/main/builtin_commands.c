@@ -97,8 +97,10 @@ element_builtin_cmd (ELEMENT *e)
     return CM_index_entry_command;
   else if (e->cmd)
     {
-      fprintf (stderr, "FIXME: element_builtin_cmd: code needed for %s\n",
-               print_element_debug (e, 0));
+      char *debug_str = print_element_debug (e, 0);
+      fprintf (stderr, "BUG: element_builtin_cmd: unexpected %s; add code?\n",
+               debug_str);
+      free (debug_str);
       return e->cmd;
     }
   /* should never reach here */

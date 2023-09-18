@@ -1,5 +1,10 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd): change
+	FIXME in message to BUG and rephrase.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs: remove text_convert.
 
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
