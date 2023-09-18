@@ -358,8 +358,8 @@ sub text_heading($$$;$$)
   } else {
     $section_level = $current->{'extra'}->{'section_level'};
   }
-  # FIXME it seems strange to remove the indent length from the underlined
-  # width?
+  # $text is indented if indent_length is set, so $indent_length need to
+  # be substracted to have the width of heading only.
   $result .= ($underline_symbol{$section_level}
      x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
   return $result;

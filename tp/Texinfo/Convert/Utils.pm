@@ -331,6 +331,9 @@ sub expand_verbatiminclude($$$)
   return $verbatiminclude;
 }
 
+# $TEXT can be indented, however this can only happen for
+# *heading headings, which are not numbered.  If it was not the case,
+# the code would need to be changed.
 sub add_heading_number($$$;$)
 {
   my $self = shift;

@@ -281,8 +281,8 @@ text_heading (ELEMENT *current, char *text, OPTIONS *options,
 
   free (heading_with_number);
 
-  /* FIXME it seems strange to remove the indent length from the underlined
-     width? */
+  /* result is indented if indent_length is set, so indent_length needs to
+     be substracted to have the width of heading only. */
   for (i = 0; i < text_width - indent_length; i++)
     text_append (&result, underline_symbol[level]);
 

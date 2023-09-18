@@ -120,6 +120,11 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
   free (accent_stack);
 }
 
+/*
+ TEXT can be indented, however this can only happen for
+ *heading headings, which are not numbered.  If it was not the case,
+ the code would need to be changed.
+*/
 /* caller should free return */
 char *
 add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
