@@ -43,30 +43,7 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 PROTOTYPES: ENABLE
 
 SV *
-plain_texinfo_convert (converter, document_in)
-        SV *converter
-        SV *document_in
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
-        if (document)
-          {
-            char *result = plain_texinfo_convert (document);
-            RETVAL = newSVpv (result, strlen(result));
-            free (result);
-            SvUTF8_on (RETVAL);
-          }
-        else
-          RETVAL = newSV(0);
-    OUTPUT:
-        RETVAL
-
-
-SV *
-plain_texinfo_convert_tree (converter, tree_in)
-        SV *converter
+plain_texinfo_convert_tree (tree_in)
         SV *tree_in
     PREINIT:
         DOCUMENT *document = 0;

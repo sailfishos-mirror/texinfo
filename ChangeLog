@@ -1,3 +1,13 @@
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (import, _convert_tree_with_XS)
+	(convert_tree, convert), tp/Texinfo/Convert/Texinfo.pm
+	(_convert_tree_with_XS, convert_to_texinfo),
+	tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert_tree):
+	remove plain_texinfo_convert, always get the tree before calling XS
+	code.  Simplify plain_texinfo_convert_tree call by removing the
+	unused first argument.
+
 2023-09-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (EXTRA_DIST, BUILT_SOURCES),

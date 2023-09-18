@@ -43,10 +43,6 @@ sub import {
       # We do not simply override, we must check at runtime
       # that the document tree was stored by the XS parser.
       Texinfo::XSLoader::override(
-        "Texinfo::Convert::PlainTexinfo::_convert_document_with_XS",
-        "Texinfo::Convert::ConvertXS::plain_texinfo_convert"
-      );
-      Texinfo::XSLoader::override(
         "Texinfo::Convert::PlainTexinfo::_convert_tree_with_XS",
         "Texinfo::Convert::ConvertXS::plain_texinfo_convert_tree"
       );
@@ -70,13 +66,22 @@ sub converter_defaults($$)
   return %defaults;
 }
 
+# This is used if the document is available for XS, but XS is not
+# used (most likely $TEXINFO_XS_CONVERT is 0).
+sub _convert_tree_with_XS($)
+{
+  my $root = shift;
+
+  return convert_to_texinfo($root);
+}
+
 sub convert_tree($$)
 {
   my $self = shift;
   my $root = shift;
 
   if (defined($root->{'tree_document_descriptor'})) {
-    return _convert_tree_with_XS($self, $root);
+    return _convert_tree_with_XS($root);
   }
 
   return convert_to_texinfo($root);
@@ -95,30 +100,11 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
+  my $root = $document->tree();
+
   if (defined($document->document_descriptor())) {
-    return _convert_document_with_XS($self, $document);
+    return _convert_tree_with_XS($root);
   }
-  my $root = $document->tree();
-
-  return convert_to_texinfo($root);
-}
-
-# This is used if the document is available for XS, but XS is not
-# used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_document_with_XS($$)
-{
-  my $self = shift;
-  my $document = shift;
-
-  my $root = $document->tree();
-
-  return convert_to_texinfo($root);
-}
-
-sub _convert_tree_with_XS($$)
-{
-  my $self = shift;
-  my $root = shift;
 
   return convert_to_texinfo($root);
 }

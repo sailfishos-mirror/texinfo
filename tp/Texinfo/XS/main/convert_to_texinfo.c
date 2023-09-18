@@ -249,6 +249,7 @@ link_element_to_texi (ELEMENT *element)
   return result.text;
 }
 
+/* Return value to be freed by caller. */
 char *
 target_element_to_texi_label (ELEMENT *element)
 {
@@ -307,6 +308,7 @@ check_node_same_texinfo_code (ELEMENT *reference_node, ELEMENT *node_content)
 }
 
 /* for debugging */
+/* Return value to be freed by caller. */
 char *
 root_heading_command_to_texinfo (ELEMENT *element)
 {

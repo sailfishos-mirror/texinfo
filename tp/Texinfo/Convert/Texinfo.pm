@@ -169,9 +169,8 @@ sub root_heading_command_to_texinfo($)
 
 # This is used if the document is available for XS, but XS is not
 # used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_tree_with_XS($$)
+sub _convert_tree_with_XS($)
 {
-  my $self = shift;
   my $root = shift;
 
   return _convert_to_texinfo($root);
@@ -184,7 +183,7 @@ sub convert_to_texinfo($)
   my $element = shift;
 
   if (defined($element->{'tree_document_descriptor'})) {
-    return _convert_tree_with_XS(undef, $element);
+    return _convert_tree_with_XS($element);
   }
   return _convert_to_texinfo($element);
 }
