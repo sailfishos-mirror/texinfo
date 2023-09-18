@@ -387,47 +387,43 @@ sub replace_convert_substrings($$;$)
       warn $error_message->{'error_line'};
     }
   }
-  $tree = _substitute ($tree, $replaced_substrings);
+  $tree = _substitute($tree, $replaced_substrings);
   return $tree;
 }
 
-sub _substitute_element_array ($$);
-sub _substitute_element_array ($$) {
-  my $array = shift; my $replaced_substrings = shift;
+sub _substitute($$);
+sub _substitute_element_array($$) {
+  my $array = shift;
+  my $replaced_substrings = shift;
 
-  @{$array} = map {
-    if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
-      my $name = $_->{'args'}->[0]->{'text'};
+  my $idx = 0;
+  my $nr = scalar(@$array);
+
+  for (my $idx = 0; $idx < $nr; $idx++) {
+    my $element = $array->[$idx];
+    if ($element->{'cmdname'} and $element->{'cmdname'} eq 'txiinternalvalue') {
+      my $name = $element->{'args'}->[0]->{'text'};
       if ($replaced_substrings->{$name}) {
-      # In many cases, the added element is taken from somewhere
-      # else in the tree, and therefore already has a parent, so we
-      # cannot add parent here in the general case.  We could if
-      # there is no parent already.
-        $replaced_substrings->{$name};
-      } else {
-        # Not possible unless @txiinternalvalue in translated string.
-        # Keep it to do the same as in the XS parser.
-        ( $_ );
+        $array->[$idx] = $replaced_substrings->{$name};
       }
     } else {
-      _substitute($_, $replaced_substrings);
-      ( $_ );
+       _substitute($element, $replaced_substrings);
     }
-  } @{$array};
+  }
 }
 
 # Recursively substitute @txiinternalvalue elements in $TREE with
 # their values given in $CONTEXT.
-sub _substitute ($$);
-sub _substitute ($$) {
-  my $tree = shift; my $replaced_substrings = shift;
+sub _substitute($$) {
+  my $tree = shift;
+  my $replaced_substrings = shift;
 
   if ($tree->{'contents'}) {
-    _substitute_element_array ($tree->{'contents'}, $replaced_substrings);
+    _substitute_element_array($tree->{'contents'}, $replaced_substrings);
   }
 
   if ($tree->{'args'}) {
-    _substitute_element_array ($tree->{'args'}, $replaced_substrings);
+    _substitute_element_array($tree->{'args'}, $replaced_substrings);
   }
 
   return $tree;
