@@ -870,9 +870,9 @@ sub set_document_main_configuration($$)
       foreach my $option (keys(%$config)) {
         $options{$option} = $config->{$option};
       }
-      Texinfo::Common::set_document_options(\%options, $document);
     }
     #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
+    Texinfo::Common::set_document_options(\%options, $document);
   }
 }
 

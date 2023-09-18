@@ -1,5 +1,10 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (set_document_main_configuration): call
+	set_document_options only once.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/PlainTexinfo.pm (import, _convert_tree_with_XS)
 	(convert_tree, convert), tp/Texinfo/Convert/Texinfo.pm
 	(_convert_tree_with_XS, convert_to_texinfo),
