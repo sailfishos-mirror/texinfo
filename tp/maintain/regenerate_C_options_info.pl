@@ -112,6 +112,20 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "};\n\n";
 
+print CODE "void\nfree_options (OPTIONS *options)\n{\n";
+foreach my $category (sort(keys(%option_categories))) {
+  print CODE "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    if ($type eq 'STRING_LIST') {
+      print CODE "  free_strings_list (&options->$option);\n";
+    } elsif ($type eq 'char *') {
+      print CODE " free (options->$option);\n";
+    }
+  }
+}
+print CODE "};\n\n";
+
 close(CODE);
 
 

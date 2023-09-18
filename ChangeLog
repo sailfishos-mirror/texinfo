@@ -1,5 +1,19 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl, tp/Texinfo/XS/main/utils.c
+	(free_strings_list, destroy_strings_list), tp/Texinfo/XS/Makefile.am
+	(EXTRA_DIST, BUILT_SOURCES), tp/Texinfo/XS/main/document.c
+	(destroy_document_information_except_tree): generate free_options
+	functions code to free options structure.  Rename to
+	options_init_free.c the file where this automatically generated code
+	is put.  Rename free_strings_list as destroy_strings_list and set
+	free_strings_list to free the content of the string list, but not the
+	structure itself.  Use free_options in
+	destroy_document_information_except_tree, and also destroy the
+	nodes_list and sections_list elements.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (set_document_main_configuration): call
 	set_document_options only once.
 

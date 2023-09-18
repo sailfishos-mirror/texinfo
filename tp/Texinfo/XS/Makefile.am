@@ -179,7 +179,7 @@ EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_commands_types.h
 EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
-EXTRA_DIST += main/options_initialization.c
+EXTRA_DIST += main/options_init_free.c
 EXTRA_DIST += main/options_get_perl.c
 EXTRA_DIST += main/options_types.h
 
@@ -202,7 +202,7 @@ BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/global_commands_types.h \
               main/global_multi_commands_case.c \
               main/global_unique_commands_case.c \
-              main/options_initialization.c \
+              main/options_init_free.c \
               main/options_get_perl.c \
               main/options_types.h
 
@@ -231,10 +231,10 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c:
 	$(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_initialization.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
-	              $(srcdir)/main/options_initialization.c \
+	              $(srcdir)/main/options_init_free.c \
 	              $(srcdir)/main/options_types.h \
 	              $(srcdir)/main/options_get_perl.c
 

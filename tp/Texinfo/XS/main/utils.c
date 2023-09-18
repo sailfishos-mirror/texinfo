@@ -42,7 +42,7 @@
 #include "utils.h"
 
 #include "cmd_structuring.c"
-#include "options_initialization.c"
+#include "options_init_free.c"
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
@@ -637,6 +637,12 @@ free_strings_list (STRING_LIST *strings)
       free (strings->list[i]);
     }
   free (strings->list);
+}
+
+void
+destroy_strings_list (STRING_LIST *strings)
+{
+  free_strings_list (strings);
   free (strings);
 }
 

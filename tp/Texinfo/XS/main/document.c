@@ -86,7 +86,7 @@ register_document (ELEMENT *root, INDEX **index_names,
       document_number++;
     }
   document = &document_list[document_index];
-  /* this initializes nodes_list and sections_list */
+  /* this initializes the other fields */
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
   document->tree = root;
@@ -156,6 +156,15 @@ destroy_document_information_except_tree (DOCUMENT *document)
       /* same as errors.c wipe_errors */
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
+      if (document->nodes_list)
+        destroy_element (document->nodes_list);
+      if (document->sections_list)
+        destroy_element (document->sections_list);
+      if (document->options)
+        {
+          free_options (document->options);
+          free (document->options);
+        }
     }
 }
 
@@ -175,7 +184,7 @@ remove_document_descriptor (int document_descriptor)
   if (document->tree)
     {
       destroy_element_and_children (document->tree);
-      free_strings_list (document->small_strings);
+      destroy_strings_list (document->small_strings);
     }
   document->tree = 0;
   /*
