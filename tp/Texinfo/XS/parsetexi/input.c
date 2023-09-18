@@ -606,7 +606,7 @@ parser_add_include_directory (char *filename)
 void
 parser_clear_include_directories (void)
 {
-  clear_include_directories (&parser_include_dirs_list);
+  clear_strings_list (&parser_include_dirs_list);
 }
 
 char *

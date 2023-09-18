@@ -577,17 +577,6 @@ add_string (char *string, STRING_LIST *strings_list)
   strings_list->list[strings_list->number++] = string;
 }
 
-void
-clear_include_directories (STRING_LIST *include_dirs_list)
-{
-  int i;
-  for (i = 0; i < include_dirs_list->number; i++)
-    {
-      free (include_dirs_list->list[i]);
-    }
-  include_dirs_list->number = 0;
-}
-
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
@@ -625,6 +614,17 @@ locate_include_file (char *filename, STRING_LIST *include_dirs_list)
         }
     }
   return 0;
+}
+
+void
+clear_strings_list (STRING_LIST *strings)
+{
+  int i;
+  for (i = 0; i < strings->number; i++)
+    {
+      free (strings->list[i]);
+    }
+  strings->number = 0;
 }
 
 /* very similar to parsetexi/input.c free_small_strings */

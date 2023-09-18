@@ -97,6 +97,7 @@ char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 
+void clear_strings_list (STRING_LIST *include_dirs_list);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 void add_string (char *string, STRING_LIST *strings_list);
@@ -105,7 +106,6 @@ OPTIONS *new_options (void);
 void free_options (OPTIONS *options);
 
 void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
-void clear_include_directories (STRING_LIST *include_dirs_list);
 char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
 
 ENCODING_CONVERSION *get_encoding_conversion (char *encoding,

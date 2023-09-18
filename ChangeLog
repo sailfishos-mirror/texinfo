@@ -1,5 +1,17 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree): destroy
+	text_options in case of unexpected document not found error.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options): free
+	include_directories, call free_options to free inside of converter
+	options.
+
+	* tp/Texinfo/XS/main/utils.c (clear_strings_list): rename
+	clear_include_directories as clear_strings_list.  Update callers.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl, tp/Texinfo/XS/main/utils.c
 	(free_strings_list, destroy_strings_list), tp/Texinfo/XS/Makefile.am
 	(EXTRA_DIST, BUILT_SOURCES), tp/Texinfo/XS/main/document.c

@@ -99,13 +99,17 @@ text_convert_tree (text_options_in, tree_in, unused=0)
         text_options = copy_sv_options_for_convert_text (text_options_in);
         if (document)
           {
+            /* text_options is destroyed in text_convert */
             char *result = text_convert (document, text_options);
             RETVAL = newSVpv (result, strlen(result));
             free (result);
             SvUTF8_on (RETVAL);
           }
         else
-          RETVAL = newSV(0);
+          {
+            destroy_text_options (text_options);
+            RETVAL = newSV(0);
+          }
     OUTPUT:
         RETVAL
 
