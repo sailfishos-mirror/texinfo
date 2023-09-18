@@ -117,8 +117,8 @@ build_perl_array (ELEMENT_LIST *e)
             e->list[i]->hv = newHV ();
           else
             {
-              /* FIXME should not be possible, all the elements in
-                 extra_contents should be in-tree */
+              /* NOTE should not be possible, all the elements in
+                 extra_contents should be in-tree.  Checked in 2023 */
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (e->list[i]);
@@ -152,19 +152,23 @@ build_perl_directions (ELEMENT_LIST *e)
                 e->list[d]->hv = newHV ();
               else
                 {
-                  /* FIXME Can this happen?  Would probably trigger an error
-                     like double element oot seen both here and in
-                     extra additional information processing */
+                  /* NOTE This should not happen.  This will trigger an
+                     element_to_perl_hash oot error (and probably others) as
+                     it will be processed both below and with extra additional
+                     information.
+                   */
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
-                  element_to_perl_hash (e->list[d]);
                   static TEXT message;
                   char *debug_str = print_element_debug (e->list[d], 1);
                   text_init (&message);
                   text_printf (&message,
-                        "build_perl_directions oot %s: %s\n", key, debug_str);
+                    "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
                   free (debug_str);
+                  /* could also call fatal here */
                   fprintf (stderr, message.text);
+                  free (message.text);
+                  element_to_perl_hash (e->list[d]);
                 }
             }
           hv_store (hv, key, strlen (key),
@@ -229,10 +233,13 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_element_oot:
-              /* Note that this is only used for info hash, with simple
-                 elements that are associated to one element only, should
+              /* Note that this is only used for info hash in the parser, with
+                 simple elements that are associated to one element only, should
                  not be referred to elsewhere (and should not contain other
-                 commands or containers)
+                 commands or containers).
+                 In other codes, can be used for more complex subtrees or special
+                 out of tree elements, but must always be associated to only one
+                 element and must not refer to the tree through args or contents.
                */
               if (f->hv)
                 {
@@ -947,8 +954,6 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 
 #undef GLOBAL_UNIQUE_CASE
 
-  /* NOTE: Same list in handle_commands.c:register_global_command. */
-
   /* The following are arrays of elements. */
 
   if (global_commands.footnotes.contents.number > 0)
@@ -1089,6 +1094,10 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 
+/* Return Texinfo::Document perl object corresponding to the
+   C document structure corresponding to DOCUMENT_DESCRIPTOR.
+   If NO_STORE is set, destroy the C document.
+ */
 SV *
 build_document (size_t document_descriptor, int no_store)
 {
@@ -1151,7 +1160,7 @@ build_document (size_t document_descriptor, int no_store)
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
-  /* need to be kept in sync with Texinfo::Document register keys */
+  /* must be kept in sync with Texinfo::Document register keys */
   STORE("tree", hv_tree);
   STORE("indices", hv_index_names);
   STORE("listoffloats_list", hv_listoffloats_list);

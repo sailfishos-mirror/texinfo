@@ -107,9 +107,11 @@ gettree (string, ...)
                options = copy_sv_options (ST(1));
              }
 
+         /* FIXME what about small strings? */
          gdt_result = gdt (options, string, replaced_substrings,
                            translation_context, in_lang);
-         /* FIXME have a similar system but for trees only? */
+         /* FIXME do not unregister the document created by gdt?
+            or have a similar system but for trees only? */
          gdt_document_descriptor = register_document (gdt_result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
          result_tree = build_texinfo_tree (gdt_result);

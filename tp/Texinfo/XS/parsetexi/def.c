@@ -405,7 +405,6 @@ parse_def (enum command_id command, ELEMENT *current)
     {
       char *arg_type_name = arguments_list[arg_types_nr];
 
-      /* FIXME keep information about arg/argtype? */
       if (!strcmp (arg_type_name, "arg")
           || !strcmp (arg_type_name, "argtype"))
         break;

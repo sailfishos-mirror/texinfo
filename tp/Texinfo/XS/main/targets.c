@@ -99,7 +99,8 @@ some_fun (LABEL_LIST *labels_list)
  */
 
 /* returns a LABEL_LIST that is sorted with unique identifiers such that
-   elements are easy to find */
+   elements are easy to find.
+   Called from parser */
 LABEL_LIST *
 set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
 {
@@ -238,7 +239,12 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
   return normalized;
 }
 
-/* FIXME $registrar and $customization_information */
+/* TODO call message_list_* functions instead, but this would require
+   an ERROR_MESSAGE_LIST argument.
+   For now it is not useful, as the code calling register_label_element
+   makes sure that there is no preexisting target element with the
+   same noormalized identifier.
+   */
 void
 existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized)
 {
