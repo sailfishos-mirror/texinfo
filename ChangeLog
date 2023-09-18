@@ -1,5 +1,15 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf): do not
+	call functions that destroy/reset structures associated to a document
+	with store_document that have already been reset in the store_document
+	call.  Remove reset_floats.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_line_directive): remove
+	unused variable.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (check_line_directive): do not
 	save the line directive parsed filename string, as the encoded file
 	name, which is the one that is used in source_info, is saved in

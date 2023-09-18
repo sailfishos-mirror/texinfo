@@ -155,6 +155,7 @@ wipe_index (INDEX *idx)
   free (idx->index_entries);
 }
 
+/* not used */
 void
 wipe_indices (void)
 {

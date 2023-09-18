@@ -217,12 +217,6 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
 }
 
 void
-wipe_errors (void)
-{
-  wipe_error_message_list (&error_messages_list);
-}
-
-void
 wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
 {
   int j;
@@ -233,6 +227,12 @@ wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
     }
   free (error_messages->list);
   memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+}
+
+void
+wipe_errors (void)
+{
+  wipe_error_message_list (&error_messages_list);
 }
 
 void

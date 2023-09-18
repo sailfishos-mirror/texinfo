@@ -79,26 +79,13 @@ find_locales_dir (char *builddir)
 #endif
 
 
-static void
-reset_floats ()
-{
-  floats_number = 0;
-}
-
 void
 reset_parser_except_conf (void)
 {
-  /* do before destroying tree because index entries refer to in-tree
-     elements. */
-  wipe_indices ();
-
-  reset_floats ();
+  /* parser structures registered in document are reset by the
+     call to store_document, except for global info that is only
+     copied */
   wipe_parser_global_info ();
-  reset_internal_xrefs ();
-  reset_labels ();
-
-  wipe_errors ();
-  free_small_strings ();
 
   wipe_user_commands ();
   wipe_macros ();

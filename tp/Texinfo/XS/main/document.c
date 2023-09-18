@@ -153,7 +153,6 @@ destroy_document_information_except_tree (DOCUMENT *document)
           free (idx);
         }
       free (document->index_names);
-      /* same as errors.c wipe_errors */
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
       if (document->nodes_list)

@@ -62,13 +62,15 @@ register_label (ELEMENT *target_element, char *normalized)
   labels_number++;
 }
 
+/* not used */
 void
 reset_labels (void)
 {
   labels_number = 0;
 }
 
-void forget_labels (void)
+void
+forget_labels (void)
 {
   labels_number = 0;
   labels_space = 0;
@@ -420,6 +422,7 @@ remember_internal_xref (ELEMENT *element)
   internal_xref_list[internal_xref_number++] = element;
 }
 
+/* not used */
 void
 reset_internal_xrefs (void)
 {

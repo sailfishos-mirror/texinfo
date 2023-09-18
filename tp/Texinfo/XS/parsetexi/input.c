@@ -541,7 +541,7 @@ forget_small_strings (void)
   small_strings_space = 0;
 }
 
-/* Called in reset_parser. */
+/* not used */
 void
 free_small_strings (void)
 {

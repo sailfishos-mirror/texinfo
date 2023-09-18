@@ -434,7 +434,7 @@ wipe_parser_global_info (void)
   delete_global_info (&global_info);
   delete_global_commands (&global_commands);
 
-  /* clear the rest of the fields */
+  /* clear the rest of the fields and reset elements lists */
   memset (&global_info, 0, sizeof (global_info));
   memset (&global_commands, 0, sizeof (global_commands));
 }
@@ -2442,7 +2442,6 @@ check_line_directive (char *line)
 {
   int line_no = 0;
   int status = 0;
-  char *filename = 0;
   char *parsed_filename;
 
   if (!conf.cpp_line_directives)
