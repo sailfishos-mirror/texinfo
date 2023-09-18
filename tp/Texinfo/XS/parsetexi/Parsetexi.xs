@@ -36,8 +36,6 @@
 #include "input.h"
 /* for clear_document_errors */
 #include "document.h"
-/* for wipe_errors */
-#include "errors.h"
 
 MODULE = Texinfo::Parser	PACKAGE = Texinfo::Parser
 
@@ -60,9 +58,6 @@ init (texinfo_uninstalled, builddir)
 
 void
 reset_parser (int debug_output)
-
-void
-wipe_errors ()
 
 # file path, can be in any encoding
 int

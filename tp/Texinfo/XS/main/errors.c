@@ -229,6 +229,7 @@ wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
   memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 }
 
+/* not used */
 void
 wipe_errors (void)
 {
