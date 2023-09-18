@@ -1728,6 +1728,7 @@ sub _gather_previous_item($$;$$)
                            eq 'comment')))) {
         my $element = _pop_element_from_contents($self, $before_item);
         unshift @{$table_term->{'contents'}}, $element;
+        $element->{'parent'} = $table_term;
       }
     }
     if ($table_after_terms) {
@@ -6360,7 +6361,7 @@ sub _handle_comma($$$$)
                               'contents' => [],
                               'parent' => $current,};
         push @{$current->{'args'}}, $elided_arg_elt;
-        my $raw = {'type' => 'raw', 'text' => ''};
+        my $raw = {'type' => 'raw', 'text' => '', 'parent' => $elided_arg_elt};
         push @{$elided_arg_elt->{'contents'}}, $raw;
 
         # Scan forward to get the next argument.
@@ -6419,7 +6420,7 @@ sub _handle_comma($$$$)
                             'contents' => [],
                             'parent' => $current,};
       push @{$current->{'args'}}, $elided_arg_elt;
-      my $raw = {'type' => 'raw', 'text' => ''};
+      my $raw = {'type' => 'raw', 'text' => '', 'parent' => $elided_arg_elt};
       push @{$elided_arg_elt->{'contents'}}, $raw;
 
       my $brace_count = 1;
