@@ -415,8 +415,6 @@ my @node_keys = ('node_directions',
 # best is to add it in tree tests by removing from @avoided_keys_tree.
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
-  # FIXME remaining_args should not be present in the final tree, but they are
-    'remaining_args',
     'float_number', 'tree_unit_directions', 'directions',
     'parent', 'associated_unit',
     # only set with the XS parser

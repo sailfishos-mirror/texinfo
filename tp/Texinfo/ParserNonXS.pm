@@ -1343,6 +1343,8 @@ sub _close_brace_command($$$;$$$)
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command, $missing_brace) = @_;
 
+  delete $current->{'remaining_args'};
+
   if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
     my $expected_context;
     if ($math_commands{$current->{'cmdname'}}) {
