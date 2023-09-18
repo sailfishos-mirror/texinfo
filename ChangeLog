@@ -1,5 +1,12 @@
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (check_line_directive): do not
+	save the line directive parsed filename string, as the encoded file
+	name, which is the one that is used in source_info, is saved in
+	save_line_directive.
+
+2023-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_comma): set raw in elided type
 	parent.
 

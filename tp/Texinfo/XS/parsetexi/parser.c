@@ -2456,12 +2456,8 @@ check_line_directive (char *line)
   parsed_filename = parse_line_directive (line, &status, &line_no);
   if (status)
     {
-      if (parsed_filename)
-        {
-          filename = save_string (parsed_filename);
-          free (parsed_filename);
-        }
-      save_line_directive (line_no, filename);
+      save_line_directive (line_no, parsed_filename);
+      free (parsed_filename);
 
       return 1;
     }
