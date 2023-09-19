@@ -1,3 +1,12 @@
+2023-09-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Simplify toc/index entry formatting
+
+	* doc/texinfo.tex (\entry): Eliminate code allowing stretching
+	into the margins, as it complicates the code and was questionable
+	whether this was a good idea in the first place.  Do not hardcode
+	70:30 ratio for splitting text across multiple lines.
+
 2023-09-17  Patrice Dumas <pertusus@free.fr>
 
 	* tp/tests/many_input_files/different_encodings.sh: skip test if
