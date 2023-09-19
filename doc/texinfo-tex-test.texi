@@ -1673,6 +1673,15 @@ ee
 @headingsoff
 @everyheading @thischapter @| @| @thissection{} p@thispage
 
+@chapter TOC display
+
+Check in contents at start.  Manual break with @t{@@/} in section name.
+
+
+@section Sec
+@subsection foofoo@code{\DeclareRobustCommand@{@var{cmd}@}[@var{num}][@var{default}]@/@{@var{definition}@} }
+
+
 @chapter Index display
 
 In these examples, a horizontal rule is at the end of each run of double 

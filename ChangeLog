@@ -1,3 +1,9 @@
+2023-09-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo-tex-test.texi (TOC display): Add new example of
+	section name with @/ in it, from Karl Berry.  Before the last change, 
+	this led to an overfull hbox.
+
 2023-09-19  Patrice Dumas <pertusus@free.fr>
 
 	* configure.ac: require Unicode::Normalize.  Report from Bruno on
