@@ -30,6 +30,10 @@ typedef struct DOCUMENT {
   OPTIONS *options; /* for options used in structuring */
 } DOCUMENT;
 
+typedef struct TREE_AND_STRINGS {
+  ELEMENT *tree;
+  STRING_LIST *small_strings;
+} TREE_AND_STRINGS;
 
 
 DOCUMENT *retrieve_document (int document_descriptor);
@@ -47,7 +51,7 @@ void register_document_sections_list (DOCUMENT *document,
                                       ELEMENT *sections_list);
 void register_document_options (DOCUMENT *document, OPTIONS *options);
 void remove_document_descriptor (int document_descriptor);
-ELEMENT *unregister_tree (DOCUMENT *document);
+TREE_AND_STRINGS *unregister_document_descriptor_tree (int document_descriptor);
 void clear_document_errors (int document_descriptor);
 
 #endif

@@ -499,9 +499,9 @@ complete_indices (int document_descriptor)
                           || def_command == CM_deftypemethod)
                         { /* note that at that point, options are unlikely
                           to be set, but we use the language of the element */
-                          index_entry = gdt (options,
-                                             "{name} on {class}",
-                                             substrings, 0, lang);
+                          index_entry = gdt_tree ("{name} on {class}",
+                                                  document, options,
+                                                  substrings, 0, lang);
 
                           text_append (&text_element->text, " on ");
                         }
@@ -510,9 +510,9 @@ complete_indices (int document_descriptor)
                                || def_command == CM_deftypeivar
                                || def_command == CM_deftypecv)
                         {
-                          index_entry = gdt (options,
-                                             "{name} of {class}",
-                                             substrings, 0, lang);
+                          index_entry = gdt_tree ("{name} of {class}",
+                                                  document, options,
+                                                  substrings, 0, lang);
 
                           text_append (&text_element->text, " of ");
                         }

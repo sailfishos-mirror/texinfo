@@ -2032,8 +2032,9 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
         = master_menu->contents.list[0]->contents.list[0];
-      master_menu_title = gdt (options, " --- The Detailed Node Listing ---",
-                               0, 0, 0);
+      master_menu_title
+          = gdt_tree (" --- The Detailed Node Listing ---", 0, options,
+                      0, 0, 0);
 
       for (i = 0; i < master_menu_title->contents.number; i++)
         master_menu_title->contents.list[i]->parent = first_preformatted;

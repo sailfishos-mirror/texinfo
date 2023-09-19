@@ -145,5 +145,5 @@ void
 parser_set_debug (int i)
 
 void
-parser_set_accept_internalvalue(int value)
+parser_set_accept_internalvalue (int value)
 

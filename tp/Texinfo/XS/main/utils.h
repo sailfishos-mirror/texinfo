@@ -101,6 +101,7 @@ void clear_strings_list (STRING_LIST *include_dirs_list);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 void add_string (char *string, STRING_LIST *strings_list);
+void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
 
 OPTIONS *new_options (void);
 void free_options (OPTIONS *options);

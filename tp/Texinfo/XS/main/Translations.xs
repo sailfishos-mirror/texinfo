@@ -63,9 +63,9 @@ gettree (string, ...)
         HV *hv_replaced_substrings = 0;
         NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
         OPTIONS *options = 0;
-        ELEMENT *gdt_result;
         HV *result_tree;
         int gdt_document_descriptor;
+        DOCUMENT *gdt_document;
       CODE:
         if ( items > 4 )
            if (SvOK(ST(4)))
@@ -107,14 +107,11 @@ gettree (string, ...)
                options = copy_sv_options (ST(1));
              }
 
-         /* FIXME what about small strings? */
-         gdt_result = gdt (options, string, replaced_substrings,
+         gdt_document_descriptor
+                     = gdt (string, options, replaced_substrings,
                            translation_context, in_lang);
-         /* FIXME do not unregister the document created by gdt?
-            or have a similar system but for trees only? */
-         gdt_document_descriptor = register_document (gdt_result, 0, 0, 0,
-                                                      0, 0, 0, 0, 0, 0);
-         result_tree = build_texinfo_tree (gdt_result);
+         gdt_document = retrieve_document (gdt_document_descriptor);
+         result_tree = build_texinfo_tree (gdt_document->tree);
          hv_store (result_tree, "tree_document_descriptor",
                   strlen ("tree_document_descriptor"),
                   newSViv ((IV) gdt_document_descriptor), 0);

@@ -191,25 +191,31 @@ remove_document_descriptor (int document_descriptor)
    */
 }
 
-/* destroy everything except for the tree, and unregister the
-   tree such that it won't ever be retrieved.  Should be used
-   when the tree becomes part of another document */
-/* FIXME cannot unregister the tree as there are associated
-   small_strings */
-ELEMENT *
-unregister_tree (DOCUMENT *document)
+/* destroy everything except for the tree, and small strings
+   and unregister the tree such that it won't ever be retrieved.
+   Should be used when the tree becomes part of another document,
+   for instance */
+TREE_AND_STRINGS *
+unregister_document_descriptor_tree (int document_descriptor)
 {
-  ELEMENT *tree;
+  TREE_AND_STRINGS *tree_and_strings = 0;
+  DOCUMENT *document = retrieve_document (document_descriptor);
+
+  if (!document)
+    return 0;
+
+  tree_and_strings = malloc (sizeof (TREE_AND_STRINGS));
 
   destroy_document_information_except_tree (document);
-  tree = document->tree;
-  /*
+  tree_and_strings->tree = document->tree;
+  tree_and_strings->small_strings = document->small_strings;
+
   document->tree = 0;
-   */
+  document->small_strings = 0;
   /*
   fprintf(stderr, "UNREGISTER %p\n", document);
    */
-  return tree;
+  return tree_and_strings;
 }
 
 void

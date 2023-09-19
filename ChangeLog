@@ -1,3 +1,23 @@
+2023-09-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/document.c (unregister_tree),
+	tp/Texinfo/XS/main/document.h (TREE_AND_STRINGS): return tree
+	and small strings in the TREE_AND_STRINGS new structure.
+
+	* tp/Texinfo/XS/main/utils.c (merge_strings): add.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings, gdt)
+	(gdt_tree), tp/Texinfo/XS/parsetexi/indices.c (complete_indices),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_master_menu),
+	tp/Texinfo/XS/main/convert_utils.c (definition_category_tree),
+	tp/Texinfo/XS/main/Translations.xs (gettree): have
+	replace_convert_substrings and gdt return a document_descriptor.  Add
+	the gdt_tree function that takes an optional document in argument to
+	merge the small strings to, and returns a tree after calling
+	unregister_tree.  Set the string argument to be the first argument of
+	gdt and gdt_tree.  Update callers to call gdt_tree instead of gdt or
+	adapt to change in gdt.
+
 2023-09-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: remove wipe_errors from the

@@ -501,8 +501,8 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt (options, "{category} on @code{{class}}",
-                        substrings, 0, 0);
+          result = gdt_tree ("{category} on @code{{class}}", 0, options,
+                             substrings, 0, 0);
           destroy_named_string_element_list (substrings);
         }
       else
@@ -533,8 +533,8 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt (options, "{category} of @code{{class}}",
-                        substrings, 0, 0);
+          result = gdt_tree ("{category} of @code{{class}}", 0, options,
+                             substrings, 0, 0);
           destroy_named_string_element_list (substrings);
         }
       else

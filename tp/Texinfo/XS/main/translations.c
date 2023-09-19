@@ -465,15 +465,13 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
-ELEMENT *
+int
 replace_convert_substrings (char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   int i;
   char *texinfo_line;
   int document_descriptor;
-  ELEMENT *result_tree;
-  ELEMENT *tree;
   DOCUMENT *document;
 
   if (replaced_substrings)
@@ -540,25 +538,30 @@ replace_convert_substrings (char *translated_string,
       for (i = 0; i < error_messages_list.number; i++)
         fprintf (stderr, "%s", error_messages_list.list[i].error_line);
     }
+  clear_document_errors (document_descriptor);
+
   parser_set_accept_internalvalue (0);
 
   document = retrieve_document (document_descriptor);
-  tree = unregister_tree (document);
-
   if (replaced_substrings)
-    free (texinfo_line);
+    {
+      ELEMENT *result_tree = substitute (document->tree, replaced_substrings);
+      document->tree = result_tree;
+      free (texinfo_line);
+    }
 
-  result_tree = substitute (tree, replaced_substrings);
+
 /*
   fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor,
-                                          convert_to_texinfo (result_tree));
+                                          convert_to_texinfo (document->tree));
 */
 
-  return result_tree;
+  return document_descriptor;
 }
 
-ELEMENT *
-gdt (OPTIONS *options, char *string,
+/* returns a document descriptor. */
+int
+gdt (char *string, OPTIONS *options,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context, char *in_lang)
 {
@@ -566,10 +569,44 @@ gdt (OPTIONS *options, char *string,
                                               translation_context,
                                               in_lang);
 
-  ELEMENT *result
+  int document_descriptor
     = replace_convert_substrings (translated_string, replaced_substrings);
   free (translated_string);
-  return result;
+  return document_descriptor;
+}
+
+/* Return a tree translated by gdt.  The document associated to the tree is
+   removed and the small strings associated to the tree are merged with
+   DOCUMENT small strings.  It is possible to pass 0 for the DOCUMENT
+   if one knows that there won't be small strings (the general case) */
+ELEMENT *
+gdt_tree (char * string, DOCUMENT *document, OPTIONS *options,
+          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          const char *translation_context,
+          char *in_lang)
+{
+  ELEMENT *tree;
+  int gdt_document_descriptor = gdt (string, options, replaced_substrings,
+                                     translation_context, in_lang);
+  TREE_AND_STRINGS *tree_and_strings
+     = unregister_document_descriptor_tree (gdt_document_descriptor);
+
+  tree = tree_and_strings->tree;
+
+  /* this is very unlikely, as small strings correspond to file names and
+     macro names, while we are parsing a simple string */
+  if (tree_and_strings->small_strings
+      && tree_and_strings->small_strings->number)
+    {
+      if (document)
+        merge_strings (document->small_strings,
+                       tree_and_strings->small_strings);
+      else
+        fatal ("gdt_tree no document but small_strings");
+    }
+  free (tree_and_strings);
+
+  return tree;
 }
 
 char *

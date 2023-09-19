@@ -577,6 +577,23 @@ add_string (char *string, STRING_LIST *strings_list)
   strings_list->list[strings_list->number++] = string;
 }
 
+void
+merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings)
+{
+  int i;
+  if (strings_list->number + merged_strings->number > strings_list->space)
+    {
+      strings_list->space = strings_list->number + merged_strings->number +5;
+      strings_list->list = realloc (strings_list->list,
+                                  sizeof (char *) * strings_list->space);
+    }
+  for (i = 0; i < merged_strings->number; i++)
+    {
+      strings_list->list[strings_list->number +i] = merged_strings->list[i];
+    }
+  strings_list->number += merged_strings->number;
+}
+
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
