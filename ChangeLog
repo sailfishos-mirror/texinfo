@@ -1,3 +1,13 @@
+2023-09-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Update gnulib
+
+	* (top-level): Run "gnulib-tool --add-import"
+	* tp/Texinfo/XS: Run "gnulib-tool --add-import".
+
+	A gnulib update needed at top level to fix compilation on
+	AIX 7.3.1.  Report from Bruno Haible.
+
 2023-09-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo-tex-test.texi (TOC display): Add new example of

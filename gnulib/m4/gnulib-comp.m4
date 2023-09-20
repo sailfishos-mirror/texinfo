@@ -43,6 +43,7 @@ AC_DEFUN([gl_EARLY],
   AC_REQUIRE([gl_PROG_AR_RANLIB])
 
   # Code from module absolute-header:
+  # Code from module alignasof:
   # Code from module alloca-opt:
   # Code from module argz:
   # Code from module assert-h:
@@ -105,6 +106,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module iswblank:
   # Code from module iswctype:
   # Code from module iswdigit:
+  # Code from module iswpunct:
   # Code from module iswxdigit:
   # Code from module langinfo:
   # Code from module largefile:
@@ -253,6 +255,7 @@ AC_DEFUN([gl_INIT],
   gl_COMMON
   gl_source_base='gnulib/lib'
   gl_source_base_prefix=
+  gl_ALIGNASOF
   gl_FUNC_ALLOCA
   gl_CONDITIONAL_HEADER([alloca.h])
   AC_PROG_MKDIR_P
@@ -408,6 +411,10 @@ AC_DEFUN([gl_INIT],
   gl_CONDITIONAL([GL_COND_OBJ_ISWDIGIT],
                  [! { test $HAVE_ISWCNTRL = 0 || test $REPLACE_ISWCNTRL = 1; } && test $REPLACE_ISWDIGIT = 1])
   gl_WCTYPE_MODULE_INDICATOR([iswdigit])
+  gl_FUNC_ISWPUNCT
+  gl_CONDITIONAL([GL_COND_OBJ_ISWPUNCT],
+                 [! { test $HAVE_ISWCNTRL = 0 || test $REPLACE_ISWCNTRL = 1; } && test $REPLACE_ISWPUNCT = 1])
+  gl_WCTYPE_MODULE_INDICATOR([iswpunct])
   gl_FUNC_ISWXDIGIT
   gl_CONDITIONAL([GL_COND_OBJ_ISWXDIGIT],
                  [! { test $HAVE_ISWCNTRL = 0 || test $REPLACE_ISWCNTRL = 1; } && test $REPLACE_ISWXDIGIT = 1])
@@ -940,7 +947,7 @@ AC_DEFUN([gl_INIT],
       gl_CONDITIONAL([GL_COND_OBJ_FSTAT], [test $REPLACE_FSTAT = 1])
       AM_COND_IF([GL_COND_OBJ_FSTAT], [
         case "$host_os" in
-          mingw*)
+          mingw* | windows*)
             AC_LIBOBJ([stat-w32])
             ;;
         esac
@@ -991,7 +998,7 @@ AC_DEFUN([gl_INIT],
       if test $HAVE_GETRANDOM = 0 || test $REPLACE_GETRANDOM = 1; then
         func_gl_gnulib_m4code_deb6c5f14b16306a85c59bccf4d416d8
       fi
-      if case $host_os in mingw*) false;; *) test $HAVE_GETRANDOM = 0 || test $REPLACE_GETRANDOM = 1;; esac; then
+      if case $host_os in mingw* | windows*) false;; *) test $HAVE_GETRANDOM = 0 || test $REPLACE_GETRANDOM = 1;; esac; then
         func_gl_gnulib_m4code_open
       fi
       func_gl_gnulib_m4code_sys_random
@@ -1294,7 +1301,7 @@ AC_DEFUN([gl_INIT],
       gl_CONDITIONAL([GL_COND_OBJ_STAT], [test $REPLACE_STAT = 1])
       AM_COND_IF([GL_COND_OBJ_STAT], [
         case "$host_os" in
-          mingw*)
+          mingw* | windows*)
             AC_LIBOBJ([stat-w32])
             ;;
         esac
@@ -1486,7 +1493,7 @@ AC_DEFUN([gl_INIT],
     if $gl_gnulib_enabled_503a4cb75d69c787103d0aa2ab7d8440; then :; else
       AC_REQUIRE([AC_CANONICAL_HOST])
       gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_MUTEX],
-                     [case "$host_os" in mingw*) true;; *) false;; esac])
+                     [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
       gl_gnulib_enabled_503a4cb75d69c787103d0aa2ab7d8440=true
     fi
   }
@@ -1495,7 +1502,7 @@ AC_DEFUN([gl_INIT],
     if $gl_gnulib_enabled_68a4501daeca58988392c7e60b4917ab; then :; else
       AC_REQUIRE([AC_CANONICAL_HOST])
       gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_ONCE],
-                     [case "$host_os" in mingw*) true;; *) false;; esac])
+                     [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
       gl_gnulib_enabled_68a4501daeca58988392c7e60b4917ab=true
     fi
   }
@@ -1504,7 +1511,7 @@ AC_DEFUN([gl_INIT],
     if $gl_gnulib_enabled_f0efff84a70f4afba30902bb8ffe9354; then :; else
       AC_REQUIRE([AC_CANONICAL_HOST])
       gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_RECMUTEX],
-                     [case "$host_os" in mingw*) true;; *) false;; esac])
+                     [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
       gl_gnulib_enabled_f0efff84a70f4afba30902bb8ffe9354=true
     fi
   }
@@ -1513,7 +1520,7 @@ AC_DEFUN([gl_INIT],
     if $gl_gnulib_enabled_8bb827fe37eaccf1b97feb0c87bc92ef; then :; else
       AC_REQUIRE([AC_CANONICAL_HOST])
       gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_RWLOCK],
-                     [case "$host_os" in mingw*) true;; *) false;; esac])
+                     [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
       gl_gnulib_enabled_8bb827fe37eaccf1b97feb0c87bc92ef=true
     fi
   }
@@ -1990,6 +1997,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/iswctype-impl.h
   lib/iswctype.c
   lib/iswdigit.c
+  lib/iswpunct.c
   lib/iswxdigit.c
   lib/itold.c
   lib/langinfo.in.h
@@ -2215,6 +2223,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/iswblank.m4
   m4/iswctype.m4
   m4/iswdigit.m4
+  m4/iswpunct.m4
   m4/iswxdigit.m4
   m4/langinfo_h.m4
   m4/largefile.m4
@@ -2274,6 +2283,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stat-time.m4
   m4/stat.m4
   m4/std-gnu11.m4
+  m4/stdalign.m4
   m4/stdarg.m4
   m4/stddef_h.m4
   m4/stdint.m4
