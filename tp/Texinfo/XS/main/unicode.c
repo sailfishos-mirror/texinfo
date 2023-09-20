@@ -56,6 +56,7 @@ normalize_NFC (const char *text)
   return result;
 }
 
+
 char *
 unicode_accent (const char *text, ELEMENT *e)
 {
@@ -151,8 +152,6 @@ compare_strings (const void *a, const void *b)
 
   return strcmp (*str_a, *str_b);
 }
-
-
 
 char *
 format_eight_bit_accents_stack (char *text, ELEMENT *stack, int encoding_index,
@@ -288,8 +287,7 @@ format_eight_bit_accents_stack (char *text, ELEMENT *stack, int encoding_index,
   return result;
 }
 
-
-/* FIXME converter in perl */
+/* FIXME converter in perl for (*format_accent), see encoded_accents comment*/
 char *
 format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
   char *(*format_accent)(char *text, ELEMENT *element, int set_case),
@@ -329,9 +327,9 @@ format_unicode_accents_stack_internal (char *text, ELEMENT *stack,
   return result;
 }
 
-
-/* FIXME a converter is passed in perl to encoded_accents and
-  to (*format_accent) */
+/* FIXME a converter is passed in perl to (*format_accent), both
+   directly and through functions.  It is not clear whether it is
+   actually used in perl, nor if it could be useful in C */
 char *
 encoded_accents (char *text, ELEMENT *stack, char *encoding,
   char *(*format_accent)(char *text, ELEMENT *element, int set_case),
@@ -379,6 +377,7 @@ encoded_accents (char *text, ELEMENT *stack, char *encoding,
     }
   return 0;
 }
+
 
 /* UNICODE_POINT is a string describing an hexadecimal number with
    letters in upper case */

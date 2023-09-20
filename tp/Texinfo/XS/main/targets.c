@@ -21,11 +21,11 @@
 
 #include "tree_types.h"
 #include "tree.h"
-/* for get_label_element and fatal */
-#include "utils.h"
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
+/* for get_label_element and fatal */
+#include "utils.h"
 #include "extra.h"
 #include "convert_to_texinfo.h"
 #include "document.h"

@@ -550,7 +550,6 @@ replace_convert_substrings (char *translated_string,
       free (texinfo_line);
     }
 
-
 /*
   fprintf (stderr, "RESULT GDT %d: %s\n", document_descriptor,
                                           convert_to_texinfo (document->tree));

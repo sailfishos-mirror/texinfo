@@ -18,7 +18,9 @@
 #include <stdlib.h>
 
 #include "tree_types.h"
+/* for new_element */
 #include "tree.h"
+/* for fatal and directions_length */
 #include "utils.h"
 #include "extra.h"
 

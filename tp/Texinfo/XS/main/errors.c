@@ -26,7 +26,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "utils.h"
 /* also for xvasprintf */
 #include "text.h"
 #include "debug.h"

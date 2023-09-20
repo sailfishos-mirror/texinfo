@@ -43,6 +43,7 @@ static int *obs_element_first = 0;
  */
 
 #include "tree_types.h"
+/* for fatal */
 #include "utils.h"
 /* for debug
 #include "debug.h"

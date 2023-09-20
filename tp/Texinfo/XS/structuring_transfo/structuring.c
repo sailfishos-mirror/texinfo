@@ -28,17 +28,17 @@
 #include "extra.h"
 #include "errors.h"
 #include "debug.h"
-#include "node_name_normalization.h"
-#include "convert_to_texinfo.h"
-#include "targets.h"
 #include "builtin_commands.h"
 /* for get_label_element and section_level */
 #include "utils.h"
+#include "node_name_normalization.h"
+#include "convert_to_texinfo.h"
+#include "targets.h"
 #include "document.h"
 #include "transformations.h"
-/* FIXME in parsetexi/. Move to main/?  Some ties to parser */
-#include "labels.h"
 #include "translations.h"
+/* FIXME for parse_node_manual; in parsetexi/. Move to main/?  Some ties to parser */
+#include "labels.h"
 #include "structuring.h"
 
 void

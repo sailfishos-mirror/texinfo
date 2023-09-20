@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+/* for fatal */
 #include "utils.h"
 #include "text.h"
 
