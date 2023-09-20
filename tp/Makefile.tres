@@ -120,6 +120,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/end_conditional_not_at_line_begining.pl \
   t/results/conditionals/end_ifset_in_format.pl \
   t/results/conditionals/false_format_not_closed.pl \
+  t/results/conditionals/if_not_closed.pl \
   t/results/conditionals/ifclear_in_ifset.pl \
   t/results/conditionals/ifclear_in_ifset_set.pl \
   t/results/conditionals/ifnot_format_conditional.pl \
@@ -1427,7 +1428,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/no_colon_in_menu.pl \
   t/results/menu/nodedescription_descriptions.pl \
   t/results/menu/nodedescriptionblock_descriptions.pl \
-  t/results/menu/non_existent_entry_node.pl \
   t/results/menu/reference_to_external_manual.pl \
   t/results/menu/sc_in_menu.pl \
   t/results/menu/simple.pl \

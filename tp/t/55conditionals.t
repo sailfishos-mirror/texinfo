@@ -144,6 +144,9 @@ not tex
 @end ifnottex
 
 After.'],
+['if_not_closed',
+'@iftex'
+],
 ['false_format_not_closed',
 '@html
 blah blah

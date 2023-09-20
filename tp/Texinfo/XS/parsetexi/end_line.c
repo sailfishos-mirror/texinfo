@@ -1098,6 +1098,8 @@ end_line_starting_block (ELEMENT *current)
           /* Handle @if* and @ifnot* */
 
           p = command_name(command) + 2; /* After "if". */
+          /* note that if a 2 letter format existed, like @ifme, the length of
+             p should be checked before the call to memcpm */
           if (!memcmp (p, "not", 3))
             p += 3; /* After "not". */
 

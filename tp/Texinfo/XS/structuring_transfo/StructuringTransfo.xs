@@ -34,8 +34,8 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "utils.h"
-/* for copy_tree */
 #include "manipulate_tree.h"
+/* for copy_tree */
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
