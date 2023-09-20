@@ -2,7 +2,6 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
-#include <stddef.h>
 #include <stdarg.h>
 
 #include "tree_types.h"

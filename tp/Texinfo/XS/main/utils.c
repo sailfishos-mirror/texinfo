@@ -546,6 +546,13 @@ normalize_encoding_name (char *text, int *possible_encoding)
   return normalized_text;
 }
 
+void
+wipe_index (INDEX *idx)
+{
+  free (idx->name);
+  free (idx->index_entries);
+}
+
 /* options */
 
 OPTIONS *

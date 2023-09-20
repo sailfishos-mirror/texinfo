@@ -2,6 +2,8 @@
 #ifndef TARGETS_H
 #define TARGETS_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 ELEMENT *find_identifier_target (LABEL_LIST *identifiers_target,

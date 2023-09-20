@@ -151,27 +151,6 @@ add_index (char *name, int in_code)
   free (cmdname);
 }
 
-void
-wipe_index (INDEX *idx)
-{
-  free (idx->name);
-  free (idx->index_entries);
-}
-
-/* not used */
-void
-wipe_indices (void)
-{
-  int i;
-  for (i = 0; i < number_of_indices; i++)
-    {
-      wipe_index (index_names[i]);
-      free (index_names[i]);
-    }
-  number_of_indices = 0;
-  return;
-}
-
 /* reset indices without unallocating them nor the list of indices */
 void
 forget_indices (void)

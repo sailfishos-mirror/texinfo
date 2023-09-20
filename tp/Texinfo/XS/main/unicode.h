@@ -2,6 +2,8 @@
 #ifndef UNICODE_H
 #define UNICODE_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 typedef struct ENCODING_CODEPOINTS {

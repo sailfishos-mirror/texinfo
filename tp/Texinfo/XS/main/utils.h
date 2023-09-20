@@ -17,6 +17,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stddef.h>
 #include <iconv.h>
 
 #include "options_types.h"
@@ -102,6 +103,8 @@ void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 void add_string (char *string, STRING_LIST *strings_list);
 void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
+
+void wipe_index (INDEX *idx);
 
 OPTIONS *new_options (void);
 void free_options (OPTIONS *options);
