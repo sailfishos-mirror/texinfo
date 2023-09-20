@@ -1,5 +1,11 @@
 2023-09-20  Patrice Dumas  <pertusus@free.fr>
 
+	Update gnulib to be on par with master branch (minor change)
+
+	* tp/Texinfo/XS: Run "gnulib-tool --add-import".
+
+2023-09-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (%tested_transformations, test): add the
 	possibility to test for transformations that are not 'valid' tree
 	transformations: protect_comma, protect_colon,
