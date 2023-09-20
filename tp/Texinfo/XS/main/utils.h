@@ -111,7 +111,7 @@ char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
 
 ENCODING_CONVERSION *get_encoding_conversion (char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);
-char *encode_with_iconv (iconv_t our_iconv,  char *s);
+char *encode_with_iconv (iconv_t our_iconv,  char *s, SOURCE_INFO *source_info);
 void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
 
 FLOAT_RECORD_LIST *float_list_to_listoffloats_list (

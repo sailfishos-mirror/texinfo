@@ -175,7 +175,8 @@ add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
 }
 
 static char *
-decode_string (char *input_string, char *encoding, int *status)
+decode_string (char *input_string, char *encoding, int *status,
+               SOURCE_INFO *source_info)
 {
   char *result;
   *status = 0;
@@ -191,12 +192,13 @@ decode_string (char *input_string, char *encoding, int *status)
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string);
+  result = encode_with_iconv (conversion->iconv, input_string, source_info);
   return result;
 }
 
 static char *
-encode_string (char *input_string, char *encoding, int *status)
+encode_string (char *input_string, char *encoding, int *status,
+               SOURCE_INFO *source_info)
 {
   char *result;
   *status = 0;
@@ -214,17 +216,18 @@ encode_string (char *input_string, char *encoding, int *status)
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string);
+  result = encode_with_iconv (conversion->iconv, input_string, source_info);
   return result;
 }
 
 static char *
-convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion)
+convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion,
+                 SOURCE_INFO *source_info)
 {
   char *result;
   if (!conversion)
     return strdup (s);
-  result = encode_with_iconv (conversion->iconv, s);
+  result = encode_with_iconv (conversion->iconv, s, source_info);
   return result;
 }
 
@@ -237,7 +240,7 @@ char *
 encoded_input_file_name (OPTIONS *options,
                          GLOBAL_INFO *global_information,
                          char *file_name, char *input_file_encoding,
-                         char **file_name_encoding)
+                         char **file_name_encoding, SOURCE_INFO *source_info)
 {
   char *result;
   char *encoding = 0;
@@ -256,7 +259,7 @@ encoded_input_file_name (OPTIONS *options,
   else if (options)
     encoding = options->LOCALE_ENCODING;
 
-  result = encode_string (file_name, encoding, &status);
+  result = encode_string (file_name, encoding, &status, source_info);
 
   if (status)
     *file_name_encoding = strdup(encoding);
@@ -284,7 +287,8 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 
   file_name = encoded_input_file_name (options, global_information,
                                        file_name_text, input_encoding,
-                                       &file_name_encoding);
+                                       &file_name_encoding,
+                                       &current->source_info);
 
   if (options)
     include_directories = &options->INCLUDE_DIRECTORIES;
@@ -305,7 +309,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
               char *decoded_file;
               if (file_name_encoding)
                 decoded_file = decode_string (file, file_name_encoding,
-                                              &status);
+                                              &status, &current->source_info);
               else
                 decoded_file = file;
               message_list_command_error (error_messages, current,
@@ -335,7 +339,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                   break;
                 }
 
-              text = convert_to_utf8 (line, conversion);
+              text = convert_to_utf8 (line, conversion, &current->source_info);
               free (line);
               raw = new_element (ET_raw);
               text_append (&raw->text, text);
@@ -350,7 +354,8 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                   char *decoded_file;
                   if (file_name_encoding)
                     decoded_file = decode_string (file, file_name_encoding,
-                                                  &status);
+                                                  &status,
+                                                  &current->source_info);
                   else
                     decoded_file = file;
                   message_list_command_error (error_messages, current,

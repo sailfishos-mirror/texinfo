@@ -32,10 +32,11 @@
 #include "global_commands_types.h"
 #include "options_types.h"
 #include "tree_types.h"
-#include "tree.h"
-#include "text.h"
 #include "command_ids.h"
+#include "text.h"
+#include "tree.h"
 #include "extra.h"
+/* for xasprintf */
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
@@ -278,7 +279,7 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 char *
-encode_with_iconv (iconv_t our_iconv,  char *s)
+encode_with_iconv (iconv_t our_iconv, char *s, SOURCE_INFO *source_info)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
@@ -313,9 +314,13 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
           break;
         case EILSEQ:
         default:
-          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
-            current_source_info.file_name, current_source_info.line_nr,
-                                                 *(unsigned char *)inptr);
+          if (source_info)
+            fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
+              source_info->file_name, source_info->line_nr,
+                                             *(unsigned char *)inptr);
+          else
+            fprintf(stderr, "encoding error at byte 0x%2x\n",
+                    *(unsigned char *)inptr);
           inptr++; bytes_left--;
           break;
         }

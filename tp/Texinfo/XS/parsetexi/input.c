@@ -158,7 +158,8 @@ convert_to_utf8 (char *s)
       return s;
     }
 
-  ret = encode_with_iconv (current_encoding_conversion->iconv, s);
+  ret = encode_with_iconv (current_encoding_conversion->iconv, s,
+                           &current_source_info);
   free (s);
   return ret;
 }
@@ -218,7 +219,7 @@ encode_file_name (char *filename)
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)
     {
       char *s, *conv;
-      conv = encode_with_iconv (reverse_iconv, filename);
+      conv = encode_with_iconv (reverse_iconv, filename, &current_source_info);
       s = save_string (conv);
       free (conv);
       return s;
@@ -394,7 +395,7 @@ next_text (ELEMENT *current)
              messages.
           */
                   char *decoded_file_name
-                          = convert_to_utf8 (strdup(input->input_file_path));
+                    = convert_to_utf8 (strdup(input->input_file_path));
                   line_warn ("error on closing %s: %s",
                              decoded_file_name,
                              strerror (errno));
