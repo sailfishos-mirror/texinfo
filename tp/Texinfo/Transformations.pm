@@ -834,6 +834,7 @@ sub set_menus_to_simple_menu($)
   }
 }
 
+# FIXME move source marks
 sub _protect_hashchar_at_line_beginning($$$)
 {
   my $type = shift;
@@ -902,6 +903,7 @@ sub protect_hashchar_at_line_beginning($$$)
 
   if (not _XS_protect_hashchar_at_line_beginning ($tree)
       and $XS_only) {
+    # FIXME return a tree
     return undef;
   }
 

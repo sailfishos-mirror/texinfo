@@ -1929,6 +1929,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/index_entries_relate_to_item_transformation/res_html \
   t/results/transformations/master_menu_fr.pl \
   t/results/transformations/master_menu_fr/res_html \
+  t/results/transformations/protect_colon_source_mark.pl \
   t/results/value/bad_syntax.pl \
   t/results/value/begin_like_comment_on_set_line.pl \
   t/results/value/clear_no_end_of_line.pl \

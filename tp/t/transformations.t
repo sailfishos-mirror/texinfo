@@ -6,6 +6,15 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 require 't/test_utils.pl';
 
 my @test_cases = (
+['protect_colon_source_mark',
+'@macro klm {arg}
+some text : \arg\ more
+@end macro
+
+There is @klm{nop} and after.
+', {'TREE_TRANSFORMATIONS' => 'protect_colon'}]);
+
+my @tests_converted = (
 ['master_menu_fr',
   undef,
   {'test_file'
@@ -30,11 +39,11 @@ my @test_cases = (
    'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_items'},
 ],);
 
-foreach my $test (@test_cases) {
+foreach my $test (@tests_converted) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'info';
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all('transformations', [@test_cases]);
+run_all('transformations', [@test_cases, @tests_converted]);

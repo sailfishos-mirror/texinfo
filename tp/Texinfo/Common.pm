@@ -2091,6 +2091,7 @@ sub _new_asis_command_with_text($$;$)
   return $new_command;
 }
 
+# FIXME construct a test case and move source marks
 sub _protect_text($$)
 {
   my $current = shift;

@@ -760,6 +760,8 @@ sub output_preamble_postamble_latex($$)
   }
 }
 
+my %tested_transformations;
+
 # Run a single test case.  Each test case is an array
 # [TEST_NAME, TEST_TEXT, PARSER_OPTIONS, CONVERTER_OPTIONS]
 sub test($$)
@@ -835,13 +837,34 @@ sub test($$)
     delete $parser_options->{'test_split'};
   }
 
+  my $additional_tree_transformations;
   my %tree_transformations;
   if ($parser_options->{'TREE_TRANSFORMATIONS'}) {
+    require Texinfo::Transformations;
+    Texinfo::Transformations->import();
+    # Not valid tree transformation, but we want to test them anyway.
+    # There are other specific tests for comparison to texinfo, but here
+    # we also get the tree.
+    %tested_transformations = (
+     'protect_comma' => \&Texinfo::Common::protect_comma_in_tree,
+     'protect_colon' => \&Texinfo::Common::protect_colon_in_tree,
+     'protect_node_after_label'
+        => \&Texinfo::Common::protect_node_after_label_in_tree,
+     'protect_first_parenthesis'
+      => \&Texinfo::Transformations::protect_first_parenthesis_in_targets,
+     'protect_hashchar_at_line_beginning'
+      => \&Texinfo::Transformations::protect_hashchar_at_line_beginning,
+    );
+
     my @option_transformations
         = split /,/, $parser_options->{'TREE_TRANSFORMATIONS'};
     foreach my $transformation (@option_transformations) {
       if (Texinfo::Common::valid_tree_transformation($transformation)) {
         $tree_transformations{$transformation} = 1;
+      } elsif ($tested_transformations{$transformation}) {
+        $additional_tree_transformations = []
+          if (!defined($additional_tree_transformations));
+        push @$additional_tree_transformations, $transformation;
       } else {
         warn "$test_name: unknown tree transformation $transformation\n";
       }
@@ -976,12 +999,6 @@ sub test($$)
     }
   }
 
-  # require instead of use for speed when this module is not needed
-  if (scalar(keys(%tree_transformations))) {
-    require Texinfo::Transformations;
-    Texinfo::Transformations->import();
-  }
-
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     my $added_sections
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
@@ -1061,6 +1078,18 @@ sub test($$)
   }
 
   Texinfo::Structuring::number_floats($document);
+
+  if ($additional_tree_transformations) {
+    foreach my $transformation (@$additional_tree_transformations) {
+      my $tree_transformation_sub = $tested_transformations{$transformation};
+      if ($transformation eq 'protect_hashchar_at_line_beginning') {
+        &$tree_transformation_sub($registrar, $main_configuration,
+                                  $document->tree());
+      } else {
+        &$tree_transformation_sub($document->tree());
+      }
+    }
+  }
 
   if (defined $ENV{TEXINFO_XS_CONVERT}
       and $ENV{TEXINFO_XS_CONVERT} eq '1') {

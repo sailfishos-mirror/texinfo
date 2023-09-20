@@ -180,7 +180,7 @@ modify_tree (ELEMENT *tree,
                                           argument);
               if (new_element)
                 {
-                  /* FIXME destroy previous element? or let the operation
+                  /* FIXME destroy previous element? or let (*operation)
                      do it? */
                   tree->source_mark_list.list[i]->element = new_element;
                 }
