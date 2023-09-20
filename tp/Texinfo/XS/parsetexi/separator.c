@@ -29,6 +29,9 @@
 #include "debug_parser.h"
 #include "errors.h"
 #include "context_stack.h"
+/* for parse_node_manual */
+#include "manipulate_tree.h"
+/* check_register_target_element_label and remember_internal_xref */
 #include "labels.h"
 /* for close_preformatted_command */
 #include "commands.h"

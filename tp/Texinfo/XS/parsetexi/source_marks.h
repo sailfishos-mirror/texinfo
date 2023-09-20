@@ -24,10 +24,7 @@ SOURCE_MARK *new_source_mark (enum source_mark_type type);
 void register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark);
 void source_marks_reset_counters (void);
 void transfer_source_marks (ELEMENT *from_e, ELEMENT *e);
-void add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e);
 void place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark);
-size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
-                              size_t previous_position, size_t current_position);
 
 
 #endif

@@ -30,10 +30,6 @@ void check_register_target_element_label (ELEMENT *label_element,
 void wipe_identifiers_target (void);
 
 
-
-NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
-
-
 extern ELEMENT **internal_xref_list;
 extern size_t internal_xref_number;
 

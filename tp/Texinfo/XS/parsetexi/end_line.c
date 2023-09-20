@@ -21,17 +21,19 @@
 #include <stdio.h>
 
 #include "parser.h"
-/* for isascii_alnum, whitespace_chars and read_flag_name */
 #include "tree_types.h"
-#include "tree.h"
-#include "utils.h"
-#include "debug.h"
-#include "debug_parser.h"
-#include "errors.h"
 #include "text.h"
+#include "tree.h"
+#include "debug_parser.h"
+#include "debug.h"
+#include "errors.h"
+/* for isascii_alnum, whitespace_chars and read_flag_name */
+#include "utils.h"
+/* for parse_node_manual */
+#include "manipulate_tree.h"
 #include "input.h"
 #include "counter.h"
-/* check_register_target_element_label and parse_node_manual */
+/* check_register_target_element_label */
 #include "labels.h"
 /* add_infoenclose */
 #include "macro.h"

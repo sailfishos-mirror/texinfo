@@ -23,20 +23,22 @@
 #include "parser.h"
 #include "command_ids.h"
 #include "tree_types.h"
+#include "text.h"
 #include "tree.h"
+#include "builtin_commands.h"
+#include "extra.h"
 /* for whitespace_chars and fatal */
 #include "utils.h"
-#include "text.h"
+/* for relocate_source_marks */
+#include "manipulate_tree.h"
 #include "source_marks.h"
 /*
 #include "errors.h"
 */
-#include "builtin_commands.h"
 #include "commands.h"
 /*
 #include "debug.h"
 */
-#include "extra.h"
 
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)

@@ -26,6 +26,8 @@
 /* for isascii_alnum, whitespace_chars, read_flag_name,
    delete_global_info, parse_line_directive, count_multibyte */
 #include "utils.h"
+/* for relocate_source_marks */
+#include "manipulate_tree.h"
 #include "debug.h"
 #include "debug_parser.h"
 #include "errors.h"

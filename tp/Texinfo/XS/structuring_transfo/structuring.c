@@ -31,7 +31,7 @@
 #include "builtin_commands.h"
 /* for get_label_element and section_level */
 #include "utils.h"
-/* for copy_tree and copy_contents */
+/* for copy_tree copy_contents and parse_node_manual */
 #include "manipulate_tree.h"
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"

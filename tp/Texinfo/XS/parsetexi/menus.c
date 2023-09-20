@@ -21,10 +21,12 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-/* for whitespace_chars */
-#include "utils.h"
 #include "debug.h"
 #include "errors.h"
+/* for whitespace_chars */
+#include "utils.h"
+/* for parse_node_manual */
+#include "manipulate_tree.h"
 #include "input.h"
 #include "text.h"
 /* for conf */

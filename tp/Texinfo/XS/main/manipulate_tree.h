@@ -17,9 +17,21 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
     
+#include <stddef.h>
+
 #include "tree_types.h"
 
 ELEMENT *copy_tree (ELEMENT *current, ELEMENT *parent);
 ELEMENT *copy_contents (ELEMENT *element, enum element_type type);
+
+
+
+void add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e);
+size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
+                              size_t previous_position, size_t current_position);
+
+
+
+NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 #endif
