@@ -398,6 +398,18 @@ get_label_element (ELEMENT *e)
   return 0;
 }
 
+/* NAME is the name of an index, e.g. "cp" */
+INDEX *
+indices_info_index_by_name (INDEX **indices_information, char *name)
+{
+  INDEX **i, *idx;
+
+  for (i = indices_information; (idx = *i); i++)
+    if (!strcmp (idx->name, name))
+      return idx;
+  return 0;
+}
+
 /* Read a name used for @set, @value and translations arguments. */
 char *
 read_flag_name (char **ptr)

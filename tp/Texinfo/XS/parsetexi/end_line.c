@@ -27,7 +27,8 @@
 #include "debug_parser.h"
 #include "debug.h"
 #include "errors.h"
-/* for isascii_alnum, whitespace_chars and read_flag_name */
+/* for isascii_alnum whitespace_chars read_flag_name
+   indices_info_index_by_name */
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
@@ -378,8 +379,8 @@ parse_line_command_args (ELEMENT *line_command)
         if (*p)
           goto synindex_invalid; /* More at end of line. */
 
-        from_index = index_by_name (index_name_from);
-        to_index = index_by_name (index_name_to);
+        from_index = indices_info_index_by_name (index_names,index_name_from);
+        to_index = indices_info_index_by_name (index_names,index_name_to);
         if (!from_index)
           line_error ("unknown source index in @%s: %s",
                       command_name(cmd), index_name_from);
@@ -427,7 +428,7 @@ parse_line_command_args (ELEMENT *line_command)
           line_error ("bad argument to @printindex: %s", line);
         else
           {
-            INDEX *idx = index_by_name (arg);
+            INDEX *idx = indices_info_index_by_name (index_names,arg);
             if (!idx)
               line_error ("unknown index `%s' in @printindex", arg);
             else

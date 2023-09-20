@@ -41,20 +41,6 @@
 #include "transformations.h"
 
 
-/* FIXME in indices.c, but for within parser only,
-   use only one? */
-INDEX *
-indices_info_index_by_name (INDEX **indices_information, char *name)
-{
-  INDEX **i, *idx;
-
-  for (i = indices_information; (idx = *i); i++)
-    if (!strcmp (idx->name, name))
-      return idx;
-  return 0;
-}
-
-
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
 lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)

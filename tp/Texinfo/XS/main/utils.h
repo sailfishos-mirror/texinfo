@@ -76,6 +76,9 @@ typedef struct GLOBAL_INFO {
     IGNORED_CHARS ignored_chars;
 } GLOBAL_INFO;
 
+void fatal (char *);
+void bug (char *);
+
 int isascii_alnum (int c);
 int isascii_alpha (int c);
 int isascii_lower (int c);
@@ -87,11 +90,9 @@ int width_multibyte (const char *text);
 void delete_global_info (GLOBAL_INFO *global_info_ref);
 void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
-void fatal (char *);
-void bug (char *);
-
 char *normalize_encoding_name (char *text, int *possible_encoding);
 ELEMENT *get_label_element (ELEMENT *e);
+INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 char *read_flag_name (char **ptr);
 int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);

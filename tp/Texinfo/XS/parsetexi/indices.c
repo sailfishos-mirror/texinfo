@@ -120,26 +120,12 @@ add_index_internal (char *name, int in_code)
   return idx;
 }
 
-/* NAME is the name of an index, e.g. "cp" */
-INDEX *
-index_by_name (char *name)
-{
-  int i;
-
-  for (i = 0; i < number_of_indices; i++)
-    {
-      if (!strcmp (index_names[i]->name, name))
-        return index_names[i];
-    }
-  return 0;
-}
-
 
 /* Add a user defined index with the name NAME */
 void
 add_index (char *name, int in_code)
 {
-  INDEX *idx = index_by_name (name);
+  INDEX *idx = indices_info_index_by_name (index_names, name);
   char *cmdname;
 
   if (!idx)
@@ -234,15 +220,18 @@ init_index_commands (void)
       add_index_command (name2, idx); /* @cpindex */
     }
 
-  associate_command_to_index (CM_vtable, index_by_name ("vr"));
-  associate_command_to_index (CM_ftable, index_by_name ("fn"));
+  associate_command_to_index (CM_vtable,
+    indices_info_index_by_name (index_names, "vr"));
+  associate_command_to_index (CM_ftable,
+    indices_info_index_by_name (index_names, "fn"));
 
   for (i = 0;
        i < sizeof (def_command_indices) / sizeof (def_command_indices[0]);
        i++)
     {
       enum command_id cmd;
-      idx = index_by_name (def_command_indices[i].name);
+      idx = indices_info_index_by_name (index_names,
+                                        def_command_indices[i].name);
       if (idx)
         {
           for (j = 0; j < MAX; j++)
