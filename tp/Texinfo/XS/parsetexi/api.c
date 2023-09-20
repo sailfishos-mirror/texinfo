@@ -29,6 +29,7 @@
 /* for set_debug_output */
 #include "debug.h"
 #include "tree.h"
+#include "extra.h"
 /* for parser_add_include_directory, set_input_file_name_encoding ... */
 #include "input.h"
 #include "source_marks.h"
@@ -36,7 +37,6 @@
 #include "indices.h"
 #include "errors.h"
 #include "document.h"
-#include "extra.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "context_stack.h"
@@ -260,12 +260,12 @@ store_document (ELEMENT *root)
   labels->space = labels_number;
 
   floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  floats_list = realloc (floats_list,
-                         floats_number * sizeof (FLOAT_RECORD));
+  float_records.float_types = realloc (float_records.float_types,
+                    float_records.number * sizeof (FLOAT_RECORD));
 
-  floats->float_types = floats_list;
-  floats->number = floats_number;
-  floats->space = floats_number;
+  floats->float_types = float_records.float_types;
+  floats->number = float_records.number;
+  floats->space = float_records.number;
 
   internal_references = malloc (sizeof (ELEMENT_LIST));
 
@@ -333,10 +333,8 @@ store_document (ELEMENT *root)
                         small_strings_list, error_messages);
   forget_indices ();
   forget_labels ();
-  /* use a function? */
-  floats_list = 0;
-  floats_number = 0;
-  floats_space = 0;
+
+  memset (&float_records, 0, sizeof (FLOAT_RECORD_LIST));
 
   forget_internal_xrefs ();
   forget_small_strings ();

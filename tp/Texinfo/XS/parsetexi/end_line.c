@@ -31,6 +31,8 @@
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
+/* for parse_float_type add_to_float_record_list */
+#include "floats.h"
 #include "input.h"
 #include "counter.h"
 /* check_register_target_element_label */
@@ -46,6 +48,7 @@
 #include "handle_commands.h"
 #include "extra.h"
 #include "convert_to_texinfo.h"
+/* for convert_to_identifier */
 #include "node_name_normalization.h"
 
 static int
@@ -627,26 +630,9 @@ parse_line_command_args (ELEMENT *line_command)
 #undef ADD_ARG
 }
 
-/* for now done in Texinfo::Convert::NodeNameNormalization, but could be
-   good to do in Parser/XS */
 /* Array of recorded @float's. */
+FLOAT_RECORD_LIST float_records = {0, 0, 0};
 
-FLOAT_RECORD *floats_list = 0;
-size_t floats_number = 0;
-size_t floats_space = 0;
-
-
-char *
-parse_float_type (ELEMENT *current)
-{
-  char *normalized;
-  if (current->args.number > 0)
-    normalized = convert_to_normalized (current->args.list[0]);
-  else
-    normalized = strdup ("");
-  add_extra_string (current, "float_type", normalized);
-  return normalized;
-}
 
 ELEMENT *
 end_line_def_line (ELEMENT *current)
@@ -860,13 +846,7 @@ end_line_starting_block (ELEMENT *current)
       float_type = parse_float_type (current);
 
       /* add to global 'floats' array */
-      if (floats_number == floats_space)
-        {
-          floats_list = realloc (floats_list,
-                                 (floats_space += 5) * sizeof (FLOAT_RECORD));
-        }
-      floats_list[floats_number].type = float_type;
-      floats_list[floats_number++].element = current;
+      add_to_float_record_list (&float_records, float_type, current);
 
       if (current_section)
         add_extra_element (current, "float_section", current_section);

@@ -23,10 +23,11 @@
 #include "options_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for delete_global_info */
-#include "utils.h"
+#include "floats.h"
 #include "errors.h"
 #include "debug.h"
+/* for delete_global_info */
+#include "utils.h"
 /* for forget_index and wipe_index */
 #include "indices.h"
 #include "document.h"

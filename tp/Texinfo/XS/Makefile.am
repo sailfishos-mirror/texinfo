@@ -125,6 +125,8 @@ libtexinfo_la_SOURCES= \
 		      main/convert_to_text.h \
 		      main/convert_utils.c \
 		      main/convert_utils.h \
+		      main/floats.c \
+		      main/floats.h \
 		      main/manipulate_tree.c \
 		      main/manipulate_tree.h \
 		      main/node_name_normalization.c \

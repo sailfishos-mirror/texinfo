@@ -114,10 +114,6 @@ ENCODING_CONVERSION *get_encoding_conversion (char *encoding,
 char *encode_with_iconv (iconv_t our_iconv,  char *s, SOURCE_INFO *source_info);
 void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
 
-FLOAT_RECORD_LIST *float_list_to_listoffloats_list (
-                                      FLOAT_RECORD_LIST *floats_list);
-void destroy_listoffloats_list (FLOAT_RECORD_LIST *listoffloats_list);
-
 struct expanded_format *new_expanded_formats (char *format);
 void clear_expanded_formats (struct expanded_format *formats);
 void add_expanded_format (struct expanded_format *formats, char *format);
