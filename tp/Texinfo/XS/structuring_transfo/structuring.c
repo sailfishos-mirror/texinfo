@@ -39,8 +39,6 @@
 #include "document.h"
 #include "transformations.h"
 #include "translations.h"
-/* FIXME for parse_node_manual; in parsetexi/. Move to main/?  Some ties to parser */
-#include "labels.h"
 #include "structuring.h"
 
 void
