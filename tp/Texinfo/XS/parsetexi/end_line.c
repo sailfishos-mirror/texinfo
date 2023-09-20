@@ -1094,24 +1094,17 @@ end_line_starting_block (ELEMENT *current)
         }
       else if (!memcmp (command_name(command), "if", 2)) /* e.g. @ifhtml */
         {
-          int i; char *p;
+          char *p;
           /* Handle @if* and @ifnot* */
 
           p = command_name(command) + 2; /* After "if". */
           if (!memcmp (p, "not", 3))
             p += 3; /* After "not". */
-          /* FIXME call parser_format_expanded_p? */
-          for (i = 0; i < sizeof (parser_expanded_formats)/sizeof (*parser_expanded_formats);
-               i++)
-            {
-              if (!strcmp (p, parser_expanded_formats[i].format))
-                {
-                  iftrue = parser_expanded_formats[i].expandedp;
-                  break;
-                }
-            }
+
+          iftrue = parser_format_expanded_p (p);
           if (!memcmp (command_name(command), "ifnot", 5))
             iftrue = !iftrue;
+
           debug ("CONDITIONAL @%s format %s: %d", command_name(command),
                  p, iftrue);
         }
