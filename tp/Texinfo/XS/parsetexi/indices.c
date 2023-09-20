@@ -29,8 +29,11 @@
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"
-/* for copy_tree */
+/*
 #include "utils.h"
+*/
+/* for copy_tree */
+#include "manipulate_tree.h"
 #include "commands.h"
 #include "translations.h"
 #include "document.h"

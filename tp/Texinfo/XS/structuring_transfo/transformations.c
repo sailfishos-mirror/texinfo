@@ -22,15 +22,17 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "tree_types.h"
-#include "tree.h"
-#include "utils.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "command_ids.h"
+#include "text.h"
+#include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
-#include "text.h"
 #include "debug.h"
+#include "utils.h"
+/* for copy_contents */
+#include "manipulate_tree.h"
 #include "structuring.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"

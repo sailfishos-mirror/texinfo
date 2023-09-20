@@ -23,16 +23,17 @@
 #include <errno.h>
 
 #include "options_types.h"
-#include "tree_types.h"
-#include "utils.h"
-#include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
+#include "command_ids.h"
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
 #include "errors.h"
-#include "translations.h"
 #include "debug.h"
+#include "manipulate_tree.h"
+#include "utils.h"
+#include "translations.h"
 #include "convert_to_texinfo.h"
 #include "convert_utils.h"
 

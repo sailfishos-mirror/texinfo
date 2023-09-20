@@ -30,13 +30,15 @@
 
 #include "ppport.h"
 
+#include "options_types.h"
 #include "tree_types.h"
-#include "utils.h"
 #include "tree.h"
+#include "utils.h"
+/* for copy_tree */
+#include "manipulate_tree.h"
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
-#include "options_types.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 

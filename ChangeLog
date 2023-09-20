@@ -1,5 +1,14 @@
 2023-09-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/manipulate_tree.c
+	(increase_ref_counter, copy_associated_info, copy_tree_internal)
+	(get_copy_ref, associate_info_references, copy_extra_info, copy_tree)
+	(copy_contents): new file manipulate_tree.c.  Move tree copy related
+	code to manipulate_tree.c.
+
+2023-09-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (encode_with_iconv): pass source_info
 	from arguments.  Update callers.
 
