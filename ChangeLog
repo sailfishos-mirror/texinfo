@@ -1,3 +1,8 @@
+2023-09-21  Patrice Dumas <pertusus@free.fr>
+
+	* configure.ac: require Unicode::Normalize.  Report from Bruno on
+	CentOS Stream 9 where this module may not be installed.
+
 2023-09-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Update gnulib
@@ -13,11 +18,6 @@
 	* doc/texinfo-tex-test.texi (TOC display): Add new example of
 	section name with @/ in it, from Karl Berry.  Before the last change, 
 	this led to an overfull hbox.
-
-2023-09-19  Patrice Dumas <pertusus@free.fr>
-
-	* configure.ac: require Unicode::Normalize.  Report from Bruno on
-	CentOS Stream 9 where this module may not be installed.
 
 2023-09-19  Gavin Smith <gavinsmith0123@gmail.com>
 
