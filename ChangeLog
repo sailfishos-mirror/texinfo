@@ -1,5 +1,11 @@
 2023-09-21  Patrice Dumas <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac: do not reset CPPFLAGS to
+	user-provided PERL_EXT_CFLAGS, as CPPFLAGS is modified by
+	gnulib macros (specifically libunistring).  Report from Bruno Haible.
+
+2023-09-21  Patrice Dumas <pertusus@free.fr>
+
 	* configure.ac: require Unicode::Normalize.  Report from Bruno on
 	CentOS Stream 9 where this module may not be installed.
 
