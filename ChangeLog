@@ -1,5 +1,24 @@
 2023-09-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (insert_contents_slice_into_args): remove
+	insert_slice_into_args and add insert_contents_slice_into_args that
+	takes a contents slice and put to args.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c (modify_tree):
+	even when theargs are replaced, use the contents of the temporary
+	container element returned by (*operation), using
+	insert_contents_slice_into_args.
+
+	* tp/Texinfo/Common.pm (_protect_text),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (protect_text): do
+	not protect text in rawline_arg.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(protect_node_after_label_source_mark_in_protected): test source marks
+	in protected characters.
+
+2023-09-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_protect_text), tp/Texinfo/XS/Makefile.am
 	(StructuringTransfo_la_LIBADD, StructuringTransfo_la_LDFLAGS)
 	(StructuringTransfo_la_CPPFLAGS),

@@ -2091,7 +2091,6 @@ sub _new_asis_command_with_text($$;$)
   return $new_command;
 }
 
-# FIXME move source marks
 sub _protect_text($$)
 {
   my $current = shift;
@@ -2100,7 +2099,9 @@ sub _protect_text($$)
   #print STDERR "_protect_text: $to_protect: $current "
   #                         .debug_print_element($current, 1)."\n";
   if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
-      and !(defined($current->{'type'}) and $current->{'type'} eq 'raw')) {
+      and !(defined($current->{'type'})
+            and ($current->{'type'} eq 'raw'
+                 or $current->{'type'} eq 'rawline_arg'))) {
     my @result = ();
     my $remaining_text = $current->{'text'};
 

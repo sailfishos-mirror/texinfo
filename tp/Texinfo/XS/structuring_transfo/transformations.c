@@ -138,11 +138,13 @@ modify_tree (ELEMENT *tree,
           if (new_args)
             {
               /* *operation should take care of destroying removed element */
+              /* NOTE even when we replace the args, we use the contents of the
+                 temporary container element returned by (*operation). */
               remove_from_args (tree, i);
-              insert_slice_into_args (tree, i,
-                                      new_args, 0,
-                                      new_args->args.number);
-              i += new_args->args.number -1;
+              insert_contents_slice_into_args (tree, i,
+                                               new_args, 0,
+                                               new_args->contents.number);
+              i += new_args->contents.number -1;
               destroy_element (new_args);
             }
           else
@@ -1212,7 +1214,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 ELEMENT *
 protect_text (ELEMENT *current, char *to_protect)
 {
-  if (current->text.end > 0 && !(current->type == ET_raw)
+  if (current->text.end > 0 && !(current->type == ET_raw
+                                 || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))
     {
       ELEMENT *container = new_element (ET_NONE);
@@ -1226,7 +1229,7 @@ protect_text (ELEMENT *current, char *to_protect)
         u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                             iconveh_question_mark);
       u8_p = u8_text;
-        
+
       while (*p)
         {
           size_t u8_len = 0;

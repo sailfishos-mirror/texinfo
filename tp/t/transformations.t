@@ -12,7 +12,17 @@ some text : \arg\ then more
 @end macro
 
 There is @klm{nop} and after.
-', {'TREE_TRANSFORMATIONS' => 'protect_colon'}]);
+', {'TREE_TRANSFORMATIONS' => 'protect_colon'}],
+['protect_node_after_label_source_mark_in_protected',
+'@macro vvv {}
+some text .,
+@end macro
+
+@set punct ,.
+
+There is @vvv{},@value{punct}. and after.
+', {'TREE_TRANSFORMATIONS' => 'protect_node_after_label'}],
+);
 
 my @tests_converted = (
 ['master_menu_fr',
