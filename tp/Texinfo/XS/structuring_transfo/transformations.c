@@ -21,6 +21,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <iconv.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "element_types.h"
 #include "tree_types.h"
@@ -1213,8 +1217,19 @@ protect_text (ELEMENT *current, char *to_protect)
     {
       ELEMENT *container = new_element (ET_NONE);
       char *p = current->text.text;
+      /* count UTF-8 encoded Unicode characters for source marks locations */
+      size_t current_position = 0;
+      uint8_t *u8_text = 0;
+      uint8_t *u8_p;
+
+      if (current->source_mark_list.number)
+        u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                            iconveh_question_mark);
+      u8_p = u8_text;
+        
       while (*p)
         {
+          size_t u8_len = 0;
           int leading_nr = strcspn (p, to_protect);
           if (leading_nr)
             {
@@ -1223,6 +1238,15 @@ protect_text (ELEMENT *current, char *to_protect)
               text_append_n (&text_elt->text, p, leading_nr);
               add_to_contents_as_array (container, text_elt);
               p += leading_nr;
+              if (u8_text)
+              {
+                u8_len = u8_mbsnlen (u8_p, leading_nr);
+                u8_p += u8_len;
+              }
+              current_position
+                = relocate_source_marks (&(current->source_mark_list),
+                                         text_elt,
+                                         current_position, u8_len);
             }
           if (*p)
             {
@@ -1239,6 +1263,16 @@ protect_text (ELEMENT *current, char *to_protect)
                       comma->parent = current->parent;
                       add_to_element_args (comma, brace_command_arg);
                       add_to_contents_as_array (container, comma);
+                      if (u8_text)
+                        {
+                          u8_len = u8_mbsnlen (u8_p, 1);
+                          u8_p += u8_len;
+                        }
+                      current_position
+                       = relocate_source_marks (&(current->source_mark_list),
+                                                comma,
+                                                current_position, u8_len);
+
                     }
                   p += to_protect_nr;
                 }
@@ -1250,11 +1284,21 @@ protect_text (ELEMENT *current, char *to_protect)
                   new_command = new_asis_command_with_text(p, current->parent,
                                                            current->type);
                   add_to_contents_as_array (container, new_command);
+                  if (u8_text)
+                    {
+                      u8_len = u8_mbsnlen (u8_p, to_protect_nr);
+                      u8_p += u8_len;
+                    }
+                  current_position
+                     = relocate_source_marks (&(current->source_mark_list),
+                                new_command->args.list[0]->contents.list[0],
+                                              current_position, u8_len);
                   p += to_protect_nr;
                   *p = saved;
                 }
             }
         }
+      free (u8_text);
       destroy_element (current);
       return container;
     }

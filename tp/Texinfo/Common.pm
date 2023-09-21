@@ -2091,7 +2091,7 @@ sub _new_asis_command_with_text($$;$)
   return $new_command;
 }
 
-# FIXME construct a test case and move source marks
+# FIXME move source marks
 sub _protect_text($$)
 {
   my $current = shift;
@@ -2103,26 +2103,48 @@ sub _protect_text($$)
       and !(defined($current->{'type'}) and $current->{'type'} eq 'raw')) {
     my @result = ();
     my $remaining_text = $current->{'text'};
+
+    my $remaining_source_marks;
+    my $current_position = 0;
+    if ($current->{'source_marks'}) {
+      $remaining_source_marks = [@{$current->{'source_marks'}}];
+      $current->{'source_marks'} = undef;
+    }
     while ($remaining_text) {
       if ($remaining_text =~ s/^(.*?)(($to_protect)+)//) {
         if ($1 ne '') {
-          push @result, {'text' => $1, 'parent' => $current->{'parent'}};
-          $result[-1]->{'type'} = $current->{'type'}
-            if defined($current->{'type'});
+          my $e = {'text' => $1, 'parent' => $current->{'parent'}};
+          $e->{'type'} = $current->{'type'} if defined($current->{'type'});
+          $current_position = Texinfo::Common::relocate_source_marks(
+                                          $remaining_source_marks, $e,
+                                          $current_position, length($1));
+          push @result, $e;
         }
         if ($to_protect eq quotemeta(',')) {
           for (my $i = 0; $i < length($2); $i++) {
-            push @result, {'cmdname' => 'comma', 'parent' => $current->{'parent'},
+            my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'},
                            'args' => [{'type' => 'brace_command_arg'}]};
+            $current_position = Texinfo::Common::relocate_source_marks(
+                                          $remaining_source_marks, $e,
+                                          $current_position, 1);
+            push @result, $e;
           }
         } else {
-          push @result, _new_asis_command_with_text($2, $current->{'parent'},
+          my $new_asis = _new_asis_command_with_text($2, $current->{'parent'},
                                                     $current->{'type'});
+          my $e = $new_asis->{'args'}->[0]->{'contents'}->[0];
+          $current_position = Texinfo::Common::relocate_source_marks(
+                                          $remaining_source_marks, $e,
+                                          $current_position, length($2));
+          push @result, $new_asis;
         }
       } else {
-        push @result, {'text' => $remaining_text, 'parent' => $current->{'parent'}};
-        $result[-1]->{'type'} = $current->{'type'}
-          if defined($current->{'type'});
+        my $e = {'text' => $remaining_text, 'parent' => $current->{'parent'}};
+        $e->{'type'} = $current->{'type'} if defined($current->{'type'});
+        $current_position = Texinfo::Common::relocate_source_marks(
+                                      $remaining_source_marks, $e,
+                                      $current_position, length($remaining_text));
+        push @result, $e;
         last;
       }
     }

@@ -8,7 +8,7 @@ require 't/test_utils.pl';
 my @test_cases = (
 ['protect_colon_source_mark',
 '@macro klm {arg}
-some text : \arg\ more
+some text : \arg\ then more
 @end macro
 
 There is @klm{nop} and after.

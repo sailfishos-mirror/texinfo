@@ -23,7 +23,7 @@ $result_trees{'protect_colon_source_mark'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'text' => 'some text : \\arg\\ more
+              'text' => 'some text : \\arg\\ then more
 ',
               'type' => 'raw'
             },
@@ -78,6 +78,30 @@ $result_trees{'protect_colon_source_mark'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'nop'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'klm'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 9,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'There is some text '
             },
             {
@@ -94,7 +118,15 @@ $result_trees{'protect_colon_source_mark'} = {
               'cmdname' => 'asis'
             },
             {
-              'text' => ' nop more and after.
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'position' => 14,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
+              'text' => ' nop then more and after.
 '
             }
           ],
@@ -108,15 +140,15 @@ $result_trees{'protect_colon_source_mark'} = {
 };
 
 $result_texis{'protect_colon_source_mark'} = '@macro klm {arg}
-some text : \\arg\\ more
+some text : \\arg\\ then more
 @end macro
 
-There is some text @asis{:} nop more and after.
+There is some text @asis{:} nop then more and after.
 ';
 
 
 $result_texts{'protect_colon_source_mark'} = '
-There is some text : nop more and after.
+There is some text : nop then more and after.
 ';
 
 $result_errors{'protect_colon_source_mark'} = [];

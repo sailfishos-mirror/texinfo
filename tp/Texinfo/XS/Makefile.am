@@ -318,11 +318,11 @@ StructuringTransfo_la_SOURCES = structuring_transfo/StructuringTransfo.c \
 
 EXTRA_DIST += convert/StructuringTransfo.xs
 
-StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la
-StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
+StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # To locate include files under out-of-source builds.
-StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
+StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS) $(GNULIB_CPPFLAGS)
 
 ########################## ConvertXS
 

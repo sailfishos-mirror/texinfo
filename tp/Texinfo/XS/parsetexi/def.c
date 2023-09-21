@@ -16,6 +16,7 @@
 #include <config.h>
 #include <string.h>
 #include <stdbool.h>
+#include <iconv.h>
 #include "uniconv.h"
 #include "unistr.h"
 
