@@ -871,15 +871,17 @@ isolate_last_space_internal (ELEMENT *current)
                      trailing_spaces);
 
       text[text_len - trailing_spaces] = '\0';
+      last_elt->text.end -= trailing_spaces;
+
+      text_append (&spaces_element->text, t.text);
+
       if (last_elt->source_mark_list.number > 0)
         {
           size_t begin_position = count_multibyte (text);
           relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
                                  begin_position, count_multibyte (t.text));
         }
-      last_elt->text.end -= trailing_spaces;
 
-      text_append (&spaces_element->text, t.text);
       add_info_element_oot (current, "spaces_after_argument",
                             spaces_element);
     }

@@ -326,9 +326,9 @@ split_def_args (ELEMENT *current, int starting_idx)
               u8_p += u8_len;
             }
 
+          text_append_n (&new->text, p, len);
           current_position = relocate_source_marks (&(e->source_mark_list), new,
                                 current_position, u8_len);
-          text_append_n (&new->text, p, len);
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;

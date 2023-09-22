@@ -1,5 +1,13 @@
 2023-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (split_def_args),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal): set
+	text of element source mark is relocated to before relocating the
+	source mark as now the information of whether the element has text is
+	used in relocate_source_marks.
+
+2023-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm ($XS_only), tp/Texinfo/Structuring.pm
 	($XS_only), tp/Texinfo/Transformations.pm ($XS_only): set $XS_only
 	if both TEXINFO_XS is set to require and TEXINFO_XS_CONVERT is set.

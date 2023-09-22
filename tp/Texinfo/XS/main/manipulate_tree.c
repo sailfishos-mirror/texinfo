@@ -25,6 +25,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "debug.h"
 #include "utils.h"
 
 /* copy_tree from Texinfo::Common */
