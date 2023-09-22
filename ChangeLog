@@ -2,6 +2,13 @@
 
 	* tp/Texinfo/Common.pm (protect_first_parenthesis),
 	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis): fix location of removal and insertion
+	when not the first element.
+
+2023-09-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (protect_first_parenthesis),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
 	(protect_first_parenthesis): relocate source marks.
 
 	* tp/Makefile.tres, tp/t/transformations.t

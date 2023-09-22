@@ -76,27 +76,6 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'position' => 1,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => '('
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'asis'
-                },
-                {
                   'source_marks' => [
                     {
                       'counter' => 1,
@@ -116,6 +95,27 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
                     }
                   ],
                   'text' => ''
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'position' => 1,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => '('
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'asis'
                 },
                 {
                   'text' => 'my_f)'

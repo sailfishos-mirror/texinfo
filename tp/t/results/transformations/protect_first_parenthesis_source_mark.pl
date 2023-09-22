@@ -76,19 +76,6 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'asis'
-                },
-                {
                   'source_marks' => [
                     {
                       'counter' => 1,
@@ -108,6 +95,19 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
                     }
                   ],
                   'text' => ''
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '('
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'asis'
                 },
                 {
                   'source_marks' => [

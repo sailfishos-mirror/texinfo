@@ -2236,7 +2236,9 @@ sub protect_first_parenthesis($)
   return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
 
   my $current_position = 0;
-  foreach my $content (@{$element->{'contents'}}) {
+  my $nr_contents = scalar(@{$element->{'contents'}});
+  for (my $i = 0; $i < $nr_contents; $i++) {
+    my $content = $element->{'contents'}->[$i];
     return if (!defined($content->{'text'}));
     if ($content->{'text'} eq '') {
       next;
@@ -2260,9 +2262,9 @@ sub protect_first_parenthesis($)
                                       $remaining_source_marks, $content,
                                 $current_position, length($content->{'text'}));
       } else {
-        shift @{$element->{'contents'}};
+        splice (@{$element->{'contents'}}, $i, 1);
       }
-      unshift @{$element->{'contents'}}, $new_asis;
+      splice (@{$element->{'contents'}}, $i, 0, $new_asis);
     }
     return;
   }

@@ -131,7 +131,7 @@ protect_first_parenthesis (ELEMENT *element)
 
           if (!*(p+1))
             /* should be the same as content */
-            removed = remove_from_contents (element, 0);
+            removed = remove_from_contents (element, i);
           else
             {
               /* remove leading open brace */
@@ -153,7 +153,7 @@ protect_first_parenthesis (ELEMENT *element)
                 = relocate_source_marks (&source_mark_list,
                    content, current_position, u8_len);
             }
-          insert_into_contents (element, new_command, 0);
+          insert_into_contents (element, new_command, i);
           free (u8_text);
           /* could destroy children too, but it should only be text, no
              children */
