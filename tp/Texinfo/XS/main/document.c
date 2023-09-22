@@ -131,8 +131,6 @@ destroy_document_information_except_tree (DOCUMENT *document)
 {
   if (document->tree)
     {
-      INDEX **i, *idx;
-
       delete_global_info (document->global_info);
       free (document->global_info);
       delete_global_commands (document->global_commands);
@@ -146,12 +144,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->labels_list);
       free (document->identifiers_target->list);
       free (document->identifiers_target);
-      for (i = document->index_names; (idx = *i); i++)
-        {
-          wipe_index (idx);
-          free (idx);
-        }
-      free (document->index_names);
+      wipe_index_names (document->index_names);
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
       if (document->nodes_list)

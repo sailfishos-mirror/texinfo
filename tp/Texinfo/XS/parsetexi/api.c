@@ -79,6 +79,13 @@ find_locales_dir (char *builddir)
 #endif
 
 
+/* When reset_parser_except_conf is called in parse_*, store_document will
+   be called afterwards.
+   When reset_parser_except_conf is called by reset_parser in parser
+   initialization, however, there will be a call to parse_* afterwards
+   leading to calling reset_parser_except_conf again without a call to
+   store_document inbetween.
+ */
 void
 reset_parser_except_conf (void)
 {
@@ -89,6 +96,13 @@ reset_parser_except_conf (void)
 
   wipe_user_commands ();
   wipe_macros ();
+  /* index_names are forgotten in store_document, however, there
+     can be two calls of reset_parser_except_conf without a call to
+     store_document inbetween, for that case there need to be a call to
+     wipe_index_names and forget_indices before init_index_commands.
+  */
+  wipe_index_names (index_names);
+  forget_indices (),
   init_index_commands ();
   wipe_identifiers_target ();
   reset_context_stack ();

@@ -106,6 +106,7 @@ void add_string (char *string, STRING_LIST *strings_list);
 void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
 
 void wipe_index (INDEX *idx);
+void wipe_index_names (INDEX **index_names);
 
 OPTIONS *new_options (void);
 void free_options (OPTIONS *options);

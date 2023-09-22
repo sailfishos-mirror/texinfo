@@ -565,6 +565,21 @@ wipe_index (INDEX *idx)
   free (idx->index_entries);
 }
 
+void
+wipe_index_names (INDEX **index_names)
+{
+  INDEX **i, *idx;
+  if (index_names)
+    {
+      for (i = index_names; (idx = *i); i++)
+        {
+          wipe_index (idx);
+          free (idx);
+        }
+    }
+  free (index_names);
+}
+
 /* options */
 
 OPTIONS *
