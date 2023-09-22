@@ -1088,8 +1088,6 @@ sub _register_global_command {
 }
 
 # $ELEMENT should be the parent container.
-# The source mark is put in the last content if it is text
-# or registered in the parent container.
 sub _register_source_mark
 {
   my ($self, $element, $source_mark) = @_;
@@ -1116,6 +1114,8 @@ sub _debug_show_source_mark
      .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF');
 }
 
+# $ELEMENT should be the parent container.
+# The source mark is put in the last content.
 sub _place_source_mark
 {
   my ($self, $element, $source_mark) = @_;

@@ -1930,6 +1930,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/master_menu_fr.pl \
   t/results/transformations/master_menu_fr/res_html \
   t/results/transformations/protect_colon_source_mark.pl \
+  t/results/transformations/protect_comma_source_mark.pl \
   t/results/transformations/protect_node_after_label_source_mark_in_protected.pl \
   t/results/value/bad_syntax.pl \
   t/results/value/begin_like_comment_on_set_line.pl \

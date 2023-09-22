@@ -14,8 +14,10 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+#include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 #include "command_ids.h"
@@ -397,8 +399,25 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
               && source_mark->position <= end_position))
         {
           indices_to_remove[i] = 1;
-          source_mark->position
-            = source_mark->position - begin_position;
+          if (new_e->text.space > 0)
+            {
+              source_mark->position
+                = source_mark->position - begin_position;
+            }
+          else
+            {
+         /*
+         if the source mark is to be added to a command, it can only be right
+         after the command.  The current use case is a symbol with a source
+         mark after the symbol replaced by an @-command, so we are in
+         the case of added_length = 1 and
+         source_mark->position == end_position
+         */
+              if (source_mark->position - begin_position > 1)
+                fprintf (stderr, "BUG? after command %zu way past %zu\n",
+                                 source_mark->position, begin_position);
+              source_mark->position = 0;
+            }
           add_source_mark (source_mark, new_e);
         }
       i++;

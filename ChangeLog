@@ -1,3 +1,15 @@
+2023-09-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (relocate_source_marks, _protect_text),
+	tp/Texinfo/XS/main/manipulate_tree.c (relocate_source_marks),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (protect_text):
+	handle the case of a source mark relocated after an @-command
+	replacing a character, as done in protect_text for comma.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(protect_comma_source_mark): new test to test protect_comma with
+	source marks.
+
 2023-09-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/tree.c (insert_contents_slice_into_args): remove
@@ -5,7 +17,7 @@
 	takes a contents slice and put to args.
 
 	* tp/Texinfo/XS/structuring_transfo/transformations.c (modify_tree):
-	even when theargs are replaced, use the contents of the temporary
+	even when the args are replaced, use the contents of the temporary
 	container element returned by (*operation), using
 	insert_contents_slice_into_args.
 

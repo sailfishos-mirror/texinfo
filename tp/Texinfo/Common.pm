@@ -852,17 +852,30 @@ sub relocate_source_marks($$$$)
   for (my $i = 0; $i < scalar(@$source_marks); $i++) {
     my $source_mark = $source_marks->[$i];
     if (($begin_position == 0
-         and (!defined($source_marks->[$i]->{'position'})
+         and (!defined($source_mark->{'position'})
               # this should never happen
-              or $source_marks->[$i]->{'position'} == 0))
-        or ($source_marks->[$i]->{'position'} > $begin_position
-            and $source_marks->[$i]->{'position'} <= $end_position)) {
+              or $source_mark->{'position'} == 0))
+        or ($source_mark->{'position'} > $begin_position
+            and $source_mark->{'position'} <= $end_position)) {
       unshift @indices_to_remove, $i;
-      if ($source_mark->{'position'}) {
-        $source_mark->{'position'}
-           = $source_mark->{'position'} - $begin_position;
-      } elsif ($begin_position) {
-        warn "BUG: no $source_mark->{'position'} but $begin_position\n";
+      if (defined($e->{'text'})) {
+        if ($source_mark->{'position'}) {
+          $source_mark->{'position'}
+             = $source_mark->{'position'} - $begin_position;
+        } elsif ($begin_position) {
+          warn "BUG: no $source_mark->{'position'} but $begin_position\n";
+        }
+      } else {
+        # if the source mark is to be added to a command, it can only be right
+        # after the command.  The current use case is a symbol with a source
+        # mark after the symbol replaced by an @-command, so we are in
+        # the case of $added_length = 1 and
+        # $source_mark->{'position'} == $end_position
+        if ($source_mark->{'position'}
+            and $source_mark->{'position'} - $begin_position > 1) {
+          warn "BUG? after command $source_mark->{'position'} way past $begin_position\n";
+        }
+        delete $source_mark->{'position'};
       }
       $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
       push @{$e->{'source_marks'}}, $source_mark;
@@ -2113,12 +2126,15 @@ sub _protect_text($$)
     }
     while ($remaining_text) {
       if ($remaining_text =~ s/^(.*?)(($to_protect)+)//) {
-        if ($1 ne '') {
-          my $e = {'text' => $1, 'parent' => $current->{'parent'}};
-          $e->{'type'} = $current->{'type'} if defined($current->{'type'});
-          $current_position = Texinfo::Common::relocate_source_marks(
-                                          $remaining_source_marks, $e,
-                                          $current_position, length($1));
+        # Note that it includes for completeness the case of $1 eq ''
+        # although it is unclear that source marks may happen in that case
+        # as they are rather associated to the previous element.
+        my $e = {'text' => $1, 'parent' => $current->{'parent'}};
+        $e->{'type'} = $current->{'type'} if defined($current->{'type'});
+        $current_position = Texinfo::Common::relocate_source_marks(
+                                        $remaining_source_marks, $e,
+                                        $current_position, length($1));
+        if ($e->{'text'} ne '' or $e->{'source_marks'}) {
           push @result, $e;
         }
         if ($to_protect eq quotemeta(',')) {

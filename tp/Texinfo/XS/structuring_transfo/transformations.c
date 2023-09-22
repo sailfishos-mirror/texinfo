@@ -1234,23 +1234,33 @@ protect_text (ELEMENT *current, char *to_protect)
         {
           size_t u8_len = 0;
           int leading_nr = strcspn (p, to_protect);
+          ELEMENT *text_elt = new_element (current->type);
+          text_elt->parent = current->parent;
           if (leading_nr)
             {
-              ELEMENT *text_elt = new_element (current->type);
-              text_elt->parent = current->parent;
               text_append_n (&text_elt->text, p, leading_nr);
-              add_to_contents_as_array (container, text_elt);
               p += leading_nr;
-              if (u8_text)
-              {
-                u8_len = u8_mbsnlen (u8_p, leading_nr);
-                u8_p += u8_len;
-              }
-              current_position
-                = relocate_source_marks (&(current->source_mark_list),
-                                         text_elt,
-                                         current_position, u8_len);
             }
+          /*
+          Note that it includes for completeness the case of leading_nr == 0
+          although it is unclear that source marks may happen in that case
+          as they are rather associated to the previous element.
+           */
+          if (u8_text)
+            {
+              u8_len = u8_mbsnlen (u8_p, leading_nr);
+              u8_p += u8_len;
+            }
+          current_position
+            = relocate_source_marks (&(current->source_mark_list),
+                                     text_elt,
+                                     current_position, u8_len);
+
+          if (leading_nr || text_elt->source_mark_list.number)
+            add_to_contents_as_array (container, text_elt);
+          else
+            destroy_element (text_elt);
+
           if (*p)
             {
               int to_protect_nr = strspn (p, to_protect);

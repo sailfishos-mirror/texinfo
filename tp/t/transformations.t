@@ -22,6 +22,15 @@ some text .,
 
 There is @vvv{},@value{punct}. and after.
 ', {'TREE_TRANSFORMATIONS' => 'protect_node_after_label'}],
+['protect_comma_source_mark',
+'@macro vvv {}
+some text ,,
+@end macro
+
+@set punct ,,
+
+There is @vvv{},@value{punct}, and after.
+', {'TREE_TRANSFORMATIONS' => 'protect_comma'}],
 );
 
 my @tests_converted = (
