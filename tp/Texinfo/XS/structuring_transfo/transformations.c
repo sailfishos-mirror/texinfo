@@ -85,7 +85,6 @@ new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
   return new_command;
 }
 
-/* FIXME move source marks */
 void
 protect_first_parenthesis (ELEMENT *element)
 {
@@ -105,8 +104,31 @@ protect_first_parenthesis (ELEMENT *element)
       p = content->text.text;
       if (*p == '(')
         {
-          ELEMENT *new_command;
+          ELEMENT *new_command
+           = new_asis_command_with_text ("(", content->parent, content->type);
           ELEMENT *removed = 0;
+          /* count UTF-8 encoded Unicode characters for source marks locations */
+          size_t current_position = 0;
+          uint8_t *u8_text = 0;
+          uint8_t *u8_p;
+          size_t u8_len = 0;
+
+          if (content->source_mark_list.number)
+            u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                             iconveh_question_mark);
+
+          u8_p = u8_text;
+
+          if (u8_text)
+            {
+              u8_len = u8_mbsnlen (u8_p, 1);
+              u8_p += u8_len;
+            }
+          current_position
+            = relocate_source_marks (&(content->source_mark_list),
+                              new_command->args.list[0]->contents.list[0],
+                                     current_position, u8_len);
+
           if (!*(p+1))
             /* should be the same as content */
             removed = remove_from_contents (element, 0);
@@ -114,13 +136,25 @@ protect_first_parenthesis (ELEMENT *element)
             {
               /* remove leading open brace */
               char *new_text = strdup (p+1);
+              SOURCE_MARK_LIST source_mark_list = content->source_mark_list;
+              memset (&(content->source_mark_list), 0,
+                      sizeof (SOURCE_MARK_LIST));
+
               text_reset (&content->text);
               text_append (&content->text, new_text);
               free (new_text);
+
+              if (u8_text)
+                {
+                  u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
+                  u8_p += u8_len;
+                }
+              current_position
+                = relocate_source_marks (&source_mark_list,
+                   content, current_position, u8_len);
             }
-          new_command
-           = new_asis_command_with_text ("(", content->parent, content->type);
           insert_into_contents (element, new_command, 0);
+          free (u8_text);
           /* could destroy children too, but it should only be text, no
              children */
           if (removed)

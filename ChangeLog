@@ -2,6 +2,17 @@
 
 	* tp/Texinfo/Common.pm (protect_first_parenthesis),
 	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis): relocate source marks.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(protect_first_parenthesis_after_parenthesis_source_mark): new test
+	with protect_first_parenthesis and source marks to be relocated
+	before and after parenthesis.
+
+2023-09-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (protect_first_parenthesis),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
 	(protect_first_parenthesis): allow an empty text string before
 	protected parenthesis, for instance for source mark.
 

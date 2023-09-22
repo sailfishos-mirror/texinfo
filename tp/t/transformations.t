@@ -38,7 +38,16 @@ There is @vvv{},@value{punct}, and after.
 
 @anchor{@vvv{}}.
 ', {'TREE_TRANSFORMATIONS' => 'protect_first_parenthesis'}],
+['protect_first_parenthesis_after_parenthesis_source_mark',
+'@macro vvv {}
+(
+@end macro
+
+@anchor{@vvv{}my_f)}.
+', {'TREE_TRANSFORMATIONS' => 'protect_first_parenthesis'}],
+
 );
+
 
 my @tests_converted = (
 ['master_menu_fr',

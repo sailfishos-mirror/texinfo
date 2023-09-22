@@ -2235,20 +2235,34 @@ sub protect_first_parenthesis($)
   #print STDERR "protect_first_parenthesis: $element->{'contents'}\n";
   return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
 
+  my $current_position = 0;
   foreach my $content (@{$element->{'contents'}}) {
     return if (!defined($content->{'text'}));
     if ($content->{'text'} eq '') {
       next;
     }
     if ($content->{'text'} =~ /^\(/) {
+      my $remaining_source_marks;
+      my $current_position = 0;
+      if ($content->{'source_marks'}) {
+        $remaining_source_marks = [@{$content->{'source_marks'}}];
+        delete $content->{'source_marks'};
+      }
+      my $new_asis = _new_asis_command_with_text('(', $content->{'parent'},
+                                                 $content->{'type'});
+      my $e = $new_asis->{'args'}->[0]->{'contents'}->[0];
+      $current_position = Texinfo::Common::relocate_source_marks(
+                                       $remaining_source_marks, $e,
+                                       $current_position, length('('));
       if ($content->{'text'} !~ /^\($/) {
         $content->{'text'} =~ s/^\(//;
+        $current_position = Texinfo::Common::relocate_source_marks(
+                                      $remaining_source_marks, $content,
+                                $current_position, length($content->{'text'}));
       } else {
         shift @{$element->{'contents'}};
       }
-      unshift @{$element->{'contents'}},
-        _new_asis_command_with_text('(', $content->{'parent'},
-                                         $content->{'type'});
+      unshift @{$element->{'contents'}}, $new_asis;
     }
     return;
   }

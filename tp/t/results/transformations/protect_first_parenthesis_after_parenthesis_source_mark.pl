@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'protect_first_parenthesis_source_mark'} = {
+$result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
   'contents' => [
     {
       'contents' => [
@@ -19,7 +19,7 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'text' => '(some text) aa,,
+              'text' => '(
 ',
               'type' => 'raw'
             },
@@ -80,6 +80,14 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
                     {
                       'contents' => [
                         {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'position' => 1,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
                           'text' => '('
                         }
                       ],
@@ -110,15 +118,7 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
                   'text' => ''
                 },
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 15,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'some text) aa,,'
+                  'text' => 'my_f)'
                 }
               ],
               'type' => 'brace_command_arg'
@@ -127,7 +127,7 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
           'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
-            'normalized' => '_0028some-text_0029-aa_002c_002c'
+            'normalized' => '_0028my_005ff_0029'
           },
           'source_info' => {
             'file_name' => '',
@@ -151,22 +151,22 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'protect_first_parenthesis_source_mark'} = '@macro vvv {}
-(some text) aa,,
+$result_texis{'protect_first_parenthesis_after_parenthesis_source_mark'} = '@macro vvv {}
+(
 @end macro
 
-@anchor{@asis{(}some text) aa,,}.
+@anchor{@asis{(}my_f)}.
 ';
 
 
-$result_texts{'protect_first_parenthesis_source_mark'} = '
+$result_texts{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
 .
 ';
 
-$result_errors{'protect_first_parenthesis_source_mark'} = [];
+$result_errors{'protect_first_parenthesis_after_parenthesis_source_mark'} = [];
 
 
-$result_floats{'protect_first_parenthesis_source_mark'} = {};
+$result_floats{'protect_first_parenthesis_after_parenthesis_source_mark'} = {};
 
 
 1;
