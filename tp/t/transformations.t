@@ -31,6 +31,13 @@ some text ,,
 
 There is @vvv{},@value{punct}, and after.
 ', {'TREE_TRANSFORMATIONS' => 'protect_comma'}],
+['protect_first_parenthesis_source_mark',
+'@macro vvv {}
+(some text) aa,,
+@end macro
+
+@anchor{@vvv{}}.
+', {'TREE_TRANSFORMATIONS' => 'protect_first_parenthesis'}],
 );
 
 my @tests_converted = (

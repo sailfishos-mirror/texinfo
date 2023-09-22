@@ -91,34 +91,42 @@ protect_first_parenthesis (ELEMENT *element)
 {
   ELEMENT *content;
   char *p;
+  int i;
+
   if (element->contents.number <= 0)
     return;
-  content = element->contents.list[0];
-  if (content->text.end == 0)
-    return;
-  p = content->text.text;
-  if (*p == '(')
+  for (i = 0; i < element->contents.number; i++)
     {
-      ELEMENT *new_command;
-      ELEMENT *removed = 0;
-      if (!*(p+1))
-        /* should be the same as content */
-        removed = remove_from_contents (element, 0);
-      else
+      content = element->contents.list[i];
+      if (content->text.space == 0)
+        return;
+      if (content->text.end == 0)
+        continue;
+      p = content->text.text;
+      if (*p == '(')
         {
-          /* remove leading open brace */
-          char *new_text = strdup (p+1);
-          text_reset (&content->text);
-          text_append (&content->text, new_text);
-          free (new_text);
+          ELEMENT *new_command;
+          ELEMENT *removed = 0;
+          if (!*(p+1))
+            /* should be the same as content */
+            removed = remove_from_contents (element, 0);
+          else
+            {
+              /* remove leading open brace */
+              char *new_text = strdup (p+1);
+              text_reset (&content->text);
+              text_append (&content->text, new_text);
+              free (new_text);
+            }
+          new_command
+           = new_asis_command_with_text ("(", content->parent, content->type);
+          insert_into_contents (element, new_command, 0);
+          /* could destroy children too, but it should only be text, no
+             children */
+          if (removed)
+            destroy_element (removed);
         }
-      new_command
-       = new_asis_command_with_text ("(", content->parent, content->type);
-      insert_into_contents (element, new_command, 0);
-      /* could destroy children too, but it should only be text, no
-         children */
-      if (removed)
-        destroy_element (removed);
+      return;
     }
 }
 

@@ -1,5 +1,16 @@
 2023-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (protect_first_parenthesis),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis): allow an empty text string before
+	protected parenthesis, for instance for source mark.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(protect_first_parenthesis_source_mark): test of
+	protect_first_parenthesis with source marks.
+
+2023-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/def.c (split_def_args),
 	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal): set
 	text of element source mark is relocated to before relocating the

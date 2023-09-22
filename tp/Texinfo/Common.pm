@@ -1,20 +1,20 @@
 # Common.pm: definition of commands. Common code of other Texinfo modules.
 #
 # Copyright 2010-2023 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
@@ -1167,7 +1167,7 @@ sub locate_include_file($$)
     foreach my $include_dir (@include_directories) {
       my ($include_volume, $include_dir_path, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
-      
+
       my $possible_file = File::Spec->catpath($include_volume,
         File::Spec->catdir(File::Spec->splitdir($include_dir_path),
                            @directories), $filename);
@@ -2232,19 +2232,25 @@ sub protect_first_parenthesis($)
     if (!defined($element));
   confess("BUG: protect_first_parenthesis not a hash")
     if (ref($element) ne 'HASH');
-  #print STDERR "protect_first_parenthesis: $contents\n";
+  #print STDERR "protect_first_parenthesis: $element->{'contents'}\n";
   return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
-  my $content = $element->{'contents'}->[0];
-  return if (!defined($content->{'text'}));
-  if ($content->{'text'} =~ /^\(/) {
-    if ($content->{'text'} !~ /^\($/) {
-      $content->{'text'} =~ s/^\(//;
-    } else {
-      shift @{$element->{'contents'}};
+
+  foreach my $content (@{$element->{'contents'}}) {
+    return if (!defined($content->{'text'}));
+    if ($content->{'text'} eq '') {
+      next;
     }
-    unshift @{$element->{'contents'}},
-      _new_asis_command_with_text('(', $content->{'parent'},
-                                       $content->{'type'});
+    if ($content->{'text'} =~ /^\(/) {
+      if ($content->{'text'} !~ /^\($/) {
+        $content->{'text'} =~ s/^\(//;
+      } else {
+        shift @{$element->{'contents'}};
+      }
+      unshift @{$element->{'contents'}},
+        _new_asis_command_with_text('(', $content->{'parent'},
+                                         $content->{'type'});
+    }
+    return;
   }
 }
 
