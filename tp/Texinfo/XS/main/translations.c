@@ -592,16 +592,20 @@ gdt_tree (char * string, DOCUMENT *document, OPTIONS *options,
 
   tree = tree_and_strings->tree;
 
-  /* this is very unlikely, as small strings correspond to file names and
-     macro names, while we are parsing a simple string */
-  if (tree_and_strings->small_strings
-      && tree_and_strings->small_strings->number)
+  if (tree_and_strings->small_strings)
     {
-      if (document)
-        merge_strings (document->small_strings,
-                       tree_and_strings->small_strings);
-      else
-        fatal ("gdt_tree no document but small_strings");
+      /* this is very unlikely, as small strings correspond to file names and
+         macro names, while we are parsing a simple string */
+      if (tree_and_strings->small_strings->number)
+        {
+          if (document)
+            merge_strings (document->small_strings,
+                           tree_and_strings->small_strings);
+          else
+            fatal ("gdt_tree no document but small_strings");
+        }
+      free (tree_and_strings->small_strings->list);
+      free (tree_and_strings->small_strings);
     }
   free (tree_and_strings);
 
