@@ -45,6 +45,10 @@ There is @vvv{},@value{punct}, and after.
 
 @anchor{@vvv{}my_f)}.
 ', {'TREE_TRANSFORMATIONS' => 'protect_first_parenthesis'}],
+['protect_hashchar_at_line_beginning_source_mark',
+undef,
+  {'test_file' => 'cpp_directives_line_value_macro.texi',
+   'TREE_TRANSFORMATIONS' => 'protect_hashchar_at_line_beginning'}],
 ['regenerate_master_menu_no_need_for_master_menu',
 '@node Top
 @top top

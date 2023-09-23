@@ -212,6 +212,7 @@ test_files = \
  t/input_files/contents_in_middle_section.texi \
  t/input_files/cpp_directives_after_macros.texi \
  t/input_files/cpp_directives_in_macro.texi \
+ t/input_files/cpp_directives_line_value_macro.texi \
  t/input_files/cpp_line_before_first_node.texi \
  t/input_files/cpp_lines.texi \
  t/input_files/cpp_line_latin1.texi \

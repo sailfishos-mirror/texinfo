@@ -1569,6 +1569,10 @@ X\arg\X
 ['cpp_directives_after_macros',
   undef, {'test_file' => 'cpp_directives_after_macros.texi',},
 ],
+# similar test with hash within line macro or expanded as @value
+['cpp_directives_line_value_macro',
+  undef, {'test_file' => 'cpp_directives_line_value_macro.texi',},
+],
 ['bib_example',
   undef, {'test_file' => 'bib-example.texi',},
 ],

@@ -1,5 +1,17 @@
 2023-09-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files),
+	tp/t/input_files/cpp_directives_line_value_macro.texi,
+	tp/Makefile.tres, tp/t/60macro.t (cpp_directives_line_value_macro),
+	tp/t/transformations.t
+	(protect_hashchar_at_line_beginning_source_mark): add a file with
+	macro expansions and value expansion in line directives.  Use it as a
+	regular test file and for the test of
+	protect_hashchar_at_line_beginning transformation together with source
+	marks.
+
+2023-09-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c (new_master_menu):
 	destroy master_menu_title temporary container.  Destroy master_menu if
 	empty.
