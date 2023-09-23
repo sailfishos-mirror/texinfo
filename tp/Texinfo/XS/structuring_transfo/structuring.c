@@ -2045,10 +2045,14 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
 
       insert_slice_into_contents (first_preformatted, 0, master_menu_title, 0,
                                   master_menu_title->contents.number);
+      destroy_element (master_menu_title);
 
       new_block_command (master_menu, CM_detailmenu);
       return master_menu;
     }
   else
-    return 0;
+    {
+      destroy_element (master_menu);
+      return 0;
+    }
 }

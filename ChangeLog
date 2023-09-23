@@ -1,3 +1,22 @@
+2023-09-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (new_master_menu):
+	destroy master_menu_title temporary container.  Destroy master_menu if
+	empty.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis): free source_mark_list.list after all the
+	source marks have been relocated.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(regenerate_master_menu): return if there is no need for a master
+	menu.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(regenerate_master_menu_no_need_for_master_menu): test for a case of
+	master menu not needed, with only chapter-level with
+	TREE_TRANSFORMATIONS regenerate_master_menu.
+
 2023-09-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c

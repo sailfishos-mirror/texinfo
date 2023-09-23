@@ -45,7 +45,20 @@ There is @vvv{},@value{punct}, and after.
 
 @anchor{@vvv{}my_f)}.
 ', {'TREE_TRANSFORMATIONS' => 'protect_first_parenthesis'}],
+['regenerate_master_menu_no_need_for_master_menu',
+'@node Top
+@top top
 
+@menu
+* chap::
+@end menu
+
+@node chap
+@chapter Chapter
+',{'TREE_TRANSFORMATIONS' => 'regenerate_master_menu',
+   'FORMAT_MENU' => 'menu'},
+  {'FORMAT_MENU' => 'menu'},
+],
 );
 
 

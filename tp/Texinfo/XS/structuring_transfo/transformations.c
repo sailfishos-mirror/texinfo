@@ -144,6 +144,7 @@ protect_first_parenthesis (ELEMENT *element)
               text_append (&content->text, new_text);
               free (new_text);
 
+              /* relocate all the remaining source marks */
               if (u8_text)
                 {
                   u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
@@ -152,6 +153,7 @@ protect_first_parenthesis (ELEMENT *element)
               current_position
                 = relocate_source_marks (&source_mark_list,
                    content, current_position, u8_len);
+              free (source_mark_list.list);
             }
           insert_into_contents (element, new_command, i);
           free (u8_text);
@@ -1187,6 +1189,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   master_menu = new_master_menu (document->options, identifiers_target,
                                  menus, use_sections);
+
+  /* no need for a master menu */
+  if (!master_menu)
+    return 0;
 
   for (i = 0; i < menus->contents.number; i++)
     {
