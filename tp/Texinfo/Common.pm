@@ -2124,7 +2124,7 @@ sub _protect_text($$)
     my $current_position = 0;
     if ($current->{'source_marks'}) {
       $remaining_source_marks = [@{$current->{'source_marks'}}];
-      $current->{'source_marks'} = undef;
+      delete $current->{'source_marks'};
     }
     while ($remaining_text) {
       if ($remaining_text =~ s/^(.*?)(($to_protect)+)//) {

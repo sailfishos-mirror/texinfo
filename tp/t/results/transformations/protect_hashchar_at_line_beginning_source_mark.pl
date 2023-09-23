@@ -119,7 +119,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'position' => 15,
+                  'position' => 14,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
@@ -224,17 +224,16 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'brace_command_arg'
                 }
               ],
-              'cmdname' => 'hashchar'
-            },
-            {
+              'cmdname' => 'hashchar',
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
-              ],
+              ]
+            },
+            {
               'text' => ' 130
 '
             }
@@ -342,13 +341,13 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 2,
+                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 3,
-                  'position' => 17,
+                  'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
@@ -411,17 +410,16 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'brace_command_arg'
                 }
               ],
-              'cmdname' => 'hashchar'
-            },
-            {
+              'cmdname' => 'hashchar',
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
-              ],
+              ]
+            },
+            {
               'text' => 'line 71 "example.c"
 '
             }

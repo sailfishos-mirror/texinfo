@@ -836,7 +836,6 @@ sub set_menus_to_simple_menu($)
   }
 }
 
-# FIXME move source marks
 sub _protect_hashchar_at_line_beginning($$$)
 {
   my $type = shift;
@@ -876,12 +875,34 @@ sub _protect_hashchar_at_line_beginning($$$)
             return undef;
           } else {
             my @result = ();
-            $current->{'text'} =~ s/^(\s*)#//;
-            if ($1 ne '') {
-              push @result, {'text' => $1, 'parent' => $parent};
+            my $remaining_source_marks;
+            my $current_position = 0;
+            if ($current->{'source_marks'}) {
+              $remaining_source_marks = [@{$current->{'source_marks'}}];
+              delete $current->{'source_marks'};
             }
-            push @result, {'cmdname' => 'hashchar', 'parent' => $parent,
-                           'args' => [{'type' => 'brace_command_arg'}]};
+
+            $current->{'text'} =~ s/^(\s*)#//;
+
+            my $e = {'text' => $1, 'parent' => $parent};
+            $current_position = Texinfo::Common::relocate_source_marks(
+                                        $remaining_source_marks, $e,
+                                        $current_position, length($1));
+            if ($e->{'text'} ne '' or $e->{'source_marks'}) {
+              push @result, $e;
+            }
+
+            $e = {'cmdname' => 'hashchar', 'parent' => $parent,
+                  'args' => [{'type' => 'brace_command_arg'}]};
+            $current_position = Texinfo::Common::relocate_source_marks(
+                                          $remaining_source_marks, $e,
+                                          $current_position, 1);
+            push @result, $e;
+
+            $current_position = Texinfo::Common::relocate_source_marks(
+                                          $remaining_source_marks, $current,
+                                          $current_position,
+                                          length($current->{'text'}));
             push @result, $current;
             return \@result;
           }

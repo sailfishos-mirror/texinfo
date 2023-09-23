@@ -110,14 +110,15 @@ protect_first_parenthesis (ELEMENT *element)
           /* count UTF-8 encoded Unicode characters for source marks locations */
           size_t current_position = 0;
           uint8_t *u8_text = 0;
-          uint8_t *u8_p;
+          uint8_t *u8_p = 0;
           size_t u8_len = 0;
 
           if (content->source_mark_list.number)
-            u8_text = u8_strconv_from_encoding (p, "UTF-8",
-                                             iconveh_question_mark);
-
-          u8_p = u8_text;
+            {
+              u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                               iconveh_question_mark);
+              u8_p = u8_text;
+            }
 
           if (u8_text)
             {
@@ -1271,12 +1272,14 @@ protect_text (ELEMENT *current, char *to_protect)
       /* count UTF-8 encoded Unicode characters for source marks locations */
       size_t current_position = 0;
       uint8_t *u8_text = 0;
-      uint8_t *u8_p;
+      uint8_t *u8_p = 0;
 
       if (current->source_mark_list.number)
-        u8_text = u8_strconv_from_encoding (p, "UTF-8",
+        {
+          u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                             iconveh_question_mark);
-      u8_p = u8_text;
+          u8_p = u8_text;
+        }
 
       while (*p)
         {
@@ -1403,7 +1406,6 @@ protect_node_after_label_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_node_after_label, 0);
 }
 
-/* FIXME move source marks */
 /* $customization_information in argument in perl */
 ELEMENT *
 protect_hashchar_at_line_beginning_internal (const char *type,
@@ -1477,34 +1479,90 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
                           int leading_spaces_nr;
-                          ELEMENT *leading_spaces;
+                          ELEMENT *leading_spaces = new_element (ET_NONE);
                           ELEMENT *hashchar = new_element (ET_NONE);
                           ELEMENT *arg = new_element (ET_brace_command_arg);
+                          /* count UTF-8 encoded Unicode characters for
+                             source marks locations */
+                          size_t current_position = 0;
+                          uint8_t *u8_text = 0;
+                          uint8_t *u8_p = 0;
+                          size_t u8_len = 0;
+                          SOURCE_MARK_LIST source_mark_list
+                             = current->source_mark_list;
+                          memset (&(current->source_mark_list), 0,
+                                  sizeof (SOURCE_MARK_LIST));
+
+                          if (source_mark_list.number)
+                            {
+                              u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                              iconveh_question_mark);
+                              u8_p = u8_text;
+                            }
 
                           /* NOTE not exactly the perl code, but use similar
                              code as line directive parsing so should be ok */
 
+                          leading_spaces->parent = parent;
                           leading_spaces_nr = strspn (p, " \t");
                           if (leading_spaces_nr)
                             {
-                              leading_spaces = new_element (ET_NONE);
-                              leading_spaces->parent = parent;
                               p += leading_spaces_nr;
                               *p = '\0'; /* as a side note, it replaces the # */
                               text_append (&leading_spaces->text, current_text);
-                              add_to_contents_as_array (container,
-                                                        leading_spaces);
                             }
+
+                          if (u8_text)
+                            {
+                              u8_len = u8_mbsnlen (u8_p, leading_spaces_nr);
+                              u8_p += u8_len;
+                            }
+                          current_position
+                            = relocate_source_marks (&source_mark_list,
+                                                     leading_spaces,
+                                                     current_position, u8_len);
+
+                          if (leading_spaces_nr
+                              || leading_spaces->source_mark_list.number)
+                            add_to_contents_as_array (container,
+                                                      leading_spaces);
+                          else
+                            destroy_element (leading_spaces);
+
                           /* advance past # */
                           p++;
-                          text_reset (&current->text);
-                          text_append (&current->text, p);
-                          free (current_text);
 
                           hashchar->cmd = CM_hashchar;
                           hashchar->parent = parent;
                           add_to_element_args (hashchar, arg);
                           add_to_contents_as_array (container, hashchar);
+
+                          if (u8_text)
+                            {
+                              u8_len = u8_mbsnlen (u8_p, 1);
+                              u8_p += u8_len;
+                            }
+                          current_position
+                            = relocate_source_marks (&source_mark_list,
+                                                     hashchar,
+                                                     current_position, u8_len);
+
+                          text_reset (&current->text);
+                          text_append (&current->text, p);
+                          free (current_text);
+
+                          /* relocate all the remaining source marks */
+                          if (u8_text)
+                            {
+                              u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
+                              u8_p += u8_len;
+                            }
+                          current_position
+                            = relocate_source_marks (&source_mark_list,
+                                      current, current_position, u8_len);
+                          free (source_mark_list.list);
+                          free (u8_text);
+
                           add_to_contents_as_array (container, current);
                           return container;
                         }
