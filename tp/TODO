@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Change rebuild_document to take a document descriptor, such that
-it can be called on a tree or on a document.
-
 Bugs
 ====
 
