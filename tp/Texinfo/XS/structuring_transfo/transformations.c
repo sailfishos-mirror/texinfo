@@ -806,7 +806,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 }
 
 /* in perl registrar and configuration, but they are not useful,
-   see coment before new_node */
+   see comment before new_node */
 ELEMENT *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {

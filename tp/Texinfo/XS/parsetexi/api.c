@@ -28,12 +28,16 @@
 #include "parser.h"
 /* for set_debug_output */
 #include "debug.h"
+/* reset_obstacks */
 #include "tree.h"
-#include "extra.h"
+/* wipe_index_names */
+#include "utils.h"
 /* for parser_add_include_directory, set_input_file_name_encoding ... */
 #include "input.h"
 #include "source_marks.h"
+/* wipe_identifiers_target */
 #include "labels.h"
+/* forget_indices init_index_commands */
 #include "indices.h"
 #include "errors.h"
 #include "document.h"
@@ -102,7 +106,7 @@ reset_parser_except_conf (void)
      wipe_index_names and forget_indices before init_index_commands.
   */
   wipe_index_names (index_names);
-  forget_indices (),
+  forget_indices ();
   init_index_commands ();
   wipe_identifiers_target ();
   reset_context_stack ();
@@ -245,117 +249,6 @@ parse_piece (char *string, int line_nr)
 
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi (document_root, before_node_section);
-  return document_descriptor;
-}
-
-/* FIXME here or in parser.c?  Not really in the API anymore as it is now
-   mandatory */
-int
-store_document (ELEMENT *root)
-{
-  int document_descriptor;
-  int i;
-  LABEL_LIST *labels;
-  FLOAT_RECORD_LIST *floats;
-  ELEMENT_LIST *internal_references;
-  STRING_LIST *small_strings_list;
-  ERROR_MESSAGE_LIST *error_messages;
-  GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
-  GLOBAL_COMMANDS *doc_global_commands = malloc (sizeof (GLOBAL_COMMANDS));
-
-  labels = malloc (sizeof (LABEL_LIST));
-
-  /* this is actually used to deallocate above labels_number */
-  labels_list = realloc (labels_list,
-                         labels_number * sizeof (LABEL));
-
-  labels->list = labels_list;
-  labels->number = labels_number;
-  labels->space = labels_number;
-
-  floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  float_records.float_types = realloc (float_records.float_types,
-                    float_records.number * sizeof (FLOAT_RECORD));
-
-  floats->float_types = float_records.float_types;
-  floats->number = float_records.number;
-  floats->space = float_records.number;
-
-  internal_references = malloc (sizeof (ELEMENT_LIST));
-
-  internal_xref_list = realloc (internal_xref_list,
-                                internal_xref_number * sizeof (ELEMENT));
-
-  internal_references->list = internal_xref_list;
-  internal_references->number = internal_xref_number;
-  internal_references->space = internal_xref_number;
-
-  memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
-  if (global_info.input_encoding_name)
-    doc_global_info->input_encoding_name
-      = strdup (global_info.input_encoding_name);
-  if (global_info.input_file_name)
-    doc_global_info->input_file_name
-      = strdup (global_info.input_file_name);
-  if (global_info.input_directory)
-    doc_global_info->input_directory
-      = strdup (global_info.input_directory);
-  #define COPY_GLOBAL_ARRAY(type,cmd) \
-   doc_global_##type->cmd.contents.list = 0;                          \
-   doc_global_##type->cmd.contents.number = 0;                         \
-   doc_global_##type->cmd.contents.space = 0;        \
-   if (global_##type.cmd.contents.number > 0)                              \
-    {                                                                   \
-      for (i = 0; i < global_##type.cmd.contents.number; i++)             \
-        {                                                               \
-          ELEMENT *e = contents_child_by_index (&global_##type.cmd, i);            \
-          add_to_contents_as_array (&doc_global_##type->cmd, e);           \
-        }                                                               \
-    }
-  COPY_GLOBAL_ARRAY(info,dircategory_direntry);
-
-  memcpy (doc_global_commands, &global_commands, sizeof (GLOBAL_COMMANDS));
-
-  #define GLOBAL_CASE(cmd) \
-   COPY_GLOBAL_ARRAY(commands,cmd)
-
-  GLOBAL_CASE(footnotes);
-  GLOBAL_CASE(floats);
-
-#include "global_multi_commands_case.c"
-
-  #undef GLOBAL_CASE
-  #undef COPY_GLOBAL_ARRAY
-
-  small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
-  small_strings_list = malloc (sizeof (STRING_LIST));
-  small_strings_list->list = small_strings;
-  small_strings_list->number = small_strings_num;
-  small_strings_list->space = small_strings_num;
-
-  error_messages_list.list = realloc (error_messages_list.list,
-                        error_messages_list.number * sizeof (ERROR_MESSAGE));
-  error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
-  error_messages->list = error_messages_list.list;
-  error_messages->number = error_messages_list.number;
-  error_messages->space = error_messages_list.number;
-
-  document_descriptor
-   = register_document (root, index_names, floats, internal_references,
-                        labels, identifiers_target, doc_global_info,
-                        doc_global_commands,
-                        small_strings_list, error_messages);
-  forget_indices ();
-  forget_labels ();
-
-  memset (&float_records, 0, sizeof (FLOAT_RECORD_LIST));
-
-  forget_internal_xrefs ();
-  forget_small_strings ();
-  forget_errors ();
-
-  identifiers_target = 0;
-
   return document_descriptor;
 }
 

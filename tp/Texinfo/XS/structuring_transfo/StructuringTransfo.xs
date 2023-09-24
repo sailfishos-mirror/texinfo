@@ -382,7 +382,7 @@ regenerate_master_menu (document_in, use_sections_in)
 
 # The perl function returns the list of added nodes.  It is better
 # to reserve the return value for a return status, if it becomes needed.
-# FIXME the return value is used in pod2texi
+# FIXME the added nodes return value is used in pod2texi
 void
 insert_nodes_for_sectioning_commands (document_in)
         SV *document_in

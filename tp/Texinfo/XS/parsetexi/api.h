@@ -23,7 +23,4 @@ void parser_set_input_file_name_encoding (char *value);
 void parser_set_locale_encoding (char *value);
 void parser_set_documentlanguage_override (char *value);
 
-int store_document (ELEMENT *root);
-
-
 #endif
