@@ -29,7 +29,7 @@
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
-/* for get_label_element and section_level */
+/* for get_label_element section_level enumerate_item_representation */
 #include "utils.h"
 /* for copy_tree copy_contents and parse_node_manual */
 #include "manipulate_tree.h"
@@ -319,10 +319,13 @@ sectioning_structure (DOCUMENT *document)
                              command_numbers[number_top_level]);
               else
                 {
-                  /* FIXME do better than that, see in perl
-                     enumerate_item_representation */
+                  /* Simpler implementation, but incorrect after Z
                   char appendix_nr = 'A' -1 +command_numbers[number_top_level];
                   text_append_n (&section_number, &appendix_nr, 1);
+                   */
+                  char *appendix_nr = enumerate_item_representation ("A",
+                                            command_numbers[number_top_level]);
+                  text_append_n (&section_number, appendix_nr, 1);
                 }
               for (i = number_top_level+1; i <= level; i++)
                 {
