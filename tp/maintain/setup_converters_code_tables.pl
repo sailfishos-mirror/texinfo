@@ -28,17 +28,26 @@ use File::Basename;
 
 BEGIN
 {
+  # NOTE we do not use Texinfo::ModulePath as it may not have been
+  # created yet, as tp/Texinfo/XS may be processed before tp.
+  # Also we have less modules to find, only pure perl code.
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
-  if (defined($ENV{'top_builddir'})) {
-    unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+  # tp director
+  my $tp_srcdir;
+  if (defined($ENV{'srcdir'})) {
+    # srcdir is tp/Texinfo/XS
+    $tp_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir, $updir);
   } else {
-    my $modulepath_dir = File::Spec->catdir($command_directory, $updir);
-    unshift @INC, File::Spec->catdir($modulepath_dir);
+    $tp_srcdir = File::Spec->catdir($command_directory, $updir);
   }
-  require Texinfo::ModulePath;
-  Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 2);
+  unshift @INC, $tp_srcdir;
+  my $lib_dir = File::Spec->catdir($tp_srcdir, 'maintain');
+  # we ignore --with-external-*
+  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'libintl-perl', 'lib'));
+  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
+  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
 use Texinfo::Common;

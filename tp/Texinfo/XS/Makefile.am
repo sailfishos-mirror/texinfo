@@ -174,6 +174,7 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
 		      parsetexi/source_marks.h
+EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
@@ -218,12 +219,14 @@ $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_type
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
 	     $(srcdir)/main/element_types.txt
 
+TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
+
 $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: ../command_data.txt main/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
 
 $(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
-	$(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
+	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \
 	      $(srcdir)/main/cmd_unicode.c \
@@ -232,7 +235,7 @@ $(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
 	      $(srcdir)/main/cmd_text.c
 
 $(srcdir)/main/accent_tables_8bit_codepoints.c:
-	$(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
+	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 
 $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt
@@ -316,7 +319,7 @@ StructuringTransfo_la_SOURCES = structuring_transfo/StructuringTransfo.c \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 
-EXTRA_DIST += convert/StructuringTransfo.xs
+EXTRA_DIST += structuring_transfo/StructuringTransfo.xs
 
 StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
