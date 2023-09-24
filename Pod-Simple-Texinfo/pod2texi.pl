@@ -318,13 +318,12 @@ sub _parsed_manual_tree($$$$$)
       }
     }
   }
-  my ($sectioning_root, $sections_list)
-    = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
+  Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
   my $refs = $document->internal_references_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
-  Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
-                                                      $document);
+  Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                      $texi_parser);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
   return ($texi_parser, $document, $identifier_target);

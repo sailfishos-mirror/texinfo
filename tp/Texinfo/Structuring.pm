@@ -1816,9 +1816,9 @@ sub _XS_associate_internal_references($)
 # @*ref first argument or in 'menu_entry_node' extra.
 sub associate_internal_references($$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $document = shift;
 
   if (not _XS_associate_internal_references($document)
       and $XS_only) {
@@ -2676,7 +2676,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   complete_node_tree_with_menus($document, $registrar, $config);
   my $refs = $document->internal_references_information();
   check_nodes_are_referenced($document, $registrar, $config);
-  associate_internal_references($registrar, $config, $document);
+  associate_internal_references($document, $registrar, $config);
   number_floats($document->floats_information());
   my $output_units;
   if ($split_at_nodes) {
@@ -2756,7 +2756,7 @@ L<Texinfo::Document>.
 
 =over
 
-=item associate_internal_references($registrar, $customization_information, $document)
+=item associate_internal_references($document, $registrar, $customization_information)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of

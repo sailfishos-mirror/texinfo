@@ -1564,8 +1564,8 @@ while(@input_files) {
                                                $registrar, $main_configuration);
   }
 
-  Texinfo::Structuring::associate_internal_references($registrar,
-                                            $main_configuration, $document);
+  Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                      $main_configuration);
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # every format needs the sectioning structure

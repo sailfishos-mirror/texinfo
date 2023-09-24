@@ -258,7 +258,7 @@ associate_internal_references (document_in)
 
 
 # FIXME return a list of sections?  How to match elements with perl tree
-# element?
+# element?  Also the return value could not be used as return status.
 void
 sectioning_structure (tree_in)
         SV *tree_in
@@ -381,6 +381,7 @@ regenerate_master_menu (document_in, use_sections_in)
 # FIXME insert_nodes_for_sectioning_commands returns a list
 # of elements.  Building a perl structure would not give elements
 # matching with perl tree.
+# Also the return value could not be used as return status.
 void
 insert_nodes_for_sectioning_commands (document_in)
         SV *document_in
@@ -439,6 +440,7 @@ protect_comma_in_tree (tree_in)
           protect_comma_in_tree (document->tree);
 
 # FIXME return something?
+# In that case, the return value could not be used as return status.
 void
 protect_node_after_label_in_tree (tree_in)
         SV *tree_in
@@ -452,6 +454,7 @@ protect_node_after_label_in_tree (tree_in)
           protect_node_after_label_in_tree (document->tree);
 
 # FIXME return something?
+# In that case, the return value could not be used as return status.
 void
 protect_hashchar_at_line_beginning (tree_in)
         SV *tree_in

@@ -27,8 +27,8 @@ sub test($$$;$$)
   my $document = $parser->parse_texi_text($in);
   my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
-  Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                      $document);
+  Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                      $parser);
 
   Texinfo::Structuring::sectioning_structure($registrar, $parser, $tree);
   if ($complete_missing_menus) {

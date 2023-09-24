@@ -125,8 +125,8 @@ my $no_detailmenu = _get_in('');
 my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
-Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $document);
+Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                    $parser);
 if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
   $document = Texinfo::Structuring::rebuild_document($document);
 }
@@ -176,8 +176,8 @@ is ($out, $reference, 'master menu');
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
-Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $document);
+Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                    $parser);
 if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
   $document = Texinfo::Structuring::rebuild_document($document);
 }
@@ -194,8 +194,8 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
 my $tree = $document->tree();
 $registrar = $parser->registered_errors();
-Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $document);
+Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                    $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -207,8 +207,8 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
 $tree = $document->tree();
 $registrar = $parser->registered_errors();
-Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                                    $document);
+Texinfo::Structuring::associate_internal_references($document, $registrar,
+                                                    $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

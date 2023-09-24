@@ -1,5 +1,10 @@
 2023-09-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (associate_internal_references): change
+	order of arguments, put document first.
+
+2023-09-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c
 	(sectioning_structure): use enumerate_item_representation for appendix
 	number.
