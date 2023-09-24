@@ -1,5 +1,16 @@
 2023-09-24  Patrice Dumas  <pertusus@free.fr>
 
+	Separate *_CPPFLAGS and *_CFLAGS
+
+	* tp/Texinfo/XS/Makefile.am (XSLIBS_CPPFLAGS, XSLIBS_CFLAGS)
+	(*_la_CFLAGS, *_la_CPPFLAGS): separate XSLIBS_CPPFLAGS, with -I and -D
+	from XSLIBS_CFLAGS.  Do the same for *_la_CFLAGS and *_la_CPPFLAGS to
+	add XSLIBS_CFLAGS to *_la_CFLAGS and leave XSLIBS_CPPFLAGS in
+	*_la_CPPFLAGS.
+	More consistent order of *_la_* variables.
+
+2023-09-24  Patrice Dumas  <pertusus@free.fr>
+
 	Use consistent flags in XS/configure.ac and XS/Makefile.am
 
 	* tp/Texinfo/XS/configure.ac (CFLAGS, LDFLAGS): move

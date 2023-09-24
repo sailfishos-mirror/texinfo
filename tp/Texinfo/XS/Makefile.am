@@ -16,10 +16,9 @@ EXTRA_DIST=
 
 ######################## Gnulib ################################
 
-AM_CPPFLAGS =                \
-  -I$(srcdir)
+AM_CPPFLAGS = -I$(srcdir)
 
-GNULIB_CPPFLAGS = -I$(srcdir)/gnulib/lib     \
+GNULIB_CPPFLAGS = -I$(srcdir)/gnulib/lib \
   -I$(builddir)/gnulib/lib
 
 ACLOCAL_AMFLAGS = -I gnulib/m4
@@ -41,15 +40,14 @@ XSUBPPARGS = -typemap $(PERL_CONF_privlibexp)/ExtUtils/typemap
 .xs.c:
 	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $(srcdir)/$*.c
 
-EXTRA_DIST += TestXS.pm
-
 # -------------------------------------------------------
 
 CLEANFILES =
 
+XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
+XSLIBS_CPPFLAGS += -I$(PERL_INC)
+
 XSLIBS_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize) $(PERL_CONF_cccdlflags)
-XSLIBS_CFLAGS += -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
-XSLIBS_CFLAGS += -I$(PERL_INC)
 
 if HOST_NEEDS_NO_UNDEFINED
   PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
@@ -63,19 +61,13 @@ endif
 XSLIBS_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
 XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
 
-xs_LTLIBRARIES = XSParagraph.la TestXS.la
-# FIXME use main/text.*?
-XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
-			 xspara_text.c xspara_text.h ppport.h
-TestXS_la_SOURCES = TestXS.c ppport.h
-TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
-TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+EXTRA_DIST += TestXS.pm
 
-xs_LTLIBRARIES += MiscXS.la
-MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
-MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CFLAGS)
-MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+xs_LTLIBRARIES = TestXS.la
+TestXS_la_SOURCES = TestXS.c ppport.h
+TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+TestXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 # TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES, 
 # otherwise dynamic libraries aren't built (a libtool bug).  Work around 
@@ -83,12 +75,23 @@ MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 install-data-hook:
 	rm -f $(DESTDIR)$(xsdir)/TestXS*
 
-EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
+xs_LTLIBRARIES += MiscXS.la
+MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
+MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
+MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
-
-XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CFLAGS)
+xs_LTLIBRARIES += XSParagraph.la
+# FIXME use main/text.*?
+XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
+                          xspara_text.c xspara_text.h ppport.h
+XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
+XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
 
 ########################## shared common library and parser library
 
@@ -188,11 +191,10 @@ EXTRA_DIST += main/options_init_free.c
 EXTRA_DIST += main/options_get_perl.c
 EXTRA_DIST += main/options_types.h
 
+# locate include files under out-of-source builds.
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-
-# To locate include files under out-of-source builds.
-libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
 BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/cmd_normalization.c \
@@ -260,11 +262,11 @@ libtexinfoxs_la_SOURCES= \
 		      main/get_perl_info.c \
 		      main/get_perl_info.h
 
+# locate include files under out-of-source builds.
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
-
-# To locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## Parsetexi XS
 
@@ -281,11 +283,12 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs
 
+# To locate include files under out-of-source builds.
+Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
 Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
-# To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## Translations XS
 
@@ -301,11 +304,11 @@ Translations_la_SOURCES = \
 
 EXTRA_DIST += main/Translations.xs
 
+# locate include files under out-of-source builds.
+Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+Translations_la_CFLAGS = $(XSLIBS_CFLAGS)
 Translations_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
-
-# To locate include files under out-of-source builds.
-Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
 ########################## StructuringTransfo
 
@@ -321,11 +324,12 @@ StructuringTransfo_la_SOURCES = structuring_transfo/StructuringTransfo.c \
 
 EXTRA_DIST += structuring_transfo/StructuringTransfo.xs
 
+# locate include files under out-of-source builds.
+StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+StructuringTransfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-# To locate include files under out-of-source builds.
-StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CFLAGS) $(GNULIB_CPPFLAGS)
 
 ########################## ConvertXS
 
@@ -342,9 +346,10 @@ ConvertXS_la_SOURCES = \
 
 EXTRA_DIST += convert/ConvertXS.xs
 
+# To locate include files under out-of-source builds.
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
-# To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CFLAGS)
 
