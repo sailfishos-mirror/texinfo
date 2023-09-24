@@ -288,14 +288,17 @@ sub _parsed_manual_tree($$$$$)
   my $identifier_target = $document->labels_information();
 
   if ($fill_gaps_in_sectioning) {
-    my $added_sections
-      = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
     # there should already be nodes associated with other sections.  Therefore
-    # new nodes should only be created for the $added_sections.
+    # new nodes should only be created for the added sections.
     if ($section_nodes) {
+      # FIXME the following code does not work when using XS code only
+      # as $added_nodes is undef.  There are other issues, the entries
+      # deleted in identifier_target are not deleted in XS, and more generally
+      # the code is done as if everything was done with pure perl code.
       my $added_nodes
-        = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                                         $registrar, $texi_parser);
+        = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+                                           $document, $registrar, $texi_parser);
       if ($self and $self->texinfo_sectioning_base_level() > 0) {
         # prepend the manual name
         foreach my $node (@$added_nodes) {
@@ -309,6 +312,8 @@ sub _parsed_manual_tree($$$$$)
           # We could have kept the asis, too, it is kept when !section_nodes
           $node_texi =~ s/^\s*(\@asis\{\})?\s*//;
           # complete with manual name
+          # FIXME _node_name is an internal function of Pod::Simple::Texinfo
+          # used, it is wrong to use it here.
           my $complete_node_name = $self->_node_name($node_texi);
           my $completed_node_tree
             = Texinfo::Parser::parse_texi_line(undef, $complete_node_name);
