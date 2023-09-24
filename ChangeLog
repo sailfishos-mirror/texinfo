@@ -1,5 +1,12 @@
 2023-09-24  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/Makefile.am (pod2texi),
+	Pod-Simple-Texinfo/pod2texi.pl (BEGIN): modify BEGIN block of
+	pod2texi.pl to use similar code than texi2any.pl to find perl modules
+	with Texinfo::ModulePath.
+
+2023-09-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (associate_internal_references): change
 	order of arguments, put document first.
 

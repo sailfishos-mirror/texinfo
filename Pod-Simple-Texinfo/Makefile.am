@@ -28,6 +28,7 @@ dist_modules_DATA = \
 
 pod2texi: pod2texi.pl Makefile
 	sed -e 's,[@]datadir[@],$(datadir),g' \
+	-e 's,[@]pkglibdir[@],$(pkglibdir),g' \
 	-e 's,[@]PACKAGE[@],$(PACKAGE),g' \
 	-e 's,[@]USE_EXTERNAL_LIBINTL[@],$(USE_EXTERNAL_LIBINTL),g' \
 	-e 's,[@]USE_EXTERNAL_EASTASIANWIDTH[@],$(USE_EXTERNAL_EASTASIANWIDTH),g' \

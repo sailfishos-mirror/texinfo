@@ -35,49 +35,62 @@ BEGIN
   $^W = 1;
   my ($real_command_name, $command_directory, $command_suffix)
      = fileparse($0, '.pl');
+  my $updir = File::Spec->updir();
 
   my $datadir = '@datadir@';
   my $package = '@PACKAGE@';
-  my $updir = File::Spec->updir();
+  my $xsdir = '@pkglibdir@';
 
   my $texinfolibdir;
   my $lib_dir;
 
   # in-source run
-  if (($command_suffix eq '.pl' and !(defined($ENV{'TEXINFO_DEV_SOURCE'})
-       and $ENV{'TEXINFO_DEV_SOURCE'} eq 0)) or $ENV{'TEXINFO_DEV_SOURCE'}) {
-    my $srcdir = defined $ENV{'srcdir'} ? $ENV{'srcdir'} : $command_directory;
-    $texinfolibdir = File::Spec->catdir($srcdir, $updir, 'tp');
-    $lib_dir = File::Spec->catdir($texinfolibdir, 'maintain');
-    unshift @INC, (File::Spec->catdir($srcdir, 'lib'), $texinfolibdir);
-  } elsif ($datadir ne '@' .'datadir@' and $package ne '@' . 'PACKAGE@'
-           and $datadir ne '') {
-    $texinfolibdir = File::Spec->catdir($datadir, $package);
-    # try to make package relocatable, will only work if standard relative paths
-    # are used
-    if (! -f File::Spec->catfile($texinfolibdir, 'Texinfo', 'Parser.pm')
-        and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   'texinfo', 'Texinfo', 'Parser.pm')) {
-      $texinfolibdir = File::Spec->catdir($command_directory, $updir,
-                                          'share', 'texinfo');
+  if ($datadir eq '@' .'datadir@'
+      or defined($ENV{'TEXINFO_DEV_SOURCE'})
+         and $ENV{'TEXINFO_DEV_SOURCE'} ne '0') {
+    # To find Texinfo::ModulePath
+    if (defined($ENV{'top_builddir'})) {
+      unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+    } else {
+      unshift @INC, File::Spec->catdir($command_directory, $updir, 'tp');
     }
-    $lib_dir = $texinfolibdir;
-    unshift @INC, (File::Spec->catdir($texinfolibdir, 'Pod-Simple-Texinfo'),
-                   $texinfolibdir);
-  }
 
-  # '@USE_EXTERNAL_LIBINTL @ and similar are substituted in the
-  # makefile using values from configure
-  if (defined($texinfolibdir)) {
-    if ('@USE_EXTERNAL_LIBINTL@' ne 'yes') {
-      unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'libintl-perl', 'lib'));
+    require Texinfo::ModulePath;
+    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
+
+    # To find Pod::Simple::Texinfo
+    if (defined($ENV{'top_builddir'})) {
+      unshift @INC, File::Spec->catdir($ENV{'top_builddir'},
+                                       'Pod-Simple-Texinfo', 'lib');
+    } else {
+      unshift @INC, File::Spec->catdir($command_directory, 'lib');
     }
-    if ('@USE_EXTERNAL_EASTASIANWIDTH@' ne 'yes') {
-      unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
+  } else {
+    # Look for modules in their installed locations.
+    my $lib_dir = File::Spec->catdir($datadir, $package);
+    # look for package data in the installed location.
+    my $modules_pkgdatadir = $lib_dir;
+
+    # try to make package relocatable, will only work if
+    # standard relative paths are used
+    if (! -f File::Spec->catfile($lib_dir, 'Texinfo', 'Parser.pm')
+        and -f File::Spec->catfile($command_directory, $updir, 'share',
+                                   $package, 'Texinfo', 'Parser.pm')) {
+      $lib_dir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $package);
+      $modules_pkgdatadir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $package);
+      $xsdir = File::Spec->catdir($command_directory, $updir,
+                                          'lib', $package);
     }
-    if ('@USE_EXTERNAL_UNIDECODE@' ne 'yes') {
-      unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
-    }
+
+    unshift @INC, $lib_dir;
+    require Texinfo::ModulePath;
+    Texinfo::ModulePath::init($lib_dir, $xsdir, $modules_pkgdatadir,
+                              'installed' => 1);
+
+    # To find Pod::Simple::Texinfo
+    unshift @INC, File::Spec->catdir($modules_pkgdatadir, 'Pod-Simple-Texinfo');
   }
 }
 
