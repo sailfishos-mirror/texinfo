@@ -446,7 +446,7 @@ sub _reassociate_to_node($$$)
 
 sub _XS_insert_nodes_for_sectioning_commands($)
 {
- return 1;
+  return 1;
 }
 
 sub insert_nodes_for_sectioning_commands($;$$)
