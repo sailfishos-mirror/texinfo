@@ -231,8 +231,9 @@ move_index_entries_after_items_in_tree (tree_in)
         if (document)
           move_index_entries_after_items_in_tree (document->tree);
 
-# the root of a registered tree will not be modified, so it is not particularly
-# interesting to return it.
+# The perl function returns a tree, as the
+# argument could be modified.  Here, tree_in is always a container
+# that is not modified, so there is no need to return a tree.
 void
 reference_to_arg_in_tree (tree_in)
         SV *tree_in
@@ -257,8 +258,9 @@ associate_internal_references (document_in)
           associate_internal_references (document);
 
 
-# FIXME return a list of sections?  How to match elements with perl tree
-# element?  Also the return value could not be used as return status.
+# The perl function returns a list of sections, but it is only used
+# to register in the document.  It is better to reserve the return
+# value for a return status, if it becomes needed.
 void
 sectioning_structure (tree_in)
         SV *tree_in
@@ -378,10 +380,9 @@ regenerate_master_menu (document_in, use_sections_in)
         if (document)
           regenerate_master_menu (document, use_sections);
 
-# FIXME insert_nodes_for_sectioning_commands returns a list
-# of elements.  Building a perl structure would not give elements
-# matching with perl tree.
-# Also the return value could not be used as return status.
+# The perl function returns the list of added nodes.  It is better
+# to reserve the return value for a return status, if it becomes needed.
+# FIXME the return value is used in pod2texi
 void
 insert_nodes_for_sectioning_commands (document_in)
         SV *document_in
@@ -397,9 +398,9 @@ insert_nodes_for_sectioning_commands (document_in)
             destroy_element (added_nodes);
           }
 
-# FIXME Return a list of nodes?
-# Building a perl structure from nodes list would not give elements
-# matching with perl tree.
+# The perl function returns a list of nodes, but it is only used
+# to register in the document.  It is better to reserve the return
+# value for a return status, if it becomes needed.
 void
 nodes_tree (document_in)
         SV *document_in
@@ -413,7 +414,9 @@ nodes_tree (document_in)
             register_document_nodes_list (document, nodes_list);
           }
 
-# FIXME return something?
+# For the next functions, the perl function returns a tree, as the
+# argument could be modified.  Here, tree_in is always a container
+# that is not modified, so there is no need to return a tree.
 void
 protect_colon_in_tree (tree_in)
         SV *tree_in
@@ -426,7 +429,6 @@ protect_colon_in_tree (tree_in)
         if (document)
           protect_colon_in_tree (document->tree);
 
-# FIXME return something?
 void
 protect_comma_in_tree (tree_in)
         SV *tree_in
@@ -439,8 +441,6 @@ protect_comma_in_tree (tree_in)
         if (document)
           protect_comma_in_tree (document->tree);
 
-# FIXME return something?
-# In that case, the return value could not be used as return status.
 void
 protect_node_after_label_in_tree (tree_in)
         SV *tree_in
@@ -453,8 +453,6 @@ protect_node_after_label_in_tree (tree_in)
         if (document)
           protect_node_after_label_in_tree (document->tree);
 
-# FIXME return something?
-# In that case, the return value could not be used as return status.
 void
 protect_hashchar_at_line_beginning (tree_in)
         SV *tree_in
