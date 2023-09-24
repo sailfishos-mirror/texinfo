@@ -1,5 +1,18 @@
 2023-09-24  Patrice Dumas  <pertusus@free.fr>
 
+	Use consistent flags in XS/configure.ac and XS/Makefile.am
+
+	* tp/Texinfo/XS/configure.ac (CFLAGS, LDFLAGS): move
+	$PERL_CONF_cccdlflags to CFLAGS as it should belong here.
+	Add $PERL_CONF_optimize to CFLAGS as it is there in Makefile.am.
+
+	* tp/Texinfo/XS/Makefile.am (XSLIBS_CFLAGS): add PERL_CONF_cccdlflags
+	as it is in configure.ac and it seems like the way to go to use the
+	same compile flags as used to compile perl module, even when it is
+	redundant with libtool flags.
+
+2023-09-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/parser.c
 	(store_document): move store_document to parser.c.
 
