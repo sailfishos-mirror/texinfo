@@ -1,5 +1,10 @@
 2023-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (_get_root_element): fix code
+	by using associated_unit.
+
+2023-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm: remove _convert_document_units,
 	convert_document_sections and convert_document_nodes.
 

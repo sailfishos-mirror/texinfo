@@ -853,15 +853,12 @@ sub _get_root_element($$)
 {
   my $self = shift;
   my $command = shift;
-  my $find_container = shift;
 
   my $current = $command;
 
   while (1) {
-    if ($current->{'type'}) {
-      if ($current->{'type'} eq 'unit') {
-        return $current;
-      }
+    if ($current->{'associated_unit'}) {
+      return $current->{'associated_unit'};
     }
     if ($current->{'parent'}) {
       $current = $current->{'parent'};
