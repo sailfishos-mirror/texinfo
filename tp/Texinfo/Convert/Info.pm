@@ -141,10 +141,11 @@ sub output($$)
     $out_file_nr = 1;
     my $first_node = 0;
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
+    # FIXME use a simple foreach
     my @nodes_root_elements = @$tree_units;
     while (@nodes_root_elements) {
       my $node_root_element = shift @nodes_root_elements;
-      my $node_text = $self->convert_tree($node_root_element);
+      my $node_text = $self->convert_output_unit($node_root_element);
       if (!$first_node) {
         $first_node = 1;
         if (defined($self->{'text_before_first_node'})) {

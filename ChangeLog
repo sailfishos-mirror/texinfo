@@ -1,5 +1,33 @@
 2023-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm: remove _convert_document_units,
+	convert_document_sections and convert_document_nodes.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_initialize_converter_state)
+	(convert_output_unit): rename _convert_root_element as
+	convert_output_unit.  Add _initialize_converter_state based on
+	convert_tree code.
+
+	* tp/Texinfo/Convert/Converter.pm (output, convert_output_unit),
+	tp/Texinfo/Convert/Info.pm (output), tp/Texinfo/Convert/Plaintext.pm
+	(convert_tree): call convert_output_unit instead of convert_tree on
+	output units.
+
+	* tp/Texinfo/Convert/Converter.pm (_count_converted_text): function
+	based on sort_element_counts code.
+
+	* tp/Texinfo/Convert/Converter.pm (sort_element_counts): use different
+	code for output units and tree. Call convert_output_unit instead of
+	convert_tree on output units.
+
+	* tp/Texinfo/Convert/IXIN.pm (_get_element): update and simplify.
+
+	* tp/Texinfo/Convert/IXIN.pm (output_ixin): change variable names to
+	use output units related names. Call convert_output_unit instead of
+	convert_tree on output units.
+
+2023-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_get_tree_root_element): simplify
 	by returning directly $current->{'associated_unit'} instead of
 	recursing into it, and by removing impossible cases.

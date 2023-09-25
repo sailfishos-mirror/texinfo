@@ -552,16 +552,35 @@ sub count_context_bug_message($$$)
   }
 }
 
-sub _convert_root_element($$)
+sub _initialize_converter_state($)
+{
+  my $self = shift;
+
+  if (!defined($self->{'empty_lines_count'})) {
+    # setting to 1 ensures that nothing is done, as there is
+    # something done (a newline added) if equal to 0.
+    $self->{'empty_lines_count'} = 1;
+  }
+  $self->{'seenmenus'} = {}
+    if (!$self->{'seenmenus'});
+  $self->{'index_entries_line_location'} = {}
+    if (!$self->{'index_entries_line_location'});
+}
+
+# the initialization of module specific state is not done in output()
+# as output() is the generic Converter::Convert function, so it needs
+# to be done here by calling _initialize_converter_state.
+sub convert_output_unit($$)
 {
   my ($self, $element) = @_;
+
+  _initialize_converter_state($self);
 
   my $result = '';
   $result .= $self->_convert($element);
   $self->count_context_bug_message('', $element);
   $result .= $self->process_footnotes($element);
   $self->count_context_bug_message('footnotes ', $element);
-
   return $result;
 }
 
@@ -585,7 +604,7 @@ sub convert($$)
     $result .= $footnotes;
   } else {
     foreach my $output_unit (@$output_units) {
-      my $node_text = _convert_root_element($self, $output_unit);
+      my $node_text = convert_output_unit($self, $output_unit);
       $result .= $node_text;
     }
   }
@@ -593,28 +612,11 @@ sub convert($$)
   return $result;
 }
 
-# the initialization of module specific state is not done in output()
-# as output() is the generic Converter::Convert function, so it needs
-# to be done here
 sub convert_tree($$)
 {
   my ($self, $root) = @_;
 
-  if (!defined($self->{'empty_lines_count'})) {
-    # setting to 1 ensures that nothing is done, as there is
-    # something done (a newline added) if equal to 0.
-    $self->{'empty_lines_count'} = 1;
-  }
-  $self->{'seenmenus'} = {}
-    if (!$self->{'seenmenus'});
-  $self->{'index_entries_line_location'} = {}
-    if (!$self->{'index_entries_line_location'});
-  my $result;
-  if ($root->{'type'} and $root->{'type'} eq 'unit') {
-    $result = _convert_root_element($self, $root);
-  } else {
-    $result = $self->_convert($root);
-  }
+  my $result = $self->_convert($root);
   return $result;
 }
 

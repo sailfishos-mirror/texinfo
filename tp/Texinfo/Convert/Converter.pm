@@ -137,7 +137,9 @@ foreach my $ref_cmd ('pxref', 'xref', 'ref') {
 
 # convert_tree() and convert() should be implemented in converters.
 # There is an implementation of output() below but in general
-# output() should also be implemented by Converters.
+# output() should also be implemented by Converters.  The simple
+# implementation of convert_output_unit() below is likely to be
+# ok for most converters.
 
 # Functions that should be defined in specific converters
 sub converter_defaults($$)
@@ -244,44 +246,16 @@ sub converter($;$)
   return $converter;
 }
 
-sub _convert_document_units($$;$$)
+sub convert_output_unit($$)
 {
   my $self = shift;
-  my $root = shift;
-  my $output_units = shift;
-  my $fh = shift;
+  my $output_unit = shift;
 
-  if ($output_units) {
-    my $result = '';
-    foreach my $output_unit (@$output_units) {
-      $result .= $self->write_or_return($self->convert_tree($output_unit), $fh);
-    }
-    return $result;
-  } else {
-    return $self->write_or_return($self->convert_tree($root), $fh);
+  my $result = '';
+  foreach my $element (@{$output_unit->{'contents'}}) {
+    $result .= $self->convert_tree($element);
   }
-}
-
-# the two following methods can be used to implement convert() in
-# Converters.
-sub convert_document_sections($$;$)
-{
-  my $self = shift;
-  my $root = shift;
-  my $fh = shift;
-
-  my $output_units = Texinfo::Structuring::split_by_section($root);
-  return $self->_convert_document_units($root, $output_units, $fh);
-}
-
-sub convert_document_nodes($$;$)
-{
-  my $self = shift;
-  my $root = shift;
-  my $fh = shift;
-
-  my $output_units = Texinfo::Structuring::split_by_node($root);
-  return $self->_convert_document_units($root, $output_units, $fh);
+  return $result;
 }
 
 # In general, converters override this method, but simple
@@ -380,7 +354,7 @@ sub output($$)
 
     if ($output_units and @$output_units) {
       foreach my $output_unit (@$output_units) {
-        my $output_unit_text = $self->convert_tree($output_unit);
+        my $output_unit_text = $self->convert_output_unit($output_unit);
         $output .= $self->write_or_return($output_unit_text, $fh);
       }
     } else {
@@ -428,7 +402,7 @@ sub output($$)
       } else {
         $file_fh = $files_filehandle{$output_unit_filename};
       }
-      my $output_unit_text = $self->convert_tree($output_unit);
+      my $output_unit_text = $self->convert_output_unit($output_unit);
       print $file_fh $output_unit_text;
       $self->{'file_counters'}->{$output_unit_filename}--;
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
@@ -926,7 +900,7 @@ sub _set_output_units_files($$$$$$)
     my $node_top;
     $node_top = $self->{'identifiers_target'}->{'Top'}
                             if ($self->{'identifiers_target'});
-  
+
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
@@ -1429,6 +1403,19 @@ sub comma_index_subentries_tree {
   return undef;
 }
 
+sub _count_converted_text($$)
+{
+  my $converted_text = shift;
+  my $count_words = shift;
+  if ($count_words) {
+    my @res = split /\W+/, $converted_text;
+    return scalar(@res);
+  } else {
+    my @res = split /^/, $converted_text;
+    return scalar(@res);
+  }
+}
+
 # This method allows to count words in elements and returns an array
 # and a text already formatted.
 sub sort_element_counts($$;$$)
@@ -1438,43 +1425,38 @@ sub sort_element_counts($$;$$)
   my $use_sections = shift;
   my $count_words = shift;
 
-  my $elements;
+  my $output_units;
   if ($use_sections) {
-    $elements = Texinfo::Structuring::split_by_section($tree);
+    $output_units = Texinfo::Structuring::split_by_section($tree);
   } else {
-    $elements = Texinfo::Structuring::split_by_node($tree);
+    $output_units = Texinfo::Structuring::split_by_node($tree);
   }
 
-  if (!$elements) {
-    @$elements = ($tree);
-  } elsif (scalar(@$elements) >= 1
-           and not $elements->[0]->{'unit_command'}) {
-    shift @$elements;
+  # cannot happen for now, but could in the past and could in the future.
+  if (!$output_units) {
+    my $name = 'NOT an output unit';
+    my $converted_text = $converter->convert($tree);
+    my $count = _count_converted_text($converted_text, $count_words);
+    my $result = "$count  $name\n";
+    return ([[$count, $name]], $result);
   }
 
   my $max_count = 0;
   my @name_counts_array;
 
-  foreach my $element (@$elements) {
+  foreach my $output_unit (@$output_units) {
     my $name;
-    if ($element->{'unit_command'}) {
-      my $command = $element->{'unit_command'};
+    if ($output_unit->{'unit_command'}) {
+      my $command = $output_unit->{'unit_command'};
       if ($command->{'args'}->[0]->{'contents'}) {
         $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo(
                        {'contents' => $command->{'args'}->[0]->{'contents'}});
       }
     }
-    $name = 'UNNAMED tree element' if (!defined($name));
-    my $count;
-    my $converted_element = $converter->convert_tree($element);
-    if ($count_words) {
-      my @res = split /\W+/, $converted_element;
-      $count = scalar(@res);
-    } else {
-      my @res = split /^/, $converted_element;
-      $count = scalar(@res);
-    }
+    $name = 'UNNAMED output unit' if (!defined($name));
+    my $converted_text = $converter->convert_output_unit($output_unit);
+    my $count = _count_converted_text($converted_text, $count_words);
     push @name_counts_array, [$count, $name];
     if ($count > $max_count) {
       $max_count = $count;
@@ -1509,7 +1491,7 @@ sub xml_format_text_with_numeric_entities($$)
 {
   my $self = shift;
   my $text = shift;
- 
+
   $text =~ s/``/$xml_numeric_entity_ldquo/g;
   $text =~ s/\'\'/$xml_numeric_entity_rdquo/g;
   $text =~ s/`/$xml_numeric_entity_lsquo/g;
@@ -1807,18 +1789,50 @@ In turn, the converter should define some methods.  Two are
 optional, C<converter_defaults>, C<converter_initialize> and
 used for initialization, to give information to C<Texinfo::Convert::Converter>.
 
-X<C<convert_tree>> X<C<output>> X<C<convert>>
+The following methods can be defined too:
+
+=over
+
+=item C<convert_tree>
+X<C<convert_tree>>
+
 The C<convert_tree> method is mandatory and should convert portions of Texinfo
-tree.  The C<output> method is used by converters as entry point for conversion
-to a file with headers and so on.  Although it is is not called from other
-modules, it should in general be implemented by converters. C<output> is called
-from C<texi2any>.  C<convert> is not mandatory, but it is recommended to implement
-it as it is used by converters as entry point for a conversion of a Texinfo
-parsed document without the headers done when outputting to a file, and can
-also be used to output simple documents.  It could be called from the
-C<Texinfo::Convert::Converter> C<output> implementation. C<convert> and
-C<output> take a Texinfo parsed document C<Texinfo::Document> in argument,
-while C<convert_tree> takes a Texinfo tree in argument.
+tree. Takes a Texinfo tree in argument.
+
+=item C<output>
+X<C<output>>
+
+The C<output> method is used by converters as entry point for conversion
+to a file with headers and so on.  Although not called from other
+modules, this method should in general be implemented by converters.
+C<Texinfo::Convert::Converter> implements a generic C<output> suitable
+for simple output formats.  C<output> is called from C<texi2any>.
+C<output> takes a Texinfo parsed document C<Texinfo::Document> in argument.
+
+=item C<convert>
+X<C<convert>>
+
+Optional entry point for the conversion of a Texinfo parsed document without
+the headers done when outputting to a file and can also be used to output
+simple documents.  It could be called from the C<Texinfo::Convert::Converter>
+C<output> implementation.  C<convert> takes a Texinfo parsed document
+C<Texinfo::Document> in argument.
+
+=item C<convert_output_unit>
+X<C<convert_output_unit>>
+
+Used as entry point for the conversion
+of output units by converters, for example by the
+C<Texinfo::Convert::Converter> C<output> implementation.
+C<convert_output_unit> takes an output unit as argument.  The implementation of
+C<convert_output_unit> of C<Texinfo::Convert::Converter> should be suitable for
+most cases.  Output units are typically returned by L<Texinfo::Structuring
+split_by_section|Texinfo::Structuring/$output_units = split_by_section($tree)>
+or L<Texinfo::Structuring split_by_node|Texinfo::Structuring/$output_units =
+split_by_node($tree)>.  Output units are not generated for all the formats, the
+Texinfo tree can also be converted directly.
+
+=back
 
 Existing backends may be used as examples that implement those
 methods.  C<Texinfo::Convert::Texinfo> together with
@@ -2003,14 +2017,6 @@ commands nested.  The function returns the accents formatted either
 as encoded letters if I<$output_encoded_characters> is set, or formatted
 using I<\&format_accents>.  If I<$in_upper_case> is set, the result should be
 uppercased.
-
-=item $result = $converter->convert_document_sections($root, $file_handler)
-X<C<convert_document_sections>>
-
-This method splits the I<$root> Texinfo tree at sections and
-calls C<convert_tree> on the elements.  If the optional I<$file_handler>
-is given in argument, the result are output in I<$file_handler>, otherwise
-the resulting string is returned.
 
 =item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 X<C<create_destination_directory>>
