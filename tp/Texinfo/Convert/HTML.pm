@@ -8776,9 +8776,8 @@ sub _html_get_tree_root_element($$;$)
   my ($root_element, $root_command);
   while (1) {
     if ($current->{'type'}) {
-      if ($current->{'type'} eq 'unit'
-          or $current->{'type'} eq 'special_element') {
-        #print STDERR "ROOT ELEMENT $current->{'type'}\n" if ($debug);
+      if ($current->{'type'} eq 'special_element') {
+        #print STDERR "SPECIAL $current->{'special_element_variety'}\n" if ($debug);
         return ($current, $root_command);
       }
     }
@@ -8786,7 +8785,6 @@ sub _html_get_tree_root_element($$;$)
       if ($root_commands{$current->{'cmdname'}}) {
         $root_command = $current;
         #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
-        return ($root_element, $root_command) if defined($root_element);
       } elsif ($block_commands{$current->{'cmdname'}}
                and $block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying'
@@ -8819,13 +8817,13 @@ sub _html_get_tree_root_element($$;$)
          = $self->command_name_special_element_information($current->{'cmdname'});
         if ($special_element) {
           #print STDERR "SPECIAL $current->{'cmdname'}: $special_element_variety ($special_element_direction)\n" if ($debug);
-          return ($special_element);
+          return ($special_element, undef);
         }
       }
     }
     if ($current->{'associated_unit'}) {
       #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element($current->{'associated_unit'})."\n" if ($debug);
-      $current = $current->{'associated_unit'};
+      return ($current->{'associated_unit'}, $root_command);
     } elsif ($current->{'parent'}) {
       #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
       $current = $current->{'parent'};
