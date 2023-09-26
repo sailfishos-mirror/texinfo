@@ -2065,10 +2065,10 @@ URL parts.
 For special output units file and target (@pxref{Output Units}), the
 function reference is:
 
-@deftypefn {Function Reference} {(@var{$target}, @var{$file})} special_element_target_file_name @
-           (@var{$converter}, @var{\%element}, @var{$default_target}, @var{$file_name})
-@var{$converter} is a converter object. @var{\%element} is the Texinfo
-element corresponding to the special output unit. @var{$default_target} is the
+@deftypefn {Function Reference} {(@var{$target}, @var{$file})} special_unit_target_file_name @
+           (@var{$converter}, @var{\%output_unit}, @var{$default_target}, @var{$file_name})
+@var{$converter} is a converter object. @var{\%output_unit} is the special
+output unit hash. @var{$default_target} is the
 target that has been already set, and @var{$file_name} is the
 file name that has been already set. The function should return the @var{$target}
 and @var{$file}.
@@ -4094,14 +4094,15 @@ The conversion for these elements with type @code{unit} can be be replaced by
 user defined functions for a precise control of conversion (@pxref{Type Tree
 Element Conversion Functions}).
 
-Special elements conversion is achieved by calling
+Special units conversion is achieved by calling
 @code{special_unit_body_formatting} (@pxref{Special Unit Body Formatting
 Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
 Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
 Formatting Customization}) and @code{format_element_footer} (@pxref{Element
-Header and Footer Formatting}).  The conversion for these elements with type
-@code{special_element_type} can be be replaced by user defined functions for a
-precise control of conversion (@pxref{Type Tree Element Conversion Functions}).
+Header and Footer Formatting}).  The conversion for these special units with
+unit type @code{special_unit_type} can be be replaced by user defined functions
+for a precise control of conversion (@pxref{Output Units Conversion
+Functions}).
 
 
 @node Beginning and Ending Files

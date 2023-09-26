@@ -1,5 +1,12 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi, tp/Texinfo/Convert/HTML.pm,
+	tp/t/init/only_toc_out.init,
+	tp/t/init/special_element_customization.pm: replace special_element by
+	special_unit everywhere.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (debug_print_element): remove extra
 	special_element_type, it has disappeared since long.
 

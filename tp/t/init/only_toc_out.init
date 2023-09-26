@@ -1,6 +1,6 @@
 use strict;
 
-texinfo_register_file_id_setting_function('special_element_target_file_name',
+texinfo_register_file_id_setting_function('special_unit_target_file_name',
                                           \&toc_out_element_file_name);
 
 sub toc_out_element_file_name($$$$$)

@@ -34,7 +34,7 @@ my %translations = (
 );
 
 
-sub _texi2any_tests_special_element_translate_message_tree($$$;$$)
+sub _texi2any_tests_special_unit_translate_message_tree($$$;$$)
 {
   my ($self, $string, $lang, $replaced_substrings,
                               $translation_context) = @_;
@@ -49,11 +49,11 @@ sub _texi2any_tests_special_element_translate_message_tree($$$;$$)
 }
 
 texinfo_register_formatting_function('format_translate_message_tree',
-                      \&_texi2any_tests_special_element_translate_message_tree);
+                      \&_texi2any_tests_special_unit_translate_message_tree);
 
 # avoid doing twice if there are more than one manual processed
 my $button_added;
-sub _texi2any_tests_special_element_add_button
+sub _texi2any_tests_special_unit_add_button
 {
   my ($self, $tree, $stage) = @_;
 
@@ -65,7 +65,7 @@ sub _texi2any_tests_special_element_add_button
   }
 }
 
-texinfo_register_handler('setup', \&_texi2any_tests_special_element_add_button);
+texinfo_register_handler('setup', \&_texi2any_tests_special_unit_add_button);
 
 
 
