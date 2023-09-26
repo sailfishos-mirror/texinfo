@@ -1,5 +1,10 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/book.pm (book_format_navigation_header): rename contents key
+	of output units as unit_contents.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Output Units in User Defined Functions): add
 	unit_contents.
 

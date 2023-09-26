@@ -123,9 +123,9 @@ sub book_format_navigation_header($$$$)
   my $output_unit = $element->{'associated_unit'};
   if ($output_unit and $output_unit->{'unit_command'}
       and not $output_unit->{'unit_command'}->{'cmdname'} eq 'node'
-      and ($output_unit->{'contents'}->[0] eq $element
-          or (!$output_unit->{'contents'}->[0]->{'cmdname'}
-              and $output_unit->{'contents'}->[1] eq $element))
+      and ($output_unit->{'unit_contents'}->[0] eq $element
+          or (!$output_unit->{'unit_contents'}->[0]->{'cmdname'}
+              and $output_unit->{'unit_contents'}->[1] eq $element))
       and defined($output_unit->{'unit_filename'})
       and $self->count_elements_in_filename('current',
                          $output_unit->{'unit_filename'}) == 1) {
