@@ -1772,7 +1772,7 @@ while(@input_files) {
            or (defined($converter_element_count->get_conf('USE_NODES'))
                        and !$converter_element_count->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)
-        = $converter_element_count->sort_element_counts($document->tree(),
+        = $converter_element_count->sort_element_counts($document,
                           $use_sections, get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
     my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');

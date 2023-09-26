@@ -1418,9 +1418,11 @@ sub _count_converted_text($$)
 sub sort_element_counts($$;$$)
 {
   my $converter =  shift;
-  my $tree = shift;
+  my $document = shift;
   my $use_sections = shift;
   my $count_words = shift;
+
+  my $tree = $document->tree();
 
   my $output_units;
   if ($use_sections) {
@@ -1432,7 +1434,7 @@ sub sort_element_counts($$;$$)
   # cannot happen for now, but could in the past and could in the future.
   if (!$output_units) {
     my $name = 'NOT an output unit';
-    my $converted_text = $converter->convert($tree);
+    my $converted_text = $converter->convert($document);
     my $count = _count_converted_text($converted_text, $count_words);
     my $result = "$count  $name\n";
     return ([[$count, $name]], $result);
