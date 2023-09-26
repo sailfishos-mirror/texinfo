@@ -1065,7 +1065,7 @@ sub command_text($$;$)
     my $tree;
     if (!$target->{'tree'}) {
       if (defined($command->{'unit_type'})
-          and $command->{'unit_type'} eq 'special_element') {
+          and $command->{'unit_type'} eq 'special_unit') {
         my $special_element_variety
            = $command->{'special_element_variety'};
         $tree
@@ -1366,7 +1366,7 @@ sub from_element_direction($$$;$$$)
       $type = 'text_nonumber';
     } else {
       if (defined($target_element->{'unit_type'})
-          and $target_element->{'unit_type'} eq 'special_element') {
+          and $target_element->{'unit_type'} eq 'special_unit') {
         # FIXME separate output units and element
         $command = $target_element;
       } else {
@@ -7206,7 +7206,7 @@ sub _default_format_title_titlepage($)
 }
 
 # Function for converting special elements
-sub _convert_special_element_type($$$$)
+sub _convert_special_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -7262,8 +7262,8 @@ sub _convert_special_element_type($$$$)
   return $result;
 }
 
-$default_output_units_conversion{'special_element'}
-  = \&_convert_special_element_type;
+$default_output_units_conversion{'special_unit'}
+  = \&_convert_special_unit_type;
 
 # Function for converting the output units.  The node and associated section
 # appear together in the output unit.  $ELEMENT was created in this module (in
@@ -7335,7 +7335,7 @@ sub _default_format_element_footer($$$$;$)
                and defined($unit->{'tree_unit_directions'}->{'next'}
                                                             ->{'unit_type'})
                and $unit->{'tree_unit_directions'}->{'next'}
-                                       ->{'unit_type'} eq 'special_element');
+                                       ->{'unit_type'} eq 'special_unit');
 
   my $end_page = (!$unit->{'tree_unit_directions'}->{'next'}
        or (defined($unit->{'unit_filename'})
@@ -7345,7 +7345,7 @@ sub _default_format_element_footer($$$$;$)
                          $unit->{'unit_filename'}) == 1));
 
   my $is_special = (defined($unit->{'unit_type'})
-                    and $unit->{'unit_type'} eq 'special_element');
+                    and $unit->{'unit_type'} eq 'special_unit');
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
@@ -8072,7 +8072,6 @@ sub converter_initialize($)
   }
 
   $self->{'commands_conversion'} = {};
-  # FIXME put value in a category in Texinfo::Common?
   my $customized_commands_conversion
      = Texinfo::Config::GNUT_get_commands_conversion();
   foreach my $command (keys(%line_commands), keys(%brace_commands),
@@ -8813,7 +8812,7 @@ sub _html_get_tree_root_element($$;$)
   my ($root_element, $root_command);
   while (1) {
     if ($current->{'unit_type'}) {
-      if ($current->{'unit_type'} eq 'special_element') {
+      if ($current->{'unit_type'} eq 'special_unit') {
         #print STDERR "SPECIAL $current->{'special_element_variety'}\n" if ($debug);
         return ($current, $root_command);
       }
@@ -9094,7 +9093,7 @@ sub _html_set_pages_files($$$$$$$$)
            .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
         my $file_source_info = {'file_info_element' => $special_element,
-                                'file_info_type' => 'special_element'};
+                                'file_info_type' => 'special_unit'};
         $files_source_info{$filename} = $file_source_info
           unless($files_source_info{$filename}
                  and $files_source_info{$filename}->{'file_info_type'}
@@ -9246,7 +9245,7 @@ sub _prepare_special_elements($$$$)
   foreach my $special_element_variety (@sorted_elements_varieties) {
     next unless ($do_special{$special_element_variety});
 
-    my $element = {'unit_type' => 'special_element',
+    my $element = {'unit_type' => 'special_unit',
                    'special_element_variety'
                                    => $special_element_variety,
                    'directions' => {}};
@@ -9305,7 +9304,7 @@ sub _prepare_special_elements($$$$)
         $self->{'frame_pages_file_string'}->{$special_element_variety};
       $default_filename .= '.'.$extension if (defined($extension));
 
-      my $element = {'unit_type' => 'special_element',
+      my $element = {'unit_type' => 'special_unit',
                      'extra' => {'special_element_variety'
                                   => $special_element_variety}};
 
@@ -9370,7 +9369,7 @@ sub _prepare_contents_elements($)
           next;
         }
 
-        my $contents_element = {'unit_type' => 'special_element',
+        my $contents_element = {'unit_type' => 'special_unit',
                                 'special_element_variety'
                                              => $special_element_variety};
         my $special_element_direction
@@ -11430,7 +11429,7 @@ sub output($$)
       # empty.
       my $special_element_content;
       if (defined($output_unit->{'unit_type'})
-          and $output_unit->{'unit_type'} eq 'special_element') {
+          and $output_unit->{'unit_type'} eq 'special_unit') {
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
         $special_element_content
                   .= $self->convert_output_unit($output_unit,
@@ -11657,7 +11656,7 @@ sub output($$)
                    => $conflicting_section->{'args'}->[0]->{'contents'}}),
                  ),
               $conflicting_section->{'source_info'}, 1);
-          } elsif ($file_info_type eq 'special_element') {
+          } elsif ($file_info_type eq 'special_unit') {
             my $special_element = $file_source->{'file_info_element'};
             my $output_unit_variety
               = $special_element->{'special_element_variety'};

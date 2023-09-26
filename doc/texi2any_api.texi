@@ -1471,10 +1471,8 @@ documentation, in particular a list of types and of information in the elements
 @node Output Units in User Defined Functions
 @section Output Units in User Defined Functions
 
-Special output units that are not part of the tree nor tree elements are
-formatted, @code{unit} type units that correspond to the normal output units
-(@pxref{Output Units}), and special units with type
-@code{special_element} that correspond to added special output units (@pxref{Output
+Output units that are not part of the tree nor tree elements are
+formatted, both normal output units and special units (@pxref{Output
 Units}).  The output units hold information on the document
 structure (@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
 
@@ -1482,7 +1480,7 @@ The following keys of output unit hashes can be interesting:
 
 @table @code
 @item unit_type
-@code{unit} for normal output units, @code{special_element} for
+@code{unit} for normal output units, @code{special_unit} for
 special units.
 
 @item unit_command

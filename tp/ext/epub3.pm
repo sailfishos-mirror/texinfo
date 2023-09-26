@@ -199,8 +199,8 @@ texinfo_register_formatting_function('format_navigation_panel', \&epub_noop);
 texinfo_register_command_formatting('image', \&epub_convert_image_command);
 
 texinfo_register_output_unit_formatting('unit', \&epub_convert_unit_type);
-texinfo_register_output_unit_formatting('special_element',
-                                 \&epub_convert_special_element_type);
+texinfo_register_output_unit_formatting('special_unit',
+                                 \&epub_convert_special_unit_type);
 
 my %epub_images_extensions_mimetypes = (
   '.png' =>  'image/png',
@@ -374,7 +374,7 @@ sub epub_convert_unit_type($$$$)
 
 my @epub_special_elements_filenames;
 # collect filenames in order
-sub epub_convert_special_element_type($$$$)
+sub epub_convert_special_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
