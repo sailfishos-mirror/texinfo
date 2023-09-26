@@ -2075,8 +2075,8 @@ and @var{$file}.
 @end deftypefn
 
 To determine the variety of the special output unit processed, the
-output unit @code{special_element_variety} hash key can be used.
-@xref{Special Elements Varieties}.
+output unit @code{special_unit_variety} hash key can be used.
+@xref{Special Units Varieties}.
 
 
 @node Init File Calling at Different Stages
@@ -3078,7 +3078,7 @@ Translated strings can be specified in customization functions, for
 @@-commands without arguments (@pxref{Simple Customization for Commands
 Without Arguments}), for direction strings (@pxref{Direction Strings
 Customization}) and for specific elements headings such as footnotes,
-contents or about (@pxref{Special Elements Information Customization}).
+contents or about (@pxref{Special Units Information Customization}).
 Translated strings can also be inserted in the output in user-defined
 customization functions, by using specific functions for internationalization
 of strings, @code{gdt}, @code{gdt_string} or @code{pgdt}.
@@ -3252,7 +3252,7 @@ Translation contexts may be set to avoid ambiguities for translated
 strings, in particular when the strings are short (@pxref{Contexts,,,gettext,
 GNU @code{gettext} utilities}).  Translation contexts are set for translated
 direction strings (@pxref{Direction Strings}) and for special output units headings
-(@pxref{Special Elements Information Customization}).
+(@pxref{Special Units Information Customization}).
 
 For direction strings, the translation context is based on the direction
 name (@pxref{Directions}), with @samp{direction} prepended and another
@@ -3279,7 +3279,7 @@ direction @code{text} direction string translation context is thus @samp{This
 
 For special output unit headings, the translation context is obtained by
 prepending @samp{section heading} to the special output unit variety (@pxref{Special
-Elements Varieties}).  For example, the @code{footnotes} special output unit
+Units Varieties}).  For example, the @code{footnotes} special output unit
 variety heading translation context is @samp{footnotes section heading}.
 
 Here is an example, which could be used with a similar
@@ -3487,12 +3487,12 @@ Returns true if the @var{\%output_unit} output unit is the Top output unit
 To get information on the special output unit variety associated with
 an @@-command command name, use @code{command_name_special_element_information}:
 
-@deftypefun {(@var{$special_element_variety}, @var{\%special_element}, @var{$class_base}, @var{$special_element_direction}) =} @
+@deftypefun {(@var{$special_unit_variety}, @var{\%special_element}, @var{$class_base}, @var{$special_element_direction}) =} @
   @var{$converter}->command_name_special_element_information (@var{$command_name})
 @var{$command_name} is an @@-command name without the leading @@.
 If the @var{$command_name} is not associated with a special output unit, returns
-@code{undef}.  Otherwise, return the @var{$special_element_variety}
-(@pxref{Special Elements Varieties}), the @var{\%special_element} texinfo tree
+@code{undef}.  Otherwise, return the @var{$special_unit_variety}
+(@pxref{Special Units Varieties}), the @var{\%special_element} texinfo tree
 unit, a @var{$class_base} string for HTML class attribute and the
 @var{$special_element_direction} direction corresponding to that special
 elements (@pxref{Directions}).
@@ -3579,17 +3579,17 @@ Return the total number of output units associated with the file.
 
 Some customization is specific for the different cases, especially when
 the formatting is not done in a separate output unit (@pxref{Output Units}),
-but some customization is relevant for all the special elements.
-The formatting of special elements bodies
-is handled the same for all the special elements, when formatted as separate
-elements.
-To specify a special element in those contexts, the special elements varieties
+but some customization is relevant for all the special units.
+The formatting of special units bodies
+is handled the same for all the special units, when formatted as separate
+units.
+To specify a special unit in those contexts, the special units varieties
 are used, as described in
-@ref{Special Elements Varieties}.
+@ref{Special Units Varieties}.
 
-@float Table, Special Elements Varieties
-@multitable {Short table of contents} {Special Element Variety}
-@headitem Special Element @tab Special Element Variety
+@float Table, Special Units Varieties
+@multitable {Short table of contents} {Special Unit Variety}
+@headitem Special Unit @tab Special Unit Variety
 @item Table of contents @tab @code{contents}
 @item Short table of contents @tab @code{shortcontents}
 @item Footnotes @tab @code{footnotes}
@@ -3598,14 +3598,14 @@ are used, as described in
 @caption{Association of special elements names with their special element variety}
 @end float
 
-The variety of special elements is in the element @code{extra}
-hash @code{special_element_variety} key.
+The variety of special elements is in the special unit
+hash @code{special_unit_variety} key.
 
 
-@node Special Elements Information Customization
-@section Special Elements Information Customization
+@node Special Units Information Customization
+@section Special Units Information Customization
 
-The following items are common to all the special elements:
+The following items are common to all the special units:
 
 @table @code
 @item class
@@ -3642,9 +3642,9 @@ To set the information, use @code{texinfo_register_special_element_info}
 in an init file:
 
 @defun texinfo_register_special_element_info ($item_type, @
-                           $special_element_variety, $value)
-Set @var{$item_type} information for the special element variety
-@var{$special_element_variety} to @var{$value}.  @var{$value} may be
+                           $special_unit_variety, $value)
+Set @var{$item_type} information for the special unit variety
+@var{$special_unit_variety} to @var{$value}.  @var{$value} may be
 @samp{undef}, or an empty string, but only @code{heading} and
 @code{target} should be set to that value as a non-empty value is
 needed for the other items for formatting.
@@ -3653,11 +3653,11 @@ needed for the other items for formatting.
 To retrieve the information for formatting, use @code{special_element_info}:
 
 @deftypefun {@var{$list_or_value} =} @var{$converter}->special_element_info @
-                  (@var{$item_type}, @var{$special_element_variety})
+                  (@var{$item_type}, @var{$special_unit_variety})
 @var{$item_type} is the type of information to be retrieved as described above.
-If @var{$special_element_variety} is @samp{undef}, the list of the special elements
+If @var{$special_unit_variety} is @samp{undef}, the list of the special units
 varieties with information for the @var{$item_type} is returned.  If
-@var{$special_element_variety} is a special element variety, the corresponding
+@var{$special_unit_variety} is a special unit variety, the corresponding
 value is returned.
 
 The value returned is translated and converted to a Texinfo tree
@@ -3724,7 +3724,7 @@ in the document where the footnote appeared.
 
 If footnotes are in a separate output unit (@pxref{Output Units}), the
 default footnote special output unit body formatting function calls
-@code{format_footnotes_sequence} (@pxref{Special Element
+@code{format_footnotes_sequence} (@pxref{Special Unit
 Body Formatting Functions}).
 
 If the footnotes are not in a separate output unit, or there is no separate
@@ -3740,7 +3740,7 @@ calls @code{format_footnotes_sequence} and also sets up a header with
 @code{format_heading_text} (@pxref{Basic Formatting Customization}), using the
 customization variables @code{FOOTNOTE_END_HEADER_LEVEL} and
 the special @code{footnotes} element @code{heading} information
-(@pxref{Special Elements Information Customization}).
+(@pxref{Special Units Information Customization}).
 @end deftypefn
 
 
@@ -3832,7 +3832,7 @@ Return formatted table of contents or short table of contents.
 
 If contents are in a separate output unit (@pxref{Output Units}), the
 default contents and shortcontents special element body formatting function
-calls @code{format_contents} (@pxref{Special Element Body Formatting
+calls @code{format_contents} (@pxref{Special Unit Body Formatting
 Functions}).  Otherwise, @code{format_contents} is called in the conversion
 of heading @@-command, in title page formatting, and in @code{@@contents}
 conversion function, depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
@@ -3857,11 +3857,11 @@ the About element formatting.
 
 If the above is not enough and you want to control exactly the
 formatting of the about unit, the @code{about} special output unit body reference
-function may be overridden (@pxref{Special Element Body Formatting Functions}).
+function may be overridden (@pxref{Special Unit Body Formatting Functions}).
 
 
-@node Special Element Body Formatting Functions
-@section Special Element Body Formatting Functions
+@node Special Unit Body Formatting Functions
+@section Special Unit Body Formatting Functions
 
 In addition to the formatting possibilities available with the default
 special output units formatting presented previously, it is also possible
@@ -3869,22 +3869,22 @@ to control completely how a separate special output unit is formatted.
 
 To register body formating user defined functions for special output units
 (@pxref{Output Units}), the special output units varieties are used, as
-described in @ref{Special Elements Varieties}.
+described in @ref{Special Units Varieties}.
 Special element body formatting user defined functions are registered with
 @code{texinfo_register_formatting_special_element_body}:
 
-@defun texinfo_register_formatting_special_element_body ($special_element_variety, @
+@defun texinfo_register_formatting_special_element_body ($special_unit_variety, @
                             \@ampchar{}handler)
-@var{$special_element_variety} is the element variety
-(@pxref{Special Elements Varieties}).  @var{\&handler} is the user defined
+@var{$special_unit_variety} is the element variety
+(@pxref{Special Units Varieties}).  @var{\&handler} is the user defined
 function reference.
 @end defun
 
 The call of the user defined functions is:
 @deftypefn {Function Reference} @var{$text} special_element_body (@var{$converter}, @
-                                @var{$special_element_variety}, @var{\%element})
-@var{$converter} is a converter object. @var{$special_element_variety} is the
-element variety.  @var{\%element} is the Texinfo element.
+                                @var{$special_unit_variety}, @var{\%special_unit})
+@var{$converter} is a converter object. @var{$special_unit_variety} is the
+unit variety.  @var{\%special_unit} is the special output unit.
 
 The @var{$text} returned is the formatted special output unit body.
 @end deftypefn
@@ -3894,8 +3894,8 @@ function reference should first be retrieved using
 @code{special_element_body_formatting}:
 
 @deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
-                                              (@var{$special_element_variety})
-@var{$special_element_variety} is the special output unit variety.  Returns the
+                                              (@var{$special_unit_variety})
+@var{$special_unit_variety} is the special output unit variety.  Returns the
 conversion function reference for @var{$variety}, or @samp{undef} if there is none,
 which should not happen for the special output units described in this manual.
 @end deftypefun
@@ -3914,9 +3914,9 @@ The function used is:
 
 @deftypefun {@var{\&default_special_element_body_formatting} =} @
                @var{$converter}->defaults_special_element_body_formatting @
-                                               (@var{$special_element_variety})
-@var{$special_element_variety} is the special output unit variety.  Returns the
-default conversion function reference for @var{$special_element_variety}, or
+                                               (@var{$special_unit_variety})
+@var{$special_unit_variety} is the special output unit variety.  Returns the
+default conversion function reference for @var{$special_unit_variety}, or
 @code{undef} if there is none, which should not happen for the special output units
 described in this manual.
 @end deftypefun
@@ -4095,7 +4095,7 @@ user defined functions for a precise control of conversion (@pxref{Type Tree
 Element Conversion Functions}).
 
 Special elements conversion is achieved by calling
-@code{special_element_body_formatting} (@pxref{Special Element Body Formatting
+@code{special_element_body_formatting} (@pxref{Special Unit Body Formatting
 Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
 Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
 Formatting Customization}) and @code{format_element_footer} (@pxref{Element

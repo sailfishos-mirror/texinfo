@@ -533,10 +533,10 @@ sub GNUT_get_types_open()
 # called from init files
 sub texinfo_register_formatting_special_element_body($$)
 {
-  my $special_element_variety = shift;
+  my $special_unit_variety = shift;
   my $handler = shift;
 
-  $GNUT_formatting_special_element_body->{$special_element_variety} = $handler;
+  $GNUT_formatting_special_element_body->{$special_unit_variety} = $handler;
 }
 
 # called from the Converter
