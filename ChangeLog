@@ -1,5 +1,14 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (unit_element_command)
+	(_default_format_begin_file): have unit_element_command only return
+	tree elements. Get the special element to be used in file title in
+	_default_format_begin_file.
+
+	* tp/Texinfo/Convert/HTML.pm: remove obsolete/debug code.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi
 	(Texinfo Tree Elements in User Defined Functions)
 	(Output Units in User Defined Functions)

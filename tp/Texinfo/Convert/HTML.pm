@@ -796,8 +796,7 @@ sub command_root_element_command($$)
   return undef;
 }
 
-# FIXME change that function to return separately output unit and tree
-# element
+# FIXME inline
 sub unit_element_command($$)
 {
   my $self = shift;
@@ -806,9 +805,6 @@ sub unit_element_command($$)
   if ($unit) {
     if ($unit->{'unit_command'}) {
       return $unit->{'unit_command'};
-    } elsif (defined($unit->{'type'})
-             and $unit->{'type'} eq 'special_element') {
-      return $unit;
     }
   }
   return undef;
@@ -10208,7 +10204,15 @@ sub _default_format_begin_file($$$)
       $node_command = $element_command->{'extra'}->{'associated_node'};
     }
 
-    $command_for_title = $element_command if ($self->get_conf('SPLIT'));
+    if ($self->get_conf('SPLIT')) {
+      if (defined($element_command)) {
+        $command_for_title = $element_command;
+      } else {
+        # this should correspond to special_element units only
+        # FIXME the API should be modified to handle differently
+        $command_for_title = $output_unit;
+      }
+    }
   }
 
   my ($title, $description, $encoding, $date, $css_lines,
@@ -11727,12 +11731,6 @@ sub _convert($$;$)
     cluck('BUG: _convert: element UNDEF');
     return '';
   }
-  if ($element->{'type'} and $element->{'type'} eq 'special_element') {
-    cluck('BUG: _convert: special element');
-  }
-  if ($element->{'type'} and $element->{'type'} eq 'unit') {
-    cluck('BUG: _convert: unit');
-  }
   # only used for debug
   my $explanation = shift;
 
@@ -12058,9 +12056,6 @@ sub _convert($$;$)
              or $type_name eq 'rawpreformatted') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                    ->{'preformatted_number'}++;
-    } elsif ($type_name eq 'unit'
-             or $type_name eq 'special_element') {
-      $self->{'current_output_unit'} = $element;
     } elsif ($self->{'pre_class_types'}->{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
         $self->{'pre_class_types'}->{$type_name};
@@ -12103,9 +12098,7 @@ sub _convert($$;$)
     if ($type_name eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}--;
     }
-    if ($type_name eq 'unit' or $type_name eq 'special_element') {
-      delete $self->{'current_output_unit'};
-    } elsif ($self->{'pre_class_types'}->{$type_name}) {
+    if ($self->{'pre_class_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     }
