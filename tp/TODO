@@ -13,10 +13,9 @@ Before next release
 Bugs
 ====
 
-Consider doing specific conversion functions for output units.  And maybe, to see if
-better or not, change contents to element_contents or something like than, and
-maybe type to unit_type, and also maybe instead of 'types_conversion'
-use output_units_conversion in HTML API.
+To see if
+better or not, change output units contents to element_contents or
+something like that, and maybe type to unit_type
 
 HTML API
 ========

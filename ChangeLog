@@ -1,5 +1,23 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi
+	(Texinfo Tree Elements in User Defined Functions)
+	(Output Units in User Defined Functions)
+	(Output Units Conversion Functions), tp/Texinfo/Config.pm
+	($GNUT_output_units_conversion)
+	(texinfo_register_output_unit_formatting)
+	(GNUT_get_output_units_conversion), tp/Texinfo/Convert/HTML.pm
+	(default_output_unit_conversion, output_unit_conversion)
+	(converter_initialize, convert, convert_output_unit, output),
+	tp/ext/epub3.pm, tp/t/init/mini_ker_t2h.init: separate conversion
+	function for output units, convert_output_unit, and separate
+	customization functions, registered with
+	texinfo_register_output_unit_formatting.
+	Separate documentation of Output Units in User Defined Functions and
+	Texinfo Tree Elements in User Defined Functions.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: fix SORT_ELEMENT_COUNT closing file error message.
 
 2023-09-26  Patrice Dumas  <pertusus@free.fr>

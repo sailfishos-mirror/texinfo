@@ -198,8 +198,8 @@ texinfo_register_formatting_function('format_navigation_panel', \&epub_noop);
 
 texinfo_register_command_formatting('image', \&epub_convert_image_command);
 
-texinfo_register_type_formatting('unit', \&epub_convert_unit_type);
-texinfo_register_type_formatting('special_element',
+texinfo_register_output_unit_formatting('unit', \&epub_convert_unit_type);
+texinfo_register_output_unit_formatting('special_element',
                                  \&epub_convert_special_element_type);
 
 my %epub_images_extensions_mimetypes = (
@@ -368,7 +368,7 @@ sub epub_convert_unit_type($$$$)
    $element->{'unit_filename'}
     unless grep {$_ eq $element->{'unit_filename'}}
             @epub_output_units_filenames;
-  return &{$self->default_type_conversion($type)}($self,
+  return &{$self->default_output_unit_conversion($type)}($self,
                                       $type, $element, $content);
 }
 
@@ -385,7 +385,7 @@ sub epub_convert_special_element_type($$$$)
    $element->{'unit_filename'}
     unless grep {$_ eq $element->{'unit_filename'}}
             @epub_special_elements_filenames;
-  return &{$self->default_type_conversion($type)}($self,
+  return &{$self->default_output_unit_conversion($type)}($self,
                                       $type, $element, $content);
 }
 

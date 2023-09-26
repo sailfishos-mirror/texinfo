@@ -25,10 +25,10 @@ sub mini_ker_element_type($$$$)
                                                  $type, $element, $content);
     return $result;
   } else {
-    return &{$self->default_type_conversion($type)}($self,
+    return &{$self->default_output_unit_conversion($type)}($self,
                                  $type, $element, $content);
   }
 }
 
-texinfo_register_type_formatting('unit', \&mini_ker_element_type);
+texinfo_register_output_unit_formatting('unit', \&mini_ker_element_type);
 

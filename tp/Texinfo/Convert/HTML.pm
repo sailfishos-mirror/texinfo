@@ -796,6 +796,8 @@ sub command_root_element_command($$)
   return undef;
 }
 
+# FIXME change that function to return separately output unit and tree
+# element
 sub unit_element_command($$)
 {
   my $self = shift;
@@ -6153,6 +6155,26 @@ foreach my $small_command (keys(%small_block_associated_command)) {
   }
 }
 
+# Keys are output units types, values are function references to convert
+# output units of that type.  Can be overridden accessing
+# Texinfo::Config::GNUT_get_output_units_conversion, setup by
+# Texinfo::Config::texinfo_register_output_unit_formatting()
+my %default_output_units_conversion;
+
+sub default_output_unit_conversion($$)
+{
+  my $self = shift;
+  my $type = shift;
+  return $default_output_units_conversion{$type};
+}
+
+sub output_unit_conversion($$)
+{
+  my $self = shift;
+  my $type = shift;
+  return $self->{'output_units_conversion'}->{$type};
+}
+
 # Keys are tree element types, values are function references to convert
 # elements of that type.  Can be overridden accessing
 # Texinfo::Config::GNUT_get_types_conversion, setup by
@@ -7242,7 +7264,8 @@ sub _convert_special_element_type($$$$)
   return $result;
 }
 
-$default_types_conversion{'special_element'} = \&_convert_special_element_type;
+$default_output_units_conversion{'special_element'}
+  = \&_convert_special_element_type;
 
 # Function for converting the output units.  The node and associated section
 # appear together in the output unit.  $ELEMENT was created in this module (in
@@ -7294,7 +7317,7 @@ sub _convert_unit_type($$$$)
   return $result;
 }
 
-$default_types_conversion{'unit'} = \&_convert_unit_type;
+$default_output_units_conversion{'unit'} = \&_convert_unit_type;
 
 # for output units and special elements
 sub _default_format_element_footer($$$$;$)
@@ -7846,6 +7869,8 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
+my $debug;  # whether to print debugging output
+
 sub converter_initialize($)
 {
   my $self = shift;
@@ -7988,6 +8013,19 @@ sub converter_initialize($)
             = $default_translated_directions_strings{$string_type}->{$direction};
         }
       }
+    }
+  }
+
+  $self->{'output_units_conversion'} = {};
+  my $customized_output_units_conversion
+    = Texinfo::Config::GNUT_get_output_units_conversion();
+  foreach my $type (keys(%default_output_units_conversion)) {
+    if (exists($customized_output_units_conversion->{$type})) {
+      $self->{'output_units_conversion'}->{$type}
+          = $customized_output_units_conversion->{$type};
+    } else {
+      $self->{'output_units_conversion'}->{$type}
+          = $default_output_units_conversion{$type};
     }
   }
 
@@ -10755,11 +10793,62 @@ sub convert($$)
     # Not sure if it is an issue.
     foreach my $output_unit (@$output_units, @$special_elements) {
       print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
-      my $output_unit_text = $self->_convert($output_unit, "convert unit $unit_nr");
+      my $output_unit_text = $self->convert_output_unit($output_unit,
+                                                 "convert unit $unit_nr");
       $result .= $output_unit_text;
       $unit_nr++;
     }
   }
+
+  return $result;
+}
+
+sub convert_output_unit($$;$)
+{
+  my $self = shift;
+  my $element = shift;
+  # only used for debug
+  my $explanation = shift;
+
+  $debug = $self->get_conf('DEBUG') if !defined($debug);
+
+  my $type_name = $element->{'type'};
+
+  if (exists ($self->{'output_units_conversion'}->{$type_name})
+      and !defined($self->{'output_units_conversion'}->{$type_name})) {
+    if ($debug) {
+      my $string = 'IGNORED';
+      $string .= " $type_name" if ($type_name);
+      print STDERR "$string\n";
+    }
+    return '';
+  }
+
+  $self->{'current_output_unit'} = $element;
+
+  my $content_formatted = '';
+  if ($element->{'contents'}) {
+    my $content_idx = 0;
+    foreach my $content (@{$element->{'contents'}}) {
+      $content_formatted
+        .= _convert($self, $content, "$type_name c[$content_idx]");
+      $content_idx++;
+    }
+  }
+  my $result = '';
+  if (exists($self->{'output_units_conversion'}->{$type_name})) {
+    $result
+     .= &{$self->{'output_units_conversion'}->{$type_name}} ($self,
+                                               $type_name,
+                                               $element,
+                                               $content_formatted);
+  } elsif (defined($content_formatted)) {
+    $result .= $content_formatted;
+  }
+
+  delete $self->{'current_output_unit'};
+
+  print STDERR "UNIT type ($type_name) => `$result'\n" if $debug;
 
   return $result;
 }
@@ -11281,7 +11370,8 @@ sub output($$)
       foreach my $output_unit (@$output_units, @$special_elements) {
         print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
         my $output_unit_text
-          = $self->_convert($output_unit, "no-page output unit $unit_nr");
+          = $self->convert_output_unit($output_unit,
+                                       "no-page output unit $unit_nr");
         $body .= $output_unit_text;
         $unit_nr++;
       }
@@ -11336,7 +11426,8 @@ sub output($$)
           and $output_unit->{'type'} eq 'special_element') {
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
         $special_element_content
-                  .= $self->_convert($output_unit, "output s-unit $unit_nr");
+                  .= $self->convert_output_unit($output_unit,
+                                                "output s-unit $unit_nr");
         if ($special_element_content eq '') {
           $self->{'file_counters'}->{$output_unit_filename}--;
           next ;
@@ -11349,7 +11440,8 @@ sub output($$)
         $body = $special_element_content;
       } else {
         print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
-        $body = $self->_convert($output_unit, "output unit $unit_nr");
+        $body = $self->convert_output_unit($output_unit,
+                                           "output unit $unit_nr");
       }
 
       # register the element but do not print anything. Printing
@@ -11625,8 +11717,6 @@ sub _protect_class_name($$)
   return _default_format_protect_text($self, $class_name);
 }
 
-my $debug;  # whether to print debugging output
-
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
 sub _convert($$;$)
@@ -11636,6 +11726,12 @@ sub _convert($$;$)
   if (!defined($element)) {
     cluck('BUG: _convert: element UNDEF');
     return '';
+  }
+  if ($element->{'type'} and $element->{'type'} eq 'special_element') {
+    cluck('BUG: _convert: special element');
+  }
+  if ($element->{'type'} and $element->{'type'} eq 'unit') {
+    cluck('BUG: _convert: unit');
   }
   # only used for debug
   my $explanation = shift;

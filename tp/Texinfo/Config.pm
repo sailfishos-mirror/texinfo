@@ -422,6 +422,7 @@ my $GNUT_formatting_references = {};
 my $GNUT_formatting_special_element_body = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_commands_open = {};
+my $GNUT_output_units_conversion = {};
 my $GNUT_types_conversion = {};
 my $GNUT_types_open = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
@@ -485,6 +486,20 @@ sub texinfo_register_command_opening($$)
 sub GNUT_get_commands_open()
 {
   return $GNUT_commands_open;
+}
+
+# called from init files
+sub texinfo_register_output_unit_formatting($$)
+{
+  my $command = shift;
+  my $reference = shift;
+  $GNUT_output_units_conversion->{$command} = $reference;
+}
+
+# called from the Converter
+sub GNUT_get_output_units_conversion()
+{
+  return $GNUT_output_units_conversion;
 }
 
 # called from init files

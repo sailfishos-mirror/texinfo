@@ -1442,14 +1442,41 @@ The following is not ok:
 push @@@{$element->@{'contents'@}@}, @{'text' => ' my added text'@};
 @end example
 
+Nodes and sectioning elements hold information on the document
+structure (@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
+
+
+@cindex Document structure
+
+The following keys of the @code{extra} elements hash can be interesting:
+
+@table @code
+@item section_childs
+For sectioning commands elements.  The children of the sectioning element
+in the sectioning tree.
+
+@item section_level
+The level of the section, taking into account @code{@@raisesections} and
+@code{@@lowersections}.  Level 0 corresponds to @code{@@top} or @code{@@part}
+and level 1 to @code{@@chapter} level sectioning commands.
+@xref{Raise/lower sections,,, texinfo, Texinfo}.
+
+@end table
+
+Detailed information on the tree elements is available in the Texinfo Parser
+documentation, in particular a list of types and of information in the elements
+@code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,texi2any_internals}).
+
+
+@node Output Units in User Defined Functions
+@section Output Units in User Defined Functions
+
 Special output units that are not part of the tree nor tree elements are
 formatted, @code{unit} type units that correspond to the normal output units
 (@pxref{Output Units}), and special units with type
 @code{special_element} that correspond to added special output units (@pxref{Output
-Units}).  The output units, as well as nodes and sectioning elements hold
-information on the document structure (@pxref{Texinfo::Structuring
-METHODS,,,texi2any_internals}).
-
+Units}).  The output units hold information on the document
+structure (@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
 
 The following keys of output unit hashes can be interesting:
 
@@ -1470,28 +1497,6 @@ The associated file name.
 Hash with @code{next} and @code{prev} for the
 next and previous output units in document order.
 @end table
-
-@cindex Document structure
-
-The following keys of the @code{extra} elements hash can be interesting:
-
-@table @code
-@item section_childs
-For sectioning commands elements.  The children of the sectioning element
-in the sectioning tree.
-
-@item section_level
-The level of the section, taking into account @code{@@raisesections} and
-@code{@@lowersections}.  Level 0 corresponds to @code{@@top} or @code{@@part}
-and level 1 to @code{@@chapter} level sectioning commands.
-@xref{Raise/lower sections,,, texinfo, Texinfo}.
-
-@end table
-
-
-Detailed information on the tree elements is available in the Texinfo Parser
-documentation, in particular a list of types and of information in the elements
-@code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,texi2any_internals}).
 
 
 @node Encoding and Decoding File Path Strings
@@ -2149,8 +2154,8 @@ is 100.
 Full customization of output is achieved with replacing default
 formatting functions with user defined functions.  There
 are two broad classes of functions, the @dfn{conversion} functions used
-for elements of the Texinfo tree, and other @dfn{formatting} functions with
-diverse purposes, including formatting that are not based on
+for output units and elements of the Texinfo tree, and other @dfn{formatting}
+functions with diverse purposes, including formatting that are not based on
 tree elements (for example beginning and end of file formatting).
 
 
@@ -2364,7 +2369,7 @@ The call of the user defined functions is:
 associated with text, or the formatted contents for other elements.
 @var{$content} can be @code{undef} or the empty string.
 
-The @var{$text} returned is the result of the @@-command conversion.
+The @var{$text} returned is the result of the element conversion.
 @end deftypefn
 
 To call a conversion function from user defined code, the function reference
@@ -2383,6 +2388,49 @@ The function used is:
 @var{$type} is the element type.  Returns the
 default conversion function reference for @var{$type}, or @samp{undef} if there is none,
 which should only be the case for types ignored in HTML.
+@end deftypefun
+
+
+@node Output Units Conversion Functions
+@section Output Units Conversion Functions
+
+Output units formatting function are setup and used similarly as
+for tree container types (@pxref{Type Tree Element Conversion Functions}).
+
+User defined functions called for the conversion of an output unit
+are registered with @code{texinfo_register_output_unit_formatting}.  The user
+defined function is called after conversion of the content.
+
+@defun texinfo_register_output_unit_formatting ($type, \@ampchar{}handler)
+@var{$type} is the output unit type.
+@var{\&handler} is the user defined function reference.
+@end defun
+
+The call of the user defined functions is:
+
+@deftypefn {Function Reference} @var{$text} output_unit_conversion (@var{$converter}, @
+        @var{$type}, @var{\%output_unit}, @var{$content})
+@var{$converter} is a converter object. @var{$type} is the output unit type.
+@var{\%output_unit} is the output unit.  @var{$content} the formatted contents.
+@var{$content} can be @code{undef} or the empty string.
+
+The @var{$text} returned is the result of the output unit conversion.
+@end deftypefn
+
+To call a conversion function from user defined code, the function reference
+should first be retrieved using @code{type_conversion}:
+
+@deftypefun {@var{\&output_unit_conversion} =} @var{$converter}->output_unit_conversion (@var{$type})
+@var{$type} is the output unit type.  Returns the
+conversion function reference for @var{$type}, or @samp{undef} if there is none.
+@end deftypefun
+
+It is possible to have access to the default conversion function reference.
+The function used is:
+
+@deftypefun {@var{\&default_output_unit_conversion} =} @var{$converter}->default_output_unit_conversion (@var{$type})
+@var{$type} is the output unit type.  Returns the
+default conversion function reference for @var{$type}, or @samp{undef} if there is none.
 @end deftypefun
 
 
