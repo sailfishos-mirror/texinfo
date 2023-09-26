@@ -3289,7 +3289,7 @@ function registered as in the example above, but using
 @example
 texinfo_register_direction_string_info('Forward', 'text', undef,
                                        'Forward');
-texinfo_register_special_element_info('heading', 'contents',
+texinfo_register_special_unit_info('heading', 'contents',
                               'The @@emph@{Table of Contents@}');
 
 my %translations = (
@@ -3485,16 +3485,16 @@ Returns true if the @var{\%output_unit} output unit is the Top output unit
 @end deftypefun
 
 To get information on the special output unit variety associated with
-an @@-command command name, use @code{command_name_special_element_information}:
+an @@-command command name, use @code{command_name_special_unit_information}:
 
-@deftypefun {(@var{$special_unit_variety}, @var{\%special_element}, @var{$class_base}, @var{$special_element_direction}) =} @
-  @var{$converter}->command_name_special_element_information (@var{$command_name})
+@deftypefun {(@var{$special_unit_variety}, @var{\%output_unit}, @var{$class_base}, @var{$output_unit_direction}) =} @
+  @var{$converter}->command_name_special_unit_information (@var{$command_name})
 @var{$command_name} is an @@-command name without the leading @@.
 If the @var{$command_name} is not associated with a special output unit, returns
 @code{undef}.  Otherwise, return the @var{$special_unit_variety}
-(@pxref{Special Units Varieties}), the @var{\%special_element} texinfo tree
+(@pxref{Special Units Varieties}), the @var{\%output_unit} output
 unit, a @var{$class_base} string for HTML class attribute and the
-@var{$special_element_direction} direction corresponding to that special
+@var{$output_unit_direction} direction corresponding to that special
 elements (@pxref{Directions}).
 @end deftypefun
 
@@ -3509,9 +3509,9 @@ In the current setup, special output units are associated with @code{@@contents}
 
 To get the Texinfo special output unit associated with
 a special output unit direction, such as @samp{About} or @samp{Contents},
-use @code{special_direction_element}:
+use @code{special_direction_unit}:
 
-@deftypefun {@var{\%special_element} =} @var{$converter}->special_direction_element (@var{$direction})
+@deftypefun {@var{\%output_unit} =} @var{$converter}->special_direction_unit (@var{$direction})
 Return the special output unit associated with direction @var{$direction}, or
 @code{undef} if the direction is not a special output unit direction or the special
 output unit is not output.
@@ -3638,10 +3638,10 @@ string.  @code{heading_tree} cannot be set directly, but can be retrieved.
 It is determined from @code{heading} after translation and conversion to
 a Texinfo tree.
 
-To set the information, use @code{texinfo_register_special_element_info}
+To set the information, use @code{texinfo_register_special_unit_info}
 in an init file:
 
-@defun texinfo_register_special_element_info ($item_type, @
+@defun texinfo_register_special_unit_info ($item_type, @
                            $special_unit_variety, $value)
 Set @var{$item_type} information for the special unit variety
 @var{$special_unit_variety} to @var{$value}.  @var{$value} may be
@@ -3650,9 +3650,9 @@ Set @var{$item_type} information for the special unit variety
 needed for the other items for formatting.
 @end defun
 
-To retrieve the information for formatting, use @code{special_element_info}:
+To retrieve the information for formatting, use @code{special_unit_info}:
 
-@deftypefun {@var{$list_or_value} =} @var{$converter}->special_element_info @
+@deftypefun {@var{$list_or_value} =} @var{$converter}->special_unit_info @
                   (@var{$item_type}, @var{$special_unit_variety})
 @var{$item_type} is the type of information to be retrieved as described above.
 If @var{$special_unit_variety} is @samp{undef}, the list of the special units

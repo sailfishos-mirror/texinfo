@@ -2,15 +2,15 @@
 use utf8;
 use strict;
 
-texinfo_register_special_element_info('target', 'shortcontents', undef);
-texinfo_register_special_element_info('target', 'contents', 't_contents');
-texinfo_register_special_element_info('target', 'footnotes', 't_footnotes');
+texinfo_register_special_unit_info('target', 'shortcontents', undef);
+texinfo_register_special_unit_info('target', 'contents', 't_contents');
+texinfo_register_special_unit_info('target', 'footnotes', 't_footnotes');
 
-texinfo_register_special_element_info('heading', 'shortcontents', undef);
-texinfo_register_special_element_info('heading', 'contents',
+texinfo_register_special_unit_info('heading', 'shortcontents', undef);
+texinfo_register_special_unit_info('heading', 'contents',
                                           'The @emph{Table of Contents}');
-texinfo_register_special_element_info('heading', 'footnotes',
-                                                 'The @emph{Footnotes}');
+texinfo_register_special_unit_info('heading', 'footnotes',
+                                              'The @emph{Footnotes}');
 # does not work in the test suite
 texinfo_set_from_init_file('footnotestyle', 'separate');
 

@@ -1,6 +1,15 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi, tp/Texinfo/Config.pm,
+	tp/Texinfo/Convert/HTML.pm,
+	tp/t/init/redirection_file_collision_with_special.init,
+	tp/t/init/special_element_customization.pm: replace
+	special_element_info by special_unit_info and
+	special_direction_element by special_direction_unit.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi, tp/Texinfo/Config.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/t/init/only_toc_out.init:
 	rename special_elements_directions as special_units_directions and
 	special_element_variety as special_unit_variety, and rename some

@@ -430,7 +430,7 @@ my $GNUT_style_commands_formatting_info = {};
 my $GNUT_accent_command_formatting_info = {};
 my $GNUT_types_formatting_info = {};
 my $GNUT_direction_string_info = {};
-my $GNUT_special_element_info = {};
+my $GNUT_special_unit_info = {};
 
 # called from init files
 sub texinfo_register_file_id_setting_function($$)
@@ -569,18 +569,18 @@ sub _GNUT_initialize_style_commands_formatting_info()
 
 _GNUT_initialize_style_commands_formatting_info();
 
-my @all_special_element_info_types = ('class', 'direction', 'heading', 'order',
+my @all_special_unit_info_types = ('class', 'direction', 'heading', 'order',
                              'file_string', 'target');
 
-sub _GNUT_initialize_special_element_info()
+sub _GNUT_initialize_special_unit_info()
 {
-  $GNUT_special_element_info = {};
-  foreach my $possible_type (@all_special_element_info_types) {
-    $GNUT_special_element_info->{$possible_type} = {};
+  $GNUT_special_unit_info = {};
+  foreach my $possible_type (@all_special_unit_info_types) {
+    $GNUT_special_unit_info->{$possible_type} = {};
   }
 }
 
-_GNUT_initialize_special_element_info();
+_GNUT_initialize_special_unit_info();
 
 # $translated_converted_string is supposed to be already formatted.
 # It may also be relevant to be able to pass a 'tree'
@@ -760,27 +760,27 @@ sub GNUT_get_direction_string_info()
   return { %$GNUT_direction_string_info };
 }
 
-sub texinfo_register_special_element_info($$$)
+sub texinfo_register_special_unit_info($$$)
 {
   my $type = shift;
   my $variety = shift;
   my $thing = shift;
 
-  if (not defined($GNUT_special_element_info->{$type})) {
+  if (not defined($GNUT_special_unit_info->{$type})) {
     _GNUT_document_warn(
          sprintf(__("%s: unknown special element information type %s\n"),
-                  'texinfo_register_special_element_info', $type));
+                  'texinfo_register_special_unit_info', $type));
     return 0;
   }
-  $GNUT_special_element_info->{$type}->{$variety} = {}
-    if (not exists($GNUT_special_element_info->{$type}->{$variety}));
-  $GNUT_special_element_info->{$type}->{$variety} = $thing;
+  $GNUT_special_unit_info->{$type}->{$variety} = {}
+    if (not exists($GNUT_special_unit_info->{$type}->{$variety}));
+  $GNUT_special_unit_info->{$type}->{$variety} = $thing;
   return 1;
 }
 
-sub GNUT_get_special_element_info()
+sub GNUT_get_special_unit_info()
 {
-  return { %$GNUT_special_element_info };
+  return { %$GNUT_special_unit_info };
 }
 
 
@@ -801,7 +801,7 @@ sub GNUT_reinitialize_init_files()
   _GNUT_initialize_stage_handlers();
   _GNUT_initialize_no_arg_commands_formatting_strings();
   _GNUT_initialize_style_commands_formatting_info();
-  _GNUT_initialize_special_element_info();
+  _GNUT_initialize_special_unit_info();
 }
 
 

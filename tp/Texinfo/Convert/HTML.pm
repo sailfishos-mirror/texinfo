@@ -934,7 +934,7 @@ sub command_contents_href($$$;$)
 
   my ($special_unit_variety, $target_element, $class_base,
     $special_element_direction)
-     = $self->command_name_special_element_information($contents_or_shortcontents);
+     = $self->command_name_special_unit_information($contents_or_shortcontents);
   my $target
     = $self->command_contents_target($command, $contents_or_shortcontents);
   my $target_filename;
@@ -1069,8 +1069,8 @@ sub command_text($$;$)
         my $special_unit_variety
            = $command->{'special_unit_variety'};
         $tree
-          = $self->special_element_info('heading_tree',
-                                        $special_unit_variety);
+          = $self->special_unit_info('heading_tree',
+                                      $special_unit_variety);
         $tree = {} if (!defined($tree));
         $explanation = "command_text $special_unit_variety";
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node'
@@ -1162,14 +1162,14 @@ sub label_command($$)
   return undef;
 }
 
-sub special_direction_element($$)
+sub special_direction_unit($$)
 {
   my $self = shift;
   my $direction = shift;
   return $self->{'special_units_directions'}->{$direction};
 }
 
-sub command_name_special_element_information($$)
+sub command_name_special_unit_information($$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -1184,11 +1184,11 @@ sub command_name_special_element_information($$)
     return (undef, undef, undef, undef);
   }
   my $special_element_direction
-    = $self->special_element_info('direction', $special_unit_variety);
+    = $self->special_unit_info('direction', $special_unit_variety);
   my $special_element
-    = $self->special_direction_element($special_element_direction);
+    = $self->special_direction_unit($special_element_direction);
   my $class_base
-    = $self->special_element_info('class', $special_unit_variety);
+    = $self->special_unit_info('class', $special_unit_variety);
   return ($special_unit_variety, $special_element, $class_base,
           $special_element_direction);
 }
@@ -1381,8 +1381,8 @@ sub from_element_direction($$$;$$$)
       }
       $target = $self->{'targets'}->{$command} if ($command);
     }
-  } elsif ($self->special_direction_element($direction)) {
-    $target_element = $self->special_direction_element($direction);
+  } elsif ($self->special_direction_unit($direction)) {
+    $target_element = $self->special_direction_unit($direction);
     $command = $target_element;
     if ($type eq 'href') {
       return $self->command_href($target_element, $source_filename);
@@ -1515,39 +1515,39 @@ sub direction_string($$$;$)
   return $self->{'directions_strings'}->{$string_type}->{$direction}->{$context};
 }
 
-my %default_translated_special_element_info;
+my %default_translated_special_unit_info;
 
 # if SPECIAL_ELEMENT_VARIETY is not set, return all the varieties
-sub special_element_info($$;$) {
+sub special_unit_info($$;$) {
   my $self = shift;
   my $type = shift;
   my $special_unit_variety = shift;
 
-  if ($self->{'translated_special_element_info'}->{$type}) {
-    my $translated_special_element_info
-      = $self->{'translated_special_element_info'}->{$type}->[1];
+  if ($self->{'translated_special_unit_info'}->{$type}) {
+    my $translated_special_unit_info
+      = $self->{'translated_special_unit_info'}->{$type}->[1];
     if (not defined($special_unit_variety)) {
-      return sort(keys(%{$translated_special_element_info}));
+      return sort(keys(%{$translated_special_unit_info}));
     }
 
-    if (not exists($self->{'special_element_info'}->{$type}
+    if (not exists($self->{'special_unit_info'}->{$type}
                                     ->{$special_unit_variety})) {
-      my $special_element_info_string = $translated_special_element_info
+      my $special_unit_info_string = $translated_special_unit_info
                                             ->{$special_unit_variety};
       my $translated_tree;
-      if (defined($special_element_info_string)) {
+      if (defined($special_unit_info_string)) {
         my $translation_context = "$special_unit_variety section heading";
         $translated_tree = $self->pgdt($translation_context,
-                                       $special_element_info_string);
+                                       $special_unit_info_string);
       }
-      $self->{'special_element_info'}->{$type}->{$special_unit_variety}
+      $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
         = $translated_tree;
     }
   }
   if (not defined($special_unit_variety)) {
-    return sort(keys(%{$self->{'special_element_info'}->{$type}}));
+    return sort(keys(%{$self->{'special_unit_info'}->{$type}}));
   }
-  return $self->{'special_element_info'}->{$type}->{$special_unit_variety};
+  return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
 }
 
 # API for misc conversion and formatting functions
@@ -1963,7 +1963,7 @@ foreach my $buttons ('CHAPTER_FOOTER_BUTTONS') {
 }
 
 
-my %default_special_element_info = (
+my %default_special_unit_info = (
 
   'class' => {
     'about'       => 'about',
@@ -2001,8 +2001,8 @@ my %default_special_element_info = (
    },
 );
 
-# translation context should be consistent with special_element_info()
-%default_translated_special_element_info = (
+# translation context should be consistent with special_unit_info()
+%default_translated_special_unit_info = (
 
    'heading' => {
      'about'       => Texinfo::Common::pgdt('about section heading',
@@ -2023,7 +2023,7 @@ foreach my $global_direction (@global_directions) {
   $global_and_special_directions{$global_direction} = 1;
 }
 foreach my $special_direction (values(
-                   %{$default_special_element_info{'direction'}})) {
+                   %{$default_special_unit_info{'direction'}})) {
   $global_and_special_directions{$special_direction} = 1;
 }
 
@@ -2279,18 +2279,18 @@ sub _translate_names($)
     $self->{'directions_strings'}->{$string_type} = {};
   }
 
-  # could also use keys of $self->{'translated_special_element_info'}
-  foreach my $type (keys(%default_translated_special_element_info)) {
-    $self->{'special_element_info'}->{$type.'_tree'} = {};
+  # could also use keys of $self->{'translated_special_unit_info'}
+  foreach my $type (keys(%default_translated_special_unit_info)) {
+    $self->{'special_unit_info'}->{$type.'_tree'} = {};
   }
 
   # delete the tree and formatted results for special elements
   # such that they are redone with the new tree when needed.
-  foreach my $special_unit_variety ($self->special_element_info('direction')) {
+  foreach my $special_unit_variety ($self->special_unit_info('direction')) {
     my $special_element_direction
-     = $self->special_element_info('direction', $special_unit_variety);
+     = $self->special_unit_info('direction', $special_unit_variety);
     my $special_element
-     = $self->special_direction_element($special_element_direction);
+     = $self->special_direction_unit($special_element_direction);
     if ($special_element and
         $self->{'targets'}->{$special_element}) {
       my $target = $self->{'targets'}->{$special_element};
@@ -6039,7 +6039,7 @@ sub _contents_inline_element($$$)
   if ($content) {
     my ($special_unit_variety, $special_element, $class_base,
         $special_element_direction)
-          = $self->command_name_special_element_information($cmdname);
+          = $self->command_name_special_unit_information($cmdname);
     # FIXME is element- the best prefix?
     my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
     my $heading;
@@ -6052,7 +6052,7 @@ sub _contents_inline_element($$$)
     } else {
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
-      my $heading_tree = $self->special_element_info('heading_tree',
+      my $heading_tree = $self->special_unit_info('heading_tree',
                                              $special_unit_variety);
       if (defined($heading_tree)) {
         $heading = $self->convert_tree($heading_tree,
@@ -7234,7 +7234,7 @@ sub _convert_special_unit_type($$$$)
 
   my $id = $self->command_id($element);
   my $class_base
-    = $self->special_element_info('class', $special_unit_variety);
+    = $self->special_unit_info('class', $special_unit_variety);
   $result .= $self->html_attribute_class('div', ["element-${class_base}"]);
   if ($id ne '') {
     $result .= " id=\"$id\"";
@@ -7831,8 +7831,8 @@ sub _load_htmlxref_files {
 #  translated_direction_strings
 #
 #    API exists
-#  special_element_info
-#  translated_special_element_info
+#  special_unit_info
+#  translated_special_unit_info
 #
 #    API exists
 #  elements_in_file_count    # the number of output units in file
@@ -8244,43 +8244,43 @@ sub converter_initialize($)
     }
   }
 
-  my $customized_special_element_info
-    = Texinfo::Config::GNUT_get_special_element_info();
+  my $customized_special_unit_info
+    = Texinfo::Config::GNUT_get_special_unit_info();
 
-  $self->{'special_element_info'} = {};
-  foreach my $type (keys(%default_special_element_info)) {
-    $self->{'special_element_info'}->{$type} = {};
+  $self->{'special_unit_info'} = {};
+  foreach my $type (keys(%default_special_unit_info)) {
+    $self->{'special_unit_info'}->{$type} = {};
     foreach my $special_unit_variety
-                      (keys(%{$default_special_element_info{$type}})) {
-      if (exists($customized_special_element_info->{$type})
-          and exists($customized_special_element_info
+                      (keys(%{$default_special_unit_info{$type}})) {
+      if (exists($customized_special_unit_info->{$type})
+          and exists($customized_special_unit_info
                           ->{$type}->{$special_unit_variety})) {
-        $self->{'special_element_info'}->{$type}->{$special_unit_variety}
-         = $customized_special_element_info->{$type}->{$special_unit_variety};
+        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
+         = $customized_special_unit_info->{$type}->{$special_unit_variety};
       } else {
-        $self->{'special_element_info'}->{$type}->{$special_unit_variety}
-          = $default_special_element_info{$type}->{$special_unit_variety};
+        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
+          = $default_special_unit_info{$type}->{$special_unit_variety};
       }
     }
   }
 
-  $self->{'translated_special_element_info'} = {};
-  foreach my $type (keys(%default_translated_special_element_info)) {
-    $self->{'special_element_info'}->{$type} = {};
-    $self->{'special_element_info'}->{$type.'_tree'} = {};
-    $self->{'translated_special_element_info'}->{$type.'_tree'} = [$type, {}];
+  $self->{'translated_special_unit_info'} = {};
+  foreach my $type (keys(%default_translated_special_unit_info)) {
+    $self->{'special_unit_info'}->{$type} = {};
+    $self->{'special_unit_info'}->{$type.'_tree'} = {};
+    $self->{'translated_special_unit_info'}->{$type.'_tree'} = [$type, {}];
     foreach my $special_unit_variety
-                 (keys(%{$default_translated_special_element_info{$type}})) {
-      if (exists($customized_special_element_info->{$type})
-          and exists($customized_special_element_info
+                 (keys(%{$default_translated_special_unit_info{$type}})) {
+      if (exists($customized_special_unit_info->{$type})
+          and exists($customized_special_unit_info
                           ->{$type}->{$special_unit_variety})) {
-        $self->{'translated_special_element_info'}->{$type.'_tree'}
+        $self->{'translated_special_unit_info'}->{$type.'_tree'}
                                                ->[1]->{$special_unit_variety}
-         = $customized_special_element_info->{$type}->{$special_unit_variety};
+         = $customized_special_unit_info->{$type}->{$special_unit_variety};
       } else {
-        $self->{'translated_special_element_info'}->{$type.'_tree'}
+        $self->{'translated_special_unit_info'}->{$type.'_tree'}
                                                ->[1]->{$special_unit_variety}
-          = $default_translated_special_element_info{$type}
+          = $default_translated_special_unit_info{$type}
                                                    ->{$special_unit_variety};
       }
     }
@@ -8850,7 +8850,7 @@ sub _html_get_tree_root_element($$;$)
         # @footnote and possibly @*contents when a separate element is set
         my ($special_unit_variety, $special_element, $class_base,
             $special_element_direction)
-         = $self->command_name_special_element_information($current->{'cmdname'});
+         = $self->command_name_special_unit_information($current->{'cmdname'});
         if ($special_element) {
           #print STDERR "SPECIAL $current->{'cmdname'}: $special_unit_variety ($special_element_direction)\n" if ($debug);
           return ($special_element, undef);
@@ -9224,14 +9224,14 @@ sub _prepare_special_elements($$$$)
 
   my $special_elements = [];
   # sort special elements according to their index order from
-  # special_element_info 'order'.
+  # special_unit_info 'order'.
   # First reverse the hash, using arrays in case some elements are at the
   # same index, and sort to get alphabetically sorted special element
   # varieties that are at the same index.
   my %special_elements_indices;
   foreach my $special_unit_variety
-      (sort($self->special_element_info('order'))) {
-    my $index = $self->special_element_info('order', $special_unit_variety);
+      (sort($self->special_unit_info('order'))) {
+    my $index = $self->special_unit_info('order', $special_unit_variety);
     $special_elements_indices{$index} = []
       if (not exists ($special_elements_indices{$index}));
     push @{$special_elements_indices{$index}}, $special_unit_variety;
@@ -9251,19 +9251,19 @@ sub _prepare_special_elements($$$$)
                    'directions' => {}};
     $element->{'directions'}->{'This'} = $element;
     my $special_element_direction
-     = $self->special_element_info('direction', $special_unit_variety);
+     = $self->special_unit_info('direction', $special_unit_variety);
     $self->{'special_units_directions'}->{$special_element_direction}
      = $element;
     push @$special_elements, $element;
 
     my $target
-        = $self->special_element_info('target', $special_unit_variety);
+        = $self->special_unit_info('target', $special_unit_variety);
     my $default_filename;
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         # in general $document_name not defined means called through convert
         and defined($document_name)) {
       my $special_element_file_string =
-         $self->special_element_info('file_string', $special_unit_variety);
+         $self->special_unit_info('file_string', $special_unit_variety);
       $special_element_file_string = '' if (!defined($special_element_file_string));
       $default_filename = $document_name . $special_element_file_string;
       $default_filename .= '.'.$extension if (defined($extension));
@@ -9373,11 +9373,11 @@ sub _prepare_contents_elements($)
                                 'special_unit_variety'
                                              => $special_unit_variety};
         my $special_element_direction
-         = $self->special_element_info('direction', $special_unit_variety);
+         = $self->special_unit_info('direction', $special_unit_variety);
         $self->{'special_units_directions'}->{$special_element_direction}
          = $contents_element;
         my $target
-         = $self->special_element_info('target', $special_unit_variety);
+         = $self->special_unit_info('target', $special_unit_variety);
         my $filename;
         if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
           ($target, $filename)
@@ -10341,12 +10341,12 @@ sub _default_format_footnotes_segment($)
   my $foot_lines
     = &{$self->formatting_function('format_footnotes_sequence')}($self);
   return '' if ($foot_lines eq '');
-  my $class = $self->special_element_info('class', 'footnotes');
+  my $class = $self->special_unit_info('class', 'footnotes');
   my $result = $self->html_attribute_class('div', [$class.'-segment']).">\n";
   $result .= $self->get_conf('DEFAULT_RULE') . "\n"
      if (defined($self->get_conf('DEFAULT_RULE'))
          and $self->get_conf('DEFAULT_RULE') ne '');
-  my $footnote_heading_tree = $self->special_element_info('heading_tree',
+  my $footnote_heading_tree = $self->special_unit_info('heading_tree',
                                                           'footnotes');
   my $footnote_heading;
   if (defined($footnote_heading_tree)) {
