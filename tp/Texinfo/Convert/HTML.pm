@@ -1580,22 +1580,22 @@ sub formatting_function($$)
   return $self->{'formatting_function'}->{$format};
 }
 
-my %defaults_format_special_body_contents;
+my %defaults_format_special_unit_body_contents;
 
-sub defaults_special_element_body_formatting($$)
+sub defaults_special_unit_body_formatting($$)
 {
   my $self = shift;
   my $special_unit_variety = shift;
 
-  return $defaults_format_special_body_contents{$special_unit_variety};
+  return $defaults_format_special_unit_body_contents{$special_unit_variety};
 }
 
-sub special_element_body_formatting($$)
+sub special_unit_body_formatting($$)
 {
   my $self = shift;
   my $special_unit_variety = shift;
 
-  return $self->{'special_element_body'}->{$special_unit_variety};
+  return $self->{'special_unit_body'}->{$special_unit_variety};
 }
 
 # Return the default for the function references used for
@@ -7222,13 +7222,13 @@ sub _convert_special_unit_type($$$$)
   my $special_unit_variety = $element->{'special_unit_variety'};
   $result .= join('', $self->close_registered_sections_level(0));
 
-  my $special_element_body
-    .= &{$self->special_element_body_formatting($special_unit_variety)}($self,
+  my $special_unit_body
+    .= &{$self->special_unit_body_formatting($special_unit_variety)}($self,
                                           $special_unit_variety, $element);
 
   # This may happen with footnotes in regions that are not expanded,
   # like @copying or @titlepage
-  if ($special_element_body eq '') {
+  if ($special_unit_body eq '') {
     return '';
   }
 
@@ -7256,7 +7256,7 @@ sub _convert_special_unit_type($$$$)
                            undef, [$class_base.'-heading'], $heading, $level)."\n";
 
 
-  $result .= $special_element_body . '</div>';
+  $result .= $special_unit_body . '</div>';
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
                                                              $element, $content);
   return $result;
@@ -7511,7 +7511,7 @@ foreach my $customized_reference ('external_target_split_name',
   'format_protect_text' => \&_default_css_string_format_protect_text,
 );
 
-%defaults_format_special_body_contents = (
+%defaults_format_special_unit_body_contents = (
   'contents' => \&_default_format_special_body_contents,
   'about' => \&_default_format_special_body_about,
   'footnotes' => \&_default_format_special_body_footnotes,
@@ -8286,17 +8286,17 @@ sub converter_initialize($)
     }
   }
 
-  my $customized_special_element_body
-     = Texinfo::Config::GNUT_get_formatting_special_element_body_references();
+  my $customized_special_unit_body
+     = Texinfo::Config::GNUT_get_formatting_special_unit_body_references();
 
-  $self->{'special_element_body'} = {};
-  foreach my $special_unit_variety (keys(%defaults_format_special_body_contents)) {
-    $self->{'special_element_body'}->{$special_unit_variety}
-      = $defaults_format_special_body_contents{$special_unit_variety};
+  $self->{'special_unit_body'} = {};
+  foreach my $special_unit_variety (keys(%defaults_format_special_unit_body_contents)) {
+    $self->{'special_unit_body'}->{$special_unit_variety}
+      = $defaults_format_special_unit_body_contents{$special_unit_variety};
   }
-  foreach my $special_unit_variety (keys(%$customized_special_element_body)) {
-    $self->{'special_element_body'}->{$special_unit_variety}
-      = $customized_special_element_body->{$special_unit_variety};
+  foreach my $special_unit_variety (keys(%$customized_special_unit_body)) {
+    $self->{'special_unit_body'}->{$special_unit_variety}
+      = $customized_special_unit_body->{$special_unit_variety};
   }
 
   $self->{'document_context'} = [];

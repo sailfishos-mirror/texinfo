@@ -3871,9 +3871,9 @@ To register body formating user defined functions for special output units
 (@pxref{Output Units}), the special output units varieties are used, as
 described in @ref{Special Units Varieties}.
 Special element body formatting user defined functions are registered with
-@code{texinfo_register_formatting_special_element_body}:
+@code{texinfo_register_formatting_special_unit_body}:
 
-@defun texinfo_register_formatting_special_element_body ($special_unit_variety, @
+@defun texinfo_register_formatting_special_unit_body ($special_unit_variety, @
                             \@ampchar{}handler)
 @var{$special_unit_variety} is the element variety
 (@pxref{Special Units Varieties}).  @var{\&handler} is the user defined
@@ -3881,7 +3881,7 @@ function reference.
 @end defun
 
 The call of the user defined functions is:
-@deftypefn {Function Reference} @var{$text} special_element_body (@var{$converter}, @
+@deftypefn {Function Reference} @var{$text} special_unit_body (@var{$converter}, @
                                 @var{$special_unit_variety}, @var{\%special_unit})
 @var{$converter} is a converter object. @var{$special_unit_variety} is the
 unit variety.  @var{\%special_unit} is the special output unit.
@@ -3891,9 +3891,9 @@ The @var{$text} returned is the formatted special output unit body.
 
 To call a special output unit body formatting function from user defined code, the
 function reference should first be retrieved using
-@code{special_element_body_formatting}:
+@code{special_unit_body_formatting}:
 
-@deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
+@deftypefun {@var{\&special_unit_body_formatting} =} @var{$converter}->special_unit_body_formatting @
                                               (@var{$special_unit_variety})
 @var{$special_unit_variety} is the special output unit variety.  Returns the
 conversion function reference for @var{$variety}, or @samp{undef} if there is none,
@@ -3904,7 +3904,7 @@ For example:
 @example
 @group
 my $footnotes_element_body
- = &@{$converter->special_element_body_formatting('footnotes')@}(
+ = &@{$converter->special_unit_body_formatting('footnotes')@}(
                                    $converter, 'footnotes', $element);
 @end group
 @end example
@@ -3912,8 +3912,8 @@ my $footnotes_element_body
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@deftypefun {@var{\&default_special_element_body_formatting} =} @
-               @var{$converter}->defaults_special_element_body_formatting @
+@deftypefun {@var{\&default_special_unit_body_formatting} =} @
+               @var{$converter}->defaults_special_unit_body_formatting @
                                                (@var{$special_unit_variety})
 @var{$special_unit_variety} is the special output unit variety.  Returns the
 default conversion function reference for @var{$special_unit_variety}, or
@@ -4095,7 +4095,7 @@ user defined functions for a precise control of conversion (@pxref{Type Tree
 Element Conversion Functions}).
 
 Special elements conversion is achieved by calling
-@code{special_element_body_formatting} (@pxref{Special Unit Body Formatting
+@code{special_unit_body_formatting} (@pxref{Special Unit Body Formatting
 Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
 Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
 Formatting Customization}) and @code{format_element_footer} (@pxref{Element

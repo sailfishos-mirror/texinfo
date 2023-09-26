@@ -279,12 +279,12 @@ and is best  viewed with a 16 or 18 point screen font.
 </p>
 EOT
 
-  $result .= &{$self->defaults_special_element_body_formatting($special_type)}(
+  $result .= &{$self->defaults_special_unit_body_formatting($special_type)}(
                                                  $self, $special_type, $element);
   return $result;
 }
 
-texinfo_register_formatting_special_element_body ('about',
+texinfo_register_formatting_special_unit_body ('about',
                        \&singular_format_special_body_about);
 
 # a whole menu

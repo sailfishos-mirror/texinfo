@@ -1,6 +1,12 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi, tp/Texinfo/Config.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/t/init/t2h_singular.init: replace
+	special_element_body by special_unit_body.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi, tp/Texinfo/Config.pm,
 	tp/Texinfo/Convert/HTML.pm,
 	tp/t/init/redirection_file_collision_with_special.init,
 	tp/t/init/special_element_customization.pm: replace

@@ -419,7 +419,7 @@ sub GNUT_get_stage_handlers()
 
 my $GNUT_file_id_setting_references = {};
 my $GNUT_formatting_references = {};
-my $GNUT_formatting_special_element_body = {};
+my $GNUT_formatting_special_unit_body = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_commands_open = {};
 my $GNUT_output_units_conversion = {};
@@ -531,18 +531,18 @@ sub GNUT_get_types_open()
 }
 
 # called from init files
-sub texinfo_register_formatting_special_element_body($$)
+sub texinfo_register_formatting_special_unit_body($$)
 {
   my $special_unit_variety = shift;
   my $handler = shift;
 
-  $GNUT_formatting_special_element_body->{$special_unit_variety} = $handler;
+  $GNUT_formatting_special_unit_body->{$special_unit_variety} = $handler;
 }
 
 # called from the Converter
-sub GNUT_get_formatting_special_element_body_references()
+sub GNUT_get_formatting_special_unit_body_references()
 {
-  return $GNUT_formatting_special_element_body;
+  return $GNUT_formatting_special_unit_body;
 }
 
 my $default_formatting_context = 'normal';
@@ -792,7 +792,7 @@ sub GNUT_reinitialize_init_files()
   @init_file_loading_messages = ();
   foreach my $reference ($init_files_options,
      $GNUT_file_id_setting_references,
-     $GNUT_formatting_references, $GNUT_formatting_special_element_body,
+     $GNUT_formatting_references, $GNUT_formatting_special_unit_body,
      $GNUT_commands_conversion, $GNUT_commands_open, $GNUT_types_conversion,
      $GNUT_types_open, $GNUT_accent_command_formatting_info,
      $GNUT_types_formatting_info, $GNUT_direction_string_info) {
