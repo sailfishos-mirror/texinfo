@@ -1,5 +1,9 @@
 2023-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: fix SORT_ELEMENT_COUNT closing file error message.
+
+2023-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (sort_element_counts),
 	tp/texi2any.pl: pass a document in argument of sort_element_counts.
 

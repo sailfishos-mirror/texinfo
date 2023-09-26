@@ -1744,6 +1744,7 @@ while(@input_files) {
       _exit($error_count, \@opened_files);
     }
   }
+
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
     require Texinfo::Convert::TextContent;
     my $sort_element_converter_options = { %$main_program_default_options,
@@ -1789,7 +1790,7 @@ while(@input_files) {
       print $sort_element_count_fh $sort_element_count_text;
 
       if (!close ($sort_element_count_fh)) {
-        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"),
+        warn(sprintf(__("%s: error on closing elements size file %s: %s\n"),
                       $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
