@@ -2571,10 +2571,6 @@ sub debug_print_element($;$)
   my $cmd = '';
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
-  # specific of HTML
-  $type .= '{'.$current->{'extra'}->{'special_element_type'}.'}'
-    if (defined($current->{'extra'})
-      and defined($current->{'extra'}->{'special_element_type'}));
   if (defined($current->{'cmdname'})) {
     $cmd = '@' . debug_command_name($current->{'cmdname'});
   }
