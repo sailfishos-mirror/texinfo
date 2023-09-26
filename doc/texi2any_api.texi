@@ -1494,6 +1494,9 @@ key directly in their hash that points to the associated output unit.
 @cindex @code{unit_command} element
 @cindex @code{associated_unit} output unit
 
+@item unit_contents
+Array reference on tree elements associated to the output unit.
+
 @item unit_filename
 The associated file name.
 
