@@ -58,8 +58,8 @@ $result_trees{'top_without_node_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -170,8 +170,8 @@ $result_trees{'top_without_node_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'top_without_node_sections'}[0]{'unit_command'} = $result_trees{'top_without_node_sections'}[0]{'contents'}[1];
@@ -218,7 +218,6 @@ $result_sectioning{'top_without_node_sections'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
@@ -240,14 +239,15 @@ $result_sectioning{'top_without_node_sections'} = {
                     'up' => {}
                   }
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -292,12 +292,12 @@ $result_nodes{'top_without_node_sections'} = [
           'tree_unit_directions' => {
             'next' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'top',
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'FastBack' => {},
         'NodeUp' => {
@@ -316,14 +316,14 @@ $result_nodes{'top_without_node_sections'} = [
       'tree_unit_directions' => {
         'prev' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'chapter',
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -366,11 +366,11 @@ $result_menus{'top_without_node_sections'} = [
           'tree_unit_directions' => {
             'next' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'FastBack' => {},
         'NodeUp' => {
@@ -389,13 +389,13 @@ $result_menus{'top_without_node_sections'} = [
       'tree_unit_directions' => {
         'prev' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'second'
@@ -439,24 +439,24 @@ $result_elements{'top_without_node_sections'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {}
 ];

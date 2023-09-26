@@ -206,8 +206,8 @@ $result_trees{'nodes_after_top_before_chapter_nodes'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -313,8 +313,8 @@ $result_trees{'nodes_after_top_before_chapter_nodes'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -415,8 +415,8 @@ $result_trees{'nodes_after_top_before_chapter_nodes'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'nodes_after_top_before_chapter_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_chapter_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -473,14 +473,14 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
                     'This' => {}
                   },
                   'tree_unit_directions' => {},
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'Top'
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'NodeBack' => {},
@@ -493,14 +493,14 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'second-node'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'NodeBack' => {},
             'NodePrev' => {},
@@ -510,14 +510,14 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'third-node'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'chapter',
         'extra' => {
@@ -572,7 +572,6 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
@@ -601,7 +600,8 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = [
                   },
                   'normalized' => 'third-node'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'NodeBack' => {},
             'NodeForward' => {},
@@ -614,8 +614,8 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -624,8 +624,8 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -688,7 +688,6 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'extra' => {
@@ -707,7 +706,8 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = [
                   },
                   'normalized' => 'third-node'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'NodeBack' => {},
             'NodeForward' => {},
@@ -720,8 +720,8 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -730,8 +730,8 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -792,7 +792,6 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
               'NodeUp' => {},
               'This' => {}
             },
-            'type' => 'unit',
             'unit_command' => {
               'associated_unit' => {},
               'cmdname' => 'node',
@@ -819,7 +818,8 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
                 },
                 'normalized' => 'third-node'
               }
-            }
+            },
+            'unit_type' => 'unit'
           },
           'NodeBack' => {},
           'NodeForward' => {},
@@ -828,15 +828,15 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
           'NodeUp' => {},
           'This' => {}
         },
-        'type' => 'unit',
-        'unit_command' => {}
+        'unit_command' => {},
+        'unit_type' => 'unit'
       },
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {},
   {}

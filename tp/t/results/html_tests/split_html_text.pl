@@ -91,8 +91,8 @@ $result_trees{'split_html_text'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -162,8 +162,8 @@ $result_trees{'split_html_text'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'split_html_text'}[0]{'unit_command'} = $result_trees{'split_html_text'}[0]{'contents'}[1];
@@ -205,14 +205,14 @@ $result_sectioning{'split_html_text'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chap'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeForward' => {},
@@ -220,14 +220,14 @@ $result_sectioning{'split_html_text'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -298,7 +298,6 @@ $result_nodes{'split_html_text'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
@@ -316,7 +315,8 @@ $result_nodes{'split_html_text'} = [
               },
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -326,8 +326,8 @@ $result_nodes{'split_html_text'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -383,13 +383,13 @@ $result_menus{'split_html_text'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -399,8 +399,8 @@ $result_menus{'split_html_text'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'Top'
@@ -444,28 +444,28 @@ $result_elements{'split_html_text'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'chap'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Top'
       }
-    }
+    },
+    'unit_type' => 'unit'
   },
   {}
 ];

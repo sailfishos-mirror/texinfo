@@ -49,8 +49,8 @@ $result_trees{'index_below'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -94,8 +94,8 @@ $result_trees{'index_below'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -210,8 +210,8 @@ $result_trees{'index_below'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'index_below'}[0]{'unit_command'} = $result_trees{'index_below'}[0]{'contents'}[1];
@@ -260,7 +260,6 @@ $result_sectioning{'index_below'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'section',
@@ -288,7 +287,8 @@ $result_sectioning{'index_below'} = {
                       'section_level' => 2,
                       'section_number' => '1.1'
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'This' => {},
                 'Up' => {}
@@ -296,15 +296,15 @@ $result_sectioning{'index_below'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -370,36 +370,36 @@ $result_elements{'index_below'} = [
               'This' => {},
               'Up' => {}
             },
-            'type' => 'unit',
             'unit_command' => {
               'associated_unit' => {},
               'cmdname' => 'section',
               'extra' => {
                 'section_number' => '1.1'
               }
-            }
+            },
+            'unit_type' => 'unit'
           },
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {},
   {}

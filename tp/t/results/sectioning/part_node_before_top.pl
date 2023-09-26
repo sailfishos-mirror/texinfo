@@ -289,8 +289,8 @@ $result_trees{'part_node_before_top'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'part_node_before_top'}[0]{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'part_node_before_top'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
@@ -331,7 +331,6 @@ $result_sectioning{'part_node_before_top'} = {
             'NodeNext' => {},
             'This' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'top',
@@ -349,7 +348,8 @@ $result_sectioning{'part_node_before_top'} = {
               },
               'section_level' => 0
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'part',
         'extra' => {
@@ -387,7 +387,6 @@ $result_nodes{'part_node_before_top'} = [
         'NodeNext' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
@@ -398,7 +397,8 @@ $result_nodes{'part_node_before_top'} = [
             'extra' => {}
           }
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -446,7 +446,6 @@ $result_menus{'part_node_before_top'} = [
         'NodeNext' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {
@@ -455,7 +454,8 @@ $result_menus{'part_node_before_top'} = [
             'extra' => {}
           }
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menu_directions' => {
@@ -516,7 +516,6 @@ $result_elements{'part_node_before_top'} = [
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
@@ -527,7 +526,8 @@ $result_elements{'part_node_before_top'} = [
           'extra' => {}
         }
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'part_node_before_top'}[0]{'directions'}{'NodeBack'} = $result_elements{'part_node_before_top'}[0];

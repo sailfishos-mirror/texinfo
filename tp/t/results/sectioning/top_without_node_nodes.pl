@@ -164,8 +164,8 @@ $result_trees{'top_without_node_nodes'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'contents'}[1];
@@ -203,14 +203,14 @@ $result_sectioning{'top_without_node_nodes'} = {
             },
             'This' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'second'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -266,8 +266,8 @@ $result_nodes{'top_without_node_nodes'} = [
         },
         'This' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -311,8 +311,8 @@ $result_menus{'top_without_node_nodes'} = [
         },
         'This' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'second'
@@ -343,14 +343,14 @@ $result_elements{'top_without_node_nodes'} = [
       },
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second'
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'top_without_node_nodes'}[0]{'directions'}{'This'} = $result_elements{'top_without_node_nodes'}[0];

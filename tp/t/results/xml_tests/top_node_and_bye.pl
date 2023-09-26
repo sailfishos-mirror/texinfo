@@ -62,7 +62,7 @@ $result_trees{'top_node_and_bye'} = [
         'cmdname' => 'bye'
       }
     ],
-    'type' => 'unit'
+    'unit_type' => 'unit'
   }
 ];
 
@@ -81,7 +81,7 @@ $result_nodes{'top_node_and_bye'} = [
       'directions' => {
         'This' => {}
       },
-      'type' => 'unit'
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -97,7 +97,7 @@ $result_menus{'top_node_and_bye'} = [
       'directions' => {
         'This' => {}
       },
-      'type' => 'unit'
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'Top'
@@ -117,7 +117,7 @@ $result_elements{'top_node_and_bye'} = [
     'directions' => {
       'This' => {}
     },
-    'type' => 'unit'
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'top_node_and_bye'}[0]{'directions'}{'This'} = $result_elements{'top_node_and_bye'}[0];

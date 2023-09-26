@@ -403,8 +403,8 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'nodes_after_top_before_section_sections'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_sections'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -453,8 +453,8 @@ $result_sectioning{'nodes_after_top_before_section_sections'} = {
             'NodeUp' => {},
             'This' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'subsection',
         'extra' => {
@@ -489,14 +489,14 @@ $result_nodes{'nodes_after_top_before_section_sections'} = [
         'NodeUp' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'subsection',
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -553,13 +553,13 @@ $result_menus{'nodes_after_top_before_section_sections'} = [
         'NodeUp' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -613,14 +613,14 @@ $result_elements{'nodes_after_top_before_section_sections'} = [
       'NodeUp' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'subsection',
       'extra' => {
         'section_number' => '1'
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'nodes_after_top_before_section_sections'}[0]{'directions'}{'NodePrev'} = $result_elements{'nodes_after_top_before_section_sections'}[0];

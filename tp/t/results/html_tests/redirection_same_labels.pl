@@ -277,8 +277,8 @@ $result_trees{'redirection_same_labels'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -675,8 +675,8 @@ $result_trees{'redirection_same_labels'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -920,8 +920,8 @@ $result_trees{'redirection_same_labels'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'redirection_same_labels'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'redirection_same_labels'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
@@ -1013,7 +1013,6 @@ $result_sectioning{'redirection_same_labels'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'chapter',
@@ -1057,7 +1056,8 @@ $result_sectioning{'redirection_same_labels'} = {
                         'up' => {}
                       }
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'Next' => {},
@@ -1072,8 +1072,8 @@ $result_sectioning{'redirection_same_labels'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeForward' => {},
@@ -1081,8 +1081,8 @@ $result_sectioning{'redirection_same_labels'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -1172,14 +1172,14 @@ $result_nodes{'redirection_same_labels'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
                 'extra' => {
                   'section_number' => '2'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -1195,14 +1195,14 @@ $result_nodes{'redirection_same_labels'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'chapter',
             'extra' => {
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -1212,12 +1212,12 @@ $result_nodes{'redirection_same_labels'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -1360,13 +1360,13 @@ $result_menus{'redirection_same_labels'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'extra' => {
                   'section_number' => '2'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -1382,13 +1382,13 @@ $result_menus{'redirection_same_labels'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -1398,11 +1398,11 @@ $result_menus{'redirection_same_labels'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -1538,14 +1538,14 @@ $result_elements{'redirection_same_labels'} = [
               'This' => {},
               'Up' => {}
             },
-            'type' => 'unit',
             'unit_command' => {
               'associated_unit' => {},
               'cmdname' => 'chapter',
               'extra' => {
                 'section_number' => '2'
               }
-            }
+            },
+            'unit_type' => 'unit'
           },
           'Forward' => {},
           'Next' => {},
@@ -1557,26 +1557,26 @@ $result_elements{'redirection_same_labels'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {},
   {}

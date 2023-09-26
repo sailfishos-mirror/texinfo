@@ -63,8 +63,8 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -143,8 +143,8 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'unnumbered_before_node_top_top'}[0]{'unit_command'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[1];
@@ -186,7 +186,6 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'top',
@@ -206,15 +205,16 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
                     'prev' => {}
                   }
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'unnumbered',
         'extra' => {
@@ -259,12 +259,12 @@ $result_nodes{'unnumbered_before_node_top_top'} = [
           'tree_unit_directions' => {
             'next' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'unnumbered',
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'FastBack' => {},
         'Prev' => {},
@@ -273,12 +273,12 @@ $result_nodes{'unnumbered_before_node_top_top'} = [
       'tree_unit_directions' => {
         'prev' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -314,11 +314,11 @@ $result_menus{'unnumbered_before_node_top_top'} = [
           'tree_unit_directions' => {
             'next' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'FastBack' => {},
         'Prev' => {},
@@ -327,11 +327,11 @@ $result_menus{'unnumbered_before_node_top_top'} = [
       'tree_unit_directions' => {
         'prev' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'Top'
@@ -376,23 +376,23 @@ $result_elements{'unnumbered_before_node_top_top'} = [
           'Prev' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'top',
           'extra' => {}
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'Next' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'unnumbered',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {}
 ];

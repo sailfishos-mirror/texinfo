@@ -186,8 +186,8 @@ $result_trees{'internal_top_node_up'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -225,8 +225,8 @@ $result_trees{'internal_top_node_up'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'internal_top_node_up'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'internal_top_node_up'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -269,28 +269,28 @@ $result_sectioning{'internal_top_node_up'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chap'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'NodeForward' => {},
             'NodeNext' => {},
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -334,7 +334,6 @@ $result_nodes{'internal_top_node_up'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
@@ -345,7 +344,8 @@ $result_nodes{'internal_top_node_up'} = [
               },
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -354,8 +354,8 @@ $result_nodes{'internal_top_node_up'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -407,7 +407,6 @@ $result_menus{'internal_top_node_up'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
@@ -416,7 +415,8 @@ $result_menus{'internal_top_node_up'} = [
               },
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -425,8 +425,8 @@ $result_menus{'internal_top_node_up'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -471,7 +471,6 @@ $result_elements{'internal_top_node_up'} = [
           'NodeUp' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'node',
@@ -487,14 +486,15 @@ $result_elements{'internal_top_node_up'} = [
             },
             'normalized' => 'chap'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {}
 ];

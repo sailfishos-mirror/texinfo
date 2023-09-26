@@ -237,8 +237,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -759,8 +759,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1088,8 +1088,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1189,8 +1189,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1280,8 +1280,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1367,8 +1367,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         'cmdname' => 'bye'
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'character_and_spaces_in_refs_out'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -1522,14 +1522,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                               'tree_unit_directions' => {
                                 'prev' => {}
                               },
-                              'type' => 'unit',
                               'unit_command' => {
                                 'associated_unit' => {},
                                 'cmdname' => 'node',
                                 'extra' => {
                                   'normalized' => 'local-node'
                                 }
-                              }
+                              },
+                              'unit_type' => 'unit'
                             },
                             'NodeBack' => {},
                             'NodeForward' => {},
@@ -1541,14 +1541,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
                             'extra' => {
                               'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'NodeBack' => {},
                         'NodeForward' => {},
@@ -1560,14 +1560,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                       'tree_unit_directions' => {
                         'prev' => {}
                       },
-                      'type' => 'unit',
                       'unit_command' => {
                         'associated_unit' => {},
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                         }
-                      }
+                      },
+                      'unit_type' => 'unit'
                     },
                     'NodeBack' => {},
                     'NodeForward' => {},
@@ -1581,14 +1581,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'other-nodes'
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'Next' => {},
@@ -1603,14 +1603,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeForward' => {},
@@ -1618,14 +1618,14 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -1780,7 +1780,6 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
@@ -1831,7 +1830,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                               },
                               'normalized' => 'local-node'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'NodeBack' => {},
                         'NodeForward' => {},
@@ -1844,8 +1844,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                         'next' => {},
                         'prev' => {}
                       },
-                      'type' => 'unit',
-                      'unit_command' => {}
+                      'unit_command' => {},
+                      'unit_type' => 'unit'
                     },
                     'NodeBack' => {},
                     'NodeForward' => {},
@@ -1858,8 +1858,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                     'next' => {},
                     'prev' => {}
                   },
-                  'type' => 'unit',
-                  'unit_command' => {}
+                  'unit_command' => {},
+                  'unit_type' => 'unit'
                 },
                 'NodeBack' => {},
                 'NodeForward' => {},
@@ -1874,8 +1874,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
                 'next' => {},
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -1891,7 +1891,6 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
@@ -1910,7 +1909,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
               },
               'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -1920,8 +1920,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -2063,7 +2063,6 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'extra' => {
@@ -2113,7 +2112,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
                               },
                               'normalized' => 'local-node'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'NodeBack' => {},
                         'NodeForward' => {},
@@ -2126,8 +2126,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
                         'next' => {},
                         'prev' => {}
                       },
-                      'type' => 'unit',
-                      'unit_command' => {}
+                      'unit_command' => {},
+                      'unit_type' => 'unit'
                     },
                     'NodeBack' => {},
                     'NodeForward' => {},
@@ -2140,8 +2140,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
                     'next' => {},
                     'prev' => {}
                   },
-                  'type' => 'unit',
-                  'unit_command' => {}
+                  'unit_command' => {},
+                  'unit_type' => 'unit'
                 },
                 'NodeBack' => {},
                 'NodeForward' => {},
@@ -2156,8 +2156,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
                 'next' => {},
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -2173,8 +2173,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -2184,8 +2184,8 @@ $result_menus{'character_and_spaces_in_refs_out'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -2316,7 +2316,6 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                           'NodeUp' => {},
                           'This' => {}
                         },
-                        'type' => 'unit',
                         'unit_command' => {
                           'associated_unit' => {},
                           'cmdname' => 'node',
@@ -2374,7 +2373,8 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                             },
                             'normalized' => 'local-node'
                           }
-                        }
+                        },
+                        'unit_type' => 'unit'
                       },
                       'NodeBack' => {},
                       'NodeForward' => {},
@@ -2383,8 +2383,8 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                       'NodeUp' => {},
                       'This' => {}
                     },
-                    'type' => 'unit',
-                    'unit_command' => {}
+                    'unit_command' => {},
+                    'unit_type' => 'unit'
                   },
                   'NodeBack' => {},
                   'NodeForward' => {},
@@ -2393,8 +2393,8 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                   'NodeUp' => {},
                   'This' => {}
                 },
-                'type' => 'unit',
-                'unit_command' => {}
+                'unit_command' => {},
+                'unit_type' => 'unit'
               },
               'NodeBack' => {},
               'NodeForward' => {},
@@ -2405,8 +2405,8 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
               'This' => {},
               'Up' => {}
             },
-            'type' => 'unit',
-            'unit_command' => {}
+            'unit_command' => {},
+            'unit_type' => 'unit'
           },
           'Forward' => {},
           'Next' => {},
@@ -2418,16 +2418,16 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
-        'unit_command' => {}
+        'unit_command' => {},
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {},
   {},

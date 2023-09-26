@@ -251,8 +251,8 @@ $result_trees{'non_automatic_top_node_up_url'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -339,8 +339,8 @@ $result_trees{'non_automatic_top_node_up_url'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
@@ -391,14 +391,14 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'chap'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'NodeForward' => {},
             'NodeNext' => {},
@@ -413,14 +413,14 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -472,7 +472,6 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
@@ -488,7 +487,8 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
               },
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -517,8 +517,8 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -592,7 +592,6 @@ $result_menus{'non_automatic_top_node_up_url'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
@@ -601,7 +600,8 @@ $result_menus{'non_automatic_top_node_up_url'} = [
               },
               'normalized' => 'chap'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
@@ -630,8 +630,8 @@ $result_menus{'non_automatic_top_node_up_url'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -684,7 +684,6 @@ $result_elements{'non_automatic_top_node_up_url'} = [
           },
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'node',
@@ -700,7 +699,8 @@ $result_elements{'non_automatic_top_node_up_url'} = [
             },
             'normalized' => 'chap'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'NodeForward' => {},
       'NodeNext' => {},
@@ -726,8 +726,8 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       },
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {}
 ];

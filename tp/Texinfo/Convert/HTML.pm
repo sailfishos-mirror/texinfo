@@ -1064,8 +1064,8 @@ sub command_text($$;$)
     }
     my $tree;
     if (!$target->{'tree'}) {
-      if (defined($command->{'type'})
-          and $command->{'type'} eq 'special_element') {
+      if (defined($command->{'unit_type'})
+          and $command->{'unit_type'} eq 'special_element') {
         my $special_element_variety
            = $command->{'special_element_variety'};
         $tree
@@ -1319,14 +1319,15 @@ sub from_element_direction($$$;$$$)
 
   if ($target_element) {
     ######## debug
-    if (!$target_element->{'type'}) {
+    if (!$target_element->{'unit_type'} and !$target_element->{'type'}) {
       die "No type for element_target $direction $target_element: "
        . Texinfo::Common::debug_print_element_details($target_element, 1)
        . "directions :"
            . Texinfo::Structuring::print_element_directions($source_element);
     }
     ########
-    if ($target_element->{'type'} eq 'external_node') {
+    if ($target_element->{'type'}
+        and $target_element->{'type'} eq 'external_node') {
       #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
       #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
@@ -1364,8 +1365,9 @@ sub from_element_direction($$$;$$$)
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
-      if (defined($target_element->{'type'})
-          and $target_element->{'type'} eq 'special_element') {
+      if (defined($target_element->{'unit_type'})
+          and $target_element->{'unit_type'} eq 'special_element') {
+        # FIXME separate output units and element
         $command = $target_element;
       } else {
         $command = $target_element->{'unit_command'};
@@ -7330,9 +7332,10 @@ sub _default_format_element_footer($$$$;$)
                      and $self->unit_is_top_output_unit(
                             $unit->{'tree_unit_directions'}->{'next'}));
   my $next_is_special = (defined($unit->{'tree_unit_directions'}->{'next'})
-               and defined($unit->{'tree_unit_directions'}->{'next'}->{'type'})
+               and defined($unit->{'tree_unit_directions'}->{'next'}
+                                                            ->{'unit_type'})
                and $unit->{'tree_unit_directions'}->{'next'}
-                                       ->{'type'} eq 'special_element');
+                                       ->{'unit_type'} eq 'special_element');
 
   my $end_page = (!$unit->{'tree_unit_directions'}->{'next'}
        or (defined($unit->{'unit_filename'})
@@ -7341,8 +7344,8 @@ sub _default_format_element_footer($$$$;$)
            and $self->count_elements_in_filename('remaining',
                          $unit->{'unit_filename'}) == 1));
 
-  my $is_special = (defined($unit->{'type'})
-                    and $unit->{'type'} eq 'special_element');
+  my $is_special = (defined($unit->{'unit_type'})
+                    and $unit->{'unit_type'} eq 'special_element');
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
@@ -8809,8 +8812,8 @@ sub _html_get_tree_root_element($$;$)
 
   my ($root_element, $root_command);
   while (1) {
-    if ($current->{'type'}) {
-      if ($current->{'type'} eq 'special_element') {
+    if ($current->{'unit_type'}) {
+      if ($current->{'unit_type'} eq 'special_element') {
         #print STDERR "SPECIAL $current->{'special_element_variety'}\n" if ($debug);
         return ($current, $root_command);
       }
@@ -9243,7 +9246,7 @@ sub _prepare_special_elements($$$$)
   foreach my $special_element_variety (@sorted_elements_varieties) {
     next unless ($do_special{$special_element_variety});
 
-    my $element = {'type' => 'special_element',
+    my $element = {'unit_type' => 'special_element',
                    'special_element_variety'
                                    => $special_element_variety,
                    'directions' => {}};
@@ -9302,7 +9305,7 @@ sub _prepare_special_elements($$$$)
         $self->{'frame_pages_file_string'}->{$special_element_variety};
       $default_filename .= '.'.$extension if (defined($extension));
 
-      my $element = {'type' => 'special_element',
+      my $element = {'unit_type' => 'special_element',
                      'extra' => {'special_element_variety'
                                   => $special_element_variety}};
 
@@ -9367,7 +9370,7 @@ sub _prepare_contents_elements($)
           next;
         }
 
-        my $contents_element = {'type' => 'special_element',
+        my $contents_element = {'unit_type' => 'special_element',
                                 'special_element_variety'
                                              => $special_element_variety};
         my $special_element_direction
@@ -10816,13 +10819,13 @@ sub convert_output_unit($$;$)
 
   $debug = $self->get_conf('DEBUG') if !defined($debug);
 
-  my $type_name = $element->{'type'};
+  my $unit_type_name = $element->{'unit_type'};
 
-  if (exists ($self->{'output_units_conversion'}->{$type_name})
-      and !defined($self->{'output_units_conversion'}->{$type_name})) {
+  if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
+      and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
     if ($debug) {
       my $string = 'IGNORED';
-      $string .= " $type_name" if ($type_name);
+      $string .= " $unit_type_name" if ($unit_type_name);
       print STDERR "$string\n";
     }
     return '';
@@ -10835,15 +10838,15 @@ sub convert_output_unit($$;$)
     my $content_idx = 0;
     foreach my $content (@{$element->{'contents'}}) {
       $content_formatted
-        .= _convert($self, $content, "$type_name c[$content_idx]");
+        .= _convert($self, $content, "$unit_type_name c[$content_idx]");
       $content_idx++;
     }
   }
   my $result = '';
-  if (exists($self->{'output_units_conversion'}->{$type_name})) {
+  if (exists($self->{'output_units_conversion'}->{$unit_type_name})) {
     $result
-     .= &{$self->{'output_units_conversion'}->{$type_name}} ($self,
-                                               $type_name,
+     .= &{$self->{'output_units_conversion'}->{$unit_type_name}} ($self,
+                                               $unit_type_name,
                                                $element,
                                                $content_formatted);
   } elsif (defined($content_formatted)) {
@@ -10852,7 +10855,7 @@ sub convert_output_unit($$;$)
 
   delete $self->{'current_output_unit'};
 
-  print STDERR "UNIT type ($type_name) => `$result'\n" if $debug;
+  print STDERR "UNIT ($unit_type_name) => `$result'\n" if $debug;
 
   return $result;
 }
@@ -11426,8 +11429,8 @@ sub output($$)
       # First do the special pages, to avoid outputting these if they are
       # empty.
       my $special_element_content;
-      if (defined($output_unit->{'type'})
-          and $output_unit->{'type'} eq 'special_element') {
+      if (defined($output_unit->{'unit_type'})
+          and $output_unit->{'unit_type'} eq 'special_element') {
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
         $special_element_content
                   .= $self->convert_output_unit($output_unit,

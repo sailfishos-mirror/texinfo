@@ -232,8 +232,8 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -348,8 +348,8 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -457,8 +457,8 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'part_node_node_part_appendix'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'part_node_node_part_appendix'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -530,7 +530,6 @@ $result_sectioning{'part_node_node_part_appendix'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'appendix',
@@ -602,7 +601,8 @@ $result_sectioning{'part_node_node_part_appendix'} = {
                         'up' => {}
                       }
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'NodeBack' => {},
@@ -615,8 +615,8 @@ $result_sectioning{'part_node_node_part_appendix'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -625,8 +625,8 @@ $result_sectioning{'part_node_node_part_appendix'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -716,7 +716,6 @@ $result_nodes{'part_node_node_part_appendix'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'appendix',
@@ -728,7 +727,8 @@ $result_nodes{'part_node_node_part_appendix'} = [
                   },
                   'section_number' => 'A'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeBack' => {},
@@ -742,7 +742,6 @@ $result_nodes{'part_node_node_part_appendix'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'chapter',
@@ -754,7 +753,8 @@ $result_nodes{'part_node_node_part_appendix'} = [
               },
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'Next' => {},
@@ -765,12 +765,12 @@ $result_nodes{'part_node_node_part_appendix'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -870,7 +870,6 @@ $result_menus{'part_node_node_part_appendix'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'extra' => {
@@ -880,7 +879,8 @@ $result_menus{'part_node_node_part_appendix'} = [
                   },
                   'section_number' => 'A'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeBack' => {},
@@ -894,7 +894,6 @@ $result_menus{'part_node_node_part_appendix'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
@@ -904,7 +903,8 @@ $result_menus{'part_node_node_part_appendix'} = [
               },
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'Next' => {},
@@ -915,11 +915,11 @@ $result_menus{'part_node_node_part_appendix'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -1017,7 +1017,6 @@ $result_elements{'part_node_node_part_appendix'} = [
               'NodeUp' => {},
               'This' => {}
             },
-            'type' => 'unit',
             'unit_command' => {
               'associated_unit' => {},
               'cmdname' => 'appendix',
@@ -1029,7 +1028,8 @@ $result_elements{'part_node_node_part_appendix'} = [
                 },
                 'section_number' => 'A'
               }
-            }
+            },
+            'unit_type' => 'unit'
           },
           'Forward' => {},
           'NodeBack' => {},
@@ -1039,7 +1039,6 @@ $result_elements{'part_node_node_part_appendix'} = [
           'NodeUp' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
@@ -1051,7 +1050,8 @@ $result_elements{'part_node_node_part_appendix'} = [
             },
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'Next' => {},
@@ -1059,12 +1059,12 @@ $result_elements{'part_node_node_part_appendix'} = [
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {},
   {}

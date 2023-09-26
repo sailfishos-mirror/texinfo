@@ -1267,7 +1267,7 @@ sub split_by_node($)
 {
   my $root = shift;
   my $output_units;
-  my $current = { 'type' => 'unit' };
+  my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
@@ -1279,7 +1279,7 @@ sub split_by_node($)
       if (not $current->{'unit_command'}) {
         $current->{'unit_command'} = $content;
       } else {
-        $current = { 'type' => 'unit', 'unit_command' => $content,
+        $current = { 'unit_type' => 'unit', 'unit_command' => $content,
                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
@@ -1320,7 +1320,7 @@ sub split_by_section($)
 {
   my $root = shift;
   my $output_units;
-  my $current = { 'type' => 'unit' };
+  my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'}
@@ -1339,7 +1339,7 @@ sub split_by_section($)
       if (not defined($current->{'unit_command'})) {
         $current->{'unit_command'} = $new_section;
       } elsif ($new_section ne $current->{'unit_command'}) {
-        $current = { 'type' => 'unit',
+        $current = { 'unit_type' => 'unit',
                      'unit_command' => $new_section,
                      'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
@@ -1352,7 +1352,7 @@ sub split_by_section($)
       if (not defined($current->{'unit_command'})) {
         $current->{'unit_command'} = $content;
       } elsif ($current->{'unit_command'} ne $content) {
-        $current = {'type' => 'unit', 'unit_command' => $content,
+        $current = {'unit_type' => 'unit', 'unit_command' => $content,
                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
@@ -1493,13 +1493,17 @@ sub units_directions($$$)
     $directions->{'Forward'} = $output_unit->{'tree_unit_directions'}->{'next'}
       if ($output_unit->{'tree_unit_directions'}
           and $output_unit->{'tree_unit_directions'}->{'next'}
-          and defined($output_unit->{'tree_unit_directions'}->{'next'}->{'type'})
-          and $output_unit->{'tree_unit_directions'}->{'next'}->{'type'} eq 'unit');
+          and defined($output_unit->{'tree_unit_directions'}->{'next'}
+                                                               ->{'unit_type'})
+          and $output_unit->{'tree_unit_directions'}->{'next'}
+                                                  ->{'unit_type'} eq 'unit');
     $directions->{'Back'} = $output_unit->{'tree_unit_directions'}->{'prev'}
       if ($output_unit->{'tree_unit_directions'}
           and $output_unit->{'tree_unit_directions'}->{'prev'}
-          and defined($output_unit->{'tree_unit_directions'}->{'prev'}->{'type'})
-          and $output_unit->{'tree_unit_directions'}->{'prev'}->{'type'} eq 'unit');
+          and defined($output_unit->{'tree_unit_directions'}->{'prev'}
+                                                               ->{'unit_type'})
+          and $output_unit->{'tree_unit_directions'}->{'prev'}
+                                                     ->{'unit_type'} eq 'unit');
     my $node = _output_unit_node($output_unit);
     if (defined($node)) {
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
@@ -1551,7 +1555,9 @@ sub units_directions($$$)
       }
 
       if ($directions->{'NodeForward'}
-          and $directions->{'NodeForward'}->{'type'} eq 'unit'
+          # FIXME condition could be removed if external_node gets a unit_type
+          and $directions->{'NodeForward'}->{'unit_type'}
+          and $directions->{'NodeForward'}->{'unit_type'} eq 'unit'
           and (!$directions->{'NodeForward'}->{'directions'}
                or !$directions->{'NodeForward'}->{'directions'}
                                                   ->{'NodeBack'})) {
@@ -1758,12 +1764,12 @@ sub unit_or_external_element_texi($)
   if (!$element) {
     return "UNDEF ELEMENT";
   }
-  if (!$element->{'type'}) {
+  if (!$element->{'unit_type'} and !$element->{'type'}) {
     return "element $element without type: ".
        Texinfo::Common::debug_print_element_details($element, 1);
   }
 
-  if ($element->{'type'} eq 'external_node') {
+  if ($element->{'type'} and $element->{'type'} eq 'external_node') {
     my $command = {'contents' => [{'text' => '('},
                         @{$element->{'extra'}->{'manual_content'}},
                                {'text' => ')'}]};
@@ -1779,7 +1785,8 @@ sub unit_or_external_element_texi($)
   } else {
     # happens when there are only nodes and sections are used as elements
     my $result = "No associated command ";
-    $result .= "(type $element->{'type'})" if (defined($element->{'type'}));
+    $result .= "(type $element->{'unit_type'})"
+       if (defined($element->{'unit_type'}));
     return $result;
   }
   return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command_element);

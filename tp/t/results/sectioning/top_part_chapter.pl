@@ -49,8 +49,8 @@ $result_trees{'top_part_chapter'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -125,8 +125,8 @@ $result_trees{'top_part_chapter'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'top_part_chapter'}[0]{'unit_command'} = $result_trees{'top_part_chapter'}[0]{'contents'}[1];
@@ -166,7 +166,6 @@ $result_sectioning{'top_part_chapter'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
@@ -195,15 +194,16 @@ $result_sectioning{'top_part_chapter'} = {
                     'up' => {}
                   }
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -252,7 +252,6 @@ $result_elements{'top_part_chapter'} = [
           'FastBack' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
@@ -264,18 +263,19 @@ $result_elements{'top_part_chapter'} = [
             },
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'Next' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {}
 ];

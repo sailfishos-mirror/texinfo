@@ -283,8 +283,8 @@ $result_trees{'two_nodes_at_the_end'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -503,8 +503,8 @@ $result_trees{'two_nodes_at_the_end'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -572,7 +572,6 @@ $result_sectioning{'two_nodes_at_the_end'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
@@ -594,7 +593,8 @@ $result_sectioning{'two_nodes_at_the_end'} = {
                     'up' => {}
                   }
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeForward' => {},
@@ -602,8 +602,8 @@ $result_sectioning{'two_nodes_at_the_end'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -669,14 +669,14 @@ $result_nodes{'two_nodes_at_the_end'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'chapter',
             'extra' => {
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -686,12 +686,12 @@ $result_nodes{'two_nodes_at_the_end'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -790,13 +790,13 @@ $result_menus{'two_nodes_at_the_end'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -806,11 +806,11 @@ $result_menus{'two_nodes_at_the_end'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -900,26 +900,26 @@ $result_elements{'two_nodes_at_the_end'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'chapter',
           'extra' => {
             'section_number' => '1'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'NodeForward' => {},
       'NodeNext' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {}
 ];

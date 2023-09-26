@@ -190,8 +190,8 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -271,8 +271,8 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'contents'}[1]{'args'}[3]{'contents'}[1];
@@ -316,7 +316,6 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
@@ -327,7 +326,8 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = [
               },
               'normalized' => 'second-node'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeUp' => {
@@ -345,8 +345,8 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -394,7 +394,6 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = [
           'tree_unit_directions' => {
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {
@@ -403,7 +402,8 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = [
               },
               'normalized' => 'second-node'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'NodeForward' => {},
         'NodeUp' => {
@@ -421,8 +421,8 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -464,7 +464,6 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
           'NodeUp' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'node',
@@ -480,7 +479,8 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
             },
             'normalized' => 'second-node'
           }
-        }
+        },
+        'unit_type' => 'unit'
       },
       'NodeForward' => {},
       'NodeUp' => {
@@ -495,8 +495,8 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
       },
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {}
 ];

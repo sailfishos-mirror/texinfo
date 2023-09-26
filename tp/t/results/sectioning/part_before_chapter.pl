@@ -87,8 +87,8 @@ $result_trees{'part_before_chapter'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'part_before_chapter'}[0]{'contents'}[2]{'extra'}{'associated_part'} = $result_trees{'part_before_chapter'}[0]{'contents'}[1];
@@ -115,7 +115,6 @@ $result_sectioning{'part_before_chapter'} = {
           'directions' => {
             'This' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'chapter',
@@ -127,7 +126,8 @@ $result_sectioning{'part_before_chapter'} = {
               'section_level' => 1,
               'section_number' => '1'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'part',
         'extra' => {
@@ -162,7 +162,6 @@ $result_elements{'part_before_chapter'} = [
     'directions' => {
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'chapter',
@@ -174,7 +173,8 @@ $result_elements{'part_before_chapter'} = [
         },
         'section_number' => '1'
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'part_before_chapter'}[0]{'directions'}{'This'} = $result_elements{'part_before_chapter'}[0];

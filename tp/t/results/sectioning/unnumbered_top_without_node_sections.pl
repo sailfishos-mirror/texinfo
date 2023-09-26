@@ -126,8 +126,8 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -178,8 +178,8 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -290,8 +290,8 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'args'}[3]{'contents'}[1];
@@ -354,7 +354,6 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'chapter',
@@ -388,7 +387,8 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
                         'up' => {}
                       }
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'Next' => {},
@@ -398,8 +398,8 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -410,8 +410,8 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'unnumbered',
         'extra' => {
@@ -491,14 +491,14 @@ $result_nodes{'unnumbered_top_without_node_sections'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'chapter',
                 'extra' => {
                   'section_number' => '1'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -509,12 +509,12 @@ $result_nodes{'unnumbered_top_without_node_sections'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'top',
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'Next' => {},
@@ -533,12 +533,12 @@ $result_nodes{'unnumbered_top_without_node_sections'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'unnumbered',
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -625,13 +625,13 @@ $result_menus{'unnumbered_top_without_node_sections'} = [
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'extra' => {
                   'section_number' => '1'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -642,11 +642,11 @@ $result_menus{'unnumbered_top_without_node_sections'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'extra' => {}
-          }
+          },
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'Next' => {},
@@ -665,11 +665,11 @@ $result_menus{'unnumbered_top_without_node_sections'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {}
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'a-node'
@@ -753,26 +753,26 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
               'Prev' => {},
               'This' => {}
             },
-            'type' => 'unit',
             'unit_command' => {
               'associated_unit' => {},
               'cmdname' => 'chapter',
               'extra' => {
                 'section_number' => '1'
               }
-            }
+            },
+            'unit_type' => 'unit'
           },
           'Forward' => {},
           'Next' => {},
           'Prev' => {},
           'This' => {}
         },
-        'type' => 'unit',
         'unit_command' => {
           'associated_unit' => {},
           'cmdname' => 'top',
           'extra' => {}
-        }
+        },
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'Next' => {},
@@ -788,12 +788,12 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
       },
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'unnumbered',
       'extra' => {}
-    }
+    },
+    'unit_type' => 'unit'
   },
   {},
   {}

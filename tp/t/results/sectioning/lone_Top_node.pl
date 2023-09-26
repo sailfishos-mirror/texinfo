@@ -226,8 +226,8 @@ $result_trees{'lone_Top_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'lone_Top_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lone_Top_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -261,8 +261,8 @@ $result_sectioning{'lone_Top_node'} = {
             'NodeUp' => {},
             'This' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'cmdname' => 'chapter',
         'extra' => {
@@ -297,14 +297,14 @@ $result_nodes{'lone_Top_node'} = [
         'NodeUp' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'chapter',
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -345,13 +345,13 @@ $result_menus{'lone_Top_node'} = [
         'NodeUp' => {},
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {
           'section_number' => '1'
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -400,14 +400,14 @@ $result_elements{'lone_Top_node'} = [
       'NodeUp' => {},
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'chapter',
       'extra' => {
         'section_number' => '1'
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'lone_Top_node'}[0]{'directions'}{'NodePrev'} = $result_elements{'lone_Top_node'}[0];

@@ -126,8 +126,8 @@ $result_trees{'top_node_part_top'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'top_node_part_top'}[0]{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'top_node_part_top'}[0]{'contents'}[2];
@@ -157,7 +157,6 @@ $result_sectioning{'top_node_part_top'} = {
           'directions' => {
             'This' => {}
           },
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'top',
@@ -175,7 +174,8 @@ $result_sectioning{'top_node_part_top'} = {
               },
               'section_level' => 0
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'part',
         'extra' => {
@@ -205,7 +205,6 @@ $result_nodes{'top_node_part_top'} = [
       'directions' => {
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'cmdname' => 'top',
@@ -216,7 +215,8 @@ $result_nodes{'top_node_part_top'} = [
             'extra' => {}
           }
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -236,7 +236,6 @@ $result_menus{'top_node_part_top'} = [
       'directions' => {
         'This' => {}
       },
-      'type' => 'unit',
       'unit_command' => {
         'associated_unit' => {},
         'extra' => {
@@ -245,7 +244,8 @@ $result_menus{'top_node_part_top'} = [
             'extra' => {}
           }
         }
-      }
+      },
+      'unit_type' => 'unit'
     },
     'extra' => {
       'normalized' => 'Top'
@@ -286,7 +286,6 @@ $result_elements{'top_node_part_top'} = [
     'directions' => {
       'This' => {}
     },
-    'type' => 'unit',
     'unit_command' => {
       'associated_unit' => {},
       'cmdname' => 'top',
@@ -297,7 +296,8 @@ $result_elements{'top_node_part_top'} = [
           'extra' => {}
         }
       }
-    }
+    },
+    'unit_type' => 'unit'
   }
 ];
 $result_elements{'top_node_part_top'}[0]{'directions'}{'This'} = $result_elements{'top_node_part_top'}[0];

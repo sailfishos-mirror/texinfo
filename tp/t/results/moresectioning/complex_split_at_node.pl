@@ -439,8 +439,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -768,8 +768,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1086,8 +1086,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1162,8 +1162,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1238,8 +1238,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1314,8 +1314,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1390,8 +1390,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1570,8 +1570,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1651,8 +1651,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1729,8 +1729,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1809,8 +1809,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -1953,8 +1953,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -2043,8 +2043,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -2192,8 +2192,8 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {
     'contents' => [
@@ -2294,8 +2294,8 @@ $result_trees{'complex_split_at_node'} = [
         'cmdname' => 'bye'
       }
     ],
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   }
 ];
 $result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
@@ -2546,14 +2546,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                                       'tree_unit_directions' => {
                                                         'prev' => {}
                                                       },
-                                                      'type' => 'unit',
                                                       'unit_command' => {
                                                         'associated_unit' => {},
                                                         'cmdname' => 'node',
                                                         'extra' => {
                                                           'normalized' => 'unnumbered'
                                                         }
-                                                      }
+                                                      },
+                                                      'unit_type' => 'unit'
                                                     },
                                                     'FastBack' => {},
                                                     'FastForward' => {},
@@ -2569,14 +2569,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                                   'tree_unit_directions' => {
                                                     'prev' => {}
                                                   },
-                                                  'type' => 'unit',
                                                   'unit_command' => {
                                                     'associated_unit' => {},
                                                     'cmdname' => 'node',
                                                     'extra' => {
                                                       'normalized' => 'unnumbered-sub'
                                                     }
-                                                  }
+                                                  },
+                                                  'unit_type' => 'unit'
                                                 },
                                                 'FastBack' => {},
                                                 'FastForward' => {},
@@ -2594,14 +2594,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                               'tree_unit_directions' => {
                                                 'prev' => {}
                                               },
-                                              'type' => 'unit',
                                               'unit_command' => {
                                                 'associated_unit' => {},
                                                 'cmdname' => 'node',
                                                 'extra' => {
                                                   'normalized' => 'numbered-sub'
                                                 }
-                                              }
+                                              },
+                                              'unit_type' => 'unit'
                                             },
                                             'FastBack' => {},
                                             'FastForward' => {},
@@ -2619,14 +2619,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                           'tree_unit_directions' => {
                                             'prev' => {}
                                           },
-                                          'type' => 'unit',
                                           'unit_command' => {
                                             'associated_unit' => {},
                                             'cmdname' => 'node',
                                             'extra' => {
                                               'normalized' => 'unnumbered-sub2'
                                             }
-                                          }
+                                          },
+                                          'unit_type' => 'unit'
                                         },
                                         'FastBack' => {},
                                         'FastForward' => {},
@@ -2642,14 +2642,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                       'tree_unit_directions' => {
                                         'prev' => {}
                                       },
-                                      'type' => 'unit',
                                       'unit_command' => {
                                         'associated_unit' => {},
                                         'cmdname' => 'node',
                                         'extra' => {
                                           'normalized' => 'numbered-sub2'
                                         }
-                                      }
+                                      },
+                                      'unit_type' => 'unit'
                                     },
                                     'FastBack' => {},
                                     'FastForward' => {},
@@ -2667,14 +2667,14 @@ $result_sectioning{'complex_split_at_node'} = {
                                   'tree_unit_directions' => {
                                     'prev' => {}
                                   },
-                                  'type' => 'unit',
                                   'unit_command' => {
                                     'associated_unit' => {},
                                     'cmdname' => 'node',
                                     'extra' => {
                                       'normalized' => 'unnumbered2'
                                     }
-                                  }
+                                  },
+                                  'unit_type' => 'unit'
                                 },
                                 'FastBack' => {},
                                 'FastForward' => {},
@@ -2688,14 +2688,14 @@ $result_sectioning{'complex_split_at_node'} = {
                               'tree_unit_directions' => {
                                 'prev' => {}
                               },
-                              'type' => 'unit',
                               'unit_command' => {
                                 'associated_unit' => {},
                                 'cmdname' => 'node',
                                 'extra' => {
                                   'normalized' => 'numbered-sub3'
                                 }
-                              }
+                              },
+                              'unit_type' => 'unit'
                             },
                             'FastBack' => {},
                             'FastForward' => {},
@@ -2710,14 +2710,14 @@ $result_sectioning{'complex_split_at_node'} = {
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
                             'extra' => {
                               'normalized' => 'numbered'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'FastForward' => {},
                         'Forward' => {},
@@ -2727,14 +2727,14 @@ $result_sectioning{'complex_split_at_node'} = {
                       'tree_unit_directions' => {
                         'prev' => {}
                       },
-                      'type' => 'unit',
                       'unit_command' => {
                         'associated_unit' => {},
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'between-node'
                         }
-                      }
+                      },
+                      'unit_type' => 'unit'
                     },
                     'FastBack' => {},
                     'FastForward' => {
@@ -2756,14 +2756,14 @@ $result_sectioning{'complex_split_at_node'} = {
                               'tree_unit_directions' => {
                                 'prev' => {}
                               },
-                              'type' => 'unit',
                               'unit_command' => {
                                 'associated_unit' => {},
                                 'cmdname' => 'node',
                                 'extra' => {
                                   'normalized' => 'Last-node-no-description'
                                 }
-                              }
+                              },
+                              'unit_type' => 'unit'
                             },
                             'NodeBack' => {},
                             'NodeForward' => {},
@@ -2777,14 +2777,14 @@ $result_sectioning{'complex_split_at_node'} = {
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
                             'extra' => {
                               'normalized' => 'continuity'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'Forward' => {},
                         'Next' => {},
@@ -2800,14 +2800,14 @@ $result_sectioning{'complex_split_at_node'} = {
                       'tree_unit_directions' => {
                         'prev' => {}
                       },
-                      'type' => 'unit',
                       'unit_command' => {
                         'associated_unit' => {},
                         'cmdname' => 'node',
                         'extra' => {
                           'normalized' => 'Third-node-unnumbered'
                         }
-                      }
+                      },
+                      'unit_type' => 'unit'
                     },
                     'Forward' => {},
                     'Next' => {},
@@ -2821,14 +2821,14 @@ $result_sectioning{'complex_split_at_node'} = {
                   'tree_unit_directions' => {
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'Second-node'
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'Next' => {},
@@ -2842,14 +2842,14 @@ $result_sectioning{'complex_split_at_node'} = {
               'tree_unit_directions' => {
                 'prev' => {}
               },
-              'type' => 'unit',
               'unit_command' => {
                 'associated_unit' => {},
                 'cmdname' => 'node',
                 'extra' => {
                   'normalized' => 'First-node'
                 }
-              }
+              },
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'NodeForward' => {},
@@ -2861,14 +2861,14 @@ $result_sectioning{'complex_split_at_node'} = {
             'This' => {}
           },
           'tree_unit_directions' => {},
-          'type' => 'unit',
           'unit_command' => {
             'associated_unit' => {},
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
             }
-          }
+          },
+          'unit_type' => 'unit'
         },
         'cmdname' => 'top',
         'extra' => {
@@ -3315,7 +3315,6 @@ $result_nodes{'complex_split_at_node'} = [
                                                     'next' => {},
                                                     'prev' => {}
                                                   },
-                                                  'type' => 'unit',
                                                   'unit_command' => {
                                                     'associated_unit' => {},
                                                     'cmdname' => 'node',
@@ -3381,7 +3380,8 @@ $result_nodes{'complex_split_at_node'} = [
                                                       },
                                                       'normalized' => 'unnumbered'
                                                     }
-                                                  }
+                                                  },
+                                                  'unit_type' => 'unit'
                                                 },
                                                 'FastBack' => {},
                                                 'FastForward' => {},
@@ -3398,7 +3398,6 @@ $result_nodes{'complex_split_at_node'} = [
                                                 'next' => {},
                                                 'prev' => {}
                                               },
-                                              'type' => 'unit',
                                               'unit_command' => {
                                                 'associated_unit' => {},
                                                 'cmdname' => 'node',
@@ -3461,7 +3460,8 @@ $result_nodes{'complex_split_at_node'} = [
                                                   },
                                                   'normalized' => 'unnumbered-sub'
                                                 }
-                                              }
+                                              },
+                                              'unit_type' => 'unit'
                                             },
                                             'FastBack' => {},
                                             'FastForward' => {},
@@ -3480,8 +3480,8 @@ $result_nodes{'complex_split_at_node'} = [
                                             'next' => {},
                                             'prev' => {}
                                           },
-                                          'type' => 'unit',
-                                          'unit_command' => {}
+                                          'unit_command' => {},
+                                          'unit_type' => 'unit'
                                         },
                                         'FastBack' => {},
                                         'FastForward' => {},
@@ -3500,8 +3500,8 @@ $result_nodes{'complex_split_at_node'} = [
                                         'next' => {},
                                         'prev' => {}
                                       },
-                                      'type' => 'unit',
-                                      'unit_command' => {}
+                                      'unit_command' => {},
+                                      'unit_type' => 'unit'
                                     },
                                     'FastBack' => {},
                                     'FastForward' => {},
@@ -3518,8 +3518,8 @@ $result_nodes{'complex_split_at_node'} = [
                                     'next' => {},
                                     'prev' => {}
                                   },
-                                  'type' => 'unit',
-                                  'unit_command' => {}
+                                  'unit_command' => {},
+                                  'unit_type' => 'unit'
                                 },
                                 'FastBack' => {},
                                 'FastForward' => {},
@@ -3538,8 +3538,8 @@ $result_nodes{'complex_split_at_node'} = [
                                 'next' => {},
                                 'prev' => {}
                               },
-                              'type' => 'unit',
-                              'unit_command' => {}
+                              'unit_command' => {},
+                              'unit_type' => 'unit'
                             },
                             'FastBack' => {},
                             'FastForward' => {},
@@ -3554,7 +3554,6 @@ $result_nodes{'complex_split_at_node'} = [
                             'next' => {},
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
@@ -3569,7 +3568,8 @@ $result_nodes{'complex_split_at_node'} = [
                               },
                               'normalized' => 'numbered-sub3'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'FastBack' => {},
                         'FastForward' => {},
@@ -3585,8 +3585,8 @@ $result_nodes{'complex_split_at_node'} = [
                         'next' => {},
                         'prev' => {}
                       },
-                      'type' => 'unit',
-                      'unit_command' => {}
+                      'unit_command' => {},
+                      'unit_type' => 'unit'
                     },
                     'FastForward' => {},
                     'Forward' => {},
@@ -3597,7 +3597,6 @@ $result_nodes{'complex_split_at_node'} = [
                     'next' => {},
                     'prev' => {}
                   },
-                  'type' => 'unit',
                   'unit_command' => {
                     'associated_unit' => {},
                     'cmdname' => 'node',
@@ -3607,7 +3606,8 @@ $result_nodes{'complex_split_at_node'} = [
                       },
                       'normalized' => 'between-node'
                     }
-                  }
+                  },
+                  'unit_type' => 'unit'
                 },
                 'FastBack' => {},
                 'FastForward' => {
@@ -3629,7 +3629,6 @@ $result_nodes{'complex_split_at_node'} = [
                           'tree_unit_directions' => {
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'cmdname' => 'node',
@@ -3689,7 +3688,8 @@ $result_nodes{'complex_split_at_node'} = [
                               },
                               'normalized' => 'Last-node-no-description'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'NodeBack' => {},
                         'NodeForward' => {},
@@ -3704,8 +3704,8 @@ $result_nodes{'complex_split_at_node'} = [
                         'next' => {},
                         'prev' => {}
                       },
-                      'type' => 'unit',
-                      'unit_command' => {}
+                      'unit_command' => {},
+                      'unit_type' => 'unit'
                     },
                     'Forward' => {},
                     'Next' => {},
@@ -3722,8 +3722,8 @@ $result_nodes{'complex_split_at_node'} = [
                     'next' => {},
                     'prev' => {}
                   },
-                  'type' => 'unit',
-                  'unit_command' => {}
+                  'unit_command' => {},
+                  'unit_type' => 'unit'
                 },
                 'Forward' => {},
                 'Next' => {},
@@ -3738,8 +3738,8 @@ $result_nodes{'complex_split_at_node'} = [
                 'next' => {},
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -3754,8 +3754,8 @@ $result_nodes{'complex_split_at_node'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -3775,8 +3775,8 @@ $result_nodes{'complex_split_at_node'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'cmdname' => 'node',
     'extra' => {
@@ -4098,7 +4098,6 @@ $result_menus{'complex_split_at_node'} = [
                                                     'next' => {},
                                                     'prev' => {}
                                                   },
-                                                  'type' => 'unit',
                                                   'unit_command' => {
                                                     'associated_unit' => {},
                                                     'extra' => {
@@ -4144,7 +4143,6 @@ $result_menus{'complex_split_at_node'} = [
                                                                                                   'tree_unit_directions' => {
                                                                                                     'prev' => {}
                                                                                                   },
-                                                                                                  'type' => 'unit',
                                                                                                   'unit_command' => {
                                                                                                     'associated_unit' => {},
                                                                                                     'extra' => {
@@ -4164,7 +4162,8 @@ $result_menus{'complex_split_at_node'} = [
                                                                                                       },
                                                                                                       'normalized' => 'Last-node-no-description'
                                                                                                     }
-                                                                                                  }
+                                                                                                  },
+                                                                                                  'unit_type' => 'unit'
                                                                                                 },
                                                                                                 'NodeBack' => {},
                                                                                                 'NodeForward' => {},
@@ -4179,8 +4178,8 @@ $result_menus{'complex_split_at_node'} = [
                                                                                                 'next' => {},
                                                                                                 'prev' => {}
                                                                                               },
-                                                                                              'type' => 'unit',
-                                                                                              'unit_command' => {}
+                                                                                              'unit_command' => {},
+                                                                                              'unit_type' => 'unit'
                                                                                             },
                                                                                             'Forward' => {},
                                                                                             'Next' => {},
@@ -4197,8 +4196,8 @@ $result_menus{'complex_split_at_node'} = [
                                                                                             'next' => {},
                                                                                             'prev' => {}
                                                                                           },
-                                                                                          'type' => 'unit',
-                                                                                          'unit_command' => {}
+                                                                                          'unit_command' => {},
+                                                                                          'unit_type' => 'unit'
                                                                                         },
                                                                                         'extra' => {
                                                                                           'menu_directions' => {
@@ -4249,7 +4248,8 @@ $result_menus{'complex_split_at_node'} = [
                                                       ],
                                                       'normalized' => 'unnumbered'
                                                     }
-                                                  }
+                                                  },
+                                                  'unit_type' => 'unit'
                                                 },
                                                 'FastBack' => {},
                                                 'FastForward' => {},
@@ -4266,7 +4266,6 @@ $result_menus{'complex_split_at_node'} = [
                                                 'next' => {},
                                                 'prev' => {}
                                               },
-                                              'type' => 'unit',
                                               'unit_command' => {
                                                 'associated_unit' => {},
                                                 'extra' => {
@@ -4305,7 +4304,8 @@ $result_menus{'complex_split_at_node'} = [
                                                   },
                                                   'normalized' => 'unnumbered-sub'
                                                 }
-                                              }
+                                              },
+                                              'unit_type' => 'unit'
                                             },
                                             'FastBack' => {},
                                             'FastForward' => {},
@@ -4324,8 +4324,8 @@ $result_menus{'complex_split_at_node'} = [
                                             'next' => {},
                                             'prev' => {}
                                           },
-                                          'type' => 'unit',
-                                          'unit_command' => {}
+                                          'unit_command' => {},
+                                          'unit_type' => 'unit'
                                         },
                                         'FastBack' => {},
                                         'FastForward' => {},
@@ -4344,8 +4344,8 @@ $result_menus{'complex_split_at_node'} = [
                                         'next' => {},
                                         'prev' => {}
                                       },
-                                      'type' => 'unit',
-                                      'unit_command' => {}
+                                      'unit_command' => {},
+                                      'unit_type' => 'unit'
                                     },
                                     'FastBack' => {},
                                     'FastForward' => {},
@@ -4362,8 +4362,8 @@ $result_menus{'complex_split_at_node'} = [
                                     'next' => {},
                                     'prev' => {}
                                   },
-                                  'type' => 'unit',
-                                  'unit_command' => {}
+                                  'unit_command' => {},
+                                  'unit_type' => 'unit'
                                 },
                                 'FastBack' => {},
                                 'FastForward' => {},
@@ -4382,8 +4382,8 @@ $result_menus{'complex_split_at_node'} = [
                                 'next' => {},
                                 'prev' => {}
                               },
-                              'type' => 'unit',
-                              'unit_command' => {}
+                              'unit_command' => {},
+                              'unit_type' => 'unit'
                             },
                             'FastBack' => {},
                             'FastForward' => {},
@@ -4398,7 +4398,6 @@ $result_menus{'complex_split_at_node'} = [
                             'next' => {},
                             'prev' => {}
                           },
-                          'type' => 'unit',
                           'unit_command' => {
                             'associated_unit' => {},
                             'extra' => {
@@ -4407,7 +4406,8 @@ $result_menus{'complex_split_at_node'} = [
                               },
                               'normalized' => 'numbered-sub3'
                             }
-                          }
+                          },
+                          'unit_type' => 'unit'
                         },
                         'FastBack' => {},
                         'FastForward' => {},
@@ -4423,8 +4423,8 @@ $result_menus{'complex_split_at_node'} = [
                         'next' => {},
                         'prev' => {}
                       },
-                      'type' => 'unit',
-                      'unit_command' => {}
+                      'unit_command' => {},
+                      'unit_type' => 'unit'
                     },
                     'FastForward' => {},
                     'Forward' => {},
@@ -4435,8 +4435,8 @@ $result_menus{'complex_split_at_node'} = [
                     'next' => {},
                     'prev' => {}
                   },
-                  'type' => 'unit',
-                  'unit_command' => {}
+                  'unit_command' => {},
+                  'unit_type' => 'unit'
                 },
                 'FastBack' => {},
                 'FastForward' => {},
@@ -4453,8 +4453,8 @@ $result_menus{'complex_split_at_node'} = [
                 'next' => {},
                 'prev' => {}
               },
-              'type' => 'unit',
-              'unit_command' => {}
+              'unit_command' => {},
+              'unit_type' => 'unit'
             },
             'Forward' => {},
             'Next' => {},
@@ -4469,8 +4469,8 @@ $result_menus{'complex_split_at_node'} = [
             'next' => {},
             'prev' => {}
           },
-          'type' => 'unit',
-          'unit_command' => {}
+          'unit_command' => {},
+          'unit_type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
@@ -4490,8 +4490,8 @@ $result_menus{'complex_split_at_node'} = [
       'tree_unit_directions' => {
         'next' => {}
       },
-      'type' => 'unit',
-      'unit_command' => {}
+      'unit_command' => {},
+      'unit_type' => 'unit'
     },
     'extra' => {
       'menus' => [
@@ -4790,7 +4790,6 @@ $result_elements{'complex_split_at_node'} = [
                                                   'This' => {},
                                                   'Up' => {}
                                                 },
-                                                'type' => 'unit',
                                                 'unit_command' => {
                                                   'associated_unit' => {},
                                                   'cmdname' => 'node',
@@ -4839,7 +4838,6 @@ $result_elements{'complex_split_at_node'} = [
                                                                                                   'NodeUp' => {},
                                                                                                   'This' => {}
                                                                                                 },
-                                                                                                'type' => 'unit',
                                                                                                 'unit_command' => {
                                                                                                   'associated_unit' => {},
                                                                                                   'cmdname' => 'node',
@@ -4867,7 +4865,8 @@ $result_elements{'complex_split_at_node'} = [
                                                                                                     },
                                                                                                     'normalized' => 'Last-node-no-description'
                                                                                                   }
-                                                                                                }
+                                                                                                },
+                                                                                                'unit_type' => 'unit'
                                                                                               },
                                                                                               'NodeBack' => {},
                                                                                               'NodeForward' => {},
@@ -4878,8 +4877,8 @@ $result_elements{'complex_split_at_node'} = [
                                                                                               'This' => {},
                                                                                               'Up' => {}
                                                                                             },
-                                                                                            'type' => 'unit',
-                                                                                            'unit_command' => {}
+                                                                                            'unit_command' => {},
+                                                                                            'unit_type' => 'unit'
                                                                                           },
                                                                                           'Forward' => {},
                                                                                           'Next' => {},
@@ -4892,8 +4891,8 @@ $result_elements{'complex_split_at_node'} = [
                                                                                           'This' => {},
                                                                                           'Up' => {}
                                                                                         },
-                                                                                        'type' => 'unit',
-                                                                                        'unit_command' => {}
+                                                                                        'unit_command' => {},
+                                                                                        'unit_type' => 'unit'
                                                                                       },
                                                                                       'cmdname' => 'node',
                                                                                       'extra' => {
@@ -4936,7 +4935,8 @@ $result_elements{'complex_split_at_node'} = [
                                                     },
                                                     'normalized' => 'unnumbered'
                                                   }
-                                                }
+                                                },
+                                                'unit_type' => 'unit'
                                               },
                                               'FastBack' => {},
                                               'FastForward' => {},
@@ -4949,7 +4949,6 @@ $result_elements{'complex_split_at_node'} = [
                                               'This' => {},
                                               'Up' => {}
                                             },
-                                            'type' => 'unit',
                                             'unit_command' => {
                                               'associated_unit' => {},
                                               'cmdname' => 'node',
@@ -4992,7 +4991,8 @@ $result_elements{'complex_split_at_node'} = [
                                                 },
                                                 'normalized' => 'unnumbered-sub'
                                               }
-                                            }
+                                            },
+                                            'unit_type' => 'unit'
                                           },
                                           'FastBack' => {},
                                           'FastForward' => {},
@@ -5007,8 +5007,8 @@ $result_elements{'complex_split_at_node'} = [
                                           'This' => {},
                                           'Up' => {}
                                         },
-                                        'type' => 'unit',
-                                        'unit_command' => {}
+                                        'unit_command' => {},
+                                        'unit_type' => 'unit'
                                       },
                                       'FastBack' => {},
                                       'FastForward' => {},
@@ -5023,8 +5023,8 @@ $result_elements{'complex_split_at_node'} = [
                                       'This' => {},
                                       'Up' => {}
                                     },
-                                    'type' => 'unit',
-                                    'unit_command' => {}
+                                    'unit_command' => {},
+                                    'unit_type' => 'unit'
                                   },
                                   'FastBack' => {},
                                   'FastForward' => {},
@@ -5037,8 +5037,8 @@ $result_elements{'complex_split_at_node'} = [
                                   'This' => {},
                                   'Up' => {}
                                 },
-                                'type' => 'unit',
-                                'unit_command' => {}
+                                'unit_command' => {},
+                                'unit_type' => 'unit'
                               },
                               'FastBack' => {},
                               'FastForward' => {},
@@ -5053,8 +5053,8 @@ $result_elements{'complex_split_at_node'} = [
                               'This' => {},
                               'Up' => {}
                             },
-                            'type' => 'unit',
-                            'unit_command' => {}
+                            'unit_command' => {},
+                            'unit_type' => 'unit'
                           },
                           'FastBack' => {},
                           'FastForward' => {},
@@ -5065,7 +5065,6 @@ $result_elements{'complex_split_at_node'} = [
                           'This' => {},
                           'Up' => {}
                         },
-                        'type' => 'unit',
                         'unit_command' => {
                           'associated_unit' => {},
                           'cmdname' => 'node',
@@ -5075,7 +5074,8 @@ $result_elements{'complex_split_at_node'} = [
                             },
                             'normalized' => 'numbered-sub3'
                           }
-                        }
+                        },
+                        'unit_type' => 'unit'
                       },
                       'FastBack' => {},
                       'FastForward' => {},
@@ -5087,16 +5087,16 @@ $result_elements{'complex_split_at_node'} = [
                       'This' => {},
                       'Up' => {}
                     },
-                    'type' => 'unit',
-                    'unit_command' => {}
+                    'unit_command' => {},
+                    'unit_type' => 'unit'
                   },
                   'FastForward' => {},
                   'Forward' => {},
                   'NodeUp' => {},
                   'This' => {}
                 },
-                'type' => 'unit',
-                'unit_command' => {}
+                'unit_command' => {},
+                'unit_type' => 'unit'
               },
               'FastBack' => {},
               'FastForward' => {},
@@ -5109,8 +5109,8 @@ $result_elements{'complex_split_at_node'} = [
               'This' => {},
               'Up' => {}
             },
-            'type' => 'unit',
-            'unit_command' => {}
+            'unit_command' => {},
+            'unit_type' => 'unit'
           },
           'Forward' => {},
           'Next' => {},
@@ -5121,8 +5121,8 @@ $result_elements{'complex_split_at_node'} = [
           'This' => {},
           'Up' => {}
         },
-        'type' => 'unit',
-        'unit_command' => {}
+        'unit_command' => {},
+        'unit_type' => 'unit'
       },
       'Forward' => {},
       'NodeForward' => {},
@@ -5139,8 +5139,8 @@ $result_elements{'complex_split_at_node'} = [
       },
       'This' => {}
     },
-    'type' => 'unit',
-    'unit_command' => {}
+    'unit_command' => {},
+    'unit_type' => 'unit'
   },
   {},
   {},

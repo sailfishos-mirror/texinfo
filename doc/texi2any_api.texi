@@ -1481,6 +1481,10 @@ structure (@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
 The following keys of output unit hashes can be interesting:
 
 @table @code
+@item unit_type
+@code{unit} for normal output units, @code{special_element} for
+special units.
+
 @item unit_command
 Points to the associated @code{@@node} or sectioning @@-command depending
 on which of nodes or sectioning commands are the main components of
