@@ -7,7 +7,73 @@ use utf8;
 
 $result_trees{'complex_split_at_node'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'First node'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'First-node'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '('
+            },
+            {
+              'text' => 'dir'
+            },
+            {
+              'text' => ')'
+            }
+          ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'contents' => [
           {
@@ -16,72 +82,7 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'First node'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'First-node'
-            },
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => '('
-              },
-              {
-                'text' => 'dir'
-              },
-              {
-                'text' => ')'
-              }
-            ],
-            'extra' => {
-              'manual_content' => [
-                {}
-              ]
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 1,
-          'macro' => ''
-        }
-      },
+      {},
       {
         'args' => [
           {
@@ -439,75 +440,75 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'First node'
-              }
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'First node'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
             ],
-            'type' => 'line_arg'
+            'normalized' => 'Top'
           },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
             ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'type' => 'line_arg'
+            'normalized' => 'Top'
           },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'First-node'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 12,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'First-node'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 12,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -768,44 +769,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'unnumbered'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'unnumbered'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'unnumbered'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 23,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'unnumbered'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 23,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1086,44 +1087,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'unnumbered sub'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'unnumbered sub'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'unnumbered-sub'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 33,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'unnumbered-sub'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 33,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1162,44 +1163,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'numbered sub'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'numbered sub'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'numbered-sub'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 36,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'numbered-sub'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 36,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1238,44 +1239,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'unnumbered sub2'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'unnumbered sub2'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'unnumbered-sub2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 39,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'unnumbered-sub2'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 39,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1314,44 +1315,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'numbered sub2'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'numbered sub2'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'numbered-sub2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 42,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'numbered-sub2'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 42,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1390,44 +1391,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'unnumbered2'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'unnumbered2'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'unnumbered2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 45,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'unnumbered2'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 45,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1570,44 +1571,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'numbered sub3'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'numbered sub3'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'numbered-sub3'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 52,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'numbered-sub3'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 52,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1651,44 +1652,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'numbered'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'numbered'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'numbered'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 56,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'numbered'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 56,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1729,176 +1730,176 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'between node'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'between node, node without sectioning node
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'between-node'
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'between node'
+            }
+          ],
+          'type' => 'line_arg'
         },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
+        {
+          'type' => 'line_arg'
         },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 59,
-          'macro' => ''
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
         }
-      }
-    ],
-    'unit_command' => {},
-    'unit_type' => 'unit'
-  },
-  {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Second node'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Third node unnumbered'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Third-node-unnumbered'
-            },
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'text' => '
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
 ',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Second node text
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'between node, node without sectioning node
 '
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
 ',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Second-node'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 63,
-          'macro' => ''
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'between-node'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 59,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {}
+    ],
+    'unit_type' => 'unit'
+  },
+  {
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Second node'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Third node unnumbered'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Third-node-unnumbered'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Second node text
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Second-node'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 63,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -1953,44 +1954,44 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Third node unnumbered'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Third node unnumbered'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Third-node-unnumbered'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 71,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Third-node-unnumbered'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 71,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -2043,99 +2044,99 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'continuity'
-              }
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'continuity'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Third node unnumbered'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
             ],
-            'type' => 'line_arg'
+            'normalized' => 'Third-node-unnumbered'
           },
-          {
-            'contents' => [
-              {
-                'text' => 'Third node unnumbered'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Third-node-unnumbered'
-            },
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => '  '
-              }
-            },
-            'type' => 'line_arg'
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
-          {
-            'contents' => [
-              {
-                'text' => 'Last node no description'
-              }
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Last node no description'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
             ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Last-node-no-description'
-            },
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
-            },
-            'type' => 'line_arg'
+            'normalized' => 'Last-node-no-description'
           },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
             ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+            'normalized' => 'Top'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              },
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
             },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'continuity'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 76,
-          'macro' => ''
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'continuity'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 76,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -2192,97 +2193,97 @@ $result_trees{'complex_split_at_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Last node no description'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'continuity'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'continuity'
-            },
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'args' => [
-              {
-                'text' => '
-',
-                'type' => 'rawline_arg'
-              }
-            ],
-            'cmdname' => 'contents',
-            'source_info' => {
-              'file_name' => 'complex_sectioning_case.texi',
-              'line_nr' => 84,
-              'macro' => ''
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Last node no description'
             }
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Last-node-no-description'
+          ],
+          'type' => 'line_arg'
         },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
+        {
+          'type' => 'line_arg'
         },
-        'source_info' => {
-          'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 82,
-          'macro' => ''
+        {
+          'contents' => [
+            {
+              'text' => 'continuity'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'continuity'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'text' => '
+',
+              'type' => 'rawline_arg'
+            }
+          ],
+          'cmdname' => 'contents',
+          'source_info' => {
+            'file_name' => 'complex_sectioning_case.texi',
+            'line_nr' => 84,
+            'macro' => ''
+          }
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Last-node-no-description'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'complex_sectioning_case.texi',
+        'line_nr' => 82,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -2294,51 +2295,50 @@ $result_trees{'complex_split_at_node'} = [
         'cmdname' => 'bye'
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[0]{'unit_command'} = $result_trees{'complex_split_at_node'}[0]{'contents'}[1];
-$result_trees{'complex_split_at_node'}[1]{'contents'}[0]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[1]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[1]{'unit_command'} = $result_trees{'complex_split_at_node'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[2]{'unit_command'} = $result_trees{'complex_split_at_node'}[2]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[3]{'unit_command'} = $result_trees{'complex_split_at_node'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[4]{'unit_command'} = $result_trees{'complex_split_at_node'}[4]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[5]{'unit_command'} = $result_trees{'complex_split_at_node'}[5]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[6]{'unit_command'} = $result_trees{'complex_split_at_node'}[6]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[7]{'unit_command'} = $result_trees{'complex_split_at_node'}[7]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[8]{'unit_command'} = $result_trees{'complex_split_at_node'}[8]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[9]{'unit_command'} = $result_trees{'complex_split_at_node'}[9]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[10]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[10]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[10]{'unit_command'} = $result_trees{'complex_split_at_node'}[10]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[11]{'contents'}[0]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[11]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[11]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[11]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[11]{'unit_command'} = $result_trees{'complex_split_at_node'}[11]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[12]{'unit_command'} = $result_trees{'complex_split_at_node'}[12]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[13]{'unit_command'} = $result_trees{'complex_split_at_node'}[13]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[14]{'contents'}[0]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[14]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[14]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[14]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex_split_at_node'}[14]{'unit_command'} = $result_trees{'complex_split_at_node'}[14]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_command'}{'args'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[1] = $result_trees{'complex_split_at_node'}[0]{'unit_command'};
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[0]{'unit_contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[1]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_command'};
+$result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[1]{'unit_contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[2]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[2]{'unit_command'};
+$result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[3]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[3]{'unit_command'};
+$result_trees{'complex_split_at_node'}[4]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[4]{'unit_command'};
+$result_trees{'complex_split_at_node'}[5]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[5]{'unit_command'};
+$result_trees{'complex_split_at_node'}[6]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[6]{'unit_command'};
+$result_trees{'complex_split_at_node'}[7]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[7]{'unit_command'};
+$result_trees{'complex_split_at_node'}[7]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[7]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[8]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[8]{'unit_command'};
+$result_trees{'complex_split_at_node'}[9]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[9]{'unit_command'};
+$result_trees{'complex_split_at_node'}[10]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[10]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[10]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[10]{'unit_command'};
+$result_trees{'complex_split_at_node'}[11]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[11]{'unit_command'}{'args'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[11]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[11]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[11]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[11]{'unit_command'};
+$result_trees{'complex_split_at_node'}[12]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[12]{'unit_command'};
+$result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[1]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[13]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[13]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[13]{'unit_command'};
+$result_trees{'complex_split_at_node'}[14]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[14]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[14]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex_split_at_node'}[14]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'complex_split_at_node'}[14]{'unit_contents'}[0] = $result_trees{'complex_split_at_node'}[14]{'unit_command'};
 
 $result_texis{'complex_split_at_node'} = '@node Top,First node,(dir)
 @top

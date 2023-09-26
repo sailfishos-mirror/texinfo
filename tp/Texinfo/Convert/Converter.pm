@@ -252,7 +252,7 @@ sub convert_output_unit($$)
   my $output_unit = shift;
 
   my $result = '';
-  foreach my $element (@{$output_unit->{'contents'}}) {
+  foreach my $element (@{$output_unit->{'unit_contents'}}) {
     $result .= $self->convert_tree($element);
   }
   return $result;
@@ -920,7 +920,7 @@ sub _set_output_units_files($$$$$$)
         cluck ("No first_in_page for $output_unit\n");
       }
       if (!defined($file_output_unit->{'unit_filename'})) {
-        foreach my $root_command (@{$file_output_unit->{'contents'}}) {
+        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;

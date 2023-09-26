@@ -7,412 +7,412 @@ use utf8;
 
 $result_trees{'top_chapter_sections'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'top'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'top'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 1,
-          'macro' => ''
-        }
-      }
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'unnumbered'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'unnumbered'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'unnumbered',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 3,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'unnumbered',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 3,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'First chapter'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'First chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 5,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '1'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 5,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'second'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'second'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'section',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '1.1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 7,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'section',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '1.1'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 7,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Chapter'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 9,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '2'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 9,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Section of chapter'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Section of chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'section',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '2.1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 11,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'section',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '2.1'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 11,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'subsection 1'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'subsection 1'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'subsection',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '2.1.1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 13,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'subsection',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '2.1.1'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 13,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'subsection 2'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'subsection 2'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'subsection',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '2.1.2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 15,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'subsection',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => '2.1.2'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 15,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Chapter 2'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter 2'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '3'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 17,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
         }
+      ],
+      'cmdname' => 'chapter',
+      'extra' => {
+        'section_number' => '3'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 17,
+        'macro' => ''
       }
+    },
+    'unit_contents' => [
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'top_chapter_sections'}[0]{'unit_command'} = $result_trees{'top_chapter_sections'}[0]{'contents'}[1];
-$result_trees{'top_chapter_sections'}[1]{'unit_command'} = $result_trees{'top_chapter_sections'}[1]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[2]{'unit_command'} = $result_trees{'top_chapter_sections'}[2]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[3]{'unit_command'} = $result_trees{'top_chapter_sections'}[3]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[4]{'unit_command'} = $result_trees{'top_chapter_sections'}[4]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[5]{'unit_command'} = $result_trees{'top_chapter_sections'}[5]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[6]{'unit_command'} = $result_trees{'top_chapter_sections'}[6]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[7]{'unit_command'} = $result_trees{'top_chapter_sections'}[7]{'contents'}[0];
-$result_trees{'top_chapter_sections'}[8]{'unit_command'} = $result_trees{'top_chapter_sections'}[8]{'contents'}[0];
+$result_trees{'top_chapter_sections'}[0]{'unit_contents'}[1] = $result_trees{'top_chapter_sections'}[0]{'unit_command'};
+$result_trees{'top_chapter_sections'}[1]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[1]{'unit_command'};
+$result_trees{'top_chapter_sections'}[2]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[2]{'unit_command'};
+$result_trees{'top_chapter_sections'}[3]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[3]{'unit_command'};
+$result_trees{'top_chapter_sections'}[4]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[4]{'unit_command'};
+$result_trees{'top_chapter_sections'}[5]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[5]{'unit_command'};
+$result_trees{'top_chapter_sections'}[6]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[6]{'unit_command'};
+$result_trees{'top_chapter_sections'}[7]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[7]{'unit_command'};
+$result_trees{'top_chapter_sections'}[8]{'unit_contents'}[0] = $result_trees{'top_chapter_sections'}[8]{'unit_command'};
 
 $result_texis{'top_chapter_sections'} = '@top top
 

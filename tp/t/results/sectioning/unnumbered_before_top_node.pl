@@ -7,47 +7,48 @@ use utf8;
 
 $result_trees{'unnumbered_before_top_node'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'before nodes'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'unnumbered',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'before nodes'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'unnumbered',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 1,
-          'macro' => ''
-        }
-      },
+      {},
       {
         'args' => [
           {
@@ -120,11 +121,10 @@ $result_trees{'unnumbered_before_top_node'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'unnumbered_before_top_node'}[0]{'unit_command'} = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[1];
+$result_trees{'unnumbered_before_top_node'}[0]{'unit_contents'}[1] = $result_trees{'unnumbered_before_top_node'}[0]{'unit_command'};
 
 $result_texis{'unnumbered_before_top_node'} = '@unnumbered before nodes
 

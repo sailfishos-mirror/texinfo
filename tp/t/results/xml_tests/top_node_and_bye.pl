@@ -7,7 +7,7 @@ use utf8;
 
 $result_trees{'top_node_and_bye'} = [
   {
-    'contents' => [
+    'unit_contents' => [
       {
         'type' => 'before_node_section'
       },

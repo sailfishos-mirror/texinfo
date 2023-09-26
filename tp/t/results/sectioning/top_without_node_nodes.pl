@@ -7,7 +7,65 @@ use utf8;
 
 $result_trees{'top_without_node_nodes'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'second'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '('
+            },
+            {
+              'text' => 'dir'
+            },
+            {
+              'text' => ')'
+            }
+          ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'second'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 4,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'type' => 'before_node_section'
       },
@@ -57,64 +115,7 @@ $result_trees{'top_without_node_nodes'} = [
           'macro' => ''
         }
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'second'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => '('
-              },
-              {
-                'text' => 'dir'
-              },
-              {
-                'text' => ')'
-              }
-            ],
-            'extra' => {
-              'manual_content' => [
-                {}
-              ]
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'second'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 4,
-          'macro' => ''
-        }
-      },
+      {},
       {
         'args' => [
           {
@@ -164,12 +165,11 @@ $result_trees{'top_without_node_nodes'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'contents'}[1];
-$result_trees{'top_without_node_nodes'}[0]{'unit_command'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2];
+$result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_nodes'}[0]{'unit_contents'}[2] = $result_trees{'top_without_node_nodes'}[0]{'unit_command'};
 
 $result_texis{'top_without_node_nodes'} = '@top top section
 Top section

@@ -7,62 +7,110 @@ use utf8;
 
 $result_trees{'top_without_node_sections'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'top section'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Top section
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'top section'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Top section
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 1,
-          'macro' => ''
-        }
-      }
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Text of chapter
+'
+            }
+          ],
+          'type' => 'paragraph'
+        }
+      ],
+      'extra' => {
+        'section_number' => '1'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 5,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'args' => [
           {
@@ -121,62 +169,14 @@ $result_trees{'top_without_node_sections'} = [
           'macro' => ''
         }
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Chapter'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Text of chapter
-'
-              }
-            ],
-            'type' => 'paragraph'
-          }
-        ],
-        'extra' => {
-          'section_number' => '1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => '',
-          'line_nr' => 5,
-          'macro' => ''
-        }
-      }
+      {}
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'top_without_node_sections'}[0]{'unit_command'} = $result_trees{'top_without_node_sections'}[0]{'contents'}[1];
-$result_trees{'top_without_node_sections'}[1]{'contents'}[0]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_sections'}[1]{'contents'}[0]{'args'}[3]{'contents'}[1];
-$result_trees{'top_without_node_sections'}[1]{'unit_command'} = $result_trees{'top_without_node_sections'}[1]{'contents'}[1];
+$result_trees{'top_without_node_sections'}[0]{'unit_contents'}[1] = $result_trees{'top_without_node_sections'}[0]{'unit_command'};
+$result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_sections'}[1]{'unit_contents'}[1] = $result_trees{'top_without_node_sections'}[1]{'unit_command'};
 
 $result_texis{'top_without_node_sections'} = '@top top section
 Top section

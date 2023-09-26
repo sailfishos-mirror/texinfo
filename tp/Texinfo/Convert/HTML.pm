@@ -4020,16 +4020,16 @@ sub _default_format_element_header($$$$)
 
   print STDERR "FORMAT elt header "
      # uncomment to get perl object names
-     #."$output_unit (@{$output_unit->{'contents'}}) ".
+     #."$output_unit (@{$output_unit->{'unit_contents'}}) ".
      . "(".join('|', map{Texinfo::Common::debug_print_element($_)}
-             @{$output_unit->{'contents'}}) . ") ".
+             @{$output_unit->{'unit_contents'}}) . ") ".
      Texinfo::Structuring::unit_or_external_element_texi($output_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
-  if (($output_unit->{'contents'}->[0] eq $command
-       or (!$output_unit->{'contents'}->[0]->{'cmdname'}
-            and $output_unit->{'contents'}->[1] eq $command))
+  if (($output_unit->{'unit_contents'}->[0] eq $command
+       or (!$output_unit->{'unit_contents'}->[0]->{'cmdname'}
+            and $output_unit->{'unit_contents'}->[1] eq $command))
       # and there is more than one element
       and ($output_unit->{'tree_unit_directions'}
            and ($output_unit->{'tree_unit_directions'}->{'next'}
@@ -8778,7 +8778,7 @@ sub _set_root_commands_targets_node_files($$)
 
   if ($output_units) {
     foreach my $output_unit (@$output_units) {
-      foreach my $root_element (@{$output_unit->{'contents'}}) {
+      foreach my $root_element (@{$output_unit->{'unit_contents'}}) {
         # this happens for types which would precede the root commands.
         # The target may already be set for the top node tree unit.
         next if (!defined($root_element->{'cmdname'})
@@ -8941,7 +8941,7 @@ sub _html_set_pages_files($$$$$$$$)
         cluck ("No first_in_page for $output_unit\n");
       }
       if (not exists($unit_file_name_paths{$file_output_unit})) {
-        foreach my $root_command (@{$file_output_unit->{'contents'}}) {
+        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
@@ -10834,9 +10834,9 @@ sub convert_output_unit($$;$)
   $self->{'current_output_unit'} = $element;
 
   my $content_formatted = '';
-  if ($element->{'contents'}) {
+  if ($element->{'unit_contents'}) {
     my $content_idx = 0;
-    foreach my $content (@{$element->{'contents'}}) {
+    foreach my $content (@{$element->{'unit_contents'}}) {
       $content_formatted
         .= _convert($self, $content, "$unit_type_name c[$content_idx]");
       $content_idx++;

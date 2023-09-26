@@ -1289,12 +1289,12 @@ sub split_by_node($)
     }
     if (@pending_parts) {
       foreach my $part (@pending_parts) {
-        push @{$current->{'contents'}}, $part;
+        push @{$current->{'unit_contents'}}, $part;
         $part->{'associated_unit'} = $current;
       }
       @pending_parts = ();
     }
-    push @{$current->{'contents'}}, $content;
+    push @{$current->{'unit_contents'}}, $content;
     #if (defined($content->{'associated_unit'})) {
     #  print STDERR "Resetting node associated_unit for $content\n";
     #}
@@ -1302,7 +1302,7 @@ sub split_by_node($)
   }
   if (@pending_parts) {
     foreach my $part (@pending_parts) {
-      push @{$current->{'contents'}}, $part;
+      push @{$current->{'unit_contents'}}, $part;
       $part->{'associated_unit'} = $current;
     }
     @pending_parts = ();
@@ -1360,7 +1360,7 @@ sub split_by_section($)
         push @$output_units, $current;
       }
     }
-    push @{$current->{'contents'}}, $content;
+    push @{$current->{'unit_contents'}}, $content;
     #if ($content->{'associated_unit'}) {
     #  print STDERR "Resetting section associated_unit for $content\n";
     #}

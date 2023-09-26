@@ -577,7 +577,11 @@ sub convert_output_unit($$)
   _initialize_converter_state($self);
 
   my $result = '';
-  $result .= $self->_convert($element);
+  if ($element->{'unit_contents'}) {
+    foreach my $content (@{$element->{'unit_contents'}}) {
+      $result .= _convert($self, $content);
+    }
+  }
   $self->count_context_bug_message('', $element);
   $result .= $self->process_footnotes($element);
   $self->count_context_bug_message('footnotes ', $element);

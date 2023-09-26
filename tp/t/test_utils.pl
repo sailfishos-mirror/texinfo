@@ -399,7 +399,7 @@ sub new_test($;$$$)
 my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
   'node_description', 'node_long_description', 'is_target',
-  'tree_document_descriptor');
+  'tree_document_descriptor', 'unit_contents');
 my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.

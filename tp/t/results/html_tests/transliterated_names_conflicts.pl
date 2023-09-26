@@ -7,7 +7,40 @@ use utf8;
 
 $result_trees{'transliterated_names_conflicts'} = [
   {
-    'contents' => [
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Top'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'transliterated_names_conflicts.texi',
+        'line_nr' => 3,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
       {
         'contents' => [
           {
@@ -31,39 +64,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Top'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 3,
-          'macro' => ''
-        }
-      },
+      {},
       {
         'args' => [
           {
@@ -102,44 +103,44 @@ $result_trees{'transliterated_names_conflicts'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => "Pr\x{e9}s"
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => "Pr\x{e9}s"
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Pr_00e9s'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 6,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Pr_00e9s'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'transliterated_names_conflicts.texi',
+        'line_nr' => 6,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -180,44 +181,44 @@ $result_trees{'transliterated_names_conflicts'} = [
         }
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   },
   {
-    'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'text' => 'Other node'
-              }
-            ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+    'unit_command' => {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Other node'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
 '
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Other-node'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 9,
-          'macro' => ''
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Other-node'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
         }
       },
+      'source_info' => {
+        'file_name' => 'transliterated_names_conflicts.texi',
+        'line_nr' => 9,
+        'macro' => ''
+      }
+    },
+    'unit_contents' => [
+      {},
       {
         'args' => [
           {
@@ -394,14 +395,13 @@ $result_trees{'transliterated_names_conflicts'} = [
         'cmdname' => 'bye'
       }
     ],
-    'unit_command' => {},
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'transliterated_names_conflicts'}[0]{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1];
-$result_trees{'transliterated_names_conflicts'}[1]{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0];
-$result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[4]{'extra'}{'float_section'} = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1];
-$result_trees{'transliterated_names_conflicts'}[2]{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0];
+$result_trees{'transliterated_names_conflicts'}[0]{'unit_contents'}[1] = $result_trees{'transliterated_names_conflicts'}[0]{'unit_command'};
+$result_trees{'transliterated_names_conflicts'}[1]{'unit_contents'}[0] = $result_trees{'transliterated_names_conflicts'}[1]{'unit_command'};
+$result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'unit_command'};
+$result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1]{'contents'}[4]{'extra'}{'float_section'} = $result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1];
 
 $result_texis{'transliterated_names_conflicts'} = '\\input texinfo.tex
 
