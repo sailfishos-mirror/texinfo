@@ -784,7 +784,7 @@ sub command_root_element_command($$)
       # it is better to stay in the document to find a root element.
       my ($root_element, $root_command)
         = $self->_html_get_tree_root_element($command);
-      if ($root_element) {
+      if ($root_element and $root_element->{'unit_type'} eq 'unit') {
         $target->{'root_element_command'}
           = $root_element->{'unit_command'};
       } else {
@@ -897,10 +897,10 @@ sub command_href($$;$$$)
       if (defined($source_filename)
           and defined($command_root_element_command)
           and ($command_root_element_command eq $command
-            or (defined($command_root_element_command->{'extra'})
-              and defined($command_root_element_command->{'extra'}
-                                                       ->{'associated_section'})
-              and $command_root_element_command->{'extra'}->{'associated_section'}
+               or (defined($command_root_element_command->{'extra'})
+                   and defined($command_root_element_command->{'extra'}
+                                                    ->{'associated_section'})
+                   and $command_root_element_command->{'extra'}->{'associated_section'}
                     eq $command))) {
         my $count_elements_in_file
            = $self->count_elements_in_filename('total', $target_filename);
@@ -932,15 +932,16 @@ sub command_contents_href($$$;$)
   $source_filename = $self->{'current_filename'}
     if (not defined($source_filename));
 
-  my ($special_unit_variety, $target_element, $class_base,
+  my ($special_unit_variety, $special_unit, $class_base,
     $special_unit_direction)
      = $self->command_name_special_unit_information($contents_or_shortcontents);
   my $target
     = $self->command_contents_target($command, $contents_or_shortcontents);
   my $target_filename;
   # !defined happens when called as convert() and not output()
-  if (defined($target_element)) {
-    $target_filename = $self->command_filename($target_element);
+  if (defined($special_unit)) {
+    my $command = $special_unit->{'unit_command'};
+    $target_filename = $self->command_filename($command);
   }
   my $href = '';
   if (defined($target_filename) and
@@ -1064,10 +1065,10 @@ sub command_text($$;$)
     }
     my $tree;
     if (!$target->{'tree'}) {
-      if (defined($command->{'unit_type'})
-          and $command->{'unit_type'} eq 'special_unit') {
+      if ($command->{'type'}
+          and $command->{'type'} eq 'special_unit_element') {
         my $special_unit_variety
-           = $command->{'special_unit_variety'};
+           = $command->{'associated_unit'}->{'special_unit_variety'};
         $tree
           = $self->special_unit_info('heading_tree',
                                       $special_unit_variety);
@@ -1321,7 +1322,7 @@ sub from_element_direction($$$;$$$)
     ######## debug
     if (!$target_element->{'unit_type'} and !$target_element->{'type'}) {
       die "No type for element_target $direction $target_element: "
-       . Texinfo::Common::debug_print_element_details($target_element, 1)
+       . Texinfo::Common::debug_print_output_unit($target_element)
        . "directions :"
            . Texinfo::Structuring::print_element_directions($source_element);
     }
@@ -1340,7 +1341,8 @@ sub from_element_direction($$$;$$$)
       }
     } elsif ($type eq 'node') {
       if ($target_element->{'unit_command'}) {
-        if ($target_element->{'unit_command'}->{'cmdname'} eq 'node') {
+        if ($target_element->{'unit_command'}->{'cmdname'}
+            and $target_element->{'unit_command'}->{'cmdname'} eq 'node') {
           $command = $target_element->{'unit_command'};
         } elsif ($target_element->{'unit_command'}->{'extra'}
                  and $target_element->{'unit_command'}
@@ -1365,13 +1367,7 @@ sub from_element_direction($$$;$$$)
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
-      if (defined($target_element->{'unit_type'})
-          and $target_element->{'unit_type'} eq 'special_unit') {
-        # FIXME separate output units and element
-        $command = $target_element;
-      } else {
-        $command = $target_element->{'unit_command'};
-      }
+      $command = $target_element->{'unit_command'};
       if ($type eq 'href') {
         if (defined($command)) {
           return $self->command_href($command, $source_filename);
@@ -1382,12 +1378,12 @@ sub from_element_direction($$$;$$$)
       $target = $self->{'targets'}->{$command} if ($command);
     }
   } elsif ($self->special_direction_unit($direction)) {
-    $target_element = $self->special_direction_unit($direction);
-    $command = $target_element;
+    my $special_unit = $self->special_direction_unit($direction);
+    $command = $special_unit->{'unit_command'};
     if ($type eq 'href') {
-      return $self->command_href($target_element, $source_filename);
+      return $self->command_href($command, $source_filename);
     }
-    $target = $self->{'targets'}->{$target_element};
+    $target = $self->{'targets'}->{$command};
   } else {
     return undef;
   }
@@ -1401,6 +1397,10 @@ sub from_element_direction($$$;$$$)
     #  if ($self->get_conf('DEBUG'));
     return $self->command_text($command, $type);
   }
+  # We end up here if there is a target element, but not of the expected
+  # type.  For instance, a section type is expected but there is no section
+  # associated to the target element node.
+  return undef;
 }
 
 
@@ -2291,11 +2291,14 @@ sub _translate_names($)
      = $self->special_unit_info('direction', $special_unit_variety);
     my $special_unit
      = $self->special_direction_unit($special_unit_direction);
-    if ($special_unit and
-        $self->{'targets'}->{$special_unit}) {
-      my $target = $self->{'targets'}->{$special_unit};
-      foreach my $key ('text', 'string', 'tree') {
-        delete $target->{$key};
+    if ($special_unit) {
+      my $command = $special_unit->{'unit_command'};
+      if ($command
+          and $self->{'targets'}->{$command}) {
+        my $target = $self->{'targets'}->{$command};
+        foreach my $key ('text', 'string', 'tree') {
+          delete $target->{$key};
+        }
       }
     }
   }
@@ -6044,11 +6047,12 @@ sub _contents_inline_element($$$)
     my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
     my $heading;
     if ($special_unit) {
-      my $id = $self->command_id($special_unit);
+      my $command = $special_unit->{'unit_command'};
+      my $id = $self->command_id($command);
       if (defined($id) and $id ne '') {
         $result .= " id=\"$id\"";
       }
-      $heading = $self->command_text($special_unit);
+      $heading = $self->command_text($command);
     } else {
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
@@ -7232,7 +7236,9 @@ sub _convert_special_unit_type($$$$)
     return '';
   }
 
-  my $id = $self->command_id($element);
+  my $unit_command = $element->{'unit_command'};
+
+  my $id = $self->command_id($unit_command);
   my $class_base
     = $self->special_unit_info('class', $special_unit_variety);
   $result .= $self->html_attribute_class('div', ["element-${class_base}"]);
@@ -7245,9 +7251,9 @@ sub _convert_special_unit_type($$$$)
       or $self->count_elements_in_filename('current',
                   $element->{'unit_filename'}) == 1) {
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
-                             $self->get_conf('MISC_BUTTONS'), undef, $element);
+                     $self->get_conf('MISC_BUTTONS'), undef, $unit_command);
   }
-  my $heading = $self->command_text($element);
+  my $heading = $self->command_text($unit_command);
   my $level = $self->get_conf('CHAPTER_HEADER_LEVEL');
   if ($special_unit_variety eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
@@ -7258,7 +7264,7 @@ sub _convert_special_unit_type($$$$)
 
   $result .= $special_unit_body . '</div>';
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
-                                                             $element, $content);
+                                               $element, $content, $unit_command);
   return $result;
 }
 
@@ -7306,12 +7312,12 @@ sub _convert_unit_type($$$$)
     }
   }
   $result .= $content;
-  my $command;
+  my $unit_command;
   if ($element->{'unit_command'}) {
-    $command = $element->{'unit_command'};
+    $unit_command = $element->{'unit_command'};
   }
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
-                                                              $element, $content, $command);
+                                               $element, $content, $unit_command);
 
   return $result;
 }
@@ -8811,11 +8817,8 @@ sub _html_get_tree_root_element($$;$)
 
   my ($root_element, $root_command);
   while (1) {
-    if ($current->{'unit_type'}) {
-      if ($current->{'unit_type'} eq 'special_unit') {
-        #print STDERR "SPECIAL $current->{'special_unit_variety'}\n" if ($debug);
-        return ($current, $root_command);
-      }
+    if ($current->{'type'} and $current->{'type'} eq 'special_unit_element') {
+      return ($current->{'associated_unit'}, $current);
     }
     if ($current->{'cmdname'}) {
       if ($root_commands{$current->{'cmdname'}}) {
@@ -8858,7 +8861,7 @@ sub _html_get_tree_root_element($$;$)
       }
     }
     if ($current->{'associated_unit'}) {
-      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element($current->{'associated_unit'})."\n" if ($debug);
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_output_unit($current->{'associated_unit'})."\n" if ($debug);
       return ($current->{'associated_unit'}, $root_command);
     } elsif ($current->{'parent'}) {
       #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
@@ -9077,8 +9080,9 @@ sub _html_set_pages_files($$$$$$$$)
   }
   if ($special_units) {
     foreach my $special_unit (@$special_units) {
+      my $unit_command = $special_unit->{'unit_command'};
       my $filename
-       = $self->{'targets'}->{$special_unit}->{'special_unit_filename'};
+       = $self->{'targets'}->{$unit_command}->{'special_unit_filename'};
       if (defined($filename)) {
         push @filenames_order, $filename
           unless exists($filenames_paths{$filename});
@@ -9246,9 +9250,14 @@ sub _prepare_special_units($$$$)
     next unless ($do_special{$special_unit_variety});
 
     my $element = {'unit_type' => 'special_unit',
-                   'special_unit_variety'
-                                   => $special_unit_variety,
+                   'special_unit_variety' => $special_unit_variety,
                    'directions' => {}};
+
+    # a "virtual" out of tree element used for targets
+    my $unit_command = {'type' => 'special_unit_element',
+                        'associated_unit' => $element};
+    $element->{'unit_command'} = $unit_command;
+
     $element->{'directions'}->{'This'} = $element;
     my $special_unit_direction
      = $self->special_unit_info('direction', $special_unit_variety);
@@ -9291,7 +9300,7 @@ sub _prepare_special_units($$$$)
         ." $special_unit_variety: target $target,\n".
         "    filename $fileout\n";
     }
-    $self->{'targets'}->{$element} = {'target' => $target,
+    $self->{'targets'}->{$unit_command} = {'target' => $target,
                                       'special_unit_filename' => $filename,
                                      };
     $self->{'seen_ids'}->{$target} = 1;
@@ -9305,8 +9314,12 @@ sub _prepare_special_units($$$$)
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'unit_type' => 'special_unit',
-                     'extra' => {'special_unit_variety'
-                                  => $special_unit_variety}};
+                     'special_unit_variety' => $special_unit_variety};
+
+      # a "virtual" out of tree element used for targets
+      my $unit_command = {'type' => 'special_unit_element',
+                          'associated_unit' => $element};
+      $element->{'unit_command'} = $unit_command;
 
       # only the filename is used
       my ($target, $filename);
@@ -9372,6 +9385,12 @@ sub _prepare_contents_elements($)
         my $contents_element = {'unit_type' => 'special_unit',
                                 'special_unit_variety'
                                              => $special_unit_variety};
+
+        # a "virtual" out of tree element used for targets
+        my $unit_command = {'type' => 'special_unit_element',
+                            'associated_unit' => $contents_element};
+        $contents_element->{'unit_command'} = $unit_command;
+
         my $special_unit_direction
          = $self->special_unit_info('direction', $special_unit_variety);
         $self->{'special_units_directions'}->{$special_unit_direction}
@@ -9397,7 +9416,7 @@ sub _prepare_contents_elements($)
             ." $special_unit_variety: target $target,\n".
              "    filename $str_filename\n";
         }
-        $self->{'targets'}->{$contents_element}
+        $self->{'targets'}->{$unit_command}
                                = {'target' => $target,
                                   'special_unit_filename' => $filename,
                                   'filename' => $filename,
@@ -10172,7 +10191,7 @@ sub _get_links($$$$)
     foreach my $link (@$link_buttons) {
       my $link_href = $self->from_element_direction($link, 'href', $element,
                                                     $filename, $node_command);
-      #print STDERR "$link -> $link_href \n";
+      #print STDERR "$link -> ".(defined($link_href) ? $link_href : 'UNDEF')."\n";
       if ($link_href and $link_href ne '') {
         my $link_string = $self->from_element_direction($link, 'string',
                                                         $element);
@@ -11430,7 +11449,8 @@ sub output($$)
       my $special_unit_content;
       if (defined($output_unit->{'unit_type'})
           and $output_unit->{'unit_type'} eq 'special_unit') {
-        print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
+        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
+           if ($self->get_conf('DEBUG'));
         $special_unit_content
                   .= $self->convert_output_unit($output_unit,
                                                 "output s-unit $unit_nr");
