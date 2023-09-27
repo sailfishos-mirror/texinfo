@@ -2617,6 +2617,41 @@ sub debug_print_element_details($;$)
   return $string;
 }
 
+sub debug_print_output_unit
+{
+  my $current = shift;
+
+  if (!defined($current)) {
+    return "debug_print_output_unit: UNDEF\n";
+  }
+  if (ref($current) ne 'HASH') {
+    return "debug_print_output_unit: $current not a hash\n";
+  }
+  # FIXME external node is a more regular element
+  if (defined($current->{'type'})) {
+    return debug_print_element($current);
+  }
+  my $type = $current->{'unit_type'};
+  my $unit_cmd = '';
+  if ($current->{'unit_command'}) {
+    $unit_cmd = debug_print_element($current->{'unit_command'}, 0)
+    .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
+                                       $current->{'unit_command'});
+  }
+  my $fname = '';
+  if (defined($current->{'unit_filename'})) {
+    $fname = "{F:$current->{'unit_filename'}}";
+  }
+  my $variety = '';
+  if (defined($current->{'special_unit_variety'})) {
+    $variety = "{V:$current->{'special_unit_variety'}}";
+  }
+  my $contents = '';
+  $contents = "{C".scalar(@{$current->{'unit_contents'}}).'}'
+    if $current->{'unit_contents'};
+  return "{$type}$fname$variety$contents$unit_cmd";
+}
+
 # format list for debugging messages
 sub debug_list
 {
