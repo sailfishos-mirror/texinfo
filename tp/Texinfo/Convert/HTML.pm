@@ -796,20 +796,6 @@ sub command_root_element_command($$)
   return undef;
 }
 
-# FIXME inline
-sub unit_element_command($$)
-{
-  my $self = shift;
-  my $unit = shift;
-
-  if ($unit) {
-    if ($unit->{'unit_command'}) {
-      return $unit->{'unit_command'};
-    }
-  }
-  return undef;
-}
-
 sub command_node($$)
 {
   my $self = shift;
@@ -5895,8 +5881,7 @@ sub _convert_printindex_command($$$$)
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
-            = $self->unit_element_command(
-                                   $self->global_direction('Top'));
+            = $self->global_direction('Top')->{'unit_command'};
           # NOTE the warning here catches the most relevant cases of
           # index entry that is not associated to the right command, which
           # are very few in the test suite.  There is also a warning in the
@@ -8978,7 +8963,7 @@ sub _html_set_pages_files($$$$$$$$)
         }
         if (not defined($unit_file_name_paths{$file_output_unit})) {
           # use section to do the file name if there is no node
-          my $command = $self->unit_element_command($file_output_unit);
+          my $command = $file_output_unit->{'unit_command'};
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
@@ -10216,7 +10201,7 @@ sub _default_format_begin_file($$$)
 
   my ($element_command, $node_command, $command_for_title);
   if ($output_unit) {
-    $element_command = $self->unit_element_command($output_unit);
+    $element_command = $output_unit->{'unit_command'};
     $node_command = $element_command;
     if ($element_command and $element_command->{'cmdname'}
         and $element_command->{'cmdname'} ne 'node'
@@ -10887,7 +10872,7 @@ sub output_internal_links($)
     foreach my $output_unit (@{$self->{'document_units'}}) {
       my $text;
       my $href;
-      my $command = $self->unit_element_command($output_unit);
+      my $command = $output_unit->{'unit_command'};
       if (defined($command)) {
         # Use '' for filename, to force a filename in href.
         $href = $self->command_href($command, '');
