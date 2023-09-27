@@ -5666,13 +5666,15 @@ sub _convert_printindex_command($$$$)
           if ($in_code) {
             $result_tree
           # TRANSLATORS: redirect to another index entry
-        = $self->gdt('@code{{main_index_entry}}, @emph{See} @code{{seenentry}}',
+          # TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
+        = $self->gdt('@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}',
                                         {'main_index_entry' => $entry_ref_tree,
                                          'seenentry' => $referred_tree});
           } else {
             $result_tree
-                 # TRANSLATORS: redirect to another index entry
-               = $self->gdt('{main_index_entry}, @emph{See} {seenentry}',
+          # TRANSLATORS: redirect to another index entry
+          # TRANSLATORS: @: is discardable and used to avoid a msgfmt error
+               = $self->gdt('{main_index_entry}, @emph{See@:} {seenentry}',
                                         {'main_index_entry' => $entry_ref_tree,
                                          'seenentry' => $referred_tree});
           }
