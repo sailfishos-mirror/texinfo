@@ -1422,7 +1422,6 @@ sub _label_target_unit_element($)
     # setup an output_unit for consistency with regular output units
     my $external_node_unit = { 'unit_type' => 'external_node_unit' };
     my $external_node = { 'type' => 'external_node',
-      'associated_unit' => $external_node_unit,
       'extra' => {'manual_content' => $label->{'extra'}->{'manual_content'}}};
     $external_node_unit->{'unit_command'} = $external_node;
 

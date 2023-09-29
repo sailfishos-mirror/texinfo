@@ -1,5 +1,11 @@
 2023-09-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (_label_target_unit_element): do not set
+	external node associated_unit, it is not useful and it is better if
+	there are associated_unit only for elements at the root level.
+
+2023-09-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (debug_print_output_unit),
 	tp/Texinfo/Convert/HTML.pm (from_element_direction),
 	tp/Texinfo/Structuring.pm (_label_target_unit_element)

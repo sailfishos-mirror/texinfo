@@ -384,7 +384,6 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
                 'NodePrev' => {},
                 'NodeUp' => {
                   'unit_command' => {
-                    'associated_unit' => {},
                     'extra' => {},
                     'type' => 'external_node'
                   },
@@ -408,7 +407,6 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
             'NodeNext' => {},
             'NodePrev' => {
               'unit_command' => {
-                'associated_unit' => {},
                 'extra' => {},
                 'type' => 'external_node'
               },
@@ -416,7 +414,6 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
             },
             'NodeUp' => {
               'unit_command' => {
-                'associated_unit' => {},
                 'extra' => {},
                 'type' => 'external_node'
               },
@@ -449,14 +446,11 @@ $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'FastBack'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeBack'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodePrev'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'This'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodeForward'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodeNext'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
-$result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodePrev'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodePrev'};
-$result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'NodeUp'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'};
 $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'extra'}{'associated_node'} = $result_sectioning{'non_automatic_top_node_up_url'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
@@ -474,7 +468,6 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
             'NodePrev' => {},
             'NodeUp' => {
               'unit_command' => {
-                'associated_unit' => {},
                 'extra' => {
                   'manual_content' => [
                     {
@@ -513,7 +506,6 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
         'NodeNext' => {},
         'NodePrev' => {
           'unit_command' => {
-            'associated_unit' => {},
             'extra' => {
               'manual_content' => [
                 {
@@ -527,7 +519,6 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
         },
         'NodeUp' => {
           'unit_command' => {
-            'associated_unit' => {},
             'extra' => {
               'manual_content' => [
                 {
@@ -578,7 +569,6 @@ $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'FastBack'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeBack'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodePrev'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
-$result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'This'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'tree_unit_directions'}{'prev'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
@@ -586,8 +576,6 @@ $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'node_directions'}{'up'}{'extra'}{'manual_content'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'}{'unit_command'}{'extra'}{'manual_content'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeForward'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeNext'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
-$result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodePrev'}{'unit_command'}{'associated_unit'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodePrev'};
-$result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeUp'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'This'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'tree_unit_directions'}{'next'} = $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_nodes{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'unit_command'} = $result_nodes{'non_automatic_top_node_up_url'}[0];
@@ -609,7 +597,6 @@ $result_menus{'non_automatic_top_node_up_url'} = [
             'NodePrev' => {},
             'NodeUp' => {
               'unit_command' => {
-                'associated_unit' => {},
                 'extra' => {
                   'manual_content' => [
                     {
@@ -641,7 +628,6 @@ $result_menus{'non_automatic_top_node_up_url'} = [
         'NodeNext' => {},
         'NodePrev' => {
           'unit_command' => {
-            'associated_unit' => {},
             'extra' => {
               'manual_content' => [
                 {
@@ -655,7 +641,6 @@ $result_menus{'non_automatic_top_node_up_url'} = [
         },
         'NodeUp' => {
           'unit_command' => {
-            'associated_unit' => {},
             'extra' => {
               'manual_content' => [
                 {
@@ -688,15 +673,12 @@ $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'FastBack'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeBack'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodePrev'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
-$result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'NodeUp'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'This'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'tree_unit_directions'}{'prev'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'non_automatic_top_node_up_url'}[0];
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeForward'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeNext'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
-$result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodePrev'}{'unit_command'}{'associated_unit'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodePrev'};
-$result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'NodeUp'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'This'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'tree_unit_directions'}{'next'} = $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_menus{'non_automatic_top_node_up_url'}[0]{'associated_unit'}{'unit_command'} = $result_menus{'non_automatic_top_node_up_url'}[0];
@@ -719,7 +701,6 @@ $result_elements{'non_automatic_top_node_up_url'} = [
           'NodePrev' => {},
           'NodeUp' => {
             'unit_command' => {
-              'associated_unit' => {},
               'extra' => {
                 'manual_content' => [
                   {
@@ -755,7 +736,6 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       'NodeNext' => {},
       'NodePrev' => {
         'unit_command' => {
-          'associated_unit' => {},
           'extra' => {
             'manual_content' => [
               {
@@ -769,7 +749,6 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       },
       'NodeUp' => {
         'unit_command' => {
-          'associated_unit' => {},
           'extra' => {
             'manual_content' => [
               {
@@ -792,14 +771,11 @@ $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'d
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'FastBack'} = $result_elements{'non_automatic_top_node_up_url'}[0];
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'NodeBack'} = $result_elements{'non_automatic_top_node_up_url'}[0];
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'NodePrev'} = $result_elements{'non_automatic_top_node_up_url'}[0];
-$result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'NodeUp'};
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'directions'}{'This'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'};
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'};
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'unit_command'}{'extra'}{'menu_directions'}{'up'}{'associated_unit'} = $result_elements{'non_automatic_top_node_up_url'}[0];
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodeForward'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'};
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodeNext'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'};
-$result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodePrev'}{'unit_command'}{'associated_unit'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodePrev'};
-$result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodeUp'}{'unit_command'}{'associated_unit'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'NodeUp'};
 $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'This'} = $result_elements{'non_automatic_top_node_up_url'}[0];
 $result_elements{'non_automatic_top_node_up_url'}[0]{'unit_command'} = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'}{'unit_command'}{'extra'}{'menu_directions'}{'up'};
 $result_elements{'non_automatic_top_node_up_url'}[1] = $result_elements{'non_automatic_top_node_up_url'}[0]{'directions'}{'Forward'};
