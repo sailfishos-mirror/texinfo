@@ -1306,24 +1306,24 @@ sub from_element_direction($$$;$$$)
 
   if ($target_element) {
     ######## debug
-    if (!$target_element->{'unit_type'} and !$target_element->{'type'}) {
-      die "No type for element_target $direction $target_element: "
+    if (!$target_element->{'unit_type'}) {
+      die "No unit type for element_target $direction $target_element: "
        . Texinfo::Common::debug_print_output_unit($target_element)
        . "directions :"
            . Texinfo::Structuring::print_element_directions($source_element);
     }
     ########
-    if ($target_element->{'type'}
-        and $target_element->{'type'} eq 'external_node') {
+    if ($target_element->{'unit_type'} eq 'external_node_unit') {
+      my $external_node_element = $target_element->{'unit_command'};
       #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
       #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
-        return $self->command_href($target_element, $source_filename,
+        return $self->command_href($external_node_element, $source_filename,
                                    $source_command);
       } elsif ($type eq 'text' or $type eq 'node') {
-        return $self->command_text($target_element);
+        return $self->command_text($external_node_element);
       } elsif ($type eq 'string') {
-        return $self->command_text($target_element, $type);
+        return $self->command_text($external_node_element, $type);
       }
     } elsif ($type eq 'node') {
       if ($target_element->{'unit_command'}) {
@@ -1384,8 +1384,8 @@ sub from_element_direction($$$;$$$)
     return $self->command_text($command, $type);
   }
   # We end up here if there is a target element, but not of the expected
-  # type.  For instance, a section type is expected but there is no section
-  # associated to the target element node.
+  # type.  For example, if type is section but there is no section associated
+  # to the target element node.
   return undef;
 }
 

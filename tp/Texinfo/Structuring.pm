@@ -1419,8 +1419,12 @@ sub _label_target_unit_element($)
 {
   my $label = shift;
   if ($label->{'extra'} and $label->{'extra'}->{'manual_content'}) {
+    # setup an output_unit for consistency with regular output units
+    my $external_node_unit = { 'unit_type' => 'external_node_unit' };
     my $external_node = { 'type' => 'external_node',
+      'associated_unit' => $external_node_unit,
       'extra' => {'manual_content' => $label->{'extra'}->{'manual_content'}}};
+    $external_node_unit->{'unit_command'} = $external_node;
 
     if ($label->{'extra'}->{'node_content'}) {
       $external_node->{'extra'}->{'node_content'}
@@ -1429,7 +1433,7 @@ sub _label_target_unit_element($)
         = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
                    {'contents' => $label->{'extra'}->{'node_content'}});
     }
-    return $external_node;
+    return $external_node_unit;
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
     return $label->{'associated_unit'};
   } else {
@@ -1764,32 +1768,33 @@ sub unit_or_external_element_texi($)
   if (!$element) {
     return "UNDEF ELEMENT";
   }
-  if (!$element->{'unit_type'} and !$element->{'type'}) {
-    return "element $element without type: ".
+  if (!defined($element->{'unit_type'})) {
+    return "unit $element without type: ".
        Texinfo::Common::debug_print_element_details($element, 1);
   }
 
-  if ($element->{'type'} and $element->{'type'} eq 'external_node') {
+  my $command_element = $element->{'unit_command'};
+
+  if ($element->{'unit_type'} eq 'external_node_unit') {
     my $command = {'contents' => [{'text' => '('},
-                        @{$element->{'extra'}->{'manual_content'}},
+                        @{$command_element->{'extra'}->{'manual_content'}},
                                {'text' => ')'}]};
-    if ($element->{'extra'}->{'node_content'}) {
-      unshift @{$command->{'contents'}}, @{$element->{'extra'}->{'node_content'}};
+    if ($command_element->{'extra'}->{'node_content'}) {
+      unshift @{$command->{'contents'}},
+          @{$command_element->{'extra'}->{'node_content'}};
     }
     return Texinfo::Convert::Texinfo::convert_to_texinfo($command);
   }
 
-  my $command_element;
-  if ($element->{'unit_command'}) {
-    $command_element = $element->{'unit_command'};
-  } else {
+  if (!$command_element) {
     # happens when there are only nodes and sections are used as elements
     my $result = "No associated command ";
     $result .= "(type $element->{'unit_type'})"
        if (defined($element->{'unit_type'}));
     return $result;
   }
-  return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command_element);
+  return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
+                                                          $command_element);
 }
 
 # Used for debugging and in test suite, but not generally useful. Not

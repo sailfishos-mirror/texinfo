@@ -1,3 +1,12 @@
+2023-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (debug_print_output_unit),
+	tp/Texinfo/Convert/HTML.pm (from_element_direction),
+	tp/Texinfo/Structuring.pm (_label_target_unit_element)
+	(unit_or_external_element_texi): setup an output unit in
+	_label_target_unit_element associated to an external node for
+	consistency with the other directions.
+
 2023-09-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)

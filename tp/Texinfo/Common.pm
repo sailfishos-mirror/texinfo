@@ -2627,10 +2627,6 @@ sub debug_print_output_unit
   if (ref($current) ne 'HASH') {
     return "debug_print_output_unit: $current not a hash\n";
   }
-  # FIXME external node is a more regular element
-  if (defined($current->{'type'})) {
-    return debug_print_element($current);
-  }
   my $type = $current->{'unit_type'};
   my $unit_cmd = '';
   if ($current->{'unit_command'}) {
