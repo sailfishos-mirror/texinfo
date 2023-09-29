@@ -1411,7 +1411,7 @@ sub split_pages ($$)
 }
 
 # Returns something associated to a label that can be used to setup a target
-# to the label.  If the target is an external node, create such element here,
+# to the label.  If the target is an external node, create the output unit here,
 # if it is a node return the output unit that is supposed to be the
 # target for links to the node.  Otherwise there is no such element (yet),
 # for floats and anchor, return undef.
@@ -1420,18 +1420,8 @@ sub _label_target_unit_element($)
   my $label = shift;
   if ($label->{'extra'} and $label->{'extra'}->{'manual_content'}) {
     # setup an output_unit for consistency with regular output units
-    my $external_node_unit = { 'unit_type' => 'external_node_unit' };
-    my $external_node = { 'type' => 'external_node',
-      'extra' => {'manual_content' => $label->{'extra'}->{'manual_content'}}};
-    $external_node_unit->{'unit_command'} = $external_node;
-
-    if ($label->{'extra'}->{'node_content'}) {
-      $external_node->{'extra'}->{'node_content'}
-        = $label->{'extra'}->{'node_content'};
-      $external_node->{'extra'}->{'normalized'}
-        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                   {'contents' => $label->{'extra'}->{'node_content'}});
-    }
+    my $external_node_unit = { 'unit_type' => 'external_node_unit',
+                               'unit_command' => $label };
     return $external_node_unit;
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
     return $label->{'associated_unit'};

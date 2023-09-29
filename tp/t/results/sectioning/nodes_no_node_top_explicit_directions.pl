@@ -339,7 +339,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = [
                 }
               ]
             },
-            'type' => 'external_node'
+            'type' => 'line_arg'
           },
           'unit_type' => 'external_node_unit'
         },
@@ -354,12 +354,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = [
     'cmdname' => 'node',
     'extra' => {
       'node_directions' => {
-        'up' => {
-          'extra' => {
-            'manual_content' => []
-          },
-          'type' => 'line_arg'
-        }
+        'up' => {}
       },
       'normalized' => 'first'
     }
@@ -379,7 +374,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'di
 $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'This'} = $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'};
 $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'tree_unit_directions'}{'next'} = $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'Forward'};
 $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'unit_command'} = $result_nodes{'nodes_no_node_top_explicit_directions'}[0];
-$result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'extra'}{'node_directions'}{'up'}{'extra'}{'manual_content'} = $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'}{'extra'}{'manual_content'};
+$result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'extra'}{'node_directions'}{'up'} = $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'};
 $result_nodes{'nodes_no_node_top_explicit_directions'}[1] = $result_nodes{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'};
 
 $result_menus{'nodes_no_node_top_explicit_directions'} = [
@@ -418,7 +413,7 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = [
                 }
               ]
             },
-            'type' => 'external_node'
+            'type' => 'line_arg'
           },
           'unit_type' => 'external_node_unit'
         },
@@ -498,7 +493,7 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
               }
             ]
           },
-          'type' => 'external_node'
+          'type' => 'line_arg'
         },
         'unit_type' => 'external_node_unit'
       },

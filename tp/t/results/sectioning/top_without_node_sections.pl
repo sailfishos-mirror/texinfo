@@ -211,7 +211,7 @@ $result_sectioning{'top_without_node_sections'} = {
                 'NodeUp' => {
                   'unit_command' => {
                     'extra' => {},
-                    'type' => 'external_node'
+                    'type' => 'line_arg'
                   },
                   'unit_type' => 'external_node_unit'
                 },
@@ -312,7 +312,7 @@ $result_nodes{'top_without_node_sections'} = [
                 }
               ]
             },
-            'type' => 'external_node'
+            'type' => 'line_arg'
           },
           'unit_type' => 'external_node_unit'
         },
@@ -335,12 +335,7 @@ $result_nodes{'top_without_node_sections'} = [
     'extra' => {
       'associated_section' => {},
       'node_directions' => {
-        'up' => {
-          'extra' => {
-            'manual_content' => []
-          },
-          'type' => 'line_arg'
-        }
+        'up' => {}
       },
       'normalized' => 'second'
     }
@@ -357,7 +352,7 @@ $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'directions'}{'
 $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'tree_unit_directions'}{'prev'} = $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'directions'}{'Back'};
 $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_nodes{'top_without_node_sections'}[0]{'associated_unit'};
 $result_nodes{'top_without_node_sections'}[0]{'extra'}{'associated_section'} = $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'unit_command'};
-$result_nodes{'top_without_node_sections'}[0]{'extra'}{'node_directions'}{'up'}{'extra'}{'manual_content'} = $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'}{'extra'}{'manual_content'};
+$result_nodes{'top_without_node_sections'}[0]{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_without_node_sections'}[0]{'associated_unit'}{'directions'}{'NodeUp'}{'unit_command'};
 
 $result_menus{'top_without_node_sections'} = [
   {
@@ -388,7 +383,7 @@ $result_menus{'top_without_node_sections'} = [
                 }
               ]
             },
-            'type' => 'external_node'
+            'type' => 'line_arg'
           },
           'unit_type' => 'external_node_unit'
         },
@@ -444,7 +439,7 @@ $result_elements{'top_without_node_sections'} = [
                   }
                 ]
               },
-              'type' => 'external_node'
+              'type' => 'line_arg'
             },
             'unit_type' => 'external_node_unit'
           },
