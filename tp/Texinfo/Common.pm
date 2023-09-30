@@ -2628,6 +2628,8 @@ sub debug_print_output_unit
     return "debug_print_output_unit: $current not a hash\n";
   }
   my $type = $current->{'unit_type'};
+  # Should never happen
+  $type = 'UNDEF' if (!defined($type));
   my $unit_cmd = '';
   if ($current->{'unit_command'}) {
     $unit_cmd = debug_print_element($current->{'unit_command'}, 0)

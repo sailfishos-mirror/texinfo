@@ -1759,28 +1759,20 @@ sub unit_or_external_element_texi($)
   }
   if (!defined($element->{'unit_type'})) {
     return "unit $element without type: ".
-       Texinfo::Common::debug_print_element_details($element, 1);
+       Texinfo::Common::debug_print_element_details($element, 1)
+      .' '.Texinfo::Common::debug_print_output_unit($element);
   }
 
   my $command_element = $element->{'unit_command'};
 
   if ($element->{'unit_type'} eq 'external_node_unit') {
-    my $command = {'contents' => [{'text' => '('},
-                        @{$command_element->{'extra'}->{'manual_content'}},
-                               {'text' => ')'}]};
-    if ($command_element->{'extra'}->{'node_content'}) {
-      unshift @{$command->{'contents'}},
-          @{$command_element->{'extra'}->{'node_content'}};
-    }
-    return Texinfo::Convert::Texinfo::convert_to_texinfo($command);
+    return Texinfo::Convert::Texinfo::convert_to_texinfo(
+                            {'contents' => $command_element->{'contents'}});
   }
 
   if (!$command_element) {
     # happens when there are only nodes and sections are used as elements
-    my $result = "No associated command ";
-    $result .= "(type $element->{'unit_type'})"
-       if (defined($element->{'unit_type'}));
-    return $result;
+    return "No associated command (type $element->{'unit_type'})";
   }
   return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
                                                           $command_element);

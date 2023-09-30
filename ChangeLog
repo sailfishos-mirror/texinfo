@@ -1,3 +1,11 @@
+2023-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (unit_or_external_element_texi): simplify
+	by using directly the external node element content.  Other
+	simplifications and changes.
+
+	Minor other changes.
+
 2023-09-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (_label_target_unit_element): use directly

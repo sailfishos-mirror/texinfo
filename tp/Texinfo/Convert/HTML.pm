@@ -10994,7 +10994,7 @@ sub _reset_info()
 
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
-# module), and $ROOT is the Texinfo tree from the parser.
+# module), and $DOCUMENT is the Texinfo parsed document from the parser.
 sub output($$)
 {
   my $self = shift;
