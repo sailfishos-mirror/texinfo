@@ -138,7 +138,7 @@ typedef struct IGNORED_CHARS {
 
 typedef struct {
     char *index_name; /* kept with the entry as the indices may be merged */
-    ELEMENT *command;
+    ELEMENT *entry_element;
     ELEMENT *entry_associated_element; /* set if the entry is reassociated to
                                           another element */
 } INDEX_ENTRY;

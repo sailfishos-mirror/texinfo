@@ -272,7 +272,7 @@ enter_index_entry (enum command_id index_type_cmd,
   /* not needed, the position in the index is directly used
   entry->number = idx->index_number;
   */
-  entry->command = element;
+  entry->entry_element = element;
 
   /* Create ignored_chars string. */
   text_init (&ignored_chars);
@@ -404,7 +404,7 @@ complete_indices (int document_descriptor)
               KEY_PAIR *k_idx_element;
 
               entry = &idx->index_entries[j];
-              main_entry_element = entry->command;
+              main_entry_element = entry->entry_element;
 
               k_def_command = lookup_extra (main_entry_element, "def_command");
 
