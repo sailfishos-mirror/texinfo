@@ -1241,7 +1241,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -1252,7 +1252,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" 
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 

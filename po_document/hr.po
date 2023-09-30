@@ -6,10 +6,10 @@
 # Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 6.8.90\n"
+"Project-Id-Version: GNU texinfo_document 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-13 18:27+0100\n"
-"PO-Revision-Date: 2022-11-06 17:20-0800\n"
+"POT-Creation-Date: 2023-09-30 16:34+0100\n"
+"PO-Revision-Date: 2023-09-20 10:48+0200\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -33,8 +33,6 @@ msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
 #: tp/Texinfo/Common.pm:631
-#, fuzzy
-#| msgid "Function"
 msgctxt "category of functions for @defun"
 msgid "Function"
 msgstr "Funkcija"
@@ -50,8 +48,6 @@ msgid "Special Form"
 msgstr "Specijalna forma"
 
 #: tp/Texinfo/Common.pm:637
-#, fuzzy
-#| msgid "Variable"
 msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Varijabla"
@@ -59,49 +55,37 @@ msgstr "Varijabla"
 #. TRANSLATORS: category of user-modifiable options for @defopt
 #: tp/Texinfo/Common.pm:639
 msgid "User Option"
-msgstr "Korisnička opcija"
+msgstr "Izbor korisnika"
 
 #: tp/Texinfo/Common.pm:642
-#, fuzzy
-#| msgid "Function"
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Funkcija"
 
 #: tp/Texinfo/Common.pm:645
-#, fuzzy
-#| msgid "Variable"
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Varijabla"
 
 #: tp/Texinfo/Common.pm:648
-#, fuzzy
-#| msgid "Instance Variable"
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
-msgstr "Primjer varijable"
+msgstr "Primjerak varijable"
 
 #: tp/Texinfo/Common.pm:651
-#, fuzzy
-#| msgid "Instance Variable"
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
-msgstr "Primjer varijable"
+msgstr "Primjerak varijable"
 
 #: tp/Texinfo/Common.pm:654
-#, fuzzy
-#| msgid "Method"
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "Metoda"
 
 #: tp/Texinfo/Common.pm:657
-#, fuzzy
-#| msgid "Method"
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
@@ -277,7 +261,7 @@ msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tp/Texinfo/Convert/DocBook.pm:1588 tp/Texinfo/Convert/LaTeX.pm:3647
-#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6112
+#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6114
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -333,10 +317,9 @@ msgid "@t{<{url}>}"
 msgstr "@t{<{url}>}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2780
-#, fuzzy, perl-brace-format
-#| msgid "@center --- @emph{{author}}"
+#, perl-brace-format
 msgid "@center @b{{cartouche_arg}}"
-msgstr "@center --- @emph{{author}}"
+msgstr "@center @b{{cartouche_arg}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3189
 #, perl-brace-format
@@ -459,442 +442,316 @@ msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{}-- {category} od {class}: {type} {name}"
 
 #: tp/Texinfo/Convert/HTML.pm:2010
-#, fuzzy
-#| msgid "About This Document"
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "O ovom dokumentu"
 
 #: tp/Texinfo/Convert/HTML.pm:2012
-#, fuzzy
-#| msgid "Table of Contents"
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2015
-#, fuzzy
-#| msgid "Short Table of Contents"
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Kratki sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2017
-#, fuzzy
-#| msgid "Footnotes"
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "Fusnote"
 
 #: tp/Texinfo/Convert/HTML.pm:2121
-#, fuzzy
-#| msgid "Top"
 msgctxt "Top direction string"
 msgid "Top"
 msgstr "Vrh"
 
 #: tp/Texinfo/Convert/HTML.pm:2123
-#, fuzzy
-#| msgid "Contents"
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2126
-#, fuzzy
-#| msgid "Overview"
 msgctxt "Overview direction string"
 msgid "Overview"
 msgstr "Pregled"
 
 #: tp/Texinfo/Convert/HTML.pm:2128
-#, fuzzy
-#| msgid "Index"
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "Indeks"
 
 #: tp/Texinfo/Convert/HTML.pm:2131
-#, fuzzy
-#| msgid "current"
 msgctxt "This (current section) direction string"
 msgid "current"
 msgstr "trenutno"
 
 #: tp/Texinfo/Convert/HTML.pm:2135
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Prev direction string"
 msgid "Prev"
 msgstr "Prethodno"
 
 #: tp/Texinfo/Convert/HTML.pm:2137
-#, fuzzy
-#| msgid " Up "
 msgctxt "Up direction string"
 msgid " Up "
 msgstr " Gore "
 
 #: tp/Texinfo/Convert/HTML.pm:2139
-#, fuzzy
-#| msgid "Next"
 msgctxt "Next direction string"
 msgid "Next"
-msgstr "Sljedeće"
+msgstr "Sljedeći"
 
 #: tp/Texinfo/Convert/HTML.pm:2141
-#, fuzzy
-#| msgid "Up"
 msgctxt "NodeUp direction string"
 msgid "Up"
 msgstr "Gore"
 
 #: tp/Texinfo/Convert/HTML.pm:2143
-#, fuzzy
-#| msgid "Next"
 msgctxt "NodeNext direction string"
 msgid "Next"
 msgstr "Sljedeće"
 
 #: tp/Texinfo/Convert/HTML.pm:2145
-#, fuzzy
-#| msgid "Previous"
 msgctxt "NodePrev direction string"
 msgid "Previous"
 msgstr "Prethodno"
 
 #: tp/Texinfo/Convert/HTML.pm:2147
-#, fuzzy
-#| msgid "Forward node"
 msgctxt "NodeForward direction string"
 msgid "Forward node"
 msgstr "Čvor ispred"
 
 #: tp/Texinfo/Convert/HTML.pm:2149
-#, fuzzy
-#| msgid "Back node"
 msgctxt "NodeBack direction string"
 msgid "Back node"
 msgstr "Čvor iza"
 
 #: tp/Texinfo/Convert/HTML.pm:2156
-#, fuzzy
-#| msgid "Next file"
 msgctxt "NextFile direction string"
 msgid "Next file"
 msgstr "Sljedeća datoteka"
 
 #: tp/Texinfo/Convert/HTML.pm:2158
-#, fuzzy
-#| msgid "Previous file"
 msgctxt "PrevFile direction string"
 msgid "Previous file"
 msgstr "Prethodna datoteka"
 
 #: tp/Texinfo/Convert/HTML.pm:2163
-#, fuzzy
-#| msgid "Cover (top) of document"
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
 msgstr "Naslovna stranica (top) dokumenta"
 
 #: tp/Texinfo/Convert/HTML.pm:2166
-#, fuzzy
-#| msgid "Table of contents"
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2169
-#, fuzzy
-#| msgid "Short table of contents"
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Kratki sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2171
-#, fuzzy
-#| msgid "Index"
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "Indeks"
 
 #: tp/Texinfo/Convert/HTML.pm:2174
-#, fuzzy
-#| msgid "Current section"
 msgctxt "This (current section) direction description"
 msgid "Current section"
 msgstr "Trenutni odlomak"
 
 #: tp/Texinfo/Convert/HTML.pm:2177
-#, fuzzy
-#| msgid "Previous section in reading order"
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
 msgstr "Prethodni odlomak u redoslijedu čitanja"
 
 #: tp/Texinfo/Convert/HTML.pm:2180
-#, fuzzy
-#| msgid "Beginning of this chapter or previous chapter"
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
 msgstr "Početak ovog ili prethodnog poglavlja"
 
 #: tp/Texinfo/Convert/HTML.pm:2183
-#, fuzzy
-#| msgid "Previous section on same level"
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
 msgstr "Prethodni odlomak na istoj razini"
 
 #: tp/Texinfo/Convert/HTML.pm:2185
-#, fuzzy
-#| msgid "Up section"
 msgctxt "Up direction description"
 msgid "Up section"
-msgstr "Odjeljak iznad"
+msgstr "Odlomak nàgore"
 
 #: tp/Texinfo/Convert/HTML.pm:2187
-#, fuzzy
-#| msgid "Next section on same level"
 msgctxt "Next direction description"
 msgid "Next section on same level"
 msgstr "Sljedeći odlomak na istoj razini"
 
 #: tp/Texinfo/Convert/HTML.pm:2189
-#, fuzzy
-#| msgid "Up node"
 msgctxt "NodeUp direction description"
 msgid "Up node"
-msgstr "Čvor iznad"
+msgstr "Čvor nàgore"
 
 #: tp/Texinfo/Convert/HTML.pm:2191
-#, fuzzy
-#| msgid "Next node"
 msgctxt "NodeNext direction description"
 msgid "Next node"
 msgstr "Sljedeći čvor"
 
 #: tp/Texinfo/Convert/HTML.pm:2193
-#, fuzzy
-#| msgid "Previous node"
 msgctxt "NodePrev direction description"
 msgid "Previous node"
 msgstr "Prethodni čvor"
 
 #: tp/Texinfo/Convert/HTML.pm:2196
-#, fuzzy
-#| msgid "Next node in node reading order"
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
 msgstr "Sljedeći čvor u redoslijedu čitanja čvorova"
 
 #: tp/Texinfo/Convert/HTML.pm:2199
-#, fuzzy
-#| msgid "Previous node in node reading order"
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
 msgstr "Prethodni čvor u redoslijedu čitanja čvorova"
 
 #: tp/Texinfo/Convert/HTML.pm:2202
-#, fuzzy
-#| msgid "Next section in reading order"
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
 msgstr "Sljedeći odlomak u redoslijedu čitanja"
 
 #: tp/Texinfo/Convert/HTML.pm:2204
-#, fuzzy
-#| msgid "Next chapter"
 msgctxt "FastForward direction description"
 msgid "Next chapter"
 msgstr "Sljedeće poglavlje"
 
 #: tp/Texinfo/Convert/HTML.pm:2206
-#, fuzzy
-#| msgid "About (help)"
 msgctxt "About direction description"
 msgid "About (help)"
 msgstr "O programu (pomoć)"
 
 #: tp/Texinfo/Convert/HTML.pm:2209
-#, fuzzy
-#| msgid "First section in reading order"
 msgctxt "First direction description"
 msgid "First section in reading order"
 msgstr "Prvi odlomak u redoslijedu čitanja"
 
 #: tp/Texinfo/Convert/HTML.pm:2212
-#, fuzzy
-#| msgid "Last section in reading order"
 msgctxt "Last direction description"
 msgid "Last section in reading order"
 msgstr "Zadnji odlomak u redoslijedu čitanja"
 
 #: tp/Texinfo/Convert/HTML.pm:2215
-#, fuzzy
-#| msgid "Forward section in next file"
 msgctxt "NextFile direction description"
 msgid "Forward section in next file"
-msgstr "Odlomak naprijed u sljedećoj datoteci"
+msgstr "Na odlomak naprijed u sljedećoj datoteci"
 
 #: tp/Texinfo/Convert/HTML.pm:2218
-#, fuzzy
-#| msgid "Back section in previous file"
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
-msgstr "Odlomak unatrag u sljedećoj datoteci"
+msgstr "Na odlomak unatrag u prethodnoj datoteci"
 
 #: tp/Texinfo/Convert/HTML.pm:2224
-#, fuzzy
-#| msgid "Top"
 msgctxt "Top direction button label"
 msgid "Top"
 msgstr "Vrh"
 
 #: tp/Texinfo/Convert/HTML.pm:2226
-#, fuzzy
-#| msgid "Contents"
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Sadržaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2228
-#, fuzzy
-#| msgid "Overview"
 msgctxt "Overview direction button label"
 msgid "Overview"
 msgstr "Pregled"
 
 #: tp/Texinfo/Convert/HTML.pm:2230
-#, fuzzy
-#| msgid "Index"
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "Indeks"
 
 #: tp/Texinfo/Convert/HTML.pm:2232
-#, fuzzy
-#| msgid "This"
 msgctxt "This direction button label"
 msgid "This"
 msgstr "Ovaj"
 
 #: tp/Texinfo/Convert/HTML.pm:2234
-#, fuzzy
-#| msgid "Back"
 msgctxt "Back direction button label"
 msgid "Back"
 msgstr "Unatrag"
 
 #: tp/Texinfo/Convert/HTML.pm:2236
-#, fuzzy
-#| msgid "FastBack"
 msgctxt "FastBack direction button label"
 msgid "FastBack"
 msgstr "BrzoUnatrag"
 
 #: tp/Texinfo/Convert/HTML.pm:2238
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Prev direction button label"
 msgid "Prev"
 msgstr "Prethodno"
 
 #: tp/Texinfo/Convert/HTML.pm:2240
-#, fuzzy
-#| msgid "Up"
 msgctxt "Up direction button label"
 msgid "Up"
 msgstr "Gore"
 
 #: tp/Texinfo/Convert/HTML.pm:2242
-#, fuzzy
-#| msgid "Next"
 msgctxt "Next direction button label"
 msgid "Next"
 msgstr "Sljedeće"
 
 #: tp/Texinfo/Convert/HTML.pm:2244
-#, fuzzy
-#| msgid "NodeUp"
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
-msgstr "Čvor iznad"
+msgstr "ČvorGore"
 
 #: tp/Texinfo/Convert/HTML.pm:2246
-#, fuzzy
-#| msgid "NodeNext"
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
 msgstr "SljedećiČvor"
 
 #: tp/Texinfo/Convert/HTML.pm:2248
-#, fuzzy
-#| msgid "NodePrev"
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
 msgstr "PrethodniČvor"
 
 #: tp/Texinfo/Convert/HTML.pm:2250
-#, fuzzy
-#| msgid "NodeForward"
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
 msgstr "ČvorUnaprijed"
 
 #: tp/Texinfo/Convert/HTML.pm:2252
-#, fuzzy
-#| msgid "NodeBack"
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
 msgstr "ČvorUnatrag"
 
 #: tp/Texinfo/Convert/HTML.pm:2254
-#, fuzzy
-#| msgid "Forward"
 msgctxt "Forward direction button label"
 msgid "Forward"
 msgstr "Naprijed"
 
 #: tp/Texinfo/Convert/HTML.pm:2256
-#, fuzzy
-#| msgid "FastForward"
 msgctxt "FastForward direction button label"
 msgid "FastForward"
 msgstr "BrzoUnaprijed"
 
 #: tp/Texinfo/Convert/HTML.pm:2258
-#, fuzzy
-#| msgid "About"
 msgctxt "About direction button label"
 msgid "About"
 msgstr "O programu"
 
 #: tp/Texinfo/Convert/HTML.pm:2260
-#, fuzzy
-#| msgid "First"
 msgctxt "First direction button label"
 msgid "First"
 msgstr "Prvo"
 
 #: tp/Texinfo/Convert/HTML.pm:2262
-#, fuzzy
-#| msgid "Last"
 msgctxt "Last direction button label"
 msgid "Last"
 msgstr "Zadnje"
 
 #: tp/Texinfo/Convert/HTML.pm:2264
-#, fuzzy
-#| msgid "NextFile"
 msgctxt "NextFile direction button label"
 msgid "NextFile"
 msgstr "SljedećaDatoteka"
 
 #: tp/Texinfo/Convert/HTML.pm:2266
-#, fuzzy
-#| msgid "PrevFile"
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"
 msgstr "PrethodnaDatoteka"
@@ -990,64 +847,68 @@ msgid "`{section}'"
 msgstr "„{section}“"
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5669
-#, perl-brace-format
-msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
-msgstr ""
+#. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5670
+#, fuzzy, perl-brace-format
+#| msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
+msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
+msgstr "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5675
-#, perl-brace-format
-msgid "{main_index_entry}, @emph{See} {seenentry}"
-msgstr ""
+#. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5677
+#, fuzzy, perl-brace-format
+#| msgid "{main_index_entry}, @emph{See} {seenentry}"
+msgid "{main_index_entry}, @emph{See@:} {seenentry}"
+msgstr "{main_index_entry}, @emph{See} {seenentry}"
 
 #. TRANSLATORS: refer to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5692
+#: tp/Texinfo/Convert/HTML.pm:5694
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
-msgstr ""
+msgstr "@emph{Vidi također} {see_also_entry}"
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:5970 tp/Texinfo/Convert/HTML.pm:5997
+#: tp/Texinfo/Convert/HTML.pm:5972 tp/Texinfo/Convert/HTML.pm:5999
 msgid "Jump to"
 msgstr "Preskoči na"
 
 #. TRANSLATORS: index entries column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5982
+#: tp/Texinfo/Convert/HTML.pm:5984
 msgid "Index Entry"
 msgstr "Stavka indeksa"
 
 #. TRANSLATORS: section of index entry column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5985
+#: tp/Texinfo/Convert/HTML.pm:5987
 msgid "Section"
 msgstr "Odlomak"
 
-#: tp/Texinfo/Convert/HTML.pm:6955
+#: tp/Texinfo/Convert/HTML.pm:6957
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{category} na @code{{class}}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6959
+#: tp/Texinfo/Convert/HTML.pm:6961
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{category} na @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6963
+#: tp/Texinfo/Convert/HTML.pm:6965
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{category} od @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6977
+#: tp/Texinfo/Convert/HTML.pm:6979
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6980
+#: tp/Texinfo/Convert/HTML.pm:6982
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tp/Texinfo/Convert/HTML.pm:9881
+#: tp/Texinfo/Convert/HTML.pm:9883
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1056,50 +917,50 @@ msgstr ""
 "Ovaj dokument je generiran na @emph{@today{}} rabeći "
 "@uref{{program_homepage}, @emph{{program}}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9886
+#: tp/Texinfo/Convert/HTML.pm:9888
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Ovaj dokument je generiran na @emph{@today{}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9926
+#: tp/Texinfo/Convert/HTML.pm:9928
 msgid "JavaScript license information"
 msgstr "Podaci o licenci za JavaScript"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9974
+#: tp/Texinfo/Convert/HTML.pm:9976
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tp/Texinfo/Convert/HTML.pm:10187
+#: tp/Texinfo/Convert/HTML.pm:10189
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "Čvor koji tražite nalazi se pri {href}."
 
-#: tp/Texinfo/Convert/HTML.pm:10300
+#: tp/Texinfo/Convert/HTML.pm:10302
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr "  Gumbi u navigacijskom panelu imaju sljedeća značenja:"
 
 #. TRANSLATORS: direction column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10308
+#: tp/Texinfo/Convert/HTML.pm:10310
 msgid "Button"
 msgstr "Gumb"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10310
+#: tp/Texinfo/Convert/HTML.pm:10312
 msgid "Name"
 msgstr "Ime"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10312
+#: tp/Texinfo/Convert/HTML.pm:10314
 msgid "Go to"
 msgstr "Idi na/u"
 
 #. TRANSLATORS: section reached column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10314
+#: tp/Texinfo/Convert/HTML.pm:10316
 msgid "From 1.2.3 go to"
 msgstr "Od 1.2.3 idi na/u"
 
-#: tp/Texinfo/Convert/HTML.pm:10359
+#: tp/Texinfo/Convert/HTML.pm:10361
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1109,55 +970,55 @@ msgstr ""
 "@strong{ Pododlomak jedan-dva-tri } dokumenta sljedeće strukture:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:10371
+#: tp/Texinfo/Convert/HTML.pm:10373
 msgid "Section One"
 msgstr "Odlomak jedan"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:10374
+#: tp/Texinfo/Convert/HTML.pm:10376
 msgid "Subsection One-One"
 msgstr "Pododlomak jedan-jedan"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:10382
+#: tp/Texinfo/Convert/HTML.pm:10384
 msgid "Subsection One-Two"
 msgstr "Pododlomak jedan-dva"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:10385
+#: tp/Texinfo/Convert/HTML.pm:10387
 msgid "Subsubsection One-Two-One"
 msgstr "Pododlomak jedan-dva-jedan"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:10387
+#: tp/Texinfo/Convert/HTML.pm:10389
 msgid "Subsubsection One-Two-Two"
 msgstr "Pododlomak jedan-dva-dva"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10389
+#: tp/Texinfo/Convert/HTML.pm:10391
 msgid "Subsubsection One-Two-Three"
 msgstr "Pododlomak jedan-dva-tri"
 
-#: tp/Texinfo/Convert/HTML.pm:10392
+#: tp/Texinfo/Convert/HTML.pm:10394
 msgid "Current Position"
 msgstr "Trenutna pozicija"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10394
+#: tp/Texinfo/Convert/HTML.pm:10396
 msgid "Subsubsection One-Two-Four"
 msgstr "Pododlomak jedan-dva-četri"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:10398
+#: tp/Texinfo/Convert/HTML.pm:10400
 msgid "Subsection One-Three"
 msgstr "Pododlomak jedan-tri"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:10406
+#: tp/Texinfo/Convert/HTML.pm:10408
 msgid "Subsection One-Four"
 msgstr "Pododlomak jedan-četri"
 
-#: tp/Texinfo/Convert/HTML.pm:11114
+#: tp/Texinfo/Convert/HTML.pm:11116
 msgid "Untitled Document"
 msgstr "Dokument bez naslova"
 
@@ -1229,19 +1090,15 @@ msgstr "{category} na @code{{class}}"
 msgid "{category} of @code{{class}}"
 msgstr "{category} od @code{{class}}"
 
-#, perl-brace-format
 #~ msgid "{float_type} {float_number}\n"
 #~ msgstr "{float_type} {float_number}\n"
 
-#, perl-brace-format
 #~ msgid "{float_type}\n"
 #~ msgstr "{float_type}\n"
 
-#, perl-brace-format
 #~ msgid "{float_number}\n"
 #~ msgstr "{float_number}\n"
 
-#, perl-brace-format
 #~ msgid "@center --- @emph{{author}}\n"
 #~ msgstr "@center --- @emph{{author}}\n"
 

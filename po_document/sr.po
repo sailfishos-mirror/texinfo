@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-13 18:27+0100\n"
+"POT-Creation-Date: 2023-09-30 16:34+0100\n"
 "PO-Revision-Date: 2023-02-26 11:50+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -275,7 +275,7 @@ msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tp/Texinfo/Convert/DocBook.pm:1588 tp/Texinfo/Convert/LaTeX.pm:3647
-#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6112
+#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6114
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -988,64 +988,66 @@ msgid "`{section}'"
 msgstr "„{section}“"
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5669
+#. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5670
 #, perl-brace-format
-msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
+msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
 msgstr ""
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5675
+#. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5677
 #, perl-brace-format
-msgid "{main_index_entry}, @emph{See} {seenentry}"
+msgid "{main_index_entry}, @emph{See@:} {seenentry}"
 msgstr ""
 
 #. TRANSLATORS: refer to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5692
+#: tp/Texinfo/Convert/HTML.pm:5694
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
 msgstr ""
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:5970 tp/Texinfo/Convert/HTML.pm:5997
+#: tp/Texinfo/Convert/HTML.pm:5972 tp/Texinfo/Convert/HTML.pm:5999
 msgid "Jump to"
 msgstr "Скочи на"
 
 #. TRANSLATORS: index entries column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5982
+#: tp/Texinfo/Convert/HTML.pm:5984
 msgid "Index Entry"
 msgstr "Унос индекса"
 
 #. TRANSLATORS: section of index entry column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5985
+#: tp/Texinfo/Convert/HTML.pm:5987
 msgid "Section"
 msgstr "Одељак"
 
-#: tp/Texinfo/Convert/HTML.pm:6955
+#: tp/Texinfo/Convert/HTML.pm:6957
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{category} на @code{{class}}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6959
+#: tp/Texinfo/Convert/HTML.pm:6961
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{category} на @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6963
+#: tp/Texinfo/Convert/HTML.pm:6965
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{category} од @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6977
+#: tp/Texinfo/Convert/HTML.pm:6979
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6980
+#: tp/Texinfo/Convert/HTML.pm:6982
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tp/Texinfo/Convert/HTML.pm:9881
+#: tp/Texinfo/Convert/HTML.pm:9883
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1054,50 +1056,50 @@ msgstr ""
 "Овај документ је створен @emph{@today{}} помоћу @uref{{program_homepage}, "
 "„@emph{{program}}}“."
 
-#: tp/Texinfo/Convert/HTML.pm:9886
+#: tp/Texinfo/Convert/HTML.pm:9888
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Овај документ је створен @emph{@today{}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9926
+#: tp/Texinfo/Convert/HTML.pm:9928
 msgid "JavaScript license information"
 msgstr "Подаци о лиценци Јава скрипте"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9974
+#: tp/Texinfo/Convert/HTML.pm:9976
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tp/Texinfo/Convert/HTML.pm:10187
+#: tp/Texinfo/Convert/HTML.pm:10189
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "Чвор који тражите се налази на „{href}“."
 
-#: tp/Texinfo/Convert/HTML.pm:10300
+#: tp/Texinfo/Convert/HTML.pm:10302
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr "  Дугмад на панелима за кретање имају следећа значења:"
 
 #. TRANSLATORS: direction column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10308
+#: tp/Texinfo/Convert/HTML.pm:10310
 msgid "Button"
 msgstr "Дугме"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10310
+#: tp/Texinfo/Convert/HTML.pm:10312
 msgid "Name"
 msgstr "Назив"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10312
+#: tp/Texinfo/Convert/HTML.pm:10314
 msgid "Go to"
 msgstr "Иди на"
 
 #. TRANSLATORS: section reached column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10314
+#: tp/Texinfo/Convert/HTML.pm:10316
 msgid "From 1.2.3 go to"
 msgstr "Од 1.2.3 иди на"
 
-#: tp/Texinfo/Convert/HTML.pm:10359
+#: tp/Texinfo/Convert/HTML.pm:10361
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1107,55 +1109,55 @@ msgstr ""
 "„@strong{ Садржаном одељку један-два-три }“ документа са следећом структуром:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:10371
+#: tp/Texinfo/Convert/HTML.pm:10373
 msgid "Section One"
 msgstr "Одељак један"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:10374
+#: tp/Texinfo/Convert/HTML.pm:10376
 msgid "Subsection One-One"
 msgstr "Садржани одељак један-један"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:10382
+#: tp/Texinfo/Convert/HTML.pm:10384
 msgid "Subsection One-Two"
 msgstr "Садржани одељак један-два"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:10385
+#: tp/Texinfo/Convert/HTML.pm:10387
 msgid "Subsubsection One-Two-One"
 msgstr "Садржани садржаног одељка један-два-један"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:10387
+#: tp/Texinfo/Convert/HTML.pm:10389
 msgid "Subsubsection One-Two-Two"
 msgstr "Садржани садржаног одељка један-два-два"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10389
+#: tp/Texinfo/Convert/HTML.pm:10391
 msgid "Subsubsection One-Two-Three"
 msgstr "Садржани садржаног одељка један-два-три"
 
-#: tp/Texinfo/Convert/HTML.pm:10392
+#: tp/Texinfo/Convert/HTML.pm:10394
 msgid "Current Position"
 msgstr "Тренутни положај"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10394
+#: tp/Texinfo/Convert/HTML.pm:10396
 msgid "Subsubsection One-Two-Four"
 msgstr "Садржани садржаног одељка један-два-четири"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:10398
+#: tp/Texinfo/Convert/HTML.pm:10400
 msgid "Subsection One-Three"
 msgstr "Садржани одељак један-три"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:10406
+#: tp/Texinfo/Convert/HTML.pm:10408
 msgid "Subsection One-Four"
 msgstr "Садржани одељак један-четири"
 
-#: tp/Texinfo/Convert/HTML.pm:11114
+#: tp/Texinfo/Convert/HTML.pm:11116
 msgid "Untitled Document"
 msgstr "Неименовани документ"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-09-13 18:27+0100\n"
+"POT-Creation-Date: 2023-09-30 16:34+0100\n"
 "PO-Revision-Date: 2015-06-07 06:25-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -276,7 +276,7 @@ msgid "{abbr_or_acronym} ({explanation})"
 msgstr ""
 
 #: tp/Texinfo/Convert/DocBook.pm:1588 tp/Texinfo/Convert/LaTeX.pm:3647
-#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6112
+#: tp/Texinfo/Convert/Plaintext.pm:2727 tp/Texinfo/Convert/HTML.pm:6114
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -992,116 +992,118 @@ msgid "`{section}'"
 msgstr "Se@,{c}@~ao acima"
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5669
+#. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5670
 #, perl-brace-format
-msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
+msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
 msgstr ""
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5675
+#. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
+#: tp/Texinfo/Convert/HTML.pm:5677
 #, perl-brace-format
-msgid "{main_index_entry}, @emph{See} {seenentry}"
+msgid "{main_index_entry}, @emph{See@:} {seenentry}"
 msgstr ""
 
 #. TRANSLATORS: refer to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5692
+#: tp/Texinfo/Convert/HTML.pm:5694
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
 msgstr ""
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:5970 tp/Texinfo/Convert/HTML.pm:5997
+#: tp/Texinfo/Convert/HTML.pm:5972 tp/Texinfo/Convert/HTML.pm:5999
 msgid "Jump to"
 msgstr "Pular para"
 
 #. TRANSLATORS: index entries column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5982
+#: tp/Texinfo/Convert/HTML.pm:5984
 msgid "Index Entry"
 msgstr "Entrada de @'Indice"
 
 #. TRANSLATORS: section of index entry column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5985
+#: tp/Texinfo/Convert/HTML.pm:5987
 msgid "Section"
 msgstr "Se@,{c}@~ao"
 
-#: tp/Texinfo/Convert/HTML.pm:6955
+#: tp/Texinfo/Convert/HTML.pm:6957
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Convert/HTML.pm:6959
+#: tp/Texinfo/Convert/HTML.pm:6961
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Convert/HTML.pm:6963
+#: tp/Texinfo/Convert/HTML.pm:6965
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{name} da {class}"
 
-#: tp/Texinfo/Convert/HTML.pm:6977
+#: tp/Texinfo/Convert/HTML.pm:6979
 #, fuzzy, perl-brace-format
 msgid "{category}:@* "
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Convert/HTML.pm:6980
+#: tp/Texinfo/Convert/HTML.pm:6982
 #, fuzzy, perl-brace-format
 msgid "{category}: "
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Convert/HTML.pm:9881
+#: tp/Texinfo/Convert/HTML.pm:9883
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
 "@uref{{program_homepage}, @emph{{program}}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9886
+#: tp/Texinfo/Convert/HTML.pm:9888
 msgid "This document was generated on @emph{@today{}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9926
+#: tp/Texinfo/Convert/HTML.pm:9928
 msgid "JavaScript license information"
 msgstr ""
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9974
+#: tp/Texinfo/Convert/HTML.pm:9976
 #, fuzzy, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{text} ({url})"
 
-#: tp/Texinfo/Convert/HTML.pm:10187
+#: tp/Texinfo/Convert/HTML.pm:10189
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "O nodo que vo@^e est@'a olhando est@'a em {href}."
 
-#: tp/Texinfo/Convert/HTML.pm:10300
+#: tp/Texinfo/Convert/HTML.pm:10302
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr ""
 "  Os bot@~oes nos pain@'eis de navega@,{c}@~ao possuem os seguintes "
 "significados:"
 
 #. TRANSLATORS: direction column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10308
+#: tp/Texinfo/Convert/HTML.pm:10310
 msgid "Button"
 msgstr "Bot@~ao"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10310
+#: tp/Texinfo/Convert/HTML.pm:10312
 msgid "Name"
 msgstr "Nome"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10312
+#: tp/Texinfo/Convert/HTML.pm:10314
 msgid "Go to"
 msgstr "V@'a para"
 
 #. TRANSLATORS: section reached column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:10314
+#: tp/Texinfo/Convert/HTML.pm:10316
 msgid "From 1.2.3 go to"
 msgstr "De 1.2.3 v@'a para"
 
-#: tp/Texinfo/Convert/HTML.pm:10359
+#: tp/Texinfo/Convert/HTML.pm:10361
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1112,55 +1114,55 @@ msgstr ""
 "estrutura:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:10371
+#: tp/Texinfo/Convert/HTML.pm:10373
 msgid "Section One"
 msgstr "Se@,{c}@~ao Um"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:10374
+#: tp/Texinfo/Convert/HTML.pm:10376
 msgid "Subsection One-One"
 msgstr "Subse@,{c}@~ao Um-Um"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:10382
+#: tp/Texinfo/Convert/HTML.pm:10384
 msgid "Subsection One-Two"
 msgstr "Subse@,{c}@~ao Um-Dois"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:10385
+#: tp/Texinfo/Convert/HTML.pm:10387
 msgid "Subsubsection One-Two-One"
 msgstr "Subse@,{c}@~ao Um-Dois-Um"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:10387
+#: tp/Texinfo/Convert/HTML.pm:10389
 msgid "Subsubsection One-Two-Two"
 msgstr "Subse@,{c}@~ao Um-Dois-Dois"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10389
+#: tp/Texinfo/Convert/HTML.pm:10391
 msgid "Subsubsection One-Two-Three"
 msgstr "Subse@,{c}@~ao Um-Dois-Tr@^es"
 
-#: tp/Texinfo/Convert/HTML.pm:10392
+#: tp/Texinfo/Convert/HTML.pm:10394
 msgid "Current Position"
 msgstr "Posi@,{c}@~ao Atual"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:10394
+#: tp/Texinfo/Convert/HTML.pm:10396
 msgid "Subsubsection One-Two-Four"
 msgstr "Subse@,{c}@~ao Um-Dois-Quatro"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:10398
+#: tp/Texinfo/Convert/HTML.pm:10400
 msgid "Subsection One-Three"
 msgstr "Subse@,{c}@~ao Um-Tr@^es"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:10406
+#: tp/Texinfo/Convert/HTML.pm:10408
 msgid "Subsection One-Four"
 msgstr "Subse@,{c}@~ao Um-Quatro"
 
-#: tp/Texinfo/Convert/HTML.pm:11114
+#: tp/Texinfo/Convert/HTML.pm:11116
 msgid "Untitled Document"
 msgstr "Documento Sem Nome"
 
