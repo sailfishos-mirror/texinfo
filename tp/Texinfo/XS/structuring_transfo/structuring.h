@@ -24,5 +24,6 @@ ELEMENT *new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
                           ELEMENT *menus, int use_sections);
 
 OUTPUT_UNIT_LIST *split_by_node (ELEMENT *root);
+int unsplit (ELEMENT *root);
 
 #endif

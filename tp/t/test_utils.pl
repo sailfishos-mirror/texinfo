@@ -217,24 +217,6 @@ sub protect_perl_string($)
   return $string;
 }
 
-# remove the association with document units
-sub unsplit($)
-{
-  my $root = shift;
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
-    return;
-  }
-  my $unsplit_needed = 0;
-  foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'associated_unit'}) {
-      delete $content->{'associated_unit'};
-      $unsplit_needed = 1;
-    }
-  }
-  return $unsplit_needed;
-}
-
 sub compare_dirs_files($$;$)
 {
   my $dir1 = shift;
@@ -1308,7 +1290,7 @@ sub test($$)
   # on conversion should be fairly well tested.  See above the comment
   # near test_split with more explanation on why previous splitting should
   # not interfere with conversion.
-  my $unsplit_needed = unsplit($tree);
+  my $unsplit_needed = Texinfo::Structuring::unsplit($tree);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
   my $output_units;

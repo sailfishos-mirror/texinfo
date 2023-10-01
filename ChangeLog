@@ -1,5 +1,15 @@
 2023-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (unsplit), tp/t/test_utils.pl: move
+	unsplit to tp/Texinfo/Structuring.pm.
+
+	* tp/Texinfo/Structuring.pm (import, _XS_unsplit, unsplit),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (unsplit),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (unsplit): C
+	implementation and XS interface for unsplit.
+
+2023-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (add_to_element_list): add a function
 	that can be directly called on an ELEMENT_LISTE, for output units
 	contents_list.  Use in similar existing functions.

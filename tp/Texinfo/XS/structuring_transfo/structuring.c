@@ -2148,3 +2148,24 @@ split_by_node (ELEMENT *root)
 
   return output_units;
 }
+
+int
+unsplit (ELEMENT *root)
+{
+  int unsplit_needed = 0;
+  int i;
+
+  if (root->type != ET_document_root || root->contents.number <= 0)
+    return 0;
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      if (content->associated_unit)
+        {
+          content->associated_unit = 0;
+          unsplit_needed = 1;
+        }
+    }
+  return unsplit_needed;
+}

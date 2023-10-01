@@ -500,4 +500,20 @@ split_by_node (tree_in)
     OUTPUT:
         RETVAL
 
+int
+unsplit (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          {
+            RETVAL = unsplit (document->tree);
+          }
+        else
+          RETVAL = -1;
+    OUTPUT:
+        RETVAL
 

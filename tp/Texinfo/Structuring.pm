@@ -130,6 +130,10 @@ sub import {
         "Texinfo::Structuring::_XS_split_by_node",
         "Texinfo::StructTransf::split_by_node"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_unsplit",
+        "Texinfo::StructTransf::unsplit"
+      );
     }
     $module_loaded = 1;
   }
@@ -1831,10 +1835,45 @@ sub split_by_section($)
   return $output_units;
 }
 
+sub _XS_unsplit($)
+{
+  my $root = shift;
+  return -3;
+}
+
+# remove the association with document units
+# TODO not documented.
+sub unsplit($)
+{
+  my $root = shift;
+
+  my $XS_unsplit_needed = _XS_unsplit($root);
+
+  # TODO uncomment?  It is unclear that it is correct, in the only
+  # code calling unsplit in test_utils.pl it is better to always do both,
+  # but it could change.
+  #if ($XS_unsplit_needed >= 0 and $XS_only) {
+  #  return $XS_unsplit_needed;
+  #}
+
+  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
+      or !$root->{'contents'}) {
+    return 0;
+  }
+  my $unsplit_needed = 0;
+  foreach my $content (@{$root->{'contents'}}) {
+    if ($content->{'associated_unit'}) {
+      delete $content->{'associated_unit'};
+      $unsplit_needed = 1;
+    }
+  }
+  return $unsplit_needed;
+}
+
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
-sub split_pages ($$)
+sub split_pages($$)
 {
   my $output_units = shift;
   my $split = shift;
