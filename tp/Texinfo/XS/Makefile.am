@@ -153,6 +153,8 @@ libtexinfo_la_SOURCES= \
 		      main/translations.h \
 		      main/document.c \
 		      main/document.h \
+		      main/output_unit.c \
+		      main/output_unit.h \
 		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \

@@ -47,6 +47,7 @@
 /* for element_command_name */
 #include "builtin_commands.h"
 #include "document.h"
+#include "output_unit.h"
 #include "build_perl_info.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -1334,11 +1335,13 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 }
 
 SV *
-build_output_units_list (OUTPUT_UNIT_LIST *output_units)
+build_output_units_list (size_t output_units_descriptor)
 {
   SV *sv;
   AV *av_output_units;
   int i;
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
 
   dTHX;
 
@@ -1356,6 +1359,11 @@ build_output_units_list (OUTPUT_UNIT_LIST *output_units)
       sv = newRV_noinc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
+
+  /* store in the first perl output unit of the list */
+  hv_store (output_units->list[0]->hv, "output_units_descriptor",
+            strlen ("output_units_descriptor"),
+            newSViv (output_units_descriptor), 0);
 
   return newRV_noinc ((SV *) av_output_units);
 }

@@ -25,6 +25,6 @@ HV *build_index_data (INDEX **index_names_in);
 HV *build_global_info (GLOBAL_INFO *global_info_ref);
 HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
-SV *build_output_units_list (OUTPUT_UNIT_LIST *output_units);
+SV *build_output_units_list (size_t output_units_descriptor);
 
 #endif

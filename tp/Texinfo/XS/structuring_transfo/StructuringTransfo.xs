@@ -39,6 +39,7 @@
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
+#include "output_unit.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -490,8 +491,8 @@ split_by_node (tree_in)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           {
-            OUTPUT_UNIT_LIST *output_units = split_by_node (document->tree);
-            RETVAL = build_output_units_list (output_units);
+            int output_units_descriptor = split_by_node (document->tree);
+            RETVAL = build_output_units_list (output_units_descriptor);
           }
         else
           {
