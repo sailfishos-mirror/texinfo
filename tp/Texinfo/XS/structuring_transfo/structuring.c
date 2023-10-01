@@ -2151,6 +2151,64 @@ split_by_node (ELEMENT *root)
   return output_units_descriptor;
 }
 
+/* in addition to splitting, register the output_units list */
+int
+split_by_section (ELEMENT *root)
+{
+  int output_units_descriptor = new_output_units_descriptor ();
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT *current = new_output_unit (OU_unit);
+  int i;
+
+  add_to_output_unit_list (output_units, current);
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      ELEMENT *new_section = 0;
+      if (content->cmd == CM_node)
+        {
+          ELEMENT *associated_section
+            = lookup_extra_element (content, "associated_section");
+          if (associated_section)
+            new_section = associated_section;
+        }
+      else if (content->cmd == CM_part)
+        {
+          ELEMENT *part_associated_section
+            = lookup_extra_element (content, "part_associated_section");
+          if (part_associated_section)
+            new_section = part_associated_section;
+        }
+      if (!new_section && content->cmd != CM_node
+          && (CF_root & builtin_command_flags(content)))
+        {
+          new_section = content;
+        }
+      if (new_section)
+        {
+          if (!current->unit_command)
+            {
+              current->unit_command = new_section;
+            }
+          else if (new_section != current->unit_command)
+            {
+              OUTPUT_UNIT *last = output_units->list[output_units->number -1];
+              current = new_output_unit (OU_unit);
+              current->unit_command = new_section;
+              current->tree_unit_directions[D_prev] = last;
+              last->tree_unit_directions[D_next] = current;
+              add_to_output_unit_list (output_units, current);
+            }
+        }
+
+      add_to_element_list (&current->unit_contents, content);
+      content->associated_unit = current;
+    }
+  return output_units_descriptor;
+}
+
 int
 unsplit (ELEMENT *root)
 {

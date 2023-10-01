@@ -501,6 +501,26 @@ split_by_node (tree_in)
     OUTPUT:
         RETVAL
 
+SV *
+split_by_section (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          {
+            int output_units_descriptor = split_by_section (document->tree);
+            RETVAL = build_output_units_list (output_units_descriptor);
+          }
+        else
+          {
+            RETVAL = newSV(0);
+          }
+    OUTPUT:
+        RETVAL
+
 int
 unsplit (tree_in)
         SV *tree_in

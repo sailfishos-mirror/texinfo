@@ -131,6 +131,10 @@ sub import {
         "Texinfo::StructTransf::split_by_node"
       );
       Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_split_by_section",
+        "Texinfo::StructTransf::split_by_section"
+      );
+      Texinfo::XSLoader::override(
         "Texinfo::Structuring::_XS_unsplit",
         "Texinfo::StructTransf::unsplit"
       );
@@ -1777,6 +1781,13 @@ sub split_by_node($)
   return $output_units;
 }
 
+sub _XS_split_by_section($)
+{
+  my $root = shift;
+
+  return undef;
+}
+
 # Return a list of output units.  Each output unit starts with the @node
 # associated with a sectioning command or with the sectioning command if there
 # is no associated node.  It is important that this function reassociates all
@@ -1785,41 +1796,37 @@ sub split_by_node($)
 sub split_by_section($)
 {
   my $root = shift;
-  my $output_units;
+
+  my $output_units = _XS_split_by_section($root);
+
+  # FIXME use XS $output_units only if $XS_only?
+  if (defined($output_units)) {
+    return $output_units;
+  }
+
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'cmdname'}
-        and (($content->{'cmdname'} eq 'node'
-              and $content->{'extra'}
-              and $content->{'extra'}->{'associated_section'})
-             or ($content->{'cmdname'} eq 'part'
-                 and $content->{'extra'}
-                 and $content->{'extra'}->{'part_associated_section'}))) {
-      my $new_section;
-      if ($content->{'cmdname'} eq 'node') {
-        $new_section = $content->{'extra'}->{'associated_section'};
-      } else {
-        $new_section = $content->{'extra'}->{'part_associated_section'};
-      }
+    my $new_section;
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
+        and $content->{'extra'}
+        and $content->{'extra'}->{'associated_section'}) {
+      $new_section = $content->{'extra'}->{'associated_section'};
+    } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'part'
+             and $content->{'extra'}
+             and $content->{'extra'}->{'part_associated_section'}) {
+      $new_section = $content->{'extra'}->{'part_associated_section'};
+    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
+             and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+      $new_section = $content;
+    }
+    if ($new_section) {
       if (not defined($current->{'unit_command'})) {
         $current->{'unit_command'} = $new_section;
       } elsif ($new_section ne $current->{'unit_command'}) {
         $current = { 'unit_type' => 'unit',
                      'unit_command' => $new_section,
                      'tree_unit_directions' => {'prev' => $output_units->[-1]}};
-        $output_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $output_units->[-1]->{'tree_unit_directions'});
-        $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
-        push @$output_units, $current;
-      }
-    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-             and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
-      if (not defined($current->{'unit_command'})) {
-        $current->{'unit_command'} = $content;
-      } elsif ($current->{'unit_command'} ne $content) {
-        $current = {'unit_type' => 'unit', 'unit_command' => $content,
-                    'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
