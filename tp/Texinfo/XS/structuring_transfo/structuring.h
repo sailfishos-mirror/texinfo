@@ -6,7 +6,6 @@
 #include "tree_types.h"
 #include "document.h"
 
-
 void associate_internal_references (DOCUMENT *document);
 ELEMENT *sectioning_structure (DOCUMENT *document);
 ELEMENT *nodes_tree (DOCUMENT *document);
@@ -24,5 +23,6 @@ void new_block_command (ELEMENT *element, enum command_id cmd);
 ELEMENT *new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
                           ELEMENT *menus, int use_sections);
 
+OUTPUT_UNIT_LIST *split_by_node (ELEMENT *root);
 
 #endif

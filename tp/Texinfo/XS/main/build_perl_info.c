@@ -38,7 +38,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE and fatal */
+/* for GLOBAL_INFO ERROR_MESSAGE fatal output_unit_type_names */
 #include "utils.h"
 /* for debugging */
 #include "debug.h"
@@ -1100,10 +1100,14 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 /* Return Texinfo::Document perl object corresponding to the
    C document structure corresponding to DOCUMENT_DESCRIPTOR.
+   If NO_CLEAN_PERl_REFS is set, do not remove the pointers to perl
+   tree elements in C tree elements. It should normally only be set for
+   a tree that does not change anymore and will not be rebuilt.
    If NO_STORE is set, destroy the C document.
  */
 SV *
-build_document (size_t document_descriptor, int no_store)
+build_document (size_t document_descriptor, int no_clean_perl_refs,
+                int no_store)
 {
   HV *hv;
   SV *sv;
@@ -1193,12 +1197,12 @@ build_document (size_t document_descriptor, int no_store)
                 strlen ("tree_document_descriptor"),
                 newSViv (document_descriptor), 0);
 
-      /* FIXME do not do that for the rebuilt tree to be able to
-         pass a tree at any level?
-         we do it here and not when building the tree, as later
-         on the tree may have changed and all the hv may not be
-         reachable */
-      clean_texinfo_tree (document->tree);
+      /* if removing references to perl element, we do it here and not when
+         building the tree, as later on the tree may have changed and all the hv
+         may not be reachable.
+       */
+      if (!no_clean_perl_refs)
+        clean_texinfo_tree (document->tree);
     }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
@@ -1208,3 +1212,150 @@ build_document (size_t document_descriptor, int no_store)
   return sv;
 }
 
+
+/*
+ Return a non 0 status if pointers to perl elements from C elements are
+ missing.
+ TODO could have been better to know earlier that the perl output units list
+ could not be built from the C output units
+ */
+static int
+output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
+{
+  SV *sv;
+  int status = 0;
+
+  dTHX;
+
+  /* output_unit->hv may already exist because of directions or if there was a
+     first_in_page referring to output_unit */
+  if (!output_unit->hv)
+    output_unit->hv = newHV ();
+
+#define STORE(key) hv_store (output_unit->hv, key, strlen (key), sv, 0)
+  sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
+  STORE("unit_type");
+
+  if (output_unit->unit_command)
+    {
+      if (!output_unit->unit_command->hv)
+        status++;
+      else
+        {
+          sv = newRV_inc ((SV *) output_unit->unit_command->hv);
+          STORE("unit_command");
+        }
+    }
+
+  if (output_unit->unit_filename)
+    {
+      /* FIXME check if utf8 or binary */
+      sv = newSVpv_utf8 (output_unit->unit_filename,
+                         strlen (output_unit->unit_filename));
+      STORE("unit_filename");
+    }
+
+  if (output_unit->unit_contents.number)
+    {
+      AV *av;
+      int i;
+
+      av = newAV ();
+      sv = newRV_noinc ((SV *) av);
+      STORE("unit_contents");
+
+      for (i = 0; i < output_unit->unit_contents.number; i++)
+        {
+          HV *element_hv = output_unit->unit_contents.list[i]->hv;
+          SV *unit_sv;
+
+          /* case of a tree where hv have been removed. */
+          if (!element_hv)
+            {
+              status++;
+              continue;
+            }
+
+          sv = newRV_inc ((SV *) element_hv);
+
+          av_push (av, sv);
+
+          unit_sv = newRV_inc ((SV *) output_unit->hv);
+          /* set the tree element associated_unit */
+          /* TODO is it an issue if already set? */
+          hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
+                    unit_sv, 0);
+        }
+    }
+
+  if (output_unit->tree_unit_directions[0]
+      || output_unit->tree_unit_directions[1])
+    {
+      int i;
+      int directions_nr = sizeof (output_unit->tree_unit_directions)
+                           / sizeof (output_unit->tree_unit_directions[0]);
+      HV *hv_tree_unit_directions = newHV ();
+      sv = newRV_noinc ((SV *) hv_tree_unit_directions);
+      STORE("tree_unit_directions");
+
+      for (i = 0; i < directions_nr; i++)
+        {
+          OUTPUT_UNIT *target = output_unit->tree_unit_directions[i];
+          if (target)
+            {
+              if (!target->hv)
+                target->hv = newHV ();
+              sv = newRV_inc ((SV *) target->hv);
+              hv_store (hv_tree_unit_directions, direction_names[i],
+                        strlen (direction_names[i]), sv, 0);
+            }
+        }
+    }
+
+  if (output_unit->first_in_page)
+    {
+      OUTPUT_UNIT *target = output_unit->first_in_page;
+      if (!target->hv)
+        target->hv = newHV ();
+      sv = newRV_inc ((SV *) target->hv);
+      STORE("first_in_page");
+    }
+
+  if (output_unit->special_unit_variety)
+    {
+      sv = newSVpv_utf8 (output_unit->special_unit_variety,
+                         strlen (output_unit->special_unit_variety));
+      STORE("special_unit_variety");
+    }
+
+#undef STORE
+
+  return status;
+}
+
+SV *
+build_output_units_list (OUTPUT_UNIT_LIST *output_units)
+{
+  SV *sv;
+  AV *av_output_units;
+  int i;
+
+  dTHX;
+
+  if (!output_units || !output_units->number)
+    return newSV(0);
+
+  av_output_units = newAV ();
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      int status = output_unit_to_perl_hash (output_unit);
+      if (status)
+        return newSV(0);
+      sv = newRV_noinc ((SV *) output_unit->hv);
+      av_push (av_output_units, sv);
+    }
+
+  return newRV_noinc ((SV *) av_output_units);
+}

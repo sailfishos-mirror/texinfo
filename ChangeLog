@@ -1,5 +1,35 @@
 2023-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (add_to_element_list): add a function
+	that can be directly called on an ELEMENT_LISTE, for output units
+	contents_list.  Use in similar existing functions.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info): rename
+	get_parser_info as _get_parser_info.
+
+	* tp/Texinfo/Structuring.pm (rebuild_document),
+	tp/Texinfo/XS/main/build_perl_info.c (build_document),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (build_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(rebuild_document), tp/t/test_utils.pl (test), tp/texi2any.pl: add
+	no_clean_perl_refs argument to build_document to keep the hv pointers
+	to perl tree elements.  Set it when document are rebuild after the
+	structuring and transformations.
+
+	* tp/Texinfo/Structuring.pm (import, _XS_split_by_node)
+	(split_by_node), tp/Texinfo/XS/main/build_perl_info.c
+	(output_unit_to_perl_hash, build_output_units_list), 
+	tp/Texinfo/XS/main/tree_types.h (enum output_unit_type, OUTPUT_UNIT)
+	(OUTPUT_UNIT_LIST), tp/Texinfo/XS/main/utils.c
+	(output_unit_type_names),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(split_by_node), tp/Texinfo/XS/structuring_transfo/structuring.c
+	(new_output_unit, add_to_output_unit_list, split_by_node): implement
+	split_by_node in C and the XS interface.
+
+2023-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* Texinfo/Structuring.pm: move code around to have output units
 	related code after external references, number floats and menus code.
 

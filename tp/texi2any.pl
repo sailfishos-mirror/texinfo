@@ -1627,7 +1627,7 @@ while(@input_files) {
 
   if (defined $ENV{TEXINFO_XS_CONVERT}
       and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-    $document = Texinfo::Structuring::rebuild_document($document);
+    $document = Texinfo::Structuring::rebuild_document($document, 1);
 
     if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
       foreach my $error (@{$document->{'errors'}}) {

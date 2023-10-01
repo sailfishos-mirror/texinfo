@@ -184,7 +184,7 @@ sub _get_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-sub get_parser_info($$;$) {
+sub _get_parser_info($$;$) {
   my $self = shift;
   my $document_descriptor = shift;
   my $no_store = shift;
@@ -192,7 +192,7 @@ sub get_parser_info($$;$) {
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  my $document = build_document ($document_descriptor, $no_store);
+  my $document = build_document ($document_descriptor, undef, $no_store);
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
@@ -241,7 +241,7 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = get_parser_info($self, $document_descriptor);
+  my $document = _get_parser_info($self, $document_descriptor);
 
   return $document;
 }
@@ -262,7 +262,7 @@ sub parse_texi_piece($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
   return $document;
 }
@@ -282,7 +282,7 @@ sub parse_texi_text($$;$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_text($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor);
+  my $document = _get_parser_info($self, $document_descriptor);
 
   return $document;
 }
@@ -301,7 +301,7 @@ sub parse_texi_line($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = get_parser_info($self, $document_descriptor, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
   return $document->tree();
 }

@@ -56,6 +56,10 @@ const char *direction_names[] = {"next", "prev", "up"};
 const char *direction_texts[] = {"Next", "Prev", "Up"};
 const size_t directions_length = sizeof (direction_names) / sizeof (direction_names[0]);
 
+/* to keep synchronized with enum output_unit_type in tree_types.h */
+const char *output_unit_type_names[] = {"unit",
+                                        "external_node_unit",
+                                        "special_unit"};
 
 /* duplicated when creating a new expanded_formats */
 struct expanded_format expanded_formats[] = {

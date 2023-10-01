@@ -2059,3 +2059,92 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
       return 0;
     }
 }
+
+OUTPUT_UNIT *
+new_output_unit (enum output_unit_type unit_type)
+{
+  OUTPUT_UNIT *output_unit = (OUTPUT_UNIT *) malloc (sizeof (OUTPUT_UNIT));
+  memset (output_unit, 0, sizeof (OUTPUT_UNIT));
+  output_unit->unit_type = unit_type;
+  return output_unit;
+}
+
+void
+add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
+{
+  if (list->number + 1 >= list->space)
+    {
+      list->space += 10;
+      list->list = realloc (list->list, list->space * sizeof (OUTPUT_UNIT *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
+  list->list[list->number] = output_unit;
+  list->number++;
+}
+
+OUTPUT_UNIT_LIST *
+split_by_node (ELEMENT *root)
+{
+  OUTPUT_UNIT_LIST *output_units = (OUTPUT_UNIT_LIST *)
+                                malloc (sizeof (OUTPUT_UNIT_LIST));
+  OUTPUT_UNIT *current = new_output_unit (OU_unit);
+  ELEMENT *pending_parts = new_element (ET_NONE);
+  int i;
+
+  memset (output_units, 0, sizeof (OUTPUT_UNIT_LIST));
+  add_to_output_unit_list (output_units, current);
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      if (content->cmd == CM_part)
+        {
+          add_to_contents_as_array (pending_parts, content);
+          continue;
+        }
+      if (content->cmd == CM_node)
+        {
+          if (!current->unit_command)
+            current->unit_command = content;
+          else
+            {
+              OUTPUT_UNIT *last = output_units->list[output_units->number -1];
+              current = new_output_unit (OU_unit);
+              current->unit_command = content;
+              current->tree_unit_directions[D_prev] = last;
+              last->tree_unit_directions[D_next] = current;
+              add_to_output_unit_list (output_units, current);
+            }
+        }
+      if (pending_parts->contents.number > 0)
+        {
+          int j;
+          for (j = 0; j < pending_parts->contents.number; j++)
+            {
+              ELEMENT *part = pending_parts->contents.list[j];
+              add_to_element_list (&current->unit_contents, part);
+              part->associated_unit = current;
+            }
+          pending_parts->contents.number = 0;
+        }
+      add_to_element_list (&current->unit_contents, content);
+      content->associated_unit = current;
+    }
+
+  if (pending_parts->contents.number > 0)
+    {
+      int j;
+      for (j = 0; j < pending_parts->contents.number; j++)
+        {
+          ELEMENT *part = pending_parts->contents.list[j];
+          add_to_element_list (&current->unit_contents, part);
+          part->associated_unit = current;
+        }
+      pending_parts->contents.number = 0;
+    }
+
+  destroy_element (pending_parts);
+
+  return output_units;
+}

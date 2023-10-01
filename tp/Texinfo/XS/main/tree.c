@@ -223,13 +223,21 @@ reallocate_list_for (int n, ELEMENT_LIST *list)
     }
 }
 
+/* directly used for output units, which has a contents_list, not for
+   tree elements */
+void
+add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
+{
+  reallocate_list (list);
+
+  list->list[list->number++] = e;
+}
+
 void
 add_to_element_contents (ELEMENT *parent, ELEMENT *e)
 {
   ELEMENT_LIST *list = &parent->contents;
-  reallocate_list (list);
-
-  list->list[list->number++] = e;
+  add_to_element_list (list, e);
   e->parent = parent;
 }
 
@@ -239,18 +247,14 @@ void
 add_to_contents_as_array (ELEMENT *parent, ELEMENT *e)
 {
   ELEMENT_LIST *list = &parent->contents;
-  reallocate_list (list);
-
-  list->list[list->number++] = e;
+  add_to_element_list (list, e);
 }
 
 void
 add_to_element_args (ELEMENT *parent, ELEMENT *e)
 {
   ELEMENT_LIST *list = &parent->args;
-  reallocate_list (list);
-
-  list->list[list->number++] = e;
+  add_to_element_list (list, e);
   e->parent = parent;
 }
 

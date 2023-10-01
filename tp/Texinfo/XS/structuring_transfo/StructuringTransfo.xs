@@ -47,19 +47,22 @@ MODULE = Texinfo::StructTransf		PACKAGE = Texinfo::StructTransf
 PROTOTYPES: ENABLE
 
 SV *
-rebuild_document (document_in, ...)
-        SV *document_in
-    PROTOTYPE: $;$
-    PREINIT:
+rebuild_document (SV *document_in, ...)
+      PROTOTYPE: $;$$
+      PREINIT:
+        int no_clean_perl_refs = 0;
         int no_store = 0;
         int document_descriptor;
         SV **document_descriptor_sv;
         char *descriptor_key = "document_descriptor";
         HV *hv_in;
-    CODE:
+      CODE:
         if (items > 1)
           if (SvOK(ST(1)))
-            no_store = SvIV (ST(1));
+            no_clean_perl_refs = SvIV (ST(1));
+        if (items > 2)
+          if (SvOK(ST(2)))
+            no_store = SvIV (ST(2));
 
         hv_in = (HV *)SvRV (document_in);
         document_descriptor_sv = hv_fetch (hv_in, descriptor_key,
@@ -71,7 +74,8 @@ rebuild_document (document_in, ...)
             HV *rebuilt_doc_hv;
 
             document_descriptor = SvIV (*document_descriptor_sv);
-            rebuilt_doc_sv = build_document (document_descriptor, no_store);
+            rebuilt_doc_sv = build_document (document_descriptor, no_clean_perl_refs,
+                                             no_store);
             RETVAL = rebuilt_doc_sv;
             rebuilt_doc_hv = (HV *)SvRV (rebuilt_doc_sv);
             info_sv = hv_fetch (hv_in, "info", strlen ("info"), 0);
@@ -475,5 +479,25 @@ protect_first_parenthesis_in_targets (tree_in)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           protect_first_parenthesis_in_targets (document->tree);
+
+SV *
+split_by_node (tree_in)
+        SV *tree_in
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        document = get_sv_tree_document (tree_in, 0);
+        if (document)
+          {
+            OUTPUT_UNIT_LIST *output_units = split_by_node (document->tree);
+            RETVAL = build_output_units_list (output_units);
+          }
+        else
+          {
+            RETVAL = newSV(0);
+          }
+    OUTPUT:
+        RETVAL
 
 

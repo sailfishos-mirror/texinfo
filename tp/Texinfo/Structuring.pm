@@ -126,6 +126,10 @@ sub import {
         "Texinfo::Structuring::_XS_number_floats",
         "Texinfo::StructTransf::number_floats"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_split_by_node",
+        "Texinfo::StructTransf::split_by_node"
+      );
     }
     $module_loaded = 1;
   }
@@ -155,9 +159,10 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
 # this method does nothing, but the XS override rebuilds the perl
 # document based on XS data.
-sub rebuild_document($;$)
+sub rebuild_document($;$$)
 {
   my $document = shift;
+  my $no_clean_perl_refs = shift;
   my $no_store = shift;
 
   return $document;
@@ -1702,6 +1707,12 @@ if (0) {
 }
 
 
+sub _XS_split_by_node($)
+{
+  my $root = shift;
+
+  return undef;
+}
 
 # Return a list of output units.  Each output unit starts with a @node as its
 # first content (except possibly the first one).  It is important that this
@@ -1710,7 +1721,14 @@ if (0) {
 sub split_by_node($)
 {
   my $root = shift;
-  my $output_units;
+
+  my $output_units = _XS_split_by_node($root);
+
+  # FIXME use XS $output_units only if $XS_only?
+  if (defined($output_units)) {
+    return $output_units;
+  }
+
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   my @pending_parts = ();

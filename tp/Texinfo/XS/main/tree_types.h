@@ -69,6 +69,12 @@ enum directions {
     D_up,
 };
 
+enum output_unit_type {
+    OU_unit,
+    OU_external_node_unit,
+    OU_special_unit,
+};
+
 typedef struct KEY_PAIR {
     char *key;
     enum extra_type type;
@@ -110,6 +116,37 @@ typedef struct SOURCE_MARK_LIST {
     size_t space;
 } SOURCE_MARK_LIST;
 
+/* structure used after splitting output units.  Could have been defined
+   in another file as it is not related to element trees.  However, it
+   is used in ELEMENT, so it is defined here */
+typedef struct OUTPUT_UNIT {
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
+
+    enum output_unit_type unit_type;
+    struct ELEMENT *unit_command;
+    char *unit_filename;
+    ELEMENT_LIST unit_contents;
+    struct OUTPUT_UNIT *tree_unit_directions[2];
+
+    /* directions */
+    struct OUTPUT_UNIT *first_in_page;
+
+    /* for special output units only */
+    /* could be an enum as for now new special types cannot be customized
+       but lets keep it an option */
+    char *special_unit_variety;
+} OUTPUT_UNIT;
+
+/* Could be elsewhere, but it is practical to have it here as it is used
+   in build_perl_info.c, for example */
+typedef struct OUTPUT_UNIT_LIST {
+    struct OUTPUT_UNIT **list;
+    size_t number;
+    size_t space;
+} OUTPUT_UNIT_LIST;
+
 typedef struct ELEMENT {
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
@@ -127,6 +164,8 @@ typedef struct ELEMENT {
     ASSOCIATED_INFO info_info;
 
     SOURCE_MARK_LIST source_mark_list;
+
+    OUTPUT_UNIT *associated_unit;
 } ELEMENT;
 
 typedef struct IGNORED_CHARS {

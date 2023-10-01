@@ -10,7 +10,8 @@
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
-SV *build_document (size_t document_descriptor, int no_store);
+SV *build_document (size_t document_descriptor, int no_clean_perl_refs,
+                    int no_store);
 
 HV *build_texinfo_tree (ELEMENT *root);
 AV *get_errors (ERROR_MESSAGE* error_list, size_t error_number);
@@ -23,5 +24,7 @@ HV *build_float_list (FLOAT_RECORD *floats_list, size_t floats_number);
 HV *build_index_data (INDEX **index_names_in);
 HV *build_global_info (GLOBAL_INFO *global_info_ref);
 HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
+
+SV *build_output_units_list (OUTPUT_UNIT_LIST *output_units);
 
 #endif

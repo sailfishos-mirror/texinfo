@@ -33,6 +33,8 @@ extern const char *direction_names[];
 extern const char *direction_texts[];
 extern const size_t directions_length;
 
+extern const char *output_unit_type_names[];
+
 enum error_type { error, warning };
 
 typedef struct {
