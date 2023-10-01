@@ -1242,6 +1242,132 @@ sub nodes_tree($$$)
   return \@nodes_list;
 }
 
+sub _XS_associate_internal_references($)
+{
+  return 1;
+}
+
+# For each internal reference command, set the 'normalized' key, in the
+# @*ref first argument or in 'menu_entry_node' extra.
+sub associate_internal_references($$$)
+{
+  my $document = shift;
+  my $registrar = shift;
+  my $customization_information = shift;
+
+  if (not _XS_associate_internal_references($document)
+      and $XS_only) {
+    return undef;
+  }
+
+  my $identifier_target = $document->labels_information();
+  my $refs = $document->internal_references_information();
+
+  return if (!defined($refs));
+  foreach my $ref (@$refs) {
+    my $label_element;
+    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+      $label_element = $ref;
+    } else {
+      $label_element = $ref->{'args'}->[0];
+    }
+
+    if ($label_element->{'extra'}
+        and $label_element->{'extra'}->{'node_content'}) {
+      my $normalized =
+        Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+            {'contents' => $label_element->{'extra'}->{'node_content'} });
+      $label_element->{'extra'}->{'normalized'} = $normalized
+        if (defined($normalized) and $normalized ne '');
+    }
+
+    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+      # similar messages are output in _check_menu_entry
+      next;
+    } elsif ($label_element->{'extra'}) {
+      my $normalized = $label_element->{'extra'}->{'normalized'};
+      if (!defined($normalized)
+          or !defined($identifier_target->{$normalized})) {
+        if (!$customization_information->get_conf('novalidate')) {
+          $registrar->line_error($customization_information,
+                     sprintf(__("\@%s reference to nonexistent node `%s'"),
+                             $ref->{'cmdname'},
+                             link_element_to_texi($label_element)),
+                                 $ref->{'source_info'});
+        }
+      } else {
+        my $node_target = $identifier_target->{$normalized};
+        if (!$customization_information->get_conf('novalidate')
+            and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
+                               $node_target,
+                               $label_element->{'extra'}->{'node_content'})) {
+          $registrar->line_warn($customization_information,
+             sprintf(__("\@%s to `%s', different from %s name `%s'"),
+                     $ref->{'cmdname'},
+                     link_element_to_texi($label_element),
+                     $node_target->{'cmdname'},
+                     target_element_to_texi_label($node_target)),
+                                $ref->{'source_info'});
+        }
+      }
+    }
+  }
+}
+
+sub _XS_number_floats($)
+{
+  return 1;
+}
+
+sub number_floats($)
+{
+  my $document = shift;
+
+  if (not _XS_number_floats($document)
+      and $XS_only) {
+    return undef;
+  }
+
+  my $floats = $document->floats_information();
+
+  return if (!defined($floats));
+
+  foreach my $style (keys(%$floats)) {
+    my $float_index = 0;
+    my $current_chapter;
+    my $nr_in_chapter = 0;
+    foreach my $float (@{$floats->{$style}}) {
+      next if (!$float->{'extra'}
+               or !defined($float->{'extra'}->{'normalized'}));
+      $float_index++;
+      my $number;
+      if ($float->{'extra'}->{'float_section'}) {
+        my $up = $float->{'extra'}->{'float_section'};
+        while ($up->{'extra'}->{'section_directions'}
+               and $up->{'extra'}->{'section_directions'}->{'up'}
+               and defined($up->{'extra'}->{'section_directions'}->{'up'}
+                                                                 ->{'cmdname'})
+               and $command_structuring_level{
+                 $up->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}}) {
+          $up = $up->{'extra'}->{'section_directions'}->{'up'};
+        }
+        if (!defined($current_chapter) or $current_chapter ne $up) {
+          $nr_in_chapter = 0;
+          $current_chapter = $up;
+        }
+        if (!$unnumbered_commands{$up->{'cmdname'}}) {
+          $nr_in_chapter++;
+          $number = $up->{'extra'}->{'section_number'} .
+            '.' . $nr_in_chapter;
+        }
+      }
+      $number = "$float_index" if (!defined($number));
+      $float->{'extra'} = {} if (! $float->{'extra'});
+      $float->{'extra'}->{'float_number'} = $number;
+    }
+  }
+}
+
 sub section_level_adjusted_command_name($)
 {
   my $element = shift;
@@ -1258,6 +1384,324 @@ sub section_level_adjusted_command_name($)
   }
   return $command;
 }
+
+# returns the texinfo tree corresponding to a single menu entry pointing
+# to $NODE.
+# if $USE_SECTIONS is set, use the section name as menu entry name.
+sub new_node_menu_entry
+{
+  my ($node, $use_sections) = @_;
+
+  my $node_name_element;
+  if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
+    $node_name_element = $node->{'args'}->[0];
+  }
+
+  # can happen with node without argument or with empty argument
+  return undef if (not defined($node_name_element));
+
+  my $menu_entry_name;
+  if ($use_sections) {
+    my $name_element;
+    if (defined $node->{'extra'}->{'associated_section'}) {
+      $name_element
+        = $node->{'extra'}->{'associated_section'}->{'args'}->[0];
+    } else {
+      $name_element = $node_name_element; # shouldn't happen
+    }
+
+    $menu_entry_name
+        = Texinfo::Common::copy_contents($name_element, 'menu_entry_name');
+    foreach my $content (@{$menu_entry_name->{'contents'}}) {
+      $content->{'parent'} = $menu_entry_name;
+    }
+    # colons could be doubly protected, but it is probably better
+    # than not protected at all.
+    Texinfo::Common::protect_colon_in_tree($menu_entry_name);
+  }
+
+  my $entry = {'type' => 'menu_entry'};
+
+  my $menu_entry_node
+    = Texinfo::Common::copy_contents($node_name_element, 'menu_entry_node');
+  foreach my $content (@{$menu_entry_node->{'contents'}}) {
+    $content->{'parent'} = $menu_entry_node;
+  }
+
+  # do not protect here, as it could already be protected, and
+  # the menu entry should be the same as the node
+  #Texinfo::Common::protect_colon_in_tree($menu_entry_node);
+
+  my $description = {'type' => 'menu_entry_description',
+                     'contents' => []};
+  $description->{'contents'}->[0] = {'type' => 'preformatted',
+                                     'parent' => $description,
+                                     'contents' => []};
+  $description->{'contents'}->[0]->{'contents'}->[0] = {'text' => "\n",
+                           'parent' => $description->{'contents'}->[0]};
+
+  if ($use_sections) {
+    $entry->{'contents'}
+     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
+        $menu_entry_name,
+        {'text' => ': ', 'type' => 'menu_entry_separator'},
+        $menu_entry_node,
+        {'text' => '.', 'type' => 'menu_entry_separator'},
+        $description];
+  } else {
+    $entry->{'contents'}
+     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
+        $menu_entry_node,
+        {'text' => '::', 'type' => 'menu_entry_separator'},
+        $description];
+  }
+
+  foreach my $arg(@{$entry->{'contents'}}) {
+    $arg->{'parent'} = $entry;
+  }
+
+  my $parsed_node_manual
+    = Texinfo::Common::parse_node_manual($menu_entry_node, 1);
+  if (defined($parsed_node_manual)) {
+    foreach my $label_info (keys(%$parsed_node_manual)) {
+      $menu_entry_node->{'extra'} = {} if (!$menu_entry_node->{'extra'});
+      $menu_entry_node->{'extra'}->{$label_info}
+         = [@{$parsed_node_manual->{$label_info}}];
+
+      if ($label_info eq 'node_content') {
+        $menu_entry_node->{'extra'}->{'normalized'}
+          = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+             {'contents' => $menu_entry_node->{'extra'}->{$label_info}});
+      }
+    }
+  }
+
+  return $entry;
+}
+
+sub new_block_command($$)
+{
+  my $element = shift;
+  my $command_name = shift;
+
+  $element->{'cmdname'} = $command_name;
+
+  $element->{'args'} = [{'type' => 'block_line_arg', 'parent' => $element,
+                           'info' => { 'spaces_after_argument' =>
+                                        {'text' => "\n",}}}];
+
+  my $end = {'cmdname' => 'end', 'parent' => $element,
+             'extra' => {'text_arg' => $command_name}};
+  $end->{'info'} = {'spaces_before_argument' =>
+                                         {'text' => ' '}};
+  my $end_args = {'type' => 'line_arg', 'parent' => $end,
+                  'contents' => [],
+                  'info' => {'spaces_after_argument' =>
+                                        {'text' => "\n"}}};
+  $end->{'args'} = [$end_args];
+
+  my $command_name_text = {'text' => $command_name,
+                           'parent' => $end_args};
+  push @{$end_args->{'contents'}}, $command_name_text;
+
+  push @{$element->{'contents'}}, $end;
+
+  return $element;
+}
+
+sub new_complete_node_menu
+{
+  my ($node, $use_sections) = @_;
+
+  my @node_childs = get_node_node_childs_from_sectioning($node);
+
+  if (not scalar(@node_childs)) {
+    return undef;
+  }
+
+  # only holds contents here, will be turned into a proper block
+  # command in new_block_command
+  my $section = $node->{'extra'}->{'associated_section'};
+  my $new_menu = {'contents' => [], 'parent' => $section};
+  foreach my $child (@node_childs) {
+    my $entry = new_node_menu_entry($child, $use_sections);
+    if (defined($entry)) {
+      $entry->{'parent'} = $new_menu;
+      push @{$new_menu->{'contents'}}, $entry;
+    }
+  }
+
+  new_block_command($new_menu, 'menu');
+
+  return $new_menu;
+}
+
+# used in Plaintext converter and tree transformations
+sub new_master_menu($$$;$)
+{
+  my $customization_information = shift;
+  my $identifier_target = shift;
+  my $menus = shift;
+  my $use_sections = shift;
+
+  # only holds contents here, will be turned into a proper block
+  # command in new_block_command
+  my $master_menu = {'contents' => []};
+  if (defined($menus) and scalar(@$menus)) {
+    foreach my $menu (@$menus) {
+      foreach my $entry (@{$menu->{'contents'}}) {
+        if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+          my $node
+               = _normalized_entry_associated_internal_node($entry,
+                                                        $identifier_target);
+          if ($node) {
+            push @{$master_menu->{'contents'}}, _print_down_menus($node,
+                                           $identifier_target, $use_sections);
+          }
+        }
+      }
+    }
+  }
+  if (scalar(@{$master_menu->{'contents'}})) {
+    # There is a menu comment with a preformatted added in front of each
+    # detailed menu section with the node section name
+    my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
+    my $master_menu_title
+           = Texinfo::Translations::gdt($customization_information,
+                                        ' --- The Detailed Node Listing ---');
+    my @master_menu_title_contents;
+    foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
+      $content->{'parent'} = $first_preformatted;
+      push @master_menu_title_contents, $content;
+    }
+    unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
+    foreach my $content (@{$master_menu->{'contents'}}) {
+      $content->{'parent'} = $master_menu;
+    }
+    Texinfo::Structuring::new_block_command($master_menu, 'detailmenu');
+    return $master_menu;
+  } else {
+    return undef;
+  }
+}
+
+# TODO document
+sub new_complete_menu_master_menu($$$)
+{
+  my $self = shift;
+  my $labels = shift;
+  my $node = shift;
+
+  my $menu_node = new_complete_node_menu($node);
+  if ($menu_node
+      and $node->{'extra'}->{'normalized'}
+      and $node->{'extra'}->{'normalized'} eq 'Top'
+      and $node->{'extra'}->{'associated_section'}
+      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
+    my $detailmenu = new_master_menu($self, $labels, [$menu_node]);
+    if ($detailmenu) {
+      # add a blank line before the detailed node listing
+      my $menu_comment = {'type' => 'menu_comment',
+                          'parent' => $menu_node};
+      push @{$menu_node->{'contents'}}, $menu_comment;
+      my $preformatted = {'type' => 'preformatted',
+                          'parent' => $menu_comment};
+      push @{$menu_comment->{'contents'}}, $preformatted;
+      my $empty_line = {'type' => 'after_menu_description_line',
+                        'text' => "\n", 'parent' => $preformatted};
+      push @{$preformatted->{'contents'}}, $empty_line;
+
+      $detailmenu->{'parent'} = $menu_node;
+      push @{$menu_node->{'contents'}}, $detailmenu;
+    }
+  }
+  return $menu_node;
+}
+
+sub _print_down_menus($$;$);
+sub _print_down_menus($$;$)
+{
+  my $node = shift;
+  my $identifier_target = shift;
+  my $use_sections = shift;
+
+  my @menus;
+
+  my @master_menu_contents;
+
+  if ($node->{'extra'} and $node->{'extra'}->{'menus'}
+        and scalar(@{$node->{'extra'}->{'menus'}})) {
+    @menus = @{$node->{'extra'}->{'menus'}};
+  } else {
+    my $current_menu
+      = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
+    if (defined($current_menu)) {
+      @menus = ( $current_menu );
+    } else {
+      return @master_menu_contents;
+    }
+  }
+
+  my @node_children;
+  foreach my $menu (@menus) {
+    foreach my $entry (@{$menu->{'contents'}}) {
+      if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+        # Should use copy_tree from Structuring to use XS code, but
+        # the tree would have to be registered first.
+        push @master_menu_contents, Texinfo::Common::copy_tree($entry);
+        # gather node children to recursively print their menus
+        my $node
+             = _normalized_entry_associated_internal_node($entry,
+                                                          $identifier_target);
+        if ($node) {
+          push @node_children, $node;
+        }
+      }
+    }
+  }
+  if (scalar(@master_menu_contents)) {
+    # Prepend node title
+    my $node_name_element;
+    if ($node->{'extra'}->{'associated_section'}) {
+      my $associated_section = $node->{'extra'}->{'associated_section'};
+      $node_name_element = $associated_section->{'args'}->[0];
+    } else {
+      $node_name_element = $node->{'args'}->[0];
+    }
+    my $node_title_copy = Texinfo::Common::copy_contents($node_name_element);
+    my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
+    my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
+    $menu_comment->{'contents'}->[0] = $preformatted;
+
+    $preformatted->{'contents'}
+      = [{'text' => "\n", 'type' => 'empty_line'},
+         @{$node_title_copy->{'contents'}},
+         {'text' => "\n", 'type' => 'empty_line'},
+         {'text' => "\n", 'type' => 'empty_line'}];
+
+    foreach my $content (@{$preformatted->{'contents'}}) {
+      $content->{'parent'} = $preformatted;
+    }
+    unshift @master_menu_contents, $menu_comment;
+
+    # now recurse in the children
+    foreach my $child (@node_children) {
+      push @master_menu_contents, _print_down_menus($child, $identifier_target,
+                                                    $use_sections);
+    }
+  }
+
+  return @master_menu_contents;
+}
+
+if (0) {
+  # it is needed to mark the translation as gdt is called like
+  # Texinfo::Translations::gdt($customization_information, ' --- The Detailed Node Listing ---')
+  # and not like gdt(' --- The Detailed Node Listing ---')
+  gdt(' --- The Detailed Node Listing ---');
+}
+
+
 
 # Return a list of output units.  Each output unit starts with a @node as its
 # first content (except possibly the first one).  It is important that this
@@ -1800,282 +2244,8 @@ sub print_element_directions($)
   return $result;
 }
 
-sub _XS_associate_internal_references($)
-{
-  return 1;
-}
 
-# For each internal reference command, set the 'normalized' key, in the
-# @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($$$)
-{
-  my $document = shift;
-  my $registrar = shift;
-  my $customization_information = shift;
 
-  if (not _XS_associate_internal_references($document)
-      and $XS_only) {
-    return undef;
-  }
-
-  my $identifier_target = $document->labels_information();
-  my $refs = $document->internal_references_information();
-
-  return if (!defined($refs));
-  foreach my $ref (@$refs) {
-    my $label_element;
-    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
-      $label_element = $ref;
-    } else {
-      $label_element = $ref->{'args'}->[0];
-    }
-
-    if ($label_element->{'extra'}
-        and $label_element->{'extra'}->{'node_content'}) {
-      my $normalized =
-        Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-            {'contents' => $label_element->{'extra'}->{'node_content'} });
-      $label_element->{'extra'}->{'normalized'} = $normalized
-        if (defined($normalized) and $normalized ne '');
-    }
-
-    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
-      # similar messages are output in _check_menu_entry
-      next;
-    } elsif ($label_element->{'extra'}) {
-      my $normalized = $label_element->{'extra'}->{'normalized'};
-      if (!defined($normalized)
-          or !defined($identifier_target->{$normalized})) {
-        if (!$customization_information->get_conf('novalidate')) {
-          $registrar->line_error($customization_information,
-                     sprintf(__("\@%s reference to nonexistent node `%s'"),
-                             $ref->{'cmdname'},
-                             link_element_to_texi($label_element)),
-                                 $ref->{'source_info'});
-        }
-      } else {
-        my $node_target = $identifier_target->{$normalized};
-        if (!$customization_information->get_conf('novalidate')
-            and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
-                               $node_target,
-                               $label_element->{'extra'}->{'node_content'})) {
-          $registrar->line_warn($customization_information,
-             sprintf(__("\@%s to `%s', different from %s name `%s'"),
-                     $ref->{'cmdname'},
-                     link_element_to_texi($label_element),
-                     $node_target->{'cmdname'},
-                     target_element_to_texi_label($node_target)),
-                                $ref->{'source_info'});
-        }
-      }
-    }
-  }
-}
-
-sub _XS_number_floats($)
-{
-  return 1;
-}
-
-sub number_floats($)
-{
-  my $document = shift;
-
-  if (not _XS_number_floats($document)
-      and $XS_only) {
-    return undef;
-  }
-
-  my $floats = $document->floats_information();
-
-  return if (!defined($floats));
-
-  foreach my $style (keys(%$floats)) {
-    my $float_index = 0;
-    my $current_chapter;
-    my $nr_in_chapter = 0;
-    foreach my $float (@{$floats->{$style}}) {
-      next if (!$float->{'extra'}
-               or !defined($float->{'extra'}->{'normalized'}));
-      $float_index++;
-      my $number;
-      if ($float->{'extra'}->{'float_section'}) {
-        my $up = $float->{'extra'}->{'float_section'};
-        while ($up->{'extra'}->{'section_directions'}
-               and $up->{'extra'}->{'section_directions'}->{'up'}
-               and defined($up->{'extra'}->{'section_directions'}->{'up'}
-                                                                 ->{'cmdname'})
-               and $command_structuring_level{
-                 $up->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}}) {
-          $up = $up->{'extra'}->{'section_directions'}->{'up'};
-        }
-        if (!defined($current_chapter) or $current_chapter ne $up) {
-          $nr_in_chapter = 0;
-          $current_chapter = $up;
-        }
-        if (!$unnumbered_commands{$up->{'cmdname'}}) {
-          $nr_in_chapter++;
-          $number = $up->{'extra'}->{'section_number'} .
-            '.' . $nr_in_chapter;
-        }
-      }
-      $number = "$float_index" if (!defined($number));
-      $float->{'extra'} = {} if (! $float->{'extra'});
-      $float->{'extra'}->{'float_number'} = $number;
-    }
-  }
-}
-
-# returns the texinfo tree corresponding to a single menu entry pointing
-# to $NODE.
-# if $USE_SECTIONS is set, use the section name as menu entry name.
-sub new_node_menu_entry
-{
-  my ($node, $use_sections) = @_;
-
-  my $node_name_element;
-  if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
-    $node_name_element = $node->{'args'}->[0];
-  }
-
-  # can happen with node without argument or with empty argument
-  return undef if (not defined($node_name_element));
-
-  my $menu_entry_name;
-  if ($use_sections) {
-    my $name_element;
-    if (defined $node->{'extra'}->{'associated_section'}) {
-      $name_element
-        = $node->{'extra'}->{'associated_section'}->{'args'}->[0];
-    } else {
-      $name_element = $node_name_element; # shouldn't happen
-    }
-
-    $menu_entry_name
-        = Texinfo::Common::copy_contents($name_element, 'menu_entry_name');
-    foreach my $content (@{$menu_entry_name->{'contents'}}) {
-      $content->{'parent'} = $menu_entry_name;
-    }
-    # colons could be doubly protected, but it is probably better
-    # than not protected at all.
-    Texinfo::Common::protect_colon_in_tree($menu_entry_name);
-  }
-
-  my $entry = {'type' => 'menu_entry'};
-
-  my $menu_entry_node
-    = Texinfo::Common::copy_contents($node_name_element, 'menu_entry_node');
-  foreach my $content (@{$menu_entry_node->{'contents'}}) {
-    $content->{'parent'} = $menu_entry_node;
-  }
-
-  # do not protect here, as it could already be protected, and
-  # the menu entry should be the same as the node
-  #Texinfo::Common::protect_colon_in_tree($menu_entry_node);
-
-  my $description = {'type' => 'menu_entry_description',
-                     'contents' => []};
-  $description->{'contents'}->[0] = {'type' => 'preformatted',
-                                     'parent' => $description,
-                                     'contents' => []};
-  $description->{'contents'}->[0]->{'contents'}->[0] = {'text' => "\n",
-                           'parent' => $description->{'contents'}->[0]};
-
-  if ($use_sections) {
-    $entry->{'contents'}
-     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
-        $menu_entry_name,
-        {'text' => ': ', 'type' => 'menu_entry_separator'},
-        $menu_entry_node,
-        {'text' => '.', 'type' => 'menu_entry_separator'},
-        $description];
-  } else {
-    $entry->{'contents'}
-     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
-        $menu_entry_node,
-        {'text' => '::', 'type' => 'menu_entry_separator'},
-        $description];
-  }
-
-  foreach my $arg(@{$entry->{'contents'}}) {
-    $arg->{'parent'} = $entry;
-  }
-
-  my $parsed_node_manual
-    = Texinfo::Common::parse_node_manual($menu_entry_node, 1);
-  if (defined($parsed_node_manual)) {
-    foreach my $label_info (keys(%$parsed_node_manual)) {
-      $menu_entry_node->{'extra'} = {} if (!$menu_entry_node->{'extra'});
-      $menu_entry_node->{'extra'}->{$label_info}
-         = [@{$parsed_node_manual->{$label_info}}];
-
-      if ($label_info eq 'node_content') {
-        $menu_entry_node->{'extra'}->{'normalized'}
-          = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-             {'contents' => $menu_entry_node->{'extra'}->{$label_info}});
-      }
-    }
-  }
-
-  return $entry;
-}
-
-sub new_block_command($$)
-{
-  my $element = shift;
-  my $command_name = shift;
-
-  $element->{'cmdname'} = $command_name;
-
-  $element->{'args'} = [{'type' => 'block_line_arg', 'parent' => $element,
-                           'info' => { 'spaces_after_argument' =>
-                                        {'text' => "\n",}}}];
-
-  my $end = {'cmdname' => 'end', 'parent' => $element,
-             'extra' => {'text_arg' => $command_name}};
-  $end->{'info'} = {'spaces_before_argument' =>
-                                         {'text' => ' '}};
-  my $end_args = {'type' => 'line_arg', 'parent' => $end,
-                  'contents' => [],
-                  'info' => {'spaces_after_argument' =>
-                                        {'text' => "\n"}}};
-  $end->{'args'} = [$end_args];
-
-  my $command_name_text = {'text' => $command_name,
-                           'parent' => $end_args};
-  push @{$end_args->{'contents'}}, $command_name_text;
-
-  push @{$element->{'contents'}}, $end;
-
-  return $element;
-}
-
-sub new_complete_node_menu
-{
-  my ($node, $use_sections) = @_;
-
-  my @node_childs = get_node_node_childs_from_sectioning($node);
-
-  if (not scalar(@node_childs)) {
-    return undef;
-  }
-
-  # only holds contents here, will be turned into a proper block
-  # command in new_block_command
-  my $section = $node->{'extra'}->{'associated_section'};
-  my $new_menu = {'contents' => [], 'parent' => $section};
-  foreach my $child (@node_childs) {
-    my $entry = new_node_menu_entry($child, $use_sections);
-    if (defined($entry)) {
-      $entry->{'parent'} = $new_menu;
-      push @{$new_menu->{'contents'}}, $entry;
-    }
-  }
-
-  new_block_command($new_menu, 'menu');
-
-  return $new_menu;
-}
 
 sub _sort_string($$)
 {
@@ -2086,174 +2256,6 @@ sub _sort_string($$)
                  ? ($a cmp $b)
                  : (($a =~ /^[[:alpha:]]/ && 1) || -1);
 }
-
-# used in Plaintext converter and tree transformations
-sub new_master_menu($$$;$)
-{
-  my $customization_information = shift;
-  my $identifier_target = shift;
-  my $menus = shift;
-  my $use_sections = shift;
-
-  # only holds contents here, will be turned into a proper block
-  # command in new_block_command
-  my $master_menu = {'contents' => []};
-  if (defined($menus) and scalar(@$menus)) {
-    foreach my $menu (@$menus) {
-      foreach my $entry (@{$menu->{'contents'}}) {
-        if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-          my $node
-               = _normalized_entry_associated_internal_node($entry,
-                                                        $identifier_target);
-          if ($node) {
-            push @{$master_menu->{'contents'}}, _print_down_menus($node,
-                                           $identifier_target, $use_sections);
-          }
-        }
-      }
-    }
-  }
-  if (scalar(@{$master_menu->{'contents'}})) {
-    # There is a menu comment with a preformatted added in front of each
-    # detailed menu section with the node section name
-    my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
-    my $master_menu_title
-           = Texinfo::Translations::gdt($customization_information,
-                                        ' --- The Detailed Node Listing ---');
-    my @master_menu_title_contents;
-    foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
-      $content->{'parent'} = $first_preformatted;
-      push @master_menu_title_contents, $content;
-    }
-    unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
-    foreach my $content (@{$master_menu->{'contents'}}) {
-      $content->{'parent'} = $master_menu;
-    }
-    Texinfo::Structuring::new_block_command($master_menu, 'detailmenu');
-    return $master_menu;
-  } else {
-    return undef;
-  }
-}
-
-# TODO document
-sub new_complete_menu_master_menu($$$)
-{
-  my $self = shift;
-  my $labels = shift;
-  my $node = shift;
-
-  my $menu_node = new_complete_node_menu($node);
-  if ($menu_node
-      and $node->{'extra'}->{'normalized'}
-      and $node->{'extra'}->{'normalized'} eq 'Top'
-      and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $detailmenu = new_master_menu($self, $labels, [$menu_node]);
-    if ($detailmenu) {
-      # add a blank line before the detailed node listing
-      my $menu_comment = {'type' => 'menu_comment',
-                          'parent' => $menu_node};
-      push @{$menu_node->{'contents'}}, $menu_comment;
-      my $preformatted = {'type' => 'preformatted',
-                          'parent' => $menu_comment};
-      push @{$menu_comment->{'contents'}}, $preformatted;
-      my $empty_line = {'type' => 'after_menu_description_line',
-                        'text' => "\n", 'parent' => $preformatted};
-      push @{$preformatted->{'contents'}}, $empty_line;
-
-      $detailmenu->{'parent'} = $menu_node;
-      push @{$menu_node->{'contents'}}, $detailmenu;
-    }
-  }
-  return $menu_node;
-}
-
-sub _print_down_menus($$;$);
-sub _print_down_menus($$;$)
-{
-  my $node = shift;
-  my $identifier_target = shift;
-  my $use_sections = shift;
-
-  my @menus;
-
-  my @master_menu_contents;
-
-  if ($node->{'extra'} and $node->{'extra'}->{'menus'}
-        and scalar(@{$node->{'extra'}->{'menus'}})) {
-    @menus = @{$node->{'extra'}->{'menus'}};
-  } else {
-    my $current_menu
-      = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
-    if (defined($current_menu)) {
-      @menus = ( $current_menu );
-    } else {
-      return @master_menu_contents;
-    }
-  }
-
-  my @node_children;
-  foreach my $menu (@menus) {
-    foreach my $entry (@{$menu->{'contents'}}) {
-      if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-        # Should use copy_tree from Structuring to use XS code, but
-        # the tree would have to be registered first.
-        push @master_menu_contents, Texinfo::Common::copy_tree($entry);
-        # gather node children to recursively print their menus
-        my $node
-             = _normalized_entry_associated_internal_node($entry,
-                                                          $identifier_target);
-        if ($node) {
-          push @node_children, $node;
-        }
-      }
-    }
-  }
-  if (scalar(@master_menu_contents)) {
-    # Prepend node title
-    my $node_name_element;
-    if ($node->{'extra'}->{'associated_section'}) {
-      my $associated_section = $node->{'extra'}->{'associated_section'};
-      $node_name_element = $associated_section->{'args'}->[0];
-    } else {
-      $node_name_element = $node->{'args'}->[0];
-    }
-    my $node_title_copy = Texinfo::Common::copy_contents($node_name_element);
-    my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
-    my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
-    $menu_comment->{'contents'}->[0] = $preformatted;
-
-    $preformatted->{'contents'}
-      = [{'text' => "\n", 'type' => 'empty_line'},
-         @{$node_title_copy->{'contents'}},
-         {'text' => "\n", 'type' => 'empty_line'},
-         {'text' => "\n", 'type' => 'empty_line'}];
-
-    foreach my $content (@{$preformatted->{'contents'}}) {
-      $content->{'parent'} = $preformatted;
-    }
-    unshift @master_menu_contents, $menu_comment;
-
-    # now recurse in the children
-    foreach my $child (@node_children) {
-      push @master_menu_contents, _print_down_menus($child, $identifier_target,
-                                                    $use_sections);
-    }
-  }
-
-  return @master_menu_contents;
-}
-
-if (0) {
-  # it is needed to mark the translation as gdt is called like
-  # Texinfo::Translations::gdt($customization_information, ' --- The Detailed Node Listing ---')
-  # and not like gdt(' --- The Detailed Node Listing ---')
-  gdt(' --- The Detailed Node Listing ---');
-}
-
-
-
 
 sub _sort_index_entries($$)
 {

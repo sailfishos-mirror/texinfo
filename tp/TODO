@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Check format_translate_message_tree api after the changes in gdt api
+when the translation of HTML to C is advnaced enough that it becomes clear
+that the API won't change again
+
 Bugs
 ====
 
