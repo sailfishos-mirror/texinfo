@@ -8910,7 +8910,7 @@ sub _html_set_pages_files($$$$$$$$)
     my $node_top_output_unit;
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my ($node_top_output_unit) = $self->_html_get_tree_root_element($node_top);
+      my $node_top_output_unit = $node_top->{'associated_unit'};
       die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
       $filenames_paths{$top_node_filename} = undef;
       push @filenames_order, $top_node_filename;
@@ -9116,12 +9116,11 @@ sub _prepare_conversion_units($$$)
     $output_units = Texinfo::Structuring::split_by_section($root);
   }
 
-  # FIXME do that later on to be sure that output_units won't change
-  # afterwards. In particular after rebuild_output_units.
-  $self->{'document_units'} = $output_units
-    if (defined($output_units));
+  # Needs to be set early in case it would be needed to find some region
+  # command associated root command.
+  $self->{'document_units'} = $output_units;
 
-  # This may be done as soon as tree units are available.
+  # This may be done as soon as output units are available.
   $self->_prepare_output_units_global_targets($output_units);
 
   # the presence of contents elements in the document is used in diverse
@@ -11120,14 +11119,13 @@ sub output($$)
   $self->_reset_info();
 
   # Get the list of output units to be processed.
-  # This should return undef if called on a tree without node nor sections.
-  # TODO check that this is true that it can be undef, seems wrong now.
   my ($output_units, $special_units)
     = $self->_prepare_conversion_units($root, $document_name);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
 
   $output_units = Texinfo::Structuring::rebuild_output_units($output_units);
+  $self->{'document_units'} = $output_units;
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.

@@ -1,5 +1,10 @@
 2023-10-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm: minor code/comments cleanups.  Reset
+	$self->{'document_units'} after rebuild_output_units call.
+
+2023-10-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
 	(_prepare_special_units): remove unused $destination_directory
 	argument.
