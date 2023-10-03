@@ -8703,6 +8703,8 @@ sub _new_sectioning_command_target($$)
   return $self->{'targets'}->{$command};
 }
 
+# FIXME there is no reason to use output_units to get the section commands,
+# better use sections_list or go through the tree root contents.
 # This set with two different codes
 #  * the target information, id and normalized filename of 'identifiers_target',
 #    ie everything that may be the target of a ref, @node, @float label,
@@ -9116,6 +9118,8 @@ sub _prepare_conversion_units($$$$)
     $output_units = Texinfo::Structuring::split_by_section($root);
   }
 
+  # FIXME do that later on to be sure that output_units won't change
+  # afterwards. In particular after rebuild_output_units.
   $self->{'document_units'} = $output_units
     if (defined($output_units));
 
@@ -9323,6 +9327,7 @@ sub _prepare_special_units($$$$)
   return $special_units;
 }
 
+# FIXME pass $output_units directly, do not access through $self->{'document_units'}
 sub _prepare_contents_elements($)
 {
   my $self = shift;
@@ -11134,6 +11139,8 @@ sub output($$)
                                        $document_name);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
+
+  $output_units = Texinfo::Structuring::rebuild_output_units($output_units);
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.

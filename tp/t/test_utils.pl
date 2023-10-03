@@ -1314,6 +1314,16 @@ sub test($$)
     Texinfo::Structuring::split_pages($output_units, $split_pages);
   }
 
+  if ($test_split) {
+    # not sure that the conditions are needed, in case of error
+    # the input is returned.
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+      $output_units
+        = Texinfo::Structuring::rebuild_output_units($output_units);
+    }
+  }
+
   my $file = "t/results/$self->{'name'}/$test_name.pl";
   my $new_file = $file.'.new';
 

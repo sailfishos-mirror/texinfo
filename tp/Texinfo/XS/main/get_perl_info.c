@@ -38,10 +38,11 @@ FIXME add an initialization of translations?
 #endif
 */
 
+#include "options_types.h"
 #include "utils.h"
 #include "document.h"
+#include "output_unit.h"
 #include "convert_to_text.h"
-#include "options_types.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -90,6 +91,73 @@ get_sv_document_document (SV *document_in, char *warn_string)
 
   return get_document_or_warn (document_in, "document_descriptor",
                                warn_string);
+}
+
+int
+get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
+{
+  int output_units_descriptor = 0;
+  AV *av_in;
+  SSize_t output_units_nr;
+  SV** first_output_unit_sv;
+  char *key = "output_units_descriptor";
+
+  dTHX;
+
+  if (!SvOK (output_units_in))
+    {
+      fprintf (stderr, "get_sv_output_units_descriptor: undef in\n");
+      return 0;
+    }
+
+  av_in = (AV *)SvRV (output_units_in);
+  output_units_nr = av_top_index (av_in) +1;
+
+  if (output_units_nr > 0)
+    {
+      first_output_unit_sv = av_fetch (av_in, 0, 0);
+      if (first_output_unit_sv)
+        {
+          HV *hv_in = (HV *)SvRV (*first_output_unit_sv);
+          SV** output_units_descriptor_sv
+            = hv_fetch (hv_in, key, strlen (key), 0);
+          if (output_units_descriptor_sv)
+            {
+              output_units_descriptor = SvIV (*output_units_descriptor_sv);
+
+              if (!output_units_descriptor && warn_string)
+                fprintf (stderr, "ERROR: %s: units descriptor %d\n",
+                                warn_string, output_units_descriptor);
+            }
+          else if (warn_string)
+            fprintf (stderr, "ERROR: %s: no %s\n", warn_string, key);
+        }
+      else
+        fprintf (stderr, "BUG: get_sv_output_units: av_fetch failed\n");
+    }
+  else
+    {
+      if (warn_string)
+        fprintf (stderr, "ERROR: %s: empty units list\n", warn_string);
+    }
+  return output_units_descriptor;
+}
+
+
+OUTPUT_UNIT_LIST *
+get_sv_output_units (SV *output_units_in, char *warn_string)
+{
+  OUTPUT_UNIT_LIST *output_units = 0;
+  int output_units_descriptor
+     = get_sv_output_units_descriptor (output_units_in, warn_string);
+  if (output_units_descriptor)
+    {
+      output_units = retrieve_output_units (output_units_descriptor);
+      if (!output_units && warn_string)
+        fprintf (stderr, "ERROR: %s: no units %d\n", warn_string,
+                                             output_units_descriptor);
+    }
+  return output_units;
 }
 
 void

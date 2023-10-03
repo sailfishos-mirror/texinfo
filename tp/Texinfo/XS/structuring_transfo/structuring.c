@@ -2229,3 +2229,96 @@ unsplit (ELEMENT *root)
     }
   return unsplit_needed;
 }
+
+
+static ELEMENT *
+output_unit_section (OUTPUT_UNIT *output_unit)
+{
+  ELEMENT *element;
+
+  if (!output_unit->unit_command)
+    return 0;
+
+  element = output_unit->unit_command;
+  if (element->cmd == CM_node)
+    {
+      ELEMENT *associated_section
+         = lookup_extra_element (element, "associated_section");
+      if (associated_section)
+        return associated_section;
+      else
+        return 0;
+    }
+  else
+    return element;
+}
+
+typedef struct LEVEL_SPLIT_STRING {
+  int level;
+  char *split;
+} LEVEL_SPLIT_STRING;
+
+static LEVEL_SPLIT_STRING split_level_table[3] = {
+ {-1, "node"},
+ {1, "chapter"},
+ {2, "section"}
+};
+
+/*
+ Associate top-level units with pages according to the splitting
+ specification.  Set 'first_in_page' on each unit to the unit
+ that is the first in the output page.
+ */
+void
+split_pages (OUTPUT_UNIT_LIST *output_units, char *split)
+{
+  int split_level = -2;
+  int i;
+  OUTPUT_UNIT *current_first_in_page = 0;
+
+  if (!output_units || !output_units->number)
+    return;
+
+  if (!split || !strlen (split))
+    {
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          output_unit->first_in_page = output_units->list[0];
+        }
+      return;
+    }
+
+  for (i = 0; i < 3; i++)
+    {
+      if (!strcmp (split, split_level_table[i].split))
+        {
+          split_level = split_level_table[i].level;
+          break;
+        }
+    }
+  if (split_level == -2)
+    {
+      fprintf (stderr, "Unknown split specification: %s\n", split);
+      split_level = -1; /* split by node */
+    }
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      ELEMENT *section = output_unit_section (output_unit);
+      int level = -3;
+      if (section)
+        {
+          int status;
+          level = lookup_extra_integer (section, "section_level", &status);
+          if (status < 0)
+            level = -3;
+        }
+      if ((split_level == -1) || (level != -3 && split_level >= level)
+          || !current_first_in_page)
+        current_first_in_page = output_unit;
+
+      output_unit->first_in_page = current_first_in_page;
+    }
+}

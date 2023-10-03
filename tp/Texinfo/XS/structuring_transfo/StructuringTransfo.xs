@@ -495,9 +495,7 @@ split_by_node (tree_in)
             RETVAL = build_output_units_list (output_units_descriptor);
           }
         else
-          {
-            RETVAL = newSV(0);
-          }
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 
@@ -515,9 +513,7 @@ split_by_section (tree_in)
             RETVAL = build_output_units_list (output_units_descriptor);
           }
         else
-          {
-            RETVAL = newSV(0);
-          }
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
 
@@ -530,11 +526,41 @@ unsplit (tree_in)
         /* FIXME warning/error if not found? */
         document = get_sv_tree_document (tree_in, 0);
         if (document)
-          {
-            RETVAL = unsplit (document->tree);
-          }
+          RETVAL = unsplit (document->tree);
         else
           RETVAL = -1;
     OUTPUT:
         RETVAL
+
+# return the input if XS information are missing or not found
+SV *
+rebuild_output_units (SV *output_units_in)
+    PREINIT:
+        int output_units_descriptor = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        output_units_descriptor
+           = get_sv_output_units_descriptor (output_units_in, 0);
+        if (output_units_descriptor)
+          RETVAL = build_output_units_list (output_units_descriptor);
+        else
+         /* FIXME adding SvREFCNT_inc was done by trial and error
+            as without one gets "Useless assignment to a temporary" */
+          RETVAL = SvREFCNT_inc(output_units_in);
+          /*
+          RETVAL = newSV(0);
+           */
+    OUTPUT:
+        RETVAL
+
+void
+split_pages (SV *output_units_in, char *split)
+    PREINIT:
+        OUTPUT_UNIT_LIST *output_units = 0;
+     CODE:
+        /* FIXME warning/error if not found? */
+        output_units = get_sv_output_units (output_units_in, 0);
+        if (output_units)
+          split_pages (output_units, split);
+
 

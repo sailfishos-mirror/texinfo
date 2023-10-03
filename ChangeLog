@@ -1,7 +1,28 @@
+2023-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (import, _XS_split_pages, split_pages),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_output_units),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (split_pages),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (output_unit_section)
+	(LEVEL_SPLIT_STRING, split_level_table, split_pages): implement
+	split_page and XS interface.
+
+	* tp/DebugTexinfo/DebugTree.pm (output),
+	tp/Texinfo/Convert/Converter.pm (output), tp/Texinfo/Convert/HTML.pm
+	(output), tp/Texinfo/Structuring.pm (import, rebuild_output_units),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_output_units_descriptor),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(rebuild_output_units), tp/t/test_utils.pl (test): add
+	rebuild_output_units to get back output_units list from C to perl.
+	Call it after calls to split_pages.
+
+	* tp/DebugTexinfo/DebugTree.pm (output): rename $elements as
+	$output_units.
+
 2023-10-01  Patrice Dumas  <pertusus@free.fr>
 
-	 * tp/Texinfo/Structuring.pm (split_by_section): reorganize code to
-	 avoid redundancy.
+	* tp/Texinfo/Structuring.pm (split_by_section): reorganize code to
+	avoid redundancy.
 
 	* tp/Texinfo/Structuring.pm (import, _XS_split_by_section)
 	(split_by_section),

@@ -26,5 +26,6 @@ ELEMENT *new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
 int split_by_node (ELEMENT *root);
 int split_by_section (ELEMENT *root);
 int unsplit (ELEMENT *root);
+void split_pages (OUTPUT_UNIT_LIST *output_units, char *split);
 
 #endif

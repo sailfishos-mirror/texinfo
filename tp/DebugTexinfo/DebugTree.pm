@@ -1,30 +1,30 @@
 # DebugTexinfo::DebugTree.pm: debug a Texinfo::Parser tree.
 #
 # Copyright 2011, 2012, 2013 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # Example of calls
-# with creation of elements corresponding to sections:
+# with creation of output units corresponding to sections:
 # ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 file.texi
-# with creation of elements corresponding to nodes:
+# with creation of output units corresponding to nodes:
 # ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=1 file.texi
-# no elements
+# no output units
 # ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree file.texi
-# 
+#
 # Some unofficial info about the --debug command line option ... with
 # --debug=1, the tree is not printed,
 # --debug=10 (or more), the tree is printed at the end of the run,
@@ -66,25 +66,29 @@ sub output($$)
   # Given that this format is only to be used for debugging, this is
   # not an issue that really needs fixing.
 
-  my $elements;
+  my $output_units;
   if ($self) {
     if ($self->get_conf('USE_NODES')) {
-      $elements = Texinfo::Structuring::split_by_node($root);
+      $output_units = Texinfo::Structuring::split_by_node($root);
     } elsif (defined($self->get_conf('USE_NODES'))) {
       #print STDERR "U sections\n";
-      $elements = Texinfo::Structuring::split_by_section($root);
+      $output_units = Texinfo::Structuring::split_by_section($root);
     }
     # Currently the information added is not used further.
-    if ($elements and ($self->get_conf('SPLIT') 
+    if ($output_units and ($self->get_conf('SPLIT')
                        or !$self->get_conf('MONOLITHIC'))) {
       #print STDERR "S ".$self->get_conf('SPLIT')."\n";
-      Texinfo::Structuring::split_pages($elements,
+      Texinfo::Structuring::split_pages($output_units,
                                         $self->get_conf('SPLIT'));
+      # add a condition?
+      $output_units = Texinfo::Structuring::rebuild_output_units($output_units);
     }
+
   }
-  if ($elements) {
+  # FIXME looks wrong
+  if ($output_units) {
     $root = {'type' => 'elements_root',
-             'contents' => $elements };
+             'contents' => $output_units };
   }
 
   my ($encoded_destination_directory, $dir_encoding)

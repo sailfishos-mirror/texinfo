@@ -138,6 +138,14 @@ sub import {
         "Texinfo::Structuring::_XS_unsplit",
         "Texinfo::StructTransf::unsplit"
       );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::rebuild_output_units",
+        "Texinfo::StructTransf::rebuild_output_units"
+      );
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::_XS_split_pages",
+        "Texinfo::StructTransf::split_pages"
+      );
     }
     $module_loaded = 1;
   }
@@ -1877,6 +1885,21 @@ sub unsplit($)
   return $unsplit_needed;
 }
 
+# does nothing in perl, the XS version reexports the output units
+sub rebuild_output_units($)
+{
+  my $output_units = shift;
+  return $output_units;
+}
+
+sub _XS_split_pages($$)
+{
+  my $output_units = shift;
+  my $split = shift;
+
+  return 1;
+}
+
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
@@ -1886,6 +1909,14 @@ sub split_pages($$)
   my $split = shift;
 
   return undef if (!$output_units or !@$output_units);
+
+  # normalize and set to string for XS
+  $split = "" if (!$split);
+
+  if (not _XS_split_pages($output_units, $split)
+      and $XS_only) {
+    return undef;
+  }
 
   my $split_level;
   if (!$split) {
