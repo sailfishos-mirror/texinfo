@@ -1283,7 +1283,16 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           unit_sv = newRV_inc ((SV *) output_unit->hv);
           /* set the tree element associated_unit */
-          /* TODO is it an issue if already set? */
+          /* TODO is it an issue if already set?
+          hv_delete (element_hv, "associated_unit", strlen ("associated_unit"),
+                     G_DISCARD);
+           */
+           /* Attempt to free unreferenced scalar: SV XX bug could come
+              from here and show up when calling, in perl,
+                 delete $content->{'associated_unit'};
+          fprintf (stderr, "DEBUG %d %p %d %d\n", i, output_unit->hv,
+                           SvREFCNT((SV *) output_unit->hv), SvREFCNT(unit_sv));
+            */
           hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
                     unit_sv, 0);
         }
