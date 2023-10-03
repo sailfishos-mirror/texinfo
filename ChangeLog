@@ -1,3 +1,21 @@
+2023-10-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_special_units): remove unused $destination_directory
+	argument.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_frames_filenames, _prepare_special_units): move setup
+	of special units directions to _prepare_special_units.  Move setup of
+	frames filenames out of _prepare_special_units to
+	_prepare_frames_filenames, and call _prepare_frames_filenames in
+	_prepare_conversion_units.  Simplify _prepare_frames_filenames code
+	removing the possibility to customize file names directly.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_contents_elements): get
+	$output_units as argument and use it instead of
+	$self->{'document_units'}.
+
 2023-10-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (import, _XS_split_pages, split_pages),

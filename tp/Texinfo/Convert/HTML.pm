@@ -7258,9 +7258,8 @@ $default_output_units_conversion{'special_unit'}
 
 # Function for converting the output units.  The node and associated section
 # appear together in the output unit.  $ELEMENT was created in this module (in
-# _prepare_conversion_units), with type 'unit' (it's not a tree element created
-# by the parser).  $CONTENT is the contents of the output unit, already
-# converted.
+# _prepare_conversion_units), it's not a tree element (created by the parser).
+# $CONTENT is the contents of the output unit, already converted.
 sub _convert_unit_type($$$$)
 {
   my $self = shift;
@@ -9103,11 +9102,10 @@ sub _html_set_pages_files($$$$$$$$)
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
 # Also do some conversion setup that is to be done in both convert() and output().
-sub _prepare_conversion_units($$$$)
+sub _prepare_conversion_units($$$)
 {
   my $self = shift;
   my $root = shift;
-  my $destination_directory = shift;
   my $document_name = shift;
 
   my $output_units;
@@ -9147,28 +9145,12 @@ sub _prepare_conversion_units($$$$)
   # formatted text.  This is not an issue, as the manual says that
   # @footnotestyle should only appear in the preamble, and it makes sense
   # to have something consistent in the whole document for footnotes position.
-  my $special_units
-    = $self->_prepare_special_units($output_units, $destination_directory,
-                                    $document_name);
+  my $special_units = $self->_prepare_special_units($output_units,
+                                                    $document_name);
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_units);
 
-  if ($special_units and defined($output_units) and scalar(@$output_units)) {
-    my $previous_output_unit = $output_units->[-1];
-    foreach my $special_unit (@$special_units) {
-      $special_unit->{'tree_unit_directions'} = {}
-          if not $special_unit->{'tree_unit_directions'};
-      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
-      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
-      $previous_output_unit = $special_unit;
-    }
-  }
-
-  #if ($output_units) {
-  #  foreach my $output_unit(@{$output_units}) {
-  #    print STDERR "OUTPUT UNIT $output_unit->{'type'}: $output_unit\n";
-  #  }
-  #}
+  $self->_prepare_frames_filenames($document_name);
 
   $self->_set_root_commands_targets_node_files($output_units);
 
@@ -9178,11 +9160,10 @@ sub _prepare_conversion_units($$$$)
   return ($output_units, $special_units);
 }
 
-sub _prepare_special_units($$$$)
+sub _prepare_special_units($$$)
 {
   my $self = shift;
   my $output_units = shift;
-  my $destination_directory = shift;
   my $document_name = shift;
 
   my %do_special;
@@ -9294,43 +9275,49 @@ sub _prepare_special_units($$$$)
                                      };
     $self->{'seen_ids'}->{$target} = 1;
   }
-  if ($self->get_conf('FRAMES')) {
-    $self->{'frame_pages_filenames'} = {};
-    foreach my $special_unit_variety (keys(%{$self->{'frame_pages_file_string'}})) {
-      my $default_filename;
-      $default_filename = $document_name.
-        $self->{'frame_pages_file_string'}->{$special_unit_variety};
-      $default_filename .= '.'.$extension if (defined($extension));
 
-      my $element = {'unit_type' => 'special_unit',
-                     'special_unit_variety' => $special_unit_variety};
-
-      # a "virtual" out of tree element used for targets
-      my $unit_command = {'type' => 'special_unit_element',
-                          'associated_unit' => $element};
-      $element->{'unit_command'} = $unit_command;
-
-      # only the filename is used
-      my ($target, $filename);
-      if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
-        ($target, $filename)
-          = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
-                                                            $self,
-                                                            $element,
-                                                            $target,
-                                                            $default_filename);
-      }
-      $filename = $default_filename if (!defined($filename));
-      $self->{'frame_pages_filenames'}->{$special_unit_variety} = $filename;
+  # setup tree_unit_directions
+  if ($special_units and defined($output_units) and scalar(@$output_units)) {
+    my $previous_output_unit = $output_units->[-1];
+    foreach my $special_unit (@$special_units) {
+      $special_unit->{'tree_unit_directions'} = {}
+          if not $special_unit->{'tree_unit_directions'};
+      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
+      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
+      $previous_output_unit = $special_unit;
     }
   }
+
   return $special_units;
 }
 
-# FIXME pass $output_units directly, do not access through $self->{'document_units'}
-sub _prepare_contents_elements($)
+sub _prepare_frames_filenames($$)
 {
   my $self = shift;
+  my $document_name = shift;
+
+  if ($self->get_conf('FRAMES')) {
+
+    my $extension = '';
+    $extension = $self->get_conf('EXTENSION')
+      if (defined($self->get_conf('EXTENSION')));
+
+    $self->{'frame_pages_filenames'} = {};
+    foreach my $frame_type (keys(%{$self->{'frame_pages_file_string'}})) {
+      my $filename;
+      $filename = $document_name.
+        $self->{'frame_pages_file_string'}->{$frame_type};
+      $filename .= '.'.$extension if (defined($extension));
+
+      $self->{'frame_pages_filenames'}->{$frame_type} = $filename;
+    }
+  }
+}
+
+sub _prepare_contents_elements($$)
+{
+  my $self = shift;
+  my $output_units = shift;
 
   if ($self->{'sections_list'}
       and scalar(@{$self->{'sections_list'}}) > 1) {
@@ -9340,10 +9327,10 @@ sub _prepare_contents_elements($)
       if ($self->get_conf($cmdname)) {
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-          if ($self->{'document_units'}
-              and exists($self->{'document_units'}->[0]->{'unit_filename'})) {
+          if ($output_units and scalar(@$output_units)
+              and exists($output_units->[0]->{'unit_filename'})) {
             $default_filename
-              = $self->{'document_units'}->[0]->{'unit_filename'};
+              = $output_units->[0]->{'unit_filename'};
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
@@ -10785,7 +10772,7 @@ sub convert($$)
   $self->_reset_info();
 
   my ($output_units, $special_units)
-    = $self->_prepare_conversion_units($root, undef, undef);
+    = $self->_prepare_conversion_units($root, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
@@ -11132,11 +11119,11 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  # Get the list of "elements" to be processed, i.e. nodes or sections.
-  # This should return undef if called on a tree without node or sections.
+  # Get the list of output units to be processed.
+  # This should return undef if called on a tree without node nor sections.
+  # TODO check that this is true that it can be undef, seems wrong now.
   my ($output_units, $special_units)
-    = $self->_prepare_conversion_units($root, $destination_directory,
-                                       $document_name);
+    = $self->_prepare_conversion_units($root, $document_name);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
 
@@ -11151,7 +11138,7 @@ sub output($$)
                     $destination_directory, $output_filename, $document_name);
   }
 
-  $self->_prepare_contents_elements();
+  $self->_prepare_contents_elements($output_units);
 
   # do tree units directions.
   Texinfo::Structuring::units_directions($self,
