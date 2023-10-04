@@ -1,3 +1,11 @@
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_set_root_commands_targets_node_files):
+	use $self->{'sections_list'} to determine sections, not output units.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_units): move code
+	around to separate phases better.
+
 2023-10-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm: minor code/comments cleanups.  Reset

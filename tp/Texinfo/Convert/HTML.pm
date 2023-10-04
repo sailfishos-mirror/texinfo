@@ -8702,13 +8702,11 @@ sub _new_sectioning_command_target($$)
   return $self->{'targets'}->{$command};
 }
 
-# FIXME there is no reason to use output_units to get the section commands,
-# better use sections_list or go through the tree root contents.
 # This set with two different codes
 #  * the target information, id and normalized filename of 'identifiers_target',
 #    ie everything that may be the target of a ref, @node, @float label,
 #    @anchor.
-#  * The target information of sectioning elements by going through tree units
+#  * The target information of sectioning elements
 # @node and section commands targets are therefore both set.
 #
 # conversion to HTML is done on-demand, upon call to command_text
@@ -8767,17 +8765,9 @@ sub _set_root_commands_targets_node_files($$)
     }
   }
 
-  if ($output_units) {
-    foreach my $output_unit (@$output_units) {
-      foreach my $root_element (@{$output_unit->{'unit_contents'}}) {
-        # this happens for types which would precede the root commands.
-        # The target may already be set for the top node tree unit.
-        next if (!defined($root_element->{'cmdname'})
-                 or $self->{'targets'}->{$root_element});
-        if ($sectioning_heading_commands{$root_element->{'cmdname'}}) {
-          $self->_new_sectioning_command_target($root_element);
-        }
-      }
+  if ($self->{'sections_list'}) {
+    foreach my $root_element (@{$self->{'sections_list'}}) {
+      $self->_new_sectioning_command_target($root_element);
     }
   }
 }
@@ -9204,6 +9194,7 @@ sub _prepare_special_units($$$)
   my %special_units_indices;
   foreach my $special_unit_variety
       (sort($self->special_unit_info('order'))) {
+    next unless ($do_special{$special_unit_variety});
     my $index = $self->special_unit_info('order', $special_unit_variety);
     $special_units_indices{$index} = []
       if (not exists ($special_units_indices{$index}));
@@ -9216,7 +9207,6 @@ sub _prepare_special_units($$$)
   }
 
   foreach my $special_unit_variety (@sorted_elements_varieties) {
-    next unless ($do_special{$special_unit_variety});
 
     my $element = {'unit_type' => 'special_unit',
                    'special_unit_variety' => $special_unit_variety,
@@ -9226,13 +9216,13 @@ sub _prepare_special_units($$$)
     my $unit_command = {'type' => 'special_unit_element',
                         'associated_unit' => $element};
     $element->{'unit_command'} = $unit_command;
+    push @$special_units, $element;
 
     $element->{'directions'}->{'This'} = $element;
     my $special_unit_direction
      = $self->special_unit_info('direction', $special_unit_variety);
     $self->{'special_units_directions'}->{$special_unit_direction}
      = $element;
-    push @$special_units, $element;
 
     my $target
         = $self->special_unit_info('target', $special_unit_variety);
@@ -9387,7 +9377,7 @@ sub _prepare_contents_elements($$)
           my $str_filename = $filename;
           $str_filename = 'UNDEF' if (not defined($str_filename));
           print STDERR 'Add content'
-            # uncomment to get the perl obect name
+            # uncomment to get the perl object name
             #." $contents_element"
             ." $special_unit_variety: target $target,\n".
              "    filename $str_filename\n";
