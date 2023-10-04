@@ -8873,7 +8873,7 @@ sub _html_set_pages_files($$$$$$$$)
   my @filenames_order;
   my %unit_file_name_paths;
   # associate a file to the source information leading to set the file
-  # name.  Use the first element source information associated to a file
+  # name.  Use the first element source information associated to a file.
   # The source information can be either a tree element associated to
   # the 'file_info_element' key, with a 'file_info_type' 'node' or
   # 'section'... or a specific source associated to the 'file_info_name'
@@ -9306,6 +9306,8 @@ sub _prepare_frames_filenames($$)
   }
 }
 
+# to be able to associate to the output unit file the @*contents will be
+# output into, this is done after output units got files.
 sub _prepare_contents_elements($$)
 {
   my $self = shift;
@@ -9388,8 +9390,11 @@ sub _prepare_contents_elements($$)
         $self->{'targets'}->{$unit_command}
                                = {'target' => $target,
                                   'special_unit_filename' => $filename,
-                                  'filename' => $filename,
                                  };
+        # set here the file name, but do not associate a counter as
+        # it is already associated to the output unit @*contents is in.
+        $self->set_output_unit_file($contents_element, $filename)
+          if (defined($filename));
       }
     }
   }
@@ -10745,6 +10750,8 @@ sub _initialize_output_state($)
     if ($self->get_conf('CHECK_HTMLXREF'));
 }
 
+# FIXME determine more formally what difference in navigation header is
+# supposed to be compared to output and add tests.
 sub convert($$)
 {
   my $self = shift;

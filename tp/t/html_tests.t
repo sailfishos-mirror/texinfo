@@ -1059,6 +1059,20 @@ $check_htmlxref_text
    'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'TEXI2HTML' => 1, 'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
+['test_separated_contents_shortcontents',
+'@contents
+
+@node Top
+@top top
+
+@node chap
+@chapter chapter
+
+@node app
+@appendix appendix
+
+@shortcontents
+',{},{'SPLIT' => 'node', 'CONTENTS_OUTPUT_LOCATION' => 'inline',}],
 # There are some similar tests in *sectioning.t, but we use completly
 # different input as input files as we want, here, independently,
 # test all possibility regarding HTML output.
