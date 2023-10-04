@@ -9139,8 +9139,6 @@ sub _prepare_conversion_units($$$)
   # (in addition to contents)
   my @conf_for_special_units = ('footnotestyle');
   $self->set_global_document_commands('last', \@conf_for_special_units);
-  # Do that before the other elements, to be sure that special page ids
-  # are registered before elements id are.
   # NOTE if the last value of footnotestyle is separate, all the footnotes
   # formatted text are set to the special element set in _prepare_special_units
   # as _html_get_tree_root_element uses the Footnote direction for every footnote.
@@ -9150,9 +9148,13 @@ sub _prepare_conversion_units($$$)
   # @footnotestyle should only appear in the preamble, and it makes sense
   # to have something consistent in the whole document for footnotes position.
   my ($special_units, $associated_special_units)
-     = $self->_prepare_special_units($output_units, $document_name);
+     = $self->_prepare_special_units($output_units);
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_units);
+
+  # Do that before the other elements, to be sure that special page ids
+  # are registered before elements id are.
+  $self->_set_special_units_targets_files($special_units, $document_name);
 
   $self->_set_root_commands_targets_node_files($output_units);
 
@@ -9186,15 +9188,14 @@ sub _register_special_unit($$)
 
 # prepare both special output units in separate output units, and
 # special output units associated to a regular document output unit,
-# output as part of regualr output but also possible target of
+# output as part of regular output but also possible target of
 # special output unit direction.  In practice, only contents and
 # shortcontents are associated with special output unit directions
 # and can be output as part of document output units.
-sub _prepare_special_units($$$)
+sub _prepare_special_units($$)
 {
   my $self = shift;
   my $output_units = shift;
-  my $document_name = shift;
 
   # for separate special output units
   my %do_special;
@@ -9263,10 +9264,6 @@ sub _prepare_special_units($$$)
     $do_special{'about'} = 1;
   }
 
-  my $extension = '';
-  $extension = $self->get_conf('EXTENSION')
-    if (defined($self->get_conf('EXTENSION')));
-
   my $special_units = [];
   # sort special elements according to their index order from
   # special_unit_info 'order'.
@@ -9288,6 +9285,8 @@ sub _prepare_special_units($$$)
     push @sorted_elements_varieties, @{$special_units_indices{$index}};
   }
 
+
+  # Setup separate special output units
   my $previous_output_unit;
   if ($output_units and scalar(@$output_units)) {
     $previous_output_unit = $output_units->[-1];
@@ -9307,8 +9306,35 @@ sub _prepare_special_units($$$)
       $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
     }
     $previous_output_unit = $special_unit;
+  }
 
-    $special_unit->{'directions'}->{'This'} = $special_unit;
+
+  # setup special output units associated to document output units
+  my $associated_special_units = [];
+  foreach my $special_unit_variety (sort(keys(%do_special_associated))) {
+    my $special_unit = $self->_register_special_unit($special_unit_variety);
+
+    $special_unit->{'associated_document_unit'}
+      = $do_special_associated{$special_unit_variety};
+    push @$associated_special_units, $special_unit;
+  }
+
+  return $special_units, $associated_special_units;
+}
+
+sub _set_special_units_targets_files($$$)
+{
+  my $self = shift;
+  my $special_units = shift;
+  my $document_name = shift;
+
+  my $extension = '';
+  $extension = $self->get_conf('EXTENSION')
+    if (defined($self->get_conf('EXTENSION')));
+
+  foreach my $special_unit (@$special_units) {
+
+    my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
     my $target
         = $self->special_unit_info('target', $special_unit_variety);
@@ -9352,39 +9378,15 @@ sub _prepare_special_units($$$)
                                      };
     $self->{'seen_ids'}->{$target} = 1;
   }
-
-  my $associated_special_units = [];
-  foreach my $special_unit_variety (sort(keys(%do_special_associated))) {
-    my $special_unit = $self->_register_special_unit($special_unit_variety);
-
-    $special_unit->{'associated_document_unit'}
-      = $do_special_associated{$special_unit_variety};
-    push @$associated_special_units, $special_unit;
-  }
-
-  return $special_units, $associated_special_units;
 }
 
-sub _prepare_frames_filenames($$)
+sub _special_units_directions($$)
 {
   my $self = shift;
-  my $document_name = shift;
+  my $special_units = shift;
 
-  if ($self->get_conf('FRAMES')) {
-
-    my $extension = '';
-    $extension = $self->get_conf('EXTENSION')
-      if (defined($self->get_conf('EXTENSION')));
-
-    $self->{'frame_pages_filenames'} = {};
-    foreach my $frame_type (keys(%{$self->{'frame_pages_file_string'}})) {
-      my $filename;
-      $filename = $document_name.
-        $self->{'frame_pages_file_string'}->{$frame_type};
-      $filename .= '.'.$extension if (defined($extension));
-
-      $self->{'frame_pages_filenames'}->{$frame_type} = $filename;
-    }
+  foreach my $special_unit (@$special_units) {
+    $special_unit->{'directions'}->{'This'} = $special_unit;
   }
 }
 
@@ -9433,8 +9435,8 @@ sub _prepare_associated_special_units_targets($$)
                            = {'target' => $target,
                               'special_unit_filename' => $filename,
                              };
-    # set here the file name, but do not associate a counter as
-    # it is already associated to the output unit @*contents is in.
+    # set here the file name, but do not associate a counter as it is already
+    # set for the output unit the special output unit is in.
     $self->set_output_unit_file($special_unit, $filename)
       if (defined($filename));
   }
@@ -9506,6 +9508,29 @@ sub _prepare_output_units_global_targets($$)
             # ."($global_unit)"
      .': '. Texinfo::Structuring::unit_or_external_element_texi($global_unit)."\n";
       }
+    }
+  }
+}
+
+sub _prepare_frames_filenames($$)
+{
+  my $self = shift;
+  my $document_name = shift;
+
+  if ($self->get_conf('FRAMES')) {
+
+    my $extension = '';
+    $extension = $self->get_conf('EXTENSION')
+      if (defined($self->get_conf('EXTENSION')));
+
+    $self->{'frame_pages_filenames'} = {};
+    foreach my $frame_type (keys(%{$self->{'frame_pages_file_string'}})) {
+      my $filename;
+      $filename = $document_name.
+        $self->{'frame_pages_file_string'}->{$frame_type};
+      $filename .= '.'.$extension if (defined($extension));
+
+      $self->{'frame_pages_filenames'}->{$frame_type} = $filename;
     }
   }
 }
@@ -11189,6 +11214,8 @@ sub output($$)
   # do tree units directions.
   Texinfo::Structuring::units_directions($self,
                                 $self->{'identifiers_target'}, $output_units);
+
+  _special_units_directions($self, $special_units);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that

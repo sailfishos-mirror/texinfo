@@ -1,5 +1,14 @@
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_special_units, _set_special_units_targets_files)
+	(_special_units_directions, output): separate code
+	setting targets and files for special units to
+	_set_special_units_targets_files, and setting directions to
+	_special_units_directions.
+
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): move code
 	associating special units without filename to main page to
 	_html_set_pages_files.
