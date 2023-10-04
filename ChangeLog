@@ -1,5 +1,20 @@
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_register_special_unit, _prepare_special_units)
+	(_prepare_associated_special_units_targets, convert, output): separate
+	the code setting up a special output unit and the associated virtual
+	element, and register the direction to _register_special_unit.  Handle
+	special element associated to a document output units, in practice
+	contents and shortcontents when not in a separate element in
+	_prepare_special_units, returning a new array with such special output
+	units.  At that point associate to the document unit.  Call
+	_prepare_associated_special_units_targets later on (where
+	_prepare_contents_elements was called) to finish setting up the
+	targets.  Remove _prepare_contents_elements.
+
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_contents_elements): do not set
 	filename directly, it should be set by the associated output unit. Set
 	the output unit filename.

@@ -9134,8 +9134,8 @@ sub _prepare_conversion_units($$$)
   # formatted text.  This is not an issue, as the manual says that
   # @footnotestyle should only appear in the preamble, and it makes sense
   # to have something consistent in the whole document for footnotes position.
-  my $special_units = $self->_prepare_special_units($output_units,
-                                                    $document_name);
+  my ($special_units, $associated_special_units)
+     = $self->_prepare_special_units($output_units, $document_name);
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_units);
 
@@ -9146,28 +9146,97 @@ sub _prepare_conversion_units($$$)
   # setup untranslated strings
   $self->_translate_names();
 
-  return ($output_units, $special_units);
+  return ($output_units, $special_units, $associated_special_units);
 }
 
+sub _register_special_unit($$)
+{
+  my $self = shift;
+  my $special_unit_variety = shift;
+
+  my $special_unit = {'unit_type' => 'special_unit',
+                      'special_unit_variety' => $special_unit_variety,
+                      'directions' => {}};
+
+  # a "virtual" out of tree element used for targets
+  my $unit_command = {'type' => 'special_unit_element',
+                      'associated_unit' => $special_unit};
+  $special_unit->{'unit_command'} = $unit_command;
+
+  my $special_unit_direction
+   = $self->special_unit_info('direction', $special_unit_variety);
+  $self->{'special_units_directions'}->{$special_unit_direction}
+   = $special_unit;
+
+  return $special_unit;
+}
+
+# prepare both special output units in separate output units, and
+# special output units associated to a regular document output unit,
+# output as part of regualr output but also possible target of
+# special output unit direction.  In practice, only contents and
+# shortcontents are associated with special output unit directions
+# and can be output as part of document output units.
 sub _prepare_special_units($$$)
 {
   my $self = shift;
   my $output_units = shift;
   my $document_name = shift;
 
+  # for separate special output units
   my %do_special;
+  # for associated special output units
+  my %do_special_associated;
   if ($self->{'sections_list'}
       and scalar(@{$self->{'sections_list'}}) > 1) {
-    if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'separate_element') {
-      foreach my $cmdname ('shortcontents', 'contents') {
-        my $special_unit_variety
-            = $contents_command_special_unit_variety{$cmdname};
-        if ($self->get_conf($cmdname)) {
-            $do_special{$special_unit_variety} = 1;
+    foreach my $cmdname ('shortcontents', 'contents') {
+      my $special_unit_variety
+          = $contents_command_special_unit_variety{$cmdname};
+      if ($self->get_conf($cmdname)) {
+        my $associated_output_unit;
+        my $contents_location = $self->get_conf('CONTENTS_OUTPUT_LOCATION');
+        if ($contents_location eq 'separate_element') {
+          $do_special{$special_unit_variety} = 1;
+        } else {
+          if ($contents_location eq 'after_title') {
+            if ($output_units and scalar(@$output_units)) {
+              $associated_output_unit = $output_units->[0];
+            } else {
+              next;
+            }
+          } elsif ($contents_location eq 'after_top') {
+            my $section_top = undef;
+            if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
+              $section_top = $self->{'global_commands'}->{'top'};
+              if ($section_top->{'associated_unit'}) {
+                $associated_output_unit = $section_top->{'associated_unit'};
+              }
+            }
+            next unless ($associated_output_unit);
+          } elsif ($contents_location eq 'inline') {
+            if ($self->{'global_commands'}
+                and $self->{'global_commands'}->{$cmdname}) {
+              foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
+                my $root_command;
+                ($associated_output_unit, $root_command)
+                  = $self->_html_get_tree_root_element($command);
+                if (defined($associated_output_unit)) {
+                  last;
+                }
+              }
+            } else {
+              next;
+            }
+          } else {
+            # should not happen
+            next;
+          }
+          $do_special_associated{$special_unit_variety} = $associated_output_unit;
         }
       }
     }
   }
+
   if ($self->{'global_commands'}->{'footnote'}
       and $self->get_conf('footnotestyle') eq 'separate'
       and $output_units and scalar(@$output_units) > 1) {
@@ -9213,14 +9282,8 @@ sub _prepare_special_units($$$)
 
   foreach my $special_unit_variety (@sorted_elements_varieties) {
 
-    my $special_unit = {'unit_type' => 'special_unit',
-                        'special_unit_variety' => $special_unit_variety,
-                        'directions' => {}};
+    my $special_unit = $self->_register_special_unit($special_unit_variety);
 
-    # a "virtual" out of tree element used for targets
-    my $unit_command = {'type' => 'special_unit_element',
-                        'associated_unit' => $special_unit};
-    $special_unit->{'unit_command'} = $unit_command;
     push @$special_units, $special_unit;
 
     if ($previous_output_unit) {
@@ -9232,12 +9295,7 @@ sub _prepare_special_units($$$)
     }
     $previous_output_unit = $special_unit;
 
-
     $special_unit->{'directions'}->{'This'} = $special_unit;
-    my $special_unit_direction
-     = $self->special_unit_info('direction', $special_unit_variety);
-    $self->{'special_units_directions'}->{$special_unit_direction}
-     = $special_unit;
 
     my $target
         = $self->special_unit_info('target', $special_unit_variety);
@@ -9274,13 +9332,24 @@ sub _prepare_special_units($$$)
         ." $special_unit_variety: target $target,\n".
         "    filename $fileout\n";
     }
+
+    my $unit_command = $special_unit->{'unit_command'};
     $self->{'targets'}->{$unit_command} = {'target' => $target,
                                       'special_unit_filename' => $filename,
                                      };
     $self->{'seen_ids'}->{$target} = 1;
   }
 
-  return $special_units;
+  my $associated_special_units = [];
+  foreach my $special_unit_variety (sort(keys(%do_special_associated))) {
+    my $special_unit = $self->_register_special_unit($special_unit_variety);
+
+    $special_unit->{'associated_document_unit'}
+      = $do_special_associated{$special_unit_variety};
+    push @$associated_special_units, $special_unit;
+  }
+
+  return $special_units, $associated_special_units;
 }
 
 sub _prepare_frames_filenames($$)
@@ -9306,97 +9375,55 @@ sub _prepare_frames_filenames($$)
   }
 }
 
-# to be able to associate to the output unit file the @*contents will be
-# output into, this is done after output units got files.
-sub _prepare_contents_elements($$)
+# to be able to associate to the output unit file the associated
+# output units will be output into, this is done after document output
+# units got files.
+# In practice only used for contents and shortcontents.
+sub _prepare_associated_special_units_targets($$)
 {
   my $self = shift;
-  my $output_units = shift;
+  my $associated_output_units = shift;
 
-  if ($self->{'sections_list'}
-      and scalar(@{$self->{'sections_list'}}) > 1) {
-    foreach my $cmdname ('contents', 'shortcontents') {
-      my $special_unit_variety
-           = $contents_command_special_unit_variety{$cmdname};
-      if ($self->get_conf($cmdname)) {
-        my $default_filename;
-        if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-          if ($output_units and scalar(@$output_units)
-              and exists($output_units->[0]->{'unit_filename'})) {
-            $default_filename
-              = $output_units->[0]->{'unit_filename'};
-          }
-        } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
-          my $section_top = undef;
-          if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
-            $section_top = $self->{'global_commands'}->{'top'};
-            $default_filename = $self->command_filename($section_top);
-          }
-        } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline') {
-          if ($self->{'global_commands'}
-              and $self->{'global_commands'}->{$cmdname}) {
-            foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
-              my ($root_element, $root_command)
-                = $self->_html_get_tree_root_element($command);
-              if (defined($root_element)
-                  and exists($root_element->{'unit_filename'})) {
-                $default_filename
-                   = $root_element->{'unit_filename'};
-                last;
-              }
-            }
-          } else {
-            next;
-          }
-        } else { # in this case, there should already be a special element
-                 # if needed, done together with the other special elements.
-          next;
-        }
+  foreach my $special_unit (@$associated_output_units) {
+    my $associated_output_unit = $special_unit->{'associated_document_unit'};
+    my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
-        my $contents_element = {'unit_type' => 'special_unit',
-                                'special_unit_variety'
-                                             => $special_unit_variety};
+    my $target
+      = $self->special_unit_info('target', $special_unit_variety);
 
-        # a "virtual" out of tree element used for targets
-        my $unit_command = {'type' => 'special_unit_element',
-                            'associated_unit' => $contents_element};
-        $contents_element->{'unit_command'} = $unit_command;
+    my $default_filename;
+    $default_filename = $associated_output_unit->{'unit_filename'}
+      if ($associated_output_unit);
 
-        my $special_unit_direction
-         = $self->special_unit_info('direction', $special_unit_variety);
-        $self->{'special_units_directions'}->{$special_unit_direction}
-         = $contents_element;
-        my $target
-         = $self->special_unit_info('target', $special_unit_variety);
-        my $filename;
-        if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
-          ($target, $filename)
-            = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
-                                                          $self,
-                                                          $contents_element,
-                                                          $target,
-                                                          $default_filename);
-        }
-        $filename = $default_filename if (!defined($filename));
-        if ($self->get_conf('DEBUG')) {
-          my $str_filename = $filename;
-          $str_filename = 'UNDEF' if (not defined($str_filename));
-          print STDERR 'Add content'
-            # uncomment to get the perl object name
-            #." $contents_element"
+    my $filename;
+    if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
+      ($target, $filename)
+        = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
+                                                      $self,
+                                                      $special_unit,
+                                                      $target,
+                                                      $default_filename);
+    }
+    $filename = $default_filename if (!defined($filename));
+    if ($self->get_conf('DEBUG')) {
+      my $str_filename = $filename;
+      $str_filename = 'UNDEF' if (not defined($str_filename));
+      print STDERR 'Add content'
+        # uncomment to get the perl object name
+        #." $special_unit"
             ." $special_unit_variety: target $target,\n".
              "    filename $str_filename\n";
-        }
-        $self->{'targets'}->{$unit_command}
-                               = {'target' => $target,
-                                  'special_unit_filename' => $filename,
-                                 };
-        # set here the file name, but do not associate a counter as
-        # it is already associated to the output unit @*contents is in.
-        $self->set_output_unit_file($contents_element, $filename)
-          if (defined($filename));
-      }
     }
+
+    my $unit_command = $special_unit->{'unit_command'};
+    $self->{'targets'}->{$unit_command}
+                           = {'target' => $target,
+                              'special_unit_filename' => $filename,
+                             };
+    # set here the file name, but do not associate a counter as
+    # it is already associated to the output unit @*contents is in.
+    $self->set_output_unit_file($special_unit, $filename)
+      if (defined($filename));
   }
 }
 
@@ -10770,8 +10797,14 @@ sub convert($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  my ($output_units, $special_units)
+  my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, undef);
+
+  # FIXME in converters_tests/ref_in_sectioning this leads to lone [Contents]
+  # button in otherwise empty navigation headings
+  if (scalar(@$associated_special_units)) {
+    $self->_prepare_associated_special_units_targets($associated_special_units);
+  }
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
@@ -11119,7 +11152,7 @@ sub output($$)
   $self->_reset_info();
 
   # Get the list of output units to be processed.
-  my ($output_units, $special_units)
+  my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, $document_name);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
@@ -11136,7 +11169,9 @@ sub output($$)
                     $destination_directory, $output_filename, $document_name);
   }
 
-  $self->_prepare_contents_elements($output_units);
+  if (scalar(@$associated_special_units)) {
+    $self->_prepare_associated_special_units_targets($associated_special_units);
+  }
 
   # do tree units directions.
   Texinfo::Structuring::units_directions($self,
