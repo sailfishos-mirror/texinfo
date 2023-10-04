@@ -9081,6 +9081,21 @@ sub _html_set_pages_files($$$$$$$$)
       }
     }
   }
+
+  # Associate the special elements that have no page with the main page.
+  # This may only happen if not split.
+  if ($special_units
+      and $output_units and $output_units->[0]
+      and defined($output_units->[0]->{'unit_filename'})) {
+    foreach my $special_unit (@$special_units) {
+      if (!defined($special_unit->{'unit_filename'})) {
+        $special_unit->{'unit_filename'}
+           = $output_units->[0]->{'unit_filename'};
+        $self->{'file_counters'}->{$special_unit->{'unit_filename'}}++;
+      }
+    }
+  }
+
   foreach my $filename (@filenames_order) {
     $self->set_file_path($filename, $destination_directory,
                          $filenames_paths{$filename});
@@ -9138,8 +9153,6 @@ sub _prepare_conversion_units($$$)
      = $self->_prepare_special_units($output_units, $document_name);
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_units);
-
-  $self->_prepare_frames_filenames($document_name);
 
   $self->_set_root_commands_targets_node_files($output_units);
 
@@ -11182,22 +11195,10 @@ sub output($$)
   # PrevFile and NextFile can be set.
   Texinfo::Structuring::units_file_directions($output_units);
 
-  # Associate the special elements that have no page with the main page.
-  # This may only happen if not split.
-  if ($special_units
-      and $output_units and $output_units->[0]
-      and defined($output_units->[0]->{'unit_filename'})) {
-    foreach my $special_unit (@$special_units) {
-      if (!defined($special_unit->{'unit_filename'})) {
-        $special_unit->{'unit_filename'}
-           = $output_units->[0]->{'unit_filename'};
-        $self->{'file_counters'}->{$special_unit->{'unit_filename'}}++;
-      }
-    }
-  }
-
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
+
+  $self->_prepare_frames_filenames($document_name);
 
   # only in HTML, not in Texinfo::Convert::Converter
   $self->{'elements_in_file_count'} = {};

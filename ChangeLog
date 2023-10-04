@@ -1,5 +1,15 @@
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): move code
+	associating special units without filename to main page to
+	_html_set_pages_files.
+
+	* tp/Texinfo/Convert/HTML.pm (output): move _prepare_frames_filenames
+	call out of _prepare_conversion_units to output, as it should only be
+	relevant if there are output files.
+
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
 	(_register_special_unit, _prepare_special_units)
 	(_prepare_associated_special_units_targets, convert, output): separate
