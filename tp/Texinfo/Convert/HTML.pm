@@ -9206,23 +9206,38 @@ sub _prepare_special_units($$$)
     push @sorted_elements_varieties, @{$special_units_indices{$index}};
   }
 
+  my $previous_output_unit;
+  if ($output_units and scalar(@$output_units)) {
+    $previous_output_unit = $output_units->[-1];
+  }
+
   foreach my $special_unit_variety (@sorted_elements_varieties) {
 
-    my $element = {'unit_type' => 'special_unit',
-                   'special_unit_variety' => $special_unit_variety,
-                   'directions' => {}};
+    my $special_unit = {'unit_type' => 'special_unit',
+                        'special_unit_variety' => $special_unit_variety,
+                        'directions' => {}};
 
     # a "virtual" out of tree element used for targets
     my $unit_command = {'type' => 'special_unit_element',
-                        'associated_unit' => $element};
-    $element->{'unit_command'} = $unit_command;
-    push @$special_units, $element;
+                        'associated_unit' => $special_unit};
+    $special_unit->{'unit_command'} = $unit_command;
+    push @$special_units, $special_unit;
 
-    $element->{'directions'}->{'This'} = $element;
+    if ($previous_output_unit) {
+      $special_unit->{'tree_unit_directions'} = {};
+      $previous_output_unit->{'tree_unit_directions'} = {}
+        if not $previous_output_unit->{'tree_unit_directions'};
+      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
+      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
+    }
+    $previous_output_unit = $special_unit;
+
+
+    $special_unit->{'directions'}->{'This'} = $special_unit;
     my $special_unit_direction
      = $self->special_unit_info('direction', $special_unit_variety);
     $self->{'special_units_directions'}->{$special_unit_direction}
-     = $element;
+     = $special_unit;
 
     my $target
         = $self->special_unit_info('target', $special_unit_variety);
@@ -9244,7 +9259,7 @@ sub _prepare_special_units($$$)
       ($target, $filename)
          = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
                                                             $self,
-                                                            $element,
+                                                            $special_unit,
                                                             $target,
                                                             $default_filename);
     }
@@ -9255,7 +9270,7 @@ sub _prepare_special_units($$$)
       $fileout = 'UNDEF' if (!defined($fileout));
       print STDERR 'Add special'
         # uncomment for the perl object name
-        #." $element"
+        #." $special_unit"
         ." $special_unit_variety: target $target,\n".
         "    filename $fileout\n";
     }
@@ -9263,18 +9278,6 @@ sub _prepare_special_units($$$)
                                       'special_unit_filename' => $filename,
                                      };
     $self->{'seen_ids'}->{$target} = 1;
-  }
-
-  # setup tree_unit_directions
-  if ($special_units and defined($output_units) and scalar(@$output_units)) {
-    my $previous_output_unit = $output_units->[-1];
-    foreach my $special_unit (@$special_units) {
-      $special_unit->{'tree_unit_directions'} = {}
-          if not $special_unit->{'tree_unit_directions'};
-      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
-      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
-      $previous_output_unit = $special_unit;
-    }
   }
 
   return $special_units;
@@ -9392,7 +9395,7 @@ sub _prepare_contents_elements($$)
   }
 }
 
-# Associate tree units with the global targets, First, Last, Top, Index.
+# Associate output units to the global targets, First, Last, Top, Index.
 sub _prepare_output_units_global_targets($$)
 {
   my $self = shift;

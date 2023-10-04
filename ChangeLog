@@ -1,5 +1,11 @@
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_units): rename
+	$element as $special_unit.  Set tree_unit_directions while creating
+	the special units, not after.
+
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_set_root_commands_targets_node_files):
 	use $self->{'sections_list'} to determine sections, not output units.
 
