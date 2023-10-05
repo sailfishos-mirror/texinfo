@@ -1,5 +1,11 @@
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output), tp/Texinfo/Structuring.pm
+	(split_pages): never do XS only for split_pages, and do not rebuild
+	output_units from XS in HTML, it is too early for that.
+
+2023-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
 	(_prepare_special_units, _set_special_units_targets_files)
 	(_special_units_directions, output): separate code

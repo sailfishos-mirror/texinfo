@@ -1857,19 +1857,15 @@ sub _XS_unsplit($)
 }
 
 # remove the association with document units
-# TODO not documented.
+# NOTE not documented, but is internally used for tests only.
 sub unsplit($)
 {
   my $root = shift;
 
   my $XS_unsplit_needed = _XS_unsplit($root);
 
-  # TODO uncomment?  It is unclear that it is correct, in the only
-  # code calling unsplit in test_utils.pl it is better to always do both,
-  # but it could change.
-  #if ($XS_unsplit_needed >= 0 and $XS_only) {
-  #  return $XS_unsplit_needed;
-  #}
+  # In the situation where unsplit is called, in the test suite, it is
+  # always better to do it both for XS and perl
 
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
@@ -1915,7 +1911,7 @@ sub split_pages($$)
 
   if (not _XS_split_pages($output_units, $split)
       and $XS_only) {
-    return undef;
+    #return undef;
   }
 
   my $split_level;

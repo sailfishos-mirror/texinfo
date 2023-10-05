@@ -11195,8 +11195,8 @@ sub output($$)
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
 
-  $output_units = Texinfo::Structuring::rebuild_output_units($output_units);
-  $self->{'document_units'} = $output_units;
+  #$output_units = Texinfo::Structuring::rebuild_output_units($output_units);
+  #$self->{'document_units'} = $output_units;
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
