@@ -11261,18 +11261,18 @@ sub output($$)
 
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
-  # simpletitle is more in line with what makeinfo in C does.
+  # simpletitle is more in line with what makeinfo in C did.
   my $fulltitle;
   foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
     if ($self->{'global_commands'}->{$fulltitle_command}) {
       my $command = $self->{'global_commands'}->{$fulltitle_command};
       next if (!$command->{'args'}
-               or (!$command->{'args'}->[0]->{'contents'}
+               or (!$command->{'args'}->[0]
                    or ($command->{'extra'}
                        and $command->{'extra'}->{'missing_argument'})));
       print STDERR "Using $fulltitle_command as title\n"
         if ($self->get_conf('DEBUG'));
-      $fulltitle = {'contents' => $command->{'args'}->[0]->{'contents'}};
+      $fulltitle = $command->{'args'}->[0];
       last;
     }
   }
@@ -11290,11 +11290,10 @@ sub output($$)
     if ($self->{'global_commands'}->{$simpletitle_command}) {
       my $command = $self->{'global_commands'}->{$simpletitle_command};
       next if (!$command->{'args'}
-               or !$command->{'args'}->[0]->{'contents'}
+               or !$command->{'args'}->[0]
                or ($command->{'extra'}
                    and $command->{'extra'}->{'missing_argument'}));
-      $self->{'simpletitle_tree'} =
-         {'contents' => $command->{'args'}->[0]->{'contents'}};
+      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
       $self->{'simpletitle_command_name'} = $simpletitle_command;
       last;
     }

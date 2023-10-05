@@ -1,5 +1,11 @@
 2023-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): use directly tree element
+	instead of recreating an element from contents when the argument
+	element is suitable as tree, for fulltitle and simpletitle.
+
+2023-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_document): remove
 	no_clean_perl_refs argument.  Update callers.
 	Remove clean_texinfo_tree, clean_additional_info,
