@@ -175,10 +175,9 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
 # this method does nothing, but the XS override rebuilds the perl
 # document based on XS data.
-sub rebuild_document($;$$)
+sub rebuild_document($;$)
 {
   my $document = shift;
-  my $no_clean_perl_refs = shift;
   my $no_store = shift;
 
   return $document;

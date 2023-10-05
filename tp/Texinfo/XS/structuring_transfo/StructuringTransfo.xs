@@ -49,9 +49,8 @@ PROTOTYPES: ENABLE
 
 SV *
 rebuild_document (SV *document_in, ...)
-      PROTOTYPE: $;$$
+      PROTOTYPE: $;$
       PREINIT:
-        int no_clean_perl_refs = 0;
         int no_store = 0;
         int document_descriptor;
         SV **document_descriptor_sv;
@@ -60,10 +59,7 @@ rebuild_document (SV *document_in, ...)
       CODE:
         if (items > 1)
           if (SvOK(ST(1)))
-            no_clean_perl_refs = SvIV (ST(1));
-        if (items > 2)
-          if (SvOK(ST(2)))
-            no_store = SvIV (ST(2));
+            no_store = SvIV (ST(1));
 
         hv_in = (HV *)SvRV (document_in);
         document_descriptor_sv = hv_fetch (hv_in, descriptor_key,
@@ -75,8 +71,7 @@ rebuild_document (SV *document_in, ...)
             HV *rebuilt_doc_hv;
 
             document_descriptor = SvIV (*document_descriptor_sv);
-            rebuilt_doc_sv = build_document (document_descriptor, no_clean_perl_refs,
-                                             no_store);
+            rebuilt_doc_sv = build_document (document_descriptor, no_store);
             RETVAL = rebuilt_doc_sv;
             rebuilt_doc_hv = (HV *)SvRV (rebuilt_doc_sv);
             info_sv = hv_fetch (hv_in, "info", strlen ("info"), 0);

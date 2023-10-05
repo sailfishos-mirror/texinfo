@@ -633,78 +633,6 @@ build_texinfo_tree (ELEMENT *root)
   return root->hv;
 }
 
-/* remove elements hv such that the tree can be rebuilt later */
-void
-clean_texinfo_tree (ELEMENT *e);
-
-void
-clean_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
-{
-  if (a->info_number > 0)
-    {
-      int i;
-      for (i = 0; i < a->info_number; i++)
-        {
-          /*
-          char *key = a->info[i].key;
-           */
-
-          switch (a->info[i].type)
-            {
-            case extra_element_oot:
-              {
-                ELEMENT *f = (ELEMENT *) a->info[i].value;
-                clean_texinfo_tree (f);
-              }
-              break;
-            default:
-              break;
-            }
-        }
-    }
-}
-
-void
-clean_source_mark_list (ELEMENT *e)
-{
-  if (e->source_mark_list.number > 0)
-    {
-      int i;
-      for (i = 0; i < e->source_mark_list.number; i++)
-        {
-          SOURCE_MARK *s_mark = e->source_mark_list.list[i];
-          if (s_mark->element)
-            {
-              clean_texinfo_tree (s_mark->element);
-            }
-        }
-    }
-}
-
-void
-clean_texinfo_tree (ELEMENT *e)
-{
-  e->hv = 0;
-
-  if (e->contents.number > 0)
-    {
-      int i;
-      for (i = 0; i < e->contents.number; i++)
-        clean_texinfo_tree (e->contents.list[i]);
-    }
-
-  if (e->args.number > 0)
-    {
-      int i;
-      for (i = 0; i < e->args.number; i++)
-        clean_texinfo_tree (e->args.list[i]);
-    }
-  clean_additional_info (e, &e->extra_info, "extra");
-  clean_additional_info (e, &e->info_info, "info");
-
-  clean_source_mark_list (e);
-}
-
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
 AV *
@@ -1137,8 +1065,7 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
    If NO_STORE is set, destroy the C document.
  */
 SV *
-build_document (size_t document_descriptor, int no_clean_perl_refs,
-                int no_store)
+build_document (size_t document_descriptor, int no_store)
 {
   HV *hv;
   SV *sv;
@@ -1228,13 +1155,6 @@ build_document (size_t document_descriptor, int no_clean_perl_refs,
                 strlen ("tree_document_descriptor"),
                 newSViv (document_descriptor), 0);
 
-      /* Never remove references, it is better to reuse them.
-         if removing references to perl element, we do it here and not when
-         building the tree, as later on the tree may have changed and all the hv
-         may not be reachable.
-      if (!no_clean_perl_refs)
-        clean_texinfo_tree (document->tree);
-       */
     }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
@@ -1247,8 +1167,8 @@ build_document (size_t document_descriptor, int no_clean_perl_refs,
 /*
  Return a non 0 status if pointers to perl elements from C elements are
  missing.
- TODO could have been better to know earlier that the perl output units list
- could not be built from the C output units
+ NOTE that this cannot happen anymore as the hv are always set
+ and never removed.
  */
 static int
 output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
@@ -1300,7 +1220,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           HV *element_hv = output_unit->unit_contents.list[i]->hv;
           SV *unit_sv;
 
-          /* case of a tree where hv have been removed. */
+          /* case of a tree where hv have been removed (cannot happen). */
           if (!element_hv)
             {
               status++;

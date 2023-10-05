@@ -192,7 +192,7 @@ sub _get_parser_info($$;$) {
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  my $document = build_document ($document_descriptor, undef, $no_store);
+  my $document = build_document ($document_descriptor, $no_store);
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());

@@ -81,24 +81,19 @@ parse_text(string, line_nr)
         char *string = (char *)SvPVbyte_nolen($arg);
         int line_nr
 
-# note that giving optional arguments, like: int no_clean_perl_refs=0
+# note that giving optional arguments, like: int no_store=0
 # would have been nice, but in that case an undef value cannot be passed
 # and leads to a perl warning
 SV *
 build_document (int document_descriptor, ...)
-      PROTOTYPE: $;$$
+      PROTOTYPE: $;$
       PREINIT:
-        int no_clean_perl_refs = 0;
         int no_store = 0;
       CODE:
         if (items > 1)
           if (SvOK(ST(1)))
-            no_clean_perl_refs = SvIV (ST(1));
-        if (items > 2)
-          if (SvOK(ST(2)))
-            no_store = SvIV (ST(2));
-        RETVAL = build_document (document_descriptor, no_clean_perl_refs,
-                                 no_store);
+            no_store = SvIV (ST(1));
+        RETVAL = build_document (document_descriptor, no_store);
       OUTPUT:
         RETVAL
 

@@ -1073,15 +1073,15 @@ sub test($$)
     }
   }
 
-  if (defined $ENV{TEXINFO_XS_CONVERT}
-      and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-    $document = Texinfo::Structuring::rebuild_document($document, 1);
-    $tree = $document->tree();
+  $document = Texinfo::Structuring::rebuild_document($document);
+  # should not actually be useful, as the same element should be reused.
+  $tree = $document->tree();
 
-    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
-      foreach my $error (@{$document->{'errors'}}) {
-        $registrar->add_formatted_message($error);
-      }
+  if (defined $ENV{TEXINFO_XS_CONVERT}
+      and $ENV{TEXINFO_XS_CONVERT} eq '1'
+      and defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+    foreach my $error (@{$document->{'errors'}}) {
+      $registrar->add_formatted_message($error);
     }
   }
 

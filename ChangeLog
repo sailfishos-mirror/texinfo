@@ -1,5 +1,17 @@
 2023-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_document): remove
+	no_clean_perl_refs argument.  Update callers.
+	Remove clean_texinfo_tree, clean_additional_info,
+	clean_source_mark_list that are not used anymore.
+
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: always rebuild document
+	at the end of the structuring/transformations phase as we want to have
+	a perl tree consistent with the C tree and with the hv references in C
+	tree.
+
+2023-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	The C tree which refers to hv owns a reference to the perl element
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
