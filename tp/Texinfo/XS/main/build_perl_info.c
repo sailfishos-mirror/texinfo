@@ -48,6 +48,7 @@
 #include "builtin_commands.h"
 #include "document.h"
 #include "output_unit.h"
+#include "tree_perl_api.h"
 #include "build_perl_info.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -90,6 +91,20 @@ init (int texinfo_uninstalled, char *builddir)
 
 static void element_to_perl_hash (ELEMENT *e);
 
+/* to be called when a tree element is destroyed, to remove the reference
+   of the association with the C tree */
+void
+unregister_perl_tree_element (ELEMENT *e)
+{
+  dTHX;
+
+  if (e->hv)
+    {
+      SvREFCNT_dec ((SV *) e->hv);
+      e->hv = 0;
+    }
+}
+
 /* Return reference to Perl array built from e.  If any of
    the elements in E don't have 'hv' set, set it to an empty
    hash table, or create it if there is no parent element, indicating the
@@ -120,10 +135,15 @@ build_perl_array (ELEMENT_LIST *e)
             {
               /* NOTE should not be possible, all the elements in
                  extra_contents should be in-tree.  Checked in 2023.
-                 Also, if this happens it is likely that this will
-                 trigger errors because some elements will be processed
-                 twice.
                */
+              static TEXT message;
+              char *debug_str = print_element_debug (e->list[i], 1);
+              text_init (&message);
+              text_printf (&message,
+                "BUG: build_perl_array oot %d: %s\n", i, debug_str);
+              free (debug_str);
+              fprintf (stderr, message.text);
+              free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (e->list[i]);
@@ -157,22 +177,18 @@ build_perl_directions (ELEMENT_LIST *e)
                 e->list[d]->hv = newHV ();
               else
                 {
-                  /* NOTE This should not happen.  This will trigger an
-                     element_to_perl_hash oot error (and probably others) as
-                     it will be processed both below and with extra additional
-                     information.
+                  /* NOTE This should not happen, all the elements are in-tree.
                    */
-                  /* Out-of-tree element */
-                  /* WARNING: This is possibly recursive. */
                   static TEXT message;
                   char *debug_str = print_element_debug (e->list[d], 1);
                   text_init (&message);
                   text_printf (&message,
                     "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
                   free (debug_str);
-                  /* could also call fatal here */
                   fprintf (stderr, message.text);
                   free (message.text);
+                  /* Out-of-tree element */
+                  /* WARNING: This is possibly recursive. */
                   element_to_perl_hash (e->list[d]);
                 }
             }
@@ -246,17 +262,21 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                  out of tree elements, but must always be associated to only one
                  element and must not refer to the tree through args or contents.
                */
+                  /* f->hv should not already exist the first time the tree
+                     is built, but can already exist if the tree is rebuilt
               if (f->hv)
                 {
                   static TEXT message;
                   char *debug_str = print_element_debug (e, 1);
                   text_init (&message);
                   text_printf (&message,
-                        "element_to_perl_hash oot %s double in %s\n",
-                               key, debug_str);
+                        "element_to_perl_hash oot %s double in %s %p\n",
+                               key, debug_str, f->hv);
                   free (debug_str);
                   fatal (message.text);
+                  fprintf (stderr, message.text);
                 }
+                   */
               element_to_perl_hash (f);
               STORE(newRV_inc ((SV *)f->hv));
               break;
@@ -368,8 +388,10 @@ store_source_mark_list (ELEMENT *e)
             {
               ELEMENT *e = s_mark->element;
               /* should only be referred to in one source mark */
+              /* but can be reused when tree is rebuilt
               if (e->hv)
                 fatal ("element_to_perl_hash source mark elt twice");
+               */
               element_to_perl_hash (e);
               STORE("element", newRV_inc ((SV *)e->hv));
             }
@@ -440,8 +462,6 @@ static U32 HSH_macro = 0;
 
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
-/* Note that it is not possible to call element_to_perl_hash twice on
-   an element as hv_store should not be called twice for the same key */
 static void
 element_to_perl_hash (ELEMENT *e)
 {
@@ -453,10 +473,16 @@ element_to_perl_hash (ELEMENT *e)
   fprintf (stderr, "ETPH %p %s\n", e, print_element_debug (e, 0));
     */
   /* e->hv may already exist if there was an extra value elsewhere
-     referring to e. */
+     referring to e, or if the tree is rebuilt more than once. */
   if (!e->hv)
     {
       e->hv = newHV ();
+    }
+  else
+    {
+      /* reset for the case the element already exists, it is simpler than
+         resetting every unset fields */
+      hv_clear (e->hv);
     }
 
   if (!hashes_ready)
@@ -521,7 +547,11 @@ element_to_perl_hash (ELEMENT *e)
       for (i = 0; i < e->contents.number; i++)
         {
           element_to_perl_hash (e->contents.list[i]);
-          sv = newRV_noinc ((SV *) e->contents.list[i]->hv);
+      /* we do not transfer the hv ref to the perl av because we consider
+         that contents.list[i]->hv still own a reference, which should only be
+         released when the element is destroyed, by calling
+         unregister_perl_tree_element */
+          sv = newRV_inc ((SV *) e->contents.list[i]->hv);
           av_store (av, i, sv);
         }
     }
@@ -1198,16 +1228,16 @@ build_document (size_t document_descriptor, int no_clean_perl_refs,
                 strlen ("tree_document_descriptor"),
                 newSViv (document_descriptor), 0);
 
-      /* if removing references to perl element, we do it here and not when
+      /* Never remove references, it is better to reuse them.
+         if removing references to perl element, we do it here and not when
          building the tree, as later on the tree may have changed and all the hv
          may not be reachable.
-       */
       if (!no_clean_perl_refs)
         clean_texinfo_tree (document->tree);
+       */
     }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
-  /* FIXME why _noinc? */
   sv = newRV_noinc ((SV *) hv);
   sv_bless (sv, hv_stash);
   return sv;
@@ -1287,12 +1317,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           hv_delete (element_hv, "associated_unit", strlen ("associated_unit"),
                      G_DISCARD);
            */
-           /* Attempt to free unreferenced scalar: SV XX bug could come
-              from here and show up when calling, in perl,
-                 delete $content->{'associated_unit'};
-          fprintf (stderr, "DEBUG %d %p %d %d\n", i, output_unit->hv,
-                           SvREFCNT((SV *) output_unit->hv), SvREFCNT(unit_sv));
-            */
           hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
                     unit_sv, 0);
         }
@@ -1365,7 +1389,10 @@ build_output_units_list (size_t output_units_descriptor)
       int status = output_unit_to_perl_hash (output_unit);
       if (status)
         return newSV(0);
-      sv = newRV_noinc ((SV *) output_unit->hv);
+      /* we do not transfer the hv ref to the perl av because we consider
+         that output_unit->hv still own a reference, which should only be
+         released when the output_unit is destroyed in C */
+      sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
 

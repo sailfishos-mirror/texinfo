@@ -1,3 +1,26 @@
+2023-10-05  Patrice Dumas  <pertusus@free.fr>
+
+	The C tree which refers to hv owns a reference to the perl element
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
+	tp/Texinfo/XS/main/build_perl_info.c (unregister_perl_tree_element)
+	(element_to_perl_hash), tp/Texinfo/XS/main/tree.c (destroy_element):
+	do not transfer the hv ref to the perl av considering that the
+	element->hv still own a reference. Add unregister_perl_tree_element,
+	called in destroy_element to release the reference.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (store_additional_info)
+	(store_source_mark_list, element_to_perl_hash, build_document): do not
+	clear the elements hv.  The tree can now be rebuilt more than once.
+	Clear the hv at the beginning of element_to_perl_hash if the hv
+	already exists.  Remove error messages associated to already existing
+	hv, as now this can happen when the tree is rebuilt more than once.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_output_units_list): do
+	not transfer the hv ref to the perl av considering that
+	output_unit->hv still own a reference.
+
+
 2023-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output), tp/Texinfo/Structuring.pm

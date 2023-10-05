@@ -271,6 +271,7 @@ lib_LTLIBRARIES += libtexinfoxs.la
 endif
 
 libtexinfoxs_la_SOURCES= \
+		      main/tree_perl_api.h \
 		      main/build_perl_info.c \
 		      main/build_perl_info.h \
 		      main/get_perl_info.c \
