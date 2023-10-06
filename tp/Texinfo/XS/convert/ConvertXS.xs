@@ -31,9 +31,11 @@
 #include "ppport.h"
 
 #include "get_perl_info.h"
+#include "build_perl_info.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
+#include "convert_html.h"
 #include "document.h"
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
@@ -89,4 +91,34 @@ text_convert_tree (text_options_in, tree_in, unused=0)
           }
     OUTPUT:
         RETVAL
+
+#    ($output_units, $special_units, $associated_special_units)
+#      = _XS_prepare_conversion_units($encoded_options, $document_name);
+void
+html_prepare_conversion_units (SV *converter_in, document_name)
+         char *document_name = (char *)SvPVbyte_nolen($arg);
+      PREINIT:
+         HTML_CONVERTER *self;
+         int output_units_descriptor = 0;
+         int special_units_descriptor = 0;
+         int associated_special_units_descriptor = 0;
+         SV *output_units_sv;
+         SV *special_units_sv;
+         SV *associated_special_units_sv;
+      PPCODE:
+         self = get_html_converter_sv (converter_in);
+         html_prepare_conversion_units (self, document_name,
+              &output_units_descriptor, &special_units_descriptor,
+              &associated_special_units_descriptor);
+
+         output_units_sv = build_output_units_list (output_units_descriptor);
+         special_units_sv = build_output_units_list (special_units_descriptor);
+         associated_special_units_sv
+           = build_output_units_list (associated_special_units_descriptor);
+
+         EXTEND(SP, 3);
+         PUSHs(sv_2mortal(output_units_sv));
+         PUSHs(sv_2mortal(special_units_sv));
+         PUSHs(sv_2mortal(associated_special_units_sv));
+
 

@@ -43,6 +43,7 @@ FIXME add an initialization of translations?
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
+#include "convert_html.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -276,4 +277,30 @@ copy_sv_options_for_convert_text (SV *sv_in)
     }
 
   return text_options;
+}
+
+HTML_CONVERTER *
+get_html_converter_sv (SV *sv_in)
+{
+  HV *hv_in;
+  SV **converter_options_sv;
+  HTML_CONVERTER *converter = new_html_converter ();
+  DOCUMENT *document;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+  converter_options_sv = hv_fetch (hv_in, "conf",
+                                   strlen ("conf"), 0);
+
+  if (converter_options_sv)
+    {
+      converter->conf
+         = copy_sv_options (*converter_options_sv);
+    }
+
+  document = get_sv_document_document (sv_in, 0);
+  converter->document = document;
+
+  return converter;
 }

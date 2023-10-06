@@ -57,6 +57,8 @@ use Storable;
 use Encode qw(find_encoding decode encode);
 use charnames ();
 
+use Texinfo::Convert::ConvertXS;
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Config;
@@ -91,6 +93,9 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_entity_text",
       "Texinfo::MiscXS::entity_text");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
+      "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
     $module_loaded = 1;
   }
   # The usual import method
@@ -8774,7 +8779,7 @@ sub _set_root_commands_targets_node_files($$)
 
 sub _html_get_tree_root_element($$;$);
 
-# If $find_container is set, the element that holds the command output
+# If $FIND_CONTAINER is set, the element that holds the command output
 # is found, otherwise the element that holds the command is found.  This is
 # mostly relevant for footnote only.
 # If no known root element type is found, the returned root element is undef,
@@ -8791,7 +8796,7 @@ sub _html_get_tree_root_element($$;$)
   my $current = $command;
   #print STDERR "START ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
 
-  my ($root_element, $root_command);
+  my ($output_unit, $root_command);
   while (1) {
     if ($current->{'type'} and $current->{'type'} eq 'special_unit_element') {
       return ($current->{'associated_unit'}, $current);
@@ -8808,11 +8813,11 @@ sub _html_get_tree_root_element($$;$)
           foreach my $insertcopying(@{$self->{'global_commands'}
                                                         ->{'insertcopying'}}) {
             #print STDERR "INSERTCOPYING\n" if ($debug);
-            my ($root_element, $root_command)
+            my ($output_unit, $root_command)
               = $self->_html_get_tree_root_element($insertcopying,
                                                    $find_container);
-            return ($root_element, $root_command)
-              if (defined($root_element) or defined($root_command));
+            return ($output_unit, $root_command)
+              if (defined($output_unit) or defined($root_command));
           }
         } elsif ($current->{'cmdname'} eq 'titlepage'
                  and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
@@ -8822,7 +8827,7 @@ sub _html_get_tree_root_element($$;$)
           return ($self->{'document_units'}->[0],
                   $self->{'document_units'}->[0]->{'unit_command'});
         }
-        die "Problem $root_element, $root_command" if (defined($root_element)
+        die "Problem $output_unit, $root_command" if (defined($output_unit)
                                                   or defined($root_command));
         return (undef, undef);
       } elsif ($find_container) {
@@ -9103,6 +9108,11 @@ sub _html_set_pages_files($$$$$$$$)
   return %files_source_info;
 }
 
+sub _XS_prepare_conversion_units($$)
+{
+  return 1;
+}
+
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
@@ -9113,12 +9123,21 @@ sub _prepare_conversion_units($$$)
   my $root = shift;
   my $document_name = shift;
 
-  my $output_units;
+  my ($output_units, $special_units, $associated_special_units);
+
+  my $encoded_converter = $self->encode_converter();
+  if ($encoded_converter->{'document_descriptor'}) {
+    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
+    ($output_units, $special_units, $associated_special_units)
+      = _XS_prepare_conversion_units($encoded_converter,
+                                     $encoded_document_name);
+    # possibly return here when the XS code can provide
+  }
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($root);
+    $output_units = Texinfo::Structuring::split_by_node($root, 1);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($root);
+    $output_units = Texinfo::Structuring::split_by_section($root, 1);
   }
 
   # Needs to be set early in case it would be needed to find some region
@@ -9147,7 +9166,7 @@ sub _prepare_conversion_units($$$)
   # formatted text.  This is not an issue, as the manual says that
   # @footnotestyle should only appear in the preamble, and it makes sense
   # to have something consistent in the whole document for footnotes position.
-  my ($special_units, $associated_special_units)
+  ($special_units, $associated_special_units)
      = $self->_prepare_special_units($output_units);
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_units);
@@ -9157,6 +9176,9 @@ sub _prepare_conversion_units($$$)
   $self->_set_special_units_targets_files($special_units, $document_name);
 
   $self->_set_root_commands_targets_node_files($output_units);
+
+  $self->_prepare_index_entries();
+  $self->_prepare_footnotes();
 
   # setup untranslated strings
   $self->_translate_names();
@@ -9403,8 +9425,17 @@ sub _prepare_associated_special_units_targets($$)
     my $associated_output_unit = $special_unit->{'associated_document_unit'};
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
-    my $target
+    my $target_base
       = $self->special_unit_info('target', $special_unit_variety);
+    my $nr = 1;
+    my $target = $target_base;
+    while ($self->{'seen_ids'}->{$target}) {
+      $target = $target_base.'-'.$nr;
+      $nr++;
+      # Avoid integer overflow
+      die if ($nr == 0);
+    }
+    $self->{'seen_ids'}->{$target} = 1;
 
     my $default_filename;
     $default_filename = $associated_output_unit->{'unit_filename'}
@@ -9451,32 +9482,6 @@ sub _prepare_output_units_global_targets($$)
   $self->{'global_target_directions'} = {};
   $self->{'global_target_directions'}->{'First'} = $output_units->[0];
   $self->{'global_target_directions'}->{'Last'} = $output_units->[-1];
-  # It is always the first printindex, even if it is not output (for example
-  # it is in @copying and @titlepage, which are certainly wrong constructs).
-  if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
-    # Here document_unit can only be a document unit, or maybe undef if there
-    # are no document unit at all
-    my ($document_unit, $root_command)
-     = $self->_html_get_tree_root_element($self->{'global_commands'}->{'printindex'}->[0]);
-    if (defined($document_unit)) {
-      if ($root_command and $root_command->{'cmdname'} eq 'node'
-          and $root_command->{'extra'}->{'associated_section'}) {
-        $root_command = $root_command->{'extra'}->{'associated_section'};
-      }
-      # find the first level 1 sectioning element to associate the printindex with
-      if ($root_command and $root_command->{'cmdname'} ne 'node') {
-        while ($root_command->{'extra'}->{'section_level'} > 1
-               and $root_command->{'extra'}->{'section_directions'}
-               and $root_command->{'extra'}->{'section_directions'}->{'up'}
-               and $root_command->{'extra'}->{'section_directions'}->{'up'}
-                                        ->{'associated_unit'}) {
-          $root_command = $root_command->{'extra'}->{'section_directions'}->{'up'};
-          $document_unit = $root_command->{'associated_unit'};
-        }
-      }
-      $self->{'global_target_directions'}->{'Index'} = $document_unit;
-    }
-  }
 
   my $node_top;
   $node_top = $self->{'identifiers_target'}->{'Top'}
@@ -9496,6 +9501,35 @@ sub _prepare_output_units_global_targets($$)
     $self->{'global_target_directions'}->{'Top'} = $top_output_unit;
   } else {
     $self->{'global_target_directions'}->{'Top'} = $output_units->[0];
+  }
+
+  # It is always the first printindex, even if it is not output (for example
+  # it is in @copying and @titlepage, which are certainly wrong constructs).
+  if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
+    # Here document_unit can only be a document unit, or maybe undef if there
+    # are no document unit at all
+    my ($document_unit, $root_command)
+     = $self->_html_get_tree_root_element(
+                               $self->{'global_commands'}->{'printindex'}->[0]);
+    if (defined($document_unit)) {
+      if ($root_command and $root_command->{'cmdname'} eq 'node'
+          and $root_command->{'extra'}->{'associated_section'}) {
+        $root_command = $root_command->{'extra'}->{'associated_section'};
+      }
+      # find the first level 1 sectioning element to associate the printindex
+      # with
+      if ($root_command and $root_command->{'cmdname'} ne 'node') {
+        while ($root_command->{'extra'}->{'section_level'} > 1
+               and $root_command->{'extra'}->{'section_directions'}
+               and $root_command->{'extra'}->{'section_directions'}->{'up'}
+               and $root_command->{'extra'}->{'section_directions'}->{'up'}
+                                        ->{'associated_unit'}) {
+          $root_command = $root_command->{'extra'}->{'section_directions'}->{'up'};
+          $document_unit = $root_command->{'associated_unit'};
+        }
+      }
+      $self->{'global_target_directions'}->{'Index'} = $document_unit;
+    }
   }
 
   if ($self->get_conf('DEBUG')) {
@@ -9581,7 +9615,7 @@ sub _prepare_index_entries($)
           Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
             {'contents' => \@contents}, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
-        my $nr=1;
+        my $nr = 1;
         my $target = $target_base;
         while ($self->{'seen_ids'}->{$target}) {
           $target = $target_base.'-'.$nr;
@@ -10844,9 +10878,6 @@ sub convert($$)
     $self->_prepare_associated_special_units_targets($associated_special_units);
   }
 
-  $self->_prepare_index_entries();
-  $self->_prepare_footnotes();
-
   # title
   $self->{'title_titlepage'}
     = &{$self->formatting_function('format_title_titlepage')}($self);
@@ -11193,10 +11224,7 @@ sub output($$)
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, $document_name);
 
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
-
-  #$output_units = Texinfo::Structuring::rebuild_output_units($output_units);
-  #$self->{'document_units'} = $output_units;
+  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
@@ -11222,9 +11250,6 @@ sub output($$)
   # PrevFile and NextFile can be set.
   Texinfo::Structuring::units_file_directions($output_units);
 
-  $self->_prepare_index_entries();
-  $self->_prepare_footnotes();
-
   $self->_prepare_frames_filenames($document_name);
 
   # only in HTML, not in Texinfo::Convert::Converter
@@ -11238,6 +11263,9 @@ sub output($$)
                             = $self->{'file_counters'}->{$filename};
     }
   }
+
+  #$output_units = Texinfo::Structuring::rebuild_output_units($output_units);
+  #$self->{'document_units'} = $output_units;
 
   # set information, to have it ready for
   # run_stage_handlers.  Some information is not available yet.

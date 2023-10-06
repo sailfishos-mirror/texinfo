@@ -1,3 +1,45 @@
+2023-10-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(output, convert): call _prepare_index_entries and _prepare_footnotes
+	in _prepare_conversion_units.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_prepare_associated_special_units_targets): make sure that target is
+	unique.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_output_units_global_targets):
+	finish by finding Index direction.
+
+	* tp/Texinfo/Structuring.pm (split_by_node, split_by_section)
+	(split_pages): add no_XS argument to be able to signal that the
+	function is called in the XS code as part of another code.
+
+	* tp/Texinfo/XS/main/output_unit.c (new_output_unit)
+	(add_to_output_unit_list, split_by_node, split_by_section, unsplit)
+	(LEVEL_SPLIT_STRING, split_pages): move to output_unit.c out of
+	structuring.c.
+
+	* tp/Texinfo/XS/main/output_unit.c (unit_or_external_element_texi):
+	add.
+
+	* tp/Texinfo/Convert/Converter.pm (converter, encode_converter),
+	tp/Texinfo/Convert/HTML.pm (import, _XS_prepare_conversion_units)
+	(_prepare_conversion_units, output), tp/Texinfo/XS/Makefile.am
+	(ConvertXS_la_SOURCES, *_CPPFLAGS), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_conversion_units), tp/Texinfo/XS/convert/convert_html.c
+	(new_html_converter, ROOT_AND_UNIT, html_get_tree_root_element),
+	(prepare_output_units_global_targets, html_prepare_conversion_units),
+	tp/Texinfo/XS/convert/convert_html.h (HTML_CONVERTER),
+	tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/main/get_perl_info.c (get_html_converter_sv):
+	preliminary implementation of _prepare_conversion_units in C, and XS
+	interface.  add -I$(srcdir)/convert to more CPPFLAGS, as
+	HTML_CONVERTER definition is used in get_perl_info.h.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_get_tree_root_element): rename
+	$root_element variable as $output_unit).
+
 2023-10-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output): use directly tree element

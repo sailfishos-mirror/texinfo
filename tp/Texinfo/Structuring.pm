@@ -1733,15 +1733,22 @@ sub _XS_split_by_node($)
 # first content (except possibly the first one).  It is important that this
 # function reassociates all the root commands such that the result does not
 # depend on the previous association (if any).
-sub split_by_node($)
+# The $NO_XS argument signals that splitting should not be done
+# separately in XS, but is already done in other XS code (for HTML).
+sub split_by_node($;$)
 {
   my $root = shift;
+  my $no_XS = shift;
 
-  my $output_units = _XS_split_by_node($root);
+  my $output_units;
 
-  # FIXME use XS $output_units only if $XS_only?
-  if (defined($output_units)) {
-    return $output_units;
+  if (!$no_XS) {
+    $output_units = _XS_split_by_node($root);
+
+    # FIXME use XS $output_units only if $XS_only?
+    if (defined($output_units)) {
+      return $output_units;
+    }
   }
 
   my $current = { 'unit_type' => 'unit' };
@@ -1800,15 +1807,22 @@ sub _XS_split_by_section($)
 # is no associated node.  It is important that this function reassociates all
 # the root commands such that the result does not depend on the previous
 # association (if any).
-sub split_by_section($)
+# The $NO_XS argument signals that splitting should not be done
+# separately in XS, but is already done in other XS code (for HTML).
+sub split_by_section($;$)
 {
   my $root = shift;
+  my $no_XS = shift;
 
-  my $output_units = _XS_split_by_section($root);
+  my $output_units;
 
-  # FIXME use XS $output_units only if $XS_only?
-  if (defined($output_units)) {
-    return $output_units;
+  if (!$no_XS) {
+    $output_units = _XS_split_by_section($root);
+
+    # FIXME use XS $output_units only if $XS_only?
+    if (defined($output_units)) {
+      return $output_units;
+    }
   }
 
   my $current = { 'unit_type' => 'unit' };
@@ -1898,19 +1912,23 @@ sub _XS_split_pages($$)
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
-sub split_pages($$)
+# The $NO_XS argument signals that splitting should not be done
+# separately in XS, but is already done in other XS code (for HTML).
+sub split_pages($$;$)
 {
   my $output_units = shift;
   my $split = shift;
+  my $no_XS = shift;
 
   return undef if (!$output_units or !@$output_units);
 
   # normalize and set to string for XS
   $split = "" if (!$split);
 
-  if (not _XS_split_pages($output_units, $split)
+  if (not $no_XS
+      and not _XS_split_pages($output_units, $split)
       and $XS_only) {
-    #return undef;
+    return undef;
   }
 
   my $split_level;

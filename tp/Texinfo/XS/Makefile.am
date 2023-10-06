@@ -278,7 +278,7 @@ libtexinfoxs_la_SOURCES= \
 		      main/get_perl_info.h
 
 # locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
@@ -318,7 +318,8 @@ Translations_la_SOURCES = \
 EXTRA_DIST += main/Translations.xs
 
 # locate include files under out-of-source builds.
-Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+# FIXME convert is needed for HTML_CONVERTER used in get_perl_info.h
+Translations_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 Translations_la_CFLAGS = $(XSLIBS_CFLAGS)
 Translations_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
@@ -339,7 +340,8 @@ StructuringTransfo_la_SOURCES = \
 EXTRA_DIST += structuring_transfo/StructuringTransfo.xs
 
 # locate include files under out-of-source builds.
-StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+# FIXME convert is needed for HTML_CONVERTER used in get_perl_info.h
+StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 StructuringTransfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -355,12 +357,14 @@ ConvertXS_la_SOURCES = \
                        convert/convert_plain_texinfo.h \
                        convert/convert_plain_texinfo.c \
                        convert/convert_text.h \
-                       convert/convert_text.c
+                       convert/convert_text.c \
+                       convert/convert_html.h \
+                       convert/convert_html.c
 
 EXTRA_DIST += convert/ConvertXS.xs
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)

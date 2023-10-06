@@ -485,6 +485,7 @@ sub convert_to_text($;$)
     }
   }
 
+  # Interface with XS converter.
   if (defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($options);
     my $XS_result = _convert_tree_with_XS($encoded_options, $root, $options);
@@ -993,9 +994,7 @@ sub output($$)
   %$self = (%$self, %options);
 
   my $result;
-  # TODO possible way to interface with XS converter.  To pass the tests,
-  # we pass options to expand_verbatiminclude, but the options are text
-  # options not generic converter options.
+  # Interface with XS converter.
   if (defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($self);
     my $XS_result = _convert_tree_with_XS($encoded_options, $root, $self);

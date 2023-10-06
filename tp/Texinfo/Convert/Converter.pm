@@ -197,6 +197,9 @@ sub converter($;$)
       $converter->{'indices_information'}
              = $conf->{'document'}->indices_information();
       $converter->{'values'} = $conf->{'document'}->{'values'};
+      # From and for XS
+      $converter->{'document_descriptor'}
+        = $conf->{'document'}->document_descriptor();
       delete $conf->{'document'};
     }
     foreach my $key (keys(%$conf)) {
@@ -423,6 +426,19 @@ sub output($$)
     }
   }
   return undef;
+}
+
+###############################################################
+# XS Interface.
+# Select and encode to UTF-8 to pass to the XS code
+# TODO document?
+sub encode_converter($)
+{
+  my $self = shift;
+  my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
+  return {#'converter' => $self, # pass full converter?
+          'document_descriptor' => $self->{'document_descriptor'},
+          'conf' => $encoded_conf};
 }
 
 

@@ -74,6 +74,7 @@ ET_untranslated,
 ET_macro_call,
 ET_rmacro_call,
 ET_linemacro_call,
+ET_special_unit_element,
 };
 
 extern char *element_type_names[];

@@ -71,5 +71,6 @@ char *element_type_names[] = {
 "macro_call",
 "rmacro_call",
 "linemacro_call",
+"special_unit_element",
 
 };
