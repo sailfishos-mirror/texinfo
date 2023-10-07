@@ -9222,18 +9222,18 @@ sub _prepare_special_units($$)
   # for separate special output units
   my %do_special;
   # for associated special output units
-  my %do_special_associated;
+  my $associated_special_units = [];
   if ($self->{'sections_list'}
       and scalar(@{$self->{'sections_list'}}) > 1) {
     foreach my $cmdname ('shortcontents', 'contents') {
       my $special_unit_variety
           = $contents_command_special_unit_variety{$cmdname};
       if ($self->get_conf($cmdname)) {
-        my $associated_output_unit;
         my $contents_location = $self->get_conf('CONTENTS_OUTPUT_LOCATION');
         if ($contents_location eq 'separate_element') {
           $do_special{$special_unit_variety} = 1;
         } else {
+          my $associated_output_unit;
           if ($contents_location eq 'after_title') {
             if ($output_units and scalar(@$output_units)) {
               $associated_output_unit = $output_units->[0];
@@ -9241,9 +9241,8 @@ sub _prepare_special_units($$)
               next;
             }
           } elsif ($contents_location eq 'after_top') {
-            my $section_top = undef;
             if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
-              $section_top = $self->{'global_commands'}->{'top'};
+              my $section_top = $self->{'global_commands'}->{'top'};
               if ($section_top->{'associated_unit'}) {
                 $associated_output_unit = $section_top->{'associated_unit'};
               }
@@ -9267,7 +9266,9 @@ sub _prepare_special_units($$)
             # should not happen
             next;
           }
-          $do_special_associated{$special_unit_variety} = $associated_output_unit;
+          my $special_unit = $self->_register_special_unit($special_unit_variety);
+          $special_unit->{'associated_document_unit'} = $associated_output_unit;
+          push @$associated_special_units, $special_unit;
         }
       }
     }
@@ -9328,17 +9329,6 @@ sub _prepare_special_units($$)
       $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
     }
     $previous_output_unit = $special_unit;
-  }
-
-
-  # setup special output units associated to document output units
-  my $associated_special_units = [];
-  foreach my $special_unit_variety (sort(keys(%do_special_associated))) {
-    my $special_unit = $self->_register_special_unit($special_unit_variety);
-
-    $special_unit->{'associated_document_unit'}
-      = $do_special_associated{$special_unit_variety};
-    push @$associated_special_units, $special_unit;
   }
 
   return $special_units, $associated_special_units;
