@@ -194,6 +194,9 @@ int format_expanded_p (struct expanded_format *formats, char *format);
 char *enumerate_item_representation (char *specification, int number);
 
 CONVERTER *new_converter (void);
+
 ELEMENT *set_global_document_command (CONVERTER *self, enum command_id cmd,
                                       enum commands_location command_location);
+ELEMENT *get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
+                                 enum command_id cmd);
 #endif

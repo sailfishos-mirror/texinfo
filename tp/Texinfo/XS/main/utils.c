@@ -740,7 +740,8 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 }
 
 ELEMENT *
-get_global_command (GLOBAL_COMMANDS *global_commands_ref, enum command_id cmd)
+get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
+                        enum command_id cmd)
 {
 
   switch (cmd)
@@ -892,7 +893,8 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
     fprintf (stderr, "BUG: set_global_document_command: unknown CL: %d\n",
                      command_location);
 
-  ELEMENT *command = get_global_command (self->document->global_commands, cmd);
+  ELEMENT *command
+     = get_cmd_global_command (self->document->global_commands, cmd);
   if (builtin_command_data[cmd].flags & CF_global)
     {
       if (command->contents.number)
@@ -928,7 +930,7 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
             }
         }
     }
-  else
+  else if (command)
     {
       element = command;
       set_informative_command_value (self, element);
