@@ -1,5 +1,10 @@
 2023-10-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (set_global_document_commands):
+	use const qualifier for location and cmd_list arguments.
+
+2023-10-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_special_units): do not set
 	do_special_associated, directly add to associated_special_units.
 

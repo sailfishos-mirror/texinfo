@@ -90,8 +90,8 @@ command_init (enum command_id cmd, OPTIONS *init_conf)
 
 void
 set_global_document_commands (CONVERTER *converter,
-                              enum commands_location location,
-                              enum command_id *cmd_list)
+                              const enum commands_location location,
+                              const enum command_id *cmd_list)
 {
   if (location == CL_before)
     {
