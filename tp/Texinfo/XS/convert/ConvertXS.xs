@@ -95,10 +95,11 @@ text_convert_tree (text_options_in, tree_in, unused=0)
 #    ($output_units, $special_units, $associated_special_units)
 #      = _XS_prepare_conversion_units($encoded_options, $document_name);
 void
-html_prepare_conversion_units (SV *converter_in, document_name)
-         char *document_name = (char *)SvPVbyte_nolen($arg);
+html_prepare_conversion_units (SV *converter_in, ...)
+      PROTOTYPE: $;$
       PREINIT:
-         HTML_CONVERTER *self;
+         char *document_name = 0;
+         CONVERTER *self;
          int output_units_descriptor = 0;
          int special_units_descriptor = 0;
          int associated_special_units_descriptor = 0;
@@ -106,7 +107,11 @@ html_prepare_conversion_units (SV *converter_in, document_name)
          SV *special_units_sv;
          SV *associated_special_units_sv;
       PPCODE:
-         self = get_html_converter_sv (converter_in);
+         if (items > 1)
+           if (SvOK(ST(1)))
+             document_name = SvPVbyte_nolen (ST(1));
+
+         self = get_converter_sv (converter_in);
          html_prepare_conversion_units (self, document_name,
               &output_units_descriptor, &special_units_descriptor,
               &associated_special_units_descriptor);

@@ -9108,7 +9108,7 @@ sub _html_set_pages_files($$$$$$$$)
   return %files_source_info;
 }
 
-sub _XS_prepare_conversion_units($$)
+sub _XS_prepare_conversion_units($;$)
 {
   return 1;
 }

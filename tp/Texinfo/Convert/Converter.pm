@@ -436,9 +436,18 @@ sub encode_converter($)
 {
   my $self = shift;
   my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
-  return {#'converter' => $self, # pass full converter?
+  my $encoded_init_conf;
+  if (defined($self->{'output_init_conf'})) {
+    $encoded_init_conf
+      = Texinfo::Common::encode_options($self->{'output_init_conf'});
+  } elsif (defined($self->{'converter_init_conf'})) {
+    $encoded_init_conf
+      = Texinfo::Common::encode_options($self->{'converter_init_conf'});
+  }
+  return {#'converter' => $self, # pass full converter to be able to modify?
           'document_descriptor' => $self->{'document_descriptor'},
-          'conf' => $encoded_conf};
+          'conf' => $encoded_conf,
+          'init_conf' => $encoded_init_conf};
 }
 
 
@@ -1057,7 +1066,7 @@ sub _command_init($$)
 # Notice that the only effect is to use set_conf (directly or through
 # set_global_document_command), no @-commands setting side effects are done
 # and associated customization variables are not set/reset either.
-sub set_global_document_commands($$;$)
+sub set_global_document_commands($$$)
 {
   my $self = shift;
   my $commands_location = shift;
@@ -1072,7 +1081,7 @@ sub set_global_document_commands($$;$)
   }
 
   if (not defined($selected_commands)) {
-    $selected_commands = [keys(%Texinfo::Common::document_settable_at_commands)];
+    die "set_global_document_commands: requires selected commands";
   }
   if ($commands_location eq 'before') {
     foreach my $global_command (@{$selected_commands}) {
@@ -2138,9 +2147,9 @@ I<$element> tree element if given in argument.
 X<C<set_global_document_commands>>
 
 Set the Texinfo customization options for @-commands.  I<$selected_commands>
-is an optional array reference containing the @-commands set, if not given
-all the global informative @-commands are set.  I<$commands_location> specifies
-where in the document the value should be taken from. The possibilities are:
+is an array reference containing the @-commands set.  I<$commands_location>
+specifies where in the document the value should be taken from. The
+possibilities are:
 
 =over
 

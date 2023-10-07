@@ -1,3 +1,28 @@
+2023-10-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (set_global_document_commands):
+	make $selected_commands a mandatory argument.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter),
+	tp/Texinfo/XS/Makefile.am (ConvertXS_la_SOURCES),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/main/get_perl_info.c (get_converter_sv),
+	tp/Texinfo/XS/main/utils.c (commands_location_names)
+	(get_global_command, informative_command_value)
+	(set_informative_command_value, in_preamble, new_converter)
+	(set_global_document_command), tp/Texinfo/XS/main/utils.h
+	(enum global_option_command_type, COMMAND_OPTION_DEFAULT)
+	(COMMAND_OPTION_REF, COMMAND_OPTION_VALUE, enum commands_location)
+	(CONVERTER, enum global_directions),
+	tp/maintain/regenerate_C_options_info.pl,
+	tp/Texinfo/XS/convert/converter.c (new_option_value, command_init)
+	(set_global_document_commands):
+	make converter related code generic and move to main/utils.c.  Pass
+	converter_init_conf/output_init_conf from perl.  Generate
+	get_command_option code and command_option_default_table table.
+	Implement set_global_document_commands.
+
 2023-10-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)

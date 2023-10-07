@@ -28,6 +28,8 @@ BEGIN
 
 my %option_categories;
 
+my %commands_options;
+
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
@@ -41,19 +43,56 @@ while (<STDIN>) {
       }
       push @{$option_categories{$category}}, [$option, $value, $type];
       #print STDERR "$option, $category, $value, $type\n";
+      if ($category eq 'multiple_at_command' or $category eq 'unique_at_command') {
+        $commands_options{$option} = [$category, $value, $type];
+      }
     } else {
       warn "ERROR: unexpected line: $_";
     }
   }
 }
 
-my $code_file = $ARGV[0];
+my $commands_order_file = $ARGV[0];
+die "Need a commands order input file\n" if (!defined($commands_order_file));
+
+open(ORDER, $commands_order_file)
+  or die "open $commands_order_file: $!";
+
+my @commands_order = ('');
+
+my %commands_map = (
+ '\\t' => "\t",
+ '\\n' => "\n",
+ '\\x20' => ' ',
+  '\"' => '"',
+  '\\\\' => '\\',
+);
+
+my %name_commands;
+while (<ORDER>) {
+  my $command;
+  if (/^"([^"]+?)", /) {
+    $command = $1;
+  } elsif (/^"\\"", /) {
+    $command = '\"';
+  }
+  next if (!defined($command));
+  my $command_name = $command;
+  if (exists $commands_map{$command}) {
+    $command_name = $commands_map{$command};
+    $name_commands{$command_name} = $command;
+  }
+  push @commands_order, $command_name;
+  #print STDERR "$command\n";
+}
+
+my $code_file = $ARGV[1];
 die "Need a code file\n" if (!defined($code_file));
 
-my $header_file = $ARGV[1];
+my $header_file = $ARGV[2];
 die "Need a header file\n" if (!defined($header_file));
 
-my $get_file = $ARGV[2];
+my $get_file = $ARGV[3];
 die "Need an XS code file\n" if (!defined($get_file));
 
 open (HEADER, '>', $header_file)
@@ -124,6 +163,77 @@ foreach my $category (sort(keys(%option_categories))) {
     }
   }
 }
+print CODE "};\n\n";
+
+# associate commands to options
+print CODE "#include \"command_ids.h\"\n\n";
+print CODE 'COMMAND_OPTION_REF *
+get_command_option (OPTIONS *options,
+                    enum command_id cmd)
+{
+  switch (cmd)
+    {
+';
+
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if ($commands_options{$command}) {
+    my ($category, $value, $type) = @{$commands_options{$command}};
+    print CODE "    case CM_${command}:
+    {
+      COMMAND_OPTION_REF *result
+       = (COMMAND_OPTION_REF *)malloc (sizeof (COMMAND_OPTION_REF));\n";
+
+    my $str_type = 'char';
+    if ($type eq 'int') {
+      $str_type = 'int';
+    }
+    print CODE "      result->type = GO_${str_type};\n";
+    print CODE "      result->${str_type}_ref = &options->${command};\n";
+    print CODE "    }\n";
+  }
+}
+
+print CODE "
+    default:
+      return 0;
+    }
+};\n\n";
+
+# table of defaults for options corresponding to commands
+print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
+
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if ($commands_options{$command}) {
+    my ($category, $value, $type) = @{$commands_options{$command}};
+    #print STDERR "$command $category, $value, $type\n";
+    my $char_value = 0;
+    my $int_value = '-2';
+    my $GO_type = 'GO_char';
+    if ($type eq 'int') {
+      $GO_type = 'GO_int';
+      $int_value = -1;
+    }
+    if ($value ne 'undef') {
+      if ($type eq 'int') {
+        $int_value = $value;
+      } else {
+        $char_value = '"'.$value.'"';
+      }
+    }
+    print CODE "{$GO_type, $int_value, $char_value},   /* $command ($category) */\n";
+  } else {
+    print CODE "{GO_NONE, -2, 0},\n";
+  }
+}
+
 print CODE "};\n\n";
 
 close(CODE);

@@ -30,15 +30,6 @@
 #include "convert_html.h"
 
 
-HTML_CONVERTER *
-new_html_converter (void)
-{
-  HTML_CONVERTER *converter
-   = (HTML_CONVERTER *) malloc (sizeof (HTML_CONVERTER));
-  memset (converter, 0, sizeof (HTML_CONVERTER));
-  return converter;
-}
-
 typedef struct ROOT_AND_UNIT {
   OUTPUT_UNIT *output_unit;
   ELEMENT *root;
@@ -52,7 +43,7 @@ typedef struct ROOT_AND_UNIT {
   and not set to the element at the tree root
  */
 static ROOT_AND_UNIT *
-html_get_tree_root_element (HTML_CONVERTER *self, ELEMENT *command,
+html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
                             int find_container)
 {
   ELEMENT *current = command;
@@ -145,7 +136,7 @@ html_get_tree_root_element (HTML_CONVERTER *self, ELEMENT *command,
 
 /* Associate output units to the global targets, First, Last, Top, Index. */
 static void
-prepare_output_units_global_targets (HTML_CONVERTER *self,
+prepare_output_units_global_targets (CONVERTER *self,
                                      int output_units_descriptor)
 {
   OUTPUT_UNIT_LIST *output_units
@@ -236,7 +227,7 @@ prepare_output_units_global_targets (HTML_CONVERTER *self,
 }
 
 void
-html_prepare_conversion_units (HTML_CONVERTER *self, const char *document_name,
+html_prepare_conversion_units (CONVERTER *self, const char *document_name,
                                int *output_units_descriptor_ref,
                                int *special_units_descriptor_ref,
                                int *associated_special_units_descriptor_ref)

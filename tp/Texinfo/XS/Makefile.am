@@ -251,9 +251,10 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c:
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt $(srcdir)/main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
+	              $(srcdir)/main/command_data.c \
 	              $(srcdir)/main/options_init_free.c \
 	              $(srcdir)/main/options_types.h \
 	              $(srcdir)/main/options_get_perl.c
@@ -358,6 +359,8 @@ ConvertXS_la_SOURCES = \
                        convert/convert_plain_texinfo.c \
                        convert/convert_text.h \
                        convert/convert_text.c \
+                       convert/converter.h \
+                       convert/converter.c \
                        convert/convert_html.h \
                        convert/convert_html.c
 

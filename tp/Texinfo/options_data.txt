@@ -21,6 +21,8 @@
 # format is:
 # option_name   category    default_value   type
 # undef is special for default_value, it means undefined.
+# By chance, there is no space in default values for now, and therefore
+# no need for quoting/escaping.
 
 
 # @-commands that can be used multiple time in a document and default
@@ -88,6 +90,7 @@ setfilename          unique_at_command undef   char *
 smallbook            unique_at_command undef   char *
 
 
+# comand-line options that are primarily used to control conversion.
 # a value corresponds to defaults that are the same for every output format
 # otherwise undef is used
 # --split-size
@@ -107,14 +110,14 @@ SPLIT                     converter_cmdline undef   char *
 # customization options in main program.
 # Only directly used in HTML converter
 HEADERS                   converter_cmdline 1       int
-# --node-files.  Depend on SPLIT
+# --node-files.  Default depends on SPLIT;  Used in HTML only.
 NODE_FILES                converter_cmdline undef   int
 # --verbose
 VERBOSE                   converter_cmdline undef   int
-# --output    If non split and not ending by /.
+# --output    Sets OUTPUT if non split and not ending by /.
 # Setting can be format dependent
 OUTFILE                   converter_cmdline undef   char *
-# --output    If split or ending by /.
+# --output    Sets SUBDIR if split or ending by /.
 # Setting can be format dependent
 SUBDIR                    converter_cmdline undef   char *
 # --disable-encoding/--enable-encoding.
@@ -171,7 +174,7 @@ DEBUG                              converter_customization 0       int
 # only used in HTML
 HANDLER_FATAL_ERROR_LEVEL          converter_customization 100     int
 TEST                               converter_customization 0       int
-# in textcontent format
+# for textcontent format
 TEXTCONTENT_COMMENT                converter_customization undef   int
 # used in TexinfoXML/SXML
 # Reset by the main program, therefore this value is only used in converter
@@ -184,7 +187,7 @@ TEXINFO_DTD_VERSION                converter_customization 7.1     char *
 
 # Some are for all converters, EXTENSION for instance, some for
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
-# for HTML.  Could be added to converter_customization.
+# for HTML.
 # Defaults are documented in manual and set in the various converters.
 # used in util/txicustomvars
 AFTER_BODY_OPEN                    converter_customization undef   char *

@@ -15,6 +15,6 @@ int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 
 OPTIONS *copy_sv_options (SV *sv_in);
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
-HTML_CONVERTER *get_html_converter_sv (SV *sv_in);
+CONVERTER *get_converter_sv (SV *sv_in);
 
 #endif

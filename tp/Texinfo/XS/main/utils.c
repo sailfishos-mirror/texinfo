@@ -61,6 +61,10 @@ const char *output_unit_type_names[] = {"unit",
                                         "external_node_unit",
                                         "special_unit"};
 
+/* to keep synchronized with enum commands_location */
+const char *commands_location_names[]
+  = {"before", "last", "preamble", "preamble_or_first"};
+
 /* duplicated when creating a new expanded_formats */
 struct expanded_format expanded_formats[] = {
     "html", 0,
@@ -594,6 +598,7 @@ new_options (void)
   return options;
 }
 
+
 /* include directories and include file */
 
 void
@@ -732,6 +737,203 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 #include "global_multi_commands_case.c"
 
 #undef GLOBAL_CASE
+}
+
+ELEMENT *
+get_global_command (GLOBAL_COMMANDS *global_commands_ref, enum command_id cmd)
+{
+
+  switch (cmd)
+    {
+#define GLOBAL_CASE(cmx) \
+     case CM_##cmx:   \
+       return &global_commands_ref->cmx;
+
+     case CM_footnote:
+       return &global_commands_ref->footnotes;
+
+     case CM_float:
+       return &global_commands_ref->floats;
+
+#include "global_multi_commands_case.c"
+
+#undef GLOBAL_CASE
+
+#define GLOBAL_UNIQUE_CASE(cmd) \
+     case CM_##cmd: \
+       return global_commands_ref->cmd;
+
+#include "global_unique_commands_case.c"
+
+#undef GLOBAL_UNIQUE_CASE
+     default:
+       return 0;
+   }
+}
+
+static char *
+informative_command_value (ELEMENT *element)
+{
+  ELEMENT *misc_args;
+  char *text_arg;
+
+  enum command_id cmd = element_builtin_cmd (element);
+  if (builtin_command_data[cmd].flags & CF_line
+      && builtin_command_data[cmd].data == LINE_lineraw)
+    {
+      if (builtin_command_data[cmd].args_number <= 0)
+        return "1";
+      /* FIXME is it possible to have args.number > 1? */
+      else if (element->args.number > 0)
+        {
+          TEXT text;
+          int i;
+          int text_seen = 0;
+          text_init (&text);
+          for (i = 0; i < element->args.number; i++)
+            {
+              ELEMENT *arg = element->args.list[i];
+              if (arg->text.end)
+                {
+                  if (!text_seen)
+                    text_seen = 1;
+                  else
+                    text_append (&text, " ");
+                  text_append (&text, arg->text.text);
+                }
+            }
+          /* FIXME to be freed */
+          return text.text;
+        }
+    }
+  text_arg = lookup_extra_string (element, "text_arg");
+  if (text_arg)
+    return text_arg;
+  misc_args = lookup_extra_element (element, "misc_args");
+  if (misc_args && misc_args->contents.number > 0)
+    return misc_args->contents.list[0]->text.text;
+  if (builtin_command_data[cmd].flags & CF_line
+      && builtin_command_data[cmd].data == LINE_line
+      && element->args.number >= 1
+      && element->args.list[0]->contents.number >= 1
+      && element->args.list[0]->contents.list[0]->text.end > 0)
+    return element->args.list[0]->contents.list[0]->text.text;
+
+  return 0;
+}
+
+void
+set_informative_command_value (CONVERTER *self, ELEMENT *element)
+{
+  char *value = 0;
+  enum command_id cmd = element_builtin_cmd (element);
+  if (cmd == CM_summarycontents)
+    cmd = CM_shortcontents;
+
+  value = informative_command_value (element);
+
+  if (value)
+    {
+      COMMAND_OPTION_REF *option_ref = get_command_option (self->conf, cmd);
+      if (option_ref)
+        {
+          if (option_ref->type == GO_int)
+            *(option_ref->int_ref) = strtoul (value, NULL, 10);
+          else
+            *(option_ref->char_ref) = value;
+          free (option_ref);
+        }
+    }
+}
+
+static int
+in_preamble (ELEMENT *element)
+{
+  ELEMENT *current_element = element;
+  while (current_element->parent)
+    {
+      if (current_element->parent->type == ET_preamble_before_content)
+        return 1;
+      current_element = current_element->parent;
+    }
+  return 0;
+}
+
+CONVERTER *
+new_converter (void)
+{
+  CONVERTER *converter
+   = (CONVERTER *) malloc (sizeof (CONVERTER));
+  memset (converter, 0, sizeof (CONVERTER));
+  return converter;
+}
+
+/*
+  COMMAND_LOCATION is 'last', 'preamble' or 'preamble_or_first'
+  'preamble' means setting sequentially to the values in the preamble.
+  'preamble_or_first'  means setting to the first value for the command
+  in the document if the first command is not in the preamble, else set
+  sequentially to the values in the preamble.
+  'last' means setting to the last value for the command in the document.
+
+  For unique command, the last may be considered to be the same as the first.
+
+  Notice that the only effect is to use set_conf (directly or through
+  set_informative_command_value), no @-commands setting side effects are done
+  and associated customization variables are not set/reset either.
+ */
+ELEMENT *
+set_global_document_command (CONVERTER *self, enum command_id cmd,
+                             enum commands_location command_location)
+{
+  ELEMENT *element = 0;
+  if (command_location != CL_last && command_location != CL_preamble_or_first
+      && command_location != CL_preamble)
+    fprintf (stderr, "BUG: set_global_document_command: unknown CL: %d\n",
+                     command_location);
+
+  ELEMENT *command = get_global_command (self->document->global_commands, cmd);
+  if (builtin_command_data[cmd].flags & CF_global)
+    {
+      if (command->contents.number)
+        {
+          if (command_location == CL_last)
+            {
+              element = command->contents.list[command->contents.number -1];
+              set_informative_command_value (self, element);
+            }
+          else
+            {
+              if (command_location == CL_preamble_or_first
+                   && !in_preamble (command->contents.list[0]))
+                {
+                  element = command->contents.list[0];
+                  set_informative_command_value (self, element);
+                }
+              else
+                {
+                  int i;
+                  for (i = 0; i < command->contents.number; i++)
+                    {
+                      ELEMENT *command_element = command->contents.list[i];
+                      if (in_preamble (command_element))
+                        {
+                          element = command_element;
+                          set_informative_command_value (self, element);
+                        }
+                      else
+                        break;
+                    }
+                }
+            }
+        }
+    }
+  else
+    {
+      element = command;
+      set_informative_command_value (self, element);
+    }
+  return element;
 }
 
 /* in Common.pm */
