@@ -253,10 +253,9 @@ xspara__print_escaped_spaces (char *string)
         text_append_n (&t, "\\f", 2);
       else if (isspace(*p))
         {
-          char *protected_string = malloc (7 * sizeof (char));
+          char protected_string[7];
           sprintf (protected_string, "\\x%04x", *p);
           text_append (&t, protected_string);
-          free (protected_string);
         }
       p++;
     }

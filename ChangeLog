@@ -1,3 +1,9 @@
+2023-10-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (xspara__print_escaped_spaces):
+	Avoid unnecessary use of malloc/free.  malloc/free would
+	require use of dTHX on MS-Windows.  Report from Eli Zaretskii.
+
 2023-09-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.0.93
