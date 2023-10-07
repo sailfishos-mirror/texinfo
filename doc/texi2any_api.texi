@@ -3650,13 +3650,20 @@ Set @var{$item_type} information for the special unit variety
 needed for the other items for formatting.
 @end defun
 
+To get the list of varieties, use @code{get_special_unit_info_varieties}:
+
+@deftypefun {@var{$list} =} @var{$converter}->get_special_unit_info_varieties @
+               (@var{$item_type})
+@var{$item_type} is the type of information to be retrieved as described above.
+The list of the special units varieties with information for the
+@var{$item_type} is returned.
+@end deftypefun
+
 To retrieve the information for formatting, use @code{special_unit_info}:
 
 @deftypefun {@var{$list_or_value} =} @var{$converter}->special_unit_info @
                   (@var{$item_type}, @var{$special_unit_variety})
 @var{$item_type} is the type of information to be retrieved as described above.
-If @var{$special_unit_variety} is @samp{undef}, the list of the special units
-varieties with information for the @var{$item_type} is returned.  If
 @var{$special_unit_variety} is a special unit variety, the corresponding
 value is returned.
 

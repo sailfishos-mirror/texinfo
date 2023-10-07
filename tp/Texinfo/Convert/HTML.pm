@@ -1508,8 +1508,20 @@ sub direction_string($$$;$)
 
 my %default_translated_special_unit_info;
 
-# if SPECIAL_ELEMENT_VARIETY is not set, return all the varieties
-sub special_unit_info($$;$) {
+sub get_special_unit_info_varieties($$)
+{
+  my $self = shift;
+  my $type = shift;
+
+  if ($self->{'translated_special_unit_info'}->{$type}) {
+    my $translated_special_unit_info
+      = $self->{'translated_special_unit_info'}->{$type}->[1];
+    return sort(keys(%{$translated_special_unit_info}));
+  }
+  return sort(keys(%{$self->{'special_unit_info'}->{$type}}));
+}
+
+sub special_unit_info($$$) {
   my $self = shift;
   my $type = shift;
   my $special_unit_variety = shift;
@@ -1517,9 +1529,6 @@ sub special_unit_info($$;$) {
   if ($self->{'translated_special_unit_info'}->{$type}) {
     my $translated_special_unit_info
       = $self->{'translated_special_unit_info'}->{$type}->[1];
-    if (not defined($special_unit_variety)) {
-      return sort(keys(%{$translated_special_unit_info}));
-    }
 
     if (not exists($self->{'special_unit_info'}->{$type}
                                     ->{$special_unit_variety})) {
@@ -1534,9 +1543,6 @@ sub special_unit_info($$;$) {
       $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
         = $translated_tree;
     }
-  }
-  if (not defined($special_unit_variety)) {
-    return sort(keys(%{$self->{'special_unit_info'}->{$type}}));
   }
   return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
 }
@@ -2277,7 +2283,8 @@ sub _translate_names($)
 
   # delete the tree and formatted results for special elements
   # such that they are redone with the new tree when needed.
-  foreach my $special_unit_variety ($self->special_unit_info('direction')) {
+  foreach my $special_unit_variety
+                 ($self->get_special_unit_info_varieties('direction')) {
     my $special_unit_direction
      = $self->special_unit_info('direction', $special_unit_variety);
     my $special_unit
@@ -9295,7 +9302,7 @@ sub _prepare_special_units($$)
   # varieties that are at the same index.
   my %special_units_indices;
   foreach my $special_unit_variety
-      (sort($self->special_unit_info('order'))) {
+      (sort($self->get_special_unit_info_varieties('order'))) {
     next unless ($do_special{$special_unit_variety});
     my $index = $self->special_unit_info('order', $special_unit_variety);
     $special_units_indices{$index} = []
