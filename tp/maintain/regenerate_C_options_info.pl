@@ -171,6 +171,9 @@ print CODE 'COMMAND_OPTION_REF *
 get_command_option (OPTIONS *options,
                     enum command_id cmd)
 {
+  int type = 0;
+  char **char_ref = 0;
+  int *int_ref = 0;
   switch (cmd)
     {
 ';
@@ -183,16 +186,14 @@ foreach my $command_name (@commands_order) {
   if ($commands_options{$command}) {
     my ($category, $value, $type) = @{$commands_options{$command}};
     print CODE "    case CM_${command}:
-    {
-      COMMAND_OPTION_REF *result
-       = (COMMAND_OPTION_REF *)malloc (sizeof (COMMAND_OPTION_REF));\n";
-
+    {\n";
     my $str_type = 'char';
     if ($type eq 'int') {
       $str_type = 'int';
     }
-    print CODE "      result->type = GO_${str_type};\n";
-    print CODE "      result->${str_type}_ref = &options->${command};\n";
+    print CODE "      type = GO_${str_type};\n";
+    print CODE "      ${str_type}_ref = &options->${command};\n";
+    print CODE "      break;\n";
     print CODE "    }\n";
   }
 }
@@ -201,6 +202,16 @@ print CODE "
     default:
       return 0;
     }
+
+  COMMAND_OPTION_REF *result
+    = (COMMAND_OPTION_REF *)malloc (sizeof (COMMAND_OPTION_REF));
+  result->type = type;
+  if (type == GO_int)
+    result->int_ref = int_ref;
+  else
+    result->char_ref = char_ref;
+
+  return result;
 };\n\n";
 
 # table of defaults for options corresponding to commands
