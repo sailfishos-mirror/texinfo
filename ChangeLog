@@ -1,6 +1,11 @@
 2023-10-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/input.c (next_text):
+	Use positive value for getline argument.  From Eli.
+
+2023-10-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/input.c (next_text):
 	Initialise argument to getline to 0, as per documentation.
 	Attempt to fix crash under MinGW, reported by Eli.
 

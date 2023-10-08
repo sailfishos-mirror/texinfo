@@ -395,7 +395,9 @@ next_text (ELEMENT *current)
 {
   ssize_t status;
   char *line = 0;
-  size_t n = 0;
+  size_t n = 1;
+  /* Note: n needs to be a positive value, rather than 0, to work around
+     a bug in getline on MinGW.   This appears to be allowed by POSIX. */
   FILE *input_file;
 
   if (input_pushback_string)
