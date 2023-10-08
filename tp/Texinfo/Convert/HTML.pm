@@ -1154,13 +1154,6 @@ sub label_command($$)
   return undef;
 }
 
-sub special_direction_unit($$)
-{
-  my $self = shift;
-  my $direction = shift;
-  return $self->{'special_units_directions'}->{$direction};
-}
-
 sub command_name_special_unit_information($$)
 {
   my $self = shift;
@@ -1178,18 +1171,18 @@ sub command_name_special_unit_information($$)
   my $special_unit_direction
     = $self->special_unit_info('direction', $special_unit_variety);
   my $special_unit
-    = $self->special_direction_unit($special_unit_direction);
+    = $self->global_direction_unit($special_unit_direction);
   my $class_base
     = $self->special_unit_info('class', $special_unit_variety);
   return ($special_unit_variety, $special_unit, $class_base,
           $special_unit_direction);
 }
 
-sub global_direction($$)
+sub global_direction_unit($$)
 {
   my $self = shift;
   my $direction = shift;
-  return $self->{'global_target_directions'}->{$direction};
+  return $self->{'global_units_directions'}->{$direction};
 }
 
 sub get_element_root_command_element($$)
@@ -1282,7 +1275,7 @@ sub from_element_direction($$$;$$$)
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
-  my $global_target_element = $self->global_direction($direction);
+  my $global_target_element = $self->global_direction_unit($direction);
   if ($global_target_element) {
     $target_element = $global_target_element;
   # output TOP_NODE_UP related infos even if element is not
@@ -1368,8 +1361,8 @@ sub from_element_direction($$$;$$$)
       }
       $target = $self->{'targets'}->{$command} if ($command);
     }
-  } elsif ($self->special_direction_unit($direction)) {
-    my $special_unit = $self->special_direction_unit($direction);
+  } elsif ($self->global_direction_unit($direction)) {
+    my $special_unit = $self->global_direction_unit($direction);
     $command = $special_unit->{'unit_command'};
     if ($type eq 'href') {
       return $self->command_href($command, $source_filename);
@@ -1555,7 +1548,7 @@ sub unit_is_top_output_unit($$)
 {
   my $self = shift;
   my $output_unit = shift;
-  my $top_output_unit = $self->global_direction('Top');
+  my $top_output_unit = $self->global_direction_unit('Top');
   return (defined($top_output_unit) and $top_output_unit eq $output_unit
           and $output_unit->{'unit_command'}
           and ($output_unit->{'unit_command'}->{'cmdname'} eq 'node'
@@ -2288,7 +2281,7 @@ sub _translate_names($)
     my $special_unit_direction
      = $self->special_unit_info('direction', $special_unit_variety);
     my $special_unit
-     = $self->special_direction_unit($special_unit_direction);
+     = $self->global_direction_unit($special_unit_direction);
     if ($special_unit) {
       my $command = $special_unit->{'unit_command'};
       if ($command
@@ -5893,7 +5886,7 @@ sub _convert_printindex_command($$$$)
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
-            = $self->global_direction('Top')->{'unit_command'};
+            = $self->global_direction_unit('Top')->{'unit_command'};
           # NOTE the warning here catches the most relevant cases of
           # index entry that is not associated to the right command, which
           # are very few in the test suite.  There is also a warning in the
@@ -7825,8 +7818,7 @@ sub _load_htmlxref_files {
 #                  target information hash references described above before
 #                  the API functions used to access this information.
 #  special_targets
-#  special_units_directions
-#  global_target_directions
+#  global_units_directions
 #
 #    API exists
 #  directions_strings
@@ -9132,13 +9124,14 @@ sub _prepare_conversion_units($$$)
 
   my ($output_units, $special_units, $associated_special_units);
 
-  my $encoded_converter = $self->encode_converter();
+  my $encoded_converter = $self->encode_converter_document();
   if ($encoded_converter->{'document_descriptor'}) {
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     ($output_units, $special_units, $associated_special_units)
       = _XS_prepare_conversion_units($encoded_converter,
                                      $encoded_document_name);
-    # possibly return here when the XS code can provide
+    # possibly return here when the XS code is done and based on XS_only?
+    # return ($output_units, $special_units, $associated_special_units);
   }
 
   if ($self->get_conf('USE_NODES')) {
@@ -9209,7 +9202,7 @@ sub _register_special_unit($$)
 
   my $special_unit_direction
    = $self->special_unit_info('direction', $special_unit_variety);
-  $self->{'special_units_directions'}->{$special_unit_direction}
+  $self->{'global_units_directions'}->{$special_unit_direction}
    = $special_unit;
 
   return $special_unit;
@@ -9399,7 +9392,7 @@ sub _set_special_units_targets_files($$$)
   }
 }
 
-sub _special_units_directions($$)
+sub _prepare_special_units_directions($$)
 {
   my $self = shift;
   my $special_units = shift;
@@ -9476,9 +9469,8 @@ sub _prepare_output_units_global_targets($$)
   my $self = shift;
   my $output_units = shift;
 
-  $self->{'global_target_directions'} = {};
-  $self->{'global_target_directions'}->{'First'} = $output_units->[0];
-  $self->{'global_target_directions'}->{'Last'} = $output_units->[-1];
+  $self->{'global_units_directions'}->{'First'} = $output_units->[0];
+  $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
 
   my $node_top;
   $node_top = $self->{'identifiers_target'}->{'Top'}
@@ -9487,7 +9479,7 @@ sub _prepare_output_units_global_targets($$)
   $section_top = $self->{'global_commands'}->{'top'}
                                        if ($self->{'global_commands'});
   if ($section_top) {
-    $self->{'global_target_directions'}->{'Top'}
+    $self->{'global_units_directions'}->{'Top'}
             = $section_top->{'associated_unit'};
   } elsif ($node_top) {
     my $top_output_unit = $node_top->{'associated_unit'};
@@ -9495,9 +9487,9 @@ sub _prepare_output_units_global_targets($$)
       die "No associated unit for node_top: "
          .Texinfo::Common::debug_print_element($node_top, 1);
     }
-    $self->{'global_target_directions'}->{'Top'} = $top_output_unit;
+    $self->{'global_units_directions'}->{'Top'} = $top_output_unit;
   } else {
-    $self->{'global_target_directions'}->{'Top'} = $output_units->[0];
+    $self->{'global_units_directions'}->{'Top'} = $output_units->[0];
   }
 
   # It is always the first printindex, even if it is not output (for example
@@ -9525,15 +9517,15 @@ sub _prepare_output_units_global_targets($$)
           $document_unit = $root_command->{'associated_unit'};
         }
       }
-      $self->{'global_target_directions'}->{'Index'} = $document_unit;
+      $self->{'global_units_directions'}->{'Index'} = $document_unit;
     }
   }
 
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
-      if (defined($self->global_direction($global_direction))) {
-        my $global_unit = $self->global_direction($global_direction);
+      if (defined($self->global_direction_unit($global_direction))) {
+        my $global_unit = $self->global_direction_unit($global_direction);
         print STDERR "$global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
@@ -10714,7 +10706,7 @@ sub _default_format_frame_files($$)
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $root_html_element_attributes = $self->_root_html_element_attributes_string();
     my $top_file = '';
-    my $top_element = $self->global_direction('Top');
+    my $top_element = $self->global_direction_unit('Top');
     if ($top_element) {
       $top_file = $top_element->{'unit_filename'};
     }
@@ -10833,9 +10825,9 @@ sub _initialize_output_state($)
   # indirectly
   $self->{'referred_command_stack'} = [];
 
-  # for directions to special elements, only filled if special
-  # elements are actually used.
-  $self->{'special_units_directions'} = {};
+  # for global directions always set, and for directions to special elements,
+  # only filled if special elements are actually used.
+  $self->{'global_units_directions'} = {};
 
   # for footnotes
   $self->{'special_targets'} = {'footnote_location' => {}};
@@ -11240,7 +11232,7 @@ sub output($$)
   Texinfo::Structuring::units_directions($self,
                                 $self->{'identifiers_target'}, $output_units);
 
-  _special_units_directions($self, $special_units);
+  _prepare_special_units_directions($self, $special_units);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that

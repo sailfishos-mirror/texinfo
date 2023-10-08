@@ -1,3 +1,18 @@
+2023-10-08  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Elements and Links for Directions),
+	tp/Texinfo/Convert/HTML.pm (global_direction_unit), tp/init/chm.pm:
+	rename global_direction as global_direction_unit and also use
+	global_direction_unit for sepcial output units.  Remove
+	special_direction_unit.  Use only 'global_units_directions' as
+	associated state.  Update callers.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document): rename
+	encode_converter as encode_converter_document.  Update caller.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_units_directions):
+	rename _special_units_directions as _prepare_special_units_directions.
+
 2023-10-07  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Special Units Information Customization),

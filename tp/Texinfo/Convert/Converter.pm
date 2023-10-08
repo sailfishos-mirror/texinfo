@@ -429,10 +429,10 @@ sub output($$)
 }
 
 ###############################################################
-# XS Interface.
+# XS Interface for a document to be converted.
 # Select and encode to UTF-8 to pass to the XS code
 # TODO document?
-sub encode_converter($)
+sub encode_converter_document($)
 {
   my $self = shift;
   my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});

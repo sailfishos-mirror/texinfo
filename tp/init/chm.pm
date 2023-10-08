@@ -388,7 +388,7 @@ sub chm_init($)
   }
   my $title = _chm_convert_tree_to_text($self, $self->get_info('title_tree'));
   my $top_file = '';
-  my $top_element = $self->global_direction('Top');
+  my $top_element = $self->global_direction_unit('Top');
   if ($top_element) {
     $top_file = $top_element->{'unit_filename'};
   }

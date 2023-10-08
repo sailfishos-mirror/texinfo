@@ -3509,21 +3509,15 @@ In the current setup, special output units are associated with @code{@@contents}
 
 To get the Texinfo special output unit associated with
 a special output unit direction, such as @samp{About} or @samp{Contents},
-use @code{special_direction_unit}:
+as well as output unit associated with other global directions, such as
+@samp{Top} or @samp{Index}, use
+use @code{global_direction_unit}:
 
-@deftypefun {@var{\%output_unit} =} @var{$converter}->special_direction_unit (@var{$direction})
-Return the special output unit associated with direction @var{$direction}, or
-@code{undef} if the direction is not a special output unit direction or the special
-output unit is not output.
-@end deftypefun
-
-To get the output unit associated with other global element
-directions, such as @samp{Top} or @samp{Index}, use
-@code{global_direction}:
-
-@deftypefun {@var{\%unit} =} @var{$converter}->global_direction (@var{$direction})
-Return the output unit corresponding to direction
-@var{$direction}, or @code{undef} if the direction is not a global direction.
+@deftypefun {@var{\%output_unit} =} @var{$converter}->global_direction_unit (@var{$direction})
+Return the output unit associated with direction @var{$direction}, or
+@code{undef} if the direction is not a global output unit direction nor
+a special output unit direction or the associated special output unit is
+not output.
 @end deftypefun
 
 To get link information for relative and global
