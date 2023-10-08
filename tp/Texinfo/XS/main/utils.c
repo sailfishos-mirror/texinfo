@@ -61,8 +61,8 @@ const char *output_unit_type_names[] = {"unit",
                                         "external_node_unit",
                                         "special_unit"};
 
-/* to keep synchronized with enum commands_location */
-const char *commands_location_names[]
+/* to keep synchronized with enum command_location */
+const char *command_location_names[]
   = {"before", "last", "preamble", "preamble_or_first"};
 
 /* duplicated when creating a new expanded_formats */
@@ -885,7 +885,7 @@ new_converter (void)
  */
 ELEMENT *
 set_global_document_command (CONVERTER *self, enum command_id cmd,
-                             enum commands_location command_location)
+                             enum command_location command_location)
 {
   ELEMENT *element = 0;
   if (command_location != CL_last && command_location != CL_preamble_or_first

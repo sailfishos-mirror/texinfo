@@ -92,6 +92,9 @@ text_convert_tree (text_options_in, tree_in, unused=0)
     OUTPUT:
         RETVAL
 
+int
+html_converter_initialize (SV *converter_in)
+
 #    ($output_units, $special_units, $associated_special_units)
 #      = _XS_prepare_conversion_units($encoded_options, $document_name);
 void
@@ -111,7 +114,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
            if (SvOK(ST(1)))
              document_name = SvPVbyte_nolen (ST(1));
 
-         self = get_converter_sv (converter_in);
+         /* add warn string? */
+         self = get_output_converter_sv (converter_in, 0);
          html_prepare_conversion_units (self, document_name,
               &output_units_descriptor, &special_units_descriptor,
               &associated_special_units_descriptor);

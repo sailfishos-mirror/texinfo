@@ -19,11 +19,69 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stddef.h>
 
 #include "command_ids.h"
 #include "utils.h"
 #include "builtin_commands.h"
 #include "converter.h"
+
+static CONVERTER *converter_list;
+static size_t converter_number;
+static size_t converter_space;
+
+CONVERTER *
+retrieve_converter (int converter_descriptor)
+{
+  if (converter_descriptor <= converter_number
+      && converter_list[converter_descriptor -1].document != 0)
+    return &converter_list[converter_descriptor -1];
+  return 0;
+}
+
+/* descriptor starts at 1, 0 is an error */
+size_t
+register_converter (CONVERTER *converter)
+{
+  size_t converter_index;
+  int slot_found = 0;
+  int i;
+  CONVERTER *registered_converter;
+
+  for (i = 0; i < converter_number; i++)
+    {
+      if (converter_list[i].document == 0)
+        {
+          slot_found = 1;
+          converter_index = i;
+        }
+    }
+  if (!slot_found)
+    {
+      if (converter_number == converter_space)
+        {
+          converter_list = realloc (converter_list,
+                              (converter_space += 5) * sizeof (CONVERTER));
+          if (!converter_list)
+            fatal ("realloc failed");
+        }
+      converter_index = converter_number;
+      converter_number++;
+    }
+  registered_converter = &converter_list[converter_index];
+  memcpy (registered_converter, converter, sizeof (CONVERTER));
+
+  /*
+  fprintf(stderr, "REGISTER CONVERTER %zu %p %p %p\n", converter_index +1,
+                       converter, registered_converter, converter->document);
+   */
+
+  free (converter);
+
+  registered_converter->converter_descriptor = converter_index +1;
+
+  return converter_index +1;
+}
 
 /* freed by caller */
 static COMMAND_OPTION_VALUE *
@@ -90,7 +148,7 @@ command_init (enum command_id cmd, OPTIONS *init_conf)
 
 void
 set_global_document_commands (CONVERTER *converter,
-                              const enum commands_location location,
+                              const enum command_location location,
                               const enum command_id *cmd_list)
 {
   if (location == CL_before)
@@ -124,7 +182,7 @@ set_global_document_commands (CONVERTER *converter,
           if (converter->conf->DEBUG >= 0 && converter->conf->DEBUG)
             {
               fprintf (stderr, "SET_global(%s) %s\n",
-                       commands_location_names[location],
+                       command_location_names[location],
                        builtin_command_data[cmd].cmdname);
             }
           element = set_global_document_command (converter, cmd, location);

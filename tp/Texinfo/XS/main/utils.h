@@ -36,7 +36,7 @@ extern const size_t directions_length;
 
 extern const char *output_unit_type_names[];
 
-extern const char *commands_location_names[];
+extern const char *command_location_names[];
 
 enum error_type { error, warning };
 
@@ -116,29 +116,37 @@ typedef struct COMMAND_OPTION_VALUE {
 
 /* CONVERTER and associated types needed for set_global_document_command */
 /* see Texinfo::HTML _prepare_output_units_global_targets */
-enum global_directions {
-  GD_First,
-  GD_Top,
-  GD_Index,
-  GD_Last,
+enum units_directions {
+  /* global directions */
+  D_First,
+  D_Top,
+  D_Index,
+  D_Last,
+  /* special elements */
+  D_About,
+  D_Contents,
+  D_Overview,
+  D_Footnotes,
+
 };
 
-enum commands_location {
+enum command_location {
   CL_before,
   CL_last,
   CL_preamble,
   CL_preamble_or_first,
 };
 
-/* down here because it requires error from before */
+/* down here because it requires error data from before */
 #include "document.h"
 
 typedef struct CONVERTER {
+  int converter_descriptor;
   OPTIONS *conf;
   OPTIONS *init_conf;
   struct DOCUMENT *document;
   int document_units_descriptor;
-  OUTPUT_UNIT *global_target_directions[GD_Last+1];
+  OUTPUT_UNIT **global_units_directions;
 } CONVERTER;
 
 void fatal (char *);
@@ -196,7 +204,7 @@ char *enumerate_item_representation (char *specification, int number);
 CONVERTER *new_converter (void);
 
 ELEMENT *set_global_document_command (CONVERTER *self, enum command_id cmd,
-                                      enum commands_location command_location);
+                                      enum command_location command_location);
 ELEMENT *get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
                                  enum command_id cmd);
 #endif

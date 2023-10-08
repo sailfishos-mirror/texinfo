@@ -14,6 +14,10 @@ int split_by_section (ELEMENT *root);
 int unsplit (ELEMENT *root);
 void split_pages (OUTPUT_UNIT_LIST *output_units, char *split);
 
+OUTPUT_UNIT *new_output_unit (enum output_unit_type unit_type);
+void add_to_output_unit_list (OUTPUT_UNIT_LIST *list,
+                              OUTPUT_UNIT *output_unit);
+
 char *unit_or_external_element_texi (OUTPUT_UNIT *element);
 
 #endif

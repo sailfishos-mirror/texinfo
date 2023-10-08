@@ -20,6 +20,7 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
+#include "tree.h"
 #include "builtin_commands.h"
 #include "utils.h"
 #include "extra.h"
@@ -78,7 +79,7 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
                 {
                   ELEMENT *insertcopying
                       = global_insertcopying.contents.list[i];
-                  ROOT_AND_UNIT *cur_result = html_get_tree_root_element(self,
+                  ROOT_AND_UNIT *cur_result = html_get_tree_root_element (self,
                                                 insertcopying, find_container);
                   if (cur_result->output_unit || cur_result->root)
                     return cur_result;
@@ -145,16 +146,16 @@ prepare_output_units_global_targets (CONVERTER *self,
                           (self->document->identifiers_target, "Top");
   ELEMENT *section_top = self->document->global_commands->top;
 
-  self->global_target_directions[GD_First] = output_units->list[0];
-  self->global_target_directions[GD_Last]
+  self->global_units_directions[D_First] = output_units->list[0];
+  self->global_units_directions[D_Last]
     = output_units->list[output_units->number - 1];
 
   if (section_top)
-    self->global_target_directions[GD_Top] = section_top->associated_unit;
+    self->global_units_directions[D_Top] = section_top->associated_unit;
   else if (node_top)
-    self->global_target_directions[GD_Top] = node_top->associated_unit;
+    self->global_units_directions[D_Top] = node_top->associated_unit;
   else
-    self->global_target_directions[GD_Top] = output_units->list[0];
+    self->global_units_directions[D_Top] = output_units->list[0];
 
   /* It is always the first printindex, even if it is not output (for example
      it is in @copying and @titlepage, which are certainly wrong constructs).
@@ -164,7 +165,7 @@ prepare_output_units_global_targets (CONVERTER *self,
       ELEMENT *printindex
         = self->document->global_commands->printindex.contents.list[0];
       ROOT_AND_UNIT *root_unit
-        = html_get_tree_root_element(self, printindex, 0);
+        = html_get_tree_root_element (self, printindex, 0);
       if (root_unit->output_unit)
         {
           OUTPUT_UNIT *document_unit = root_unit->output_unit;
@@ -202,7 +203,7 @@ prepare_output_units_global_targets (CONVERTER *self,
                   else
                     break;
                 }
-              self->global_target_directions[GD_Index] = document_unit;
+              self->global_units_directions[D_Index] = document_unit;
             }
         }
       free (root_unit);
@@ -212,11 +213,11 @@ prepare_output_units_global_targets (CONVERTER *self,
     {
       int i;
       fprintf (stderr, "GLOBAL DIRECTIONS:\n");
-      for (i = 0; i < GD_Last+1; i++)
+      for (i = 0; i < D_Last+1; i++)
         {
-          if (self->global_target_directions[i])
+          if (self->global_units_directions[i])
             {
-              OUTPUT_UNIT *global_unit = self->global_target_directions[i];
+              OUTPUT_UNIT *global_unit = self->global_units_directions[i];
               char *unit_texi = unit_or_external_element_texi (global_unit);
               fprintf (stderr, "%s: %s\n", output_unit_type_names[i],
                                            unit_texi);
@@ -226,6 +227,156 @@ prepare_output_units_global_targets (CONVERTER *self,
     }
 }
 
+typedef struct CMD_VARIETY {
+  enum command_id cmd;
+  char *variety;
+} CMD_VARIETY;
+
+CMD_VARIETY contents_command_special_unit_variety[] = {
+                                {CM_contents, "contents"},
+                                {CM_shortcontents, "shortcontents"},
+                                {CM_summarycontents, "shortcontents"},
+                                {0, 0},
+};
+
+OUTPUT_UNIT *
+register_special_unit (CONVERTER *self, char *special_unit_variety)
+{
+  ELEMENT *unit_command = new_element (ET_special_unit_element);
+  OUTPUT_UNIT *special_unit = new_output_unit (OU_special_unit);
+
+  special_unit->special_unit_variety = special_unit_variety;
+  unit_command->associated_unit = special_unit;
+  special_unit->unit_command = unit_command;
+
+  /*
+  enum units_directions special_unit_direction
+    = special_unit_info (self, SUI_direction, special_unit_variety);
+
+  self->global_units_directions[special_unit_direction]
+   = special_unit;
+   */
+
+  return special_unit;
+}
+
+void
+prepare_special_units (CONVERTER *self, int output_units_descriptor,
+                               int *special_units_descriptor_ref,
+                               int *associated_special_units_descriptor_ref)
+{
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+
+  int special_units_descriptor = new_output_units_descriptor ();
+  OUTPUT_UNIT_LIST *special_units
+    = retrieve_output_units (special_units_descriptor);
+
+  int associated_special_units_descriptor = new_output_units_descriptor ();
+  OUTPUT_UNIT_LIST *associated_special_units
+    = retrieve_output_units (associated_special_units_descriptor);
+
+  /* for separate special output units */
+  STRING_LIST *do_special = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (do_special, 0, sizeof (STRING_LIST));
+
+  *special_units_descriptor_ref = special_units_descriptor;
+  *associated_special_units_descriptor_ref
+     = associated_special_units_descriptor;
+
+  if (self->document->sections_list
+      && self->document->sections_list->contents.number > 0)
+    {
+      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
+      int i;
+      for (i = 0; i < 2; i++)
+        {
+          enum command_id cmd = contents_cmds[i];
+          COMMAND_OPTION_REF *contents_option_ref
+             = get_command_option (self->conf, cmd);
+          if (*(contents_option_ref->int_ref) > 0)
+            {
+              int j;
+              char *special_unit_variety = 0;
+              char *contents_location = self->conf->CONTENTS_OUTPUT_LOCATION;
+
+              for (j = 0; contents_command_special_unit_variety[j].cmd; j++)
+                {
+                  if (contents_command_special_unit_variety[j].cmd == cmd)
+                    special_unit_variety
+                      = contents_command_special_unit_variety[j].variety;
+                }
+              if (!strcmp (contents_location, "separate_element"))
+                add_string (special_unit_variety, do_special);
+              else
+                {
+                  OUTPUT_UNIT *special_output_unit = 0;
+                  OUTPUT_UNIT *associated_output_unit = 0;
+                  if (!strcmp (contents_location, "after_title"))
+                    {
+                      if (output_units->number > 0)
+                        associated_output_unit = output_units->list[0];
+                      else
+                        continue;
+                    }
+                  else if (!strcmp (contents_location, "after_top"))
+                    {
+                      if (self->document->global_commands->top
+                                                 ->contents.number > 0)
+                        {
+                          ELEMENT *section_top
+                             = self->document->global_commands->top
+                                                            ->contents.list[0];
+                          if (section_top->associated_unit)
+                            associated_output_unit = section_top->associated_unit;
+                        }
+                      if (!associated_output_unit)
+                        continue;
+                    }
+                  else if (!strcmp (contents_location, "inline"))
+                    {
+                      ELEMENT *global_command
+                       = get_cmd_global_command (self->document->global_commands, cmd);
+                      if (global_command->contents.number > 0)
+                        {
+                          int i;
+                          for (i = 0; i < global_command->contents.number; i++)
+                            {
+                              ELEMENT *command = global_command->contents.list[i];
+                              ROOT_AND_UNIT *root_unit
+                               = html_get_tree_root_element (self, command, 0);
+                              if (root_unit->output_unit)
+                                associated_output_unit = root_unit->output_unit;
+                              free (root_unit);
+                              if (associated_output_unit)
+                                break;
+                            }
+                        }
+                      else
+                        continue;
+                    }
+                  else /* should not happen */
+                    continue;
+
+                  special_output_unit
+                    = register_special_unit (self, special_unit_variety);
+                  special_output_unit->associated_document_unit
+                    = associated_output_unit;
+                  add_to_output_unit_list (associated_special_units,
+                                           special_output_unit);
+                }
+            }
+          free (contents_option_ref);
+        }
+    }
+}
+
+static const enum command_id contents_elements_options[]
+                          = {CM_contents, CM_shortcontents, 0};
+
+static const enum command_id conf_for_special_units[]
+                          = {CM_footnotestyle, 0};
+
 void
 html_prepare_conversion_units (CONVERTER *self, const char *document_name,
                                int *output_units_descriptor_ref,
@@ -233,8 +384,6 @@ html_prepare_conversion_units (CONVERTER *self, const char *document_name,
                                int *associated_special_units_descriptor_ref)
 {
   int output_units_descriptor;
-  int special_units_descriptor = 0;
-  int associated_special_units_descriptor = 0;
 
   if (self->conf->USE_NODES)
     output_units_descriptor = split_by_node (self->document->tree);
@@ -248,8 +397,26 @@ html_prepare_conversion_units (CONVERTER *self, const char *document_name,
   /* This may be done as soon as output units are available. */
   prepare_output_units_global_targets (self, output_units_descriptor);
 
+  /* the presence of contents elements in the document is used in diverse
+     places, set it once for all here */
+  set_global_document_commands (self, CL_last, contents_elements_options);
+  set_global_document_commands (self, CL_last, conf_for_special_units);
+  /*
+    NOTE if the last value of footnotestyle is separate, all the footnotes
+    formatted text are set to the special element set in _prepare_special_units
+    as _html_get_tree_root_element uses the Footnote direction for every footnote.
+    Therefore if @footnotestyle separate is set late in the document the current
+    value may not be consistent with the link obtained for the footnote
+    formatted text.  This is not an issue, as the manual says that
+    @footnotestyle should only appear in the preamble, and it makes sense
+    to have something consistent in the whole document for footnotes position.
+   */
+  prepare_special_units (self, output_units_descriptor,
+                         special_units_descriptor_ref,
+                         associated_special_units_descriptor_ref);
+
+  /* reset to the default */
+  set_global_document_commands (self, CL_before, conf_for_special_units);
+
   *output_units_descriptor_ref = output_units_descriptor;
-  *special_units_descriptor_ref = special_units_descriptor;
-  *associated_special_units_descriptor_ref
-     = associated_special_units_descriptor;
 }

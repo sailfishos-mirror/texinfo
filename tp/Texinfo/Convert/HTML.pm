@@ -93,9 +93,14 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_entity_text",
       "Texinfo::MiscXS::entity_text");
+
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
       "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_converter_initialize",
+      "Texinfo::Convert::ConvertXS::html_converter_initialize");
+
     $module_loaded = 1;
   }
   # The usual import method
@@ -7862,6 +7867,10 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
+sub _XS_converter_initialize($)
+{
+}
+
 my $debug;  # whether to print debugging output
 
 sub converter_initialize($)
@@ -8304,6 +8313,11 @@ sub converter_initialize($)
       and $self->get_conf('SPLIT') ne 'section'
       and $self->get_conf('SPLIT') ne 'node') {
     $self->force_conf('SPLIT', 'node');
+  }
+
+  if ($self->{'document_descriptor'}) {
+    my $encoded_converter = $self->encode_converter_document();
+    _XS_converter_initialize($encoded_converter);
   }
 
   return $self;
@@ -9124,8 +9138,8 @@ sub _prepare_conversion_units($$$)
 
   my ($output_units, $special_units, $associated_special_units);
 
-  my $encoded_converter = $self->encode_converter_document();
-  if ($encoded_converter->{'document_descriptor'}) {
+  if ($self->{'converter_descriptor'}) {
+    my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     ($output_units, $special_units, $associated_special_units)
       = _XS_prepare_conversion_units($encoded_converter,

@@ -43,6 +43,7 @@ FIXME add an initialization of translations?
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
+#include "converter.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -279,15 +280,95 @@ copy_sv_options_for_convert_text (SV *sv_in)
 }
 
 CONVERTER *
-get_converter_sv (SV *sv_in)
+get_sv_converter (SV *sv_in, char *warn_string)
+{
+  int converter_descriptor = 0;
+  CONVERTER *converter = 0;
+  SV** converter_descriptor_sv;
+  HV *hv_in;
+  char *key = "converter_descriptor";
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+  converter_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+  if (converter_descriptor_sv)
+    {
+      converter_descriptor = SvIV (*converter_descriptor_sv);
+      converter = retrieve_converter (converter_descriptor);
+    }
+  else if (warn_string)
+    {
+      fprintf (stderr, "ERROR: %s: no %s\n", warn_string, key);
+      return 0;
+    }
+  if (! converter && warn_string)
+    {
+      fprintf (stderr, "ERROR: %s: no converter %d\n", warn_string,
+                                                      converter_descriptor);
+    }
+  return converter;
+}
+
+int
+html_converter_initialize (SV *sv_in)
+{
+  HV *hv_in;
+  SV **converter_init_conf_sv;
+  SV **converter_sv;
+  CONVERTER *converter = new_converter ();
+  int converter_descriptor = 0;
+  DOCUMENT *document;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+
+  document = get_sv_document_document (sv_in, 0);
+  converter->document = document;
+
+  converter_init_conf_sv = hv_fetch (hv_in, "converter_init_conf",
+                                   strlen ("converter_init_conf"), 0);
+
+  /* should always exist, but can be undef */
+  if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
+    {
+      converter->init_conf
+         = copy_sv_options (*converter_init_conf_sv);
+    }
+
+  /* TODO dynamic special output units directions? */
+  converter->global_units_directions
+    = (OUTPUT_UNIT **) malloc ((D_Footnotes+1) * sizeof (OUTPUT_UNIT));
+
+  converter_descriptor = register_converter (converter);
+
+  /* store converter_descriptor in perl converter */
+  converter_sv = hv_fetch (hv_in, "converter",
+                                   strlen ("converter"), 0);
+  if (converter_sv && SvOK(*converter_sv))
+    {
+      HV *converter_hv = (HV *)SvRV(*converter_sv);
+      hv_store (converter_hv, "converter_descriptor",
+                strlen("converter_descriptor"),
+                newSViv (converter_descriptor), 0);
+    }
+
+  return converter_descriptor;
+}
+
+
+CONVERTER *
+get_output_converter_sv (SV *sv_in, char *warn_string)
 {
   HV *hv_in;
   SV **converter_options_sv;
   SV **converter_init_conf_sv;
-  CONVERTER *converter = new_converter ();
-  DOCUMENT *document;
+  CONVERTER *converter = 0;
 
   dTHX;
+
+  converter = get_sv_converter (sv_in, warn_string);
 
   hv_in = (HV *)SvRV (sv_in);
   converter_options_sv = hv_fetch (hv_in, "conf",
@@ -299,18 +380,18 @@ get_converter_sv (SV *sv_in)
          = copy_sv_options (*converter_options_sv);
     }
 
-  converter_init_conf_sv = hv_fetch (hv_in, "init_conf",
-                                   strlen ("init_conf"), 0);
+  converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
+                                   strlen ("output_init_conf"), 0);
 
   /* should always exist, but can be undef */
   if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
     {
+      if (converter->init_conf)
+        free_options (converter->init_conf);
+
       converter->init_conf
          = copy_sv_options (*converter_init_conf_sv);
     }
-
-  document = get_sv_document_document (sv_in, 0);
-  converter->document = document;
 
   return converter;
 }

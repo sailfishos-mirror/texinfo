@@ -137,6 +137,8 @@ typedef struct OUTPUT_UNIT {
     /* could be an enum as for now new special types cannot be customized
        but lets keep it an option */
     char *special_unit_variety;
+    /* for special units associated to a document output unit */
+    struct OUTPUT_UNIT *associated_document_unit;
 } OUTPUT_UNIT;
 
 /* Could be elsewhere, but it is practical to have it here as it is used

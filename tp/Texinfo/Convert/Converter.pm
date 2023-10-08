@@ -432,7 +432,24 @@ sub output($$)
 # XS Interface for a document to be converted.
 # Select and encode to UTF-8 to pass to the XS code
 # TODO document?
+# To be called for initialization
 sub encode_converter_document($)
+{
+  my $self = shift;
+  my $encoded_converter_init_conf;
+  if (defined($self->{'converter_init_conf'})) {
+    $encoded_converter_init_conf
+      = Texinfo::Common::encode_options($self->{'converter_init_conf'});
+  }
+  return {'converter' => $self, # pass full converter to be able to modify
+                                # and set converter_descriptor
+          'document_descriptor' => $self->{'document_descriptor'},
+          'converter_init_conf' => $encoded_converter_init_conf};
+}
+
+# to be used before output
+# TODO document?
+sub encode_converter_for_output($)
 {
   my $self = shift;
   my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
@@ -440,14 +457,10 @@ sub encode_converter_document($)
   if (defined($self->{'output_init_conf'})) {
     $encoded_init_conf
       = Texinfo::Common::encode_options($self->{'output_init_conf'});
-  } elsif (defined($self->{'converter_init_conf'})) {
-    $encoded_init_conf
-      = Texinfo::Common::encode_options($self->{'converter_init_conf'});
   }
-  return {#'converter' => $self, # pass full converter to be able to modify?
-          'document_descriptor' => $self->{'document_descriptor'},
+  return {'converter_descriptor' => $self->{'converter_descriptor'},
           'conf' => $encoded_conf,
-          'init_conf' => $encoded_init_conf};
+          'output_init_conf' => $encoded_init_conf};
 }
 
 
