@@ -906,7 +906,7 @@ readfile (char *filename, int *sizep,
   /* We need to close the stream, since on some systems the pipe created
      by popen is simulated by a temporary file which only gets removed
      inside pclose.  */
-  if (compression_program)
+  if (compression_program && *compression_program)
     pclose (f);
   else
     fclose (f);

@@ -1,5 +1,11 @@
 2023-10-08  Eli Zaretskii <eliz@gnu.org>
 
+	* install-info/install-info.c (readfile):
+	Correct check for whether a compression program is being used
+	in order to correctly close a file.
+
+2023-10-08  Eli Zaretskii <eliz@gnu.org>
+
 	* install-info/install-info.c (open_possibly_compressed_file):
 	Close stdin file description in main process after calling popen
 	on compression program.  This allows the file to be removed or
