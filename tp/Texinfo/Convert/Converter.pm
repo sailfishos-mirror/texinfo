@@ -436,15 +436,17 @@ sub output($$)
 sub encode_converter_document($)
 {
   my $self = shift;
-  my $encoded_converter_init_conf;
+  my $result = {'converter' => $self, # pass full converter to be able to modify
+                                      # and set converter_descriptor
+                'document_descriptor' => $self->{'document_descriptor'}};
+
   if (defined($self->{'converter_init_conf'})) {
-    $encoded_converter_init_conf
+    my $encoded_converter_init_conf
       = Texinfo::Common::encode_options($self->{'converter_init_conf'});
+    $result->{'converter_init_conf'} = $encoded_converter_init_conf;
   }
-  return {'converter' => $self, # pass full converter to be able to modify
-                                # and set converter_descriptor
-          'document_descriptor' => $self->{'document_descriptor'},
-          'converter_init_conf' => $encoded_converter_init_conf};
+
+  return $result;
 }
 
 # to be used before output
@@ -453,14 +455,18 @@ sub encode_converter_for_output($)
 {
   my $self = shift;
   my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
-  my $encoded_init_conf;
+
+  my $result = {'converter_descriptor' => $self->{'converter_descriptor'},
+                'conf' => $encoded_conf,
+               };
+
   if (defined($self->{'output_init_conf'})) {
-    $encoded_init_conf
+    my $encoded_init_conf
       = Texinfo::Common::encode_options($self->{'output_init_conf'});
+    $result->{'output_init_conf'} = $encoded_init_conf;
   }
-  return {'converter_descriptor' => $self->{'converter_descriptor'},
-          'conf' => $encoded_conf,
-          'output_init_conf' => $encoded_init_conf};
+
+  return $result;
 }
 
 

@@ -330,7 +330,6 @@ html_converter_initialize (SV *sv_in)
   converter_init_conf_sv = hv_fetch (hv_in, "converter_init_conf",
                                    strlen ("converter_init_conf"), 0);
 
-  /* should always exist, but can be undef */
   if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
     {
       converter->init_conf
@@ -383,7 +382,6 @@ get_output_converter_sv (SV *sv_in, char *warn_string)
   converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
                                    strlen ("output_init_conf"), 0);
 
-  /* should always exist, but can be undef */
   if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
     {
       if (converter->init_conf)
