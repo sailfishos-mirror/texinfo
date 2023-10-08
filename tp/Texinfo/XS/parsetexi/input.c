@@ -395,7 +395,7 @@ next_text (ELEMENT *current)
 {
   ssize_t status;
   char *line = 0;
-  size_t n;
+  size_t n = 0;
   FILE *input_file;
 
   if (input_pushback_string)

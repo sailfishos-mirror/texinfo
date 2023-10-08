@@ -1,3 +1,9 @@
+2023-10-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/input.c (next_text):
+	Initialise argument to getline to 0, as per documentation.
+	Attempt to fix crash under MinGW, reported by Eli.
+
 2023-10-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (xspara__print_escaped_spaces):
