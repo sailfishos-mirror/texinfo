@@ -1142,6 +1142,14 @@ sub command_text($$;$)
     $self->_pop_document_context();
     return $target->{$type};
   }
+  # Can happen
+  # * if USE_NODES is 0 and there are no sectioning commands.
+  # * if a special element target was set to undef in user defined code.
+  # * for @*ref with missing targets (maybe @novalidate needed in that case).
+  # * for @node header if the node consist only in spaces (example in sectioning
+  #   in_menu_only_special_ascii_spaces_node).
+  # * for multiple targets with the same name, eg both @node and @anchor
+  # * with @inforef with node argument only, without manual argument.
   return undef;
 }
 
@@ -4176,19 +4184,21 @@ sub _convert_heading_command($$$$$)
       my $node = $element->{'extra'}->{'associated_node'}
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
 
-      my $automatic_directions = 1;
-      if ($node and $node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
-        $automatic_directions = 0;
-      }
+      if ($node) {
+        my $automatic_directions = 1;
+        if ($node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
+          $automatic_directions = 0;
+        }
 
-      if ($node->{'extra'}
-          and not $node->{'extra'}->{'menus'}
-          and $automatic_directions) {
-        my $menu_node
-          = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                  $self->get_info('identifiers_target'), $node);
-        if ($menu_node) {
-          $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
+        if ($node->{'extra'}
+            and not $node->{'extra'}->{'menus'}
+            and $automatic_directions) {
+          my $menu_node
+            = Texinfo::Structuring::new_complete_menu_master_menu($self,
+                                    $self->get_info('identifiers_target'), $node);
+          if ($menu_node) {
+            $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
+          }
         }
       }
     }
@@ -6048,6 +6058,7 @@ sub _contents_inline_element($$$)
         $result .= " id=\"$id\"";
       }
       $heading = $self->command_text($command);
+      $heading = '' if (!defined($heading));
     } else {
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
@@ -9362,8 +9373,10 @@ sub _set_special_units_targets_files($$$)
 
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
+    # it may be undef'ined in user customization code
     my $target
         = $self->special_unit_info('target', $special_unit_variety);
+    next if (!defined($target));
     my $default_filename;
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         # in general $document_name not defined means called through convert
@@ -9429,8 +9442,10 @@ sub _prepare_associated_special_units_targets($$)
     my $associated_output_unit = $special_unit->{'associated_document_unit'};
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
+    # it may be undef'ined in user customization code
     my $target_base
       = $self->special_unit_info('target', $special_unit_variety);
+    next if (!defined($target_base));
     my $nr = 1;
     my $target = $target_base;
     while ($self->{'seen_ids'}->{$target}) {

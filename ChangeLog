@@ -1,5 +1,15 @@
 2023-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): do automatic
+	node menu only if there is a node.
+
+	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element)
+	(_set_special_units_targets_files)
+	(_prepare_associated_special_units_targets): handle better special
+	output unit target set to undefined in user init file.
+
+2023-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (encode_converter_document)
 	(encode_converter_for_output): rearrange code, no functional change.
 
