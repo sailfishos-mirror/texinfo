@@ -1,3 +1,10 @@
+2023-10-08  Eli Zaretskii <eliz@gnu.org>
+
+	* install-info/install-info.c (open_possibly_compressed_file):
+	Close stdin file description in main process after calling popen
+	on compression program.  This allows the file to be removed or
+	renamed on Windows.
+
 2023-10-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/input.c (next_text):
