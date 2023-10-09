@@ -292,11 +292,31 @@ register_special_unit (CONVERTER *self, char *special_unit_variety)
   return special_unit;
 }
 
+typedef struct SPECIAL_UNIT_ORDER {
+   char *order;
+   char *variety;
+} SPECIAL_UNIT_ORDER;
+
+int
+compare_special_units (const void *a, const void *b)
+{
+  const SPECIAL_UNIT_ORDER *spu_order_a = (const SPECIAL_UNIT_ORDER *) a;
+  const SPECIAL_UNIT_ORDER *spu_order_b = (const SPECIAL_UNIT_ORDER *) b;
+
+  int result = strcmp (spu_order_a->order, spu_order_b->order);
+  if (result != 0)
+    return result;
+  return strcmp (spu_order_a->variety, spu_order_b->variety);
+}
+
 void
 prepare_special_units (CONVERTER *self, int output_units_descriptor,
                                int *special_units_descriptor_ref,
                                int *associated_special_units_descriptor_ref)
 {
+  int i;
+  SPECIAL_UNIT_ORDER *special_units_order;
+  OUTPUT_UNIT *previous_output_unit = 0;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
 
@@ -400,6 +420,54 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
           free (contents_option_ref);
         }
     }
+
+  if (self->document->global_commands->footnotes.contents.number > 0
+      && ! strcmp(self->conf->footnotestyle, "separate")
+      && output_units && output_units->number > 0)
+    add_string ("footnotes", do_special);
+
+  if ((self->conf->DO_ABOUT < 0
+       && output_units && output_units->number > 0
+       && ((self->conf->SPLIT && strlen (self->conf->SPLIT))
+           || self->conf->HEADERS > 0))
+      || self->conf->DO_ABOUT > 0)
+    add_string ("about", do_special);
+
+  special_units_order = (SPECIAL_UNIT_ORDER *)
+    malloc (sizeof (SPECIAL_UNIT_ORDER) * do_special->number);
+  for (i = 0; i < do_special->number; i++)
+    {
+      char *special_unit_variety = do_special->list[i];
+      special_units_order[i].order = special_unit_info (self, SUI_type_order,
+                                                        special_unit_variety);
+      special_units_order[i].variety = special_unit_variety;
+    }
+
+  qsort (special_units_order, do_special->number, sizeof (SPECIAL_UNIT_ORDER),
+         compare_special_units);
+
+  if (output_units && output_units->number > 0)
+    previous_output_unit = output_units->list[output_units->number-1];
+
+  for (i = 0; i < do_special->number; i++)
+    {
+      char *special_unit_variety = special_units_order[i].variety;
+      OUTPUT_UNIT *special_output_unit
+                    = register_special_unit (self, special_unit_variety);
+      add_to_output_unit_list (special_units,
+                               special_output_unit);
+
+      if (previous_output_unit)
+        {
+          special_output_unit->tree_unit_directions[D_prev]
+             = previous_output_unit;
+          previous_output_unit->tree_unit_directions[D_next]
+             = special_output_unit;
+        }
+      previous_output_unit = special_output_unit;
+    }
+
+  free (special_units_order);
 }
 
 static const enum command_id contents_elements_options[]
