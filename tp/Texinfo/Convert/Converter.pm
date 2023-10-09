@@ -30,6 +30,8 @@ use File::Basename;
 # for file names portability
 use File::Spec;
 use Encode qw(decode);
+# for dclone
+use Storable;
 #use Data::Dumper;
 
 use Carp qw(cluck confess);
@@ -444,6 +446,40 @@ sub encode_converter_document($)
     my $encoded_converter_init_conf
       = Texinfo::Common::encode_options($self->{'converter_init_conf'});
     $result->{'converter_init_conf'} = $encoded_converter_init_conf;
+  }
+  # HTML specific
+  if ($self->{'special_unit_info'}) {
+    # to help the XS code to set arrays of C structures, already prepare
+    # a list of special units varieties.
+    my %all_special_unit_varieties;
+    # only ascii, no need for encoding
+    $result->{'special_unit_info'} = Storable::dclone($self->{'special_unit_info'});
+    foreach my $type (keys(%{$result->{'special_unit_info'}})) {
+      foreach my $special_unit_variety
+            (keys (%{$result->{'special_unit_info'}->{$type}})) {
+        $all_special_unit_varieties{$special_unit_variety} = 1;
+      }
+    }
+
+    if ($self->{'translated_special_unit_info'}) {
+      # could have encoded characters from user init files
+      foreach my $tree_type (keys(%{$self->{'translated_special_unit_info'}})) {
+        my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
+        my $variety_strings
+          = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
+        # simplify the structure, as we do not need both tree and
+        # string to pass to XS
+        $result->{'special_unit_info'}->{$type} = {};
+        foreach my $special_unit_variety (keys (%$variety_strings)) {
+          $all_special_unit_varieties{$special_unit_variety} = 1;
+          $result->{'special_unit_info'}->{$type}
+             ->{$special_unit_variety} = Encode::encode('UTF-8',
+                                   $variety_strings->{$special_unit_variety});
+        }
+      }
+    }
+    $result->{'sorted_special_unit_varieties'}
+      = [sort(keys(%all_special_unit_varieties))];
   }
 
   return $result;

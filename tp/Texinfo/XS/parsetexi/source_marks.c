@@ -42,7 +42,8 @@ int expanded_conditional_command_counter = 0;
    it only if static (or in only one file if extern) */
 static char *source_marks_names[SM_type_expanded_conditional_command + 1] =
 {
-  #define sm_type(name) [SM_type_ ## name] = #name,
+  /* #define sm_type(name) [SM_type_ ## name] = #name, */
+  #define sm_type(name) #name,
     SM_TYPES_LIST
   #undef sm_type
 };

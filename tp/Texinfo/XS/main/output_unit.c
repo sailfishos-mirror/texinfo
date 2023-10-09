@@ -25,6 +25,7 @@
 #include "extra.h"
 /* for xasprintf */
 #include "errors.h"
+#include "debug.h"
 #include "builtin_commands.h"
 #include "convert_to_texinfo.h"
 #include "output_unit.h"

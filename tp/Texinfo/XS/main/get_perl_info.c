@@ -310,15 +310,29 @@ get_sv_converter (SV *sv_in, char *warn_string)
   return converter;
 }
 
+
+static char *special_unit_info_type_names[SUI_type_heading_tree + 1] =
+{
+  /* #define sui_type(name) [SUI_type_ ## name] = #name, */
+  #define sui_type(name) #name,
+    SUI_TYPES_LIST
+  #undef sui_type
+
+  /* [SUI_type_heading_tree] = "heading_tree", */
+  "heading_tree",
+};
+
 int
 html_converter_initialize (SV *sv_in)
 {
   HV *hv_in;
   SV **converter_init_conf_sv;
   SV **converter_sv;
+  SV **sorted_special_unit_varieties_sv;
   CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
   DOCUMENT *document;
+  int nr_special_units = 0;
 
   dTHX;
 
@@ -336,9 +350,84 @@ html_converter_initialize (SV *sv_in)
          = copy_sv_options (*converter_init_conf_sv);
     }
 
-  /* TODO dynamic special output units directions? */
+  sorted_special_unit_varieties_sv
+     = hv_fetch (hv_in, "sorted_special_unit_varieties",
+                 strlen ("sorted_special_unit_varieties"), 0);
+
+  if (sorted_special_unit_varieties_sv)
+    {
+      int j;
+      SV **special_unit_info_sv;
+      HV *special_unit_info_hv;
+
+      STRING_LIST *special_unit_varieties
+       = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (special_unit_varieties, 0, sizeof (STRING_LIST));
+      add_svav_to_string_list (sorted_special_unit_varieties_sv,
+                               special_unit_varieties, 0);
+
+      nr_special_units = special_unit_varieties->number;
+
+      converter->special_unit_varieties = special_unit_varieties;
+
+      special_unit_info_sv = hv_fetch (hv_in, "special_unit_info",
+                                       strlen ("special_unit_info"), 0);
+
+      special_unit_info_hv = (HV *) SvRV(*special_unit_info_sv);
+
+      for (j = 0; j < SUI_type_heading_tree+1; j++)
+        {
+          SV **special_unit_info_type_sv;
+          char *sui_type = special_unit_info_type_names[j];
+          special_unit_info_type_sv = hv_fetch (special_unit_info_hv,
+                                                sui_type, strlen (sui_type), 0);
+          if (special_unit_info_type_sv)
+            {
+              int k;
+              HV *special_unit_info_type_hv
+                   = (HV *) SvRV(*special_unit_info_type_sv);
+              converter->special_unit_info[j]
+               = (char **)
+                 malloc ((special_unit_varieties->number +1) * sizeof (char *));
+              memset (converter->special_unit_info[j], 0,
+                      (special_unit_varieties->number +1) * sizeof (char *));
+              for (k = 0; k < special_unit_varieties->number; k++)
+                {
+                  char *variety_name = special_unit_varieties->list[k];
+                  SV **info_type_variety_sv
+                   = hv_fetch (special_unit_info_type_hv, variety_name,
+                               strlen (variety_name), 0);
+                  if (info_type_variety_sv)
+                    {
+                      char *value
+                       = (char *) SvPVbyte_nolen (*info_type_variety_sv);
+                      converter->special_unit_info[j][k] = strdup (value);
+                    }
+                }
+            }
+        }
+      /* prepare mapping of variety names to index in global_units_directions */
+      converter->varieties_direction_index = (VARIETY_DIRECTION_INDEX **)
+              malloc (sizeof (VARIETY_DIRECTION_INDEX *)
+                      * (special_unit_varieties->number +1));
+      for (j = 0; j < special_unit_varieties->number; j++)
+        {
+          VARIETY_DIRECTION_INDEX *variety_direction_index
+            = (VARIETY_DIRECTION_INDEX *) malloc (sizeof (VARIETY_DIRECTION_INDEX));
+          converter->varieties_direction_index[j] = variety_direction_index;
+          variety_direction_index->special_unit_variety
+            = special_unit_varieties->list[j];
+          variety_direction_index->direction_index
+            = D_Last +1 +j;
+        }
+      converter->varieties_direction_index[j] = 0;
+    }
+
   converter->global_units_directions
-    = (OUTPUT_UNIT **) malloc ((D_Footnotes+1) * sizeof (OUTPUT_UNIT));
+    = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
+                               * sizeof (OUTPUT_UNIT));
+  memset (converter->global_units_directions, 0,
+    (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
   converter_descriptor = register_converter (converter);
 

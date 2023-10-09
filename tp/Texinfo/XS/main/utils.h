@@ -130,6 +130,21 @@ enum units_directions {
 
 };
 
+#define SUI_TYPES_LIST \
+  sui_type(class) \
+  sui_type(direction) \
+  sui_type(order) \
+  sui_type(file_string) \
+  sui_type(heading)
+
+enum special_unit_info_type {
+  #define sui_type(name) SUI_type_ ## name,
+    SUI_TYPES_LIST
+  #undef sui_type
+
+   SUI_type_heading_tree,
+};
+
 enum command_location {
   CL_before,
   CL_last,
@@ -140,13 +155,23 @@ enum command_location {
 /* down here because it requires error data from before */
 #include "document.h"
 
+typedef struct VARIETY_DIRECTION_INDEX {
+  char *special_unit_variety;
+  int direction_index;
+} VARIETY_DIRECTION_INDEX;
+
 typedef struct CONVERTER {
   int converter_descriptor;
   OPTIONS *conf;
   OPTIONS *init_conf;
   struct DOCUMENT *document;
   int document_units_descriptor;
+
+  /* HTML specific */
   OUTPUT_UNIT **global_units_directions;
+  char **special_unit_info[SUI_type_heading_tree+1];
+  STRING_LIST *special_unit_varieties;
+  VARIETY_DIRECTION_INDEX **varieties_direction_index;
 } CONVERTER;
 
 void fatal (char *);

@@ -239,23 +239,55 @@ CMD_VARIETY contents_command_special_unit_variety[] = {
                                 {0, 0},
 };
 
+char *
+special_unit_info (CONVERTER *self, enum special_unit_info_type type,
+                   char *special_unit_variety)
+{
+  int i;
+  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  for (i = 0; i < special_unit_varieties->number; i++)
+    {
+      if (!strcmp (special_unit_varieties->list[i], special_unit_variety))
+        break;
+    }
+
+  return self->special_unit_info[type][i];
+}
+
+int
+special_unit_variety_direction_index (CONVERTER *self,
+                                      char *special_unit_variety)
+{
+  int i;
+  VARIETY_DIRECTION_INDEX **varieties_direction_index
+    = self->varieties_direction_index;
+  for (i = 0; varieties_direction_index[i] != 0; i++)
+    {
+      VARIETY_DIRECTION_INDEX *variety_direction_index
+        = varieties_direction_index[i];
+      if (!strcmp (variety_direction_index->special_unit_variety,
+                   special_unit_variety))
+        return variety_direction_index->direction_index;
+    }
+  return -1;
+}
+
 OUTPUT_UNIT *
 register_special_unit (CONVERTER *self, char *special_unit_variety)
 {
   ELEMENT *unit_command = new_element (ET_special_unit_element);
   OUTPUT_UNIT *special_unit = new_output_unit (OU_special_unit);
+  int special_unit_direction_index = -1;
 
   special_unit->special_unit_variety = special_unit_variety;
   unit_command->associated_unit = special_unit;
   special_unit->unit_command = unit_command;
 
-  /*
-  enum units_directions special_unit_direction
-    = special_unit_info (self, SUI_direction, special_unit_variety);
+  special_unit_direction_index
+    = special_unit_variety_direction_index (self, special_unit_variety);
 
-  self->global_units_directions[special_unit_direction]
+  self->global_units_directions[special_unit_direction_index]
    = special_unit;
-   */
 
   return special_unit;
 }
@@ -321,12 +353,11 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                     }
                   else if (!strcmp (contents_location, "after_top"))
                     {
-                      if (self->document->global_commands->top
-                                                 ->contents.number > 0)
-                        {
+                      if (self->document->global_commands->top)
+                        {/* note that top is a uniq command */
                           ELEMENT *section_top
-                             = self->document->global_commands->top
-                                                            ->contents.list[0];
+                             = self->document->global_commands->top;
+
                           if (section_top->associated_unit)
                             associated_output_unit = section_top->associated_unit;
                         }

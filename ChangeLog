@@ -1,3 +1,24 @@
+2023-10-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/XS/main/get_perl_info.c (special_unit_info_type_names)
+	(html_converter_initialize), tp/Texinfo/XS/main/utils.h
+	(SUI_TYPES_LIST, VARIETY_DIRECTION_INDEX, CONVERTER): pass special
+	units informations to XS, both textual information and also setup a
+	mapping between special unit variety name and index in
+	global_units_directions.
+
+	* tp/Texinfo/XS/convert/convert_html.c (special_unit_info)
+	(special_unit_variety_direction_index, register_special_unit): use
+	special units information to setup global_units_directions when
+	registering a special unit.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units):
+	fix getting top, as it is a uniq command.
+
+	* tp/Texinfo/XS/parsetexi/source_marks.c (source_marks_names):
+	simplify.
+
 2023-10-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): do automatic
