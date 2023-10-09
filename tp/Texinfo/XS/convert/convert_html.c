@@ -470,6 +470,54 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
   free (special_units_order);
 }
 
+void
+set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
+                                 const char *document_name)
+{
+  int i;
+  OUTPUT_UNIT_LIST *special_units
+    = retrieve_output_units (special_units_descriptor);
+
+  char *extension = "";
+  if (self->conf->EXTENSION)
+    extension = self->conf->EXTENSION;
+
+  for (i = 0; i < special_units->number; i++)
+    {
+      char *default_filename = 0;
+      OUTPUT_UNIT *special_unit = special_units->list[i];
+      char *special_unit_variety = special_unit->special_unit_variety;
+
+      char *target = special_unit_info (self, SUI_type_target,
+                                        special_unit_variety);
+
+      if (!target)
+        continue;
+
+      if (((self->conf->SPLIT && strlen (self->conf->SPLIT))
+           || self->conf->MONOLITHIC <= 0)
+    /* in general document_name not defined means called through convert */
+          && document_name)
+        {
+          TEXT text_name;
+          char *special_unit_file_string
+            = special_unit_info (self, SUI_type_file_string,
+                               special_unit_variety);
+          text_init (&text_name);
+          if (!special_unit_file_string)
+            special_unit_file_string = "";
+          text_append (&text_name, document_name);
+          text_append (&text_name, special_unit_file_string);
+          if (extension && strlen (extension))
+            {
+              text_append (&text_name, ".");
+              text_append (&text_name, extension);
+            }
+          default_filename = text_name.text;
+        }
+    }
+}
+
 static const enum command_id contents_elements_options[]
                           = {CM_contents, CM_shortcontents, 0};
 
@@ -516,6 +564,13 @@ html_prepare_conversion_units (CONVERTER *self, const char *document_name,
 
   /* reset to the default */
   set_global_document_commands (self, CL_before, conf_for_special_units);
+
+  /*
+   Do that before the other elements, to be sure that special page ids
+   are registered before elements id are.
+   */
+  set_special_units_targets_files (self, *special_units_descriptor_ref,
+                                   document_name);
 
   *output_units_descriptor_ref = output_units_descriptor;
 }

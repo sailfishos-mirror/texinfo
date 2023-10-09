@@ -135,6 +135,7 @@ enum units_directions {
   sui_type(direction) \
   sui_type(order) \
   sui_type(file_string) \
+  sui_type(target) \
   sui_type(heading)
 
 enum special_unit_info_type {
