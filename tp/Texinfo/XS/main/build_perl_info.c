@@ -1189,13 +1189,21 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
   if (output_unit->unit_command)
     {
-      if (!output_unit->unit_command->hv)
-        status++;
-      else
+      ELEMENT *command = output_unit->unit_command;
+      if (!command->hv)
         {
-          sv = newRV_inc ((SV *) output_unit->unit_command->hv);
+          if (command->type == ET_special_unit_element)
+            /* a virtual out of tree element, add it to perl */
+            element_to_perl_hash (command);
+        }
+
+      if (command->hv)
+        {
+          sv = newRV_inc ((SV *) command->hv);
           STORE("unit_command");
         }
+      else
+       status++;
     }
 
   if (output_unit->unit_filename)
@@ -1220,7 +1228,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           HV *element_hv = output_unit->unit_contents.list[i]->hv;
           SV *unit_sv;
 
-          /* case of a tree where hv have been removed (cannot happen). */
           if (!element_hv)
             {
               status++;

@@ -28,6 +28,8 @@
 #include "debug.h"
 #include "structuring.h"
 #include "output_unit.h"
+#include "tree_perl_api.h"
+#include "converter.h"
 #include "convert_html.h"
 
 
@@ -317,16 +319,20 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
   int i;
   SPECIAL_UNIT_ORDER *special_units_order;
   OUTPUT_UNIT *previous_output_unit = 0;
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
 
   int special_units_descriptor = new_output_units_descriptor ();
+  int associated_special_units_descriptor = new_output_units_descriptor ();
+
+  /* retrieve after reallocating */
+
   OUTPUT_UNIT_LIST *special_units
     = retrieve_output_units (special_units_descriptor);
 
-  int associated_special_units_descriptor = new_output_units_descriptor ();
   OUTPUT_UNIT_LIST *associated_special_units
     = retrieve_output_units (associated_special_units_descriptor);
+
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
 
   /* for separate special output units */
   STRING_LIST *do_special = (STRING_LIST *) malloc (sizeof (STRING_LIST));
@@ -451,7 +457,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
 
   for (i = 0; i < do_special->number; i++)
     {
-      char *special_unit_variety = special_units_order[i].variety;
+      char *special_unit_variety = strdup (special_units_order[i].variety);
       OUTPUT_UNIT *special_output_unit
                     = register_special_unit (self, special_unit_variety);
       add_to_output_unit_list (special_units,
@@ -468,6 +474,40 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
     }
 
   free (special_units_order);
+  destroy_strings_list (do_special);
+}
+
+void
+html_initialize_output_state (CONVERTER *self)
+{
+  /* targets and directions */
+
+  /* used for diverse elements: tree units, indices, footnotes, special
+    elements, contents elements... */
+  self->html_targets = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
+  self->seen_ids = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (self->html_targets, 0, sizeof (HTML_TARGET_LIST));
+  memset (self->seen_ids, 0, sizeof (STRING_LIST));
+}
+
+static HTML_TARGET *
+add_element_target (CONVERTER *self, ELEMENT *element, char *target)
+{
+  HTML_TARGET_LIST *targets = self->html_targets;
+  HTML_TARGET *element_target;
+
+  if (targets->number == targets->space)
+    {
+      targets->list = realloc (targets->list,
+                   sizeof (HTML_TARGET) * (targets->space += 5));
+    }
+  element_target = &targets->list[targets->number];
+  memset (element_target, 0, sizeof (HTML_TARGET));
+  element_target->element = element;
+  element_target->target = target;
+
+  targets->number++;
+  return element_target;
 }
 
 void
@@ -484,10 +524,13 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
 
   for (i = 0; i < special_units->number; i++)
     {
+      TARGET_FILENAME *target_filename;
       char *default_filename = 0;
+      char *filename = 0;
       OUTPUT_UNIT *special_unit = special_units->list[i];
       char *special_unit_variety = special_unit->special_unit_variety;
 
+      /* FIXME not to be freed separately from self->special_unit_info */
       char *target = special_unit_info (self, SUI_type_target,
                                         special_unit_variety);
 
@@ -502,7 +545,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
           TEXT text_name;
           char *special_unit_file_string
             = special_unit_info (self, SUI_type_file_string,
-                               special_unit_variety);
+                                 special_unit_variety);
           text_init (&text_name);
           if (!special_unit_file_string)
             special_unit_file_string = "";
@@ -515,6 +558,39 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
             }
           default_filename = text_name.text;
         }
+      target_filename = call_file_id_setting_special_unit_target_file_name (
+                               self, special_unit, target, default_filename);
+      if (target_filename)
+        {
+          if (target_filename->target)
+            /* FIXME to be freed, contrary to obtained from special_unit_info */
+            target = target_filename->target;
+          if (target_filename->filename)
+            {
+              filename = target_filename->filename;
+              free (default_filename);
+            }
+          else
+            filename = default_filename;
+
+          free (target_filename);
+        }
+      else
+        filename = default_filename;
+
+      if (self->conf->DEBUG > 0)
+        {
+          char *fileout = filename;
+          if (!fileout)
+            fileout = "UNDEF";
+          fprintf (stderr, "Add special %s: target %s,\n    filename %s\n",
+                            special_unit_variety, target, fileout);
+        }
+
+      HTML_TARGET *element_target
+        = add_element_target (self, special_unit->unit_command, target);
+      element_target->special_unit_filename = filename;
+      add_string (target, self->seen_ids);
     }
 }
 
@@ -525,7 +601,7 @@ static const enum command_id conf_for_special_units[]
                           = {CM_footnotestyle, 0};
 
 void
-html_prepare_conversion_units (CONVERTER *self, const char *document_name,
+html_prepare_conversion_units (CONVERTER *self,
                                int *output_units_descriptor_ref,
                                int *special_units_descriptor_ref,
                                int *associated_special_units_descriptor_ref)
@@ -536,6 +612,7 @@ html_prepare_conversion_units (CONVERTER *self, const char *document_name,
     output_units_descriptor = split_by_node (self->document->tree);
   else
     output_units_descriptor = split_by_section (self->document->tree);
+  *output_units_descriptor_ref = output_units_descriptor;
 
   /* Needs to be set early in case it would be needed to find some region
      command associated root command. */
@@ -564,13 +641,21 @@ html_prepare_conversion_units (CONVERTER *self, const char *document_name,
 
   /* reset to the default */
   set_global_document_commands (self, CL_before, conf_for_special_units);
+}
 
+/* for conversion units except for associated special units that require
+   files for document units to be set */
+void
+html_prepare_conversion_units_targets (CONVERTER *self,
+                                       const char *document_name,
+                                       int output_units_descriptor,
+                                       int special_units_descriptor)
+{
   /*
    Do that before the other elements, to be sure that special page ids
    are registered before elements id are.
    */
-  set_special_units_targets_files (self, *special_units_descriptor_ref,
+  set_special_units_targets_files (self, special_units_descriptor,
                                    document_name);
 
-  *output_units_descriptor_ref = output_units_descriptor;
 }

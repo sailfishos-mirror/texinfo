@@ -161,6 +161,18 @@ typedef struct VARIETY_DIRECTION_INDEX {
   int direction_index;
 } VARIETY_DIRECTION_INDEX;
 
+typedef struct HTML_TARGET {
+  ELEMENT *element;
+  char *target;
+  char *special_unit_filename;
+} HTML_TARGET;
+
+typedef struct HTML_TARGET_LIST {
+  size_t number;
+  size_t space;
+  HTML_TARGET *list;
+} HTML_TARGET_LIST;
+
 typedef struct CONVERTER {
   int converter_descriptor;
   OPTIONS *conf;
@@ -168,12 +180,23 @@ typedef struct CONVERTER {
   struct DOCUMENT *document;
   int document_units_descriptor;
 
+  /* perl converter. This should be HV *hv,
+     but we don't want to include the Perl headers everywhere; */
+  void *hv;
+
   /* HTML specific */
   OUTPUT_UNIT **global_units_directions;
   char **special_unit_info[SUI_type_heading_tree+1];
   STRING_LIST *special_unit_varieties;
   VARIETY_DIRECTION_INDEX **varieties_direction_index;
+  STRING_LIST *seen_ids;
+  HTML_TARGET_LIST *html_targets;
 } CONVERTER;
+
+typedef struct TARGET_FILENAME {
+  char *target;
+  char *filename;
+} TARGET_FILENAME;
 
 void fatal (char *);
 void bug (char *);

@@ -593,7 +593,7 @@ wipe_index_names (INDEX **index_names)
 OPTIONS *
 new_options (void)
 {
-  OPTIONS *options = malloc (sizeof (OPTIONS));
+  OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
   initialize_options (options);
   return options;
 }

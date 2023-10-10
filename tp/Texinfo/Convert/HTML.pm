@@ -95,6 +95,9 @@ sub import {
       "Texinfo::MiscXS::entity_text");
 
     Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_initialize_output_state",
+      "Texinfo::Convert::ConvertXS::html_initialize_output_state");
+    Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
       "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
     Texinfo::XSLoader::override(
@@ -10817,6 +10820,10 @@ sub _has_contents_or_shortcontents($)
   return 0;
 }
 
+sub _XS_initialize_output_state($)
+{
+}
+
 # to be called before starting conversion.
 # NOTE not called directly by convert_tree, which means that convert_tree
 # needs to be called from a converter which would have had this function
@@ -10824,6 +10831,8 @@ sub _has_contents_or_shortcontents($)
 sub _initialize_output_state($)
 {
   my $self = shift;
+
+  _XS_initialize_output_state($self);
 
   # for diverse API used in conversion
   $self->{'shared_conversion_state'} = {};

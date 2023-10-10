@@ -276,7 +276,8 @@ libtexinfoxs_la_SOURCES= \
 		      main/build_perl_info.c \
 		      main/build_perl_info.h \
 		      main/get_perl_info.c \
-		      main/get_perl_info.h
+		      main/get_perl_info.h \
+		      main/call_perl_function.c
 
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)

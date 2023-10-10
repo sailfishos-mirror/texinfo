@@ -344,7 +344,7 @@ html_converter_initialize (SV *sv_in)
   converter_init_conf_sv = hv_fetch (hv_in, "converter_init_conf",
                                    strlen ("converter_init_conf"), 0);
 
-  if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
+  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
     {
       converter->init_conf
          = copy_sv_options (*converter_init_conf_sv);
@@ -430,6 +430,8 @@ html_converter_initialize (SV *sv_in)
     (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
   converter_descriptor = register_converter (converter);
+  /* a fresh converter, registered */
+  converter = retrieve_converter (converter_descriptor);
 
   /* store converter_descriptor in perl converter */
   converter_sv = hv_fetch (hv_in, "converter",
@@ -440,6 +442,7 @@ html_converter_initialize (SV *sv_in)
       hv_store (converter_hv, "converter_descriptor",
                 strlen("converter_descriptor"),
                 newSViv (converter_descriptor), 0);
+      converter->hv = converter_hv;
     }
 
   return converter_descriptor;
@@ -447,7 +450,7 @@ html_converter_initialize (SV *sv_in)
 
 
 CONVERTER *
-get_output_converter_sv (SV *sv_in, char *warn_string)
+set_output_converter_sv (SV *sv_in, char *warn_string)
 {
   HV *hv_in;
   SV **converter_options_sv;
@@ -475,6 +478,7 @@ get_output_converter_sv (SV *sv_in, char *warn_string)
     {
       if (converter->init_conf)
         free_options (converter->init_conf);
+      free (converter->init_conf);
 
       converter->init_conf
          = copy_sv_options (*converter_init_conf_sv);
