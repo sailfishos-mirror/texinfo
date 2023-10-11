@@ -429,6 +429,10 @@ html_converter_initialize (SV *sv_in)
   memset (converter->global_units_directions, 0,
     (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
+  converter->error_messages
+    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
+  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+
   converter_descriptor = register_converter (converter);
   /* a fresh converter, registered */
   converter = retrieve_converter (converter_descriptor);

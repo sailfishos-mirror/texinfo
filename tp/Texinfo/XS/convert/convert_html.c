@@ -30,6 +30,7 @@
 #include "output_unit.h"
 #include "tree_perl_api.h"
 #include "converter.h"
+#include "node_name_normalization.h"
 #include "convert_html.h"
 
 
@@ -510,6 +511,56 @@ add_element_target (CONVERTER *self, ELEMENT *element, char *target)
   return element_target;
 }
 
+
+static const enum command_id contents_elements_options[]
+                          = {CM_contents, CM_shortcontents, 0};
+
+static const enum command_id conf_for_special_units[]
+                          = {CM_footnotestyle, 0};
+
+void
+html_prepare_conversion_units (CONVERTER *self,
+                               int *output_units_descriptor_ref,
+                               int *special_units_descriptor_ref,
+                               int *associated_special_units_descriptor_ref)
+{
+  int output_units_descriptor;
+
+  if (self->conf->USE_NODES)
+    output_units_descriptor = split_by_node (self->document->tree);
+  else
+    output_units_descriptor = split_by_section (self->document->tree);
+  *output_units_descriptor_ref = output_units_descriptor;
+
+  /* Needs to be set early in case it would be needed to find some region
+     command associated root command. */
+  self->document_units_descriptor = output_units_descriptor;
+
+  /* This may be done as soon as output units are available. */
+  prepare_output_units_global_targets (self, output_units_descriptor);
+
+  /* the presence of contents elements in the document is used in diverse
+     places, set it once for all here */
+  set_global_document_commands (self, CL_last, contents_elements_options);
+  set_global_document_commands (self, CL_last, conf_for_special_units);
+  /*
+    NOTE if the last value of footnotestyle is separate, all the footnotes
+    formatted text are set to the special element set in _prepare_special_units
+    as _html_get_tree_root_element uses the Footnote direction for every footnote.
+    Therefore if @footnotestyle separate is set late in the document the current
+    value may not be consistent with the link obtained for the footnote
+    formatted text.  This is not an issue, as the manual says that
+    @footnotestyle should only appear in the preamble, and it makes sense
+    to have something consistent in the whole document for footnotes position.
+   */
+  prepare_special_units (self, output_units_descriptor,
+                         special_units_descriptor_ref,
+                         associated_special_units_descriptor_ref);
+
+  /* reset to the default */
+  set_global_document_commands (self, CL_before, conf_for_special_units);
+}
+
 void
 set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
                                  const char *document_name)
@@ -594,53 +645,265 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
     }
 }
 
-static const enum command_id contents_elements_options[]
-                          = {CM_contents, CM_shortcontents, 0};
-
-static const enum command_id conf_for_special_units[]
-                          = {CM_footnotestyle, 0};
-
-void
-html_prepare_conversion_units (CONVERTER *self,
-                               int *output_units_descriptor_ref,
-                               int *special_units_descriptor_ref,
-                               int *associated_special_units_descriptor_ref)
+static char *
+normalized_to_id (char *id)
 {
-  int output_units_descriptor;
+  if (isascii_alpha (id[0]) || id[0] == '_')
+    {
+      char *result;
+      xasprintf (&result, "%s%s", "g_t", id);
+      return result;
+    }
+  return strdup (id);
+}
 
-  if (self->conf->USE_NODES)
-    output_units_descriptor = split_by_node (self->document->tree);
+static TARGET_FILENAME *
+normalized_label_id_file (CONVERTER *self, char *normalized,
+                          ELEMENT* label_element)
+{
+  char *target;
+  char *target_customized;
+  TARGET_FILENAME *target_filename
+    = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+
+  int normalized_need_to_be_freed = 0;
+  if (!normalized)
+    {
+      normalized = convert_contents_to_identifier (label_element);
+      normalized_need_to_be_freed = 1;
+    }
+
+  if (normalized)
+    target = normalized_to_id (normalized);
   else
-    output_units_descriptor = split_by_section (self->document->tree);
-  *output_units_descriptor_ref = output_units_descriptor;
+    target = strdup ("");
 
-  /* Needs to be set early in case it would be needed to find some region
-     command associated root command. */
-  self->document_units_descriptor = output_units_descriptor;
+  /* to find out the Top node, one could check $normalized */
+  target_customized = call_file_id_setting_label_target_name (self,
+                                  normalized, label_element, target);
 
-  /* This may be done as soon as output units are available. */
-  prepare_output_units_global_targets (self, output_units_descriptor);
+  if (target_customized)
+    {
+      free (target);
+      target = target_customized;
+    }
 
-  /* the presence of contents elements in the document is used in diverse
-     places, set it once for all here */
-  set_global_document_commands (self, CL_last, contents_elements_options);
-  set_global_document_commands (self, CL_last, conf_for_special_units);
-  /*
-    NOTE if the last value of footnotestyle is separate, all the footnotes
-    formatted text are set to the special element set in _prepare_special_units
-    as _html_get_tree_root_element uses the Footnote direction for every footnote.
-    Therefore if @footnotestyle separate is set late in the document the current
-    value may not be consistent with the link obtained for the footnote
-    formatted text.  This is not an issue, as the manual says that
-    @footnotestyle should only appear in the preamble, and it makes sense
-    to have something consistent in the whole document for footnotes position.
-   */
-  prepare_special_units (self, output_units_descriptor,
-                         special_units_descriptor_ref,
-                         associated_special_units_descriptor_ref);
+  if (normalized_need_to_be_freed)
+    free (normalized);
 
-  /* reset to the default */
-  set_global_document_commands (self, CL_before, conf_for_special_units);
+  target_filename->target = target;
+  target_filename->filename = node_information_filename (self, normalized,
+                                                         label_element);
+
+  return target_filename;
+}
+
+char *
+unique_target (CONVERTER *self, char *target_base)
+{
+  int nr = 1;
+  char *target = strdup (target_base);
+  while (1)
+    {
+      int j;
+      int non_unique = 0;
+      for (j = 0; j < self->seen_ids->number; j++)
+        {
+          if (!strcmp (target, self->seen_ids->list[j]))
+            {
+              non_unique = 1;
+              break;
+            }
+        }
+      if (non_unique)
+        {
+          free (target);
+          xasprintf (&target, "%s-%d", target_base, nr);
+          nr++;
+          if (nr == 0)
+            fatal ("overflow");
+        }
+      else
+        return target;
+    }
+}
+
+static void
+new_sectioning_command_target (CONVERTER *self, ELEMENT *command)
+{
+  char *normalized_name;
+  char *filename;
+  char *target_base;
+  char *target;
+  char *target_contents = 0;
+  char *target_shortcontents = 0;
+  TARGET_CONTENTS_FILENAME *target_contents_filename;
+
+  TARGET_FILENAME *target_filename
+    = normalized_sectioning_command_filename (self, command);
+
+  normalized_name = target_filename->target;
+  filename = target_filename->filename;
+
+  free (target_filename);
+
+  target_base = normalized_to_id (normalized_name);
+
+  if (!strlen (target_base) && command->cmd == CM_top)
+    {
+      /* @top is allowed to be empty.  In that case it gets this target name */
+      free (target_base);
+      target_base = strdup ("SEC_Top");
+    }
+
+  if (strlen (target_base))
+    target = unique_target (self, target_base);
+  else
+    target = strdup ("");
+
+  free (target_base);
+
+  if (strlen (target)
+      && (builtin_command_flags(command) & CF_sectioning_heading))
+    {
+      char *target_base_contents;
+      char *target_base_shortcontents;
+      xasprintf (&target_base_contents, "toc-%s", normalized_name);
+      target_contents = unique_target (self, target_base_contents);
+      free (target_base_contents);
+
+      xasprintf (&target_base_shortcontents, "stoc-%s", normalized_name);
+      target_shortcontents = unique_target (self, target_base_shortcontents);
+      free (target_base_shortcontents);
+    }
+
+  free (normalized_name);
+
+  target_contents_filename
+    = call_file_id_setting_sectioning_command_target_name (self, command,
+                  target, target_contents, target_shortcontents, filename);
+  if (target_contents_filename)
+    {
+      free (target);
+      target = target_contents_filename->target;
+      free (filename);
+      filename = target_contents_filename->filename;
+      free (target_contents);
+      target_contents = target_contents_filename->target_contents;
+      free (target_shortcontents);
+      target_shortcontents = target_contents_filename->target_shortcontents;
+
+      free (target_contents_filename);
+    }
+
+  if (self->conf->DEBUG > 0)
+    {
+      char *command_name = element_command_name (command);
+      fprintf (stderr, "Register %s %s\n", command_name, target);
+    }
+
+  HTML_TARGET *element_target
+    = add_element_target (self, command, target);
+  element_target->section_filename = filename;
+  add_string (target, self->seen_ids);
+
+  if (target_contents)
+    element_target->contents_target = target_contents;
+  else
+    element_target->contents_target = strdup ("");
+
+  if (target_shortcontents)
+    element_target->shortcontents_target = target_shortcontents;
+  else
+    element_target->shortcontents_target = strdup ("");
+}
+
+/*
+ This set with two different codes
+  * the target information, id and normalized filename of 'identifiers_target',
+    ie everything that may be the target of a ref, @node, @float label,
+    @anchor.
+  * The target information of sectioning elements
+ @node and section commands targets are therefore both set.
+
+ conversion to HTML is done on-demand, upon call to command_text
+ and similar functions.
+ Note that 'node_filename', which is set here for Top target information
+ too, is not used later for Top anchors or links, see the NOTE below
+ associated with setting TOP_NODE_FILE_TARGET.
+ */
+void
+set_root_commands_targets_node_files (CONVERTER *self)
+{
+
+  if (self->document->identifiers_target)
+    {
+      char *extension = "";
+
+      if (self->conf->EXTENSION)
+        extension = self->conf->EXTENSION;
+      LABEL_LIST *label_targets = self->document->identifiers_target;
+      int i;
+      for (i = 0; i < label_targets->number; i++)
+        {
+          char *target;
+          char *node_filename;
+          char *user_node_filename;
+          LABEL *label = &label_targets->list[i];
+          ELEMENT *target_element = label->element;
+          ELEMENT *label_element = get_label_element (target_element);
+
+          TARGET_FILENAME *target_filename =
+           normalized_label_id_file (self, label->identifier, label_element);
+          target = target_filename->target;
+          xasprintf (&node_filename, "%s%s", target_filename->filename, extension);
+
+          free (target_filename->filename);
+          free (target_filename);
+
+          user_node_filename = call_file_id_setting_node_file_name (self,
+                                               target_element, node_filename);
+          if (user_node_filename)
+            {
+              free (node_filename);
+              node_filename = user_node_filename;
+            }
+          else if (self->conf->VERBOSE > 0)
+            {
+              message_list_document_warn (self->error_messages, self->conf,
+                             "user-defined node file name not set for `%s'",
+                             node_filename);
+            }
+          else if (self->conf->DEBUG > 0)
+            {
+              fprintf (stderr, "user-defined node file name undef for `%s'\n",
+                       node_filename);
+            }
+
+          if (self->conf->DEBUG > 0)
+            {
+              char *command_name = element_command_name (target_element);
+              fprintf (stderr, "Label @%s %s, %s\n", command_name, target,
+                               node_filename);
+            }
+
+          HTML_TARGET *element_target
+            = add_element_target (self, target_element, target);
+          element_target->node_filename = node_filename;
+          add_string (target, self->seen_ids);
+        }
+    }
+
+  if (self->document->sections_list)
+    {
+      ELEMENT *sections_list = self->document->sections_list;
+      int i;
+      for (i = 0; i < sections_list->contents.number; i++)
+        {
+          ELEMENT *root_element = sections_list->contents.list[i];
+          new_sectioning_command_target (self, root_element);
+        }
+    }
 }
 
 /* for conversion units except for associated special units that require
@@ -658,4 +921,5 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   set_special_units_targets_files (self, special_units_descriptor,
                                    document_name);
 
+  set_root_commands_targets_node_files (self);
 }

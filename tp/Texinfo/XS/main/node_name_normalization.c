@@ -304,3 +304,39 @@ convert_contents_to_identifier (ELEMENT *e)
 
   return result;
 }
+
+char *
+unicode_to_transliterate (char *text)
+{
+  int status;
+  char *result = encode_string (text, "utf-8//TRANSLIT", &status, 0);
+  return result;
+}
+
+char *
+normalize_transliterate_texinfo (ELEMENT *e)
+{
+  char *converted_name = convert_to_normalized (e);
+  char *normalized_name = normalize_NFC (converted_name);
+  char *transliterated = unicode_to_transliterate (normalized_name);
+  char *result = unicode_to_protected (transliterated);
+
+  free (converted_name);
+  free (normalized_name);
+  free (transliterated);
+  return result;
+}
+
+char *
+normalize_transliterate_texinfo_contents (ELEMENT *e)
+{
+  ELEMENT *tmp = new_element (ET_NONE);
+  char *result;
+
+  tmp->contents = e->contents;
+  result = normalize_transliterate_texinfo (tmp);
+  tmp->contents.list = 0;
+  destroy_element (tmp);
+
+  return result;
+}

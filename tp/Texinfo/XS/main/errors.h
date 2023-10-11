@@ -26,6 +26,13 @@ void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                                 ELEMENT *e, char *format, ...);
 
+void message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
+                                  OPTIONS *conf,
+                                  char *format, ...);
+void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
+                                 OPTIONS *conf,
+                                 char *format, ...);
+
 extern ERROR_MESSAGE_LIST error_messages_list;
 extern SOURCE_INFO current_source_info;
 

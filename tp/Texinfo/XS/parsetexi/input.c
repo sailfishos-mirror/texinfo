@@ -55,7 +55,7 @@ static char *input_pushback_string;
 
 static iconv_t reverse_iconv; /* used in encode_file_name */
 
-static ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
+static ENCODING_CONVERSION_LIST parser_input_conversions = {0, 0, 0, 1};
 
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
@@ -75,7 +75,7 @@ set_input_encoding (char *encoding)
     }
 
   current_encoding_conversion
-    = get_encoding_conversion (encoding, &input_conversions);
+    = get_encoding_conversion (encoding, &parser_input_conversions);
   if (current_encoding_conversion)
     {
       encoding_set = 1;
@@ -579,7 +579,7 @@ input_reset_input_stack (void)
 void
 parser_reset_encoding_list (void)
 {
-  reset_encoding_list (&input_conversions);
+  reset_encoding_list (&parser_input_conversions);
   /* could be named global_encoding_conversion and reset in wipe_global_info,
      but we prefer to keep it static as long as it is only used in one
      file */

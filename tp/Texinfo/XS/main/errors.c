@@ -45,6 +45,22 @@ SOURCE_INFO current_source_info;
 
 ERROR_MESSAGE_LIST error_messages_list;
 
+static ERROR_MESSAGE *
+reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
+{
+  ERROR_MESSAGE *error_message;
+  if (error_messages->number == error_messages->space)
+    {
+      error_messages->list = realloc (error_messages->list,
+         (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
+    }
+  error_message = &error_messages->list[error_messages->number];
+
+  error_messages->number++;
+
+  return error_message;
+}
+
 static void
 message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
                                   enum error_type type, int continuation,
@@ -62,12 +78,8 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
 #endif
   if (!message) fatal ("vasprintf failed");
 
-  if (error_messages->number == error_messages->space)
-    {
-      error_messages->list = realloc (error_messages->list,
-         (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
-    }
-  error_message = &error_messages->list[error_messages->number];
+  error_message = reallocate_error_messages (error_messages);
+
   error_message->message = message;
   error_message->type = type;
   error_message->continuation = continuation;
@@ -132,8 +144,78 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   if (debug_output)
     fprintf (stderr, error_message->error_line);
+}
 
-  error_messages->number++;
+static void
+message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
+                                      OPTIONS *conf,
+                                      enum error_type type, int continuation,
+                                      char *format, va_list v)
+{
+  char *message;
+  TEXT error_line;
+  ERROR_MESSAGE *error_message;
+
+#ifdef ENABLE_NLS
+  xvasprintf (&message, gettext(format), v);
+#else
+  xvasprintf (&message, format, v);
+#endif
+  if (!message) fatal ("vasprintf failed");
+
+  error_message = reallocate_error_messages (error_messages);
+
+  error_message->message = message;
+  error_message->type = type;
+  error_message->continuation = continuation;
+
+  if (conf && conf->PROGRAM && strlen (conf->PROGRAM))
+    {
+      if (type == warning)
+        {
+#ifdef ENABLE_NLS
+          text_printf (&error_line,
+                       pgettext ("whole document warning",
+                                 "%s: warning: %s"),
+                       conf->PROGRAM, error_message->message);
+#else
+          text_printf (&error_line, "%s: warning: %s",
+                       conf->PROGRAM, error_message->message);
+#endif
+        }
+      else
+        {
+          text_printf (&error_line, "%s: %s",
+                       conf->PROGRAM, error_message->message);
+        }
+    }
+  else
+    {
+      if (type == warning)
+        {
+#ifdef ENABLE_NLS
+          text_printf (&error_line,
+                       pgettext ("whole document warning",
+                                 "warning: %s"),
+                       error_message->message);
+#else
+          text_printf (&error_line, "warning: %s",
+                       error_message->message);
+#endif
+        }
+      else
+        {
+          text_append (&error_line, error_message->message);
+        }
+    }
+  text_append (&error_line, "\n");
+
+  error_message->error_line = error_line.text;
+
+  /*
+  if (debug_output)
+    fprintf (stderr, error_message->error_line);
+   */
 }
 
 static void
@@ -213,6 +295,31 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   message_list_line_error_internal (error_messages, error, 0, &e->source_info,
                                     format, v);
+}
+
+/* FIXME continuation? */
+void
+message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
+                             OPTIONS *conf,
+                             char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  message_list_document_error_internal (error_messages, conf, error, 0,
+                                        format, v);
+}
+
+void
+message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
+                            OPTIONS *conf,
+                            char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  message_list_document_error_internal (error_messages, conf, warning, 0,
+                                        format, v);
 }
 
 void

@@ -66,6 +66,9 @@ typedef struct {
   int direction;  /* if > 0 converts from the encodings to UTF-8 */
 } ENCODING_CONVERSION_LIST;
 
+extern ENCODING_CONVERSION_LIST output_conversions;
+extern ENCODING_CONVERSION_LIST input_conversions;
+
 struct expanded_format {
     char *format;
     int expandedp;
@@ -165,6 +168,10 @@ typedef struct HTML_TARGET {
   ELEMENT *element;
   char *target;
   char *special_unit_filename;
+  char *node_filename;
+  char *section_filename;
+  char *contents_target;
+  char *shortcontents_target;
 } HTML_TARGET;
 
 typedef struct HTML_TARGET_LIST {
@@ -179,6 +186,8 @@ typedef struct CONVERTER {
   OPTIONS *init_conf;
   struct DOCUMENT *document;
   int document_units_descriptor;
+
+  ERROR_MESSAGE_LIST *error_messages;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
@@ -197,6 +206,13 @@ typedef struct TARGET_FILENAME {
   char *target;
   char *filename;
 } TARGET_FILENAME;
+
+typedef struct TARGET_CONTENTS_FILENAME {
+  char *target;
+  char *filename;
+  char *target_contents;
+  char *target_shortcontents;
+} TARGET_CONTENTS_FILENAME;
 
 void fatal (char *);
 void bug (char *);
@@ -242,6 +258,10 @@ ENCODING_CONVERSION *get_encoding_conversion (char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);
 char *encode_with_iconv (iconv_t our_iconv,  char *s, SOURCE_INFO *source_info);
 void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
+char *decode_string (char *input_string, char *encoding, int *status,
+                     SOURCE_INFO *source_info);
+char *encode_string (char *input_string, char *encoding, int *status,
+                     SOURCE_INFO *source_info);
 
 struct expanded_format *new_expanded_formats (char *format);
 void clear_expanded_formats (struct expanded_format *formats);

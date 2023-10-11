@@ -1,5 +1,5 @@
 /* Copyright 2010-2023 Free Software Foundation, Inc.
-              
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -24,6 +24,7 @@
 #include "command_ids.h"
 #include "utils.h"
 #include "builtin_commands.h"
+#include "node_name_normalization.h"
 #include "converter.h"
 
 static CONVERTER *converter_list;
@@ -136,7 +137,7 @@ command_init (enum command_id cmd, OPTIONS *init_conf)
   if (option_default->type == GO_int)
     {
       if (option_default->value >= 0)
-        option_value = new_option_value (GO_int, option_default->value, 0); 
+        option_value = new_option_value (GO_int, option_default->value, 0);
     }
   else if (option_default->type == GO_char)
     {
@@ -206,4 +207,70 @@ set_global_document_commands (CONVERTER *converter,
             }
         }
     }
+}
+
+static void
+id_to_filename (CONVERTER *self, char **id_ref)
+{
+  if (self->conf->BASEFILENAME_LENGTH < 0)
+    return;
+  char *id = *id_ref;
+  if (strlen (id) > self->conf->BASEFILENAME_LENGTH)
+    {
+      id[self->conf->BASEFILENAME_LENGTH] = '\0';
+    }
+}
+
+TARGET_FILENAME *
+normalized_sectioning_command_filename (CONVERTER *self, ELEMENT *command)
+{
+  TARGET_FILENAME *result
+     = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+  TEXT filename;
+  char *normalized_file_name;
+  char *normalized_name
+    = normalize_transliterate_texinfo_contents (command->args.list[0]);
+  normalized_file_name = strdup (normalized_name);
+  id_to_filename (self, &normalized_file_name);
+
+  text_init (&filename);
+  text_append (&filename, normalized_file_name);
+  if (self->conf->EXTENSION && strlen (self->conf->EXTENSION))
+    {
+      text_append (&filename, ".");
+      text_append (&filename, self->conf->EXTENSION);
+    }
+
+  free (normalized_file_name);
+
+  result->filename = filename.text;
+  result->target = normalized_name;
+
+  return result;
+}
+
+char *
+node_information_filename (CONVERTER *self, char *normalized,
+                           ELEMENT *label_element)
+{
+  char *filename;
+
+  if (normalized)
+    {
+      if (self->conf->TRANSLITERATE_FILE_NAMES > 0)
+        {
+          filename = normalize_transliterate_texinfo_contents (label_element);
+        }
+      else
+        filename = strdup (normalized);
+    }
+  else if (label_element)
+    {
+      filename = convert_contents_to_identifier (label_element);
+    }
+  else
+    filename = strdup ("");
+
+  id_to_filename (self, &filename);
+  return filename;
 }

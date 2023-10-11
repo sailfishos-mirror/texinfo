@@ -43,9 +43,6 @@ char *convert_utils_month_name[12] = {
      "November", "December"
 };
 
-static ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
-static ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
-
 /* in Texinfo::Common */
 char *
 element_associated_processing_encoding (ELEMENT *element)
@@ -173,52 +170,6 @@ add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
     text_append (&result, text);
    }
   return result.text;
-}
-
-static char *
-decode_string (char *input_string, char *encoding, int *status,
-               SOURCE_INFO *source_info)
-{
-  char *result;
-  *status = 0;
-  /* not sure this can happen */
-  if (!encoding)
-    return strdup(input_string);
-
-  ENCODING_CONVERSION *conversion
-    = get_encoding_conversion (encoding, &input_conversions);
-
-  if (!conversion)
-    return strdup(input_string);
-
-  *status = 1;
-
-  result = encode_with_iconv (conversion->iconv, input_string, source_info);
-  return result;
-}
-
-static char *
-encode_string (char *input_string, char *encoding, int *status,
-               SOURCE_INFO *source_info)
-{
-  char *result;
-  *status = 0;
-  /* could happen in specific cases, such as, for file names,
-     DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
-     information */
-  if (!encoding)
-    return strdup(input_string);
-
-  ENCODING_CONVERSION *conversion
-    = get_encoding_conversion (encoding, &output_conversions);
-
-  if (!conversion)
-    return strdup(input_string);
-
-  *status = 1;
-
-  result = encode_with_iconv (conversion->iconv, input_string, source_info);
-  return result;
 }
 
 static char *

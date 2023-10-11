@@ -61,6 +61,9 @@ const char *output_unit_type_names[] = {"unit",
                                         "external_node_unit",
                                         "special_unit"};
 
+ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
+ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
+
 /* to keep synchronized with enum command_location */
 const char *command_location_names[]
   = {"before", "last", "preamble", "preamble_or_first"};
@@ -336,6 +339,52 @@ encode_with_iconv (iconv_t our_iconv, char *s, SOURCE_INFO *source_info)
 
   t.text[t.end] = '\0';
   return strdup (t.text);
+}
+
+char *
+decode_string (char *input_string, char *encoding, int *status,
+               SOURCE_INFO *source_info)
+{
+  char *result;
+  *status = 0;
+  /* not sure this can happen */
+  if (!encoding)
+    return strdup(input_string);
+
+  ENCODING_CONVERSION *conversion
+    = get_encoding_conversion (encoding, &input_conversions);
+
+  if (!conversion)
+    return strdup(input_string);
+
+  *status = 1;
+
+  result = encode_with_iconv (conversion->iconv, input_string, source_info);
+  return result;
+}
+
+char *
+encode_string (char *input_string, char *encoding, int *status,
+               SOURCE_INFO *source_info)
+{
+  char *result;
+  *status = 0;
+  /* could happen in specific cases, such as, for file names,
+     DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
+     information */
+  if (!encoding)
+    return strdup(input_string);
+
+  ENCODING_CONVERSION *conversion
+    = get_encoding_conversion (encoding, &output_conversions);
+
+  if (!conversion)
+    return strdup(input_string);
+
+  *status = 1;
+
+  result = encode_with_iconv (conversion->iconv, input_string, source_info);
+  return result;
 }
 
 void

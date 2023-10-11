@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "tree_types.h"
 #include "utils.h"
 #include "command_ids.h"
 
@@ -13,5 +14,11 @@ size_t register_converter (CONVERTER *converter);
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,
                                   const enum command_id *cmd_list);
+
+char *node_information_filename (CONVERTER *self, char *normalized,
+                                 ELEMENT *label_element);
+
+TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
+                                                         ELEMENT *command);
 
 #endif

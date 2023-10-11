@@ -8749,20 +8749,16 @@ sub _new_sectioning_command_target($$)
 # Note that 'node_filename', which is set here for Top target information
 # too, is not used later for Top anchors or links, see the NOTE below
 # associated with setting TOP_NODE_FILE_TARGET.
-sub _set_root_commands_targets_node_files($$)
+sub _set_root_commands_targets_node_files($)
 {
   my $self = shift;
-  my $output_units = shift;
 
-  my $no_unidecode;
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
-
-  my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
   if ($self->{'identifiers_target'}) {
+    my $extension = '';
+    $extension = '.'.$self->get_conf('EXTENSION')
+                if (defined($self->get_conf('EXTENSION'))
+                    and $self->get_conf('EXTENSION') ne '');
+
     foreach my $label (sort(keys(%{$self->{'identifiers_target'}}))) {
       my $target_element = $self->{'identifiers_target'}->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
@@ -9206,7 +9202,7 @@ sub _prepare_conversion_units($$$)
   # are registered before elements id are.
   $self->_set_special_units_targets_files($special_units, $document_name);
 
-  $self->_set_root_commands_targets_node_files($output_units);
+  $self->_set_root_commands_targets_node_files();
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
