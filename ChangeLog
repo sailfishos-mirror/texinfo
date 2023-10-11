@@ -1,3 +1,9 @@
+2023-10-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_get_target)
+	(_new_sectioning_command_target): reorganize cide, remove return of
+	_new_sectioning_command_target, no functional change.
+
 2023-10-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (import, _XS_initialize_output_state)

@@ -687,14 +687,18 @@ sub _get_target($$)
   if (!defined($command)) {
     cluck("_get_target command not defined");
   }
-  if ($self->{'targets'}->{$command}) {
-    $target = $self->{'targets'}->{$command};
-  } elsif ($command->{'cmdname'}
+
+  if (!$self->{'targets'}->{$command}
+      and $command->{'cmdname'}
     # This should only happen for @*heading*, root_commands targets should
     # already be set.
-            and $sectioning_heading_commands{$command->{'cmdname'}}
-            and !$root_commands{$command->{'cmdname'}}) {
-    $target = $self->_new_sectioning_command_target($command);
+      and $sectioning_heading_commands{$command->{'cmdname'}}
+      and !$root_commands{$command->{'cmdname'}}) {
+    $self->_new_sectioning_command_target($command);
+  }
+
+  if ($self->{'targets'}->{$command}) {
+    $target = $self->{'targets'}->{$command};
   }
   return $target;
 }
@@ -8731,7 +8735,6 @@ sub _new_sectioning_command_target($$)
   } else {
     $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
   }
-  return $self->{'targets'}->{$command};
 }
 
 # This set with two different codes
