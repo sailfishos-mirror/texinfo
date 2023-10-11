@@ -1465,14 +1465,17 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                               macro = lookup_macro (existing);
                               if (macro)
                                 {
-                                  line_error_ext (warning, 0, &current->source_info,
+                                  line_error_ext (MSG_warning, 0,
+                                                  &current->source_info,
                                      "macro `%s' previously defined", name);
-                                  line_error_ext (warning, 0, &macro->element->source_info,
+                                  line_error_ext (MSG_warning, 0,
+                                                  &macro->element->source_info,
                                      "here is the previous definition of `%s'", name);
                                 }
                               else if (!(existing & USER_COMMAND_BIT))
                                 {
-                                  line_error_ext (warning, 0, &current->source_info,
+                                  line_error_ext (MSG_warning, 0,
+                                                  &current->source_info,
                                     "redefining Texinfo language command: @%s",
                                     name);
                                 }

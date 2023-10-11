@@ -103,7 +103,7 @@ check_register_target_element_label (ELEMENT *label_element,
       if (!*non_hyphen_char)
         {
           char *label_texi = convert_contents_to_texinfo (label_element);
-          line_error_ext (error, 0, &target_element->source_info,
+          line_error_ext (MSG_error, 0, &target_element->source_info,
                           "empty node name after expansion `%s'",
                            label_texi);
           free (label_texi);

@@ -1022,8 +1022,8 @@ convert_error (ERROR_MESSAGE e)
   hv_store (hv, "text", strlen ("text"), msg, 0);
   hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
   hv_store (hv, "type", strlen ("type"),
-              e.type == error ? newSVpv("error", strlen("error"))
-                              : newSVpv("warning", strlen("warning")),
+              e.type == MSG_error ? newSVpv("error", strlen("error"))
+                                  : newSVpv("warning", strlen("warning")),
             0);
 
   if (e.continuation)

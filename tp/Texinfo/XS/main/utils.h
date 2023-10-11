@@ -38,7 +38,7 @@ extern const char *output_unit_type_names[];
 
 extern const char *command_location_names[];
 
-enum error_type { error, warning };
+enum error_type { MSG_error, MSG_warning };
 
 typedef struct {
     char *message;

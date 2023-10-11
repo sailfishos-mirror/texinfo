@@ -99,7 +99,7 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
   if (error_message->source_info.macro)
     {
 #ifdef ENABLE_NLS
-      if (type == warning)
+      if (type == MSG_warning)
         {
           text_printf (&error_line,
                        pgettext ("Texinfo source file warning",
@@ -114,7 +114,7 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
                        error_message->message, error_message->source_info.macro);
         }
 #else
-      if (type == warning)
+      if (type == MSG_warning)
         text_printf (&error_line, "warning: %s (possibly involving @%s)",
                      error_message->message, error_message->source_info.macro);
       else
@@ -124,7 +124,7 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
     }
   else
     {
-      if (type == warning)
+      if (type == MSG_warning)
         {
 #ifdef ENABLE_NLS
           text_printf (&error_line, pgettext ("Texinfo source file warning",
@@ -171,7 +171,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   if (conf && conf->PROGRAM && strlen (conf->PROGRAM))
     {
-      if (type == warning)
+      if (type == MSG_warning)
         {
 #ifdef ENABLE_NLS
           text_printf (&error_line,
@@ -191,7 +191,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
     }
   else
     {
-      if (type == warning)
+      if (type == MSG_warning)
         {
 #ifdef ENABLE_NLS
           text_printf (&error_line,
@@ -245,7 +245,7 @@ line_error (char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (error, 0, 0, format, v);
+  line_error_internal (MSG_error, 0, 0, format, v);
 }
 
 void
@@ -254,7 +254,7 @@ line_warn (char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (warning, 0, 0, format, v);
+  line_error_internal (MSG_warning, 0, 0, format, v);
 }
 
 void
@@ -263,7 +263,7 @@ command_warn (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (warning, 0, &e->source_info, format, v);
+  line_error_internal (MSG_warning, 0, &e->source_info, format, v);
 }
 
 void
@@ -273,7 +273,7 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_line_error_internal (error_messages, warning, 0,
+  message_list_line_error_internal (error_messages, MSG_warning, 0,
                                     &e->source_info, format, v);
 }
 
@@ -283,7 +283,7 @@ command_error (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (error, 0, &e->source_info, format, v);
+  line_error_internal (MSG_error, 0, &e->source_info, format, v);
 }
 
 void
@@ -293,8 +293,8 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_line_error_internal (error_messages, error, 0, &e->source_info,
-                                    format, v);
+  message_list_line_error_internal (error_messages, MSG_error, 0,
+                                    &e->source_info, format, v);
 }
 
 /* FIXME continuation? */
@@ -306,7 +306,7 @@ message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_document_error_internal (error_messages, conf, error, 0,
+  message_list_document_error_internal (error_messages, conf, MSG_error, 0,
                                         format, v);
 }
 
@@ -318,7 +318,7 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_document_error_internal (error_messages, conf, warning, 0,
+  message_list_document_error_internal (error_messages, conf, MSG_warning, 0,
                                         format, v);
 }
 

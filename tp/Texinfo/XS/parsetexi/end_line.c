@@ -1509,7 +1509,7 @@ end_line_misc_line (ELEMENT *current)
       label_element = current->args.list[0];
       if (label_element->contents.number == 0)
         {
-          line_error_ext (error, 0, &current->source_info,
+          line_error_ext (MSG_error, 0, &current->source_info,
                           "empty argument in @%s", command_name (cmd));
         }
       check_register_target_element_label (label_element, current);
@@ -1713,7 +1713,7 @@ end_line_misc_line (ELEMENT *current)
                                  current);
               if (current->cmd == CM_top)
                 {
-                  line_error_ext (warning, 0, &current_part->source_info,
+                  line_error_ext (MSG_warning, 0, &current_part->source_info,
                          "@part should not be associated with @top");
                 }
               current_part = 0;
