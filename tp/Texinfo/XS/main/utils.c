@@ -103,6 +103,12 @@ isascii_alpha (int c)
 }
 
 int
+isascii_digit (int c)
+{
+  return (((c & ~0x7f) == 0) && isdigit(c));
+}
+
+int
 isascii_lower (int c)
 {
   return (((c & ~0x7f) == 0) && islower(c));
@@ -465,6 +471,14 @@ indices_info_index_by_name (INDEX **indices_information, char *name)
     if (!strcmp (idx->name, name))
       return idx;
   return 0;
+}
+
+INDEX *
+ultimate_index (INDEX *index)
+{
+  while (index->merged_in)
+    index = index->merged_in;
+  return index;
 }
 
 /* Read a name used for @set, @value and translations arguments. */

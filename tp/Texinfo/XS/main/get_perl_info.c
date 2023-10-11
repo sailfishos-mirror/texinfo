@@ -384,13 +384,23 @@ html_converter_initialize (SV *sv_in)
           if (special_unit_info_type_sv)
             {
               int k;
-              HV *special_unit_info_type_hv
+              HV *special_unit_info_type_hv;
+
+              if (!SvOK (*special_unit_info_type_sv))
+                {
+                  fprintf (stderr, "BUG: special_unit_info: %s: undef\n",
+                                   sui_type);
+                }
+
+              special_unit_info_type_hv
                    = (HV *) SvRV(*special_unit_info_type_sv);
+
               converter->special_unit_info[j]
                = (char **)
                  malloc ((special_unit_varieties->number +1) * sizeof (char *));
               memset (converter->special_unit_info[j], 0,
                       (special_unit_varieties->number +1) * sizeof (char *));
+
               for (k = 0; k < special_unit_varieties->number; k++)
                 {
                   char *variety_name = special_unit_varieties->list[k];
@@ -399,9 +409,15 @@ html_converter_initialize (SV *sv_in)
                                strlen (variety_name), 0);
                   if (info_type_variety_sv)
                     {
-                      char *value
-                       = (char *) SvPVbyte_nolen (*info_type_variety_sv);
-                      converter->special_unit_info[j][k] = strdup (value);
+                      /* can be undef if set undef in user init file */
+                      if (SvOK (*info_type_variety_sv))
+                        {
+                          char *value
+                            = (char *) SvPVbyte_nolen (*info_type_variety_sv);
+                          converter->special_unit_info[j][k] = strdup (value);
+                        }
+                      else
+                        converter->special_unit_info[j][k] = 0;
                     }
                 }
             }

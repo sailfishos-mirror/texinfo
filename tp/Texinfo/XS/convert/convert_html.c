@@ -31,6 +31,7 @@
 #include "tree_perl_api.h"
 #include "converter.h"
 #include "node_name_normalization.h"
+#include "indices_in_conversion.h"
 #include "convert_html.h"
 
 
@@ -648,7 +649,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
 static char *
 normalized_to_id (char *id)
 {
-  if (isascii_alpha (id[0]) || id[0] == '_')
+  if (isascii_digit (id[0]) || id[0] == '_')
     {
       char *result;
       xasprintf (&result, "%s%s", "g_t", id);
@@ -861,6 +862,10 @@ set_root_commands_targets_node_files (CONVERTER *self)
           free (target_filename->filename);
           free (target_filename);
 
+          /* a non defined filename is ok if called with convert, but not
+             if output in files.  We reset if undef, silently unless verbose
+             in case called by convert. */
+
           user_node_filename = call_file_id_setting_node_file_name (self,
                                                target_element, node_filename);
           if (user_node_filename)
@@ -906,6 +911,16 @@ set_root_commands_targets_node_files (CONVERTER *self)
     }
 }
 
+void
+prepare_index_entries (CONVERTER *self)
+{
+  if (self->document->index_names)
+    {
+      INDEX **index_names = self->document->index_names;
+      MERGED_INDEX **merged_index_entries = merge_indices (index_names);
+    }
+}
+
 /* for conversion units except for associated special units that require
    files for document units to be set */
 void
@@ -922,4 +937,6 @@ html_prepare_conversion_units_targets (CONVERTER *self,
                                    document_name);
 
   set_root_commands_targets_node_files (self);
+
+  prepare_index_entries (self);
 }

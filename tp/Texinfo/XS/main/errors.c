@@ -169,6 +169,9 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
   error_message->type = type;
   error_message->continuation = continuation;
 
+  text_init (&error_line);
+  text_append (&error_line, "");
+
   if (conf && conf->PROGRAM && strlen (conf->PROGRAM))
     {
       if (type == MSG_warning)

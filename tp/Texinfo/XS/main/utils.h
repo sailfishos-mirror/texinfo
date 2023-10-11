@@ -219,6 +219,7 @@ void bug (char *);
 
 int isascii_alnum (int c);
 int isascii_alpha (int c);
+int isascii_digit (int c);
 int isascii_lower (int c);
 int isascii_upper (int c);
 size_t count_multibyte (const char *text);
@@ -231,6 +232,7 @@ void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 char *normalize_encoding_name (char *text, int *possible_encoding);
 ELEMENT *get_label_element (ELEMENT *e);
 INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
+INDEX *ultimate_index (INDEX *index);
 char *read_flag_name (char **ptr);
 int section_level (ELEMENT *section);
 char *collapse_spaces (char *text);

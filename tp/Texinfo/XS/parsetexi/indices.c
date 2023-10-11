@@ -29,9 +29,8 @@
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"
-/*
+/* for ultimate_index */
 #include "utils.h"
-*/
 /* for copy_tree */
 #include "manipulate_tree.h"
 #include "commands.h"
@@ -351,14 +350,6 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
 
 
 
-INDEX *
-ultimate_index (INDEX *index)
-{
-  while (index->merged_in)
-    index = index->merged_in;
-  return index;
-}
-
 void
 resolve_indices_merged_in (void)
 {

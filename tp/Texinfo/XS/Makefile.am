@@ -363,7 +363,9 @@ ConvertXS_la_SOURCES = \
                        convert/converter.h \
                        convert/converter.c \
                        convert/convert_html.h \
-                       convert/convert_html.c
+                       convert/convert_html.c \
+                       convert/indices_in_conversion.h \
+                       convert/indices_in_conversion.c
 
 EXTRA_DIST += convert/ConvertXS.xs
 

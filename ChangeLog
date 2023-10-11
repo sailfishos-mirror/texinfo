@@ -1,5 +1,31 @@
 2023-10-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (normalized_to_id),
+	tp/Texinfo/XS/main/utils.c (isascii_digit): add prefix
+	only if starting with digit.
+
+	* tp/Texinfo/XS/main/errors.c (message_list_document_error_internal):
+	initialize error_line.
+
+	* tp/Texinfo/XS/main/call_perl_function.c: add missing PUTBACK.
+
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_file_id_setting_node_file_name): allow undef returned
+	node_filename.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize):
+	handle undef special_unit_info value.
+
+	* tp/Texinfo/XS/main/utils.c (ultimate_index): move to main/utils.c.
+
+	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_SOURCES),
+	convert/indices_in_conversion.c (merge_indices),
+	tp/Texinfo/XS/convert/convert_html.c (prepare_index_entries)
+	(html_prepare_conversion_units_targets): preliminary implementation of
+	prepare_index_entries, with merge_indices done.
+
+2023-10-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.h (enum error_type): use more specific
 	enum names by prepending MSG_.  Update users.
 
