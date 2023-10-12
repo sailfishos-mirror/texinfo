@@ -21,4 +21,8 @@ char *node_information_filename (CONVERTER *self, char *normalized,
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                          ELEMENT *command);
 
+ELEMENT *comma_index_subentries_tree (ELEMENT *current_entry,
+                                      char *separator);
+void free_comma_index_subentries_tree (ELEMENT *element);
+
 #endif

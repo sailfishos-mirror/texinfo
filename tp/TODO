@@ -12,7 +12,11 @@ Before next release
 
 Check format_translate_message_tree api after the changes in gdt api
 when the translation of HTML to C is advnaced enough that it becomes clear
-that the API won't change again
+that the API won't change again.
+
+For unicode sorting in C for index sorting, strcoll_l could be used,
+it sorts accoding to a locale specified in argument.  However, it does not
+seems to be that portable, and there is no associated gnulib module.
 
 Bugs
 ====

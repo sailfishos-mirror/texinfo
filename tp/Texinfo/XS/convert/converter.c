@@ -22,6 +22,9 @@
 #include <stddef.h>
 
 #include "command_ids.h"
+#include "tree_types.h"
+#include "tree.h"
+#include "extra.h"
 #include "utils.h"
 #include "builtin_commands.h"
 #include "node_name_normalization.h"
@@ -273,4 +276,50 @@ node_information_filename (CONVERTER *self, char *normalized,
 
   id_to_filename (self, &filename);
   return filename;
+}
+
+ELEMENT *
+comma_index_subentries_tree (ELEMENT *current_entry,
+                             char *separator)
+{
+  ELEMENT *result = new_element (ET_NONE);
+  char *subentry_separator = separator;
+  if (!separator)
+    subentry_separator = ", ";
+
+  while (1)
+    {
+      ELEMENT *subentry = lookup_extra_element (current_entry, "subentry");
+      if (subentry)
+        {
+          ELEMENT *separator = new_element (ET_NONE);
+          text_append (&separator->text, subentry_separator);
+          current_entry = subentry;
+          add_to_contents_as_array (result, separator);
+          add_to_contents_as_array (result, current_entry->args.list[0]);
+        }
+      else
+        break;
+    }
+  if (result->contents.number > 0)
+    return result;
+  else
+    {
+      destroy_element (result);
+      return 0;
+    }
+}
+
+void
+free_comma_index_subentries_tree (ELEMENT *element)
+{
+  /* destroy separator elements */
+  int i;
+  for (i = 0; i < element->contents.number; i++)
+    {
+      ELEMENT *content = element->contents.list[i];
+      if (content->type == ET_NONE)
+        destroy_element (content);
+    }
+  destroy_element (element);
 }

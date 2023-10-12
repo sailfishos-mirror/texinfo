@@ -916,8 +916,92 @@ prepare_index_entries (CONVERTER *self)
 {
   if (self->document->index_names)
     {
+      INDEX **i, *idx;
       INDEX **index_names = self->document->index_names;
       MERGED_INDEX **merged_index_entries = merge_indices (index_names);
+
+      for (i = index_names; (idx = *i); i++)
+        {
+          if (idx->index_number > 0)
+            {
+              int j;
+              for (j = 0; j < idx->index_number; j++)
+                {
+                  INDEX_ENTRY *index_entry;
+                  ELEMENT *main_entry_element;
+                  ELEMENT *seeentry;
+                  ELEMENT *seealso;
+                  ELEMENT *entry_reference_content_element;
+                  ELEMENT *normalize_index_element;
+                  ELEMENT *subentries_tree;
+                  ELEMENT *trimmed_element;
+                  ELEMENT *target_element;
+                  TEXT target_base;
+                  char *normalized_index = "";
+                  char *region = 0;
+                  char *target;
+
+                  index_entry = &idx->index_entries[j];
+                  main_entry_element = index_entry->entry_element;
+                  seeentry = lookup_extra_element (main_entry_element, "seeentry");
+                  if (seeentry)
+                    continue;
+                  seealso = lookup_extra_element (main_entry_element, "seealso");
+                  if (seealso)
+                    continue;
+
+                  region = lookup_extra_string (main_entry_element,
+                                                "element_region");
+                  entry_reference_content_element
+                   = index_content_element (main_entry_element, 1);
+               /* construct element to convert to a normalized identifier to use as
+                  hrefs target */
+                  normalize_index_element = new_element (ET_NONE);
+                  add_to_element_contents (normalize_index_element,
+                                           entry_reference_content_element);
+
+                  subentries_tree
+                   = comma_index_subentries_tree (main_entry_element, " ");
+                  if (subentries_tree)
+                    {
+                      insert_slice_into_contents (normalize_index_element,
+                                        normalize_index_element->contents.number,
+                                        subentries_tree, 0,
+                                        subentries_tree->contents.number);
+                    }
+
+                  trimmed_element = trim_spaces_comment_from_content
+                                                (normalize_index_element);
+                  destroy_element (normalize_index_element);
+                  if (trimmed_element)
+                    {
+                      normalized_index
+                       = normalize_transliterate_texinfo (trimmed_element);
+                      destroy_element (trimmed_element);
+                    }
+                  if (subentries_tree)
+                    free_comma_index_subentries_tree (subentries_tree);
+
+                  text_init (&target_base);
+                  text_append (&target_base, "index-");
+                  if (region)
+                    {
+                      text_append (&target_base, region);
+                      text_append (&target_base, "-");
+                    }
+                  text_append (&target_base, normalized_index);
+                  target = unique_target (self, target_base.text);
+                  free (target_base.text);
+                  if (index_entry->entry_associated_element)
+                    target_element = index_entry->entry_associated_element;
+                  else
+                    target_element = main_entry_element;
+
+                  add_element_target (self, target_element, target);
+                  add_string (target, self->seen_ids);
+                }
+            }
+        }
     }
 }
 

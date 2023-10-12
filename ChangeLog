@@ -1,5 +1,14 @@
 2023-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_index_entries),
+	tp/Texinfo/XS/convert/converter.c (comma_index_subentries_tree)
+	(free_comma_index_subentries_tree),
+	tp/Texinfo/XS/convert/indices_in_conversion.c (index_content_element),
+	tp/Texinfo/XS/main/utils.c (trim_spaces_comment_from_content):
+	implement setting target for index entries.
+
+2023-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (trim_spaces_comment_from_content): modify
 	implementation to take as argument an element and return an element
 	or undef, and do not modify the input.  Add comments explaining why

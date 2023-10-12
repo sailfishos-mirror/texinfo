@@ -270,6 +270,8 @@ void clear_expanded_formats (struct expanded_format *formats);
 void add_expanded_format (struct expanded_format *formats, char *format);
 int format_expanded_p (struct expanded_format *formats, char *format);
 
+ELEMENT *trim_spaces_comment_from_content (ELEMENT *element);
+
 char *enumerate_item_representation (char *specification, int number);
 
 CONVERTER *new_converter (void);

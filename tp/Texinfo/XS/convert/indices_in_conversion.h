@@ -13,4 +13,7 @@ typedef struct MERGED_INDEX {
 
 MERGED_INDEX **merge_indices (INDEX **index_names);
 
+ELEMENT *index_content_element (ELEMENT *element,
+                                int prefer_reference_element);
+
 #endif

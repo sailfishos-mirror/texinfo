@@ -20,6 +20,7 @@
 
 #include "tree_types.h"
 #include "utils.h"
+#include "extra.h"
 #include "indices_in_conversion.h"
 
 
@@ -83,3 +84,27 @@ merge_indices (INDEX **index_names)
   return merged_indices;
 }
 
+/* in Texinfo::Common */
+
+ELEMENT *
+index_content_element (ELEMENT *element, int prefer_reference_element)
+{
+  ELEMENT *def_command = lookup_extra_element (element, "def_command");
+  if (def_command)
+   {
+     ELEMENT *def_index_element;
+     if (prefer_reference_element)
+       {
+         ELEMENT *def_index_ref_element
+           = lookup_extra_element (element, "def_index_ref_element");
+         if (def_index_ref_element)
+           return def_index_ref_element;
+       }
+     def_index_element = lookup_extra_element (element, "def_index_element");
+     return def_index_element;
+   }
+  else
+   {
+     return element->args.list[0];
+   }
+}
