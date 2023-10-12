@@ -73,7 +73,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                               'contents' => [
                                 {
                                   'extra' => {
-                                    'documentlanguage' => 'fr'
+                                    'documentlanguage' => 'fr',
+                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                                   },
                                   'text' => 'Instance Variable',
                                   'type' => 'untranslated'
@@ -513,7 +514,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'de'
+                            'documentlanguage' => 'de',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'

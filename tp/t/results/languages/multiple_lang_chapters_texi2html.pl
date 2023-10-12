@@ -698,7 +698,8 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'ja'
+                            'documentlanguage' => 'ja',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'
@@ -990,7 +991,8 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'en'
+                            'documentlanguage' => 'en',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'
@@ -1246,7 +1248,8 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'fr_FR'
+                            'documentlanguage' => 'fr_FR',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'

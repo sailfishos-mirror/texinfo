@@ -108,6 +108,12 @@ sub pgdt($$)
   return $_[1];
 }
 
+# to be used when the context needs to be returned too
+sub pgdt_context($$)
+{
+  return [$_[0], $_[1]];
+}
+
 
 # determine the null devices
 my $default_null_device = File::Spec->devnull();
@@ -627,32 +633,34 @@ our %def_map = (
     # shortcuts
     # The strings are marked to be translated in the parsers with type
     # 'untranslated'.
-    'defun',         {'deffn'     => pgdt('category of functions for @defun',
+    'defun',         {'deffn'     => pgdt_context(
+                                         'category of functions for @defun',
                                          'Function')},
     # TRANSLATORS: category of macros for @defmac
     'defmac',        {'deffn'     => gdt('Macro')},
     # TRANSLATORS: category of special forms for @defspec
     'defspec',       {'deffn'     => gdt('Special Form')},
-    'defvar',        {'defvr'     => pgdt('category of variables for @defvar',
+    'defvar',        {'defvr'     => pgdt_context(
+                                         'category of variables for @defvar',
                                           'Variable')},
     # TRANSLATORS: category of user-modifiable options for @defopt
     'defopt',        {'defvr'     => gdt('User Option')},
-    'deftypefun',    {'deftypefn' => pgdt(
+    'deftypefun',    {'deftypefn' => pgdt_context(
                       'category of functions for @deftypefun',
                                          'Function')},
-    'deftypevar',    {'deftypevr' => pgdt(
+    'deftypevar',    {'deftypevr' => pgdt_context(
                      'category of variables in typed languages for @deftypevar',
                                          'Variable')},
-    'defivar',       {'defcv'     => pgdt(
+    'defivar',       {'defcv'     => pgdt_context(
       'category of instance variables in object-oriented programming for @defivar',
                                           'Instance Variable')},
-    'deftypeivar',   {'deftypecv' => pgdt(
+    'deftypeivar',   {'deftypecv' => pgdt_context(
       'category of instance variables with data type in object-oriented programming for @deftypeivar',
                                           'Instance Variable')},
-    'defmethod',     {'defop'     => pgdt(
+    'defmethod',     {'defop'     => pgdt_context(
        'category of methods in object-oriented programming for @defmethod',
                                          'Method')},
-    'deftypemethod', {'deftypeop' => pgdt(
+    'deftypemethod', {'deftypeop' => pgdt_context(
         'category of methods with data type in object-oriented programming for @deftypemethod',
                                          'Method')},
 );

@@ -3252,15 +3252,27 @@ sub _parse_def($$$$)
     # could have used def_aliases, but use code more similar with the XS parser
     if ($def_alias_commands{$command}) {
       my $real_command = $def_aliases{$command};
-      my $prepended = $def_map{$command}->{$real_command};
+      my $category;
+      my $translation_context;
+      my $category_translation_context = $def_map{$command}->{$real_command};
+      # if the translation requires a context, $category_translation_context
+      # is an array reference, otherwise it is a string.
+      if (ref($category_translation_context) eq '') {
+        $category = $category_translation_context;
+      } else {
+        ($translation_context, $category) = @$category_translation_context;
+      }
       my $bracketed = { 'type' => 'bracketed_inserted',
                         'parent' => $current };
-      my $content = { 'text' => $prepended, 'parent' => $bracketed };
-      # the prepended string is an english string (such as Function).  If
+      my $content = { 'text' => $category, 'parent' => $bracketed };
+      # the category string is an english string (such as Function).  If
       # documentlanguage is set it needs to be translated during the conversion.
       if (defined($self->{'documentlanguage'})) {
         $content->{'type'} = 'untranslated';
         $content->{'extra'} = {'documentlanguage' => $self->{'documentlanguage'}};
+        if (defined($translation_context)) {
+          $content->{'extra'}->{'translation_context'} = $translation_context;
+        }
       }
       @{$bracketed->{'contents'}} = ($content);
 
@@ -9015,6 +9027,8 @@ I<spaces> or I<delimiter>, depending on the definition.
 The I<def_index_element> is a Texinfo tree element corresponding to
 the index entry associated to the definition line, based on the
 name and class.  If needed this element is based on translated strings.
+In that case, if C<@documentlanguage> is defined where the C<def_line>
+is located, I<documentlanguage> holds the documentlanguage value.
 I<def_index_ref_element> is similar, but not translated, and only set if
 there could have been a translation.
 
@@ -9178,6 +9192,11 @@ The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<sections_level>.
+
+=item C<untranslated>
+
+I<documentlanguage> holds the C<@documentlanguage> value.
+If there is a translation context, it should be in I<translation_context>.
 
 =back
 

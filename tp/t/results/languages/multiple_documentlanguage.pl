@@ -73,7 +73,8 @@ $result_trees{'multiple_documentlanguage'} = {
                               'contents' => [
                                 {
                                   'extra' => {
-                                    'documentlanguage' => 'fr'
+                                    'documentlanguage' => 'fr',
+                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                                   },
                                   'text' => 'Instance Variable',
                                   'type' => 'untranslated'
@@ -426,7 +427,8 @@ $result_trees{'multiple_documentlanguage'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'fr'
+                            'documentlanguage' => 'fr',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'
@@ -702,7 +704,8 @@ $result_trees{'multiple_documentlanguage'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'hr'
+                            'documentlanguage' => 'hr',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'

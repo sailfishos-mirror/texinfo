@@ -1,3 +1,17 @@
+2023-10-12  Patrice Dumas <pertusus@free.fr>
+
+	Add definition aliases translation context in the tree if needed
+
+	* tp/Texinfo/Common.pm (pgdt_context, %def_map),
+	tp/Texinfo/ParserNonXS.pm (_parse_def), tp/Texinfo/XS/parsetexi/def.c
+	(DEF_ALIAS, def_aliases, parse_def): add pgdt_context to mark strings,
+	which returns the context too.  Use the context in _parse_def to
+	add it to the tree for untranslated type.  Similarly in def_aliases in
+	def.c add a translation context if needed and add it to the tree in
+	parse_def.
+
+	* po_document/Makevars (XGETTEXT_OPTIONS): add pgdt_context.
+
 2023-10-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/maintain/regenerate_docstr.sh: Correct path to Makefile.am.

@@ -127,21 +127,22 @@ typedef struct {
     enum command_id alias;
     enum command_id command;
     char *category;
+    char *translation_context;
 } DEF_ALIAS;
 
 DEF_ALIAS def_aliases[] = {
-  CM_defun, CM_deffn, "Function",
-  CM_defmac, CM_deffn, "Macro",
-  CM_defspec, CM_deffn, "Special Form",
-  CM_defvar, CM_defvr, "Variable",
-  CM_defopt, CM_defvr, "User Option",
-  CM_deftypefun, CM_deftypefn, "Function",
-  CM_deftypevar, CM_deftypevr, "Variable",
-  CM_defivar, CM_defcv, "Instance Variable",
-  CM_deftypeivar, CM_deftypecv, "Instance Variable",
-  CM_defmethod, CM_defop, "Method",
-  CM_deftypemethod, CM_deftypeop, "Method",
-  0, 0, 0
+  CM_defun, CM_deffn, "Function", "category of functions for @defun",
+  CM_defmac, CM_deffn, "Macro", 0,
+  CM_defspec, CM_deffn, "Special Form", 0,
+  CM_defvar, CM_defvr, "Variable", "category of variables for @defvar",
+  CM_defopt, CM_defvr, "User Option", 0,
+  CM_deftypefun, CM_deftypefn, "Function", "category of functions for @deftypefun",
+  CM_deftypevar, CM_deftypevr, "Variable", "category of variables in typed languages for @deftypevar",
+  CM_defivar, CM_defcv, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
+  CM_deftypeivar, CM_deftypecv, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
+  CM_defmethod, CM_defop, "Method", "category of methods in object-oriented programming for @defmethod",
+  CM_deftypemethod, CM_deftypeop, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
+  0, 0, 0, 0
 };
 
 typedef struct {
@@ -362,6 +363,9 @@ parse_def (enum command_id command, ELEMENT *current)
           e1->type = ET_untranslated;
           add_extra_string_dup (e1, "documentlanguage",
                                 global_documentlanguage);
+          if (def_aliases[i].translation_context)
+            add_extra_string_dup (e1, "translation_context",
+                                  def_aliases[i].translation_context);
         }
 
       e = new_element (ET_spaces_inserted);
