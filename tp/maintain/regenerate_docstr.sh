@@ -11,7 +11,7 @@
 #
 # Originally written by Patrice Dumas.
 #
-# This script is used by doc/Makefile.am to regenerate Makefile.docstr
+# This script is used by tp/Makefile.am to regenerate Makefile.docstr
 
 dir=`echo $0 | sed 's,/[^/]*$,,'`
 outfile=$1
