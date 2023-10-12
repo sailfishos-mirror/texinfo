@@ -61,21 +61,27 @@ kbd: ``simple-double--three---four----''
 @"{U} U" (Ü) 
 @~n n~ (ñ)
 @^a a^ (â)
+
 @'e e' (é)
 @=o o= (ō)
 @`i i` (ì)
 @'{e} e' (é)
+
 @'{@dotless{i}} i' (í)
 @dotless{i} i (ı)
 @dotless{j} j (ȷ)
+
 @H{a} a''
 @dotaccent{a} a. (ȧ)
 @ringaccent{a} a* (å)
+
 @tieaccent{a} a[
 @u{a} a( (ă)
 @ubaraccent{a} a_
+
 @udotaccent{a} .a (ạ)
 @v{a} a< (ǎ)
+
 @,c c, (ç)
 @,{c} c, (ç)
 @ogonek{a} a; (ą)
@@ -89,9 +95,11 @@ kbd: ``simple-double--three---four----''
 @H{--a} -a''
 @dotaccent{--a} -a.
 @ringaccent{--a} -a*
+
 @tieaccent{--a} -a[
 @u{--a} -a(
 @ubaraccent{--a} -a_
+
 @udotaccent{--a} .-a
 @v{--a} -a<
 @,{--c} -c,
@@ -262,6 +270,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 
 i j
 /l c,
+
 a_ .a a; ahl
 
        ! @ } { 
@@ -906,21 +915,27 @@ kbd: ``simple-double--three---four----''
 @"{U} U" (Ü) 
 @~n n~ (ñ)
 @^a a^ (â)
+
 @'e e' (é)
 @=o o= (ō)
 @`i i` (ì)
 @'{e} e' (é)
+
 @'{@dotless{i}} i' (í)
 @dotless{i} i (ı)
 @dotless{j} j (ȷ)
+
 @H{a} a''
 @dotaccent{a} a. (ȧ)
 @ringaccent{a} a* (å)
+
 @tieaccent{a} a[
 @u{a} a( (ă)
 @ubaraccent{a} a_
+
 @udotaccent{a} .a (ạ)
 @v{a} a< (ǎ)
+
 @,c c, (ç)
 @,{c} c, (ç)
 @ogonek{a} a; (ą)
@@ -934,9 +949,11 @@ kbd: ``simple-double--three---four----''
 @H{--a} -a''
 @dotaccent{--a} -a.
 @ringaccent{--a} -a*
+
 @tieaccent{--a} -a[
 @u{--a} -a(
 @ubaraccent{--a} -a_
+
 @udotaccent{--a} .-a
 @v{--a} -a<
 @,{--c} -c,
@@ -1107,6 +1124,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 
 i j
 /l c,
+
 a_ .a a; ahl
 
        ! @ } { 

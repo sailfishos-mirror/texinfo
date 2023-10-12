@@ -1,3 +1,9 @@
+2023-10-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/coverage_macro.texi: Insert blank lines in block
+	of accent commands to avoid divergent test results on MinGW,
+	due to varying wcwidth values.  Report from Eli.
+
 2023-10-08  Eli Zaretskii <eliz@gnu.org>
 
 	* install-info/install-info.c (readfile):

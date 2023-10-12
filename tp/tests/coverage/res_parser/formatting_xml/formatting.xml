@@ -45,21 +45,27 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@&quot;@{U@} @&quot;{U} (Ü) 
 @@~n @~n (ñ)
 @@^a @^a (â)
+
 @@'e @'e (é)
 @@=o @=o (ō)
 @@`i @`i (ì)
 @@'@{e@} @'{e} (é)
+
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+
 @code{@@H@{a@}} @H{a}
 @code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
 @code{@@ringaccent@{a@}} @ringaccent{a} (å)
+
 @code{@@tieaccent@{a@}} @tieaccent{a}
 @code{@@u@{a@}} @u{a} (ă)
 @code{@@ubaraccent@{a@}} @ubaraccent{a}
+
 @code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
 @code{@@v@{a@}} @v{a} (ǎ)
+
 @@,c @,c (ç)
 @code{@@,@{c@}} @,{c} (ç)
 @code{@@ogonek@{a@}} @ogonek{a} (ą)
@@ -72,9 +78,11 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @code{@@H@{--a@}} @H{--a}
 @code{@@dotaccent@{--a@}} @dotaccent{--a}
 @code{@@ringaccent@{--a@}} @ringaccent{--a}
+
 @code{@@tieaccent@{--a@}} @tieaccent{--a}
 @code{@@u@{--a@}} @u{--a}
 @code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+
 @code{@@udotaccent@{--a@}} @udotaccent{--a}
 @code{@@v@{--a@}} @v{--a}
 @code{@@,@{--c@}} @,{--c}
@@ -258,6 +266,7 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
+
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -1233,22 +1242,28 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&quot;&lbrace;U&rbrace; <accent type="uml">U</accent> (Ü) 
 &arobase;~n <accent type="tilde" bracketed="off">n</accent> (ñ)
 &arobase;^a <accent type="circ" bracketed="off">a</accent> (â)
-&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
+</para>
+<para>&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
 &arobase;=o <accent type="macr" bracketed="off">o</accent> (ō)
 &arobase;&textlsquo;i <accent type="grave" bracketed="off">i</accent> (ì)
 &arobase;&textrsquo;&lbrace;e&rbrace; <accent type="acute">e</accent> (é)
-&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
+</para>
+<para>&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+</para>
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
 <code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
 <code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
 <code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+</para>
+<para><code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
 <code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+</para>
+<para>&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 <code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
 </para>
@@ -1260,10 +1275,12 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
 <code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
 <code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
 <code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
 <code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
@@ -1444,6 +1461,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
+
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -2392,22 +2410,28 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&quot;&lbrace;U&rbrace; <accent type="uml">U</accent> (Ü) 
 &arobase;~n <accent type="tilde" bracketed="off">n</accent> (ñ)
 &arobase;^a <accent type="circ" bracketed="off">a</accent> (â)
-&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
+</para>
+<para>&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
 &arobase;=o <accent type="macr" bracketed="off">o</accent> (ō)
 &arobase;&textlsquo;i <accent type="grave" bracketed="off">i</accent> (ì)
 &arobase;&textrsquo;&lbrace;e&rbrace; <accent type="acute">e</accent> (é)
-&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
+</para>
+<para>&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+</para>
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
 <code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
 <code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
 <code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+</para>
+<para><code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
 <code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+</para>
+<para>&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 <code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
 </para>
@@ -2419,10 +2443,12 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
 <code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
 <code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
 <code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
 <code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
@@ -2603,6 +2629,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
+
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -3591,22 +3618,28 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&quot;&lbrace;U&rbrace; <accent type="uml">U</accent> (Ü) 
 &arobase;~n <accent type="tilde" bracketed="off">n</accent> (ñ)
 &arobase;^a <accent type="circ" bracketed="off">a</accent> (â)
-&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
+</para>
+<para>&arobase;&textrsquo;e <accent type="acute" bracketed="off">e</accent> (é)
 &arobase;=o <accent type="macr" bracketed="off">o</accent> (ō)
 &arobase;&textlsquo;i <accent type="grave" bracketed="off">i</accent> (ì)
 &arobase;&textrsquo;&lbrace;e&rbrace; <accent type="acute">e</accent> (é)
-&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
+</para>
+<para>&arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+</para>
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
 <code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
 <code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
 <code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+</para>
+<para><code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
 <code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+</para>
+<para>&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 <code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
 </para>
@@ -3618,10 +3651,12 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
 <code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
 <code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
 <code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+</para>
+<para><code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
 <code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
@@ -3802,6 +3837,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
+
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -4744,21 +4780,27 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&quot;&lbrace;U&rbrace; <accent type="uml">U</accent> (Ü) 
 &arobase;~n <accent type="tilde" bracketed="off">n</accent> (ñ)
 &arobase;^a <accent type="circ" bracketed="off">a</accent> (â)
+
 &arobase;'e <accent type="acute" bracketed="off">e</accent> (é)
 &arobase;=o <accent type="macr" bracketed="off">o</accent> (ō)
 &arobase;`i <accent type="grave" bracketed="off">i</accent> (ì)
 &arobase;'&lbrace;e&rbrace; <accent type="acute">e</accent> (é)
+
 &arobase;'&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
+
 <code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
 <code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
+
 <code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
 <code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
 <code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
+
 <code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
 <code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
+
 &arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 <code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
@@ -4771,9 +4813,11 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">--a</accent>
 <code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">--a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">--a</accent>
+
 <code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">--a</accent>
 <code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">--a</accent>
 <code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">--a</accent>
+
 <code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">--a</accent>
 <code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">--a</accent>
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">--c</accent>
@@ -4955,6 +4999,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
+
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
