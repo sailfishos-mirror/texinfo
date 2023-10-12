@@ -1832,7 +1832,14 @@ sub _convert($$)
                   add_text($formatter->{'container'}, $element->{'text'}));
       }
     } else {
-      my $tree = $self->gdt($element->{'text'});
+      my $tree;
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'translation_context'}) {
+        $tree = $self->pgdt($element->{'extra'}->{'translation_context'},
+                            $element->{'text'});
+      } else {
+        $tree = $self->gdt($element->{'text'});
+      }
       my $converted = _convert($self, $tree);
       return $converted;
     }

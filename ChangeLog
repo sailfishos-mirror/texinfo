@@ -1,5 +1,14 @@
 2023-10-12  Patrice Dumas <pertusus@free.fr>
 
+	Use translation context for definition aliases in converters
+
+	* tp/Texinfo/Convert/HTML.pm (_convert), tp/Texinfo/Convert/LaTeX.pm
+	(_convert), tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert): use untranslated extra
+	translation context if set.  Report and analysis by Gavin.
+
+2023-10-12  Patrice Dumas <pertusus@free.fr>
+
 	Add definition aliases translation context in the tree if needed
 
 	* tp/Texinfo/Common.pm (pgdt_context, %def_map),
@@ -8,7 +17,7 @@
 	which returns the context too.  Use the context in _parse_def to
 	add it to the tree for untranslated type.  Similarly in def_aliases in
 	def.c add a translation context if needed and add it to the tree in
-	parse_def.
+	parse_def.  Report and analysis by Gavin.
 
 	* po_document/Makevars (XGETTEXT_OPTIONS): add pgdt_context.
 

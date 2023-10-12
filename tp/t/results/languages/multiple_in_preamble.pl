@@ -1009,7 +1009,7 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
 1 chap
 ******
 
- -- Instance Variable od hr: BBB CCC
+ -- Primjerak varijable od hr: BBB CCC
      greška→
 
  -- Instance Variable von de: FFF GGG
@@ -1018,7 +1018,7 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
 
 $result_converted{'info'}->{'multiple_in_preamble'} = 'This is , produced from .
 
- -- Instance Variable od copying: a b
+ -- Primjerak varijable od copying: a b
      greška→
 
 
@@ -1037,15 +1037,15 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Instance Variable od hr: BBB CCC
+ -- Primjerak varijable od hr: BBB CCC
      greška→
 
  -- Instance Variable von de: FFF GGG
 
 
 Tag Table:
-Node: Top82
-Node: chapter179
+Node: Top84
+Node: chapter181
 
 End Tag Table
 
@@ -1061,7 +1061,7 @@ $result_converted{'html'}->{'multiple_in_preamble'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Instance Variable od copying: a b
+<!-- Primjerak varijable od copying: a b
 greška→ -->
 <title>top section</title>
 
@@ -1106,7 +1106,7 @@ Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a hre
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Instance Variable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-hr"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjerak varijable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-hr"> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 

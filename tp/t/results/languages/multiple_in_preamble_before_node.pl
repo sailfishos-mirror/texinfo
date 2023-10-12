@@ -869,7 +869,7 @@ top section
 
 $result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
 
- -- Instance Variable od copying: a b
+ -- Primjerak varijable od copying: a b
      greška→
 
    Text ending the preamble
@@ -895,8 +895,8 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top111
-Node: chapter208
+Node: Top113
+Node: chapter210
 
 End Tag Table
 
@@ -912,7 +912,7 @@ $result_converted{'html'}->{'multiple_in_preamble_before_node'} = '<!DOCTYPE htm
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Instance Variable od copying: a b
+<!-- Primjerak varijable od copying: a b
 greška→ -->
 <title>top section</title>
 

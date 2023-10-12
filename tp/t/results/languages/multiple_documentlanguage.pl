@@ -1129,16 +1129,16 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
 1 Chap
 ******
 
- -- Instance Variable de fr : BBB CCC
+ -- Variable d\'instance de fr : BBB CCC
      erreur→
 
  -- Instance Variable von copying: a b
      error→
 
- -- Instance Variable od hr: BBB CCC
+ -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instance Variable od copying: a b
+ -- Primjerak varijable od copying: a b
      greška→
 
 * Menu:
@@ -1152,7 +1152,7 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
 
 $result_converted{'info'}->{'multiple_documentlanguage'} = 'This is , produced from .
 
- -- Instance Variable de copying : a b
+ -- Variable d\'instance de copying : a b
      erreur→
 
 
@@ -1171,16 +1171,16 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 Chap
 ******
 
- -- Instance Variable de fr : BBB CCC
+ -- Variable d\'instance de fr : BBB CCC
      erreur→
 
  -- Instance Variable von copying: a b
      error→
 
- -- Instance Variable od hr: BBB CCC
+ -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instance Variable od copying: a b
+ -- Primjerak varijable od copying: a b
      greška→
 
  [index ]
@@ -1193,8 +1193,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top82
-Node: chap157
+Node: Top84
+Node: chap159
 
 End Tag Table
 
@@ -1210,7 +1210,7 @@ $result_converted{'html'}->{'multiple_documentlanguage'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Instance Variable de copying: a b
+<!-- Variable d\'instance de copying: a b
 erreur→ -->
 <title>top</title>
 
@@ -1260,7 +1260,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span class="category-def">Instance Variable de <code class="code">fr</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-fr"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span class="category-def">Variable d&rsquo;instance de <code class="code">fr</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-fr"> &para;</a></span></dt>
 <dd><p>erreur&rarr;
 </p></dd></dl>
 
@@ -1272,12 +1272,12 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Instance Variable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-hr"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjerak varijable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-hr"> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Instance Variable od <code class="code">copying</code>: </span><span><strong class="def-name">a</strong> <var class="def-var-arguments">b</var><a class="copiable-link" href="#index-copying-a-of-copying"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Primjerak varijable od <code class="code">copying</code>: </span><span><strong class="def-name">a</strong> <var class="def-var-arguments">b</var><a class="copiable-link" href="#index-copying-a-of-copying"> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 

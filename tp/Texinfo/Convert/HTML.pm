@@ -11655,7 +11655,14 @@ sub _convert($$;$)
       return $element->{'text'};
     }
     if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
-      my $translated = $self->gdt($element->{'text'});
+      my $translated;
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'translation_context'}) {
+        $translated = $self->pgdt($element->{'extra'}->{'translation_context'},
+                                  $element->{'text'});
+      } else {
+        $translated = $self->gdt($element->{'text'});
+      }
       my $result = $self->_convert($translated, 'translated TEXT');
       return $result;
     }
