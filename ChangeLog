@@ -1,5 +1,9 @@
 2023-10-12  Patrice Dumas <pertusus@free.fr>
 
+	update po files
+
+2023-10-12  Patrice Dumas <pertusus@free.fr>
+
 	Use translation context for definition aliases in converters
 
 	* tp/Texinfo/Convert/HTML.pm (_convert), tp/Texinfo/Convert/LaTeX.pm
