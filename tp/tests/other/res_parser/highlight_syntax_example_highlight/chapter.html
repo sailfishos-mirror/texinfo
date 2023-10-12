@@ -48,29 +48,29 @@ Previous: <a href="index.html" accesskey="p" rel="prev">top</a>, Up: <a href="in
 <span style="color:#008200">#include &lt;iostream&gt;</span>
 
 <span style="color:#0057ae">int</span> <span style="color:#010181">main</span><span style="color:#000000">() {</span>
-    <span style="color:#000000; font-weight:bold">std</span><span style="color:#000000">::</span>cout <span style="color:#000000">&lt;&lt;</span> <span style="color:#bf0303">&quot;Hello Wörld!&quot;</span><span style="color:#000000">;</span>
+    <span style="color:#0d5bc3">std</span><span style="color:#000000">::</span>cout <span style="color:#000000">&lt;&lt;</span> <span style="color:#bf0303">&quot;Hello Wörld!&quot;</span><span style="color:#000000">;</span>
     <span style="color:#000000; font-weight:bold">return</span> <span style="color:#b07e00">0</span><span style="color:#000000">;</span>
 <span style="color:#000000">}</span>
 </pre></div>
 
 <p>perl
 </p><div class="example user-perl">
-<pre class="example-preformatted"><span style="color:#000000; font-weight:bold">my</span> <span style="color:#0057ae">$list</span> <span style="color:#000000">= [</span><span style="color:#bf0303">&apos;ça&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;bôù&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;é&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;é ą € ≡&apos;</span><span style="color:#000000">];</span>
+<pre class="example-preformatted"><span style="color:#000000">my</span> <span style="color:#0057ae">$list</span> <span style="color:#000000">= [</span><span style="color:#bf0303">&#39;ça&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;bôù&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;é&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;é ą € ≡&#39;</span><span style="color:#000000">];</span>
 <span style="color:#000000; font-weight:bold">sub do</span> <span style="color:#000000">($) {</span>
-  <span style="color:#000000; font-weight:bold">my</span> <span style="color:#0057ae">$arg</span> <span style="color:#000000">=</span> <span style="color:#000000; font-weight:bold">shift</span><span style="color:#000000">;</span>
+  <span style="color:#000000">my</span> <span style="color:#0057ae">$arg</span> <span style="color:#000000">=</span> <span style="color:#000000">shift</span><span style="color:#000000">;</span>
   <span style="color:#000000; font-weight:bold">return</span> <span style="color:#0057ae">$arg</span> <span style="color:#000000">+</span> <span style="color:#b07e00">4</span><span style="color:#000000">;</span>
 <span style="color:#000000">}</span>
 </pre></div>
 
 <div class="example user-perl">
-<pre class="example-preformatted"><span style="color:#000000; font-weight:bold">my</span> <span style="color:#0057ae">&#64;SECTION_BUTTONS</span> <span style="color:#000000">=</span>
+<pre class="example-preformatted"><span style="color:#000000">my</span> <span style="color:#0057ae">&#64;SECTION_BUTTONS</span> <span style="color:#000000">=</span>
   <span style="color:#000000">(</span>
    \<span style="color:#000000">&amp;</span>singular_banner<span style="color:#000000">,</span>
-   <span style="color:#bf0303">&apos;Back&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;Forward&apos;</span><span style="color:#000000">,</span>   <span style="color:#bf0303">&apos;FastBack&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;FastForward&apos;</span><span style="color:#000000">,</span>
-   <span style="color:#bf0303">&apos;Up&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;Top&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;Contents&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;Index&apos;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&apos;About&apos;</span>
+   <span style="color:#bf0303">&#39;Back&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;Forward&#39;</span><span style="color:#000000">,</span>   <span style="color:#bf0303">&#39;FastBack&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;FastForward&#39;</span><span style="color:#000000">,</span>
+   <span style="color:#bf0303">&#39;Up&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;Top&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;Contents&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;Index&#39;</span><span style="color:#000000">,</span> <span style="color:#bf0303">&#39;About&#39;</span>
   <span style="color:#000000">);</span>
 
-texinfo_set_from_init_file <span style="color:#000000">(</span><span style="color:#bf0303">&apos;SECTION_BUTTONS&apos;</span><span style="color:#000000">,</span> \<span style="color:#0057ae">&#64;SECTION_BUTTONS</span><span style="color:#000000">);</span>
+texinfo_set_from_init_file <span style="color:#000000">(</span><span style="color:#bf0303">&#39;SECTION_BUTTONS&#39;</span><span style="color:#000000">,</span> \<span style="color:#0057ae">&#64;SECTION_BUTTONS</span><span style="color:#000000">);</span>
 </pre></div>
 
 <p>No argument
