@@ -886,6 +886,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/split_chapter_index.pl \
   t/results/indices/split_chapter_index/res_html \
   t/results/indices/subentries.pl \
+  t/results/indices/subentries_and_comments.pl \
   t/results/indices/subentry_and_sortas.pl \
   t/results/indices/subentry_and_sortas_spaces.pl \
   t/results/indices/syncode_index_print_both.pl \
@@ -1124,6 +1125,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/custom_heading_with_include_in_command/res_latex \
   t/results/latex_tests/custom_headings.pl \
   t/results/latex_tests/custom_headings/res_latex \
+  t/results/latex_tests/custom_headings_and_comments.pl \
+  t/results/latex_tests/custom_headings_and_comments/res_latex \
   t/results/latex_tests/customize_informative_commands.pl \
   t/results/latex_tests/customize_informative_commands/res_latex \
   t/results/latex_tests/enumerate_arguments.pl \

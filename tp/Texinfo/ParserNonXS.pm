@@ -8193,7 +8193,7 @@ An empty line (possibly containing whitespace characters only).
 =item ignorable_spaces_after_command
 
 spaces appearing after an @-command without braces that does not
-take takes argument on the line, but which is followed by ignorable
+take argument on the line, but which is followed by ignorable
 spaces, such as C<@item> in C<@itemize> or C<@multitable>, or C<@noindent>.
 
 =item spaces_after_close_brace

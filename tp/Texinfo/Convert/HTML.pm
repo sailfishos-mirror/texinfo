@@ -9622,18 +9622,28 @@ sub _prepare_index_entries($)
           if (defined($main_entry_element->{'extra'}->{'element_region'}));
         my $entry_reference_content_element
           = Texinfo::Common::index_content_element($main_entry_element, 1);
-        my @contents = ($entry_reference_content_element);
+        # construct element to convert to a normalized identifier to use as
+        # hrefs target
+        my $normalize_index_element
+           = {'contents' => [$entry_reference_content_element]};
+
         my $subentries_tree
-         = $self->comma_index_subentries_tree($main_entry_element,
-                                              ' ');
+         = $self->comma_index_subentries_tree($main_entry_element, ' ');
+
         if (defined($subentries_tree)) {
-          push @contents, @{$subentries_tree->{'contents'}};
+          push @{$normalize_index_element->{'contents'}},
+                    @{$subentries_tree->{'contents'}};
         }
-        my $trimmed_contents
-          = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
-        my $normalized_index =
-          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-            {'contents' => \@contents}, $no_unidecode);
+
+        my $trimmed_element
+          = Texinfo::Common::trim_spaces_comment_from_content(
+                                                 $normalize_index_element);
+        my $normalized_index = '';
+        if ($trimmed_element) {
+          $normalized_index =
+           Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+             $trimmed_element, $no_unidecode);
+        }
         my $target_base = "index-" . $region .$normalized_index;
         my $nr = 1;
         my $target = $target_base;

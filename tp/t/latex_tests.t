@@ -304,6 +304,29 @@ after everyheading before chap 3 second page
 
 '
 ],
+['custom_headings_and_comments',
+'@evenheading @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum  
+@evenfooting   @thischapter @thistitle @| @thisfile @|   @code{@thischaptername}  @c comment
+
+@node Top
+@top top sectionning
+
+@node chapter
+@chapter ch--ap
+
+@page
+
+after ch--ap first page
+
+@page
+
+after ch--ap second page
+
+@section sec1
+
+@chapter chap 2
+
+'],
 ['custom_heading_with_include',
 '@setchapternewpage odd
 @everyheading @thispage @| @thisfile @| @thischapter

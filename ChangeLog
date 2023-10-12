@@ -1,3 +1,18 @@
+2023-10-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (trim_spaces_comment_from_content): modify
+	implementation to take as argument an element and return an element
+	or undef, and do not modify the input.  Add comments explaining why
+	this function currently does nothing.  Update callers.
+
+	* tp/Texinfo/Common.pm (split_custom_heading_command_contents): use an
+	element in input and output and avoid modifying arrays.  Update
+	callers.
+
+	* tp/Makefile.tres, tp/t/latex_tests.t (custom_headings_and_comments),
+	tp/t/09indices.t (subentries_and_comments): add tests with comments in
+	situations where trim_spaces_comment_from_content is called.
+
 2023-10-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (normalized_to_id),

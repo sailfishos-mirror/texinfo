@@ -2041,19 +2041,21 @@ my %custom_headings_map = (
 # replace the footing or heading specifications.
 sub _set_custom_headings($$$)
 {
-  my ($self, $cmdname, $headings_spec) = @_;
+  my ($self, $cmdname, $headings_spec_element) = @_;
   my ($head_or_foot, $page_spec) = @{$custom_headings_map{$cmdname}};
 
   my $location_index = -1;
   my @headings = ('', '', '');
   _push_new_context($self, 'custom_heading');
   $self->{'formatting_context'}->[-1]->{'in_custom_heading'} = 1;
-  foreach my $location_heading_spec (@$headings_spec) {
-    $location_index++;
-    my $heading = $self->_convert({'contents' => $location_heading_spec});
-    $heading =~ s/^\s*//;
-    $heading =~ s/\s*$//;
-    $headings[$location_index] = $heading;
+  if ($headings_spec_element) {
+    foreach my $location_heading_spec (@{$headings_spec_element->{'contents'}}) {
+      $location_index++;
+      my $heading = $self->_convert($location_heading_spec);
+      $heading =~ s/^\s*//;
+      $heading =~ s/\s*$//;
+      $headings[$location_index] = $heading;
+    }
   }
   _pop_context($self);
 
@@ -4009,7 +4011,7 @@ sub _convert($$)
           and $element->{'args'}->[0]->{'contents'}) {
         my $custom_headings_specification
          = Texinfo::Common::split_custom_heading_command_contents(
-                                $element->{'args'}->[0]->{'contents'});
+                                             $element->{'args'}->[0]);
         $result .= _set_custom_headings($self, $cmdname,
                                         $custom_headings_specification);
       }

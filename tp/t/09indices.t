@@ -731,6 +731,18 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 '],
+['subentries_and_comments',
+'@node Top
+@top
+
+@node chapter one
+@chapter one
+
+@cindex aa @subentry bb@c comment
+@cindex ab @subentry cc @comment comment
+
+@printindex cp
+'],
 ['seeentry',
 '@node Top
 @top

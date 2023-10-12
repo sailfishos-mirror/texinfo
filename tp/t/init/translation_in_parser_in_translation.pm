@@ -59,7 +59,8 @@ texinfo_register_formatting_function('format_translate_message_tree',
 
 # there are no indices id output for the @def* commands used in Next
 # button translation, as their index information is with the tree used
-# in gdt, not with the main tree.  Setup an id in any case.
+# in gdt, not with the main tree.  Output an id in any case directly
+# when formatting the definition line to check if it is translated.
 sub _texi2any_tests_def_line_show_id($$$$)
 {
   my $self = shift;
@@ -79,13 +80,17 @@ sub _texi2any_tests_def_line_show_id($$$$)
   my $entry_reference_content_element
         = Texinfo::Common::index_content_element($element);
 
-  my @contents = ($entry_reference_content_element);
-  my $trimmed_contents
-        = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
-  my $normalized_index =
+  # note that in case of definition line, the translated element
+  # put in extra as index entry element has no associated spaces.
+  my $trimmed_element
+   = Texinfo::Common::trim_spaces_comment_from_content(
+                                $entry_reference_content_element);
+  my $normalized_index = '';
+  if ($trimmed_element) {
+    $normalized_index =
      Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-        {'contents' => \@contents}, $no_unidecode);
-
+        $trimmed_element, $no_unidecode);
+  }
   my $target_base = "index-" . $region .$normalized_index;
 
 
