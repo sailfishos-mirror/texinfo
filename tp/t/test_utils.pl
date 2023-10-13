@@ -1101,7 +1101,7 @@ sub test($$)
   my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
     ($sorted_index_entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices($registrar,
+      = Texinfo::Structuring::sort_indices_by_index($registrar,
                                    $main_configuration,
                                    $merged_index_entries,
                                    $indices_information);

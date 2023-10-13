@@ -9603,10 +9603,9 @@ sub _prepare_index_entries($)
         = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Structuring::sort_indices($self,
+            = Texinfo::Structuring::sort_indices_by_letter($self,
                                     $self, $merged_index_entries,
-                                    $indices_information,
-                                    'by_letter');
+                                    $indices_information);
     $self->{'index_entries'} = $merged_index_entries;
 
     foreach my $index_name (sort(keys(%$indices_information))) {

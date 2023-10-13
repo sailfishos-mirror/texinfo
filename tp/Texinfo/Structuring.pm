@@ -30,7 +30,7 @@ use strict;
 # Can be used to check that there is no incorrect autovivfication
 no autovivification qw(fetch delete exists store strict);
 
-# Cannot do that because of sort_indices, probably for uc().
+# Cannot do that because of sort_indices_by_letter, probably for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
 #use if $] >= 5.014, re => '/a';
@@ -70,7 +70,8 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
   number_floats
   sectioning_structure
   set_menus_node_directions
-  sort_indices
+  sort_indices_by_index
+  sort_indices_by_letter
   split_by_node
   split_by_section
   split_pages
@@ -2533,17 +2534,13 @@ package Texinfo::Structuring;
 #my $default_preset_keys = 0;
 my $default_preset_keys = 1;
 
-# the structure returned depends on $SORT_BY_LETTER being set
-# or not.  It is described in the pod documentation.
-sub sort_indices($$$$;$$)
+sub setup_sortable_index_entries($$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
   my $indices_information = shift;
-  my $sort_by_letter = shift;
   my $preset_keys = shift;
-  $preset_keys = $default_preset_keys if (!defined($preset_keys));
 
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
@@ -2593,18 +2590,15 @@ sub sort_indices($$$$;$$)
 
   my $entries_collator;
   $entries_collator = $collator if $preset_keys;
-  my $sorted_index_entries;
+  my $index_sortable_index_entries;
   my $index_entries_sort_strings = {};
-  return $sorted_index_entries, $index_entries_sort_strings
+  return $index_sortable_index_entries, $collator, $index_entries_sort_strings
     unless ($index_entries);
 
   my $options = setup_index_entry_keys_formatting($customization_information);
-  $sorted_index_entries = {};
+  $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$index_entries)) {
-    # used if not $sort_by_letter
     my $sortable_index_entries = [];
-    # used if $sort_by_letter
-    my $index_letter_hash = {};
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
       my $entry_index_name = $index_entry->{'index_name'};
       my $main_entry_element = $index_entry->{'entry_element'};
@@ -2620,7 +2614,6 @@ sub sort_indices($$$$;$$)
                                   $convert_to_text_options, $entries_collator);
       my @entry_keys;
       my @sort_entry_keys;
-      my $letter = '';
       if ($entry_key !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
@@ -2635,20 +2628,6 @@ sub sort_indices($$$$;$$)
       } else {
         push @entry_keys, $entry_key;
         push @sort_entry_keys, $sort_entry_key;
-        if ($sort_by_letter) {
-          # the following line leads to each accented letter being separate
-          # $letter = uc(substr($entry_key, 0, 1));
-          my $letter_string = uc(substr($entry_key, 0, 1));
-          # determine main letter by decomposing and removing diacritics
-          $letter = Unicode::Normalize::NFKD($letter_string);
-          $letter =~ s/\p{NonspacingMark}//g;
-          # following code is less good, as the upper-casing may lead to
-          # two letters in case of the german Eszett that becomes SS.  So
-          # it is better to upper-case first and remove diacritics after.
-          #my $normalized_string = Unicode::Normalize::NFKD(uc($entry_key));
-          #$normalized_string =~ s/\p{NonspacingMark}//g;
-          #$letter = substr($normalized_string, 0, 1);
-        }
       }
       my $subentry_nr = 0;
       my $subentry = $main_entry_element;
@@ -2682,52 +2661,116 @@ sub sort_indices($$$$;$$)
         if ($sub_entry_key ne '') {
           my $sortable_entry = {'entry' => $index_entry,
                                 'keys' => \@sort_entry_keys,
+                                'entry_keys' => \@entry_keys,
                                 'number' => $index_entry->{'entry_number'},
                                 'index_name' => $entry_index_name};
-          if ($sort_by_letter) {
-            push @{$index_letter_hash->{$letter}}, $sortable_entry;
-          } else {
-            push @{$sortable_index_entries}, $sortable_entry;
-          }
+          push @{$sortable_index_entries}, $sortable_entry;
           last;
         }
       }
       $index_entries_sort_strings->{$index_entry} = join(', ', @entry_keys);
     }
-    if ($sort_by_letter) {
-      # need to use directly the collator here as there is no
-      # separate sort keys.
-      my @sorted_letters = sort {_collator_sort_string($a, $b, $collator)}
-                                               (keys %$index_letter_hash);
-      foreach my $letter (@sorted_letters) {
-        my @sorted_letter_entries;
-        if ($preset_keys) {
-          @sorted_letter_entries
-           = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
-                                              @{$index_letter_hash->{$letter}};
-        } else {
-          @sorted_letter_entries
-           = map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
-                                              @{$index_letter_hash->{$letter}};
-        }
-        push @{$sorted_index_entries->{$index_name}},
-          { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
-      }
+    $index_sortable_index_entries->{$index_name} = $sortable_index_entries;
+  }
+  return ($index_sortable_index_entries, $collator, $index_entries_sort_strings);
+}
+
+sub sort_indices_by_index($$$$;$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $index_entries = shift;
+  my $indices_information = shift;
+  my $preset_keys = shift;
+  $preset_keys = $default_preset_keys if (!defined($preset_keys));
+
+  my $sorted_index_entries;
+  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+    = setup_sortable_index_entries($registrar, $customization_information,
+                       $index_entries, $indices_information, $preset_keys);
+
+  if (!$index_sortable_index_entries) {
+    return ($sorted_index_entries, $index_entries_sort_strings);
+  }
+
+  $sorted_index_entries = {};
+  foreach my $index_name (keys(%$index_sortable_index_entries)) {
+    my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
+    if ($preset_keys) {
+      $sorted_index_entries->{$index_name} = [
+        map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
+                                                @{$sortable_index_entries}
+       ];
     } else {
-      if ($preset_keys) {
-        $sorted_index_entries->{$index_name} = [
-          map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
-                                                  @{$sortable_index_entries}
-         ];
-      } else {
-        $sorted_index_entries->{$index_name} = [
-      map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
-                                                  @{$sortable_index_entries}
-        ];
-      }
+      $sorted_index_entries->{$index_name} = [
+    map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
+                                                @{$sortable_index_entries}
+      ];
     }
   }
-  return $sorted_index_entries, $index_entries_sort_strings;
+  return ($sorted_index_entries, $index_entries_sort_strings);
+}
+
+sub sort_indices_by_letter($$$$;$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $index_entries = shift;
+  my $indices_information = shift;
+  my $preset_keys = shift;
+  $preset_keys = $default_preset_keys if (!defined($preset_keys));
+
+  my $sorted_index_entries;
+  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+    = setup_sortable_index_entries($registrar, $customization_information,
+                       $index_entries, $indices_information, $preset_keys);
+
+  if (!$index_sortable_index_entries) {
+    return ($sorted_index_entries, $index_entries_sort_strings);
+  }
+
+  $sorted_index_entries = {};
+  foreach my $index_name (keys(%$index_sortable_index_entries)) {
+    my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
+    my $index_letter_hash = {};
+    foreach my $sortable_entry (@{$sortable_index_entries}) {
+      my $entry_key = $sortable_entry->{'entry_keys'}->[0];
+
+      # the following line leads to each accented letter being separate
+      # $letter = uc(substr($entry_key, 0, 1));
+      my $letter_string = uc(substr($entry_key, 0, 1));
+      # determine main letter by decomposing and removing diacritics
+      my $letter = Unicode::Normalize::NFKD($letter_string);
+      $letter =~ s/\p{NonspacingMark}//g;
+      # following code is less good, as the upper-casing may lead to
+      # two letters in case of the german Eszett that becomes SS.  So
+      # it is better to upper-case first and remove diacritics after.
+      #my $normalized_string = Unicode::Normalize::NFKD(uc($entry_key));
+      #$normalized_string =~ s/\p{NonspacingMark}//g;
+      #$letter = substr($normalized_string, 0, 1);
+
+      push @{$index_letter_hash->{$letter}}, $sortable_entry;
+    }
+    # need to use directly the collator here as there is no
+    # separate sort keys.
+    my @sorted_letters = sort {_collator_sort_string($a, $b, $collator)}
+                                             (keys %$index_letter_hash);
+    foreach my $letter (@sorted_letters) {
+      my @sorted_letter_entries;
+      if ($preset_keys) {
+        @sorted_letter_entries
+         = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
+                                            @{$index_letter_hash->{$letter}};
+      } else {
+        @sorted_letter_entries
+         = map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
+                                            @{$index_letter_hash->{$letter}};
+      }
+      push @{$sorted_index_entries->{$index_name}},
+        { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
+    }
+  }
+  return ($sorted_index_entries, $index_entries_sort_strings);
 }
 
 sub merge_indices($)
@@ -2796,13 +2839,11 @@ Texinfo::Structuring - information on Texinfo::Document tree
      = merge_indices($indices_information);
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices($registrar, $config,
-                             $merged_index_entries, $indices_information,
-                             'by_letter');
+    $index_entries_sorted = sort_indices_by_letter($registrar, $config,
+                             $merged_index_entries, $indices_information);
   } else {
-    $index_entries_sorted = sort_indices($registrar, $config,
-                                         $merged_index_entries,
-                                         $indices_information);
+    $index_entries_sorted = sort_indices_by_index($registrar, $config,
+                             $merged_index_entries, $indices_information);
   }
 
 
@@ -2841,7 +2882,7 @@ set direction related to files, provided files are associated with
 output units by the user.
 
 C<merge_indices> may be used to merge indices, which may be sorted
-with C<sort_indices>.
+with C<sort_indices_by_index> or C<sort_indices_by_letter>.
 
 
 =head1 METHODS
@@ -3115,12 +3156,15 @@ X<C<setup_index_entry_keys_formatting>>
 
 Return options for conversion of Texinfo to text relevant for index keys sorting.
 
-=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($registrar, $customization_information, $merged_index_entries, $indices_information, $sort_by_letter)
-X<C<sort_indices>>
+=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices_by_index($registrar, $customization_information, $merged_index_entries, $indices_information)
 
-If I<$sort_by_letter> is set, sort by letter, otherwise sort all
-entries together.  In both cases, a hash reference with index names
-as keys I<$index_entries_sorted> is returned.
+=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices_by_letter($registrar, $customization_information, $merged_index_entries, $indices_information)
+X<C<sort_indices_by_index>> X<C<sort_indices_by_letter>>
+
+C<sort_indices_by_letter> sorts by index and letter, while
+C<sort_indices_by_index> sort all entries of an index together.
+In both cases, a hash reference with index names as keys I<$index_entries_sorted>
+is returned.
 
 When sorting by letter, an array reference of letter hash references is
 associated with each index name.  Each letter hash reference has two

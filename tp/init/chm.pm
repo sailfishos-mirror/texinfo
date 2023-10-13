@@ -244,7 +244,7 @@ sub chm_init($)
   print $hhk_fh "</OBJECT>\n";
 
   my ($index_entries, $index_entries_sort_strings)
-       = Texinfo::Structuring::sort_indices($self, $self,
+       = Texinfo::Structuring::sort_indices_by_index($self, $self,
                              $self->get_info('index_entries'),
                              $self->get_info('indices_information'));
   if ($index_entries) {

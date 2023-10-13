@@ -682,7 +682,7 @@ sub output_ixin($$)
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($indices_information);
     my ($entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices($self, $self,
+      = Texinfo::Structuring::sort_indices_by_index($self, $self,
                                            $merged_index_entries,
                                            $indices_information);
     # first do the dts_text as the counts are needed for the dts index
