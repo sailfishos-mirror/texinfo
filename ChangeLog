@@ -1,3 +1,9 @@
+2023-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/coverage_macro.texi: Insert blank lines in blocks
+	of glyph commands in attempt at avoiding divergent test results
+	on MinGW, due to varying wcwidth values.  Report from Eli.
+
 2023-10-12  Patrice Dumas <pertusus@free.fr>
 
 	Update test results in tp/tests

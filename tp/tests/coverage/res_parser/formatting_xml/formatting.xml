@@ -132,6 +132,7 @@ but , ,@:
 @@error @error{}
 @@expansion @expansion{} (↦)
 @@minus @minus{} (−)
+
 @@point @point{} (⋆)
 @@print @print{} (⊣)
 @@result @result{} (⇒)
@@ -176,6 +177,7 @@ but , ,@:
 @@textdegree @textdegree{} (°)
 @@euro @euro{} (€)
 @@arrow @arrow{} (→)
+
 @@leq @leq{} (≤)
 @@geq @geq{} (≥)
 @@tie a@tie{}b
@@ -1328,7 +1330,8 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (⋆)
+</para>
+<para>&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -1372,7 +1375,8 @@ but , ,&noeos;
 <para>&arobase;textdegree &deg; (°)
 &arobase;euro &euro; (€)
 &arobase;arrow &rarr; (→)
-&arobase;leq &le; (≤)
+</para>
+<para>&arobase;leq &le; (≤)
 &arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
@@ -2496,7 +2500,8 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (⋆)
+</para>
+<para>&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -2540,7 +2545,8 @@ but , ,&noeos;
 <para>&arobase;textdegree &deg; (°)
 &arobase;euro &euro; (€)
 &arobase;arrow &rarr; (→)
-&arobase;leq &le; (≤)
+</para>
+<para>&arobase;leq &le; (≤)
 &arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
@@ -3704,7 +3710,8 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (⋆)
+</para>
+<para>&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -3748,7 +3755,8 @@ but , ,&noeos;
 <para>&arobase;textdegree &deg; (°)
 &arobase;euro &euro; (€)
 &arobase;arrow &rarr; (→)
-&arobase;leq &le; (≤)
+</para>
+<para>&arobase;leq &le; (≤)
 &arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
@@ -4866,6 +4874,7 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
+
 &arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
@@ -4910,6 +4919,7 @@ but , ,&noeos;
 &arobase;textdegree &deg; (°)
 &arobase;euro &euro; (€)
 &arobase;arrow &rarr; (→)
+
 &arobase;leq &le; (≤)
 &arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b

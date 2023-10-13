@@ -111,6 +111,7 @@ but , ,@:
 @@error @error{}
 @@expansion @expansion{} (↦)
 @@minus @minus{} (−)
+
 @@point @point{} (⋆)
 @@print @print{} (⊣)
 @@result @result{} (⇒)
@@ -155,6 +156,7 @@ but , ,@:
 @@textdegree @textdegree{} (°)
 @@euro @euro{} (€)
 @@arrow @arrow{} (→)
+
 @@leq @leq{} (≤)
 @@geq @geq{} (≥)
 @@tie a@tie{}b

@@ -149,6 +149,7 @@ but , ,
 @error error-->
 @expansion ==> (↦)
 @minus - (−)
+
 @point -!- (⋆)
 @print -| (⊣)
 @result => (⇒)
@@ -193,6 +194,7 @@ but , ,
 @textdegree o (°)
 @euro Euro (€)
 @arrow -> (→)
+
 @leq <= (≤)
 @geq >= (≥)
 @tie a b
@@ -1003,6 +1005,7 @@ but , ,
 @error error-->
 @expansion ==> (↦)
 @minus - (−)
+
 @point -!- (⋆)
 @print -| (⊣)
 @result => (⇒)
@@ -1047,6 +1050,7 @@ but , ,
 @textdegree o (°)
 @euro Euro (€)
 @arrow -> (→)
+
 @leq <= (≤)
 @geq >= (≥)
 @tie a b
