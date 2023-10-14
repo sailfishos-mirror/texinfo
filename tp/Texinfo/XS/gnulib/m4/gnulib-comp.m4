@@ -115,24 +115,34 @@ AC_DEFUN([gl_EARLY],
   # Code from module unicase/u8-casemap:
   # Code from module unicase/u8-toupper:
   # Code from module uniconv/base:
+  # Code from module uniconv/u32-conv-from-enc:
+  # Code from module uniconv/u32-strconv-from-enc:
   # Code from module uniconv/u8-conv-from-enc:
   # Code from module uniconv/u8-strconv-from-enc:
   # Code from module uniconv/u8-strconv-to-enc:
   # Code from module unictype/base:
   # Code from module unictype/category-L:
+  # Code from module unictype/category-Mn:
   # Code from module unictype/category-test:
   # Code from module unictype/combining-class:
   # Code from module unictype/property-soft-dotted:
   # Code from module uninorm/base:
   # Code from module uninorm/canonical-decomposition:
+  # Code from module uninorm/compat-decomposition:
   # Code from module uninorm/composition:
   # Code from module uninorm/decompose-internal:
+  # Code from module uninorm/decomposition:
   # Code from module uninorm/decomposition-table:
   # Code from module uninorm/nfc:
   # Code from module uninorm/nfd:
+  # Code from module uninorm/nfkd:
   # Code from module uninorm/u8-normalize:
   # Code from module unistd:
   # Code from module unistr/base:
+  # Code from module unistr/u32-mblen:
+  # Code from module unistr/u32-next:
+  # Code from module unistr/u32-strlen:
+  # Code from module unistr/u32-strmbtouc:
   # Code from module unistr/u8-check:
   # Code from module unistr/u8-cpy:
   # Code from module unistr/u8-mblen:
@@ -144,6 +154,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u8-prev:
   # Code from module unistr/u8-strlen:
   # Code from module unistr/u8-strmbtouc:
+  # Code from module unistr/u8-to-u32:
   # Code from module unistr/u8-uctomb:
   # Code from module unitypes:
   # Code from module uniwidth/base:
@@ -360,6 +371,8 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([1.1], [unicase/u8-toupper])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniconv.h])
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([0.9], [uniconv/u32-conv-from-enc])
+  gl_LIBUNISTRING_MODULE([0.9], [uniconv/u32-strconv-from-enc])
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-conv-from-enc])
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-strconv-from-enc])
   gl_LIBUNISTRING_MODULE([0.9], [uniconv/u8-strconv-to-enc])
@@ -369,6 +382,8 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-L])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-Mn])
   AC_REQUIRE([AC_C_INLINE])
   gl_LIBUNISTRING_MODULE([0.9.8], [unictype/category-test])
   gl_LIBUNISTRING_MODULE([1.1], [unictype/combining-class])
@@ -381,11 +396,14 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([1.1], [uninorm/canonical-decomposition])
   gl_LIBUNISTRING_MODULE([0.9.11], [uninorm/composition])
+  gl_LIBUNISTRING_MODULE([1.1], [uninorm/decomposition])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNINORM_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfc])
   gl_UNINORM_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfd])
+  gl_UNINORM_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfkd])
   gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u8-normalize])
   gl_LIBUNISTRING_MODULE([1.1], [uninorm/u8-normalize])
   gl_UNISTD_H
@@ -393,6 +411,10 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_LIBHEADER([1.2], [unistr.h])
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mblen])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-next])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strlen])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strmbtouc])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-check])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-cpy])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mblen])
@@ -407,6 +429,7 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-prev])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strlen])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strmbtouc])
+  gl_LIBUNISTRING_MODULE([0.9.3], [unistr/u8-to-u32])
   gl_MODULE_INDICATOR([unistr/u8-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
@@ -727,7 +750,10 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unicase/u8-toupper.c
   lib/unicase/unicasemap.h
   lib/uniconv.in.h
+  lib/uniconv/u-conv-from-enc.h
   lib/uniconv/u-strconv-from-enc.h
+  lib/uniconv/u32-conv-from-enc.c
+  lib/uniconv/u32-strconv-from-enc.c
   lib/uniconv/u8-conv-from-enc.c
   lib/uniconv/u8-strconv-from-enc.c
   lib/uniconv/u8-strconv-to-enc.c
@@ -735,6 +761,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/bitmap.h
   lib/unictype/categ_L.c
   lib/unictype/categ_L.h
+  lib/unictype/categ_Mn.c
+  lib/unictype/categ_Mn.h
   lib/unictype/categ_test.c
   lib/unictype/combiningclass.c
   lib/unictype/combiningclass.h
@@ -742,6 +770,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/pr_soft_dotted.h
   lib/uninorm.in.h
   lib/uninorm/canonical-decomposition.c
+  lib/uninorm/compat-decomposition.c
   lib/uninorm/composition-table.gperf
   lib/uninorm/composition.c
   lib/uninorm/decompose-internal.c
@@ -750,8 +779,10 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uninorm/decomposition-table.h
   lib/uninorm/decomposition-table1.h
   lib/uninorm/decomposition-table2.h
+  lib/uninorm/decomposition.c
   lib/uninorm/nfc.c
   lib/uninorm/nfd.c
+  lib/uninorm/nfkd.c
   lib/uninorm/normalize-internal.h
   lib/uninorm/u-normalize-internal.h
   lib/uninorm/u8-normalize.c
@@ -759,6 +790,11 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistd.in.h
   lib/unistr.in.h
   lib/unistr/u-cpy.h
+  lib/unistr/u-strlen.h
+  lib/unistr/u32-mblen.c
+  lib/unistr/u32-next.c
+  lib/unistr/u32-strlen.c
+  lib/unistr/u32-strmbtouc.c
   lib/unistr/u8-check.c
   lib/unistr/u8-cpy.c
   lib/unistr/u8-mblen.c
@@ -772,6 +808,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u8-prev.c
   lib/unistr/u8-strlen.c
   lib/unistr/u8-strmbtouc.c
+  lib/unistr/u8-to-u32.c
   lib/unistr/u8-uctomb-aux.c
   lib/unistr/u8-uctomb.c
   lib/unitypes.in.h

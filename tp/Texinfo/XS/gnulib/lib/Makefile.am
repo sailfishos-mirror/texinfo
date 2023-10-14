@@ -40,12 +40,16 @@
 #  strchrnul \
 #  strndup \
 #  unicase/u8-toupper \
+#  uniconv/u32-strconv-from-enc \
 #  uniconv/u8-strconv-from-enc \
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
+#  unictype/category-Mn \
 #  unictype/category-test \
 #  uninorm/nfc \
+#  uninorm/nfkd \
 #  uninorm/u8-normalize \
+#  unistr/u32-next \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-next \
 #  unistr/u8-strlen \
@@ -1028,9 +1032,7 @@ EXTRA_DIST += streq.h
 ## begin gnulib module striconveh
 
 libgnu_la_SOURCES += striconveh.h striconveh.c
-if GL_COND_LIBTOOL
 libgnu_la_LDFLAGS += $(LTLIBICONV)
-endif
 
 EXTRA_DIST += iconveh.h
 
@@ -1314,6 +1316,26 @@ EXTRA_DIST += iconveh.h localcharset.h striconveha.h uniconv.in.h
 
 ## end   gnulib module uniconv/base
 
+## begin gnulib module uniconv/u32-conv-from-enc
+
+if LIBUNISTRING_COMPILE_UNICONV_U32_CONV_FROM_ENC
+libgnu_la_SOURCES += uniconv/u32-conv-from-enc.c
+endif
+
+EXTRA_DIST += uniconv/u-conv-from-enc.h
+
+## end   gnulib module uniconv/u32-conv-from-enc
+
+## begin gnulib module uniconv/u32-strconv-from-enc
+
+if LIBUNISTRING_COMPILE_UNICONV_U32_STRCONV_FROM_ENC
+libgnu_la_SOURCES += uniconv/u32-strconv-from-enc.c
+endif
+
+EXTRA_DIST += uniconv/u-strconv-from-enc.h
+
+## end   gnulib module uniconv/u32-strconv-from-enc
+
 ## begin gnulib module uniconv/u8-conv-from-enc
 
 if LIBUNISTRING_COMPILE_UNICONV_U8_CONV_FROM_ENC
@@ -1503,6 +1525,16 @@ EXTRA_DIST += unictype/categ_L.h
 
 ## end   gnulib module unictype/category-L
 
+## begin gnulib module unictype/category-Mn
+
+if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_MN
+libgnu_la_SOURCES += unictype/categ_Mn.c
+endif
+
+EXTRA_DIST += unictype/categ_Mn.h
+
+## end   gnulib module unictype/category-Mn
+
 ## begin gnulib module unictype/category-test
 
 if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_TEST
@@ -1560,6 +1592,14 @@ endif
 
 ## end   gnulib module uninorm/canonical-decomposition
 
+## begin gnulib module uninorm/compat-decomposition
+
+libgnu_la_SOURCES += uninorm/compat-decomposition.c
+
+EXTRA_DIST += uninorm/decompose-internal.h
+
+## end   gnulib module uninorm/compat-decomposition
+
 ## begin gnulib module uninorm/composition
 
 if LIBUNISTRING_COMPILE_UNINORM_COMPOSITION
@@ -1586,6 +1626,14 @@ libgnu_la_SOURCES += uninorm/decompose-internal.c
 EXTRA_DIST += uninorm/decompose-internal.h
 
 ## end   gnulib module uninorm/decompose-internal
+
+## begin gnulib module uninorm/decomposition
+
+if LIBUNISTRING_COMPILE_UNINORM_DECOMPOSITION
+libgnu_la_SOURCES += uninorm/decomposition.c
+endif
+
+## end   gnulib module uninorm/decomposition
 
 ## begin gnulib module uninorm/decomposition-table
 
@@ -1614,6 +1662,16 @@ endif
 EXTRA_DIST += uninorm/normalize-internal.h
 
 ## end   gnulib module uninorm/nfd
+
+## begin gnulib module uninorm/nfkd
+
+if LIBUNISTRING_COMPILE_UNINORM_NFKD
+libgnu_la_SOURCES += uninorm/nfkd.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h
+
+## end   gnulib module uninorm/nfkd
 
 ## begin gnulib module uninorm/u8-normalize
 
@@ -1793,6 +1851,7 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''REPLACE_EXECVP''@|$(REPLACE_EXECVP)|g' \
 	      -e 's|@''REPLACE_EXECVPE''@|$(REPLACE_EXECVPE)|g' \
 	      -e 's|@''REPLACE_FACCESSAT''@|$(REPLACE_FACCESSAT)|g' \
+	      -e 's|@''REPLACE_FCHDIR''@|$(REPLACE_FCHDIR)|g' \
 	      -e 's|@''REPLACE_FCHOWNAT''@|$(REPLACE_FCHOWNAT)|g' \
 	      -e 's|@''REPLACE_FDATASYNC''@|$(REPLACE_FDATASYNC)|g' \
 	      -e 's|@''REPLACE_FTRUNCATE''@|$(REPLACE_FTRUNCATE)|g' \
@@ -1854,6 +1913,40 @@ MOSTLYCLEANFILES += unistr.h unistr.h-t
 EXTRA_DIST += unistr.in.h
 
 ## end   gnulib module unistr/base
+
+## begin gnulib module unistr/u32-mblen
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBLEN
+libgnu_la_SOURCES += unistr/u32-mblen.c
+endif
+
+## end   gnulib module unistr/u32-mblen
+
+## begin gnulib module unistr/u32-next
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_NEXT
+libgnu_la_SOURCES += unistr/u32-next.c
+endif
+
+## end   gnulib module unistr/u32-next
+
+## begin gnulib module unistr/u32-strlen
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_STRLEN
+libgnu_la_SOURCES += unistr/u32-strlen.c
+endif
+
+EXTRA_DIST += unistr/u-strlen.h
+
+## end   gnulib module unistr/u32-strlen
+
+## begin gnulib module unistr/u32-strmbtouc
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_STRMBTOUC
+libgnu_la_SOURCES += unistr/u32-strmbtouc.c
+endif
+
+## end   gnulib module unistr/u32-strmbtouc
 
 ## begin gnulib module unistr/u8-check
 
@@ -1944,6 +2037,14 @@ libgnu_la_SOURCES += unistr/u8-strmbtouc.c
 endif
 
 ## end   gnulib module unistr/u8-strmbtouc
+
+## begin gnulib module unistr/u8-to-u32
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_TO_U32
+libgnu_la_SOURCES += unistr/u8-to-u32.c
+endif
+
+## end   gnulib module unistr/u8-to-u32
 
 ## begin gnulib module unistr/u8-uctomb
 
@@ -2090,6 +2191,7 @@ wchar.h: wchar.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's/@''GNULIB_WCSTOK''@/$(GL_GNULIB_WCSTOK)/g' \
 	      -e 's/@''GNULIB_WCSWIDTH''@/$(GL_GNULIB_WCSWIDTH)/g' \
 	      -e 's/@''GNULIB_WCSFTIME''@/$(GL_GNULIB_WCSFTIME)/g' \
+	      -e 's/@''GNULIB_WGETCWD''@/$(GL_GNULIB_WGETCWD)/g' \
 	      -e 's/@''GNULIB_MDA_WCSDUP''@/$(GL_GNULIB_MDA_WCSDUP)/g' \
 	      -e 's/@''GNULIB_FREE_POSIX''@/$(GL_GNULIB_FREE_POSIX)/g' \
 	      < $(srcdir)/wchar.in.h > $@-t1

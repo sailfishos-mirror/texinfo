@@ -45,12 +45,16 @@
 #  strchrnul \
 #  strndup \
 #  unicase/u8-toupper \
+#  uniconv/u32-strconv-from-enc \
 #  uniconv/u8-strconv-from-enc \
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
+#  unictype/category-Mn \
 #  unictype/category-test \
 #  uninorm/nfc \
+#  uninorm/nfkd \
 #  uninorm/u8-normalize \
+#  unistr/u32-next \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-next \
 #  unistr/u8-strlen \
@@ -72,12 +76,16 @@ gl_MODULES([
   strchrnul
   strndup
   unicase/u8-toupper
+  uniconv/u32-strconv-from-enc
   uniconv/u8-strconv-from-enc
   uniconv/u8-strconv-to-enc
   unictype/category-L
+  unictype/category-Mn
   unictype/category-test
   uninorm/nfc
+  uninorm/nfkd
   uninorm/u8-normalize
+  unistr/u32-next
   unistr/u8-mbsnlen
   unistr/u8-next
   unistr/u8-strlen
