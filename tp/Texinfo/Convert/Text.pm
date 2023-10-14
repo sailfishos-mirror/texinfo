@@ -51,7 +51,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.0.93';
+$VERSION = '7.0.94';
 
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'

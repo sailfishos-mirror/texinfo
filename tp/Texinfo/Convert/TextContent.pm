@@ -34,7 +34,7 @@ use Texinfo::Convert::Converter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.0.93';
+$VERSION = '7.0.94';
 
 
 my %ignored_brace_commands;

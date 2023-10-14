@@ -36,7 +36,7 @@ use Texinfo::Convert::Paragraph;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Plaintext);
 
-$VERSION = '7.0.93';
+$VERSION = '7.0.94';
 
 
 my $STDIN_DOCU_NAME = 'stdin';
