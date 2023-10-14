@@ -44,6 +44,7 @@ FIXME add an initialization of translations?
 #include "output_unit.h"
 #include "convert_to_text.h"
 #include "converter.h"
+#include "indices_in_conversion.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -505,4 +506,381 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
     }
 
   return converter;
+}
+
+INDEX_SORTABLE_ENTRIES **
+get_sv_sortable_entries (SV *sortable_entries_in)
+{
+  AV *av_in;
+  SSize_t av_number;
+  SSize_t j;
+  INDEX_SORTABLE_ENTRIES **result;
+
+  dTHX;
+
+  if (!SvOK (sortable_entries_in))
+    return 0;
+
+  av_in = (AV *)SvRV (sortable_entries_in);
+
+  av_number = av_top_index (av_in) +1;
+
+  if (!av_number)
+    return 0;
+
+  result = (INDEX_SORTABLE_ENTRIES **)
+     malloc ((av_number +1) * sizeof (INDEX_SORTABLE_ENTRIES *));
+
+  result[av_number] = 0;
+
+  for (j = 0; j < av_number; j++)
+    {
+      int i;
+      char *idx_name = 0;
+      SSize_t index_entries_nr;
+      AV *index_encoded_sortable_entries_av;
+      SV **idx_name_sv;
+      SV **encoded_sortable_entries_sv;
+      AV *av;
+
+      SV **index_encoded_sortable_entries_sv = av_fetch (av_in, j, 0);
+      if (!index_encoded_sortable_entries_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_sortable_entries: %d: no index sortable entries\n", j);
+          fatal (msg);
+        }
+
+      index_encoded_sortable_entries_av
+        = (AV *)SvRV (*index_encoded_sortable_entries_sv);
+
+      idx_name_sv = av_fetch (index_encoded_sortable_entries_av, 0, 0);
+      if (!idx_name_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_sortable_entries: %d: no index name\n", j);
+          fatal (msg);
+        }
+      idx_name = (char *) SvPVbyte_nolen (*idx_name_sv);
+
+      encoded_sortable_entries_sv
+        = av_fetch (index_encoded_sortable_entries_av, 1, 0);
+      if (!encoded_sortable_entries_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_sortable_entries: %d: %s: no sortable entries\n",
+                     j, idx_name);
+          fatal (msg);
+        }
+
+      result[j] = (INDEX_SORTABLE_ENTRIES *)
+         malloc (sizeof (INDEX_SORTABLE_ENTRIES));
+      result[j]->name = strdup (idx_name);
+
+      av = (AV *)SvRV (*encoded_sortable_entries_sv);
+
+      index_entries_nr = av_top_index (av) +1;
+      result[j]->number = index_entries_nr;
+      result[j]->sortable_entries = (SORTABLE_ENTRY *)
+        malloc (index_entries_nr * sizeof (SORTABLE_ENTRY));
+      for (i = 0; i < index_entries_nr; i++)
+        {
+          SV** sortable_entry_sv = av_fetch (av, i, 0);
+          if (sortable_entry_sv)
+            {
+              SV **number_sv;
+              SV **index_name_sv;
+              SV **keys_sv;
+              SV **entry_keys_sv;
+              SORTABLE_ENTRY * sortable_entry = &result[j]->sortable_entries[i];
+
+              HV *hv_sortable_entry = (HV *)SvRV (*sortable_entry_sv);
+
+              number_sv = hv_fetch (hv_sortable_entry, "number",
+                                   strlen ("number"), 0);
+              if (number_sv)
+                {
+                  sortable_entry->number = SvIV (*number_sv);
+                }
+              else
+                {
+                  char *msg;
+                  xasprintf (&msg,
+            "get_sv_sortable_entries: %s: %d: no number\n", idx_name, i);
+                  fatal (msg);
+                }
+
+              index_name_sv = hv_fetch (hv_sortable_entry, "index_name",
+                                        strlen ("index_name"), 0);
+              if (index_name_sv)
+                {
+                  char *index_name_tmp
+                    = (char *) SvPVbyte_nolen (*index_name_sv);
+                  sortable_entry->index_name = strdup (index_name_tmp);
+                }
+              else
+                {
+                  char *msg;
+                  xasprintf (&msg,
+            "get_sv_sortable_entries: %s: %d: no index_name\n", idx_name, i);
+                  fatal (msg);
+                }
+
+              keys_sv = hv_fetch (hv_sortable_entry, "keys",
+                                  strlen ("keys"), 0);
+              entry_keys_sv = hv_fetch (hv_sortable_entry, "entry_keys",
+                                  strlen ("entry_keys"), 0);
+
+              if (keys_sv && entry_keys_sv)
+                {
+                  int k;
+                  SSize_t keys_nr;
+                  SSize_t entry_keys_nr;
+                  AV *keys_av = (AV *) SvRV (*keys_sv);
+                  AV *entry_keys_av = (AV *) SvRV (*entry_keys_sv);
+                  keys_nr = av_top_index (keys_av) +1;
+                  entry_keys_nr = av_top_index (entry_keys_av) +1;
+                  if (keys_nr != entry_keys_nr)
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+            "get_sv_sortable_entries: %s: %d: keys_nr %d != entry_keys_nr %d\n",
+                                 idx_name, i, keys_nr, entry_keys_nr);
+                      fatal (msg);
+                    }
+
+                  sortable_entry->keys_number = keys_nr;
+                  sortable_entry->keys
+                    = (KEY_ALPHA *) malloc (keys_nr * sizeof (KEY_ALPHA));
+                  sortable_entry->entry_keys
+                    = (char **) malloc (keys_nr * sizeof (char*));
+
+                  for (k = 0; k < keys_nr; k++)
+                    {
+                      SV** key_sv = av_fetch (keys_av, k, 0);
+                      SV** entry_key_sv = av_fetch (entry_keys_av, k, 0);
+                      if (key_sv)
+                        {
+                          KEY_ALPHA *key_alpha = &sortable_entry->keys[k];
+                          AV *key_alpha_av = (AV *) SvRV (*key_sv);
+                          SV **key_string_sv = av_fetch (key_alpha_av, 0, 0);
+                          SV **key_alpha_sv = av_fetch (key_alpha_av, 1, 0);
+                          char *key_string_tmp;
+                          if (!key_string_sv || !key_alpha_sv)
+                            {
+                              char *msg;
+                              xasprintf (&msg,
+                           "get_sv_sortable_entries: %s: %d: %d: no key string or alpha\n",
+                                        idx_name, i, k);
+                              fatal (msg);
+                            }
+                          key_string_tmp = (char *) SvPVbyte_nolen (*key_string_sv);
+                          key_alpha->key = strdup (key_string_tmp);
+                          key_alpha->alpha = SvIV (*key_alpha_sv);
+                        }
+                      else
+                        {
+                          char *msg;
+                          xasprintf (&msg,
+                           "get_sv_sortable_entries: %s: %d: %d: no key\n",
+                                     idx_name, i, k);
+                          fatal (msg);
+                        }
+
+                      if (entry_key_sv)
+                        {
+                          char *entry_key_tmp
+                            = (char *) SvPVbyte_nolen (*entry_key_sv);
+                          sortable_entry->entry_keys[k] = strdup (entry_key_tmp);
+                        }
+                      else
+                        {
+                          char *msg;
+                          xasprintf (&msg,
+                           "get_sv_sortable_entries: %s: %d: %d: no entry_key\n",
+                                     idx_name, i, k);
+                          fatal (msg);
+                        }
+                    }
+                }
+              else
+                {
+                  char *msg;
+                  xasprintf (&msg,
+            "get_sv_sortable_entries: %s: %d: no keys\n", idx_name, i);
+                  fatal (msg);
+                }
+            }
+        }
+    }
+  return result;
+}
+
+void
+get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
+                                       SV *index_entries_sorted_by_letter)
+{
+  AV *av_in;
+  SSize_t av_number;
+  SSize_t j;
+  INDEX **index_names = converter->document->index_names;
+
+  dTHX;
+
+  if (!SvOK (index_entries_sorted_by_letter))
+    return;
+
+  av_in = (AV *)SvRV (index_entries_sorted_by_letter);
+
+  av_number = av_top_index (av_in) +1;
+
+  if (!av_number)
+    return;
+
+  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
+    malloc (av_number * sizeof (INDEX_SORTED_BY_LETTER *));
+
+  for (j = 0; j < av_number; j++)
+    {
+      int i;
+      char *idx_name = 0;
+      SSize_t letter_entries_nr;
+      AV *index_encoded_sorted_by_letter_av;
+      SV **idx_name_sv;
+      SV **encoded_sorted_by_letter_sv;
+      AV *av;
+
+      SV **index_encoded_sorted_by_letter_sv = av_fetch (av_in, j, 0);
+      if (!index_encoded_sorted_by_letter_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+      "get_sv_index_entries_sorted_by_letter: %d: no index sorted entries\n", j);
+          fatal (msg);
+        }
+
+      index_encoded_sorted_by_letter_av
+        = (AV *)SvRV (*index_encoded_sorted_by_letter_sv);
+
+      idx_name_sv = av_fetch (index_encoded_sorted_by_letter_av, 0, 0);
+      if (!idx_name_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
+          fatal (msg);
+        }
+      idx_name = (char *) SvPVbyte_nolen (*idx_name_sv);
+
+      encoded_sorted_by_letter_sv
+        = av_fetch (index_encoded_sorted_by_letter_av, 1, 0);
+      if (!encoded_sorted_by_letter_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_index_entries_sorted_by_letter: %d: %s: no letter entries\n",
+                     j, idx_name);
+          fatal (msg);
+        }
+
+      converter->index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
+                                 malloc (sizeof (INDEX_SORTED_BY_LETTER));
+      converter->index_entries_by_letter[j]->name = strdup (idx_name);
+
+      av = (AV *)SvRV (*encoded_sorted_by_letter_sv);
+
+      letter_entries_nr = av_top_index (av) +1;
+      converter->index_entries_by_letter[j]->number = letter_entries_nr;
+      converter->index_entries_by_letter[j]->letter_entries
+        = (LETTER_INDEX_ENTRIES *)
+         malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
+      for (i = 0; i < letter_entries_nr; i++)
+        {
+          SV** letter_entries_sv = av_fetch (av, i, 0);
+          LETTER_INDEX_ENTRIES *letter_entries
+            = &converter->index_entries_by_letter[j]->letter_entries[i];
+          if (letter_entries_sv)
+            {
+              int k;
+              SSize_t entries_nr;
+              AV *entries_av;
+              AV *letter_entries_av = (AV *) SvRV (*letter_entries_sv);
+              SV **encoded_letter_sv = av_fetch (letter_entries_av, 0, 0);
+              SV **entries_sv = av_fetch (letter_entries_av, 1, 0);
+              if (!encoded_letter_sv || !entries_sv)
+                {
+                  char *msg;
+                  xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: no letter and entries\n",
+                             idx_name, i);
+                  fatal (msg);
+                }
+              letter_entries->letter
+                = (char *) SvPVbyte_nolen (*encoded_letter_sv);
+
+              entries_av = (AV *) SvRV (*entries_sv);
+              entries_nr = av_top_index (entries_av) +1;
+              letter_entries->number = entries_nr;
+              letter_entries->entries =
+                (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
+              for (k = 0; k < entries_nr; k++)
+                {
+                  SV** index_entry_sv = av_fetch (entries_av, k, 0);
+                  HV *index_entry_hv;
+                  SV** index_name_sv;
+                  SV** entry_number_sv;
+                  INDEX *idx;
+                  INDEX **n;
+                  char *entry_index_name;
+                  int entry_number;
+
+                  if (!index_entry_sv)
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry\n",
+                             idx_name, i, letter_entries->letter, k);
+                      fatal (msg);
+                    }
+                  index_entry_hv = (HV *) SvRV (*index_entry_sv);
+                  index_name_sv = hv_fetch (index_entry_hv, "index_name",
+                                            strlen ("index_name"), 0);
+                  entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
+                                              strlen ("entry_number"), 0);
+                  if (!index_entry_hv || !entry_number_sv)
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry info\n",
+                             idx_name, i, letter_entries->letter, k);
+                      fatal (msg);
+                    }
+                  /* FIXME probably not SvPVbyte_nolen as entered as newSVpv_utf8 */
+                  entry_index_name = (char *) SvPVbyte_nolen (*index_name_sv);
+                  entry_number = SvIV (*entry_number_sv);
+
+                  for (n = index_names; (idx = *n); n++)
+                    {
+                      if (!strcmp (idx->name, entry_index_name))
+                        {
+                          letter_entries->entries[k]
+                            = &idx->index_entries[entry_number];
+                          break;
+                        }
+                    }
+                }
+            }
+          else
+            {
+              char *msg;
+              xasprintf (&msg,
+    "get_sv_index_entries_sorted_by_letter: %s: %d: no letter entries\n",
+                         idx_name, i);
+              fatal (msg);
+            }
+        }
+    }
 }

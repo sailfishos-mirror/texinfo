@@ -34,9 +34,9 @@
 #include "tree_types.h"
 #include "command_ids.h"
 #include "text.h"
+/* also for xvasprintf */
 #include "tree.h"
 #include "extra.h"
-/* for xasprintf */
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
@@ -78,6 +78,15 @@ struct expanded_format expanded_formats[] = {
     "info", 0,
     "latex", 0,
 };
+
+/* wrapper for asprintf */
+int
+xasprintf (char **ptr, const char *template, ...)
+{
+  va_list v;
+  va_start (v, template);
+  return xvasprintf (ptr, template, v);
+}
 
 void bug (char *message)
 {

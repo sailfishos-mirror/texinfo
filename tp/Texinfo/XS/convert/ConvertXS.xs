@@ -104,6 +104,30 @@ html_initialize_output_state (SV *converter_in)
          self = get_sv_converter (converter_in, 0);
          html_initialize_output_state (self);
 
+# unfinished, see sort_indices_by_letter comment
+void
+sort_sortable_index_entries_by_letter (SV *converter_in, SV *sortable_entries_in)
+      PREINIT:
+         CONVERTER *self;
+         INDEX_SORTABLE_ENTRIES **sortable_entries = 0;
+         INDEX_SORTED_BY_LETTER **indices_sorted_by_letter = 0;
+      CODE:
+         /* add warn string? */
+         self = get_sv_converter (converter_in, 0);
+         sortable_entries = get_sv_sortable_entries (sortable_entries_in);
+         indices_sorted_by_letter = sort_indices_by_letter (self,
+                                                      sortable_entries);
+         self->index_entries_by_letter = indices_sorted_by_letter;
+
+void
+get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         /* add warn string? */
+         self = get_sv_converter (converter_in, 0);
+         get_sv_index_entries_sorted_by_letter (self,
+                                           index_entries_sorted_by_letter);
 
 #    ($output_units, $special_units, $associated_special_units)
 #      = _XS_prepare_conversion_units($encoded_options, $document_name);

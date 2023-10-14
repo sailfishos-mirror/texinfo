@@ -912,13 +912,23 @@ set_root_commands_targets_node_files (CONVERTER *self)
 }
 
 void
-prepare_index_entries (CONVERTER *self)
+sort_index_entries (CONVERTER *self)
+{
+  if (self->document->index_names)
+    {
+      INDEX **index_names = self->document->index_names;
+      MERGED_INDEX **merged_index_entries = merge_indices (index_names);
+      self->index_entries = merged_index_entries;
+    }
+}
+
+void
+prepare_index_entries_targets (CONVERTER *self)
 {
   if (self->document->index_names)
     {
       INDEX **i, *idx;
       INDEX **index_names = self->document->index_names;
-      MERGED_INDEX **merged_index_entries = merge_indices (index_names);
 
       for (i = index_names; (idx = *i); i++)
         {
@@ -1022,5 +1032,5 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 
   set_root_commands_targets_node_files (self);
 
-  prepare_index_entries (self);
+  prepare_index_entries_targets (self);
 }

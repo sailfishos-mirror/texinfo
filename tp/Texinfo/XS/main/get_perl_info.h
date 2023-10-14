@@ -6,6 +6,7 @@
 #include "document.h"
 #include "convert_to_text.h"
 #include "convert_html.h"
+#include "indices_in_conversion.h"
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
@@ -20,4 +21,8 @@ int html_converter_initialize (SV *sv_in);
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 
+INDEX_SORTABLE_ENTRIES **get_sv_sortable_entries (SV *sortable_entries_in);
+
+void get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
+                                            SV *index_entries_sorted_by_letter);
 #endif

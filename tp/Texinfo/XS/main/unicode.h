@@ -22,6 +22,7 @@ extern char *unicode_diacritics[];
 extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 
 char *normalize_NFC (const char *text);
+char *normalize_NFKD (const char *text);
 char *unicode_accent (const char *text, ELEMENT *e);
 
 char *encoded_accents (char *text, ELEMENT *stack, char *encoding,

@@ -31,14 +31,6 @@
 #include "debug.h"
 #include "errors.h"
 
-/* wrapper for asprintf */
-int
-xasprintf (char **ptr, const char *template, ...)
-{
-  va_list v;
-  va_start (v, template);
-  return xvasprintf (ptr, template, v);
-}
 
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;

@@ -56,6 +56,24 @@ normalize_NFC (const char *text)
   return result;
 }
 
+char *
+normalize_NFKD (const char *text)
+{
+  size_t lengthp;
+
+  char *result = 0;
+  /* FIXME error checking? */
+  uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  /* +1 to have the terminating NUL included in the string */
+  uint8_t *normalized_u8 = u8_normalize (UNINORM_NFKD, encoded_u8,
+                                         u8_strlen (encoded_u8)+1,
+                                         NULL, &lengthp);
+  free (encoded_u8);
+  result = u8_strconv_to_encoding (normalized_u8, "UTF-8", iconveh_question_mark);
+  free (normalized_u8);
+  return result;
+}
 
 char *
 unicode_accent (const char *text, ELEMENT *e)

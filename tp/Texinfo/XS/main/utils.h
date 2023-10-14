@@ -180,6 +180,24 @@ typedef struct HTML_TARGET_LIST {
   HTML_TARGET *list;
 } HTML_TARGET_LIST;
 
+typedef struct MERGED_INDEX {
+    char *name;
+    INDEX_ENTRY *index_entries;
+    size_t index_number;
+} MERGED_INDEX;
+
+typedef struct LETTER_INDEX_ENTRIES {
+    char *letter;
+    INDEX_ENTRY **entries;
+    size_t number;
+} LETTER_INDEX_ENTRIES;
+
+typedef struct INDEX_SORTED_BY_LETTER {
+    char *name;
+    LETTER_INDEX_ENTRIES *letter_entries;
+    size_t number;
+} INDEX_SORTED_BY_LETTER;
+
 typedef struct CONVERTER {
   int converter_descriptor;
   OPTIONS *conf;
@@ -188,6 +206,8 @@ typedef struct CONVERTER {
   int document_units_descriptor;
 
   ERROR_MESSAGE_LIST *error_messages;
+  MERGED_INDEX **index_entries;
+  INDEX_SORTED_BY_LETTER **index_entries_by_letter;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
@@ -213,6 +233,8 @@ typedef struct TARGET_CONTENTS_FILENAME {
   char *target_contents;
   char *target_shortcontents;
 } TARGET_CONTENTS_FILENAME;
+
+int xasprintf (char **ptr, const char *template, ...);
 
 void fatal (char *);
 void bug (char *);

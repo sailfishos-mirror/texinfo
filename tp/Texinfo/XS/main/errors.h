@@ -7,8 +7,6 @@
 #include "tree_types.h"
 #include "utils.h"
 
-int xasprintf (char **ptr, const char *template, ...);
-
 void line_error (char *format, ...);
 void line_warn (char *format, ...);
 void command_error (ELEMENT *e, char *format, ...);

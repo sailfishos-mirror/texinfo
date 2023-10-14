@@ -103,6 +103,12 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_converter_initialize",
       "Texinfo::Convert::ConvertXS::html_converter_initialize");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_sort_sortable_index_entries_by_letter",
+      "Texinfo::Convert::ConvertXS::sort_sortable_index_entries_by_letter");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
+      "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
 
     $module_loaded = 1;
   }
@@ -9204,7 +9210,7 @@ sub _prepare_conversion_units($$$)
 
   $self->_set_root_commands_targets_node_files();
 
-  $self->_prepare_index_entries();
+  $self->_prepare_index_entries_targets();
   $self->_prepare_footnotes();
 
   # setup untranslated strings
@@ -9589,7 +9595,92 @@ sub _prepare_frames_filenames($$)
   }
 }
 
-sub _prepare_index_entries($)
+sub _XS_sort_sortable_index_entries_by_letter($$)
+{
+}
+
+sub _XS_get_index_entries_sorted_by_letter($$)
+{
+}
+
+sub _sort_index_entries($)
+{
+  my $self = shift;
+
+  my $indices_information = $self->{'indices_information'};
+  if ($indices_information) {
+
+    my $merged_index_entries
+        = Texinfo::Structuring::merge_indices($indices_information);
+    my $index_entries_sort_strings;
+
+    # see TODO in convert/indices_in_conversion.c sort_indices_by_letter,
+    # sorting letters requires a collation in C, so this cannot be done,
+    # even when starting from index_sortable_index_entries
+    if (0 and $self->{'converter_descriptor'}) {
+      my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+       = Texinfo::Structuring::setup_sortable_index_entries ($self, $self,
+                            $merged_index_entries, $indices_information, 1, 1);
+      if ($index_sortable_index_entries) {
+        # encode and pass as arrays only, in reproducible order
+        my $index_encoded_sortable_entries = [];
+        foreach my $index_name (sort(keys(%$index_sortable_index_entries))) {
+          my $encoded_index_name = Encode::encode('UTF-8', $index_name);
+          my $encoded_sortable_entries = [];
+          foreach my $sortable_entry
+              (@{$index_sortable_index_entries->{$index_name}}) {
+            my $encoded_sortable_entry = {
+              'keys' => $sortable_entry->{'keys'},
+              'index_name'
+                => Encode::encode('UTF-8', $sortable_entry->{'index_name'}),
+              'number' => $sortable_entry->{'number'},
+              'entry_keys' => [],
+            };
+            foreach my $entry_key (@{$sortable_entry->{'entry_keys'}}) {
+              push @{$encoded_sortable_entry->{'entry_keys'}},
+                Encode::encode('UTF-8', $entry_key);
+            }
+            push @$encoded_sortable_entries, $encoded_sortable_entry;
+          }
+          push @{$index_encoded_sortable_entries},
+           [$encoded_index_name, $encoded_sortable_entries],
+        }
+        _XS_sort_sortable_index_entries_by_letter($self,
+                                    $index_encoded_sortable_entries);
+      }
+    }
+
+    ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
+            = Texinfo::Structuring::sort_indices_by_letter($self,
+                                    $self, $merged_index_entries,
+                                    $indices_information);
+    $self->{'index_entries'} = $merged_index_entries;
+    if ($self->{'converter_descriptor'})
+      {
+        my $encoded_index_entries_by_letter = [];
+        if ($self->{'index_entries_by_letter'}) {
+          foreach my $index_name
+              (sort(keys(%{$self->{'index_entries_by_letter'}}))) {
+            my $letter_entries
+              = $self->{'index_entries_by_letter'}->{$index_name};
+            my $encoded_index_by_letters = [];
+            foreach my $letter_entry (@$letter_entries) {
+              my $letter = $letter_entry->{'letter'};
+              push @$encoded_index_by_letters,
+                [Encode::encode('UTF-8', $letter), $letter_entry->{'entries'}];
+            }
+            push @$encoded_index_entries_by_letter,
+                   [Encode::encode('UTF-8', $index_name),
+                    $encoded_index_by_letters];
+          }
+        }
+        _XS_get_index_entries_sorted_by_letter($self,
+                                 $encoded_index_entries_by_letter);
+      }
+  }
+}
+
+sub _prepare_index_entries_targets($)
 {
   my $self = shift;
 
@@ -9598,15 +9689,6 @@ sub _prepare_index_entries($)
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
-
-    my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($indices_information);
-    my $index_entries_sort_strings;
-    ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Structuring::sort_indices_by_letter($self,
-                                    $self, $merged_index_entries,
-                                    $indices_information);
-    $self->{'index_entries'} = $merged_index_entries;
 
     foreach my $index_name (sort(keys(%$indices_information))) {
       foreach my $index_entry (@{$indices_information->{$index_name}
@@ -10904,6 +10986,8 @@ sub convert($$)
   # Some information is not available yet.
   $self->_reset_info();
 
+  $self->_sort_index_entries();
+
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, undef);
 
@@ -11254,6 +11338,8 @@ sub output($$)
   # titles formatting.
   # Some information is not available yet.
   $self->_reset_info();
+
+  $self->_sort_index_entries();
 
   # Get the list of output units to be processed.
   my ($output_units, $special_units, $associated_special_units)

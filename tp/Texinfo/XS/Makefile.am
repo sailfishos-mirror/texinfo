@@ -370,9 +370,9 @@ ConvertXS_la_SOURCES = \
 EXTRA_DIST += convert/ConvertXS.xs
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
-ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 

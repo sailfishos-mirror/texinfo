@@ -2356,14 +2356,16 @@ sub print_element_directions($)
 
 
 
-sub _sort_string($$)
+sub _sort_key($$)
 {
   my $a = shift;
   my $b = shift;
-  return (($a =~ /^[[:alpha:]]/ and $b =~ /^[[:alpha:]]/)
-              or ($a !~ /^[[:alpha:]]/ and $b !~ /^[[:alpha:]]/))
-                 ? ($a cmp $b)
-                 : (($a =~ /^[[:alpha:]]/ && 1) || -1);
+  my ($a_value, $a_alpha) = @$a;
+  my ($b_value, $b_alpha) = @$b;
+  if ($a_alpha == $b_alpha) {
+    return ($a_value cmp $b_value);
+  }
+  return $a_alpha <=> $b_alpha;
 }
 
 sub _sort_index_entries($$)
@@ -2372,9 +2374,9 @@ sub _sort_index_entries($$)
   my $key2 = shift;
 
   my $key_index = 0;
-  # the keys array corresponds to th emain entry and subentries
+  # the keys array corresponds to the main entry and subentries
   foreach my $key1_str (@{$key1->{'keys'}}) {
-    my $res = _sort_string($key1_str,
+    my $res = _sort_key($key1_str,
                            $key2->{'keys'}->[$key_index]);
     if ($res != 0) {
       return $res;
@@ -2396,7 +2398,6 @@ sub _sort_index_entries($$)
   return $res;
 }
 
-# This is a duplicate of the functions above, for efficiency
 sub _collator_sort_string($$$)
 {
   my $a = shift;
@@ -2408,6 +2409,20 @@ sub _collator_sort_string($$$)
                  : (($a =~ /^[[:alpha:]]/ && 1) || -1);
 }
 
+# This is a duplicate of the functions above, for efficiency
+sub _collator_sort_key($$$)
+{
+  my $a = shift;
+  my $b = shift;
+  my $collator = shift;
+  my ($a_value, $a_alpha) = @$a;
+  my ($b_value, $b_alpha) = @$b;
+  if ($a_alpha == $b_alpha) {
+    return $collator->cmp($a_value, $b_value);
+  }
+  return $a_alpha <=> $b_alpha;
+}
+
 sub _collator_sort_index_entries($$$)
 {
   my $key1 = shift;
@@ -2417,7 +2432,7 @@ sub _collator_sort_index_entries($$$)
   my $key_index = 0;
   # the keys array corresponds to th emain entry and subentries
   foreach my $key1_str (@{$key1->{'keys'}}) {
-    my $res = _collator_sort_string($key1_str,
+    my $res = _collator_sort_key($key1_str,
                                     $key2->{'keys'}->[$key_index],
                                     $collator);
     if ($res != 0) {
@@ -2534,13 +2549,14 @@ package Texinfo::Structuring;
 #my $default_preset_keys = 0;
 my $default_preset_keys = 1;
 
-sub setup_sortable_index_entries($$$$$)
+sub setup_sortable_index_entries($$$$$;$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
   my $indices_information = shift;
   my $preset_keys = shift;
+  my $silent = shift;
 
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
@@ -2619,10 +2635,12 @@ sub setup_sortable_index_entries($$$$$)
         $entry_cmdname
           = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-        $registrar->line_warn($customization_information,
-                     sprintf(__("empty index key in \@%s"),
-                                 $entry_cmdname),
-                        $main_entry_element->{'source_info'});
+        if (!$silent) {
+          $registrar->line_warn($customization_information,
+                       sprintf(__("empty index key in \@%s"),
+                                  $entry_cmdname),
+                               $main_entry_element->{'source_info'});
+        }
         push @entry_keys, '';
         push @sort_entry_keys, '';
       } else {
@@ -2645,11 +2663,12 @@ sub setup_sortable_index_entries($$$$$)
           $entry_cmdname
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
-          $registrar->line_warn($customization_information,
-                     sprintf(__("empty index sub entry %d key in \@%s"),
-                                 $subentry_nr,
-                                 $entry_cmdname),
-                        $main_entry_element->{'source_info'});
+          if (!$silent) {
+            $registrar->line_warn($customization_information,
+                         sprintf(__("empty index sub entry %d key in \@%s"),
+                                    $subentry_nr, $entry_cmdname),
+                                  $main_entry_element->{'source_info'});
+          }
           push @entry_keys, '';
           push @sort_entry_keys, '';
         } else {
@@ -2659,8 +2678,16 @@ sub setup_sortable_index_entries($$$$$)
       }
       foreach my $sub_entry_key (@sort_entry_keys) {
         if ($sub_entry_key ne '') {
+          my @keys_and_alpha;
+          for (my $i = 0; $i < scalar (@entry_keys); $i++) {
+            my $alpha = 0;
+            if ($entry_keys[$i] =~ /^[[:alpha:]]/) {
+              $alpha = 1;
+            }
+            push @keys_and_alpha, [$sort_entry_keys[$i], $alpha];
+          }
           my $sortable_entry = {'entry' => $index_entry,
-                                'keys' => \@sort_entry_keys,
+                                'keys' => \@keys_and_alpha,
                                 'entry_keys' => \@entry_keys,
                                 'number' => $index_entry->{'entry_number'},
                                 'index_name' => $entry_index_name};

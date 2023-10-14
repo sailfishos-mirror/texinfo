@@ -1,3 +1,52 @@
+2023-10-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/utils.c (xasprintf):
+	move xasprintf to utils.c.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_index_entries_targets)
+	(_prepare_conversion_units, _sort_index_entries, convert, output),
+	tp/Texinfo/XS/convert/convert_html.c (sort_index_entries)
+	(prepare_index_entries_targets): split _prepare_index_entries in two,
+	with _sort_index_entries for the sorting that is now done before
+	_prepare_conversion_units, and _prepare_index_entries_targets for the
+	targets, which is done in _prepare_conversion_units.  This allows to
+	have sorting done independently to allow to pass sorted or sortable
+	indices informations to C more independently.
+
+	* tp/Texinfo/Convert/HTML.pm (_sort_key, _sort_index_entries)
+	(_collator_sort_key, setup_sortable_index_entries): preset an
+	indicator to determine if the string is alphanumeric or not in
+	$sortable_entry 'keys'.  Replace _sort_string by _sort_key and
+	add _collator_sort_key to sort taking into account this information on
+	keys being alphanumeric or not.
+
+	* tp/Texinfo/Convert/HTML.pm (setup_sortable_index_entries): add
+	a $silent argument, to avoid error messages if called twice.
+
+	* tp/Texinfo/Convert/HTML.pm (import)
+	(_XS_get_index_entries_sorted_by_letter, _sort_index_entries),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_index_entries_sorted_by_letter),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter), tp/Texinfo/XS/main/utils.h
+	(MERGED_INDEX, LETTER_INDEX_ENTRIES, INDEX_SORTED_BY_LETTER)
+	(CONVERTER): get already sorted index entries from perl to C.
+
+	* tp/Texinfo/Convert/HTML.pm (import)
+	(_XS_sort_sortable_index_entries_by_letter, _sort_index_entries),
+	tp/Texinfo/XS/Makefile.am (ConvertXS_la_CPPFLAGS)
+	(ConvertXS_la_LDFLAGS), tp/Texinfo/XS/convert/ConvertXS.xs
+	(sort_sortable_index_entries_by_letter),
+	tp/Texinfo/XS/convert/indices_in_conversion.c
+	(sort_indices_by_letter),
+	tp/Texinfo/XS/convert/indices_in_conversion.h (KEY_ALPHA)
+	(SORTABLE_ENTRY, INDEX_SORTABLE_ENTRIES, LETTER_SORTABLE_ENTRIES,
+	(LETTER_SORTABLE_ENTRIES_LIST), tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_sortable_entries), tp/Texinfo/XS/main/unicode.c
+	(normalize_NFKD): unfinished implementation in C of
+	sorting based on setup_sortable_index_entries.  It is unfinished
+	because it requires some sorting of letters in C, which is not ready.
+
 2023-10-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (sort_indices_by_letter)

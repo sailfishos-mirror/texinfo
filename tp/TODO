@@ -18,6 +18,9 @@ For unicode sorting in C for index sorting, strcoll_l could be used,
 it sorts accoding to a locale specified in argument.  However, it does not
 seems to be that portable, and there is no associated gnulib module.
 
+Check if we need new gnulib modules for u32_next u32_strconv_from_encoding
+normalize_NFKD UC_CATEGORY_Mn
+
 Bugs
 ====
 
