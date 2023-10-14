@@ -32,6 +32,7 @@
 #include "converter.h"
 #include "node_name_normalization.h"
 #include "indices_in_conversion.h"
+#include "convert_to_texinfo.h"
 #include "convert_html.h"
 
 
@@ -482,6 +483,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
 void
 html_initialize_output_state (CONVERTER *self)
 {
+  int i;
   /* targets and directions */
 
   /* used for diverse elements: tree units, indices, footnotes, special
@@ -490,12 +492,18 @@ html_initialize_output_state (CONVERTER *self)
   self->seen_ids = (STRING_LIST *) malloc (sizeof (STRING_LIST));
   memset (self->html_targets, 0, sizeof (HTML_TARGET_LIST));
   memset (self->seen_ids, 0, sizeof (STRING_LIST));
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      self->html_special_targets[i]
+        = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
+      memset (self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
+    }
 }
 
 static HTML_TARGET *
-add_element_target (CONVERTER *self, ELEMENT *element, char *target)
+add_element_target_to_list (HTML_TARGET_LIST *targets,
+                            ELEMENT *element, char *target)
 {
-  HTML_TARGET_LIST *targets = self->html_targets;
   HTML_TARGET *element_target;
 
   if (targets->number == targets->space)
@@ -510,6 +518,21 @@ add_element_target (CONVERTER *self, ELEMENT *element, char *target)
 
   targets->number++;
   return element_target;
+}
+
+static HTML_TARGET *
+add_element_target (CONVERTER *self, ELEMENT *element, char *target)
+{
+  HTML_TARGET_LIST *targets = self->html_targets;
+  return add_element_target_to_list (targets, element, target);
+}
+
+static HTML_TARGET *
+add_special_target (CONVERTER *self, enum special_target_type type,
+                    ELEMENT *element, char *target)
+{
+  HTML_TARGET_LIST *targets = self->html_special_targets[type];
+  return add_element_target_to_list (targets, element, target);
 }
 
 
@@ -964,8 +987,8 @@ prepare_index_entries_targets (CONVERTER *self)
                                                 "element_region");
                   entry_reference_content_element
                    = index_content_element (main_entry_element, 1);
-               /* construct element to convert to a normalized identifier to use as
-                  hrefs target */
+        /* construct element to convert to a normalized identifier to use as
+           hrefs target */
                   normalize_index_element = new_element (ET_NONE);
                   add_to_element_contents (normalize_index_element,
                                            entry_reference_content_element);
@@ -1015,6 +1038,70 @@ prepare_index_entries_targets (CONVERTER *self)
     }
 }
 
+static const char *footid_base = "FOOT";
+static const char *docid_base = "DOCF";
+
+static void
+prepare_footnotes_targets (CONVERTER *self)
+{
+  ELEMENT *global_footnotes = &self->document->global_commands->footnotes;
+  if (global_footnotes->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < global_footnotes->contents.number; i++)
+        {
+          ELEMENT *footnote = global_footnotes->contents.list[i];
+          TEXT footid;
+          TEXT docid;
+          int nr = i;
+
+          text_init (&footid);
+          text_init (&docid);
+          text_printf (&footid, "%s%d", footid_base, nr);
+          text_printf (&docid, "%s%d", docid_base, nr);
+
+          while (1)
+            {
+              int j;
+              int non_unique = 0;
+              for (j = 0; j < self->seen_ids->number; j++)
+                {
+                  if (!strcmp (footid.text, self->seen_ids->list[j])
+                      || !strcmp (docid.text, self->seen_ids->list[j]))
+                    {
+                      non_unique = 1;
+                      break;
+                    }
+                }
+              if (non_unique)
+                {
+                  nr++;
+                  if (nr == 0)
+                    fatal ("overflow footnote target nr");
+
+                  text_init (&footid);
+                  text_init (&docid);
+                  text_printf (&footid, "%s%d", footid_base, nr);
+                  text_printf (&docid, "%s%d", docid_base, nr);
+                }
+              else
+                break;
+            }
+          add_string (footid.text, self->seen_ids);
+          add_string (docid.text, self->seen_ids);
+          add_element_target (self, footnote, footid.text);
+          add_special_target (self, ST_footnote_location, footnote,
+                              docid.text);
+
+          if (self->conf->DEBUG > 0)
+            {
+              fprintf (stderr, "Enter footnote: target %s, nr %d\n%s\n",
+                       footid.text, i, convert_to_texinfo (footnote));
+            }
+        }
+    }
+}
+
 /* for conversion units except for associated special units that require
    files for document units to be set */
 void
@@ -1033,4 +1120,5 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   set_root_commands_targets_node_files (self);
 
   prepare_index_entries_targets (self);
+  prepare_footnotes_targets (self);
 }

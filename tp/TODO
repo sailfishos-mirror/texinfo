@@ -18,7 +18,8 @@ For unicode sorting in C for index sorting, strcoll_l or even better strxfrm_l
 could be used, it sorts accoding to a locale specified in argument.  However,
 it does not seems to be that portable, there is no associated gnulib
 module, and the _l variants seem to be in glibc but are are not in the glibc
-documentation.
+documentation.  According to Eli, if the locale's codeset is UTF-8, glibc
+uses the full Unicode CLDR, which is what we want.
 
 Bugs
 ====

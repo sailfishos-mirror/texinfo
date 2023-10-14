@@ -156,6 +156,10 @@ enum command_location {
   CL_preamble_or_first,
 };
 
+enum special_target_type {
+  ST_footnote_location,
+};
+
 /* down here because it requires error data from before */
 #include "document.h"
 
@@ -220,6 +224,7 @@ typedef struct CONVERTER {
   VARIETY_DIRECTION_INDEX **varieties_direction_index;
   STRING_LIST *seen_ids;
   HTML_TARGET_LIST *html_targets;
+  HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {

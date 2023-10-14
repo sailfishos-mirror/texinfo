@@ -9211,7 +9211,7 @@ sub _prepare_conversion_units($$$)
   $self->_set_root_commands_targets_node_files();
 
   $self->_prepare_index_entries_targets();
-  $self->_prepare_footnotes();
+  $self->_prepare_footnotes_targets();
 
   # setup untranslated strings
   $self->_translate_names();
@@ -9744,7 +9744,7 @@ sub _prepare_index_entries_targets($)
   }
 }
 
-sub _prepare_footnotes($)
+sub _prepare_footnotes_targets($)
 {
   my $self = shift;
 
