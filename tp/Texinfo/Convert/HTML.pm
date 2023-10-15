@@ -2883,31 +2883,30 @@ my %style_commands_formatting;
 my %style_brace_types = map {$_ => 1} ('style_other', 'style_code',
                                        'style_no_code');
 # @all_style_commands is the union of style brace commands and commands
-# in %style_commands_element, a few not being style brace commands.
+# in %style_commands_element, a few not being style brace commands, and
+# commands in %quoted_style_commands.
 # Using keys of a map generated hash does like uniq, it avoids duplicates.
 # The first grep selects style brace commands, ie commands with %brace_commands
 # type in %style_brace_types.
 my @all_style_commands = keys %{{ map { $_ => 1 }
     ((grep {$style_brace_types{$brace_commands{$_}}} keys(%brace_commands)),
-      keys(%style_commands_element)) }};
+      keys(%style_commands_element), keys(%quoted_style_commands)) }};
 
 foreach my $command (@all_style_commands) {
   $style_commands_formatting{$command} = {};
+  # default is no element.
   foreach my $context ('normal', 'string', 'preformatted') {
     $style_commands_formatting{$command}->{$context} = {}
   }
-  # default is no attribute.
   if (exists($style_commands_element{$command})) {
     my $html_element = $style_commands_element{$command};
-    $style_commands_formatting{$command}->{'normal'}
-     = {'element' => $html_element};
-    $style_commands_formatting{$command}->{'preformatted'}
-     = {'element' => $html_element};
+    foreach my $context ('normal', 'preformatted') {
+      $style_commands_formatting{$command}->{$context}
+                           = {'element' => $html_element};
+    }
   }
   if ($quoted_style_commands{$command}) {
     foreach my $context ('normal', 'string', 'preformatted') {
-      $style_commands_formatting{$command}->{$context} = {}
-        if (!$style_commands_formatting{$command}->{$context});
       $style_commands_formatting{$command}->{$context}->{'quote'} = 1;
     }
   }
