@@ -100,9 +100,9 @@ html_initialize_output_state (SV *converter_in)
       PREINIT:
          CONVERTER *self;
       CODE:
-         /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
-         html_initialize_output_state (self);
+         self = get_sv_converter (converter_in, "html_initialize_output_state");
+         if (self)
+           html_initialize_output_state (self);
 
 # unfinished, see sort_indices_by_letter comment
 void

@@ -27,6 +27,9 @@
 
 #include "command_data.c"
 
+int builtin_cmd_number
+  = sizeof (builtin_command_data) / sizeof (builtin_command_data[0]);
+
 static int
 compare_command_fn (const void *a, const void *b)
 {
@@ -65,8 +68,7 @@ lookup_builtin_command (char *cmdname)
 char *
 element_command_name (ELEMENT *e)
 {
-  if (e->cmd && e->cmd <
-        sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
+  if (e->cmd && e->cmd < builtin_cmd_number)
     return builtin_command_data[e->cmd].cmdname;
   else
     {

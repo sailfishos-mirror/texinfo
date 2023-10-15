@@ -7585,9 +7585,10 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
       # only pop the main context
       $self->_pop_document_context();
     } elsif ($reset_context eq 'string') {
-      $translation_result = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                           'contents' => [$translated_tree]},
-                                     'translated_string', "string no arg $cmdname translated");
+      $translation_result
+        = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                          'contents' => [$translated_tree]},
+                     'translated_string', "string no arg $cmdname translated");
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree);
     }

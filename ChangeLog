@@ -1,5 +1,17 @@
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_initialize_output_state):
+	warn, and do not proceed if converter is not found.
+
+	* tp/Texinfo/XS/main/builtin_commands.c (builtin_cmd_number)
+	(element_command_name): add builtin_cmd_number, the number of builtin
+	commands as an extern.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_reset_unset_no_arg_commands_formatting_context): reindent.
+
+2023-10-15  Patrice Dumas  <pertusus@free.fr>
+
 	Indent struct and enum more consistently
 
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
