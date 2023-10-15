@@ -1,5 +1,20 @@
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (gdt_string): pass string first.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/XS/convert/convert_html.c (translate_names),
+	tp/Texinfo/XS/main/convert_utils.c (translated_command_tree),
+	tp/Texinfo/XS/main/get_perl_info.c (compare_ints)
+	(set_translated_commands, html_converter_initialize),
+	tp/Texinfo/XS/main/utils.h (HCC_CONTEXT_TYPES_LIST, CONVERTER)
+	(HTML_COMMAND_CONVERSION, COMMAND_ID_LIST, TRANSLATED_COMMAND):
+	pass style_commands_formatting, translated_commands and
+	no_arg_commands_formatting to XS.
+	Handle partly no_arg_formatted in translate_names.
+
+2023-10-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_initialize_output_state):
 	warn, and do not proceed if converter is not found.
 

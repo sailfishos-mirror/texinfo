@@ -442,11 +442,26 @@ sub encode_converter_document($)
                                       # and set converter_descriptor
                 'document_descriptor' => $self->{'document_descriptor'}};
 
+  if ($self->{'style_commands_formatting'}) {
+    $result->{'style_commands_formatting'}
+      = $self->{'style_commands_formatting'};
+  }
+
   if (defined($self->{'converter_init_conf'})) {
     my $encoded_converter_init_conf
       = Texinfo::Common::encode_options($self->{'converter_init_conf'});
     $result->{'converter_init_conf'} = $encoded_converter_init_conf;
   }
+
+  if ($self->{'translated_commands'}) {
+    my $encoded_translated_commands = {};
+    foreach my $cmdname (keys(%{$self->{'translated_commands'}})) {
+      $encoded_translated_commands->{$cmdname}
+        = Encode::encode('UTF-8', $self->{'translated_commands'}->{$cmdname});
+    }
+    $result->{'translated_commands'} = $encoded_translated_commands;
+  }
+
   # HTML specific
   if ($self->{'special_unit_info'}) {
     # to help the XS code to set arrays of C structures, already prepare
@@ -480,6 +495,32 @@ sub encode_converter_document($)
     }
     $result->{'sorted_special_unit_varieties'}
       = [sort(keys(%all_special_unit_varieties))];
+  }
+  if ($self->{'no_arg_commands_formatting'}) {
+    my $encoded_no_arg_commands_formatting = {};
+    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
+      $encoded_no_arg_commands_formatting->{$cmdname} = {};
+      my $format_contexts = $self->{'no_arg_commands_formatting'}->{$cmdname};
+      foreach my $context (keys(%$format_contexts)) {
+        my $spec = $format_contexts->{$context};
+        $encoded_no_arg_commands_formatting->{$cmdname}->{$context} = {};
+        my $encoded_spec
+            = $encoded_no_arg_commands_formatting->{$cmdname}->{$context};
+        foreach my $key ('element', 'unset') {
+          if (exists($spec->{$key})) {
+            $encoded_spec->{$key} = $spec->{$key};
+          }
+        }
+        foreach my $key ('text', 'translated_converted',
+                         'translated_to_convert') {
+          if (exists($spec->{$key})) {
+            $encoded_spec->{$key} = Encode::encode('UTF-8', $spec->{$key});
+          }
+        }
+      }
+    }
+    $result->{'no_arg_commands_formatting'}
+      = $encoded_no_arg_commands_formatting;
   }
 
   return $result;

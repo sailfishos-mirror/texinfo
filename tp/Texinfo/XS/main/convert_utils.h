@@ -5,6 +5,7 @@
 #include "options_types.h"
 #include "tree_types.h"
 #include "convert_to_text.h"
+#include "utils.h"
 
 extern char *convert_utils_month_name[12];
 
@@ -35,4 +36,5 @@ PARSED_DEF *definition_arguments_content (ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (OPTIONS *options, ELEMENT *current);
 
+ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
 #endif

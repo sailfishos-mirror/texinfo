@@ -27,6 +27,7 @@ typedef struct command_struct {
 } COMMAND;
 
 extern COMMAND builtin_command_data[];
+extern int builtin_cmd_number;
 
 #define builtin_command_flags(e) \
    (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))

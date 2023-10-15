@@ -34,6 +34,7 @@
 #include "indices_in_conversion.h"
 #include "convert_to_texinfo.h"
 #include "translations.h"
+#include "convert_utils.h"
 #include "convert_html.h"
 
 
@@ -236,6 +237,64 @@ translate_names (CONVERTER *self)
                      }
                  }
              }
+        }
+    }
+
+  if (self->no_arg_formatted_cmd)
+    {
+      int translated_nr = 0;
+      /* this is overkill, but simpler */
+      enum command_id *translated_cmds = (enum command_id *)
+        malloc ((self->no_arg_formatted_cmd->number +1)
+                * sizeof (enum command_id));
+      memset (translated_cmds, 0, (self->no_arg_formatted_cmd->number +1)
+                * sizeof (enum command_id));
+
+      for (j = 0; j < self->no_arg_formatted_cmd->number; j++)
+        {
+          enum command_id cmd = self->no_arg_formatted_cmd->list[j];
+          int i;
+          for (i = 0; i < HCC_type_css_string+1; i++)
+            {
+              HTML_COMMAND_CONVERSION *format_spec
+                = self->html_command_conversion[cmd][i];
+              if (format_spec->translated_converted
+                  && !format_spec->unset)
+                {
+                  translated_cmds[translated_nr] = cmd;
+                  translated_nr++;
+
+                  format_spec->text
+                   = gdt_string (format_spec->translated_converted, self->conf,
+                                 0, 0, 0);
+                }
+              else if (i == HCC_type_normal)
+                {
+                  ELEMENT *translated_tree = 0;
+                  if (format_spec->translated_to_convert)
+                    {/* FIXME use document associated to converter? */
+                      translated_tree =
+                         gdt_tree (format_spec->translated_to_convert,
+                                   0, self->conf, 0, 0, 0);
+                    }
+                  else
+                    translated_tree = translated_command_tree (self, cmd);
+
+                  if (translated_tree)
+                    {
+                      translated_cmds[translated_nr] = cmd;
+                      translated_nr++;
+
+                      format_spec->tree = translated_tree;
+                    }
+                }
+            }
+        }
+      for (j = 0; j < translated_nr; j++)
+        {
+          /*
+          complete_no_arg_commands_formatting (self, cmd);
+           */
         }
     }
 }

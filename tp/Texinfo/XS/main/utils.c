@@ -61,6 +61,12 @@ const char *output_unit_type_names[] = {"unit",
                                         "external_node_unit",
                                         "special_unit"};
 
+char *html_conversion_context_type_names[] = {
+  #define cctx_type(name) #name,
+    HCC_CONTEXT_TYPES_LIST
+  #undef cctx_type
+};
+
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
 ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 

@@ -179,6 +179,20 @@ enum direction_string {
   #undef tds_type
 };
 
+#define HCC_CONTEXT_TYPES_LIST \
+  cctx_type(normal) \
+  cctx_type(preformatted) \
+  cctx_type(string) \
+  cctx_type(css_string) \
+  cctx_type(code) \
+  cctx_type(math)
+
+enum conversion_context {
+  #define cctx_type(name) HCC_type_## name,
+   HCC_CONTEXT_TYPES_LIST
+  #undef cctx_type
+};
+
 /* down here because it requires error data from before */
 #include "document.h"
 
@@ -226,6 +240,27 @@ typedef struct INDEX_SORTED_BY_LETTER {
     size_t number;
 } INDEX_SORTED_BY_LETTER;
 
+typedef struct HTML_COMMAND_CONVERSION {
+    char *element;
+    int quote; /* for style commands formatting only */
+    /* following is only for no arg command formatting */
+    int unset;
+    char *text;
+    ELEMENT *tree;
+    char *translated_converted;
+    char *translated_to_convert;
+} HTML_COMMAND_CONVERSION;
+
+typedef struct COMMAND_ID_LIST {
+    size_t number;
+    enum command_id *list;
+} COMMAND_ID_LIST;
+
+typedef struct TRANSLATED_COMMAND {
+    enum command_id cmd;
+    char *translation;
+} TRANSLATED_COMMAND;
+
 typedef struct CONVERTER {
     int converter_descriptor;
     OPTIONS *conf;
@@ -236,6 +271,7 @@ typedef struct CONVERTER {
     ERROR_MESSAGE_LIST *error_messages;
     MERGED_INDEX **index_entries;
     INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+    TRANSLATED_COMMAND **translated_commands;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
@@ -251,6 +287,8 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST *html_targets;
     HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
     char **directions_strings[TDS_type_rel+1];
+    HTML_COMMAND_CONVERSION ***html_command_conversion;
+    COMMAND_ID_LIST *no_arg_formatted_cmd;
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {

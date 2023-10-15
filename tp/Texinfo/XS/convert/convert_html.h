@@ -4,6 +4,9 @@
 
 #include "utils.h"
 
+/* in utils.c */
+extern char *html_conversion_context_type_names[];
+
 void html_initialize_output_state (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,

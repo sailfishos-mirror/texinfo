@@ -613,7 +613,7 @@ gdt_tree (char *string, DOCUMENT *document, OPTIONS *options,
 }
 
 char *
-gdt_string (OPTIONS *options, char *string,
+gdt_string (char *string, OPTIONS *options,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context, char *in_lang)
 {
