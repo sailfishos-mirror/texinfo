@@ -1,5 +1,23 @@
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (html_convert_css_string_for_list_mark)
+	(_translate_names, _convert_no_arg_command, converter_initialize)
+	(_css_string_convert_no_arg_command)
+	(_reset_unset_no_arg_commands_formatting_context): exchange command
+	and context level in no_arg_commands_formatting.
+
+	* tp/Texinfo/Convert/HTML.pm (%style_commands_element)
+	(%style_commands_formatting, _convert_style_command)
+	(converter_initialize): exchange command and context level in
+	style_commands_formatting.  Remove context from
+	%style_commands_element.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_style_command): remove
+	commented out code that is not in line with the API.  Rewrite the
+	function for clearer code.
+
+2023-10-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (TRANSLATED_SUI_ASSOCIATION)
 	(translated_special_unit_info, special_unit_info_tree)
 	tp/Texinfo/XS/main/get_perl_info.c (special_unit_info_type_names)

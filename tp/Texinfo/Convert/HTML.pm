@@ -484,13 +484,13 @@ sub html_convert_css_string_for_list_mark($$;$)
   my $saved_css_string_no_arg_command = {};
   foreach my $command (keys(%special_list_mark_css_string_no_arg_command)) {
     $saved_css_string_no_arg_command->{$command}
-      = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
-    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
+      = $self->{'no_arg_commands_formatting'}->{$command}->{'css_string'};
+    $self->{'no_arg_commands_formatting'}->{$command}->{'css_string'}
       = $special_list_mark_css_string_no_arg_command{$command};
   }
   my $result = $self->html_convert_css_string($element, $explanation);
   foreach my $command (keys(%special_list_mark_css_string_no_arg_command)) {
-    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
+    $self->{'no_arg_commands_formatting'}->{$command}->{'css_string'}
       = $saved_css_string_no_arg_command->{$command};
   }
   return $result;
@@ -2321,30 +2321,29 @@ sub _translate_names($)
     }
   }
   my %translated_commands;
-  foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
-    foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}
-                                                              ->{$context}})) {
+  foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}})) {
+    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
       if (defined($self->{'no_arg_commands_formatting'}
-                         ->{$context}->{$command}->{'translated_converted'})
+                         ->{$command}->{$context}->{'translated_converted'})
           and not $self->{'no_arg_commands_formatting'}
-                                        ->{$context}->{$command}->{'unset'}) {
+                                        ->{$command}->{$context}->{'unset'}) {
         $translated_commands{$command} = 1;
-        $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
+        $self->{'no_arg_commands_formatting'}->{$command}->{$context}->{'text'}
          = $self->gdt_string($self->{'no_arg_commands_formatting'}
-                       ->{$context}->{$command}->{'translated_converted'});
+                       ->{$command}->{$context}->{'translated_converted'});
       } elsif ($context eq 'normal') {
         my $translated_tree;
         if (defined($self->{'no_arg_commands_formatting'}
-                      ->{$context}->{$command}->{'translated_to_convert'})) {
+                      ->{$command}->{$context}->{'translated_to_convert'})) {
           $translated_tree = $self->gdt($self->{'no_arg_commands_formatting'}
-                          ->{$context}->{$command}->{'translated_to_convert'});
+                          ->{$command}->{$context}->{'translated_to_convert'});
         } else {
           # default translated commands
           $translated_tree
             = Texinfo::Convert::Utils::translated_command_tree($self, $command);
         }
         if (defined($translated_tree) and $translated_tree ne '') {
-          $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'tree'}
+          $self->{'no_arg_commands_formatting'}->{$command}->{$context}->{'tree'}
             = $translated_tree;
           $translated_commands{$command} = 1;
         }
@@ -2765,16 +2764,16 @@ sub _convert_no_arg_command($$$)
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
     if (($self->in_preformatted() or $self->in_math()
-         and $self->{'no_arg_commands_formatting'}->{'preformatted'}
-                                                             ->{$click_cmdname})
+         and $self->{'no_arg_commands_formatting'}->{$click_cmdname}
+                                                        ->{'preformatted'})
         or ($self->in_string() and
-            $self->{'no_arg_commands_formatting'}->{'string'}->{$click_cmdname})
-        or ($self->{'no_arg_commands_formatting'}->{'normal'}->{$click_cmdname})) {
+            $self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'string'})
+        or ($self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'normal'})) {
       $cmdname = $click_cmdname;
     }
   }
   if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
-      and $self->{'no_arg_commands_formatting'}->{'normal'}->{uc($cmdname)}) {
+      and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
 
@@ -2782,15 +2781,15 @@ sub _convert_no_arg_command($$$)
 
   if ($self->in_preformatted() or $self->in_math()) {
     $result = $self->_text_element_conversion(
-      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname},
+      $self->{'no_arg_commands_formatting'}->{$cmdname}->{'preformatted'},
       $cmdname);
   } elsif ($self->in_string()) {
     $result = $self->_text_element_conversion(
-      $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname},
+      $self->{'no_arg_commands_formatting'}->{$cmdname}->{'string'},
       $cmdname);
   } else {
     $result = $self->_text_element_conversion(
-      $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname},
+      $self->{'no_arg_commands_formatting'}->{$cmdname}->{'normal'},
       $cmdname);
   }
 
@@ -2810,19 +2809,19 @@ sub _css_string_convert_no_arg_command($$$)
   if ($cmdname eq 'click' and $command->{'extra'}
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
-    if ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$click_cmdname}) {
+    if ($self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'css_string'}) {
       $cmdname = $click_cmdname;
     }
   }
   if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
-      and $self->{'no_arg_commands_formatting'}->{'css_string'}->{uc($cmdname)}) {
+      and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
-  #if (not defined($self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'})) {
+  #if (not defined($self->{'no_arg_commands_formatting'}->{$cmdname}->{'css_string'}->{$cmdname})) {
   #  cluck ("BUG: CSS $cmdname no text");
   #}
-  return $self->{'no_arg_commands_formatting'}->{'css_string'}
-                                                 ->{$cmdname}->{'text'};
+  return $self->{'no_arg_commands_formatting'}->{$cmdname}->{'css_string'}
+                                                 ->{'text'};
 }
 
 foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -2848,8 +2847,7 @@ foreach my $quoted_command ('samp') {
   $quoted_style_commands{$quoted_command} = 1;
 }
 
-my %style_commands_element = ('preformatted' => {});
-$style_commands_element{'normal'} = {
+my %style_commands_element = (
       'b'           => 'b',
       'cite'        => 'cite',
       'code'        => 'code',
@@ -2878,48 +2876,45 @@ $style_commands_element{'normal'} = {
       't'           => 'code',
       'var'         => 'var',
       'verb'        => 'code', # other brace command
-};
+);
 
 my %style_commands_formatting;
-foreach my $formatting_context (keys(%style_commands_element)) {
-  $style_commands_formatting{$formatting_context} = {};
-}
-$style_commands_formatting{'string'} = {};
 
 my %style_brace_types = map {$_ => 1} ('style_other', 'style_code',
                                        'style_no_code');
 # @all_style_commands is the union of style brace commands and commands
-# in $style_commands_element{'normal'}, a few not being style brace commands.
+# in %style_commands_element, a few not being style brace commands.
 # Using keys of a map generated hash does like uniq, it avoids duplicates.
 # The first grep selects style brace commands, ie commands with %brace_commands
 # type in %style_brace_types.
 my @all_style_commands = keys %{{ map { $_ => 1 }
     ((grep {$style_brace_types{$brace_commands{$_}}} keys(%brace_commands)),
-      keys(%{$style_commands_element{'normal'}})) }};
+      keys(%style_commands_element)) }};
 
 foreach my $command (@all_style_commands) {
-  # default is no attribute.
-  if ($style_commands_element{'normal'}->{$command}) {
-    $style_commands_formatting{'normal'}->{$command}
-     = {'element' => $style_commands_element{'normal'}->{$command}};
-    $style_commands_formatting{'preformatted'}->{$command}
-     = {'element' => $style_commands_element{'normal'}->{$command}};
+  $style_commands_formatting{$command} = {};
+  foreach my $context ('normal', 'string', 'preformatted') {
+    $style_commands_formatting{$command}->{$context} = {}
   }
-  if ($style_commands_element{'preformatted'}->{$command}) {
-    $style_commands_formatting{'preformatted'}->{$command}
-     = {'element' => $style_commands_element{'preformatted'}->{$command}};
+  # default is no attribute.
+  if (exists($style_commands_element{$command})) {
+    my $html_element = $style_commands_element{$command};
+    $style_commands_formatting{$command}->{'normal'}
+     = {'element' => $html_element};
+    $style_commands_formatting{$command}->{'preformatted'}
+     = {'element' => $html_element};
   }
   if ($quoted_style_commands{$command}) {
     foreach my $context ('normal', 'string', 'preformatted') {
-      $style_commands_formatting{$context}->{$command} = {}
-        if (!$style_commands_formatting{$context}->{$command});
-      $style_commands_formatting{$context}->{$command}->{'quote'} = 1;
+      $style_commands_formatting{$command}->{$context} = {}
+        if (!$style_commands_formatting{$command}->{$context});
+      $style_commands_formatting{$command}->{$context}->{'quote'} = 1;
     }
   }
   $default_commands_conversion{$command} = \&_convert_style_command;
 }
 
-$style_commands_formatting{'preformatted'}->{'sc'}->{'element'} = 'span';
+$style_commands_formatting{'sc'}->{'preformatted'}->{'element'} = 'span';
 
 # currently unused, could be re-used if there is a need to have attributes
 # specified in %style_commands_element
@@ -2953,45 +2948,45 @@ sub _convert_style_command($$$$)
     #cluck "text not defined in _convert_style_command";
     return '';
   }
-  my @classes;
-  # handle the effect of kbdinputstyle
+
+  if ($self->in_string()) {
+    return $text;
+  }
+
+  my $style_cmdname;
+  # effect of kbdinputstyle
   if ($cmdname eq 'kbd' and $command->{'extra'}
       and $command->{'extra'}->{'code'}) {
-    $cmdname = 'code';
-    push @classes, 'as-code-kbd';
+    $style_cmdname = 'code';
+  } else {
+    $style_cmdname = $cmdname;
   }
-  unshift @classes, $cmdname;
 
-  my $attribute_hash = {};
-  if ($self->in_preformatted()) {
-    $attribute_hash = $self->{'style_commands_formatting'}->{'preformatted'};
-  } elsif (!$self->in_string()) {
-    $attribute_hash = $self->{'style_commands_formatting'}->{'normal'};
-  }
-  if (defined($attribute_hash->{$cmdname})) {
-    my $attribute_text = '';
-    my $style;
-    if (defined($attribute_hash->{$cmdname}->{'element'})) {
-      # the commented out code is useful only if there are attributes in
-      # style_commands_element
-      #my $class;
-      #($style, $class, $attribute_text)
-      #  = _parse_attribute($attribute_hash->{$cmdname}->{'element'});
-      #if (defined($class) and $class ne '') {
-      #  push @classes, $class;
-      #}
-      my $style = $attribute_hash->{$cmdname}->{'element'};
-      my $open = $self->html_attribute_class($style, \@classes);
-      if ($open ne '') {
-        $text = $open . '>' . $text . "</$style>";
-      #  $text = $open . "$attribute_text>" . $text . "</$style>";
-      #} elsif ($attribute_text ne '') {
-      #  $text = "<$style $attribute_text>". $text . "</$style>";
-      }
+  if ($self->{'style_commands_formatting'}->{$style_cmdname}) {
+    my $style_formatting
+       = $self->{'style_commands_formatting'}->{$style_cmdname};
+    my $formatting_spec;
+    if ($self->in_preformatted()) {
+      $formatting_spec = $style_formatting->{'preformatted'};
+    } else {
+      $formatting_spec = $style_formatting->{'normal'};
     }
-    if (defined($attribute_hash->{$cmdname}->{'quote'})) {
-      $text = $self->get_conf('OPEN_QUOTE_SYMBOL') . $text
-                . $self->get_conf('CLOSE_QUOTE_SYMBOL');
+    if ($formatting_spec) {
+      if (defined($formatting_spec->{'element'})) {
+        my @classes = ($style_cmdname);
+        if ($style_cmdname ne $cmdname) {
+          push @classes, "as-${style_cmdname}-${cmdname}";
+        }
+        my $style = $formatting_spec->{'element'};
+        my $open = $self->html_attribute_class($style, \@classes);
+        if ($open ne '') {
+          $text = $open . '>' . $text . "</$style>";
+        }
+      }
+      if (defined($formatting_spec->{'quote'})) {
+        $text = $self->get_conf('OPEN_QUOTE_SYMBOL') . $text
+                  . $self->get_conf('CLOSE_QUOTE_SYMBOL');
+      }
     }
   }
   return $text;
@@ -7552,18 +7547,19 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
   my $translate = shift;
 
   # should never happen as unset is set at configuration
-  if (!defined ($self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname})) {
-    $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'unset'} = 1;
+  if (!defined ($self->{'no_arg_commands_formatting'}->{$cmdname}->{$reset_context})) {
+    $self->{'no_arg_commands_formatting'}->{$cmdname}->{$reset_context} = {};
+    $self->{'no_arg_commands_formatting'}->{$cmdname}->{$reset_context}->{'unset'} = 1;
   }
   my $no_arg_command_context
-     = $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname};
+     = $self->{'no_arg_commands_formatting'}->{$cmdname}->{$reset_context};
   if (defined($ref_context)) {
     if ($no_arg_command_context->{'unset'}) {
-      foreach my $key (keys(%{$self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}})) {
+      foreach my $key (keys(%{$self->{'no_arg_commands_formatting'}->{$cmdname}->{$ref_context}})) {
         # both 'translated_converted' and (possibly translated) 'text' are
         # reused
         $no_arg_command_context->{$key}
-          = $self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}->{$key}
+          = $self->{'no_arg_commands_formatting'}->{$cmdname}->{$ref_context}->{$key}
       }
     }
   }
@@ -7825,8 +7821,12 @@ sub _load_htmlxref_files {
 #  commands_open
 #  types_conversion
 #  types_open
+#
+#    API exists for setting, not for getting and used in commands_conversion
 #  no_arg_commands_formatting
 #  style_commands_formatting
+#
+#    API exists
 #  code_types
 #  pre_class_types
 #
@@ -8135,13 +8135,13 @@ sub converter_initialize($)
   }
 
   $self->{'no_arg_commands_formatting'} = {};
-  foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
-    $self->{'no_arg_commands_formatting'}->{$context} = {};
-    foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    $self->{'no_arg_commands_formatting'}->{$command} = {};
+    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
       my $no_arg_command_customized_formatting
         = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
       if (defined($no_arg_command_customized_formatting)) {
-        $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+        $self->{'no_arg_commands_formatting'}->{$command}->{$context}
            = $no_arg_command_customized_formatting;
       } else {
         my $context_default_default_no_arg_commands_formatting
@@ -8154,7 +8154,7 @@ sub converter_initialize($)
           if ($self->get_conf('OUTPUT_CHARACTERS')
               and Texinfo::Convert::Unicode::brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
-            $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
               = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
             # reset CSS for itemize command arguments
@@ -8164,17 +8164,17 @@ sub converter_initialize($)
                 and not $special_list_mark_css_string_no_arg_command{$command}) {
               my $css_string
                 = $self->{'no_arg_commands_formatting'}
-                                    ->{$context}->{$command}->{'text'};
+                                    ->{$command}->{$context}->{'text'};
               $css_string = '"'.$css_string.'"';
               $self->{'css_element_class_styles'}->{"ul.mark-$command"}
                 = "list-style-type: $css_string";
             }
           } else {
-            $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
               = $context_default_default_no_arg_commands_formatting->{$command};
           }
         } else {
-          $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+          $self->{'no_arg_commands_formatting'}->{$command}->{$context}
             = {'unset' => 1};
         }
       }
@@ -8192,17 +8192,17 @@ sub converter_initialize($)
   }
 
   $self->{'style_commands_formatting'} = {};
-  foreach my $context (keys(%style_commands_formatting)) {
-    $self->{'style_commands_formatting'}->{$context} = {};
-    foreach my $command (keys(%{$style_commands_formatting{$context}})) {
+  foreach my $command (keys(%style_commands_formatting)) {
+    $self->{'style_commands_formatting'}->{$command} = {};
+    foreach my $context (keys(%{$style_commands_formatting{$command}})) {
       my $style_commands_formatting_info
         = Texinfo::Config::GNUT_get_style_command_formatting($command, $context);
       if (defined($style_commands_formatting_info)) {
-        $self->{'style_commands_formatting'}->{$context}->{$command}
+        $self->{'style_commands_formatting'}->{$command}->{$context}
            = $style_commands_formatting_info;
-      } elsif (exists($style_commands_formatting{$context}->{$command})) {
-        $self->{'style_commands_formatting'}->{$context}->{$command}
-           = $style_commands_formatting{$context}->{$command};
+      } elsif (exists($style_commands_formatting{$command}->{$context})) {
+        $self->{'style_commands_formatting'}->{$command}->{$context}
+           = $style_commands_formatting{$command}->{$context};
       }
     }
   }
