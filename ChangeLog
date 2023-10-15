@@ -6,7 +6,8 @@
 2023-10-15  Eli Zaretskii <eliz@gnu.org>
 
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser),
-	* tp/Texinfo/XS/xspara.c (xspara_end, xspara__add_next):
+	* tp/Texinfo/XS/xspara.c
+	(xspara__add_pending_word, xspara_end, xspara__add_next):
 	Add dTHX to allow compilation on MinGW.
 
 	[Note from Gavin: this may be needed because these functions
