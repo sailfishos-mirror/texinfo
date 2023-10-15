@@ -160,8 +160,9 @@ reset_parser (int debug_output)
 {
   dTHX;
 
-  /* NOTE: Do not call 'malloc' or 'free' in this function or in any function
-     called in this file.  Since this file (api.c) includes the Perl headers,
+  /* NOTE: Do not call 'malloc' or 'free' in this function.
+
+     Since this file (api.c) includes the Perl headers,
      we get the Perl redefinitions, which we do not want, as we don't use
      them throughout the rest of the program. */
 

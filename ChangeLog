@@ -1,3 +1,8 @@
+2023-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser): Update comment
+	re using malloc/free.
+
 2023-10-15  Eli Zaretskii <eliz@gnu.org>
 
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser),
