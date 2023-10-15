@@ -203,55 +203,12 @@ programming system, combining Texinfo and Awk
 in the texindex/ subdirectory creates the printable form of the
 program.  All the usual Texinfo output formats are possible.
 
-
 
-Steps for making a release (pretest or official):
 
-- When close to official release:
+- Updating copyright years in files
 
-NYTProf profiling for Perl code
-* e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
-  man page.
-callgrind profiling for XS code
-* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tp/texi2any.pl \
-  FILE.texi' then 'kcachegrind callgrind.out.*'.
-
-run all tests with valgrind:
-* under info/t, put valgrind in $ginfo, then check t/*.val.log files after
-  running test suite
-* edit install-info/tests/defs.in, uncomment valgrind line and run
-  config.status to regenerate defs
-* XS modules memory leak check checking with valgrind
-  Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
-  when running 'valgrind --leak-check=full' to make perl clean it
-  its allocations.  Run e.g.
-      valgrind --log-file=val.log --leak-check=full \
-        perl ../tp/texi2any.pl ../doc/info-stnd.texi
-  and other input files.
-
-  Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
-  Check tests with e.g.
-    for f in t/*.t ; do valgrind --log-file=val.log-${f#t/} --leak-check=full \
-          perl -w $f ; done
- (could take 1-2 hours to finish).  check log files one by one afterwards.
-
-Manual testing:
-. try groff.texinfo from groff source repo.
-. process doc/texinfo-tex-test.texi with TeX and check that output is good.
-. process some manuals with INFO_JS_DIR and check the JS interface is
-  not broken.
-
-check for C compiler warnings by configuring with
-
-our_CFLAGS='-Wall -Wno-parentheses -Wno-missing-braces'
-./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
-unset our_CFLAGS
-
-Not all compiler warnings have to be fixed, though.
-
-
-Check if copyright years in files have all been updated.  It may be
-simplest just to update them all.  First, look for lone copyright years:
+It may be simplest just to update them all at once.  First, look for
+lone copyright years:
 
 find . -type f \
   \( -name '*' \) \
@@ -295,6 +252,51 @@ find . \
 
 at the top level.
 
+(We should automate this process in the future.)
+
+
+
+- When close to making a release:
+
+NYTProf profiling for Perl code
+* e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
+  man page.
+callgrind profiling for XS code
+* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tp/texi2any.pl \
+  FILE.texi' then 'kcachegrind callgrind.out.*'.
+
+run all tests with valgrind:
+* under info/t, put valgrind in $ginfo, then check t/*.val.log files after
+  running test suite
+* edit install-info/tests/defs.in, uncomment valgrind line and run
+  config.status to regenerate defs
+* XS modules memory leak check checking with valgrind
+  Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
+  when running 'valgrind --leak-check=full' to make perl clean it
+  its allocations.  Run e.g.
+      valgrind --log-file=val.log --leak-check=full \
+        perl ../tp/texi2any.pl ../doc/info-stnd.texi
+  and other input files.
+
+  Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
+  Check tests with e.g.
+    for f in t/*.t ; do valgrind --log-file=val.log-${f#t/} --leak-check=full \
+          perl -w $f ; done
+ (could take 1-2 hours to finish).  check log files one by one afterwards.
+
+Manual testing:
+. try groff.texinfo from groff source repo.
+. process doc/texinfo-tex-test.texi with TeX and check that output is good.
+. process some manuals with INFO_JS_DIR and check the JS interface is
+  not broken.
+
+check for C compiler warnings by configuring with
+
+our_CFLAGS='-Wall -Wno-parentheses -Wno-missing-braces'
+./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
+unset our_CFLAGS
+
+Not all compiler warnings have to be fixed, though.
 
 check at latest automake/autoconf/gettext/help2man version:
   . to upgrade gettext, run
@@ -328,7 +330,7 @@ Check "make ccheck" and "make vcheck" work in "doc/refcard".
 make V=1 pdf and fix underfull/overfull boxes.
 
 -------------------------------------------------------------------------
-- Final steps
+- Final steps for making a release
 
 (Keep a copy of README-hacking open in a text editor to update these
 release instructions.)
@@ -341,6 +343,8 @@ Have a look at the output of "git status -u" to check for files that
   files under tp/tests which should be removed.
 
 check "git stash list" for any work in progress
+
+Check if "make tex-html-checks" results have been updated under tp/tests.
 
 check OpenCSW build reports at
   https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
