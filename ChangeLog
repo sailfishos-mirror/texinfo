@@ -1,3 +1,23 @@
+2023-10-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (TRANSLATED_SUI_ASSOCIATION)
+	(translated_special_unit_info, special_unit_info_tree)
+	tp/Texinfo/XS/main/get_perl_info.c (special_unit_info_type_names)
+	(html_converter_initialize, html_converter_initialize),
+	tp/Texinfo/XS/main/translations.c (pgdt_tree),
+	tp/Texinfo/XS/main/utils.h (CONVERTER, SUI_TYPES_LIST)
+	(enum special_unit_info_tree): distinguish data structures for
+	special_unit_info_tree, add translated_special_unit_info to match
+	the tree special unit info with string special unit info and prepare a
+	specific function special_unit_info_tree to get the translated tree.
+
+	* tp/Texinfo/XS/convert/convert_html.c (translate_names)
+	(find_element_target, html_prepare_conversion_units_targets),
+	tp/Texinfo/XS/main/utils.h (TDS_TRANSLATED_TYPES_LIST)
+	(TDS_NON_TRANSLATED_TYPES_LIST, enum direction_string, HTML_TARGET)
+	(CONVERTER):
+	partial implementation of translate_names.
+
 2023-10-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_footnotes_targets): rename

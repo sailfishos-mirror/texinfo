@@ -312,15 +312,12 @@ get_sv_converter (SV *sv_in, char *warn_string)
 }
 
 
-static char *special_unit_info_type_names[SUI_type_heading_tree + 1] =
+static char *special_unit_info_type_names[SUI_type_heading + 1] =
 {
   /* #define sui_type(name) [SUI_type_ ## name] = #name, */
   #define sui_type(name) #name,
     SUI_TYPES_LIST
   #undef sui_type
-
-  /* [SUI_type_heading_tree] = "heading_tree", */
-  "heading_tree",
 };
 
 int
@@ -369,6 +366,17 @@ html_converter_initialize (SV *sv_in)
 
       nr_special_units = special_unit_varieties->number;
 
+      /* allocate space for translated tree types, but do not
+         get from perl, it will be created for the conversion */
+      for (j = 0; j < SUIT_type_heading+1; j++)
+        {
+          converter->special_unit_info_tree[j]
+           = (ELEMENT **)
+            malloc ((special_unit_varieties->number +1) * sizeof (ELEMENT *));
+          memset (converter->special_unit_info_tree[j], 0,
+                   (special_unit_varieties->number +1) * sizeof (ELEMENT *));
+        }
+
       converter->special_unit_varieties = special_unit_varieties;
 
       special_unit_info_sv = hv_fetch (hv_in, "special_unit_info",
@@ -376,7 +384,7 @@ html_converter_initialize (SV *sv_in)
 
       special_unit_info_hv = (HV *) SvRV(*special_unit_info_sv);
 
-      for (j = 0; j < SUI_type_heading_tree+1; j++)
+      for (j = 0; j < SUI_type_heading+1; j++)
         {
           SV **special_unit_info_type_sv;
           char *sui_type = special_unit_info_type_names[j];

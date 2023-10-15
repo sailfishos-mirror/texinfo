@@ -33,6 +33,7 @@
 #include "node_name_normalization.h"
 #include "indices_in_conversion.h"
 #include "convert_to_texinfo.h"
+#include "translations.h"
 #include "convert_html.h"
 
 
@@ -136,6 +137,105 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
           result->output_unit = 0;
           result->root = root_command;
           return result;
+        }
+    }
+}
+
+typedef struct TRANSLATED_SUI_ASSOCIATION {
+    int tree_type;
+    int string_type;
+} TRANSLATED_SUI_ASSOCIATION;
+
+static TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
+  {SUIT_type_heading, SUI_type_heading},
+  {-1, -1},
+};
+
+HTML_TARGET *
+find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
+{
+  int i;
+
+  if (!targets->number)
+    return 0;
+
+  for (i = 0; i < targets->number; i ++)
+    {
+      HTML_TARGET *target = &targets->list[i];
+      if (target->element == element)
+        return target;
+    }
+  return 0;
+}
+
+int
+special_unit_variety_direction_index (CONVERTER *self,
+                                      char *special_unit_variety)
+{
+  int i;
+  VARIETY_DIRECTION_INDEX **varieties_direction_index
+    = self->varieties_direction_index;
+  for (i = 0; varieties_direction_index[i] != 0; i++)
+    {
+      VARIETY_DIRECTION_INDEX *variety_direction_index
+        = varieties_direction_index[i];
+      if (!strcmp (variety_direction_index->special_unit_variety,
+                   special_unit_variety))
+        return variety_direction_index->direction_index;
+    }
+  return -1;
+}
+
+void
+translate_names (CONVERTER *self)
+{
+  int j;
+  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  if (self->conf->DEBUG > 0)
+    {
+      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: "
+               " documentlanguage: %s\n", self->conf->documentlanguage);
+    }
+
+  /* reset strings such that they are translated when needed. */
+  #define tds_type(name) self->directions_strings[TDS_type_ ## name] = 0;
+   TDS_TRANSLATED_TYPES_LIST
+  #undef tds_type
+
+  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+    {
+      int i;
+      int tree_type = translated_special_unit_info[j].tree_type;
+      for (i = 0; i < special_unit_varieties->number; i++)
+        self->special_unit_info_tree[tree_type][i] = 0;
+    }
+
+  /* delete the tree and formatted results for special elements
+     such that they are redone with the new tree when needed. */
+  for (j = 0; j < special_unit_varieties->number; j++)
+    {
+      char *special_unit_variety = special_unit_varieties->list[j];
+      int special_unit_direction_index
+       = special_unit_variety_direction_index (self, special_unit_variety);
+      if (special_unit_direction_index >= 0)
+        {
+          OUTPUT_UNIT *special_unit
+           = self->global_units_directions[special_unit_direction_index];
+          if (special_unit)
+             {
+               ELEMENT *command = special_unit->unit_command;
+               if (command)
+                 {
+                   HTML_TARGET *target
+                     = find_element_target (self->html_targets, command);
+                   if (target)
+                     {
+                       target->tree = 0;
+                       target->string = 0;
+                       target->text = 0;
+                     }
+                 }
+             }
         }
     }
 }
@@ -244,6 +344,42 @@ CMD_VARIETY contents_command_special_unit_variety[] = {
                                 {0, 0},
 };
 
+ELEMENT *
+special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
+                        char *special_unit_variety)
+{
+  int i;
+  int j;
+  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  for (i = 0; i < special_unit_varieties->number; i++)
+    {
+      if (!strcmp (special_unit_varieties->list[i], special_unit_variety))
+        break;
+    }
+
+  if (self->special_unit_info_tree[type][i])
+    return self->special_unit_info_tree[type][i];
+
+  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+    {
+      if (translated_special_unit_info[j].tree_type == type)
+        {
+          int string_type = translated_special_unit_info[j].string_type;
+          char *special_unit_info_string
+            = self->special_unit_info[string_type][i];
+          char *translation_context;
+          xasprintf (&translation_context, "%s section heading",
+                     special_unit_variety);
+          self->special_unit_info_tree[type][i]
+            = pgdt_tree (translation_context, special_unit_info_string,
+                         self->document, self->conf, 0, 0);
+          free (translation_context);
+          return self->special_unit_info_tree[type][i];
+        }
+    }
+  return 0;
+}
+
 char *
 special_unit_info (CONVERTER *self, enum special_unit_info_type type,
                    char *special_unit_variety)
@@ -257,24 +393,6 @@ special_unit_info (CONVERTER *self, enum special_unit_info_type type,
     }
 
   return self->special_unit_info[type][i];
-}
-
-int
-special_unit_variety_direction_index (CONVERTER *self,
-                                      char *special_unit_variety)
-{
-  int i;
-  VARIETY_DIRECTION_INDEX **varieties_direction_index
-    = self->varieties_direction_index;
-  for (i = 0; varieties_direction_index[i] != 0; i++)
-    {
-      VARIETY_DIRECTION_INDEX *variety_direction_index
-        = varieties_direction_index[i];
-      if (!strcmp (variety_direction_index->special_unit_variety,
-                   special_unit_variety))
-        return variety_direction_index->direction_index;
-    }
-  return -1;
 }
 
 OUTPUT_UNIT *
@@ -1121,4 +1239,7 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 
   prepare_index_entries_targets (self);
   prepare_footnotes_targets (self);
+
+  /* setup untranslated strings */
+  translate_names (self);
 }

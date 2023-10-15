@@ -130,7 +130,6 @@ enum units_directions {
   D_Contents,
   D_Overview,
   D_Footnotes,
-
 };
 
 #define SUI_TYPES_LIST \
@@ -145,8 +144,11 @@ enum special_unit_info_type {
   #define sui_type(name) SUI_type_ ## name,
     SUI_TYPES_LIST
   #undef sui_type
+};
 
-   SUI_type_heading_tree,
+/* translated from corresponding SUI_type* */
+enum special_unit_info_tree {
+    SUIT_type_heading,
 };
 
 enum command_location {
@@ -160,6 +162,23 @@ enum special_target_type {
   ST_footnote_location,
 };
 
+#define TDS_TRANSLATED_TYPES_LIST \
+  tds_type(button) \
+  tds_type(description) \
+  tds_type(text)
+
+#define TDS_NON_TRANSLATED_TYPES_LIST \
+  tds_type(accesskey) \
+  tds_type(example) \
+  tds_type(rel)
+
+enum direction_string {
+  #define tds_type(name) TDS_type_ ## name,
+   TDS_TRANSLATED_TYPES_LIST
+   TDS_NON_TRANSLATED_TYPES_LIST
+  #undef tds_type
+};
+
 /* down here because it requires error data from before */
 #include "document.h"
 
@@ -169,19 +188,24 @@ typedef struct VARIETY_DIRECTION_INDEX {
 } VARIETY_DIRECTION_INDEX;
 
 typedef struct HTML_TARGET {
-  ELEMENT *element;
-  char *target;
-  char *special_unit_filename;
-  char *node_filename;
-  char *section_filename;
-  char *contents_target;
-  char *shortcontents_target;
+    ELEMENT *element;
+    char *target;
+    char *special_unit_filename;
+    char *node_filename;
+    char *section_filename;
+    char *contents_target;
+    char *shortcontents_target;
+
+    char *text;
+    ELEMENT *tree;
+    ELEMENT *tree_nonumber;
+    char *string;
 } HTML_TARGET;
 
 typedef struct HTML_TARGET_LIST {
-  size_t number;
-  size_t space;
-  HTML_TARGET *list;
+    size_t number;
+    size_t space;
+    HTML_TARGET *list;
 } HTML_TARGET_LIST;
 
 typedef struct MERGED_INDEX {
@@ -202,6 +226,8 @@ typedef struct INDEX_SORTED_BY_LETTER {
     size_t number;
 } INDEX_SORTED_BY_LETTER;
 
+
+
 typedef struct CONVERTER {
   int converter_descriptor;
   OPTIONS *conf;
@@ -219,12 +245,14 @@ typedef struct CONVERTER {
 
   /* HTML specific */
   OUTPUT_UNIT **global_units_directions;
-  char **special_unit_info[SUI_type_heading_tree+1];
+  char **special_unit_info[SUI_type_heading+1];
+  ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
   STRING_LIST *special_unit_varieties;
   VARIETY_DIRECTION_INDEX **varieties_direction_index;
   STRING_LIST *seen_ids;
   HTML_TARGET_LIST *html_targets;
   HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
+  char **directions_strings[TDS_type_rel+1];
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {

@@ -7,6 +7,7 @@ DOMAIN = $(PACKAGE)_document
 subdir = po_document
 top_builddir = ..
 
+# NOTE only marking of strings in perl, not in C.
 # These options get passed to xgettext.
 XGETTEXT_OPTIONS = -cTRANSLATORS --language=Perl \
   --keyword=gdt --keyword=gdt_string --keyword=pgdt:1c,2 \

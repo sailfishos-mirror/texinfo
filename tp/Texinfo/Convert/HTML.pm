@@ -2291,6 +2291,7 @@ sub _translate_names($)
       if ($self->get_conf('DEBUG'));
 
   # reset strings such that they are translated when needed.
+  # could also use the keys of $self->{'translated_direction_strings'}
   foreach my $string_type (keys(%default_translated_directions_strings)) {
     $self->{'directions_strings'}->{$string_type} = {};
   }

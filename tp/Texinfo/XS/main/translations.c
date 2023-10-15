@@ -579,7 +579,7 @@ gdt (char *string, OPTIONS *options,
    DOCUMENT small strings.  It is possible to pass 0 for the DOCUMENT
    if one knows that there won't be small strings (the general case) */
 ELEMENT *
-gdt_tree (char * string, DOCUMENT *document, OPTIONS *options,
+gdt_tree (char *string, DOCUMENT *document, OPTIONS *options,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           const char *translation_context,
           char *in_lang)
@@ -624,6 +624,16 @@ gdt_string (OPTIONS *options, char *string,
   char *result = replace_substrings (translated_string, replaced_substrings);
   free (translated_string);
   return result;
+}
+
+ELEMENT *
+pgdt_tree (const char *translation_context, char *string,
+           DOCUMENT *document, OPTIONS *options,
+           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+           char *in_lang)
+{
+  return gdt_tree (string, document, options, replaced_substrings,
+                   translation_context, in_lang);
 }
 
 NAMED_STRING_ELEMENT_LIST *
