@@ -49,21 +49,21 @@ typedef struct {
 } ERROR_MESSAGE;
 
 typedef struct {
-  ERROR_MESSAGE *list;
-  size_t number;
-  size_t space;
+    ERROR_MESSAGE *list;
+    size_t number;
+    size_t space;
 } ERROR_MESSAGE_LIST;
 
 typedef struct {
-  char *encoding_name;
-  iconv_t iconv;
+    char *encoding_name;
+    iconv_t iconv;
 } ENCODING_CONVERSION;
 
 typedef struct {
-  ENCODING_CONVERSION *list;
-  size_t number;
-  size_t space;
-  int direction;  /* if > 0 converts from the encodings to UTF-8 */
+    ENCODING_CONVERSION *list;
+    size_t number;
+    size_t space;
+    int direction;  /* if > 0 converts from the encodings to UTF-8 */
 } ENCODING_CONVERSION_LIST;
 
 extern ENCODING_CONVERSION_LIST output_conversions;
@@ -85,51 +85,51 @@ typedef struct GLOBAL_INFO {
 } GLOBAL_INFO;
 
 enum global_option_command_type {
-  GO_NONE,
-  GO_int,
-  GO_char,
+   GO_NONE,
+   GO_int,
+   GO_char,
 };
 
 /* definitions for table of defaults for options corresponding to commands */
 typedef struct COMMAND_OPTION_DEFAULT {
-  enum global_option_command_type type;
-  int value;
-  char *string;
+    enum global_option_command_type type;
+    int value;
+    char *string;
 } COMMAND_OPTION_DEFAULT;
 
 extern COMMAND_OPTION_DEFAULT command_option_default_table[];
 
 /* return type of get_command_option */
 typedef struct COMMAND_OPTION_REF {
-  enum global_option_command_type type;
-  union {
-   int *int_ref;
-   char **char_ref;
-  };
+    enum global_option_command_type type;
+    union {
+      int *int_ref;
+      char **char_ref;
+    };
 } COMMAND_OPTION_REF;
 
 /* similar to COMMAND_OPTION_REF but for values only */
 typedef struct COMMAND_OPTION_VALUE {
-  enum global_option_command_type type;
-  union {
-   int int_value;
-   char *char_value;
-  };
+    enum global_option_command_type type;
+    union {
+      int int_value;
+      char *char_value;
+    };
 } COMMAND_OPTION_VALUE;
 
 /* CONVERTER and associated types needed for set_global_document_command */
 /* see Texinfo::HTML _prepare_output_units_global_targets */
 enum units_directions {
-  /* global directions */
-  D_First,
-  D_Top,
-  D_Index,
-  D_Last,
-  /* special elements */
-  D_About,
-  D_Contents,
-  D_Overview,
-  D_Footnotes,
+   /* global directions */
+   D_First,
+   D_Top,
+   D_Index,
+   D_Last,
+   /* special elements */
+   D_About,
+   D_Contents,
+   D_Overview,
+   D_Footnotes,
 };
 
 #define SUI_TYPES_LIST \
@@ -142,24 +142,24 @@ enum units_directions {
 
 enum special_unit_info_type {
   #define sui_type(name) SUI_type_ ## name,
-    SUI_TYPES_LIST
+   SUI_TYPES_LIST
   #undef sui_type
 };
 
 /* translated from corresponding SUI_type* */
 enum special_unit_info_tree {
-    SUIT_type_heading,
+   SUIT_type_heading,
 };
 
 enum command_location {
-  CL_before,
-  CL_last,
-  CL_preamble,
-  CL_preamble_or_first,
+   CL_before,
+   CL_last,
+   CL_preamble,
+   CL_preamble_or_first,
 };
 
 enum special_target_type {
-  ST_footnote_location,
+   ST_footnote_location,
 };
 
 #define TDS_TRANSLATED_TYPES_LIST \
@@ -183,8 +183,8 @@ enum direction_string {
 #include "document.h"
 
 typedef struct VARIETY_DIRECTION_INDEX {
-  char *special_unit_variety;
-  int direction_index;
+    char *special_unit_variety;
+    int direction_index;
 } VARIETY_DIRECTION_INDEX;
 
 typedef struct HTML_TARGET {
@@ -226,45 +226,43 @@ typedef struct INDEX_SORTED_BY_LETTER {
     size_t number;
 } INDEX_SORTED_BY_LETTER;
 
-
-
 typedef struct CONVERTER {
-  int converter_descriptor;
-  OPTIONS *conf;
-  OPTIONS *init_conf;
-  struct DOCUMENT *document;
-  int document_units_descriptor;
+    int converter_descriptor;
+    OPTIONS *conf;
+    OPTIONS *init_conf;
+    struct DOCUMENT *document;
+    int document_units_descriptor;
 
-  ERROR_MESSAGE_LIST *error_messages;
-  MERGED_INDEX **index_entries;
-  INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+    ERROR_MESSAGE_LIST *error_messages;
+    MERGED_INDEX **index_entries;
+    INDEX_SORTED_BY_LETTER **index_entries_by_letter;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
-  void *hv;
+    void *hv;
 
   /* HTML specific */
-  OUTPUT_UNIT **global_units_directions;
-  char **special_unit_info[SUI_type_heading+1];
-  ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
-  STRING_LIST *special_unit_varieties;
-  VARIETY_DIRECTION_INDEX **varieties_direction_index;
-  STRING_LIST *seen_ids;
-  HTML_TARGET_LIST *html_targets;
-  HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
-  char **directions_strings[TDS_type_rel+1];
+    OUTPUT_UNIT **global_units_directions;
+    char **special_unit_info[SUI_type_heading+1];
+    ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
+    STRING_LIST *special_unit_varieties;
+    VARIETY_DIRECTION_INDEX **varieties_direction_index;
+    STRING_LIST *seen_ids;
+    HTML_TARGET_LIST *html_targets;
+    HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
+    char **directions_strings[TDS_type_rel+1];
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {
-  char *target;
-  char *filename;
+    char *target;
+    char *filename;
 } TARGET_FILENAME;
 
 typedef struct TARGET_CONTENTS_FILENAME {
-  char *target;
-  char *filename;
-  char *target_contents;
-  char *target_shortcontents;
+    char *target;
+    char *filename;
+    char *target_contents;
+    char *target_shortcontents;
 } TARGET_CONTENTS_FILENAME;
 
 int xasprintf (char **ptr, const char *template, ...);

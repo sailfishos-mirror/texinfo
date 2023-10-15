@@ -10,15 +10,15 @@
 
 /* element or string may not always be present */
 typedef struct NAMED_STRING_ELEMENT {
-  char *name;
-  ELEMENT *element;
-  char *string;
+    char *name;
+    ELEMENT *element;
+    char *string;
 } NAMED_STRING_ELEMENT;
 
 typedef struct NAMED_STRING_ELEMENT_LIST {
-  size_t number;
-  size_t space;
-  NAMED_STRING_ELEMENT *list;
+    size_t number;
+    size_t space;
+    NAMED_STRING_ELEMENT *list;
 } NAMED_STRING_ELEMENT_LIST;
 
 int gdt (char * string, OPTIONS *options,

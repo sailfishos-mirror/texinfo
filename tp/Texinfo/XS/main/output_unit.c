@@ -271,8 +271,8 @@ output_unit_section (OUTPUT_UNIT *output_unit)
 }
 
 typedef struct LEVEL_SPLIT_STRING {
-  int level;
-  char *split;
+    int level;
+    char *split;
 } LEVEL_SPLIT_STRING;
 
 static LEVEL_SPLIT_STRING split_level_table[3] = {

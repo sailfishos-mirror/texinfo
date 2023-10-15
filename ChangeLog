@@ -1,5 +1,9 @@
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
 
+	Indent struct and enum more consistently
+
+2023-10-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (@all_style_commands): add
 	%quoted_style_commands commands.
 

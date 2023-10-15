@@ -21,14 +21,14 @@
 #include "tree_types.h"
 
 enum context {
-    ct_NONE,
-    ct_line,
-    ct_def,
-    ct_preformatted,
-    ct_rawpreformatted,
-    ct_math,
-    ct_brace_command,
-    ct_inlineraw,
+   ct_NONE,
+   ct_line,
+   ct_def,
+   ct_preformatted,
+   ct_rawpreformatted,
+   ct_math,
+   ct_brace_command,
+   ct_inlineraw,
 };
 
 /* Contexts where an empty line doesn't start a new paragraph. */
@@ -50,9 +50,9 @@ char *context_name (enum context c);
 
 
 typedef struct {
-  enum command_id *stack;
-  size_t top;   /* One above last pushed context. */
-  size_t space;
+    enum command_id *stack;
+    size_t top;   /* One above last pushed context. */
+    size_t space;
 } COMMAND_STACK;
 
 void reset_command_stack (COMMAND_STACK *stack);

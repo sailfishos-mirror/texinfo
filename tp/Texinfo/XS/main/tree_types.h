@@ -24,15 +24,15 @@
 #include "text.h"
 
 enum extra_type {
-    extra_element,
-    extra_element_oot,
-    extra_contents,
-    extra_directions,
-    extra_text,
-    extra_misc_args,
-    extra_string,
-    extra_integer,
-    extra_deleted
+   extra_element,
+   extra_element_oot,
+   extra_contents,
+   extra_directions,
+   extra_text,
+   extra_misc_args,
+   extra_string,
+   extra_integer,
+   extra_deleted
 };
 
 /* the *_none enums are not necessarily used, they may also
@@ -52,27 +52,27 @@ enum extra_type {
 
 enum source_mark_type {
   #define sm_type(name) SM_type_ ## name,
-    SM_TYPES_LIST
+   SM_TYPES_LIST
   #undef sm_type
 };
 
 enum source_mark_status {
-    SM_status_none,
-    SM_status_start,
-    SM_status_end,
+   SM_status_none,
+   SM_status_start,
+   SM_status_end,
 };
 
 /* need to be in the same order as explicit nodes directions */
 enum directions {
-    D_next,
-    D_prev,
-    D_up,
+   D_next,
+   D_prev,
+   D_up,
 };
 
 enum output_unit_type {
-    OU_unit,
-    OU_external_node_unit,
-    OU_special_unit,
+   OU_unit,
+   OU_external_node_unit,
+   OU_special_unit,
 };
 
 typedef struct KEY_PAIR {
@@ -198,8 +198,8 @@ typedef struct INDEX {
 
 /* not used in parser */
 typedef struct INDEX_ENTRY_AND_INDEX {
-     INDEX *index;
-     INDEX_ENTRY *index_entry;
+    INDEX *index;
+    INDEX_ENTRY *index_entry;
 } INDEX_ENTRY_AND_INDEX;
 
 /* See parse_node_manual function. */
@@ -238,9 +238,9 @@ typedef struct {
 } FLOAT_RECORD_LIST;
 
 typedef struct STRING_LIST {
-  char **list;
-  size_t number;
-  size_t space;
+    char **list;
+    size_t number;
+    size_t space;
 } STRING_LIST;
 
 #endif

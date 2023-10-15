@@ -38,8 +38,8 @@
 
 
 typedef struct ROOT_AND_UNIT {
-  OUTPUT_UNIT *output_unit;
-  ELEMENT *root;
+    OUTPUT_UNIT *output_unit;
+    ELEMENT *root;
 } ROOT_AND_UNIT;
 
 /*
@@ -333,8 +333,8 @@ prepare_output_units_global_targets (CONVERTER *self,
 }
 
 typedef struct CMD_VARIETY {
-  enum command_id cmd;
-  char *variety;
+    enum command_id cmd;
+    char *variety;
 } CMD_VARIETY;
 
 CMD_VARIETY contents_command_special_unit_variety[] = {
@@ -416,8 +416,8 @@ register_special_unit (CONVERTER *self, char *special_unit_variety)
 }
 
 typedef struct SPECIAL_UNIT_ORDER {
-   char *order;
-   char *variety;
+    char *order;
+    char *variety;
 } SPECIAL_UNIT_ORDER;
 
 int

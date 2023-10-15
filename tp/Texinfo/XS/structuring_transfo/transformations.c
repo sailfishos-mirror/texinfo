@@ -960,9 +960,9 @@ prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
 }
 
 typedef struct EXISTING_ENTRY {
-  char *normalized;
-  ELEMENT *menu;
-  ELEMENT *entry;
+    char *normalized;
+    ELEMENT *menu;
+    ELEMENT *entry;
 } EXISTING_ENTRY;
 
 void

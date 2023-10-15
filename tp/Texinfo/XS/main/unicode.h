@@ -7,15 +7,15 @@
 #include "tree_types.h"
 
 typedef struct ENCODING_CODEPOINTS {
-   char *encoding;
-   size_t number;
-   char *codepoints[96]; /* A0 to FF 16*6 */
+    char *encoding;
+    size_t number;
+    char *codepoints[96]; /* A0 to FF 16*6 */
 } ENCODING_CODEPOINTS;
 
 typedef struct COMMAND_UNICODE {
-   char *codepoint;
-   char *text; /* UTF-8 encoded */
-   int is_extra;
+    char *codepoint;
+    char *text; /* UTF-8 encoded */
+    int is_extra;
 } COMMAND_UNICODE;
 
 extern char *unicode_diacritics[];

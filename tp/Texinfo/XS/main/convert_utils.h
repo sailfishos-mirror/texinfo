@@ -9,16 +9,16 @@
 extern char *convert_utils_month_name[12];
 
 typedef struct ACCENTS_STACK {
-  ELEMENT *stack;
-  ELEMENT *argument;
+    ELEMENT *stack;
+    ELEMENT *argument;
 } ACCENTS_STACK;
 
 typedef struct PARSED_DEF {
-  ELEMENT *name;
-  ELEMENT *class;
-  ELEMENT *category;
-  ELEMENT *type;
-  ELEMENT *args;
+    ELEMENT *name;
+    ELEMENT *class;
+    ELEMENT *category;
+    ELEMENT *type;
+    ELEMENT *args;
 } PARSED_DEF;
 
 ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);

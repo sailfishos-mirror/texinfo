@@ -6,16 +6,16 @@
 #include "utils.h"
 
 typedef struct KEY_ALPHA {
-   char *key;
-   int alpha;
+    char *key;
+    int alpha;
 } KEY_ALPHA;
 
 typedef struct SORTABLE_ENTRY {
-   char *index_name;
-   size_t keys_number;
-   KEY_ALPHA *keys;
-   char **entry_keys;
-   int number;
+    char *index_name;
+    size_t keys_number;
+    KEY_ALPHA *keys;
+    char **entry_keys;
+    int number;
 } SORTABLE_ENTRY;
 
 typedef struct INDEX_SORTABLE_ENTRIES {
