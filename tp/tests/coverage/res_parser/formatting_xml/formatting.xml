@@ -126,9 +126,11 @@ but , ,@:
 @@LaTeX @LaTeX{}
 @@bullet @bullet{} (•)
 @@copyright @copyright{} (©)
+
 @@dots @dots{} (…)
 @@enddots @enddots{}
 @@equiv @equiv{} (≡)
+
 @@error @error{}
 @@expansion @expansion{} (↦)
 @@minus @minus{} (−)
@@ -1324,10 +1326,12 @@ but , ,&noeos;
 &arobase;LaTeX &latex;
 &arobase;bullet &bullet; (•)
 &arobase;copyright &copyright; (©)
-&arobase;dots &dots; (…)
+</para>
+<para>&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
 &arobase;equiv &equiv; (≡)
-&arobase;error &errorglyph;
+</para>
+<para>&arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
 </para>
@@ -2494,10 +2498,12 @@ but , ,&noeos;
 &arobase;LaTeX &latex;
 &arobase;bullet &bullet; (•)
 &arobase;copyright &copyright; (©)
-&arobase;dots &dots; (…)
+</para>
+<para>&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
 &arobase;equiv &equiv; (≡)
-&arobase;error &errorglyph;
+</para>
+<para>&arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
 </para>
@@ -3704,10 +3710,12 @@ but , ,&noeos;
 &arobase;LaTeX &latex;
 &arobase;bullet &bullet; (•)
 &arobase;copyright &copyright; (©)
-&arobase;dots &dots; (…)
+</para>
+<para>&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
 &arobase;equiv &equiv; (≡)
-&arobase;error &errorglyph;
+</para>
+<para>&arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
 </para>
@@ -4868,9 +4876,11 @@ but , ,&noeos;
 &arobase;LaTeX &latex;
 &arobase;bullet &bullet; (•)
 &arobase;copyright &copyright; (©)
+
 &arobase;dots &dots; (…)
 &arobase;enddots &enddots;
 &arobase;equiv &equiv; (≡)
+
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)

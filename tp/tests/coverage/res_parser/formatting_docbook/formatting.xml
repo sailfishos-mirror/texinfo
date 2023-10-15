@@ -130,10 +130,12 @@ but , ,
 @LaTeX &latex;
 @bullet &#8226; (•)
 @copyright &#169; (©)
-@dots &#8230; (…)
+</para>
+<para>@dots &#8230; (…)
 @enddots ...
 @equiv &#8801; (≡)
-@error error&#8594;
+</para>
+<para>@error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
 </para>
@@ -1070,10 +1072,12 @@ but , ,
 @LaTeX &latex;
 @bullet &#8226; (•)
 @copyright &#169; (©)
-@dots &#8230; (…)
+</para>
+<para>@dots &#8230; (…)
 @enddots ...
 @equiv &#8801; (≡)
-@error error&#8594;
+</para>
+<para>@error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
 </para>
@@ -1997,10 +2001,12 @@ but , ,
 @LaTeX &latex;
 @bullet &#8226; (•)
 @copyright &#169; (©)
-@dots &#8230; (…)
+</para>
+<para>@dots &#8230; (…)
 @enddots ...
 @equiv &#8801; (≡)
-@error error&#8594;
+</para>
+<para>@error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
 </para>
@@ -2920,9 +2926,11 @@ but , ,
 @LaTeX &latex;
 @bullet &#8226; (•)
 @copyright &#169; (©)
+
 @dots &#8230; (…)
 @enddots ...
 @equiv &#8801; (≡)
+
 @error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)

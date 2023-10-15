@@ -1,5 +1,10 @@
 2023-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/tests/coverage_macro.texi: Insert further blank lines in
+	blocks of glyph commands.
+
+2023-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: update
 
 2023-10-15  Gavin Smith <gavinsmith0123@gmail.com>
