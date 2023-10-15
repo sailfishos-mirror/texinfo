@@ -7596,6 +7596,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
       = $translation_result;
   }
 }
+
 sub _complete_no_arg_commands_formatting($$;$)
 {
   my $self = shift;

@@ -187,6 +187,113 @@ special_unit_variety_direction_index (CONVERTER *self,
   return -1;
 }
 
+/* FIXME conversion need to be added */
+static void
+reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
+                   enum command_id cmd, int reset_context, int ref_context,
+                   int translate)
+{
+  HTML_COMMAND_CONVERSION *no_arg_command_context;
+  HTML_COMMAND_CONVERSION **conversion_contexts
+    = self->html_command_conversion[cmd];
+  /* should never happen as unset is set at configuration */
+  if (!conversion_contexts[reset_context])
+    {
+      conversion_contexts[reset_context] =
+        (HTML_COMMAND_CONVERSION *) malloc (sizeof (HTML_COMMAND_CONVERSION));
+      memset (conversion_contexts[reset_context], 0,
+              sizeof (HTML_COMMAND_CONVERSION));
+
+      conversion_contexts[reset_context]->unset = 1;
+    }
+  no_arg_command_context = conversion_contexts[reset_context];
+  if (ref_context >= 0)
+    {
+      if (no_arg_command_context->unset)
+        {
+          HTML_COMMAND_CONVERSION *no_arg_ref
+            = conversion_contexts[ref_context];
+
+          if (no_arg_ref->text)
+            no_arg_command_context->text = no_arg_ref->text;
+          if (no_arg_ref->tree)
+            no_arg_command_context->tree = no_arg_ref->tree;
+          if (no_arg_ref->translated_converted)
+            no_arg_command_context->translated_converted
+              = no_arg_ref->translated_converted;
+          if (no_arg_ref->translated_to_convert)
+            no_arg_command_context->translated_to_convert
+              = no_arg_ref->translated_to_convert;
+        }
+    }
+
+  if (translate
+      && no_arg_command_context->tree
+      && !no_arg_command_context->translated_converted)
+    {
+      char *translation_result = 0;
+      ELEMENT *translated_tree = no_arg_command_context->tree;
+      if (reset_context == HCC_type_normal)
+        {
+          char *explanation;
+          xasprintf (&explanation, "no arg %s translated",
+                     builtin_command_data[cmd].cmdname);
+           /*
+          translation_result = convert_tree (self, explanation);
+            */
+          free (explanation);
+        }
+      else if (reset_context == HCC_type_preformatted)
+        {
+          /*
+      # there does not seems to be anything simpler...
+      my $preformatted_command_name = 'example';
+      $self->_new_document_context();
+      push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+          $preformatted_command_name;
+      # should not be needed for at commands no brace translation strings
+      push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+          $pre_class_commands{$preformatted_command_name};
+      $translation_result
+        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
+      # only pop the main context
+      $self->_pop_document_context();
+           */
+        }
+      else if (reset_context == HCC_type_string)
+        {
+          /*
+      $translation_result
+        = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                          'contents' => [$translated_tree]},
+                     'translated_string', "string no arg $cmdname translated");
+           */
+        }
+      else if (reset_context == HCC_type_css_string)
+        {
+           /*
+          translation_result = html_convert_css_string (self, translated_tree);
+            */
+        }
+      no_arg_command_context->text = translation_result;
+    }
+}
+
+static void
+complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
+                                     int translate)
+{
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
+                                                  -1, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, 
+                                                  HCC_type_preformatted,
+                                                  HCC_type_normal, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
+                                                  HCC_type_preformatted, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
+                                                  HCC_type_string, translate);
+}
+
 void
 translate_names (CONVERTER *self)
 {
@@ -254,6 +361,7 @@ translate_names (CONVERTER *self)
         {
           enum command_id cmd = self->no_arg_formatted_cmd->list[j];
           int i;
+          int add_cmd = 0;
           for (i = 0; i < HCC_type_css_string+1; i++)
             {
               HTML_COMMAND_CONVERSION *format_spec
@@ -261,9 +369,7 @@ translate_names (CONVERTER *self)
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {
-                  translated_cmds[translated_nr] = cmd;
-                  translated_nr++;
-
+                  add_cmd = 1;
                   format_spec->text
                    = gdt_string (format_spec->translated_converted, self->conf,
                                  0, 0, 0);
@@ -282,19 +388,23 @@ translate_names (CONVERTER *self)
 
                   if (translated_tree)
                     {
-                      translated_cmds[translated_nr] = cmd;
-                      translated_nr++;
+                      add_cmd = 1;
 
                       format_spec->tree = translated_tree;
                     }
                 }
             }
+          if (add_cmd)
+            {
+              translated_cmds[translated_nr] = cmd;
+              translated_nr++;
+            }
         }
+
       for (j = 0; j < translated_nr; j++)
         {
-          /*
-          complete_no_arg_commands_formatting (self, cmd);
-           */
+          enum command_id cmd = translated_cmds[j];
+          complete_no_arg_commands_formatting (self, cmd, 1);
         }
     }
 }
