@@ -565,6 +565,8 @@ xspara_get_pending (void)
 void
 xspara__add_pending_word (TEXT *result, int add_spaces)
 {
+  dTHX;
+
   if (state.word.end == 0 && !state.invisible_pending_word && !add_spaces)
     return;
 
@@ -640,6 +642,9 @@ char *
 xspara_end (void)
 {
   static TEXT ret;
+
+  dTHX;
+
   text_reset (&ret);
   state.end_line_count = 0;
 
@@ -686,6 +691,8 @@ xspara_end (void)
 void
 xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 {
+  dTHX;
+
   int disinhibit = 0;
   if (!word)
     return;
