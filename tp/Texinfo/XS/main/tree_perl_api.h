@@ -17,5 +17,7 @@ TARGET_CONTENTS_FILENAME * call_file_id_setting_sectioning_command_target_name
                      (CONVERTER *self,
                       ELEMENT *command, char *target, char *target_contents,
                       char *target_shortcontents, char *filename);
-
+FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
+                                                     OUTPUT_UNIT *output_unit,
+                                               char *filename, char *filepath);
 #endif

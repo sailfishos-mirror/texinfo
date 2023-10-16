@@ -125,6 +125,7 @@ typedef struct OUTPUT_UNIT {
     void *hv;
 
     enum output_unit_type unit_type;
+    size_t index;
     struct ELEMENT *unit_command;
     char *unit_filename;
     ELEMENT_LIST unit_contents;

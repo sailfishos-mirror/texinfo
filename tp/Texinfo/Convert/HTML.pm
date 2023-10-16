@@ -8903,11 +8903,6 @@ sub _html_set_pages_files($$$$$$$$)
 
   $self->initialize_output_units_files();
 
-  my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
-
   my %filenames_paths;
   my @filenames_order;
   my %unit_file_name_paths;
@@ -8931,15 +8926,15 @@ sub _html_set_pages_files($$$$$$$$)
       = {'file_info_type' => 'special_file',
          'file_info_name' => 'non_split'};
   } else {
+    # first determine the top node file name.
     my $node_top;
     $node_top = $self->{'identifiers_target'}->{'Top'}
                                if ($self->{'identifiers_target'});
 
     my $top_node_filename = $self->top_node_filename($document_name);
     my $node_top_output_unit;
-    # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my $node_top_output_unit = $node_top->{'associated_unit'};
+      $node_top_output_unit = $node_top->{'associated_unit'};
       die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
       $filenames_paths{$top_node_filename} = undef;
       push @filenames_order, $top_node_filename;
@@ -8949,19 +8944,24 @@ sub _html_set_pages_files($$$$$$$$)
             'file_info_name' => 'Top'};
     }
     my $file_nr = 0;
-    my $previous_page;
+    my $extension = '';
+    $extension = '.'.$self->get_conf('EXTENSION')
+            if (defined($self->get_conf('EXTENSION'))
+                and $self->get_conf('EXTENSION') ne '');
+
     foreach my $output_unit (@$output_units) {
       # For Top node.
-      next if (exists($unit_file_name_paths{$output_unit}));
+      next if ($node_top_output_unit and $output_unit eq $node_top_output_unit);
+
       my $file_output_unit = $output_unit->{'first_in_page'};
       if (!$file_output_unit) {
         cluck ("No first_in_page for $output_unit\n");
       }
       if (not exists($unit_file_name_paths{$file_output_unit})) {
+        my $node_filename;
         foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
-            my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
                 or !defined($self->{'identifiers_target'}->{
@@ -8991,12 +8991,14 @@ sub _html_set_pages_files($$$$$$$$)
             last;
           }
         }
-        if (not defined($unit_file_name_paths{$file_output_unit})) {
+        if (not defined($node_filename)) {
           # use section to do the file name if there is no node
           my $command = $file_output_unit->{'unit_command'};
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
+              # existing top_node_filename can happen, see
+              # html_tests.t top_file_name_and_node_name_collision
               push @filenames_order, $top_node_filename
                 unless exists($filenames_paths{$top_node_filename});
               $filenames_paths{$top_node_filename} = undef;
@@ -9046,7 +9048,7 @@ sub _html_set_pages_files($$$$$$$$)
           }
         }
       }
-      if (not exists($unit_file_name_paths{$output_unit})) {
+      if ($output_unit ne $file_output_unit) {
         $unit_file_name_paths{$output_unit}
            = $unit_file_name_paths{$file_output_unit}
       }
@@ -9098,6 +9100,13 @@ sub _html_set_pages_files($$$$$$$$)
       my $unit_command = $special_unit->{'unit_command'};
       my $filename
        = $self->{'targets'}->{$unit_command}->{'special_unit_filename'};
+      # Associate the special elements that have no page with the main page.
+      # This may only happen if not split.
+      if (!defined($filename)
+          and $output_units and $output_units->[0]
+          and defined($output_units->[0]->{'unit_filename'})) {
+        $filename = $output_units->[0]->{'unit_filename'};
+      }
       if (defined($filename)) {
         push @filenames_order, $filename
           unless exists($filenames_paths{$filename});
@@ -9111,26 +9120,13 @@ sub _html_set_pages_files($$$$$$$$)
            #." $special_unit"
            .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
-        my $file_source_info = {'file_info_element' => $special_unit,
+        # FIXME use $unit_command here
+        my $file_source_info = {'file_info_element' => $unit_command,
                                 'file_info_type' => 'special_unit'};
         $files_source_info{$filename} = $file_source_info
           unless($files_source_info{$filename}
                  and $files_source_info{$filename}->{'file_info_type'}
                        ne 'stand_in_file');
-      }
-    }
-  }
-
-  # Associate the special elements that have no page with the main page.
-  # This may only happen if not split.
-  if ($special_units
-      and $output_units and $output_units->[0]
-      and defined($output_units->[0]->{'unit_filename'})) {
-    foreach my $special_unit (@$special_units) {
-      if (!defined($special_unit->{'unit_filename'})) {
-        $special_unit->{'unit_filename'}
-           = $output_units->[0]->{'unit_filename'};
-        $self->{'file_counters'}->{$special_unit->{'unit_filename'}}++;
       }
     }
   }
@@ -9219,6 +9215,60 @@ sub _prepare_conversion_units($$$)
   $self->_translate_names();
 
   return ($output_units, $special_units, $associated_special_units);
+}
+
+sub _prepare_units_directions_files($$$$$$$$)
+{
+  my $self = shift;
+  my $output_units = shift;
+  my $special_units = shift;
+  my $associated_special_units = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $output_filename = shift;
+  my $document_name = shift;
+
+  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
+
+  # determine file names associated with the different pages, and setup
+  # the counters for special element pages.
+  my %files_source_info;
+  if ($output_file ne '') {
+    %files_source_info =
+      $self->_html_set_pages_files($output_units, $special_units, $output_file,
+                    $destination_directory, $output_filename, $document_name);
+  }
+
+  if (scalar(@$associated_special_units)) {
+    $self->_prepare_associated_special_units_targets($associated_special_units);
+  }
+
+  # do tree units directions.
+  Texinfo::Structuring::units_directions($self,
+                                $self->{'identifiers_target'}, $output_units);
+
+  _prepare_special_units_directions($self, $special_units);
+
+  # do element directions related to files.
+  # FIXME do it here or before?  Here it means that
+  # PrevFile and NextFile can be set.
+  Texinfo::Structuring::units_file_directions($output_units);
+
+  $self->_prepare_frames_filenames($document_name);
+
+  # only in HTML, not in Texinfo::Convert::Converter
+  $self->{'elements_in_file_count'} = {};
+  # condition could also be based on $output_file ne ''
+  if ($self->{'file_counters'}) {
+    # 'file_counters' is dynamic, decreased when the element is encountered
+    # 'elements_in_file_count' is not modified afterwards
+    foreach my $filename (keys(%{$self->{'file_counters'}})) {
+      $self->{'elements_in_file_count'}->{$filename}
+                            = $self->{'file_counters'}->{$filename};
+    }
+  }
+
+  return %files_source_info;
 }
 
 sub _register_special_unit($$)
@@ -11347,45 +11397,11 @@ sub output($$)
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, $document_name);
 
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
-
-  # determine file names associated with the different pages, and setup
-  # the counters for special element pages.
-  my %files_source_info;
-  if ($output_file ne '') {
-    %files_source_info =
-      $self->_html_set_pages_files($output_units, $special_units, $output_file,
-                    $destination_directory, $output_filename, $document_name);
-  }
-
-  if (scalar(@$associated_special_units)) {
-    $self->_prepare_associated_special_units_targets($associated_special_units);
-  }
-
-  # do tree units directions.
-  Texinfo::Structuring::units_directions($self,
-                                $self->{'identifiers_target'}, $output_units);
-
-  _prepare_special_units_directions($self, $special_units);
-
-  # do element directions related to files.
-  # FIXME do it here or before?  Here it means that
-  # PrevFile and NextFile can be set.
-  Texinfo::Structuring::units_file_directions($output_units);
-
-  $self->_prepare_frames_filenames($document_name);
-
-  # only in HTML, not in Texinfo::Convert::Converter
-  $self->{'elements_in_file_count'} = {};
-  # condition could also be based on $output_file ne ''
-  if ($self->{'file_counters'}) {
-    # 'file_counters' is dynamic, decreased when the element is encountered
-    # 'elements_in_file_count' is not modified afterwards
-    foreach my $filename (keys(%{$self->{'file_counters'}})) {
-      $self->{'elements_in_file_count'}->{$filename}
-                            = $self->{'file_counters'}->{$filename};
-    }
-  }
+  my %files_source_info
+    = $self->_prepare_units_directions_files($output_units, $special_units,
+                $associated_special_units,
+                $output_file, $destination_directory, $output_filename,
+                $document_name);
 
   #$output_units = Texinfo::Structuring::rebuild_output_units($output_units);
   #$self->{'document_units'} = $output_units;
@@ -11867,7 +11883,8 @@ sub output($$)
                  ),
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_unit') {
-            my $special_unit = $file_source->{'file_info_element'};
+            my $unit_command = $file_source->{'file_info_element'};
+            my $special_unit = $unit_command->{'associated_unit'};
             my $output_unit_variety
               = $special_unit->{'special_unit_variety'};
             $self->document_warn($self,

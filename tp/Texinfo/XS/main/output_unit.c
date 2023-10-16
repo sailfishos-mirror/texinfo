@@ -98,6 +98,7 @@ add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
         fatal ("realloc failed");
     }
   list->list[list->number] = output_unit;
+  output_unit->index = list->number;
   list->number++;
 }
 

@@ -285,7 +285,7 @@ complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
 {
   reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
                                                   -1, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd, 
+  reset_unset_no_arg_commands_formatting_context (self, cmd,
                                                   HCC_type_preformatted,
                                                   HCC_type_normal, translate);
   reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
@@ -407,6 +407,9 @@ translate_names (CONVERTER *self)
           complete_no_arg_commands_formatting (self, cmd, 1);
         }
     }
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "END TRANSLATE_NAMES\n\n");
 }
 
 /* Associate output units to the global targets, First, Last, Top, Index. */
@@ -1411,4 +1414,484 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 
   /* setup untranslated strings */
   translate_names (self);
+}
+
+static void
+set_file_source_info (FILE_SOURCE_INFO *file_source_info,
+                          char *file_info_type, char *file_info_name,
+                          ELEMENT *file_info_element, char *filepath)
+{
+  file_source_info->type = file_info_type;
+  file_source_info->name = file_info_name;
+  file_source_info->element = file_info_element;
+  file_source_info->path = filepath;
+}
+
+static FILE_SOURCE_INFO *
+add_to_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
+                          char *filename,
+                          char *file_info_type, char *file_info_name,
+                          ELEMENT *file_info_element, char *filepath)
+{
+  FILE_SOURCE_INFO *new_file_source_info;
+  if (files_source_info->number == files_source_info->space)
+    {
+      files_source_info->list = realloc (files_source_info->list,
+               (files_source_info->space += 5) * sizeof (FILE_SOURCE_INFO));
+      if (!files_source_info->list)
+       fatal ("realloc failed");
+    }
+
+  new_file_source_info =
+   &files_source_info->list[files_source_info->number];
+
+  new_file_source_info->filename = strdup (filename);
+  set_file_source_info (new_file_source_info, file_info_type,
+                        file_info_name, file_info_element, filepath);
+
+  files_source_info->number++;
+
+  return new_file_source_info;
+}
+
+static FILE_SOURCE_INFO *
+find_file_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
+                            char *filename)
+{
+  int i;
+  for (i = 0; i < files_source_info->number; i++)
+    {
+      FILE_SOURCE_INFO *file_source_info = &files_source_info->list[i];
+      if (!strcmp (file_source_info->filename, filename))
+        return file_source_info;
+    }
+  return 0;
+}
+
+static char *
+add_to_unit_file_name_paths (char *unit_file_name_paths,
+                             char *filename, OUTPUT_UNIT *output_unit)
+{
+  char *new_output_unit_file_name
+                  = &unit_file_name_paths[output_unit->index];
+  new_output_unit_file_name = strdup (filename);
+
+  return new_output_unit_file_name;
+}
+
+static FILE_SOURCE_INFO_LIST *
+html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
+                      OUTPUT_UNIT_LIST *special_units, char *output_file,
+                      char *destination_directory, char *output_filename,
+                      char *document_name)
+{
+  FILE_SOURCE_INFO_LIST *files_source_info = 0;
+  char *unit_file_name_paths;
+  int i;
+
+  if (!output_units || !output_units->number)
+    return 0;
+
+  initialize_output_units_files (self);
+
+  files_source_info = (FILE_SOURCE_INFO_LIST *)
+    malloc (sizeof (FILE_SOURCE_INFO_LIST));
+  memset (files_source_info, 0, sizeof (FILE_SOURCE_INFO_LIST));
+
+  unit_file_name_paths = (char *)
+   malloc (output_units->number * sizeof (char));
+  memset (unit_file_name_paths, 0,
+          output_units->number * sizeof (char));
+
+  if (!self->conf->SPLIT || !strlen (self->conf->SPLIT))
+    {
+      int i;
+      add_to_files_source_info (files_source_info, output_filename,
+                                "special_file", "non_split", 0,
+                                output_file);
+      for (i = 0; i < output_units->number; i++)
+        {
+          add_to_unit_file_name_paths (unit_file_name_paths,
+                                       output_filename,
+                                       output_units->list[i]);
+        }
+    }
+  else
+    {
+      char *top_node_filename_str;
+      OUTPUT_UNIT *node_top_output_unit = 0;
+      char *extension = 0;
+      ELEMENT *node_top = 0;
+      int file_nr = 0;
+      int i;
+
+      /* first determine the top node file name. */
+      if (self->document->identifiers_target)
+        node_top = find_identifier_target (self->document->identifiers_target,
+                                           "Top");
+
+      top_node_filename_str = top_node_filename (self, document_name);
+
+      if (node_top && top_node_filename_str)
+        {
+          int i;
+          node_top_output_unit = node_top->associated_unit;
+          for (i = 0; i < output_units->number; i++)
+            if (output_units->list[i] == node_top_output_unit)
+              break;
+          add_to_files_source_info (files_source_info, top_node_filename_str,
+                                    "special_file", "Top", 0, 0);
+          add_to_unit_file_name_paths (unit_file_name_paths,
+                                       top_node_filename_str,
+                                       node_top_output_unit);
+        }
+
+      if (self->conf->EXTENSION && strlen (self->conf->EXTENSION))
+        extension = self->conf->EXTENSION;
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          OUTPUT_UNIT *file_output_unit;
+          char *output_unit_file_name;
+          /* For Top node. */
+          if (node_top_output_unit && node_top_output_unit == output_unit)
+            continue;
+
+          file_output_unit = output_unit->first_in_page;
+          output_unit_file_name
+           = &unit_file_name_paths[file_output_unit->index];
+          if (!output_unit_file_name)
+            {
+              char *node_filename = 0;
+              int j;
+              for (j = 0; j < file_output_unit->unit_contents.number; j++)
+                {
+                  ELEMENT *root_command = file_output_unit->unit_contents.list[j];
+                  if (root_command->cmd == CM_node)
+                    {
+                      ELEMENT *node_target = 0;
+                      char *normalized = lookup_extra_string (root_command,
+                                                              "normalized");
+                      if (normalized)
+                        node_target
+                         = find_identifier_target (
+                                  self->document->identifiers_target,
+                                  normalized);
+                   /* double node are not normalized, they are handled here */
+                      if (!node_target)
+                        {
+                          FILE_SOURCE_INFO *file_source_info = 0;
+
+                          TEXT file_name_text;
+                          text_init (&file_name_text);
+                          text_append (&file_name_text, "unknown_node");
+                          if (extension)
+                            {
+                              text_append (&file_name_text, ".");
+                              text_append (&file_name_text, extension);
+                            }
+                          file_source_info
+                            = find_file_source_info (files_source_info,
+                                                         file_name_text.text);
+                          if (!file_source_info)
+                            {
+                              file_source_info
+                                = add_to_files_source_info (files_source_info,
+                                                file_name_text.text, "node", 0,
+                                                              root_command, 0);
+                              node_filename = file_source_info->filename;
+                            }
+                          free (file_name_text.text);
+                        }
+                      else
+                        {
+          /* Nodes with {'extra'}->{'is_target'} should always be in
+            'identifiers_target', and thus in targets.  It is a bug otherwise. */
+                          FILE_SOURCE_INFO *file_source_info = 0;
+                          HTML_TARGET *node_target
+                            = find_element_target (self->html_targets,
+                                                   root_command);
+                          node_filename = node_target->node_filename;
+
+                          file_source_info
+                            = find_file_source_info (files_source_info,
+                                                          node_filename);
+                          if (file_source_info)
+                            {
+                              if (!strcmp (file_source_info->type,
+                                           "stand_in_file"))
+                                {/* NOTE we keep the order, as in perl */
+                                  set_file_source_info (file_source_info,
+                                                        "node",
+                                                        0, root_command, 0);
+                                }
+                            }
+                          else
+                            add_to_files_source_info (files_source_info,
+                                                 node_filename, "node", 0,
+                                                 root_command, 0);
+                        }
+                      output_unit_file_name
+                        = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                       node_filename,
+                                                       file_output_unit);
+                      break;
+                    }
+                }
+              if (!node_filename)
+                {
+                  /* use section to do the file name if there is no node */
+                  ELEMENT *command = file_output_unit->unit_command;
+                  if (command)
+                    {
+                      if (command->cmd == CM_top && !node_top
+                          && top_node_filename_str)
+                        {
+                   /* existing top_node_filename can happen, see
+                      html_tests.t top_file_name_and_node_name_collision */
+                          FILE_SOURCE_INFO *file_source_info
+                            = find_file_source_info (files_source_info,
+                                                  top_node_filename_str);
+                          if (file_source_info)
+                            {/* NOTE we keep the order, as in perl */
+                              set_file_source_info (file_source_info,
+                                                    "special_file", "Top",
+                                                    0, 0);
+                            }
+                          else
+                            {
+                              add_to_files_source_info (files_source_info,
+                                                       top_node_filename_str,
+                                                       "special_file", "Top",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                          top_node_filename_str,
+                                                           file_output_unit);
+                        }
+                      else
+                        {
+                          HTML_TARGET *section_target
+                            = find_element_target (self->html_targets,
+                                                   command);
+                          char *section_filename
+                            = section_target->section_filename;
+
+                          FILE_SOURCE_INFO *file_source_info
+                            = find_file_source_info (files_source_info,
+                                                     section_filename);
+                          if (file_source_info)
+                            {
+                              if (!strcmp (file_source_info->type,
+                                           "stand_in_file"))
+                                {/* NOTE we keep the order, as in perl */
+                                  set_file_source_info (file_source_info,
+                                                        "section",
+                                                        0, command, 0);
+                                }
+                            }
+                          else
+                            add_to_files_source_info (files_source_info,
+                                                 section_filename, "section", 0,
+                                                 command, 0);
+                          output_unit_file_name
+                            = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                           section_filename,
+                                                           file_output_unit);
+                        }
+                    }
+                  else
+                    {
+                      /* when everything else has failed */
+                      if (file_nr == 0 && !node_top
+                          && top_node_filename_str)
+                        {
+                          FILE_SOURCE_INFO *file_source_info
+                            = find_file_source_info (files_source_info,
+                                                  top_node_filename_str);
+                          if (!file_source_info)
+                            {
+                              add_to_files_source_info (files_source_info,
+                                                       top_node_filename_str,
+                                                       "stand_in_file", "Top",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                         top_node_filename_str,
+                                                           file_output_unit);
+                        }
+                      else
+                        {
+                          FILE_SOURCE_INFO *file_source_info;
+
+                          TEXT file_name_text;
+                          text_init (&file_name_text);
+                          text_printf (&file_name_text, "%s_%d", document_name,
+                                                                file_nr);
+                          if (extension)
+                            {
+                              text_append (&file_name_text, ".");
+                              text_append (&file_name_text, extension);
+                            }
+                          file_source_info
+                            = find_file_source_info (files_source_info,
+                                                  file_name_text.text);
+                          if (!file_source_info)
+                            {
+                              add_to_files_source_info (files_source_info,
+                                                       file_name_text.text,
+                                                       "stand_in_file",
+                                                       "unknown",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                          file_name_text.text,
+                                                           file_output_unit);
+                          free (file_name_text.text);
+                        }
+                      file_nr++;
+                    }
+                }
+            }
+          if (output_unit != file_output_unit)
+            add_to_unit_file_name_paths (unit_file_name_paths,
+                                         output_unit_file_name,
+                                         output_unit);
+        }
+    }
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      FILE_NAME_PATH_COUNTER *output_unit_file;
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      char *output_unit_file_name = &unit_file_name_paths[i];
+      char *filename = output_unit_file_name;
+      FILE_SOURCE_INFO *file_source_info
+        = find_file_source_info (files_source_info, output_unit_file_name);
+      char *filepath = file_source_info->path;
+
+      FILE_NAME_PATH *file_name_path
+        = call_file_id_setting_unit_file_name (self, output_unit,
+                                         output_unit_file_name, filepath);
+      if (file_name_path)
+        {
+          if (file_name_path->filename)
+            {
+              FILE_SOURCE_INFO *file_source_info
+               = find_file_source_info (files_source_info,
+                                        file_name_path->filename);
+              if (file_source_info)
+                {
+                  if (file_source_info->path && file_name_path->filepath
+                      && strcmp (file_source_info->path,
+                                 file_name_path->filepath))
+                    {
+                      message_list_document_warn (self->error_messages,
+                                                  self->conf,
+                                     "resetting %s file path %s to %s",
+                                           file_name_path->filename,
+                                           file_source_info->path,
+                                           file_name_path->filepath);
+                    }
+                  set_file_source_info (file_source_info, "special_file",
+                                "user_defined", 0, file_name_path->filepath);
+                }
+              else
+                add_to_files_source_info (files_source_info,
+                                          file_name_path->filename,
+                                          "special_file", "user_defined",
+                                           0, file_name_path->filepath);
+              filename = file_name_path->filename;
+            }
+          free (file_name_path);
+        }
+      output_unit_file = set_output_unit_file (self, output_unit, filename, 1);
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "Page %s: %s(%d)\n",
+                 unit_or_external_element_texi (output_unit),
+                 output_unit->unit_filename, output_unit_file->counter);
+
+    }
+
+  if (special_units && special_units->number)
+    {
+      int i;
+      for (i = 0; i < special_units->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *special_unit_file;
+          OUTPUT_UNIT *special_unit = special_units->list[i];
+          ELEMENT *unit_command = special_unit->unit_command;
+          HTML_TARGET *special_unit_target
+            = find_element_target (self->html_targets, unit_command);
+          char *filename = special_unit_target->special_unit_filename;
+
+        /* Associate the special elements that have no page with the main page.
+           This may only happen if not split. */
+          if (!filename && special_units->number
+              && output_units && output_units->number
+              && output_units->list[0]->unit_filename)
+            {
+              filename = output_units->list[0]->unit_filename;
+            }
+
+          if (filename)
+            {
+              FILE_SOURCE_INFO *file_source_info
+               = find_file_source_info (files_source_info, filename);
+              if (file_source_info)
+                {
+                  if (!strcmp (file_source_info->type, "stand_in_file"))
+                    {/* NOTE we keep the order, as in perl */
+                      set_file_source_info (file_source_info, "special_unit",
+                                            0, unit_command, 0);
+                    }
+                }
+              else
+                add_to_files_source_info (files_source_info, filename,
+                                          "special_unit", 0, unit_command, 0);
+            }
+          special_unit_file
+            = set_output_unit_file (self, special_unit, filename, 1);
+          if (self->conf->DEBUG > 0)
+            fprintf (stderr, "Special page: %s(%d)\n", filename,
+                             special_unit_file->counter);
+        }
+    }
+
+  for (i = 0; i < files_source_info->number; i++)
+    {
+      FILE_SOURCE_INFO *file_source_info = &files_source_info->list[i];
+      set_file_path (self, file_source_info->filename, file_source_info->path,
+                     destination_directory);
+    }
+
+  return files_source_info;
+}
+
+FILE_SOURCE_INFO_LIST *
+prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
+          int special_units_descriptor, int associated_special_units_descriptor,
+          char *output_file, char *destination_directory, char *output_filename,
+          char *document_name)
+{
+  FILE_SOURCE_INFO_LIST *files_source_info = 0;
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT_LIST *special_units
+    = retrieve_output_units (special_units_descriptor);
+
+  split_pages (output_units, self->conf->SPLIT);
+
+  if (strlen (output_file))
+    {
+      files_source_info =
+        html_set_pages_files (self, output_units, special_units, output_file,
+                        destination_directory, output_filename, document_name);
+    }
+
+  return files_source_info;
 }

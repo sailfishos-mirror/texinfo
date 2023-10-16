@@ -954,22 +954,18 @@ sub top_node_filename($$)
   my $self = shift;
   my $document_name = shift;
 
-  my $top_node_filename;
   if (defined($self->get_conf('TOP_FILE'))
       and $self->get_conf('TOP_FILE') ne '') {
-    $top_node_filename = $self->get_conf('TOP_FILE');
-  } else {
-    my $extension = '';
-    $extension = '.'.$self->get_conf('EXTENSION')
-      if (defined($self->get_conf('EXTENSION'))
-            and $self->get_conf('EXTENSION') ne '');
-
-    $top_node_filename = $document_name;
-    if (defined($top_node_filename)) {
-      $top_node_filename .= $extension;
+    return $self->get_conf('TOP_FILE');
+  } elsif (defined($document_name)) {
+    my $top_node_filename = $document_name;
+    if (defined($self->get_conf('EXTENSION'))
+        and $self->get_conf('EXTENSION') ne '') {
+      $top_node_filename .= '.'.$self->get_conf('EXTENSION')
     }
+    return $top_node_filename
   }
-  return $top_node_filename;
+  return undef;
 }
 
 sub _get_root_element($$)

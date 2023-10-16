@@ -323,3 +323,157 @@ free_comma_index_subentries_tree (ELEMENT *element)
     }
   destroy_element (element);
 }
+
+/* to be freed by caller */
+char *
+top_node_filename (CONVERTER *self, char *document_name)
+{
+  TEXT top_node_filename;
+
+  if (self->conf->TOP_FILE && strlen (self->conf->TOP_FILE))
+    {
+      return strdup (self->conf->TOP_FILE);
+    }
+
+  if (document_name)
+    {
+      text_init (&top_node_filename);
+      text_append (&top_node_filename, document_name);
+      if (self->conf->EXTENSION && strlen (self->conf->EXTENSION))
+        {
+          text_append (&top_node_filename, ".");
+          text_append (&top_node_filename, self->conf->EXTENSION);
+        }
+      return top_node_filename.text;
+    }
+  return 0;
+}
+
+void
+initialize_output_units_files (CONVERTER *self)
+{
+  self->output_unit_files = (FILE_NAME_PATH_COUNTER_LIST *)
+    malloc (sizeof (FILE_NAME_PATH_COUNTER_LIST));
+  memset (self->output_unit_files, 0,
+    sizeof (FILE_NAME_PATH_COUNTER_LIST));
+}
+
+static FILE_NAME_PATH_COUNTER *
+find_output_unit_file (CONVERTER *self, char *filename)
+{
+  FILE_NAME_PATH_COUNTER_LIST *output_unit_files
+    = self->output_unit_files;
+  int i;
+  for (i = 0; i < output_unit_files->number; i++)
+    {
+      if (!strcmp (output_unit_files->list[i].filename, filename))
+        return &output_unit_files->list[i];
+    }
+  return 0;
+}
+
+static FILE_NAME_PATH_COUNTER *
+add_output_units_file (CONVERTER *self, char *filename)
+{
+  FILE_NAME_PATH_COUNTER *new_output_unit_file;
+  FILE_NAME_PATH_COUNTER_LIST *output_unit_files
+    = self->output_unit_files;
+
+  if (output_unit_files->number == output_unit_files->space)
+    {
+      output_unit_files->list = realloc (output_unit_files->list,
+         (output_unit_files->space += 5) * sizeof (FILE_NAME_PATH_COUNTER));
+      if (!output_unit_files->list)
+        fatal ("realloc failed");
+    }
+
+  new_output_unit_file = &output_unit_files->list[output_unit_files->number];
+  memset (new_output_unit_file, 0, sizeof (FILE_NAME_PATH_COUNTER));
+  new_output_unit_file->filename = strdup (filename);
+
+  output_unit_files->number++;
+
+  return new_output_unit_file;
+}
+
+/*
+  If CASE_INSENSITIVE_FILENAMES is set, reuse the first
+  filename with the same name insensitive to the case.
+ */
+static FILE_NAME_PATH_COUNTER *
+register_normalize_case_filename (CONVERTER *self, char *filename)
+{
+  FILE_NAME_PATH_COUNTER *output_unit_file;
+  if (self->conf->CASE_INSENSITIVE_FILENAMES > 0)
+    {
+      char *lc_filename = to_upper_or_lower_multibyte (filename, -1);
+      output_unit_file = find_output_unit_file (self, lc_filename);
+      if (output_unit_file)
+        {
+          if (self->conf->DEBUG > 0)
+            {
+              fprintf (stderr, "Reusing case-insensitive %s for %s\n",
+                       output_unit_file->filename, filename);
+            }
+          free (lc_filename);
+        }
+      else
+        {
+          output_unit_file = add_output_units_file (self, lc_filename);
+          free (lc_filename);
+        }
+    }
+  else
+    {
+      output_unit_file = find_output_unit_file (self, filename);
+      if (output_unit_file)
+        {
+          if (self->conf->DEBUG > 0)
+            {
+              fprintf (stderr, "Reusing %s for %s\n",
+                       output_unit_file->filename, filename);
+            }
+        }
+      else
+        output_unit_file = add_output_units_file (self, filename);
+    }
+  return output_unit_file;
+}
+
+FILE_NAME_PATH_COUNTER *
+set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
+                      char *filename, int set_counter)
+{
+  FILE_NAME_PATH_COUNTER *output_unit_file
+    = register_normalize_case_filename (self, filename);
+  if (set_counter)
+    output_unit_file->counter++;
+  output_unit->unit_filename = output_unit_file->filename;
+  return output_unit_file;
+}
+
+void
+set_file_path (CONVERTER *self, char *filename, char *filepath,
+               char *destination_directory)
+{
+  FILE_NAME_PATH_COUNTER *output_unit_file
+    = register_normalize_case_filename (self, filename);
+  char *filepath_str;
+  int free_filepath = 0;
+
+  if (!filepath)
+    if (destination_directory && strlen (destination_directory))
+      {
+        xasprintf (&filepath_str, "%s/%s", destination_directory,
+                                  output_unit_file->filename);
+        free_filepath = 1;
+      }
+    else
+      filepath_str = output_unit_file->filename;
+  else
+    filepath_str = filepath;
+
+  output_unit_file->filepath = strdup (filepath_str);
+  if (free_filepath)
+    free (filepath_str);
+}

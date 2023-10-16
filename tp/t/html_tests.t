@@ -983,6 +983,16 @@ Need 2 elements for separate footnotes.
 ', {'init_files' => ['redirection_file_collision_with_special.init']},
    {'SPLIT' => 'node', 'footnotestyle' => 'separate'},
 ],
+['top_file_name_and_node_name_collision',
+'@node my node
+@chapter chap my node
+
+@node other node
+@chapter chapter
+
+@top top
+
+', {}, {'TOP_FILE' => 'my-node.html', 'USE_NODES', 0}],
 # NOTE the result is incorrect, the first footnote text is at the
 # end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,

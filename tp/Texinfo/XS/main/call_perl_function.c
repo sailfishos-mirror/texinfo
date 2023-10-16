@@ -344,3 +344,84 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
     }
   return 0;
 }
+
+FILE_NAME_PATH *
+call_file_id_setting_unit_file_name (CONVERTER *self, OUTPUT_UNIT *output_unit,
+                                     char *filename, char *filepath)
+{
+  SV **file_id_setting_sv;
+
+  dTHX;
+
+  if (!output_unit->hv)
+    return 0;
+
+  if (!self->hv)
+    return 0;
+
+  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
+                                 strlen ("file_id_setting"), 0);
+  if (file_id_setting_sv)
+    {
+      SV **unit_file_name_sv;
+      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
+      unit_file_name_sv = hv_fetch (file_id_setting_hv,
+                                   "unit_file_name",
+                                   strlen ("unit_file_name"), 0);
+
+      if (unit_file_name_sv)
+        {
+          int count;
+          SV *filepath_ret_sv;
+          SV *filename_ret_sv;
+          FILE_NAME_PATH *result
+            = (FILE_NAME_PATH *) malloc (sizeof (FILE_NAME_PATH));
+          memset (result, 0, sizeof (FILE_NAME_PATH));
+
+          dSP;
+
+          ENTER;
+          SAVETMPS;
+
+          PUSHMARK(SP);
+          EXTEND(SP, 4);
+
+          PUSHs(sv_2mortal (newRV_inc (self->hv)));
+          PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+          PUSHs(sv_2mortal (newSVpv (filename, 0)));
+          PUSHs(sv_2mortal (newSVpv (filepath, 0)));
+          PUTBACK;
+
+          count = call_sv (*unit_file_name_sv, G_LIST);
+
+          SPAGAIN;
+
+          if (count != 2)
+            croak("unit_file_name should return 2 items\n");
+
+          filepath_ret_sv = POPs;
+          if (SvOK (filepath_ret_sv))
+            {
+              STRLEN len;
+              char *filepath_ret = SvPV (filepath_ret_sv, len);
+              result->filepath = strdup (filepath_ret);
+            }
+
+          filename_ret_sv = POPs;
+          if (SvOK (filename_ret_sv))
+            {
+              STRLEN len;
+              char *filename_ret = SvPV (filename_ret_sv, len);
+              result->filename = strdup (filename_ret);
+            }
+
+          PUTBACK;
+
+          FREETMPS;
+          LEAVE;
+
+          return result;
+        }
+    }
+  return 0;
+}

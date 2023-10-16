@@ -1,3 +1,41 @@
+2023-10-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (top_node_filename): rewrite code
+	for simpler code, no functional change.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): avoid using
+	hashes if not needed.  Move code associating special elements that
+	have no page with the main page in the main special elements loop.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files): group
+	code setting file names and directions in
+	_prepare_units_directions_files new function for future easier
+	overriding by XS code.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files)
+	(output): put unit_command as file_info_element for special output
+	unit, not output unit.
+
+	* tp/Texinfo/XS/main/output_unit.c (add_to_output_unit_list),
+	tp/Texinfo/XS/main/tree_types.h (OUTPUT_UNIT): add index to
+	output_unit structure.
+
+	* tp/Texinfo/XS/convert/convert_html.c (set_file_source_info)
+	(add_to_files_source_info, find_file_source_info)
+	(add_to_unit_file_name_paths, html_set_pages_files)
+	(prepare_units_directions_files), tp/Texinfo/XS/convert/convert_html.h
+	(FILE_SOURCE_INFO, FILE_SOURCE_INFO_LIST),
+	tp/Texinfo/XS/convert/converter.c (top_node_filename)
+	(initialize_output_units_files, add_output_units_file)
+	(register_normalize_case_filename, set_output_unit_file)
+	(set_file_path), tp/Texinfo/XS/main/call_perl_function.c
+	(call_file_id_setting_unit_file_name), tp/Texinfo/XS/main/utils.h
+	(FILE_NAME_PATH, FILE_NAME_PATH_COUNTER, FILE_NAME_PATH_COUNTER_LIST)
+	(CONVERTER): implement html_set_pages_files.
+
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(top_file_name_and_node_name_collision): new test.
+
 2023-10-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c

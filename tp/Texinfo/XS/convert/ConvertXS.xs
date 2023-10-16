@@ -160,7 +160,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
            = build_output_units_list (associated_special_units_descriptor);
 
          /* calls perl customization functions, so need to be done after
-            build_output_units_list calls */
+            build_output_units_list calls to be able to retrieve perl units */
          html_prepare_conversion_units_targets (self, document_name,
               output_units_descriptor, special_units_descriptor);
 

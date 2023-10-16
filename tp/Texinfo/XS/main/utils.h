@@ -261,6 +261,23 @@ typedef struct TRANSLATED_COMMAND {
     char *translation;
 } TRANSLATED_COMMAND;
 
+typedef struct FILE_NAME_PATH {
+    char *filename;
+    char *filepath;
+} FILE_NAME_PATH;
+
+typedef struct FILE_NAME_PATH_COUNTER {
+    char *filename;
+    char *filepath;
+    int counter;
+} FILE_NAME_PATH_COUNTER;
+
+typedef struct FILE_NAME_PATH_COUNTER_LIST {
+    size_t number;
+    size_t space;
+    FILE_NAME_PATH_COUNTER *list;
+} FILE_NAME_PATH_COUNTER_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
     OPTIONS *conf;
@@ -272,6 +289,9 @@ typedef struct CONVERTER {
     MERGED_INDEX **index_entries;
     INDEX_SORTED_BY_LETTER **index_entries_by_letter;
     TRANSLATED_COMMAND **translated_commands;
+
+  /* output unit files API */
+    FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
