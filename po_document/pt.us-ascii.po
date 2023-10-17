@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-14 13:47+0100\n"
+"POT-Creation-Date: 2023-10-17 13:04+0100\n"
 "PO-Revision-Date: 2006-01-09\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin01@solar.com.br>\n"
 "Language-Team: Unknown\n"
@@ -29,7 +29,6 @@ msgid "{explained_string} ({explanation})"
 msgstr ""
 
 #: tp/Texinfo/Common.pm:638
-#, fuzzy
 msgctxt "category of functions for @defun"
 msgid "Function"
 msgstr "Se@,{c}@~ao"
@@ -56,7 +55,6 @@ msgid "User Option"
 msgstr "Se@,{c}@~ao acima"
 
 #: tp/Texinfo/Common.pm:650
-#, fuzzy
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Se@,{c}@~ao"
@@ -453,269 +451,230 @@ msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{ }-- {category} da {class}: {type} {name}"
 
 #: tp/Texinfo/Convert/HTML.pm:2010
-#, fuzzy
 #| msgid "About This Document"
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "Sobre Esse Documento"
 
 #: tp/Texinfo/Convert/HTML.pm:2012
-#, fuzzy
 #| msgid "Table of Contents"
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Sum@'ario"
 
 #: tp/Texinfo/Convert/HTML.pm:2015
-#, fuzzy
 #| msgid "Short Table of Contents"
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Breve Sum@'ario"
 
 #: tp/Texinfo/Convert/HTML.pm:2017
-#, fuzzy
 #| msgid "Footnotes"
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "Notas de Rodap@'e"
 
 #: tp/Texinfo/Convert/HTML.pm:2121
-#, fuzzy
 #| msgid "Top"
 msgctxt "Top direction string"
 msgid "Top"
 msgstr "Topo"
 
 #: tp/Texinfo/Convert/HTML.pm:2123
-#, fuzzy
 #| msgid "Contents"
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Conte@'udo"
 
 #: tp/Texinfo/Convert/HTML.pm:2126
-#, fuzzy
 #| msgid "Overview"
 msgctxt "Overview direction string"
 msgid "Overview"
 msgstr "Vis@~ao geral"
 
 #: tp/Texinfo/Convert/HTML.pm:2128
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "@'Indice"
 
 #: tp/Texinfo/Convert/HTML.pm:2131
-#, fuzzy
 #| msgid "current"
 msgctxt "This (current section) direction string"
 msgid "current"
 msgstr "atual"
 
 #: tp/Texinfo/Convert/HTML.pm:2135
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Prev direction string"
 msgid "Prev"
 msgstr "Pr@'evio"
 
 #: tp/Texinfo/Convert/HTML.pm:2137
-#, fuzzy
 #| msgid " Up "
 msgctxt "Up direction string"
 msgid " Up "
 msgstr " Acima "
 
 #: tp/Texinfo/Convert/HTML.pm:2139
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next direction string"
 msgid "Next"
 msgstr "Pr@'oximo"
 
 #: tp/Texinfo/Convert/HTML.pm:2141
-#, fuzzy
 #| msgid "Up"
 msgctxt "NodeUp direction string"
 msgid "Up"
 msgstr "Acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2143
-#, fuzzy
 #| msgid "Next"
 msgctxt "NodeNext direction string"
 msgid "Next"
 msgstr "Pr@'oximo"
 
 #: tp/Texinfo/Convert/HTML.pm:2145
-#, fuzzy
 #| msgid "Previous node"
 msgctxt "NodePrev direction string"
 msgid "Previous"
 msgstr "Nodo anterior"
 
 #: tp/Texinfo/Convert/HTML.pm:2147
-#, fuzzy
 msgctxt "NodeForward direction string"
 msgid "Forward node"
 msgstr "Avan@,{c}ar"
 
 #: tp/Texinfo/Convert/HTML.pm:2149
-#, fuzzy
 msgctxt "NodeBack direction string"
 msgid "Back node"
 msgstr "Nodo acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2156
-#, fuzzy
 #| msgid "Next node"
 msgctxt "NextFile direction string"
 msgid "Next file"
 msgstr "Pr@'oximo nodo"
 
 #: tp/Texinfo/Convert/HTML.pm:2158
-#, fuzzy
 #| msgid "Previous node"
 msgctxt "PrevFile direction string"
 msgid "Previous file"
 msgstr "Nodo anterior"
 
 #: tp/Texinfo/Convert/HTML.pm:2163
-#, fuzzy
 #| msgid "Cover (top) of document"
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
 msgstr "In@'icio (topo) do documento"
 
 #: tp/Texinfo/Convert/HTML.pm:2166
-#, fuzzy
 #| msgid "Table of contents"
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Sum@'ario"
 
 #: tp/Texinfo/Convert/HTML.pm:2169
-#, fuzzy
 #| msgid "Short table of contents"
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Breve sum@'ario"
 
 #: tp/Texinfo/Convert/HTML.pm:2171
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "@'Indice"
 
 #: tp/Texinfo/Convert/HTML.pm:2174
-#, fuzzy
 #| msgid "Current section"
 msgctxt "This (current section) direction description"
 msgid "Current section"
 msgstr "Se@,{c}@~ao atual"
 
 #: tp/Texinfo/Convert/HTML.pm:2177
-#, fuzzy
 #| msgid "Previous section in reading order"
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
 msgstr "Se@,{c}@~ao anterior na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2180
-#, fuzzy
 #| msgid "Beginning of this chapter or previous chapter"
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
 msgstr "Come@,{c}o desse cap@'itulo ou cap@'itulo anterior"
 
 #: tp/Texinfo/Convert/HTML.pm:2183
-#, fuzzy
 #| msgid "Previous section on same level"
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
 msgstr "Se@,{c}@~ao anterior no mesmo n@'ivel"
 
 #: tp/Texinfo/Convert/HTML.pm:2185
-#, fuzzy
 #| msgid "Up section"
 msgctxt "Up direction description"
 msgid "Up section"
 msgstr "Se@,{c}@~ao acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2187
-#, fuzzy
 #| msgid "Next section on same level"
 msgctxt "Next direction description"
 msgid "Next section on same level"
 msgstr "Pr@'oxima se@,{c}@~ao no mesmo n@'ivel"
 
 #: tp/Texinfo/Convert/HTML.pm:2189
-#, fuzzy
 #| msgid "Up node"
 msgctxt "NodeUp direction description"
 msgid "Up node"
 msgstr "Nodo acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2191
-#, fuzzy
 #| msgid "Next node"
 msgctxt "NodeNext direction description"
 msgid "Next node"
 msgstr "Pr@'oximo nodo"
 
 #: tp/Texinfo/Convert/HTML.pm:2193
-#, fuzzy
 #| msgid "Previous node"
 msgctxt "NodePrev direction description"
 msgid "Previous node"
 msgstr "Nodo anterior"
 
 #: tp/Texinfo/Convert/HTML.pm:2196
-#, fuzzy
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
 msgstr "Pr@'oxima se@,{c}@~ao na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2199
-#, fuzzy
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
 msgstr "Se@,{c}@~ao anterior na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2202
-#, fuzzy
 #| msgid "Next section in reading order"
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
 msgstr "Pr@'oxima se@,{c}@~ao na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2204
-#, fuzzy
 #| msgid "Next chapter"
 msgctxt "FastForward direction description"
 msgid "Next chapter"
 msgstr "Pr@'oximo cap@'itulo"
 
 #: tp/Texinfo/Convert/HTML.pm:2206
-#, fuzzy
 #| msgid "About (help)"
 msgctxt "About direction description"
 msgid "About (help)"
 msgstr "Sobre (ajuda)"
 
 #: tp/Texinfo/Convert/HTML.pm:2209
-#, fuzzy
 #| msgid "First section in reading order"
 msgctxt "First direction description"
 msgid "First section in reading order"
 msgstr "Primeira se@,{c}@~ao na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2212
-#, fuzzy
 #| msgid "Last section in reading order"
 msgctxt "Last direction description"
 msgid "Last section in reading order"
@@ -727,159 +686,136 @@ msgid "Forward section in next file"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2218
-#, fuzzy
 #| msgid "Last section in reading order"
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
 msgstr "@'Ultima se@,{c}@~ao na ordem de leitura"
 
 #: tp/Texinfo/Convert/HTML.pm:2224
-#, fuzzy
 #| msgid "Top"
 msgctxt "Top direction button label"
 msgid "Top"
 msgstr "Topo"
 
 #: tp/Texinfo/Convert/HTML.pm:2226
-#, fuzzy
 #| msgid "Contents"
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Conte@'udo"
 
 #: tp/Texinfo/Convert/HTML.pm:2228
-#, fuzzy
 #| msgid "Overview"
 msgctxt "Overview direction button label"
 msgid "Overview"
 msgstr "Vis@~ao geral"
 
 #: tp/Texinfo/Convert/HTML.pm:2230
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "@'Indice"
 
 #: tp/Texinfo/Convert/HTML.pm:2232
-#, fuzzy
 #| msgid "This"
 msgctxt "This direction button label"
 msgid "This"
 msgstr "Esse"
 
 #: tp/Texinfo/Convert/HTML.pm:2234
-#, fuzzy
 #| msgid "Back"
 msgctxt "Back direction button label"
 msgid "Back"
 msgstr "Volta"
 
 #: tp/Texinfo/Convert/HTML.pm:2236
-#, fuzzy
 #| msgid "FastBack"
 msgctxt "FastBack direction button label"
 msgid "FastBack"
 msgstr "Voltar R@'apido"
 
 #: tp/Texinfo/Convert/HTML.pm:2238
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Prev direction button label"
 msgid "Prev"
 msgstr "Pr@'evio"
 
 #: tp/Texinfo/Convert/HTML.pm:2240
-#, fuzzy
 #| msgid "Up"
 msgctxt "Up direction button label"
 msgid "Up"
 msgstr "Acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2242
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next direction button label"
 msgid "Next"
 msgstr "Pr@'oximo"
 
 #: tp/Texinfo/Convert/HTML.pm:2244
-#, fuzzy
 #| msgid "NodeUp"
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
 msgstr "Nodo Acima"
 
 #: tp/Texinfo/Convert/HTML.pm:2246
-#, fuzzy
 #| msgid "NodeNext"
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
 msgstr "Pr@'oximo Nodo"
 
 #: tp/Texinfo/Convert/HTML.pm:2248
-#, fuzzy
 #| msgid "NodePrev"
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
 msgstr "Nodo Anterior"
 
 #: tp/Texinfo/Convert/HTML.pm:2250
-#, fuzzy
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
 msgstr "Avan@,{c}ar"
 
 #: tp/Texinfo/Convert/HTML.pm:2252
-#, fuzzy
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
 msgstr "Volta"
 
 #: tp/Texinfo/Convert/HTML.pm:2254
-#, fuzzy
 #| msgid "Forward"
 msgctxt "Forward direction button label"
 msgid "Forward"
 msgstr "Avan@,{c}ar"
 
 #: tp/Texinfo/Convert/HTML.pm:2256
-#, fuzzy
 #| msgid "FastForward"
 msgctxt "FastForward direction button label"
 msgid "FastForward"
 msgstr "Avan@,{c}ar R@'apido"
 
 #: tp/Texinfo/Convert/HTML.pm:2258
-#, fuzzy
 #| msgid "About"
 msgctxt "About direction button label"
 msgid "About"
 msgstr "Sobre"
 
 #: tp/Texinfo/Convert/HTML.pm:2260
-#, fuzzy
 #| msgid "First"
 msgctxt "First direction button label"
 msgid "First"
 msgstr "Primeiro"
 
 #: tp/Texinfo/Convert/HTML.pm:2262
-#, fuzzy
 #| msgid "Last"
 msgctxt "Last direction button label"
 msgid "Last"
 msgstr "@'Ultimo"
 
 #: tp/Texinfo/Convert/HTML.pm:2264
-#, fuzzy
 #| msgid "Next"
 msgctxt "NextFile direction button label"
 msgid "NextFile"
 msgstr "Pr@'oximo"
 
 #: tp/Texinfo/Convert/HTML.pm:2266
-#, fuzzy
 #| msgid "Prev"
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"

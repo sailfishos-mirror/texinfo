@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-14 13:47+0100\n"
+"POT-Creation-Date: 2023-10-17 13:04+0100\n"
 "PO-Revision-Date: 2015-06-08 17:08+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -29,7 +29,6 @@ msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
 #: tp/Texinfo/Common.pm:638
-#, fuzzy
 #| msgid "Function"
 msgctxt "category of functions for @defun"
 msgid "Function"
@@ -46,7 +45,6 @@ msgid "Special Form"
 msgstr "Forma especial"
 
 #: tp/Texinfo/Common.pm:645
-#, fuzzy
 #| msgid "Variable"
 msgctxt "category of variables for @defvar"
 msgid "Variable"
@@ -58,21 +56,18 @@ msgid "User Option"
 msgstr "Opci@'o d'usuari"
 
 #: tp/Texinfo/Common.pm:650
-#, fuzzy
 #| msgid "Function"
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Funci@'o"
 
 #: tp/Texinfo/Common.pm:653
-#, fuzzy
 #| msgid "Variable"
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Variable"
 
 #: tp/Texinfo/Common.pm:656
-#, fuzzy
 #| msgid "Instance Variable"
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
@@ -80,7 +75,6 @@ msgid "Instance Variable"
 msgstr "Variable d'inst@`ancia"
 
 #: tp/Texinfo/Common.pm:659
-#, fuzzy
 #| msgid "Instance Variable"
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
@@ -89,14 +83,12 @@ msgid "Instance Variable"
 msgstr "Variable d'inst@`ancia"
 
 #: tp/Texinfo/Common.pm:662
-#, fuzzy
 #| msgid "Method"
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "M@'etode"
 
 #: tp/Texinfo/Common.pm:665
-#, fuzzy
 #| msgid "Method"
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
@@ -490,441 +482,378 @@ msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{ }-- {category} de {class}: {type} {name}"
 
 #: tp/Texinfo/Convert/HTML.pm:2010
-#, fuzzy
 #| msgid "About This Document"
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "Quan a aquest document"
 
 #: tp/Texinfo/Convert/HTML.pm:2012
-#, fuzzy
 #| msgid "Table of Contents"
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Taula de continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2015
-#, fuzzy
 #| msgid "Short Table of Contents"
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Taula breu de continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2017
-#, fuzzy
 #| msgid "Footnotes"
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "Notes a peu de p@`agina"
 
 #: tp/Texinfo/Convert/HTML.pm:2121
-#, fuzzy
 #| msgid "Top"
 msgctxt "Top direction string"
 msgid "Top"
 msgstr "Amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2123
-#, fuzzy
 #| msgid "Contents"
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2126
-#, fuzzy
 #| msgid "Overview"
 msgctxt "Overview direction string"
 msgid "Overview"
 msgstr "Panor@`amica"
 
 #: tp/Texinfo/Convert/HTML.pm:2128
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "@'Index"
 
 #: tp/Texinfo/Convert/HTML.pm:2131
-#, fuzzy
 #| msgid "current"
 msgctxt "This (current section) direction string"
 msgid "current"
 msgstr "actual"
 
 #: tp/Texinfo/Convert/HTML.pm:2135
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Prev direction string"
 msgid "Prev"
 msgstr "Prev"
 
 #: tp/Texinfo/Convert/HTML.pm:2137
-#, fuzzy
 #| msgid " Up "
 msgctxt "Up direction string"
 msgid " Up "
 msgstr " Amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2139
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next direction string"
 msgid "Next"
 msgstr "Seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2141
-#, fuzzy
 #| msgid "Up"
 msgctxt "NodeUp direction string"
 msgid "Up"
 msgstr "Amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2143
-#, fuzzy
 #| msgid "Next"
 msgctxt "NodeNext direction string"
 msgid "Next"
 msgstr "Seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2145
-#, fuzzy
 #| msgid "Previous"
 msgctxt "NodePrev direction string"
 msgid "Previous"
 msgstr "Previ"
 
 #: tp/Texinfo/Convert/HTML.pm:2147
-#, fuzzy
 #| msgid "Forward node"
 msgctxt "NodeForward direction string"
 msgid "Forward node"
 msgstr "Node cap endavant"
 
 #: tp/Texinfo/Convert/HTML.pm:2149
-#, fuzzy
 #| msgid "Back node"
 msgctxt "NodeBack direction string"
 msgid "Back node"
 msgstr "Node cap endarrere"
 
 #: tp/Texinfo/Convert/HTML.pm:2156
-#, fuzzy
 #| msgid "Next file"
 msgctxt "NextFile direction string"
 msgid "Next file"
 msgstr "Fitxer seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2158
-#, fuzzy
 #| msgid "Previous file"
 msgctxt "PrevFile direction string"
 msgid "Previous file"
 msgstr "Fitxer previ"
 
 #: tp/Texinfo/Convert/HTML.pm:2163
-#, fuzzy
 #| msgid "Cover (top) of document"
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
 msgstr "Portada (part superior) del document"
 
 #: tp/Texinfo/Convert/HTML.pm:2166
-#, fuzzy
 #| msgid "Table of contents"
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Taula de continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2169
-#, fuzzy
 #| msgid "Short table of contents"
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Taula breu de continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2171
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "@'Index"
 
 #: tp/Texinfo/Convert/HTML.pm:2174
-#, fuzzy
 #| msgid "Current section"
 msgctxt "This (current section) direction description"
 msgid "Current section"
 msgstr "Secci@'o actual"
 
 #: tp/Texinfo/Convert/HTML.pm:2177
-#, fuzzy
 #| msgid "Previous section in reading order"
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
 msgstr "Secci@'o pr@`evia a l'ordre de lectura"
 
 #: tp/Texinfo/Convert/HTML.pm:2180
-#, fuzzy
 #| msgid "Beginning of this chapter or previous chapter"
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
 msgstr "Inici del cap@'@dotless{i}tol actual o previ"
 
 #: tp/Texinfo/Convert/HTML.pm:2183
-#, fuzzy
 #| msgid "Previous section on same level"
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
 msgstr "Secci@'o pr@`evia al mateix nivell"
 
 #: tp/Texinfo/Convert/HTML.pm:2185
-#, fuzzy
 #| msgid "Up section"
 msgctxt "Up direction description"
 msgid "Up section"
 msgstr "Secci@'o amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2187
-#, fuzzy
 #| msgid "Next section on same level"
 msgctxt "Next direction description"
 msgid "Next section on same level"
 msgstr "Secci@'o seg@\"uent al mateix nivell"
 
 #: tp/Texinfo/Convert/HTML.pm:2189
-#, fuzzy
 #| msgid "Up node"
 msgctxt "NodeUp direction description"
 msgid "Up node"
 msgstr "Node amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2191
-#, fuzzy
 #| msgid "Next node"
 msgctxt "NodeNext direction description"
 msgid "Next node"
 msgstr "Node seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2193
-#, fuzzy
 #| msgid "Previous node"
 msgctxt "NodePrev direction description"
 msgid "Previous node"
 msgstr "Node previ"
 
 #: tp/Texinfo/Convert/HTML.pm:2196
-#, fuzzy
 #| msgid "Next node in node reading order"
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
 msgstr "Node seg@\"uent a l'ordre de lectura de nodes"
 
 #: tp/Texinfo/Convert/HTML.pm:2199
-#, fuzzy
 #| msgid "Previous node in node reading order"
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
 msgstr "Node previ a l'ordre de lectura de nodes"
 
 #: tp/Texinfo/Convert/HTML.pm:2202
-#, fuzzy
 #| msgid "Next section in reading order"
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
 msgstr "Secci@'o seg@\"uent a l'ordre de lectura"
 
 #: tp/Texinfo/Convert/HTML.pm:2204
-#, fuzzy
 #| msgid "Next chapter"
 msgctxt "FastForward direction description"
 msgid "Next chapter"
 msgstr "Cap@'@dotless{i}tol seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2206
-#, fuzzy
 #| msgid "About (help)"
 msgctxt "About direction description"
 msgid "About (help)"
 msgstr "Quant a (ajuda)"
 
 #: tp/Texinfo/Convert/HTML.pm:2209
-#, fuzzy
 #| msgid "First section in reading order"
 msgctxt "First direction description"
 msgid "First section in reading order"
 msgstr "Primera secci@'o a l'ordre de lectura"
 
 #: tp/Texinfo/Convert/HTML.pm:2212
-#, fuzzy
 #| msgid "Last section in reading order"
 msgctxt "Last direction description"
 msgid "Last section in reading order"
 msgstr "@\"Ultima secci@'o a l'ordre de lectura"
 
 #: tp/Texinfo/Convert/HTML.pm:2215
-#, fuzzy
 #| msgid "Forward section in next file"
 msgctxt "NextFile direction description"
 msgid "Forward section in next file"
 msgstr "Secci@'o cap endavant al fitxer seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2218
-#, fuzzy
 #| msgid "Back section in previous file"
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
 msgstr "Secci@'o cap endarrere al fitxer previ"
 
 #: tp/Texinfo/Convert/HTML.pm:2224
-#, fuzzy
 #| msgid "Top"
 msgctxt "Top direction button label"
 msgid "Top"
 msgstr "Amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2226
-#, fuzzy
 #| msgid "Contents"
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Continguts"
 
 #: tp/Texinfo/Convert/HTML.pm:2228
-#, fuzzy
 #| msgid "Overview"
 msgctxt "Overview direction button label"
 msgid "Overview"
 msgstr "Panor@`amica"
 
 #: tp/Texinfo/Convert/HTML.pm:2230
-#, fuzzy
 #| msgid "Index"
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "@'Index"
 
 #: tp/Texinfo/Convert/HTML.pm:2232
-#, fuzzy
 #| msgid "This"
 msgctxt "This direction button label"
 msgid "This"
 msgstr "Aquest"
 
 #: tp/Texinfo/Convert/HTML.pm:2234
-#, fuzzy
 #| msgid "Back"
 msgctxt "Back direction button label"
 msgid "Back"
 msgstr "En darrere"
 
 #: tp/Texinfo/Convert/HTML.pm:2236
-#, fuzzy
 #| msgid "FastBack"
 msgctxt "FastBack direction button label"
 msgid "FastBack"
 msgstr "CapEnDarrereR@`apid"
 
 #: tp/Texinfo/Convert/HTML.pm:2238
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Prev direction button label"
 msgid "Prev"
 msgstr "Prev"
 
 #: tp/Texinfo/Convert/HTML.pm:2240
-#, fuzzy
 #| msgid "Up"
 msgctxt "Up direction button label"
 msgid "Up"
 msgstr "Amunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2242
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next direction button label"
 msgid "Next"
 msgstr "Seg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2244
-#, fuzzy
 #| msgid "NodeUp"
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
 msgstr "NodeAmunt"
 
 #: tp/Texinfo/Convert/HTML.pm:2246
-#, fuzzy
 #| msgid "NodeNext"
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
 msgstr "NodeSeg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2248
-#, fuzzy
 #| msgid "NodePrev"
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
 msgstr "NodePrevi"
 
 #: tp/Texinfo/Convert/HTML.pm:2250
-#, fuzzy
 #| msgid "NodeForward"
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
 msgstr "NodeEnDavant"
 
 #: tp/Texinfo/Convert/HTML.pm:2252
-#, fuzzy
 #| msgid "NodeBack"
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
 msgstr "NodeEnDarrere"
 
 #: tp/Texinfo/Convert/HTML.pm:2254
-#, fuzzy
 #| msgid "Forward"
 msgctxt "Forward direction button label"
 msgid "Forward"
 msgstr "Endavant"
 
 #: tp/Texinfo/Convert/HTML.pm:2256
-#, fuzzy
 #| msgid "FastForward"
 msgctxt "FastForward direction button label"
 msgid "FastForward"
 msgstr "EndavantR@`apid"
 
 #: tp/Texinfo/Convert/HTML.pm:2258
-#, fuzzy
 #| msgid "About"
 msgctxt "About direction button label"
 msgid "About"
 msgstr "Quant a"
 
 #: tp/Texinfo/Convert/HTML.pm:2260
-#, fuzzy
 #| msgid "First"
 msgctxt "First direction button label"
 msgid "First"
 msgstr "Primer"
 
 #: tp/Texinfo/Convert/HTML.pm:2262
-#, fuzzy
 #| msgid "Last"
 msgctxt "Last direction button label"
 msgid "Last"
 msgstr "@'Ultim"
 
 #: tp/Texinfo/Convert/HTML.pm:2264
-#, fuzzy
 #| msgid "NextFile"
 msgctxt "NextFile direction button label"
 msgid "NextFile"
 msgstr "FitxerSeg@\"uent"
 
 #: tp/Texinfo/Convert/HTML.pm:2266
-#, fuzzy
 #| msgid "PrevFile"
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"

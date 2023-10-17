@@ -1132,7 +1132,7 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
  -- Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instance Variable von copying: a b
+ -- Instanzvariable von copying: a b
      error→
 
  -- Primjerak varijable od hr: BBB CCC
@@ -1174,7 +1174,7 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
  -- Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instance Variable von copying: a b
+ -- Instanzvariable von copying: a b
      error→
 
  -- Primjerak varijable od hr: BBB CCC
@@ -1266,7 +1266,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Instance Variable of <code class="code">copying</code>: </span><span><strong class="def-name">a</strong> <var class="def-var-arguments">b</var><a class="copiable-link" href="#index-copying-a-of-copying"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Instanzvariable of <code class="code">copying</code>: </span><span><strong class="def-name">a</strong> <var class="def-var-arguments">b</var><a class="copiable-link" href="#index-copying-a-of-copying"> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 

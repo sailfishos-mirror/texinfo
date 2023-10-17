@@ -1012,7 +1012,7 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
  -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instance Variable von de: FFF GGG
+ -- Instanzvariable von de: FFF GGG
 ';
 
 
@@ -1040,7 +1040,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
  -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instance Variable von de: FFF GGG
+ -- Instanzvariable von de: FFF GGG
 
 
 Tag Table:
@@ -1112,7 +1112,7 @@ Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a hre
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span class="category-def">Instance Variable of <code class="code">de</code>: </span><span><strong class="def-name">FFF</strong> <var class="def-var-arguments">GGG</var><a class="copiable-link" href="#index-FFF-of-de"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span class="category-def">Instanzvariable of <code class="code">de</code>: </span><span><strong class="def-name">FFF</strong> <var class="def-var-arguments">GGG</var><a class="copiable-link" href="#index-FFF-of-de"> &para;</a></span></dt>
 </dl>
 </div>
 </div>

@@ -862,7 +862,7 @@ top section
 1 chap
 ******
 
- -- Instance Variable von c: BBB CCC
+ -- Instanzvariable von c: BBB CCC
      error→
 ';
 
@@ -890,7 +890,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Instance Variable von c: BBB CCC
+ -- Instanzvariable von c: BBB CCC
      error→
 
 
@@ -944,7 +944,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
+Nächste: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
@@ -955,12 +955,12 @@ Next: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instance Variable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-c"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instanzvariable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-c"> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 </div>
