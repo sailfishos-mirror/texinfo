@@ -294,7 +294,7 @@ complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
                                                   HCC_type_string, translate);
 }
 
-void
+static void
 translate_names (CONVERTER *self)
 {
   int j;
@@ -849,9 +849,6 @@ html_prepare_conversion_units (CONVERTER *self,
   /* Needs to be set early in case it would be needed to find some region
      command associated root command. */
   self->document_units_descriptor = output_units_descriptor;
-
-  /* This may be done as soon as output units are available. */
-  prepare_output_units_global_targets (self, output_units_descriptor);
 
   /* the presence of contents elements in the document is used in diverse
      places, set it once for all here */
@@ -1475,6 +1472,9 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   prepare_index_entries_targets (self);
   prepare_footnotes_targets (self);
 
+  /* not related to targets, but practical to do here and not in
+     XS interface file to avoid defining translate_names as a global
+     function */
   /* setup untranslated strings */
   translate_names (self);
 }
@@ -1979,6 +1979,8 @@ prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
     = retrieve_output_units (special_units_descriptor);
   OUTPUT_UNIT_LIST *associated_special_units
     = retrieve_output_units (associated_special_units_descriptor);
+
+  prepare_output_units_global_targets (self, output_units_descriptor);
 
   split_pages (output_units, self->conf->SPLIT);
 

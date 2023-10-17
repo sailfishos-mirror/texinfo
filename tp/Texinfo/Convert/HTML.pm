@@ -9175,7 +9175,8 @@ sub _XS_prepare_conversion_units($;$)
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
-# Also do some conversion setup that is to be done in both convert() and output().
+# Also setup targets associated to tree elements and to elements associated
+# to special units.
 sub _prepare_conversion_units($$$)
 {
   my $self = shift;
@@ -9203,9 +9204,6 @@ sub _prepare_conversion_units($$$)
   # Needs to be set early in case it would be needed to find some region
   # command associated root command.
   $self->{'document_units'} = $output_units;
-
-  # This may be done as soon as output units are available.
-  $self->_prepare_output_units_global_targets($output_units);
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -9244,9 +9242,6 @@ sub _prepare_conversion_units($$$)
   $self->_prepare_index_entries_targets();
   $self->_prepare_footnotes_targets();
 
-  # setup untranslated strings
-  $self->_translate_names();
-
   return ($output_units, $special_units, $associated_special_units);
 }
 
@@ -9260,6 +9255,8 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $destination_directory = shift;
   my $output_filename = shift;
   my $document_name = shift;
+
+  $self->_prepare_output_units_global_targets($output_units);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
 
@@ -11057,6 +11054,15 @@ sub convert($$)
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, undef);
 
+  # setup global targets.  It is not clearly relevant to have those
+  # global targets when called as convert, but the Top global
+  # unit directions is often referred to in code, so at least this
+  # global target needs to be setup.
+  $self->_prepare_output_units_global_targets($output_units);
+
+  # setup untranslated strings
+  $self->_translate_names();
+
   # title
   $self->{'title_titlepage'}
     = &{$self->formatting_function('format_title_titlepage')}($self);
@@ -11404,6 +11410,9 @@ sub output($$)
   # Get the list of output units to be processed.
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, $document_name);
+
+  # setup untranslated strings
+  $self->_translate_names();
 
   my %files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,

@@ -1,5 +1,18 @@
 2023-10-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_units_directions_files, convert),
+	tp/Texinfo/XS/convert/convert_html.c (html_prepare_conversion_units)
+	(prepare_units_directions_files): do not call
+	_prepare_output_units_global_targets in _prepare_conversion_units,
+	call it in _prepare_units_directions_files or directly in convert.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units, convert)
+	(output): call _translate_names out of _prepare_conversion_units,
+	directly in convert or output.
+
+2023-10-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files)
 	(_prepare_conversion_units, _prepare_units_directions_files)
 	(_prepare_associated_special_units_targets, convert):
