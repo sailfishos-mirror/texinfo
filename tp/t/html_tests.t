@@ -1062,6 +1062,8 @@ $check_htmlxref_text
   {'test_file' => 'float_copying.texi',},
   {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
 ],
+# FIXME FRAMES are deprecated.
+# FIXME which TEXI2HTML options are really interesting for the test?
 ['sectioning_frames',
   undef,
   # tests for node with directions after section
