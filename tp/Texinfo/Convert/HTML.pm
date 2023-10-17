@@ -8888,11 +8888,12 @@ sub _html_get_tree_root_element($$;$)
   }
 }
 
-sub _html_set_pages_files($$$$$$$$)
+sub _html_set_pages_files($$$$$$$$$)
 {
   my $self = shift;
   my $output_units = shift;
   my $special_units = shift;
+  my $associated_output_units = shift;
   my $output_file = shift;
   my $destination_directory = shift;
   my $output_filename = shift;
@@ -9135,6 +9136,34 @@ sub _html_set_pages_files($$$$$$$$)
     $self->set_file_path($filename, $destination_directory,
                          $filenames_paths{$filename});
   }
+
+  # to be able to associate to the output unit file the associated
+  # output units will be output into, this is done after document output
+  # units got files.
+  # In practice only used for contents and shortcontents.
+  if ($associated_output_units and scalar(@$associated_output_units)) {
+    foreach my $special_unit (@$associated_output_units) {
+      my $associated_output_unit = $special_unit->{'associated_document_unit'};
+      my $unit_command = $special_unit->{'unit_command'};
+      my $filename;
+
+      my $command_target = $self->{'targets'}->{$unit_command};
+      # set by the user
+      if (defined($command_target->{'special_unit_filename'})) {
+        $filename = $command_target->{'special_unit_filename'};
+      } else {
+        $filename = $associated_output_unit->{'unit_filename'}
+          if ($associated_output_unit);
+        $command_target->{'special_unit_filename'} = $filename;
+      }
+
+      # set here the file name, but do not associate a counter as it is already
+      # set for the output unit the special output unit is in.
+      $self->set_output_unit_file($special_unit, $filename)
+        if (defined($filename));
+    }
+  }
+
   return %files_source_info;
 }
 
@@ -9205,6 +9234,10 @@ sub _prepare_conversion_units($$$)
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   $self->_set_special_units_targets_files($special_units, $document_name);
+  # FIXME when called in convert(),
+  # in converters_tests/ref_in_sectioning this leads to lone [Contents]
+  # button in otherwise empty navigation headings
+  $self->_prepare_associated_special_units_targets($associated_special_units);
 
   $self->_set_root_commands_targets_node_files();
 
@@ -9235,12 +9268,9 @@ sub _prepare_units_directions_files($$$$$$$$)
   my %files_source_info;
   if ($output_file ne '') {
     %files_source_info =
-      $self->_html_set_pages_files($output_units, $special_units, $output_file,
+      $self->_html_set_pages_files($output_units, $special_units,
+                    $associated_special_units, $output_file,
                     $destination_directory, $output_filename, $document_name);
-  }
-
-  if (scalar(@$associated_special_units)) {
-    $self->_prepare_associated_special_units_targets($associated_special_units);
   }
 
   # do tree units directions.
@@ -9479,46 +9509,21 @@ sub _set_special_units_targets_files($$$)
   }
 }
 
-sub _prepare_special_units_directions($$)
-{
-  my $self = shift;
-  my $special_units = shift;
-
-  foreach my $special_unit (@$special_units) {
-    $special_unit->{'directions'}->{'This'} = $special_unit;
-  }
-}
-
-# to be able to associate to the output unit file the associated
-# output units will be output into, this is done after document output
-# units got files.
-# In practice only used for contents and shortcontents.
 sub _prepare_associated_special_units_targets($$)
 {
   my $self = shift;
   my $associated_output_units = shift;
 
+  return unless ($associated_output_units);
+
   foreach my $special_unit (@$associated_output_units) {
-    my $associated_output_unit = $special_unit->{'associated_document_unit'};
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
     # it may be undef'ined in user customization code
-    my $target_base
+    my $target
       = $self->special_unit_info('target', $special_unit_variety);
-    next if (!defined($target_base));
-    my $nr = 1;
-    my $target = $target_base;
-    while ($self->{'seen_ids'}->{$target}) {
-      $target = $target_base.'-'.$nr;
-      $nr++;
-      # Avoid integer overflow
-      die if ($nr == 0);
-    }
-    $self->{'seen_ids'}->{$target} = 1;
 
     my $default_filename;
-    $default_filename = $associated_output_unit->{'unit_filename'}
-      if ($associated_output_unit);
 
     my $filename;
     if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
@@ -9532,7 +9537,7 @@ sub _prepare_associated_special_units_targets($$)
     $filename = $default_filename if (!defined($filename));
     if ($self->get_conf('DEBUG')) {
       my $str_filename = $filename;
-      $str_filename = 'UNDEF' if (not defined($str_filename));
+      $str_filename = 'UNDEF (default)' if (not defined($str_filename));
       print STDERR 'Add content'
         # uncomment to get the perl object name
         #." $special_unit"
@@ -9541,14 +9546,23 @@ sub _prepare_associated_special_units_targets($$)
     }
 
     my $unit_command = $special_unit->{'unit_command'};
-    $self->{'targets'}->{$unit_command}
-                           = {'target' => $target,
-                              'special_unit_filename' => $filename,
-                             };
-    # set here the file name, but do not associate a counter as it is already
-    # set for the output unit the special output unit is in.
-    $self->set_output_unit_file($special_unit, $filename)
-      if (defined($filename));
+    my $command_target = {'target' => $target};
+    $self->{'targets'}->{$unit_command} = $command_target;
+    $self->{'seen_ids'}->{$target} = 1;
+    if (defined ($filename)) {
+      $command_target->{'special_unit_filename'}
+        = $filename;
+    }
+  }
+}
+
+sub _prepare_special_units_directions($$)
+{
+  my $self = shift;
+  my $special_units = shift;
+
+  foreach my $special_unit (@$special_units) {
+    $special_unit->{'directions'}->{'This'} = $special_unit;
   }
 }
 
@@ -11042,12 +11056,6 @@ sub convert($$)
 
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, undef);
-
-  # FIXME in converters_tests/ref_in_sectioning this leads to lone [Contents]
-  # button in otherwise empty navigation headings
-  if (scalar(@$associated_special_units)) {
-    $self->_prepare_associated_special_units_targets($associated_special_units);
-  }
 
   # title
   $self->{'title_titlepage'}

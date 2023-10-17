@@ -29,9 +29,10 @@ void html_prepare_conversion_units (CONVERTER *self,
                                     int *associated_special_units_descriptor_ref);
 
 void html_prepare_conversion_units_targets (CONVERTER *self,
-                                            const char *document_name,
-                                            int output_units_descriptor,
-                                            int special_units_descriptor);
+                                     const char *document_name,
+                                     int output_units_descriptor,
+                                     int special_units_descriptor,
+                                     int associated_special_units_descriptor);
 /*
 char *html_convert (CONVERTER *self);
 */

@@ -959,6 +959,65 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
     }
 }
 
+static void
+prepare_associated_special_units_targets (CONVERTER *self,
+                                 int associated_special_units_descriptor)
+{
+  OUTPUT_UNIT_LIST *associated_special_units
+    = retrieve_output_units (associated_special_units_descriptor);
+
+  if (associated_special_units && associated_special_units->number > 0)
+    {
+      int i;
+      for (i = 0; i < associated_special_units->number; i++)
+        {
+          HTML_TARGET *element_target;
+          TARGET_FILENAME *target_filename;
+          char *filename = 0;
+          OUTPUT_UNIT *special_unit = associated_special_units->list[i];
+          char *special_unit_variety = special_unit->special_unit_variety;
+
+          /* it may be undef'ined in user customization code */
+          char *target = special_unit_info (self, SUI_type_target,
+                                                 special_unit_variety);
+          /* FIXME not the same as in perl */
+          if (!target)
+            continue;
+
+          target_filename
+            = call_file_id_setting_special_unit_target_file_name (
+                               self, special_unit, target, filename);
+          if (target_filename)
+            {
+              if (target_filename->target)
+         /* FIXME to be freed, contrary to obtained from special_unit_info */
+                target = target_filename->target;
+              if (target_filename->filename)
+                filename = target_filename->filename;
+
+              free (target_filename);
+            }
+
+          if (self->conf->DEBUG > 0)
+            {
+              char *str_filename;
+              if (filename)
+                str_filename = filename;
+              else
+                str_filename = "UNDEF (default)";
+              fprintf (stderr, "Add content %s: target %s,\n"
+                                "    filename %s\n", special_unit_variety,
+                                target, str_filename);
+            }
+          element_target
+           = add_element_target (self, special_unit->unit_command, target);
+          add_string (target, self->seen_ids);
+          if (filename)
+            element_target->special_unit_filename = filename;
+        }
+    }
+}
+
 static char *
 normalized_to_id (char *id)
 {
@@ -1398,7 +1457,8 @@ void
 html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name,
                                        int output_units_descriptor,
-                                       int special_units_descriptor)
+                                       int special_units_descriptor,
+                                       int associated_special_units_descriptor)
 {
   /*
    Do that before the other elements, to be sure that special page ids
@@ -1406,6 +1466,9 @@ html_prepare_conversion_units_targets (CONVERTER *self,
    */
   set_special_units_targets_files (self, special_units_descriptor,
                                    document_name);
+
+  prepare_associated_special_units_targets (self,
+                                  associated_special_units_descriptor);
 
   set_root_commands_targets_node_files (self);
 
@@ -1481,7 +1544,9 @@ add_to_unit_file_name_paths (char *unit_file_name_paths,
 
 static FILE_SOURCE_INFO_LIST *
 html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
-                      OUTPUT_UNIT_LIST *special_units, char *output_file,
+                      OUTPUT_UNIT_LIST *special_units,
+                      OUTPUT_UNIT_LIST *associated_special_units,
+                      char *output_file,
                       char *destination_directory, char *output_filename,
                       char *document_name)
 {
@@ -1869,6 +1934,35 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                      destination_directory);
     }
 
+  if (associated_special_units && associated_special_units->number > 0)
+    {
+      int i;
+      for (i = 0; i < associated_special_units->number; i++)
+        {
+          char *filename = 0;
+          OUTPUT_UNIT *special_unit = associated_special_units->list[i];
+          OUTPUT_UNIT *associated_output_unit
+            = special_unit->associated_document_unit;
+          ELEMENT *unit_command = special_unit->unit_command;
+          HTML_TARGET *element_target
+            = find_element_target (self->html_targets, unit_command);
+
+          if (element_target->special_unit_filename)
+            filename = element_target->special_unit_filename;
+          else
+            {
+              if (associated_output_unit)
+               filename = associated_output_unit->unit_filename;
+              element_target->special_unit_filename = filename;
+            }
+
+   /* set here the file name, but do not increment the counter as it is
+      already set for the output unit the special output unit is in. */
+          if (filename)
+            set_output_unit_file (self, special_unit, filename, 0);
+        }
+    }
+
   return files_source_info;
 }
 
@@ -1883,13 +1977,16 @@ prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
     = retrieve_output_units (output_units_descriptor);
   OUTPUT_UNIT_LIST *special_units
     = retrieve_output_units (special_units_descriptor);
+  OUTPUT_UNIT_LIST *associated_special_units
+    = retrieve_output_units (associated_special_units_descriptor);
 
   split_pages (output_units, self->conf->SPLIT);
 
   if (strlen (output_file))
     {
       files_source_info =
-        html_set_pages_files (self, output_units, special_units, output_file,
+        html_set_pages_files (self, output_units, special_units,
+                        associated_special_units, output_file,
                         destination_directory, output_filename, document_name);
     }
 

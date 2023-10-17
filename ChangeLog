@@ -1,3 +1,20 @@
+2023-10-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files)
+	(_prepare_conversion_units, _prepare_units_directions_files)
+	(_prepare_associated_special_units_targets, convert):
+	separate setting associated_special_units targets, put in
+	_prepare_associated_special_units_targets and called in
+	_prepare_conversion_units, from setting associated_special_units
+	files, with code put directly at the end of _html_set_pages_files.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(prepare_associated_special_units_targets, html_set_pages_files),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units)
+	(prepare_units_directions_files): implement
+	prepare_associated_special_units_targets and code in
+	html_set_pages_files that sets associated_special_units files.
+
 2023-10-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
