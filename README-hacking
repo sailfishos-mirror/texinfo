@@ -386,7 +386,6 @@ Update translations:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
                  po_document # note the trailing slashes in these commands
-  ( cd po_document ; for f in *.po ; do ./adjust-translations.pl $f ; done )
   git status -u to check for new translations
 
 Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
@@ -394,6 +393,7 @@ Check that LINGUAS under po and po_document match actual file list.
 
 make
 make update-po            # both po and po_document needed, build a dist first
+( cd po_document ; for f in *.po ; do ./adjust-translations.pl $f ; done )
 
 
 - Official releases only:

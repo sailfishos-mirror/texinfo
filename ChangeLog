@@ -1,5 +1,9 @@
 2023-10-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: reorder instructions slightly
+
+2023-10-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po_document/adjust-translations.pl: new script.
 	* po_document: Run the script to adjust *.po files.
 	* README-hacking: update to mention this script.
