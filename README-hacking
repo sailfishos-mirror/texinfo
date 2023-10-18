@@ -417,7 +417,7 @@ ver=7.0
 
 then do one of:
 gnupload --to alpha.gnu.org:$pkg $pkg-$ver.tar.xz                #pretest
-gnupload --to ftp.gnu.org:$pkg   $pkg-$ver.tar.{gz,xz} *.diff.xz #official
+gnupload --to ftp.gnu.org:$pkg   $pkg-$ver.tar.{gz,xz}           #official
 gnupload --replace --to ftp.gnu.org:texinfo texi2dvi             #official
 gnupload --replace --to ftp.gnu.org:texinfo texi2pdf             #official
    (Use --user option if not using default key)
@@ -437,7 +437,7 @@ git push --tags
 cd $HOME/gnu/www/texinfo/dtd # or wherever webpages checkout is
 mkdir $ver && cvs add $ver
 cp $tutil/texinfo.dtd $ver
-cvs add -kb $ver $ver/texinfo.dtd
+cvs add -kb $ver/texinfo.dtd
 cvs commit -m$ver $ver
 
 -------------------------------------------------------------------------
@@ -457,8 +457,12 @@ Copy documentation files to web checkout with, e.g.
   make -C doc \
   wwwdoc-install www_target=../../CVS_WEB/manual/
 Check for removed files with, e.g. ls -ltu $(www_target)/*/html_node, 
-followed by cvs rm -f.  Likewise, check for added files with
-cvs -qn update, followed by cvs add.  When done, run cvs commit.
+and looking at file modification dates for files that have not
+been replaced, followed by cvs rm -f.  Check for added files with
+"cvs -qn update | less", followed by cvs add for lines beginning "?".
+When done, run cvs commit.
+
+
 
 -------------------------------------------------------------------------
 
