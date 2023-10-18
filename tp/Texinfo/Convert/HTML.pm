@@ -80,7 +80,7 @@ require Exporter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.0.94';
+$VERSION = '7.1';
 
 our $module_loaded = 0;
 sub import {

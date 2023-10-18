@@ -1,5 +1,11 @@
 2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Texinfo 7.1
+
+	* configure.ac, NEWS: update
+
+2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Line macros): Avoid checking
 	example with leading space on a line after an "@" continuation
 	character, as TeX's treatment of leading space on a line differs

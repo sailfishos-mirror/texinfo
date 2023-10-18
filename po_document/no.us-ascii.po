@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-17 13:04+0100\n"
+"POT-Creation-Date: 2023-10-18 14:21+0100\n"
 "PO-Revision-Date: 2001-01-01\n"
 "Last-Translator: Unknown\n"
 "Language-Team: Unknown\n"
@@ -438,25 +438,21 @@ msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2010
-#| msgid "About This Document"
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "No translation available!"
 
 #: tp/Texinfo/Convert/HTML.pm:2012
-#| msgid "Table of Contents"
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Innholdsfortegnelse"
 
 #: tp/Texinfo/Convert/HTML.pm:2015
-#| msgid "Short Table of Contents"
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Kort innholdsfortegnelse"
 
 #: tp/Texinfo/Convert/HTML.pm:2017
-#| msgid "Footnotes"
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "No translation available!"
@@ -467,7 +463,6 @@ msgid "Top"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2123
-#| msgid "Table of Contents"
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Innholdsfortegnelse"
@@ -478,7 +473,6 @@ msgid "Overview"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2128
-#| msgid "Index"
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "Indeks"
@@ -544,19 +538,16 @@ msgid "Cover (top) of document"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2166
-#| msgid "Table of Contents"
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Innholdsfortegnelse"
 
 #: tp/Texinfo/Convert/HTML.pm:2169
-#| msgid "Short Table of Contents"
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Kort innholdsfortegnelse"
 
 #: tp/Texinfo/Convert/HTML.pm:2171
-#| msgid "Index"
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "Indeks"
@@ -657,7 +648,6 @@ msgid "Top"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2226
-#| msgid "Table of Contents"
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Innholdsfortegnelse"
@@ -668,7 +658,6 @@ msgid "Overview"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2230
-#| msgid "Index"
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "Indeks"
