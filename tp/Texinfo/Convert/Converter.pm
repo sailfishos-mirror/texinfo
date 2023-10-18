@@ -284,7 +284,7 @@ sub output($$)
       $self->document_warn($self,
                sprintf(__("%s: output incompatible with split"),
                                    $self->get_conf('OUTFILE')));
-      $self->force_conf('SPLIT', 0);
+      $self->force_conf('SPLIT', '');
     }
   }
   if ($self->get_conf('SPLIT')) {

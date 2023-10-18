@@ -117,11 +117,14 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
 char *
 call_file_id_setting_label_target_name (CONVERTER *self,
-                       char *normalized, ELEMENT *label_element, char *target)
+                       char *normalized, ELEMENT *label_element, char *target,
+                       int *called)
 {
   SV **file_id_setting_sv;
 
   dTHX;
+
+  *called = 0;
 
   if (!label_element->hv)
     return 0;
@@ -146,6 +149,8 @@ call_file_id_setting_label_target_name (CONVERTER *self,
           STRLEN len;
           char *result;
           SV *target_ret_sv;
+
+          *called = 1;
 
           dSP;
 
@@ -186,11 +191,14 @@ call_file_id_setting_label_target_name (CONVERTER *self,
 
 char *
 call_file_id_setting_node_file_name (CONVERTER *self,
-                       ELEMENT *target_element, char *node_filename)
+                       ELEMENT *target_element, char *node_filename,
+                       int *called)
 {
   SV **file_id_setting_sv;
 
   dTHX;
+
+  *called = 0;
 
   if (!target_element->hv)
     return 0;
@@ -213,6 +221,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
           int count;
           char *result;
           SV *node_filename_ret_sv;
+          *called = 1;
 
           dSP;
 

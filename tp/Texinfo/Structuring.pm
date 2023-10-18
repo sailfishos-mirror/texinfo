@@ -92,6 +92,10 @@ sub import {
         "Texinfo::StructTransf::rebuild_document",
       );
       Texinfo::XSLoader::override(
+        "Texinfo::Structuring::clear_document_errors",
+        "Texinfo::StructTransf::clear_document_errors",
+      );
+      Texinfo::XSLoader::override(
         "Texinfo::Structuring::_XS_copy_tree",
         "Texinfo::StructTransf::copy_tree"
       );
@@ -182,6 +186,11 @@ sub rebuild_document($;$)
   my $no_store = shift;
 
   return $document;
+}
+
+# this method does nothing, but the XS override clears the document errors
+sub clear_document_errors($)
+{
 }
 
 sub _XS_copy_tree($$)
@@ -2101,8 +2110,6 @@ sub units_directions($$$)
       }
 
       if ($directions->{'NodeForward'}
-          # FIXME condition could be removed if external_node gets a unit_type
-          and $directions->{'NodeForward'}->{'unit_type'}
           and $directions->{'NodeForward'}->{'unit_type'} eq 'unit'
           and (!$directions->{'NodeForward'}->{'directions'}
                or !$directions->{'NodeForward'}->{'directions'}

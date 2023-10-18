@@ -1182,7 +1182,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || outer == CM_itemx
            || outer == CM_nodedescription)
     {
-      /* Start by checking if the command is allowed inside a "full text 
+      /* Start by checking if the command is allowed inside a "full text
          command" - this is the most permissive. */
       /* in the perl parser the checks are not dynamic as in this function,
          a hash is used and modified when defining the definfoenclose command */
@@ -1225,8 +1225,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     }
   else
     {
-      /* Default to valid nesting, for example for commands for which 
-         it is not defined which commands can occur within them (e.g. 
+      /* Default to valid nesting, for example for commands for which
+         it is not defined which commands can occur within them (e.g.
          @tab?). */
       ok = 1;
     }
@@ -1236,7 +1236,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       invalid_parent = current->parent->cmd;
       if (!invalid_parent)
         {
-          /* current_context () == ct_def.  Find def block containing 
+          /* current_context () == ct_def.  Find def block containing
              command. */
           ELEMENT *d = current;
           while (d->parent

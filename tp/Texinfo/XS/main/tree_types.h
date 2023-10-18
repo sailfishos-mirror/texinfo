@@ -75,6 +75,34 @@ enum output_unit_type {
    OU_special_unit,
 };
 
+/* relative output unit directions */
+#define RUD_DIRECTIONS_TYPES_LIST \
+   rud_type(This) \
+   rud_type(Forward) \
+   rud_type(Back) \
+   rud_type(FastForward) \
+   rud_type(FastBack) \
+   rud_type(Next) \
+   rud_type(Prev) \
+   rud_type(Up) \
+   rud_type(SectionNext) \
+   rud_type(SectionPrev) \
+   rud_type(SectionUp) \
+   rud_type(NodeNext) \
+   rud_type(NodeForward) \
+   rud_type(NodeBack) \
+   rud_type(NodePrev) \
+   rud_type(NodeUp)
+
+enum relative_unit_direction {
+  #define rud_type(name) RUD_type_## name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
+  #define rud_type(name) RUD_type_FirstInFile## name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
+};
+
 typedef struct KEY_PAIR {
     char *key;
     enum extra_type type;
@@ -131,8 +159,8 @@ typedef struct OUTPUT_UNIT {
     ELEMENT_LIST unit_contents;
     struct OUTPUT_UNIT *tree_unit_directions[2];
 
-    /* directions */
     struct OUTPUT_UNIT *first_in_page;
+    struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeUp+1];
 
     /* for special output units only */
     /* could be an enum as for now new special types cannot be customized

@@ -48,6 +48,8 @@
 #include "builtin_commands.h"
 #include "document.h"
 #include "output_unit.h"
+/* for wipe_error_message_list */
+#include "errors.h"
 #include "tree_perl_api.h"
 #include "build_perl_info.h"
 
@@ -1022,7 +1024,8 @@ convert_error (ERROR_MESSAGE e)
   hv_store (hv, "text", strlen ("text"), msg, 0);
   hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
   hv_store (hv, "type", strlen ("type"),
-              e.type == MSG_error ? newSVpv("error", strlen("error"))
+              (e.type == MSG_error || e.type == MSG_document_error)
+                                  ? newSVpv("error", strlen("error"))
                                   : newSVpv("warning", strlen("warning")),
             0);
 
@@ -1030,7 +1033,8 @@ convert_error (ERROR_MESSAGE e)
     hv_store (hv, "continuation", strlen ("continuation"),
               newSViv (e.continuation), 0);
 
-  build_source_info_hash (e.source_info, hv);
+  if (e.type != MSG_document_error && e.type != MSG_document_warning)
+    build_source_info_hash (e.source_info, hv);
 
   return newRV_noinc ((SV *) hv);
 }
@@ -1175,6 +1179,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 {
   SV *sv;
   int status = 0;
+  HV *directions_hv;
 
   dTHX;
 
@@ -1187,14 +1192,25 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
   STORE("unit_type");
 
+  /* setup an hash reference in any case */
+  directions_hv = newHV ();
+  sv = newRV_noinc ((SV *) directions_hv);
+  STORE("directions");
+
   if (output_unit->unit_command)
     {
       ELEMENT *command = output_unit->unit_command;
       if (!command->hv)
         {
           if (command->type == ET_special_unit_element)
-            /* a virtual out of tree element, add it to perl */
-            element_to_perl_hash (command);
+            {
+              SV *unit_sv;
+              unit_sv = newRV_inc ((SV *) output_unit->hv);
+              /* a virtual out of tree element, add it to perl */
+              element_to_perl_hash (command);
+              hv_store (command->hv, "associated_unit",
+                        strlen ("associated_unit"), unit_sv, 0);
+            }
         }
 
       if (command->hv)
@@ -1204,6 +1220,12 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
         }
       else
        status++;
+    }
+
+  if (output_unit->associated_document_unit)
+    {
+      sv = newRV_inc ((SV *) output_unit->associated_document_unit->hv);
+      STORE("associated_document_unit");
     }
 
   if (output_unit->unit_filename)
@@ -1329,4 +1351,156 @@ build_output_units_list (size_t output_units_descriptor)
             newSViv (output_units_descriptor), 0);
 
   return newRV_noinc ((SV *) av_output_units);
+}
+
+SV *
+build_html_element_targets (HTML_TARGET_LIST *html_targets)
+{
+  HV *hv;
+  int i;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (!html_targets || html_targets->number <= 0)
+    return newRV_noinc ((SV *) hv);
+
+#define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
+  for (i = 0; i < html_targets->number; i++)
+    {
+      HV *html_target_hv;
+      HTML_TARGET *html_target = &html_targets->list[i];
+      SV *target_sv = newSVpv_utf8 (html_target->target, 0);
+      SV *element_sv;
+      SV *html_target_sv;
+
+      if (!html_target->element->hv)
+        {
+          fprintf (stderr, "BUG: No hv for target '%s'\n", html_target->target);
+          return newSV(0);
+        }
+
+      element_sv = newRV_inc ((SV *) html_target->element->hv);
+
+      html_target_hv = newHV ();
+      html_target_sv = newRV_noinc ((SV *) html_target_hv);
+      hv_store_ent (hv, element_sv, html_target_sv, 0);
+
+      STORE("target", target_sv);
+      if (html_target->special_unit_filename)
+        STORE("special_unit_filename",
+              newSVpv (html_target->special_unit_filename, 0));
+      if (html_target->node_filename)
+        STORE("node_filename",
+              newSVpv (html_target->node_filename, 0));
+      if (html_target->section_filename)
+        STORE("section_filename",
+              newSVpv (html_target->section_filename, 0));
+      if (html_target->contents_target)
+        STORE("contents_target",
+              newSVpv (html_target->contents_target, 0));
+      if (html_target->shortcontents_target)
+        STORE("shortcontents_target",
+              newSVpv (html_target->shortcontents_target, 0));
+    }
+#undef STORE
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
+{
+  HV *hv;
+  SV *html_special_target_sv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  /* could be generalized if needed */
+
+  HTML_TARGET_LIST *html_special_target = html_special_targets[ST_footnote_location];
+  html_special_target_sv = build_html_element_targets (html_special_target);
+
+  hv_store (hv, "footnote_location", strlen ("footnote_location"),
+            html_special_target_sv, 0);
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_html_seen_ids (STRING_LIST *seen_ids)
+{
+  HV *hv;
+  int i;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (seen_ids && seen_ids->number > 0)
+    {
+      for (i = 0; i < seen_ids->number; i++)
+        {
+          char *target = seen_ids->list[i];
+          SV *target_sv = newSVpv_utf8 (target, 0);
+          hv_store_ent (hv, target_sv, newSViv (1), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+/* implements Texinfo::Report::add_formatted_message */
+void
+pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
+                       HV *converter_hv)
+{
+  int i;
+  SV **errors_warnings_sv;
+  SV **error_nrs_sv;
+
+  dTHX;
+
+  if (!error_messages)
+    {
+      fprintf (stderr, "pass_converter_errors: NOTE: no error_messages\n");
+      return;
+    }
+
+  if (!converter_hv)
+    {
+      fprintf (stderr, "pass_converter_errors: BUG: no perl converter\n");
+      return;
+    }
+
+  errors_warnings_sv = hv_fetch (converter_hv, "errors_warnings",
+                                      strlen ("errors_warnings"), 0);
+
+  error_nrs_sv = hv_fetch (converter_hv, "error_nrs",
+                                      strlen ("error_nrs"), 0);
+
+  if (errors_warnings_sv && SvOK(*errors_warnings_sv))
+    {
+      AV *av = (AV *)SvRV (*errors_warnings_sv);
+      int error_nrs = 0;
+      if (error_nrs_sv)
+        error_nrs = SvIV (*error_nrs_sv);
+
+      for (i = 0; i < error_messages->number; i++)
+        {
+          ERROR_MESSAGE error_msg = error_messages->list[i];
+          SV *sv = convert_error (error_msg);
+
+          if (error_msg.type == MSG_error && !error_msg.continuation)
+            error_nrs++;
+          av_push (av, sv);
+        }
+      if (error_nrs)
+        hv_store (converter_hv, "error_nrs",
+                  strlen ("error_nrs"), newSViv (error_nrs), 0);
+    }
+
+  wipe_error_message_list (error_messages);
 }

@@ -47,7 +47,7 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'SPLIT'                => 0,
+  'SPLIT'                => '',
   'documentlanguage'     => 'en',
 );
 

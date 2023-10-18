@@ -1083,6 +1083,8 @@ sub test($$)
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }
+    Texinfo::Structuring::clear_document_errors(
+                                           $document->document_descriptor());
   }
 
   my ($errors, $error_nrs) = $registrar->errors();

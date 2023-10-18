@@ -1,3 +1,120 @@
+2023-10-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm (output), tp/Texinfo/Convert/IXINSXML.pm,
+	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/t/languages.t: always use a string for SPLIT customization
+	variable, so replace 0 by ''.
+
+	* tp/Texinfo/Structuring.pm (import, clear_document_errors), 
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(clear_document_errors), tp/t/test_utils.pl (test), tp/texi2any.pl: 
+	add an XS interface to clear_document_errors in Texinfo/Structuring.pm
+	and use it in test_utils.pl and texi2any.pl after passing document
+	errors.
+
+	* tp/Texinfo/Convert/HTML.pm (_new_sectioning_command_target): use
+	sectioning command normalized_name as base for contents targets, not
+	sectioning command target.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	build_html_element_targets(build_html_element_targets)
+	(build_html_special_targets, build_html_seen_ids)
+	(pass_converter_errors): build perl converter state information from XS
+	corresponding to _prepare_conversion_units, 'targets', 'special_targets',
+	'seen_ids' and pass errors.
+
+	* tp/Texinfo/Convert/HTML.pm (convert)
+	(_prepare_associated_special_units_targets, _register_special_unit),
+	tp/Texinfo/XS/convert/convert_html.c (register_special_unit)
+	(prepare_output_units_global_targets, prepare_units_directions_files):
+	set special units directions in
+	_prepare_associated_special_units_targets instead of
+	_register_special_unit.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_prepare_associated_special_units_targets),
+	tp/Texinfo/XS/convert/convert_html.c
+	(prepare_associated_special_units_targets): handle better undefined
+	target.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_index_entries_targets),
+	tp/Texinfo/XS/convert/convert_html.c (prepare_index_entries_targets):
+	do not use trim_spaces_comment_from_content as it is useless.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_footnotes_targets):
+	fix footnotes targets numbering.
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(_prepare_footnotes_targets): initialize 'pending_footnotes' in
+	_initialize_output_state, not in _prepare_footnotes_targets.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units):
+	separate about and footnotes elements if there are more than one
+	output units.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units): use
+	strings from self->special_unit_varieties in special_output_unit.
+
+	* tp/Texinfo/XS/convert/convert_html.c (normalized_label_id_file)
+	(set_root_commands_targets_node_files),
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_file_id_setting_label_target_name)
+	(call_file_id_setting_node_file_name): distinguish undefined return
+	after calling file_id_setting functions or without calling the
+	functions.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(set_root_commands_targets_node_files): fix node filename extension.
+
+	* tp/Texinfo/XS/convert/convert_html.c (contents_elements_options):
+	add summarycontents.
+
+	* tp/Texinfo/XS/main/command_data.awk: add summarycontents in
+	global_multi_commands.
+
+	* tp/Texinfo/XS/convert/convert_html.c (compare_index_name)
+	(prepare_index_entries_targets): sort indices names before setting
+	targets to obtain the same output as in perl.
+
+	* tp/Texinfo/XS/convert/convert_html.c (add_to_unit_file_name_paths)
+	(html_set_pages_files): fix unit_file_name_paths to be a list of
+	pointers.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (convert_error),
+	tp/Texinfo/XS/main/errors.c (reallocate_error_messages)
+	(message_list_document_error_internal)
+	(message_list_document_error_internal)
+	(message_list_document_error_internal), tp/Texinfo/XS/main/utils.h
+	(enum error_type): initialize error_message.  Add
+	specific enum error_type for document_error and document_warning.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal): ignore seealso.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(unicode_to_transliterate): transliterate to obtain ascii.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
+	setup directions.  Add associated_unit to special_unit_element.  Add
+	associated_document_unit.
+
+	* tp/Texinfo/Convert/HTML.pm (import)
+	(_XS_prepare_units_directions_files, _prepare_units_directions_files),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/convert_html.c (prepare_units_directions_files),
+	tp/Texinfo/XS/main/output_unit.c (units_directions),
+	tp/Texinfo/XS/main/tree_types.h (RUD_DIRECTIONS_TYPES_LIST)
+	(enum relative_unit_direction, OUTPUT_UNIT):
+	preliminary incomplete implementation of
+	_prepare_units_directions_files XS interface, begin an implementation
+	of units_directions.
+
+	* tp/Texinfo/XS/main/utils.h (enum global_unit_direction): rename
+	enum units_directions as enum global_unit_direction.
+
 2023-10-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)

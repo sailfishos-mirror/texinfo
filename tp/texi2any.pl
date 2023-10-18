@@ -1633,6 +1633,8 @@ while(@input_files) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }
+    Texinfo::Structuring::clear_document_errors(
+                                        $document->document_descriptor());
   }
 
   $error_count = handle_errors($registrar, $error_count, \@opened_files);

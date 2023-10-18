@@ -54,7 +54,7 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'ixin',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'SPLIT'                => 0,
+  'SPLIT'                => '',
   'documentlanguage'     => 'en',
   'USE_NODES'            => 1,
 );

@@ -47,6 +47,7 @@ reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
          (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
     }
   error_message = &error_messages->list[error_messages->number];
+  memset (error_message, 0, sizeof (ERROR_MESSAGE));
 
   error_messages->number++;
 
@@ -166,7 +167,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   if (conf && conf->PROGRAM && strlen (conf->PROGRAM))
     {
-      if (type == MSG_warning)
+      if (type == MSG_document_warning)
         {
 #ifdef ENABLE_NLS
           text_printf (&error_line,
@@ -186,7 +187,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
     }
   else
     {
-      if (type == MSG_warning)
+      if (type == MSG_document_warning)
         {
 #ifdef ENABLE_NLS
           text_printf (&error_line,
@@ -301,7 +302,8 @@ message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_document_error_internal (error_messages, conf, MSG_error, 0,
+  message_list_document_error_internal (error_messages, conf,
+                                        MSG_document_error, 0,
                                         format, v);
 }
 
@@ -313,7 +315,8 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_document_error_internal (error_messages, conf, MSG_warning, 0,
+  message_list_document_error_internal (error_messages, conf,
+                                        MSG_document_warning, 0,
                                         format, v);
 }
 

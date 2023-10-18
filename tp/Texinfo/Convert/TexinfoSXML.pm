@@ -43,7 +43,7 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'sxml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'SPLIT'                => 0,
+  'SPLIT'                => '',
   'documentlanguage'     => 'en',
 );
 

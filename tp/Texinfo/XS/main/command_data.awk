@@ -172,10 +172,9 @@ END {
                 }
               } else {
                 if (flags_array[flag_idx] == "global") {
-                  # summarycontents is not used, only shortcontents.
                   # float and footnote got a trailing s in the structure, so we
                   # do not generate autoamtic code for them.
-                  if (c != "float" && c != "footnote" && c != "summarycontents") {
+                  if (c != "float" && c != "footnote") {
                     print "GLOBAL_CASE(" c ");" > GMC
                     tmp_str = global_multi_commands_struct_str
                     global_multi_commands_struct_str = tmp_str "   ELEMENT " c ";\n"

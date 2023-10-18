@@ -20,4 +20,7 @@ void add_to_output_unit_list (OUTPUT_UNIT_LIST *list,
 
 char *unit_or_external_element_texi (OUTPUT_UNIT *element);
 
+void units_directions (OPTIONS *customization_information,
+                       LABEL_LIST *identifiers_target,
+                       OUTPUT_UNIT_LIST *output_units);
 #endif

@@ -143,6 +143,9 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *output_units_sv;
          SV *special_units_sv;
          SV *associated_special_units_sv;
+         SV *targets_sv;
+         SV *special_targets_sv;
+         SV *seen_ids_sv;
       PPCODE:
          if (items > 1)
            if (SvOK(ST(1)))
@@ -165,9 +168,56 @@ html_prepare_conversion_units (SV *converter_in, ...)
               output_units_descriptor, special_units_descriptor,
               associated_special_units_descriptor);
 
-         EXTEND(SP, 3);
+         targets_sv = build_html_element_targets (self->html_targets);
+         special_targets_sv
+           = build_html_special_targets (self->html_special_targets);
+         seen_ids_sv = build_html_seen_ids (self->seen_ids);
+
+         pass_converter_errors (self->error_messages, self->hv);
+
+         EXTEND(SP, 6);
          PUSHs(sv_2mortal(output_units_sv));
          PUSHs(sv_2mortal(special_units_sv));
          PUSHs(sv_2mortal(associated_special_units_sv));
+         PUSHs(sv_2mortal(targets_sv));
+         PUSHs(sv_2mortal(special_targets_sv));
+         PUSHs(sv_2mortal(seen_ids_sv));
+
+SV *
+html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
+         char *output_file = (char *)SvPVbyte_nolen($arg);
+         char *destination_directory = (char *)SvPVbyte_nolen($arg);
+         char *output_filename = (char *)SvPVbyte_nolen($arg);
+         char *document_name = (char *)SvPVbyte_nolen($arg);
+  PREINIT:
+         CONVERTER *self = 0;
+         int output_units_descriptor = 0;
+         int special_units_descriptor = 0;
+         int associated_special_units_descriptor = 0;
+         FILE_SOURCE_INFO_LIST *files_source_info = 0;
+     CODE:
+         /* add warn string? */
+         self = get_sv_converter (converter_in, 0);
+         if (SvOK (output_units_in))
+           output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in,
+                         "html_prepare_units_directions_files output units");
+         if (SvOK (special_units_in))
+           special_units_descriptor
+             = get_sv_output_units_descriptor (special_units_in,
+                        "html_prepare_units_directions_files special units");
+         if (SvOK (associated_special_units_in))
+           associated_special_units_descriptor
+             = get_sv_output_units_descriptor (associated_special_units_in,
+             "html_prepare_units_directions_files associated special units");
+
+         files_source_info = html_prepare_units_directions_files (self,
+                    output_units_descriptor, special_units_descriptor,
+                    associated_special_units_descriptor, output_file,
+                    destination_directory, output_filename, document_name);
+
+         RETVAL = newSV(0);
+    OUTPUT:
+         RETVAL
 
 

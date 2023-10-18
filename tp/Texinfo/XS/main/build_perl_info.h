@@ -26,4 +26,10 @@ HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 SV *build_output_units_list (size_t output_units_descriptor);
 
+SV *build_html_element_targets (HTML_TARGET_LIST *html_targets);
+SV *build_html_special_targets (HTML_TARGET_LIST **html_special_targets);
+SV *build_html_seen_ids (STRING_LIST *seen_ids);
+
+void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
+                            HV *converter_hv);
 #endif

@@ -896,6 +896,12 @@ An empty button.
 @item Top
 Top output unit.
 
+@item First
+First output unit in reading order.
+
+@item Last
+Last output unit in reading order.
+
 @item About
 About (help) page.
 
@@ -921,12 +927,6 @@ The current output unit.
 
 @item Forward
 Next output unit in reading order.
-
-@item First
-First output unit in reading order.
-
-@item Last
-Last output unit in reading order.
 
 @item Back
 Previous output unit in reading order.

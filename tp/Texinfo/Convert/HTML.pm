@@ -95,20 +95,23 @@ sub import {
       "Texinfo::MiscXS::entity_text");
 
     Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_initialize_output_state",
-      "Texinfo::Convert::ConvertXS::html_initialize_output_state");
-    Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
-      "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
-    Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_converter_initialize",
       "Texinfo::Convert::ConvertXS::html_converter_initialize");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_initialize_output_state",
+      "Texinfo::Convert::ConvertXS::html_initialize_output_state");
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_sort_sortable_index_entries_by_letter",
       "Texinfo::Convert::ConvertXS::sort_sortable_index_entries_by_letter");
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
       "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
+      "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_prepare_units_directions_files",
+      "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files");
 
     $module_loaded = 1;
   }
@@ -4165,9 +4168,9 @@ sub _convert_heading_command($$$$$)
     $element_header = &{$self->formatting_function('format_element_header')}(
                                         $self, $cmdname, $element, $output_unit);
   }
+  my $sections_list = $self->get_info('sections_list');
 
   my $tables_of_contents = '';
-  my $sections_list = $self->get_info('sections_list');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
       and $sections_list
@@ -8691,7 +8694,7 @@ sub _new_sectioning_command_target($$)
   if ($sectioning_heading_commands{$command->{'cmdname'}}) {
     if ($target ne '') {
       my $target_base_contents = $target;
-      $target_base_contents =~ s/^g_t//;
+      $target_base_contents = $normalized_name;
       $target_contents = 'toc-'.$target_base_contents;
       my $toc_nr = $nr -1;
       while ($self->{'seen_ids'}->{$target_contents}) {
@@ -9185,14 +9188,29 @@ sub _prepare_conversion_units($$$)
 
   my ($output_units, $special_units, $associated_special_units);
 
-  if ($self->{'converter_descriptor'}) {
+  # the presence of contents elements in the document is used in diverse
+  # places, set it once for all here
+  my @contents_elements_options
+                  = grep {Texinfo::Common::valid_customization_option($_)}
+                        sort(keys(%contents_command_special_unit_variety));
+  $self->set_global_document_commands('last', \@contents_elements_options);
+
+  # FIXME differences in transliteration prevent from using XS, but XS
+  # would be required to use XS afterwards.
+  if (0 and $self->{'converter_descriptor'}) {
+  #if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
-    ($output_units, $special_units, $associated_special_units)
+    my ($targets, $special_targets, $seen_ids);
+    ($output_units, $special_units, $associated_special_units,
+     $targets, $special_targets, $seen_ids)
       = _XS_prepare_conversion_units($encoded_converter,
                                      $encoded_document_name);
-    # possibly return here when the XS code is done and based on XS_only?
-    # return ($output_units, $special_units, $associated_special_units);
+    $self->{'targets'} = $targets;
+    $self->{'special_targets'} = $special_targets;
+    $self->{'seen_ids'} = $seen_ids;
+    $self->{'document_units'} = $output_units;
+    return ($output_units, $special_units, $associated_special_units);
   }
 
   if ($self->get_conf('USE_NODES')) {
@@ -9204,13 +9222,6 @@ sub _prepare_conversion_units($$$)
   # Needs to be set early in case it would be needed to find some region
   # command associated root command.
   $self->{'document_units'} = $output_units;
-
-  # the presence of contents elements in the document is used in diverse
-  # places, set it once for all here
-  my @contents_elements_options
-                  = grep {Texinfo::Common::valid_customization_option($_)}
-                        sort(keys(%contents_command_special_unit_variety));
-  $self->set_global_document_commands('last', \@contents_elements_options);
 
   # configuration used to determine if a special element is to be done
   # (in addition to contents)
@@ -9245,6 +9256,10 @@ sub _prepare_conversion_units($$$)
   return ($output_units, $special_units, $associated_special_units);
 }
 
+sub _XS_prepare_units_directions_files($$$$$$$$)
+{
+}
+
 sub _prepare_units_directions_files($$$$$$$$)
 {
   my $self = shift;
@@ -9256,7 +9271,20 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
-  $self->_prepare_output_units_global_targets($output_units);
+  if (0 and $self->{'converter_descriptor'}) {
+    my $encoded_converter = $self->encode_converter_for_output();
+    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
+
+    my $XS_files_source_info
+      = _XS_prepare_units_directions_files($encoded_converter,
+           $output_units, $special_units, $associated_special_units,
+           $output_file, $destination_directory, $output_filename,
+           $encoded_document_name);
+    # FIXME return when the XS implementation is done and XS_only is set?
+  }
+
+  $self->_prepare_output_units_global_targets($output_units, $special_units,
+                                              $associated_special_units);
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
 
@@ -9311,11 +9339,6 @@ sub _register_special_unit($$)
   my $unit_command = {'type' => 'special_unit_element',
                       'associated_unit' => $special_unit};
   $special_unit->{'unit_command'} = $unit_command;
-
-  my $special_unit_direction
-   = $self->special_unit_info('direction', $special_unit_variety);
-  $self->{'global_units_directions'}->{$special_unit_direction}
-   = $special_unit;
 
   return $special_unit;
 }
@@ -9535,17 +9558,21 @@ sub _prepare_associated_special_units_targets($$)
     if ($self->get_conf('DEBUG')) {
       my $str_filename = $filename;
       $str_filename = 'UNDEF (default)' if (not defined($str_filename));
+      my $str_target = $target;
+      $str_target = 'UNDEF' if (not defined($str_target));
       print STDERR 'Add content'
         # uncomment to get the perl object name
         #." $special_unit"
-            ." $special_unit_variety: target $target,\n".
+            ." $special_unit_variety: target $str_target,\n".
              "    filename $str_filename\n";
     }
 
     my $unit_command = $special_unit->{'unit_command'};
     my $command_target = {'target' => $target};
     $self->{'targets'}->{$unit_command} = $command_target;
-    $self->{'seen_ids'}->{$target} = 1;
+    if (defined($target)) {
+      $self->{'seen_ids'}->{$target} = 1;
+    }
     if (defined ($filename)) {
       $command_target->{'special_unit_filename'}
         = $filename;
@@ -9564,10 +9591,12 @@ sub _prepare_special_units_directions($$)
 }
 
 # Associate output units to the global targets, First, Last, Top, Index.
-sub _prepare_output_units_global_targets($$)
+sub _prepare_output_units_global_targets($$$$)
 {
   my $self = shift;
   my $output_units = shift;
+  my $special_units = shift;
+  my $associated_special_units = shift;
 
   $self->{'global_units_directions'}->{'First'} = $output_units->[0];
   $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
@@ -9630,6 +9659,18 @@ sub _prepare_output_units_global_targets($$)
             # uncomment to get the perl object name
             # ."($global_unit)"
      .': '. Texinfo::Structuring::unit_or_external_element_texi($global_unit)."\n";
+      }
+    }
+  }
+
+  foreach my $units_list ($special_units, $associated_special_units) {
+    if ($units_list and scalar(@$units_list)) {
+      foreach my $special_unit (@$units_list) {
+        my $special_unit_variety = $special_unit->{'special_unit_variety'};
+        my $special_unit_direction
+         = $self->special_unit_info('direction', $special_unit_variety);
+        $self->{'global_units_directions'}->{$special_unit_direction}
+         = $special_unit;
       }
     }
   }
@@ -9779,15 +9820,9 @@ sub _prepare_index_entries_targets($)
                     @{$subentries_tree->{'contents'}};
         }
 
-        my $trimmed_element
-          = Texinfo::Common::trim_spaces_comment_from_content(
-                                                 $normalize_index_element);
-        my $normalized_index = '';
-        if ($trimmed_element) {
-          $normalized_index =
-           Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-             $trimmed_element, $no_unidecode);
-        }
+        my $normalized_index =
+          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+             $normalize_index_element, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
         my $nr = 1;
         my $target = $target_base;
@@ -9813,8 +9848,6 @@ sub _prepare_footnotes_targets($)
 
   my $footid_base = 'FOOT';
   my $docid_base = 'DOCF';
-
-  $self->{'pending_footnotes'} = [];
 
   if ($self->{'global_commands'}->{'footnote'}) {
     my $footnote_nr = 0;
@@ -11024,6 +11057,7 @@ sub _initialize_output_state($)
   $self->{'special_targets'} = {'footnote_location' => {}};
 
   # other
+  $self->{'pending_footnotes'} = [];
 
   $self->{'check_htmlxref_already_warned'} = {}
     if ($self->get_conf('CHECK_HTMLXREF'));
@@ -11058,7 +11092,9 @@ sub convert($$)
   # global targets when called as convert, but the Top global
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
-  $self->_prepare_output_units_global_targets($output_units);
+  $self->_prepare_output_units_global_targets($output_units,
+                                              $special_units,
+                                              $associated_special_units);
 
   # setup untranslated strings
   $self->_translate_names();
@@ -11290,7 +11326,7 @@ sub output($$)
       and ($Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')}
            or $self->get_conf('OUTFILE') eq '-'
            or $self->get_conf('OUTFILE') eq '')) {
-    $self->force_conf('SPLIT', 0);
+    $self->force_conf('SPLIT', '');
     $self->force_conf('MONOLITHIC', 1);
     $self->force_conf('FRAMES', 0);
   }

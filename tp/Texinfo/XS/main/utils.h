@@ -38,7 +38,8 @@ extern const char *output_unit_type_names[];
 
 extern const char *command_location_names[];
 
-enum error_type { MSG_error, MSG_warning };
+enum error_type { MSG_error, MSG_warning,
+                  MSG_document_error, MSG_document_warning };
 
 typedef struct {
     char *message;
@@ -119,7 +120,7 @@ typedef struct COMMAND_OPTION_VALUE {
 
 /* CONVERTER and associated types needed for set_global_document_command */
 /* see Texinfo::HTML _prepare_output_units_global_targets */
-enum units_directions {
+enum global_unit_direction {
    /* global directions */
    D_First,
    D_Top,

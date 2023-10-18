@@ -64,6 +64,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
                || e->cmd == CM_caption
                || e->cmd == CM_hyphenation
                || e->cmd == CM_sortas
+               || e->cmd == CM_seealso
                || e->cmd == CM_seeentry)
              /* here ignore the line commands */
               || (e->args.number > 0
@@ -309,7 +310,7 @@ char *
 unicode_to_transliterate (char *text)
 {
   int status;
-  char *result = encode_string (text, "utf-8//TRANSLIT", &status, 0);
+  char *result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
   return result;
 }
 

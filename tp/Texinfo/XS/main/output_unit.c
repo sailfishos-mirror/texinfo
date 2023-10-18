@@ -27,6 +27,7 @@
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
+#include "targets.h"
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
 
@@ -42,6 +43,18 @@ retrieve_output_units (int output_units_descriptor)
       && output_units_descriptor <= output_units_number)
     return &output_units_list[output_units_descriptor -1];
   return 0;
+}
+
+static void
+reallocate_output_unit_list (OUTPUT_UNIT_LIST *list)
+{
+  if (list->number >= list->space)
+    {
+      list->space += 10;
+      list->list = realloc (list->list, list->space * sizeof (OUTPUT_UNIT *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
 }
 
 /* descriptor starts at 1, 0 is an error */
@@ -75,6 +88,15 @@ new_output_units_descriptor (void)
 
   memset (&output_units_list[output_units_index], 0, sizeof (OUTPUT_UNIT_LIST));
 
+  /* immediately allocate, even if the list will remain empty, such
+     that the slot is reserved */
+  reallocate_output_unit_list (&output_units_list[output_units_index]);
+
+  /*
+  fprintf (stderr, "Register output units (%d): %d\n", slot_found,
+                                                       output_units_index);
+   */
+
   return output_units_index +1;
 }
 
@@ -90,13 +112,7 @@ new_output_unit (enum output_unit_type unit_type)
 void
 add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
 {
-  if (list->number + 1 >= list->space)
-    {
-      list->space += 10;
-      list->list = realloc (list->list, list->space * sizeof (OUTPUT_UNIT *));
-      if (!list->list)
-        fatal ("realloc failed");
-    }
+  reallocate_output_unit_list (list);
   list->list[list->number] = output_unit;
   output_unit->index = list->number;
   list->number++;
@@ -367,3 +383,27 @@ unit_or_external_element_texi (OUTPUT_UNIT *element)
   return root_heading_command_to_texinfo(command_element);
 }
 
+
+/* Do output units directions (like in texi2html) and store them
+   in 'directions'.
+   The directions are only created if pointing to other output units.
+ */
+void
+units_directions (OPTIONS *customization_information,
+                  LABEL_LIST *identifiers_target,
+                  OUTPUT_UNIT_LIST *output_units)
+{
+  ELEMENT *node_top;
+  int i;
+
+  if (!output_units || !output_units->number)
+    return;
+
+  node_top = find_identifier_target (identifiers_target, "Top");
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+     /* OUTPUT_UNIT *directions = &output_unit->directions; */
+    }
+}

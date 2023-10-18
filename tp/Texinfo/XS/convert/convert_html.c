@@ -412,16 +412,23 @@ translate_names (CONVERTER *self)
     fprintf (stderr, "END TRANSLATE_NAMES\n\n");
 }
 
-/* Associate output units to the global targets, First, Last, Top, Index. */
+/* Associate output units to the global targets, First, Last, Top, Index.
+   and special output units */
 static void
 prepare_output_units_global_targets (CONVERTER *self,
-                                     int output_units_descriptor)
+                                     int output_units_descriptor,
+                                     int special_units_descriptor,
+                                     int associated_special_units_descriptor)
 {
+  int i;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
   ELEMENT *node_top = find_identifier_target
                           (self->document->identifiers_target, "Top");
   ELEMENT *section_top = self->document->global_commands->top;
+
+  int special_output_units_lists[2] = {special_units_descriptor,
+                                       associated_special_units_descriptor};
 
   self->global_units_directions[D_First] = output_units->list[0];
   self->global_units_directions[D_Last]
@@ -502,6 +509,27 @@ prepare_output_units_global_targets (CONVERTER *self,
             }
         }
     }
+
+  for (i = 0; i < 2; i++)
+    {
+      int j;
+      int special_units_descriptor = special_output_units_lists[i];
+      OUTPUT_UNIT_LIST *units_list
+       = retrieve_output_units (special_units_descriptor);
+      if (units_list && units_list->number)
+        {
+          for (j = 0; j < units_list->number; j++)
+            {
+              OUTPUT_UNIT *special_unit = units_list->list[j];
+              char *special_unit_variety = special_unit->special_unit_variety;
+              int special_unit_direction_index
+                = special_unit_variety_direction_index (self,
+                                                special_unit_variety);
+              self->global_units_directions[special_unit_direction_index]
+                = special_unit;
+            }
+        }
+    }
 }
 
 typedef struct CMD_VARIETY {
@@ -572,17 +600,10 @@ register_special_unit (CONVERTER *self, char *special_unit_variety)
 {
   ELEMENT *unit_command = new_element (ET_special_unit_element);
   OUTPUT_UNIT *special_unit = new_output_unit (OU_special_unit);
-  int special_unit_direction_index = -1;
 
   special_unit->special_unit_variety = special_unit_variety;
   unit_command->associated_unit = special_unit;
   special_unit->unit_command = unit_command;
-
-  special_unit_direction_index
-    = special_unit_variety_direction_index (self, special_unit_variety);
-
-  self->global_units_directions[special_unit_direction_index]
-   = special_unit;
 
   return special_unit;
 }
@@ -610,6 +631,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                                int *associated_special_units_descriptor_ref)
 {
   int i;
+  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
   SPECIAL_UNIT_ORDER *special_units_order;
   OUTPUT_UNIT *previous_output_unit = 0;
 
@@ -721,12 +743,12 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
     }
 
   if (self->document->global_commands->footnotes.contents.number > 0
-      && ! strcmp(self->conf->footnotestyle, "separate")
-      && output_units && output_units->number > 0)
+      && !strcmp(self->conf->footnotestyle, "separate")
+      && output_units && output_units->number > 1)
     add_string ("footnotes", do_special);
 
   if ((self->conf->DO_ABOUT < 0
-       && output_units && output_units->number > 0
+       && output_units && output_units->number > 1
        && ((self->conf->SPLIT && strlen (self->conf->SPLIT))
            || self->conf->HEADERS > 0))
       || self->conf->DO_ABOUT > 0)
@@ -750,7 +772,25 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
 
   for (i = 0; i < do_special->number; i++)
     {
-      char *special_unit_variety = strdup (special_units_order[i].variety);
+      /* take the string from special_unit_varieties */
+      int special_unit_varieties_idx = -1;
+      int j;
+      for (j = 0; j < special_unit_varieties->number; j++)
+        if (!strcmp (special_unit_varieties->list[j],
+                     special_units_order[i].variety))
+          {
+            special_unit_varieties_idx = j;
+            break;
+          }
+      if (special_unit_varieties_idx < 0)
+        {
+          char *msg;
+          xasprintf (&msg, "special_unit_varieties not found: %s\n",
+                           special_units_order[i].variety);
+          bug (msg);
+        }
+
+      char *special_unit_variety = special_unit_varieties->list[j];
       OUTPUT_UNIT *special_output_unit
                     = register_special_unit (self, special_unit_variety);
       add_to_output_unit_list (special_units,
@@ -827,7 +867,7 @@ add_special_target (CONVERTER *self, enum special_target_type type,
 
 
 static const enum command_id contents_elements_options[]
-                          = {CM_contents, CM_shortcontents, 0};
+             = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
 
 static const enum command_id conf_for_special_units[]
                           = {CM_footnotestyle, 0};
@@ -977,10 +1017,6 @@ prepare_associated_special_units_targets (CONVERTER *self,
           /* it may be undef'ined in user customization code */
           char *target = special_unit_info (self, SUI_type_target,
                                                  special_unit_variety);
-          /* FIXME not the same as in perl */
-          if (!target)
-            continue;
-
           target_filename
             = call_file_id_setting_special_unit_target_file_name (
                                self, special_unit, target, filename);
@@ -998,17 +1034,23 @@ prepare_associated_special_units_targets (CONVERTER *self,
           if (self->conf->DEBUG > 0)
             {
               char *str_filename;
+              char *str_target;
               if (filename)
                 str_filename = filename;
               else
                 str_filename = "UNDEF (default)";
+              if (target)
+                str_target = target;
+              else
+                str_target = "UNDEF";
               fprintf (stderr, "Add content %s: target %s,\n"
                                 "    filename %s\n", special_unit_variety,
-                                target, str_filename);
+                                str_target, str_filename);
             }
           element_target
            = add_element_target (self, special_unit->unit_command, target);
-          add_string (target, self->seen_ids);
+          if (target)
+            add_string (target, self->seen_ids);
           if (filename)
             element_target->special_unit_filename = filename;
         }
@@ -1031,6 +1073,7 @@ static TARGET_FILENAME *
 normalized_label_id_file (CONVERTER *self, char *normalized,
                           ELEMENT* label_element)
 {
+  int called;
   char *target;
   char *target_customized;
   TARGET_FILENAME *target_filename
@@ -1050,7 +1093,8 @@ normalized_label_id_file (CONVERTER *self, char *normalized,
 
   /* to find out the Top node, one could check $normalized */
   target_customized = call_file_id_setting_label_target_name (self,
-                                  normalized, label_element, target);
+                                  normalized, label_element, target,
+                                  &called);
 
   if (target_customized)
     {
@@ -1208,7 +1252,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
 
   if (self->document->identifiers_target)
     {
-      char *extension = "";
+      char *extension = 0;
 
       if (self->conf->EXTENSION)
         extension = self->conf->EXTENSION;
@@ -1216,6 +1260,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
       int i;
       for (i = 0; i < label_targets->number; i++)
         {
+          int called;
           char *target;
           char *node_filename;
           char *user_node_filename;
@@ -1226,7 +1271,11 @@ set_root_commands_targets_node_files (CONVERTER *self)
           TARGET_FILENAME *target_filename =
            normalized_label_id_file (self, label->identifier, label_element);
           target = target_filename->target;
-          xasprintf (&node_filename, "%s%s", target_filename->filename, extension);
+          if (extension)
+            xasprintf (&node_filename, "%s.%s", target_filename->filename,
+                                                extension);
+          else
+            node_filename = strdup (target_filename->filename);
 
           free (target_filename->filename);
           free (target_filename);
@@ -1236,22 +1285,27 @@ set_root_commands_targets_node_files (CONVERTER *self)
              in case called by convert. */
 
           user_node_filename = call_file_id_setting_node_file_name (self,
-                                               target_element, node_filename);
+                                               target_element, node_filename,
+                                               &called);
           if (user_node_filename)
             {
               free (node_filename);
               node_filename = user_node_filename;
             }
-          else if (self->conf->VERBOSE > 0)
+          else if (called)
             {
-              message_list_document_warn (self->error_messages, self->conf,
+              if (self->conf->VERBOSE > 0)
+                {
+                  message_list_document_warn (self->error_messages, self->conf,
                              "user-defined node file name not set for `%s'",
                              node_filename);
-            }
-          else if (self->conf->DEBUG > 0)
-            {
-              fprintf (stderr, "user-defined node file name undef for `%s'\n",
+                }
+              else if (self->conf->DEBUG > 0)
+                {
+                  fprintf (stderr,
+                     "user-defined node file name undef for `%s'\n",
                        node_filename);
+                }
             }
 
           if (self->conf->DEBUG > 0)
@@ -1291,6 +1345,15 @@ sort_index_entries (CONVERTER *self)
     }
 }
 
+int
+compare_index_name (const void *a, const void *b)
+{
+  const INDEX **idx_a = (const INDEX **) a;
+  const INDEX **idx_b = (const INDEX **) b;
+ 
+  return strcmp ((*idx_a)->name, (*idx_b)->name);
+}
+
 void
 prepare_index_entries_targets (CONVERTER *self)
 {
@@ -1298,8 +1361,23 @@ prepare_index_entries_targets (CONVERTER *self)
     {
       INDEX **i, *idx;
       INDEX **index_names = self->document->index_names;
+      INDEX **sorted_index_names;
+      int index_nr = 0;
 
+      /* TODO sort indices by name before? when registering in document?
+         In parser?
+         Depending on size?  And use bsearch in some places?
+       */
       for (i = index_names; (idx = *i); i++)
+        index_nr++;
+
+      sorted_index_names = (INDEX **) malloc ((index_nr+1) * sizeof (INDEX *));
+
+      memcpy (sorted_index_names, index_names, (index_nr+1) * sizeof (INDEX *));
+      qsort (sorted_index_names, index_nr, sizeof (INDEX *),
+             compare_index_name);
+
+      for (i = sorted_index_names; (idx = *i); i++)
         {
           if (idx->index_number > 0)
             {
@@ -1313,7 +1391,6 @@ prepare_index_entries_targets (CONVERTER *self)
                   ELEMENT *entry_reference_content_element;
                   ELEMENT *normalize_index_element;
                   ELEMENT *subentries_tree;
-                  ELEMENT *trimmed_element;
                   ELEMENT *target_element;
                   TEXT target_base;
                   char *normalized_index = "";
@@ -1348,16 +1425,8 @@ prepare_index_entries_targets (CONVERTER *self)
                                         subentries_tree, 0,
                                         subentries_tree->contents.number);
                     }
-
-                  trimmed_element = trim_spaces_comment_from_content
-                                                (normalize_index_element);
-                  destroy_element (normalize_index_element);
-                  if (trimmed_element)
-                    {
-                      normalized_index
-                       = normalize_transliterate_texinfo (trimmed_element);
-                      destroy_element (trimmed_element);
-                    }
+                  normalized_index
+                    = normalize_transliterate_texinfo (normalize_index_element);
                   if (subentries_tree)
                     free_comma_index_subentries_tree (subentries_tree);
 
@@ -1399,7 +1468,7 @@ prepare_footnotes_targets (CONVERTER *self)
           ELEMENT *footnote = global_footnotes->contents.list[i];
           TEXT footid;
           TEXT docid;
-          int nr = i;
+          int nr = i+1;
 
           text_init (&footid);
           text_init (&docid);
@@ -1442,7 +1511,7 @@ prepare_footnotes_targets (CONVERTER *self)
           if (self->conf->DEBUG > 0)
             {
               fprintf (stderr, "Enter footnote: target %s, nr %d\n%s\n",
-                       footid.text, i, convert_to_texinfo (footnote));
+                       footid.text, nr, convert_to_texinfo (footnote));
             }
         }
     }
@@ -1532,14 +1601,14 @@ find_file_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
 }
 
 static char *
-add_to_unit_file_name_paths (char *unit_file_name_paths,
+add_to_unit_file_name_paths (char **unit_file_name_paths,
                              char *filename, OUTPUT_UNIT *output_unit)
 {
-  char *new_output_unit_file_name
+  char **new_output_unit_file_name
                   = &unit_file_name_paths[output_unit->index];
-  new_output_unit_file_name = strdup (filename);
+  *new_output_unit_file_name = strdup (filename);
 
-  return new_output_unit_file_name;
+  return *new_output_unit_file_name;
 }
 
 static FILE_SOURCE_INFO_LIST *
@@ -1551,7 +1620,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                       char *document_name)
 {
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
-  char *unit_file_name_paths;
+  char **unit_file_name_paths;
   int i;
 
   if (!output_units || !output_units->number)
@@ -1563,10 +1632,10 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
     malloc (sizeof (FILE_SOURCE_INFO_LIST));
   memset (files_source_info, 0, sizeof (FILE_SOURCE_INFO_LIST));
 
-  unit_file_name_paths = (char *)
-   malloc (output_units->number * sizeof (char));
+  unit_file_name_paths = (char **)
+   malloc (output_units->number * sizeof (char *));
   memset (unit_file_name_paths, 0,
-          output_units->number * sizeof (char));
+          output_units->number * sizeof (char *));
 
   if (!self->conf->SPLIT || !strlen (self->conf->SPLIT))
     {
@@ -1625,7 +1694,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
 
           file_output_unit = output_unit->first_in_page;
           output_unit_file_name
-           = &unit_file_name_paths[file_output_unit->index];
+           = unit_file_name_paths[file_output_unit->index];
           if (!output_unit_file_name)
             {
               char *node_filename = 0;
@@ -1833,7 +1902,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
     {
       FILE_NAME_PATH_COUNTER *output_unit_file;
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      char *output_unit_file_name = &unit_file_name_paths[i];
+      char *output_unit_file_name = unit_file_name_paths[i];
       char *filename = output_unit_file_name;
       FILE_SOURCE_INFO *file_source_info
         = find_file_source_info (files_source_info, output_unit_file_name);
@@ -1952,7 +2021,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           else
             {
               if (associated_output_unit)
-               filename = associated_output_unit->unit_filename;
+                filename = associated_output_unit->unit_filename;
               element_target->special_unit_filename = filename;
             }
 
@@ -1967,7 +2036,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
 }
 
 FILE_SOURCE_INFO_LIST *
-prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
+html_prepare_units_directions_files (CONVERTER *self,
+          int output_units_descriptor,
           int special_units_descriptor, int associated_special_units_descriptor,
           char *output_file, char *destination_directory, char *output_filename,
           char *document_name)
@@ -1980,7 +2050,9 @@ prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
   OUTPUT_UNIT_LIST *associated_special_units
     = retrieve_output_units (associated_special_units_descriptor);
 
-  prepare_output_units_global_targets (self, output_units_descriptor);
+  prepare_output_units_global_targets (self, output_units_descriptor,
+                                             special_units_descriptor,
+                                       associated_special_units_descriptor);
 
   split_pages (output_units, self->conf->SPLIT);
 
@@ -1991,6 +2063,9 @@ prepare_units_directions_files (CONVERTER *self, int output_units_descriptor,
                         associated_special_units, output_file,
                         destination_directory, output_filename, document_name);
     }
+
+  units_directions (self->conf, self->document->identifiers_target,
+                    output_units);
 
   return files_source_info;
 }

@@ -109,7 +109,8 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
 
   if (!SvOK (output_units_in))
     {
-      fprintf (stderr, "get_sv_output_units_descriptor: undef in\n");
+      fprintf (stderr, "get_sv_output_units_descriptor: %s: undef in\n",
+                       warn_string);
       return 0;
     }
 

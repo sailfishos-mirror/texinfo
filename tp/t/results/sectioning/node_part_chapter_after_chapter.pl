@@ -1188,7 +1188,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 <ul class="toc-numbered-mark">
 <li>
 <ul class="toc-numbered-mark">
-  <li><a id="toc-chapter-node-1" href="#chapter-node">1 chapter node</a></li>
+  <li><a id="toc-chapter-node" href="#chapter-node">1 chapter node</a></li>
 </ul></li>
 <li><a id="toc-part" href="#part">part</a>
 <ul class="toc-numbered-mark">

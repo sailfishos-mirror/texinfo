@@ -134,6 +134,9 @@ remove_document (document_in)
           remove_document_descriptor (document->descriptor);
 
 void
+clear_document_errors (int document_descriptor)
+
+void
 set_document_options (sv_options_in, document_in)
         SV *sv_options_in
         SV *document_in
