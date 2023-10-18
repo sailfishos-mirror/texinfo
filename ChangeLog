@@ -1,5 +1,10 @@
 2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (wwwdoc-install): Remove automatic "ls -ltu"
+	call, which wasn't helpful.
+
+2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: minor updates
 
 2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>

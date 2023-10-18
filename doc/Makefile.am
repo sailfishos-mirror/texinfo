@@ -179,5 +179,4 @@ wwwdoc-install:
 	        $(www_target)
 	$(MKDIR_P) $(www_target)/Pod/Simple
 	cp -arf $(doctemp)/Pod/Simple/Texinfo.html $(www_target)/Pod/Simple
-	ls -ltu $(www_target)/*/html_node | tail  # cvs rm -f obsolete files
 # followed by cvs add of new files and cvs commit.
