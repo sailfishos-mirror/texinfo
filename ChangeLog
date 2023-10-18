@@ -1,5 +1,11 @@
 2023-10-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (%transliterate_map): adjust, using
+	some transliteration from iconv, and also some from unidecode, in
+	particular when iconv and unidecode give the same output.
+
+2023-10-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm (output), tp/Texinfo/Convert/IXINSXML.pm,
 	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm,

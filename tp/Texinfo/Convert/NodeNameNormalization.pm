@@ -216,12 +216,15 @@ sub _unicode_to_transliterate($;$)
       } elsif (ord($char) <= hex(0xFFFF)
                and exists($Texinfo::Convert::Unicode::diacritics_accent_commands{uc(sprintf("%04x",ord($char)))})) {
         $result .= '';
-      # in this case, we want to avoid calling unidecode, as we are sure
+      # in those cases, we want to avoid calling unidecode, as we are sure
       # that there is no useful transliteration of the unicode character
-      # instead we want to keep it as is.
+      # the would end up in the file name, instead we want to keep it as is
+      # such that it is protected as itself.
       # This is the case, for example, for @exclamdown, it corresponds
-      # with x00a1, but unidecode transliterates it to a !, we want
-      # to avoid that and keep x00a1.
+      # with x00a1, but unidecode transliterates it to a !, which ends up
+      # as _0021, we want to avoid that and keep _00a1 in the transliterated
+      # file name.  These case also do not have a good transliteration with
+      # iconv, although this could also depend on the locale.
       } elsif (ord($char) <= hex(0xFFFF)
                and exists($Texinfo::Convert::Unicode::no_transliterate_map{uc(sprintf("%04x",ord($char)))})) {
         $result .= $char;

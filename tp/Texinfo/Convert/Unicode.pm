@@ -637,10 +637,17 @@ our %transliterate_map = (
                '009E'  => '',
                '009F'  => '',
                # explicit transliterations
-               '00C5'  => 'AA',
-               '00E5'  => 'aa',
-               '00D8'  => 'O',
-               '00F8'  => 'o',
+               '00A3' => 'GBP', # iconv @pounds
+               '00A9' => '(C)', # iconv
+               '00AA' => 'a', # ordf iconv and unidecode
+               '00AE' => '(R)', # iconv
+               '00BA' => 'o', # ordm iconv and unidecode
+               #'00B0' => '?', #iconv @textdegree, probably no translit
+               #'00BF' => '?', #iconv @questiondown
+               '00C5' => 'A',
+               '00E5' => 'a',
+               '00D8' => 'O',
+               '00F8' => 'o',
                '00E6' => 'ae',
                '0153' => 'oe',
                '00C6' => 'AE',
@@ -667,6 +674,20 @@ our %transliterate_map = (
                '04D7'  => 'IO',
                '00DD'  => 'Y', # unidecode gets this wrong ?
                '0237'  => 'j', # unknown dotless j for unidecode, returns [?]
+               '20AC'  => 'EUR', # iconv and unidecode
+               # following based on iconv
+               '2022'  => 'o', # bullet
+               '2026'  => '...', # ellipsis
+               #'21A6'  => '?', # expansion, probably no translit
+               '2192'  => '->', # arrow
+               '21D2'  => '=>', # result
+               '2212'  => '-',
+               #'2261'  => '?', # equiv, probably no translit
+               '2264'  => '<=', # leq
+               '2265'  => '>=', # geq
+               #'22A3'  => '?', # print, probably no translit
+               #'22C6'  => '?', # point, probably no translit
+
                # following appears in tests, this is required to have
                # the same output with and without unidecode
                '4E2D'  => 'Zhong',
