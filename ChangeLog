@@ -1,5 +1,12 @@
 2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Line macros): Avoid checking
+	example with leading space on a line after an "@" continuation
+	character, as TeX's treatment of leading space on a line differs
+	from that of texi2any.
+
+2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Inserting Quotation Marks): Place @code around
 	cindex entries for ` and `` to avoid them being changed to ' and ''
 	in the Info index.

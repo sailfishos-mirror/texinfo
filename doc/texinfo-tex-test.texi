@@ -757,7 +757,14 @@ something
 @end linemacro
 
 @test foo (bar, baz)@
- continuation line
+continuation line
+
+@deffn Function foo (bar, baz)continuation line
+something
+@end deffn
+
+@test foo (bar, baz) @
+continuation line
 
 @deffn Function foo (bar, baz) continuation line
 something
