@@ -1390,19 +1390,19 @@ build_html_element_targets (HTML_TARGET_LIST *html_targets)
       STORE("target", target_sv);
       if (html_target->special_unit_filename)
         STORE("special_unit_filename",
-              newSVpv (html_target->special_unit_filename, 0));
+              newSVpv_utf8 (html_target->special_unit_filename, 0));
       if (html_target->node_filename)
         STORE("node_filename",
-              newSVpv (html_target->node_filename, 0));
+              newSVpv_utf8 (html_target->node_filename, 0));
       if (html_target->section_filename)
         STORE("section_filename",
-              newSVpv (html_target->section_filename, 0));
+              newSVpv_utf8 (html_target->section_filename, 0));
       if (html_target->contents_target)
         STORE("contents_target",
-              newSVpv (html_target->contents_target, 0));
+              newSVpv_utf8 (html_target->contents_target, 0));
       if (html_target->shortcontents_target)
         STORE("shortcontents_target",
-              newSVpv (html_target->shortcontents_target, 0));
+              newSVpv_utf8 (html_target->shortcontents_target, 0));
     }
 #undef STORE
   return newRV_noinc ((SV *) hv);

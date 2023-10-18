@@ -232,7 +232,8 @@ normalized_sectioning_command_filename (CONVERTER *self, ELEMENT *command)
   TEXT filename;
   char *normalized_file_name;
   char *normalized_name
-    = normalize_transliterate_texinfo_contents (command->args.list[0]);
+    = normalize_transliterate_texinfo_contents (command->args.list[0],
+                                                (self->conf->TEST > 0));
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
 
@@ -262,7 +263,8 @@ node_information_filename (CONVERTER *self, char *normalized,
     {
       if (self->conf->TRANSLITERATE_FILE_NAMES > 0)
         {
-          filename = normalize_transliterate_texinfo_contents (label_element);
+          filename = normalize_transliterate_texinfo_contents (label_element,
+                                                       (self->conf->TEST > 0));
         }
       else
         filename = strdup (normalized);

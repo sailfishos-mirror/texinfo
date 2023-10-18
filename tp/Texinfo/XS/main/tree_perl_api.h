@@ -6,6 +6,8 @@
 void unregister_perl_tree_element (ELEMENT *e);
 
 /* in call_perl_function */
+char *call_nodenamenormalization_unicode_to_transliterate (char *text);
+
 TARGET_FILENAME *call_file_id_setting_special_unit_target_file_name (
                      CONVERTER *self, OUTPUT_UNIT *special_unit, char *target,
                                                       char *default_filename);

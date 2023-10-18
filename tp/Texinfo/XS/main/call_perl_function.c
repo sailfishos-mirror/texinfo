@@ -31,7 +31,52 @@
 #undef context
 
 #include "utils.h"
+#include "tree_perl_api.h"
 #include "build_perl_info.h"
+
+char *
+call_nodenamenormalization_unicode_to_transliterate (char *text)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+
+  dTHX;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newSVpvn_utf8 (text, strlen (text), 1)));
+  PUTBACK;
+
+  count = call_pv (
+    "Texinfo::Convert::NodeNameNormalization::_unicode_to_transliterate",
+    G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("_unicode_to_transliterate should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
 
 TARGET_FILENAME *
 call_file_id_setting_special_unit_target_file_name (CONVERTER *self,

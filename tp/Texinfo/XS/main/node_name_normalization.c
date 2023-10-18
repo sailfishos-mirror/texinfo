@@ -37,6 +37,7 @@
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
+#include "tree_perl_api.h"
 #include "unicode.h"
 #include "node_name_normalization.h"
 
@@ -306,20 +307,26 @@ convert_contents_to_identifier (ELEMENT *e)
   return result;
 }
 
-char *
-unicode_to_transliterate (char *text)
+static char *
+unicode_to_transliterate (char *text, int external)
 {
+  char *result;
   int status;
-  char *result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
+  if (external)
+    result = call_nodenamenormalization_unicode_to_transliterate (text);
+  else
+    result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
+
   return result;
 }
 
 char *
-normalize_transliterate_texinfo (ELEMENT *e)
+normalize_transliterate_texinfo (ELEMENT *e, int external_translit)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
-  char *transliterated = unicode_to_transliterate (normalized_name);
+  char *transliterated = unicode_to_transliterate (normalized_name,
+                                                   external_translit);
   char *result = unicode_to_protected (transliterated);
 
   free (converted_name);
@@ -329,13 +336,13 @@ normalize_transliterate_texinfo (ELEMENT *e)
 }
 
 char *
-normalize_transliterate_texinfo_contents (ELEMENT *e)
+normalize_transliterate_texinfo_contents (ELEMENT *e, int external_translit)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
   tmp->contents = e->contents;
-  result = normalize_transliterate_texinfo (tmp);
+  result = normalize_transliterate_texinfo (tmp, external_translit);
   tmp->contents.list = 0;
   destroy_element (tmp);
 

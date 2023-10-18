@@ -9195,10 +9195,8 @@ sub _prepare_conversion_units($$$)
                         sort(keys(%contents_command_special_unit_variety));
   $self->set_global_document_commands('last', \@contents_elements_options);
 
-  # FIXME differences in transliteration prevent from using XS, but XS
-  # would be required to use XS afterwards.
-  if (0 and $self->{'converter_descriptor'}) {
-  #if ($self->{'converter_descriptor'}) {
+  #if (0 and $self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     my ($targets, $special_targets, $seen_ids);

@@ -1426,7 +1426,8 @@ prepare_index_entries_targets (CONVERTER *self)
                                         subentries_tree->contents.number);
                     }
                   normalized_index
-                    = normalize_transliterate_texinfo (normalize_index_element);
+                    = normalize_transliterate_texinfo (normalize_index_element,
+                                                       (self->conf->TEST > 0));
                   if (subentries_tree)
                     free_comma_index_subentries_tree (subentries_tree);
 
