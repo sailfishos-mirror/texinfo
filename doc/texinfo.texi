@@ -9311,9 +9311,9 @@ inserting quotation marks.
 @cindex Left quotation marks
 @cindex Right quotation marks
 @findex quotedblleft
-@cindex `@w{}`
+@cindex @code{`@w{}`}
 @findex quoteleft
-@cindex `
+@cindex @code{`}
 @cindex " (undirected double quote character)
 @findex quotedblright
 @cindex '@w{}'

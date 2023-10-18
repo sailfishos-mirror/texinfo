@@ -1,3 +1,9 @@
+2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Inserting Quotation Marks): Place @code around
+	cindex entries for ` and `` to avoid them being changed to ' and ''
+	in the Info index.
+
 2023-10-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: reorder instructions slightly
