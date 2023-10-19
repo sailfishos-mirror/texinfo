@@ -40,7 +40,7 @@ if BUILD_PERL_API_TEXI
 # is therefore determined by the information in the Pod file NAME
 # section.
 pod2texi.texi: $(pod2texi_pl)
-	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections $(pod2texi_pl) > /dev/null
+	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections $(pod2texi_pl) > /dev/null
 endif
 
 # We'd also like to use something like this, but Automake calls

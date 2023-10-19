@@ -1,5 +1,13 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (pod2texi.texi): Remove several -I arguments
+	for Perl to get library dependencies of pod2texi/texi2any.
+	pod2texi adds the directories for these libraries itself.  It's
+	awkward and fragile to supply these arguments whenever pod2texi
+	is called, in case the dependencies of the program change.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: Disable "@set indexescapeisbackslash" so that
 	index files will use @ as the escape character rather than \.
 	* NEWS, TODO: update.
