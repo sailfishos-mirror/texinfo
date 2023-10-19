@@ -1,0 +1,2 @@
+check-linguas:
+	perl $(srcdir)/../po/check-linguas.pl $(srcdir)

@@ -1,0 +1,2 @@
+check-linguas:
+	perl check-linguas.pl $(srcdir)

@@ -384,8 +384,10 @@ Update translations:
                  po_document # note the trailing slashes in these commands
   git status -u to check for new translations
 
+run "make -C po check-linguas" and "make -C po_document check-linguas"
+to check that LINGUAS under po and po_document match actual file list.
+
 Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
-Check that LINGUAS under po and po_document match actual file list.
 
 make
 make update-po            # both po and po_document needed, build a dist first
