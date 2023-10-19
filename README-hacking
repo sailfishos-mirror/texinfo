@@ -378,10 +378,6 @@ Upload texi2dvi, texi2pdf (official releases only)
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
-For release/7.0 series only - need to update result of
-test_scripts/layout_formatting_epub_nodes.sh test (delete this note
-once we are on release/7.1)
-
 Update translations:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
