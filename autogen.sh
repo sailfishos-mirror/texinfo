@@ -10,17 +10,17 @@ fi
 
 echo "Preparing Texinfo development infrastructure:"
 
-# Generates an include file for tp/Makefile.am.
+# Generates tp/Makefile.tres (included by tp/Makefile.am).
 cmd="./tp/maintain/regenerate_file_lists.pl"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-# Generates another include file for tp/Makefile.am.
+# Generates tp/Makefile.docstr (included by tp/Makefile.am).
 cmd="(cd tp && ./maintain/regenerate_docstr.sh Makefile.docstr)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-# Generates an include file for tp/tests/Makefile.am.
+# Generates tp/tests/Makefile.onetst (included by tp/tests/Makefile.am).
 cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other')"
 echo "  $cmd"
 $chicken eval $cmd || exit 1

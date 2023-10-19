@@ -1,5 +1,10 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: Edit comments to make clearer what files are being
+	generated.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po/check-linguas.pl: New script to check that the LINGUAS file
 	matches the *.po files present in a directory.
 	* po/Rules-checks, po_document/Rules-checks: Add a "check-linguas"
