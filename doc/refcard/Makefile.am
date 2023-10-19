@@ -1,6 +1,4 @@
-# Makefile for texinfo/doc/refcard.
-# This is not hooked into Automake, just conveniences for working on the
-# refcard.
+# Makefile.am for texinfo/doc/refcard.
 #
 # Copyright 2008-2023 Free Software Foundation, Inc.
 #
@@ -12,9 +10,13 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+
+refcard_files = txicmdcheck txirefcard-a4.pdf txirefcard.pdf txirefcard.tex
+
+EXTRA_DIST = $(refcard_files)
+
 doc = txirefcard
 
-# parallel makes, etc., will fail.
 all: $(doc).pdf $(doc)-a4.pdf
 
 # trying to get it work with pdftex isn't worth the trouble.
@@ -28,8 +30,6 @@ $(doc)-a4.pdf: $(doc).tex
 	dvips -t landscape -t a4 $(doc) -o
 	ps2pdf $(doc).ps $@
 
-check: ccheck vcheck
-
 ccheck:
 	./txicmdcheck $(txi_check_args)
 
@@ -40,8 +40,5 @@ spell:
 	aspell list --mode=tex --add-extra-dicts=`pwd`/refcard.spell \
 	< $(doc).tex | sort -f -u
 
-clean:
-	rm -f $(doc)*.dvi $(doc)*.log $(doc)*.ps
-
-distclean: clean
-	rm -f $(doc)*.pdf
+clean-local:
+	rm -f $(doc)*.dvi $(doc)*.log $(doc)*.ps $(doc)*.pdf

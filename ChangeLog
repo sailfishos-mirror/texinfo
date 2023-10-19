@@ -1,5 +1,13 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/refcard/Makefile, doc/refcard/Makefile.am:
+	Change file to Makefile.am.  This means we can put the information
+	about what files to distribute in this file, rather than in
+	doc/Makefile.am.
+	* doc/Makefile.am: Update.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (get_initial_file),
 	* info/infodoc.c (info_get_info_help_node),
 	Use strcasecmp instead of strcmp in previous change.  This

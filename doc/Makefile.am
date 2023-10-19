@@ -13,7 +13,7 @@
 # The links to texi2any_internals require that to avoid many warnings
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 
-SUBDIRS = tp_api
+SUBDIRS = tp_api refcard
 
 info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
 texinfo_TEXINFOS = pod2texi.texi
@@ -53,18 +53,10 @@ TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 	    txi-pt.tex txi-ru.tex txi-sr.tex txi-tr.tex txi-uk.tex \
 	    txi-zh.tex
 
-refcard_files = refcard/Makefile refcard/txicmdcheck \
-                refcard/txirefcard-a4.pdf refcard/txirefcard.pdf \
-		refcard/txirefcard.tex
-
-refcard/txirefcard.pdf refcard/txirefcard-a4.pdf: refcard/txirefcard.tex
-	cd $(srcdir)/refcard && make
-
 # Include our texinfo.tex, not Automake's.
 EXTRA_DIST = epsf.tex texinfo.tex \
              fdl.texi \
 	     $(man_MANS) $(TXI_XLATE) \
-             $(refcard_files) \
 	     texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
              texinfo-ja.tex short-sample-ja.texi \
              texinfo-zh.tex short-sample-zh.texi

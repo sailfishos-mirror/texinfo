@@ -581,6 +581,7 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 AC_CONFIG_FILES([\
   Makefile
   doc/Makefile
+  doc/refcard/Makefile
   doc/tp_api/Makefile
   gnulib/lib/Makefile
   info/Makefile
