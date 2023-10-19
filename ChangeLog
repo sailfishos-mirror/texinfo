@@ -1,5 +1,11 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* AUTHORS: trim texi2html and C makeinfo entries, as these are
+	no longer part of the package.  Also remove credits for "images"
+	directory as it is unclear which directory this refers to.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* autogen.sh: Edit comments to make clearer what files are being
 	generated.
 
