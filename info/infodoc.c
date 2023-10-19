@@ -357,8 +357,7 @@ DECLARE_INFO_COMMAND (info_get_info_help_node, _("Visit Info node '(info)Help'")
     for (win = windows; win; win = win->next)
       {
         if (win->node && win->node->fullpath
-            && !mbscasecmp ("info",
-                            filename_non_directory (win->node->fullpath))
+            && !strcmp (filename_non_directory (win->node->fullpath), "info")
             && (!strcmp (win->node->nodename, "Help")
                 || !strcmp (win->node->nodename, "Help-Small-Screen")))
           {

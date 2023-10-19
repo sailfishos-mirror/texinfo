@@ -981,7 +981,7 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
       goto cleanup_and_exit;
     }
 
-  if (mbscasecmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
+  if (strcmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
     {
       node = get_manpage_node (nodename);
       goto cleanup_and_exit;
@@ -997,7 +997,7 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
     }
 
   /* If the node not found was "Top", try again with different case. */
-  if (!node && (nodename && mbscasecmp (nodename, "Top") == 0))
+  if (!node && (nodename && strcasecmp (nodename, "Top") == 0))
     {
       node = info_get_node_of_file_buffer (file_buffer, "Top");
       if (!node)

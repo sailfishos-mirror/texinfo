@@ -1,5 +1,14 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.c (get_initial_file),
+	* info/infodoc.c (info_get_info_help_node),
+	* info/nodes.c (info_get_node_with_defaults):
+	Use strcmp or strcasecmp instead of mbscasecmp in several
+	cases where we do not care about case-insensitive matching with
+	non-ASCII characters.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/maintain/change_perl_modules_version.sh:
 	Also update *.pm.in in order to updae Texinfo/ModulePath.pm.in,
 	which was stuck at "6.3dev".  Remove commented-out sed version.
