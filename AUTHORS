@@ -7,6 +7,7 @@ Texinfo authors.
   notice and this notice are preserved.
 
 Karl Berry		all files.
+Per Bothner		js/*
 Torsten Bronger         texinfo.dtd.
 Bob Chassell		texinfo.tex, original texinfo.txi.
 Akim Demaille		texi2dvi, util/* tests.
@@ -14,6 +15,7 @@ Patrice Dumas		texinfo.txi, tp author.
 Brian Fox		all info/* files, info-stnd.texi.
 Noah Friedman		original texi2dvi.
 Oleg Katsitadze		doc/*
+Matthieu Lirzin		js/*
 Sergey Poznyakoff	all files.
 Arnold Robbins		literate (texi+awk) texindex.
 Andreas Schwab		texinfo.tex, configure.ac
