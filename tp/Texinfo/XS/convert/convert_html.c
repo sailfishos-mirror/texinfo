@@ -26,7 +26,6 @@
 #include "extra.h"
 #include "targets.h"
 #include "debug.h"
-#include "structuring.h"
 #include "output_unit.h"
 #include "tree_perl_api.h"
 #include "converter.h"

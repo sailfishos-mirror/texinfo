@@ -35,6 +35,7 @@
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
+#include "indices_in_conversion.h"
 #include "convert_html.h"
 #include "document.h"
 

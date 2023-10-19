@@ -4,9 +4,6 @@
 
 #include "utils.h"
 
-/* in utils.c */
-extern char *html_conversion_context_type_names[];
-
 typedef struct FILE_SOURCE_INFO {
     char *filename;
     char *type;

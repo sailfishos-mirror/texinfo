@@ -38,6 +38,8 @@ extern const char *output_unit_type_names[];
 
 extern const char *command_location_names[];
 
+extern char *html_conversion_context_type_names[];
+
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
 
@@ -323,6 +325,27 @@ typedef struct TARGET_CONTENTS_FILENAME {
     char *target_contents;
     char *target_shortcontents;
 } TARGET_CONTENTS_FILENAME;
+
+/* used in get_perl_info and indices_in_conversion, in unfinished code */
+/* TODO remove? */
+typedef struct KEY_ALPHA {
+    char *key;
+    int alpha;
+} KEY_ALPHA;
+
+typedef struct SORTABLE_ENTRY {
+    char *index_name;
+    size_t keys_number;
+    KEY_ALPHA *keys;
+    char **entry_keys;
+    int number;
+} SORTABLE_ENTRY;
+
+typedef struct INDEX_SORTABLE_ENTRIES {
+    char *name;
+    size_t number;
+    SORTABLE_ENTRY *sortable_entries;
+} INDEX_SORTABLE_ENTRIES;
 
 int xasprintf (char **ptr, const char *template, ...);
 

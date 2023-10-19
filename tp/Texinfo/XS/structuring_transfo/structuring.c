@@ -26,11 +26,11 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "extra.h"
-/* also for xasprintf */
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
-/* for get_label_element section_level enumerate_item_representation */
+/* for get_label_element section_level enumerate_item_representation
+   xasprintf */
 #include "utils.h"
 /* for copy_tree copy_contents and parse_node_manual */
 #include "manipulate_tree.h"

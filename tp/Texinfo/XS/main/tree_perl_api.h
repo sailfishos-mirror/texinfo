@@ -2,6 +2,9 @@
 #ifndef TREE_PERL_API_H
 #define TREE_PERL_API_H
 
+#include "tree_types.h"
+#include "utils.h"
+
 /* in build_perl_info */
 void unregister_perl_tree_element (ELEMENT *e);
 

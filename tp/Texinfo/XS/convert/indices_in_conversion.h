@@ -5,25 +5,6 @@
 #include "tree_types.h"
 #include "utils.h"
 
-typedef struct KEY_ALPHA {
-    char *key;
-    int alpha;
-} KEY_ALPHA;
-
-typedef struct SORTABLE_ENTRY {
-    char *index_name;
-    size_t keys_number;
-    KEY_ALPHA *keys;
-    char **entry_keys;
-    int number;
-} SORTABLE_ENTRY;
-
-typedef struct INDEX_SORTABLE_ENTRIES {
-    char *name;
-    size_t number;
-    SORTABLE_ENTRY *sortable_entries;
-} INDEX_SORTABLE_ENTRIES;
-
 typedef struct LETTER_SORTABLE_ENTRIES {
     char *letter;
     int alpha;

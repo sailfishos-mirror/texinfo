@@ -3,10 +3,10 @@
 #define GET_PERL_INFO_H
 
 #include "options_types.h"
+#include "tree_types.h"
 #include "document.h"
+#include "utils.h"
 #include "convert_to_text.h"
-#include "convert_html.h"
-#include "indices_in_conversion.h"
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);

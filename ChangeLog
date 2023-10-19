@@ -1,5 +1,23 @@
 2023-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.h,
+	tp/Texinfo/XS/convert/indices_in_conversion.h, 
+	tp/Texinfo/XS/main/utils.h (html_conversion_context_type_names)
+	(KEY_ALPHA, SORTABLE_ENTRY, INDEX_SORTABLE_ENTRIES):  move definitions
+	to utils.h.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/main/get_perl_info.c,
+	tp/Texinfo/XS/main/get_perl_info.h,
+	tp/Texinfo/XS/main/tree_perl_api.h: fix headers inclusion.
+
+	* tp/Texinfo/XS/Makefile.am (Translations_la_CPPFLAGS)
+	(StructuringTransfo_la_CPPFLAGS, ConvertXS_la_CPPFLAGS): remove
+	useless -I options.
+
+2023-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (units_directions): remove redundant
 	condition.
 

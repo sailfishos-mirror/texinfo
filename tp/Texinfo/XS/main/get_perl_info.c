@@ -44,7 +44,6 @@ FIXME add an initialization of translations?
 #include "output_unit.h"
 #include "convert_to_text.h"
 #include "converter.h"
-#include "indices_in_conversion.h"
 #include "builtin_commands.h"
 #include "get_perl_info.h"
 
