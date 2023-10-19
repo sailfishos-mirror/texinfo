@@ -1,5 +1,12 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/maintain/change_perl_modules_version.sh:
+	Also update *.pm.in in order to updae Texinfo/ModulePath.pm.in,
+	which was stuck at "6.3dev".  Remove commented-out sed version.
+	Add usage message in case not invoked properly.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: Remove comment saying on whose recommendation
 	we use "parallel-tests" (added 2012-11-10).  This is not useful
 	for knowing why we use it.
