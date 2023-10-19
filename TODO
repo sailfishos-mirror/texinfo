@@ -72,8 +72,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Include hyperlink \special's in the DVI output for xdvi, etc.
   - PDF: make each letter of the index (A, B, ...) a section in the TOC.
     From Carsten Dominik.
-  - Use @ as the escape character in index files by default,
-    after new texi2dvi is deployed (2022?).
+  - clear out support for \ as the index file escape character (instead
+    of @).
 
 * Doc:
   - Verify/proofread Documentation of the HTML customization.

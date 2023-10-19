@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-09-19.19}
+\def\texinfoversion{2023-10-19.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -5238,14 +5238,14 @@ $$%
 % the current value of \escapechar.
 \def\escapeisbackslash{\escapechar=`\\}
 
-% Use \ in index files by default.  texi2dvi didn't support @ as the escape 
-% character (as it checked for "\entry" in the files, and not "@entry").  When 
-% the new version of texi2dvi has had a chance to become more prevalent, then 
-% the escape character can change back to @ again.  This should be an easy 
-% change to make now because both @ and \ are only used as escape characters in 
-% index files, never standing for themselves. 
+% Uncomment to use \ in index files by default.  Old texi2dvi (before 2019)
+% didn't support @ as the escape character (as it checked for "\entry" in
+% the files, and not "@entry").
+%   In the future we can remove this flag and simplify the code for
+% index files and backslashes, once the support is no longer likely to be
+% useful.
 %
-\set txiindexescapeisbackslash
+% \set txiindexescapeisbackslash
 
 % Write the entry in \indextext to the index file.
 %

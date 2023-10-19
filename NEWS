@@ -9,6 +9,12 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+* texinfo.tex
+ . use @ as the escape character in all index files.  this requires
+   new enough texi2dvi (Texinfo 6.7, 2019) for index files to be properly
+   processed.
+
+
 7.1 (18 October 2023)
 * Language
  . new generic definition commands, @defblock, @defline and @deftypeline,

@@ -1,5 +1,11 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex: Disable "@set indexescapeisbackslash" so that
+	index files will use @ as the escape character rather than \.
+	* NEWS, TODO: update.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* AUTHORS: add credits for js/*
 
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
