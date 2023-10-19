@@ -1,5 +1,11 @@
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Other Customization Variables)
+	(EPUB Output File and Directory, EPUB HTML):
+	Change EPUB to EPUB@. at ends of sentences.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: Remove superseded note.
 
 2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>

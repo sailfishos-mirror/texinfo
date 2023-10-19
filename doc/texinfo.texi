@@ -16231,7 +16231,7 @@ to 1.
 
 @item EPUB_KEEP_CONTAINER_FOLDER
 If set, keep the directory containing the directories and files
-needed for EPUB.   The EPUB output file is a ZIP archive of this
+needed for EPUB@.   The EPUB output file is a ZIP archive of this
 directory.  Default is not defined.  Set if not defined and @code{TEST} or
 @code{DEBUG} is set. @xref{EPUB Output File and Directory}.
 
@@ -17787,7 +17787,7 @@ the files and directories needed for the EPUB file by setting the
 @cindex Container directory for EPUB
 @cindex EPUB Container directory
 A directory containing the files and directories needed for the
-EPUB format is created when outputting EPUB.  The name of this
+EPUB format is created when outputting EPUB@.  The name of this
 container directory is derived from the base name of the input file (that
 is, any extension is removed), with @code{_epub_package} postpended.
 If an output directory is specified, with @option{--output},
@@ -17841,7 +17841,7 @@ The HTML generated for EPUB is XHTML conformant, UTF-8 encoded, and
 formatted without the usual HTML navigation headers and footers.
 Most of these features are enabled with customization variables, such as
 @code{USE_XML_SYNTAX} or @code{OUTPUT_FILE_NAME_ENCODING}.  Some
-features of printed output are used in EPUB.  In particular, the Top
+features of printed output are used in EPUB@.  In particular, the Top
 node does not appear in the EPUB output, while a title page is
 generated.  This is obtained by setting @code{NO_TOP_NODE_OUTPUT}.
 
