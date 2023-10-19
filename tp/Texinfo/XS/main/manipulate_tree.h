@@ -34,4 +34,10 @@ size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e
 
 NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
+
+
+char *normalized_menu_entry_internal_node (ELEMENT *entry);
+ELEMENT *normalized_entry_associated_internal_node (ELEMENT *entry,
+                                                    LABEL_LIST *identifiers_target);
+ELEMENT *first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target);
 #endif

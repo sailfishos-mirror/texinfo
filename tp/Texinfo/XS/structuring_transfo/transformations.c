@@ -35,7 +35,7 @@
 #include "extra.h"
 #include "debug.h"
 #include "utils.h"
-/* for copy_contents */
+/* for copy_contents normalized_menu_entry_internal_node */
 #include "manipulate_tree.h"
 #include "structuring.h"
 #include "convert_to_texinfo.h"

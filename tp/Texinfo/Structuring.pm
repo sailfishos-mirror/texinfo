@@ -2162,7 +2162,7 @@ sub units_directions($$$)
         $directions->{$direction->[0]}
          = $section->{'extra'}->{'section_directions'}->{$direction->[1]}
              ->{'associated_unit'}
-       if ($section->{'extra'}->{'section_directions'}
+          if ($section->{'extra'}->{'section_directions'}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
            and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
                                            ->{'associated_unit'}
@@ -2210,7 +2210,7 @@ sub units_directions($$$)
         $directions->{'FastForward'}->{'directions'} = {}
            if (! $directions->{'FastForward'}->{'directions'});
         $directions->{'FastForward'}->{'directions'}->{'FastBack'}
-          = $output_unit if ($directions and $directions->{'FastForward'});
+          = $output_unit;
       }
     }
     # Use node up for Up if there is no section up.

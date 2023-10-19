@@ -16,12 +16,14 @@
 #include <config.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 /* for new_element */
 #include "tree.h"
 /* for fatal and directions_length */
 #include "utils.h"
+#include "debug.h"
 #include "extra.h"
 
 /* used in tree copy, but should not be used in general */

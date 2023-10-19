@@ -446,39 +446,6 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
     }
 }
 
-char *
-normalized_menu_entry_internal_node (ELEMENT *entry)
-{
-  int i;
-  for (i = 0; i < entry->contents.number; i++)
-    {
-      ELEMENT *content = entry->contents.list[i];
-      if (content->type == ET_menu_entry_node)
-        {
-          if (!lookup_extra_element (content, "manual_content"))
-            {
-              return lookup_extra_string (content, "normalized");
-            }
-          return 0;
-        }
-    }
-  return 0;
-}
-
-ELEMENT *
-normalized_entry_associated_internal_node (ELEMENT *entry,
-                                           LABEL_LIST *identifiers_target)
-{
-  char *normalized_entry_node = normalized_menu_entry_internal_node (entry);
-  if (normalized_entry_node)
-    {
-      ELEMENT *node = find_identifier_target (identifiers_target,
-                                              normalized_entry_node);
-      return node;
-    }
-  return 0;
-}
-
 ELEMENT *
 get_node_node_childs_from_sectioning (ELEMENT *node)
 {
@@ -819,50 +786,6 @@ check_nodes_are_referenced (DOCUMENT *document)
                nr_nodes_to_find, referenced_identifier_number, nr_not_found);
     }
   free (referenced_identifiers);
-}
-
-ELEMENT *
-first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
-{
-  ELEMENT *menus = lookup_extra_element (node, "menus");
-  if (menus)
-    {
-      int i;
-      for (i = 0; i < menus->contents.number; i++)
-        {
-          ELEMENT *menu = menus->contents.list[i];
-          int j;
-          for (j = 0; j < menu->contents.number; j++)
-            {
-              ELEMENT *menu_content = menu->contents.list[j];
-              if (menu_content->type == ET_menu_entry)
-                {
-                  int k;
-                  ELEMENT *menu_node
-                    = normalized_entry_associated_internal_node (menu_content,
-                                                          identifiers_target);
-                  /* an internal node */
-                  if (menu_node)
-                    return menu_node;
-
-                  for (k = 0; menu_content->contents.number; k++)
-                    {
-                      ELEMENT *content = menu_content->contents.list[k];
-                      if (content->type == ET_menu_entry_node)
-                        {
-                          ELEMENT *manual_content
-                           = lookup_extra_element (content, "manual_content");
-                          /* a reference to an external manual */
-                          if (manual_content)
-                            return content;
-                          break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-  return 0;
 }
 
 /* set menu_directions */

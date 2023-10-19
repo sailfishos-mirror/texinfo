@@ -9270,6 +9270,7 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   if (0 and $self->{'converter_descriptor'}) {
+  #if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
 
@@ -9278,7 +9279,7 @@ sub _prepare_units_directions_files($$$$$$$$)
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory, $output_filename,
            $encoded_document_name);
-    # FIXME return when the XS implementation is done and XS_only is set?
+    # FIXME return when the XS implementation is done
   }
 
   $self->_prepare_output_units_global_targets($output_units, $special_units,
