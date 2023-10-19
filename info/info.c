@@ -250,7 +250,7 @@ get_initial_file (int *argc, char ***argv, char **error)
     {
       /* If they say info info (or info -O info, etc.), show them 
          info-stnd.texi.  (Get info.texi with info -f info.) */
-      if ((*argv)[0] && strcmp ((*argv)[0], "info") == 0)
+      if ((*argv)[0] && strcasecmp ((*argv)[0], "info") == 0)
         (*argv)[0] = "info-stnd";
 
       entry = lookup_dir_entry ((*argv)[0], 0);

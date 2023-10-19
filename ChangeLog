@@ -2,6 +2,13 @@
 
 	* info/info.c (get_initial_file),
 	* info/infodoc.c (info_get_info_help_node),
+	Use strcasecmp instead of strcmp in previous change.  This
+	could better support case-insensitive file systems.  From Eli.
+
+2023-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/info.c (get_initial_file),
+	* info/infodoc.c (info_get_info_help_node),
 	* info/nodes.c (info_get_node_with_defaults):
 	Use strcmp or strcasecmp instead of mbscasecmp in several
 	cases where we do not care about case-insensitive matching with
