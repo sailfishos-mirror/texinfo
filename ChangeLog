@@ -1,3 +1,21 @@
+2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No -I flags for bundled libraries
+
+	* tp/tests/many_input_files/different_encodings.sh,
+	* tp/tests/many_input_files/different_languages_gen_master_menu.sh,
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_l2h.sh,
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh:
+	Remove several -I arguments for Perl to get library dependencies
+	of texi2any.  It is unnecessary as texi2any adds the directories
+	for these libraries itself using Texinfo::ModulePath.  It leads
+	to a much longer command line, which makes these tests harder
+	to understand.	It is also fragile in case the dependencies of
+	the program change.
+
 2023-10-20  Patrice Dumas <pertusus@free.fr>
 
 	* doc/refcard/Makefile.am (txirefcard.pdf, txirefcard-a4.pdf):

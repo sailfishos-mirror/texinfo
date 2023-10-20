@@ -37,7 +37,7 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-cmd="$prepended_command $PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --html --no-split -c FORMAT_MENU=menu -c TREE_TRANSFORMATIONS=regenerate_master_menu --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --out $basename/ $srcdir/input_files/no_master_menu_fr.texi $srcdir/input_files/no_master_menu_no_documentlanguage.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split -c FORMAT_MENU=menu -c TREE_TRANSFORMATIONS=regenerate_master_menu --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --out $basename/ $srcdir/input_files/no_master_menu_fr.texi $srcdir/input_files/no_master_menu_no_documentlanguage.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 
