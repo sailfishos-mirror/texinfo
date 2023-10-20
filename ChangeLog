@@ -1,5 +1,12 @@
 2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara_add_text): Rearrange code
+	getting the type of character and how it should be processed.
+	This is to prepare for handling blocks of characters at once,
+	more like the structure of the corresponding Perl code.
+
+2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/call_perl_function.c
 	(call_file_id_setting_special_unit_target_file_name)
 	(call_file_id_setting_label_target_name)

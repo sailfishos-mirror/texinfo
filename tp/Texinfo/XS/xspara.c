@@ -881,6 +881,9 @@ xspara_set_space_protection (int no_break,
 
 /*****************************************************************/
 
+enum text_class { type_NULL, type_spaces, type_regular,
+                 type_double_width, type_unknown };
+
 /* Return string to be added to paragraph contents, wrapping text. This 
    function relies on there being a UTF-8 locale in LC_CTYPE for mbrtowc to
    work correctly. */
@@ -892,6 +895,8 @@ xspara_add_text (char *text, int len)
   size_t char_len;
   int width;
   static TEXT result;
+  enum text_class type = type_NULL;
+
   dTHX;
 
   text_reset (&result);
@@ -909,7 +914,50 @@ xspara_add_text (char *text, int len)
                     state.last_letter,
                     state.word.end > 0 ? state.word.text : "UNDEF");
         }
+
+      /* Get the type of the next character.  Set wc and char_len
+         if it is not a space. */
       if (isspace ((unsigned char) *p))
+        {
+          type = type_spaces;
+        }
+      else
+        {
+          /* Set wc and char_len */
+          if (!PRINTABLE_ASCII(*p))
+            {
+              char_len = mbrtowc (&wc, p, len, NULL);
+            }
+          else
+            {
+              /* Functonally the same as mbrtowc but (tested) slightly
+                 quicker. */
+              char_len = 1;
+              wc = btowc (*p);
+            }
+
+          if ((long) char_len == 0)
+            break; /* Null character. Shouldn't happen. */
+          else if ((long) char_len < 0)
+            {
+              p++; len--; /* Invalid.  Just try to keep going. */
+              continue;
+            }
+
+         /* Note: width == 0 includes accent characters which should not
+            properly increase the column count.  This is not what the pure
+            Perl code does, though. */
+          width = wcwidth (wc);
+          if (width == 1 || width == 0)
+            type = type_regular;
+          else if (width == 2)
+            type = type_double_width;
+          else
+            type = type_unknown;
+        }
+
+      /*************** Whitespace character. *********************/
+      if (type == type_spaces)
         {
           if (debug)
             {
@@ -1012,29 +1060,8 @@ xspara_add_text (char *text, int len)
           continue;
         }
 
-      /************** Not a white space character. *****************/
-      if (!PRINTABLE_ASCII(*p))
-        {
-          char_len = mbrtowc (&wc, p, len, NULL);
-        }
-      else
-        {
-          /* Functonally the same as mbrtowc but (tested) slightly quicker. */
-          char_len = 1;
-          wc = btowc (*p);
-        }
-
-      if ((long) char_len == 0)
-        break; /* Null character. Shouldn't happen. */
-      else if ((long) char_len < 0)
-        {
-          p++; len--; /* Invalid.  Just try to keep going. */
-          continue;
-        }
-
-      width = wcwidth (wc);
       /*************** Double width character. *********************/
-      if (width == 2)
+      if (type == type_double_width)
         {
           if (debug)
             fprintf (stderr, "FULLWIDTH\n");
@@ -1070,10 +1097,7 @@ xspara_add_text (char *text, int len)
           xspara_allow_end_sentence ();
         }
       /*************** Word character ******************************/
-      /* Note: width == 0 includes accent characters which should not
-         properly increase the column count.  This is not what the pure
-         Perl code does, though. */
-      else if (width == 1 || width == 0)
+      else if (type == type_regular)
         {
           static char added_word[8]; /* long enough for one UTF-8 character */
           memcpy (added_word, p, char_len);
@@ -1113,7 +1137,7 @@ xspara_add_text (char *text, int len)
               state.end_sentence = -2;
             }
         }
-      else
+      else if (type == type_unknown)
         {
           /* Not printable, possibly a tab, or a combining character.
              Add it to the pending word without increasing the column
