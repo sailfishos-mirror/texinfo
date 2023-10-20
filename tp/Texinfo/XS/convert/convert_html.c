@@ -1431,6 +1431,8 @@ prepare_index_entries_targets (CONVERTER *self)
                   normalized_index
                     = normalize_transliterate_texinfo (normalize_index_element,
                                                        (self->conf->TEST > 0));
+
+                  destroy_element (normalize_index_element);
                   if (subentries_tree)
                     free_comma_index_subentries_tree (subentries_tree);
 

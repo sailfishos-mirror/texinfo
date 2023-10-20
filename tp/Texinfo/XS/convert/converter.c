@@ -172,7 +172,7 @@ set_global_document_commands (CONVERTER *converter,
               else
                 {
                   free (*(option_ref->char_ref));
-                  *(option_ref->char_ref) = option_value->char_value;
+                  *(option_ref->char_ref) = strdup (option_value->char_value);
                 }
               free (option_ref);
               free (option_value);
@@ -206,7 +206,8 @@ set_global_document_commands (CONVERTER *converter,
                   else
                     {
                       free (*(option_ref->char_ref));
-                      *(option_ref->char_ref) = option_value->char_value;
+                      *(option_ref->char_ref)
+                        = strdup (option_value->char_value);
                     }
 
                   free (option_ref);

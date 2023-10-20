@@ -919,7 +919,10 @@ set_informative_command_value (CONVERTER *self, ELEMENT *element)
           if (option_ref->type == GO_int)
             *(option_ref->int_ref) = strtoul (value, NULL, 10);
           else
-            *(option_ref->char_ref) = value;
+            {
+              free (*(option_ref->char_ref));
+              *(option_ref->char_ref) = strdup (value);
+            }
           free (option_ref);
         }
     }
