@@ -1,3 +1,12 @@
+2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (xspara_add_text) <delete END_SENTENCE>:
+	Do not set state.last_letter, as it also set by xspara__add_next
+	which was just called and it is confusing to have it set in two
+	places; and the corresponding code in
+	Texinfo::Convert::ParagraphNonXS::add_text doesn't set
+	$paragraph->{'last_letter'}.
+
 2023-10-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (Texinfo/Commands.pm, Texinfo/Options.pm),

@@ -1107,7 +1107,6 @@ xspara_add_text (char *text, int len)
               /* Otherwise reset the end of sentence marker: a full stop in
                  a string like "aaaa.bbbb" doesn't mark an end of
                  sentence. */
-              state.last_letter = wc;
               if (debug && state.end_sentence != -2)
                 fprintf (stderr, "delete END_SENTENCE(%d)\n",
                                   state.end_sentence);
