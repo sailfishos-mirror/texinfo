@@ -1,5 +1,17 @@
 2023-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (Texinfo/Commands.pm, Texinfo/Options.pm),
+	tp/Texinfo/XS/Makefile.am (Texinfo/Commands.pm, Texinfo/Options.pm),
+	tp/maintain/regenerate_commands_perl_info.pl,
+	tp/maintain/regenerate_perl_options_info.pl: duplicate rules
+	generating Texinfo/Commands.pm and Texinfo/Options.pm to
+	tp/Texinfo/XS/Makefile.am as these modules are needed by
+	setup_converters_code_tables.pl.  Pass generated file name as argument
+	to regenerate_commands_perl_info.pl and
+	regenerate_perl_options_info.pl.
+
+2023-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/refcard/Makefile.am (txirefcard-a4.pdf): use txirefcard-a4 and
 	not txirefcard for all the commands call for parallel make.
 

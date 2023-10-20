@@ -238,7 +238,15 @@ $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
 
-$(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c
+# NOTE duplicate of a rule in ../../Makefile.am
+$(srcdir)/../Commands.pm: $(srcdir)/../command_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_commands_perl_info.pl ../Commands.pm < $(srcdir)/../command_data.txt
+
+# NOTE duplicate of a rule in ../../Makefile.am
+$(srcdir)/../Options.pm: $(srcdir)/../options_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl ../Options.pm < $(srcdir)/../options_data.txt
+
+$(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c $(srcdir)/../Commands.pm $(srcdir)/../Options.pm
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \

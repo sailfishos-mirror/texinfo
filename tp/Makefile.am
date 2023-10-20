@@ -349,13 +349,14 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
+# FIXME duplicated in Texinfo/XS/Makefile.am. Remove from here?
 Texinfo/Commands.pm: Texinfo/command_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $(srcdir)/Texinfo/command_data.txt
+	$(srcdir)/maintain/regenerate_commands_perl_info.pl Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
 
 Texinfo/Options.pm: Texinfo/options_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_perl_options_info.pl < $(srcdir)/Texinfo/options_data.txt
+	$(srcdir)/maintain/regenerate_perl_options_info.pl Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
 
