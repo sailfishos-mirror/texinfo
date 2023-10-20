@@ -28,7 +28,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 
 use strict;
 # Can be used to check that there is no incorrect autovivfication
-no autovivification qw(fetch delete exists store strict);
+# no autovivification qw(fetch delete exists store strict);
 
 # Cannot do that because of sort_indices_by_letter, probably for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
