@@ -1,6 +1,13 @@
 2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (xspara_add_text):
+	Operate on several non-space, non-doublewidth
+	characters at once.  This appears to produce a significant,
+	measurable speedup of about 2%.
+
+2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (xspara_add_text):
 	Keep track of both the type of current (block of) characters to
 	proess and the type of the next (block of) characters.
 	Still only operate on one character at a time for now.

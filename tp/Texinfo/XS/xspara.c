@@ -987,7 +987,8 @@ xspara_add_text (char *text, int len)
           /* TODO: test just one character at a time to start.  then
              we can gradually work on the various blocks of
              code to operate on multiple characters. */
-          if (1 || next_type != type || next_type == type_finished)
+          if (type != type_regular
+              || next_type != type || next_type == type_finished)
             break;
 
           q += next_len; len -= next_len;
