@@ -20,13 +20,13 @@ doc = txirefcard
 all: $(doc).pdf $(doc)-a4.pdf
 
 # trying to get it work with pdftex isn't worth the trouble.
-$(doc).pdf: $(doc).tex
-	tex '\nonstopmode \input $(doc)'
+$(doc).pdf: $(srcdir)/$(doc).tex
+	tex '\nonstopmode \input $(srcdir)/$(doc)'
 	dvips -t landscape -t letter $(doc) -o
 	ps2pdf $(doc).ps
 
-$(doc)-a4.pdf: $(doc).tex
-	tex '\nonstopmode \let\afour=1 \input $(doc)'
+$(doc)-a4.pdf: $(srcdir)/$(doc).tex
+	tex '\nonstopmode \let\afour=1 \input $(srcdir)/$(doc)'
 	dvips -t landscape -t a4 $(doc) -o
 	ps2pdf $(doc).ps $@
 
