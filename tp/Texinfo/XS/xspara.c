@@ -882,7 +882,8 @@ xspara_set_space_protection (int no_break,
 /*****************************************************************/
 
 enum text_class { type_NULL, type_spaces, type_regular,
-                 type_double_width, type_unknown };
+                 type_double_width, type_EOS, type_finished,
+                 type_unknown };
 
 /* Return string to be added to paragraph contents, wrapping text. This 
    function relies on there being a UTF-8 locale in LC_CTYPE for mbrtowc to
@@ -890,12 +891,12 @@ enum text_class { type_NULL, type_spaces, type_regular,
 TEXT
 xspara_add_text (char *text, int len)
 {
-  char *p = text;
-  wchar_t wc;
-  size_t char_len;
+  char *p = text, *q = 0;
+  wchar_t wc, wc_fw;
+  size_t next_len = 0;
   int width;
   static TEXT result;
-  enum text_class type = type_NULL;
+  enum text_class type = type_NULL, next_type = type_NULL;
 
   dTHX;
 
@@ -903,7 +904,7 @@ xspara_add_text (char *text, int len)
 
   state.end_line_count = 0;
 
-  while (len > 0)
+  while (1)
     {
       if (debug)
         {
@@ -915,47 +916,93 @@ xspara_add_text (char *text, int len)
                     state.word.end > 0 ? state.word.text : "UNDEF");
         }
 
-      /* Get the type of the next character.  Set wc and char_len
-         if it is not a space. */
-      if (isspace ((unsigned char) *p))
+      /* p is now at the beginning of the text we have left to process.
+         next_type is set to the type of the next block, or is null. */
+
+      type = next_type;
+
+      q = p;
+      q += next_len; len -= next_len; /* Skip over the last character
+                                         processed. */
+
+      /* Set q to the end of the block.  Set next_len to the length of
+         the following character, and next_type to the type of
+         the block after. */
+      while (1)
         {
-          type = type_spaces;
-        }
-      else
-        {
-          /* Set wc and char_len */
-          if (!PRINTABLE_ASCII(*p))
+          if (len <= 0)
             {
-              char_len = mbrtowc (&wc, p, len, NULL);
+              next_type = type_finished;
+            }
+          else if (isspace ((unsigned char) *q))
+            {
+              next_type = type_spaces;
+              next_len = 1;
+            }
+          else if (*q == '\b')
+            {
+            /* Code to say that a following full stop (or question or
+               exclamation mark) may be an end of sentence. */
+              next_type = type_EOS;
+              next_len = 1;
             }
           else
             {
-              /* Functonally the same as mbrtowc but (tested) slightly
-                 quicker. */
-              char_len = 1;
-              wc = btowc (*p);
+              /* Set wc and next_len */
+              if (!PRINTABLE_ASCII(*q))
+                {
+                  next_len = mbrtowc (&wc, q, len, NULL);
+                }
+              else
+                {
+                  /* Functionally the same as mbrtowc but (tested) slightly
+                     quicker. */
+                  next_len = 1;
+                  wc = btowc (*q);
+                }
+
+              if ((long) next_len == 0)
+                break; /* Null character. Shouldn't happen. */
+              else if ((long) next_len < 0)
+                {
+                  q++; len--; /* Invalid.  Just try to keep going. */
+                  continue;
+                }
+
+             /* Note: width == 0 includes accent characters which should not
+                properly increase the column count.  This is not what the pure
+                Perl code does, though. */
+              width = wcwidth (wc);
+              if (width == 1 || width == 0)
+                next_type = type_regular;
+              else if (width == 2)
+                {
+                  next_type = type_double_width;
+                  wc_fw = wc; /* final value is used below */
+                }
+              else
+                next_type = type_unknown;
             }
 
-          if ((long) char_len == 0)
-            break; /* Null character. Shouldn't happen. */
-          else if ((long) char_len < 0)
-            {
-              p++; len--; /* Invalid.  Just try to keep going. */
-              continue;
-            }
+          /* TODO: test just one character at a time to start.  then
+             we can gradually work on the various blocks of
+             code to operate on multiple characters. */
+          if (1 || next_type != type || next_type == type_finished)
+            break;
 
-         /* Note: width == 0 includes accent characters which should not
-            properly increase the column count.  This is not what the pure
-            Perl code does, though. */
-          width = wcwidth (wc);
-          if (width == 1 || width == 0)
-            type = type_regular;
-          else if (width == 2)
-            type = type_double_width;
-          else
-            type = type_unknown;
+          q += next_len; len -= next_len;
         }
 
+      /* For the very start of the string. */
+      if (type == type_NULL)
+        continue;
+
+      /* Now type is the type of the block we are about to operate on, and
+         next_type the one after it.  p is the beginning of the span and q
+         is the end. */
+
+      if (type == type_finished)
+        break;
       /*************** Whitespace character. *********************/
       if (type == type_spaces)
         {
@@ -1055,23 +1102,21 @@ xspara_add_text (char *text, int len)
               xspara__end_line ();
               text_append (&result, "\n");
             }
-          p++; len--;
           state.last_letter = ' ';
-          continue;
         }
 
       /*************** Double width character. *********************/
-      if (type == type_double_width)
+      else if (type == type_double_width)
         {
           if (debug)
             fprintf (stderr, "FULLWIDTH\n");
 
-          text_append_n (&state.word, p, char_len);
+          text_append_n (&state.word, p, q - p);
           state.word_counter += 2;
 
           /* fullwidth latin letters can be upper case, so it is important to
              use the actual characters here. */
-          state.last_letter = wc;
+          state.last_letter = wc_fw;
 
           /* We allow a line break in between Chinese characters even if
              there was no space between them, unlike single-width
@@ -1090,20 +1135,18 @@ xspara_add_text (char *text, int len)
             }
           state.end_sentence = -2;
         }
-      else if (wc == L'\b')
+      else if (type == type_EOS)
         {
-          /* Code to say that a following full stop (or question or
-             exclamation mark) may be an end of sentence. */
           xspara_allow_end_sentence ();
         }
       /*************** Word character ******************************/
       else if (type == type_regular)
         {
           static char added_word[8]; /* long enough for one UTF-8 character */
-          memcpy (added_word, p, char_len);
-          added_word[char_len] = '\0';
+          memcpy (added_word, p, q - p);
+          added_word[q - p] = '\0';
 
-          xspara__add_next (&result, added_word, char_len, 0);
+          xspara__add_next (&result, added_word, q - p, 0);
 
           /* Now check if it is considered as an end of sentence, and
              set state.end_sentence if it is. */
@@ -1142,9 +1185,10 @@ xspara_add_text (char *text, int len)
           /* Not printable, possibly a tab, or a combining character.
              Add it to the pending word without increasing the column
              count. */
-          text_append_n (&state.word, p, char_len);
+          text_append_n (&state.word, p, q - p);
         }
-      p += char_len; len -= char_len;
+
+      p = q;
     }
 
   return result;
