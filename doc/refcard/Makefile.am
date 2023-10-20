@@ -26,9 +26,9 @@ $(doc).pdf: $(srcdir)/$(doc).tex
 	ps2pdf $(doc).ps
 
 $(doc)-a4.pdf: $(srcdir)/$(doc).tex
-	tex '\nonstopmode \let\afour=1 \input $(srcdir)/$(doc)'
-	dvips -t landscape -t a4 $(doc) -o
-	ps2pdf $(doc).ps $@
+	tex -jobname=$(doc)-a4 '\nonstopmode \let\afour=1 \input $(srcdir)/$(doc)'
+	dvips -t landscape -t a4 $(doc)-a4 -o
+	ps2pdf $(doc)-a4.ps $@
 
 ccheck:
 	./txicmdcheck $(txi_check_args)
