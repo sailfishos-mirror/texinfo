@@ -1,5 +1,15 @@
 2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_file_id_setting_special_unit_target_file_name)
+	(call_file_id_setting_label_target_name)
+	(call_file_id_setting_node_file_name)
+	(call_file_id_setting_sectioning_command_target_name)
+	(call_file_id_setting_unit_file_name):
+	Change G_LIST to G_ARRAY to build on older Perls.
+
+2023-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text) <delete END_SENTENCE>:
 	Do not set state.last_letter, as it also set by xspara__add_next
 	which was just called and it is confusing to have it set in two

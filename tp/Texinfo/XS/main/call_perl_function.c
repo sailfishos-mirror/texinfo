@@ -130,7 +130,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (default_filename, 0)));
           PUTBACK;
 
-          count = call_sv (*special_unit_target_file_name_sv, G_LIST);
+          count = call_sv (*special_unit_target_file_name_sv, G_ARRAY);
 
           SPAGAIN;
 
@@ -211,7 +211,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (target, 0)));
           PUTBACK;
 
-          count = call_sv (*label_target_name_sv, G_LIST);
+          count = call_sv (*label_target_name_sv, G_ARRAY);
 
           SPAGAIN;
 
@@ -281,7 +281,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (node_filename, 0)));
           PUTBACK;
 
-          count = call_sv (*node_file_name_sv, G_LIST);
+          count = call_sv (*node_file_name_sv, G_ARRAY);
 
           SPAGAIN;
 
@@ -367,7 +367,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (filename, 0)));
           PUTBACK;
 
-          count = call_sv (*sectioning_command_target_name_sv, G_LIST);
+          count = call_sv (*sectioning_command_target_name_sv, G_ARRAY);
 
           SPAGAIN;
 
@@ -446,7 +446,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self, OUTPUT_UNIT *output_unit,
           PUSHs(sv_2mortal (newSVpv (filepath, 0)));
           PUTBACK;
 
-          count = call_sv (*unit_file_name_sv, G_LIST);
+          count = call_sv (*unit_file_name_sv, G_ARRAY);
 
           SPAGAIN;
 
