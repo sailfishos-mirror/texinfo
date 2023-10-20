@@ -170,8 +170,10 @@ set_global_document_commands (CONVERTER *converter,
               if (option_value->type == GO_int)
                 *(option_ref->int_ref) = option_value->int_value;
               else
-                *(option_ref->char_ref) = option_value->char_value;
-
+                {
+                  free (*(option_ref->char_ref));
+                  *(option_ref->char_ref) = option_value->char_value;
+                }
               free (option_ref);
               free (option_value);
             }
@@ -202,7 +204,10 @@ set_global_document_commands (CONVERTER *converter,
                   if (option_value->type == GO_int)
                     *(option_ref->int_ref) = option_value->int_value;
                   else
-                    *(option_ref->char_ref) = option_value->char_value;
+                    {
+                      free (*(option_ref->char_ref));
+                      *(option_ref->char_ref) = option_value->char_value;
+                    }
 
                   free (option_ref);
                   free (option_value);

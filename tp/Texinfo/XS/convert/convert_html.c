@@ -274,6 +274,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           translation_result = html_convert_css_string (self, translated_tree);
             */
         }
+      if (no_arg_command_context->text)
+        free (no_arg_command_context->text);
       no_arg_command_context->text = translation_result;
     }
 }
@@ -405,6 +407,8 @@ translate_names (CONVERTER *self)
           enum command_id cmd = translated_cmds[j];
           complete_no_arg_commands_formatting (self, cmd, 1);
         }
+
+      free (translated_cmds);
     }
 
   if (self->conf->DEBUG > 0)
@@ -1392,7 +1396,7 @@ prepare_index_entries_targets (CONVERTER *self)
                   ELEMENT *subentries_tree;
                   ELEMENT *target_element;
                   TEXT target_base;
-                  char *normalized_index = "";
+                  char *normalized_index;
                   char *region = 0;
                   char *target;
 
@@ -1438,6 +1442,7 @@ prepare_index_entries_targets (CONVERTER *self)
                       text_append (&target_base, "-");
                     }
                   text_append (&target_base, normalized_index);
+                  free (normalized_index);
                   target = unique_target (self, target_base.text);
                   free (target_base.text);
                   if (index_entry->entry_associated_element)
@@ -1450,6 +1455,7 @@ prepare_index_entries_targets (CONVERTER *self)
                 }
             }
         }
+      free (sorted_index_names);
     }
 }
 
