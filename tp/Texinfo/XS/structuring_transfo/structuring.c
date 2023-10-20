@@ -328,6 +328,7 @@ sectioning_structure (DOCUMENT *document)
                   char *appendix_nr = enumerate_item_representation ("A",
                                             command_numbers[number_top_level]);
                   text_append_n (&section_number, appendix_nr, 1);
+                  free (appendix_nr);
                 }
               for (i = number_top_level+1; i <= level; i++)
                 {

@@ -213,13 +213,18 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           HTML_COMMAND_CONVERSION *no_arg_ref
             = conversion_contexts[ref_context];
 
+          /* TODO memory leaks possible for the other char * fields */
+
           if (no_arg_ref->text)
             no_arg_command_context->text = no_arg_ref->text;
           if (no_arg_ref->tree)
             no_arg_command_context->tree = no_arg_ref->tree;
           if (no_arg_ref->translated_converted)
-            no_arg_command_context->translated_converted
-              = no_arg_ref->translated_converted;
+            {
+              free (no_arg_command_context->translated_converted);
+              no_arg_command_context->translated_converted
+                = strdup (no_arg_ref->translated_converted);
+            }
           if (no_arg_ref->translated_to_convert)
             no_arg_command_context->translated_to_convert
               = no_arg_ref->translated_to_convert;
@@ -667,10 +672,14 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
       int i;
       for (i = 0; i < 2; i++)
         {
+          int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
           COMMAND_OPTION_REF *contents_option_ref
              = get_command_option (self->conf, cmd);
           if (*(contents_option_ref->int_ref) > 0)
+            contents_set = 1;
+          free (contents_option_ref);
+          if (contents_set)
             {
               int j;
               char *special_unit_variety = 0;
@@ -741,7 +750,6 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                                            special_output_unit);
                 }
             }
-          free (contents_option_ref);
         }
     }
 
