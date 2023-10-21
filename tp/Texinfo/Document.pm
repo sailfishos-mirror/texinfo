@@ -44,7 +44,7 @@ sub import {
   goto &Exporter::import;
 }
 
-our $VERSION = '7.0dev';
+our $VERSION = '7.1';
 
 sub register
 {
