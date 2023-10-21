@@ -1,5 +1,15 @@
 2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Handle blocks of word characters in XS paragraph formatter
+
+	* tp/Texinfo/XS/xspara.c (xspara__add_next): Allow for 'word'
+	argument not to be null-terminated.
+	(xspara__add_text): Call xspara__add_next with block of word
+	characters, rather than one at a time.  This has a minor performance
+	benefit and matches the Perl code better.
+
+2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_next, add_text):
 	Add FIXME comment saying to make the code more like the XS code
 	in handling of \x08 control characters.

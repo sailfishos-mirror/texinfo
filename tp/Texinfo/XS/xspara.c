@@ -735,7 +735,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
         }
     }
 
-  if (strchr (word, '\n'))
+  if (memchr (word, '\n', word_len))
     {
       /* If there was a newline in the word we just added, put the entire
          pending ouput in the results string, and start a new line. */
@@ -975,7 +975,8 @@ xspara_add_text (char *text, int len)
           /* TODO: test just one character at a time to start.  then
              we can gradually work on the various blocks of
              code to operate on multiple characters. */
-          if (1 || next_type != type || next_type == type_finished)
+          if ((type != type_regular)
+              || next_type != type || next_type == type_finished)
             break;
 
           q += next_len; len -= next_len;
@@ -1130,42 +1131,43 @@ xspara_add_text (char *text, int len)
       /*************** Word character ******************************/
       else if (type == type_regular)
         {
-          static char added_word[8]; /* long enough for one UTF-8 character */
-          memcpy (added_word, p, q - p);
-          added_word[q - p] = '\0';
+          xspara__add_next (&result, p, q - p, 0);
 
-          xspara__add_next (&result, added_word, q - p, 0);
-
-          /* Now check if it is considered as an end of sentence, and
-             set state.end_sentence if it is. */
-
-          if (strchr (end_sentence_characters, *p) && !state.unfilled)
+          /* Now check for an end of sentence.  We can iterate backwards
+             by bytes as all the end-sentence characters or punctuation are
+             ASCII. */
+          char *q2 = q;
+          while (q2 > p)
             {
-              /* Doesn't count if preceded by an upper-case letter. */
-              if (!iswupper (state.last_letter))
+              q2--;
+              if (strchr (end_sentence_characters, *q2) && !state.unfilled)
                 {
-                  if (state.french_spacing)
-                    state.end_sentence = -1;
-                  else
-                    state.end_sentence = 1;
-                  if (debug)
-                    fprintf (stderr, "END_SENTENCE\n");
+                  /* Doesn't count if preceded by an upper-case letter. */
+                  if (!iswupper (state.last_letter))
+                    {
+                      if (state.french_spacing)
+                        state.end_sentence = -1;
+                      else
+                        state.end_sentence = 1;
+                      if (debug)
+                        fprintf (stderr, "END_SENTENCE\n");
+                      break;
+                    }
                 }
-            }
-          else if (strchr (after_punctuation_characters, *p))
-            {
-              /* '"', '\'', ']' and ')' are ignored for the purpose
-               of deciding whether a full stop ends a sentence. */
-            }
-          else
-            {
-              /* Otherwise reset the end of sentence marker: a full stop in
-                 a string like "aaaa.bbbb" doesn't mark an end of
-                 sentence. */
-              if (debug && state.end_sentence != -2)
-                fprintf (stderr, "delete END_SENTENCE(%d)\n",
-                                  state.end_sentence);
-              state.end_sentence = -2;
+              else if (strchr (after_punctuation_characters, *q2))
+                {
+                  /* These characters are ignored when checking for the end
+                     of a sentence. */
+                }
+              else
+                {
+                  /* Not at the end of a sentence. */
+                  if (debug && state.end_sentence != -2)
+                    fprintf (stderr, "delete END_SENTENCE(%d)\n",
+                                      state.end_sentence);
+                  state.end_sentence = -2;
+                  break;
+                }
             }
         }
       else if (type == type_unknown)
