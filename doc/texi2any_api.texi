@@ -4303,9 +4303,6 @@ HTML cross manual references (@pxref{HTML Xref,,, texinfo, Texinfo}).
 Returns the content of the node redirection file.
 @end deftypefn
 
-@c NOTE format_frame_files is not documented, we do not want users to use/set this
-@c we want frames to disappear
-
 
 @node Specific Functions for Specific Elements
 @appendix Specific Functions for Specific Elements

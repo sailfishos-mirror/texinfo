@@ -1943,9 +1943,6 @@ my %defaults = (
   'XREF_USE_FLOAT_LABEL'   => 0,
   'xrefautomaticsectiontitle' => 'on',
 
-  # obsolete
-  'FRAMESET_DOCTYPE'      => '<!DOCTYPE html>',
-
   # Non-string customization variables
   # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS
   # or USE_NODES if USE_NODE_DIRECTIONS is undefined
@@ -1965,11 +1962,6 @@ my %defaults = (
                              ' ', 'Contents', 'Index'],
   'ACTIVE_ICONS'         => undef,
   'PASSIVE_ICONS'        => undef,
-  # obsolete
-  'frame_pages_file_string' => {
-                              'Frame' => '_frame',
-                              'Toc_Frame' => '_toc_frame',
-                              },
 
 );
 
@@ -7512,7 +7504,6 @@ foreach my $customized_reference ('external_target_split_name',
      'format_element_header' => \&_default_format_element_header,
      'format_element_footer' => \&_default_format_element_footer,
      'format_end_file' => \&_default_format_end_file,
-     'format_frame_files' => \&_default_format_frame_files,
      'format_footnotes_segment' => \&_default_format_footnotes_segment,
      'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
      'format_heading_text' => \&_default_format_heading_text,
@@ -9332,8 +9323,6 @@ sub _prepare_units_directions_files($$$$$$$$)
   # Here such that PrevFile and NextFile can be set.
   Texinfo::Structuring::units_file_directions($output_units);
 
-  $self->_prepare_frames_filenames($document_name);
-
   # elements_in_file_count is only set in HTML, not in
   # Texinfo::Convert::Converter
   $self->{'elements_in_file_count'} = {};
@@ -9699,29 +9688,6 @@ sub _prepare_output_units_global_targets($$$$)
         $self->{'global_units_directions'}->{$special_unit_direction}
          = $special_unit;
       }
-    }
-  }
-}
-
-sub _prepare_frames_filenames($$)
-{
-  my $self = shift;
-  my $document_name = shift;
-
-  if ($self->get_conf('FRAMES')) {
-
-    my $extension = '';
-    $extension = $self->get_conf('EXTENSION')
-      if (defined($self->get_conf('EXTENSION')));
-
-    $self->{'frame_pages_filenames'} = {};
-    foreach my $frame_type (keys(%{$self->{'frame_pages_file_string'}})) {
-      my $filename;
-      $filename = $document_name.
-        $self->{'frame_pages_file_string'}->{$frame_type};
-      $filename .= '.'.$extension if (defined($extension));
-
-      $self->{'frame_pages_filenames'}->{$frame_type} = $filename;
     }
   }
 }
@@ -10916,111 +10882,6 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
 }
 
-# FIXME the file opening should be done in main program, only
-# the formatting should be done in customization function.  Frames
-# are deprecated in HTML, however, and therefore there is no point
-# in investing time in better code to produce them.
-sub _default_format_frame_files($$)
-{
-  my $self = shift;
-  my $destination_directory = shift;
-
-  my $frame_file = $self->{'frame_pages_filenames'}->{'Frame'};
-  my $frame_outfile;
-  if (defined($destination_directory) and $destination_directory ne '') {
-    $frame_outfile = File::Spec->catfile($destination_directory,
-                                         $frame_file);
-  } else {
-    $frame_outfile = $frame_file;
-  }
-
-  my $toc_frame_file = $self->{'frame_pages_filenames'}->{'Toc_Frame'};
-  my $toc_frame_outfile;
-  if (defined($destination_directory) and $destination_directory ne '') {
-    $toc_frame_outfile = File::Spec->catfile($destination_directory,
-                                             $toc_frame_file);
-  } else {
-    $toc_frame_outfile = $toc_frame_file;
-  }
-  # sequence of bytes
-  my ($frame_file_path, $frame_path_encoding)
-     = $self->encoded_output_file_name($frame_outfile);
-  my ($frame_fh, $error_message_frame) = Texinfo::Common::output_files_open_out(
-                     $self->output_files_information(), $self, $frame_file_path);
-  if (defined($frame_fh)) {
-    my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
-    my $root_html_element_attributes = $self->_root_html_element_attributes_string();
-    my $top_file = '';
-    my $top_element = $self->global_direction_unit('Top');
-    if ($top_element) {
-      $top_file = $top_element->{'unit_filename'};
-    }
-    my $title = $self->{'title_string'};
-    print $frame_fh <<EOT;
-$doctype
-<html${root_html_element_attributes}>
-<head><title>$title</title></head>
-<frameset cols="140,*">
-  <frame name="toc" src="$toc_frame_file">
-  <frame name="main" src="$top_file">
-</frameset>
-</html>
-EOT
-
-    Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $frame_file_path);
-    if (!close ($frame_fh)) {
-      $self->document_error($self,
-          sprintf(__("error on closing frame file %s: %s"),
-                                    $frame_outfile, $!));
-      return 0;
-    }
-  } else {
-    $self->document_error($self,
-           sprintf(__("could not open %s for writing: %s"),
-                                  $frame_outfile, $error_message_frame));
-    return 0;
-  }
-  # sequence of bytes
-  my ($toc_frame_path, $toc_frame_path_encoding)
-       = $self->encoded_output_file_name($toc_frame_outfile);
-  my ($toc_frame_fh, $toc_frame_error_message)
-           = Texinfo::Common::output_files_open_out(
-                               $self->output_files_information(), $self,
-                               $toc_frame_path);
-  if (defined($toc_frame_fh)) {
-
-    # this is needed to collect CSS rules.
-    $self->{'current_filename'} = $toc_frame_file;
-    my $shortcontents =
-      &{$self->formatting_function('format_contents')}($self, 'shortcontents');
-    $shortcontents =~ s/\bhref=/target="main" href=/g;
-    my $header = &{$self->formatting_function('format_begin_file')}($self,
-                                                        $toc_frame_file, undef);
-    print $toc_frame_fh $header;
-    print $toc_frame_fh '<h2>Content</h2>'."\n";
-    print $toc_frame_fh $shortcontents;
-    print $toc_frame_fh "</body></html>\n";
-
-    $self->{'current_filename'} = undef;
-
-    Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $toc_frame_path);
-    if (!close ($toc_frame_fh)) {
-      $self->document_error($self,
-            sprintf(__("error on closing TOC frame file %s: %s"),
-                                    $toc_frame_outfile, $!));
-      return 0;
-    }
-  } else {
-    $self->document_error($self,
-           sprintf(__("could not open %s for writing: %s"),
-                   $toc_frame_outfile, $toc_frame_error_message));
-    return 0;
-  }
-  return 1;
-}
-
 sub _has_contents_or_shortcontents($)
 {
   my $self = shift;
@@ -11355,13 +11216,9 @@ sub output($$)
            or $self->get_conf('OUTFILE') eq '')) {
     $self->force_conf('SPLIT', '');
     $self->force_conf('MONOLITHIC', 1);
-    $self->force_conf('FRAMES', 0);
   }
   if ($self->get_conf('SPLIT')) {
     $self->set_conf('NODE_FILES', 1);
-  }
-  if ($self->get_conf('FRAMES')) {
-    $self->set_conf('shortcontents', 1);
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 
@@ -11603,12 +11460,6 @@ sub output($$)
   my $init_status = $self->run_stage_handlers($root, 'init');
   return undef unless ($init_status < $handler_fatal_error_level
                        and $init_status > -$handler_fatal_error_level);
-
-  if ($self->get_conf('FRAMES')) {
-    my $status = &{$self->formatting_function('format_frame_files')}($self,
-                                                      $destination_directory);
-    return undef if (!$status);
-  }
 
   # determine first file name
   if (!$output_units

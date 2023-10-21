@@ -15677,14 +15677,6 @@ Header formatting level used for the footnotes header with
 the `separate' footnotestyle; default @samp{4}.  @xref{Footnote
 Styles}.
 
-@item FRAMES
-If set, a file describing the frame layout is generated,
-together with a file with the short table of contents; default false.
-
-@item FRAMESET_DOCTYPE
-Same as DOCTYPE, but for the file containing the frame
-description.
-
 @item HEADER_IN_TABLE
 Use tables for header formatting rather than a simple
 @code{<div>} element; default false.
@@ -16780,11 +16772,11 @@ corresponding @command{texi2any} customization variables.
 @item @option{--use-nodes}            @tab @code{USE_NODES}
 @item @option{--monolithic}           @tab @code{MONOLITHIC}
 @item @option{--top-file}             @tab @code{TOP_FILE}
-@item @option{--frames}               @tab @code{FRAMES}
+@item @option{--frames}               @tab no equivalent
 @item @option{--menu}                 @tab @code{FORMAT_MENU}
 @item @option{--debug}                @tab @code{DEBUG}
 @item @option{--doctype}              @tab @code{DOCTYPE}
-@item @option{--frameset-doctype}     @tab @code{FRAMESET_DOCTYPE}
+@item @option{--frameset-doctype}     @tab no equivalent
 @item @option{--test}                 @tab @code{TEST}
 @end multitable
 

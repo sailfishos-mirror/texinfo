@@ -232,8 +232,6 @@ EXTERNAL_DIR                       converter_customization undef   char *
 EXTRA_HEAD                         converter_customization undef   char *
 FOOTNOTE_END_HEADER_LEVEL          converter_customization undef   int
 FOOTNOTE_SEPARATE_HEADER_LEVEL     converter_customization undef   int
-FRAMES                             converter_customization undef   int
-FRAMESET_DOCTYPE                   converter_customization undef   char *
 HEADER_IN_TABLE                    converter_customization undef   int
 # for ext/highlight_syntax.pm
 HIGHLIGHT_SYNTAX                   converter_customization undef   char *

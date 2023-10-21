@@ -1,5 +1,17 @@
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	Remove HTML frames output, FRAMES and FRAMESET_DOCTYPE customization options
+
+	* NEWS, doc/texinfo.texi (HTML Customization Variables)
+	(@command{texi2html}), tp/Texinfo/Convert/HTML.pm (%defaults),
+	(_prepare_units_directions_files, output),
+	tp/Texinfo/options_data.txt, tp/init/html32.pm, tp/t/html_tests.t
+	(sectioning_frames): remove FRAMES and FRAMESET_DOCTYPE customization
+	options, and frames output related code, mainly
+	_prepare_frames_filenames and _default_format_frame_files.
+
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.h (FILE_SOURCE_INFO,
 	FILE_SOURCE_INFO_LIST), tp/Texinfo/XS/convert/convert_html.h: move to 
 	utils.h from convert_html.h.
