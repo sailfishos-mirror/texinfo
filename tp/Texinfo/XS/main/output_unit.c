@@ -506,12 +506,15 @@ units_directions (OPTIONS *customization_information,
           ELEMENT *menu_child = first_menu_node(node, identifiers_target);
           enum directions d;
           node_directions = lookup_extra_element (node, "node_directions");
-          for (d = 0; d < directions_length; d++)
+          if (node_directions)
             {
-              ELEMENT *node_direction = node_directions->contents.list[d];
-              if (node_direction)
-                directions[node_unit_directions[d]]
-                  = label_target_unit_element (node_direction);
+              for (d = 0; d < directions_length; d++)
+                {
+                  ELEMENT *node_direction = node_directions->contents.list[d];
+                  if (node_direction)
+                    directions[node_unit_directions[d]]
+                      = label_target_unit_element (node_direction);
+                }
             }
      /*  Now do NodeForward which is something like the following node. */
           if (menu_child)
@@ -524,7 +527,7 @@ units_directions (OPTIONS *customization_information,
               int automatic_directions = (node->args.number <= 1);
               ELEMENT *associated_section = lookup_extra_element (node,
                                                    "associated_section");
-              ELEMENT *section_childs;
+              ELEMENT *section_childs = 0;
               if (associated_section)
                 section_childs = lookup_extra_element (associated_section,
                                                          "section_childs");
@@ -534,11 +537,12 @@ units_directions (OPTIONS *customization_information,
                   directions[RUD_type_NodeForward]
                    = section_childs->contents.list[0]->associated_unit;
                 }
-              else if (node_directions->contents.list[D_next])
+              else if (node_directions
+                       && node_directions->contents.list[D_next])
                directions[RUD_type_NodeForward]
                  = label_target_unit_element(
                          node_directions->contents.list[D_next]);
-              else if (node_directions->contents.list[D_up])
+              else if (node_directions && node_directions->contents.list[D_up])
                 {
                   ELEMENT *up = node_directions->contents.list[D_up];
                   ELEMENT *up_list = new_element (ET_NONE);
@@ -559,7 +563,8 @@ units_directions (OPTIONS *customization_information,
 
                       up_node_directions = lookup_extra_element (up,
                                                    "node_directions");
-                      if (up_node_directions->contents.list[D_next])
+                      if (up_node_directions
+                          && up_node_directions->contents.list[D_next])
                         {
                            directions[RUD_type_NodeForward]
                              = label_target_unit_element(
@@ -567,7 +572,8 @@ units_directions (OPTIONS *customization_information,
                            break;
                         }
                       add_to_contents_as_array (up_list, up);
-                      if (up_node_directions->contents.list[D_up])
+                      if (up_node_directions
+                          && up_node_directions->contents.list[D_up])
                         up = up_node_directions->contents.list[D_up];
                       else
                         break;
@@ -625,23 +631,26 @@ units_directions (OPTIONS *customization_information,
           enum directions d;
           ELEMENT *section_directions = lookup_extra_element (section,
                                                    "section_directions");
-          for (d = 0; d < directions_length; d++)
+          if (section_directions)
             {
-        /* in most cases $section->{'extra'}->{'section_directions'}
-                   ->{$direction->[1]}
-                          ->{'associated_unit'} is defined
-          but it may not be the case for the up of @top.
-          The section may be its own up in cases like
-           @part part
-           @chapter chapter
-          in that cas the direction is not set up */
-              if (section_directions->contents.list[d]
-                  && section_directions->contents.list[d]->associated_unit
-                  && (!section->associated_unit
-                      || section->associated_unit
-                  != section_directions->contents.list[d]->associated_unit))
-              directions[section_unit_directions[d]]
-                = section_directions->contents.list[d]->associated_unit;
+              for (d = 0; d < directions_length; d++)
+                {
+            /* in most cases $section->{'extra'}->{'section_directions'}
+                       ->{$direction->[1]}
+                              ->{'associated_unit'} is defined
+              but it may not be the case for the up of @top.
+              The section may be its own up in cases like
+               @part part
+               @chapter chapter
+             in that cas the direction is not set up */
+                  if (section_directions->contents.list[d]
+                      && section_directions->contents.list[d]->associated_unit
+                      && (!section->associated_unit
+                          || section->associated_unit
+                     != section_directions->contents.list[d]->associated_unit))
+                  directions[section_unit_directions[d]]
+                    = section_directions->contents.list[d]->associated_unit;
+                }
             }
 
      /* fastforward is the next element on same level than the upper parent
@@ -654,6 +663,7 @@ units_directions (OPTIONS *customization_information,
               ELEMENT *up_section_directions = lookup_extra_element (up,
                                                    "section_directions");
               if (status >= 0 && up_section_level > 1
+                  && up_section_directions
                   && up_section_directions->contents.list[D_up])
                 up = up_section_directions->contents.list[D_up];
               else
@@ -680,7 +690,8 @@ units_directions (OPTIONS *customization_information,
                 {
                   ELEMENT *up_section_directions = lookup_extra_element (up,
                                                    "section_directions");
-                  if (up_section_directions->contents.list[D_next])
+                  if (up_section_directions
+                      && up_section_directions->contents.list[D_next])
                     directions[RUD_type_FastForward]
                       = up_section_directions->contents.list[D_next]
                                                      ->associated_unit;

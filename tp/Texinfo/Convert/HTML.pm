@@ -9289,8 +9289,8 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
-  if (0 and $self->{'converter_descriptor'}) {
-  #if ($self->{'converter_descriptor'}) {
+  #if (0 and $self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
 

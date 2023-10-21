@@ -2174,6 +2174,8 @@ sub units_directions($$$)
                        ne $section->{'associated_unit'}));
       }
 
+      # fastforward is the next element on same level than the upper parent
+      # element.
       my $up = $section;
       while ($up->{'extra'}->{'section_level'} > 1
              and $up->{'extra'}->{'section_directions'}
@@ -2181,8 +2183,6 @@ sub units_directions($$$)
         $up = $up->{'extra'}->{'section_directions'}->{'up'};
       }
 
-      # fastforward is the next element on same level than the upper parent
-      # element.
       if ($up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
           and $up->{'extra'}->{'section_childs'}

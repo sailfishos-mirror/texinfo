@@ -1,5 +1,10 @@
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/output_unit.c (units_directions): verify that
+	directions lists exit before using them.  Initialize section_childs.
+
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (output_unit_texi)
 	(print_output_unit_directions), tp/Texinfo/XS/main/output_unit.c
 	(output_unit_texi, print_output_unit_directions): rename
