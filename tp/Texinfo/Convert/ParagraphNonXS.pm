@@ -186,9 +186,8 @@ my $end_sentence_characters = quotemeta('.?!');
 my $after_punctuation_characters = quotemeta('"\')]');
 
 # Add $WORD to paragraph, returning the text to be added to the paragraph.
-# Any end of sentence punctuation in $WORD that should be allowed to end a
-# sentence but which would otherwise be preceded by an upper-case letter should
-# instead by preceded by a backspace character.
+# FIXME: remove handling of \x08 control characters from add_next, doing it
+# in add_text instead (as is done in the corresponding XS code).
 sub add_next($;$$)
 {
   my $paragraph = shift;
@@ -301,6 +300,9 @@ sub set_space_protection($$;$$$$)
 # of $PARAGRAPH.  Any end of sentence punctuation in $TEXT that should be
 # allowed to end a sentence but which would otherwise be preceded by an
 # upper-case letter should instead by preceded by a backspace character.
+#
+# FIXME: remove handling of \x08 control characters from add_next, doing it
+# in add_text instead (as is done in the corresponding XS code).
 sub add_text($$)
 {
   my $paragraph = shift;

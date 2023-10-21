@@ -1,5 +1,11 @@
 2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_next, add_text):
+	Add FIXME comment saying to make the code more like the XS code
+	in handling of \x08 control characters.
+
+2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): Move a block
 	of code to make it clearer that the result of _protect_sentence_ends
 	is only passed to add_text, not add_next.
