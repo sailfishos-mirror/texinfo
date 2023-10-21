@@ -693,15 +693,8 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 {
   dTHX;
 
-  int disinhibit = 0;
   if (!word)
     return;
-
-  if (word_len >= 1 && word[word_len - 1] == '\b')
-    {
-      word[--word_len] = '\0';
-      disinhibit = 1;
-    }
 
   text_append_n (&state.word, word, word_len);
   if (word_len == 0 && word)
@@ -709,39 +702,34 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 
   if (!transparent)
     {
-      if (disinhibit)
-        state.last_letter = L'a'; /* a lower-case letter */
-      else
+      /* Save last character in WORD */
+      char *p = word + word_len;
+
+      while (p > word)
         {
-          /* Save last character in WORD */
-          char *p = word + word_len;
-
-          while (p > word)
+          int len = 0;
+          /* Back one UTF-8 code point */
+          do
             {
-              int len = 0;
-              /* Back one UTF-8 code point */
-              do
-                {
-                  p--;
-                  len++;
-                }
-              while ((*p & 0xC0) == 0x80 && p > word);
+              p--;
+              len++;
+            }
+          while ((*p & 0xC0) == 0x80 && p > word);
 
-              if (!strchr (end_sentence_characters
-                           after_punctuation_characters, *p))
+          if (!strchr (end_sentence_characters
+                       after_punctuation_characters, *p))
+            {
+              if (!PRINTABLE_ASCII(*p))
                 {
-                  if (!PRINTABLE_ASCII(*p))
-                    {
-                      wchar_t wc = L'\0';
-                      mbrtowc (&wc, p, len, NULL);
-                      state.last_letter = wc;
-                      break;
-                    }
-                  else
-                    {
-                      state.last_letter = btowc (*p);
-                      break;
-                    }
+                  wchar_t wc = L'\0';
+                  mbrtowc (&wc, p, len, NULL);
+                  state.last_letter = wc;
+                  break;
+                }
+              else
+                {
+                  state.last_letter = btowc (*p);
+                  break;
                 }
             }
         }
