@@ -1,4 +1,11 @@
-2023-10-19  Patrice Dumas  <pertusus@free.fr>
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): put
+	%filenames_paths with %files_source_info as 'file_info_path'.
+	Change order of code and conditions for a more logical code
+	and to avoid creating unused hashes, more like C code.
+
+2023-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
 	(reset_unset_no_arg_commands_formatting_context): free reset
@@ -10,7 +17,7 @@
 	* tp/Texinfo/XS/structuring_transfo/structuring.c
 	(sectioning_structure): free appendix_nr.
 
-2023-10-19  Patrice Dumas  <pertusus@free.fr>
+2023-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/tree.c (spare_element, reset_obstacks)
 	(new_element, destroy_element): comment out code related to
@@ -18,7 +25,7 @@
 	Avoiding memory leak with spare_element requires calling
 	reset_obstacks, which adds some complexity.
 
-2023-10-19  Patrice Dumas  <pertusus@free.fr>
+2023-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
 	(prepare_index_entries_targets): destroy normalize_index_element
@@ -66,7 +73,7 @@
 
 	* tp/Texinfo/XS/convert/convert_html.c
 	(reset_unset_no_arg_commands_formatting_context): free
-	no_arg_command_context->text be fore resetting.
+	no_arg_command_context->text before resetting.
 
 	* tp/Texinfo/XS/convert/convert_html.c (translate_names)
 	(prepare_index_entries_targets): free lists and normalized_index.

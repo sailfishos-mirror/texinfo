@@ -8907,7 +8907,6 @@ sub _html_set_pages_files($$$$$$$$$)
 
   $self->initialize_output_units_files();
 
-  my %filenames_paths;
   my @filenames_order;
   my %unit_file_name_paths;
   # associate a file to the source information leading to set the file
@@ -8921,14 +8920,14 @@ sub _html_set_pages_files($$$$$$$$$)
   # function.
   my %files_source_info = ();
   if (!$self->get_conf('SPLIT')) {
-    $filenames_paths{$output_filename} = $output_file;
     push @filenames_order, $output_filename;
     foreach my $output_unit (@$output_units) {
       $unit_file_name_paths{$output_unit} = $output_filename;
     }
     $files_source_info{$output_filename}
       = {'file_info_type' => 'special_file',
-         'file_info_name' => 'non_split'};
+         'file_info_name' => 'non_split',
+         'file_info_path' => $output_file};
   } else {
     # first determine the top node file name.
     my $node_top;
@@ -8940,12 +8939,12 @@ sub _html_set_pages_files($$$$$$$$$)
     if ($node_top and defined($top_node_filename)) {
       $node_top_output_unit = $node_top->{'associated_unit'};
       die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
-      $filenames_paths{$top_node_filename} = undef;
       push @filenames_order, $top_node_filename;
       $unit_file_name_paths{$node_top_output_unit} = $top_node_filename;
       $files_source_info{$top_node_filename}
          = {'file_info_type' => 'special_file',
-            'file_info_name' => 'Top'};
+            'file_info_name' => 'Top',
+            'file_info_path' => undef};
     }
     my $file_nr = 0;
     my $extension = '';
@@ -8972,25 +8971,32 @@ sub _html_set_pages_files($$$$$$$$$)
                             $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
-              my $file_source_info = {'file_info_type' => 'stand_in_file',
-                                      'file_info_name' => 'unknown_node'};
-              $files_source_info{$node_filename} = $file_source_info
-                unless ($files_source_info{$node_filename});
+
+              if (!exists($files_source_info{$node_filename})) {
+                push @filenames_order, $node_filename;
+                $files_source_info{$node_filename}
+                               = {'file_info_type' => 'stand_in_file',
+                                  'file_info_name' => 'unknown_node',
+                                  'file_info_path' => undef};
+              }
             } else {
               # Nodes with {'extra'}->{'is_target'} should always be in
               # 'identifiers_target', and thus in targets.  It is a bug otherwise.
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
-              my $file_source_info = {'file_info_type' => 'node',
-                                      'file_info_element' => $root_command};
-              $files_source_info{$node_filename} = $file_source_info
-                unless ($files_source_info{$node_filename}
-                        and $files_source_info{$node_filename}
-                              ->{'file_info_type'} ne 'stand_in_file');
+              if (not $files_source_info{$node_filename}
+                  or $files_source_info{$node_filename}
+                            ->{'file_info_type'} ne 'stand_in_file') {
+
+                push @filenames_order, $node_filename
+                  unless ($files_source_info{$node_filename});
+
+                $files_source_info{$node_filename}
+                                     = {'file_info_type' => 'node',
+                                        'file_info_element' => $root_command,
+                                        'file_info_path' => undef};
+              }
             }
-            push @filenames_order, $node_filename
-               unless exists($filenames_paths{$node_filename});
-            $filenames_paths{$node_filename} = undef;
             $unit_file_name_paths{$file_output_unit} = $node_filename;
             last;
           }
@@ -9001,52 +9007,59 @@ sub _html_set_pages_files($$$$$$$$$)
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
+              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
+
               # existing top_node_filename can happen, see
               # html_tests.t top_file_name_and_node_name_collision
               push @filenames_order, $top_node_filename
-                unless exists($filenames_paths{$top_node_filename});
-              $filenames_paths{$top_node_filename} = undef;
-              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
+                unless exists($files_source_info{$top_node_filename});
+
               $files_source_info{$top_node_filename}
                   = {'file_info_type' => 'special_file',
-                     'file_info_name' => 'Top'};
+                     'file_info_name' => 'Top',
+                     'file_info_path' => undef};
             } else {
               my $section_filename
                    = $self->{'targets'}->{$command}->{'section_filename'};
-              push @filenames_order, $section_filename
-                unless exists($filenames_paths{$section_filename});
-              $filenames_paths{$section_filename} = undef;
               $unit_file_name_paths{$file_output_unit} = $section_filename;
-              $files_source_info{$section_filename}
-                = {'file_info_type' => 'section',
-                   'file_info_element' => $command}
-                 unless($files_source_info{$section_filename}
-                        and $files_source_info{$section_filename}
-                                ->{'file_info_type'} ne 'stand_in_file');
+
+              if (not $files_source_info{$section_filename}
+                  or $files_source_info{$section_filename}
+                                ->{'file_info_type'} ne 'stand_in_file') {
+
+                push @filenames_order, $section_filename
+                  unless exists($files_source_info{$section_filename});
+
+                $files_source_info{$section_filename}
+                  = {'file_info_type' => 'section',
+                     'file_info_element' => $command,
+                     'file_info_path' => undef};
+              }
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top
                 and defined($top_node_filename)) {
-              push @filenames_order, $top_node_filename
-                unless exists($filenames_paths{$top_node_filename});
-              $filenames_paths{$top_node_filename} = undef;
               $unit_file_name_paths{$file_output_unit} = $top_node_filename;
-              $files_source_info{$top_node_filename}
-                = {'file_info_type' => 'stand_in_file',
-                   'file_info_name' => 'Top'}
-                      unless($files_source_info{$top_node_filename});
+              unless ($files_source_info{$top_node_filename}) {
+                push @filenames_order, $top_node_filename;
+                $files_source_info{$top_node_filename}
+                  = {'file_info_type' => 'stand_in_file',
+                     'file_info_name' => 'Top',
+                     'file_info_path' => undef};
+              }
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              push @filenames_order, $filename
-                unless exists($filenames_paths{$filename});
-              $filenames_paths{$filename} = undef;
               $unit_file_name_paths{$file_output_unit} = $filename;
-              $files_source_info{$filename}
-                 = {'file_info_type' => 'stand_in_file',
-                    'file_info_name' => 'unknown'}
-                unless($files_source_info{$filename});
+
+              unless ($files_source_info{$filename}) {
+                push @filenames_order, $filename;
+                $files_source_info{$filename}
+                   = {'file_info_type' => 'stand_in_file',
+                      'file_info_name' => 'unknown',
+                      'file_info_path' => undef};
+              }
             }
             $file_nr++;
           }
@@ -9061,11 +9074,12 @@ sub _html_set_pages_files($$$$$$$$$)
 
   foreach my $output_unit (@$output_units) {
     my $filename = $unit_file_name_paths{$output_unit};
+    my $file_source_info = $files_source_info{$filename};
     # check
-    if (!$files_source_info{$filename}) {
+    if (!$file_source_info) {
       print STDERR "BUG: no files_source_info: $filename\n";
     }
-    my $filepath = $filenames_paths{$filename};
+    my $filepath = $file_source_info->{'file_info_path'};
     if (defined($self->{'file_id_setting'}->{'unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->unit_is_top_output_unit($output_unit);
@@ -9073,18 +9087,25 @@ sub _html_set_pages_files($$$$$$$$$)
          = &{$self->{'file_id_setting'}->{'unit_file_name'}}(
                $self, $output_unit, $filename, $filepath);
       if (defined($user_filename)) {
-        $filename = $user_filename;
-        if (defined($user_filepath) and defined($filenames_paths{$filename})
-            and $user_filepath ne $filenames_paths{$filename}) {
-          $self->document_warn($self,
-           sprintf(__("resetting %s file path %s to %s"),
-              $filename, $filenames_paths{$filename}, $user_filepath));
+        my $user_file_source_info;
+        if (defined($files_source_info{$user_filename})) {
+          $user_file_source_info = $files_source_info{$user_filename};
+          my $previous_filepath = $user_file_source_info->{'file_info_path'};
+          # TODO could warn if one of $previous_filepath or $user_filepath
+          # is undef and the other is not
+          if (defined($user_filepath) and defined($previous_filepath)
+              and $user_filepath ne $previous_filepath) {
+            $self->document_warn($self,
+             sprintf(__("resetting %s file path %s to %s"),
+              $user_filename, $previous_filepath, $user_filepath));
+          }
         }
+        $filename = $user_filename;
         push @filenames_order, $filename
-          unless exists($filenames_paths{$filename});
-        $filenames_paths{$filename} = $user_filepath;
+          unless $user_file_source_info;
         $files_source_info{$filename} = {'file_info_type' => 'special_file',
-                                         'file_info_name' => 'user_defined'};
+                                         'file_info_name' => 'user_defined',
+                                         'file_info_path' => $user_filepath};
       }
     }
     $self->set_output_unit_file($output_unit, $filename);
@@ -9113,8 +9134,7 @@ sub _html_set_pages_files($$$$$$$$$)
       }
       if (defined($filename)) {
         push @filenames_order, $filename
-          unless exists($filenames_paths{$filename});
-        $filenames_paths{$filename} = undef;
+          unless exists($files_source_info{$filename});
         $self->set_output_unit_file($special_unit, $filename);
         $self->{'file_counters'}->{$filename} = 0
            if (!exists($self->{'file_counters'}->{$filename}));
@@ -9124,9 +9144,9 @@ sub _html_set_pages_files($$$$$$$$$)
            #." $special_unit"
            .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
-        # FIXME use $unit_command here
         my $file_source_info = {'file_info_element' => $unit_command,
-                                'file_info_type' => 'special_unit'};
+                                'file_info_type' => 'special_unit',
+                                'file_info_path' => undef};
         $files_source_info{$filename} = $file_source_info
           unless($files_source_info{$filename}
                  and $files_source_info{$filename}->{'file_info_type'}
@@ -9137,7 +9157,7 @@ sub _html_set_pages_files($$$$$$$$$)
 
   foreach my $filename (@filenames_order) {
     $self->set_file_path($filename, $destination_directory,
-                         $filenames_paths{$filename});
+                         $files_source_info{$filename}->{'file_info_path'});
   }
 
   # to be able to associate to the output unit file the associated
@@ -11949,6 +11969,7 @@ sub output($$)
         $files_source_info{$redirection_filename}
           = {'file_info_type' => 'redirection',
              'file_info_element' => $target_element,
+             'file_info_path' => undef,
              'file_info_label_contents' => $label_contents};
         my $redirection_page
           = &{$self->formatting_function('format_node_redirection_page')}($self,

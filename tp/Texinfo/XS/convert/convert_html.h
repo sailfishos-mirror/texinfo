@@ -9,7 +9,7 @@ typedef struct FILE_SOURCE_INFO {
     char *type;
     char *name;
     ELEMENT *element;
-    char *path; /* filenames_paths in perl */
+    char *path;
 } FILE_SOURCE_INFO;
 
 typedef struct FILE_SOURCE_INFO_LIST {
