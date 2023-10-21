@@ -198,8 +198,10 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          FILE_SOURCE_INFO_LIST *files_source_info = 0;
          SV *files_source_info_sv;
          SV *global_units_directions_sv;
-         SV *file_counters_sv;
          SV *elements_in_file_count_sv;
+
+         SV *filenames_sv;
+         SV *file_counters_sv;
          SV *out_filepaths_sv;
    PPCODE:
          /* add warn string? */
@@ -232,16 +234,21 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          global_units_directions_sv
            = build_html_global_units_directions (self->global_units_directions,
                                           self->special_units_direction_name);
-         file_counters_sv = build_file_counters (self->output_unit_files);
          elements_in_file_count_sv
            = build_html_elements_in_file_count (self->output_unit_files);
+
+         /* file names API */
+         filenames_sv = build_filenames (self->output_unit_files);
+         file_counters_sv = build_file_counters (self->output_unit_files);
          out_filepaths_sv = build_out_filepaths (self->output_unit_files);
 
-         EXTEND(SP, 5);
+         EXTEND(SP, 6);
          PUSHs(sv_2mortal(files_source_info_sv));
          PUSHs(sv_2mortal(global_units_directions_sv));
-         PUSHs(sv_2mortal(file_counters_sv));
          PUSHs(sv_2mortal(elements_in_file_count_sv));
+
+         PUSHs(sv_2mortal(filenames_sv));
+         PUSHs(sv_2mortal(file_counters_sv));
          PUSHs(sv_2mortal(out_filepaths_sv));
 
 

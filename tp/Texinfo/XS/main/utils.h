@@ -281,6 +281,7 @@ typedef struct FILE_NAME_PATH {
 
 typedef struct FILE_NAME_PATH_COUNTER {
     char *filename;
+    char *normalized_filename;
     char *filepath;
     int counter;
     int elements_in_file_count; /* only used in HTML, corresponds to

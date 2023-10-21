@@ -9285,14 +9285,17 @@ sub _prepare_units_directions_files($$$$$$$$)
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
 
     my ($XS_files_source_info, $global_units_directions,
-        $file_counters, $elements_in_file_count, $out_filepaths)
+        $elements_in_file_count, $filenames,
+        $file_counters, $out_filepaths)
       = _XS_prepare_units_directions_files($encoded_converter,
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory, $output_filename,
            $encoded_document_name);
     $self->{'global_units_directions'} = $global_units_directions;
-    $self->{'file_counters'} = $file_counters;
     $self->{'elements_in_file_count'} = $elements_in_file_count;
+
+    $self->{'filenames'} = $filenames;
+    $self->{'file_counters'} = $file_counters;
     $self->{'out_filepaths'} = $out_filepaths;
 
     return %$XS_files_source_info;

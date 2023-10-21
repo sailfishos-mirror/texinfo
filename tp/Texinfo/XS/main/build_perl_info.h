@@ -38,8 +38,11 @@ void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
 SV *build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 SV *build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION **special_units_direction_name);
-SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_html_elements_in_file_count (
                    FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+
+SV *build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+
 #endif

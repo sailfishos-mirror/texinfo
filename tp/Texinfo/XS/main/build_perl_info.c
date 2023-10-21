@@ -1669,6 +1669,60 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
 }
 
 SV *
+build_html_elements_in_file_count (
+                 FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+
+          hv_store (hv, filename, strlen (filename),
+                    newSViv (output_unit_file->elements_in_file_count), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *normalized_filename = output_unit_file->normalized_filename;
+
+          hv_store (hv, normalized_filename, strlen (normalized_filename),
+                    newSVpv (output_unit_file->filename,
+                             strlen (output_unit_file->filename)), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
 build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
   int i;
@@ -1721,29 +1775,3 @@ build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
   return newRV_noinc ((SV *) hv);
 }
 
-SV *
-build_html_elements_in_file_count (
-                 FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          char *filename = output_unit_file->filename;
-
-          hv_store (hv, filename, strlen (filename),
-                    newSViv (output_unit_file->elements_in_file_count), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}

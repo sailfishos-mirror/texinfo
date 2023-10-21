@@ -374,14 +374,15 @@ find_output_unit_file (CONVERTER *self, char *filename)
   int i;
   for (i = 0; i < output_unit_files->number; i++)
     {
-      if (!strcmp (output_unit_files->list[i].filename, filename))
+      if (!strcmp (output_unit_files->list[i].normalized_filename, filename))
         return &output_unit_files->list[i];
     }
   return 0;
 }
 
 static FILE_NAME_PATH_COUNTER *
-add_output_units_file (CONVERTER *self, char *filename)
+add_output_units_file (CONVERTER *self, char *filename,
+                       char *normalized_filename)
 {
   FILE_NAME_PATH_COUNTER *new_output_unit_file;
   FILE_NAME_PATH_COUNTER_LIST *output_unit_files
@@ -398,6 +399,10 @@ add_output_units_file (CONVERTER *self, char *filename)
   new_output_unit_file = &output_unit_files->list[output_unit_files->number];
   memset (new_output_unit_file, 0, sizeof (FILE_NAME_PATH_COUNTER));
   new_output_unit_file->filename = strdup (filename);
+  if (normalized_filename)
+    new_output_unit_file->normalized_filename = strdup (normalized_filename);
+  else
+    new_output_unit_file->normalized_filename = strdup (filename);
 
   output_unit_files->number++;
 
@@ -427,7 +432,8 @@ register_normalize_case_filename (CONVERTER *self, char *filename)
         }
       else
         {
-          output_unit_file = add_output_units_file (self, lc_filename);
+          output_unit_file = add_output_units_file (self, filename,
+                                                    lc_filename);
           free (lc_filename);
         }
     }
@@ -443,7 +449,7 @@ register_normalize_case_filename (CONVERTER *self, char *filename)
             }
         }
       else
-        output_unit_file = add_output_units_file (self, filename);
+        output_unit_file = add_output_units_file (self, filename, 0);
     }
   return output_unit_file;
 }
