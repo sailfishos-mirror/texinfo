@@ -420,126 +420,6 @@ translate_names (CONVERTER *self)
     fprintf (stderr, "END TRANSLATE_NAMES\n\n");
 }
 
-/* Associate output units to the global targets, First, Last, Top, Index.
-   and special output units */
-static void
-prepare_output_units_global_targets (CONVERTER *self,
-                                     int output_units_descriptor,
-                                     int special_units_descriptor,
-                                     int associated_special_units_descriptor)
-{
-  int i;
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
-  ELEMENT *node_top = find_identifier_target
-                          (self->document->identifiers_target, "Top");
-  ELEMENT *section_top = self->document->global_commands->top;
-
-  int special_output_units_lists[2] = {special_units_descriptor,
-                                       associated_special_units_descriptor};
-
-  self->global_units_directions[D_First] = output_units->list[0];
-  self->global_units_directions[D_Last]
-    = output_units->list[output_units->number - 1];
-
-  if (section_top)
-    self->global_units_directions[D_Top] = section_top->associated_unit;
-  else if (node_top)
-    self->global_units_directions[D_Top] = node_top->associated_unit;
-  else
-    self->global_units_directions[D_Top] = output_units->list[0];
-
-  /* It is always the first printindex, even if it is not output (for example
-     it is in @copying and @titlepage, which are certainly wrong constructs).
-   */
-  if (self->document->global_commands->printindex.contents.number > 0)
-    {
-      ELEMENT *printindex
-        = self->document->global_commands->printindex.contents.list[0];
-      ROOT_AND_UNIT *root_unit
-        = html_get_tree_root_element (self, printindex, 0);
-      if (root_unit->output_unit)
-        {
-          OUTPUT_UNIT *document_unit = root_unit->output_unit;
-          ELEMENT *root_command = root_unit->root;
-          if (root_command && root_command->cmd == CM_node)
-            {
-              ELEMENT *associated_section
-                = lookup_extra_element (root_command, "associated_section");
-              if (associated_section)
-                root_command = associated_section;
-            }
-       /* find the first level 1 sectioning element to associate the printindex
-           with */
-          if (root_command && root_command->cmd != CM_node)
-            {
-              while (1)
-                {
-                  int status;
-                  int section_level
-                    = lookup_extra_integer (root_command, "section_level",
-                                                               &status);
-                  if (!status && section_level <= 1)
-                    break;
-
-                  ELEMENT *up_section_directions
-                    = lookup_extra_element (root_command, "section_directions");
-                  if (up_section_directions
-                      && up_section_directions->contents.list[D_up]
-                      && up_section_directions->contents.list[D_up]
-                                     ->associated_unit)
-                    {
-                      root_command = up_section_directions->contents.list[D_up];
-                      document_unit = root_command->associated_unit;
-                    }
-                  else
-                    break;
-                }
-              self->global_units_directions[D_Index] = document_unit;
-            }
-        }
-      free (root_unit);
-    }
-
-  if (self->conf->DEBUG >= 0 && self->conf->DEBUG)
-    {
-      int i;
-      fprintf (stderr, "GLOBAL DIRECTIONS:\n");
-      for (i = 0; i < D_Last+1; i++)
-        {
-          if (self->global_units_directions[i])
-            {
-              OUTPUT_UNIT *global_unit = self->global_units_directions[i];
-              char *unit_texi = output_unit_texi (global_unit);
-              fprintf (stderr, "%s: %s\n", output_unit_type_names[i],
-                                           unit_texi);
-              free (unit_texi);
-            }
-        }
-    }
-
-  for (i = 0; i < 2; i++)
-    {
-      int j;
-      int special_units_descriptor = special_output_units_lists[i];
-      OUTPUT_UNIT_LIST *units_list
-       = retrieve_output_units (special_units_descriptor);
-      if (units_list && units_list->number)
-        {
-          for (j = 0; j < units_list->number; j++)
-            {
-              OUTPUT_UNIT *special_unit = units_list->list[j];
-              char *special_unit_variety = special_unit->special_unit_variety;
-              int special_unit_direction_index
-                = special_unit_variety_direction_index (self,
-                                                special_unit_variety);
-              self->global_units_directions[special_unit_direction_index]
-                = special_unit;
-            }
-        }
-    }
-}
-
 typedef struct CMD_VARIETY {
     enum command_id cmd;
     char *variety;
@@ -1564,6 +1444,155 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   translate_names (self);
 }
 
+/* Associate output units to the global targets, First, Last, Top, Index.
+   and special output units */
+static void
+prepare_output_units_global_targets (CONVERTER *self,
+                                     int output_units_descriptor,
+                                     int special_units_descriptor,
+                                     int associated_special_units_descriptor)
+{
+  int i;
+  int all_special_units_nr = 0;
+  int s = 0;
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+  ELEMENT *node_top = find_identifier_target
+                          (self->document->identifiers_target, "Top");
+  ELEMENT *section_top = self->document->global_commands->top;
+
+  int special_output_units_lists[2] = {special_units_descriptor,
+                                       associated_special_units_descriptor};
+
+  self->global_units_directions[D_First] = output_units->list[0];
+  self->global_units_directions[D_Last]
+    = output_units->list[output_units->number - 1];
+
+  if (section_top)
+    self->global_units_directions[D_Top] = section_top->associated_unit;
+  else if (node_top)
+    self->global_units_directions[D_Top] = node_top->associated_unit;
+  else
+    self->global_units_directions[D_Top] = output_units->list[0];
+
+  /* It is always the first printindex, even if it is not output (for example
+     it is in @copying and @titlepage, which are certainly wrong constructs).
+   */
+  if (self->document->global_commands->printindex.contents.number > 0)
+    {
+      ELEMENT *printindex
+        = self->document->global_commands->printindex.contents.list[0];
+      ROOT_AND_UNIT *root_unit
+        = html_get_tree_root_element (self, printindex, 0);
+      if (root_unit->output_unit)
+        {
+          OUTPUT_UNIT *document_unit = root_unit->output_unit;
+          ELEMENT *root_command = root_unit->root;
+          if (root_command && root_command->cmd == CM_node)
+            {
+              ELEMENT *associated_section
+                = lookup_extra_element (root_command, "associated_section");
+              if (associated_section)
+                root_command = associated_section;
+            }
+       /* find the first level 1 sectioning element to associate the printindex
+           with */
+          if (root_command && root_command->cmd != CM_node)
+            {
+              while (1)
+                {
+                  int status;
+                  int section_level
+                    = lookup_extra_integer (root_command, "section_level",
+                                                               &status);
+                  if (!status && section_level <= 1)
+                    break;
+
+                  ELEMENT *up_section_directions
+                    = lookup_extra_element (root_command, "section_directions");
+                  if (up_section_directions
+                      && up_section_directions->contents.list[D_up]
+                      && up_section_directions->contents.list[D_up]
+                                     ->associated_unit)
+                    {
+                      root_command = up_section_directions->contents.list[D_up];
+                      document_unit = root_command->associated_unit;
+                    }
+                  else
+                    break;
+                }
+            }
+          self->global_units_directions[D_Index] = document_unit;
+        }
+      free (root_unit);
+    }
+
+  if (self->conf->DEBUG >= 0 && self->conf->DEBUG)
+    {
+      int i;
+      fprintf (stderr, "GLOBAL DIRECTIONS:\n");
+      for (i = 0; i < D_Last+1; i++)
+        {
+          if (self->global_units_directions[i])
+            {
+              OUTPUT_UNIT *global_unit = self->global_units_directions[i];
+              char *unit_texi = output_unit_texi (global_unit);
+              fprintf (stderr, " %s: %s\n", html_global_unit_direction_names[i],
+                                            unit_texi);
+              free (unit_texi);
+            }
+        }
+      fprintf (stderr, "\n");
+    }
+
+  /* determine total number of special output units and fill
+     special_units_directions_name_unit.  Used to simplify building perl
+     directions */
+  for (i = 0; i < 2; i++)
+    {
+      int special_units_descriptor = special_output_units_lists[i];
+      OUTPUT_UNIT_LIST *units_list
+       = retrieve_output_units (special_units_descriptor);
+      if (units_list && units_list->number)
+        all_special_units_nr += units_list->number;
+    }
+
+  self->special_units_direction_name = (SPECIAL_UNIT_DIRECTION **)
+   malloc (sizeof (SPECIAL_UNIT_DIRECTION *) * (all_special_units_nr+1));
+  memset (self->special_units_direction_name, 0,
+          sizeof (SPECIAL_UNIT_DIRECTION *) * (all_special_units_nr+1));
+
+  for (i = 0; i < 2; i++)
+    {
+      int j;
+      int special_units_descriptor = special_output_units_lists[i];
+      OUTPUT_UNIT_LIST *units_list
+       = retrieve_output_units (special_units_descriptor);
+      if (units_list && units_list->number)
+        {
+          for (j = 0; j < units_list->number; j++)
+            {
+              OUTPUT_UNIT *special_unit = units_list->list[j];
+              char *special_unit_variety = special_unit->special_unit_variety;
+              int special_unit_direction_index
+                = special_unit_variety_direction_index (self,
+                                                special_unit_variety);
+              self->global_units_directions[special_unit_direction_index]
+                = special_unit;
+
+              self->special_units_direction_name[s] =
+               (SPECIAL_UNIT_DIRECTION *)
+                malloc (sizeof (SPECIAL_UNIT_DIRECTION));
+              self->special_units_direction_name[s]->output_unit = special_unit;
+              self->special_units_direction_name[s]->direction
+                = special_unit_info (self, SUI_type_direction,
+                                           special_unit_variety);
+              s++;
+            }
+        }
+    }
+}
+
 static void
 set_file_source_info (FILE_SOURCE_INFO *file_source_info,
                           char *file_info_type, char *file_info_name,
@@ -2019,6 +2048,12 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                      destination_directory);
     }
 
+  /*
+   to be able to associate to the output unit file the associated
+   output units will be output into, this is done after document output
+   units got files.
+   In practice only used for contents and shortcontents.
+   */
   if (associated_special_units && associated_special_units->number > 0)
     {
       int i;

@@ -61,6 +61,12 @@ const char *output_unit_type_names[] = {"unit",
                                         "external_node_unit",
                                         "special_unit"};
 
+char *html_global_unit_direction_names[] = {
+  #define hgdt_name(name) #name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+};
+
 char *html_conversion_context_type_names[] = {
   #define cctx_type(name) #name,
     HCC_CONTEXT_TYPES_LIST

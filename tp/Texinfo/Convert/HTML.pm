@@ -9215,7 +9215,6 @@ sub _prepare_conversion_units($$$)
                         sort(keys(%contents_command_special_unit_variety));
   $self->set_global_document_commands('last', \@contents_elements_options);
 
-  #if (0 and $self->{'converter_descriptor'}) {
   if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
@@ -9289,17 +9288,23 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
-  #if (0 and $self->{'converter_descriptor'}) {
-  if ($self->{'converter_descriptor'}) {
+  if (0 and $self->{'converter_descriptor'}) {
+  #if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
 
-    my $XS_files_source_info
+    my ($XS_files_source_info, $global_units_directions,
+        $file_counters, $elements_in_file_count, $out_filepaths)
       = _XS_prepare_units_directions_files($encoded_converter,
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory, $output_filename,
            $encoded_document_name);
-    # FIXME return when the XS implementation is done
+    $self->{'global_units_directions'} = $global_units_directions;
+    $self->{'file_counters'} = $file_counters;
+    $self->{'elements_in_file_count'} = $elements_in_file_count;
+    $self->{'out_filepaths'} = $out_filepaths;
+
+    return %$XS_files_source_info;
   }
 
   $self->_prepare_output_units_global_targets($output_units, $special_units,
@@ -9317,13 +9322,13 @@ sub _prepare_units_directions_files($$$$$$$$)
                     $destination_directory, $output_filename, $document_name);
   }
 
-  # do tree units directions.
+  # do output units directions.
   Texinfo::Structuring::units_directions($self,
                                 $self->{'identifiers_target'}, $output_units);
 
   _prepare_special_units_directions($self, $special_units);
 
-  # do element directions related to files.
+  # do output units directions related to files.
   # Here such that PrevFile and NextFile can be set.
   Texinfo::Structuring::units_file_directions($output_units);
 
@@ -9676,12 +9681,13 @@ sub _prepare_output_units_global_targets($$$$)
     foreach my $global_direction (@global_directions) {
       if (defined($self->global_direction_unit($global_direction))) {
         my $global_unit = $self->global_direction_unit($global_direction);
-        print STDERR "$global_direction"
+        print STDERR " $global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
      .': '. Texinfo::Structuring::output_unit_texi($global_unit)."\n";
       }
     }
+    print STDERR "\n";
   }
 
   foreach my $units_list ($special_units, $associated_special_units) {

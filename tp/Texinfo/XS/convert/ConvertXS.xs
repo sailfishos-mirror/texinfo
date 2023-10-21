@@ -184,7 +184,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          PUSHs(sv_2mortal(special_targets_sv));
          PUSHs(sv_2mortal(seen_ids_sv));
 
-SV *
+void
 html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
          char *output_file = (char *)SvPVbyte_nolen($arg);
          char *destination_directory = (char *)SvPVbyte_nolen($arg);
@@ -196,7 +196,12 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          int special_units_descriptor = 0;
          int associated_special_units_descriptor = 0;
          FILE_SOURCE_INFO_LIST *files_source_info = 0;
-     CODE:
+         SV *files_source_info_sv;
+         SV *global_units_directions_sv;
+         SV *file_counters_sv;
+         SV *elements_in_file_count_sv;
+         SV *out_filepaths_sv;
+   PPCODE:
          /* add warn string? */
          self = get_sv_converter (converter_in, 0);
          if (SvOK (output_units_in))
@@ -217,8 +222,26 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
                     associated_special_units_descriptor, output_file,
                     destination_directory, output_filename, document_name);
 
-         RETVAL = newSV(0);
-    OUTPUT:
-         RETVAL
+         rebuild_output_units_list (output_units_in, output_units_descriptor);
+         rebuild_output_units_list (special_units_in, special_units_descriptor);
+         rebuild_output_units_list (associated_special_units_in,
+                                    associated_special_units_descriptor);
+
+         files_source_info_sv
+           = build_html_files_source_info (files_source_info);
+         global_units_directions_sv
+           = build_html_global_units_directions (self->global_units_directions,
+                                          self->special_units_direction_name);
+         file_counters_sv = build_file_counters (self->output_unit_files);
+         elements_in_file_count_sv
+           = build_html_elements_in_file_count (self->output_unit_files);
+         out_filepaths_sv = build_out_filepaths (self->output_unit_files);
+
+         EXTEND(SP, 5);
+         PUSHs(sv_2mortal(files_source_info_sv));
+         PUSHs(sv_2mortal(global_units_directions_sv));
+         PUSHs(sv_2mortal(file_counters_sv));
+         PUSHs(sv_2mortal(elements_in_file_count_sv));
+         PUSHs(sv_2mortal(out_filepaths_sv));
 
 

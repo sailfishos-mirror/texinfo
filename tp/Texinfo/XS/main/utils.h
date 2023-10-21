@@ -39,6 +39,7 @@ extern const char *output_unit_type_names[];
 extern const char *command_location_names[];
 
 extern char *html_conversion_context_type_names[];
+extern char *html_global_unit_direction_names[];
 
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
@@ -121,18 +122,27 @@ typedef struct COMMAND_OPTION_VALUE {
 } COMMAND_OPTION_VALUE;
 
 /* CONVERTER and associated types needed for set_global_document_command */
-/* see Texinfo::HTML _prepare_output_units_global_targets */
+/* see Texinfo::HTML _prepare_output_units_global_targets
+
+   NOTE the special output units names are not actually used, the
+   special output units direction names are obtained from the perl input
+   and stored in special_unit_info and put later on in
+   special_units_direction_name
+ */
+#define HTML_GLOBAL_DIRECTIONS_LIST \
+   hgdt_name(First) \
+   hgdt_name(Top) \
+   hgdt_name(Index) \
+   hgdt_name(Last) \
+   hgdt_name(About) \
+   hgdt_name(Contents) \
+   hgdt_name(Overview) \
+   hgdt_name(Footnotes)
+
 enum global_unit_direction {
-   /* global directions */
-   D_First,
-   D_Top,
-   D_Index,
-   D_Last,
-   /* special elements */
-   D_About,
-   D_Contents,
-   D_Overview,
-   D_Footnotes,
+  #define hgdt_name(name) D_ ## name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
 };
 
 #define SUI_TYPES_LIST \
@@ -283,6 +293,11 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
     FILE_NAME_PATH_COUNTER *list;
 } FILE_NAME_PATH_COUNTER_LIST;
 
+typedef struct SPECIAL_UNIT_DIRECTION {
+    OUTPUT_UNIT *output_unit;
+    char *direction;
+} SPECIAL_UNIT_DIRECTION;
+
 typedef struct CONVERTER {
     int converter_descriptor;
     OPTIONS *conf;
@@ -304,6 +319,7 @@ typedef struct CONVERTER {
 
   /* HTML specific */
     OUTPUT_UNIT **global_units_directions;
+    SPECIAL_UNIT_DIRECTION **special_units_direction_name;
     char **special_unit_info[SUI_type_heading+1];
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     STRING_LIST *special_unit_varieties;
@@ -327,6 +343,20 @@ typedef struct TARGET_CONTENTS_FILENAME {
     char *target_contents;
     char *target_shortcontents;
 } TARGET_CONTENTS_FILENAME;
+
+typedef struct FILE_SOURCE_INFO {
+    char *filename;
+    char *type;
+    char *name;
+    ELEMENT *element;
+    char *path;
+} FILE_SOURCE_INFO;
+
+typedef struct FILE_SOURCE_INFO_LIST {
+    size_t number;
+    size_t space;
+    FILE_SOURCE_INFO *list;
+} FILE_SOURCE_INFO_LIST;
 
 /* used in get_perl_info and indices_in_conversion, in unfinished code */
 /* TODO remove? */

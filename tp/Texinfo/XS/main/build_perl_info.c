@@ -1177,6 +1177,7 @@ build_document (size_t document_descriptor, int no_store)
 static int
 output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 {
+  int i;
   SV *sv;
   int status = 0;
   HV *directions_hv;
@@ -1184,9 +1185,12 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   dTHX;
 
   /* output_unit->hv may already exist because of directions or if there was a
-     first_in_page referring to output_unit */
+     first_in_page referring to output_unit, or because the output units
+     list is being rebuilt */
   if (!output_unit->hv)
     output_unit->hv = newHV ();
+  else
+    hv_clear (output_unit->hv);
 
 #define STORE(key) hv_store (output_unit->hv, key, strlen (key), sv, 0)
   sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
@@ -1196,6 +1200,30 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   directions_hv = newHV ();
   sv = newRV_noinc ((SV *) directions_hv);
   STORE("directions");
+
+  for (i = 0; i < RUD_type_FirstInFileNodeUp+1; i++)
+    {
+      if (output_unit->directions[i])
+        {
+          char *direction_name = relative_unit_direction_name[i];
+          OUTPUT_UNIT *direction_unit = output_unit->directions[i];
+          SV *unit_sv;
+          /* should ony happen for reference to external nodes that have
+             not yet been processed */
+          if (!direction_unit->hv)
+            {
+              int direction_status;
+              if (direction_unit->unit_type != OU_external_node_unit)
+                fprintf (stderr, "BUG: not external node but no perl ref %s\n",
+                                 output_unit_texi (direction_unit));
+              direction_status = output_unit_to_perl_hash (direction_unit);
+              status += direction_status;
+            }
+          unit_sv = newRV_inc ((SV *) direction_unit->hv);
+          hv_store (directions_hv, direction_name, strlen (direction_name),
+                    unit_sv, 0);
+        }
+    }
 
   if (output_unit->unit_command)
     {
@@ -1316,12 +1344,34 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   return status;
 }
 
+static int
+fill_output_units (AV *av_output_units, OUTPUT_UNIT_LIST *output_units)
+{
+  SV *sv;
+  int i;
+
+  dTHX;
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      int status = output_unit_to_perl_hash (output_unit);
+      if (status)
+        return 0;
+      /* we do not transfer the hv ref to the perl av because we consider
+         that output_unit->hv still own a reference, which should only be
+         released when the output_unit is destroyed in C */
+      sv = newRV_inc ((SV *) output_unit->hv);
+      av_push (av_output_units, sv);
+    }
+  return 1;
+}
+
 SV *
 build_output_units_list (size_t output_units_descriptor)
 {
-  SV *sv;
+  int status;
   AV *av_output_units;
-  int i;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
 
@@ -1332,18 +1382,10 @@ build_output_units_list (size_t output_units_descriptor)
 
   av_output_units = newAV ();
 
-  for (i = 0; i < output_units->number; i++)
-    {
-      OUTPUT_UNIT *output_unit = output_units->list[i];
-      int status = output_unit_to_perl_hash (output_unit);
-      if (status)
-        return newSV(0);
-      /* we do not transfer the hv ref to the perl av because we consider
-         that output_unit->hv still own a reference, which should only be
-         released when the output_unit is destroyed in C */
-      sv = newRV_inc ((SV *) output_unit->hv);
-      av_push (av_output_units, sv);
-    }
+  status = fill_output_units (av_output_units, output_units);
+
+  if (!status)
+    return newSV(0);
 
   /* store in the first perl output unit of the list */
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
@@ -1503,4 +1545,205 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
     }
 
   wipe_error_message_list (error_messages);
+}
+
+void
+rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
+{
+  AV *av_output_units;
+  int status;
+
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+
+  dTHX;
+
+  if (! SvOK (output_units_sv))
+    {
+      if (output_units && output_units->number)
+        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
+                 output_units->number, output_units_descriptor);
+      return;
+    }
+
+  av_output_units = (AV *) SvRV (output_units_sv);
+  av_clear (av_output_units);
+
+  /* TODO cannot associate output_units_descriptor. A problem? */
+  if (!output_units || !output_units->number)
+    return;
+
+  status = fill_output_units (av_output_units, output_units);
+
+  /* warn? */
+  if (!status)
+    return;
+
+  /* store in the first perl output unit of the list */
+  hv_store (output_units->list[0]->hv, "output_units_descriptor",
+            strlen ("output_units_descriptor"),
+            newSViv (output_units_descriptor), 0);
+}
+
+SV *
+build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (files_source_info)
+    {
+#define STORE(key, sv) hv_store (file_source_info_hv, key, strlen (key), sv, 0)
+      for (i = 0; i < files_source_info->number; i++)
+        {
+          FILE_SOURCE_INFO * file_source_info = &files_source_info->list[i];
+          HV *file_source_info_hv;
+          SV *file_source_info_sv;
+          char *filename = file_source_info->filename;
+
+          file_source_info_hv = newHV ();
+          file_source_info_sv = newRV_noinc ((SV *) file_source_info_hv);
+
+          hv_store (hv, filename, strlen (filename), file_source_info_sv, 0);
+
+          STORE("file_info_type", newSVpv_utf8 (file_source_info->type, 0));
+          if (file_source_info->name)
+            STORE("file_info_name", newSVpv_utf8 (file_source_info->name, 0));
+          if (file_source_info->path)
+            /* FIXME check encoding */
+            STORE("file_info_path", newSVpv (file_source_info->path,
+                                             strlen (file_source_info->path)));
+          else
+            STORE("file_info_path", newSV(0));
+
+          if (file_source_info->element)
+            {
+              SV *element_sv = newRV_inc ((SV *) file_source_info->element->hv);
+              STORE("file_info_element", element_sv);
+            }
+        }
+#undef STORE
+    }
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
+                       SPECIAL_UNIT_DIRECTION **special_units_direction_name)
+{
+  int i;
+  SPECIAL_UNIT_DIRECTION **s;
+  SPECIAL_UNIT_DIRECTION *special_unit_direction;
+  HV *hv;
+
+  dTHX;
+
+  if (!global_units_directions)
+    return newSV(0);
+
+  hv = newHV ();
+
+  for (i = 0; i < D_Last+1; i++)
+    {
+      if (global_units_directions[i])
+        {
+          char *direction_name = html_global_unit_direction_names[i];
+          hv_store (hv, direction_name, strlen (direction_name),
+                    newRV_inc ((SV *) global_units_directions[i]->hv), 0);
+        }
+    }
+
+  for (s = special_units_direction_name; (special_unit_direction = *s) ; s++)
+    {
+      char *direction_name = special_unit_direction->direction;
+      OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
+      hv_store (hv, direction_name, strlen (direction_name),
+                  newRV_inc ((SV *) output_unit->hv), 0);
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+
+          hv_store (hv, filename, strlen (filename),
+                    newSViv (output_unit_file->counter), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+
+          hv_store (hv, filename, strlen (filename),
+                    newSVpv (output_unit_file->filepath,
+                             strlen (output_unit_file->filepath)), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_html_elements_in_file_count (
+                 FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+
+          hv_store (hv, filename, strlen (filename),
+                    newSViv (output_unit_file->elements_in_file_count), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
 }

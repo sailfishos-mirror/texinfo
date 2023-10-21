@@ -25,6 +25,8 @@ HV *build_global_info (GLOBAL_INFO *global_info_ref);
 HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 SV *build_output_units_list (size_t output_units_descriptor);
+void rebuild_output_units_list (SV *output_units_sv,
+                                size_t output_units_descriptor);
 
 SV *build_html_element_targets (HTML_TARGET_LIST *html_targets);
 SV *build_html_special_targets (HTML_TARGET_LIST **html_special_targets);
@@ -32,4 +34,12 @@ SV *build_html_seen_ids (STRING_LIST *seen_ids);
 
 void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
                             HV *converter_hv);
+
+SV *build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
+SV *build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
+                       SPECIAL_UNIT_DIRECTION **special_units_direction_name);
+SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+SV *build_html_elements_in_file_count (
+                   FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 #endif
