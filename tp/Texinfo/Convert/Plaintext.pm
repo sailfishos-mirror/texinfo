@@ -2383,14 +2383,6 @@ sub _convert($$)
                                              $self->{'convert_text_options'});
         }
 
-        # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
-        # is the case whether we are in @sc or not.
-        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
-            and $letter_no_arg_commands{$command}) {
-          $text = _protect_sentence_ends($text);
-          $text = uc($text);
-        }
-
         if ($punctuation_no_arg_commands{$command}) {
           $result .= _count_added($self, $formatter->{'container'},
                       add_next($formatter->{'container'}, $text));
@@ -2399,6 +2391,14 @@ sub _convert($$)
           $result .= _count_added($self, $formatter->{'container'},
                          add_next($formatter->{'container'}, $text));
         } else {
+          # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
+          # is the case whether we are in @sc or not.
+          if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
+              and $letter_no_arg_commands{$command}) {
+            $text = _protect_sentence_ends($text);
+            $text = uc($text);
+          }
+
           $result .= _count_added($self, $formatter->{'container'},
                          add_text($formatter->{'container'}, $text));
 

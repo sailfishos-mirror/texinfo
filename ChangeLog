@@ -1,5 +1,11 @@
 2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Move a block
+	of code to make it clearer that the result of _protect_sentence_ends
+	is only passed to add_text, not add_next.
+
+2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara__add_next): Eliminate code
 	handling control character markers to allow an end of sentence.
 	It only handled markers at the end of the string, not throughout,
