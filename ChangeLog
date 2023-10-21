@@ -1,5 +1,10 @@
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/html_tests.t (sectioning_check_menu_structure): rename
+	sectioning_frames as sectioning_check_menu_structure.
+
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	Remove HTML frames output, FRAMES and FRAMESET_DOCTYPE customization options
 
 	* NEWS, doc/texinfo.texi (HTML Customization Variables)

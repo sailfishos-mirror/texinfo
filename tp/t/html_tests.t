@@ -1063,7 +1063,8 @@ $check_htmlxref_text
   {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
 ],
 # FIXME which TEXI2HTML options are really interesting for the test?
-['sectioning_frames',
+# The CHECK_NORMAL_MENU_STRUCTURE test is relevant and to keep
+['sectioning_check_menu_structure',
   undef,
   # tests for node with directions after section
   {'test_file' => '../../tests/customization/sectioning.texi',
