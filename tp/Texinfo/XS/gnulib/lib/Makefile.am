@@ -39,6 +39,7 @@
 #  setenv \
 #  strchrnul \
 #  strndup \
+#  unicase/u8-tolower \
 #  unicase/u8-toupper \
 #  uniconv/u32-strconv-from-enc \
 #  uniconv/u8-strconv-from-enc \
@@ -1277,6 +1278,16 @@ EXTRA_DIST += unicase/special-casing-table.gperf unicase/special-casing.in.h
 
 ## end   gnulib module unicase/special-casing
 
+## begin gnulib module unicase/tolower
+
+if LIBUNISTRING_COMPILE_UNICASE_TOLOWER
+libgnu_la_SOURCES += unicase/tolower.c
+endif
+
+EXTRA_DIST += unicase/simple-mapping.h unicase/tolower.h
+
+## end   gnulib module unicase/tolower
+
 ## begin gnulib module unicase/toupper
 
 if LIBUNISTRING_COMPILE_UNICASE_TOUPPER
@@ -1294,6 +1305,14 @@ libgnu_la_SOURCES += unicase/u8-casemap.c
 EXTRA_DIST += unicase/context.h unicase/u-casemap.h unicase/unicasemap.h
 
 ## end   gnulib module unicase/u8-casemap
+
+## begin gnulib module unicase/u8-tolower
+
+if LIBUNISTRING_COMPILE_UNICASE_U8_TOLOWER
+libgnu_la_SOURCES += unicase/u8-tolower.c
+endif
+
+## end   gnulib module unicase/u8-tolower
 
 ## begin gnulib module unicase/u8-toupper
 

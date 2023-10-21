@@ -111,8 +111,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module unicase/empty-suffix-context:
   # Code from module unicase/ignorable:
   # Code from module unicase/special-casing:
+  # Code from module unicase/tolower:
   # Code from module unicase/toupper:
   # Code from module unicase/u8-casemap:
+  # Code from module unicase/u8-tolower:
   # Code from module unicase/u8-toupper:
   # Code from module uniconv/base:
   # Code from module uniconv/u32-conv-from-enc:
@@ -367,7 +369,9 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([0.9.11], [unicase/empty-suffix-context])
   AC_REQUIRE([AC_C_INLINE])
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([0.9.11], [unicase/tolower])
   gl_LIBUNISTRING_MODULE([0.9.11], [unicase/toupper])
+  gl_LIBUNISTRING_MODULE([1.1], [unicase/u8-tolower])
   gl_LIBUNISTRING_MODULE([1.1], [unicase/u8-toupper])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniconv.h])
   AC_PROG_MKDIR_P
@@ -743,10 +747,13 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unicase/special-casing-table.gperf
   lib/unicase/special-casing.c
   lib/unicase/special-casing.in.h
+  lib/unicase/tolower.c
+  lib/unicase/tolower.h
   lib/unicase/toupper.c
   lib/unicase/toupper.h
   lib/unicase/u-casemap.h
   lib/unicase/u8-casemap.c
+  lib/unicase/u8-tolower.c
   lib/unicase/u8-toupper.c
   lib/unicase/unicasemap.h
   lib/uniconv.in.h
