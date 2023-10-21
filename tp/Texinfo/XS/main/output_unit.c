@@ -13,6 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* corresponds to Texinfo::Structuring code related to output units and
+   used in converters */
+
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,6 +34,17 @@
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
+
+char *relative_unit_direction_name[] = {
+  #define rud_type(name) #name,
+   RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES
+  #undef rud_type
+  #define rud_type(name) "FirstInFile" #name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
+};
+
 
 static OUTPUT_UNIT_LIST *output_units_list;
 static size_t output_units_number;
@@ -444,7 +458,7 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
       OUTPUT_UNIT *direction = output_unit->directions[i];
       if (direction)
         {
-          text_printf (&result, "  $direction: %s\n",
+          text_printf (&result, "  %s: %s\n", relative_unit_direction_name[i],
                        output_unit_texi (direction));
           with_direction++;
         }
@@ -456,12 +470,12 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
 }
 
 
-static enum relative_unit_direction node_unit_directions[]
+static enum relative_unit_direction_type node_unit_directions[]
                        = {RUD_type_NodeNext,
                           RUD_type_NodePrev,
                           RUD_type_NodeUp};
 
-static enum relative_unit_direction section_unit_directions[]
+static enum relative_unit_direction_type section_unit_directions[]
                        = {RUD_type_Next,
                           RUD_type_Prev,
                           RUD_type_Up};
@@ -741,6 +755,87 @@ units_directions (OPTIONS *customization_information,
                             = print_output_unit_directions (output_unit);
           fprintf (stderr, "Directions: %s\n", element_directions);
           free (element_directions);
+        }
+    }
+}
+
+void
+units_file_directions (OUTPUT_UNIT_LIST *output_units)
+{
+  int i;
+  char *current_filename = 0;
+  OUTPUT_UNIT *first_unit_in_file = 0;
+
+  if (!output_units || !output_units->number)
+    return;
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+
+      if (output_unit->unit_filename)
+        {
+          char *filename = output_unit->unit_filename;
+          OUTPUT_UNIT *current_output_unit = output_unit;
+
+          if (!current_filename || strcmp (filename, current_filename))
+            {
+              first_unit_in_file = output_unit;
+              current_filename = filename;
+            }
+
+          while (1)
+            {
+              if (current_output_unit->tree_unit_directions[D_prev])
+                {
+                  current_output_unit
+                   = current_output_unit->tree_unit_directions[D_prev];
+                  if (current_output_unit->unit_filename)
+                    {
+                      if (strcmp (current_output_unit->unit_filename, filename))
+                        {
+                          output_unit->directions[RUD_type_PrevFile]
+                            = current_output_unit;
+                          break;
+                        }
+                    }
+                  else
+                    break;
+                }
+              else
+                break;
+            }
+          current_output_unit = output_unit;
+          while (1)
+            {
+              if (current_output_unit->tree_unit_directions[D_next])
+                {
+                  current_output_unit
+                   = current_output_unit->tree_unit_directions[D_next];
+                  if (current_output_unit->unit_filename)
+                    {
+                      if (strcmp (current_output_unit->unit_filename, filename))
+                        {
+                          output_unit->directions[RUD_type_NextFile]
+                            = current_output_unit;
+                          break;
+                        }
+                    }
+                  else
+                    break;
+                }
+              else
+                break;
+
+            }
+        }
+     /* set the directions of the first elements in file, to
+        be used in footers for example */
+      if (first_unit_in_file)
+        {
+          memcpy (&output_unit->directions[RUD_type_FirstInFileThis],
+                  &first_unit_in_file->directions[RUD_type_This],
+                  (RUD_type_NodeUp - RUD_type_This +1) * sizeof (OUTPUT_UNIT *));
         }
     }
 }

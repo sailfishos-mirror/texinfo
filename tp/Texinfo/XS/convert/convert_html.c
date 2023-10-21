@@ -2051,6 +2051,22 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   return files_source_info;
 }
 
+static void
+prepare_special_units_directions (CONVERTER *self,
+                                  OUTPUT_UNIT_LIST *special_units)
+{
+  int i;
+
+  if (!special_units)
+    return;
+
+  for (i = 0; i < special_units->number; i++)
+    {
+      OUTPUT_UNIT *special_unit = special_units->list[i];
+      special_unit->directions[RUD_type_This] = special_unit;
+    }
+}
+
 FILE_SOURCE_INFO_LIST *
 html_prepare_units_directions_files (CONVERTER *self,
           int output_units_descriptor,
@@ -2058,6 +2074,7 @@ html_prepare_units_directions_files (CONVERTER *self,
           char *output_file, char *destination_directory, char *output_filename,
           char *document_name)
 {
+  int i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
@@ -2082,6 +2099,25 @@ html_prepare_units_directions_files (CONVERTER *self,
 
   units_directions (self->conf, self->document->identifiers_target,
                     output_units);
+
+  prepare_special_units_directions (self, special_units);
+
+  units_file_directions (output_units);
+
+ /* elements_in_file_count is only set in HTML, not in
+    Texinfo::Convert::Converter */
+  if (self->output_unit_files)
+    {
+      for (i = 0; i < self->output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *file_counter
+            = &self->output_unit_files->list[i];
+
+          /* counter is dynamic, decreased when the element is encountered
+             elements_in_file_count is not modified afterwards */
+          file_counter->elements_in_file_count = file_counter->counter;
+        }
+    }
 
   return files_source_info;
 }

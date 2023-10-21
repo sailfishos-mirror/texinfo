@@ -9324,13 +9324,13 @@ sub _prepare_units_directions_files($$$$$$$$)
   _prepare_special_units_directions($self, $special_units);
 
   # do element directions related to files.
-  # FIXME do it here or before?  Here it means that
-  # PrevFile and NextFile can be set.
+  # Here such that PrevFile and NextFile can be set.
   Texinfo::Structuring::units_file_directions($output_units);
 
   $self->_prepare_frames_filenames($document_name);
 
-  # only in HTML, not in Texinfo::Convert::Converter
+  # elements_in_file_count is only set in HTML, not in
+  # Texinfo::Convert::Converter
   $self->{'elements_in_file_count'} = {};
   # condition could also be based on $output_file ne ''
   if ($self->{'file_counters'}) {
@@ -9603,6 +9603,8 @@ sub _prepare_special_units_directions($$)
 {
   my $self = shift;
   my $special_units = shift;
+
+  return unless $special_units;
 
   foreach my $special_unit (@$special_units) {
     $special_unit->{'directions'}->{'This'} = $special_unit;

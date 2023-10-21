@@ -94,14 +94,23 @@ enum output_unit_type {
    rud_type(NodePrev) \
    rud_type(NodeUp)
 
-enum relative_unit_direction {
+/* relative output unit file directions */
+#define RUD_FILE_DIRECTIONS_TYPES \
+   rud_type(PrevFile) \
+   rud_type(NextFile)
+
+enum relative_unit_direction_type {
   #define rud_type(name) RUD_type_## name,
    RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES
   #undef rud_type
   #define rud_type(name) RUD_type_FirstInFile## name,
    RUD_DIRECTIONS_TYPES_LIST
   #undef rud_type
 };
+
+/* in output_units.c */
+extern char *relative_unit_direction_name[];
 
 typedef struct KEY_PAIR {
     char *key;

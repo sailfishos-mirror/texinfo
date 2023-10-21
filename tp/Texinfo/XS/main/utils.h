@@ -273,6 +273,8 @@ typedef struct FILE_NAME_PATH_COUNTER {
     char *filename;
     char *filepath;
     int counter;
+    int elements_in_file_count; /* only used in HTML, corresponds to
+                                   'elements_in_file_count' */
 } FILE_NAME_PATH_COUNTER;
 
 typedef struct FILE_NAME_PATH_COUNTER_LIST {

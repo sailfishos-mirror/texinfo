@@ -2256,10 +2256,8 @@ sub units_file_directions($)
   # are added to the first element in the file.
   my @first_unit_in_file_directions;
   foreach my $output_unit (@$output_units) {
-    my $directions;
-    my $filename;
     if (defined($output_unit->{'unit_filename'})) {
-      $filename = $output_unit->{'unit_filename'};
+      my $filename = $output_unit->{'unit_filename'};
       my $current_output_unit = $output_unit;
       if (not defined($current_filename)
           or $filename ne $current_filename) {

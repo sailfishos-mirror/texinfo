@@ -1,3 +1,30 @@
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_units_directions):
+	return if $special_units is not defined.
+
+	* tp/Texinfo/Structuring.pm (units_file_directions): remove unused
+	variable and set my in the right block.
+
+	* tp/Texinfo/XS/main/tree_types.h (RUD_FILE_DIRECTIONS_TYPES)
+	(enum relative_unit_direction_type): rename enum
+	relative_unit_direction as enum relative_unit_direction_type.
+	Add RUD_FILE_DIRECTIONS_TYPES to complete
+	relative_unit_direction_type.
+
+	* tp/Texinfo/XS/main/output_unit.c (relative_unit_direction_name)
+	(print_output_unit_directions): setup direction names and use them in
+	print_output_unit_directions.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(prepare_special_units_directions)
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/main/output_unit.c (units_file_directions),
+	tp/Texinfo/XS/main/utils.h (FILE_NAME_PATH_COUNTER): finish
+	implementation of html_prepare_units_directions_files, with
+	prepare_special_units_directions, units_file_directions and
+	setting of elements_in_file_count.
+
 2023-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Handle blocks of word characters in XS paragraph formatter
