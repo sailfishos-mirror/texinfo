@@ -605,12 +605,12 @@ $result_elements{'node_up_external_node'}[1] = $result_elements{'node_up_externa
 
 
 
-$result_directions_text{'node_up_external_node'} = 'element: @node Top
+$result_directions_text{'node_up_external_node'} = 'output unit: @node Top
   Forward: @node chap first
   NodeForward: @node chap first
   NodeNext: @node chap first
   This: @node Top
-element: @node chap first
+output unit: @node chap first
   Back: @node Top
   NodeBack: @node Top
   NodeForward: (manual1)

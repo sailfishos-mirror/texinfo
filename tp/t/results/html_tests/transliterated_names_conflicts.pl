@@ -1063,13 +1063,13 @@ $result_elements{'transliterated_names_conflicts'}[2] = $result_elements{'transl
 
 
 
-$result_directions_text{'transliterated_names_conflicts'} = 'element: @node Top
+$result_directions_text{'transliterated_names_conflicts'} = 'output unit: @node Top
   FastForward: @node Prés
   Forward: @node Prés
   NodeForward: @node Prés
   NodeNext: @node Prés
   This: @node Top
-element: @node Prés
+output unit: @node Prés
   Back: @node Top
   FastBack: @node Top
   FastForward: @node Other node
@@ -1082,7 +1082,7 @@ element: @node Prés
   NodeUp: @node Top
   This: @node Prés
   Up: @node Top
-element: @node Other node
+output unit: @node Other node
   Back: @node Prés
   FastBack: @node Prés
   NodeBack: @node Prés

@@ -1088,39 +1088,39 @@ $result_elements{'sectioning_part_appendix_no_top'}[8] = $result_elements{'secti
 
 
 
-$result_directions_text{'sectioning_part_appendix_no_top'} = 'element: @chapter chapter
+$result_directions_text{'sectioning_part_appendix_no_top'} = 'output unit: @chapter chapter
   FastForward: @chapter chapter in part
   Forward: @section section
   This: @chapter chapter
-element: @section section
+output unit: @section section
   Back: @chapter chapter
   FastBack: @chapter chapter
   FastForward: @chapter chapter in part
   Forward: @subsection subsection
   This: @section section
   Up: @chapter chapter
-element: @subsection subsection
+output unit: @subsection subsection
   Back: @section section
   FastBack: @chapter chapter
   FastForward: @chapter chapter in part
   Forward: @subsubsection subsubsection
   This: @subsection subsection
   Up: @section section
-element: @subsubsection subsubsection
+output unit: @subsubsection subsubsection
   Back: @subsection subsection
   FastBack: @chapter chapter
   FastForward: @chapter chapter in part
   Forward: @chapter chapter in part
   This: @subsubsection subsubsection
   Up: @subsection subsection
-element: @chapter chapter in part
+output unit: @chapter chapter in part
   Back: @subsubsection subsubsection
   FastBack: @chapter chapter
   FastForward: @chapter second chapter in part
   Forward: @chapter second chapter in part
   Next: @chapter second chapter in part
   This: @chapter chapter in part
-element: @chapter second chapter in part
+output unit: @chapter second chapter in part
   Back: @chapter chapter in part
   FastBack: @chapter chapter in part
   FastForward: @unnumbered unnumbered
@@ -1129,7 +1129,7 @@ element: @chapter second chapter in part
   Prev: @chapter chapter in part
   This: @chapter second chapter in part
   Up: @chapter chapter in part
-element: @unnumbered unnumbered
+output unit: @unnumbered unnumbered
   Back: @chapter second chapter in part
   FastBack: @chapter second chapter in part
   FastForward: @appendix appendix
@@ -1137,13 +1137,13 @@ element: @unnumbered unnumbered
   Prev: @chapter second chapter in part
   This: @unnumbered unnumbered
   Up: @chapter chapter in part
-element: @appendix appendix
+output unit: @appendix appendix
   Back: @unnumbered unnumbered
   FastBack: @unnumbered unnumbered
   Forward: @appendixsec appendixsec
   Prev: @chapter chapter in part
   This: @appendix appendix
-element: @appendixsec appendixsec
+output unit: @appendixsec appendixsec
   Back: @appendix appendix
   FastBack: @appendix appendix
   This: @appendixsec appendixsec

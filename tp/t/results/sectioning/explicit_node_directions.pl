@@ -728,12 +728,12 @@ $result_elements{'explicit_node_directions'}[2] = $result_elements{'explicit_nod
 
 
 
-$result_directions_text{'explicit_node_directions'} = 'element: @node Top
+$result_directions_text{'explicit_node_directions'} = 'output unit: @node Top
   Forward: @node chap node
   NodeForward: @node chap node
   NodeNext: @node chap node
   This: @node Top
-element: @node chap node
+output unit: @node chap node
   Back: @node Top
   Forward: @node third node
   NodeBack: @node Top
@@ -742,7 +742,7 @@ element: @node chap node
   NodePrev: @node Top
   NodeUp: @node Top
   This: @node chap node
-element: @node third node
+output unit: @node third node
   Back: @node chap node
   NodeBack: @node chap node
   NodePrev: @node chap node

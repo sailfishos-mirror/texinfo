@@ -189,7 +189,7 @@ $result_elements{'part_before_top'}[0]{'unit_command'}{'extra'}{'associated_part
 
 
 
-$result_directions_text{'part_before_top'} = 'element: @top top
+$result_directions_text{'part_before_top'} = 'output unit: @top top
   This: @top top
 ';
 

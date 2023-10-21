@@ -514,12 +514,12 @@ $result_elements{'internal_top_node_up'}[1] = $result_elements{'internal_top_nod
 
 
 
-$result_directions_text{'internal_top_node_up'} = 'element: @node Top
+$result_directions_text{'internal_top_node_up'} = 'output unit: @node Top
   Forward: @node chap
   NodeForward: @node chap
   NodeNext: @node chap
   This: @node Top
-element: @node chap
+output unit: @node chap
   Back: @node Top
   FastBack: @node Top
   NodeBack: @node Top

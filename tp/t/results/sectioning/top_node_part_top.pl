@@ -306,7 +306,7 @@ $result_elements{'top_node_part_top'}[0]{'unit_command'}{'extra'}{'associated_pa
 
 
 
-$result_directions_text{'top_node_part_top'} = 'element: @top top
+$result_directions_text{'top_node_part_top'} = 'output unit: @top top
   This: @top top
 ';
 

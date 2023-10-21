@@ -1309,7 +1309,7 @@ sub test($$)
     $directions_text = '';
     foreach my $output_unit (@$output_units) {
       $directions_text .=
-          Texinfo::Structuring::print_element_directions($output_unit);
+          Texinfo::Structuring::print_output_unit_directions($output_unit);
     }
   }
   if ($split_pages) {

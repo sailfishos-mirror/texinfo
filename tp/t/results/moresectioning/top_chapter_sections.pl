@@ -1054,11 +1054,11 @@ $result_elements{'top_chapter_sections'}[8] = $result_elements{'top_chapter_sect
 
 
 
-$result_directions_text{'top_chapter_sections'} = 'element: @top top
+$result_directions_text{'top_chapter_sections'} = 'output unit: @top top
   FastForward: @unnumbered unnumbered
   Forward: @unnumbered unnumbered
   This: @top top
-element: @unnumbered unnumbered
+output unit: @unnumbered unnumbered
   Back: @top top
   FastBack: @top top
   FastForward: @chapter First chapter
@@ -1066,7 +1066,7 @@ element: @unnumbered unnumbered
   Next: @chapter First chapter
   This: @unnumbered unnumbered
   Up: @top top
-element: @chapter First chapter
+output unit: @chapter First chapter
   Back: @unnumbered unnumbered
   FastBack: @unnumbered unnumbered
   FastForward: @chapter Chapter
@@ -1075,14 +1075,14 @@ element: @chapter First chapter
   Prev: @unnumbered unnumbered
   This: @chapter First chapter
   Up: @top top
-element: @section second
+output unit: @section second
   Back: @chapter First chapter
   FastBack: @chapter First chapter
   FastForward: @chapter Chapter
   Forward: @chapter Chapter
   This: @section second
   Up: @chapter First chapter
-element: @chapter Chapter
+output unit: @chapter Chapter
   Back: @section second
   FastBack: @chapter First chapter
   FastForward: @chapter Chapter 2
@@ -1091,14 +1091,14 @@ element: @chapter Chapter
   Prev: @chapter First chapter
   This: @chapter Chapter
   Up: @top top
-element: @section Section of chapter
+output unit: @section Section of chapter
   Back: @chapter Chapter
   FastBack: @chapter Chapter
   FastForward: @chapter Chapter 2
   Forward: @subsection subsection 1
   This: @section Section of chapter
   Up: @chapter Chapter
-element: @subsection subsection 1
+output unit: @subsection subsection 1
   Back: @section Section of chapter
   FastBack: @chapter Chapter
   FastForward: @chapter Chapter 2
@@ -1106,7 +1106,7 @@ element: @subsection subsection 1
   Next: @subsection subsection 2
   This: @subsection subsection 1
   Up: @section Section of chapter
-element: @subsection subsection 2
+output unit: @subsection subsection 2
   Back: @subsection subsection 1
   FastBack: @chapter Chapter
   FastForward: @chapter Chapter 2
@@ -1114,7 +1114,7 @@ element: @subsection subsection 2
   Prev: @subsection subsection 1
   This: @subsection subsection 2
   Up: @section Section of chapter
-element: @chapter Chapter 2
+output unit: @chapter Chapter 2
   Back: @subsection subsection 2
   FastBack: @chapter Chapter
   Prev: @chapter Chapter

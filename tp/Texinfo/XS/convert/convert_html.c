@@ -510,7 +510,7 @@ prepare_output_units_global_targets (CONVERTER *self,
           if (self->global_units_directions[i])
             {
               OUTPUT_UNIT *global_unit = self->global_units_directions[i];
-              char *unit_texi = unit_or_external_element_texi (global_unit);
+              char *unit_texi = output_unit_texi (global_unit);
               fprintf (stderr, "%s: %s\n", output_unit_type_names[i],
                                            unit_texi);
               free (unit_texi);
@@ -1962,7 +1962,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       output_unit_file = set_output_unit_file (self, output_unit, filename, 1);
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "Page %s: %s(%d)\n",
-                 unit_or_external_element_texi (output_unit),
+                 output_unit_texi (output_unit),
                  output_unit->unit_filename, output_unit_file->counter);
 
     }

@@ -789,12 +789,12 @@ $result_elements{'non_automatic_internal_top_node_up'}[1] = $result_elements{'no
 
 
 
-$result_directions_text{'non_automatic_internal_top_node_up'} = 'element: @node Top
+$result_directions_text{'non_automatic_internal_top_node_up'} = 'output unit: @node Top
   Forward: @node chap
   NodeForward: @node chap
   NodeNext: @node chap
   This: @node Top
-element: @node chap
+output unit: @node chap
   Back: @node Top
   FastBack: @node Top
   NodeBack: @node Top

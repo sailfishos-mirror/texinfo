@@ -1262,15 +1262,15 @@ foreach my $no_number_type ('text', 'tree', 'string') {
   $valid_direction_return_type{$no_number_type .'_nonumber'} = 1;
 }
 
-# sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_ELEMENT,
+# sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_UNIT,
 #                            $SOURCE_FILENAME, $SOURCE_FOR_MESSAGES)
 #
-# Return text used for linking from $SOURCE_ELEMENT in direction $DIRECTION.
+# Return text used for linking from $SOURCE_UNIT in direction $DIRECTION.
 # The text returned depends on $TYPE.
 #
 # This is used both for tree unit elements and external nodes
 #
-# If $SOURCE_ELEMENT is undef, $self->{'current_output_unit'} is used.
+# If $SOURCE_UNIT is undef, $self->{'current_output_unit'} is used.
 #
 # $SOURCE_FOR_MESSAGES is an element used for messages formatting, to get a
 # location in input file.  It is better to choose the node and not the
@@ -1288,31 +1288,31 @@ sub from_element_direction($$$;$$$)
   my $self = shift;
   my $direction = shift;
   my $type = shift;
-  my $source_element = shift;
+  my $source_unit = shift;
   my $source_filename = shift;
   # for messages only
   my $source_command = shift;
 
-  my $target_element;
+  my $target_unit;
   my $command;
   my $target;
 
-  $source_element = $self->{'current_output_unit'} if (!defined($source_element));
+  $source_unit = $self->{'current_output_unit'} if (!defined($source_unit));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
   if (!$valid_direction_return_type{$type}) {
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
-  my $global_target_element = $self->global_direction_unit($direction);
-  if ($global_target_element) {
-    $target_element = $global_target_element;
+  my $global_target_unit = $self->global_direction_unit($direction);
+  if ($global_target_unit) {
+    $target_unit = $global_target_unit;
   # output TOP_NODE_UP related infos even if element is not
   # defined which should mostly correspond to cases when there is no
   # output file, for example in the tests.
-  } elsif ((not defined($source_element)
-            or ($source_element
-                and $self->unit_is_top_output_unit($source_element)))
+  } elsif ((not defined($source_unit)
+            or ($source_unit
+                and $self->unit_is_top_output_unit($source_unit)))
            and defined($self->get_conf('TOP_NODE_UP_URL'))
            and ($direction eq 'Up' or $direction eq 'NodeUp')) {
     if ($type eq 'href') {
@@ -1324,24 +1324,24 @@ sub from_element_direction($$$;$$$)
       cluck("type $type not available for TOP_NODE_UP\n");
       return '';
     }
-  } elsif (not $target_element and $source_element
-           and $source_element->{'directions'}
-           and $source_element->{'directions'}->{$direction}) {
-    $target_element
-      = $source_element->{'directions'}->{$direction};
+  } elsif (not $target_unit and $source_unit
+           and $source_unit->{'directions'}
+           and $source_unit->{'directions'}->{$direction}) {
+    $target_unit
+      = $source_unit->{'directions'}->{$direction};
   }
 
-  if ($target_element) {
+  if ($target_unit) {
     ######## debug
-    if (!$target_element->{'unit_type'}) {
-      die "No unit type for element_target $direction $target_element: "
-       . Texinfo::Common::debug_print_output_unit($target_element)
+    if (!$target_unit->{'unit_type'}) {
+      die "No unit type for element_target $direction $target_unit: "
+       . Texinfo::Common::debug_print_output_unit($target_unit)
        . "directions :"
-           . Texinfo::Structuring::print_element_directions($source_element);
+           . Texinfo::Structuring::print_output_unit_directions($source_unit);
     }
     ########
-    if ($target_element->{'unit_type'} eq 'external_node_unit') {
-      my $external_node_element = $target_element->{'unit_command'};
+    if ($target_unit->{'unit_type'} eq 'external_node_unit') {
+      my $external_node_element = $target_unit->{'unit_command'};
       #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
       #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
@@ -1353,34 +1353,34 @@ sub from_element_direction($$$;$$$)
         return $self->command_text($external_node_element, $type);
       }
     } elsif ($type eq 'node') {
-      if ($target_element->{'unit_command'}) {
-        if ($target_element->{'unit_command'}->{'cmdname'}
-            and $target_element->{'unit_command'}->{'cmdname'} eq 'node') {
-          $command = $target_element->{'unit_command'};
-        } elsif ($target_element->{'unit_command'}->{'extra'}
-                 and $target_element->{'unit_command'}
-                                          ->{'extra'}->{'associated_node'}) {
-          $command = $target_element->{'unit_command'}
-                                          ->{'extra'}->{'associated_node'};
+      if ($target_unit->{'unit_command'}) {
+        if ($target_unit->{'unit_command'}->{'cmdname'}
+            and $target_unit->{'unit_command'}->{'cmdname'} eq 'node') {
+          $command = $target_unit->{'unit_command'};
+        } elsif ($target_unit->{'unit_command'}->{'extra'}
+                 and $target_unit->{'unit_command'}
+                                      ->{'extra'}->{'associated_node'}) {
+          $command = $target_unit->{'unit_command'}
+                                      ->{'extra'}->{'associated_node'};
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
-      if ($target_element->{'unit_command'}) {
-        if ($target_element->{'unit_command'}->{'cmdname'} ne 'node') {
-          $command = $target_element->{'unit_command'};
-        } elsif ($target_element->{'unit_command'}->{'extra'}
-                 and $target_element->{'unit_command'}
+      if ($target_unit->{'unit_command'}) {
+        if ($target_unit->{'unit_command'}->{'cmdname'} ne 'node') {
+          $command = $target_unit->{'unit_command'};
+        } elsif ($target_unit->{'unit_command'}->{'extra'}
+                 and $target_unit->{'unit_command'}
                                          ->{'extra'}->{'associated_section'}) {
-          $command = $target_element->{'unit_command'}
+          $command = $target_unit->{'unit_command'}
                                         ->{'extra'}->{'associated_section'};
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
-      $command = $target_element->{'unit_command'};
+      $command = $target_unit->{'unit_command'};
       if ($type eq 'href') {
         if (defined($command)) {
           return $self->command_href($command, $source_filename);
@@ -4041,7 +4041,7 @@ sub _default_format_element_header($$$$)
      #."$output_unit (@{$output_unit->{'unit_contents'}}) ".
      . "(".join('|', map{Texinfo::Common::debug_print_element($_)}
              @{$output_unit->{'unit_contents'}}) . ") ".
-     Texinfo::Structuring::unit_or_external_element_texi($output_unit) ."\n"
+     Texinfo::Structuring::output_unit_texi($output_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
@@ -9116,7 +9116,7 @@ sub _html_set_pages_files($$$$$$$$$)
     print STDERR 'Page '
       # uncomment for perl object name
       #."$output_unit "
-      .Texinfo::Structuring::unit_or_external_element_texi($output_unit)
+      .Texinfo::Structuring::output_unit_texi($output_unit)
       .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
              if ($self->get_conf('DEBUG'));
   }
@@ -9677,7 +9677,7 @@ sub _prepare_output_units_global_targets($$$$)
         print STDERR "$global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
-     .': '. Texinfo::Structuring::unit_or_external_element_texi($global_unit)."\n";
+     .': '. Texinfo::Structuring::output_unit_texi($global_unit)."\n";
       }
     }
   }

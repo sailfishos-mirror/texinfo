@@ -124,7 +124,7 @@ $result_elements{'top_node_and_bye'}[0]{'directions'}{'This'} = $result_elements
 
 
 
-$result_directions_text{'top_node_and_bye'} = 'element: No associated command (type unit)
+$result_directions_text{'top_node_and_bye'} = 'output unit: No associated command (type unit)
   This: No associated command (type unit)
 ';
 

@@ -868,12 +868,12 @@ $result_elements{'nodes_after_top_before_chapter_nodes'}[2] = $result_elements{'
 
 
 
-$result_directions_text{'nodes_after_top_before_chapter_nodes'} = 'element: @node Top
+$result_directions_text{'nodes_after_top_before_chapter_nodes'} = 'output unit: @node Top
   Forward: @node second node
   NodeForward: @node second node
   NodeNext: @node second node
   This: @node Top
-element: @node second node
+output unit: @node second node
   Back: @node Top
   Forward: @node third node
   NodeBack: @node Top
@@ -882,7 +882,7 @@ element: @node second node
   NodePrev: @node Top
   NodeUp: @node Top
   This: @node second node
-element: @node third node
+output unit: @node third node
   Back: @node second node
   NodeBack: @node second node
   NodePrev: @node second node

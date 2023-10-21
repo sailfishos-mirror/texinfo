@@ -942,13 +942,13 @@ $result_elements{'two_nodes_at_the_end'}[1] = $result_elements{'two_nodes_at_the
 
 
 
-$result_directions_text{'two_nodes_at_the_end'} = 'element: @top top
+$result_directions_text{'two_nodes_at_the_end'} = 'output unit: @top top
   FastForward: @chapter chapter c1
   Forward: @chapter chapter c1
   NodeForward: @chapter chapter c1
   NodeNext: @chapter chapter c1
   This: @top top
-element: @chapter chapter c1
+output unit: @chapter chapter c1
   Back: @top top
   FastBack: @top top
   NodeBack: @top top

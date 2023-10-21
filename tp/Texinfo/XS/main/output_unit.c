@@ -383,28 +383,28 @@ split_pages (OUTPUT_UNIT_LIST *output_units, char *split)
 
 /* return to be freed by the caller */
 char *
-unit_or_external_element_texi (OUTPUT_UNIT *element)
+output_unit_texi (OUTPUT_UNIT *output_unit)
 {
-  ELEMENT *command_element;
+  ELEMENT *unit_command;
 
-  if (!element)
-    return strdup("UNDEF ELEMENT");
+  if (!output_unit)
+    return strdup("UNDEF OUTPUT UNIT");
 
-  command_element = element->unit_command;
+  unit_command = output_unit->unit_command;
 
-  if (element->unit_type == OU_external_node_unit)
-    return convert_contents_to_texinfo (command_element);
+  if (output_unit->unit_type == OU_external_node_unit)
+    return convert_contents_to_texinfo (unit_command);
 
-  if (!command_element)
+  if (!unit_command)
     {
     /* happens when there are only nodes and sections are used as elements */
       char *result;
       xasprintf (&result, "No associated command (type %s)",
-                 output_unit_type_names[element->unit_type]);
+                 output_unit_type_names[output_unit->unit_type]);
       return result;
     }
 
-  return root_heading_command_to_texinfo(command_element);
+  return root_heading_command_to_texinfo(unit_command);
 }
 
 static OUTPUT_UNIT *
@@ -428,26 +428,24 @@ label_target_unit_element (ELEMENT *label)
 
 /* Used for debugging and in test suite, but not generally useful. Not
    documented in pod section and not exportable as it should not, in
-   general, be used.
-   In general would be called with output units, but is more generic
-   to account for other situations. */
+   general, be used. */
 char *
-print_element_directions (OUTPUT_UNIT *element)
+print_output_unit_directions (OUTPUT_UNIT *output_unit)
 {
   TEXT result;
   int i;
   int with_direction = 0;
   text_init (&result);
-  text_printf (&result, "element: %s\n",
-               unit_or_external_element_texi(element));
+  text_printf (&result, "output unit: %s\n",
+               output_unit_texi(output_unit));
 
   for (i = 0; i < RUD_type_FirstInFileNodeUp+1; i++)
     {
-      OUTPUT_UNIT *direction = element->directions[i];
+      OUTPUT_UNIT *direction = output_unit->directions[i];
       if (direction)
         {
           text_printf (&result, "  $direction: %s\n",
-                       unit_or_external_element_texi (direction));
+                       output_unit_texi (direction));
           with_direction++;
         }
     }
@@ -728,7 +726,8 @@ units_directions (OPTIONS *customization_information,
       for (i = 0; i < output_units->number; i++)
         {
           OUTPUT_UNIT *output_unit = output_units->list[i];
-          char *element_directions = print_element_directions (output_unit);
+          char *element_directions
+                            = print_output_unit_directions (output_unit);
           fprintf (stderr, "Directions: %s\n", element_directions);
           free (element_directions);
         }

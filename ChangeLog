@@ -1,5 +1,21 @@
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (output_unit_texi)
+	(print_output_unit_directions), tp/Texinfo/XS/main/output_unit.c
+	(output_unit_texi, print_output_unit_directions): rename
+	print_element_directions as print_output_unit_directions and
+	unit_or_external_element_texi as output_unit_texi. Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction),
+	tp/Texinfo/Convert/Plaintext.pm (count_context_bug_message)
+	(convert_output_unit), tp/Texinfo/Structuring.pm (output_unit_texi)
+	(print_output_unit_directions), tp/Texinfo/XS/main/output_unit.c
+	(output_unit_texi, print_output_unit_directions): rename variables
+	names with element in their name replacing element by output_unit or
+	unit when they correspond to output units.
+
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): put
 	%filenames_paths with %files_source_info as 'file_info_path'.
 	Change order of code and conditions for a more logical code

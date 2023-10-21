@@ -536,18 +536,19 @@ sub converter_initialize($)
 
 sub count_context_bug_message($$$)
 {
-  my ($self, $precision, $element) = @_;
+  my ($self, $precision, $output_unit) = @_;
 
   if (scalar(@{$self->{'count_context'}}) != 1) {
-    my $element_text;
-    if ($element) {
-      $element_text
-         = Texinfo::Structuring::unit_or_external_element_texi($element);
+    my $output_unit_text;
+    if ($output_unit) {
+      $output_unit_text
+         = Texinfo::Structuring::output_unit_texi($output_unit);
     } else {
-      $element_text = '';
+      $output_unit_text = '';
     }
     $self->present_bug_message("Too much count_context ${precision}(".
-      scalar(@{$self->{'count_context'}}). "): ". $element_text, $element);
+      scalar(@{$self->{'count_context'}}). "): ". $output_unit_text,
+                               $output_unit->{'unit_command'});
     die;
   }
 }
@@ -572,19 +573,19 @@ sub _initialize_converter_state($)
 # to be done here by calling _initialize_converter_state.
 sub convert_output_unit($$)
 {
-  my ($self, $element) = @_;
+  my ($self, $output_unit) = @_;
 
   _initialize_converter_state($self);
 
   my $result = '';
-  if ($element->{'unit_contents'}) {
-    foreach my $content (@{$element->{'unit_contents'}}) {
+  if ($output_unit->{'unit_contents'}) {
+    foreach my $content (@{$output_unit->{'unit_contents'}}) {
       $result .= _convert($self, $content);
     }
   }
-  $self->count_context_bug_message('', $element);
-  $result .= $self->process_footnotes($element);
-  $self->count_context_bug_message('footnotes ', $element);
+  $self->count_context_bug_message('', $output_unit);
+  $result .= $self->process_footnotes($output_unit);
+  $self->count_context_bug_message('footnotes ', $output_unit);
   return $result;
 }
 

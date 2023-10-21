@@ -234,7 +234,7 @@ $result_elements{'unnumbered_before_top_node'}[0]{'unit_command'}{'associated_un
 
 
 
-$result_directions_text{'unnumbered_before_top_node'} = 'element: @unnumbered before nodes
+$result_directions_text{'unnumbered_before_top_node'} = 'output unit: @unnumbered before nodes
   This: @unnumbered before nodes
 ';
 

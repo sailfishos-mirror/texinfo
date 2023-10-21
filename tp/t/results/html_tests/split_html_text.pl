@@ -486,13 +486,13 @@ $result_elements{'split_html_text'}[1] = $result_elements{'split_html_text'}[0]{
 
 
 
-$result_directions_text{'split_html_text'} = 'element: @node Top
+$result_directions_text{'split_html_text'} = 'output unit: @node Top
   FastForward: @node chap
   Forward: @node chap
   NodeForward: @node chap
   NodeNext: @node chap
   This: @node Top
-element: @node chap
+output unit: @node chap
   Back: @node Top
   FastBack: @node Top
   NodeBack: @node Top

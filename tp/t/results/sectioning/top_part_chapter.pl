@@ -292,12 +292,12 @@ $result_elements{'top_part_chapter'}[1] = $result_elements{'top_part_chapter'}[0
 
 
 
-$result_directions_text{'top_part_chapter'} = 'element: @top top
+$result_directions_text{'top_part_chapter'} = 'output unit: @top top
   FastForward: @chapter chapter
   Forward: @chapter chapter
   Next: @chapter chapter
   This: @top top
-element: @chapter chapter
+output unit: @chapter chapter
   Back: @top top
   FastBack: @top top
   This: @chapter chapter

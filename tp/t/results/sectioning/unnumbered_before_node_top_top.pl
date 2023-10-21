@@ -409,12 +409,12 @@ $result_elements{'unnumbered_before_node_top_top'}[1] = $result_elements{'unnumb
 
 
 
-$result_directions_text{'unnumbered_before_node_top_top'} = 'element: @unnumbered before nodes
+$result_directions_text{'unnumbered_before_node_top_top'} = 'output unit: @unnumbered before nodes
   FastForward: @top top section
   Forward: @top top section
   Next: @top top section
   This: @unnumbered before nodes
-element: @top top section
+output unit: @top top section
   Back: @unnumbered before nodes
   FastBack: @unnumbered before nodes
   Prev: @unnumbered before nodes

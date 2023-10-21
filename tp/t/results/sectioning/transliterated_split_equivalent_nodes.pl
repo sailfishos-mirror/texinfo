@@ -1106,12 +1106,12 @@ $result_elements{'transliterated_split_equivalent_nodes'}[3] = $result_elements{
 
 
 
-$result_directions_text{'transliterated_split_equivalent_nodes'} = 'element: @node top
+$result_directions_text{'transliterated_split_equivalent_nodes'} = 'output unit: @node top
   Forward: @node @~a
   NodeForward: @node @~a
   NodeNext: @node @~a
   This: @node top
-element: @node @~a
+output unit: @node @~a
   Back: @node top
   Forward: @node n
   NodeBack: @node top
@@ -1120,7 +1120,7 @@ element: @node @~a
   NodePrev: @node top
   NodeUp: @node top
   This: @node @~a
-element: @node n
+output unit: @node n
   Back: @node @~a
   FastBack: @node @~a
   Forward: @node @^a
@@ -1130,7 +1130,7 @@ element: @node n
   NodePrev: @node @~a
   NodeUp: @node top
   This: @node n
-element: @node @^a
+output unit: @node @^a
   Back: @node n
   FastBack: @node @~a
   NodeBack: @node n

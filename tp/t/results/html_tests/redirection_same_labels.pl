@@ -1613,13 +1613,13 @@ $result_elements{'redirection_same_labels'}[2] = $result_elements{'redirection_s
 
 
 
-$result_directions_text{'redirection_same_labels'} = 'element: @top the top
+$result_directions_text{'redirection_same_labels'} = 'output unit: @top the top
   FastForward: @chapter umlaut
   Forward: @chapter umlaut
   NodeForward: @chapter umlaut
   NodeNext: @chapter umlaut
   This: @top the top
-element: @chapter umlaut
+output unit: @chapter umlaut
   Back: @top the top
   FastBack: @top the top
   FastForward: @chapter circumflex
@@ -1632,7 +1632,7 @@ element: @chapter umlaut
   NodeUp: @top the top
   This: @chapter umlaut
   Up: @top the top
-element: @chapter circumflex
+output unit: @chapter circumflex
   Back: @chapter umlaut
   FastBack: @chapter umlaut
   NodeBack: @chapter circumflex

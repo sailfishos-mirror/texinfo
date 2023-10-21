@@ -1755,6 +1755,8 @@ sub split_by_node($;$)
   if (!$no_XS) {
     $output_units = _XS_split_by_node($root);
 
+    # If the XS code returns something, we use it as it will have the references
+    # needed for XS code called later on.
     # FIXME use XS $output_units only if $XS_only?
     if (defined($output_units)) {
       return $output_units;
@@ -1963,7 +1965,7 @@ sub split_pages($$;$)
       $level = $section->{'extra'}->{'section_level'};
     }
     #print STDERR "level($split_level) $level "
-    #       .unit_or_external_element_texi($output_unit)."\n";
+    #       .output_unit_texi($output_unit)."\n";
     if (!defined($split_level) or (defined($level) and $split_level >= $level)
         or !$current_first_in_page) {
       $current_first_in_page = $output_unit;
@@ -2220,7 +2222,7 @@ sub units_directions($$$)
         and $node->{'extra'}->{'node_directions'}
         and $node->{'extra'}->{'node_directions'}->{'up'}
         and (!$node_top or ($node ne $node_top))) {
-      #print STDERR "Node for up: ".unit_or_external_element_texi($output_unit)."\n";
+      #print STDERR "Node for up: ".output_unit_texi($output_unit)."\n";
       my $up_node_unit_element
         = _label_target_unit_element(
                $node->{'extra'}->{'node_directions'}->{'up'});
@@ -2238,7 +2240,7 @@ sub units_directions($$$)
       print STDERR 'Directions'
        # uncomment to show the perl object name
        #  . "($output_unit)"
-         . ': '.print_element_directions($output_unit)."\n";
+         . ': '.print_output_unit_directions($output_unit)."\n";
     }
   }
 }
@@ -2311,48 +2313,47 @@ sub units_file_directions($)
 }
 
 # used in debug messages
-sub unit_or_external_element_texi($)
+sub output_unit_texi($)
 {
-  my $element = shift;
-  if (!$element) {
-    return "UNDEF ELEMENT";
+  my $output_unit = shift;
+  if (!$output_unit) {
+    return "UNDEF OUTPUT UNIT";
   }
-  if (!defined($element->{'unit_type'})) {
-    return "unit $element without type: ".
-       Texinfo::Common::debug_print_element_details($element, 1)
-      .' '.Texinfo::Common::debug_print_output_unit($element);
+  if (!defined($output_unit->{'unit_type'})) {
+    # show the output_unit as element, as a possible bug is that
+    # an element was passed in argument instead of an output unit
+    return "unit $output_unit without type: ".
+       Texinfo::Common::debug_print_element_details($output_unit, 1)
+      .' '.Texinfo::Common::debug_print_output_unit($output_unit);
   }
 
-  my $command_element = $element->{'unit_command'};
+  my $unit_command = $output_unit->{'unit_command'};
 
-  if ($element->{'unit_type'} eq 'external_node_unit') {
+  if ($output_unit->{'unit_type'} eq 'external_node_unit') {
     return Texinfo::Convert::Texinfo::convert_to_texinfo(
-                            {'contents' => $command_element->{'contents'}});
+                            {'contents' => $unit_command->{'contents'}});
   }
 
-  if (!$command_element) {
+  if (!$unit_command) {
     # happens when there are only nodes and sections are used as elements
-    return "No associated command (type $element->{'unit_type'})";
+    return "No associated command (type $output_unit->{'unit_type'})";
   }
   return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                                                          $command_element);
+                                                          $unit_command);
 }
 
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
-# In general would be called with output units, but is more generic
-# to account for other situations.
-sub print_element_directions($)
+sub print_output_unit_directions($)
 {
-  my $element = shift;
-  my $result = 'element: '.unit_or_external_element_texi($element)."\n";
+  my $output_unit = shift;
+  my $result = 'output unit: '.output_unit_texi($output_unit)."\n";
 
-  if ($element->{'directions'}) {
-    foreach my $direction (sort(keys(%{$element->{'directions'}}))) {
+  if ($output_unit->{'directions'}) {
+    foreach my $direction (sort(keys(%{$output_unit->{'directions'}}))) {
       $result .= "  $direction: ".
-       unit_or_external_element_texi(
-         $element->{'directions'}->{$direction})."\n";
+       output_unit_texi($output_unit->{'directions'}->{$direction})."\n";
     }
   } else {
     $result .= "  NO DIRECTION\n";

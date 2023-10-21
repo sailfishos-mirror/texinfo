@@ -1102,7 +1102,7 @@ sub _set_output_units_files($$$$$$)
     print STDERR 'Page '
      # uncomment for perl object name
      #."$output_unit "
-     .Texinfo::Structuring::unit_or_external_element_texi($output_unit)
+     .Texinfo::Structuring::output_unit_texi($output_unit)
      .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
               if ($self->get_conf('DEBUG'));
   }

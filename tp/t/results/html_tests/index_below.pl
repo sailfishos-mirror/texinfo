@@ -422,17 +422,17 @@ $result_elements{'index_below'}[2] = $result_elements{'index_below'}[0]{'directi
 
 
 
-$result_directions_text{'index_below'} = 'element: @top top
+$result_directions_text{'index_below'} = 'output unit: @top top
   FastForward: @chapter chap
   Forward: @chapter chap
   This: @top top
-element: @chapter chap
+output unit: @chapter chap
   Back: @top top
   FastBack: @top top
   Forward: @section sec
   This: @chapter chap
   Up: @top top
-element: @section sec
+output unit: @section sec
   Back: @chapter chap
   FastBack: @chapter chap
   This: @section sec

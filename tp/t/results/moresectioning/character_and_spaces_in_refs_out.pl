@@ -2508,13 +2508,13 @@ $result_elements{'character_and_spaces_in_refs_out'}[5] = $result_elements{'char
 
 
 
-$result_directions_text{'character_and_spaces_in_refs_out'} = 'element: @node Top
+$result_directions_text{'character_and_spaces_in_refs_out'} = 'output unit: @node Top
   FastForward: @node node to avoid DocBook or LaTeX ignored
   Forward: @node node to avoid DocBook or LaTeX ignored
   NodeForward: @node node to avoid DocBook or LaTeX ignored
   NodeNext: @node node to avoid DocBook or LaTeX ignored
   This: @node Top
-element: @node node to avoid DocBook or LaTeX ignored
+output unit: @node node to avoid DocBook or LaTeX ignored
   Back: @node Top
   FastBack: @node Top
   FastForward: @node other nodes
@@ -2527,7 +2527,7 @@ element: @node node to avoid DocBook or LaTeX ignored
   NodeUp: @node Top
   This: @node node to avoid DocBook or LaTeX ignored
   Up: @node Top
-element: @node other nodes
+output unit: @node other nodes
   Back: @node node to avoid DocBook or LaTeX ignored
   FastBack: @node node to avoid DocBook or LaTeX ignored
   Forward: @node !_"#$%&\'()*+-.
@@ -2539,7 +2539,7 @@ element: @node other nodes
   Prev: @node node to avoid DocBook or LaTeX ignored
   This: @node other nodes
   Up: @node Top
-element: @node !_"#$%&\'()*+-.
+output unit: @node !_"#$%&\'()*+-.
   Back: @node other nodes
   FastBack: @node other nodes
   Forward: @node /;<=>?[\\]^_`|~
@@ -2549,7 +2549,7 @@ element: @node !_"#$%&\'()*+-.
   NodePrev: @node other nodes
   NodeUp: @node other nodes
   This: @node !_"#$%&\'()*+-.
-element: @node /;<=>?[\\]^_`|~
+output unit: @node /;<=>?[\\]^_`|~
   Back: @node !_"#$%&\'()*+-.
   FastBack: @node other nodes
   Forward: @node local   node
@@ -2559,7 +2559,7 @@ element: @node /;<=>?[\\]^_`|~
   NodePrev: @node !_"#$%&\'()*+-.
   NodeUp: @node other nodes
   This: @node /;<=>?[\\]^_`|~
-element: @node local   node
+output unit: @node local   node
   Back: @node /;<=>?[\\]^_`|~
   FastBack: @node other nodes
   NodeBack: @node /;<=>?[\\]^_`|~

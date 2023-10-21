@@ -10,12 +10,15 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Find a workaround to be able to change the locale for gettext in C for
+in-document strings, even if the locale is C/POSIX.
+
 Check format_translate_message_tree api after the changes in gdt api
 when the translation of HTML to C is advnaced enough that it becomes clear
 that the API won't change again.
 
 For unicode sorting in C for index sorting, strcoll_l or even better strxfrm_l
-could be used, it sorts accoding to a locale specified in argument.  However,
+could be used, it sorts according to a locale specified in argument.  However,
 it does not seems to be that portable, there is no associated gnulib
 module, and the _l variants seem to be in glibc but are are not in the glibc
 documentation.  According to Eli, if the locale's codeset is UTF-8, glibc

@@ -767,14 +767,14 @@ $result_elements{'non_automatic_top_node_up_url'}[1] = $result_elements{'non_aut
 
 
 
-$result_directions_text{'non_automatic_top_node_up_url'} = 'element: @node Top
+$result_directions_text{'non_automatic_top_node_up_url'} = 'output unit: @node Top
   Forward: @node chap
   NodeForward: @node chap
   NodeNext: @node chap
   NodePrev: (dir)
   NodeUp: (dir)
   This: @node Top
-element: @node chap
+output unit: @node chap
   Back: @node Top
   FastBack: @node Top
   NodeBack: @node Top

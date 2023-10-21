@@ -188,7 +188,7 @@ $result_elements{'part_before_section'}[0]{'unit_command'}{'extra'}{'associated_
 
 
 
-$result_directions_text{'part_before_section'} = 'element: @section section
+$result_directions_text{'part_before_section'} = 'output unit: @section section
   This: @section section
 ';
 

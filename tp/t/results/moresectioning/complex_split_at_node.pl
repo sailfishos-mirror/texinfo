@@ -5368,14 +5368,14 @@ $result_elements{'complex_split_at_node'}[14] = $result_elements{'complex_split_
 
 
 
-$result_directions_text{'complex_split_at_node'} = 'element: @node Top
+$result_directions_text{'complex_split_at_node'} = 'output unit: @node Top
   FastForward: @node First node
   Forward: @node First node
   NodeForward: @node First node
   NodeNext: @node First node
   NodePrev: (dir)
   This: @node Top
-element: @node First node
+output unit: @node First node
   Back: @node Top
   FastBack: @node Top
   FastForward: @node Second node
@@ -5387,7 +5387,7 @@ element: @node First node
   NodeUp: @node Top
   This: @node First node
   Up: @node Top
-element: @node unnumbered
+output unit: @node unnumbered
   Back: @node First node
   FastBack: @node First node
   FastForward: @node Second node
@@ -5399,7 +5399,7 @@ element: @node unnumbered
   NodeUp: @node First node
   This: @node unnumbered
   Up: @node First node
-element: @node unnumbered sub
+output unit: @node unnumbered sub
   Back: @node unnumbered
   FastBack: @node First node
   FastForward: @node Second node
@@ -5411,7 +5411,7 @@ element: @node unnumbered sub
   NodeUp: @node unnumbered
   This: @node unnumbered sub
   Up: @node unnumbered
-element: @node numbered sub
+output unit: @node numbered sub
   Back: @node unnumbered sub
   FastBack: @node First node
   FastForward: @node Second node
@@ -5425,7 +5425,7 @@ element: @node numbered sub
   Prev: @node unnumbered sub
   This: @node numbered sub
   Up: @node unnumbered
-element: @node unnumbered sub2
+output unit: @node unnumbered sub2
   Back: @node numbered sub
   FastBack: @node First node
   FastForward: @node Second node
@@ -5439,7 +5439,7 @@ element: @node unnumbered sub2
   Prev: @node numbered sub
   This: @node unnumbered sub2
   Up: @node unnumbered
-element: @node numbered sub2
+output unit: @node numbered sub2
   Back: @node unnumbered sub2
   FastBack: @node First node
   FastForward: @node Second node
@@ -5451,7 +5451,7 @@ element: @node numbered sub2
   Prev: @node unnumbered sub2
   This: @node numbered sub2
   Up: @node unnumbered
-element: @node unnumbered2
+output unit: @node unnumbered2
   Back: @node numbered sub2
   FastBack: @node First node
   FastForward: @node Second node
@@ -5465,7 +5465,7 @@ element: @node unnumbered2
   Prev: @node unnumbered
   This: @node unnumbered2
   Up: @node First node
-element: @node numbered sub3
+output unit: @node numbered sub3
   Back: @node unnumbered2
   FastBack: @node First node
   FastForward: @node Second node
@@ -5475,7 +5475,7 @@ element: @node numbered sub3
   NodeUp: @node unnumbered2
   This: @node numbered sub3
   Up: @node unnumbered2
-element: @node numbered
+output unit: @node numbered
   Back: @node numbered sub3
   FastBack: @node First node
   FastForward: @node Second node
@@ -5486,13 +5486,13 @@ element: @node numbered
   Prev: @node unnumbered2
   This: @node numbered
   Up: @node First node
-element: @node between node
+output unit: @node between node
   Back: @node numbered
   FastForward: @node Second node
   Forward: @node Second node
   NodeUp: @node Top
   This: @node between node
-element: @node Second node
+output unit: @node Second node
   Back: @node between node
   FastBack: @node First node
   FastForward: @node Third node unnumbered
@@ -5504,7 +5504,7 @@ element: @node Second node
   Prev: @node First node
   This: @node Second node
   Up: @node Top
-element: @node Third node unnumbered
+output unit: @node Third node unnumbered
   Back: @node Second node
   FastBack: @node Second node
   FastForward: @node continuity
@@ -5518,7 +5518,7 @@ element: @node Third node unnumbered
   Prev: @node Second node
   This: @node Third node unnumbered
   Up: @node Top
-element: @node continuity
+output unit: @node continuity
   Back: @node Third node unnumbered
   FastBack: @node Third node unnumbered
   Forward: @node Last node no description
@@ -5530,7 +5530,7 @@ element: @node continuity
   Prev: @node Third node unnumbered
   This: @node continuity
   Up: @node Top
-element: @node Last node no description
+output unit: @node Last node no description
   Back: @node continuity
   FastBack: @node continuity
   NodePrev: @node continuity

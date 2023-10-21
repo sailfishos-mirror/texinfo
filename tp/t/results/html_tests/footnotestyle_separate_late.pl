@@ -899,13 +899,13 @@ $result_elements{'footnotestyle_separate_late'}[2] = $result_elements{'footnotes
 
 
 
-$result_directions_text{'footnotestyle_separate_late'} = 'element: @node Top
+$result_directions_text{'footnotestyle_separate_late'} = 'output unit: @node Top
   FastForward: @node chap f
   Forward: @node chap f
   NodeForward: @node chap f
   NodeNext: @node chap f
   This: @node Top
-element: @node chap f
+output unit: @node chap f
   Back: @node Top
   FastBack: @node Top
   FastForward: @node chap s
@@ -918,7 +918,7 @@ element: @node chap f
   NodeUp: @node Top
   This: @node chap f
   Up: @node Top
-element: @node chap s
+output unit: @node chap s
   Back: @node chap f
   FastBack: @node chap f
   NodeBack: @node chap f

@@ -1159,14 +1159,14 @@ $result_elements{'two_nodes_between_chapters'}[2] = $result_elements{'two_nodes_
 
 
 
-$result_directions_text{'two_nodes_between_chapters'} = 'element: @top top
+$result_directions_text{'two_nodes_between_chapters'} = 'output unit: @top top
   FastForward: @chapter chapter c1
   Forward: @chapter chapter c1
   NodeBack: @chapter chapter c1
   NodeForward: @chapter chapter c1
   NodeNext: @chapter chapter c1
   This: @top top
-element: @chapter chapter c1
+output unit: @chapter chapter c1
   Back: @top top
   FastBack: @top top
   FastForward: @chapter chapter c2
@@ -1179,7 +1179,7 @@ element: @chapter chapter c1
   NodeUp: @top top
   This: @chapter chapter c1
   Up: @top top
-element: @chapter chapter c2
+output unit: @chapter chapter c2
   Back: @chapter chapter c1
   FastBack: @chapter chapter c1
   NodePrev: @chapter chapter c1

@@ -5095,14 +5095,14 @@ $result_elements{'complex'}[12] = $result_elements{'complex'}[0]{'directions'}{'
 
 
 
-$result_directions_text{'complex'} = 'element: @top
+$result_directions_text{'complex'} = 'output unit: @top
   FastForward: @chapter first node chapter
   Forward: @chapter first node chapter
   NodeForward: @chapter first node chapter
   NodeNext: @chapter first node chapter
   NodePrev: (dir)
   This: @top
-element: @chapter first node chapter
+output unit: @chapter first node chapter
   Back: @top
   FastBack: @top
   FastForward: @chapter second node chapter
@@ -5114,7 +5114,7 @@ element: @chapter first node chapter
   NodeUp: @top
   This: @chapter first node chapter
   Up: @top
-element: @unnumberedsec unnumbered section
+output unit: @unnumberedsec unnumbered section
   Back: @chapter first node chapter
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5126,7 +5126,7 @@ element: @unnumberedsec unnumbered section
   NodeUp: @chapter first node chapter
   This: @unnumberedsec unnumbered section
   Up: @chapter first node chapter
-element: @unnumberedsubsec unnumbered subsection
+output unit: @unnumberedsubsec unnumbered subsection
   Back: @unnumberedsec unnumbered section
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5138,7 +5138,7 @@ element: @unnumberedsubsec unnumbered subsection
   NodeUp: @unnumberedsec unnumbered section
   This: @unnumberedsubsec unnumbered subsection
   Up: @unnumberedsec unnumbered section
-element: @subsection numbered subsection
+output unit: @subsection numbered subsection
   Back: @unnumberedsubsec unnumbered subsection
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5152,7 +5152,7 @@ element: @subsection numbered subsection
   Prev: @unnumberedsubsec unnumbered subsection
   This: @subsection numbered subsection
   Up: @unnumberedsec unnumbered section
-element: @unnumberedsubsec unnumbered subsection2
+output unit: @unnumberedsubsec unnumbered subsection2
   Back: @subsection numbered subsection
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5166,7 +5166,7 @@ element: @unnumberedsubsec unnumbered subsection2
   Prev: @subsection numbered subsection
   This: @unnumberedsubsec unnumbered subsection2
   Up: @unnumberedsec unnumbered section
-element: @subsection numbered subsection2
+output unit: @subsection numbered subsection2
   Back: @unnumberedsubsec unnumbered subsection2
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5178,7 +5178,7 @@ element: @subsection numbered subsection2
   Prev: @unnumberedsubsec unnumbered subsection2
   This: @subsection numbered subsection2
   Up: @unnumberedsec unnumbered section
-element: @unnumberedsec unnumbered section2
+output unit: @unnumberedsec unnumbered section2
   Back: @subsection numbered subsection2
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5192,7 +5192,7 @@ element: @unnumberedsec unnumbered section2
   Prev: @unnumberedsec unnumbered section
   This: @unnumberedsec unnumbered section2
   Up: @chapter first node chapter
-element: @subsection numbered subsection3
+output unit: @subsection numbered subsection3
   Back: @unnumberedsec unnumbered section2
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5202,7 +5202,7 @@ element: @subsection numbered subsection3
   NodeUp: @unnumberedsec unnumbered section2
   This: @subsection numbered subsection3
   Up: @unnumberedsec unnumbered section2
-element: @section numbered section
+output unit: @section numbered section
   Back: @subsection numbered subsection3
   FastBack: @chapter first node chapter
   FastForward: @chapter second node chapter
@@ -5213,7 +5213,7 @@ element: @section numbered section
   Prev: @unnumberedsec unnumbered section2
   This: @section numbered section
   Up: @chapter first node chapter
-element: @chapter second node chapter
+output unit: @chapter second node chapter
   Back: @section numbered section
   FastBack: @chapter first node chapter
   FastForward: @unnumbered unnumbered chapter
@@ -5225,7 +5225,7 @@ element: @chapter second node chapter
   Prev: @chapter first node chapter
   This: @chapter second node chapter
   Up: @top
-element: @unnumbered unnumbered chapter
+output unit: @unnumbered unnumbered chapter
   Back: @chapter second node chapter
   FastBack: @chapter second node chapter
   FastForward: @unnumbered unnumbered continuity
@@ -5239,7 +5239,7 @@ element: @unnumbered unnumbered chapter
   Prev: @chapter second node chapter
   This: @unnumbered unnumbered chapter
   Up: @top
-element: @unnumbered unnumbered continuity
+output unit: @unnumbered unnumbered continuity
   Back: @unnumbered unnumbered chapter
   FastBack: @unnumbered unnumbered chapter
   NodeBack: @unnumbered unnumbered chapter
