@@ -165,9 +165,6 @@ $result_trees{'setfilename'} = {
                 }
               ],
               'cmdname' => 'setfilename',
-              'extra' => {
-                'missing_argument' => 1
-              },
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

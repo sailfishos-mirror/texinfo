@@ -62,9 +62,6 @@ $result_trees{'command_in_end'} = {
                     }
                   ],
                   'cmdname' => 'end',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '

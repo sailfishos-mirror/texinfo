@@ -22,9 +22,6 @@ $result_trees{'empty_documentencoding'} = {
             }
           ],
           'cmdname' => 'documentencoding',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,

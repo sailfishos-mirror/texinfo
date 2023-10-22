@@ -639,9 +639,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequoteundirected',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -661,9 +658,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequotebacktick',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -2015,9 +2009,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           ],
           'cmdname' => 'codequoteundirected',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 45,
@@ -2037,9 +2028,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           ],
           'cmdname' => 'codequotebacktick',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 45,
@@ -3151,9 +3139,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequoteundirected',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 48,
@@ -3173,9 +3158,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequotebacktick',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 48,

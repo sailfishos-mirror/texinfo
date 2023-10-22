@@ -1,5 +1,12 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_parse_line_command_args), tp/Texinfo/XS/parsetexi/end_line.c
+	(parse_line_command_args, end_line_misc_line): remove
+	{'extra'}->{'missing_argument'} from tree.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (output), tp/Texinfo/Convert/LaTeX.pm
 	(_prepare_conversion, _convert), tp/Texinfo/Convert/Plaintext.pm
 	(_convert): check existence of contents instead of relying on

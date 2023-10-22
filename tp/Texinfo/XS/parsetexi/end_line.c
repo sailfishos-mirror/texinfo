@@ -113,7 +113,6 @@ parse_line_command_args (ELEMENT *line_command)
   if (arg->contents.number == 0)
    {
      command_error (line_command, "@%s missing argument", command_name(cmd));
-     add_extra_integer (line_command, "missing_argument", 1);
      return 0;
    }
 
@@ -1210,7 +1209,6 @@ end_line_misc_line (ELEMENT *current)
         {
           if (!superfluous_arg)
             line_warn ("@%s missing argument", command_name(cmd));
-          add_extra_integer (current, "missing_argument", 1);
           free (text);
         }
       else
@@ -1546,7 +1544,6 @@ end_line_misc_line (ELEMENT *current)
         {
           command_warn (current, "@%s missing argument", 
                         command_name(current->cmd));
-          add_extra_integer (current, "missing_argument", 1);
         }
       else
         {

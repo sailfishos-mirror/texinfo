@@ -110,9 +110,6 @@ $result_trees{'empty_item_itemx'} = {
                         }
                       ],
                       'cmdname' => 'itemx',
-                      'extra' => {
-                        'missing_argument' => 1
-                      },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
@@ -177,9 +174,6 @@ $result_trees{'empty_item_itemx'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
-                        'missing_argument' => 1
-                      },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,

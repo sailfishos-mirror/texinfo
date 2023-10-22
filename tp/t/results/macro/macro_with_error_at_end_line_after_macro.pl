@@ -119,9 +119,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,

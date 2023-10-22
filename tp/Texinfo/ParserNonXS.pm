@@ -3428,15 +3428,14 @@ sub _end_line_misc_line($$$)
     my ($text, $superfluous_arg)
       = _text_contents_to_plain_text($current->{'args'}->[0]);
 
-    $current->{'extra'} = {} if (!$current->{'extra'});
     if ($text eq '') {
       if (not $superfluous_arg) {
         $self->_command_warn($current, $source_info,
                              __("\@%s missing argument"), $command);
       }
       # if there is superfluous arg, a more suitable error is issued below.
-      $current->{'extra'}->{'missing_argument'} = 1;
     } else {
+      $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'text_arg'} = $text;
       if ($command eq 'end') {
         # REMACRO
@@ -3630,8 +3629,6 @@ sub _end_line_misc_line($$$)
     if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
       $self->_command_warn($current, $source_info,
              __("\@%s missing argument"), $command);
-      $current->{'extra'} = {} if (!$current->{'extra'});
-      $current->{'extra'}->{'missing_argument'} = 1;
     } else {
       if (($command eq 'item' or $command eq 'itemx')
           and $current->{'parent'}->{'cmdname'}
@@ -7510,8 +7507,6 @@ sub _parse_line_command_args($$$)
   if (!$arg->{'contents'}) {
     $self->_command_error($line_command, $source_info,
                __("\@%s missing argument"), $command);
-    $line_command->{'extra'} = {} if (!$line_command->{'extra'});
-    $line_command->{'extra'}->{'missing_argument'} = 1;
     return undef;
   }
 
@@ -8604,10 +8599,6 @@ not empty, for @-commands elements that have an associated index entry.
 An array holding strings, the arguments of @-commands taking simple
 textual arguments as arguments, like C<@everyheadingmarks>,
 C<@frenchspacing>, C<@alias>, C<@synindex>, C<@columnfractions>.
-
-=item missing_argument
-
-Set for some @-commands with line arguments and a missing argument.
 
 =item text_arg
 

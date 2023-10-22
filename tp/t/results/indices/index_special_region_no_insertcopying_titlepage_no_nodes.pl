@@ -790,9 +790,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
             }
           ],
           'cmdname' => 'cindex',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'info' => {
             'command_name' => 'cindex'
           },
@@ -1046,9 +1043,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
-                        'missing_argument' => 1
-                      },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
                         'line_nr' => 51,

@@ -126,9 +126,6 @@ $result_trees{'empty_added_index_entry'} = {
             }
           ],
           'cmdname' => 'myindex',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'info' => {
             'command_name' => 'myindex'
           },

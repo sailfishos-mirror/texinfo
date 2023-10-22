@@ -62,9 +62,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                     }
                   ],
                   'cmdname' => 'end',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '

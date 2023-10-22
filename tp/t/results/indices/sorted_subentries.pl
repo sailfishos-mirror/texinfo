@@ -734,8 +734,7 @@ $result_trees{'sorted_subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
-                'missing_argument' => 1
+                'level' => 1
               },
               'source_info' => {
                 'file_name' => '',
@@ -1391,7 +1390,6 @@ $result_trees{'sorted_subentries'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'missing_argument' => 1,
             'subentry' => {
               'args' => [
                 {

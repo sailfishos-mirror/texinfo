@@ -80,9 +80,6 @@ $result_trees{'empty_cindex_entry'} = {
             }
           ],
           'cmdname' => 'cindex',
-          'extra' => {
-            'missing_argument' => 1
-          },
           'info' => {
             'command_name' => 'cindex'
           },

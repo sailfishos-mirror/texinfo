@@ -28,9 +28,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'extra' => {
-        'missing_argument' => 1
-      },
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -50,9 +48,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'extra' => {
-        'missing_argument' => 1
-      },
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -76,7 +72,6 @@ $result_sectioning{'two_unnumbered_no_argument'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {
-          'missing_argument' => 1,
           'section_directions' => {},
           'section_level' => 1,
           'sectioning_root' => {},
@@ -86,7 +81,6 @@ $result_sectioning{'two_unnumbered_no_argument'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {
-          'missing_argument' => 1,
           'section_directions' => {
             'prev' => {}
           },

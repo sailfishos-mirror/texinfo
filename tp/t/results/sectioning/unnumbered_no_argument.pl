@@ -23,9 +23,7 @@ $result_trees{'unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'extra' => {
-        'missing_argument' => 1
-      },
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -48,7 +46,6 @@ $result_sectioning{'unnumbered_no_argument'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {
-          'missing_argument' => 1,
           'section_level' => 1,
           'sectioning_root' => {}
         }

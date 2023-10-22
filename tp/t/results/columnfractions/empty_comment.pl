@@ -32,9 +32,6 @@ $result_trees{'empty_comment'} = {
                     }
                   ],
                   'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'missing_argument' => 1
-                  },
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
