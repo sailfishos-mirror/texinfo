@@ -1,5 +1,11 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* info/Makefile.am: add AUTOMAKE_OPTIONS no-dist-built-sources to
+	attempt to have funs.h not distributed even if in BUILT_SOURCES.
+	Does not seem to work?
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (dist_modules_DATA, modules_DATA)
 	(Texinfo/Commands.pm, Texinfo/Options.pm)
 	(DISTCLEANFILES, MAINTAINERCLEANFILES), tp/Texinfo/XS/Makefile.am

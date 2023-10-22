@@ -10,6 +10,12 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# no-dist-built-sources is actually in 1.16.4 upward
+# use no-dist-built-sources such that funs.h is not distributed even
+# if in BUILT_SOURCES
+# FIXME it does not seem to work as adverised in tests?
+AUTOMAKE_OPTIONS = 1.16 no-dist-built-sources
+
 # Use `ginfo' for building to avoid confusion with the standard `info'
 # target.  Removes the `g' in the install rule before applying any
 # user-specified name transformations.
