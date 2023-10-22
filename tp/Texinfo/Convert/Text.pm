@@ -478,6 +478,7 @@ sub convert_to_text($;$)
   # this is needed for locate_include_file which uses
   # $configurations_information->get_conf() and thus requires a blessed
   # reference.
+  $options = {} if (!defined($options));
   if (defined($options)) {
     bless $options;
     if ($options->{'code'}) {
