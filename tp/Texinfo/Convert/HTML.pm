@@ -9304,18 +9304,21 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
-  if (0 and $self->{'converter_descriptor'}) {
-  #if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
+    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
+    my $encoded_destination_directory
+         = Encode::encode('UTF-8', $destination_directory);
+    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
 
     my ($XS_files_source_info, $global_units_directions,
         $elements_in_file_count, $filenames,
         $file_counters, $out_filepaths)
       = _XS_prepare_units_directions_files($encoded_converter,
            $output_units, $special_units, $associated_special_units,
-           $output_file, $destination_directory, $output_filename,
-           $encoded_document_name);
+           $encoded_output_file, $encoded_destination_directory,
+           $encoded_output_filename, $encoded_document_name);
     $self->{'global_units_directions'} = $global_units_directions;
     $self->{'elements_in_file_count'} = $elements_in_file_count;
 
@@ -11627,6 +11630,7 @@ sub output($$)
       }
       $files{$output_unit_filename}->{'body'} .= $body;
       $self->{'file_counters'}->{$output_unit_filename}--;
+
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
         my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
         my ($encoded_out_filepath, $path_encoding)

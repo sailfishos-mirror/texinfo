@@ -1604,19 +1604,19 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
           HV *file_source_info_hv;
           SV *file_source_info_sv;
           char *filename = file_source_info->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
 
           file_source_info_hv = newHV ();
           file_source_info_sv = newRV_noinc ((SV *) file_source_info_hv);
 
-          hv_store (hv, filename, strlen (filename), file_source_info_sv, 0);
+          hv_store_ent (hv, filename_sv, file_source_info_sv, 0);
 
           STORE("file_info_type", newSVpv_utf8 (file_source_info->type, 0));
           if (file_source_info->name)
             STORE("file_info_name", newSVpv_utf8 (file_source_info->name, 0));
+          /* not actually used in downstream code, but present also in perl */
           if (file_source_info->path)
-            /* FIXME check encoding */
-            STORE("file_info_path", newSVpv (file_source_info->path,
-                                             strlen (file_source_info->path)));
+            STORE("file_info_path", newSVpv_utf8 (file_source_info->path, 0));
           else
             STORE("file_info_path", newSV(0));
 
@@ -1686,9 +1686,10 @@ build_html_elements_in_file_count (
           FILE_NAME_PATH_COUNTER *output_unit_file
             = &output_unit_files->list[i];
           char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
 
-          hv_store (hv, filename, strlen (filename),
-                    newSViv (output_unit_file->elements_in_file_count), 0);
+          hv_store_ent (hv, filename_sv,
+                        newSViv (output_unit_file->elements_in_file_count), 0);
         }
     }
 
@@ -1712,10 +1713,10 @@ build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
           FILE_NAME_PATH_COUNTER *output_unit_file
             = &output_unit_files->list[i];
           char *normalized_filename = output_unit_file->normalized_filename;
+          SV *normalized_filename_sv = newSVpv_utf8 (normalized_filename, 0);
 
-          hv_store (hv, normalized_filename, strlen (normalized_filename),
-                    newSVpv (output_unit_file->filename,
-                             strlen (output_unit_file->filename)), 0);
+          hv_store_ent (hv, normalized_filename_sv,
+                    newSVpv_utf8 (output_unit_file->filename, 0), 0);
         }
     }
 
@@ -1739,9 +1740,9 @@ build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
           FILE_NAME_PATH_COUNTER *output_unit_file
             = &output_unit_files->list[i];
           char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
 
-          hv_store (hv, filename, strlen (filename),
-                    newSViv (output_unit_file->counter), 0);
+          hv_store_ent (hv, filename_sv, newSViv (output_unit_file->counter), 0);
         }
     }
 
@@ -1765,10 +1766,10 @@ build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
           FILE_NAME_PATH_COUNTER *output_unit_file
             = &output_unit_files->list[i];
           char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
 
-          hv_store (hv, filename, strlen (filename),
-                    newSVpv (output_unit_file->filepath,
-                             strlen (output_unit_file->filepath)), 0);
+          hv_store_ent (hv, filename_sv,
+                        newSVpv_utf8 (output_unit_file->filepath, 0), 0);
         }
     }
 

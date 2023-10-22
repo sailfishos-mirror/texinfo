@@ -685,8 +685,10 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
   for (i = 0; i < do_special->number; i++)
     {
       /* take the string from special_unit_varieties */
+      char *special_unit_variety;
       int special_unit_varieties_idx = -1;
       int j;
+
       for (j = 0; j < special_unit_varieties->number; j++)
         if (!strcmp (special_unit_varieties->list[j],
                      special_units_order[i].variety))
@@ -702,7 +704,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
           bug (msg);
         }
 
-      char *special_unit_variety = special_unit_varieties->list[j];
+      special_unit_variety = special_unit_varieties->list[j];
       OUTPUT_UNIT *special_output_unit
                     = register_special_unit (self, special_unit_variety);
       add_to_output_unit_list (special_units,
