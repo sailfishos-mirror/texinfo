@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+check $(native_tools) variable in Makefile.am does not seems to be
+set and seems useless.
+
 Find a workaround to be able to change the locale for gettext in C for
 in-document strings, even if the locale is C/POSIX.
 
