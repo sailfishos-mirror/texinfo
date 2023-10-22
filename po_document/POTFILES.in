@@ -11,7 +11,7 @@ tp/ext/epub3.pm
 tp/init/html32.pm
 tp/Texinfo/Common.pm
 tp/Texinfo/Structuring.pm
-tp/Texinfo/Translations.pm
+tp/Texinfo/TranslationsNonXS.pm
 tp/Texinfo/Convert/Converter.pm
 tp/Texinfo/Convert/DocBook.pm
 tp/Texinfo/Convert/LaTeX.pm
