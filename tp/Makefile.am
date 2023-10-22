@@ -67,10 +67,12 @@ dist_modules_DATA = \
  Texinfo/Config.pm \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
+ Texinfo/Commands.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/Documentlanguages.pm \
  Texinfo/MiscXS.pm \
+ Texinfo/Options.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/Report.pm \
@@ -85,9 +87,7 @@ dist_noinst_DATA = \
  Texinfo/ModulePath.pm.in
 
 modules_DATA = \
- Texinfo/ModulePath.pm \
- Texinfo/Commands.pm \
- Texinfo/Options.pm
+ Texinfo/ModulePath.pm
 
 convertersdir = $(pkgdatadir)/Texinfo/Convert
 dist_converters_DATA = \
@@ -347,13 +347,11 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 # FIXME duplicated in Texinfo/XS/Makefile.am. Remove from here?
-Texinfo/Commands.pm: Texinfo/command_data.txt
-	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_commands_perl_info.pl Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
+$(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt
+	$(srcdir)/maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
 
-Texinfo/Options.pm: Texinfo/options_data.txt
-	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_perl_options_info.pl Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
+$(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt
+	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
 
@@ -399,4 +397,5 @@ distclean-local:
 	rm -rf po po_document
 
 CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
-DISTCLEANFILES = maintain/catalog.xml Texinfo/Commands.pm Texinfo/Options.pm
+DISTCLEANFILES = maintain/catalog.xml
+MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm

@@ -1,5 +1,22 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (dist_modules_DATA, modules_DATA)
+	(Texinfo/Commands.pm, Texinfo/Options.pm)
+	(DISTCLEANFILES, MAINTAINERCLEANFILES), tp/Texinfo/XS/Makefile.am
+	(../Commands.pm, ../Options.pm): build Options.pm and Commands.pm
+	systematically in srcdir, as they are prerequisites for files in
+	scrdir in tp/Texinfo/XS for maintain/setup_converters_code_tables.pl.
+	For the same reason, distribute Commands.pm and Options.pm and put
+	them in MAINTAINERCLEANFILES, not DISTCLEANFILES.
+
+	* tp/Texinfo/XS/Makefile.am (cmd_normalization.c): add other files
+	built with the rule as targets.
+
+	* tp/Texinfo/XS/Makefile.am: remove $srcdir from prerequisites, they
+	should be found on VPATH.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* man/Makefile.am (generated_mans, MAINTAINERCLEANFILES): distinguish
 	generated man pages in generated_mans variable and
 	MAINTAINERCLEANFILES, manually written man pages should not be

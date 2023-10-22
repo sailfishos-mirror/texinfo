@@ -239,14 +239,14 @@ $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global
 	     $(srcdir)/../command_data.txt
 
 # NOTE duplicate of a rule in ../../Makefile.am
-$(srcdir)/../Commands.pm: $(srcdir)/../command_data.txt
-	$(PERL) $(srcdir)/../../maintain/regenerate_commands_perl_info.pl ../Commands.pm < $(srcdir)/../command_data.txt
+$(srcdir)/../Commands.pm: ../command_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_commands_perl_info.pl $(srcdir)/../Commands.pm < $(srcdir)/../command_data.txt
 
 # NOTE duplicate of a rule in ../../Makefile.am
 $(srcdir)/../Options.pm: $(srcdir)/../options_data.txt
-	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl ../Options.pm < $(srcdir)/../options_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl $(srcdir)/../Options.pm < $(srcdir)/../options_data.txt
 
-$(srcdir)/main/cmd_normalization.c: $(srcdir)/main/command_data.c $(srcdir)/../Commands.pm $(srcdir)/../Options.pm
+$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_symbol.c $(srcdir)/main/cmd_text.c: main/command_data.c ../Commands.pm ../Options.pm
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \
@@ -259,7 +259,7 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c:
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: $(srcdir)/../options_data.txt $(srcdir)/main/command_data.c
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: ../options_data.txt main/command_data.c
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
 	              $(srcdir)/main/command_data.c \
