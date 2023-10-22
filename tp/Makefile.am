@@ -67,6 +67,7 @@ dist_modules_DATA = \
  Texinfo/Config.pm \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
+ Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/Documentlanguages.pm \
  Texinfo/MiscXS.pm \
@@ -111,10 +112,6 @@ dist_converters_DATA = \
  Texinfo/Convert/TextContent.pm \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm
-
-debugmodulesdir = $(pkgdatadir)/DebugTexinfo
-dist_debugmodules_DATA = \
- DebugTexinfo/DebugTree.pm
 
 # extensions used in main program
 extensionsdir = $(datadir)/texinfo/ext

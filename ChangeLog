@@ -1,5 +1,13 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	Move DebugTree.pm to the main Texinfo modules directory
+
+	* tp/Texinfo/DebugTree.pm, tp/texi2any.pl (%formats_table),
+	tp/Makefile.am b/tp/Makefile.am (dist_modules_DATA): move
+	DebugTexinfo/DebugTree.pm to Texinfo/.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres: update.
 
 2023-10-22  Patrice Dumas  <pertusus@free.fr>

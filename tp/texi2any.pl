@@ -665,7 +665,7 @@ my %formats_table = (
            },
   'debugtree' => {
           'split' => 1,
-          'module' => 'DebugTexinfo::DebugTree'
+          'module' => 'Texinfo::DebugTree'
          },
   'textcontent' => {
             'module' => 'Texinfo::Convert::TextContent'

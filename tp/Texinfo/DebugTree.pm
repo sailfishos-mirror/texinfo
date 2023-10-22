@@ -27,7 +27,7 @@
 
 use strict;
 
-package DebugTexinfo::DebugTree;
+package Texinfo::DebugTree;
 
 # also for __(
 use Texinfo::Common;

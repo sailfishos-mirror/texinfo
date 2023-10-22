@@ -32,9 +32,9 @@ info/variables.c
 info/window.c
 install-info/install-info.c
 Pod-Simple-Texinfo/pod2texi.pl
-tp/DebugTexinfo/DebugTree.pm
 tp/Texinfo/Common.pm
 tp/Texinfo/Config.pm
+tp/Texinfo/DebugTree.pm
 tp/Texinfo/Document.pm
 tp/Texinfo/Convert/Converter.pm
 tp/Texinfo/Convert/DocBook.pm
