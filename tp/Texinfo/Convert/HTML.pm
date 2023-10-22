@@ -1093,17 +1093,15 @@ sub command_text($$;$)
                  'contents' => $command->{'args'}->[0]->{'contents'}};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
-      } elsif ($command->{'extra'}
-               and $command->{'extra'}->{'missing_argument'}) {
+      } elsif (!$command->{'args'}->[0]
+               or !$command->{'args'}->[0]->{'contents'}
+               or !scalar(@{$command->{'args'}->[0]->{'contents'}})) {
         if ($type eq 'tree' or $type eq 'tree_nonumber') {
           return {};
         } else {
           return '';
         }
       } else {
-        my $section_arg_contents = [];
-        $section_arg_contents = $command->{'args'}->[0]->{'contents'}
-          if $command->{'args'}->[0]->{'contents'};
         if ($command->{'extra'}
             and defined($command->{'extra'}->{'section_number'})
             and ($self->get_conf('NUMBER_SECTIONS')
@@ -1124,11 +1122,11 @@ sub command_text($$;$)
                          => $command->{'args'}->[0]});
           }
         } else {
-          $tree = {'contents' => $section_arg_contents};
+          $tree = $command->{'args'}->[0];
         }
 
         $target->{'tree_nonumber'}
-          = {'contents' => $section_arg_contents};
+          = $command->{'args'}->[0];
       }
       $target->{'tree'} = $tree;
     } else {
@@ -3052,16 +3050,20 @@ sub _convert_email_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $mail_arg = shift @$args;
-  my $text_arg = shift @$args;
+  my $args_nr = scalar(@$args);
+
   my $mail = '';
-  my $mail_string;
-  if (defined($mail_arg)) {
+  my $mail_string = '';
+  if ($args_nr > 0 and defined($args->[0])) {
+    my $mail_arg = $args->[0];
     $mail = $mail_arg->{'url'};
     $mail_string = $mail_arg->{'monospacestring'};
   }
+
   my $text = '';
-  if (defined($text_arg)) {
+  if ($args_nr > 1 and defined($args->[1])
+      and defined($args->[1]->{'normal'})) {
+    my $text_arg = $args->[1];
     $text = $text_arg->{'normal'};
   }
   $text = $mail_string unless ($text ne '');
@@ -3145,7 +3147,10 @@ sub _convert_explained_command($$$$)
 
     $element_explanation_contents->{$command} = [];
   }
-  my $result = $args->[0]->{'normal'};
+  my $result = '';
+  if (defined($args->[0])) {
+    $result = $args->[0]->{'normal'};
+  }
   if (!$self->in_string()) {
     my $explanation = '';
     $explanation = " title=\"$explanation_string\""
@@ -3276,22 +3281,29 @@ sub _convert_uref_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my @args = @$args;
-  my $url_arg = shift @args;
-  my $text_arg = shift @args;
-  my $replacement_arg = shift @args;
+  my $args_nr = scalar(@$args);
 
-  my ($url, $url_string, $text, $replacement);
-  if (defined($url_arg)) {
+  my $text = '';
+  my $url = '';
+  my $url_string = '';
+  my $replacement = '';
+  if ($args_nr > 0 and defined($args->[0])) {
+    my $url_arg = $args->[0];
     $url = $url_arg->{'url'};
     $url_string = $url_arg->{'monospacestring'};
   }
-  $text = $text_arg->{'normal'} if defined($text_arg);
-  $replacement = $replacement_arg->{'normal'} if defined($replacement_arg);
+  if ($args_nr > 1 and defined($args->[1])) {
+    my $text_arg = $args->[1];
+    $text = $text_arg->{'normal'};
+  }
+  if ($args_nr > 2 and defined($args->[2])) {
+    my $replacement_arg = $args->[2];
+    $replacement = $replacement_arg->{'normal'};
+  }
 
-  $text = $replacement if (defined($replacement) and $replacement ne '');
-  $text = $url_string if (!defined($text) or $text eq '');
-  return $text if (!defined($url) or $url eq '');
+  $text = $replacement if ($replacement ne '');
+  $text = $url_string if ($text eq '');
+  return $text if ($url eq '');
   return "$text ($url_string)" if ($self->in_string());
 
   return $self->html_attribute_class('a', [$cmdname])
@@ -3308,7 +3320,8 @@ sub _convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0]->{'filenametext'})
+  if (defined($args->[0])
+      and defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
     my $basefile_string = '';
     $basefile_string = $args->[0]->{'monospacestring'}
@@ -3536,6 +3549,9 @@ sub _convert_titlefont_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+
+  # happens with empty command
+  return '' if (!$args->[0]);
 
   my $text = $args->[0]->{'normal'};
   if (!defined($text)) {
@@ -4298,6 +4314,9 @@ sub _convert_heading_command($$$$$)
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
+  # could use empty args information also, to avoid calling command_text
+  #my $empty_heading = (!scalar(@$args) or !defined($args->[0]));
+
   # $heading not defined may happen if the command is a @node, for example
   # if there is an error in the node.
   my $heading = $self->command_text($element);
@@ -4694,6 +4713,7 @@ sub _convert_sp_command($$$$)
   my $args = shift;
 
   if (defined($command->{'extra'})
+      and defined($command->{'extra'}->{'misc_args'})
       and defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
     if ($self->in_preformatted() or $self->in_string()) {
@@ -4737,6 +4757,10 @@ sub _convert_center_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+
+  if (!defined($args->[0])) {
+    return '';
+  }
 
   if ($self->in_string()) {
     return $args->[0]->{'normal'}."\n";
@@ -5485,6 +5509,7 @@ sub _convert_xref_commands($$$$)
     # not exactly sure when it happens.  Something like @ref{(file),,,Manual}?
     $name = $args->[0]->{'monospace'}
        if (!defined($name)
+           and defined($args->[0])
            # FIXME could it really be Top?
            and $args->[0]->{'monospace'} ne 'Top');
     $name = '' if (!defined($name));
@@ -11354,9 +11379,6 @@ sub output($$)
                 $output_file, $destination_directory, $output_filename,
                 $document_name);
 
-  #$output_units = Texinfo::Structuring::rebuild_output_units($output_units);
-  #$self->{'document_units'} = $output_units;
-
   # set information, to have it ready for
   # run_stage_handlers.  Some information is not available yet.
   $self->_reset_info();
@@ -11384,10 +11406,9 @@ sub output($$)
   foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
     if ($self->{'global_commands'}->{$fulltitle_command}) {
       my $command = $self->{'global_commands'}->{$fulltitle_command};
-      next if (!$command->{'args'}
-               or (!$command->{'args'}->[0]
-                   or ($command->{'extra'}
-                       and $command->{'extra'}->{'missing_argument'})));
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+               or !$command->{'args'}->[0]->{'contents'}
+               or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
       print STDERR "Using $fulltitle_command as title\n"
         if ($self->get_conf('DEBUG'));
       $fulltitle = $command->{'args'}->[0];
@@ -11407,10 +11428,9 @@ sub output($$)
   foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
     if ($self->{'global_commands'}->{$simpletitle_command}) {
       my $command = $self->{'global_commands'}->{$simpletitle_command};
-      next if (!$command->{'args'}
-               or !$command->{'args'}->[0]
-               or ($command->{'extra'}
-                   and $command->{'extra'}->{'missing_argument'}));
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+                or !$command->{'args'}->[0]->{'contents'}
+                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
       $self->{'simpletitle_tree'} = $command->{'args'}->[0];
       $self->{'simpletitle_command_name'} = $simpletitle_command;
       last;
@@ -11986,12 +12006,6 @@ sub _convert($$;$)
     return $result;
   }
 
-  if ($element->{'extra'} and $element->{'extra'}->{'missing_argument'}
-             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
-    print STDERR "MISSING_ARGUMENT\n" if $debug;
-    return '';
-  }
-
   # commands like @deffnx have both a cmdname and a def_line type.  It is
   # better to consider them as a def_line type, as the whole point of the
   # def_line type is to handle the same the def*x and def* line formatting.
@@ -12089,9 +12103,16 @@ sub _convert($$;$)
           my @args_specification;
           @args_specification = @{$default_commands_args{$command_name}}
             if (defined($default_commands_args{$command_name}));
-          my $arg_idx = 0;
+          my $arg_idx = -1;
           foreach my $arg (@{$element->{'args'}}) {
+            $arg_idx++;
             my $arg_spec = shift @args_specification;
+            if ((!$arg->{'contents'} or !scalar(@{$arg->{'contents'}}))
+                # special case for @value argument
+                and !defined($arg->{'text'})) {
+              push @$args_formatted, undef;
+              next;
+            }
             $arg_spec = ['normal'] if (!defined($arg_spec));
             my $arg_formatted = {'tree' => $arg};
             foreach my $arg_type (@$arg_spec) {
@@ -12146,7 +12167,6 @@ sub _convert($$;$)
               }
             }
             push @$args_formatted, $arg_formatted;
-            $arg_idx++;
           }
         }
       }

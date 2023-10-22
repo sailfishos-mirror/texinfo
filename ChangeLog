@@ -1,5 +1,23 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Command Tree Element Conversion Functions),
+	tp/Texinfo/Convert/HTML.pm (_convert, _convert_email_command)
+	(_convert_explained_command, _convert_uref_command)
+	(_convert_image_command, _convert_titlefont_command)
+	(_convert_sp_command, _convert_center_command),
+	tp/init/documentation_examples.pm, tp/init/html32.pm,
+	tp/t/init/translate_txiinternalvalue_macro.init: if an argument is
+	empty, set @$args for this argument to be undef instead of ignoring
+	completly the command for commands with
+	{'extra'}->{'missing_argument'}.  Modify formatting functions for that
+	change, but also to avoid modifying input @$args.
+
+	* tp/Texinfo/Convert/HTML.pm (command_text, output): check existence
+	of contents instead of relying on {'extra'}->{'missing_argument'}.
+	Use directly element as tree.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files):
 	encode to UTF-8 all the input strings, they are all character strings.
 

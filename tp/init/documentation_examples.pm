@@ -82,18 +82,23 @@ sub my_email_formatting_function {
   my $command = shift;
   my $args = shift;
 
-  my $mail_arg = shift @$args;
-  my $text_arg = shift @$args;
+  my $args_nr = scalar(@$args);
+
   my $mail = '';
-  my $mail_string;
-  if (defined($mail_arg)) {
+  my $mail_string = '';
+  if ($args_nr > 0 and defined($args->[0])) {
+    my $mail_arg = $args->[0];
     $mail = $mail_arg->{'url'};
     $mail_string = $mail_arg->{'monospacestring'};
   }
+
   my $text = '';
-  if (defined($text_arg)) {
+  if ($args_nr > 1 and defined($args->[1])
+      and defined($args->[1]->{'normal'})) {
+    my $text_arg = $args->[1];
     $text = $text_arg->{'normal'};
   }
+  $text = $mail_string unless ($text ne '');
 
   if ($converter->in_string()) {
     return "$mail_string ($text) $shown_styles, $footnotestyle";

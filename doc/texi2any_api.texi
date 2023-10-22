@@ -2233,7 +2233,8 @@ element.
 
 @var{\@@args}, if defined, is a reference on the formatted arguments
 of the @@-command. Each of the array items correspond to each of
-the @@-command argument. Each array item is a hash references, with keys
+the @@-command argument. Each array item is either @code{undef} if the
+argument is empty, or a hash reference, with keys
 corresponding to possible argument formatting contexts:
 
 @table @code

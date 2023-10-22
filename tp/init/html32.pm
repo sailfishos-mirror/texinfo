@@ -181,10 +181,10 @@ sub html32_convert_explained_command($$$$)
 
   my $with_explanation;
 
-  return '' if (!$args->[0] or !defined($args->[0]->{'normal'})
+  return '' if (!defined($args->[0]) or !defined($args->[0]->{'normal'})
                 or $args->[0]->{'normal'} !~ /\S/);
 
-  if ($args->[1] and defined($args->[1]->{'string'})
+  if (defined($args->[1]) and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
   }
@@ -332,6 +332,10 @@ sub html32_convert_center_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  if (!defined($args->[0])) {
+    return '';
+  }
+
   if ($self->in_string()) {
     # FIXME use an API?
     return $self->{'types_conversion'}->{'preformatted'}($self, $cmdname, $command,
@@ -395,7 +399,8 @@ sub html32_convert_subtitle_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return '' if (!$args->[0]);
+  return '' if (! defined($args->[0]));
+
   if (!$self->in_string()) {
     return "<h3 align=\"right\">$args->[0]->{'normal'}</h3>\n";
   } else {
