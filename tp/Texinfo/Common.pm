@@ -1,4 +1,4 @@
-# Common.pm: definition of commands. Common code of other Texinfo modules.
+# Common.pm: Common code of other Texinfo modules.
 #
 # Copyright 2010-2023 Free Software Foundation, Inc.
 #

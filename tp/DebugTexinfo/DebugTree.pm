@@ -1,4 +1,4 @@
-# DebugTexinfo::DebugTree.pm: debug a Texinfo tree.
+# DebugTree.pm: debug a Texinfo tree.
 #
 # Copyright 2011-2023 Free Software Foundation, Inc.
 #
@@ -17,7 +17,7 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-# Example of calls
+# Example of call
 # ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree file.texi
 #
 # Some unofficial info about the --debug command line option ... with
@@ -31,10 +31,9 @@ package DebugTexinfo::DebugTree;
 
 # also for __(
 use Texinfo::Common;
-use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 
-use vars qw($VERSION @ISA);
+use vars qw(@ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
 my %defaults = (
@@ -81,7 +80,7 @@ sub output($$)
       return undef;
     }
   }
-  my $result = $self->write_or_return(_print_tree($self, $root), $fh);
+  my $result = $self->write_or_return(_print_tree($root), $fh);
   # NOTE that we close STDOUT too here
   if ($fh) {
     Texinfo::Common::output_files_register_closed(
@@ -103,7 +102,7 @@ sub convert($$)
 
   my $root = $document->tree();
 
-  return _print_tree($self, $root);
+  return _print_tree($root);
 }
 
 sub convert_tree($$)
@@ -111,10 +110,8 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  return _print_tree($self, $root);
+  return _print_tree($root);
 }
-
-sub _print_tree($$;$$);
 
 sub _protect_text($)
 {
@@ -125,12 +122,14 @@ sub _protect_text($)
   return $text;
 }
 
-sub _print_tree($$;$$)
+sub _print_tree($;$$);
+
+sub _print_tree($;$$)
 {
-  my $self = shift;
   my $element = shift;
   my $level = shift;
   my $argument = shift;
+
   $level = 0 if (!defined($level));
 
   my $result = ' ' x $level;
@@ -164,17 +163,17 @@ sub _print_tree($$;$$)
   if ($element->{'info'}
       and defined($element->{'info'}->{'comment_at_end'})) {
     $result .= ' ' x ($level + 1).'/comment_at_end/'."\n";
-    $result .= _print_tree ($self, $element->{'info'}->{'comment_at_end'},
-                            $level +2);
+    $result .= _print_tree($element->{'info'}->{'comment_at_end'},
+                           $level +2);
   }
   if ($element->{'args'}) {
     foreach my $arg (@{$element->{'args'}}) {
-      $result .= _print_tree ($self, $arg, $level +1, 1);
+      $result .= _print_tree($arg, $level +1, 1);
     }
   }
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
-      $result .= _print_tree ($self, $content, $level+1);
+      $result .= _print_tree($content, $level+1);
     }
   }
   return $result;
