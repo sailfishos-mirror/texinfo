@@ -1,5 +1,11 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/DebugTexinfo/DebugTree.pm (output): never generate output units,
+	only deal with the tree.
+	Reindent.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (convert_to_text): define $options if
 	they do not already exist.
 

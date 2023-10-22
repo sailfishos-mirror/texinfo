@@ -1,6 +1,6 @@
-# DebugTexinfo::DebugTree.pm: debug a Texinfo::Parser tree.
+# DebugTexinfo::DebugTree.pm: debug a Texinfo tree.
 #
-# Copyright 2011, 2012, 2013 Free Software Foundation, Inc.
+# Copyright 2011-2023 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,11 +18,6 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # Example of calls
-# with creation of output units corresponding to sections:
-# ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 file.texi
-# with creation of output units corresponding to nodes:
-# ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=1 file.texi
-# no output units
 # ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree file.texi
 #
 # Some unofficial info about the --debug command line option ... with
@@ -59,37 +54,8 @@ sub output($$)
 
   my $root = $document->tree();
 
-  my ($output_file, $destination_directory) = $self->determine_files_and_directory();
-  # REMARK for this format SPLIT does not means diverse files created
-  # so the way the directory is determined/created if there is already
-  # a file with the same name does not make sense for this format.
-  # Given that this format is only to be used for debugging, this is
-  # not an issue that really needs fixing.
-
-  my $output_units;
-  if ($self) {
-    if ($self->get_conf('USE_NODES')) {
-      $output_units = Texinfo::Structuring::split_by_node($root);
-    } elsif (defined($self->get_conf('USE_NODES'))) {
-      #print STDERR "U sections\n";
-      $output_units = Texinfo::Structuring::split_by_section($root);
-    }
-    # Currently the information added is not used further.
-    if ($output_units and ($self->get_conf('SPLIT')
-                       or !$self->get_conf('MONOLITHIC'))) {
-      #print STDERR "S ".$self->get_conf('SPLIT')."\n";
-      Texinfo::Structuring::split_pages($output_units,
-                                        $self->get_conf('SPLIT'));
-      # add a condition?
-      $output_units = Texinfo::Structuring::rebuild_output_units($output_units);
-    }
-
-  }
-  # FIXME looks wrong
-  if ($output_units) {
-    $root = {'type' => 'elements_root',
-             'contents' => $output_units };
-  }
+  my ($output_file, $destination_directory)
+    = $self->determine_files_and_directory();
 
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
@@ -185,12 +151,14 @@ sub _print_tree($$;$$)
   if ($element->{'info'}
       and defined($element->{'info'}->{'spaces_before_argument'})) {
     $result .= ' '
-    .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}->{'text'}).'/';
+ .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}->{'text'})
+    .'/';
   }
   if ($element->{'info'}
       and defined($element->{'info'}->{'spaces_after_argument'})) {
     $result .= ' '
-    .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}->{'text'}).'/';
+  .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}->{'text'})
+     .'/';
   }
   $result .= "\n";
   if ($element->{'info'}
