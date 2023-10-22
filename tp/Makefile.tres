@@ -670,8 +670,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/redirection_same_labels.pl \
   t/results/html_tests/redirection_same_labels/res_html \
   t/results/html_tests/ref_in_preformatted.pl \
-  t/results/html_tests/sectioning_frames.pl \
-  t/results/html_tests/sectioning_frames/res_html \
+  t/results/html_tests/sectioning_check_menu_structure.pl \
+  t/results/html_tests/sectioning_check_menu_structure/res_html \
   t/results/html_tests/shortcontents_no_top.pl \
   t/results/html_tests/shorttitlepage.pl \
   t/results/html_tests/simplest_test_date_in_header.pl \

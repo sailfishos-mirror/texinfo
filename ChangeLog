@@ -1,5 +1,9 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres: update.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/DebugTexinfo/DebugTree.pm (_print_tree): remove self argument,
 	unused.
 
