@@ -1571,17 +1571,42 @@ sub special_unit_info($$$) {
 
 # API for misc conversion and formatting functions
 
+# if $OUTPUT_UNITS is defined, the first output unit is used if a proper
+# top output unit is not found.
+sub _get_top_unit($;$)
+{
+  my $self = shift;
+  my $output_units = shift;
+
+  my $node_top;
+  $node_top = $self->{'identifiers_target'}->{'Top'}
+                                    if ($self->{'identifiers_target'});
+  my $section_top;
+  $section_top = $self->{'global_commands'}->{'top'}
+                                       if ($self->{'global_commands'});
+  if ($section_top) {
+    return $section_top->{'associated_unit'};
+  } elsif ($node_top) {
+    my $top_output_unit = $node_top->{'associated_unit'};
+    if (!$top_output_unit) {
+      die "No associated unit for node_top: "
+         .Texinfo::Common::debug_print_element($node_top, 1);
+    }
+    return $top_output_unit;
+  } elsif (defined($output_units)) {
+    return $output_units->[0];
+  }
+  return undef;
+}
+
 # it is considered 'top' only if element corresponds to @top or
 # element is a node
 sub unit_is_top_output_unit($$)
 {
   my $self = shift;
   my $output_unit = shift;
-  my $top_output_unit = $self->global_direction_unit('Top');
-  return (defined($top_output_unit) and $top_output_unit eq $output_unit
-          and $output_unit->{'unit_command'}
-          and ($output_unit->{'unit_command'}->{'cmdname'} eq 'node'
-               or $output_unit->{'unit_command'}->{'cmdname'} eq 'top'));
+  my $top_output_unit = _get_top_unit($self);
+  return (defined($top_output_unit) and $top_output_unit eq $output_unit);
 }
 
 my %default_formatting_references;
@@ -9619,25 +9644,8 @@ sub _prepare_output_units_global_targets($$$$)
   $self->{'global_units_directions'}->{'First'} = $output_units->[0];
   $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
 
-  my $node_top;
-  $node_top = $self->{'identifiers_target'}->{'Top'}
-                                    if ($self->{'identifiers_target'});
-  my $section_top;
-  $section_top = $self->{'global_commands'}->{'top'}
-                                       if ($self->{'global_commands'});
-  if ($section_top) {
-    $self->{'global_units_directions'}->{'Top'}
-            = $section_top->{'associated_unit'};
-  } elsif ($node_top) {
-    my $top_output_unit = $node_top->{'associated_unit'};
-    if (!$top_output_unit) {
-      die "No associated unit for node_top: "
-         .Texinfo::Common::debug_print_element($node_top, 1);
-    }
-    $self->{'global_units_directions'}->{'Top'} = $top_output_unit;
-  } else {
-    $self->{'global_units_directions'}->{'Top'} = $output_units->[0];
-  }
+  $self->{'global_units_directions'}->{'Top'}
+    = _get_top_unit($self, $output_units);
 
   # It is always the first printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).

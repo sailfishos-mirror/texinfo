@@ -7,6 +7,22 @@
 
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Customizing Output File Names),
+	tp/Texinfo/Convert/HTML.pm (_get_top_unit, unit_is_top_output_unit)
+	(_prepare_output_units_global_targets),
+	tp/Texinfo/XS/convert/convert_html.c (get_top_unit)
+	(prepare_output_units_global_targets): add get_top_unit, based on
+	_prepare_output_units_global_targets code, to find the top unit, with
+	output_units set as an optional argument, such that if not set, the
+	first output unit is not considered as a top output unit.  Use
+	_get_top_unit in unit_is_top_output_unit, without output_units
+	argument.
+
+	* tp/t/init/misc_file_collision.init: add variables to distinguish
+	input and output, no functional change.
+
+2023-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c,
 	tp/Texinfo/XS/convert/convert_html.c: fix integer conf use, taking
 	into account that -1 means undefined.

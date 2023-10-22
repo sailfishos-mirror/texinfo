@@ -43,6 +43,27 @@ typedef struct ROOT_AND_UNIT {
 } ROOT_AND_UNIT;
 
 /*
+ if OUTPUT_UNITS is defined, the first output unit is used if a proper
+ top output unit is not found.
+ */
+static OUTPUT_UNIT *
+get_top_unit (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units)
+{
+  ELEMENT *node_top = find_identifier_target
+                          (document->identifiers_target, "Top");
+  ELEMENT *section_top = document->global_commands->top;
+
+  if (section_top)
+    return section_top->associated_unit;
+  else if (node_top)
+    return node_top->associated_unit;
+  else if (output_units)
+    return output_units->list[0];
+
+  return 0;
+}
+
+/*
   If FIND_CONTAINER is set, the element that holds the command output
   is found, otherwise the element that holds the command is found.  This is
   mostly relevant for footnote only.
@@ -1457,9 +1478,8 @@ prepare_output_units_global_targets (CONVERTER *self,
   int s = 0;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
-  ELEMENT *node_top = find_identifier_target
-                          (self->document->identifiers_target, "Top");
-  ELEMENT *section_top = self->document->global_commands->top;
+
+  OUTPUT_UNIT *top_output_unit = get_top_unit (self->document, output_units);
 
   int special_output_units_lists[2] = {special_units_descriptor,
                                        associated_special_units_descriptor};
@@ -1468,12 +1488,7 @@ prepare_output_units_global_targets (CONVERTER *self,
   self->global_units_directions[D_Last]
     = output_units->list[output_units->number - 1];
 
-  if (section_top)
-    self->global_units_directions[D_Top] = section_top->associated_unit;
-  else if (node_top)
-    self->global_units_directions[D_Top] = node_top->associated_unit;
-  else
-    self->global_units_directions[D_Top] = output_units->list[0];
+  self->global_units_directions[D_Top] = top_output_unit;
 
   /* It is always the first printindex, even if it is not output (for example
      it is in @copying and @titlepage, which are certainly wrong constructs).

@@ -1930,8 +1930,7 @@ in the destination directory.
 @end deftypefn
 
 In the user defined functions, the information that an output unit
-is associated with @code{@@top} or @code{@@node Top} or more generally
-considered to be the Top element may be determined with
+is associated with @code{@@top} or @code{@@node Top} may be determined with:
 @example
 $converter->unit_is_top_output_unit(\%output_unit);
 @end example
