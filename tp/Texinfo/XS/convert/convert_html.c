@@ -92,8 +92,8 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
                 }
             }
           else if (current->cmd == CM_titlepage
-                   && self->conf->USE_TITLEPAGE_FOR_TITLE
-                   && self->conf->SHOW_TITLE
+                   && self->conf->USE_TITLEPAGE_FOR_TITLE > 0
+                   && self->conf->SHOW_TITLE > 0
                    && output_units->number > 0)
             {
               ROOT_AND_UNIT *result = malloc (sizeof (ROOT_AND_UNIT));
@@ -771,7 +771,7 @@ html_prepare_conversion_units (CONVERTER *self,
 {
   int output_units_descriptor;
 
-  if (self->conf->USE_NODES)
+  if (self->conf->USE_NODES > 0)
     output_units_descriptor = split_by_node (self->document->tree);
   else
     output_units_descriptor = split_by_section (self->document->tree);
@@ -1527,7 +1527,7 @@ prepare_output_units_global_targets (CONVERTER *self,
       free (root_unit);
     }
 
-  if (self->conf->DEBUG >= 0 && self->conf->DEBUG)
+  if (self->conf->DEBUG > 0)
     {
       int i;
       fprintf (stderr, "GLOBAL DIRECTIONS:\n");

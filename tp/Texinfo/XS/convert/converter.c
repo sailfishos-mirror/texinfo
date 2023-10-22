@@ -186,7 +186,7 @@ set_global_document_commands (CONVERTER *converter,
         {
           ELEMENT *element;
           enum command_id cmd = cmd_list[i];
-          if (converter->conf->DEBUG >= 0 && converter->conf->DEBUG)
+          if (converter->conf->DEBUG > 0)
             {
               fprintf (stderr, "SET_global(%s) %s\n",
                        command_location_names[location],
