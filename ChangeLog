@@ -1,5 +1,12 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* man/Makefile.am (generated_mans, MAINTAINERCLEANFILES): distinguish
+	generated man pages in generated_mans variable and
+	MAINTAINERCLEANFILES, manually written man pages should not be
+	cleaned.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	update po files
 
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
