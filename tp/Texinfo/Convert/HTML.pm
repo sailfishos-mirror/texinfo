@@ -112,6 +112,12 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_units_directions_files",
       "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_prepare_output_units_global_targets",
+      "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_translate_names",
+      "Texinfo::Convert::ConvertXS::html_translate_names");
 
     $module_loaded = 1;
   }
@@ -2300,9 +2306,24 @@ my %default_translated_directions_strings = (
   }
 );
 
-sub _translate_names($)
+sub _XS_translate_names($)
+{
+}
+
+sub _translate_names($;$)
 {
   my $self = shift;
+  my $do_XS = shift;
+
+  if ($do_XS and $self->{'converter_descriptor'}) {
+    my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
+    my $encoded_converter
+             = {'converter_descriptor' => $self->{'converter_descriptor'},
+                'conf' => $encoded_conf,
+               };
+    _XS_translate_names($encoded_converter);
+  }
+
   print STDERR "\nTRANSLATE_NAMES encoding_name: "
     .$self->get_conf('OUTPUT_ENCODING_NAME')
     ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
@@ -9750,69 +9771,71 @@ sub _sort_index_entries($)
         = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
 
-    # see TODO in convert/indices_in_conversion.c sort_indices_by_letter,
-    # sorting letters requires a collation in C, so this cannot be done,
-    # even when starting from index_sortable_index_entries
-    if (0 and $self->{'converter_descriptor'}) {
-      my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
-       = Texinfo::Structuring::setup_sortable_index_entries ($self, $self,
-                            $merged_index_entries, $indices_information, 1, 1);
-      if ($index_sortable_index_entries) {
-        # encode and pass as arrays only, in reproducible order
-        my $index_encoded_sortable_entries = [];
-        foreach my $index_name (sort(keys(%$index_sortable_index_entries))) {
-          my $encoded_index_name = Encode::encode('UTF-8', $index_name);
-          my $encoded_sortable_entries = [];
-          foreach my $sortable_entry
-              (@{$index_sortable_index_entries->{$index_name}}) {
-            my $encoded_sortable_entry = {
-              'keys' => $sortable_entry->{'keys'},
-              'index_name'
-                => Encode::encode('UTF-8', $sortable_entry->{'index_name'}),
-              'number' => $sortable_entry->{'number'},
-              'entry_keys' => [],
-            };
-            foreach my $entry_key (@{$sortable_entry->{'entry_keys'}}) {
-              push @{$encoded_sortable_entry->{'entry_keys'}},
-                Encode::encode('UTF-8', $entry_key);
-            }
-            push @$encoded_sortable_entries, $encoded_sortable_entry;
-          }
-          push @{$index_encoded_sortable_entries},
-           [$encoded_index_name, $encoded_sortable_entries],
-        }
-        _XS_sort_sortable_index_entries_by_letter($self,
-                                    $index_encoded_sortable_entries);
-      }
-    }
+    ## see TODO in convert/indices_in_conversion.c sort_indices_by_letter,
+    ## sorting letters requires a collation in C, so this cannot be done,
+    ## even when starting from index_sortable_index_entries
+    #if ($self->{'converter_descriptor'}) {
+    #  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+    #   = Texinfo::Structuring::setup_sortable_index_entries ($self, $self,
+    #                        $merged_index_entries, $indices_information, 1, 1);
+    #  if ($index_sortable_index_entries) {
+    #    # encode and pass as arrays only, in reproducible order
+    #    my $index_encoded_sortable_entries = [];
+    #    foreach my $index_name (sort(keys(%$index_sortable_index_entries))) {
+    #      my $encoded_index_name = Encode::encode('UTF-8', $index_name);
+    #      my $encoded_sortable_entries = [];
+    #      foreach my $sortable_entry
+    #          (@{$index_sortable_index_entries->{$index_name}}) {
+    #        my $encoded_sortable_entry = {
+    #          'keys' => $sortable_entry->{'keys'},
+    #          'index_name'
+    #            => Encode::encode('UTF-8', $sortable_entry->{'index_name'}),
+    #          'number' => $sortable_entry->{'number'},
+    #          'entry_keys' => [],
+    #        };
+    #        foreach my $entry_key (@{$sortable_entry->{'entry_keys'}}) {
+    #          push @{$encoded_sortable_entry->{'entry_keys'}},
+    #            Encode::encode('UTF-8', $entry_key);
+    #        }
+    #        push @$encoded_sortable_entries, $encoded_sortable_entry;
+    #      }
+    #      push @{$index_encoded_sortable_entries},
+    #       [$encoded_index_name, $encoded_sortable_entries],
+    #    }
+    #    _XS_sort_sortable_index_entries_by_letter($self,
+    #                                $index_encoded_sortable_entries);
+    #  }
+    #}
 
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
             = Texinfo::Structuring::sort_indices_by_letter($self,
                                     $self, $merged_index_entries,
                                     $indices_information);
     $self->{'index_entries'} = $merged_index_entries;
-    if ($self->{'converter_descriptor'})
-      {
-        my $encoded_index_entries_by_letter = [];
-        if ($self->{'index_entries_by_letter'}) {
-          foreach my $index_name
-              (sort(keys(%{$self->{'index_entries_by_letter'}}))) {
-            my $letter_entries
-              = $self->{'index_entries_by_letter'}->{$index_name};
-            my $encoded_index_by_letters = [];
-            foreach my $letter_entry (@$letter_entries) {
-              my $letter = $letter_entry->{'letter'};
-              push @$encoded_index_by_letters,
-                [Encode::encode('UTF-8', $letter), $letter_entry->{'entries'}];
-            }
-            push @$encoded_index_entries_by_letter,
-                   [Encode::encode('UTF-8', $index_name),
-                    $encoded_index_by_letters];
+
+    # pass sorted index entries to XS for a reproducible sorting.
+    if ($self->{'converter_descriptor'}) {
+      # encode. Also setup list of lists for easier import of data in C.
+      my $encoded_index_entries_by_letter = [];
+      if ($self->{'index_entries_by_letter'}) {
+        foreach my $index_name
+            (sort(keys(%{$self->{'index_entries_by_letter'}}))) {
+          my $letter_entries
+            = $self->{'index_entries_by_letter'}->{$index_name};
+          my $encoded_index_by_letters = [];
+          foreach my $letter_entry (@$letter_entries) {
+            my $letter = $letter_entry->{'letter'};
+            push @$encoded_index_by_letters,
+              [Encode::encode('UTF-8', $letter), $letter_entry->{'entries'}];
           }
+          push @$encoded_index_entries_by_letter,
+                 [Encode::encode('UTF-8', $index_name),
+                  $encoded_index_by_letters];
         }
-        _XS_get_index_entries_sorted_by_letter($self,
-                                 $encoded_index_entries_by_letter);
       }
+      _XS_get_index_entries_sorted_by_letter($self,
+                                 $encoded_index_entries_by_letter);
+    }
   }
 }
 
@@ -10990,8 +11013,11 @@ sub _initialize_output_state($)
     if ($self->get_conf('CHECK_HTMLXREF'));
 }
 
-# FIXME determine more formally what difference in navigation header is
-# supposed to be compared to output and add tests.
+
+sub _XS_prepare_output_units_global_targets($$$$)
+{
+}
+
 sub convert($$)
 {
   my $self = shift;
@@ -11006,7 +11032,7 @@ sub convert($$)
   # needed for CSS rules gathering
   $self->{'current_filename'} = '';
 
-  # call before _prepare_conversion_units, which calls _translate_names.
+  # call before _prepare_conversion_units.
   # Some information is not available yet.
   $self->_reset_info();
 
@@ -11019,12 +11045,20 @@ sub convert($$)
   # global targets when called as convert, but the Top global
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
-  $self->_prepare_output_units_global_targets($output_units,
-                                              $special_units,
-                                              $associated_special_units);
+  if ($self->{'converter_descriptor'}) {
+    my $encoded_converter = $self->encode_converter_for_output();
+    my $global_units_directions =
+      _XS_prepare_output_units_global_targets($encoded_converter,
+           $output_units, $special_units, $associated_special_units);
+    $self->{'global_units_directions'} = $global_units_directions;
+  } else {
+    $self->_prepare_output_units_global_targets($output_units,
+                                                $special_units,
+                                                $associated_special_units);
+  }
 
   # setup untranslated strings
-  $self->_translate_names();
+  $self->_translate_names(1);
 
   # title
   $self->{'title_titlepage'}
@@ -11371,7 +11405,7 @@ sub output($$)
     = $self->_prepare_conversion_units($root, $document_name);
 
   # setup untranslated strings
-  $self->_translate_names();
+  $self->_translate_names(1);
 
   my %files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,
@@ -11396,7 +11430,7 @@ sub output($$)
                   'lang="' . $preamble_document_language . '"');
 
   if ($default_document_language ne $preamble_document_language) {
-    $self->_translate_names();
+    $self->_translate_names(1);
   }
 
   # prepare title.  fulltitle uses more possibility than simpletitle for

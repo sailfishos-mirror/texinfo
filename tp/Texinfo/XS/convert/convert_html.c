@@ -321,8 +321,8 @@ complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
                                                   HCC_type_string, translate);
 }
 
-static void
-translate_names (CONVERTER *self)
+void
+html_translate_names (CONVERTER *self)
 {
   int j;
   STRING_LIST *special_unit_varieties = self->special_unit_varieties;
@@ -1459,21 +1459,15 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 
   prepare_index_entries_targets (self);
   prepare_footnotes_targets (self);
-
-  /* not related to targets, but practical to do here and not in
-     XS interface file to avoid defining translate_names as a global
-     function */
-  /* setup untranslated strings */
-  translate_names (self);
 }
 
 /* Associate output units to the global targets, First, Last, Top, Index.
    and special output units */
-static void
-prepare_output_units_global_targets (CONVERTER *self,
-                                     int output_units_descriptor,
-                                     int special_units_descriptor,
-                                     int associated_special_units_descriptor)
+void
+html_prepare_output_units_global_targets (CONVERTER *self,
+                                        int output_units_descriptor,
+                                        int special_units_descriptor,
+                                        int associated_special_units_descriptor)
 {
   int i;
   int all_special_units_nr = 0;
@@ -2135,7 +2129,7 @@ html_prepare_units_directions_files (CONVERTER *self,
   OUTPUT_UNIT_LIST *associated_special_units
     = retrieve_output_units (associated_special_units_descriptor);
 
-  prepare_output_units_global_targets (self, output_units_descriptor,
+  html_prepare_output_units_global_targets (self, output_units_descriptor,
                                              special_units_descriptor,
                                        associated_special_units_descriptor);
 

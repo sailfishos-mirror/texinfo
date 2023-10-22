@@ -22,6 +22,14 @@ FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           int special_units_descriptor, int associated_special_units_descriptor,
           char *output_file, char *destination_directory, char *output_filename,
           char *document_name);
+
+void html_prepare_output_units_global_targets (CONVERTER *self,
+                                        int output_units_descriptor,
+                                        int special_units_descriptor,
+                                        int associated_special_units_descriptor);
+
+void html_translate_names (CONVERTER *self);
+
 /*
 char *html_convert (CONVERTER *self);
 */

@@ -1,5 +1,27 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (import)
+	(_XS_prepare_output_units_global_targets)
+	(_prepare_output_units_global_targets, convert),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_output_units_global_targets): rename
+	prepare_output_units_global_targets as
+	html_prepare_output_units_global_targets. Add an XS interface for
+	html_prepare_output_units_global_targets for convert() in perl.
+
+	* tp/Texinfo/Convert/HTML.pm (import, _XS_translate_names)
+	(_translate_names, convert), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_translate_names), tp/Texinfo/XS/convert/convert_html.c
+	(html_translate_names), tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_conversion_units_targets): rename translate_names as
+	html_translate_names, add a specific XS interface and remove from
+	html_prepare_conversion_units_targets. 
+
+	* tp/Texinfo/Convert/HTML.pm (_sort_index_entries): reindent, comment
+	out unused code.
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* info/Makefile.am: add AUTOMAKE_OPTIONS no-dist-built-sources to
 	attempt to have funs.h not distributed even if in BUILT_SOURCES.
 	Does not seem to work?

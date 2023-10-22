@@ -251,4 +251,66 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          PUSHs(sv_2mortal(file_counters_sv));
          PUSHs(sv_2mortal(out_filepaths_sv));
 
+SV *
+html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in)
+  PREINIT:
+         CONVERTER *self = 0;
+         int output_units_descriptor = 0;
+         int special_units_descriptor = 0;
+         int associated_special_units_descriptor = 0;
+     CODE:
+         /* add warn string? */
+         self = get_sv_converter (converter_in, 0);
+         if (SvOK (output_units_in))
+           output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in,
+                         "html_prepare_output_units_global_targets output units");
+         if (SvOK (special_units_in))
+           special_units_descriptor
+             = get_sv_output_units_descriptor (special_units_in,
+                        "html_prepare_output_units_global_targets special units");
+         if (SvOK (associated_special_units_in))
+           associated_special_units_descriptor
+             = get_sv_output_units_descriptor (associated_special_units_in,
+             "html_prepare_output_units_global_targets associated special units");
 
+         html_prepare_output_units_global_targets (self,
+                output_units_descriptor, special_units_descriptor,
+                associated_special_units_descriptor);
+
+         rebuild_output_units_list (output_units_in, output_units_descriptor);
+         rebuild_output_units_list (special_units_in, special_units_descriptor);
+         rebuild_output_units_list (associated_special_units_in,
+                                    associated_special_units_descriptor);
+
+         RETVAL
+           = build_html_global_units_directions (self->global_units_directions,
+                                          self->special_units_direction_name);
+    OUTPUT:
+        RETVAL
+
+
+void
+html_translate_names (SV *converter_in)
+  PREINIT:
+         CONVERTER *self = 0;
+         HV *hv_in;
+         SV **converter_options_sv;
+     CODE:
+         self = get_sv_converter (converter_in, 0);
+         /* that kind of code could be in get_perl_info too */
+         hv_in = (HV *)SvRV (converter_in);
+         converter_options_sv = hv_fetch (hv_in, "conf",
+                                   strlen ("conf"), 0);
+
+         if (converter_options_sv)
+           {
+             if (self->conf)
+               free_options (self->conf);
+             free (self->conf);
+
+             self->conf
+              = copy_sv_options (*converter_options_sv);
+           }
+
+         html_translate_names (self);
