@@ -1,5 +1,9 @@
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	update po files
+
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/POTFILES.in: replace tp/Texinfo/Translations.pm by
 	tp/Texinfo/TranslationsNonXS.pm.
 
