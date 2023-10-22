@@ -1861,17 +1861,6 @@ sub _convert($$)
     }
   }
 
-  if ($element->{'extra'}) {
-    # REMARK it is not that wise to rely on {'extra'}->{'missing_argument'}
-    # being set, additional tests of $element->{'contents'}
-    # being defined could be added, in addition to be more robust in case
-    # {'extra'}->{'missing_argument'} is removed
-    if ($element->{'extra'}->{'missing_argument'}
-             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
-      return '';
-    }
-  }
-
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
     my $location = $self->add_location($element);
@@ -1925,6 +1914,8 @@ sub _convert($$)
     if ($self->{'current_node'}) {
       $location->{'node'} = $self->{'current_node'};
     }
+    $self->{'index_entries_line_location'} = {}
+      unless $self->{'index_entries_line_location'};
     $self->{'index_entries_line_location'}->{$element} = $location;
   }
 
@@ -2933,10 +2924,6 @@ sub _convert($$)
       #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
-      # $element->{'args'}->[0]->{'contents'} not set cannot happen
-      # as in that case missing_argument would be set.  This condition
-      # is therefre not really needed, but still put in case missing_argument
-      # disappears
       my $result = '';
       if ($element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
@@ -2959,10 +2946,6 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'exdent') {
       $result = '';
-      # $element->{'args'}->[0]->{'contents'} not set cannot happen
-      # as in that case missing_argument would be set.  This condition
-      # is therefre not really needed, but still put in case missing_argument
-      # disappears
       if ($element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
@@ -3083,7 +3066,10 @@ sub _convert($$)
       _add_lines_count($self, $lines_count);
       return $result;
     } elsif ($command eq 'sp') {
-      if ($element->{'extra'}->{'misc_args'}->[0]) {
+      # FIXME No argument should mean 1, not 0, to check
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'misc_args'}
+          and $element->{'extra'}->{'misc_args'}->[0]) {
         $result = _count_added($self, $formatter->{'container'},
                               add_pending_word($formatter->{'container'}));
         # this useless copy avoids perl changing the type to integer!
@@ -3836,8 +3822,6 @@ sub _convert($$)
                or $command eq 'smallquotation')
              and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
       foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-        # this cannot happen as this should be caugth by 'missing_argument'
-        # but it is more robust to check anyway
         if ($author->{'args'}->[0]
             and $author->{'args'}->[0]->{'contents'}) {
           $result .= _convert($self,

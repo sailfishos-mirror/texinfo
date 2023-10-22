@@ -36,7 +36,6 @@ $result_trees{'comment_space_command_on_line'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

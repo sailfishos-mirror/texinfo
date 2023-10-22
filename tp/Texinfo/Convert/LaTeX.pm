@@ -988,9 +988,7 @@ sub _prepare_conversion($;$)
   if ($self->{'global_commands'}->{'settitle'}) {
     my $settitle_root = $self->{'global_commands'}->{'settitle'};
     if ($settitle_root->{'args'}->[0]
-        and $settitle_root->{'args'}->[0]->{'contents'}
-        and not ($settitle_root->{'extra'}
-                 and $settitle_root->{'extra'}->{'missing_argument'})) {
+        and $settitle_root->{'args'}->[0]->{'contents'}) {
       $self->{'settitle_tree'} =
          {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
     }
@@ -1014,7 +1012,8 @@ sub _associate_other_nodes_to_sections($$)
   foreach my $element_content (@{$root->{'contents'}}) {
     if ($element_content->{'cmdname'}
         and $element_content->{'cmdname'} eq 'node') {
-      if (not $element_content->{'extra'}->{'associated_section'}
+      if ($element_content->{'extra'}
+          and not $element_content->{'extra'}->{'associated_section'}
           and defined($element_content->{'extra'}->{'normalized'})) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
@@ -2685,13 +2684,6 @@ sub _convert($$)
     }
   }
 
-  if ($element->{'extra'}) {
-    if ($element->{'extra'}->{'missing_argument'}
-             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
-      return $result;
-    }
-  }
-
   # for displaymath that closes the preformatted
   my $preformatted_to_reopen;
   if ($cmdname) {
@@ -3735,7 +3727,8 @@ sub _convert($$)
       }
       if ($cmdname eq 'node') {
         # add the label only if not associated with a section
-        if (not $element->{'extra'}->{'associated_section'}) {
+        if (!$element->{'extra'}
+            or not $element->{'extra'}->{'associated_section'}) {
           my $node_label
             = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
           $result .= "\\label{$node_label}%\n";
@@ -3918,7 +3911,9 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'sp') {
       my $sp_nr = 1;
-      if ($element->{'extra'}->{'misc_args'}->[0]) {
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'misc_args'}
+          and $element->{'extra'}->{'misc_args'}->[0]) {
         # this useless copy avoids perl changing the type to integer!
         $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
       }

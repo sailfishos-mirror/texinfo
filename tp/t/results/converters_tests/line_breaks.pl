@@ -106,7 +106,6 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -142,7 +141,6 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'cmdname' => 'title',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

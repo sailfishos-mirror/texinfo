@@ -297,7 +297,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -353,7 +352,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -552,7 +550,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

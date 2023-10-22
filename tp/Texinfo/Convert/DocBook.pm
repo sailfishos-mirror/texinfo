@@ -404,9 +404,8 @@ sub output($$)
   foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
     if ($self->{'global_commands'}->{$title_cmdname}) {
       my $command = $self->{'global_commands'}->{$title_cmdname};
-      next if (!$command->{'args'}
-               or !$command->{'args'}->[0]->{'contents'}
-               or $command->{'extra'}->{'missing_argument'});
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+               or !$command->{'args'}->[0]->{'contents'});
       $fulltitle_command = $command;
       last;
     }
@@ -459,10 +458,8 @@ sub output($$)
   if ($self->{'global_commands'}->{'settitle'}) {
     my $command = $self->{'global_commands'}->{'settitle'};
     $settitle_command = $command
-      unless (!$command->{'args'}
-               or !$command->{'args'}->[0]->{'contents'}
-               or $command->{'extra'}->{'missing_argument'});
-
+      unless (!$command->{'args'} or !$command->{'args'}->[0]
+              or !$command->{'args'}->[0]->{'contents'});
   }
 
   my $titleabbrev_command;
@@ -475,9 +472,8 @@ sub output($$)
     # preceding it, so we also use @top
     my $command = $self->{'global_commands'}->{'top'};
     $fulltitle_command = $command
-      unless (!$command->{'args'}
-               or !$command->{'args'}->[0]->{'contents'}
-               or $command->{'extra'}->{'missing_argument'});
+      unless (!$command->{'args'} or !$command->{'args'}->[0]
+              or !$command->{'args'}->[0]->{'contents'});
   }
 
   my $title_info = '';
