@@ -2167,3 +2167,12 @@ html_prepare_units_directions_files (CONVERTER *self,
 
   return files_source_info;
 }
+
+/* init phase for conversion for convert() */
+void
+html_convert_init (CONVERTER *self)
+{
+  char *title_titlepage
+    = call_formatting_function_format_title_titlepage (self);
+  self->title_titlepage = title_titlepage;
+}

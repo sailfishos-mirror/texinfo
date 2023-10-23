@@ -200,6 +200,19 @@ in float
 @listoffloats type '."\f".'
 
 '],
+# This tests a title in convert
+['commands_in_settitle_with_title',
+'@settitle @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+
+Document.
+
+', {}, {'SHOW_TITLE' => 1}],
 ['some_at_commands_in_ref_nodes',
 '
 @node Top

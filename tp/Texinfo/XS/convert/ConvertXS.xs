@@ -94,7 +94,7 @@ text_convert_tree (text_options_in, tree_in, unused=0)
         RETVAL
 
 int
-html_converter_initialize (SV *converter_in)
+html_converter_initialize (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references)
 
 void
 html_initialize_output_state (SV *converter_in)
@@ -314,3 +314,19 @@ html_translate_names (SV *converter_in)
            }
 
          html_translate_names (self);
+
+SV *
+html_convert_init (SV *converter_in)
+  PREINIT:
+         CONVERTER *self = 0;
+     CODE:
+         /* TODO error?  Return undef if not found? */
+         self = get_sv_converter (converter_in, 0);
+         html_convert_init (self);
+         if (self->title_titlepage)
+           RETVAL = newSVpv_utf8 (self->title_titlepage, 0);
+         else
+ /* should never happen as a string is always returned, possibly empty */
+           RETVAL = newSV(0);
+    OUTPUT:
+        RETVAL

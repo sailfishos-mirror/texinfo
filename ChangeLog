@@ -1,3 +1,39 @@
+2023-10-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (output): set BODYTEXT early where
+	the other configuration variables are set.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (newSVpv_utf8),
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_nodenamenormalization_unicode_to_transliterate): make
+	newSVpv_utf8 a global function and use it in
+	call_nodenamenormalization_unicode_to_transliterate.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize),
+	tp/Texinfo/XS/main/utils.c (html_formatting_reference_names)
+	(html_css_string_formatting_reference_names),
+	tp/Texinfo/XS/main/utils.h (HTML_FORMATTING_REFERENCES_LIST)
+	(FORMATTING_REFERENCE, CONVERTER):
+	pass formatting_function and default formatting references to 
+	converter initialization.
+
+	* tp/Texinfo/Convert/HTML.pm (convert): setup simpletitle_tree
+	and call _reset_info to be able to really format the title.
+
+	* tp/Texinfo/Convert/HTML.pm (import, _XS_html_convert_init)
+	(convert), tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_init),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_init),
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_formatting_function_format_title_titlepage):
+	implement convert() init phase in C with an XS interface.  Consist in
+	in setting the title_titlepage, by calling the corresponding perl
+	formatting reference.
+
+	* tp/t/converters_tests.t (commands_in_settitle_with_title),
+	tp/Makefile.tres: test a title in convert.
+
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (import)

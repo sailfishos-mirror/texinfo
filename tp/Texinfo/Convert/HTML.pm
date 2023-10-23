@@ -118,6 +118,9 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_translate_names",
       "Texinfo::Convert::ConvertXS::html_translate_names");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_html_convert_init",
+      "Texinfo::Convert::ConvertXS::html_convert_init");
 
     $module_loaded = 1;
   }
@@ -7958,7 +7961,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($)
+sub _XS_converter_initialize($$$)
 {
 }
 
@@ -8408,7 +8411,9 @@ sub converter_initialize($)
 
   if ($self->{'document_descriptor'}) {
     my $encoded_converter = $self->encode_converter_document();
-    _XS_converter_initialize($encoded_converter);
+    _XS_converter_initialize($encoded_converter,
+                             \%default_formatting_references,
+                             \%default_css_string_formatting_references);
   }
 
   return $self;
@@ -11018,11 +11023,16 @@ sub _XS_prepare_output_units_global_targets($$$$)
 {
 }
 
+sub _XS_html_convert_init($)
+{
+}
+
 sub convert($$)
 {
   my $self = shift;
   my $document = shift;
 
+  my $encoded_converter;
   my $root = $document->tree();
 
   my $result = '';
@@ -11046,7 +11056,9 @@ sub convert($$)
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
   if ($self->{'converter_descriptor'}) {
-    my $encoded_converter = $self->encode_converter_for_output();
+    # Do it preferentially in XS, and import to perl, to have data
+    # setup in C for XS too.
+    $encoded_converter = $self->encode_converter_for_output();
     my $global_units_directions =
       _XS_prepare_output_units_global_targets($encoded_converter,
            $output_units, $special_units, $associated_special_units);
@@ -11060,9 +11072,33 @@ sub convert($$)
   # setup untranslated strings
   $self->_translate_names(1);
 
-  # title
-  $self->{'title_titlepage'}
-    = &{$self->formatting_function('format_title_titlepage')}($self);
+  # FIXME duplicate of code in output()
+  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
+    if ($self->{'global_commands'}->{$simpletitle_command}) {
+      my $command = $self->{'global_commands'}->{$simpletitle_command};
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+                or !$command->{'args'}->[0]->{'contents'}
+                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
+      $self->{'simpletitle_command_name'} = $simpletitle_command;
+      last;
+    }
+  }
+  $self->_reset_info();
+
+  # title.  Not often set in the default case, as convert() is only
+  # used in the *.t tests, and a title requires both simpletitle_tree
+  # and SHOW_TITLE set, with the default formatting function.
+  if ($self->{'converter_descriptor'}) {
+    # FIXME distinguish failure and no title?  Could actually use
+    # unddef for failurre, as without title, return an empty string.
+    my $title_titlepage =
+      _XS_html_convert_init($encoded_converter);
+    $self->{'title_titlepage'} = $title_titlepage;
+  } else {
+    $self->{'title_titlepage'}
+     = &{$self->formatting_function('format_title_titlepage')}($self);
+  }
 
   # complete information should be available.
   $self->_reset_info();
@@ -11350,6 +11386,13 @@ sub output($$)
   # configuration.
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
+  # set BODYTEXT
+  $self->set_global_document_commands('preamble', ['documentlanguage']);
+  my $structure_preamble_document_language = $self->get_conf('documentlanguage');
+  $self->set_conf('BODYTEXT',
+                  'lang="' . $structure_preamble_document_language . '"');
+  $self->set_global_document_commands('before', ['documentlanguage']);
+
   $self->{'jslicenses'} = {};
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -11426,8 +11469,6 @@ sub output($$)
   $self->set_global_document_commands('preamble', ['documentlanguage']);
 
   my $preamble_document_language = $self->get_conf('documentlanguage');
-  $self->set_conf('BODYTEXT',
-                  'lang="' . $preamble_document_language . '"');
 
   if ($default_document_language ne $preamble_document_language) {
     $self->_translate_names(1);

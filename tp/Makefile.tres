@@ -162,6 +162,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/combined_fonts/res_latex \
   t/results/converters_tests/combined_fonts/res_xml \
   t/results/converters_tests/commands_in_sc.pl \
+  t/results/converters_tests/commands_in_settitle_with_title.pl \
   t/results/converters_tests/commands_in_var.pl \
   t/results/converters_tests/complex_nestings.pl \
   t/results/converters_tests/contents_at_document_begin.pl \

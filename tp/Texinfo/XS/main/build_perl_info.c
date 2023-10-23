@@ -204,7 +204,7 @@ build_perl_directions (ELEMENT_LIST *e)
 
 /* Used to create a "Perl-internal" string that represents a sequence
    of Unicode codepoints with no specific encoding. */
-static SV *
+SV *
 newSVpv_utf8 (char *str, STRLEN len)
 {
   SV *sv;

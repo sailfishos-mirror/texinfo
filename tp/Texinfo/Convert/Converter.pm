@@ -442,9 +442,10 @@ sub encode_converter_document($)
                                       # and set converter_descriptor
                 'document_descriptor' => $self->{'document_descriptor'}};
 
-  if ($self->{'style_commands_formatting'}) {
-    $result->{'style_commands_formatting'}
-      = $self->{'style_commands_formatting'};
+  foreach my $variable ('style_commands_formatting', 'formatting_function') {
+    if ($self->{$variable}) {
+      $result->{$variable} = $self->{$variable};
+    }
   }
 
   if (defined($self->{'converter_init_conf'})) {

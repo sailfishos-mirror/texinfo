@@ -53,7 +53,7 @@ call_nodenamenormalization_unicode_to_transliterate (char *text)
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newSVpvn_utf8 (text, strlen (text), 1)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
   PUTBACK;
 
   count = call_pv (
@@ -478,4 +478,52 @@ call_file_id_setting_unit_file_name (CONVERTER *self, OUTPUT_UNIT *output_unit,
         }
     }
   return 0;
+}
+
+char *
+call_formatting_function_format_title_titlepage (CONVERTER *self)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference
+    = self->formatting_references[FR_format_title_titlepage].sv_reference;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_title_titlepage should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
 }

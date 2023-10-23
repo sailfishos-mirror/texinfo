@@ -73,6 +73,18 @@ char *html_conversion_context_type_names[] = {
   #undef cctx_type
 };
 
+char *html_formatting_reference_names[] = {
+  #define html_fr_reference(name) #name,
+   HTML_FORMATTING_REFERENCES_LIST
+  #undef html_fr_reference
+};
+
+char *html_css_string_formatting_reference_names[] = {
+  #define html_fr_reference(name) #name,
+   HTML_CSS_FORMATTING_REFERENCES_LIST
+  #undef html_fr_reference
+};
+
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
 ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 

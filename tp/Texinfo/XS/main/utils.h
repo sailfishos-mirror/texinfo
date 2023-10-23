@@ -41,6 +41,9 @@ extern const char *command_location_names[];
 extern char *html_conversion_context_type_names[];
 extern char *html_global_unit_direction_names[];
 
+extern char *html_formatting_reference_names[];
+extern char *html_css_string_formatting_reference_names[];
+
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
 
@@ -206,6 +209,47 @@ enum conversion_context {
   #undef cctx_type
 };
 
+/* %default_formatting_references + %default_css_string_formatting_references
+   in Texinfo::HTML */
+#define HTML_FORMATTING_REFERENCES_LIST \
+  html_fr_reference(format_begin_file) \
+  html_fr_reference(format_button) \
+  html_fr_reference(format_button_icon_img) \
+  html_fr_reference(format_css_lines) \
+  html_fr_reference(format_comment) \
+  html_fr_reference(format_contents) \
+  html_fr_reference(format_element_header) \
+  html_fr_reference(format_element_footer) \
+  html_fr_reference(format_end_file) \
+  html_fr_reference(format_footnotes_segment) \
+  html_fr_reference(format_footnotes_sequence) \
+  html_fr_reference(format_heading_text) \
+  html_fr_reference(format_navigation_header) \
+  html_fr_reference(format_navigation_panel) \
+  html_fr_reference(format_node_redirection_page) \
+  html_fr_reference(format_program_string) \
+  html_fr_reference(format_protect_text) \
+  html_fr_reference(format_separate_anchor) \
+  html_fr_reference(format_titlepage) \
+  html_fr_reference(format_title_titlepage) \
+  html_fr_reference(format_translate_message_tree) \
+  html_fr_reference(format_translate_message_string) \
+
+#define HTML_CSS_FORMATTING_REFERENCES_LIST \
+  html_fr_reference(format_protect_text)
+
+enum html_formatting_reference {
+  #define html_fr_reference(name) FR_## name,
+   HTML_FORMATTING_REFERENCES_LIST
+  #undef html_fr_reference
+};
+
+enum html_css_string_formatting_reference {
+  #define html_fr_reference(name) CSSFR_## name,
+   HTML_CSS_FORMATTING_REFERENCES_LIST
+  #undef html_fr_reference
+};
+
 /* down here because it requires error data from before */
 #include "document.h"
 
@@ -299,6 +343,13 @@ typedef struct SPECIAL_UNIT_DIRECTION {
     char *direction;
 } SPECIAL_UNIT_DIRECTION;
 
+typedef struct FORMATTING_REFERENCE {
+/* perl references. This should be SV *sv_*,
+   but we don't want to include the Perl headers everywhere; */
+    void *sv_reference;
+    void *sv_default;
+} FORMATTING_REFERENCE;
+
 typedef struct CONVERTER {
     int converter_descriptor;
     OPTIONS *conf;
@@ -318,6 +369,9 @@ typedef struct CONVERTER {
      but we don't want to include the Perl headers everywhere; */
     void *hv;
 
+  /* maybe HTML specific */
+    char *title_titlepage;
+
   /* HTML specific */
     OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION **special_units_direction_name;
@@ -331,6 +385,10 @@ typedef struct CONVERTER {
     char **directions_strings[TDS_type_rel+1];
     HTML_COMMAND_CONVERSION ***html_command_conversion;
     COMMAND_ID_LIST *no_arg_formatted_cmd;
+    FORMATTING_REFERENCE
+           formatting_references[FR_format_translate_message_string+1];
+    FORMATTING_REFERENCE
+           css_string_formatting_references[CSSFR_format_protect_text+1];
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {

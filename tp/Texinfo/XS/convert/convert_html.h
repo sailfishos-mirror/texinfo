@@ -30,6 +30,8 @@ void html_prepare_output_units_global_targets (CONVERTER *self,
 
 void html_translate_names (CONVERTER *self);
 
+void html_convert_init (CONVERTER *self);
+
 /*
 char *html_convert (CONVERTER *self);
 */

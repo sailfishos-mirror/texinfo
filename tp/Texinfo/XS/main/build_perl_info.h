@@ -10,6 +10,9 @@
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
+/* does not exist as perl macro */
+SV *newSVpv_utf8 (char *str, STRLEN len);
+
 SV *build_document (size_t document_descriptor, int no_store);
 
 HV *build_texinfo_tree (ELEMENT *root);

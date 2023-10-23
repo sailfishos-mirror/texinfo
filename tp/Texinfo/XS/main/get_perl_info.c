@@ -384,14 +384,20 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
 }
 
 int
-html_converter_initialize (SV *sv_in)
+html_converter_initialize (SV *sv_in, SV *default_formatting_references,
+                           SV *default_css_string_formatting_references)
 {
+  int i;
   HV *hv_in;
+  HV *default_formatting_references_hv;
+  HV *default_css_string_formatting_references_hv;
   SV **converter_init_conf_sv;
   SV **converter_sv;
+  SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
   SV **style_commands_formatting_sv;
+  HV *formatting_function_hv;
   CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
   DOCUMENT *document;
@@ -400,6 +406,10 @@ html_converter_initialize (SV *sv_in)
   dTHX;
 
   hv_in = (HV *)SvRV (sv_in);
+  default_formatting_references_hv
+    = (HV *)SvRV (default_formatting_references);
+  default_css_string_formatting_references_hv
+    = (HV *)SvRV (default_css_string_formatting_references);
 
   /* generic */
 
@@ -423,8 +433,58 @@ html_converter_initialize (SV *sv_in)
 
   /* HTML specific */
 
+  formatting_function_sv
+    = hv_fetch (hv_in, "formatting_function",
+                 strlen ("formatting_function"), 0);
+
+  /* no need to check if it exists */
+  formatting_function_hv = (HV *)SvRV (*formatting_function_sv);
+
+  for (i = 0; i < FR_format_translate_message_string+1; i++)
+    {
+      char *ref_name = html_formatting_reference_names[i];
+      FORMATTING_REFERENCE *formatting_reference
+        = &converter->formatting_references[i];
+      SV **formatting_reference_sv
+        = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
+      SV **default_formatting_reference_sv
+        = hv_fetch (default_formatting_references_hv, ref_name,
+                    strlen (ref_name), 0);
+      /* no check, all should exist */
+      if (SvOK (*default_formatting_reference_sv))
+        formatting_reference->sv_default = *default_formatting_reference_sv;
+      if (formatting_reference_sv)
+        {
+          if SvOK (*formatting_reference_sv)
+            formatting_reference->sv_reference = *formatting_reference_sv;
+        }
+      else
+        fprintf (stderr, "BUG: formatting reference %s not found\n",
+                         ref_name);
+    }
+  for (i = 0; i < CSSFR_format_protect_text+1; i++)
+    {
+      char *ref_name = html_css_string_formatting_reference_names[i];
+      FORMATTING_REFERENCE *formatting_reference
+        = &converter->css_string_formatting_references[i];
+      SV **default_formatting_reference_sv
+        = hv_fetch (default_css_string_formatting_references_hv, ref_name,
+                    strlen (ref_name), 0);
+
+      /* no customization, current is the default */
+      if (default_formatting_reference_sv
+          && SvOK (*default_formatting_reference_sv))
+        {
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          formatting_reference->sv_reference = *default_formatting_reference_sv;
+        }
+      else
+        fprintf (stderr, "BUG: css formatting reference %s not found\n",
+                         ref_name);
+    }
+
   sorted_special_unit_varieties_sv
-     = hv_fetch (hv_in, "sorted_special_unit_varieties",
+    = hv_fetch (hv_in, "sorted_special_unit_varieties",
                  strlen ("sorted_special_unit_varieties"), 0);
 
   if (sorted_special_unit_varieties_sv)
