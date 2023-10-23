@@ -1,3 +1,10 @@
+2023-10-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (get_utf8_codepoint):
+	Wrapper for mbrtowc/btowc.
+	[_WIN32]: Do not call btowc, as it was tested to be very slow
+	on MinGW.  Report from Eli Zaretskii.
+
 2023-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Texinfo 7.1
