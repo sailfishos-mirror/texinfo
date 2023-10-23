@@ -142,7 +142,6 @@ extern COUNTER count_remaining_args, count_items, count_cells;
 ELEMENT *setup_document_root_and_before_node_section (void);
 
 /* In multitable.c */
-ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *item_multitable_parent (ELEMENT *current);
 void gather_previous_item (ELEMENT *current, enum command_id next_command);
 

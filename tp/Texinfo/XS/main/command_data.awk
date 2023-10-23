@@ -144,7 +144,9 @@ END {
 
     # We want the output sorted so we can use bsearch
     PROCINFO["sorted_in"]="@ind_str_asc"
+    i = 1
     for (c in commands) {
+        i++
         # Single character commands with unusual names
         if (c ~ /^[^[:alpha:]]$/) {
                 if (c in inv_bs_escapes) {
@@ -260,6 +262,7 @@ END {
     }
     print "};" > CD
     print "};" > CI
+    print "#define BUILTIN_CMD_NUMBER " i > CI
     print "#endif" > CI
 
     print global_unique_commands_struct_str   > GCT

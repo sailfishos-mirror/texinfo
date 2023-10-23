@@ -20,6 +20,7 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
+#include "element_types.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "utils.h"
@@ -41,6 +42,9 @@ typedef struct ROOT_AND_UNIT {
     OUTPUT_UNIT *output_unit;
     ELEMENT *root;
 } ROOT_AND_UNIT;
+
+static void convert_to_html_internal (CONVERTER *self, ELEMENT *e,
+                                      TEXT *result, char *explanation);
 
 /*
  if OUTPUT_UNITS is defined, the first output unit is used if a proper
@@ -1264,7 +1268,7 @@ compare_index_name (const void *a, const void *b)
 {
   const INDEX **idx_a = (const INDEX **) a;
   const INDEX **idx_b = (const INDEX **) b;
- 
+
   return strcmp ((*idx_a)->name, (*idx_b)->name);
 }
 
@@ -2176,3 +2180,298 @@ html_convert_init (CONVERTER *self)
     = call_formatting_function_format_title_titlepage (self);
   self->title_titlepage = title_titlepage;
 }
+
+#define ADD(x) text_append (result, x)
+
+/* EXPLANATION is used for debugging */
+void
+convert_to_html_internal (CONVERTER *self, ELEMENT *element,
+                          TEXT *result, char *explanation)
+{
+  /* for debugging, for explanations */
+  TEXT command_type;
+  char *debug_str;
+  char *command_name = element_command_name (element);
+
+  text_init (&command_type);
+  if (command_name)
+    text_printf (&command_type, "@%s ", command_name);
+
+  if (element->type)
+    text_append (&command_type, element_type_names[element->type]);
+
+  if (self->conf->DEBUG > 0)
+    {
+      TEXT debug_str;
+      text_init (&debug_str);
+     /* TODO
+         my @contexts_names = map {defined($_->{'context_name'})
+                                 ? $_->{'context_name'}: 'UNDEF'}
+         @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+    print STDERR "ELEMENT($explanation) (".join('|',@contexts_names)."), ->";
+       */
+      text_printf (&debug_str, "ELEMENT(%s) (), ->", explanation);
+      if (command_name)
+        text_printf (&debug_str, " cmd: %s,", command_name);
+      if (element->type)
+        text_printf (&debug_str, " type: %s",
+                     element_type_names[element->type]);
+      if (element->text.end > 0)
+        {
+          int allocated;
+          char *text = debug_protect_eol (element->text.text, &allocated);
+          text_printf (&debug_str, " text: %s", text);
+          if (allocated)
+            free (text);
+        }
+      text_append (&debug_str, "\n");
+      fprintf (stderr, debug_str.text);
+      free (debug_str.text);
+    }
+
+  if ((element->type
+       && self->types_conversion[element->type].status == FRS_status_ignored)
+      || (element->cmd
+          && self->commands_conversion[element->cmd].status
+               == FRS_status_ignored))
+    {
+      if (self->conf->DEBUG > 0)
+        {
+          fprintf (stderr, "IGNORED %s\n", command_type.text);
+        }
+    }
+
+  /* Process text */
+
+  if (element->text.space > 0)
+    {
+      char *result = 0;
+
+      if (self->conf->DEBUG > 0)
+        {
+          fprintf (stderr, "DO TEXT => `%s'\n", result);
+        }
+
+      return;
+    }
+
+  if (element->cmd
+      && (element->type != ET_def_line
+          && element->type != ET_definfoenclose_command
+          && element->type != ET_index_entry_command))
+    {
+      enum command_id cmd = element->cmd;
+      enum command_id data_cmd = cmd;
+      if (cmd == CM_item && item_line_parent (element))
+        data_cmd = CM_item_LINE;
+
+     /*
+    if ($root_commands{$command_name}) {
+      $self->{'current_root_command'} = $element;
+    }
+      */
+
+      if (self->commands_conversion[cmd].status)
+        {
+          int convert_to_latex = 0;
+          TEXT content_formatted;
+          /* ?? args_formatted = 0; */
+
+          /* */
+
+          if (element->contents.number > 0)
+            {
+              text_init (&content_formatted);
+
+              if (convert_to_latex)
+                {
+                  /* */
+                }
+              else
+                {
+                  int content_idx;
+                  text_append (&content_formatted, "");
+                  for (content_idx = 0; content_idx < element->contents.number;
+                       content_idx++)
+                    {
+                      ELEMENT *content = element->contents.list[content_idx];
+                      char *explanation;
+                      xasprintf (&explanation, "%s c[%d]", command_type.text,
+                                content_idx);
+                      convert_to_html_internal (self, content, &content_formatted,
+                                                explanation);
+                      free (explanation);
+                    }
+                }
+            }
+
+          if ((builtin_command_data[data_cmd].flags & CF_brace)
+              || (builtin_command_data[data_cmd].flags & CF_line
+                  && builtin_command_data[data_cmd].data == LINE_line)
+              || ((cmd == CM_item || cmd == CM_itemx)
+                  && element->parent->type == ET_table_term)
+              || (cmd == CM_quotation || cmd == CM_smallquotation)
+              || cmd == CM_float
+              || cmd == CM_cartouche)
+            {
+              /* args_formatted */
+              if (element->args.number > 0)
+                {
+                  int arg_idx;
+                  /* */
+                  for (arg_idx = 0; arg_idx < element->args.number; arg_idx++)
+                    {
+                      ELEMENT *arg = element->args.list[arg_idx];
+                      /* */
+                      if (arg->contents.number <= 0)
+                        /*
+                 # special case for @value argument
+                and !defined($arg->{'text'}))
+                         */
+                        {
+                          /* */
+                          continue;
+                        }
+
+                      /* for arg_type
+                         if */
+
+                      char *explanation;
+                      TEXT arg_formatted;
+                      text_init (&arg_formatted);
+                      xasprintf (&explanation, "%s A[%d]$arg_type",
+                                                command_type.text, arg_idx);
+                      convert_to_html_internal (self, arg, &arg_formatted,
+                                                explanation);
+                      free (explanation);
+                      /* push @$args_formatted, $arg_formatted; */
+                    }
+                }
+            }
+          /* */
+
+          /* args are formatted, now format the command itself */
+
+          /* */
+          return;
+        }
+      else
+        {
+          if (self->conf->DEBUG > 0 || self->conf->VERBOSE > 0)
+            fprintf (stderr, "Command not converted: %s\n", command_name);
+          return;
+        }
+      /* */
+    }
+  else if (element->type)
+    {
+      char *type_name = element_type_names[element->type];
+      TEXT type_result;
+      TEXT content_formatted;
+
+      text_init (&type_result);
+      text_append (&type_result, "");
+
+      /* */
+
+      text_init (&content_formatted);
+
+      if (element->type == ET_definfoenclose_command)
+        {
+          if (element->args.number > 0)
+            {
+              convert_to_html_internal (self, element->args.list[0],
+                                        &content_formatted, 0);
+            }
+        }
+      else if (element->contents.number > 0)
+        {
+          int content_idx;
+          text_append (&content_formatted, "");
+          for (content_idx = 0; content_idx < element->contents.number;
+               content_idx++)
+            {
+              ELEMENT *content = element->contents.list[content_idx];
+              char *explanation;
+              xasprintf (&explanation, "%s c[%d]", command_type.text,
+                        content_idx);
+              convert_to_html_internal (self, content, &content_formatted,
+                                        explanation);
+              free (explanation);
+            }
+        }
+
+      if (self->types_conversion[element->type].status)
+        {
+        /*
+      $result .= &{$self->{'types_conversion'}->{$type_name}} ($self,
+                                                 $type_name,
+                                                 $element,
+                                                 $content_formatted);
+         */
+        }
+      else if (content_formatted.end > 0)
+        {
+          text_append (&type_result, content_formatted.text);
+        }
+      free (content_formatted.text);
+      /* */
+
+      if (self->conf->DEBUG > 0)
+        {
+          fprintf (stderr, "DO type (%s) => `%s'\n", type_name,
+                           type_result.text);
+        }
+      ADD(type_result.text);
+      free (type_result.text);
+
+      return;
+    }
+  else if (element->contents.number > 0)
+    {
+      /* no type, no cmdname, but contents. */
+      /* this happens inside accents, for section/node names, for @images. */
+      TEXT content_formatted;
+
+      text_init (&content_formatted);
+      text_append (&content_formatted, "");
+
+      int content_idx;
+      for (content_idx = 0; content_idx < element->contents.number;
+           content_idx++)
+        {
+          ELEMENT *content = element->contents.list[content_idx];
+          char *explanation;
+          xasprintf (&explanation, "%s c[%d]", command_type.text,
+                     content_idx);
+          convert_to_html_internal (self, content, &content_formatted,
+                                    explanation);
+          free (explanation);
+        }
+
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "UNNAMED HOLDER => `%s'\n", content_formatted.text);
+      ADD(content_formatted.text);
+      return;
+    }
+  else
+    {
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "UNNAMED empty\n");
+      if (self->types_conversion[0].status
+          && self->types_conversion[0].status != FRS_status_ignored)
+        {
+          /*
+      return &{$self->{'types_conversion'}->{''}} ($self, $element);
+           */
+        }
+      else
+        return;
+    }
+  debug_str = print_element_debug (element, 0);
+  fprintf (stderr, "DEBUG: HERE!(%p:%s)\n", element, debug_str);
+  free (debug_str);
+}
+
+#undef ADD
+

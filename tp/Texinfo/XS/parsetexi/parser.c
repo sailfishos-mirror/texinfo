@@ -23,7 +23,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for isascii_alnum, whitespace_chars, read_flag_name,
+/* for isascii_alnum, whitespace_chars, read_flag_name, item_line_parent
    delete_global_info, parse_line_directive, count_multibyte */
 #include "utils.h"
 /* for relocate_source_marks */

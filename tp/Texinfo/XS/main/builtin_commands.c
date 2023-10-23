@@ -27,9 +27,6 @@
 
 #include "command_data.c"
 
-int builtin_cmd_number
-  = sizeof (builtin_command_data) / sizeof (builtin_command_data[0]);
-
 static int
 compare_command_fn (const void *a, const void *b)
 {
@@ -68,7 +65,7 @@ lookup_builtin_command (char *cmdname)
 char *
 element_command_name (ELEMENT *e)
 {
-  if (e->cmd && e->cmd < builtin_cmd_number)
+  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
     return builtin_command_data[e->cmd].cmdname;
   else
     {
@@ -90,8 +87,7 @@ element_builtin_cmd (ELEMENT *e)
       && e->parent->type == ET_table_term)
     return CM_item_LINE;
 
-  if (e->cmd && e->cmd <
-        sizeof(builtin_command_data) / sizeof((builtin_command_data)[0]))
+  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
     return e->cmd;
   else if (e->type == ET_definfoenclose_command)
     return CM_definfoenclose_command;

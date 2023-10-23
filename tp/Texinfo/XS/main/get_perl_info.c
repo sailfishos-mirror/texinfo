@@ -383,21 +383,81 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
+
+static void
+register_formatting_reference_with_default (char *type_string,
+                FORMATTING_REFERENCE *formatting_reference,
+                char *ref_name, HV *default_hv, HV *customized_hv)
+{
+  SV **default_formatting_reference_sv;
+  SV **formatting_reference_sv;
+
+  dTHX;
+
+  default_formatting_reference_sv
+   = hv_fetch (default_hv, ref_name, strlen (ref_name), 0);
+  formatting_reference_sv
+    = hv_fetch (customized_hv, ref_name, strlen (ref_name), 0);
+  if (default_formatting_reference_sv)
+    {
+      if (SvOK (*default_formatting_reference_sv))
+        {
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
+        }
+      else
+        formatting_reference->status = FRS_status_ignored;
+    }
+  if (formatting_reference_sv)
+    {
+      if SvOK (*formatting_reference_sv)
+        {
+          formatting_reference->sv_reference = *formatting_reference_sv;
+          if (formatting_reference->status != FRS_status_default_set
+              || SvRV(*formatting_reference_sv)
+                   != SvRV(*default_formatting_reference_sv))
+            formatting_reference->status = FRS_status_customization_set;
+        }
+      else
+        formatting_reference->status = FRS_status_ignored;
+    }
+   /*
+  fprintf (stderr, "register: %s %d '%s'\n", type_string,
+           formatting_reference->status, ref_name);
+    */
+}
+
 int
 html_converter_initialize (SV *sv_in, SV *default_formatting_references,
-                           SV *default_css_string_formatting_references)
+                           SV *default_css_string_formatting_references,
+                           SV *default_commands_open,
+                           SV *default_commands_conversion,
+                           SV *default_types_open,
+                           SV *default_types_conversion)
 {
   int i;
   HV *hv_in;
   HV *default_formatting_references_hv;
   HV *default_css_string_formatting_references_hv;
+  HV *default_commands_open_hv;
+  HV *default_commands_conversion_hv;
+  HV *default_types_open_hv;
+  HV *default_types_conversion_hv;
   SV **converter_init_conf_sv;
   SV **converter_sv;
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
   SV **style_commands_formatting_sv;
+  SV **types_open_sv;
+  SV **types_conversion_sv;
+  SV **commands_open_sv;
+  SV **commands_conversion_sv;
   HV *formatting_function_hv;
+  HV *commands_open_hv;
+  HV *commands_conversion_hv;
+  HV *types_open_hv;
+  HV *types_conversion_hv;
   CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
   DOCUMENT *document;
@@ -416,8 +476,8 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
   document = get_sv_document_document (sv_in, 0);
   converter->document = document;
 
-  converter_init_conf_sv = hv_fetch (hv_in, "converter_init_conf",
-                                   strlen ("converter_init_conf"), 0);
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+  FETCH(converter_init_conf);
 
   if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
     {
@@ -433,9 +493,7 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
 
   /* HTML specific */
 
-  formatting_function_sv
-    = hv_fetch (hv_in, "formatting_function",
-                 strlen ("formatting_function"), 0);
+  FETCH(formatting_function);
 
   /* no need to check if it exists */
   formatting_function_hv = (HV *)SvRV (*formatting_function_sv);
@@ -445,18 +503,26 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
       char *ref_name = html_formatting_reference_names[i];
       FORMATTING_REFERENCE *formatting_reference
         = &converter->formatting_references[i];
-      SV **formatting_reference_sv
-        = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
       SV **default_formatting_reference_sv
         = hv_fetch (default_formatting_references_hv, ref_name,
                     strlen (ref_name), 0);
+      SV **formatting_reference_sv
+        = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
       /* no check, all should exist */
       if (SvOK (*default_formatting_reference_sv))
-        formatting_reference->sv_default = *default_formatting_reference_sv;
+        {
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
+        }
       if (formatting_reference_sv)
         {
           if SvOK (*formatting_reference_sv)
-            formatting_reference->sv_reference = *formatting_reference_sv;
+            {
+              formatting_reference->sv_reference = *formatting_reference_sv;
+              if (formatting_reference->status != FRS_status_default_set
+                  || *formatting_reference_sv != *default_formatting_reference_sv)
+                formatting_reference->status = FRS_status_customization_set;
+            }
         }
       else
         fprintf (stderr, "BUG: formatting reference %s not found\n",
@@ -483,9 +549,68 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
                          ref_name);
     }
 
-  sorted_special_unit_varieties_sv
-    = hv_fetch (hv_in, "sorted_special_unit_varieties",
-                 strlen ("sorted_special_unit_varieties"), 0);
+
+  FETCH(commands_open)
+  commands_open_hv = (HV *)SvRV (*commands_open_sv);
+  default_commands_open_hv = (HV *)SvRV (default_commands_open);
+
+  FETCH(commands_conversion)
+  commands_conversion_hv = (HV *)SvRV (*commands_conversion_sv);
+  default_commands_conversion_hv = (HV *)SvRV (default_commands_conversion);
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = builtin_command_data[i].cmdname;
+      FORMATTING_REFERENCE *open_formatting_reference
+       = &converter->commands_open[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->commands_conversion[i];
+
+      register_formatting_reference_with_default ("command_open",
+        open_formatting_reference, ref_name, default_commands_open_hv,
+        commands_open_hv);
+      register_formatting_reference_with_default ("command_conversion",
+        conversion_formatting_reference, ref_name,
+        default_commands_conversion_hv,
+        commands_conversion_hv);
+    }
+
+
+  FETCH(types_open)
+  types_open_hv = (HV *)SvRV (*types_open_sv);
+  default_types_open_hv = (HV *)SvRV (default_types_open);
+
+  FETCH(types_conversion)
+  types_conversion_hv = (HV *)SvRV (*types_conversion_sv);
+  default_types_conversion_hv = (HV *)SvRV (default_types_conversion);
+
+  for (i = 0; i < ET_special_unit_element+1; i++)
+    {
+      char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = element_type_names[i];
+      FORMATTING_REFERENCE *open_formatting_reference
+       = &converter->types_open[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->types_conversion[i];
+
+      register_formatting_reference_with_default ("type_open",
+        open_formatting_reference, ref_name, default_types_open_hv,
+        types_open_hv);
+      register_formatting_reference_with_default ("type_conversion",
+        conversion_formatting_reference, ref_name,
+        default_types_conversion_hv,
+        types_conversion_hv);
+    }
+
+
+  FETCH(sorted_special_unit_varieties)
 
   if (sorted_special_unit_varieties_sv)
     {
@@ -514,8 +639,7 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
 
       converter->special_unit_varieties = special_unit_varieties;
 
-      special_unit_info_sv = hv_fetch (hv_in, "special_unit_info",
-                                       strlen ("special_unit_info"), 0);
+      FETCH(special_unit_info);
 
       special_unit_info_hv = (HV *) SvRV(*special_unit_info_sv);
 
@@ -589,14 +713,7 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
   memset (converter->global_units_directions, 0,
     (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
-  converter->html_command_conversion = (HTML_COMMAND_CONVERSION ***)
-    malloc (builtin_cmd_number * sizeof (HTML_COMMAND_CONVERSION **));
-  memset (converter->html_command_conversion, 0,
-    builtin_cmd_number * sizeof (HTML_COMMAND_CONVERSION **));
-
-  no_arg_commands_formatting_sv
-         = hv_fetch (hv_in, "no_arg_commands_formatting",
-                     strlen ("no_arg_commands_formatting"), 0);
+  FETCH(no_arg_commands_formatting)
 
   if (no_arg_commands_formatting_sv)
     {
@@ -727,9 +844,7 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
              sizeof (enum command_id), compare_ints);
     }
 
-  style_commands_formatting_sv
-         = hv_fetch (hv_in, "style_commands_formatting",
-                     strlen ("style_commands_formatting"), 0);
+  FETCH(style_commands_formatting)
 
   if (style_commands_formatting_sv)
     {
@@ -827,6 +942,8 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
             }
         }
     }
+
+#undef FETCH
 
   converter_descriptor = register_converter (converter);
   /* a fresh converter, registered */

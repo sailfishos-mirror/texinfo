@@ -24,6 +24,7 @@
 #include "global_commands_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
+#include "builtin_commands.h"
 
 extern const char *whitespace_chars;
 extern const char *digit_chars;
@@ -250,6 +251,17 @@ enum html_css_string_formatting_reference {
   #undef html_fr_reference
 };
 
+enum formatting_reference_status {
+   FRS_status_none,
+   FRS_status_default_set,        /* default is set, no customization (or
+                                     customization is the same as default) */
+   FRS_status_customization_set,  /* customization is set, no default, or
+                                     not the same as default */
+   FRS_status_ignored,            /* explicitely ignored. Only used for
+                                     types_conversion and commands_conversion
+                                   */
+};
+
 /* down here because it requires error data from before */
 #include "document.h"
 
@@ -348,6 +360,7 @@ typedef struct FORMATTING_REFERENCE {
    but we don't want to include the Perl headers everywhere; */
     void *sv_reference;
     void *sv_default;
+    enum formatting_reference_status status;
 } FORMATTING_REFERENCE;
 
 typedef struct CONVERTER {
@@ -383,12 +396,16 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST *html_targets;
     HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
     char **directions_strings[TDS_type_rel+1];
-    HTML_COMMAND_CONVERSION ***html_command_conversion;
+    HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
     COMMAND_ID_LIST *no_arg_formatted_cmd;
     FORMATTING_REFERENCE
            formatting_references[FR_format_translate_message_string+1];
     FORMATTING_REFERENCE
            css_string_formatting_references[CSSFR_format_protect_text+1];
+    FORMATTING_REFERENCE commands_open[BUILTIN_CMD_NUMBER];
+    FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
+    FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
+    FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {
@@ -456,6 +473,7 @@ void delete_global_info (GLOBAL_INFO *global_info_ref);
 void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 char *normalize_encoding_name (char *text, int *possible_encoding);
+ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (ELEMENT *e);
 INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 INDEX *ultimate_index (INDEX *index);

@@ -94,7 +94,7 @@ text_convert_tree (text_options_in, tree_in, unused=0)
         RETVAL
 
 int
-html_converter_initialize (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references)
+html_converter_initialize (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_types_open, SV *default_types_conversion)
 
 void
 html_initialize_output_state (SV *converter_in)

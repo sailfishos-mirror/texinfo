@@ -18,7 +18,11 @@ OPTIONS *copy_sv_options (SV *sv_in);
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 int html_converter_initialize (SV *sv_in, SV *default_formatting_references,
-                               SV *default_css_string_formatting_references);
+                               SV *default_css_string_formatting_references,
+                               SV *default_commands_open,
+                               SV *default_commands_conversion,
+                               SV *default_types_open,
+                               SV *default_types_conversion);
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 

@@ -483,6 +483,21 @@ format_expanded_p (struct expanded_format *formats, char *format)
   return 0;
 }
 
+/* Return the parent if in an item_line command, @*table */
+ELEMENT *
+item_line_parent (ELEMENT *current)
+{
+  if (current->type == ET_before_item && current->parent)
+    current = current->parent;
+
+  /* FIXME could it be possible that current is a user defined command? */
+  /* if (command_data(current->cmd).data == BLOCK_item_line) */
+  if (builtin_command_data[current->cmd].data == BLOCK_item_line)
+    return current;
+
+  return 0;
+}
+
 ELEMENT *
 get_label_element (ELEMENT *e)
 {

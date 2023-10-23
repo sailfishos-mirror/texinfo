@@ -442,7 +442,8 @@ sub encode_converter_document($)
                                       # and set converter_descriptor
                 'document_descriptor' => $self->{'document_descriptor'}};
 
-  foreach my $variable ('style_commands_formatting', 'formatting_function') {
+  foreach my $variable ('style_commands_formatting', 'formatting_function',
+     'types_open', 'types_conversion', 'commands_open', 'commands_conversion') {
     if ($self->{$variable}) {
       $result->{$variable} = $self->{$variable};
     }

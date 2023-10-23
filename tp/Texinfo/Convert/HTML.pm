@@ -7961,7 +7961,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($$$)
+sub _XS_converter_initialize($$$$$$$)
 {
 }
 
@@ -8413,7 +8413,11 @@ sub converter_initialize($)
     my $encoded_converter = $self->encode_converter_document();
     _XS_converter_initialize($encoded_converter,
                              \%default_formatting_references,
-                             \%default_css_string_formatting_references);
+                             \%default_css_string_formatting_references,
+                             \%default_commands_open,
+                             \%default_commands_conversion,
+                             \%default_types_open,
+                             \%default_types_conversion);
   }
 
   return $self;
@@ -12047,21 +12051,18 @@ sub _convert($$;$)
             and exists($self->{'commands_conversion'}->{$element->{'cmdname'}})
             and !defined($self->{'commands_conversion'}->{$element->{'cmdname'}}))) {
     if ($debug) {
-      my $string = 'IGNORED';
-      $string .= " \@$element->{'cmdname'}" if ($element->{'cmdname'});
-      $string .= " $element->{'type'}" if ($element->{'type'});
-      print STDERR "$string\n";
+      print STDERR "IGNORED $command_type\n";
     }
     return '';
   }
 
   # Process text
   if (defined($element->{'text'})) {
+    my $result;
     # already converted to html, keep it as is
     if ($element->{'type'} and $element->{'type'} eq '_converted') {
-      return $element->{'text'};
-    }
-    if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
+      $result = $element->{'text'};
+    } elsif ($element->{'type'} and $element->{'type'} eq 'untranslated') {
       my $translated;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {
@@ -12070,13 +12071,13 @@ sub _convert($$;$)
       } else {
         $translated = $self->gdt($element->{'text'});
       }
-      my $result = $self->_convert($translated, 'translated TEXT');
-      return $result;
-    }
-    my $result = &{$self->{'types_conversion'}->{'text'}} ($self,
+      $result = $self->_convert($translated, 'translated TEXT');
+    } else {
+      $result = &{$self->{'types_conversion'}->{'text'}} ($self,
                                                       $element->{'type'},
                                                       $element,
                                                       $element->{'text'});
+    }
     print STDERR "DO TEXT => `$result'\n" if $debug;
     return $result;
   }
@@ -12178,10 +12179,14 @@ sub _convert($$;$)
           my @args_specification;
           @args_specification = @{$default_commands_args{$command_name}}
             if (defined($default_commands_args{$command_name}));
+          my $spec_nr = scalar(@args_specification);
           my $arg_idx = -1;
           foreach my $arg (@{$element->{'args'}}) {
             $arg_idx++;
-            my $arg_spec = shift @args_specification;
+            my $arg_spec;
+            if ($arg_idx < $spec_nr) {
+              $arg_spec = $args_specification[$arg_idx];
+            }
             if ((!$arg->{'contents'} or !scalar(@{$arg->{'contents'}}))
                 # special case for @value argument
                 and !defined($arg->{'text'})) {
@@ -12379,10 +12384,11 @@ sub _convert($$;$)
   } elsif ($element->{'contents'}) {
     # this happens inside accents, for section/node names, for @images.
     my $content_formatted = '';
-    my $i = 0;
+    my $content_idx = 0;
     foreach my $content (@{$element->{'contents'}}) {
-      $content_formatted .= $self->_convert($content, "$command_type C[$i]");
-      $i++;
+      $content_formatted .= $self->_convert($content,
+                                            "$command_type C[$content_idx]");
+      $content_idx++;
     }
     print STDERR "UNNAMED HOLDER => `$content_formatted'\n" if $debug;
     return $content_formatted;

@@ -18,23 +18,12 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "errors.h"
+/* for item_line_parent */
+#include "utils.h"
 #include "builtin_commands.h"
 #include "commands.h"
 /* check_no_text */
 #include "handle_commands.h"
-
-/* Return the parent if in an item_line command, @*table */
-ELEMENT *
-item_line_parent (ELEMENT *current)
-{
-  if (current->type == ET_before_item && current->parent)
-    current = current->parent;
-
-  if (command_data(current->cmd).data == BLOCK_item_line)
-    return current;
-
-  return 0;
-}
 
 /* Return the parent if in a multitable. */
 ELEMENT *

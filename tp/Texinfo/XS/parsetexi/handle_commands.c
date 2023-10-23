@@ -25,7 +25,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "text.h"
-/* for isascii_alnum, whitespace_chars and read_flag_name */
+/* for isascii_alnum whitespace_chars read_flag_name item_line_parent */
 #include "utils.h"
 #include "counter.h"
 #include "context_stack.h"

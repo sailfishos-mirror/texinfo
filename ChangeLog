@@ -1,5 +1,33 @@
 2023-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert): make code clearer and more
+	efficient, avoid modifying @args_specification, rename $i as
+	$content_idx.
+
+	* tp/Texinfo/XS/main/builtin_commands.c (element_command_name)
+	(element_builtin_cmd), tp/Texinfo/XS/main/command_data.awk: add
+	to generated command_ids.h a define for BUILTIN_CMD_NUMBER, that
+	replaces the builtin_cmd_number variable.
+
+	* tp/Texinfo/XS/main/utils.c (item_line_parent),
+	tp/Texinfo/XS/parsetexi/multitable.c: move item_line_parent from
+	parsetexi/multitable.c to main/utils.c.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(register_formatting_reference_with_default)
+	(html_converter_initialize), tp/Texinfo/XS/main/utils.h (enum
+	formatting_reference_status, FORMATTING_REFERENCE, CONVERTER):
+	pass commands_open, commands_conversion, types_open and
+	types_conversion to converter.  Add a status for FORMATTING_REFERENCE
+	to simplify the use of FORMATTING_REFERENCE.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	preliminary implementation.
+
+2023-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (output): set BODYTEXT early where
 	the other configuration variables are set.
 
