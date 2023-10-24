@@ -561,7 +561,7 @@ sub convert_to_html($$$$$$;$)
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'html');
 
-  $converter_options->{'SPLIT'} = 0
+  $converter_options->{'SPLIT'} = ''
     if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
   my $converter =

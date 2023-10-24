@@ -1806,10 +1806,6 @@ sub split_pages($$)
 
   return undef if (!$output_units or !@$output_units);
 
-  # TODO remove after all the cases of setting a number have been fixed
-  # normalize and set to string
-  $split = "" if (!$split);
-
   my $split_level;
   if (!$split) {
     foreach my $output_unit (@$output_units) {
