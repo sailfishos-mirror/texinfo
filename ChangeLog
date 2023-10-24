@@ -1,5 +1,16 @@
 2023-10-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (import, split_pages): remove overriding
+	of split_pages, as it is not needed in HTML.  It is still in
+	structuring_transfo/StructuringTransfo.xs and could be easily
+	overriden again if there is an actual case in which overriding the
+	function is interesting.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Structuring.pm,
+	tp/Texinfo/Transformations.pm: remove now unused $XS_only.
+
+2023-10-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/labels.c (internal_xref_list)
 	(remember_internal_xref, reset_internal_xrefs, forget_internal_xrefs):
 	use an ELEMENT_LIST for internal_xref_list.
@@ -13,7 +24,6 @@
 	remove it also from the global commands information and remove the
 	associated menu entry nodes from internal references, add the new
 	master menu to global commands information.
-
 
 	* tp/Texinfo/Common.pm (import)
 	(relate_index_entries_to_table_items_in_tree)

@@ -95,14 +95,6 @@ sub import {
   goto &Exporter::import;
 }
 
-# set to 1 if perl code is to be run only if XS is not set
-my $XS_only = 0;
-$XS_only = 1 if (defined($ENV{'TEXINFO_XS'})
-                 and $ENV{'TEXINFO_XS'} eq 'require'
-                 and defined($ENV{'TEXINFO_XS_CONVERT'})
-                 and $ENV{'TEXINFO_XS_CONVERT'});
-
-
 # Add raise/lowersections to be back at the normal level from
 # the $SECTION level.  The raise/lowersections are added at the
 # end of $PARENT.

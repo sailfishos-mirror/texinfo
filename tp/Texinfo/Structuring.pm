@@ -149,24 +149,19 @@ sub import {
         "Texinfo::Structuring::rebuild_output_units",
         "Texinfo::StructTransf::rebuild_output_units"
       );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_split_pages",
-        "Texinfo::StructTransf::split_pages"
-      );
+      # Not useful for HTML as a function, as the calling function is
+      # already overriden
+      # Could be readded when other converters than HTML are done in C
+      #Texinfo::XSLoader::override(
+      #  "Texinfo::Structuring::split_pages",
+      #  "Texinfo::StructTransf::split_pages"
+      #);
     }
     $module_loaded = 1;
   }
   # The usual import method
   goto &Exporter::import;
 }
-
-# set to 1 if perl code is to be run only if XS is not set
-my $XS_only = 0;
-$XS_only = 1 if (defined($ENV{'TEXINFO_XS'})
-                 and $ENV{'TEXINFO_XS'} eq 'require'
-                 and defined($ENV{'TEXINFO_XS_CONVERT'})
-                 and $ENV{'TEXINFO_XS_CONVERT'});
-
 
 my %types_to_enter;
 foreach my $type_to_enter ('brace_command_arg', 'line_arg',
@@ -1689,7 +1684,6 @@ sub split_by_node($;$)
 
     # If the XS code returns something, we use it as it will have the references
     # needed for XS code called later on.
-    # FIXME use XS $output_units only if $XS_only?
     if (defined($output_units)) {
       return $output_units;
     }
@@ -1763,7 +1757,6 @@ sub split_by_section($;$)
   if (!$no_XS) {
     $output_units = _XS_split_by_section($root);
 
-    # FIXME use XS $output_units only if $XS_only?
     if (defined($output_units)) {
       return $output_units;
     }
@@ -1845,35 +1838,19 @@ sub rebuild_output_units($)
   return $output_units;
 }
 
-sub _XS_split_pages($$)
-{
-  my $output_units = shift;
-  my $split = shift;
-
-  return 1;
-}
-
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
-# The $NO_XS argument signals that splitting should not be done
-# separately in XS, but is already done in other XS code (for HTML).
-sub split_pages($$;$)
+sub split_pages($$)
 {
   my $output_units = shift;
   my $split = shift;
-  my $no_XS = shift;
 
   return undef if (!$output_units or !@$output_units);
 
-  # normalize and set to string for XS
+  # TODO remove after all the cases of setting a number have been fixed
+  # normalize and set to string
   $split = "" if (!$split);
-
-  if (not $no_XS
-      and not _XS_split_pages($output_units, $split)
-      and $XS_only) {
-    return undef;
-  }
 
   my $split_level;
   if (!$split) {
