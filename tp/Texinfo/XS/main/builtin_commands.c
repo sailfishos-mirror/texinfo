@@ -78,15 +78,11 @@ element_command_name (ELEMENT *e)
   return 0;
 }
 
-/* map user-defined element commands to internal commands with the right
-   flags associated */
+/* map user-defined element commands to internal commands */
+
 enum command_id
 element_builtin_cmd (ELEMENT *e)
 {
-  if (e->cmd == CM_item
-      && e->parent->type == ET_table_term)
-    return CM_item_LINE;
-
   if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
     return e->cmd;
   else if (e->type == ET_definfoenclose_command)
@@ -103,5 +99,17 @@ element_builtin_cmd (ELEMENT *e)
     }
   /* should never reach here */
   return 0;
+}
+
+/* map user-defined element commands to internal commands with the right
+   flags associated */
+enum command_id
+element_builtin_data_cmd (ELEMENT *e)
+{
+  if (e->cmd == CM_item
+      && e->parent->type == ET_table_term)
+    return CM_item_LINE;
+
+  return element_builtin_cmd (e);
 }
 

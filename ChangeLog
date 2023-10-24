@@ -1,3 +1,42 @@
+2023-10-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/builtin_commands.c (element_builtin_cmd)
+	(element_builtin_data_cmd): do not replace CM_item by CM_item_LINE if
+	in a table term in element_builtin_cmd, do it in the new function
+	element_builtin_data_cmd.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (import),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize):
+	rename html_converter_initialize as html_converter_initialize_sv.
+	Add html_converter_initialize for converter initialization that can be
+	done in C only.
+
+	* tp/Texinfo/XS/convert/convert_html.c (enum argument_formatting_type)
+	(ARG_FORMATTED, ARGS_FORMATTED, MAX_COMMAND_ARGS_NR)
+	(COMMAND_ID_ARGS_SPECIFICATION, COMMAND_ID_ARGS_SPECIFICATION)
+	(default_commands_args, COMMAND_ARGS_SPECIFICATION)
+	(command_args_flags, html_converter_initialize)
+	(convert_to_html_internal): add a structure for default_commands_args,
+	using flags to determine how the different arguments should be
+	formatted.  Copy to an array of commands_id, command_args_flags in
+	html_converter_initialize.  Use the structure in
+	convert_to_html_internal for preliminary code that fills the
+	ARGS_FORMATTED structure.
+
+	* tp/Texinfo/Convert/HTML.pm (import, _XS_html_convert_convert)
+	(convert), tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_convert),
+	tp/Texinfo/XS/convert/convert_html.c (convert_output_unit)
+	(convert_convert_output_unit_internal, html_convert_convert): add
+	preliminary XS interface for conversion in convert().
+
+	* tp/Texinfo/Convert/HTML.pm (convert_output_unit): rename $element as
+	$output_unit.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	diverse fixes and improvements.
+
 2023-10-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert): make code clearer and more

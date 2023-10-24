@@ -889,7 +889,7 @@ informative_command_value (ELEMENT *element)
   ELEMENT *misc_args;
   char *text_arg;
 
-  enum command_id cmd = element_builtin_cmd (element);
+  enum command_id cmd = element_builtin_data_cmd (element);
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_lineraw)
     {

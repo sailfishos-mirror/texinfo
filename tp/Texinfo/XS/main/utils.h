@@ -386,6 +386,8 @@ typedef struct CONVERTER {
     char *title_titlepage;
 
   /* HTML specific */
+    ELEMENT *current_root_command;
+    OUTPUT_UNIT *current_output_unit;
     OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION **special_units_direction_name;
     char **special_unit_info[SUI_type_heading+1];

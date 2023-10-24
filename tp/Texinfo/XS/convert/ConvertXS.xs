@@ -94,7 +94,7 @@ text_convert_tree (text_options_in, tree_in, unused=0)
         RETVAL
 
 int
-html_converter_initialize (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_types_open, SV *default_types_conversion)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_types_open, SV *default_types_conversion)
 
 void
 html_initialize_output_state (SV *converter_in)
@@ -330,3 +330,33 @@ html_convert_init (SV *converter_in)
            RETVAL = newSV(0);
     OUTPUT:
         RETVAL
+
+SV *
+html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in)
+  PREINIT:
+         CONVERTER *self = 0;
+         DOCUMENT *document = 0;
+         int output_units_descriptor = 0;
+         int special_units_descriptor = 0;
+         char *result;
+     CODE:
+         self = get_sv_converter (converter_in, 0);
+         /* there could be strange results if the document and the converter document
+            do not match.  There is no reason why it would happen, though */
+         document = get_sv_tree_document (tree_in, 0);
+         if (SvOK (output_units_in))
+           output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in,
+                         "html_prepare_output_units_global_targets output units");
+         if (SvOK (special_units_in))
+           special_units_descriptor
+             = get_sv_output_units_descriptor (special_units_in,
+                        "html_prepare_output_units_global_targets special units");
+         result = html_convert_convert (self, document->tree,
+                                        output_units_descriptor,
+                                        special_units_descriptor);
+         RETVAL = newSVpv_utf8 (result, 0);
+         free (result);
+    OUTPUT:
+        RETVAL
+

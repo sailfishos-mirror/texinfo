@@ -43,6 +43,81 @@ typedef struct ROOT_AND_UNIT {
     ELEMENT *root;
 } ROOT_AND_UNIT;
 
+enum argument_formatting_type {
+  AFT_type_none,
+  AFT_type_normal,
+  AFT_type_string,
+  AFT_type_monospace,
+  AFT_type_monospacetext,
+  AFT_type_monospacestring,
+  AFT_type_filenametext,
+  AFT_type_url,
+  AFT_type_raw,
+};
+
+typedef struct ARG_FORMATTED {
+    ELEMENT *tree;
+    char *formatted[AFT_type_raw+1];
+} ARG_FORMATTED;
+
+typedef struct ARGS_FORMATTED {
+    size_t number;
+    ARG_FORMATTED *args;
+} ARGS_FORMATTED;
+
+/* unused */
+#define F_AFT_none              0x0001
+
+#define F_AFT_normal            0x0002
+#define F_AFT_string            0x0004
+#define F_AFT_monospace         0x0008
+#define F_AFT_monospacetext     0x0010
+#define F_AFT_monospacestring   0x0020
+#define F_AFT_filenametext      0x0040
+#define F_AFT_url               0x0080
+#define F_AFT_raw               0x0100
+
+/* in specification of args.  Number max +1 for a trailing 0 */
+#define MAX_COMMAND_ARGS_NR 6
+
+typedef struct COMMAND_ID_ARGS_SPECIFICATION {
+    enum command_id cmd;
+    int flags[MAX_COMMAND_ARGS_NR];
+} COMMAND_ID_ARGS_SPECIFICATION;
+
+static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
+  {CM_anchor, {F_AFT_monospacestring}},
+  {CM_email, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal}},
+  {CM_footnote, {0}},
+  {CM_printindex, {0}},
+  {CM_uref, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal, F_AFT_normal}},
+  {CM_url, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal, F_AFT_normal}},
+  {CM_sp, {0}},
+  {CM_inforef, {F_AFT_monospace, F_AFT_normal, F_AFT_filenametext}},
+  {CM_xref, {F_AFT_monospace, F_AFT_normal, F_AFT_normal, F_AFT_filenametext, F_AFT_normal}},
+  {CM_pxref, {F_AFT_monospace, F_AFT_normal, F_AFT_normal, F_AFT_filenametext, F_AFT_normal}},
+  {CM_ref, {F_AFT_monospace, F_AFT_normal, F_AFT_normal, F_AFT_filenametext, F_AFT_normal}},
+  {CM_link, {F_AFT_monospace, F_AFT_normal, F_AFT_filenametext}},
+  {CM_image, {F_AFT_url | F_AFT_filenametext | F_AFT_monospacestring, F_AFT_filenametext, F_AFT_filenametext, F_AFT_string | F_AFT_normal, F_AFT_filenametext}},
+  {CM_inlinefmt, {F_AFT_monospacetext, F_AFT_normal}},
+  {CM_inlinefmtifelse, {F_AFT_monospacetext, F_AFT_normal, F_AFT_normal}},
+  {CM_inlineraw, {F_AFT_monospacetext, F_AFT_raw}},
+  {CM_inlineifclear, {F_AFT_monospacetext, F_AFT_normal}},
+  {CM_inlineifset, {F_AFT_monospacetext, F_AFT_normal}},
+  {CM_item, {0}},
+  {CM_itemx, {0}},
+  {CM_value, {F_AFT_monospacestring}},
+  {CM_abbr, {F_AFT_normal, F_AFT_string}},
+  {CM_acronym, {F_AFT_normal, F_AFT_string}},
+};
+
+typedef struct COMMAND_ARGS_SPECIFICATION {
+    int status;
+    int flags [MAX_COMMAND_ARGS_NR];
+} COMMAND_ARGS_SPECIFICATION;
+
+static COMMAND_ARGS_SPECIFICATION command_args_flags[BUILTIN_CMD_NUMBER];
+
 static void convert_to_html_internal (CONVERTER *self, ELEMENT *e,
                                       TEXT *result, char *explanation);
 
@@ -726,6 +801,28 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
 
   free (special_units_order);
   destroy_strings_list (do_special);
+}
+
+/* most of the initialization is done by html_converter_initialize_sv
+   in get_perl_info, the initialization that sdo not require information
+   from perl is done here */
+void
+html_converter_initialize (CONVERTER *self)
+{
+  int i;
+  int nr_default_commands
+    = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
+  int max_args = MAX_COMMAND_ARGS_NR;
+  for (i = 0; i < nr_default_commands; i++)
+    {
+      /* we file the status for specified commands, to distinguish them
+         but it is not actually used in the code, as we default to
+         normal for unspecified commands too */
+      enum command_id cmd = default_commands_args[i].cmd;
+      command_args_flags[cmd].status = 1;
+      memcpy (&command_args_flags[cmd].flags, &default_commands_args[i].flags,
+              max_args);
+    }
 }
 
 void
@@ -2192,6 +2289,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
   TEXT command_type;
   char *debug_str;
   char *command_name = element_command_name (element);
+  enum command_id cmd = element_builtin_cmd (element);
 
   text_init (&command_type);
   if (command_name)
@@ -2231,9 +2329,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
   if ((element->type
        && self->types_conversion[element->type].status == FRS_status_ignored)
-      || (element->cmd
-          && self->commands_conversion[element->cmd].status
-               == FRS_status_ignored))
+      || (cmd
+          && self->commands_conversion[cmd].status == FRS_status_ignored))
     {
       if (self->conf->DEBUG > 0)
         {
@@ -2245,7 +2342,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
   if (element->text.space > 0)
     {
-      char *result = 0;
+      char *result = "";
 
       if (self->conf->DEBUG > 0)
         {
@@ -2260,22 +2357,16 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           && element->type != ET_definfoenclose_command
           && element->type != ET_index_entry_command))
     {
-      enum command_id cmd = element->cmd;
-      enum command_id data_cmd = cmd;
-      if (cmd == CM_item && item_line_parent (element))
-        data_cmd = CM_item_LINE;
+      enum command_id data_cmd = element_builtin_data_cmd (element);
 
-     /*
-    if ($root_commands{$command_name}) {
-      $self->{'current_root_command'} = $element;
-    }
-      */
+      if (builtin_command_data[data_cmd].flags & CF_root)
+        self->current_root_command = element;
 
       if (self->commands_conversion[cmd].status)
         {
           int convert_to_latex = 0;
+          ARGS_FORMATTED *args_formatted = 0;
           TEXT content_formatted;
-          /* ?? args_formatted = 0; */
 
           /* */
 
@@ -2314,14 +2405,24 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
               || cmd == CM_float
               || cmd == CM_cartouche)
             {
-              /* args_formatted */
               if (element->args.number > 0)
                 {
+                  TEXT formatted_arg;
                   int arg_idx;
+
+                  text_init (&formatted_arg);
+
+                  args_formatted = (ARGS_FORMATTED *)
+                    malloc (sizeof (ARGS_FORMATTED));
+                  args_formatted->number = element->args.number;
+                  args_formatted->args = (ARG_FORMATTED *)
+                    malloc (args_formatted->number * sizeof (ARG_FORMATTED));
+
                   /* */
                   for (arg_idx = 0; arg_idx < element->args.number; arg_idx++)
                     {
                       ELEMENT *arg = element->args.list[arg_idx];
+                      char *explanation;
                       /* */
                       if (arg->contents.number <= 0)
                         /*
@@ -2332,27 +2433,77 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           /* */
                           continue;
                         }
+                      int arg_flags = 0;
+                      if (arg_idx < MAX_COMMAND_ARGS_NR
+                          /* could check command_args_flags[cmd].status,
+                             but it is probably faster not to */
+                          && command_args_flags[cmd].flags[arg_idx])
+                        arg_flags = command_args_flags[cmd].flags[arg_idx];
+                      else
+                        arg_flags = F_AFT_normal;
 
-                      /* for arg_type
-                         if */
+                      ARG_FORMATTED *arg_formatted
+                         = &args_formatted->args[arg_idx];
 
-                      char *explanation;
-                      TEXT arg_formatted;
-                      text_init (&arg_formatted);
-                      xasprintf (&explanation, "%s A[%d]$arg_type",
-                                                command_type.text, arg_idx);
-                      convert_to_html_internal (self, arg, &arg_formatted,
-                                                explanation);
-                      free (explanation);
-                      /* push @$args_formatted, $arg_formatted; */
+                      arg_formatted->tree = arg;
+
+                      if (arg_flags & F_AFT_normal)
+                        {
+                          text_reset (&formatted_arg);
+                          if (convert_to_latex)
+                            {
+                              /* */
+                            }
+                          else
+                            {
+                              xasprintf (&explanation, "%s A[%d]normal",
+                                                   command_type.text, arg_idx);
+                              convert_to_html_internal (self, arg,
+                                                        &formatted_arg,
+                                                        explanation);
+                              free (explanation);
+                            }
+                          arg_formatted->formatted[AFT_type_normal]
+                            = strdup (formatted_arg.text);
+                        }
+                      if (arg_flags & F_AFT_monospace)
+                        {
+                          text_reset (&formatted_arg);
+                          xasprintf (&explanation, "%s A[%d]monospace",
+                                                   command_type.text, arg_idx);
+                /*
+                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+                 convert_to_html_internal ...
+                pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+                 */
+                          convert_to_html_internal (self, arg, &formatted_arg,
+                                                    explanation);
+
+                          free (explanation);
+                          arg_formatted->formatted[AFT_type_monospace]
+                           = strdup (formatted_arg.text);
+                        }
                     }
+                  free (formatted_arg.text);
                 }
             }
           /* */
 
           /* args are formatted, now format the command itself */
+          if (self->commands_conversion[cmd].status)
+            {
+              /*
+          $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
+                  $command_name, $element, $args_formatted, $content_formatted);
+               */
+            }
+          else if (args_formatted)
+            fprintf (stderr, "No command_conversion for %s\n",
+                             command_name);
 
-          /* */
+          if (cmd == CM_documentlanguage)
+            html_translate_names (self);
+
           return;
         }
       else
@@ -2361,7 +2512,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             fprintf (stderr, "Command not converted: %s\n", command_name);
           return;
         }
-      /* */
+
+      if (builtin_command_data[data_cmd].flags & CF_root)
+        self->current_root_command = 0;
     }
   else if (element->type)
     {
@@ -2471,6 +2624,142 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
   debug_str = print_element_debug (element, 0);
   fprintf (stderr, "DEBUG: HERE!(%p:%s)\n", element, debug_str);
   free (debug_str);
+}
+
+char *
+convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
+                     char *explanation)
+{
+  char *result;
+  TEXT content_formatted;
+  enum output_unit_type unit_type = output_unit->unit_type;
+
+/*
+  if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
+      and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
+    if ($debug) {
+      my $string = 'IGNORED';
+      $string .= " $unit_type_name" if ($unit_type_name);
+      print STDERR "$string\n";
+    }
+    return '';
+  }
+ */
+
+  self->current_output_unit = output_unit;
+
+  text_init (&content_formatted);
+  text_append (&content_formatted, "");
+
+  if (output_unit->unit_contents.number > 0)
+    {
+      int content_idx;
+      for (content_idx = 0; content_idx < output_unit->unit_contents.number;
+           content_idx++)
+       {
+         ELEMENT *content = output_unit->unit_contents.list[content_idx];
+         char *explanation;
+         xasprintf (&explanation, "%s c[%d]",
+                    output_unit_type_names[unit_type], content_idx);
+         convert_to_html_internal (self, content, &content_formatted,
+                                   explanation);
+         free (explanation);
+       }
+    }
+
+  if (0)
+    {
+    /*
+   if (exists($self->{'output_units_conversion'}->{$unit_type_name}))
+   $result
+     .= &{$self->{'output_units_conversion'}->{$unit_type_name}} ($self,
+                                               $unit_type_name,
+                                               $output_unit,
+                                               $content_formatted);
+     */
+    }
+   else
+    {
+      result = strdup (content_formatted.text);
+    }
+
+  self->current_output_unit = 0;
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "UNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
+                     result);
+
+  return result;
+}
+
+/* wrapper to avoid code repetition and use similar functions as in perl */
+void
+convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
+                                      OUTPUT_UNIT *output_unit, int unit_nr)
+{
+  char *explanation;
+  char *output_unit_text;
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "\nC UNIT %d\n", unit_nr);
+
+  xasprintf (&explanation, "convert unit %d", unit_nr);
+  output_unit_text = convert_output_unit (self, output_unit,
+                                          explanation);
+  text_append (result, output_unit_text);
+  free (explanation);
+  free (output_unit_text);
+}
+
+char *
+html_convert_convert (CONVERTER *self, ELEMENT *root,
+                      int output_units_descriptor,
+                      int special_units_descriptor)
+{
+  TEXT result;
+
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT_LIST *special_units
+    = retrieve_output_units (special_units_descriptor);
+
+  text_init (&result);
+
+  if (!output_units || !output_units->number)
+    {
+
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "\nC NO UNIT\n");
+
+      convert_to_html_internal (self, root, &result,
+                                "convert no unit");
+      /*
+ $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
+       */
+    }
+  else
+    {
+      int unit_nr = 0;
+      int i;
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          convert_convert_output_unit_internal (self, &result,
+                                          output_unit, unit_nr);
+          unit_nr++;
+        }
+      if (special_units && special_units->number)
+        {
+          for (i = 0; i < output_units->number; i++)
+            {
+              OUTPUT_UNIT *output_unit = output_units->list[i];
+              convert_convert_output_unit_internal (self, &result,
+                                              output_unit, unit_nr);
+              unit_nr++;
+            }
+        }
+    }
+  return result.text;
 }
 
 #undef ADD

@@ -313,7 +313,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
      data_cmd need to be used for all access to arrays of command_id to
      avoid an index > max index of builtin command  */
   if (element->cmd)
-      data_cmd = element_builtin_cmd (element);
+      data_cmd = element_builtin_data_cmd (element);
 
   if (!(element->type == ET_def_line)
       && ((element->type == ET_ignorable_spaces_after_command

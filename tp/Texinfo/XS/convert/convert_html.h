@@ -4,6 +4,8 @@
 
 #include "utils.h"
 
+void html_converter_initialize (CONVERTER *self);
+
 void html_initialize_output_state (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,
@@ -32,8 +34,8 @@ void html_translate_names (CONVERTER *self);
 
 void html_convert_init (CONVERTER *self);
 
-/*
-char *html_convert (CONVERTER *self);
-*/
+char *html_convert_convert (CONVERTER *self, ELEMENT *root,
+                            int output_units_descriptor,
+                            int special_units_descriptor);
 
 #endif

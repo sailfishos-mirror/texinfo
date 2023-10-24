@@ -40,11 +40,12 @@ FIXME add an initialization of translations?
 
 #include "options_types.h"
 #include "utils.h"
+#include "builtin_commands.h"
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
 #include "converter.h"
-#include "builtin_commands.h"
+#include "convert_html.h"
 #include "get_perl_info.h"
 
 DOCUMENT *
@@ -428,12 +429,12 @@ register_formatting_reference_with_default (char *type_string,
 }
 
 int
-html_converter_initialize (SV *sv_in, SV *default_formatting_references,
-                           SV *default_css_string_formatting_references,
-                           SV *default_commands_open,
-                           SV *default_commands_conversion,
-                           SV *default_types_open,
-                           SV *default_types_conversion)
+html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
+                              SV *default_css_string_formatting_references,
+                              SV *default_commands_open,
+                              SV *default_commands_conversion,
+                              SV *default_types_open,
+                              SV *default_types_conversion)
 {
   int i;
   HV *hv_in;
@@ -492,6 +493,8 @@ html_converter_initialize (SV *sv_in, SV *default_formatting_references,
   set_translated_commands (converter, hv_in);
 
   /* HTML specific */
+
+  html_converter_initialize (converter);
 
   FETCH(formatting_function);
 

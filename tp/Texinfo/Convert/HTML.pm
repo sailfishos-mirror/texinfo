@@ -96,7 +96,7 @@ sub import {
 
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_converter_initialize",
-      "Texinfo::Convert::ConvertXS::html_converter_initialize");
+      "Texinfo::Convert::ConvertXS::html_converter_initialize_sv");
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_initialize_output_state",
       "Texinfo::Convert::ConvertXS::html_initialize_output_state");
@@ -121,6 +121,9 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_init",
       "Texinfo::Convert::ConvertXS::html_convert_init");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_html_convert_convert",
+      "Texinfo::Convert::ConvertXS::html_convert_convert");
 
     $module_loaded = 1;
   }
@@ -11031,6 +11034,10 @@ sub _XS_html_convert_init($)
 {
 }
 
+sub _XS_html_convert_convert($$$$)
+{
+}
+
 sub convert($$)
 {
   my $self = shift;
@@ -11107,6 +11114,11 @@ sub convert($$)
   # complete information should be available.
   $self->_reset_info();
 
+  if ($self->{'converter_descriptor'}) {
+    my $XS_result = _XS_html_convert_convert ($encoded_converter, $root,
+                                              $output_units, $special_units);
+  }
+
   if (!defined($output_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
     $result = $self->_convert($root, 'convert no unit');
@@ -11131,13 +11143,13 @@ sub convert($$)
 sub convert_output_unit($$;$)
 {
   my $self = shift;
-  my $element = shift;
+  my $output_unit = shift;
   # only used for debug
   my $explanation = shift;
 
   $debug = $self->get_conf('DEBUG') if !defined($debug);
 
-  my $unit_type_name = $element->{'unit_type'};
+  my $unit_type_name = $output_unit->{'unit_type'};
 
   if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
       and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
@@ -11149,12 +11161,12 @@ sub convert_output_unit($$;$)
     return '';
   }
 
-  $self->{'current_output_unit'} = $element;
+  $self->{'current_output_unit'} = $output_unit;
 
   my $content_formatted = '';
-  if ($element->{'unit_contents'}) {
+  if ($output_unit->{'unit_contents'}) {
     my $content_idx = 0;
-    foreach my $content (@{$element->{'unit_contents'}}) {
+    foreach my $content (@{$output_unit->{'unit_contents'}}) {
       $content_formatted
         .= _convert($self, $content, "$unit_type_name c[$content_idx]");
       $content_idx++;
@@ -11165,7 +11177,7 @@ sub convert_output_unit($$;$)
     $result
      .= &{$self->{'output_units_conversion'}->{$unit_type_name}} ($self,
                                                $unit_type_name,
-                                               $element,
+                                               $output_unit,
                                                $content_formatted);
   } elsif (defined($content_formatted)) {
     $result .= $content_formatted;
