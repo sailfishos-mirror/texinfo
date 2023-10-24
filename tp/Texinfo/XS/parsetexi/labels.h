@@ -30,8 +30,7 @@ void check_register_target_element_label (ELEMENT *label_element,
 void wipe_identifiers_target (void);
 
 
-extern ELEMENT **internal_xref_list;
-extern size_t internal_xref_number;
+extern ELEMENT_LIST internal_xref_list;
 
 void remember_internal_xref (ELEMENT *element);
 void reset_internal_xrefs (void);

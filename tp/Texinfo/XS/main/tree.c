@@ -395,6 +395,25 @@ remove_from_args (ELEMENT *parent, int where)
   return remove_from_element_list (list, where);
 }
 
+ELEMENT *
+remove_element_from_list (ELEMENT_LIST *list, ELEMENT *e)
+{
+  int i;
+  int index = -1;
+  for (i = 0; i < list->number; i++)
+    {
+      if (list->list[i] == e)
+        {
+          index = i;
+          break;
+        }
+    }
+  if (index >= 0)
+    return remove_from_element_list (list, index);
+
+  return 0;
+}
+
 /* Remove elements from START inclusive to END exclusive.  Do not
    free any of them. */
 void
@@ -467,6 +486,27 @@ args_child_by_index (ELEMENT *e, int index)
     return 0;
 
   return e->args.list[index];
+}
+
+/* do not set parent as it can be used to replace in a container element */
+int
+replace_element_in_contents (ELEMENT *parent, ELEMENT *removed, ELEMENT *added)
+{
+  int i;
+
+  if (!parent || !parent->contents.number)
+    return 0;
+
+  for (i = 0; i < parent->contents.number; i++)
+    {
+      ELEMENT *content = parent->contents.list[i];
+      if (content == removed)
+        {
+          parent->contents.list[i] = added;
+          return 1;
+        }
+    }
+  return 0;
 }
 
 /* should only be used if the nse->manual_content

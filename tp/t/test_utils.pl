@@ -742,6 +742,11 @@ sub output_preamble_postamble_latex($$)
   }
 }
 
+my $with_XS = ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
+               and (!defined $ENV{TEXINFO_XS_PARSER}
+                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+
 my %tested_transformations;
 
 # Run a single test case.  Each test case is an array
@@ -1077,9 +1082,7 @@ sub test($$)
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
-  if (defined $ENV{TEXINFO_XS_CONVERT}
-      and $ENV{TEXINFO_XS_CONVERT} eq '1'
-      and defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+  if ($with_XS) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }

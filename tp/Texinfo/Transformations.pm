@@ -57,35 +57,35 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_fill_gaps_in_sectioning",
+        "Texinfo::Transformations::fill_gaps_in_sectioning",
         "Texinfo::StructTransf::fill_gaps_in_sectioning"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_reference_to_arg_in_tree",
+        "Texinfo::Transformations::reference_to_arg_in_tree",
         "Texinfo::StructTransf::reference_to_arg_in_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_complete_tree_nodes_menus",
+        "Texinfo::Transformations::complete_tree_nodes_menus",
         "Texinfo::StructTransf::complete_tree_nodes_menus"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_complete_tree_nodes_missing_menu",
+        "Texinfo::Transformations::complete_tree_nodes_missing_menu",
         "Texinfo::StructTransf::complete_tree_nodes_missing_menu"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_regenerate_master_menu",
+        "Texinfo::Transformations::regenerate_master_menu",
         "Texinfo::StructTransf::regenerate_master_menu"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_insert_nodes_for_sectioning_commands",
+        "Texinfo::Transformations::insert_nodes_for_sectioning_commands",
         "Texinfo::StructTransf::insert_nodes_for_sectioning_commands"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_protect_hashchar_at_line_beginning",
+        "Texinfo::Transformations::protect_hashchar_at_line_beginning",
         "Texinfo::StructTransf::protect_hashchar_at_line_beginning"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Transformations::_XS_protect_first_parenthesis_in_targets",
+        "Texinfo::Transformations::protect_first_parenthesis_in_targets",
         "Texinfo::StructTransf::protect_first_parenthesis_in_targets"
       );
     }
@@ -136,19 +136,9 @@ sub _correct_level($$;$)
   }
 }
 
-sub _XS_fill_gaps_in_sectioning($)
-{
-  return 1;
-}
-
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
-
-  if (not _XS_fill_gaps_in_sectioning($root)
-      and $XS_only) {
-    return undef;
-  }
 
   my $contents_nr = scalar(@{$root->{'contents'}});
 
@@ -282,16 +272,9 @@ sub _reference_to_arg($$$)
   }
 }
 
-sub _XS_reference_to_arg_in_tree($)
-{
-  return 1;
-}
-
 sub reference_to_arg_in_tree($)
 {
   my $tree = shift;
-
-  _XS_reference_to_arg_in_tree($tree);
 
   return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
 }
@@ -444,21 +427,11 @@ sub _reassociate_to_node($$$)
   return undef;
 }
 
-sub _XS_insert_nodes_for_sectioning_commands($)
-{
-  return 1;
-}
-
 sub insert_nodes_for_sectioning_commands($;$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_insert_nodes_for_sectioning_commands($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $root = $document->tree();
 
@@ -614,21 +587,11 @@ sub _get_non_automatic_nodes_with_sections($)
   return [ @non_automatic_nodes ];
 }
 
-sub _XS_complete_tree_nodes_menus($$)
-{
-  return 1;
-}
-
 # This should be called after Texinfo::Structuring::sectioning_structure.
 sub complete_tree_nodes_menus($;$)
 {
   my $root = shift;
   my $use_sections = shift;
-
-  if (not _XS_complete_tree_nodes_menus($root, $use_sections)
-      and $XS_only) {
-    return undef;
-  }
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -637,21 +600,11 @@ sub complete_tree_nodes_menus($;$)
 
 }
 
-sub _XS_complete_tree_nodes_missing_menu($$)
-{
-  return 1;
-}
-
 # this only complete menus if there was no menu
 sub complete_tree_nodes_missing_menu($;$)
 {
   my $root = shift;
   my $use_sections = shift;
-
-  if (not _XS_complete_tree_nodes_missing_menu($root, $use_sections)
-      and $XS_only) {
-    return undef;
-  }
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -667,11 +620,6 @@ sub complete_tree_nodes_missing_menu($;$)
   }
 }
 
-sub _XS_regenerate_master_menu($$)
-{
-  return 1;
-}
-
 # customization_information is used to pass down a translatable object with
 # customization information for the gdt() call.
 sub regenerate_master_menu($$;$)
@@ -679,11 +627,6 @@ sub regenerate_master_menu($$;$)
   my $document = shift;
   my $customization_information = shift;
   my $use_sections = shift;
-
-  if (not _XS_regenerate_master_menu($document, $use_sections)
-      and $XS_only) {
-    return undef;
-  }
 
   my $identifier_target = $document->labels_information();
 
@@ -700,6 +643,8 @@ sub regenerate_master_menu($$;$)
                       $use_sections);
   return undef if (!defined($new_master_menu));
 
+  my $global_detailmenu
+    = $document->global_commands_information()->{'detailmenu'};
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
     my $detailmenu_index = 0;
     foreach my $entry (@{$menu->{'contents'}}) {
@@ -708,6 +653,44 @@ sub regenerate_master_menu($$;$)
         $new_master_menu->{'parent'} = $menu;
         splice (@{$menu->{'contents'}}, $detailmenu_index, 1,
                 $new_master_menu);
+        # also replace in global commands
+        my $index = 0;
+        my $global_detailmenu_index = -1;
+        foreach my $detailmenu_global (@$global_detailmenu) {
+          if ($detailmenu_global eq $entry) {
+            $global_detailmenu_index = $index;
+            last;
+          }
+          $index++;
+        }
+        if ($global_detailmenu_index >= 0) {
+          splice (@$global_detailmenu, $global_detailmenu_index, 1,
+                  $new_master_menu);
+        }
+        # FIXME use an API?
+        my $internal_references = $document->internal_references_information();
+        foreach my $detailmenu_entry (@{$entry->{'contents'}}) {
+          if ($detailmenu_entry->{'type'}
+              and $detailmenu_entry->{'type'} eq 'menu_entry') {
+            foreach my $entry_content (@{$detailmenu_entry->{'contents'}}) {
+              if ($entry_content->{'type'}
+                  and $entry_content->{'type'} eq 'menu_entry_node') {
+                my $index = 0;
+                my $internal_references_idx = -1;
+                foreach my $internal_ref (@$internal_references) {
+                  if ($internal_ref eq $entry_content) {
+                    $internal_references_idx = $index;
+                    last;
+                  }
+                  $index++;
+                }
+                if ($internal_references_idx >= 0) {
+                  splice (@$internal_references, $internal_references_idx, 1);
+                }
+              }
+            }
+          }
+        }
         return 1;
       }
       $detailmenu_index++;
@@ -753,6 +736,7 @@ sub regenerate_master_menu($$;$)
   }
   # insert master menu
   splice (@{$last_menu->{'contents'}}, $index, 0, $new_master_menu);
+  push @$global_detailmenu, $new_master_menu;
 
   return 1;
 }
@@ -913,22 +897,11 @@ sub _protect_hashchar_at_line_beginning($$$)
   return undef;
 }
 
-sub _XS_protect_hashchar_at_line_beginning($)
-{
-  return 1;
-}
-
 sub protect_hashchar_at_line_beginning($$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $tree = shift;
-
-  if (not _XS_protect_hashchar_at_line_beginning ($tree)
-      and $XS_only) {
-    # FIXME return a tree
-    return undef;
-  }
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);
@@ -947,19 +920,9 @@ sub _protect_first_parenthesis_in_targets($$$)
   return undef;
 }
 
-sub _XS_protect_first_parenthesis_in_targets($)
-{
-  return 1;
-}
-
 sub protect_first_parenthesis_in_targets($)
 {
   my $tree = shift;
-
-  if (not _XS_protect_first_parenthesis_in_targets($tree)
-      and $XS_only) {
-    return undef;
-  }
 
   Texinfo::Common::modify_tree($tree, \&_protect_first_parenthesis_in_targets);
 }

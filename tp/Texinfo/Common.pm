@@ -84,23 +84,23 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_relate_index_entries_to_table_items_in_tree",
+        "Texinfo::Common::relate_index_entries_to_table_items_in_tree",
         "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_move_index_entries_after_items_in_tree",
+        "Texinfo::Common::move_index_entries_after_items_in_tree",
         "Texinfo::StructTransf::move_index_entries_after_items_in_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_protect_colon_in_tree",
+        "Texinfo::Common::protect_colon_in_tree",
         "Texinfo::StructTransf::protect_colon_in_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_protect_comma_in_tree",
+        "Texinfo::Common::protect_comma_in_tree",
         "Texinfo::StructTransf::protect_comma_in_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_protect_node_after_label_in_tree",
+        "Texinfo::Common::protect_node_after_label_in_tree",
         "Texinfo::StructTransf::protect_node_after_label_in_tree"
       );
       Texinfo::XSLoader::override(
@@ -1665,6 +1665,28 @@ sub split_custom_heading_command_contents($)
   return $result;
 }
 
+# FIXME document?
+# currently untested/unused, but there is a similar function in XS that
+# is used.
+sub replace_element_in_contents($$$)
+{
+  my $parent = shift;
+  my $removed = shift;
+  my $added = shift;
+
+  return 0 if (!defined($parent) or !$parent->{'contents'});
+
+  my $nr_contents = scalar(@{$parent->{'contents'}});
+  for (my $i = 0; $i < $nr_contents; $i++) {
+    my $content = $parent->{'contents'}->[$i];
+    if ($content eq $removed) {
+      $parent->{'contents'}->[$i] = $added;
+      return 1;
+    }
+  }
+  return 0;
+}
+
 # not currently used
 sub find_parent_root_command($$);
 sub find_parent_root_command($$)
@@ -2111,19 +2133,9 @@ sub _protect_comma($$)
   return _protect_text($current, quotemeta(','));
 }
 
-sub _XS_protect_comma_in_tree($)
-{
-  return 1;
-}
-
 sub protect_comma_in_tree($)
 {
   my $tree = shift;
-
-  if (not _XS_protect_comma_in_tree($tree)
-      and $XS_only and $tree->{'tree_document_descriptor'}) {
-    return $tree;
-  }
 
   return modify_tree($tree, \&_protect_comma);
 }
@@ -2222,19 +2234,9 @@ sub _protect_colon($$)
   return _protect_text($current, quotemeta(':'));
 }
 
-sub _XS_protect_colon_in_tree($)
-{
-  return 1;
-}
-
 sub protect_colon_in_tree($)
 {
   my $tree = shift;
-
-  if (not _XS_protect_colon_in_tree($tree)
-      and $XS_only and $tree->{'tree_document_descriptor'}) {
-    return $tree;
-  }
 
   return modify_tree($tree, \&_protect_colon);
 }
@@ -2247,19 +2249,9 @@ sub _protect_node_after_label($$)
   return _protect_text($current, '['. quotemeta(".\t,") .']');
 }
 
-sub _XS_protect_node_after_label_in_tree($)
-{
-  return 1;
-}
-
 sub protect_node_after_label_in_tree($)
 {
   my $tree = shift;
-
-  if (not _XS_protect_node_after_label_in_tree($tree)
-      and $XS_only and $tree->{'tree_document_descriptor'}) {
-    return $tree;
-  }
 
   return modify_tree($tree, \&_protect_node_after_label);
 }
@@ -2400,20 +2392,10 @@ sub _move_index_entries_after_items($$)
   return undef;
 }
 
-sub _XS_move_index_entries_after_items_in_tree($)
-{
-  return 1;
-}
-
 # For @itemize/@enumerate
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
-
-  if (not _XS_move_index_entries_after_items_in_tree($tree)
-      and $XS_only) {
-    return undef;
-  }
 
   modify_tree($tree, \&_move_index_entries_after_items);
 }
@@ -2497,21 +2479,10 @@ sub _relate_index_entries_to_table_items($$$)
   return undef;
 }
 
-sub _XS_relate_index_entries_to_table_items_in_tree($)
-{
-  return 1;
-}
-
 sub relate_index_entries_to_table_items_in_tree($$)
 {
   my $tree = shift;
   my $indices_information = shift;
-
-  # The XS function retrieves the indices information associated with the tree.
-  if (not _XS_relate_index_entries_to_table_items_in_tree($tree)
-      and $XS_only) {
-    return undef;
-  }
 
   modify_tree($tree, \&_relate_index_entries_to_table_items,
               $indices_information);

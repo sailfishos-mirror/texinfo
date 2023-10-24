@@ -10,6 +10,7 @@ BEGIN { plan tests => 7; }
 use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
 use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
       protect_node_after_label_in_tree);
+use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 
 ok(1);
@@ -36,19 +37,26 @@ sub run_test($$$$)
 
   my $document = parse_texi_piece(undef, $in);
   my $tree_as_text = $document->tree();
+
   my $tree_as_line = parse_texi_line(undef, $in);
 
   foreach my $tree ($tree_as_text, $tree_as_line) {
     if ($do->{'protect_comma'}) {
-      $tree = protect_comma_in_tree($tree);
+      protect_comma_in_tree($tree);
     }
     if ($do->{'protect_colon'}) {
-      $tree = protect_colon_in_tree($tree);
+      protect_colon_in_tree($tree);
     }
     if ($do->{'protect_node_after_label'}) {
-      $tree = protect_node_after_label_in_tree($tree);
+      protect_node_after_label_in_tree($tree);
     }
   }
+
+  $document = Texinfo::Structuring::rebuild_document($document);
+  $tree_as_text = $document->tree();
+
+  $tree_as_line = Texinfo::Structuring::rebuild_tree($tree_as_line);
+
   my $texi_result_as_text
      = Texinfo::Convert::Texinfo::convert_to_texinfo($tree_as_text);
   my $texi_result_as_line

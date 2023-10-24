@@ -118,6 +118,31 @@ rebuild_document (SV *document_in, ...)
     OUTPUT:
         RETVAL
 
+SV *
+rebuild_tree (SV *tree_in, ...)
+      PROTOTYPE: $;$
+      PREINIT:
+        int no_store = 0;
+        DOCUMENT *document = 0;
+      CODE:
+        if (items > 1)
+          if (SvOK(ST(1)))
+            no_store = SvIV (ST(1));
+
+        document = get_sv_tree_document (tree_in, "rebuild_tree");
+        if (document)
+          {
+            ELEMENT *tree;
+
+            build_document (document->descriptor, no_store);
+            tree = document->tree;
+            RETVAL = newRV_inc ((SV *) tree->hv);
+          }
+        else
+          RETVAL = newSV(0);
+    OUTPUT:
+        RETVAL
+
 void
 remove_document_descriptor (int document_descriptor)
 
@@ -137,9 +162,7 @@ void
 clear_document_errors (int document_descriptor)
 
 void
-set_document_options (sv_options_in, document_in)
-        SV *sv_options_in
-        SV *document_in
+set_document_options (SV *sv_options_in, SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -152,8 +175,7 @@ set_document_options (sv_options_in, document_in)
           }
 
 void
-fill_gaps_in_sectioning (tree_in)
-        SV *tree_in
+fill_gaps_in_sectioning (SV *tree_in)
     PREINIT:
         ELEMENT *added_sections;
         DOCUMENT *document;
@@ -170,9 +192,7 @@ fill_gaps_in_sectioning (tree_in)
 # FIXME what to do with the parent argument?
 # FIXME add another way to call that returns a fake tree?
 int
-copy_tree (tree_in, parent_in)
-        SV *tree_in
-        SV *parent_in
+copy_tree (SV *tree_in, SV *parent_in)
     PREINIT:
         ELEMENT *result;
         DOCUMENT *document;
@@ -203,9 +223,10 @@ copy_tree (tree_in, parent_in)
     OUTPUT:
         RETVAL
 
+# $indices_information argument is ignored, it is found with the document
 void
-relate_index_entries_to_table_items_in_tree (tree_in)
-        SV *tree_in
+relate_index_entries_to_table_items_in_tree (SV *tree_in, ...)
+    PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document;
      CODE:
@@ -238,8 +259,7 @@ move_index_entries_after_items_in_tree (tree_in)
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
 void
-reference_to_arg_in_tree (tree_in)
-        SV *tree_in
+reference_to_arg_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -250,8 +270,8 @@ reference_to_arg_in_tree (tree_in)
           reference_to_arg_in_tree (document->tree);
 
 void
-associate_internal_references (document_in)
-        SV *document_in
+associate_internal_references (SV *document_in, ...)
+    PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -264,9 +284,9 @@ associate_internal_references (document_in)
 # The perl function returns a list of sections, but it is only used
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
+# TODO change call in perl code to put tree first
 void
-sectioning_structure (tree_in)
-        SV *tree_in
+sectioning_structure (SV *registrar, SV *customization_information, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -279,8 +299,8 @@ sectioning_structure (tree_in)
           }
 
 void
-warn_non_empty_parts (document_in)
-        SV *document_in
+warn_non_empty_parts (SV *document_in, ...)
+   PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -290,8 +310,8 @@ warn_non_empty_parts (document_in)
           warn_non_empty_parts (document);
 
 void
-set_menus_node_directions (document_in)
-        SV *document_in
+set_menus_node_directions (SV *document_in, ...)
+  PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -301,8 +321,8 @@ set_menus_node_directions (document_in)
           set_menus_node_directions (document);
 
 void
-complete_node_tree_with_menus (document_in)
-        SV *document_in
+complete_node_tree_with_menus (SV *document_in, ...)
+  PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -312,8 +332,8 @@ complete_node_tree_with_menus (document_in)
           complete_node_tree_with_menus (document);
 
 void
-check_nodes_are_referenced (document_in)
-        SV *document_in
+check_nodes_are_referenced (SV *document_in, ...)
+  PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -323,8 +343,7 @@ check_nodes_are_referenced (document_in)
           check_nodes_are_referenced (document);
 
 void
-number_floats (document_in)
-        SV *document_in
+number_floats (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -334,15 +353,13 @@ number_floats (document_in)
           number_floats (document);
 
 void
-complete_tree_nodes_menus (tree_in, use_sections_in)
-        SV *tree_in
-        SV *use_sections_in;
+complete_tree_nodes_menus (SV *tree_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
      CODE:
         document = get_sv_tree_document (tree_in, "complete_tree_nodes_menus");
-        if (SvOK (use_sections_in))
+        if (use_sections_in && SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
@@ -350,16 +367,14 @@ complete_tree_nodes_menus (tree_in, use_sections_in)
           complete_tree_nodes_menus (document->tree, use_sections);
 
 void
-complete_tree_nodes_missing_menu (tree_in, use_sections_in)
-        SV *tree_in
-        SV *use_sections_in;
+complete_tree_nodes_missing_menu (SV *tree_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
      CODE:
         document = get_sv_tree_document (tree_in,
                              "complete_tree_nodes_missing_menu");
-        if (SvOK (use_sections_in))
+        if (use_sections_in && SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
@@ -367,16 +382,14 @@ complete_tree_nodes_missing_menu (tree_in, use_sections_in)
           complete_tree_nodes_missing_menu (document->tree, use_sections);
 
 void
-regenerate_master_menu (document_in, use_sections_in)
-        SV *document_in
-        SV *use_sections_in;
+regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
     CODE:
         document = get_sv_document_document (document_in,
                                              "regenerate_master_menu");
-        if (SvOK (use_sections_in))
+        if (use_sections_in && SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
@@ -387,8 +400,8 @@ regenerate_master_menu (document_in, use_sections_in)
 # to reserve the return value for a return status, if it becomes needed.
 # FIXME the added nodes return value is used in pod2texi
 void
-insert_nodes_for_sectioning_commands (document_in)
-        SV *document_in
+insert_nodes_for_sectioning_commands (SV *document_in, ...)
+   PROTOTYPE: $;$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -405,8 +418,8 @@ insert_nodes_for_sectioning_commands (document_in)
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
 void
-nodes_tree (document_in)
-        SV *document_in
+nodes_tree (SV *document_in, ...)
+   PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -421,8 +434,7 @@ nodes_tree (document_in)
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
 void
-protect_colon_in_tree (tree_in)
-        SV *tree_in
+protect_colon_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -433,8 +445,7 @@ protect_colon_in_tree (tree_in)
           protect_colon_in_tree (document->tree);
 
 void
-protect_comma_in_tree (tree_in)
-        SV *tree_in
+protect_comma_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -445,8 +456,7 @@ protect_comma_in_tree (tree_in)
           protect_comma_in_tree (document->tree);
 
 void
-protect_node_after_label_in_tree (tree_in)
-        SV *tree_in
+protect_node_after_label_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -456,9 +466,9 @@ protect_node_after_label_in_tree (tree_in)
         if (document)
           protect_node_after_label_in_tree (document->tree);
 
+# TODO change order of call in perl?
 void
-protect_hashchar_at_line_beginning (tree_in)
-        SV *tree_in
+protect_hashchar_at_line_beginning (SV *registrar, SV *customization_information, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -469,8 +479,7 @@ protect_hashchar_at_line_beginning (tree_in)
           protect_hashchar_at_line_beginning (document);
 
 void
-protect_first_parenthesis_in_targets (tree_in)
-        SV *tree_in
+protect_first_parenthesis_in_targets (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -480,8 +489,7 @@ protect_first_parenthesis_in_targets (tree_in)
           protect_first_parenthesis_in_targets (document->tree);
 
 SV *
-split_by_node (tree_in)
-        SV *tree_in
+split_by_node (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -498,8 +506,7 @@ split_by_node (tree_in)
         RETVAL
 
 SV *
-split_by_section (tree_in)
-        SV *tree_in
+split_by_section (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:

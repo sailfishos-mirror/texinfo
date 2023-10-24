@@ -131,34 +131,26 @@ wipe_identifiers_target (void)
 
 
 
-ELEMENT **internal_xref_list = 0;
-size_t internal_xref_number = 0;
-size_t internal_xref_space = 0;
+ELEMENT_LIST internal_xref_list = {0, 0, 0};
 
 void
 remember_internal_xref (ELEMENT *element)
 {
-  if (internal_xref_number == internal_xref_space)
-    {
-      internal_xref_list = realloc (internal_xref_list,
-                             (internal_xref_space += 2)
-                             * sizeof (*internal_xref_list));
-    }
-  internal_xref_list[internal_xref_number++] = element;
+  add_to_element_list (&internal_xref_list, element);
 }
 
 /* not used */
 void
 reset_internal_xrefs (void)
 {
-  internal_xref_number = 0;
+  internal_xref_list.number = 0;
 }
 
 void
 forget_internal_xrefs (void)
 {
-  internal_xref_number = 0;
-  internal_xref_space = 0;
-  internal_xref_list = 0;
+  internal_xref_list.number = 0;
+  internal_xref_list.space = 0;
+  internal_xref_list.list = 0;
 }
 

@@ -9,6 +9,7 @@ BEGIN { plan tests => 9; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
+use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 
 use Data::Dumper;
@@ -19,6 +20,12 @@ $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'C';
 
 ok(1);
+
+my $with_XS = ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
+               and (!defined $ENV{TEXINFO_XS_PARSER}
+                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+
 
 sub run_test($$$;$)
 {
@@ -33,17 +40,16 @@ sub run_test($$$;$)
 
   my $registrar = $parser->registered_errors();
 
-  my $corrected_tree = 
+  my $corrected_tree =
     Texinfo::Transformations::protect_hashchar_at_line_beginning(
                                             $registrar, $parser, $tree);
 
-  if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-    $document = Texinfo::Structuring::rebuild_document($document);
-    $corrected_tree = $document->tree();
-    if (defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
-      foreach my $error (@{$document->{'errors'}}) {
-        $registrar->add_formatted_message($error);
-      }
+  $document = Texinfo::Structuring::rebuild_document($document);
+  $corrected_tree = $document->tree();
+
+  if ($with_XS) {
+    foreach my $error (@{$document->{'errors'}}) {
+      $registrar->add_formatted_message($error);
     }
   }
 
@@ -199,6 +205,6 @@ in quotation
 #{
 #  local $Data::Dumper::Purity = 1;
 #  local $Data::Dumper::Indent = 1;
-# 
+#
 #  print STDERR Data::Dumper->Dump([$tree]);
 #}

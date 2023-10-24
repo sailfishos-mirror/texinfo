@@ -127,9 +127,7 @@ my $document = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
-if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-  $document = Texinfo::Structuring::rebuild_document($document);
-}
+$document = Texinfo::Structuring::rebuild_document($document);
 my $identifier_target = $document->labels_information();
 my $top_node = $identifier_target->{'Top'};
 # FIXME does not test XS
@@ -178,9 +176,7 @@ $document = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
-if (defined $ENV{TEXINFO_XS_CONVERT} and $ENV{TEXINFO_XS_CONVERT} eq '1') {
-  $document = Texinfo::Structuring::rebuild_document($document);
-}
+$document = Texinfo::Structuring::rebuild_document($document);
 $identifier_target = $document->labels_information();
 $top_node = $identifier_target->{'Top'};
 # FIXME does not test XS
@@ -192,11 +188,12 @@ is ($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
-my $tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
+$document = Texinfo::Structuring::rebuild_document($document);
+my $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in($reference), 'regenerate with existing detailmenu');
@@ -205,11 +202,12 @@ is ($out, _get_in($reference), 'regenerate with existing detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
-$tree = $document->tree();
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
+$document = Texinfo::Structuring::rebuild_document($document);
+$tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in('',"\n".$reference), 'regenerate with no detailmenu');

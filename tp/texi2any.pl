@@ -1393,6 +1393,11 @@ die _encode_message(
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name))
      unless (scalar(@input_files) >= 1);
 
+my $with_XS = ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
+               and (!defined $ENV{TEXINFO_XS_PARSER}
+                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+
 my $file_number = -1;
 my @opened_files = ();
 my %unclosed_files;
@@ -1627,9 +1632,7 @@ while(@input_files) {
 
   $document = Texinfo::Structuring::rebuild_document($document);
 
-  if (defined $ENV{TEXINFO_XS_CONVERT}
-      and $ENV{TEXINFO_XS_CONVERT} eq '1'
-      and defined($ENV{'TEXINFO_XS'}) and $ENV{'TEXINFO_XS'} eq 'require') {
+  if ($with_XS) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }

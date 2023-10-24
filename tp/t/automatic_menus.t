@@ -38,6 +38,9 @@ sub test($$$;$$)
   } else {
     Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }
+
+  $tree = Texinfo::Structuring::rebuild_tree($tree);
+
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {

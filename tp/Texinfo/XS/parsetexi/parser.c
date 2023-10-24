@@ -2507,12 +2507,12 @@ store_document (ELEMENT *root)
 
   internal_references = malloc (sizeof (ELEMENT_LIST));
 
-  internal_xref_list = realloc (internal_xref_list,
-                                internal_xref_number * sizeof (ELEMENT));
+  internal_xref_list.list = realloc (internal_xref_list.list,
+                             internal_xref_list.number * sizeof (ELEMENT));
 
-  internal_references->list = internal_xref_list;
-  internal_references->number = internal_xref_number;
-  internal_references->space = internal_xref_number;
+  internal_references->list = internal_xref_list.list;
+  internal_references->number = internal_xref_list.number;
+  internal_references->space = internal_xref_list.number;
 
   memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
   if (global_info.input_encoding_name)

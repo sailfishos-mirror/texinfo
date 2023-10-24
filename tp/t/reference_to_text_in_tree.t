@@ -9,6 +9,7 @@ BEGIN { plan tests => 3; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
+use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 
 ok(1);
@@ -24,6 +25,8 @@ sub run_test($$$)
   my $tree = $document->tree();
 
   Texinfo::Transformations::reference_to_arg_in_tree($tree);
+  $tree = Texinfo::Structuring::rebuild_tree($tree);
+
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {

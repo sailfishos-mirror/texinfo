@@ -9,6 +9,7 @@ BEGIN { plan tests => 6; }
 
 use Texinfo::Transformations;
 use Texinfo::Parser qw(parse_texi_text);
+use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 
 ok(1, "modules loading");
@@ -41,6 +42,7 @@ sub test_correction($$$;$)
                                              $test_correct_level);
   }
 
+  $tree = Texinfo::Structuring::rebuild_tree($tree);
   {
   local $Data::Dumper::Purity = 1;
   #local $Data::Dumper::Maxdepth = 2;
@@ -48,6 +50,7 @@ sub test_correction($$$;$)
   #print STDERR Data::Dumper->Dump([$tree]);
   #print STDERR Data::Dumper->Dump([$added_sections]);
   }
+
   my $texi_result
    = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   if (!defined($out)) {
@@ -57,10 +60,16 @@ sub test_correction($$$;$)
   }
 }
 
+my $with_XS = ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
+               and (!defined $ENV{TEXINFO_XS_PARSER}
+                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+
+
 SKIP:
 {
-  skip "incorrect for XS", 2, (defined $ENV{TEXINFO_XS_CONVERT}
-                               and !$ENV{TEXINFO_XS_CONVERT} eq '0');
+  skip "test perl not XS", 2, $with_XS;
+
 test_correction('@raisesections
 
 @section truc

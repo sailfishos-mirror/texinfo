@@ -1205,8 +1205,44 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
           ELEMENT *entry = menu->contents.list[detailmenu_index];
           if (entry->cmd == CM_detailmenu)
             {
-              destroy_element_and_children (
-                 remove_from_contents (menu, detailmenu_index));
+              int j;
+              ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
+              replace_element_in_contents (
+                 &document->global_commands->detailmenu, removed, master_menu);
+              /* FIXME are the new entries added to internal refs?
+                 Note that if they are not, it is possible that this has
+                 no impact as the associated entry in menu may be
+                 in internal refs, and maybe it is enough.
+               */
+              /* remove internal refs of removed entries */
+              for (j = 0; j < removed->contents.number; j++)
+                {
+                  ELEMENT *content = removed->contents.list[j];
+                  if (content->type == ET_menu_entry)
+                    {
+                      int k;
+                      for (k = 0; k < content->contents.number; k++)
+                        {
+                          ELEMENT *entry_content = content->contents.list[k];
+                          if (entry_content->type == ET_menu_entry_node)
+                            {
+                              ELEMENT *removed_internal_ref =
+                              remove_element_from_list (
+                                        document->internal_references,
+                                                        entry_content);
+                              if (!removed_internal_ref)
+                                {
+                                  char *removed_internal_texi
+                                     = convert_to_texinfo (entry_content);
+                                  fprintf (stderr,
+                                    "BUG: %s: not found in internal refs\n", 
+                                      removed_internal_texi);
+                                }
+                            }
+                        }
+                    }
+                }
+              destroy_element_and_children (removed);
               insert_into_contents (menu, master_menu, detailmenu_index);
               return 1;
             }
@@ -1257,6 +1293,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     }
   /* insert master menu */
   insert_into_contents (last_menu, master_menu, index);
+  add_to_contents_as_array (&document->global_commands->detailmenu,
+                            master_menu);
   return 1;
 }
 

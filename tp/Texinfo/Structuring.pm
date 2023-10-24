@@ -89,8 +89,10 @@ sub import {
         or $ENV{TEXINFO_XS_PARSER} ne '0') {
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::rebuild_document",
-        "Texinfo::StructTransf::rebuild_document",
-      );
+        "Texinfo::StructTransf::rebuild_document");
+      Texinfo::XSLoader::override(
+        "Texinfo::Structuring::rebuild_tree",
+        "Texinfo::StructTransf::rebuild_tree");
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::clear_document_errors",
         "Texinfo::StructTransf::clear_document_errors",
@@ -100,35 +102,35 @@ sub import {
         "Texinfo::StructTransf::copy_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_associate_internal_references",
+        "Texinfo::Structuring::associate_internal_references",
         "Texinfo::StructTransf::associate_internal_references"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_sectioning_structure",
+        "Texinfo::Structuring::sectioning_structure",
         "Texinfo::StructTransf::sectioning_structure"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_warn_non_empty_parts",
+        "Texinfo::Structuring::warn_non_empty_parts",
         "Texinfo::StructTransf::warn_non_empty_parts"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_nodes_tree",
+        "Texinfo::Structuring::nodes_tree",
         "Texinfo::StructTransf::nodes_tree"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_set_menus_node_directions",
+        "Texinfo::Structuring::set_menus_node_directions",
         "Texinfo::StructTransf::set_menus_node_directions"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_complete_node_tree_with_menus",
+        "Texinfo::Structuring::complete_node_tree_with_menus",
         "Texinfo::StructTransf::complete_node_tree_with_menus"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_check_nodes_are_referenced",
+        "Texinfo::Structuring::check_nodes_are_referenced",
         "Texinfo::StructTransf::check_nodes_are_referenced"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_number_floats",
+        "Texinfo::Structuring::number_floats",
         "Texinfo::StructTransf::number_floats"
       );
       Texinfo::XSLoader::override(
@@ -188,6 +190,16 @@ sub rebuild_document($;$)
   return $document;
 }
 
+# this method does nothing, but the XS override rebuilds the perl
+# tree based on XS data.
+sub rebuild_tree($;$)
+{
+  my $tree = shift;
+  my $no_store = shift;
+
+  return $tree;
+}
+
 # this method does nothing, but the XS override clears the document errors
 sub clear_document_errors($)
 {
@@ -210,11 +222,6 @@ sub copy_tree($;$)
   return $result;
 }
 
-sub _XS_sectioning_structure($)
-{
-  return 1;
-}
-
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'section_level'
@@ -227,11 +234,6 @@ sub sectioning_structure($$$)
   my $registrar = shift;
   my $customization_information = shift;
   my $root = shift;
-
-  if (not _XS_sectioning_structure($root)
-      and $XS_only) {
-    return undef;
-  }
 
   my $sec_root;
   my $previous_section;
@@ -459,21 +461,11 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
-sub _XS_warn_non_empty_parts($)
-{
-  return 1;
-}
-
 sub warn_non_empty_parts($$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_warn_non_empty_parts($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $global_commands = $document->global_commands_information();
 
@@ -630,21 +622,11 @@ sub get_node_node_childs_from_sectioning
   return @node_childs;
 }
 
-sub _XS_check_nodes_are_referenced($)
-{
-  return 1;
-}
-
 # In general should be called only after complete_node_tree_with_menus
 # to try to generate menus automatically before checking.
-sub check_nodes_are_referenced
+sub check_nodes_are_referenced($$$)
 {
   my ($document, $registrar, $customization_information) = @_;
-
-  if (not _XS_check_nodes_are_referenced($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
@@ -751,22 +733,12 @@ sub _first_menu_node($$)
   return undef;
 }
 
-sub _XS_set_menus_node_directions($)
-{
-  return 1;
-}
-
 # set menu_directions
 sub set_menus_node_directions($$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_set_menus_node_directions($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
@@ -894,11 +866,6 @@ sub _section_direction_associated_node($$)
   return undef;
 }
 
-sub _XS_complete_node_tree_with_menus($)
-{
-  return 1;
-}
-
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
@@ -907,11 +874,6 @@ sub complete_node_tree_with_menus($$$)
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_complete_node_tree_with_menus($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
@@ -1119,22 +1081,12 @@ sub complete_node_tree_with_menus($$$)
   }
 }
 
-sub _XS_nodes_tree($)
-{
-  return 1;
-}
-
 # set node directions based on sectioning and @node explicit directions
 sub nodes_tree($$$)
 {
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_nodes_tree($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $root = $document->tree();
   my $identifier_target = $document->labels_information();
@@ -1272,11 +1224,6 @@ sub nodes_tree($$$)
   return \@nodes_list;
 }
 
-sub _XS_associate_internal_references($)
-{
-  return 1;
-}
-
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
 sub associate_internal_references($$$)
@@ -1284,11 +1231,6 @@ sub associate_internal_references($$$)
   my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-
-  if (not _XS_associate_internal_references($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
@@ -1344,19 +1286,9 @@ sub associate_internal_references($$$)
   }
 }
 
-sub _XS_number_floats($)
-{
-  return 1;
-}
-
 sub number_floats($)
 {
   my $document = shift;
-
-  if (not _XS_number_floats($document)
-      and $XS_only) {
-    return undef;
-  }
 
   my $floats = $document->floats_information();
 
