@@ -9305,9 +9305,9 @@ sub _prepare_conversion_units($$$)
   }
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($root, 1);
+    $output_units = Texinfo::Structuring::split_by_node($root);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($root, 1);
+    $output_units = Texinfo::Structuring::split_by_section($root);
   }
 
   # Needs to be set early in case it would be needed to find some region
@@ -9390,7 +9390,7 @@ sub _prepare_units_directions_files($$$$$$$$)
   $self->_prepare_output_units_global_targets($output_units, $special_units,
                                               $associated_special_units);
 
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'), 1);
+  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.

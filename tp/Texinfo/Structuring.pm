@@ -134,24 +134,20 @@ sub import {
         "Texinfo::StructTransf::number_floats"
       );
       Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_split_by_node",
-        "Texinfo::StructTransf::split_by_node"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_split_by_section",
-        "Texinfo::StructTransf::split_by_section"
-      );
+        "Texinfo::Structuring::rebuild_output_units",
+        "Texinfo::StructTransf::rebuild_output_units");
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::_XS_unsplit",
-        "Texinfo::StructTransf::unsplit"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::rebuild_output_units",
-        "Texinfo::StructTransf::rebuild_output_units"
-      );
-      # Not useful for HTML as a function, as the calling function is
+        "Texinfo::StructTransf::unsplit");
+      # Not useful for HTML as functions, as the calling functions are
       # already overriden
       # Could be readded when other converters than HTML are done in C
+      #Texinfo::XSLoader::override(
+      #  "Texinfo::Structuring::split_by_node",
+      #  "Texinfo::StructTransf::split_by_node");
+      #Texinfo::XSLoader::override(
+      #  "Texinfo::Structuring::_XS_split_by_section",
+      #  "Texinfo::StructTransf::split_by_section");
       #Texinfo::XSLoader::override(
       #  "Texinfo::Structuring::split_pages",
       #  "Texinfo::StructTransf::split_pages"
@@ -1659,35 +1655,15 @@ if (0) {
 }
 
 
-sub _XS_split_by_node($)
-{
-  my $root = shift;
-
-  return undef;
-}
-
 # Return a list of output units.  Each output unit starts with a @node as its
 # first content (except possibly the first one).  It is important that this
 # function reassociates all the root commands such that the result does not
 # depend on the previous association (if any).
-# The $NO_XS argument signals that splitting should not be done
-# separately in XS, but is already done in other XS code (for HTML).
-sub split_by_node($;$)
+sub split_by_node($)
 {
   my $root = shift;
-  my $no_XS = shift;
 
   my $output_units;
-
-  if (!$no_XS) {
-    $output_units = _XS_split_by_node($root);
-
-    # If the XS code returns something, we use it as it will have the references
-    # needed for XS code called later on.
-    if (defined($output_units)) {
-      return $output_units;
-    }
-  }
 
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
@@ -1733,34 +1709,16 @@ sub split_by_node($;$)
   return $output_units;
 }
 
-sub _XS_split_by_section($)
-{
-  my $root = shift;
-
-  return undef;
-}
-
 # Return a list of output units.  Each output unit starts with the @node
 # associated with a sectioning command or with the sectioning command if there
 # is no associated node.  It is important that this function reassociates all
 # the root commands such that the result does not depend on the previous
 # association (if any).
-# The $NO_XS argument signals that splitting should not be done
-# separately in XS, but is already done in other XS code (for HTML).
-sub split_by_section($;$)
+sub split_by_section($)
 {
   my $root = shift;
-  my $no_XS = shift;
 
   my $output_units;
-
-  if (!$no_XS) {
-    $output_units = _XS_split_by_section($root);
-
-    if (defined($output_units)) {
-      return $output_units;
-    }
-  }
 
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;

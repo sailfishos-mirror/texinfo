@@ -1,5 +1,15 @@
 2023-10-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (import, split_by_node, split_by_section),
+	tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_units_directions_files): remove overriding of split_by_node
+	and split_by_section, as it is not needed in HTML. It is still in
+	structuring_transfo/StructuringTransfo.xs and could be overriden again
+	if there is an actual case in which overriding the functions is
+	interesting.
+
+2023-10-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (import, split_pages): remove overriding
 	of split_pages, as it is not needed in HTML.  It is still in
 	structuring_transfo/StructuringTransfo.xs and could be easily
