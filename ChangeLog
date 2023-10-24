@@ -1,5 +1,13 @@
 2023-10-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): call rebuild_output_units unconditionally
+	if $test_split or $split_pages is set.  Add a comment explaining why
+	the current code works, because there is no XS override and
+	rebuild_output_units returns its output, and that if an XS override is
+	set up there should be overrides for all the functions.
+
+2023-10-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (convert_to_html): use only strings for SPLIT.
 
 	* tp/Texinfo/Structuring.pm (split_pages): remove normalization of
