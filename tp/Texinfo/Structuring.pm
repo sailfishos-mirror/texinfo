@@ -1744,14 +1744,13 @@ sub _XS_unsplit($)
 
 # remove the association with document units
 # NOTE not documented, but is internally used for tests only.
+# In the situation where unsplit is called, in the test suite, it is
+# always better to do it both for XS and perl.
 sub unsplit($)
 {
   my $root = shift;
 
   my $XS_unsplit_needed = _XS_unsplit($root);
-
-  # In the situation where unsplit is called, in the test suite, it is
-  # always better to do it both for XS and perl
 
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {

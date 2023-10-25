@@ -872,13 +872,20 @@ sub set_conf($$$)
   return 1;
 }
 
-sub set_document_main_configuration($$)
+# for structuring and tree transformations XS code uses options registered
+# with the document by that function.  It is not needed in perl where
+# get_conf above is used.
+sub register_XS_document_main_configuration($$)
 {
   my $self = shift;
   my $document = shift;
+
+  return if (!$document->document_descriptor());
+
+  my $options;
   if ($self->{'standalone'}) {
     #print STDERR "STDALONE: ".join('|', sort(keys(%{$self->{'config'}})))."\n";
-    Texinfo::Common::set_document_options($self->{'config'}, $document);
+    $options = $self->{'config'};
   } else {
     my %options = %{$main_program_default_options};
     foreach my $config ($self->{'config'}, $init_files_options, $cmdline_options) {
@@ -887,8 +894,10 @@ sub set_document_main_configuration($$)
       }
     }
     #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
-    Texinfo::Common::set_document_options(\%options, $document);
+    $options = \%options;
   }
+  my $encoded_options = Texinfo::Common::encode_options($options);
+  Texinfo::Common::set_document_options($encoded_options, $document);
 }
 
 1;

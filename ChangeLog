@@ -6,6 +6,25 @@
 
 2023-10-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (register_XS_document_main_configuration):
+	rename Texinfo::Config set_document_main_configuration as
+	register_XS_document_main_configuration. Update callers.
+
+	* tp/Texinfo/Common.pm (import, set_document_options),
+	tp/Texinfo/Config.pm (register_XS_document_main_configuration),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(set_document_options): return immediately in
+	register_XS_document_main_configuration if there is no document
+	descriptor, warn in XS if document is not found.  Move perl code done
+	in Texinfo::Common in set_document_options to
+	register_XS_document_main_configuration.  Override directly
+	set_document_options in Texinfo::Common.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs: minonr
+	change in syntax.
+
+2023-10-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (import, copy_treeNonXS, copy_contentsNonXS),
 	tp/Texinfo/Structuring.pm (import),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (copy_tree),
@@ -2699,14 +2718,14 @@
 
 	* tp/Texinfo/Common.pm (import, %non_decoded_customization_variables)
 	(_XS_set_document_options, set_document_options),
-	tp/Texinfo/Config.pm, tp/Texinfo/XS/main/document.c
-	(register_document_options), tp/Texinfo/XS/main/get_perl_info.c
-	(add_svav_to_string_list, copy_sv_options)
-	(copy_sv_options_for_convert_text), tp/Texinfo/XS/main/utils.c
-	(new_options, add_include_directory, add_string),
-	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
-	(set_document_options), tp/t/test_utils.pl (test), tp/texi2any.pl: move
-	%non_decoded_customization_variables to Texinfo::Common. Add XS
+	tp/Texinfo/Config.pm (set_document_main_configuration),
+	tp/Texinfo/XS/main/document.c (register_document_options),
+	tp/Texinfo/XS/main/get_perl_info.c (add_svav_to_string_list,
+	copy_sv_options) (copy_sv_options_for_convert_text),
+	tp/Texinfo/XS/main/utils.c (new_options, add_include_directory,
+	add_string), tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(set_document_options), tp/t/test_utils.pl (test), tp/texi2any.pl:
+	move %non_decoded_customization_variables to Texinfo::Common. Add XS
 	override to encode MainConfig options values and pass options to store
 	in document, add add_svav_to_string_list based on
 	copy_sv_options_for_convert_text to get more generically STRING_LIST

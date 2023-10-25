@@ -166,8 +166,8 @@ set_document_options (SV *sv_options_in, SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                             "set_document_options");
         if (document)
           {
             OPTIONS *options = copy_sv_options (sv_options_in);
@@ -235,8 +235,7 @@ relate_index_entries_to_table_items_in_tree (SV *tree_in, ...)
           }
 
 void
-move_index_entries_after_items_in_tree (tree_in)
-        SV *tree_in
+move_index_entries_after_items_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
@@ -371,6 +370,8 @@ complete_tree_nodes_missing_menu (SV *tree_in, SV *use_sections_in=0)
         if (document)
           complete_tree_nodes_missing_menu (document->tree, use_sections);
 
+# regenerate_master_menu uses the options of the document, so we ignore
+# customization_information, which should contain the same information
 void
 regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_sections_in=0)
     PREINIT:
@@ -513,8 +514,7 @@ split_by_section (SV *tree_in)
         RETVAL
 
 int
-unsplit (tree_in)
-        SV *tree_in
+unsplit (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:

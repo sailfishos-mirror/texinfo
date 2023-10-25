@@ -1004,7 +1004,9 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  $main_configuration->set_document_main_configuration($document);
+  # Now that all the configuration has been set, associate it to the
+  # document XS
+  $main_configuration->register_XS_document_main_configuration($document);
 
   my $indices_information = $document->indices_information();
   if ($tree_transformations{'relate_index_entries_to_items'}) {

@@ -1505,7 +1505,9 @@ while(@input_files) {
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  $main_configuration->set_document_main_configuration($document);
+  # Now that all the configuration has been set, associate it to the
+  # document XS
+  $main_configuration->register_XS_document_main_configuration($document);
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;

@@ -84,7 +84,7 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_set_document_options",
+        "Texinfo::Common::set_document_options",
         "Texinfo::StructTransf::set_document_options");
       Texinfo::XSLoader::override(
         "Texinfo::Common::copy_tree",
@@ -2539,16 +2539,14 @@ sub encode_options($)
   return $encoded_options;
 }
 
-sub _XS_set_document_options($$)
-{
-}
-
+# non-XS does nothing and should not even be called as the caller verifies
+# that there is a document descriptor; XS version registers options in XS
+# document.  It would have been more logical for this function to be in
+# Texinfo::Config, but we do not want to load any XS in Texinfo::Config.
 sub set_document_options($$)
 {
   my $options = shift;
   my $document = shift;
-  my $encoded_options = encode_options($options);
-  _XS_set_document_options($encoded_options, $document);
 }
 
 # functions used for debugging.  May be used in other modules.
