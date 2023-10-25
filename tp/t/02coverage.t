@@ -672,7 +672,7 @@ In float with caption.
 @end displaymath
 
 @displaymath
-@quotedblleft{} @quotedblright{} 
+@quotedblleft{} @quotedblright{}
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
 @guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}

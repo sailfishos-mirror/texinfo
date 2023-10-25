@@ -1,5 +1,10 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/02coverage.t (commands_in_math): Remove trailing space on
+	a line as this is not the purpose of this test.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text),
 	* tp/Texinfo/XS/xspara.c (xspara_add_text):
 	Unconditionally use a single space character to separate words in

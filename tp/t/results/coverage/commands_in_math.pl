@@ -1623,7 +1623,7 @@ $result_trees{'commands_in_math'} = {
               }
             },
             {
-              'text' => ' 
+              'text' => '
 '
             },
             {
@@ -1941,7 +1941,7 @@ $result_texis{'commands_in_math'} = '
 @end displaymath
 
 @displaymath
-@quotedblleft{} @quotedblright{} 
+@quotedblleft{} @quotedblright{}
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
 @guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
@@ -1969,7 +1969,7 @@ aa AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
 (R) a o , 
 
-" " 
+" "
 ` \' ,, , <<
 >> << >> <
 > o Euro -> <= >=
@@ -2038,7 +2038,7 @@ error&rarr; &rarr; &minus; &lowast; -| &rArr;
 &THORN; &eth; &thorn; &iexcl; &iquest; &pound;
 &reg; &ordf; &ordm; , 
 </em></div>
-<div class="displaymath"><em>&ldquo; &rdquo; 
+<div class="displaymath"><em>&ldquo; &rdquo;
 &lsquo; &rsquo; &bdquo; &sbquo; &laquo;
 &raquo; &laquo; &raquo; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
@@ -2070,7 +2070,7 @@ $result_converted{'xml'}->{'commands_in_math'} = '
 </displaymath>
 
 <displaymath endspaces=" ">
-&ldquo; &rdquo; 
+&ldquo; &rdquo;
 &lsquo; &rsquo; &bdquo; &sbquo; &laquo;
 &raquo; &guillemotleft; &guillemotright; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
@@ -2103,7 +2103,7 @@ TeX LaTeX \\bullet{} \\copyright{} \\dots{} \\dots{} \\equiv{}
 \\]
 
 \\[
-\\mathord{\\text{\\textquotedblleft{}}} \\mathord{\\text{\\textquotedblright{}}} 
+\\mathord{\\text{\\textquotedblleft{}}} \\mathord{\\text{\\textquotedblright{}}}
 \\mathord{\\text{\\textquoteleft{}}} \\mathord{\\text{\\textquoteright{}}} \\mathord{\\text{\\quotedblbase{}}} \\mathord{\\text{\\quotesinglbase{}}} \\mathord{\\text{\\guillemotleft{}}}
 \\mathord{\\text{\\guillemotright{}}} \\mathord{\\text{\\guillemotleft{}}} \\mathord{\\text{\\guillemotright{}}} \\mathord{\\text{\\guilsinglleft{}}}
 \\mathord{\\text{\\guilsinglright{}}} ^{\\circ{}} \\euro{} \\rightarrow{} \\leq{} \\geq{}
@@ -2131,7 +2131,7 @@ error&#8594; &#8614; &#8722; &#8902; &#8867; &#8658;
 &#222; &#240; &#254; &#161; &#191; &#163;
 &#174; &#170; &#186; &#44; 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#8220; &#8221; 
+<informalequation><mathphrase>&#8220; &#8221;
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
