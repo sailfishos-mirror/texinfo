@@ -136,7 +136,7 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
   error_message->error_line = error_line.text;
 
   if (debug_output)
-    fprintf (stderr, error_message->error_line);
+    fprintf (stderr, "%s", error_message->error_line);
 }
 
 static void

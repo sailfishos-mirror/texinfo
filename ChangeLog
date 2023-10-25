@@ -1,3 +1,9 @@
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal):
+	Use "%s" to print a string with fprintf in case the string contains
+	conversion specifications.
+
 2023-10-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (import, copy_treeNonXS, copy_contentsNonXS),
