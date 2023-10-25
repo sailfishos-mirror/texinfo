@@ -754,7 +754,9 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
               if (!strchr (end_sentence_characters
                            after_punctuation_characters, *p))
                 {
-                  get_utf8_codepoint (&state.last_letter, p, len);
+                  wchar_t wc;
+                  get_utf8_codepoint (&wc, p, len);
+                  state.last_letter = wc;
                 }
             }
         }
