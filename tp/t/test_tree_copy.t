@@ -56,6 +56,9 @@ $tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'
 
 my $tref_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref);
 
+SKIP:
+{
+  skip "test perl not XS", 1 if ($with_XS);
 my $tref_copy = Texinfo::Common::copy_tree($tref, undef);
 
 my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
@@ -64,9 +67,6 @@ my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
 # output.  Not a big deal, what is important it so see if there are error
 # messages.
 
-SKIP:
-{
-  skip "test perl not XS", 1 if ($with_XS);
 is ($tref_texi, $tref_copy_texi, "ref within extra tree");
 }
 
