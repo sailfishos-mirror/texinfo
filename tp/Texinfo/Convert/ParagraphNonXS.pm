@@ -243,10 +243,17 @@ sub _add_next($;$$$)
   return $result;
 }
 
+# Values for 'end_sentence'.  'end_sentence' can also be undef.
+use constant {
+  eos_inhibited => 0,
+  eos_present => 1,
+  eos_present_frenchspacing => -1,
+};
+
 sub remove_end_sentence($)
 {
   my $paragraph = shift;
-  $paragraph->{'end_sentence'} = 0;
+  $paragraph->{'end_sentence'} = eos_inhibited;
 }
 
 sub add_end_sentence($;$) {
@@ -332,9 +339,9 @@ sub add_text($$)
         }
       } else {
         my $at_end_sentence = 0;
-        $at_end_sentence = 1 if ($paragraph->{'end_sentence'} 
-                                   and $paragraph->{'end_sentence'} > 0
-                                   and !$paragraph->{'frenchspacing'});
+        $at_end_sentence = 1 if (defined($paragraph->{'end_sentence'})
+                               and  $paragraph->{'end_sentence'} == eos_present
+                               and !$paragraph->{'frenchspacing'});
         if ($paragraph->{'no_break'}) {
           if (substr($paragraph->{'word'}, -1) ne ' ') {
             my $new_spaces = $at_end_sentence ? '  ' : ' ';
@@ -403,9 +410,9 @@ sub add_text($$)
          [$after_punctuation_characters]*[$end_sentence_characters]
          [$end_sentence_characters$after_punctuation_characters]*$/ox) {
         if ($paragraph->{'frenchspacing'}) {
-          $paragraph->{'end_sentence'} = -1;
+          $paragraph->{'end_sentence'} = eos_present_frenchspacing;
         } else {
-          $paragraph->{'end_sentence'} = 1;
+          $paragraph->{'end_sentence'} = eos_present;
         }
         print STDERR "END_SENTENCE\n" if ($paragraph->{'DEBUG'});
       } else {

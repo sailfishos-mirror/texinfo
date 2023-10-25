@@ -50,6 +50,14 @@
 
 static int debug = 0;
 
+enum eos_status { eos_undef = -2, eos_inhibited = 0, eos_present = 1,
+                  eos_present_frenchspacing = -1 };
+/* eos_undef                 - not at the end of a sentence (undef in Perl),
+   eos_inhibited             - end of sentence is inhibited
+   eos_present               - at end of sentence
+   eos_present_frenchspacing - at end of sentence but frenchspacing is on. */
+
+
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
     TEXT word; /* Pending word.  If outputting this would have led to
@@ -65,11 +73,7 @@ typedef struct {
     /* Characters added so far in current word. */
     int word_counter; 
 
-    /* -2 means we are not at the end of a sentence (undefined in Perl),
-       1 means we are at the end of a sentence and French spacing is off,
-       -1 means we are at the end of a sentence and French spacing is on.
-       0 means it is "inhibited". */
-    int end_sentence;
+    enum eos_status end_sentence;
 
     int max; /* Maximum length of line. */
     int indent_length; /* Columns to indent this line. */
@@ -418,7 +422,7 @@ xspara_new (HV *conf)
   /* Default values. */
   state.max = 72;
   state.indent_length_next = -1; /* Special value meaning undefined. */
-  state.end_sentence = -2; /* Special value meaning undefined. */
+  state.end_sentence = eos_undef;
   state.last_letter = L'\0';
 
   if (conf)
@@ -817,7 +821,7 @@ xspara_add_next (char *text, int text_len, int transparent)
 void
 xspara_remove_end_sentence (void)
 {
-  state.end_sentence = 0;
+  state.end_sentence = eos_inhibited;
 }
 
 void
@@ -1026,7 +1030,8 @@ xspara_add_text (char *text, int len)
               if (state.word.end == 0
                   || state.word.text[state.word.end - 1] != ' ')
                 {
-                  if (state.end_sentence == 1 && !state.french_spacing)
+                  if (state.end_sentence == eos_present
+                      && !state.french_spacing)
                     {
                       text_append_n (&state.word, "  ", 2);
                       state.word_counter += 2;
@@ -1054,7 +1059,7 @@ xspara_add_text (char *text, int len)
                 {
                   /* If we are at the end of a sentence where two spaces
                      are required. */
-                  if (state.end_sentence == 1
+                  if (state.end_sentence == eos_present
                       && !state.french_spacing)
                     {
                       state.space.end = 0;
@@ -1117,7 +1122,7 @@ xspara_add_text (char *text, int len)
             {
               xspara__add_pending_word (&result, 0);
             }
-          state.end_sentence = -2;
+          state.end_sentence = eos_undef;
         }
       else if (type == type_EOS)
         {
@@ -1141,9 +1146,9 @@ xspara_add_text (char *text, int len)
                   if (!iswupper (state.last_letter))
                     {
                       if (state.french_spacing)
-                        state.end_sentence = -1;
+                        state.end_sentence = eos_present_frenchspacing;
                       else
-                        state.end_sentence = 1;
+                        state.end_sentence = eos_present;
                       if (debug)
                         fprintf (stderr, "END_SENTENCE\n");
                       break;
@@ -1157,10 +1162,10 @@ xspara_add_text (char *text, int len)
               else
                 {
                   /* Not at the end of a sentence. */
-                  if (debug && state.end_sentence != -2)
+                  if (debug && state.end_sentence != eos_undef)
                     fprintf (stderr, "delete END_SENTENCE(%d)\n",
                                       state.end_sentence);
-                  state.end_sentence = -2;
+                  state.end_sentence = eos_undef;
                   break;
                 }
             }

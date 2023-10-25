@@ -1,5 +1,16 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use enum symbols for end-of-sentence status
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (remove_end_sentence)
+	(add_text): Use Perl constants for the various possible values
+	of $paragraph->{'end_sentence'}, rather than integer literals.
+	* tp/Texinfo/XS/xspara.c (enum eos_status): New.
+	(xspara_remove_end_sentence, xspara_add_text, PARAGRAPH):
+	Use throughout.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara__add_next) [debugging output]:
 	Only print the word argument up until its length, as it is not
 	null-terminated any more.
