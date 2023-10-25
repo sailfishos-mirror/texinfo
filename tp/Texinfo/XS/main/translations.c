@@ -28,12 +28,15 @@
 #include <libintl.h>
 #endif
 
-#include "api.h"
+#include "options_types.h"
+#include "tree_types.h"
+#include "command_ids.h"
+#include "text.h"
 #include "utils.h"
 #include "tree.h"
-#include "text.h"
 #include "errors.h"
 #include "debug.h"
+#include "api.h"
 #include "document.h"
 #include "convert_to_texinfo.h"
 #include "translations.h"
@@ -160,9 +163,9 @@ translate_string (OPTIONS *options, char * string,
 
   if ((!lang) && options && options->documentlanguage)
     lang = options->documentlanguage;
-
   if (!lang)
     lang = "en";
+
   if (strlen (lang) == 0)
     {
       fprintf (stderr, "For string '%s'\n", string);
@@ -320,8 +323,9 @@ translate_string (OPTIONS *options, char * string,
     translated_string = strdup (gettext (string));
 
   /*
-  fprintf (stderr, "TRANSLATED(%s): '%s' '%s'\n", language_locales.text,
-                                                  string, translated_string);
+  fprintf (stderr, "TRANSLATED(%s): '%s' (%s) '%s'\n", language_locales.text,
+                               string, translation_context, translated_string);
+
   */
 
   if (saved_LANGUAGE)

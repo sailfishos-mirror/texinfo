@@ -1,3 +1,7 @@
+2023-10-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/translations.c: add missing includes.
+
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use enum symbols for end-of-sentence status
@@ -52,7 +56,7 @@
 	Use "%s" to print a string with fprintf in case the string contains
 	conversion specifications.
 
-2023-10-26  Patrice Dumas  <pertusus@free.fr>
+2023-10-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm (register_XS_document_main_configuration):
 	rename Texinfo::Config set_document_main_configuration as
@@ -71,7 +75,7 @@
 	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs: minonr
 	change in syntax.
 
-2023-10-26  Patrice Dumas  <pertusus@free.fr>
+2023-10-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (import, copy_treeNonXS, copy_contentsNonXS),
 	tp/Texinfo/Structuring.pm (import),
