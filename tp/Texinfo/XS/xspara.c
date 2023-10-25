@@ -48,7 +48,7 @@
 
 #include "xspara_text.h"
 
-static int debug = 0;
+static int debug = 1;
 
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
@@ -792,8 +792,13 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
         }
     }
   if (debug)
-    fprintf (stderr, "WORD+ %s -> %s\n", word, state.word.space == 0 ?
-                "UNDEF" : state.word.text);
+    {
+      static TEXT printed_word;
+      text_reset (&printed_word);
+      text_append_n (&printed_word, word, word_len);
+      fprintf (stderr, "WORD+ %s -> %s\n", printed_word.text,
+               state.word.space == 0 ? "UNDEF" : state.word.text);
+    }
 }
 
 /* Like _add_next but zero end_line_count at beginning. */
@@ -973,9 +978,8 @@ xspara_add_text (char *text, int len)
                 next_type = type_unknown;
             }
 
-          /* TODO: test just one character at a time to start.  then
-             we can gradually work on the various blocks of
-             code to operate on multiple characters. */
+          /* For type_regular and type_spaces we operate on blocks of
+             multiple characters at once. */
           if ((type != type_regular && type != type_spaces)
               || next_type != type || next_type == type_finished)
             break;

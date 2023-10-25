@@ -1,5 +1,12 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara__add_next) [debugging output]:
+	Only print the word argument up until its length, as it is not
+	null-terminated any more.
+	(xspara_add_text): TODO comment removed.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text): Process multiple
 	space characters together, in order to more closely match the
 	execution order of the Perl code.
