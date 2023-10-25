@@ -48,7 +48,7 @@
 
 #include "xspara_text.h"
 
-static int debug = 1;
+static int debug = 0;
 
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
