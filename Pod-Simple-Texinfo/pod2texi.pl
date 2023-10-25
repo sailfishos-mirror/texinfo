@@ -299,6 +299,7 @@ sub _parsed_manual_tree($$$$$)
       my $added_nodes
         = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                            $document, $registrar, $texi_parser);
+      $document = Texinfo::Structuring::rebuild_document($document);
       if ($self and $self->texinfo_sectioning_base_level() > 0) {
         # prepend the manual name
         foreach my $node (@$added_nodes) {
@@ -389,6 +390,7 @@ sub _fix_texinfo_tree($$$$;$$)
       }
     }
   }
+  $document = Texinfo::Structuring::rebuild_document($document);
   return ($texi_parser, $document);
 }
 

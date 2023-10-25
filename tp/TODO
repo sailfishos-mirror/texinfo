@@ -27,8 +27,12 @@ module, and the _l variants seem to be in glibc but are are not in the glibc
 documentation.  According to Eli, if the locale's codeset is UTF-8, glibc
 uses the full Unicode CLDR, which is what we want.
 
+Document that Texinfo::Structuring::rebuild_document or
+Texinfo::Structuring::rebuild_tree should be called after tree modifications
+if the parser is XS but converters are perl.
+
 the code in _parsed_manual_tree in Pod-Simple-Texinfo/pod2texi.pl
-does not work with XS.  See FIXME in the code.  Tested in
+does not work perfectly with XS.  See FIXME in the code.  Tested in
 ./manual_tests/manual_sectioning_gap_test.sh
 Not a priority.
 

@@ -1,5 +1,14 @@
 2023-10-25  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_*)
+	(_reference_to_text_in_texi, _normalize_texinfo_name, _prepare_anchor),
+	Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree)
+	(_fix_texinfo_tree): call Texinfo::Structuring::rebuild_document or
+	Texinfo::Structuring::rebuild_tree to rebuild the tree if modified in
+	XS.
+
+2023-10-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sectioning_structure),
 	tp/Texinfo/Transformations.pm (protect_hashchar_at_line_beginning):
 	put tree first in arguments.  Update callers and XS.
