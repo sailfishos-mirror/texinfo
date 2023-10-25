@@ -222,9 +222,9 @@ sub copy_tree($;$)
 # 'toplevel_directions'
 sub sectioning_structure($$$)
 {
+  my $root = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $root = shift;
 
   my $sec_root;
   my $previous_section;
@@ -2710,7 +2710,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   # associated Texinfo document tree.  $parser is a Texinfo::Parser
   # object. $config is an object implementing the get_conf() method.
   my $registrar = $parser->registered_errors();
-  my $sections_list = sectioning_structure ($registrar, $config, $tree);
+  my $sections_list = sectioning_structure($tree, $registrar, $config);
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my $nodes_list = nodes_tree($document, $registrar, $config);
@@ -2987,7 +2987,7 @@ Return the sectioning command name corresponding to the sectioning
 element I<$element>, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-=item $sections_list = sectioning_structure($registrar, $customization_information, $tree)
+=item $sections_list = sectioning_structure($tree, $registrar, $customization_information)
 X<C<sectioning_structure>>
 
 This function goes through the tree and gather information on the document

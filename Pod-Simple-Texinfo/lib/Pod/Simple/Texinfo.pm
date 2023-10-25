@@ -373,7 +373,7 @@ sub _protect_hashchar($)
     # FIXME use parse_texi_piece?
     my $document = parse_texi_text(undef, $texinfo);
     my $tree = $document->tree();
-    protect_hashchar_at_line_beginning(undef, undef, $tree);
+    protect_hashchar_at_line_beginning($tree);
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
     return $texinfo;

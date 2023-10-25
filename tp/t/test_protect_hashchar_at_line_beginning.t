@@ -41,8 +41,8 @@ sub run_test($$$;$)
   my $registrar = $parser->registered_errors();
 
   my $corrected_tree =
-    Texinfo::Transformations::protect_hashchar_at_line_beginning(
-                                            $registrar, $parser, $tree);
+    Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
+                                                  $registrar, $parser);
 
   $document = Texinfo::Structuring::rebuild_document($document);
   $corrected_tree = $document->tree();

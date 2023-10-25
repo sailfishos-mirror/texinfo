@@ -425,7 +425,7 @@ by a call to L<register_document_nodes_list|/register_document_nodes_list ($docu
 =item $sections_list = sections_list($document)
 
 Returns an array reference containing the document sections.  In general set to the
-sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($registrar, $customization_information, $tree)>,
+sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>,
 by a call to L<register_document_sections_list|/register_document_sections_list ($document, $sections_list)>.
 
 =back

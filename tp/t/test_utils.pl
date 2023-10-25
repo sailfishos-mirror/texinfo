@@ -1025,8 +1025,8 @@ sub test($$)
   Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                       $main_configuration);
   my $sections_list
-        = Texinfo::Structuring::sectioning_structure($registrar,
-                                      $main_configuration, $tree);
+        = Texinfo::Structuring::sectioning_structure($tree, $registrar,
+                                                   $main_configuration);
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
@@ -1070,8 +1070,8 @@ sub test($$)
     foreach my $transformation (@$additional_tree_transformations) {
       my $tree_transformation_sub = $tested_transformations{$transformation};
       if ($transformation eq 'protect_hashchar_at_line_beginning') {
-        &$tree_transformation_sub($registrar, $main_configuration,
-                                  $document->tree());
+        &$tree_transformation_sub($document->tree(), $registrar,
+                                         $main_configuration);
       } else {
         &$tree_transformation_sub($document->tree());
       }

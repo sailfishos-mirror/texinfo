@@ -284,9 +284,9 @@ associate_internal_references (SV *document_in, ...)
 # The perl function returns a list of sections, but it is only used
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
-# TODO change call in perl code to put tree first
 void
-sectioning_structure (SV *registrar, SV *customization_information, SV *tree_in)
+sectioning_structure (SV *tree_in, ...)
+    PROTOTYPE: $$$
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -466,9 +466,9 @@ protect_node_after_label_in_tree (SV *tree_in)
         if (document)
           protect_node_after_label_in_tree (document->tree);
 
-# TODO change order of call in perl?
 void
-protect_hashchar_at_line_beginning (SV *registrar, SV *customization_information, SV *tree_in)
+protect_hashchar_at_line_beginning (SV *tree_in, ...)
+   PROTOTYPE: $;$$
     PREINIT:
         DOCUMENT *document = 0;
      CODE:

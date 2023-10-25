@@ -30,7 +30,7 @@ sub test($$$;$$)
   Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                       $parser);
 
-  Texinfo::Structuring::sectioning_structure($registrar, $parser, $tree);
+  Texinfo::Structuring::sectioning_structure($tree, $registrar, $parser);
   if ($complete_missing_menus) {
     Texinfo::Transformations::complete_tree_nodes_missing_menu($tree,
                                                                $use_sections);

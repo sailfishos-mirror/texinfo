@@ -889,13 +889,14 @@ sub _protect_hashchar_at_line_beginning($$$)
   return undef;
 }
 
-sub protect_hashchar_at_line_beginning($$$)
+sub protect_hashchar_at_line_beginning($;$$)
 {
+  my $tree = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $tree = shift;
 
-  return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
+  return Texinfo::Common::modify_tree($tree,
+                     \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);
 }
 
@@ -953,7 +954,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($registrar, $customization_information, $tree)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 
 =item complete_tree_nodes_missing_menu($tree, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
@@ -962,7 +963,7 @@ Add whole menus for nodes associated with sections and without menu,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($registrar, $customization_information, $tree)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 
 =item $added_sections = fill_gaps_in_sectioning($tree)
 X<C<fill_gaps_in_sectioning>>
@@ -1006,12 +1007,12 @@ I<preformatted> container.
 Note that this kind of tree is not supported by other codes, so this
 transformation should be avoided unless one knows exactly what to expect.
 
-=item protect_hashchar_at_line_beginning($registrar, $customization_information, $tree)
+=item protect_hashchar_at_line_beginning($tree, $registrar, $customization_information)
 X<C<protect_hashchar_at_line_beginning>>
 
 Protect hash (#) character at the beginning of line such that they would not be
 considered as lines to be processed by the CPP processor.  The I<$registrar>
-and I<$customization_information> arguments may be undef.  If defined, the
+and I<$customization_information> arguments are optional.  If defined, the
 I<$registrar> argument should be a L<Texinfo::Report> object in which the
 errors and warnings encountered while parsing are registered.  If defined,
 I<$customization_information> should give access to customization through

@@ -1575,8 +1575,8 @@ while(@input_files) {
   # and useful in converters.
   # every format needs the sectioning structure
   my $sections_list
-            = Texinfo::Structuring::sectioning_structure($registrar,
-                                               $main_configuration, $tree);
+            = Texinfo::Structuring::sectioning_structure($tree, $registrar,
+                                                       $main_configuration);
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
