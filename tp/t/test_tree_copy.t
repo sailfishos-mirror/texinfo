@@ -12,10 +12,10 @@ use Data::Dumper;
 use File::Spec;
 #use Text::Diff;
 
+use Texinfo::Common;
 use Texinfo::Parser;
-use Texinfo::Convert::Texinfo;
-# use copy_tree from Texinfo::Structuring to use the XS version.
 use Texinfo::Structuring;
+use Texinfo::Convert::Texinfo;
 
 my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {
@@ -25,6 +25,11 @@ if (defined($srcdir)) {
 }
 
 my $debug = 0;
+
+my $with_XS = ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
+               and (!defined $ENV{TEXINFO_XS_PARSER}
+                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
 
 ok(1, "modules loading");
 
@@ -51,14 +56,19 @@ $tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'
 
 my $tref_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref);
 
-my $tref_copy = Texinfo::Structuring::copy_tree($tref, undef);
+my $tref_copy = Texinfo::Common::copy_tree($tref, undef);
 
 my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
 
 # Does not test much as the reference in extra does not appear in the
 # output.  Not a big deal, what is important it so see if there are error
 # messages.
+
+SKIP:
+{
+  skip "test perl not XS", 1 if ($with_XS);
 is ($tref_texi, $tref_copy_texi, "ref within extra tree");
+}
 
 my $text = '@setfilename some@@file.ext
 
@@ -131,7 +141,7 @@ my $test_parser = Texinfo::Parser::parser();
 my $document = Texinfo::Parser::parse_texi_piece($test_parser, $text);
 my $tree = $document->tree();
 my $test_registrar = $test_parser->registered_errors();
-my $copy = Texinfo::Structuring::copy_tree($tree, undef);
+my $copy = Texinfo::Common::copy_tree($tree, undef);
 
 my $texi_tree = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -146,7 +156,7 @@ Texinfo::Structuring::sectioning_structure($tree, $test_registrar,
 
 $tree = Texinfo::Structuring::rebuild_tree($tree);
 
-my $copy_with_sec = Texinfo::Structuring::copy_tree($tree, undef);
+my $copy_with_sec = Texinfo::Common::copy_tree($tree, undef);
 
 my $texi_tree_with_sec = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 my $texi_copy_with_sec
@@ -178,7 +188,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
     warn "$label: ".$error_message->{'error_line'}
       if ($debug);
   }
-  my $test_tree_copy = Texinfo::Structuring::copy_tree($texinfo_test_tree, undef);
+  my $test_tree_copy = Texinfo::Common::copy_tree($texinfo_test_tree, undef);
 
   my $test_texi
      = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_test_tree);

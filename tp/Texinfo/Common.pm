@@ -84,6 +84,12 @@ sub import {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
+        "Texinfo::Common::_XS_set_document_options",
+        "Texinfo::StructTransf::set_document_options");
+      Texinfo::XSLoader::override(
+        "Texinfo::Common::copy_tree",
+        "Texinfo::StructTransf::copy_tree");
+      Texinfo::XSLoader::override(
         "Texinfo::Common::relate_index_entries_to_table_items_in_tree",
         "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree"
       );
@@ -102,10 +108,6 @@ sub import {
       Texinfo::XSLoader::override(
         "Texinfo::Common::protect_node_after_label_in_tree",
         "Texinfo::StructTransf::protect_node_after_label_in_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::_XS_set_document_options",
-        "Texinfo::StructTransf::set_document_options"
       );
     }
     $module_loaded = 1;
@@ -2047,12 +2049,34 @@ sub copy_tree($;$)
   return $copy;
 }
 
+# Never overriden by XS version
+sub copy_treeNonXS($;$)
+{
+  my $current = shift;
+  my $parent = shift;
+  my $copy = _copy_tree($current, $parent);
+  _copy_extra_info($current, $copy);
+  return $copy;
+}
+
 sub copy_contents($;$)
 {
   my $element = shift;
   my $type = shift;
   my $tmp = {'contents' => $element->{'contents'}};
   my $copy = copy_tree($tmp);
+  if (defined($type)) {
+    $copy->{'type'} = $type;
+  }
+  return $copy;
+}
+
+sub copy_contentsNonXS($;$)
+{
+  my $element = shift;
+  my $type = shift;
+  my $tmp = {'contents' => $element->{'contents'}};
+  my $copy = copy_treeNonXS($tmp);
   if (defined($type)) {
     $copy->{'type'} = $type;
   }

@@ -68,7 +68,7 @@ my $with_XS = ((not defined($ENV{TEXINFO_XS})
 
 SKIP:
 {
-  skip "test perl not XS", 2, $with_XS;
+  skip "test perl not XS", 2 if ($with_XS);
 
 test_correction('@raisesections
 

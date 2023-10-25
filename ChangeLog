@@ -1,3 +1,18 @@
+2023-10-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (import, copy_treeNonXS, copy_contentsNonXS),
+	tp/Texinfo/Structuring.pm (import),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (copy_tree),
+	tp/t/test_tree_copy.t: remove copy_tree from Structuring.pm.  Override
+	copy_tree in Common.pm.  Let XS copy_tree build the tree and return the
+	perl tree.  Add NonXS variants for copy_tree and copy_contents for
+	situations where the XS tree cannot be found or where we want to
+	modify perl trees only.  Update callers of copy_tree and
+	copy_contents, using the NonXS or the overriden function.
+
+	* tp/t/automatic_nodes.t, tp/t/test_fill_gaps_in_sectioning.t: fix
+	skip call.
+
 2023-10-25  Patrice Dumas  <pertusus@free.fr>
 
 	* util/texi-elements-by-size: pass a document in argument of

@@ -95,12 +95,7 @@ sub import {
         "Texinfo::StructTransf::rebuild_tree");
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::clear_document_errors",
-        "Texinfo::StructTransf::clear_document_errors",
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_copy_tree",
-        "Texinfo::StructTransf::copy_tree"
-      );
+        "Texinfo::StructTransf::clear_document_errors");
       Texinfo::XSLoader::override(
         "Texinfo::Structuring::associate_internal_references",
         "Texinfo::StructTransf::associate_internal_references"
@@ -146,7 +141,7 @@ sub import {
       #  "Texinfo::Structuring::split_by_node",
       #  "Texinfo::StructTransf::split_by_node");
       #Texinfo::XSLoader::override(
-      #  "Texinfo::Structuring::_XS_split_by_section",
+      #  "Texinfo::Structuring::split_by_section",
       #  "Texinfo::StructTransf::split_by_section");
       #Texinfo::XSLoader::override(
       #  "Texinfo::Structuring::split_pages",
@@ -194,23 +189,6 @@ sub rebuild_tree($;$)
 # this method does nothing, but the XS override clears the document errors
 sub clear_document_errors($)
 {
-}
-
-sub _XS_copy_tree($$)
-{
-  return 0;
-}
-
-sub copy_tree($;$)
-{
-  my $tree = shift;
-  my $parent = shift;
-  my $descriptor = _XS_copy_tree($tree, $parent);
-  my $result = Texinfo::Common::copy_tree($tree, $parent);
-  if ($descriptor != 0 and $result) {
-    $result->{'tree_document_descriptor'} = $descriptor;
-  }
-  return $result;
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
@@ -1364,7 +1342,7 @@ sub new_node_menu_entry
     }
 
     $menu_entry_name
-        = Texinfo::Common::copy_contents($name_element, 'menu_entry_name');
+     = Texinfo::Common::copy_contentsNonXS($name_element, 'menu_entry_name');
     foreach my $content (@{$menu_entry_name->{'contents'}}) {
       $content->{'parent'} = $menu_entry_name;
     }
@@ -1376,7 +1354,7 @@ sub new_node_menu_entry
   my $entry = {'type' => 'menu_entry'};
 
   my $menu_entry_node
-    = Texinfo::Common::copy_contents($node_name_element, 'menu_entry_node');
+   = Texinfo::Common::copy_contentsNonXS($node_name_element, 'menu_entry_node');
   foreach my $content (@{$menu_entry_node->{'contents'}}) {
     $content->{'parent'} = $menu_entry_node;
   }
@@ -1599,9 +1577,7 @@ sub _print_down_menus($$;$)
   foreach my $menu (@menus) {
     foreach my $entry (@{$menu->{'contents'}}) {
       if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-        # Should use copy_tree from Structuring to use XS code, but
-        # the tree would have to be registered first.
-        push @master_menu_contents, Texinfo::Common::copy_tree($entry);
+        push @master_menu_contents, Texinfo::Common::copy_treeNonXS($entry);
         # gather node children to recursively print their menus
         my $node
              = _normalized_entry_associated_internal_node($entry,
@@ -1621,7 +1597,9 @@ sub _print_down_menus($$;$)
     } else {
       $node_name_element = $node->{'args'}->[0];
     }
-    my $node_title_copy = Texinfo::Common::copy_contents($node_name_element);
+
+    my $node_title_copy
+      = Texinfo::Common::copy_contentsNonXS($node_name_element);
     my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
     my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
     $menu_comment->{'contents'}->[0] = $preformatted;

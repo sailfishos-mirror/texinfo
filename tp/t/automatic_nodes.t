@@ -60,7 +60,7 @@ sub test_new_node($$$$)
 }
 SKIP:
 {
-  skip "test perl not XS", 7 * 3, $with_XS;
+  skip "test perl not XS", 7 * 3 if ($with_XS);
 
 test_new_node ('a node', 'a-node', '@node a node
 ', 'simple');
@@ -94,7 +94,7 @@ my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 
 SKIP:
 {
-  skip "test perl not XS", 1, $with_XS;
+  skip "test perl not XS", 1 if ($with_XS);
 
 my $new_node = Texinfo::Transformations::_new_node($line_tree, $document);
 is ('@node a node 1

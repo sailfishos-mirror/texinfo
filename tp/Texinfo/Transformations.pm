@@ -442,7 +442,7 @@ sub insert_nodes_for_sectioning_commands($;$$)
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
         $new_node_tree
-           = Texinfo::Common::copy_contents($content->{'args'}->[0]);
+           = Texinfo::Common::copy_contentsNonXS($content->{'args'}->[0]);
       }
       my $new_node = _new_node($new_node_tree, $document, $registrar,
                                $customization_information);

@@ -451,7 +451,7 @@ if (0) {
 
 # In a handful of cases, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
-# in the main code of Parser.pm.
+# in the main code of ParserNonXS.pm.
 sub complete_indices($$)
 {
   my $customization_information = shift;
@@ -484,10 +484,10 @@ sub complete_indices($$)
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
-          my $class_copy = Texinfo::Common::copy_tree($class, undef);
-          my $name_copy = Texinfo::Common::copy_tree($name, undef);
-          my $ref_class_copy = Texinfo::Common::copy_tree($class, undef);
-          my $ref_name_copy = Texinfo::Common::copy_tree($name, undef);
+          my $class_copy = Texinfo::Common::copy_treeNonXS($class, undef);
+          my $name_copy = Texinfo::Common::copy_treeNonXS($name, undef);
+          my $ref_class_copy = Texinfo::Common::copy_treeNonXS($class, undef);
+          my $ref_name_copy = Texinfo::Common::copy_treeNonXS($name, undef);
 
           # Use the document language that was current when the command was
           # used for getting the translation.

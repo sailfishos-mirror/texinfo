@@ -190,36 +190,26 @@ fill_gaps_in_sectioning (SV *tree_in)
           }
 
 # FIXME what to do with the parent argument?
-# FIXME add another way to call that returns a fake tree?
-int
-copy_tree (SV *tree_in, SV *parent_in)
+SV *
+copy_tree (SV *tree_in, SV *parent_in=0)
     PREINIT:
-        ELEMENT *result;
         DOCUMENT *document;
-        int copy_document_descriptor;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "copy_tree");
         if (document)
           {
-            result = copy_tree (document->tree, 0);
+            ELEMENT *result = copy_tree (document->tree, 0);
             /* FIXME have a similar system but for trees only? */
-            copy_document_descriptor = register_document (result, 0, 0, 0,
+            int copy_document_descriptor = register_document (result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
-            /* to return a fake element
-            HV *hv = newHV ();
+            HV *hv = build_texinfo_tree (result);
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document_descriptor), 0);
             RETVAL = newRV_inc ((SV *) hv);
-            */
-            RETVAL = copy_document_descriptor;
           }
         else
-          /*
           RETVAL = newSV(0);
-           */
-          RETVAL = 0;
     OUTPUT:
         RETVAL
 
