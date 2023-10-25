@@ -788,25 +788,18 @@ verbatim modes).
 
 @cindex Form feed character
 @cindex @kbd{CTRL-l}
-Form feed (@kbd{CTRL-l}) characters in normal text end any open paragraph.
-Other ASCII whitespace (tab, carriage return) may be treated
-the same as space characters, although the results may differ depending
-on output format.  Hence, there is not much point in using these
-in documents.  Non-ASCII spaces, such as Unicode ``em space'', are
-not recognized as whitespace at all and will be treated as regular,
-non-whitespace characters.
+
+Form feed (@kbd{CTRL-l}) characters terminate any open paragraph.
+Other form feeds, as well other ASCII whitespace (tab, carriage return)
+are treated the same as space characters (although the results may
+differ depending on the output format).  Hence, there is not much point
+in using these whitespace characters in documents.  Non-ASCII spaces,
+such as Unicode ``em space'', are not recognized as whitespace at all,
+and will be treated as regular, non-whitespace characters.
 
 However, in verbatim modes, for example in code samples, tab characters
 may produce the correct formatting in the output.
 
-@ignore @c Excessive detail?
-
-To avoid this problem, Texinfo mode in GNU Emacs inserts
-multiple spaces when you press the @key{TAB} key.  Also, you can run
-@code{untabify} in Emacs to convert tabs in a region to multiple
-spaces, or use the @code{unexpand} command from the shell.
-
-@end ignore
 @ignore @c too detailed for the manual, but kept for implementation tips
 @item
 Form feed characters outside of a paragraph are handled as follows:
@@ -822,10 +815,10 @@ in the output otherwise.
 @c Written as @code{\par@{@}}, a @LaTeX{} macro that starts a paragraph.
 
 @item Info
-Output as-is between paragraphs (their most common use); ignored in contexts
-where spaces are ignored except after specific commands closing braces
-(@code{@@caption} for example).  In other contexts, they may be treated as
-regular spaces (and thus consolidated with surrounding whitespace).
+Ignored in contexts where spaces are ignored except after specific
+commands closing braces (@code{@@caption} for example).  In other
+contexts, they may be treated as regular spaces (and thus consolidated
+with surrounding whitespace).
 
 @item HTML
 Written as a numeric entity except contexts where spaces are ignored;

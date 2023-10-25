@@ -1,5 +1,14 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Conventions)
+	<whitespace>: Reword slightly.
+	<@ignore'd section on form feeds>: Do not say that FF are kept
+	between paragraphs in Info output, as this does not currently
+	appear to be the case.
+	<@ignore'd section on Emacs>: Delete altogether.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal):
 	Use "%s" to print a string with fprintf in case the string contains
 	conversion specifications.
