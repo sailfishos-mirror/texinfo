@@ -1,5 +1,13 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara_add_text): Process multiple
+	space characters together, in order to more closely match the
+	execution order of the Perl code.
+	(xspara__print_escaped_spaces): Take length argument.
+	(debug): Declare as static.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/02coverage.t (commands_in_math): Remove trailing space on
 	a line as this is not the purpose of this test.
 

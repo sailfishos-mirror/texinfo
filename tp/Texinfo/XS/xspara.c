@@ -48,7 +48,7 @@
 
 #include "xspara_text.h"
 
-int debug = 0;
+static int debug = 0;
 
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
@@ -238,12 +238,12 @@ iswupper (wint_t wi)
 
 /* for debug */
 char *
-xspara__print_escaped_spaces (char *string)
+xspara__print_escaped_spaces (char *string, size_t len)
 {
   static TEXT t;
   char *p = string;
   text_reset (&t);
-  while (*p)
+  while (p < string + len)
     {
       if (*p == ' ')
         text_append_n (&t, p, 1);
@@ -899,7 +899,8 @@ xspara_add_text (char *text, int len)
           fprintf(stderr, "p (%d+%d) s `%s', l `%lc', w `%s'\n",
                     state.counter, state.word_counter,
                     state.space.end == 0 ? ""
-                      : xspara__print_escaped_spaces (state.space.text),
+                      : xspara__print_escaped_spaces (state.space.text,
+                                                      state.space.end),
                     state.last_letter,
                     state.word.end > 0 ? state.word.text : "UNDEF");
         }
@@ -975,7 +976,7 @@ xspara_add_text (char *text, int len)
           /* TODO: test just one character at a time to start.  then
              we can gradually work on the various blocks of
              code to operate on multiple characters. */
-          if ((type != type_regular)
+          if ((type != type_regular && type != type_spaces)
               || next_type != type || next_type == type_finished)
             break;
 
@@ -997,25 +998,22 @@ xspara_add_text (char *text, int len)
         {
           if (debug)
             {
-              char t[2];
-              t[0] = *p;
-              t[1] = '\0';
               fprintf(stderr, "SPACES(%d) `%s'\n", state.counter,
-                      xspara__print_escaped_spaces (t));
+                      xspara__print_escaped_spaces (p, q - p));
             }
 
           if (state.unfilled)
             {
               xspara__add_pending_word (&result, 0);
-              if (*p == '\n')
+              if (memchr (p, '\n', q - p))
                 {
                    xspara__end_line ();
                    text_append (&result, "\n");
                 }
               else
                 {
-                  text_append_n (&state.space, p, 1);
-                  state.space_counter++;
+                  text_append_n (&state.space, p, q - p);
+                  state.space_counter += q - p;
                 }
             }
           else if (state.no_break)
@@ -1078,7 +1076,8 @@ xspara_add_text (char *text, int len)
               xspara__cut_line (&result);
             }
 
-          if (!state.unfilled && *p == '\n' && state.keep_end_lines)
+          if (!state.unfilled && state.keep_end_lines
+              && memchr (p, '\n', q - p))
             {
               xspara__end_line ();
               text_append (&result, "\n");
