@@ -1,5 +1,13 @@
 2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text),
+	* tp/Texinfo/XS/xspara.c (xspara_add_text):
+	Unconditionally use a single space character to separate words in
+	the output when not at the end of a sentence, rather than using
+	the whitespace character from the input.
+
+2023-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Conventions)
 	<whitespace>: Reword slightly.
 	<@ignore'd section on form feeds>: Do not say that FF are kept

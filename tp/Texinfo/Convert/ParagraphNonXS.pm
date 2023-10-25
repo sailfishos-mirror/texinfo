@@ -359,11 +359,7 @@ sub add_text($$)
             } else {
               # Only save the first space
               if (length($paragraph->{'space'}) < 1) {
-                if ($spaces =~ /\n/) {
-                  $paragraph->{'space'} = ' ';
-                } else {
-                  $paragraph->{'space'} .= substr ($spaces, 0, 1);
-                }
+                $paragraph->{'space'} = ' ';
               }
             }
           }

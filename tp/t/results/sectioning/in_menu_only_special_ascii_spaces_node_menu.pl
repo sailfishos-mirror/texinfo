@@ -519,11 +519,11 @@ top
 * '."\r".'::
 * 	::
 
-1 CARRIAGE RETURN|'."\r".'|
-*******************
+1 CARRIAGE RETURN| |
+********************
 
-2 CHARACTER TABULATION|	| FORM FEED||
-************************************
+2 CHARACTER TABULATION| | FORM FEED| |
+**************************************
 
 
 

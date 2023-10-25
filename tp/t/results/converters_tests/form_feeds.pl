@@ -1406,13 +1406,13 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
 
    dd
 
-   ‘end in code’
+   ‘end in code ’
 
-   ‘begin in code’
+   ‘ begin in code’
 
-   ‘middlein code’
+   ‘middle in code’
 
-   *Note chapnode::
+   *Note chap node::
 
      in example
 

@@ -944,11 +944,11 @@ File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
 1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************
 
-2 CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
-******************************************************
+2 CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |
+*********************************************************
 
-3 CARRIAGE RETURN|'."\r".'|
-*******************
+3 CARRIAGE RETURN| |
+********************
 
 
 File: ,  Node:   ,  Next: ᠎ ,  Prev: ,  Up: Top
@@ -973,9 +973,9 @@ File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 Tag Table:
 Node: Top56
 Node:    199
-Node:   493
-Node: ᠎ 675
-Node:          　855
+Node:   497
+Node: ᠎ 679
+Node:          　859
 
 End Tag Table
 

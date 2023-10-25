@@ -1064,16 +1064,8 @@ xspara_add_text (char *text, int len)
                       /* Only save the first space. */
                       if (state.space_counter < 1)
                         {
-                          if (*p == '\n')
-                            {
-                              text_append_n (&state.space, " ", 1);
-                              state.space_counter++;
-                            }
-                          else
-                            {
-                              text_append_n (&state.space, p, 1);
-                              state.space_counter++;
-                            }
+                          text_append_n (&state.space, " ", 1);
+                          state.space_counter++;
                         }
                     }
                 }
