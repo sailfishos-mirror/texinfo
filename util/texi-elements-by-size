@@ -218,11 +218,10 @@ unshift @{$parser_options->{'INCLUDE_DIRECTORIES'}}, @prepend_dirs;
 my $error_count = 0;
 my $parser = Texinfo::Parser::parser($parser_options);
 my $document = $parser->parse_texi_file($input_file_name);
-my $tree = $document->tree();
 
 my $registrar = $parser->registered_errors();
 
-if (!defined($tree)) {
+if (!defined($document)) {
   handle_errors($registrar, $error_count);
   exit (1);
 }
@@ -232,7 +231,7 @@ $converter_options->{'document'} = $document;
 my $converter = Texinfo::Convert::TextContent->converter($converter_options);
 
 my ($sorted_name_counts_array, $formatted_result)
-  = $converter->sort_element_counts($tree, $use_sections,
+  = $converter->sort_element_counts($document, $use_sections,
                                     $count_words);
 
 print STDOUT $formatted_result;
