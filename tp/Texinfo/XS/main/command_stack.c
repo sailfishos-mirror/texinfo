@@ -15,6 +15,7 @@
 
 #include <config.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "tree_types.h"
 #include "command_ids.h"
@@ -64,17 +65,132 @@ top_command (COMMAND_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
-enum command_id
-current_context_command (void)
+void
+push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
+                      enum element_type type)
 {
-  int i;
-
-  if (top == 0)
-    return CM_NONE;
-  for (i = top -1; i >= 0; i--)
+  if (stack->top >= stack->space)
     {
-      if (command_stack.stack[i] != CM_NONE)
-        return command_stack.stack[i];
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (COMMAND_OR_TYPE));
     }
-  return CM_NONE;
+
+  if (type)
+    {
+      stack->stack[stack->top].type = type;
+      stack->stack[stack->top].variety = CTV_type_type;
+    }
+  else if (cmd)
+    {
+      stack->stack[stack->top].cmd = cmd;
+      stack->stack[stack->top].variety = CTV_type_command;
+    }
+  else
+    {
+      stack->stack[stack->top].cmd = 0;
+      stack->stack[stack->top].variety = CTV_type_none;
+    }
+
+  stack->top++;
 }
+
+void
+pop_command_or_type (COMMAND_OR_TYPE_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("command or type stack empty");
+
+  stack->top--;
+}
+
+COMMAND_OR_TYPE *
+top_command_or_type (COMMAND_OR_TYPE_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("command or type stack empty for top");
+
+  return &stack->stack[stack->top - 1];
+}
+
+
+void
+push_string_stack_string (STRING_STACK *stack, char *string)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (char *));
+    }
+
+  stack->stack[stack->top] = strdup (string);
+
+  stack->top++;
+}
+
+void
+pop_string_stack (STRING_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("string stack empty");
+
+  free (stack->stack[stack->top - 1]);
+  stack->top--;
+}
+
+char *
+top_string_stack (STRING_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("string stack empty for top");
+
+  return stack->stack[stack->top - 1];
+}
+
+
+static void
+push_monospace_context (MONOSPACE_CONTEXT_STACK *stack,
+                        enum monospace_context mono_ctx)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (enum monospace_context));
+    }
+
+  stack->stack[stack->top] = mono_ctx;
+  stack->top++;
+}
+
+void
+push_monospace (MONOSPACE_CONTEXT_STACK *stack)
+{
+  push_monospace_context (stack, MONO_ctx_on);
+}
+
+void
+push_style_no_code (MONOSPACE_CONTEXT_STACK *stack)
+{
+  push_monospace_context (stack, MONO_ctx_off);
+}
+
+enum monospace_context
+pop_monospace_context (MONOSPACE_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("monospace stack empty for top");
+
+  return stack->stack[--stack->top];
+}
+
+enum monospace_context
+top_monospace_context (MONOSPACE_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("monospace stack empty for top");
+
+  return stack->stack[stack->top - 1];
+}
+

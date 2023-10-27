@@ -43,6 +43,7 @@
 #include "document.h"
 /* for wipe_user_commands */
 #include "commands.h"
+#include "command_stack.h"
 #include "context_stack.h"
 /* for clear_parser_expanded_formats and add_parser_expanded_format */
 #include "handle_commands.h"

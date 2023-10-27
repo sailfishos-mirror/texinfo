@@ -35,10 +35,10 @@ char *gdt_string (char *string, OPTIONS *options,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context, char *in_lang);
 
-ELEMENT * pgdt_tree (const char *translation_context, char *string,
-                     DOCUMENT *document, OPTIONS *options,
-                     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                     char *in_lang);
+ELEMENT *pgdt_tree (const char *translation_context, char *string,
+                    DOCUMENT *document, OPTIONS *options,
+                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                    char *in_lang);
 
 NAMED_STRING_ELEMENT_LIST * new_named_string_element_list (void);
 void add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,

@@ -28,6 +28,7 @@
 #include "debug.h"
 #include "debug_parser.h"
 #include "errors.h"
+#include "command_stack.h"
 #include "context_stack.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"

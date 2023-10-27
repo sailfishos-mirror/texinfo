@@ -143,6 +143,8 @@ libtexinfo_la_SOURCES= \
 		      main/manipulate_tree.h \
 		      main/node_name_normalization.c \
 		      main/node_name_normalization.h \
+		      main/command_stack.c \
+		      main/command_stack.h \
 		      main/targets.c \
 		      main/targets.h \
 		      main/utils.c \

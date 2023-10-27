@@ -38,7 +38,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE fatal output_unit_type_names */
+/* for GLOBAL_INFO ERROR_MESSAGE fatal output_unit_type_names CONVERTER */
 #include "utils.h"
 /* for debugging */
 #include "debug.h"
@@ -51,6 +51,7 @@
 /* for wipe_error_message_list */
 #include "errors.h"
 #include "tree_perl_api.h"
+#include "command_stack.h"
 #include "build_perl_info.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -1776,3 +1777,204 @@ build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
   return newRV_noinc ((SV *) hv);
 }
 
+HV *
+build_html_formatting_context (HTML_FORMATTING_CONTEXT *formatting_context)
+{
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
+
+  STORE("context_name", newSVpv (formatting_context->context_name, 0));
+#define STORE_INT(name) STORE(#name, newSViv (formatting_context->name))
+  STORE_INT(preformatted_number);
+  STORE_INT(paragraph_number);
+  STORE_INT(space_protected);
+  STORE_INT(no_break);
+#undef STORE_INT
+
+#define STORE_CTX(name) STORE(#name, newSViv (formatting_context->name##_ctx))
+  STORE_CTX(upper_case);
+#undef STORE_CTX
+
+#undef STORE
+  return hv;
+}
+
+HV *
+build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context)
+{
+  int i;
+  HV *hv;
+  AV *monospace_context_av;
+  AV *composition_context_av;
+  AV *block_commands_av;
+  AV *formatting_context_av;
+  AV *preformatted_classes_av;
+
+  dTHX;
+
+  hv = newHV ();
+  monospace_context_av = newAV ();
+  composition_context_av = newAV ();
+  block_commands_av = newAV ();
+  formatting_context_av = newAV ();
+  preformatted_classes_av = newAV ();
+
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
+
+  STORE ("context", newSVpv_utf8 (document_context->context, 0));
+
+#define STORE_CTX(name) STORE(#name, newSViv (document_context->name##_ctx))
+  STORE_CTX(string);
+  STORE_CTX(raw);
+  STORE_CTX(verbatim);
+  STORE_CTX(math);
+#undef STORE_CTX
+  STORE ("document_global_context",
+         newSViv (document_context->document_global_context));
+
+  for (i = 0; i < document_context->monospace_context.top; i++)
+    {
+      enum monospace_context context
+        = document_context->monospace_context.stack[i];
+      av_push (monospace_context_av, newSViv (context));
+    }
+
+  STORE ("monospace_context", newRV_noinc ((SV *) monospace_context_av));
+
+  for (i = 0; i < document_context->composition_context.top; i++)
+    {
+      char *context_str = 0;
+      COMMAND_OR_TYPE *context
+        = &document_context->composition_context.stack[i];
+      if (context->variety == CTV_type_type)
+        context_str = element_type_names[context->type];
+      else if (context->variety == CTV_type_command)
+        context_str = builtin_command_data[context->cmd].cmdname;
+      else
+        context_str = "";
+      av_push (composition_context_av, newSVpv (context_str, 0));
+    }
+  STORE ("composition_context", newRV_noinc ((SV *) composition_context_av));
+
+  for (i = 0; i < document_context->block_commands.top; i++)
+    {
+      enum command_id cmd = document_context->block_commands.stack[i];
+      char *context_str = builtin_command_data[cmd].cmdname;
+      av_push (block_commands_av, newSVpv (context_str, 0));
+    }
+  STORE ("block_commands", newRV_noinc ((SV *) block_commands_av));
+
+  for (i = 0; i < document_context->preformatted_classes.top; i++)
+    {
+      char *context_str = document_context->preformatted_classes.stack[i];
+      av_push (preformatted_classes_av, newSVpv (context_str, 0));
+    }
+  STORE ("preformatted_classes", newRV_noinc ((SV *) preformatted_classes_av));
+
+  for (i = 0; i < document_context->formatting_context.top; i++)
+    {
+      HTML_FORMATTING_CONTEXT *formatting_context
+        = &document_context->formatting_context.stack[i];
+      HV *context_hv = build_html_formatting_context (formatting_context);
+      av_push (formatting_context_av, newRV_noinc ((SV *) context_hv));
+    }
+  STORE ("formatting_context", newRV_noinc ((SV *) formatting_context_av));
+
+#undef STORE
+  return hv;
+}
+
+/* there is no need to return anything. */
+SV *
+build_html_formatting_state (CONVERTER *converter)
+{
+  HV *hv;
+  SV **document_context_sv;
+  AV *document_context_av;
+  SV **files_information_sv;
+  HV *files_information_hv;
+  int i;
+
+  dTHX;
+
+  if (!converter->hv)
+    return newSV (0);
+
+  hv = converter->hv;
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
+  STORE("document_global_context",
+        newSViv (converter->document_global_context));
+
+  if (!converter->current_root_command)
+    STORE("current_root_command", newSV (0));
+  else
+    STORE("current_root_command",
+       newRV_inc ((SV *) converter->current_root_command->hv));
+
+  if (!converter->current_node)
+    STORE("current_node", newSV (0));
+  else
+    STORE("current_node",
+       newRV_inc ((SV *) converter->current_node->hv));
+
+  if (!converter->current_output_unit)
+    STORE("current_output_unit", newSV (0));
+  else
+    STORE("current_output_unit",
+       newRV_inc ((SV *) converter->current_output_unit->hv));
+
+  if (!converter->current_filename)
+    STORE("current_filename", newSV (0));
+  else
+    STORE("current_filename", newSVpv_utf8 (converter->current_filename, 0));
+
+  document_context_sv = hv_fetch (hv, "document_context",
+                                  strlen ("document_context"), 0);
+
+  if (!document_context_sv)
+    {
+      document_context_av = newAV ();
+      STORE("document_context", newRV_noinc ((SV *) document_context_av));
+    }
+  else
+    {
+      document_context_av = (AV *) SvRV (*document_context_sv);
+      av_clear (document_context_av);
+    }
+
+  for (i = 0; i < converter->html_document_context.top; i++)
+    {
+      HTML_DOCUMENT_CONTEXT *document_context
+        = &converter->html_document_context.stack[i];
+      HV *document_context_hv = build_html_document_context (document_context);
+      av_push (document_context_av, newRV_noinc ((SV *) document_context_hv));
+    }
+
+  files_information_sv = hv_fetch (hv, "files_information",
+                                  strlen ("files_information"), 0);
+
+  if (!files_information_sv)
+    {
+      files_information_hv = newHV ();
+      STORE("files_information", newRV_noinc ((SV *) files_information_hv));
+    }
+  else
+    {
+      /* TODO
+      files_information_hv = (HV *) SvRV (*files_information_sv);
+      hv_clear (files_information_av);
+       */
+    }
+
+
+#undef STORE
+
+  return newRV_noinc ((SV *) hv);
+}

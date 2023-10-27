@@ -28,6 +28,7 @@
 /* for isascii_alnum whitespace_chars read_flag_name item_line_parent */
 #include "utils.h"
 #include "counter.h"
+#include "command_stack.h"
 #include "context_stack.h"
 /* for conf */
 #include "conf.h"

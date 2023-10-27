@@ -26,6 +26,7 @@
 /* for xasprintf and other */
 #include "errors.h"
 #include "debug.h"
+#include "command_stack.h"
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"

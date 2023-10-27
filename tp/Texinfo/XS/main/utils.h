@@ -24,6 +24,7 @@
 #include "global_commands_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
+#include "command_stack.h"
 #include "builtin_commands.h"
 
 extern const char *whitespace_chars;
@@ -124,6 +125,16 @@ typedef struct COMMAND_OPTION_VALUE {
       char *char_value;
     };
 } COMMAND_OPTION_VALUE;
+
+#define SMALL_BLOC_COMMANDS_LIST \
+    smbc_command_name(example)\
+    smbc_command_name(display) \
+    smbc_command_name(format) \
+    smbc_command_name(lisp) \
+    smbc_command_name(quotation) \
+    smbc_command_name(indentedblock)
+
+extern const enum command_id small_block_associated_command[][2];
 
 /* CONVERTER and associated types needed for set_global_document_command */
 /* see Texinfo::HTML _prepare_output_units_global_targets
@@ -363,6 +374,41 @@ typedef struct FORMATTING_REFERENCE {
     enum formatting_reference_status status;
 } FORMATTING_REFERENCE;
 
+typedef struct HTML_FORMATTING_CONTEXT {
+    char *context_name;
+    int preformatted_number;
+    int paragraph_number;
+    int upper_case_ctx;
+    int space_protected;
+    int no_break;
+} HTML_FORMATTING_CONTEXT;
+
+typedef struct HTML_FORMATTING_CONTEXT_STACK {
+    HTML_FORMATTING_CONTEXT *stack;
+    size_t top;   /* One above last pushed context. */
+    size_t space;
+} HTML_FORMATTING_CONTEXT_STACK;
+
+typedef struct HTML_DOCUMENT_CONTEXT {
+    char *context;
+    int string_ctx;
+    int raw_ctx;
+    int verbatim_ctx;
+    int math_ctx;
+    int document_global_context;
+    MONOSPACE_CONTEXT_STACK monospace_context;
+    COMMAND_OR_TYPE_STACK composition_context;
+    COMMAND_STACK block_commands;
+    HTML_FORMATTING_CONTEXT_STACK formatting_context;
+    STRING_STACK preformatted_classes;
+} HTML_DOCUMENT_CONTEXT;
+
+typedef struct HTML_DOCUMENT_CONTEXT_STACK {
+    HTML_DOCUMENT_CONTEXT *stack;
+    size_t top;   /* One above last pushed context. */
+    size_t space;
+} HTML_DOCUMENT_CONTEXT_STACK;
+
 typedef struct CONVERTER {
     int converter_descriptor;
     OPTIONS *conf;
@@ -378,6 +424,8 @@ typedef struct CONVERTER {
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
 
+    int modified_state; /* to determine if perl data should be rebuilt */
+
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
     void *hv;
@@ -386,8 +434,6 @@ typedef struct CONVERTER {
     char *title_titlepage;
 
   /* HTML specific */
-    ELEMENT *current_root_command;
-    OUTPUT_UNIT *current_output_unit;
     OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION **special_units_direction_name;
     char **special_unit_info[SUI_type_heading+1];
@@ -400,6 +446,8 @@ typedef struct CONVERTER {
     char **directions_strings[TDS_type_rel+1];
     HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
     COMMAND_ID_LIST *no_arg_formatted_cmd;
+    int code_types[ET_special_unit_element+1];
+    char *pre_class_types[ET_special_unit_element+1];
     FORMATTING_REFERENCE
            formatting_references[FR_format_translate_message_string+1];
     FORMATTING_REFERENCE
@@ -408,6 +456,14 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
+
+    /* state */
+    int document_global_context;
+    ELEMENT *current_root_command;
+    ELEMENT *current_node;
+    OUTPUT_UNIT *current_output_unit;
+    HTML_DOCUMENT_CONTEXT_STACK html_document_context;
+    char *current_filename;
 } CONVERTER;
 
 typedef struct TARGET_FILENAME {

@@ -16,10 +16,13 @@
 #include <config.h>
 #include <stdlib.h>
 
-#include "debug.h"
-#include "context_stack.h"
-#include "commands.h"
+#include "tree_types.h"
+#include "command_ids.h"
 #include "utils.h"
+#include "commands.h"
+#include "debug.h"
+#include "command_stack.h"
+#include "context_stack.h"
 
 static enum context *context_stack;
 static size_t top; /* One above last pushed context. */
@@ -27,49 +30,6 @@ static size_t space;
 
 /* Kept in sync with context_stack. */
 static COMMAND_STACK command_stack;
-
-/* Generic command stack functions */
-
-void
-reset_command_stack (COMMAND_STACK *stack)
-{
-  stack->top = 0;
-  stack->space = 0;
-  free (stack->stack);
-  stack->stack = 0;
-}
-
-void
-push_command (COMMAND_STACK *stack, enum command_id cmd)
-{
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (enum command_id));
-    }
-
-  stack->stack[stack->top] = cmd;
-  stack->top++;
-}
-
-enum command_id
-pop_command (COMMAND_STACK *stack)
-{
-  if (stack->top == 0)
-    fatal ("command stack empty");
-
-  return stack->stack[--stack->top];
-}
-
-enum command_id
-top_command (COMMAND_STACK *stack)
-{
-  if (stack->top == 0)
-    fatal ("command stack empty for top");
-
-  return stack->stack[stack->top - 1];
-}
 
 enum command_id
 current_context_command (void)
@@ -85,7 +45,6 @@ current_context_command (void)
     }
   return CM_NONE;
 }
-
 /* Context stacks */
 
 void

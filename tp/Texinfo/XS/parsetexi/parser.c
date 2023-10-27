@@ -42,6 +42,7 @@
 #include "extra.h"
 /* for conf */
 #include "conf.h"
+#include "command_stack.h"
 /* for nesting_context */
 #include "context_stack.h"
 #include "commands.h"

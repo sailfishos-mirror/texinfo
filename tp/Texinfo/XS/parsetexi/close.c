@@ -30,6 +30,7 @@
 #include "counter.h"
 #include "builtin_commands.h"
 #include "source_marks.h"
+#include "command_stack.h"
 #include "context_stack.h"
 #include "extra.h"
 

@@ -527,3 +527,122 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
 
   return result;
 }
+
+char *
+call_types_conversion (CONVERTER *self, enum element_type type,
+                       ELEMENT *element, char *content)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference = self->types_conversion[type].sv_reference;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (element_type_names[type], 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  /* content == 0 is possible, hope that newSVpv result corresponds to
+     undef in that case, but could also need to explicitely use newSV(0) */
+  PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("types_conversion should return 1 item\n");
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_types_open (CONVERTER *self, enum element_type type,
+                 ELEMENT *element)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference = self->types_open[type].sv_reference;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (element_type_names[type], 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("types_open should return 1 item\n");
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}

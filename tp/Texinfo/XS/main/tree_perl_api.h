@@ -29,4 +29,9 @@ FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
                                                char *filename, char *filepath);
 char *call_formatting_function_format_title_titlepage (CONVERTER *self);
 
+char *call_types_conversion (CONVERTER *self, enum element_type type,
+                             ELEMENT *element, char *content);
+char *call_types_open (CONVERTER *self, enum element_type type,
+                       ELEMENT *element);
+
 #endif

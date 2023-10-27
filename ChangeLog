@@ -1,5 +1,55 @@
 2023-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/command_stack.c (COMMAND_STACK)
+	(reset_command_stack, push_command, pop_command, top_command)
+	(enum command_type_variety, enum monospace_context, COMMAND_OR_TYPE)
+	(COMMAND_OR_TYPE_STACK, push_command_or_type, pop_command_or_type)
+	(top_command_or_type, STRING_STACK, push_string_stack_string)
+	(pop_string_stack, top_string_stack, MONOSPACE_CONTEXT_STACK)
+	(push_monospace, push_style_no_code, pop_monospace_context)
+	(top_monospace_context), parsetexi/context_stack.c: move code related
+	to command stack out of to main/command_stack.c and add code there
+	related to other stacks.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize_sv):
+	pass code_types and pre_class_types to XS.
+
+	* tp/Texinfo/XS/convert/convert_html.c (HTML_COMMAND_STRUCT)
+	(additional_format_context_cmd, HTML_align_cmd, html_commands_data)
+	(register_format_context_command, register_pre_class_command)
+	(html_converter_initialize), tp/Texinfo/XS/main/utils.c
+	(small_block_associated_command), tp/Texinfo/XS/main/utils.h
+	(SMALL_BLOC_COMMANDS_LIST): setup informations on commands, flags,
+	preformatted class and format context strings.
+
+	* tp/Texinfo/XS/convert/convert_html.c (type_conversion, type_open),
+	tp/Texinfo/XS/main/call_perl_function.c (call_types_conversion)
+	(call_types_open): call of perl conversion type and open type
+	functions.
+
+	* tp/Texinfo/XS/convert/convert_html.c (push_html_formatting_context)
+	(top_html_formatting_context, pop_html_formatting_context)
+	(html_new_document_context, html_pop_document_context)
+	(top_document_context), tp/Texinfo/XS/main/utils.h
+	(HTML_FORMATTING_CONTEXT, HTML_FORMATTING_CONTEXT_STACK)
+	(HTML_DOCUMENT_CONTEXT, HTML_DOCUMENT_CONTEXT_STACK): functions to
+	manipulate document context and formatting context.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal),
+	tp/Texinfo/XS/main/build_perl_info.c (build_html_formatting_context)
+	(build_html_document_context, build_html_formatting_state),
+	tp/Texinfo/XS/main/call_perl_function.c (call_types_conversion),
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/main/utils.h
+	(CONVERTER): add setting of document and formatting context, call
+	types formatting functions, more types of args formatted.  Set
+	modified_state if the state has been changed and needs to be
+	reexported before calling a perl function.  Pass document and
+	formatting context to perl before calling perl functions.
+
+2023-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (import): load conversion overrides only
 	if TEXINFO_XS_CONVERT is set.
 

@@ -41,6 +41,7 @@
 /* add_infoenclose */
 #include "macro.h"
 #include "indices.h"
+#include "command_stack.h"
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "commands.h"

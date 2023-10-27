@@ -454,6 +454,8 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   SV **types_conversion_sv;
   SV **commands_open_sv;
   SV **commands_conversion_sv;
+  SV **code_types_sv;
+  SV **pre_class_types_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
@@ -612,7 +614,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         types_conversion_hv);
     }
 
-
   FETCH(sorted_special_unit_varieties)
 
   if (sorted_special_unit_varieties_sv)
@@ -715,6 +716,98 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                                * sizeof (OUTPUT_UNIT));
   memset (converter->global_units_directions, 0,
     (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
+
+  FETCH(code_types)
+
+  if (code_types_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *code_types_hv = (HV *)SvRV (*code_types_sv);
+
+      hv_number = hv_iterinit (code_types_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          int j;
+          enum element_type type = ET_NONE;
+          I32 retlen;
+          char *type_name;
+          SV *code_sv = hv_iternextsv (code_types_hv,
+                                       &type_name, &retlen);
+          if (SvOK (code_sv))
+            {
+              int code_value = SvIV (code_sv);
+          /* this is not very efficient, but should be done only once
+             in the default case.  If this is needed more, a qsort/bfind
+             could be used, but the overhead could probably only be
+             justified if finding the type index happens more often */
+              for (j = 1; j < ET_special_unit_element+1; j++)
+                {
+                  if (!strcmp (element_type_names[j], type_name))
+                    {
+                      type = j;
+                      break;
+                    }
+                }
+              if (type == ET_NONE)
+                {
+                  fprintf (stderr, "ERROR: %s: code type not found\n",
+                                   type_name);
+                }
+              else
+                converter->code_types[type] = code_value;
+           }
+       }
+   }
+
+  FETCH(pre_class_types)
+
+  if (pre_class_types_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *pre_class_types_hv = (HV *)SvRV (*pre_class_types_sv);
+
+      hv_number = hv_iterinit (pre_class_types_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          int j;
+          I32 retlen;
+          char *type_name;
+          SV *pre_class_sv = hv_iternextsv (pre_class_types_hv,
+                                            &type_name, &retlen);
+          if (SvOK (pre_class_sv))
+            {
+              enum element_type type = ET_NONE;
+              char *pre_class = SvPV_nolen (pre_class_sv);
+          /* this is not very efficient, but should be done only once
+             in the default case.  If this is needed more, a qsort/bfind
+             could be used, but the overhead could probably only be
+             justified if finding the type index happens more often */
+              for (j = 1; j < ET_special_unit_element+1; j++)
+                {
+                  if (!strcmp (element_type_names[j], type_name))
+                    {
+                      type = j;
+                      break;
+                    }
+                }
+              if (type == ET_NONE)
+                {
+                  fprintf (stderr, "ERROR: %s: pre class type not found\n",
+                           type_name);
+                }
+              else
+                converter->pre_class_types[type] = strdup (pre_class);
+            }
+        }
+    }
+
+
 
   FETCH(no_arg_commands_formatting)
 
