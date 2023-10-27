@@ -471,7 +471,7 @@ sub convert_to_text($;$)
   my $options = shift;
 
   if (ref($root) ne 'HASH') {
-    cluck;
+    confess "root not a hash";
   }
 
   #print STDERR "CONVERT\n";
