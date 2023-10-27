@@ -1,5 +1,10 @@
 2023-10-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_array):
+	Use "%s" for printing a string with fprintf.
+
+2023-10-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Text.pm (convert_to_text): Change cluck
 	to confess so we do not carry on in the test suite if there is
 	a problem.

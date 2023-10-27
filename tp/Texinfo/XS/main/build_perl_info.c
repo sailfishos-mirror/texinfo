@@ -145,7 +145,7 @@ build_perl_array (ELEMENT_LIST *e)
               text_printf (&message,
                 "BUG: build_perl_array oot %d: %s\n", i, debug_str);
               free (debug_str);
-              fprintf (stderr, message.text);
+              fprintf (stderr, "%s", message.text);
               free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
@@ -188,7 +188,7 @@ build_perl_directions (ELEMENT_LIST *e)
                   text_printf (&message,
                     "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
                   free (debug_str);
-                  fprintf (stderr, message.text);
+                  fprintf (stderr, "%s", message.text);
                   free (message.text);
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
