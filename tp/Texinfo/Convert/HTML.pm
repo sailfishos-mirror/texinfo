@@ -94,36 +94,40 @@ sub import {
       "Texinfo::Convert::HTML::_entity_text",
       "Texinfo::MiscXS::entity_text");
 
-    Texinfo::XSLoader::override(
+    if (defined $ENV{TEXINFO_XS_CONVERT}
+        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_converter_initialize",
       "Texinfo::Convert::ConvertXS::html_converter_initialize_sv");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_initialize_output_state",
       "Texinfo::Convert::ConvertXS::html_initialize_output_state");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_sort_sortable_index_entries_by_letter",
       "Texinfo::Convert::ConvertXS::sort_sortable_index_entries_by_letter");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
       "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
       "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_units_directions_files",
       "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_prepare_output_units_global_targets",
       "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_translate_names",
       "Texinfo::Convert::ConvertXS::html_translate_names");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_init",
       "Texinfo::Convert::ConvertXS::html_convert_init");
-    Texinfo::XSLoader::override(
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_convert",
       "Texinfo::Convert::ConvertXS::html_convert_convert");
+    }
 
     $module_loaded = 1;
   }
@@ -7535,7 +7539,6 @@ sub _new_document_context($;$$)
           {'context' => $context,
            'formatting_context' => [{'context_name' => $context}],
            'composition_context' => [''],
-           'formats' => [],
            'monospace' => [0],
            'document_global_context' => $document_global_context,
            'block_commands' => [],
@@ -11117,6 +11120,7 @@ sub convert($$)
   if ($self->{'converter_descriptor'}) {
     my $XS_result = _XS_html_convert_convert ($encoded_converter, $root,
                                               $output_units, $special_units);
+    return $XS_result;
   }
 
   if (!defined($output_units)) {
