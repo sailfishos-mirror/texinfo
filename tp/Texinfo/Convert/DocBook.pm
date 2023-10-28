@@ -288,7 +288,7 @@ sub converter_initialize($)
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
                         keys(%Texinfo::Commands::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
-         if $self->{'expanded_formats_hash'}->{$raw};
+         if $self->{'expanded_formats'}->{$raw};
   }
 }
 
@@ -1446,7 +1446,7 @@ sub _convert($$;$)
         if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
           if ($element->{'cmdname'} eq 'inlinefmtifelse'
               or ($element->{'extra'} and $element->{'extra'}->{'format'}
-                  and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
+                  and $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}})) {
             $expand = 1;
           }
         } elsif (defined($element->{'extra'}->{'expand_index'})) {
@@ -1458,7 +1458,7 @@ sub _convert($$;$)
           $self->_new_document_context();
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         } elsif ($element->{'cmdname'} eq 'inlinefmtifelse'
-                 and ! $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
+                 and ! $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
           $arg_index = 2;
         }
         if (scalar(@{$element->{'args'}}) > $arg_index
@@ -1608,7 +1608,7 @@ sub _convert($$;$)
           }
         }
       } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'format_raw') {
-        return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
+        return '' if (!$self->{'expanded_formats'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten
         # once all the raw internal text has been formatted
         $self->{'document_context'}->[-1]->{'raw'} = 1;

@@ -112,11 +112,11 @@ sub _convert($$)
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
                  or ($ignored_block_commands{$element->{'cmdname'}}
-                     and !(defined($self->{'expanded_formats_hash'})
-                           and $self->{'expanded_formats_hash'}->{$element->{'cmdname'}}))
+                     and !(defined($self->{'expanded_formats'})
+                           and $self->{'expanded_formats'}->{$element->{'cmdname'}}))
                  or ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
                      and (!$element->{'extra'}->{'format'}
-                          or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
+                          or !$self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}))
                  or ($element->{'cmdname'} eq 'menu' and $self->get_conf('FORMAT_MENU') eq 'nomenu')
              # here ignore most of the line commands
                  or ($element->{'args'} and $element->{'args'}->[0]

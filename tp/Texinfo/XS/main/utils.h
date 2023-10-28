@@ -78,10 +78,10 @@ typedef struct {
 extern ENCODING_CONVERSION_LIST output_conversions;
 extern ENCODING_CONVERSION_LIST input_conversions;
 
-struct expanded_format {
+typedef struct expanded_format {
     char *format;
     int expandedp;
-};
+} EXPANDED_FORMAT;
 
 typedef struct GLOBAL_INFO {
     char *input_file_name;
@@ -420,6 +420,7 @@ typedef struct CONVERTER {
     MERGED_INDEX **index_entries;
     INDEX_SORTED_BY_LETTER **index_entries_by_letter;
     TRANSLATED_COMMAND **translated_commands;
+    EXPANDED_FORMAT *expanded_formats;
 
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
@@ -604,10 +605,10 @@ char *decode_string (char *input_string, char *encoding, int *status,
 char *encode_string (char *input_string, char *encoding, int *status,
                      SOURCE_INFO *source_info);
 
-struct expanded_format *new_expanded_formats (char *format);
-void clear_expanded_formats (struct expanded_format *formats);
-void add_expanded_format (struct expanded_format *formats, char *format);
-int format_expanded_p (struct expanded_format *formats, char *format);
+EXPANDED_FORMAT *new_expanded_formats (char *format);
+void clear_expanded_formats (EXPANDED_FORMAT *formats);
+void add_expanded_format (EXPANDED_FORMAT *formats, char *format);
+int format_expanded_p (EXPANDED_FORMAT *formats, char *format);
 
 ELEMENT *trim_spaces_comment_from_content (ELEMENT *element);
 

@@ -106,7 +106,7 @@ new_text_options (void)
   TEXT_OPTIONS *options = malloc (sizeof (TEXT_OPTIONS));
   memset (options, 0, sizeof (TEXT_OPTIONS));
   options->expanded_formats = new_expanded_formats (0);
-  options->number_sections = -1;
+  options->NUMBER_SECTIONS = -1;
   memset (&options->include_directories, 0, sizeof (STRING_LIST));
   return options;
 }
@@ -128,6 +128,46 @@ destroy_text_options (TEXT_OPTIONS *text_options)
       free (text_options->self_converter_options);
     }
   free (text_options);
+}
+
+#define TEXT_INDICATOR_CONVERTER_OPTIONS \
+  tico_option_name(NUMBER_SECTIONS) \
+  tico_option_name(ASCII_GLYPH) \
+  tico_option_name(TEST)
+
+/* note that nothing is copied */
+TEXT_OPTIONS *
+copy_options_for_convert_text (CONVERTER *self,
+                               int enable_encoding_if_not_ascii)
+{
+  TEXT_OPTIONS *options = new_text_options ();
+  int text_indicator_option;
+
+  if ((self->conf->ENABLE_ENCODING > 0
+       && self->conf->OUTPUT_ENCODING_NAME)
+      || (enable_encoding_if_not_ascii
+          && self->conf->OUTPUT_ENCODING_NAME
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME, "us-ascii")))
+    {
+      options->encoding = self->conf->OUTPUT_ENCODING_NAME;
+    }
+
+  #define tico_option_name(name) \
+  text_indicator_option = self->conf->name; \
+  if (text_indicator_option > 0) { options->name = 1; } \
+  else if (text_indicator_option >= 0) { options->name = 0; }
+   TEXT_INDICATOR_CONVERTER_OPTIONS
+  #undef tico_option_name
+
+  free (options->expanded_formats);
+  options->expanded_formats = self->expanded_formats;
+
+  memcpy (&options->include_directories, &self->conf->INCLUDE_DIRECTORIES,
+          sizeof (STRING_LIST));
+
+  options->other_converter_options = self->conf;
+
+  return options;
 }
 
 /* format an accent command and nested accents within as Text. */
@@ -183,7 +223,7 @@ brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
         }
     }
 
-  if (!(options->ascii_glyph)
+  if (!(options->ASCII_GLYPH)
       || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0))
     {
       char *brace_no_arg_unicode = unicode_brace_no_arg_command (cmd, encoding);
@@ -482,7 +522,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
                         $options);
       }
 */
-          else if (text_options->test)
+          else if (text_options->TEST)
             {
               ADD("a sunny day");
               return;
@@ -718,7 +758,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
                   char *heading
                     = text_heading (element, text.text,
                                     text_options->other_converter_options,
-                                    text_options->number_sections, 0);
+                                    text_options->NUMBER_SECTIONS, 0);
                   ADD(heading);
                   free (heading);
                 }

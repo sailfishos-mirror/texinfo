@@ -366,6 +366,8 @@ sub text_heading($$$;$$)
 }
 
 my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST',
+    # FIXME not used directly in the module code.  It is unlikely for that variable
+    # to be used elsewhere from text options and not converter options.
     # for error registering,
     'DEBUG');
 
@@ -397,11 +399,9 @@ sub copy_options_for_convert_text($;$)
       $options{$option} = 0;
     }
   }
-  $options{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
+  $options{'expanded_formats'} = $self->{'expanded_formats'};
   # for locate_include_file
   $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
-  # FIXME remove
-  $options{'PROGRAM'} = $self->get_conf('PROGRAM');
 
   $options{'converter'} = $self;
   return %options;
@@ -431,9 +431,9 @@ sub encode_text_options($)
     }
   }
 
-  if (defined($options->{'expanded_formats_hash'})) {
+  if (defined($options->{'expanded_formats'})) {
     my $expanded_formats = [];
-    foreach my $format (keys(%{$options->{'expanded_formats_hash'}})) {
+    foreach my $format (keys(%{$options->{'expanded_formats'}})) {
       push @$expanded_formats, Encode::encode("UTF-8", $format);
     }
     $encoded_options->{'expanded_formats'} = $expanded_formats;
@@ -528,8 +528,8 @@ sub _convert($;$)
              and ($ignored_brace_commands{$element->{'cmdname'}}
                  or $ignored_block_commands{$element->{'cmdname'}}
                  or ($ignored_format_raw_commands{$element->{'cmdname'}}
-                     and !(defined($options->{'expanded_formats_hash'})
-                           and $options->{'expanded_formats_hash'}
+                     and !(defined($options->{'expanded_formats'})
+                           and $options->{'expanded_formats'}
                                                     ->{$element->{'cmdname'}}))
                  or ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
                      and $Texinfo::Commands::brace_commands{
@@ -538,8 +538,8 @@ sub _convert($;$)
                      and (($Texinfo::Commands::inline_format_commands{
                                                          $element->{'cmdname'}}
                            and (!$element->{'extra'}->{'format'}
-                                or !$options->{'expanded_formats_hash'}
-                                or !$options->{'expanded_formats_hash'}
+                                or !$options->{'expanded_formats'}
+                                or !$options->{'expanded_formats'}
                                            ->{$element->{'extra'}->{'format'}}))
                          or (!$Texinfo::Commands::inline_format_commands{
                                                           $element->{'cmdname'}}
@@ -663,8 +663,8 @@ sub _convert($;$)
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
-               or !$options->{'expanded_formats_hash'}
-               or !$options->{'expanded_formats_hash'}
+               or !$options->{'expanded_formats'}
+               or !$options->{'expanded_formats'}
                                    ->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
@@ -858,9 +858,9 @@ sub converter($;$)
     delete $converter->{'document'};
   }
   if ($expanded_formats) {
-    $converter->{'expanded_formats_hash'} = {};
+    $converter->{'expanded_formats'} = {};
     foreach my $expanded_format(@$expanded_formats) {
-      $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
+      $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
 
@@ -1145,7 +1145,7 @@ object may be used during conversion.  Mostly error reporting and strings
 translation, as the converter object is also supposed to be a
 L<Texinfo::Report> objet.  See also L<Texinfo::Convert::Converter>.
 
-=item expanded_formats_hash
+=item expanded_formats
 
 A reference on a hash.  The keys should be format names (like C<html>,
 C<tex>), and if the corresponding value is set, the format is expanded.

@@ -2623,7 +2623,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         {
           ELEMENT *e;
           int n;
-          
+
           if (check_line_directive (line))
             continue;
 

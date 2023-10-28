@@ -201,6 +201,38 @@ copy_sv_options (SV *sv_in)
   return options;
 }
 
+void
+get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
+{
+  SV **expanded_formats_sv;
+
+  dTHX;
+
+  expanded_formats_sv = hv_fetch (hv, "expanded_formats",
+                                  strlen ("expanded_formats"), 0);
+  if (expanded_formats_sv)
+    {
+      int i;
+      SSize_t formats_nr;
+
+      if (!*expanded_formats)
+        *expanded_formats = new_expanded_formats (0);
+
+      AV *av = (AV *)SvRV (*expanded_formats_sv);
+
+      formats_nr = av_top_index (av) +1;
+      for (i = 0; i < formats_nr; i++)
+        {
+          SV** string_sv = av_fetch (av, i, 0);
+          if (string_sv)
+            {
+              char *string = SvPVbyte_nolen (*string_sv);
+              add_expanded_format (*expanded_formats, string);
+            }
+        }
+    }
+}
+
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* TODO more to do */
 TEXT_OPTIONS *
@@ -209,7 +241,6 @@ copy_sv_options_for_convert_text (SV *sv_in)
   HV *hv_in;
   SV **test_option_sv;
   SV **include_directories_sv;
-  SV **expanded_formats_sv;
   SV **other_converter_options_sv;
   SV **self_converter_options_sv;
   SV **enabled_encoding_sv;
@@ -222,7 +253,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
   if (test_option_sv)
-    text_options->test = SvIV (*test_option_sv);
+    text_options->TEST = SvIV (*test_option_sv);
 
   sort_string_option_sv = hv_fetch (hv_in, "sort_string",
                                     strlen ("sort_string"), 0);
@@ -240,26 +271,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   add_svav_to_string_list (include_directories_sv,
                            &text_options->include_directories, 1);
 
-  expanded_formats_sv = hv_fetch (hv_in, "expanded_formats",
-                                  strlen ("expanded_formats"), 0);
-  if (expanded_formats_sv)
-    {
-      int i;
-      SSize_t formats_nr;
-
-      AV *av = (AV *)SvRV (*expanded_formats_sv);
-
-      formats_nr = av_top_index (av) +1;
-      for (i = 0; i < formats_nr; i++)
-        {
-          SV** string_sv = av_fetch (av, i, 0);
-          if (string_sv)
-            {
-              char *string = SvPVbyte_nolen (*string_sv);
-              add_expanded_format (text_options->expanded_formats, string);
-            }
-        }
-    }
+  get_expanded_formats (hv_in, &text_options->expanded_formats);
 
   other_converter_options_sv = hv_fetch (hv_in, "other_converter_options",
                                          strlen ("other_converter_options"), 0);
@@ -497,6 +509,8 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 
   set_translated_commands (converter, hv_in);
+
+  get_expanded_formats (hv_in, &converter->expanded_formats);
 
   /* HTML specific */
 

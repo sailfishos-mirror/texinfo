@@ -106,7 +106,7 @@ const char *command_location_names[]
   = {"before", "last", "preamble", "preamble_or_first"};
 
 /* duplicated when creating a new expanded_formats */
-struct expanded_format expanded_formats[] = {
+EXPANDED_FORMAT expanded_formats[] = {
     "html", 0,
     "docbook", 0,
     "plaintext", 0,
@@ -440,7 +440,7 @@ encode_string (char *input_string, char *encoding, int *status,
 }
 
 void
-clear_expanded_formats (struct expanded_format *formats)
+clear_expanded_formats (EXPANDED_FORMAT *formats)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
@@ -451,7 +451,7 @@ clear_expanded_formats (struct expanded_format *formats)
 }
 
 void
-add_expanded_format (struct expanded_format *formats, char *format)
+add_expanded_format (EXPANDED_FORMAT *formats, char *format)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
@@ -469,10 +469,10 @@ add_expanded_format (struct expanded_format *formats, char *format)
 
 /* FORMAT is an optional argument, to set a format at the expanded_format
    structure creation */
-struct expanded_format *
+EXPANDED_FORMAT *
 new_expanded_formats (char *format)
 {
-  struct expanded_format *formats;
+  EXPANDED_FORMAT *formats;
 
   formats = malloc (sizeof (expanded_formats));
   memcpy (formats, expanded_formats, sizeof (expanded_formats));
@@ -484,7 +484,7 @@ new_expanded_formats (char *format)
 }
 
 int
-format_expanded_p (struct expanded_format *formats, char *format)
+format_expanded_p (EXPANDED_FORMAT *formats, char *format)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);

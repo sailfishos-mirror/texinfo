@@ -75,7 +75,7 @@ static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
 
 typedef struct COMMAND_ID_ARGS_SPECIFICATION {
     enum command_id cmd;
-    int flags[MAX_COMMAND_ARGS_NR];
+    unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ID_ARGS_SPECIFICATION;
 
 static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
@@ -106,7 +106,7 @@ static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
 
 typedef struct COMMAND_ARGS_SPECIFICATION {
     int status;
-    int flags [MAX_COMMAND_ARGS_NR];
+    unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ARGS_SPECIFICATION;
 
 static COMMAND_ARGS_SPECIFICATION command_args_flags[BUILTIN_CMD_NUMBER];
@@ -2211,7 +2211,7 @@ html_converter_initialize (CONVERTER *self)
       enum command_id cmd = default_commands_args[i].cmd;
       command_args_flags[cmd].status = 1;
       memcpy (&command_args_flags[cmd].flags, &default_commands_args[i].flags,
-              max_args);
+              max_args * sizeof (unsigned long));
     }
 
   for (i = 0; small_block_associated_command[i][0]; i++)
@@ -2706,7 +2706,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
         {
           fprintf (stderr, "IGNORED %s\n", command_type.text);
         }
-      return;
+      goto out;
     }
 
   /* Process text */
@@ -2748,7 +2748,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
       ADD(text_result.text);
       free (text_result.text);
-      return;
+      goto out;
     }
 
   if (element->cmd
@@ -2939,6 +2939,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                   for (arg_idx = 0; arg_idx < element->args.number; arg_idx++)
                     {
                       char *explanation;
+                      unsigned long arg_flags = 0;
                       ELEMENT *arg = element->args.list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
@@ -2951,7 +2952,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                         {
                           continue;
                         }
-                      int arg_flags = 0;
                       if (arg_idx < MAX_COMMAND_ARGS_NR
                           /* could check command_args_flags[cmd].status,
                              but it is probably faster not to */
@@ -3044,41 +3044,47 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                         }
                       if (arg_flags & F_AFT_monospacetext)
                         {
-                        /*
-                $arg_formatted->{$arg_type}
-                  = Texinfo::Convert::Text::convert_to_text($arg,
-                         {'code' => 1,
-                 Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-                        */
+                          char *text;
+                          TEXT_OPTIONS *text_conv_options
+                            = copy_options_for_convert_text (self, 0);
+                          text_conv_options->code_state = 1;
+
+                          text = convert_to_text (arg, text_conv_options);
+
+                          free (text_conv_options);
+
                           arg_formatted->formatted[AFT_type_monospacetext]
-                            = strdup ("");
+                            = text;
                         }
                       if (arg_flags & F_AFT_filenametext)
                         {
-                        /*
-                # Always use encoded characters for file names
-                $arg_formatted->{$arg_type}
-                  = Texinfo::Convert::Text::convert_to_text($arg,
-                         {'code' => 1,
-               Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
-                        */
-                          arg_formatted->formatted[AFT_type_filenametext]
-                            = strdup ("");
+                          char *text;
+                          /* Always use encoded characters for file names */
+                          TEXT_OPTIONS *text_conv_options
+                            = copy_options_for_convert_text (self, 1);
+                          text_conv_options->code_state = 1;
+
+                          text = convert_to_text (arg, text_conv_options);
+
+                          free (text_conv_options);
+
+                          arg_formatted->formatted[AFT_type_filenametext] = text;
                         }
                       if (arg_flags & F_AFT_url)
                         {
-                         /*
-                # set the encoding to UTF-8 to always have a string that is suitable
-                # for percent encoding.
-                my $text_conversion_options = {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
-                $text_conversion_options->{'enabled_encoding'} = 'utf-8';
-                $arg_formatted->{$arg_type}
-                   = Texinfo::Convert::Text::convert_to_text($arg,
-                                                   $text_conversion_options);
-                         */
-                          arg_formatted->formatted[AFT_type_url]
-                            = strdup ("");
+                          char *text;
+              /* set the encoding to UTF-8 to always have a string that is suitable
+                 for percent encoding. */
+                          TEXT_OPTIONS *text_conv_options
+                            = copy_options_for_convert_text (self, 1);
+                          text_conv_options->code_state = 1;
+                          text_conv_options->encoding = "utf-8";
+
+                          text = convert_to_text (arg, text_conv_options);
+
+                          free (text_conv_options);
+
+                          arg_formatted->formatted[AFT_type_url] = text;
                         }
                       if (arg_flags & F_AFT_raw)
                         {
@@ -3094,7 +3100,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           top_document_ctx->raw_ctx--;
                           self->modified_state++;
                           arg_formatted->formatted[AFT_type_raw]
-                           = strdup (formatted_arg.text);
+                            = strdup (formatted_arg.text);
                         }
                     }
                   free (formatted_arg.text);
@@ -3202,7 +3208,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
           free (content_formatted.text);
 
-          return;
+          goto out;
         }
       else
         {
@@ -3213,7 +3219,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
               self->current_root_command = 0;
               self->modified_state++;
             }
-          return;
+          goto out;
         }
 
       if (builtin_command_data[data_cmd].flags & CF_root)
@@ -3345,7 +3351,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       ADD(type_result.text);
       free (type_result.text);
 
-      return;
+      goto out;
     }
   else if (element->contents.number > 0)
     {
@@ -3372,7 +3378,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "UNNAMED HOLDER => `%s'\n", content_formatted.text);
       ADD(content_formatted.text);
-      return;
+      goto out;
     }
   else
     {
@@ -3381,16 +3387,24 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       if (self->types_conversion[0].status
           && self->types_conversion[0].status != FRS_status_ignored)
         {
-          /*
-      return &{$self->{'types_conversion'}->{''}} ($self, $element);
-           */
+          char *conversion_result
+                    = type_conversion (self, 0, element, "");
+          if (conversion_result)
+            {
+              ADD(conversion_result);
+              free (conversion_result);
+            }
+          goto out;
         }
       else
-        return;
+        goto out;
     }
   debug_str = print_element_debug (element, 0);
   fprintf (stderr, "DEBUG: HERE!(%p:%s)\n", element, debug_str);
   free (debug_str);
+
+ out:
+  free (command_type.text);
 }
 
 static char *

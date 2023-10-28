@@ -230,13 +230,12 @@ sub converter($;$)
   Texinfo::Common::set_output_encodings($converter,
                                         $converter->{'document_info'});
 
-  # turn the array to a hash for speed.  Not sure it really matters for such
-  # a small array.
+  # turn the array to a hash.
   my $expanded_formats = $converter->get_conf('EXPANDED_FORMATS');
-  $converter->{'expanded_formats_hash'} = {};
+  $converter->{'expanded_formats'} = {};
   if (defined($expanded_formats)) {
     foreach my $expanded_format (@{$converter->get_conf('EXPANDED_FORMATS')}) {
-      $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
+      $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
 
@@ -442,7 +441,8 @@ sub encode_converter_document($)
                                       # and set converter_descriptor
                 'document_descriptor' => $self->{'document_descriptor'}};
 
-  foreach my $variable ('style_commands_formatting', 'formatting_function',
+  foreach my $variable ('expanded_formats', 'style_commands_formatting',
+     'formatting_function',
      'types_open', 'types_conversion', 'commands_open', 'commands_conversion',
      'output_units_conversion', 'code_types', 'pre_class_types') {
     if ($self->{$variable}) {

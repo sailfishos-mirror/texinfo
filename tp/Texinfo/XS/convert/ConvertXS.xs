@@ -315,6 +315,13 @@ html_translate_names (SV *converter_in)
 
          html_translate_names (self);
 
+         if (self->modified_state)
+           {
+             build_html_formatting_state (self);
+             self->modified_state = 0;
+           }
+
+
 SV *
 html_convert_init (SV *converter_in)
   PREINIT:
@@ -355,6 +362,11 @@ html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *sp
          result = html_convert_convert (self, document->tree,
                                         output_units_descriptor,
                                         special_units_descriptor);
+         if (self->modified_state)
+           {
+             build_html_formatting_state (self);
+             self->modified_state = 0;
+           }
          RETVAL = newSVpv_utf8 (result, 0);
          free (result);
     OUTPUT:

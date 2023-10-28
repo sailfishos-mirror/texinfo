@@ -275,7 +275,7 @@ sub converter_initialize($)
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
                         keys(%Texinfo::Commands::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
-         if $self->{'expanded_formats_hash'}->{$raw};
+         if $self->{'expanded_formats'}->{$raw};
   }
 }
 
@@ -1041,7 +1041,7 @@ sub _convert($$;$)
 
       if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
           and $element->{'extra'} and $element->{'extra'}->{'format'}
-          and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
+          and $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
         if ($element->{'cmdname'} eq 'inlineraw') {
           push @{$self->{'document_context'}}, {'monospace' => [0]};
           $self->{'document_context'}->[-1]->{'raw'} = 1;
@@ -1292,7 +1292,7 @@ sub _convert($$;$)
         }
         push @$attribute, $self->_arg_line($element);
       }
-      if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
+      if ($self->{'expanded_formats'}->{$element->{'cmdname'}}) {
         $self->{'document_context'}->[-1]->{'raw'} = 1;
       } else {
         my @end_command_spaces;
@@ -1587,7 +1587,7 @@ sub _convert($$;$)
   }
   if ($element->{'cmdname'}
       and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
-    if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
+    if ($self->{'expanded_formats'}->{$element->{'cmdname'}}) {
     } else {
       if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
           and $element->{'contents'}->[-1]->{'cmdname'}

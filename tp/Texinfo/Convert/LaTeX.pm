@@ -839,7 +839,7 @@ sub converter_initialize($)
 
   foreach my $format (keys(%format_raw_commands)) {
     $self->{'ignored_commands'}->{$format} = 1
-       unless ($self->{'expanded_formats_hash'}->{$format});
+       unless ($self->{'expanded_formats'}->{$format});
   }
 
   %{$self->{'quotes_map'}} = %quotes_map;
@@ -2616,7 +2616,7 @@ sub _convert($$)
                      and $cmdname ne 'inlinefmtifelse'
                      and (($inline_format_commands{$cmdname}
                           and (!$element->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats_hash'}
+                               or !$self->{'expanded_formats'}
                                       ->{$element->{'extra'}->{'format'}}))
                          or (!$inline_format_commands{$cmdname}
                              and !defined($element->{'extra'}->{'expand_index'}))))))) {
@@ -3451,7 +3451,7 @@ sub _convert($$)
       my $arg_index = 1;
       if ($cmdname eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
-               or !$self->{'expanded_formats_hash'}
+               or !$self->{'expanded_formats'}
                                         ->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }

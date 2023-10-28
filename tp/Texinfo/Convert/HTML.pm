@@ -659,7 +659,7 @@ sub is_format_expanded($$)
   my $self = shift;
   my $format = shift;
 
-  return $self->{'expanded_formats_hash'}->{$format};
+  return $self->{'expanded_formats'}->{$format};
 }
 
 # the main data structure of the element target API is a hash reference, called
@@ -8189,7 +8189,7 @@ sub converter_initialize($)
            and ($command eq 'menu' or $command eq 'detailmenu')) {
         $self->{'commands_conversion'}->{$command} = undef;
       } elsif ($format_raw_commands{$command}
-               and !$self->{'expanded_formats_hash'}->{$command}) {
+               and !$self->{'expanded_formats'}->{$command}) {
         $self->{'commands_conversion'}->{$command} = undef;
       } elsif (exists($default_commands_conversion{$command})) {
         $self->{'commands_conversion'}->{$command}
@@ -11109,7 +11109,7 @@ sub convert($$)
   # and SHOW_TITLE set, with the default formatting function.
   if ($self->{'converter_descriptor'}) {
     # FIXME distinguish failure and no title?  Could actually use
-    # unddef for failurre, as without title, return an empty string.
+    # undef for failure, as without title, return an empty string.
     my $title_titlepage =
       _XS_html_convert_init($encoded_converter);
     $self->{'title_titlepage'} = $title_titlepage;

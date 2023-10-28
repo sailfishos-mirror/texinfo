@@ -1983,7 +1983,6 @@ build_html_formatting_state (CONVERTER *converter)
        */
     }
 
-
 #undef STORE
 
   return newRV_noinc ((SV *) hv);

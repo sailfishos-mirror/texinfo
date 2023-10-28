@@ -974,7 +974,7 @@ funexit:
   return current;
 }
 
-struct expanded_format parser_expanded_formats[] = {
+EXPANDED_FORMAT parser_expanded_formats[] = {
     "html", 0,
     "docbook", 0,
     "plaintext", 1,

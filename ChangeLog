@@ -37,6 +37,44 @@
 
 2023-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm,
+	tp/t/test_utils.pl: rename expanded_formats_hash as expanded_formats.
+
+	* tp/Texinfo/XS/main/utils.h (EXPANDED_FORMAT): set typedef for struct
+	expanded_format.  Update all code using this type.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/XS/main/get_perl_info.c (get_expanded_formats)
+	(copy_sv_options_for_convert_text, html_converter_initialize_sv):
+	pass expanded_formats to converter.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_translate_names)
+	(html_convert_convert): if self->modified_state, rebuild formatting
+	state after calling the C function.
+
+	* tp/Texinfo/XS/convert/convert_html.c (COMMAND_ID_ARGS_SPECIFICATION)
+	(COMMAND_ARGS_SPECIFICATION, html_converter_initialize)
+	(convert_to_html_internal): use systematically unsigned long for flags
+	and correctly multiply by the size when copying.
+
+	* tp/Texinfo/XS/main/convert_to_text.c
+	(TEXT_INDICATOR_CONVERTER_OPTIONS, copy_options_for_convert_text),
+	tp/Texinfo/XS/main/convert_to_text.h (TEXT_OPTIONS),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	add copy_options_for_convert_text to be called from converters.
+	Upper-case TEXT_OPTIONS fields common with OPTIONS.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	set convert_to_text formatted args.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	free command_type.text.
+
+2023-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize):
 	fix setting HF_composition_context for HTML_align_cmd.
 
