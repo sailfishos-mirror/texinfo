@@ -2038,9 +2038,11 @@ command_conversion (CONVERTER *self, enum command_id cmd,
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
   /* FIXME XS specific debug message */
+  /*
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "DEBUG: command conversion %s '%s'\n",
              builtin_command_data[cmd].cmdname, content);
+   */
   if (self->commands_conversion[cmd].status > 0)
     return call_commands_conversion (self, cmd, element,
                                      args_formatted, content);
@@ -2727,12 +2729,12 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
         }
       else
         {
-          char *result = type_conversion (self, element->type, element,
-                                          element->text.text);
-          if (result)
+          char *conv_text = type_conversion (self, ET_text, element,
+                                             element->text.text);
+          if (conv_text)
             {
-              text_append (&text_result, result);
-              free (result);
+              text_append (&text_result, conv_text);
+              free (conv_text);
             }
         }
 
@@ -2753,10 +2755,12 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
     {
       enum command_id data_cmd = element_builtin_data_cmd (element);
       /* FIXME XS only debug message */
+      /*
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "COMMAND: %s %s\n",
                  builtin_command_data[data_cmd].cmdname,
                  builtin_command_data[cmd].cmdname);
+      */
 
       if (builtin_command_data[data_cmd].flags & CF_root)
         {
@@ -2904,9 +2908,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                     }
                 }
             }
-          /* FIXME XS only debug message */
-          if (self->conf->DEBUG > 0)
-            fprintf (stderr, "CM CONTENTS: '%s'\n", content_formatted.text);
 
           if ((builtin_command_data[data_cmd].flags & CF_brace)
               || (builtin_command_data[data_cmd].flags & CF_line
@@ -3299,12 +3300,13 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
       if (self->types_conversion[type].status)
         {
-          char *result = type_conversion (self, type, element,
-                                          content_formatted.text);
-          if (result)
+          char *conversion_result
+                    = type_conversion (self, type, element,
+                                       content_formatted.text);
+          if (conversion_result)
             {
-              text_append (&type_result, result);
-              free (result);
+              text_append (&type_result, conversion_result);
+              free (conversion_result);
             }
         }
       else if (content_formatted.end > 0)

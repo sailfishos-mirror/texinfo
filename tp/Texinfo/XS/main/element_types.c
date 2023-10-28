@@ -71,6 +71,7 @@ char *element_type_names[] = {
 "macro_call",
 "rmacro_call",
 "linemacro_call",
+"text",
 "_code",
 "_converted",
 "_string",

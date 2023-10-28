@@ -103,6 +103,10 @@ macro_call
 rmacro_call
 linemacro_call
 
+# virtual type not corresponding to a specific element in tree, but
+# used for all the elements that hold text, typically in converters.
+text
+
 # for HTML converter
 _code
 _converted
