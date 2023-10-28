@@ -51,7 +51,10 @@ call_switch_to_global_locale ()
 {
   dTHX;
 
+#if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
+  /* needed due to thread-safe locale handling in newer perls */
   switch_to_global_locale ();
+#endif
 }
 
 void
@@ -59,5 +62,8 @@ call_sync_locale ()
 {
   dTHX;
 
+#if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
+  /* needed due to thread-safe locale handling in newer perls */
   sync_locale ();
+#endif
 }
