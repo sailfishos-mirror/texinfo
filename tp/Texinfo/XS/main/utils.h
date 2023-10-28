@@ -395,7 +395,7 @@ typedef struct HTML_DOCUMENT_CONTEXT {
     int raw_ctx;
     int verbatim_ctx;
     int math_ctx;
-    int document_global_context;
+    char *document_global_context;
     MONOSPACE_CONTEXT_STACK monospace_context;
     COMMAND_OR_TYPE_STACK composition_context;
     COMMAND_STACK block_commands;
@@ -423,8 +423,6 @@ typedef struct CONVERTER {
 
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
-
-    int modified_state; /* to determine if perl data should be rebuilt */
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
@@ -456,13 +454,22 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
+    FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
 
-    /* state */
+    /* state only in C converter */
+    int modified_state; /* to determine if perl data should be rebuilt */
+    ELEMENT *tree_to_build; /* C tree that needs to be built to perl before
+                               calling perl functions on it */
+
+
+    /* state common with perl converter */
     int document_global_context;
+    int ignore_notice;
     ELEMENT *current_root_command;
     ELEMENT *current_node;
     OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
+    STRING_STACK multiple_pass;
     char *current_filename;
 } CONVERTER;
 
@@ -512,6 +519,36 @@ typedef struct INDEX_SORTABLE_ENTRIES {
     size_t number;
     SORTABLE_ENTRY *sortable_entries;
 } INDEX_SORTABLE_ENTRIES;
+
+#define HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE \
+  html_aft_type(none) \
+  html_aft_type(normal) \
+  html_aft_type(string) \
+  html_aft_type(monospace) \
+  html_aft_type(monospacetext) \
+  html_aft_type(monospacestring) \
+  html_aft_type(filenametext) \
+  html_aft_type(url) \
+  html_aft_type(raw)
+
+enum html_argument_formatting_type {
+   #define html_aft_type(name) AFT_type_##name,
+    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
+   #undef html_aft_type
+};
+
+extern const char *html_argument_formatting_type_names[];
+
+typedef struct HTML_ARG_FORMATTED {
+    ELEMENT *tree;
+    char *formatted[AFT_type_raw+1];
+} HTML_ARG_FORMATTED;
+
+typedef struct HTML_ARGS_FORMATTED {
+    size_t number;
+    HTML_ARG_FORMATTED *args;
+} HTML_ARGS_FORMATTED;
+
 
 int xasprintf (char **ptr, const char *template, ...);
 

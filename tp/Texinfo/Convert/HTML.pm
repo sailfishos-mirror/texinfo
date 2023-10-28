@@ -2332,6 +2332,7 @@ sub _translate_names($;$)
                 'conf' => $encoded_conf,
                };
     _XS_translate_names($encoded_converter);
+    return;
   }
 
   print STDERR "\nTRANSLATE_NAMES encoding_name: "
@@ -6983,7 +6984,7 @@ sub _convert_def_line_type($$$$)
     # should probably never happen
     return &{$self->formatting_function('format_protect_text')}($self,
      Texinfo::Convert::Text::convert_to_text(
-      $element, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
+      $element, {Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
   }
 
   my $index_label = '';
@@ -7528,7 +7529,7 @@ sub _default_format_element_footer($$$$;$)
 # is not done within the document formatting flow, but the formatted
 # output may still end up in the document.  In particular for
 # command_text() which caches its computations.
-sub _new_document_context($;$$)
+sub _new_document_context($;$$$)
 {
   my $self = shift;
   my $context = shift;
@@ -7648,7 +7649,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
     } elsif ($reset_context eq 'preformatted') {
       # there does not seems to be anything simpler...
       my $preformatted_command_name = 'example';
-      $self->_new_document_context();
+      $self->_new_document_context("Translate $cmdname");
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
           $preformatted_command_name;
       # should not be needed for at commands no brace translation strings
@@ -7967,7 +7968,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($$$$$$$)
+sub _XS_converter_initialize($$$$$$$$)
 {
 }
 
@@ -8188,6 +8189,7 @@ sub converter_initialize($)
         $self->{'commands_conversion'}->{$command} = undef;
       } elsif ($format_raw_commands{$command}
                and !$self->{'expanded_formats_hash'}->{$command}) {
+        $self->{'commands_conversion'}->{$command} = undef;
       } elsif (exists($default_commands_conversion{$command})) {
         $self->{'commands_conversion'}->{$command}
            = $default_commands_conversion{$command};
@@ -8423,7 +8425,8 @@ sub converter_initialize($)
                              \%default_commands_open,
                              \%default_commands_conversion,
                              \%default_types_open,
-                             \%default_types_conversion);
+                             \%default_types_conversion,
+                             \%default_output_units_conversion);
   }
 
   return $self;
@@ -11158,9 +11161,7 @@ sub convert_output_unit($$;$)
   if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
       and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
     if ($debug) {
-      my $string = 'IGNORED';
-      $string .= " $unit_type_name" if ($unit_type_name);
-      print STDERR "$string\n";
+      print STDERR "IGNORED OU $unit_type_name\n";
     }
     return '';
   }
@@ -11468,7 +11469,7 @@ sub output($$)
     = $self->_prepare_conversion_units($root, $document_name);
 
   # setup untranslated strings
-  $self->_translate_names(1);
+  $self->_translate_names();
 
   my %files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,
@@ -11491,7 +11492,7 @@ sub output($$)
   my $preamble_document_language = $self->get_conf('documentlanguage');
 
   if ($default_document_language ne $preamble_document_language) {
-    $self->_translate_names(1);
+    $self->_translate_names();
   }
 
   # prepare title.  fulltitle uses more possibility than simpletitle for
@@ -12328,6 +12329,9 @@ sub _convert($$;$)
     } else {
       print STDERR "Command not converted: $command_name\n"
        if ($self->get_conf('VERBOSE') or $self->get_conf('DEBUG'));
+      if ($root_commands{$command_name}) {
+        delete $self->{'current_root_command'};
+      }
       return '';
     }
     if ($root_commands{$command_name}) {

@@ -444,7 +444,7 @@ sub encode_converter_document($)
 
   foreach my $variable ('style_commands_formatting', 'formatting_function',
      'types_open', 'types_conversion', 'commands_open', 'commands_conversion',
-     'code_types', 'pre_class_types') {
+     'output_units_conversion', 'code_types', 'pre_class_types') {
     if ($self->{$variable}) {
       $result->{$variable} = $self->{$variable};
     }

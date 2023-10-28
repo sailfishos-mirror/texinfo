@@ -1,3 +1,58 @@
+2023-10-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): fix call of
+	Texinfo::Convert::Text::convert_to_text (in a code that is never run
+	in normal circumstances).
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): set non expanded
+	raw format commands to undef in 'commands_conversion' rather than not
+	setting the key in the hash, as the meaning is different, it means
+	ignoring the command, not that the command is not formatted.  For the
+	XS code it makes a difference.
+
+	* tp/Texinfo/Convert/HTML.pm (_translate_names, output): do not run
+	both perl and XS code as it will mess up the converter state.  Do not
+	call the XS code for now in output.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert): unset
+	$self->{'current_root_command'} also when the command is not
+	converted.
+
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document)
+	tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize_sv),
+	tp/Texinfo/XS/main/utils.h (CONVERTER): pass output_units_conversion
+	to XS.
+
+	* tp/Texinfo/Convert/Text.pm (convert_to_text): confess if $options is
+	not a ref.
+
+	* tp/Texinfo/XS/main/utils.h (HTML_ARG_FORMATTED)
+	(HTML_ARGS_FORMATTED, enum argument_formatting_type)
+	(HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE):
+	rename from ARG_FORMATTED and ARGS_FORMATTED, move from
+	tp/Texinfo/XS/convert/convert_html.c and add
+	HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE.
+
+	* tp/Texinfo/XS/convert/convert_html.c (command_conversion)
+	(command_open, convert_tree, convert_tree_new_formatting_context)
+	(reset_unset_no_arg_commands_formatting_context)
+	(destroy_args_formatted, convert_to_html_internal)
+	(output_unit_conversion, convert_output_unit),
+	tp/Texinfo/XS/main/build_perl_info.c (build_html_formatting_state)
+	(build_html_command_formatted_args),
+	tp/Texinfo/XS/main/call_perl_function.c (call_commands_conversion)
+	(call_commands_open, call_output_units_conversion)
+	(call_types_conversion, call_types_open), tp/Texinfo/XS/main/utils.h
+	(CONVERTER), tp/Texinfo/XS/main/utils.c
+	(html_argument_formatting_type_names): call output units conversion,
+	command opening and conversion.  Progress in completeness of
+	conversion.  Add self->modified_state to mark that the formatting
+	state has to be rebuilt and self->tree_to_build if a tree need to be
+	built as perl, in general when it comes from a translated string.
+	Pass formatted_args to perl, pass multiple_pass formatting state.
+
 2023-10-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_array):

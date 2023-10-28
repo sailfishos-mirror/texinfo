@@ -488,13 +488,15 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference
-    = self->formatting_references[FR_format_title_titlepage].sv_reference;
+  SV *formatting_reference;
 
   dTHX;
 
   if (!self->hv)
     return 0;
+
+  formatting_reference
+    = self->formatting_references[FR_format_title_titlepage].sv_reference;
 
   dSP;
 
@@ -537,12 +539,20 @@ call_types_conversion (CONVERTER *self, enum element_type type,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference = self->types_conversion[type].sv_reference;
+  SV *formatting_reference;
 
   dTHX;
 
   if (!self->hv)
     return 0;
+
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
+  formatting_reference = self->types_conversion[type].sv_reference;
 
   if (self->modified_state)
     {
@@ -598,12 +608,20 @@ call_types_open (CONVERTER *self, enum element_type type,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference = self->types_open[type].sv_reference;
+  SV *formatting_reference;
 
   dTHX;
 
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
   if (!self->hv)
     return 0;
+
+  formatting_reference = self->types_open[type].sv_reference;
 
   if (self->modified_state)
     {
@@ -646,3 +664,225 @@ call_types_open (CONVERTER *self, enum element_type type,
 
   return result;
 }
+
+char *
+call_commands_conversion (CONVERTER *self, enum command_id cmd,
+                          ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                          const char *content)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+  SV *args_formatted_sv;
+  char *command_name;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
+  /* could also be builtin_command_data[cmd].cmdname) */
+  command_name = element_command_name (element);
+
+  formatting_reference = self->commands_conversion[cmd].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self);
+      self->modified_state = 0;
+    }
+
+  args_formatted_sv = build_html_command_formatted_args (args_formatted);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 5);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (command_name, 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUSHs(sv_2mortal (args_formatted_sv));
+  /* content == 0 is possible, hope that newSVpv result corresponds to
+     undef in that case, but could also need to explicitely use newSV(0) */
+  PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("commands_conversion should return 1 item\n");
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_commands_open (CONVERTER *self, enum command_id cmd,
+                    ELEMENT *element)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+  char *command_name;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
+  formatting_reference = self->commands_open[cmd].sv_reference;
+
+  /* could also be builtin_command_data[cmd].cmdname) */
+  command_name = element_command_name (element);
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (command_name, 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("commands_open should return 1 item\n");
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_output_units_conversion (CONVERTER *self,
+                               enum output_unit_type unit_type,
+                               OUTPUT_UNIT *output_unit, const char *content)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
+  formatting_reference
+     = self->output_units_conversion[unit_type].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
+  PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+  /* content == 0 is possible, hope that newSVpv result corresponds to
+     undef in that case, but could also need to explicitely use newSV(0) */
+  PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("output_units_conversion should return 1 item\n");
+
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+

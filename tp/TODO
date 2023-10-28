@@ -31,6 +31,11 @@ Document that Texinfo::Structuring::rebuild_document or
 Texinfo::Structuring::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.
 
+More fine grained determination of what needs to be rebuilt in converter,
+mostly for document and formatting state instead of one indicator
+self->modified_state, could imagine giving the index of the document context
+that needs to be redone or done, or even more fine grained.
+
 the code in _parsed_manual_tree in Pod-Simple-Texinfo/pod2texi.pl
 does not work perfectly with XS.  See FIXME in the code.  Tested in
 ./manual_tests/manual_sectioning_gap_test.sh

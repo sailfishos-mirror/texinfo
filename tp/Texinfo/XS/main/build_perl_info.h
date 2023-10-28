@@ -11,7 +11,7 @@
 int init (int texinfo_uninstalled, char *srcdir_in);
 
 /* does not exist as perl macro */
-SV *newSVpv_utf8 (char *str, STRLEN len);
+SV *newSVpv_utf8 (const char *str, STRLEN len);
 
 SV *build_document (size_t document_descriptor, int no_store);
 
@@ -49,4 +49,6 @@ SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 SV *build_html_formatting_state (CONVERTER *converter);
+
+SV *build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted);
 #endif

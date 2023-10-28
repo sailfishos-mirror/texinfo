@@ -33,5 +33,13 @@ char *call_types_conversion (CONVERTER *self, enum element_type type,
                              ELEMENT *element, char *content);
 char *call_types_open (CONVERTER *self, enum element_type type,
                        ELEMENT *element);
+char *call_commands_conversion (CONVERTER *self, enum command_id cmd,
+                          ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                          const char *content);
+char *call_commands_open (CONVERTER *self, enum command_id cmd,
+                          ELEMENT *element);
+char *call_output_units_conversion (CONVERTER *self,
+                                    enum output_unit_type unit_type,
+                                OUTPUT_UNIT *output_unit, const char *content);
 
 #endif

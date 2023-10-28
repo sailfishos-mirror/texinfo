@@ -388,7 +388,7 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
 static void
 register_formatting_reference_with_default (char *type_string,
                 FORMATTING_REFERENCE *formatting_reference,
-                char *ref_name, HV *default_hv, HV *customized_hv)
+                const char *ref_name, HV *default_hv, HV *customized_hv)
 {
   SV **default_formatting_reference_sv;
   SV **formatting_reference_sv;
@@ -434,7 +434,8 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                               SV *default_commands_open,
                               SV *default_commands_conversion,
                               SV *default_types_open,
-                              SV *default_types_conversion)
+                              SV *default_types_conversion,
+                              SV *default_output_units_conversion)
 {
   int i;
   HV *hv_in;
@@ -444,6 +445,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   HV *default_commands_conversion_hv;
   HV *default_types_open_hv;
   HV *default_types_conversion_hv;
+  HV *default_output_units_conversion_hv;
   SV **converter_init_conf_sv;
   SV **converter_sv;
   SV **formatting_function_sv;
@@ -454,6 +456,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   SV **types_conversion_sv;
   SV **commands_open_sv;
   SV **commands_conversion_sv;
+  SV **output_units_conversion_sv;
   SV **code_types_sv;
   SV **pre_class_types_sv;
   HV *formatting_function_hv;
@@ -461,6 +464,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   HV *commands_conversion_hv;
   HV *types_open_hv;
   HV *types_conversion_hv;
+  HV *output_units_conversion_hv;
   CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
   DOCUMENT *document;
@@ -612,6 +616,23 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         conversion_formatting_reference, ref_name,
         default_types_conversion_hv,
         types_conversion_hv);
+    }
+
+  FETCH(output_units_conversion)
+  output_units_conversion_hv = (HV *)SvRV (*output_units_conversion_sv);
+  default_output_units_conversion_hv
+    = (HV *)SvRV (default_output_units_conversion);
+
+  for (i = 0; i < OU_special_unit+1; i++)
+    {
+      const char *ref_name = output_unit_type_names[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->output_units_conversion[i];
+
+      register_formatting_reference_with_default ("output_unit_conversion",
+        conversion_formatting_reference, ref_name,
+        default_output_units_conversion_hv,
+        output_units_conversion_hv);
     }
 
   FETCH(sorted_special_unit_varieties)

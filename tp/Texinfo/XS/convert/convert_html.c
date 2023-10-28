@@ -43,28 +43,6 @@ typedef struct ROOT_AND_UNIT {
     ELEMENT *root;
 } ROOT_AND_UNIT;
 
-enum argument_formatting_type {
-  AFT_type_none,
-  AFT_type_normal,
-  AFT_type_string,
-  AFT_type_monospace,
-  AFT_type_monospacetext,
-  AFT_type_monospacestring,
-  AFT_type_filenametext,
-  AFT_type_url,
-  AFT_type_raw,
-};
-
-typedef struct ARG_FORMATTED {
-    ELEMENT *tree;
-    char *formatted[AFT_type_raw+1];
-} ARG_FORMATTED;
-
-typedef struct ARGS_FORMATTED {
-    size_t number;
-    ARG_FORMATTED *args;
-} ARGS_FORMATTED;
-
 /* unused */
 #define F_AFT_none              0x0001
 
@@ -301,240 +279,6 @@ special_unit_variety_direction_index (CONVERTER *self,
         return variety_direction_index->direction_index;
     }
   return -1;
-}
-
-/* FIXME conversion need to be added */
-static void
-reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
-                   enum command_id cmd, int reset_context, int ref_context,
-                   int translate)
-{
-  HTML_COMMAND_CONVERSION *no_arg_command_context;
-  HTML_COMMAND_CONVERSION **conversion_contexts
-    = self->html_command_conversion[cmd];
-  /* should never happen as unset is set at configuration */
-  if (!conversion_contexts[reset_context])
-    {
-      conversion_contexts[reset_context] =
-        (HTML_COMMAND_CONVERSION *) malloc (sizeof (HTML_COMMAND_CONVERSION));
-      memset (conversion_contexts[reset_context], 0,
-              sizeof (HTML_COMMAND_CONVERSION));
-
-      conversion_contexts[reset_context]->unset = 1;
-    }
-  no_arg_command_context = conversion_contexts[reset_context];
-  if (ref_context >= 0)
-    {
-      if (no_arg_command_context->unset)
-        {
-          HTML_COMMAND_CONVERSION *no_arg_ref
-            = conversion_contexts[ref_context];
-
-          /* TODO memory leaks possible for the other char * fields */
-
-          if (no_arg_ref->text)
-            no_arg_command_context->text = no_arg_ref->text;
-          if (no_arg_ref->tree)
-            no_arg_command_context->tree = no_arg_ref->tree;
-          if (no_arg_ref->translated_converted)
-            {
-              free (no_arg_command_context->translated_converted);
-              no_arg_command_context->translated_converted
-                = strdup (no_arg_ref->translated_converted);
-            }
-          if (no_arg_ref->translated_to_convert)
-            no_arg_command_context->translated_to_convert
-              = no_arg_ref->translated_to_convert;
-        }
-    }
-
-  if (translate
-      && no_arg_command_context->tree
-      && !no_arg_command_context->translated_converted)
-    {
-      char *translation_result = 0;
-      ELEMENT *translated_tree = no_arg_command_context->tree;
-      if (reset_context == HCC_type_normal)
-        {
-          char *explanation;
-          xasprintf (&explanation, "no arg %s translated",
-                     builtin_command_data[cmd].cmdname);
-           /*
-          translation_result = convert_tree (self, explanation);
-            */
-          free (explanation);
-        }
-      else if (reset_context == HCC_type_preformatted)
-        {
-          /*
-      # there does not seems to be anything simpler...
-      my $preformatted_command_name = 'example';
-      $self->_new_document_context();
-      push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-          $preformatted_command_name;
-      # should not be needed for at commands no brace translation strings
-      push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-          $pre_class_commands{$preformatted_command_name};
-      $translation_result
-        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
-      # only pop the main context
-      $self->_pop_document_context();
-           */
-        }
-      else if (reset_context == HCC_type_string)
-        {
-          /*
-      $translation_result
-        = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                          'contents' => [$translated_tree]},
-                     'translated_string', "string no arg $cmdname translated");
-           */
-        }
-      else if (reset_context == HCC_type_css_string)
-        {
-           /*
-          translation_result = html_convert_css_string (self, translated_tree);
-            */
-        }
-      if (no_arg_command_context->text)
-        free (no_arg_command_context->text);
-      no_arg_command_context->text = translation_result;
-    }
-}
-
-static void
-complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
-                                     int translate)
-{
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
-                                                  -1, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd,
-                                                  HCC_type_preformatted,
-                                                  HCC_type_normal, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
-                                                  HCC_type_preformatted, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
-                                                  HCC_type_string, translate);
-}
-
-void
-html_translate_names (CONVERTER *self)
-{
-  int j;
-  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
-  if (self->conf->DEBUG > 0)
-    {
-      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: "
-               " documentlanguage: %s\n", self->conf->documentlanguage);
-    }
-
-  /* reset strings such that they are translated when needed. */
-  #define tds_type(name) self->directions_strings[TDS_type_ ## name] = 0;
-   TDS_TRANSLATED_TYPES_LIST
-  #undef tds_type
-
-  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
-    {
-      int i;
-      int tree_type = translated_special_unit_info[j].tree_type;
-      for (i = 0; i < special_unit_varieties->number; i++)
-        self->special_unit_info_tree[tree_type][i] = 0;
-    }
-
-  /* delete the tree and formatted results for special elements
-     such that they are redone with the new tree when needed. */
-  for (j = 0; j < special_unit_varieties->number; j++)
-    {
-      char *special_unit_variety = special_unit_varieties->list[j];
-      int special_unit_direction_index
-       = special_unit_variety_direction_index (self, special_unit_variety);
-      if (special_unit_direction_index >= 0)
-        {
-          OUTPUT_UNIT *special_unit
-           = self->global_units_directions[special_unit_direction_index];
-          if (special_unit)
-             {
-               ELEMENT *command = special_unit->unit_command;
-               if (command)
-                 {
-                   HTML_TARGET *target
-                     = find_element_target (self->html_targets, command);
-                   if (target)
-                     {
-                       target->tree = 0;
-                       target->string = 0;
-                       target->text = 0;
-                     }
-                 }
-             }
-        }
-    }
-
-  if (self->no_arg_formatted_cmd)
-    {
-      int translated_nr = 0;
-      /* this is overkill, but simpler */
-      enum command_id *translated_cmds = (enum command_id *)
-        malloc ((self->no_arg_formatted_cmd->number +1)
-                * sizeof (enum command_id));
-      memset (translated_cmds, 0, (self->no_arg_formatted_cmd->number +1)
-                * sizeof (enum command_id));
-
-      for (j = 0; j < self->no_arg_formatted_cmd->number; j++)
-        {
-          enum command_id cmd = self->no_arg_formatted_cmd->list[j];
-          int i;
-          int add_cmd = 0;
-          for (i = 0; i < HCC_type_css_string+1; i++)
-            {
-              HTML_COMMAND_CONVERSION *format_spec
-                = self->html_command_conversion[cmd][i];
-              if (format_spec->translated_converted
-                  && !format_spec->unset)
-                {
-                  add_cmd = 1;
-                  format_spec->text
-                   = gdt_string (format_spec->translated_converted, self->conf,
-                                 0, 0, 0);
-                }
-              else if (i == HCC_type_normal)
-                {
-                  ELEMENT *translated_tree = 0;
-                  if (format_spec->translated_to_convert)
-                    {/* FIXME use document associated to converter? */
-                      translated_tree =
-                         gdt_tree (format_spec->translated_to_convert,
-                                   0, self->conf, 0, 0, 0);
-                    }
-                  else
-                    translated_tree = translated_command_tree (self, cmd);
-
-                  if (translated_tree)
-                    {
-                      add_cmd = 1;
-
-                      format_spec->tree = translated_tree;
-                    }
-                }
-            }
-          if (add_cmd)
-            {
-              translated_cmds[translated_nr] = cmd;
-              translated_nr++;
-            }
-        }
-
-      for (j = 0; j < translated_nr; j++)
-        {
-          enum command_id cmd = translated_cmds[j];
-          complete_no_arg_commands_formatting (self, cmd, 1);
-        }
-
-      free (translated_cmds);
-    }
-
-  if (self->conf->DEBUG > 0)
-    fprintf (stderr, "END TRANSLATE_NAMES\n\n");
 }
 
 typedef struct CMD_VARIETY {
@@ -851,92 +595,6 @@ void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
 
   html_commands_data[cmd].pre_class = pre_class_str;
   html_commands_data[cmd].flags |= HF_pre_class;
-}
-
-/* most of the initialization is done by html_converter_initialize_sv
-   in get_perl_info, the initialization that sdo not require information
-   from perl is done here */
-void
-html_converter_initialize (CONVERTER *self)
-{
-  int i;
-  int nr_default_commands
-    = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
-  int max_args = MAX_COMMAND_ARGS_NR;
-  for (i = 0; i < nr_default_commands; i++)
-    {
-      /* we file the status for specified commands, to distinguish them
-         but it is not actually used in the code, as we default to
-         normal for unspecified commands too */
-      enum command_id cmd = default_commands_args[i].cmd;
-      command_args_flags[cmd].status = 1;
-      memcpy (&command_args_flags[cmd].flags, &default_commands_args[i].flags,
-              max_args);
-    }
-
-  for (i = 0; small_block_associated_command[i][0]; i++)
-    {
-      enum command_id small_cmd = small_block_associated_command[i][0];
-      enum command_id cmd = small_block_associated_command[i][1];
-      register_pre_class_command (small_cmd, cmd);
-    }
-
-  for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      if (builtin_command_data[i].flags & CF_block
-          || builtin_command_data[i].flags & CF_root)
-        register_format_context_command (i);
-
-      if (builtin_command_data[i].flags & CF_preformatted
-          || builtin_command_data[i].flags & CF_root)
-        html_commands_data[i].flags |= HF_composition_context;
-
-      if (builtin_command_data[i].flags & CF_block)
-        {
-          if (builtin_command_data[i].data == BLOCK_menu)
-            html_commands_data[i].flags |= HF_composition_context;
-          else if (builtin_command_data[i].data == BLOCK_format_raw)
-            html_commands_data[i].flags |= HF_format_raw;
-        }
-
-      if (builtin_command_data[i].flags & CF_preformatted)
-        {
-          if (!(html_commands_data[i].flags & HF_pre_class))
-            register_pre_class_command (i, 0);
-        }
-    }
-  register_pre_class_command (CM_verbatim, 0);
-  register_pre_class_command (CM_menu, 0);
-  for (i = 0; additional_format_context_cmd[i]; i++)
-    register_format_context_command (additional_format_context_cmd[i]);
-
-  for (i = 0; HTML_align_cmd[i]; i++)
-    html_commands_data[i].flags |= HF_HTML_align | HF_composition_context;
-
-  html_commands_data[CM_float].flags |= HF_composition_context;
-
-  html_commands_data[CM_sc].flags |= HF_upper_case;
-}
-
-void
-html_initialize_output_state (CONVERTER *self)
-{
-  int i;
-  /* targets and directions */
-
-  /* used for diverse elements: tree units, indices, footnotes, special
-    elements, contents elements... */
-  self->html_targets = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
-  self->seen_ids = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (self->html_targets, 0, sizeof (HTML_TARGET_LIST));
-  memset (self->seen_ids, 0, sizeof (STRING_LIST));
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      self->html_special_targets[i]
-        = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
-      memset (self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
-    }
-
 }
 
 static HTML_TARGET *
@@ -2373,6 +2031,33 @@ html_convert_init (CONVERTER *self)
 }
 
 static char *
+command_conversion (CONVERTER *self, enum command_id cmd,
+                    ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                    char *content)
+{
+  /* TODO call a C function if status is FRS_status_default_set
+     maybe putting function references in an array */
+  /* FIXME XS specific debug message */
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "DEBUG: command conversion %s '%s'\n",
+             builtin_command_data[cmd].cmdname, content);
+  if (self->commands_conversion[cmd].status > 0)
+    return call_commands_conversion (self, cmd, element,
+                                     args_formatted, content);
+  return 0;
+}
+
+static char *
+command_open (CONVERTER *self, enum command_id cmd, ELEMENT *element)
+{
+  /* TODO call a C function if status is FRS_status_default_set
+     maybe putting function references in an array */
+  if (self->commands_open[cmd].status > 0)
+    return call_commands_open (self, cmd, element);
+  return 0;
+}
+
+static char *
 type_conversion (CONVERTER *self, enum element_type type,
                  ELEMENT *element, char *content)
 {
@@ -2433,7 +2118,7 @@ pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
 
 static void
 html_new_document_context (CONVERTER *self,
-        char *context_name, int document_global_context,
+        char *context_name, char *document_global_context,
         enum command_id block_command)
 {
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
@@ -2506,6 +2191,441 @@ top_document_context (CONVERTER *self)
   return &stack->stack[stack->top - 1];
 }
 
+/* most of the initialization is done by html_converter_initialize_sv
+   in get_perl_info, the initialization that do not require information
+   from perl is done here */
+void
+html_converter_initialize (CONVERTER *self)
+{
+  int i;
+  int nr_default_commands
+    = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
+  int max_args = MAX_COMMAND_ARGS_NR;
+  for (i = 0; i < nr_default_commands; i++)
+    {
+      /* we file the status for specified commands, to distinguish them
+         but it is not actually used in the code, as we default to
+         normal for unspecified commands too */
+      enum command_id cmd = default_commands_args[i].cmd;
+      command_args_flags[cmd].status = 1;
+      memcpy (&command_args_flags[cmd].flags, &default_commands_args[i].flags,
+              max_args);
+    }
+
+  for (i = 0; small_block_associated_command[i][0]; i++)
+    {
+      enum command_id small_cmd = small_block_associated_command[i][0];
+      enum command_id cmd = small_block_associated_command[i][1];
+      register_pre_class_command (small_cmd, cmd);
+    }
+
+  for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (builtin_command_data[i].flags & CF_block
+          || builtin_command_data[i].flags & CF_root)
+        register_format_context_command (i);
+
+      if (builtin_command_data[i].flags & CF_preformatted
+          || builtin_command_data[i].flags & CF_root)
+        html_commands_data[i].flags |= HF_composition_context;
+
+      if (builtin_command_data[i].flags & CF_block)
+        {
+          if (builtin_command_data[i].data == BLOCK_menu)
+            html_commands_data[i].flags |= HF_composition_context;
+          else if (builtin_command_data[i].data == BLOCK_format_raw)
+            html_commands_data[i].flags |= HF_format_raw;
+        }
+
+      if (builtin_command_data[i].flags & CF_preformatted)
+        {
+          if (!(html_commands_data[i].flags & HF_pre_class))
+            register_pre_class_command (i, 0);
+        }
+    }
+  register_pre_class_command (CM_verbatim, 0);
+  register_pre_class_command (CM_menu, 0);
+  for (i = 0; additional_format_context_cmd[i]; i++)
+    register_format_context_command (additional_format_context_cmd[i]);
+
+  for (i = 0; HTML_align_cmd[i]; i++)
+    html_commands_data[i].flags |= HF_HTML_align | HF_composition_context;
+
+  html_commands_data[CM_float].flags |= HF_composition_context;
+
+  html_commands_data[CM_sc].flags |= HF_upper_case;
+
+  html_new_document_context (self, "_toplevel_context", 0, 0);
+}
+
+void
+html_initialize_output_state (CONVERTER *self)
+{
+  int i;
+  /* targets and directions */
+
+  /* used for diverse elements: tree units, indices, footnotes, special
+    elements, contents elements... */
+  self->html_targets = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
+  self->seen_ids = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (self->html_targets, 0, sizeof (HTML_TARGET_LIST));
+  memset (self->seen_ids, 0, sizeof (STRING_LIST));
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      self->html_special_targets[i]
+        = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
+      memset (self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
+    }
+}
+
+char *
+convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation)
+{
+  TEXT result;
+  text_init (&result);
+
+  convert_to_html_internal (self, tree, &result, explanation);
+
+  return result.text;
+}
+
+/* This function should be used in formatting functions when some
+   Texinfo tree need to be converted. */
+char *
+convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
+                              char *context_string, char *multiple_pass,
+                              char *document_global_context,
+                              enum command_id block_cmd)
+{
+  char *result;
+  char *multiple_pass_str = "";
+  char *explanation;
+  TEXT context_string_str;
+  text_init (&context_string_str);
+  text_append (&context_string_str, "");
+
+  if (context_string)
+    {
+      html_new_document_context (self, context_string,
+                                 document_global_context, block_cmd);
+      text_printf (&context_string_str, "C(%s)", context_string);
+    }
+
+  if (multiple_pass)
+    {
+      self->ignore_notice++;
+      push_string_stack_string (&self->multiple_pass, multiple_pass);
+      multiple_pass_str = "|M";
+    }
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "new_fmt_ctx %s%s\n", context_string_str.text,
+                                           multiple_pass_str);
+
+  self->modified_state++;
+  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str.text);
+  result = convert_tree (self, tree, explanation);
+
+  free (explanation);
+  free (context_string_str.text);
+
+  if (context_string)
+    html_pop_document_context (self);
+
+  if (multiple_pass)
+    {
+      self->ignore_notice++;
+      pop_string_stack (&self->multiple_pass);
+    }
+
+  self->modified_state++;
+
+  return result;
+}
+
+
+static void
+reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
+                   enum command_id cmd, int reset_context, int ref_context,
+                   int translate)
+{
+  HTML_COMMAND_CONVERSION *no_arg_command_context;
+  HTML_COMMAND_CONVERSION **conversion_contexts
+    = self->html_command_conversion[cmd];
+  /* should never happen as unset is set at configuration */
+  if (!conversion_contexts[reset_context])
+    {
+      conversion_contexts[reset_context] =
+        (HTML_COMMAND_CONVERSION *) malloc (sizeof (HTML_COMMAND_CONVERSION));
+      memset (conversion_contexts[reset_context], 0,
+              sizeof (HTML_COMMAND_CONVERSION));
+
+      conversion_contexts[reset_context]->unset = 1;
+    }
+  no_arg_command_context = conversion_contexts[reset_context];
+  if (ref_context >= 0)
+    {
+      if (no_arg_command_context->unset)
+        {
+          HTML_COMMAND_CONVERSION *no_arg_ref
+            = conversion_contexts[ref_context];
+
+          /* TODO memory leaks possible for the other char * fields */
+
+          if (no_arg_ref->text)
+            no_arg_command_context->text = no_arg_ref->text;
+          if (no_arg_ref->tree)
+            no_arg_command_context->tree = no_arg_ref->tree;
+          if (no_arg_ref->translated_converted)
+            {
+              free (no_arg_command_context->translated_converted);
+              no_arg_command_context->translated_converted
+                = strdup (no_arg_ref->translated_converted);
+            }
+          if (no_arg_ref->translated_to_convert)
+            no_arg_command_context->translated_to_convert
+              = no_arg_ref->translated_to_convert;
+        }
+    }
+
+  if (translate
+      && no_arg_command_context->tree
+      && !no_arg_command_context->translated_converted)
+    {
+      char *translation_result = 0;
+      ELEMENT *translated_tree = no_arg_command_context->tree;
+      if (!translated_tree->hv)
+        {/* FIXME Should be done differently if it is possible
+           it be possible to recursively call html_translate_names. */
+          self->tree_to_build = translated_tree;
+        }
+      if (reset_context == HCC_type_normal)
+        {
+          char *explanation;
+          xasprintf (&explanation, "no arg %s translated",
+                     builtin_command_data[cmd].cmdname);
+          translation_result = convert_tree (self, translated_tree, explanation);
+          free (explanation);
+        }
+      else if (reset_context == HCC_type_preformatted)
+        {
+          char *context_name;
+          enum command_id preformated_cmd = CM_example;
+          HTML_DOCUMENT_CONTEXT *top_document_ctx;
+          char *explanation;
+          xasprintf (&context_name, "Translate %s",
+                     builtin_command_data[cmd].cmdname);
+          html_new_document_context (self, context_name, 0, 0);
+          free (context_name);
+
+          top_document_ctx = top_document_context (self);
+
+          /* there does not seems to be anything simpler... */
+          push_command_or_type (&top_document_ctx->composition_context,
+                                preformated_cmd, 0);
+      /* should not be needed for at commands no brace translation strings */
+          push_string_stack_string (&top_document_ctx->preformatted_classes,
+                              html_commands_data[preformated_cmd].pre_class);
+          self->modified_state++;
+
+          xasprintf (&explanation, "no arg %s translated",
+                     builtin_command_data[cmd].cmdname);
+          translation_result = convert_tree (self, translated_tree,
+                                             explanation);
+          free (explanation);
+          pop_command_or_type (&top_document_ctx->composition_context);
+          pop_string_stack (&top_document_ctx->preformatted_classes);
+          html_pop_document_context (self);
+          self->modified_state++;
+        }
+      else if (reset_context == HCC_type_string)
+        {
+          char *context_name;
+          HTML_DOCUMENT_CONTEXT *top_document_ctx;
+
+          xasprintf (&context_name, "string no arg %s translated",
+                     builtin_command_data[cmd].cmdname);
+          html_new_document_context (self, context_name, 0, 0);
+
+          top_document_ctx = top_document_context (self);
+          top_document_ctx->string_ctx++;
+
+          self->modified_state++;
+          translation_result = convert_tree (self, translated_tree,
+                                             context_name);
+          free (context_name);
+          html_pop_document_context (self);
+          self->modified_state++;
+        }
+      else if (reset_context == HCC_type_css_string)
+        {
+           /*
+          translation_result = html_convert_css_string (self, translated_tree);
+            */
+        }
+      if (no_arg_command_context->text)
+        free (no_arg_command_context->text);
+      no_arg_command_context->text = translation_result;
+      self->tree_to_build = 0;
+    }
+}
+
+static void
+complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
+                                     int translate)
+{
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
+                                                  -1, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd,
+                                                  HCC_type_preformatted,
+                                                  HCC_type_normal, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
+                                                  HCC_type_preformatted, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
+                                                  HCC_type_string, translate);
+}
+
+void
+html_translate_names (CONVERTER *self)
+{
+  int j;
+  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  if (self->conf->DEBUG > 0)
+    {
+      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: "
+               " documentlanguage: %s\n", self->conf->documentlanguage);
+    }
+
+  /* reset strings such that they are translated when needed. */
+  #define tds_type(name) self->directions_strings[TDS_type_ ## name] = 0;
+   TDS_TRANSLATED_TYPES_LIST
+  #undef tds_type
+
+  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+    {
+      int i;
+      int tree_type = translated_special_unit_info[j].tree_type;
+      for (i = 0; i < special_unit_varieties->number; i++)
+        self->special_unit_info_tree[tree_type][i] = 0;
+    }
+
+  /* delete the tree and formatted results for special elements
+     such that they are redone with the new tree when needed. */
+  for (j = 0; j < special_unit_varieties->number; j++)
+    {
+      char *special_unit_variety = special_unit_varieties->list[j];
+      int special_unit_direction_index
+       = special_unit_variety_direction_index (self, special_unit_variety);
+      if (special_unit_direction_index >= 0)
+        {
+          OUTPUT_UNIT *special_unit
+           = self->global_units_directions[special_unit_direction_index];
+          if (special_unit)
+             {
+               ELEMENT *command = special_unit->unit_command;
+               if (command)
+                 {
+                   HTML_TARGET *target
+                     = find_element_target (self->html_targets, command);
+                   if (target)
+                     {
+                       target->tree = 0;
+                       target->string = 0;
+                       target->text = 0;
+                     }
+                 }
+             }
+        }
+    }
+
+  if (self->no_arg_formatted_cmd)
+    {
+      int translated_nr = 0;
+      /* this is overkill, but simpler */
+      enum command_id *translated_cmds = (enum command_id *)
+        malloc ((self->no_arg_formatted_cmd->number +1)
+                * sizeof (enum command_id));
+      memset (translated_cmds, 0, (self->no_arg_formatted_cmd->number +1)
+                * sizeof (enum command_id));
+
+      for (j = 0; j < self->no_arg_formatted_cmd->number; j++)
+        {
+          enum command_id cmd = self->no_arg_formatted_cmd->list[j];
+          int i;
+          int add_cmd = 0;
+          for (i = 0; i < HCC_type_css_string+1; i++)
+            {
+              HTML_COMMAND_CONVERSION *format_spec
+                = self->html_command_conversion[cmd][i];
+              if (format_spec->translated_converted
+                  && !format_spec->unset)
+                {
+                  add_cmd = 1;
+                  format_spec->text
+                   = gdt_string (format_spec->translated_converted, self->conf,
+                                 0, 0, 0);
+                }
+              else if (i == HCC_type_normal)
+                {
+                  ELEMENT *translated_tree = 0;
+                  if (format_spec->translated_to_convert)
+                    {/* FIXME use document associated to converter? */
+                      translated_tree =
+                         gdt_tree (format_spec->translated_to_convert,
+                                   0, self->conf, 0, 0, 0);
+                    }
+                  else
+                    translated_tree = translated_command_tree (self, cmd);
+
+                  if (translated_tree)
+                    {
+                      add_cmd = 1;
+
+                      format_spec->tree = translated_tree;
+                    }
+                }
+            }
+          if (add_cmd)
+            {
+              translated_cmds[translated_nr] = cmd;
+              translated_nr++;
+            }
+        }
+
+      for (j = 0; j < translated_nr; j++)
+        {
+          enum command_id cmd = translated_cmds[j];
+          complete_no_arg_commands_formatting (self, cmd, 1);
+        }
+
+      free (translated_cmds);
+    }
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "END TRANSLATE_NAMES\n\n");
+}
+
+
+void
+destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
+{
+  if (args_formatted)
+    {
+      int i;
+      for (i = 0; i < args_formatted->number; i++)
+        {
+          int j;
+          HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
+          if (arg_formatted->tree)
+            {
+              for (j = 0; j < AFT_type_raw+1; j++)
+                free (arg_formatted->formatted[j]);
+            }
+        }
+      free (args_formatted->args);
+    }
+  free (args_formatted);
+}
 
 #define ADD(x) text_append (result, x)
 
@@ -2529,15 +2649,31 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
   if (self->conf->DEBUG > 0)
     {
+      int i;
       TEXT debug_str;
+      TEXT contexts_str;
       text_init (&debug_str);
-     /* TODO
-         my @contexts_names = map {defined($_->{'context_name'})
-                                 ? $_->{'context_name'}: 'UNDEF'}
-         @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-    print STDERR "ELEMENT($explanation) (".join('|',@contexts_names)."), ->";
-       */
-      text_printf (&debug_str, "ELEMENT(%s) (), ->", explanation);
+      text_init (&contexts_str);
+      HTML_DOCUMENT_CONTEXT *top_document_ctx = top_document_context (self);
+      HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
+        = &top_document_ctx->formatting_context;
+
+      for (i = 0; i < formatting_context_stack->top; i++)
+        {
+          HTML_FORMATTING_CONTEXT *formatting_context
+           = &formatting_context_stack->stack[i];
+          if (i != 0)
+            text_append (&contexts_str, "|");
+          if (formatting_context->context_name)
+            text_append (&contexts_str, formatting_context->context_name);
+          else
+            text_append (&contexts_str, "UNDEF");
+
+        }
+      text_printf (&debug_str, "XS|ELEMENT(%s) %p (%s), ->", explanation,
+                                        &self->commands_conversion,
+                                                       contexts_str.text);
+      free (contexts_str.text);
       if (command_name)
         text_printf (&debug_str, " cmd: %s,", command_name);
       if (element->type)
@@ -2575,6 +2711,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       TEXT text_result;
       text_init (&text_result);
       text_append (&text_result, "");
+
       /* already converted to html, keep it as is, assume it cannot be NULL */
       if (element->type == ET__converted)
         text_append (&text_result, element->text.text);
@@ -2615,6 +2752,11 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           && element->type != ET_index_entry_command))
     {
       enum command_id data_cmd = element_builtin_data_cmd (element);
+      /* FIXME XS only debug message */
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "COMMAND: %s %s\n",
+                 builtin_command_data[data_cmd].cmdname,
+                 builtin_command_data[cmd].cmdname);
 
       if (builtin_command_data[data_cmd].flags & CF_root)
         {
@@ -2625,7 +2767,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       if (self->commands_conversion[cmd].status)
         {
           int convert_to_latex = 0;
-          ARGS_FORMATTED *args_formatted = 0;
+          HTML_ARGS_FORMATTED *args_formatted = 0;
           TEXT content_formatted;
 
           HTML_DOCUMENT_CONTEXT *top_document_ctx;
@@ -2719,17 +2861,21 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
               self->modified_state++;
             }
 
-          /*
-      my $result = '';
-      if (defined($self->{'commands_open'}->{$command_name})) {
-        $result .= &{$self->{'commands_open'}->{$command_name}}($self,
-                                                 $command_name, $element);
-      }
-           */
+          if (self->commands_open[cmd].status)
+            {
+              char *cmd_open_str = command_open (self, data_cmd, element);
+              if (cmd_open_str)
+                {
+                  ADD(cmd_open_str);
+                  free (cmd_open_str);
+                }
+            }
+
+          text_init (&content_formatted);
+          text_append (&content_formatted, "");
 
           if (element->contents.number > 0)
             {
-              text_init (&content_formatted);
 
               if (convert_to_latex)
                 {
@@ -2758,6 +2904,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                     }
                 }
             }
+          /* FIXME XS only debug message */
+          if (self->conf->DEBUG > 0)
+            fprintf (stderr, "CM CONTENTS: '%s'\n", content_formatted.text);
 
           if ((builtin_command_data[data_cmd].flags & CF_brace)
               || (builtin_command_data[data_cmd].flags & CF_line
@@ -2775,25 +2924,27 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
                   text_init (&formatted_arg);
 
-                  args_formatted = (ARGS_FORMATTED *)
-                    malloc (sizeof (ARGS_FORMATTED));
+                  args_formatted = (HTML_ARGS_FORMATTED *)
+                    malloc (sizeof (HTML_ARGS_FORMATTED));
                   args_formatted->number = element->args.number;
-                  args_formatted->args = (ARG_FORMATTED *)
-                    malloc (args_formatted->number * sizeof (ARG_FORMATTED));
+                  args_formatted->args = (HTML_ARG_FORMATTED *)
+                 malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
+                  memset (args_formatted->args, 0,
+                        args_formatted->number * sizeof (HTML_ARG_FORMATTED));
 
-                  /* */
                   for (arg_idx = 0; arg_idx < element->args.number; arg_idx++)
                     {
-                      ELEMENT *arg = element->args.list[arg_idx];
                       char *explanation;
-                      /* */
+                      ELEMENT *arg = element->args.list[arg_idx];
+                      HTML_ARG_FORMATTED *arg_formatted
+                         = &args_formatted->args[arg_idx];
+
                       if (arg->contents.number <= 0)
                         /*
                  # special case for @value argument
                 and !defined($arg->{'text'}))
                          */
                         {
-                          /* */
                           continue;
                         }
                       int arg_flags = 0;
@@ -2804,9 +2955,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                         arg_flags = command_args_flags[cmd].flags[arg_idx];
                       else
                         arg_flags = F_AFT_normal;
-
-                      ARG_FORMATTED *arg_formatted
-                         = &args_formatted->args[arg_idx];
 
                       arg_formatted->tree = arg;
 
@@ -2898,6 +3046,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                          {'code' => 1,
                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
                         */
+                          arg_formatted->formatted[AFT_type_monospacetext]
+                            = strdup ("");
                         }
                       if (arg_flags & F_AFT_filenametext)
                         {
@@ -2908,8 +3058,10 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                          {'code' => 1,
                Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
                         */
+                          arg_formatted->formatted[AFT_type_filenametext]
+                            = strdup ("");
                         }
-                      if (arg_flags & F_AFT_filenametext)
+                      if (arg_flags & F_AFT_url)
                         {
                          /*
                 # set the encoding to UTF-8 to always have a string that is suitable
@@ -2921,9 +3073,12 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                    = Texinfo::Convert::Text::convert_to_text($arg,
                                                    $text_conversion_options);
                          */
+                          arg_formatted->formatted[AFT_type_url]
+                            = strdup ("");
                         }
                       if (arg_flags & F_AFT_raw)
                         {
+                          text_reset (&formatted_arg);
                           top_document_ctx->raw_ctx++;
                           self->modified_state++;
                           xasprintf (&explanation, "%s A[%d]raw",
@@ -3025,10 +3180,14 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           /* args are formatted, now format the command itself */
           if (self->commands_conversion[cmd].status)
             {
-              /*
-          $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
-                  $command_name, $element, $args_formatted, $content_formatted);
-               */
+              char *conv_str = command_conversion (self, cmd,
+                                                   element, args_formatted,
+                                                   content_formatted.text);
+              if (conv_str)
+                {
+                  ADD(conv_str);
+                  free (conv_str);
+                }
             }
           else if (args_formatted)
             fprintf (stderr, "No command_conversion for %s\n",
@@ -3037,12 +3196,19 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           if (cmd == CM_documentlanguage)
             html_translate_names (self);
 
+          free (content_formatted.text);
+
           return;
         }
       else
         {
           if (self->conf->DEBUG > 0 || self->conf->VERBOSE > 0)
             fprintf (stderr, "Command not converted: %s\n", command_name);
+          if (builtin_command_data[data_cmd].flags & CF_root)
+            {
+              self->current_root_command = 0;
+              self->modified_state++;
+            }
           return;
         }
 
@@ -3222,25 +3388,33 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
   free (debug_str);
 }
 
+static char *
+output_unit_conversion (CONVERTER *self, enum output_unit_type unit_type,
+                        OUTPUT_UNIT *output_unit, const char *content)
+{
+  /* TODO call a C function if status is FRS_status_default_set
+     maybe putting function references in an array */
+  if (self->output_units_conversion[unit_type].status > 0)
+    return call_output_units_conversion (self, unit_type, output_unit, content);
+  return 0;
+}
+
 char *
 convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
                      char *explanation)
 {
-  char *result;
+  char *result = 0;
   TEXT content_formatted;
   enum output_unit_type unit_type = output_unit->unit_type;
 
-/*
-  if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
-      and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
-    if ($debug) {
-      my $string = 'IGNORED';
-      $string .= " $unit_type_name" if ($unit_type_name);
-      print STDERR "$string\n";
+  if (self->output_units_conversion[unit_type].status == FRS_status_ignored)
+    {
+      if (self->conf->DEBUG > 0)
+        {
+          fprintf (stderr, "IGNORED OU %s\n", output_unit_type_names[unit_type]);
+        }
+      return strdup ("");
     }
-    return '';
-  }
- */
 
   self->current_output_unit = output_unit;
   self->modified_state++;
@@ -3264,21 +3438,19 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
        }
     }
 
-  if (0)
+  if (self->output_units_conversion[unit_type].status)
     {
-    /*
-   if (exists($self->{'output_units_conversion'}->{$unit_type_name}))
-   $result
-     .= &{$self->{'output_units_conversion'}->{$unit_type_name}} ($self,
-                                               $unit_type_name,
-                                               $output_unit,
-                                               $content_formatted);
-     */
+      result = output_unit_conversion (self, unit_type, output_unit,
+                                             content_formatted.text);
+      if (! result)
+        result = strdup ("");
     }
    else
     {
       result = strdup (content_formatted.text);
     }
+
+  free (content_formatted.text);
 
   self->current_output_unit = 0;
   self->modified_state++;
@@ -3321,7 +3493,6 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
   OUTPUT_UNIT_LIST *special_units
     = retrieve_output_units (special_units_descriptor);
 
-  html_new_document_context (self, "_toplevel_context", 0, 0);
   text_init (&result);
 
   if (!output_units || !output_units->number)

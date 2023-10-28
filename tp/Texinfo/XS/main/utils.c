@@ -65,8 +65,8 @@ const enum command_id small_block_associated_command[][2] = {
 
 /* to keep synchronized with enum output_unit_type in tree_types.h */
 const char *output_unit_type_names[] = {"unit",
-                                        "external_node_unit",
-                                        "special_unit"};
+                                  "external_node_unit",
+                                  "special_unit"};
 
 char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
@@ -90,6 +90,12 @@ char *html_css_string_formatting_reference_names[] = {
   #define html_fr_reference(name) #name,
    HTML_CSS_FORMATTING_REFERENCES_LIST
   #undef html_fr_reference
+};
+
+const char *html_argument_formatting_type_names[] = {
+   #define html_aft_type(name) #name,
+    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
+   #undef html_aft_type
 };
 
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};

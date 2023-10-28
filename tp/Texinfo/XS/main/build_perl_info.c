@@ -206,7 +206,7 @@ build_perl_directions (ELEMENT_LIST *e)
 /* Used to create a "Perl-internal" string that represents a sequence
    of Unicode codepoints with no specific encoding. */
 SV *
-newSVpv_utf8 (char *str, STRLEN len)
+newSVpv_utf8 (const char *str, STRLEN len)
 {
   SV *sv;
   dTHX;
@@ -1836,7 +1836,7 @@ build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context)
   STORE_CTX(math);
 #undef STORE_CTX
   STORE ("document_global_context",
-         newSViv (document_context->document_global_context));
+         newSVpv_utf8 (document_context->document_global_context, 0));
 
   for (i = 0; i < document_context->monospace_context.top; i++)
     {
@@ -1897,6 +1897,8 @@ build_html_formatting_state (CONVERTER *converter)
   HV *hv;
   SV **document_context_sv;
   AV *document_context_av;
+  SV **multiple_pass_sv;
+  AV *multiple_pass_av;
   SV **files_information_sv;
   HV *files_information_hv;
   int i;
@@ -1911,6 +1913,9 @@ build_html_formatting_state (CONVERTER *converter)
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
   STORE("document_global_context",
         newSViv (converter->document_global_context));
+
+  STORE("ignore_notice",
+        newSViv (converter->ignore_notice));
 
   if (!converter->current_root_command)
     STORE("current_root_command", newSV (0));
@@ -1957,6 +1962,26 @@ build_html_formatting_state (CONVERTER *converter)
       av_push (document_context_av, newRV_noinc ((SV *) document_context_hv));
     }
 
+  multiple_pass_sv = hv_fetch (hv, "multiple_pass",
+                                  strlen ("multiple_pass"), 0);
+
+  if (!multiple_pass_sv)
+    {
+      multiple_pass_av = newAV ();
+      STORE("multiple_pass", newRV_noinc ((SV *) multiple_pass_av));
+    }
+  else
+    {
+      multiple_pass_av = (AV *) SvRV (*multiple_pass_sv);
+      av_clear (multiple_pass_av);
+    }
+
+  for (i = 0; i < converter->multiple_pass.top; i++)
+    {
+      char *multiple_pass_str = converter->multiple_pass.stack[i];
+      av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
+    }
+
   files_information_sv = hv_fetch (hv, "files_information",
                                   strlen ("files_information"), 0);
 
@@ -1977,4 +2002,47 @@ build_html_formatting_state (CONVERTER *converter)
 #undef STORE
 
   return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  if (!args_formatted)
+    return newSV (0);
+
+  av = newAV ();
+
+  for (i = 0; i < args_formatted->number; i++)
+    {
+      HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
+      if (arg_formatted->tree)
+        {
+          int j;
+          HV *arg_formated_hv = newHV ();
+          av_push (av, newRV_noinc ((SV *) arg_formated_hv));
+
+          hv_store (arg_formated_hv, "tree", strlen ("tree"),
+                    newRV_inc ((SV *) arg_formatted->tree->hv), 0);
+
+          for (j = 0; j < AFT_type_raw+1; j++)
+            {
+              if (arg_formatted->formatted[j])
+                {
+                  const char *format_name
+                     = html_argument_formatting_type_names[j];
+                  hv_store (arg_formated_hv, format_name, strlen (format_name),
+                            newSVpv_utf8 (arg_formatted->formatted[j], 0), 0);
+                }
+            }
+        }
+      else
+        av_push (av, newSV(0));
+    }
+
+  return newRV_noinc ((SV *) av);
 }

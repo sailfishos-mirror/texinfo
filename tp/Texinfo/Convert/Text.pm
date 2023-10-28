@@ -480,6 +480,9 @@ sub convert_to_text($;$)
   # reference.
   $options = {} if (!defined($options));
   if (defined($options)) {
+    if (!ref($options)) {
+      confess("convert_to_text options not a ref\n");
+    }
     bless $options;
     if ($options->{'code'}) {
       $options->{'_code_state'} = 1;
