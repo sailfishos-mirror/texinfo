@@ -487,9 +487,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/float/ref_to_float.pl \
   t/results/float/simple.pl \
   t/results/float/special_characters_in_float_type.pl \
-  t/results/formats_encodings/8bit_document_translations.pl \
-  t/results/formats_encodings/8bit_document_translations/res_html \
-  t/results/formats_encodings/8bit_document_translations/res_info \
   t/results/formats_encodings/accent.pl \
   t/results/formats_encodings/accent_argument_non_ascii.pl \
   t/results/formats_encodings/accent_enable_encoding.pl \

@@ -255,7 +255,6 @@ test_files = \
  t/input_files/non_break_spaces.texi \
  t/input_files/one_line.texi \
  t/input_files/only_special_spaces_node.texi \
- t/input_files/pl_translated_inserted_strings_8bit.texi \
  t/input_files/punctuation_small_case_accents_latin1.texi \
  t/input_files/punctuation_small_case_accents_us_ascii.texi \
  t/input_files/punctuation_small_case_accents_utf8.texi \

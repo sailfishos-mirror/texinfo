@@ -1,3 +1,18 @@
+2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove out-of-place translation file
+
+	* po_document/pl.iso-8859-2.po: Remove.
+	* tp/t/input_files/pl_translated_inserted_strings_8bit.texi,
+	* tp/t/formats_encodings.t (8bit_document_translations): Remove.
+
+	This reverts the addition of this file and test on 2023-08-06.  This
+	translation file did not belong under po_document as it was not
+	provided by upstream translators, and would take extra work to keep
+	the translation up-to-date. It would also be installed
+	unnecessarily on users' systems (report from Rafael Fontenelle).
+	It was only added for the sake of the test.
+
 2023-10-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize):
