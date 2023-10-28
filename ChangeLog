@@ -1,5 +1,18 @@
 2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove us-ascii translations
+
+	* po_document/ca.us-ascii.po, po_document/de.us-ascii.po,
+	po_document/pt.us-ascii.po, po_document/pt_BR.us-ascii.po:
+	Remove these unmaintained translations files.  Variants exist
+	without the .us-ascii suffix, maintained via the Translation Project.
+	* NEWS: mention
+
+	Report from Rafel Fontanelle <rafaelff@gnome.org>.
+
+
+2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove out-of-place translation file
 
 	* po_document/pl.iso-8859-2.po: Remove.
