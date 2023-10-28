@@ -31,8 +31,8 @@
 #undef context
 
 #include "utils.h"
-#include "tree_perl_api.h"
 #include "build_perl_info.h"
+#include "call_perl_function.h"
 
 char *
 call_nodenamenormalization_unicode_to_transliterate (char *text)

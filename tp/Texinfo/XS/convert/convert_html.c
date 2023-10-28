@@ -35,6 +35,7 @@
 #include "convert_to_texinfo.h"
 #include "translations.h"
 #include "convert_utils.h"
+#include "call_perl_function.h"
 #include "convert_html.h"
 
 
