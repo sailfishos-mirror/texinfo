@@ -1,5 +1,15 @@
 2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* po_document/no.us-ascii.po, po_document/no.po:
+	Rename and state the encoding to be UTF-8.  This avoids the
+	creation of an extra no.us-ascii directory on users' systems to
+	hold the translation, with it being unlikely that packages other
+	than Texinfo are providing a translation for no.us-ascii.
+
+	Suggestion from Rafel Fontanelle <rafaelff@gnome.org>.
+
+2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove us-ascii translations
 
 	* po_document/ca.us-ascii.po, po_document/de.us-ascii.po,
@@ -9,7 +19,6 @@
 	* NEWS: mention
 
 	Report from Rafel Fontanelle <rafaelff@gnome.org>.
-
 
 2023-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
