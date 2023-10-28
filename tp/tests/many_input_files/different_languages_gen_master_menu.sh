@@ -12,9 +12,7 @@
 #
 # Originally written by Patrice Dumas.
 
-#LC_ALL=C; export LC_ALL
-# Temporary to have translations of messages in document with XS code
-LC_ALL=en_US.utf-8; export LC_ALL
+LC_ALL=C; export LC_ALL
 
 basename=different_languages_gen_master_menu
 diffs_dir=diffs

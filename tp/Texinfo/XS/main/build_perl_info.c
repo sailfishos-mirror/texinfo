@@ -50,7 +50,6 @@
 #include "output_unit.h"
 /* for wipe_error_message_list */
 #include "errors.h"
-#include "tree_perl_api.h"
 #include "command_stack.h"
 #include "build_perl_info.h"
 
@@ -93,20 +92,6 @@ init (int texinfo_uninstalled, char *builddir)
 #endif
 
 static void element_to_perl_hash (ELEMENT *e);
-
-/* to be called when a tree element is destroyed, to remove the reference
-   of the association with the C tree */
-void
-unregister_perl_tree_element (ELEMENT *e)
-{
-  dTHX;
-
-  if (e->hv)
-    {
-      SvREFCNT_dec ((SV *) e->hv);
-      e->hv = 0;
-    }
-}
 
 /* Return reference to Perl array built from e.  If any of
    the elements in E don't have 'hv' set, set it to an empty

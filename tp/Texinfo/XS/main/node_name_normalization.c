@@ -37,7 +37,7 @@
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
-#include "tree_perl_api.h"
+#include "call_perl_function.h"
 #include "unicode.h"
 #include "node_name_normalization.h"
 

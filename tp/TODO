@@ -13,9 +13,6 @@ Before next release
 check $(native_tools) variable in Makefile.am does not seems to be
 set and seems useless.
 
-Find a workaround to be able to change the locale for gettext in C for
-in-document strings, even if the locale is C/POSIX.
-
 Check format_translate_message_tree api after the changes in gdt api
 when the translation of HTML to C is advnaced enough that it becomes clear
 that the API won't change again.

@@ -48,7 +48,7 @@ static int *obs_element_first = 0;
 /* for debug
 #include "debug.h"
  */
-#include "tree_perl_api.h"
+#include "api_to_perl.h"
 #include "tree.h"
 
 /* Used with destroy_element to reuse storage, e.g. from

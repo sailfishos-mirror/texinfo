@@ -1,6 +1,22 @@
 2023-10-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
+	(main/api_to_perl.c, main/api_to_perl.h)
+	(tp/Texinfo/XS/main/build_perl_info.c): rename main/tree_perl_api.h as
+	main/api_to_perl.h and move corresponding code from
+	main/build_perl_info.c to main/api_to_perl.c, newly created.
+
+	* main/api_to_perl.c (call_sync_locale, call_switch_to_global_locale)
+	tp/Texinfo/XS/main/translations.c (translate_string),
+	tp/tests/many_input_files/different_languages_gen_master_menu.sh
+	(LC_ALL), tp/tests/run_parser_all.sh b/tp/tests/run_parser_all.sh
+	(LC_ALL): call switch_to_global_locale and sync_locale to fix C locale
+	not being translated, it is required in XS code that calls setlocale.
+	Analysis and solution from Gavin.
+
+2023-10-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
 	tp/Texinfo/XS/main/call_perl_function.h: add call_perl_function.h file
 	for a more common code, also given that these functions should
 	probably only called from the HTML converter. 

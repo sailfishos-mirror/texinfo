@@ -39,6 +39,7 @@
 #include "api.h"
 #include "document.h"
 #include "convert_to_texinfo.h"
+#include "api_to_perl.h"
 #include "translations.h"
 
 /*
@@ -178,6 +179,11 @@ translate_string (OPTIONS *options, char * string,
   translated_string = strdup (string);
 
   #else
+
+  /* if a code calls setlocale and accesses global locale while perl
+     uses per thread locale, the result is unpredictable.  So we switch to
+     global locales as we use setlocale */
+  call_switch_to_global_locale ();
 
   /*  
   We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
@@ -357,6 +363,8 @@ translate_string (OPTIONS *options, char * string,
     setlocale (LC_MESSAGES, "");
 
   #endif
+
+  call_sync_locale ();
 
   #endif
 
