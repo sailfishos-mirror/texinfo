@@ -2251,7 +2251,10 @@ html_converter_initialize (CONVERTER *self)
     register_format_context_command (additional_format_context_cmd[i]);
 
   for (i = 0; HTML_align_cmd[i]; i++)
-    html_commands_data[i].flags |= HF_HTML_align | HF_composition_context;
+    {
+      enum command_id cmd = HTML_align_cmd[i];
+      html_commands_data[cmd].flags |= HF_HTML_align | HF_composition_context;
+    }
 
   html_commands_data[CM_float].flags |= HF_composition_context;
 

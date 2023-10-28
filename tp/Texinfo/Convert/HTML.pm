@@ -7056,6 +7056,7 @@ sub _convert_def_line_type($$$$)
           if ($arguments_formatted =~ /\S/);
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
+      # FIXME should not access directly 'document_context'
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
       my $arguments_formatted = $self->_convert({'contents' => [$arguments]});
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
@@ -12233,9 +12234,10 @@ sub _convert($$;$)
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacestring') {
                 $self->_new_document_context($command_type);
-                $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1;
+                push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
                 $self->{'document_context'}->[-1]->{'string'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+                pop @{$self->{'document_context'}->[-1]->{'monospace'}};
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type}

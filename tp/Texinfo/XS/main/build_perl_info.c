@@ -1830,7 +1830,7 @@ build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context)
       av_push (monospace_context_av, newSViv (context));
     }
 
-  STORE ("monospace_context", newRV_noinc ((SV *) monospace_context_av));
+  STORE ("monospace", newRV_noinc ((SV *) monospace_context_av));
 
   for (i = 0; i < document_context->composition_context.top; i++)
     {
