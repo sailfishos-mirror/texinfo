@@ -616,6 +616,10 @@ char *enumerate_item_representation (char *specification, int number);
 
 CONVERTER *new_converter (void);
 
+ELEMENT *get_global_document_command (GLOBAL_COMMANDS *global_commands,
+                                      enum command_id cmd,
+                                      enum command_location command_location);
+char *informative_command_value (ELEMENT *element);
 ELEMENT *set_global_document_command (CONVERTER *self, enum command_id cmd,
                                       enum command_location command_location);
 ELEMENT *get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,

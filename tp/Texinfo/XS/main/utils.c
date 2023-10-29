@@ -903,7 +903,7 @@ get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
    }
 }
 
-static char *
+char *
 informative_command_value (ELEMENT *element)
 {
   ELEMENT *misc_args;
@@ -1003,23 +1003,20 @@ in_preamble (ELEMENT *element)
   'last' means setting to the last value for the command in the document.
 
   For unique command, the last may be considered to be the same as the first.
-
-  Notice that the only effect is to use set_conf (directly or through
-  set_informative_command_value), no @-commands setting side effects are done
-  and associated customization variables are not set/reset either.
- */
+*/
 ELEMENT *
-set_global_document_command (CONVERTER *self, enum command_id cmd,
+get_global_document_command (GLOBAL_COMMANDS *global_commands,
+                             enum command_id cmd,
                              enum command_location command_location)
 {
   ELEMENT *element = 0;
   if (command_location != CL_last && command_location != CL_preamble_or_first
       && command_location != CL_preamble)
-    fprintf (stderr, "BUG: set_global_document_command: unknown CL: %d\n",
+    fprintf (stderr, "BUG: get_global_document_command: unknown CL: %d\n",
                      command_location);
 
   ELEMENT *command
-     = get_cmd_global_command (self->document->global_commands, cmd);
+     = get_cmd_global_command (global_commands, cmd);
   if (builtin_command_data[cmd].flags & CF_global)
     {
       if (command->contents.number)
@@ -1027,7 +1024,6 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
           if (command_location == CL_last)
             {
               element = command->contents.list[command->contents.number -1];
-              set_informative_command_value (self, element);
             }
           else
             {
@@ -1035,7 +1031,6 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
                    && !in_preamble (command->contents.list[0]))
                 {
                   element = command->contents.list[0];
-                  set_informative_command_value (self, element);
                 }
               else
                 {
@@ -1046,7 +1041,6 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
                       if (in_preamble (command_element))
                         {
                           element = command_element;
-                          set_informative_command_value (self, element);
                         }
                       else
                         break;
@@ -1058,8 +1052,24 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
   else if (command)
     {
       element = command;
-      set_informative_command_value (self, element);
     }
+  return element;
+}
+
+/*
+  Notice that the only effect is to use set_conf (directly or through
+  set_informative_command_value), no @-commands setting side effects are done
+  and associated customization variables are not set/reset either.
+ */
+ELEMENT *
+set_global_document_command (CONVERTER *self, enum command_id cmd,
+                             enum command_location command_location)
+{
+  ELEMENT *element
+     = get_global_document_command (self->document->global_commands, cmd,
+                                    command_location);
+  if (element)
+    set_informative_command_value (self, element);
   return element;
 }
 

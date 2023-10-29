@@ -97,6 +97,9 @@ build_document (int document_descriptor, ...)
       OUTPUT:
         RETVAL
 
+SV *
+get_document (int document_descriptor)
+
 void
 clear_document_errors (int document_descriptor)
 

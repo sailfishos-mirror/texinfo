@@ -2739,7 +2739,7 @@ sub _convert($$)
           or $command eq 'smallquotation') {
         if ($element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+            and scalar(@{$element->{'args'}->[0]->{'contents'}})) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ',
              {'quotation_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';

@@ -842,6 +842,18 @@ sub get_parser_info($)
   } else {
     $self->{'info'}->{'input_encoding_name'} = 'utf-8';
   }
+  my $global_commands = $self->{'commands_info'};
+  my $document_language
+    = Texinfo::Common::get_global_document_command($global_commands,
+                                                   'documentlanguage',
+                                                   'preamble');
+  if ($document_language) {
+    $self->{'info'}->{'documentlanguage'}
+      = Texinfo::Common::informative_command_value($document_language);
+  }
+  if ($global_commands->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
+  }
 }
 
 # parse a texi file

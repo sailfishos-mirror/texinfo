@@ -147,8 +147,7 @@ void
 remove_document_descriptor (int document_descriptor)
 
 void
-remove_document (document_in)
-        SV *document_in
+remove_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -213,14 +212,12 @@ copy_tree (SV *tree_in, SV *parent_in=0)
     OUTPUT:
         RETVAL
 
-# $indices_information argument is ignored, it is found with the document
 void
-relate_index_entries_to_table_items_in_tree (SV *tree_in, ...)
-    PROTOTYPE: $$
+relate_index_entries_to_table_items_in_tree (SV *document_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
-        document = get_sv_tree_document (tree_in,
+        document = get_sv_document_document (document_in,
                    "relate_index_entries_to_table_items_in_tree");
         if (document)
           {

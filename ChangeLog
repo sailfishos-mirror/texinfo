@@ -1,5 +1,44 @@
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	No export of perl tree at parsing time with XS
+
+	* tp/Texinfo/Common.pm (informative_command_value)
+	(get_global_document_command, set_global_document_command),
+	tp/Texinfo/XS/main/utils.c (informative_command_value)
+	(set_global_document_command, get_global_document_command):
+	make informative_command_value public.  Split retrieval of global
+	element out of set_global_document_command to a new
+	get_global_document_command function that is called by
+	set_global_document_command.
+
+	* tp/Texinfo/Common.pm (relate_index_entries_to_table_items_in_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(relate_index_entries_to_table_items_in_tree): use document as
+	argument of relate_index_entries_to_table_items_in_tree.  Update
+	callers.
+
+	* tp/Texinfo/ParserNonXS.pm (get_parser_info),
+	tp/Texinfo/XS/main/build_perl_info.c (build_global_info): add
+	novalidate and documentlanguage information in global info,
+	duplicating information from global commands, in order not to depend
+	on global commands being present for structuring and transformations.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_global_info)
+	(build_global_info_tree_info, get_document, build_document),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info)
+	(parse_texi_file, parse_texi_piece, parse_texi_text, parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (get_document),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: add $no_build argument to
+	XS parse perl functions. If set, the document is returned by
+	get_document and contains only minimal information built from XS that
+	is needed before rebuild_document call.  For that,
+	build_global_info_tree_info is split out of build_global_info as it
+	needs a built tree.  In texi2any.pl and test_utils.pl set the
+	$no_build argument to $with_XS, such as not to built a tree if XS is
+	used.
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* po/POTFILES.in: add tp/Texinfo/XS/structuring_transfo/structuring.c,
 	tp/Texinfo/XS/structuring_transfo/transformations.c and
 	tp/Texinfo/XS/main/convert_utils.c.

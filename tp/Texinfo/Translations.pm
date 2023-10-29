@@ -379,7 +379,7 @@ sub replace_convert_substrings($$;$)
     print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
-  my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+  my $tree = $parser->parse_texi_line($texinfo_line, undef, 0, 1);
   my $registrar = $parser->registered_errors();
   my ($errors, $errors_count) = $registrar->errors();
   if ($errors_count) {

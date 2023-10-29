@@ -36,6 +36,7 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
+#include "command_ids.h"
 #include "tree.h"
 #include "element_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE fatal output_unit_type_names CONVERTER */
@@ -838,12 +839,13 @@ build_index_data (INDEX **index_names_in)
 /* Return object to be used as 'info', retrievable with the
    'global_information' function. */
 HV *
-build_global_info (GLOBAL_INFO *global_info_ref)
+build_global_info (GLOBAL_INFO *global_info_ref,
+                   GLOBAL_COMMANDS *global_commands_ref)
 {
   HV *hv;
-  int i;
-  ELEMENT *e;
   GLOBAL_INFO global_info = *global_info_ref;
+  GLOBAL_COMMANDS global_commands = *global_commands_ref;
+  ELEMENT *document_language;
 
   dTHX;
 
@@ -857,6 +859,35 @@ build_global_info (GLOBAL_INFO *global_info_ref)
   if (global_info.input_directory)
     hv_store (hv, "input_directory", strlen ("input_directory"),
               newSVpv (global_info.input_directory, 0), 0);
+  /* duplicate information to avoid needing to use global_commands and build
+     tree elements */
+  if (global_commands.novalidate)
+    hv_store (hv, "novalidate", strlen ("novalidate"),
+              newSViv (1), 0);
+  document_language = get_global_document_command (global_commands_ref,
+                                       CM_documentlanguage, CL_preamble);
+
+  if (document_language)
+    {
+      char *language = informative_command_value (document_language);
+      hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
+                newSVpv (language, 0), 0);
+    }
+
+  return hv;
+}
+
+/* global info that requires a built tree
+   FIXME remove, use the global commands information directly?
+   */
+void
+build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref)
+{
+  int i;
+  ELEMENT *e;
+  GLOBAL_INFO global_info = *global_info_ref;
+
+  dTHX;
 
   if (global_info.dircategory_direntry.contents.number > 0)
     {
@@ -870,8 +901,6 @@ build_global_info (GLOBAL_INFO *global_info_ref)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
     }
-
-  return hv;
 }
 
 /* Return object to be used as 'commands_info', which holds references
@@ -1046,6 +1075,48 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 
+SV *
+get_document (size_t document_descriptor)
+{
+  HV *hv_stash;
+  HV *hv;
+  DOCUMENT *document;
+  SV *sv;
+  HV *hv_tree;
+  HV *hv_info;
+  AV *av_errors_list;
+
+  dTHX;
+
+  document = retrieve_document (document_descriptor);
+
+  hv = newHV ();
+  hv_tree = newHV ();
+
+  hv_info = build_global_info (document->global_info, document->global_commands);
+
+  av_errors_list = get_errors (document->error_messages->list,
+                               document->error_messages->number);
+
+#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
+  STORE("tree", hv_tree);
+  STORE("info", hv_info);
+  STORE("errors", av_errors_list);
+#undef STORE
+
+  hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
+            newSViv (document_descriptor), 0);
+
+  hv_store (hv_tree, "tree_document_descriptor",
+            strlen ("tree_document_descriptor"),
+            newSViv (document_descriptor), 0);
+
+  hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
+  sv = newRV_noinc ((SV *) hv);
+  sv_bless (sv, hv_stash);
+  return sv;
+}
+
 /* Return Texinfo::Document perl object corresponding to the
    C document structure corresponding to DOCUMENT_DESCRIPTOR.
    If NO_STORE is set, destroy the C document.
@@ -1077,7 +1148,9 @@ build_document (size_t document_descriptor, int no_store)
 
   hv_tree = build_texinfo_tree (document->tree);
 
-  hv_info = build_global_info (document->global_info);
+  hv_info = build_global_info (document->global_info,
+                               document->global_commands);
+  build_global_info_tree_info (hv_info, document->global_info);
 
   hv_commands_info = build_global_commands (document->global_commands);
 

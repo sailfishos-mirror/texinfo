@@ -1449,7 +1449,7 @@ while(@input_files) {
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
-  my $document = $parser->parse_texi_file($input_file_name);
+  my $document = $parser->parse_texi_file($input_file_name, $with_XS);
   my $tree;
   if (defined($document)) {
     $tree = $document->tree();
@@ -1495,13 +1495,13 @@ while(@input_files) {
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $document_information);
-  my $global_commands = $document->global_commands_information();
-  if (not defined($main_configuration->get_conf('documentlanguage'))) {
-    my $element = Texinfo::Common::set_global_document_command($main_configuration,
-       $global_commands, 'documentlanguage', 'preamble');
+  if (not defined($main_configuration->get_conf('documentlanguage'))
+      and defined ($document_information->{'documentlanguage'})) {
+    $main_configuration->set_conf('documentlanguage',
+                                  $document_information->{'documentlanguage'});
   }
   # relevant for many Structuring methods.
-  if ($global_commands->{'novalidate'}) {
+  if ($document_information->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);
   }
 
@@ -1511,6 +1511,8 @@ while(@input_files) {
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
+    $document = Texinfo::Structuring::rebuild_document($document);
+    $tree = $document->tree();
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     #print STDERR "$texinfo_text\n";
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
@@ -1555,9 +1557,7 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
-    my $indices_information = $document->indices_information();
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
-                                                          $indices_information);
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($document);
   }
 
   if ($formats_table{$converted_format}->{'move_index_entries_after_items'}

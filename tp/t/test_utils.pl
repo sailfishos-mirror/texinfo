@@ -955,10 +955,10 @@ sub test($$)
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_text($test_text);
+      $document = $parser->parse_texi_text($test_text, undef, $with_XS);
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_piece($test_text);
+      $document = $parser->parse_texi_piece($test_text, undef, $with_XS);
       if (defined($test_input_file_name)) {
         warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
       }
@@ -972,7 +972,7 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    $document = $parser->parse_texi_file($test_file);
+    $document = $parser->parse_texi_file($test_file, $with_XS);
   }
   my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
@@ -1000,7 +1000,7 @@ sub test($$)
                                         $document_information);
 
   my $global_commands = $document->global_commands_information();
-  if ($global_commands->{'novalidate'}) {
+  if ($document_information->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);
   }
 
@@ -1008,10 +1008,8 @@ sub test($$)
   # document XS
   $main_configuration->register_XS_document_main_configuration($document);
 
-  my $indices_information = $document->indices_information();
   if ($tree_transformations{'relate_index_entries_to_items'}) {
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
-                                                     $indices_information);
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($document);
   }
 
   if ($tree_transformations{'move_index_entries_after_items'}) {
@@ -1093,6 +1091,8 @@ sub test($$)
   }
 
   my ($errors, $error_nrs) = $registrar->errors();
+
+  my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries
      = Texinfo::Structuring::merge_indices($indices_information);

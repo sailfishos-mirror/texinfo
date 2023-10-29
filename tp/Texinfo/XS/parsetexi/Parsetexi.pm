@@ -184,15 +184,21 @@ sub _get_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-sub _get_parser_info($$;$) {
+sub _get_parser_info($$;$$) {
   my $self = shift;
   my $document_descriptor = shift;
+  my $no_build = shift;
   my $no_store = shift;
 
   my ($registrar, $configuration_information)
      = _get_error_registrar($self);
 
-  my $document = build_document ($document_descriptor, $no_store);
+  my $document;
+  if ($no_build) {
+    $document = get_document ($document_descriptor);
+  } else {
+    $document = build_document ($document_descriptor, $no_store);
+  }
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
@@ -215,10 +221,11 @@ sub _get_parser_info($$;$) {
   return $document;
 }
 
-sub parse_texi_file ($$)
+sub parse_texi_file ($$;$)
 {
   my $self = shift;
   my $input_file_path = shift;
+  my $no_build = shift;
   my $tree_stream;
 
   # the file is already a byte string, taken as is from the command
@@ -241,16 +248,16 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = _get_parser_info($self, $document_descriptor);
+  my $document = _get_parser_info($self, $document_descriptor, $no_build);
 
   return $document;
 }
 
 
 # Used in tests under tp/t.
-sub parse_texi_piece($$;$$)
+sub parse_texi_piece($$;$$$)
 {
-  my ($self, $text, $line_nr, $no_store) = @_;
+  my ($self, $text, $line_nr, $no_build, $no_store) = @_;
 
   return undef if (!defined($text));
 
@@ -262,15 +269,16 @@ sub parse_texi_piece($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_build,
+                                  $no_store);
 
   return $document;
 }
 
 # Used in tests under tp/t.
-sub parse_texi_text($$;$)
+sub parse_texi_text($$;$$)
 {
-  my ($self, $text, $line_nr) = @_;
+  my ($self, $text, $line_nr, $no_build) = @_;
 
   return undef if (!defined($text));
 
@@ -282,14 +290,14 @@ sub parse_texi_text($$;$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_text($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor);
+  my $document = _get_parser_info($self, $document_descriptor, $no_build);
 
   return $document;
 }
 
-sub parse_texi_line($$;$$)
+sub parse_texi_line($$;$$$)
 {
-  my ($self, $text, $line_nr, $no_store) = @_;
+  my ($self, $text, $line_nr, $no_build, $no_store) = @_;
 
   return undef if (!defined($text));
 
@@ -301,7 +309,8 @@ sub parse_texi_line($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_build,
+                                  $no_store);
 
   return $document->tree();
 }
