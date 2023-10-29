@@ -50,7 +50,7 @@ SV *build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
-SV *build_html_formatting_state (CONVERTER *converter);
+SV *build_html_formatting_state (CONVERTER *converter, unsigned long flags);
 
 SV *build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted);
 #endif

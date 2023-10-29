@@ -198,3 +198,24 @@ top_monospace_context (MONOSPACE_CONTEXT_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
+/* HTML specific but also used to build perl */
+HTML_DOCUMENT_CONTEXT *
+top_document_context (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+
+  if (stack->top == 0)
+    fatal ("HTML document context stack empty for top");
+
+  return &stack->stack[stack->top - 1];
+}
+
+HTML_FORMATTING_CONTEXT *
+top_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("HTML formatting context stack empty for top");
+
+  return &stack->stack[stack->top - 1];
+}
+

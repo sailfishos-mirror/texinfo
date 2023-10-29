@@ -29,6 +29,7 @@
 /* also for xvasprintf */
 #include "text.h"
 #include "debug.h"
+#include "converter_types.h"
 #include "errors.h"
 
 

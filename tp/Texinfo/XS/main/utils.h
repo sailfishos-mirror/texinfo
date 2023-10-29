@@ -24,7 +24,7 @@
 #include "global_commands_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
-#include "command_stack.h"
+#include "converter_types.h"
 #include "builtin_commands.h"
 
 extern const char *whitespace_chars;
@@ -46,23 +46,6 @@ extern char *html_global_unit_direction_names[];
 extern char *html_formatting_reference_names[];
 extern char *html_css_string_formatting_reference_names[];
 
-enum error_type { MSG_error, MSG_warning,
-                  MSG_document_error, MSG_document_warning };
-
-typedef struct {
-    char *message;
-    char *error_line;
-    enum error_type type;
-    int continuation;
-    SOURCE_INFO source_info;
-} ERROR_MESSAGE;
-
-typedef struct {
-    ERROR_MESSAGE *list;
-    size_t number;
-    size_t space;
-} ERROR_MESSAGE_LIST;
-
 typedef struct {
     char *encoding_name;
     iconv_t iconv;
@@ -77,21 +60,6 @@ typedef struct {
 
 extern ENCODING_CONVERSION_LIST output_conversions;
 extern ENCODING_CONVERSION_LIST input_conversions;
-
-typedef struct expanded_format {
-    char *format;
-    int expandedp;
-} EXPANDED_FORMAT;
-
-typedef struct GLOBAL_INFO {
-    char *input_file_name;
-    char *input_directory;
-    char *input_encoding_name;
-    int sections_level_modifier;
-    ELEMENT dircategory_direntry; /* an array of elements */
-    /* Ignored characters for index sort key */
-    IGNORED_CHARS ignored_chars;
-} GLOBAL_INFO;
 
 enum global_option_command_type {
    GO_NONE,
@@ -160,51 +128,11 @@ enum global_unit_direction {
   #undef hgdt_name
 };
 
-#define SUI_TYPES_LIST \
-  sui_type(class) \
-  sui_type(direction) \
-  sui_type(order) \
-  sui_type(file_string) \
-  sui_type(target) \
-  sui_type(heading)
-
-enum special_unit_info_type {
-  #define sui_type(name) SUI_type_ ## name,
-   SUI_TYPES_LIST
-  #undef sui_type
-};
-
-/* translated from corresponding SUI_type* */
-enum special_unit_info_tree {
-   SUIT_type_heading,
-};
-
 enum command_location {
    CL_before,
    CL_last,
    CL_preamble,
    CL_preamble_or_first,
-};
-
-enum special_target_type {
-   ST_footnote_location,
-};
-
-#define TDS_TRANSLATED_TYPES_LIST \
-  tds_type(button) \
-  tds_type(description) \
-  tds_type(text)
-
-#define TDS_NON_TRANSLATED_TYPES_LIST \
-  tds_type(accesskey) \
-  tds_type(example) \
-  tds_type(rel)
-
-enum direction_string {
-  #define tds_type(name) TDS_type_ ## name,
-   TDS_TRANSLATED_TYPES_LIST
-   TDS_NON_TRANSLATED_TYPES_LIST
-  #undef tds_type
 };
 
 #define HCC_CONTEXT_TYPES_LIST \
@@ -221,258 +149,25 @@ enum conversion_context {
   #undef cctx_type
 };
 
-/* %default_formatting_references + %default_css_string_formatting_references
-   in Texinfo::HTML */
-#define HTML_FORMATTING_REFERENCES_LIST \
-  html_fr_reference(format_begin_file) \
-  html_fr_reference(format_button) \
-  html_fr_reference(format_button_icon_img) \
-  html_fr_reference(format_css_lines) \
-  html_fr_reference(format_comment) \
-  html_fr_reference(format_contents) \
-  html_fr_reference(format_element_header) \
-  html_fr_reference(format_element_footer) \
-  html_fr_reference(format_end_file) \
-  html_fr_reference(format_footnotes_segment) \
-  html_fr_reference(format_footnotes_sequence) \
-  html_fr_reference(format_heading_text) \
-  html_fr_reference(format_navigation_header) \
-  html_fr_reference(format_navigation_panel) \
-  html_fr_reference(format_node_redirection_page) \
-  html_fr_reference(format_program_string) \
-  html_fr_reference(format_protect_text) \
-  html_fr_reference(format_separate_anchor) \
-  html_fr_reference(format_titlepage) \
-  html_fr_reference(format_title_titlepage) \
-  html_fr_reference(format_translate_message_tree) \
-  html_fr_reference(format_translate_message_string) \
-
-#define HTML_CSS_FORMATTING_REFERENCES_LIST \
-  html_fr_reference(format_protect_text)
-
-enum html_formatting_reference {
-  #define html_fr_reference(name) FR_## name,
-   HTML_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
-};
-
-enum html_css_string_formatting_reference {
-  #define html_fr_reference(name) CSSFR_## name,
-   HTML_CSS_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
-};
-
-enum formatting_reference_status {
-   FRS_status_none,
-   FRS_status_default_set,        /* default is set, no customization (or
-                                     customization is the same as default) */
-   FRS_status_customization_set,  /* customization is set, no default, or
-                                     not the same as default */
-   FRS_status_ignored,            /* explicitely ignored. Only used for
-                                     types_conversion and commands_conversion
-                                   */
-};
+/* HTML modified state flags */
+#define HMSF_current_root            0x0001
+#define HMSF_document_context        0x0002
+#define HMSF_formatting_context      0x0004
+#define HMSF_composition_context     0x0008
+#define HMSF_preformatted_classes    0x0010
+#define HMSF_block_commands          0x0020
+#define HMSF_monospace               0x0040
+#define HMSF_top_formatting_context  0x0080
+/* for the integer variables in top document context */
+#define HMSF_top_document_ctx        0x0100
+#define HMSF_current_node            0x0200
+#define HMSF_current_output_unit     0x0400
+#define HMSF_current_filename        0x0800
+#define HMSF_converter_state         0x1000
+#define HMSF_multiple_pass           0x2000
 
 /* down here because it requires error data from before */
 #include "document.h"
-
-typedef struct VARIETY_DIRECTION_INDEX {
-    char *special_unit_variety;
-    int direction_index;
-} VARIETY_DIRECTION_INDEX;
-
-typedef struct HTML_TARGET {
-    ELEMENT *element;
-    char *target;
-    char *special_unit_filename;
-    char *node_filename;
-    char *section_filename;
-    char *contents_target;
-    char *shortcontents_target;
-
-    char *text;
-    ELEMENT *tree;
-    ELEMENT *tree_nonumber;
-    char *string;
-} HTML_TARGET;
-
-typedef struct HTML_TARGET_LIST {
-    size_t number;
-    size_t space;
-    HTML_TARGET *list;
-} HTML_TARGET_LIST;
-
-typedef struct MERGED_INDEX {
-    char *name;
-    INDEX_ENTRY *index_entries;
-    size_t index_number;
-} MERGED_INDEX;
-
-typedef struct LETTER_INDEX_ENTRIES {
-    char *letter;
-    INDEX_ENTRY **entries;
-    size_t number;
-} LETTER_INDEX_ENTRIES;
-
-typedef struct INDEX_SORTED_BY_LETTER {
-    char *name;
-    LETTER_INDEX_ENTRIES *letter_entries;
-    size_t number;
-} INDEX_SORTED_BY_LETTER;
-
-typedef struct HTML_COMMAND_CONVERSION {
-    char *element;
-    int quote; /* for style commands formatting only */
-    /* following is only for no arg command formatting */
-    int unset;
-    char *text;
-    ELEMENT *tree;
-    char *translated_converted;
-    char *translated_to_convert;
-} HTML_COMMAND_CONVERSION;
-
-typedef struct COMMAND_ID_LIST {
-    size_t number;
-    enum command_id *list;
-} COMMAND_ID_LIST;
-
-typedef struct TRANSLATED_COMMAND {
-    enum command_id cmd;
-    char *translation;
-} TRANSLATED_COMMAND;
-
-typedef struct FILE_NAME_PATH {
-    char *filename;
-    char *filepath;
-} FILE_NAME_PATH;
-
-typedef struct FILE_NAME_PATH_COUNTER {
-    char *filename;
-    char *normalized_filename;
-    char *filepath;
-    int counter;
-    int elements_in_file_count; /* only used in HTML, corresponds to
-                                   'elements_in_file_count' */
-} FILE_NAME_PATH_COUNTER;
-
-typedef struct FILE_NAME_PATH_COUNTER_LIST {
-    size_t number;
-    size_t space;
-    FILE_NAME_PATH_COUNTER *list;
-} FILE_NAME_PATH_COUNTER_LIST;
-
-typedef struct SPECIAL_UNIT_DIRECTION {
-    OUTPUT_UNIT *output_unit;
-    char *direction;
-} SPECIAL_UNIT_DIRECTION;
-
-typedef struct FORMATTING_REFERENCE {
-/* perl references. This should be SV *sv_*,
-   but we don't want to include the Perl headers everywhere; */
-    void *sv_reference;
-    void *sv_default;
-    enum formatting_reference_status status;
-} FORMATTING_REFERENCE;
-
-typedef struct HTML_FORMATTING_CONTEXT {
-    char *context_name;
-    int preformatted_number;
-    int paragraph_number;
-    int upper_case_ctx;
-    int space_protected;
-    int no_break;
-} HTML_FORMATTING_CONTEXT;
-
-typedef struct HTML_FORMATTING_CONTEXT_STACK {
-    HTML_FORMATTING_CONTEXT *stack;
-    size_t top;   /* One above last pushed context. */
-    size_t space;
-} HTML_FORMATTING_CONTEXT_STACK;
-
-typedef struct HTML_DOCUMENT_CONTEXT {
-    char *context;
-    int string_ctx;
-    int raw_ctx;
-    int verbatim_ctx;
-    int math_ctx;
-    char *document_global_context;
-    MONOSPACE_CONTEXT_STACK monospace_context;
-    COMMAND_OR_TYPE_STACK composition_context;
-    COMMAND_STACK block_commands;
-    HTML_FORMATTING_CONTEXT_STACK formatting_context;
-    STRING_STACK preformatted_classes;
-} HTML_DOCUMENT_CONTEXT;
-
-typedef struct HTML_DOCUMENT_CONTEXT_STACK {
-    HTML_DOCUMENT_CONTEXT *stack;
-    size_t top;   /* One above last pushed context. */
-    size_t space;
-} HTML_DOCUMENT_CONTEXT_STACK;
-
-typedef struct CONVERTER {
-    int converter_descriptor;
-    OPTIONS *conf;
-    OPTIONS *init_conf;
-    struct DOCUMENT *document;
-    int document_units_descriptor;
-
-    ERROR_MESSAGE_LIST *error_messages;
-    MERGED_INDEX **index_entries;
-    INDEX_SORTED_BY_LETTER **index_entries_by_letter;
-    TRANSLATED_COMMAND **translated_commands;
-    EXPANDED_FORMAT *expanded_formats;
-
-  /* output unit files API */
-    FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
-
-  /* perl converter. This should be HV *hv,
-     but we don't want to include the Perl headers everywhere; */
-    void *hv;
-
-  /* maybe HTML specific */
-    char *title_titlepage;
-
-  /* HTML specific */
-    OUTPUT_UNIT **global_units_directions;
-    SPECIAL_UNIT_DIRECTION **special_units_direction_name;
-    char **special_unit_info[SUI_type_heading+1];
-    ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
-    STRING_LIST *special_unit_varieties;
-    VARIETY_DIRECTION_INDEX **varieties_direction_index;
-    STRING_LIST *seen_ids;
-    HTML_TARGET_LIST *html_targets;
-    HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
-    char **directions_strings[TDS_type_rel+1];
-    HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
-    COMMAND_ID_LIST *no_arg_formatted_cmd;
-    int code_types[ET_special_unit_element+1];
-    char *pre_class_types[ET_special_unit_element+1];
-    FORMATTING_REFERENCE
-           formatting_references[FR_format_translate_message_string+1];
-    FORMATTING_REFERENCE
-           css_string_formatting_references[CSSFR_format_protect_text+1];
-    FORMATTING_REFERENCE commands_open[BUILTIN_CMD_NUMBER];
-    FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
-    FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
-    FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
-    FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
-
-    /* state only in C converter */
-    int modified_state; /* to determine if perl data should be rebuilt */
-    ELEMENT *tree_to_build; /* C tree that needs to be built to perl before
-                               calling perl functions on it */
-
-
-    /* state common with perl converter */
-    int document_global_context;
-    int ignore_notice;
-    ELEMENT *current_root_command;
-    ELEMENT *current_node;
-    OUTPUT_UNIT *current_output_unit;
-    HTML_DOCUMENT_CONTEXT_STACK html_document_context;
-    STRING_STACK multiple_pass;
-    char *current_filename;
-} CONVERTER;
 
 typedef struct TARGET_FILENAME {
     char *target;

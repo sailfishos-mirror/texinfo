@@ -40,6 +40,36 @@
 
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/converter_types.h: move definitions of types
+	related to document and converter to a separate file,
+	converter_types.h, to avoid issues with include order.
+
+	* tp/Texinfo/XS/main/command_stack.c (top_html_formatting_context)
+	(top_document_context), tp/Texinfo/XS/convert/convert_html.c: move
+	top_html_formatting_context and top_document_context out of
+	convert_html.c to tp/Texinfo/XS/main/command_stack.c.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_translate_names)
+	(html_convert_convert), tp/Texinfo/XS/convert/convert_html.c
+	(html_new_document_context, html_pop_document_context)
+	(convert_tree_new_formatting_context, convert_to_html_internal)
+	(convert_output_unit), tp/Texinfo/XS/main/build_perl_info.c
+	(build_html_formatting_context_ctx, build_html_formatting_context)
+	(build_html_document_context, build_html_formatting_context_stack)
+	(build_html_composition_context_stack)
+	(build_html_preformatted_classes_stack, build_html_monospace_stack)
+	(build_html_block_commands_stack, build_html_document_context_ctx)
+	(build_html_formatting_state), tp/Texinfo/XS/main/call_perl_function.c
+	(call_types_conversion, call_types_open, call_commands_conversion)
+	(call_commands_open): use modified_state to hold information on the
+	state that needs to be reset before calling perl code, using flags
+	with name HMSF_*. Add the flags variable as argument of
+	build_html_formatting_state. Add functions for more fine grained
+	rebuilt of formatting state.
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	Regular tree structure for @value with flag not found
 
 	* tp/Texinfo/ParserNonXS.pm (_new_value_element),

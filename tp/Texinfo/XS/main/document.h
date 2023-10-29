@@ -7,28 +7,10 @@
 #include "options_types.h"
 #include "global_commands_types.h"
 #include "tree_types.h"
+/* for ERROR_MESSAGE_LIST */
+#include "converter_types.h"
 /* for GLOBAL_INFO */
 #include "utils.h"
-/* for ERROR_MESSAGE_LIST */
-#include "errors.h"
-
-typedef struct DOCUMENT {
-    int descriptor;
-    ELEMENT *tree;
-    INDEX **index_names;
-    FLOAT_RECORD_LIST *floats;
-    FLOAT_RECORD_LIST *listoffloats;
-    ELEMENT_LIST *internal_references;
-    LABEL_LIST *labels_list;
-    LABEL_LIST *identifiers_target;
-    GLOBAL_INFO *global_info;
-    GLOBAL_COMMANDS *global_commands;
-    STRING_LIST *small_strings;
-    ELEMENT *nodes_list; /* nodes in contents of this element */
-    ELEMENT *sections_list; /* sections in contents of this element */
-    ERROR_MESSAGE_LIST *error_messages;
-    OPTIONS *options; /* for options used in structuring */
-} DOCUMENT;
 
 typedef struct TREE_AND_STRINGS {
     ELEMENT *tree;

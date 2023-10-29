@@ -556,7 +556,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
 
   if (self->modified_state)
     {
-      build_html_formatting_state (self);
+      build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
 
@@ -625,7 +625,7 @@ call_types_open (CONVERTER *self, enum element_type type,
 
   if (self->modified_state)
     {
-      build_html_formatting_state (self);
+      build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
 
@@ -697,7 +697,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
 
   if (self->modified_state)
     {
-      build_html_formatting_state (self);
+      build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
 
@@ -773,7 +773,7 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
 
   if (self->modified_state)
     {
-      build_html_formatting_state (self);
+      build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
 
@@ -841,7 +841,7 @@ call_output_units_conversion (CONVERTER *self,
 
   if (self->modified_state)
     {
-      build_html_formatting_state (self);
+      build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
 

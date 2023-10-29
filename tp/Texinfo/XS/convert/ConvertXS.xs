@@ -315,7 +315,7 @@ html_translate_names (SV *converter_in)
 
          if (self->modified_state)
            {
-             build_html_formatting_state (self);
+             build_html_formatting_state (self, self->modified_state);
              self->modified_state = 0;
            }
 
@@ -362,7 +362,7 @@ html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *sp
                                         special_units_descriptor);
          if (self->modified_state)
            {
-             build_html_formatting_state (self);
+             build_html_formatting_state (self, self->modified_state);
              self->modified_state = 0;
            }
          RETVAL = newSVpv_utf8 (result, 0);

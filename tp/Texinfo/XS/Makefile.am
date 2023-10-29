@@ -149,6 +149,7 @@ libtexinfo_la_SOURCES= \
 		      main/targets.h \
 		      main/utils.c \
 		      main/utils.h \
+		      main/converter_types.h \
 		      main/unicode.c \
 		      main/unicode.h \
 		      main/translations.c \

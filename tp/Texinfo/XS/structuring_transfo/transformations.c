@@ -33,6 +33,7 @@
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
+#include "errors.h"
 #include "debug.h"
 #include "utils.h"
 /* for copy_contents normalized_menu_entry_internal_node */
