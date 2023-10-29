@@ -55,7 +55,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tp/Texinfo/Document.pm \
   $(top_srcdir)/tp/Texinfo/Structuring.pm \
   $(top_srcdir)/tp/Texinfo/Report.pm \
-  $(top_srcdir)/tp/Texinfo/TranslationsNonXS.pm \
+  $(top_srcdir)/tp/Texinfo/Translations.pm \
   $(top_srcdir)/tp/Texinfo/Transformations.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Texinfo.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Utils.pm \
