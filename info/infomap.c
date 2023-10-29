@@ -560,7 +560,11 @@ static int sup_info, sup_ea;
 
 
 
-/* Locate init file.  Return value to be freed by caller.  */
+/* Locate init file.  Return value to be freed by caller.
+
+   See the "XDG Base Directory Specification" at
+   https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+*/
 char *
 locate_init_file (void)
 {
@@ -599,8 +603,7 @@ locate_init_file (void)
                xdg_config_home, PACKAGE, INFOKEY_FILE);
       free (xdg_config_home);
 
-      int status = stat (filename, &finfo);
-      if (status == 0)
+      if (stat (filename, &finfo) == 0)
         return filename;
       free (filename);
     }
@@ -623,7 +626,39 @@ locate_init_file (void)
     filename = xstrdup (DOT_INFOKEY_FILE); /* try current directory */
 #endif
 
-  return filename;
+  if (filename)
+    {
+      if (stat (filename, &finfo) == 0)
+        return filename;
+      free (filename);
+    }
+
+  /* Finally, check through XDG_CONFIG_DIRS. */
+
+  char *xdg_config_dirs = getenv ("XDG_CONFIG_DIRS");
+  if (!xdg_config_dirs)
+    xdg_config_dirs = "/etc/xdg";
+
+  char *xdg_config_dirs_split = xstrdup (xdg_config_dirs);
+
+  char *dir = strtok (xdg_config_dirs_split, ":");
+  while (dir)
+    {
+      filename = xmalloc (strlen (dir) + 1
+                          + strlen (PACKAGE) + 1
+                          + strlen (INFOKEY_FILE) + 1);
+      sprintf (filename, "%s/%s/%s", dir, PACKAGE, INFOKEY_FILE);
+      if (stat (filename, &finfo) == 0)
+        {
+          free (xdg_config_dirs_split);
+          return filename;
+        }
+      free (filename);
+      dir = strtok (NULL, ":");
+    }
+
+  free (xdg_config_dirs_split);
+  return 0;
 }
 
 
@@ -634,7 +669,7 @@ static int
 fetch_user_maps (char *init_file)
 {
   char *filename = NULL;
-  FILE *inf;
+  FILE *inf = NULL;
 
   /* In infokey.c */
   int compile (FILE *fp, const char *filename, int *, int *);
@@ -645,7 +680,8 @@ fetch_user_maps (char *init_file)
   else
     filename = locate_init_file ();
 
-  inf = fopen (filename, "r");
+  if (filename)
+    inf = fopen (filename, "r");
   if (!inf)
     {
       free (filename);
