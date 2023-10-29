@@ -411,23 +411,16 @@ store_source_mark_list (ELEMENT *e)
                 break;
             }
 
-#define SAVE_S_M_TYPE(X) \
-           case SM_type_ ## X: \
-           sv = newSVpv_utf8 (#X, 0);\
-           STORE("sourcemark_type", sv); \
-           break;
-
           switch (s_mark->type)
             {
-              SAVE_S_M_TYPE (include)
-              SAVE_S_M_TYPE (setfilename)
-              SAVE_S_M_TYPE (delcomment)
-              SAVE_S_M_TYPE (defline_continuation)
-              SAVE_S_M_TYPE (macro_expansion)
-              SAVE_S_M_TYPE (linemacro_expansion)
-              SAVE_S_M_TYPE (value_expansion)
-              SAVE_S_M_TYPE (ignored_conditional_block)
-              SAVE_S_M_TYPE (expanded_conditional_command)
+#define sm_type(X) \
+              case SM_type_ ## X: \
+              sv = newSVpv_utf8 (#X, 0);\
+              STORE("sourcemark_type", sv); \
+              break;
+
+            SM_TYPES_LIST
+#undef sm_type
 
               /* for SM_type_none */
               default:

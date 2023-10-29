@@ -39,7 +39,6 @@ enum extra_type {
    be there to avoid using 0, for a code easier to debug */
 
 #define SM_TYPES_LIST \
-   sm_type(none) \
    sm_type(include) \
    sm_type(setfilename) \
    sm_type(delcomment) \
@@ -51,6 +50,7 @@ enum extra_type {
    sm_type(expanded_conditional_command) \
 
 enum source_mark_type {
+   SM_type_none,
   #define sm_type(name) SM_type_ ## name,
    SM_TYPES_LIST
   #undef sm_type

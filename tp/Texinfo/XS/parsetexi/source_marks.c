@@ -27,15 +27,10 @@
 #include "manipulate_tree.h"
 #include "source_marks.h"
 
-int include_counter = 0;
-int setfilename_counter = 0;
-int delcomment_counter = 0;
-int defline_continuation_counter = 0;
-int macro_expansion_counter = 0;
-int linemacro_expansion_counter = 0;
-int value_expansion_counter = 0;
-int ignored_conditional_block_counter = 0;
-int expanded_conditional_command_counter = 0;
+#define sm_type(name) \
+static int name##_counter = 0;
+ SM_TYPES_LIST
+#undef sm_type
 
 /* it isn't much readable to use here the SM_TYPES_LIST macro defined
    in a header file, but the table should be allocated in files using
@@ -105,50 +100,22 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   if (source_mark->counter == -1)
     {
-      if (source_mark->type == SM_type_include)
+      switch (source_mark->type)
         {
-          include_counter++;
-          source_mark->counter = include_counter;
-        }
-      else if (source_mark->type == SM_type_setfilename)
-        {
-          setfilename_counter++;
-          source_mark->counter = setfilename_counter;
-        }
-      else if (source_mark->type == SM_type_delcomment)
-        {
-          delcomment_counter++;
-          source_mark->counter = delcomment_counter;
-        }
-      else if (source_mark->type == SM_type_defline_continuation)
-        {
-          defline_continuation_counter++;
-          source_mark->counter = defline_continuation_counter;
-        }
-      else if (source_mark->type == SM_type_macro_expansion)
-        {
-          macro_expansion_counter++;
-          source_mark->counter = macro_expansion_counter;
-        }
-      else if (source_mark->type == SM_type_linemacro_expansion)
-        {
-          linemacro_expansion_counter++;
-          source_mark->counter = linemacro_expansion_counter;
-        }
-      else if (source_mark->type == SM_type_value_expansion)
-        {
-          value_expansion_counter++;
-          source_mark->counter = value_expansion_counter;
-        }
-      else if (source_mark->type == SM_type_ignored_conditional_block)
-        {
-          ignored_conditional_block_counter++;
-          source_mark->counter = ignored_conditional_block_counter;
-        }
-      else if (source_mark->type == SM_type_expanded_conditional_command)
-        {
-          expanded_conditional_command_counter++;
-          source_mark->counter = expanded_conditional_command_counter;
+#define sm_type(name) \
+          case SM_type_##name: \
+            {                     \
+              name##_counter++;   \
+              source_mark->counter = name##_counter; \
+            } \
+          break;
+
+        SM_TYPES_LIST
+
+#undef sm_type
+        default:
+          /* do nothing; just silence -Wswitch about SM_type_none */
+          break;
         }
     }
 
@@ -174,14 +141,8 @@ transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
 void
 source_marks_reset_counters (void)
 {
-  include_counter = 0;
-  setfilename_counter = 0;
-  delcomment_counter = 0;
-  defline_continuation_counter = 0;
-  macro_expansion_counter = 0;
-  linemacro_expansion_counter = 0;
-  value_expansion_counter = 0;
-  ignored_conditional_block_counter = 0;
-  expanded_conditional_command_counter = 0;
+#define sm_type(name) name##_counter = 0;
+ SM_TYPES_LIST
+#undef sm_type
 }
 
