@@ -1123,8 +1123,9 @@ fetch_value (char *name)
     return "1";
   return 0;
 }
-
 
+
+/* @definfoenclose */
 static INFO_ENCLOSE *infoencl_list;
 static size_t infoencl_number;
 static size_t infoencl_space;

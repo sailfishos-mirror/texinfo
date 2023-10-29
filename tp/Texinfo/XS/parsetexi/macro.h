@@ -47,6 +47,7 @@ void store_value (char *name, char *value);
 char *fetch_value (char *name);
 void clear_value (char *name);
 void wipe_values (void);
+
 INFO_ENCLOSE *lookup_infoenclose (enum command_id cmd);
 void add_infoenclose (enum command_id cmd, char *begin, char *end);
 

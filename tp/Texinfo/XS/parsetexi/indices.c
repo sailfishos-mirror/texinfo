@@ -121,6 +121,7 @@ add_index_internal (char *name, int in_code)
 }
 
 
+
 /* Add a user defined index with the name NAME */
 void
 add_index (char *name, int in_code)
@@ -135,15 +136,6 @@ add_index (char *name, int in_code)
   xasprintf (&cmdname, "%s%s", name, "index");
   add_index_command (cmdname, idx);
   free (cmdname);
-}
-
-/* reset indices without unallocating them nor the list of indices */
-void
-forget_indices (void)
-{
-  index_names = 0;
-  number_of_indices = 0;
-  space_for_indices = 0;
 }
 
 void
@@ -349,8 +341,17 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
     }
 }
 
-
 
+
+/* reset indices without unallocating them nor the list of indices */
+void
+forget_indices (void)
+{
+  index_names = 0;
+  number_of_indices = 0;
+  space_for_indices = 0;
+}
+
 void
 resolve_indices_merged_in (void)
 {
@@ -367,6 +368,9 @@ resolve_indices_merged_in (void)
     }
 }
 
+/* complete some @def* index information that require translations.
+   Done in a separate function and not inside the main parser loop because
+   it requires parsing Texinfo code in gdt_tree too */
 void
 complete_indices (int document_descriptor)
 {

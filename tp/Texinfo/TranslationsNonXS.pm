@@ -449,7 +449,7 @@ if (0) {
   gdt('{name} of {class}', undef, undef);
 }
 
-# In a handful of cases, we delay storing the contents of the
+# For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
 sub complete_indices($$)

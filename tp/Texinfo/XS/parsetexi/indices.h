@@ -12,9 +12,11 @@ void add_index (char *name, int in_code);
 INDEX *index_of_command (enum command_id cmd);
 void enter_index_entry (enum command_id index_type_cmd,
                         ELEMENT *current);
-void resolve_indices_merged_in (void);
-INDEX *ultimate_index (INDEX *index);
-void forget_indices (void);
 void set_non_ignored_space_in_index_before_command (ELEMENT *content);
+
+void forget_indices (void);
+
+void resolve_indices_merged_in (void);
 void complete_indices (int document_descriptor);
+
 #endif

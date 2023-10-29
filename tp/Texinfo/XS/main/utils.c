@@ -166,6 +166,8 @@ isascii_upper (int c)
   return (((c & ~0x7f) == 0) && isupper(c));
 }
 
+
+/* operations on strings considered as multibytes.  Use libunistring */
 /* count characters, not bytes. */
 size_t
 count_multibyte (const char *text)
@@ -222,6 +224,8 @@ width_multibyte (const char *text)
   return result;
 }
 
+
+/* encoding and decoding. Use iconv. */
 /* ENCODING should always be lower cased */
 ENCODING_CONVERSION *
 get_encoding_conversion (char *encoding,
@@ -439,6 +443,9 @@ encode_string (char *input_string, char *encoding, int *status,
   return result;
 }
 
+
+/* code related to the EXPANDED_FORMAT structure holding informations on the
+   expanded formats (html, info, tex...) */
 void
 clear_expanded_formats (EXPANDED_FORMAT *formats)
 {
@@ -496,6 +503,7 @@ format_expanded_p (EXPANDED_FORMAT *formats, char *format)
   return 0;
 }
 
+
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
 item_line_parent (ELEMENT *current)
@@ -522,6 +530,8 @@ get_label_element (ELEMENT *e)
   return 0;
 }
 
+
+/* index related code used both in parsing and conversion */
 /* NAME is the name of an index, e.g. "cp" */
 INDEX *
 indices_info_index_by_name (INDEX **indices_information, char *name)
@@ -542,6 +552,8 @@ ultimate_index (INDEX *index)
   return index;
 }
 
+
+/* text parsing functions used in diverse situations */
 /* Read a name used for @set, @value and translations arguments. */
 char *
 read_flag_name (char **ptr)
@@ -690,6 +702,8 @@ normalize_encoding_name (char *text, int *possible_encoding)
   return normalized_text;
 }
 
+
+/* index related functions used in diverse situations, not only in parser */
 void
 wipe_index (INDEX *idx)
 {
@@ -712,17 +726,8 @@ wipe_index_names (INDEX **index_names)
   free (index_names);
 }
 
-/* options */
-
-OPTIONS *
-new_options (void)
-{
-  OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
-  initialize_options (options);
-  return options;
-}
-
-
+
+/* string lists */
 /* include directories and include file */
 
 void
@@ -835,6 +840,8 @@ destroy_strings_list (STRING_LIST *strings)
   free (strings);
 }
 
+
+/* code related to document global info used both in parser and other codes */
 void
 delete_global_info (GLOBAL_INFO *global_info_ref)
 {
@@ -987,15 +994,6 @@ in_preamble (ELEMENT *element)
   return 0;
 }
 
-CONVERTER *
-new_converter (void)
-{
-  CONVERTER *converter
-   = (CONVERTER *) malloc (sizeof (CONVERTER));
-  memset (converter, 0, sizeof (CONVERTER));
-  return converter;
-}
-
 /*
   COMMAND_LOCATION is 'last', 'preamble' or 'preamble_or_first'
   'preamble' means setting sequentially to the values in the preamble.
@@ -1065,7 +1063,29 @@ set_global_document_command (CONVERTER *self, enum command_id cmd,
   return element;
 }
 
-/* in Common.pm */
+
+/* options and converters */
+OPTIONS *
+new_options (void)
+{
+  OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
+  initialize_options (options);
+  return options;
+}
+
+CONVERTER *
+new_converter (void)
+{
+  CONVERTER *converter
+   = (CONVERTER *) malloc (sizeof (CONVERTER));
+  memset (converter, 0, sizeof (CONVERTER));
+  return converter;
+}
+
+
+/* misc functions used in general in structuring and in conversion */
+
+/* corresponding perl function in Common.pm */
 /* the returned level will be < 0 if the command is not supposed
    to be associated to a level. */
 int
@@ -1088,7 +1108,7 @@ section_level (ELEMENT *section)
   return level;
 }
 
-/* from Common.pm */
+/* corresponding perl function in Common.pm */
 int
 is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
 {

@@ -42,17 +42,10 @@ int expanded_conditional_command_counter = 0;
    it only if static (or in only one file if extern) */
 static char *source_marks_names[SM_type_expanded_conditional_command + 1] =
 {
-  /* #define sm_type(name) [SM_type_ ## name] = #name, */
   #define sm_type(name) #name,
     SM_TYPES_LIST
   #undef sm_type
 };
-
-char *
-source_mark_name(enum source_mark_type type)
-{
-  return source_marks_names[type];
-}
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -66,21 +59,6 @@ new_source_mark (enum source_mark_type type)
   source_mark->counter = -1;
   source_mark->status = SM_status_none;
   return source_mark;
-}
-
-void
-transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
-{
-  SOURCE_MARK_LIST *source_mark_list = &(from_e->source_mark_list);
-  if (source_mark_list->number)
-    {
-      int i;
-      for (i = 0; i < source_mark_list->number; i++)
-        {
-          add_source_mark (source_mark_list->list[i], e);
-        }
-      source_mark_list->number = 0;
-    }
 }
 
 /* ELEMENT should be the parent container. */
@@ -109,7 +87,8 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       add_element_string = "add";
     }
 
-  debug_nonl ("MARK %s c: %d p: %d %s %s ", source_mark_name(source_mark->type),
+  debug_nonl ("MARK %s c: %d p: %d %s %s ",
+         source_marks_names[source_mark->type],
          source_mark->counter, source_mark->position,
          source_mark->status == SM_status_start ? "start"
           : source_mark->status == SM_status_end ? "end"
@@ -175,6 +154,22 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 
   place_source_mark (e, source_mark);
 }
+
+void
+transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
+{
+  SOURCE_MARK_LIST *source_mark_list = &(from_e->source_mark_list);
+  if (source_mark_list->number)
+    {
+      int i;
+      for (i = 0; i < source_mark_list->number; i++)
+        {
+          add_source_mark (source_mark_list->list[i], e);
+        }
+      source_mark_list->number = 0;
+    }
+}
+
 
 void
 source_marks_reset_counters (void)

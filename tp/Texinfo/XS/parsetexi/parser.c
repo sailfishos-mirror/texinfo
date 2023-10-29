@@ -456,6 +456,8 @@ setup_document_root_and_before_node_section ()
   return before_node_section;
 }
 
+/* Put everything before @setfilename in a special type and separate
+   a preamble for informative commands */
 void
 rearrange_tree_beginning (ELEMENT *before_node_section)
 {
