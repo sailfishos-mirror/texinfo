@@ -1,5 +1,10 @@
 2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Custom Key Bindings): Also document
+	XDG_CONFIG_DIRS and correct name of other env variable.
+
+2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infomap.c (locate_init_file): Check through
 	XDG_CONFIG_DIRS as a last resort, using /etc/xdg as a default
 	value.

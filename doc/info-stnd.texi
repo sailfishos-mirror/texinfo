@@ -2302,8 +2302,8 @@ On startup, GNU Info looks for a configuration file:
 @itemize @bullet
 @item
 First, Info checks
-for @file{@env{XDG_DATA_HOME/texinfo/infokey}}. The default value
-of @env{XDG_DATA_HOME} is @file{~/.config},
+for @file{@env{$XDG_CONFIG_HOME/texinfo/infokey}}.  The default value
+of @env{$XDG_CONFIG_HOME} is @file{~/.config},
 so usually the file will be at @file{~/.config/texinfo/infokey}.
 (@file{~} here refers to the user's @env{HOME} directory.)
 
@@ -2314,9 +2314,17 @@ the MS-DOS version of Info looks for a file @file{_infokey} instead.  If
 the @env{HOME} variable is not defined, Info additionally looks in the
 current directory.}
 
+@item
+Finally, Info checks through @env{$XDG_CONFIG_DIRS} (default value:
+@samp{/etc/xdg}), which is a colon-separated list of directory names,
+for a file named @file{texinfo/infokey}.
+
 @end itemize
 
 @noindent
+This search order is in accordance with the
+@uref{https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html, XDG Base Directory Specification}.
+
 To use an alternative configuration file, use the @option{--init-file}
 option (@pxref{--init-file}).
 
