@@ -55,6 +55,12 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
+  /* TODO the following NOTE could be obsolete, as this code is now part
+     of a library that is not linked against Gnulib.  However, XS dynamic
+     shared object link against both the library this code is part of and
+     another library that does not use perl headers and do not link against
+     perl libraries but links against Gnulib. */
+
   /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
      Since this file (build_perl_info.c) includes the Perl headers,
      we get the Perl redefinitions, which we do not want, as we don't use
@@ -1049,9 +1055,6 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 /* Return Texinfo::Document perl object corresponding to the
    C document structure corresponding to DOCUMENT_DESCRIPTOR.
-   If NO_CLEAN_PERl_REFS is set, do not remove the pointers to perl
-   tree elements in C tree elements. It should normally only be set for
-   a tree that does not change anymore and will not be rebuilt.
    If NO_STORE is set, destroy the C document.
  */
 SV *
@@ -1244,7 +1247,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
   if (output_unit->unit_filename)
     {
-      /* FIXME check if utf8 or binary */
       sv = newSVpv_utf8 (output_unit->unit_filename,
                          strlen (output_unit->unit_filename));
       STORE("unit_filename");
@@ -1276,10 +1278,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           unit_sv = newRV_inc ((SV *) output_unit->hv);
           /* set the tree element associated_unit */
-          /* TODO is it an issue if already set?
-          hv_delete (element_hv, "associated_unit", strlen ("associated_unit"),
-                     G_DISCARD);
-           */
           hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
                     unit_sv, 0);
         }

@@ -55,9 +55,12 @@
 
 #ifdef ENABLE_NLS
 
-/* Use the uninstalled locales dir.  Currently unused.
-   The texinfo.mo files are not actually created here, only the
-   texinfo_document.mo files, which aren't used by parsetexi. */
+/* Use the uninstalled locales dir for translated strings.  Currently unused.
+   Note that if this code is used to find LocaleData, it should better be
+   for the texinfo_document domain and not for the texinfo/PACKAGE text domain..
+   Note that the LocaleData directory is passed to XS code and and used for
+   bindtextdomain in the main/translations.c configure function.
+   This code may still be relevant for some future C only code */
 static void
 find_locales_dir (char *builddir)
 {
@@ -74,7 +77,8 @@ find_locales_dir (char *builddir)
                strerror (errno));
     }
   else
-    {
+    { /* FIXME LocaleData does not contain the texinfo/PACKAGE text domain
+         translations, but the texinfo_document domain */
       bindtextdomain (PACKAGE, s);
       free (s);
       closedir (dir);
@@ -160,7 +164,8 @@ reset_parser (int local_debug_output)
 }
 
 /* Determine directory path based on file name.
-   Set ROOT to root of tree obtained by parsing FILENAME.
+   Return a DOCUMENT_DESCRIPTOR that can be used to retrieve the
+   tree and document obtained by parsing FILENAME.
    Used for parse_texi_file. */
 int
 parse_file (char *filename, char *input_file_name, char *input_directory)
@@ -214,7 +219,8 @@ parse_text (char *string, int line_nr)
   return document_descriptor;
 }
 
-/* Set ROOT to root of tree obtained by parsing the Texinfo code in STRING.
+/* Set DOCUMENT_DESCRIPTOR to the value corresponding to the tree
+   obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
 int
 parse_string (char *string, int line_nr)

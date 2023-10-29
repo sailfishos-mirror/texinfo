@@ -75,7 +75,7 @@ looking_at (char *s1, char *s2)
 }
 
 /* Look for a sequence of alphanumeric characters or hyphens, where the
-   first isn't a hyphen.  This is the format of (non-single-character) Texinfo 
+   first isn't a hyphen.  This is the format of (non-single-character) Texinfo
    commands, but is also used elsewhere.  Return value to be freed by caller.
    *PTR is advanced past the read name.  Return 0 if name is invalid. */
 char *
@@ -444,6 +444,9 @@ wipe_parser_global_info (void)
   memset (&global_commands, 0, sizeof (global_commands));
 }
 
+/* setup a Texinfo tree with document_root as root and before_node_section
+   as first content.  Used for all the tree except for those obtained by
+   parse_texi_line/parse_string. */
 ELEMENT *
 setup_document_root_and_before_node_section ()
 {
@@ -574,8 +577,8 @@ begin_paragraph_p (ELEMENT *current)
          && in_paragraph_context (current_context ());
 }
 
-/* If in a context where paragraphs are to be started, start a new 
-   paragraph.  */
+/* If in a context where paragraphs are to be started, start a new
+   paragraph. */
 ELEMENT *
 begin_paragraph (ELEMENT *current)
 {
@@ -1421,14 +1424,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       /* Else check if line is "@end ..." for current command. */
       else
         {
+          /* element used as is_end_current_command argument. */
           ELEMENT *top_stack_raw_element;
           enum command_id top_stack_cmd = raw_block_stack_top ();
           if (top_stack_cmd == CM_NONE)
-            {
+            {/* current is the first command */
               top_stack_raw_element = current;
             }
           else
             {
+       /* create a temporary element based on the top stack cmd command id */
               top_stack_raw_element = new_element (ET_NONE);
               top_stack_raw_element->cmd = top_stack_cmd;
             }
@@ -1471,7 +1476,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                      "macro `%s' previously defined", name);
                                   line_error_ext (MSG_warning, 0,
                                                   &macro->element->source_info,
-                                     "here is the previous definition of `%s'", name);
+                                     "here is the previous definition of `%s'",
+                                                  name);
                                 }
                               else if (!(existing & USER_COMMAND_BIT))
                                 {
@@ -1488,13 +1494,13 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                         }
                     }
                   debug ("CLOSED raw %s", command_name(end_cmd));
-                 /* start a new line for the @end line (without the first spaces on
-                    the line that have already been put in a raw container).
-                    This is normally done at the beginning of a line, but not here,
-                    as we directly got the line.  As the @end is processed just below,
-                    an empty line will not appear in the output, but it is needed to
-                    avoid a duplicate warning on @end not appearing at the beginning
-                    of the line */
+           /* start a new line for the @end line (without the first spaces on
+              the line that have already been put in a raw container).
+              This is normally done at the beginning of a line, but not here,
+              as we directly got the line.  As the @end is processed just below,
+              an empty line will not appear in the output, but it is needed to
+              avoid a duplicate warning on @end not appearing at the beginning
+              of the line */
                   e = new_element (ET_empty_line);
                   add_to_element_contents (current, e);
 
@@ -1503,6 +1509,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               else
                 pop_raw_block_stack();
             }
+     /* a temporary element was created based on the top stack cmd, remove */
           if (top_stack_cmd != CM_NONE)
             destroy_element (top_stack_raw_element);
         }
@@ -1591,12 +1598,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* Check if parent element is 'verb' */
   else if (current->parent && current->parent->cmd == CM_verb)
     {
-      char *delimiter;
       char *q;
-      KEY_PAIR *k_delimiter;
 
-      k_delimiter = lookup_info (current->parent, "delimiter");
-      delimiter = (char *)k_delimiter->value;
+      char *delimiter = lookup_extra_string (current->parent, "delimiter");
+
       if (strcmp (delimiter, ""))
         {
           /* Look forward for the delimiter character followed by a close
@@ -1693,8 +1698,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       n = strspn (line, whitespace_chars_except_newline);
       text_append_n (&e_empty_line->text, line, n);
       line += n;
-      /* It is important to let the processing continue from here, such that
-         the @end is catched and handled below, as the condition has not changed */
+   /* It is important to let the processing continue from here, such that
+      the @end is catched and handled below, as the condition has not changed */
     } /* ignored raw format */
 
   /* Skip empty lines.  If we reach the end of input, continue in case there
@@ -1826,7 +1831,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                         {
                           line_warn (
                             "value call nested too deeply "
-                            "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
+                   "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
                              conf.max_macro_call_nesting);
                           free (flag);
                           if (spaces_element)
@@ -1845,7 +1850,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                           = new_source_mark (SM_type_value_expansion);
                       value_source_mark->status = SM_status_start;
                       value_source_mark->line = strdup(value);
-                      sm_value_element = new_value_element (cmd, flag, spaces_element);
+                      sm_value_element = new_value_element (cmd, flag,
+                                                            spaces_element);
                       value_source_mark->element = sm_value_element;
 
                       register_source_mark (current, value_source_mark);
@@ -1894,10 +1900,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
      NOTE the last element in the current command contents is an element that
      is transiently in the tree, and is put in the info hash by
      gather_spaces_after_cmd_before_arg.  It could therefore be possible
-     to accept an @comment here and put it in this element.  It would not
-     necessarily be a good idea, as it would mean having an element
-     in the info hash that holds something more complex than text and source
-     marks.
+     to accept an @comment here and put it in this element, but we do
+     not want to complicate the tree.
    */
 
   if (command_flags(current) & CF_brace && (cmd || command))
@@ -1919,7 +1923,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              This is possible only if the command read was already an alias
              resolving to cmd and not to a non alias command.  In turn,
              this is possible if there was an error at the time of alias
-             definition (because the alias was defined recursively).
+             definition (because the alias was defined recursively to itself).
            */
       || (command_data(cmd).flags & CF_ALIAS))
     {
@@ -2051,7 +2055,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              }
         }
     /* special case for accent commands, use following character except @
-     * as argument */
+       as argument */
       else if ((command_flags(current) & CF_accent)
                && *line != '@')
         {
@@ -2251,7 +2255,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             current = end_preformatted (current, 0, 0);
         }
 
-      /* cannot check parent before closing paragraph/preformatted */
+      /* done here and not above because it is not possible to check the parent
+         before closing paragraph/preformatted */
       if (cmd == CM_item && item_line_parent (current))
         data_cmd = CM_item_LINE;
 
@@ -2295,7 +2300,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               "spaces_at_end" if followed by spaces only when the
               index or subentry command is done. */
             {
-              isolate_trailing_space (current, ET_internal_spaces_before_brace_in_index);
+              isolate_trailing_space (current,
+                                      ET_internal_spaces_before_brace_in_index);
             }
         }
 
@@ -2526,15 +2532,15 @@ store_document (ELEMENT *root)
     doc_global_info->input_directory
       = strdup (global_info.input_directory);
   #define COPY_GLOBAL_ARRAY(type,cmd) \
-   doc_global_##type->cmd.contents.list = 0;                          \
-   doc_global_##type->cmd.contents.number = 0;                         \
-   doc_global_##type->cmd.contents.space = 0;        \
-   if (global_##type.cmd.contents.number > 0)                              \
+   doc_global_##type->cmd.contents.list = 0;                            \
+   doc_global_##type->cmd.contents.number = 0;                          \
+   doc_global_##type->cmd.contents.space = 0;                           \
+   if (global_##type.cmd.contents.number > 0)                           \
     {                                                                   \
-      for (i = 0; i < global_##type.cmd.contents.number; i++)             \
+      for (i = 0; i < global_##type.cmd.contents.number; i++)           \
         {                                                               \
-          ELEMENT *e = contents_child_by_index (&global_##type.cmd, i);            \
-          add_to_contents_as_array (&doc_global_##type->cmd, e);           \
+          ELEMENT *e = contents_child_by_index (&global_##type.cmd, i); \
+          add_to_contents_as_array (&doc_global_##type->cmd, e);        \
         }                                                               \
     }
   COPY_GLOBAL_ARRAY(info,dircategory_direntry);
@@ -2584,8 +2590,8 @@ store_document (ELEMENT *root)
   return document_descriptor;
 }
 
-/* Pass in a root of "Texinfo tree".  Starting point for adding
-   to the tree is current_elt.  Returns a stored document_descriptor */
+/* Pass in a ROOT_ELT root of "Texinfo tree".  Starting point for adding
+   to the tree is CURRENT_ELT.  Returns a stored DOCUMENT_DESCRIPTOR */
 int
 parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
@@ -2691,13 +2697,13 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       ELEMENT *dummy;
       current = close_commands (current, CM_NONE, &dummy, CM_NONE);
 
-      /* Make sure we are at the very top - we could have stopped at the "top" 
-         element, with "document_root" still to go.  (This happens if the file 
+      /* Make sure we are at the very top - we could have stopped at the "top"
+         element, with "document_root" still to go.  (This happens if the file
          didn't end with "@bye".) */
       while (current->parent)
         current = current->parent;
     }
-  
+
   if (current_context () != ct_NONE)
     fatal ("context_stack not empty at the end");
 
@@ -2735,7 +2741,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   if (input_number > 0)
     fprintf (stderr, "BUG: at end, input_number > 0: %d\n", input_number);
 
-  /* update merged_in for merging hapening after first index merge */
+  /* update merged_in.  Only needed for merging happening after first
+     index merge */
   resolve_indices_merged_in ();
 
   identifiers_target

@@ -95,7 +95,13 @@ element_builtin_cmd (ELEMENT *e)
       fprintf (stderr, "BUG: element_builtin_cmd: unexpected %s; add code?\n",
                debug_str);
       free (debug_str);
+      /* The e->cmd value being outside of the command id tables
+         it is likely that it would be associated with incorrect access
+         to memory is returned */
+      /*
       return e->cmd;
+       */
+      return 0;
     }
   /* should never reach here */
   return 0;

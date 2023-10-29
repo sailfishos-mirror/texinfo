@@ -65,6 +65,8 @@ top_command (COMMAND_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
+
+/* stack of command or type ids */
 void
 push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
                       enum element_type type)
@@ -113,7 +115,8 @@ top_command_or_type (COMMAND_OR_TYPE_STACK *stack)
   return &stack->stack[stack->top - 1];
 }
 
-
+
+/* stack of strings */
 void
 push_string_stack_string (STRING_STACK *stack, char *string)
 {
@@ -148,7 +151,8 @@ top_string_stack (STRING_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
-
+
+/* stack of monospace contexts */
 static void
 push_monospace_context (MONOSPACE_CONTEXT_STACK *stack,
                         enum monospace_context mono_ctx)

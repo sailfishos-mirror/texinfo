@@ -27,6 +27,7 @@
 #include "unicode.h"
 #include "indices_in_conversion.h"
 
+/* corresponding perl code in Texinfo::Structuring */
 
 MERGED_INDEX **
 merge_indices (INDEX **index_names)
@@ -88,7 +89,7 @@ merge_indices (INDEX **index_names)
   return merged_indices;
 }
 
-/* in Texinfo::Common */
+/* corresponding perl code in Texinfo::Common */
 
 ELEMENT *
 index_content_element (ELEMENT *element, int prefer_reference_element)

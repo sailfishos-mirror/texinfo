@@ -43,7 +43,7 @@ retrieve_converter (int converter_descriptor)
   return 0;
 }
 
-/* descriptor starts at 1, 0 is an error */
+/* descriptor starts at 1, 0 is not found or an error */
 size_t
 register_converter (CONVERTER *converter)
 {
