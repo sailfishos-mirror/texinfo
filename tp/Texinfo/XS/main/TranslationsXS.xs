@@ -36,16 +36,12 @@
 #include "get_perl_info.h"
 #include "translations.h"
 
-MODULE = Texinfo::Translations	PACKAGE = Texinfo::Translations
+MODULE = Texinfo::TranslationsXS	PACKAGE = Texinfo::TranslationsXS
 
 PROTOTYPES: ENABLE
 
-# since this module and the NonXS moduels share the same package
-# namespace and are loaded together, names need to be different.
-# configure (localesdir, strings_textdomain="texinfo_document")
-
 void
-configure_XS (localesdir, strings_textdomain="texinfo_document")
+configure (localesdir, strings_textdomain="texinfo_document")
        char *localesdir = (char *)SvPVbyte_nolen($arg);
        char *strings_textdomain;
       CODE:
@@ -55,8 +51,8 @@ configure_XS (localesdir, strings_textdomain="texinfo_document")
 # optional:
 # options, replaced_substrings, translation_context, lang
 SV *
-gettree (string, ...)
-        char *string
+gettree (char *string, ...)
+      PROTOTYPE: $;$$$$
       PREINIT:
         char *translation_context = 0;
         char *in_lang = 0;

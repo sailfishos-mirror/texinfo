@@ -319,23 +319,20 @@ Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 ########################## Translations XS
 
-mainmodulesdir = $(pkgdatadir)/Texinfo/XS/main
-dist_mainmodules_DATA = main/TranslationsXS.pm
-
 if HAVE_ICONV
-xs_LTLIBRARIES += Translations.la
+xs_LTLIBRARIES += TranslationsXS.la
 endif
 
-Translations_la_SOURCES = \
-                       main/Translations.c
+TranslationsXS_la_SOURCES = \
+                       main/TranslationsXS.c
 
-EXTRA_DIST += main/Translations.xs
+EXTRA_DIST += main/TranslationsXS.xs
 
 # locate include files under out-of-source builds.
-Translations_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-Translations_la_CFLAGS = $(XSLIBS_CFLAGS)
-Translations_la_LIBADD = libtexinfoxs.la libtexinfo.la
-Translations_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+TranslationsXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+TranslationsXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+TranslationsXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
+TranslationsXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
 ########################## StructuringTransfo XS
 

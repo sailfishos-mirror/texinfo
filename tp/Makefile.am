@@ -80,7 +80,7 @@ dist_modules_DATA = \
  Texinfo/Structuring.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
- Texinfo/TranslationsNonXS.pm \
+ Texinfo/TranslationsXS.pm \
  Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \

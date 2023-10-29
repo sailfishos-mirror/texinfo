@@ -1,5 +1,19 @@
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	Use specific functions overrides for Translations, not full module
+
+	* tp/Texinfo/TranslationsXS.pm, tp/Makefile.am (dist_modules_DATA),
+	tp/Texinfo/Translations.pm, tp/Texinfo/XS/Makefile.am (xs_LTLIBRARIES,
+	TranslationsXS*), tp/Texinfo/XS/main/TranslationsXS.xs: rename
+	Translations.xs as TranslationsXS.xs and use the
+	Texinfo::TranslationsXS namesapce in the XS file.  rename
+	Texinfo/Translations.pm as Texinfo/TranslationsXS.pm and update,
+	rename as Texinfo/TranslationsNonXS.pm as Texinfo/Translations.pm and
+	add content of Texinfo/XS/main/TranslationsXS.pm, with some code
+	update.  Remove Texinfo/XS/main/TranslationsXS.pm.
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (store_source_mark_list),
 	tp/Texinfo/XS/main/tree_types.h (SM_TYPES_LIST),
 	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
