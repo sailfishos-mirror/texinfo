@@ -859,14 +859,16 @@ build_global_info (GLOBAL_INFO *global_info_ref,
   if (global_info.input_directory)
     hv_store (hv, "input_directory", strlen ("input_directory"),
               newSVpv (global_info.input_directory, 0), 0);
+
   /* duplicate information to avoid needing to use global_commands and build
-     tree elements */
+     tree elements, for information useful for structuring and transformation
+     codes */
   if (global_commands.novalidate)
     hv_store (hv, "novalidate", strlen ("novalidate"),
               newSViv (1), 0);
+
   document_language = get_global_document_command (global_commands_ref,
                                        CM_documentlanguage, CL_preamble);
-
   if (document_language)
     {
       char *language = informative_command_value (document_language);
@@ -877,9 +879,7 @@ build_global_info (GLOBAL_INFO *global_info_ref,
   return hv;
 }
 
-/* global info that requires a built tree
-   FIXME remove, use the global commands information directly?
-   */
+/* global info that requires a built tree */
 void
 build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref)
 {
@@ -1075,6 +1075,9 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 
+/* build a minimal document, without tree/global commands/indices, only
+   with the document descriptor information, errors and information that does
+   not refer directly to tree elements */
 SV *
 get_document (size_t document_descriptor)
 {
