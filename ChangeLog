@@ -1,5 +1,10 @@
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/POTFILES.in: replace tp/Texinfo/TranslationsNonXS.pm by
+	tp/Texinfo/Translations.pm.
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	Use specific functions overrides for Translations, not full module
 
 	* tp/Texinfo/TranslationsXS.pm, tp/Makefile.am (dist_modules_DATA),
