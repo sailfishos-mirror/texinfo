@@ -153,7 +153,12 @@ $result_trees{'protect_comma_source_mark'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'punct'
+                        'contents' => [
+                          {
+                            'text' => 'punct'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

@@ -190,7 +190,12 @@ $result_trees{'value_in_node'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'node1'
+                                'contents' => [
+                                  {
+                                    'text' => 'node1'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -382,7 +387,12 @@ $result_trees{'value_in_node'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'node1'
+                    'contents' => [
+                      {
+                        'text' => 'node1'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'
@@ -477,7 +487,12 @@ $result_trees{'value_in_node'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'sec1'
+                                'contents' => [
+                                  {
+                                    'text' => 'sec1'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -670,7 +685,12 @@ $result_trees{'value_in_node'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'node1'
+                                'contents' => [
+                                  {
+                                    'text' => 'node1'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'

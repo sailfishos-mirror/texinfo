@@ -70,7 +70,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'bracedletter'
+                            'contents' => [
+                              {
+                                'text' => 'bracedletter'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -111,7 +116,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'unknowncmd'
+                            'contents' => [
+                              {
+                                'text' => 'unknowncmd'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -162,7 +172,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'bracedletter'
+                            'contents' => [
+                              {
+                                'text' => 'bracedletter'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -203,7 +218,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'unknowncmd'
+                            'contents' => [
+                              {
+                                'text' => 'unknowncmd'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -254,7 +274,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'bracedletter'
+                            'contents' => [
+                              {
+                                'text' => 'bracedletter'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -295,7 +320,12 @@ $result_trees{'value_after_brace_command'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'unknowncmd'
+                            'contents' => [
+                              {
+                                'text' => 'unknowncmd'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'

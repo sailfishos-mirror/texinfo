@@ -12,7 +12,12 @@ $result_trees{'unknown_value'} = {
         {
           'args' => [
             {
-              'text' => 'unknown'
+              'contents' => [
+                {
+                  'text' => 'unknown'
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'value'
@@ -27,7 +32,7 @@ $result_trees{'unknown_value'} = {
 $result_texis{'unknown_value'} = '@value{unknown}';
 
 
-$result_texts{'unknown_value'} = '';
+$result_texts{'unknown_value'} = 'unknown';
 
 $result_errors{'unknown_value'} = [
   {

@@ -2945,10 +2945,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                          = &args_formatted->args[arg_idx];
 
                       if (arg->contents.number <= 0)
-                        /*
-                 # special case for @value argument
-                and !defined($arg->{'text'}))
-                         */
                         {
                           continue;
                         }

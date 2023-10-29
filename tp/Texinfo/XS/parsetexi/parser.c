@@ -1083,12 +1083,14 @@ ELEMENT *
 new_value_element (enum command_id cmd, char *flag, ELEMENT *spaces_element)
 {
   ELEMENT *value_elt = new_element (ET_NONE);
-  ELEMENT *value_arg = new_element (ET_NONE);
+  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+  ELEMENT *value_text = new_element (ET_NONE);
 
   value_elt->cmd = cmd;
 
-  text_append (&value_arg->text, flag);
-  add_to_element_args (value_elt, value_arg);
+  text_append (&value_text->text, flag);
+  add_to_element_args (value_elt, brace_command_arg);
+  add_to_element_contents (brace_command_arg, value_text);
   if (spaces_element)
     add_info_element_oot (value_elt, "spaces_after_cmd_before_arg",
                                      spaces_element);

@@ -72,7 +72,12 @@ $result_trees{'value_node_directions'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'a--foo'
+                        'contents' => [
+                          {
+                            'text' => 'a--foo'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -168,7 +173,12 @@ $result_trees{'value_node_directions'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'a--foo'
+                        'contents' => [
+                          {
+                            'text' => 'a--foo'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -206,7 +216,12 @@ $result_trees{'value_node_directions'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'a--foo'
+                    'contents' => [
+                      {
+                        'text' => 'a--foo'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'
@@ -351,7 +366,12 @@ $result_trees{'value_node_directions'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'a--foo'
+                    'contents' => [
+                      {
+                        'text' => 'a--foo'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'
@@ -456,7 +476,12 @@ $result_trees{'value_node_directions'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'a--foo'
+                        'contents' => [
+                          {
+                            'text' => 'a--foo'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

@@ -46,7 +46,12 @@ $result_trees{'begin_like_comment_on_set_line'} = {
             {
               'args' => [
                 {
-                  'text' => 'x'
+                  'contents' => [
+                    {
+                      'text' => 'x'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'value'
@@ -58,7 +63,12 @@ $result_trees{'begin_like_comment_on_set_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'y'
+                        'contents' => [
+                          {
+                            'text' => 'y'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -96,7 +106,7 @@ $result_texis{'begin_like_comment_on_set_line'} = '@set x@come with me
 
 
 $result_texts{'begin_like_comment_on_set_line'} = '
-!! !some thing  is it!
+!x! !some thing  is it!
 ';
 
 $result_errors{'begin_like_comment_on_set_line'} = [

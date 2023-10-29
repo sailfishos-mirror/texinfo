@@ -40,7 +40,12 @@ $result_trees{'not_only_characters'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '-e_\'::;'
+                        'contents' => [
+                          {
+                            'text' => '-e_\'::;'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

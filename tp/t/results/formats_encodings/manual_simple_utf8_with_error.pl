@@ -200,7 +200,12 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         {
           'args' => [
             {
-              'text' => "non_conn\x{f9}e"
+              'contents' => [
+                {
+                  'text' => "non_conn\x{f9}e"
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'value'
@@ -249,7 +254,7 @@ $result_texts{'manual_simple_utf8_with_error'} = 'Testé
 1 Chapitré
 **********
 
-
+non_connùe
 ';
 
 $result_sectioning{'manual_simple_utf8_with_error'} = {

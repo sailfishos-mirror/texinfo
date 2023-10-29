@@ -50,7 +50,12 @@ $result_trees{'set_flag_command_equivalent'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'txicodequoteundirected'
+                    'contents' => [
+                      {
+                        'text' => 'txicodequoteundirected'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'

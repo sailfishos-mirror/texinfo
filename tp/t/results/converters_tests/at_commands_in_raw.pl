@@ -661,7 +661,12 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'args' => [
             {
-              'text' => 'flag'
+              'contents' => [
+                {
+                  'text' => 'flag'
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'value'
@@ -1195,7 +1200,7 @@ in kbd before tex.
 
 
 
-.
+flag.
 
 in kbd after tex.
 

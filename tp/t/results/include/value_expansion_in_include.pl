@@ -203,7 +203,12 @@ $result_trees{'value_expansion_in_include'} = {
                             'element' => {
                               'args' => [
                                 {
-                                  'text' => 'testvar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'testvar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'value'
@@ -314,7 +319,12 @@ $result_trees{'value_expansion_in_include'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'testvar'
+                        'contents' => [
+                          {
+                            'text' => 'testvar'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -387,7 +397,12 @@ $result_trees{'value_expansion_in_include'} = {
                             'element' => {
                               'args' => [
                                 {
-                                  'text' => 'test-var'
+                                  'contents' => [
+                                    {
+                                      'text' => 'test-var'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'value'
@@ -498,7 +513,12 @@ $result_trees{'value_expansion_in_include'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'test-var'
+                        'contents' => [
+                          {
+                            'text' => 'test-var'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -545,7 +565,12 @@ $result_trees{'value_expansion_in_include'} = {
                                 'element' => {
                                   'args' => [
                                     {
-                                      'text' => 'test_var'
+                                      'contents' => [
+                                        {
+                                          'text' => 'test_var'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
                                   'cmdname' => 'value'
@@ -653,7 +678,12 @@ $result_trees{'value_expansion_in_include'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'test_var'
+                            'contents' => [
+                              {
+                                'text' => 'test_var'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'

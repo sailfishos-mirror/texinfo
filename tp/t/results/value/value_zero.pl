@@ -35,7 +35,12 @@ $result_trees{'value_zero'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'zero'
+                        'contents' => [
+                          {
+                            'text' => 'zero'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

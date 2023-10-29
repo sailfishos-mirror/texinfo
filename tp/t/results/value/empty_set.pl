@@ -40,7 +40,12 @@ $result_trees{'empty_set'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'myspace'
+                        'contents' => [
+                          {
+                            'text' => 'myspace'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

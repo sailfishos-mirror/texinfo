@@ -33,7 +33,12 @@ $result_trees{'spaces_before_value'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'var'
+                    'contents' => [
+                      {
+                        'text' => 'var'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value',

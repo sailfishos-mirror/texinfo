@@ -79,8 +79,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
       int with_commas = 0;
 
       braces = (e->args.list[0]->type == ET_brace_command_arg
-                || e->args.list[0]->type == ET_brace_command_context
-                || cmd == CM_value);
+                || e->args.list[0]->type == ET_brace_command_context);
       if (braces)
         ADD("{");
 

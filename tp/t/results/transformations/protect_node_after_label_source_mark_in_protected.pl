@@ -134,7 +134,12 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'punct'
+                                'contents' => [
+                                  {
+                                    'text' => 'punct'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'

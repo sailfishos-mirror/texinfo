@@ -104,7 +104,12 @@ $result_trees{'bad_syntax'} = {
         {
           'args' => [
             {
-              'text' => 'unknown'
+              'contents' => [
+                {
+                  'text' => 'unknown'
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'value'
@@ -143,7 +148,7 @@ $result_texts{'bad_syntax'} = '
 
 gurgl
 
-
+unknown
 ';
 
 $result_errors{'bad_syntax'} = [

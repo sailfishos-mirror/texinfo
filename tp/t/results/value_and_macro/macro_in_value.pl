@@ -112,7 +112,12 @@ $result_trees{'macro_in_value'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'flagab'
+                        'contents' => [
+                          {
+                            'text' => 'flagab'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

@@ -1,5 +1,18 @@
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	Regular tree structure for @value with flag not found
+
+	* tp/Texinfo/ParserNonXS.pm (_new_value_element),
+	tp/Texinfo/Convert/HTML.pm (_convert), tp/Texinfo/Convert/Texinfo.pm
+	(_expand_cmd_args_to_texi), tp/Texinfo/Translations.pm
+	(_substitute_element_array), tp/Texinfo/XS/main/convert_to_texinfo.c
+	(expand_cmd_args_to_texi), tp/Texinfo/XS/main/translations.c
+	(substitute_element_array), tp/Texinfo/XS/parsetexi/parser.c
+	(new_value_element): use brace_command_arg to hold the flag text in
+	the first contents for @value and @txiinternalvalue. 
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	No export of perl tree at parsing time with XS
 
 	* tp/Texinfo/Common.pm (informative_command_value)

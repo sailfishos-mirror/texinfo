@@ -387,7 +387,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'hash'
+                    'contents' => [
+                      {
+                        'text' => 'hash'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'

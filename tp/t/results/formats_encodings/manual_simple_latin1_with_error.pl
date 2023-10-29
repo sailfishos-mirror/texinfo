@@ -240,7 +240,12 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         {
           'args' => [
             {
-              'text' => "non_conn\x{f9}e"
+              'contents' => [
+                {
+                  'text' => "non_conn\x{f9}e"
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'value'
@@ -292,7 +297,7 @@ Testé
 1 Chapitré
 **********
 
-
+non_connùe
 ';
 
 $result_sectioning{'manual_simple_latin1_with_error'} = {

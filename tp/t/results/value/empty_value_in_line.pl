@@ -47,7 +47,12 @@ $result_trees{'empty_value_in_line'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'myspace'
+                    'contents' => [
+                      {
+                        'text' => 'myspace'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'

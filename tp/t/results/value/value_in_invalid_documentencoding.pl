@@ -63,7 +63,12 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'badvalue'
+                        'contents' => [
+                          {
+                            'text' => 'badvalue'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

@@ -78,7 +78,12 @@ $result_trees{'set_form_feed'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'gg'
+                                'contents' => [
+                                  {
+                                    'text' => 'gg'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -98,7 +103,12 @@ $result_trees{'set_form_feed'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'hh'
+                                'contents' => [
+                                  {
+                                    'text' => 'hh'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -119,7 +129,12 @@ $result_trees{'set_form_feed'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'll'
+                                'contents' => [
+                                  {
+                                    'text' => 'll'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'

@@ -135,7 +135,12 @@ $result_trees{'comment_on_clear_line'} = {
             {
               'args' => [
                 {
-                  'text' => 'x'
+                  'contents' => [
+                    {
+                      'text' => 'x'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'value'
@@ -146,7 +151,12 @@ $result_trees{'comment_on_clear_line'} = {
             {
               'args' => [
                 {
-                  'text' => 'y'
+                  'contents' => [
+                    {
+                      'text' => 'y'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'value'
@@ -158,7 +168,12 @@ $result_trees{'comment_on_clear_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'z'
+                        'contents' => [
+                          {
+                            'text' => 'z'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -179,7 +194,12 @@ $result_trees{'comment_on_clear_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 't'
+                        'contents' => [
+                          {
+                            'text' => 't'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'
@@ -225,7 +245,7 @@ $result_texis{'comment_on_clear_line'} = '@set x
 
 $result_texts{'comment_on_clear_line'} = '
 
-!!, !!, !g!, !a vv!
+!x!, !y!, !g!, !a vv!
 ';
 
 $result_errors{'comment_on_clear_line'} = [

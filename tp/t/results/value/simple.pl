@@ -33,7 +33,12 @@ $result_trees{'simple'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'a-_5b'
+                    'contents' => [
+                      {
+                        'text' => 'a-_5b'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'

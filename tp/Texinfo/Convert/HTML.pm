@@ -12205,9 +12205,7 @@ sub _convert($$;$)
             if ($arg_idx < $spec_nr) {
               $arg_spec = $args_specification[$arg_idx];
             }
-            if ((!$arg->{'contents'} or !scalar(@{$arg->{'contents'}}))
-                # special case for @value argument
-                and !defined($arg->{'text'})) {
+            if (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})) {
               push @$args_formatted, undef;
               next;
             }

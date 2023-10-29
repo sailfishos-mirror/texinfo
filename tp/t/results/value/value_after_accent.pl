@@ -48,7 +48,12 @@ $result_trees{'value_after_accent'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'a_letter'
+                            'contents' => [
+                              {
+                                'text' => 'a_letter'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'
@@ -99,7 +104,12 @@ $result_trees{'value_after_accent'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'a_letter'
+                            'contents' => [
+                              {
+                                'text' => 'a_letter'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'cmdname' => 'value'

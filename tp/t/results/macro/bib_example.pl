@@ -2803,7 +2803,12 @@ $result_trees{'bib_example'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'mybibrefnode'
+                                'contents' => [
+                                  {
+                                    'text' => 'mybibrefnode'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -3207,7 +3212,12 @@ $result_trees{'bib_example'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'mybibrefnode'
+                                'contents' => [
+                                  {
+                                    'text' => 'mybibrefnode'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'
@@ -3415,7 +3425,12 @@ $result_trees{'bib_example'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'mybibrefnode'
+                    'contents' => [
+                      {
+                        'text' => 'mybibrefnode'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'

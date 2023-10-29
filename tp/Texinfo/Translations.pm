@@ -404,12 +404,12 @@ sub _substitute_element_array($$) {
   for (my $idx = 0; $idx < $nr; $idx++) {
     my $element = $array->[$idx];
     if ($element->{'cmdname'} and $element->{'cmdname'} eq 'txiinternalvalue') {
-      my $name = $element->{'args'}->[0]->{'text'};
+      my $name = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
       if ($replaced_substrings->{$name}) {
         $array->[$idx] = $replaced_substrings->{$name};
       }
     } else {
-       _substitute($element, $replaced_substrings);
+      _substitute($element, $replaced_substrings);
     }
   }
 }

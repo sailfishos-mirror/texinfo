@@ -77,7 +77,12 @@ $result_trees{'empty_set_in_ifset'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'cmdname' => 'value'

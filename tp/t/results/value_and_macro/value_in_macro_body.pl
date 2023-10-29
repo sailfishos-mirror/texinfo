@@ -137,7 +137,12 @@ $result_trees{'value_in_macro_body'} = {
                           'element' => {
                             'args' => [
                               {
-                                'text' => 'bodyarg'
+                                'contents' => [
+                                  {
+                                    'text' => 'bodyarg'
+                                  }
+                                ],
+                                'type' => 'brace_command_arg'
                               }
                             ],
                             'cmdname' => 'value'

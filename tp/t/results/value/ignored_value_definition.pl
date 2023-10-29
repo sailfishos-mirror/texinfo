@@ -79,7 +79,12 @@ $result_trees{'ignored_value_definition'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'aa'
+                    'contents' => [
+                      {
+                        'text' => 'aa'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'cmdname' => 'value'
