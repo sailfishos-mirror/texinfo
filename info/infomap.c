@@ -546,6 +546,87 @@ static int default_vi_like_ea_keys[] =
 /* Whether to suppress the default key bindings. */
 static int sup_info, sup_ea;
 
+
+/* To find "infokey file", where user defs are kept and read by Info.  */
+#define PACKAGE      "texinfo"
+#define INFOKEY_FILE "infokey"
+
+/* MS-DOS doesn't allow leading dots in file names.  */
+#ifdef __MSDOS__
+#define DOT_INFOKEY_FILE		"_infokey"
+#else
+#define DOT_INFOKEY_FILE		".infokey"
+#endif
+
+
+
+/* Locate init file.  Return value to be freed by caller.  */
+char *
+locate_init_file (void)
+{
+  struct stat finfo;
+  char *xdg_config_home, *homedir;
+  char *filename;
+
+  /* First, check for init file under XDG_CONFIG_HOME. */
+
+  xdg_config_home = getenv ("XDG_CONFIG_HOME");
+  if (xdg_config_home)
+    {
+      xdg_config_home = strdup (xdg_config_home);
+    }
+  else
+    {
+      homedir = getenv ("HOME");
+#ifdef __MINGW32__
+      if (!homedir)
+        homedir = getenv ("USERPROFILE")
+#endif
+      if (homedir)
+        {
+          xdg_config_home = xmalloc (strlen (homedir)
+                                     + strlen ("/.config") + 1);
+          sprintf (xdg_config_home, "%s/%s", homedir, ".config");
+        }
+    }
+
+  if (xdg_config_home)
+    {
+      filename = xmalloc (strlen (xdg_config_home) + 1
+                          + strlen (PACKAGE) + 1
+                          + strlen (INFOKEY_FILE) + 1);
+      sprintf (filename, "%s/%s/%s",
+               xdg_config_home, PACKAGE, INFOKEY_FILE);
+      free (xdg_config_home);
+
+      int status = stat (filename, &finfo);
+      if (status == 0)
+        return filename;
+      free (filename);
+    }
+
+  /* Otherwise, use .infokey under home directory. */
+    homedir = getenv ("HOME");
+#ifdef __MINGW32__
+    if (!homedir)
+      homedir = getenv ("USERPROFILE")
+#endif
+
+  if (homedir)
+    {
+      filename = xmalloc (strlen (homedir) + 2 + strlen (DOT_INFOKEY_FILE));
+      sprintf (filename, "%s/%s", homedir, DOT_INFOKEY_FILE);
+    }
+#if defined(__MSDOS__) || defined(__MINGW32__)
+  /* Poor baby, she doesn't have a HOME...  */
+  else
+    filename = xstrdup (DOT_INFOKEY_FILE); /* try current directory */
+#endif
+
+  return filename;
+}
+
+
 /* Fetch the contents of the init file at INIT_FILE, or the standard
    infokey file "$HOME/.infokey".  Return non-zero if an init file was
    loaded and read. */
@@ -553,7 +634,6 @@ static int
 fetch_user_maps (char *init_file)
 {
   char *filename = NULL;
-  char *homedir;
   FILE *inf;
 
   /* In infokey.c */
@@ -562,22 +642,9 @@ fetch_user_maps (char *init_file)
   /* Find and open file. */
   if (init_file)
     filename = xstrdup (init_file);
-  else if ((homedir = getenv ("HOME")) != NULL
-#ifdef __MINGW32__
-	    || (homedir = getenv ("USERPROFILE")) != NULL
-#endif
-	  )
-    {
-      filename = xmalloc (strlen (homedir) + 2 + strlen (INFOKEY_FILE));
-      strcpy (filename, homedir);
-      strcat (filename, "/");
-      strcat (filename, INFOKEY_FILE);
-    }
-#if defined(__MSDOS__) || defined(__MINGW32__)
-  /* Poor baby, she doesn't have a HOME...  */
   else
-    filename = xstrdup (INFOKEY_FILE); /* try current directory */
-#endif
+    filename = locate_init_file ();
+
   inf = fopen (filename, "r");
   if (!inf)
     {

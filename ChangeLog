@@ -1,3 +1,16 @@
+2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	XDG directory for infokey
+
+	* info/infomap.c (locate_init_file): New function, split
+	from fetch_user_maps.  Check for init file under $XDG_CONFIG_HOME
+	or .config before checking for $HOME/.infokey.
+	(fetch_user_maps): Call locate_init_file.
+	* info/infomap.h, info/infomap.c (INFOKEY_FILE): Move to infomap.c
+	and define without leading period.
+	* info/infomap.c (DOT_INFOKEY_FILE): Provide definition with
+	leading period.
+
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
 	Regular tree structure for @value with flag not found

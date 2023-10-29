@@ -677,7 +677,7 @@ get_input_key_internal (void)
       /* If the sequence was incomplete, return the first byte.
              Also return the first byte for sequences with ESC that are at
          least three bytes long if 'key_time' is 0, to give some support for 
-         specifying byte sequences in .infokey for those sent by unrecognized
+         specifying byte sequences in infokey for those sent by unrecognized
          special keys (which would otherwise be skipped below). */
       pop_index = pop_start;
       get_byte_from_input_buffer (&c);

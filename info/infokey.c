@@ -1,4 +1,4 @@
-/* infokey.c -- read ~/.infokey
+/* infokey.c -- read ~/.config/texinfo/infokey
 
    Copyright 1999-2023 Free Software Foundation, Inc.
 

@@ -104,14 +104,6 @@ extern Keymap echo_area_keymap;
 
 #define KEYMAP_META(k) ((k) < KEYMAP_META_BASE ? (k) + KEYMAP_META_BASE : (k))
 
-/* Default "infokey file", where user defs are kept and read by
-   Info.  MS-DOS doesn't allow leading dots in file names.  */
-#ifdef __MSDOS__
-#define INFOKEY_FILE		"_infokey"
-#else
-#define INFOKEY_FILE		".infokey"
-#endif
-
 #define	A_MAX_COMMAND		120
 #define	A_INVALID		121
 
