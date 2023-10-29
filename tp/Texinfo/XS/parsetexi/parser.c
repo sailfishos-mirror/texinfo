@@ -129,12 +129,6 @@ parse_command_name (char **ptr, int *single_char)
   return ret;
 }
 
-char *
-element_type_name (ELEMENT *e)
-{
-  return element_type_names[(e)->type];
-}
-
 /* the pointer returned is past @c/@comment, whether there is indeed
    a comment or not.  If there is a comment, *has_comment is set to 1 */
 char *
@@ -787,7 +781,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       debug_parser_print_element (current, 0);
       debug_nonl ("(p:%d): %s; add |%s| to |%s|",
                   in_paragraph_context (current_context ()),
-                  element_type_name (last_child), additional_spaces,
+                  element_type_names[last_child->type], additional_spaces,
                   last_child->text.end > 0 ? last_child->text.text : "");
       debug ("");
 

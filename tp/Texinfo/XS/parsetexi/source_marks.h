@@ -19,9 +19,9 @@
 #include "tree_types.h"
 
 SOURCE_MARK *new_source_mark (enum source_mark_type type);
+void place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark);
 void register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark);
 void transfer_source_marks (ELEMENT *from_e, ELEMENT *e);
-void place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark);
 
 void source_marks_reset_counters (void);
 

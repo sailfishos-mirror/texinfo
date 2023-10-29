@@ -439,7 +439,7 @@ close_current (ELEMENT *current,
     {
       ELEMENT *close_brace;
 
-      debug ("CLOSING type %s", element_type_name (current));
+      debug ("CLOSING type %s", element_type_names[current->type]);
 
       switch (current->type)
         {

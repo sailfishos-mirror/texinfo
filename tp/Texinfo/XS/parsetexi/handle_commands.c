@@ -1044,7 +1044,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
               else
                 {
                   bug_message ("menu description parent not a menu_entry: %s",
-                               element_type_name (current));
+                               element_type_names[current->type]);
                   abort ();
                 }
             }
