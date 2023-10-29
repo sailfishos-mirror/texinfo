@@ -72,3 +72,6 @@ tp/Texinfo/XS/parsetexi/menus.c
 tp/Texinfo/XS/parsetexi/multitable.c
 tp/Texinfo/XS/parsetexi/parser.c
 tp/Texinfo/XS/parsetexi/separator.c
+tp/Texinfo/XS/structuring_transfo/structuring.c
+tp/Texinfo/XS/structuring_transfo/transformations.c
+tp/Texinfo/XS/main/convert_utils.c

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-29 11:08+0100\n"
+"POT-Creation-Date: 2023-10-29 11:19+0100\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -2671,18 +2671,19 @@ msgstr "Kuri"
 msgid "menu entry name should not contain `:'"
 msgstr "Kuri"
 
-#: tp/Texinfo/Convert/Utils.pm:297
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/Utils.pm:297 tp/Texinfo/XS/main/convert_utils.c:268
+#, fuzzy, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "Kurema bushyinguro"
 
-#: tp/Texinfo/Convert/Utils.pm:320
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/Utils.pm:320 tp/Texinfo/XS/main/convert_utils.c:314
+#, fuzzy, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "Ikosa Ibisohoka IDOSIYE"
 
 #: tp/Texinfo/Convert/Utils.pm:327 tp/Texinfo/ParserNonXS.pm:3494
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:326
+#, fuzzy, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "Gushaka"
 
@@ -2693,6 +2694,7 @@ msgstr "%s:OYA Gufungura IDOSIYE"
 
 #: tp/Texinfo/ParserNonXS.pm:1080 tp/Texinfo/Structuring.pm:733
 #: tp/Texinfo/XS/parsetexi/parser.c:410
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:836
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr ""
@@ -3431,77 +3433,93 @@ msgid "warning: %s"
 msgstr "%s:%d:Iburira"
 
 #: tp/Texinfo/Structuring.pm:248
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:138
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:293
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:207
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:298
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:409
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:380
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:445
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:406
+#, fuzzy, c-format, perl-format
 msgid "@%s not empty"
 msgstr "%s:ubusa IDOSIYE"
 
 #: tp/Texinfo/Structuring.pm:476 tp/Texinfo/Structuring.pm:1234
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:427
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1544
+#, fuzzy, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "%sIndango Kuri"
 
 #: tp/Texinfo/Structuring.pm:484
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:440
+#, fuzzy, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "Kuri"
 
 #: tp/Texinfo/Structuring.pm:664
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:777
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:915
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1079
+#, c-format, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:935
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1115
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1002
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1209
+#, c-format, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1041
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1275
+#, fuzzy, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr "Ibikubiyemo Ikintu kugirango Intego"
 
 #: tp/Texinfo/Structuring.pm:1172
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1447
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1183
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1467
+#, fuzzy, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%sIndango Kuri"
 
 #: tp/Texinfo/Structuring.pm:1246
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1563
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr ""
 
@@ -3516,7 +3534,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "Oya Umubarendanga Ibyinjijwe Byabonetse kugirango"
 
 #: tp/Texinfo/Transformations.pm:843
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1506
+#, fuzzy, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "%s:OYA Gufungura IDOSIYE"
 

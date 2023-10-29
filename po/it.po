@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-29 11:08+0100\n"
+"POT-Creation-Date: 2023-10-29 11:19+0100\n"
 "PO-Revision-Date: 2020-10-22 14:08+0200\n"
 "Last-Translator: Francesco Groccia <f.g@disroot.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -2652,18 +2652,19 @@ msgstr "il nome del nodo della voce del menù non dovrebbe contenere «:»"
 msgid "menu entry name should not contain `:'"
 msgstr "il nome della voce del menù non dovrebbe contenere «:»"
 
-#: tp/Texinfo/Convert/Utils.pm:297
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:297 tp/Texinfo/XS/main/convert_utils.c:268
+#, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "impossibile leggere %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:320
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:320 tp/Texinfo/XS/main/convert_utils.c:314
+#, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "errore durante la chiusura del file @verbatiminclude %s: %s"
 
 #: tp/Texinfo/Convert/Utils.pm:327 tp/Texinfo/ParserNonXS.pm:3494
-#, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:326
+#, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: impossibile trovare %s"
 
@@ -2674,6 +2675,7 @@ msgstr "impossibile aprire %s: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:1080 tp/Texinfo/Structuring.pm:733
 #: tp/Texinfo/XS/parsetexi/parser.c:410
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:836
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "@%s multiplo"
@@ -3450,83 +3452,99 @@ msgid "warning: %s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:248
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:138
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "il livello della sezione di @%s che è troppo basso verrà alzato"
 
 #: tp/Texinfo/Structuring.pm:293
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:207
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "nessun comando a livello di capitolo prima di @%s"
 
 #: tp/Texinfo/Structuring.pm:298
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 "il livello della sezione di @%s che appare dopo un elemento più basso verrà "
 "abbassato"
 
 #: tp/Texinfo/Structuring.pm:409
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:380
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "nessun comando di sezionamento associato con @%s"
 
 #: tp/Texinfo/Structuring.pm:445
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:406
+#, c-format, perl-format
 msgid "@%s not empty"
 msgstr "@%s non vuoto"
 
 #: tp/Texinfo/Structuring.pm:476 tp/Texinfo/Structuring.pm:1234
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:427
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1544
+#, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "%s si riferisce al nodo inesistente «%s»"
 
 #: tp/Texinfo/Structuring.pm:484
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:440
+#, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "@%s nome del nodo della voce di menù «%s» diverso dal nome %s «%s»"
 
 #: tp/Texinfo/Structuring.pm:664
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:777
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:915
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1079
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr "il nodo «%s» è %s per «%s» nel sezionamento, ma non nel menù"
 
 #: tp/Texinfo/Structuring.pm:935
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1115
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "il nodo «%s» è %s per «%s» nel menù, ma non nel sezionamento"
 
 #: tp/Texinfo/Structuring.pm:1002
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1209
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr "il nodo «%s» è %s per «%s» nel sezionamento, ma non nel menù"
 
 #: tp/Texinfo/Structuring.pm:1041
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1275
+#, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "il nodo «%s» non ha alcuna voce di menù per «%s», nonostante sia destinata "
 "ad «Up»"
 
 #: tp/Texinfo/Structuring.pm:1172
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1447
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "il puntatore %s «%s» (per il nodo «%s») è diverso dal nome %s «%s»"
 
 #: tp/Texinfo/Structuring.pm:1183
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1467
+#, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s si riferisce all'inesistente «%s»"
 
 #: tp/Texinfo/Structuring.pm:1246
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1563
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s a «%s», diverso dal nome %s «%s»"
 
@@ -3542,7 +3560,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "chiave indice vuota in @%s"
 
 #: tp/Texinfo/Transformations.pm:843
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1506
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "impossibile proteggere il carattere hash in @%s"
 

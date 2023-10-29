@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-29 11:08+0100\n"
+"POT-Creation-Date: 2023-10-29 11:19+0100\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -2757,19 +2757,20 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:297
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:297 tp/Texinfo/XS/main/convert_utils.c:268
+#, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:320
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/Utils.pm:320 tp/Texinfo/XS/main/convert_utils.c:314
+#, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
 #: tp/Texinfo/Convert/Utils.pm:327 tp/Texinfo/ParserNonXS.pm:3494
-#, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:326
+#, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr ""
 
@@ -2780,6 +2781,7 @@ msgstr ""
 
 #: tp/Texinfo/ParserNonXS.pm:1080 tp/Texinfo/Structuring.pm:733
 #: tp/Texinfo/XS/parsetexi/parser.c:410
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:836
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr ""
@@ -3584,81 +3586,97 @@ msgid "warning: %s"
 msgstr "%s: warning: "
 
 #: tp/Texinfo/Structuring.pm:248
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:138
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:293
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:207
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:298
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:409
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:380
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:445
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:406
+#, c-format, perl-format
 msgid "@%s not empty"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:476 tp/Texinfo/Structuring.pm:1234
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:427
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1544
+#, fuzzy, c-format, perl-format
 #| msgid "%s reference to nonexistent node `%s'"
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "%sב `%s' תמייק הנניאש הקסיפל היינפה"
 
 #: tp/Texinfo/Structuring.pm:484
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:440
+#, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:664
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:777
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' has been referenced %d times"
 msgid "node `%s' unreferenced"
 msgstr "`%s' הקסיפל םירושיק %d יתרפס"
 
 #: tp/Texinfo/Structuring.pm:915
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1079
+#, c-format, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:935
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1115
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1002
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1209
+#, c-format, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1041
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1275
+#, fuzzy, c-format, perl-format
 #| msgid "Node `%s' lacks menu item for `%s' despite being its Up target"
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr "הרזחב עיבצמש טירפת ףיעס ןיא לבא ,`%s' לע עיבצמ `%s' הקסיפ לש Up הדש"
 
 #: tp/Texinfo/Structuring.pm:1172
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1447
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1183
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1467
+#, fuzzy, c-format, perl-format
 #| msgid "%s reference to nonexistent node `%s'"
 msgid "%s reference to nonexistent `%s'"
 msgstr "%sב `%s' תמייק הנניאש הקסיפל היינפה"
 
 #: tp/Texinfo/Structuring.pm:1246
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1563
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr ""
 
@@ -3673,7 +3691,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr ""
 
 #: tp/Texinfo/Transformations.pm:843
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1506
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr ""
 

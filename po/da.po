@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.5.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-10-29 11:08+0100\n"
+"POT-Creation-Date: 2023-10-29 11:19+0100\n"
 "PO-Revision-Date: 2019-02-14 10:09+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -2623,18 +2623,19 @@ msgstr "menupostens emnenavn må ikke indeholde »:«"
 msgid "menu entry name should not contain `:'"
 msgstr "menupostens navn må ikke indeholde »:«"
 
-#: tp/Texinfo/Convert/Utils.pm:297
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:297 tp/Texinfo/XS/main/convert_utils.c:268
+#, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "kunne ikke læse %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:320
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:320 tp/Texinfo/XS/main/convert_utils.c:314
+#, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "fejl under lukning af @verbatiminclude-filen %s: %s"
 
 #: tp/Texinfo/Convert/Utils.pm:327 tp/Texinfo/ParserNonXS.pm:3494
-#, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:326
+#, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: kunne ikke finde: %s"
 
@@ -2645,6 +2646,7 @@ msgstr "kunne ikke åbne %s: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:1080 tp/Texinfo/Structuring.pm:733
 #: tp/Texinfo/XS/parsetexi/parser.c:410
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:836
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "flere @%s"
@@ -3426,81 +3428,97 @@ msgid "warning: %s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:248
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:138
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "forøger afsnitniveauet for @%s, der er for lavt"
 
 #: tp/Texinfo/Structuring.pm:293
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:207
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "ingen afsnitsniveaukommando før @%s"
 
 #: tp/Texinfo/Structuring.pm:298
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 "formindsker afsnitniveauet for @%s, der fremgår efter et lavere element"
 
 #: tp/Texinfo/Structuring.pm:409
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:380
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "ingen afsnitsopdeling associeret med @%s"
 
 #: tp/Texinfo/Structuring.pm:445
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:406
+#, c-format, perl-format
 msgid "@%s not empty"
 msgstr "@%s er ikke tom"
 
 #: tp/Texinfo/Structuring.pm:476 tp/Texinfo/Structuring.pm:1234
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:427
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1544
+#, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "@%s-reference til ikkeeksisterende emne »%s«"
 
 #: tp/Texinfo/Structuring.pm:484
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:440
+#, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "@%s-postemnenavn »%s« er forskellig fra %s-navn »%s«"
 
 #: tp/Texinfo/Structuring.pm:664
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:777
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:915
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1079
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr "emne »%s« er %s for »%s« i afsnitsopdeling men ikke i menu"
 
 #: tp/Texinfo/Structuring.pm:935
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1115
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "emne »%s« er %s for »%s« i menu men ikke i afsnitsopdeling"
 
 #: tp/Texinfo/Structuring.pm:1002
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1209
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr "emne »%s« er %s for »%s« i afsnitsopdeling men ikke i menu"
 
 #: tp/Texinfo/Structuring.pm:1041
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1275
+#, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "emnet »%s« mangler menupunkt for »%s« på trods af at det er dens »Op«-mål"
 
 #: tp/Texinfo/Structuring.pm:1172
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1447
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "%s-peger »%s« (for emne »%s«) er forskellig fra %s-navn »%s«"
 
 #: tp/Texinfo/Structuring.pm:1183
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1467
+#, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s-reference til ikkeeksisterende »%s«"
 
 #: tp/Texinfo/Structuring.pm:1246
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1563
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s til »%s«, forskellig fra %s-navn »%s«"
 
@@ -3516,7 +3534,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "tomt indeksnøgle i @%s"
 
 #: tp/Texinfo/Transformations.pm:843
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1506
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "kunne ikke beskytte hash-tegn i @%s"
 
