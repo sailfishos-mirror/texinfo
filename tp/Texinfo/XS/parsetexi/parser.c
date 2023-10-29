@@ -1596,7 +1596,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       char *q;
 
-      char *delimiter = lookup_extra_string (current->parent, "delimiter");
+      KEY_PAIR *k_delimiter = lookup_info (current->parent, "delimiter");
+      char *delimiter = (char *)k_delimiter->value;
 
       if (strcmp (delimiter, ""))
         {

@@ -1,5 +1,12 @@
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): use
+	lookup_info instead of lookup_extra_string, as the information needed
+	is in info and not extra and there is no corresponding function.
+	Revert the recent change.
+
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c: inline and remove
 	element_type_name function.  Inline in callers.
 
