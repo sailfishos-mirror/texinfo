@@ -11,7 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2001-01-01\n"
 "Last-Translator: Unknown\n"
 "Language-Team: Unknown\n"
-"Language: no\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -440,7 +440,7 @@ msgstr ""
 #: tp/Texinfo/Convert/HTML.pm:2059
 msgctxt "about section heading"
 msgid "About This Document"
-msgstr "No translation available!"
+msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2061
 msgctxt "contents section heading"
@@ -455,7 +455,7 @@ msgstr "Kort innholdsfortegnelse"
 #: tp/Texinfo/Convert/HTML.pm:2066
 msgctxt "footnotes section heading"
 msgid "Footnotes"
-msgstr "No translation available!"
+msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:2170
 msgctxt "Top direction string"
