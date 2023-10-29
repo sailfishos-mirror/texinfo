@@ -1,5 +1,13 @@
 2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Custom Key Bindings): Describe looking
+	under XDG_CONFIG_HOME first for infokey file.
+	* doc/info-stnd.texi: Refer to infokey rather than .infokey
+	throughout.
+	* NEWS: mention change
+
+2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	XDG directory for infokey
 
 	* info/infomap.c (locate_init_file): New function, split
