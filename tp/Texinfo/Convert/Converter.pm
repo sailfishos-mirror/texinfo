@@ -1,20 +1,20 @@
 # Converter.pm: Common code for Converters.
 #
 # Copyright 2011-2023 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Convert::Converter;
@@ -329,7 +329,7 @@ sub output($$)
     if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
         my $top_node_file_name = $self->top_node_filename($document_name);
-        if (defined($destination_directory) and $destination_directory ne '') {
+        if ($destination_directory ne '') {
           $outfile_name = File::Spec->catfile($destination_directory,
                                               $top_node_file_name);
         } else {
@@ -387,7 +387,7 @@ sub output($$)
     print STDERR "DO Elements with filenames\n"
       if ($self->get_conf('DEBUG'));
     my %files_filehandle;
-    
+
     foreach my $output_unit (@$output_units) {
       my $output_unit_filename = $output_unit->{'unit_filename'};
       my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
@@ -754,13 +754,14 @@ sub determine_files_and_directory($;$)
     # $output_file_filename is not used, but $output_filename should be
     # the same as long as $output_file is the same as $output_filepath
     # which is the case except if $output_file is ''.
+    # Note that fileparse may return a string for the directory part even
+    # for a relative file without directory, ie
+    # myfile.html -> $output_dir = './'
+    # In that case the $destination_directory will never be ''.
     my ($output_file_filename, $output_dir, $suffix) = fileparse($output_file);
-    if ($output_dir ne '') {
-      $destination_directory = $output_dir;
-    }
+    $destination_directory = $output_dir;
   }
-  if (defined($destination_directory)
-      and $destination_directory ne '') {
+  if ($destination_directory ne '') {
     $destination_directory = File::Spec->canonpath($destination_directory);
   }
   return ($output_file, $destination_directory, $output_filename,
@@ -1783,7 +1784,7 @@ sub xml_accent($$$;$$$)
   my $in_upper_case = shift;
   my $use_numeric_entities = shift;
   my $accent = $command->{'cmdname'};
-  
+
   if ($in_upper_case and $text =~ /^\w$/) {
     $text = uc ($text);
   }
@@ -1801,7 +1802,7 @@ sub xml_accent($$$;$$$)
       return $text;
     }
   }
- 
+
   if ($use_numeric_entities) {
     my $formatted_accent = xml_numeric_entity_accent($accent, $text);
     if (defined($formatted_accent)) {
@@ -1850,7 +1851,7 @@ sub xml_accents($$;$)
   } else {
     $format_accents = \&xml_accent;
   }
-  
+
   return $self->convert_accents($accent, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);

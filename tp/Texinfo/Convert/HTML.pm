@@ -10945,8 +10945,12 @@ sub _do_jslicenses_file {
 __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
   }
-  my $license_file = File::Spec->catdir($destination_directory,
-                                        $path);
+  my $license_file;
+  if ($destination_directory ne '') {
+    $license_file = File::Spec->catdir($destination_directory, $path);
+  } else {
+    $license_file = $path;
+  }
   # sequence of bytes
   my ($licence_file_path, $path_encoding)
      = $self->encoded_output_file_name($license_file);
@@ -11622,22 +11626,17 @@ sub output($$)
   if (!$output_units
       or !defined($output_units->[0]->{'unit_filename'})) {
     # no page
+    # NOTE there are always output units, and there is always a file
+    # associated, so this situation cannot happen.
     if ($output_file ne '') {
       my $no_page_output_filename;
-      my $no_page_out_filepath;
       if ($self->get_conf('SPLIT')) {
         $no_page_output_filename = $self->top_node_filename($document_name);
-        if (defined($destination_directory) and $destination_directory ne '') {
-          $no_page_out_filepath = File::Spec->catfile($destination_directory,
-                                                    $no_page_output_filename);
-        } else {
-          $no_page_out_filepath = $no_page_output_filename;
-        }
+        $self->set_file_path($no_page_output_filename, $destination_directory);
       } else {
-        $no_page_out_filepath = $output_file;
         $no_page_output_filename = $output_filename;
+        $self->set_file_path($no_page_output_filename, undef, $output_file);
       }
-      $self->{'out_filepaths'}->{$no_page_output_filename} = $no_page_out_filepath;
 
       $self->{'current_filename'} = $no_page_output_filename;
     } else {
@@ -11657,6 +11656,9 @@ sub output($$)
 
   if (!$output_units
       or !defined($output_units->[0]->{'unit_filename'})) {
+    # NOTE there are always output units, and there is always a file
+    # associated, so this situation cannot happen.
+    # A lot of unreachable code here...
     my $output = '';
     my $fh;
     my $encoded_no_page_out_filepath;
@@ -11724,7 +11726,7 @@ sub output($$)
     return $output if ($output_file eq '');
   } else {
     # output with pages
-    print STDERR "DO Elements with filenames\n"
+    print STDERR "DO Units with filenames\n"
       if ($self->get_conf('DEBUG'));
     my %files;
 
@@ -11733,31 +11735,24 @@ sub output($$)
     # in turn
     $special_units = [] if (!defined($special_units));
     foreach my $output_unit (@$output_units, @$special_units) {
+      $unit_nr++;
+
       my $output_unit_filename = $output_unit->{'unit_filename'};
-      my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
       $self->{'current_filename'} = $output_unit_filename;
 
-      $unit_nr++;
-      # First do the special pages, to avoid outputting these if they are
-      # empty.
-      my $special_unit_content;
-      if (defined($output_unit->{'unit_type'})
-          and $output_unit->{'unit_type'} eq 'special_unit') {
-        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
-           if ($self->get_conf('DEBUG'));
-        $special_unit_content
-                  .= $self->convert_output_unit($output_unit,
-                                                "output s-unit $unit_nr");
-        if ($special_unit_content eq '') {
-          $self->{'file_counters'}->{$output_unit_filename}--;
-          next ;
-        }
-      }
 
       # convert body before header in case this affects the header
-      my $body = '';
-      if (defined($special_unit_content)) {
-        $body = $special_unit_content;
+      # and, for special output unit, to avoid outputting anything if empty.
+      my $body;
+      if ($output_unit->{'unit_type'} eq 'special_unit') {
+        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
+           if ($self->get_conf('DEBUG'));
+        $body = $self->convert_output_unit($output_unit,
+                                           "output s-unit $unit_nr");
+        if ($body eq '') {
+          $self->{'file_counters'}->{$output_unit_filename}--;
+          next;
+        }
       } else {
         print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
         $body = $self->convert_output_unit($output_unit,
@@ -11769,12 +11764,13 @@ sub output($$)
       # elements have been converted.
       if (!exists($files{$output_unit_filename})) {
         $files{$output_unit_filename} = {'first_unit' => $output_unit,
-                                     'body' => ''};
+                                         'body' => ''};
       }
       $files{$output_unit_filename}->{'body'} .= $body;
       $self->{'file_counters'}->{$output_unit_filename}--;
 
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
+        my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
         my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
         my ($encoded_out_filepath, $path_encoding)
           = $self->encoded_output_file_name($out_filepath);
@@ -11812,50 +11808,56 @@ sub output($$)
       }
     }
     delete $self->{'current_filename'};
-    if ($self->get_conf('INFO_JS_DIR')) {
-      my $jsdir = File::Spec->catdir($destination_directory,
-                                     $self->get_conf('INFO_JS_DIR'));
-      if (!-d $jsdir) {
-        if (-f $jsdir) {
-          $self->document_error($self,
-            sprintf(__("%s already exists but is not a directory"), $jsdir));
-        } else {
-          mkdir $jsdir;
-        }
-      }
-      # Copy JS files.
-      if (-d $jsdir) {
-        if (!$self->get_conf('TEST')) {
-          my $jssrcdir;
-          if (!$Texinfo::ModulePath::texinfo_uninstalled) {
-            $jssrcdir = File::Spec->catdir(
-              $Texinfo::ModulePath::pkgdatadir, 'js');
-          } else {
-            $jssrcdir = File::Spec->catdir(
-              $Texinfo::ModulePath::top_srcdir, 'js');
-          }
-          for my $f ('info.js', 'modernizr.js', 'info.css') {
-            my $from = File::Spec->catfile($jssrcdir, $f);
+  }
 
-            if (!copy($from, $jsdir)) {
-              $self->document_error($self,
-                sprintf(__("error on copying %s into %s"), $from, $jsdir));
-            }
-          }
+  if ($self->get_conf('INFO_JS_DIR')) {
+    my $info_js_dir = $self->get_conf('INFO_JS_DIR');
+    my $jsdir;
+    if ($destination_directory ne '') {
+      $jsdir = File::Spec->catdir($destination_directory, $info_js_dir);
+    } else {
+      $jsdir = $info_js_dir;
+    }
+    if (!-d $jsdir) {
+      if (-f $jsdir) {
+        $self->document_error($self,
+          sprintf(__("%s already exists but is not a directory"), $jsdir));
+      } else {
+        mkdir $jsdir;
+      }
+    }
+    # Copy JS files.
+    if (-d $jsdir) {
+     if (!$self->get_conf('TEST')) {
+        my $jssrcdir;
+        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
+          $jssrcdir = File::Spec->catdir(
+            $Texinfo::ModulePath::pkgdatadir, 'js');
         } else {
-        # create empty files for tests to keep results stable.
-          for my $f ('info.js', 'modernizr.js', 'info.css') {
-            my $filename = File::Spec->catfile($jsdir, $f);
-            if (!open (FH, '>', $filename)) {
-              $self->document_error($self,
-                sprintf(__("error on creating empty %s: %s"),
-                        $filename, $!));
-            }
-            if (!close(FH)) {
-              $self->document_error($self,
-                sprintf(__("error on closing empty %s: %s"),
-                        $filename, $!));
-            }
+          $jssrcdir = File::Spec->catdir(
+            $Texinfo::ModulePath::top_srcdir, 'js');
+        }
+        for my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $from = File::Spec->catfile($jssrcdir, $f);
+
+          if (!copy($from, $jsdir)) {
+            $self->document_error($self,
+              sprintf(__("error on copying %s into %s"), $from, $jsdir));
+          }
+        }
+      } else {
+      # create empty files for tests to keep results stable.
+        for my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $filename = File::Spec->catfile($jsdir, $f);
+          if (!open (FH, '>', $filename)) {
+            $self->document_error($self,
+              sprintf(__("error on creating empty %s: %s"),
+                      $filename, $!));
+          }
+          if (!close(FH)) {
+            $self->document_error($self,
+              sprintf(__("error on closing empty %s: %s"),
+                      $filename, $!));
           }
         }
       }
@@ -11992,7 +11994,7 @@ sub output($$)
           = &{$self->formatting_function('format_node_redirection_page')}($self,
                                                                $target_element);
         my $out_filename;
-        if (defined($destination_directory) and $destination_directory ne '') {
+        if ($destination_directory ne '') {
           $out_filename = File::Spec->catfile($destination_directory,
                                               $redirection_filename);
         } else {

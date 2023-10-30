@@ -1,5 +1,25 @@
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): move js files copying code out
+	of output units formatting loop.
+
+	* tp/Texinfo/Convert/Converter.pm (output)
+	(determine_files_and_directory), tp/Texinfo/Convert/HTML.pm (output):
+	make sure that $destination_directory is defined.
+
+	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file, output): handle the
+	case of empty directory string, avoid calling File::Spec->catdir in
+	that case.
+
+	* tp/Texinfo/Convert/HTML.pm (output): update code used in case there
+	are no pages, even though the situation cannot arise. Also add
+	comments.
+
+	* tp/Texinfo/Convert/HTML.pm (output): simplify units conversion code
+	in output().
+
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_convert_tree): rename
 	convert_tree as html_convert_tree.
 
@@ -166,7 +186,7 @@
 	(expand_cmd_args_to_texi), tp/Texinfo/XS/main/translations.c
 	(substitute_element_array), tp/Texinfo/XS/parsetexi/parser.c
 	(new_value_element): use brace_command_arg to hold the flag text in
-	the first contents for @value and @txiinternalvalue. 
+	the first contents for @value and @txiinternalvalue.
 
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
@@ -408,7 +428,7 @@
 	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_SOURCES),
 	tp/Texinfo/XS/main/call_perl_function.h: add call_perl_function.h file
 	for a more common code, also given that these functions should
-	probably only called from the HTML converter. 
+	probably only called from the HTML converter.
 
 2023-10-28  Patrice Dumas  <pertusus@free.fr>
 
@@ -827,7 +847,7 @@
 	(html_css_string_formatting_reference_names),
 	tp/Texinfo/XS/main/utils.h (HTML_FORMATTING_REFERENCES_LIST)
 	(FORMATTING_REFERENCE, CONVERTER):
-	pass formatting_function and default formatting references to 
+	pass formatting_function and default formatting references to
 	converter initialization.
 
 	* tp/Texinfo/Convert/HTML.pm (convert): setup simpletitle_tree
@@ -862,7 +882,7 @@
 	(html_translate_names), tp/Texinfo/XS/convert/convert_html.c
 	(html_prepare_conversion_units_targets): rename translate_names as
 	html_translate_names, add a specific XS interface and remove from
-	html_prepare_conversion_units_targets. 
+	html_prepare_conversion_units_targets.
 
 	* tp/Texinfo/Convert/HTML.pm (_sort_index_entries): reindent, comment
 	out unused code.
