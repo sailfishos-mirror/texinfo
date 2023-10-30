@@ -15,7 +15,7 @@ $result_trees{'info_js_dir_html'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'top'
             }
           ],
           'info' => {
@@ -63,7 +63,7 @@ $result_trees{'info_js_dir_html'} = {
       'cmdname' => 'top',
       'contents' => [
         {
-          'text' => '                            
+          'text' => '
 ',
           'type' => 'empty_line'
         }
@@ -118,7 +118,7 @@ $result_trees{'info_js_dir_html'} = {
         {
           'contents' => [
             {
-              'text' => 'Chap'
+              'text' => 'Chapter'
             }
           ],
           'info' => {
@@ -149,19 +149,19 @@ $result_trees{'info_js_dir_html'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'info_js_dir_html'} = '@node Top
+$result_texis{'info_js_dir_html'} = '@node top
 @top top
-                            
+
 @node chap
-@chapter Chap
+@chapter Chapter
 ';
 
 
 $result_texts{'info_js_dir_html'} = 'top
 ***
-                            
-1 Chap
-******
+
+1 Chapter
+*********
 ';
 
 $result_sectioning{'info_js_dir_html'} = {
@@ -280,7 +280,7 @@ $result_converted{'html'}->{'info_js_dir_html'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#Top" rel="start" title="top">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -295,12 +295,12 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
-                            
+
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chap</a></li>
+<li><a href="#chap" accesskey="1">Chapter</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
@@ -308,7 +308,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 </div>
 </div>
 
