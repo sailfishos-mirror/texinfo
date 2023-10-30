@@ -1,5 +1,10 @@
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: do not rebuild the perl document/tree before calling
+	convert_to_texinfo for MACRO_EXPAND if TEXINFO_XS_CONVERT is set.
+
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units, convert)
 	(output): set contents and shortcontents early in convert and
 	output, where other configurations options are set, and not in

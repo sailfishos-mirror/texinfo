@@ -1511,8 +1511,12 @@ while(@input_files) {
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
-    $document = Texinfo::Structuring::rebuild_document($document);
-    $tree = $document->tree();
+    # no need to rebuild the tree here if convert_to_texinfo is XS code.
+    if (not (defined $ENV{TEXINFO_XS_CONVERT}
+             and $ENV{TEXINFO_XS_CONVERT} eq '1')) {
+      $document = Texinfo::Structuring::rebuild_document($document);
+      $tree = $document->tree();
+    }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     #print STDERR "$texinfo_text\n";
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
