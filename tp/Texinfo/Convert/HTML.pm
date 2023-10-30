@@ -11721,10 +11721,10 @@ sub output($$)
   # complete information should be available.
   $self->_reset_info();
 
-
+  my $text_output;
   if (!$output_units
       or !defined($output_units->[0]->{'unit_filename'})) {
-    my $output = '';
+    $text_output = '';
     my $fh;
     my $encoded_no_page_out_filepath;
     my $no_page_out_filepath;
@@ -11775,9 +11775,9 @@ sub output($$)
                                                   $output_filename, undef);
     my $header = &{$self->formatting_function('format_begin_file')}($self,
                                                   $output_filename, undef);
-    $output .= $self->write_or_return($header, $fh);
-    $output .= $self->write_or_return($body, $fh);
-    $output .= $self->write_or_return($footer, $fh);
+    $text_output .= $self->write_or_return($header, $fh);
+    $text_output .= $self->write_or_return($body, $fh);
+    $text_output .= $self->write_or_return($footer, $fh);
 
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $no_page_out_filepath ne '-') {
@@ -11790,15 +11790,6 @@ sub output($$)
       }
     }
     $self->{'current_filename'} = undef;
-    # $output_file eq '' should always be true, see comment above.
-    if ($output_file eq '') {
-      if (!$self->get_conf('TEST')) {
-        # This case is unlikely to happen, as there is no output file
-        # only if formatting is called as convert, which only happens in tests.
-        $self->_do_js_files($destination_directory);
-      }
-      return $output;
-    }
   } else {
     # output with pages
     print STDERR "DO Units with filenames\n"
@@ -11883,6 +11874,16 @@ sub output($$)
       }
     }
     delete $self->{'current_filename'};
+  }
+
+  if (defined($text_output) and $output_file eq '') {
+    # $output_file eq '' should always be true, see comment above.
+    if (!$self->get_conf('TEST')) {
+      # This case is unlikely to happen, as there is no output file
+      # only if formatting is called as convert, which only happens in tests.
+      $self->_do_js_files($destination_directory);
+    }
+    return $text_output;
   }
 
   $self->_do_js_files($destination_directory);

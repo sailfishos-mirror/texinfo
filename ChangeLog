@@ -1,5 +1,11 @@
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): rename $output for the no page
+	case to $text_output.  Move _do_js_files call out of the conversion
+	code, to prepare for XS override.
+
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_do_js_files, output): move code related
 	to js files, both for INFO_JS_DIR and for js license file also for
 	mathjax to the _do_js_files function.  Call _do_js_files also if there
