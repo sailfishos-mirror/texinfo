@@ -1833,6 +1833,152 @@ build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 }
 
 void
+build_html_translated_names (HV *hv, CONVERTER *converter)
+{
+  int j;
+  SV **directions_strings_sv;
+  HV *directions_strings_hv;
+  SV **special_unit_info_sv;
+  HV *special_unit_info_hv;
+  SV **targets_sv;
+  SV **no_arg_commands_formatting_sv;
+  HV *direction_string_hv;
+
+  dTHX;
+
+  /* reset with empty hash */
+#define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);
+  FETCH(directions_strings);
+  directions_strings_hv = (HV *) SvRV (*directions_strings_sv);
+#define tds_type(name) \
+  direction_string_hv = newHV (); \
+  hv_store (directions_strings_hv, #name, strlen (#name), \
+               newRV_noinc ((SV *) direction_string_hv), 0);
+   TDS_TRANSLATED_TYPES_LIST
+#undef tds_type
+
+  FETCH(special_unit_info);
+  special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);
+
+  /* reset with empty hash */
+  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+    {
+      int tree_type = translated_special_unit_info[j].string_type;
+      const char *type_name = special_unit_info_type_names[tree_type];
+      char *key;
+      HV *special_unit_hv = newHV ();
+      xasprintf (&key, "%s_tree", type_name);
+      hv_store (special_unit_info_hv, key, strlen (key),
+                newRV_noinc ((SV *) special_unit_hv), 0);
+      free (key);
+    }
+
+  /* remove some info that will be redone on demand */
+  if (converter->reset_target_commands.number > 0)
+    {
+      int j;
+      HV *targets_hv;
+      FETCH(targets);
+      targets_hv = (HV *) SvRV (*targets_sv);
+
+      for (j = 0; j < converter->reset_target_commands.number; j++)
+        {
+          ELEMENT *command = converter->reset_target_commands.list[j];
+          SV *command_sv = newRV_noinc ((SV *) command->hv);
+          HE *target_he = hv_fetch_ent (targets_hv, command_sv, 0, 0);
+          if (!target_he)
+            {
+              char *element_str = print_element_debug (command, 0);
+              fprintf (stderr, "BUG: cannot retrieve target %d %s\n",
+                       j, element_str);
+              free (element_str);
+            }
+          else
+            {
+              SV *target_sv = HeVAL (target_he);
+              HV *target_hv = (HV *) SvRV (target_sv);
+              if (hv_exists (target_hv, "text", strlen ("text")))
+                hv_delete (target_hv, "text", strlen ("text"), G_DISCARD);
+              if (hv_exists (target_hv, "string", strlen ("string")))
+                hv_delete (target_hv, "string", strlen ("string"), G_DISCARD);
+              if (hv_exists (target_hv, "tree", strlen ("tree")))
+                hv_delete (target_hv, "tree", strlen ("tree"), G_DISCARD);
+            }
+        }
+      converter->reset_target_commands.number = 0;
+    }
+
+  /* pass all the information for each context for translated commands */
+  if (converter->no_arg_formatted_cmd_translated.number)
+    {
+      int max_context = HCC_type_css_string;
+      int j;
+      HV *no_arg_commands_formatting_hv;
+      FETCH(no_arg_commands_formatting);
+      no_arg_commands_formatting_hv
+        = (HV *) SvRV (*no_arg_commands_formatting_sv);
+      for (j = 0; j < converter->no_arg_formatted_cmd_translated.number; j++)
+        {
+          int k;
+          enum command_id cmd
+            = converter->no_arg_formatted_cmd_translated.list[j];
+          HTML_COMMAND_CONVERSION **conversion_contexts
+                = converter->html_command_conversion[cmd];
+          char *cmdname = builtin_command_data[cmd].cmdname;
+          SV **no_arg_command_sv
+             = hv_fetch (no_arg_commands_formatting_hv,
+                         cmdname, strlen (cmdname), 0);
+          HV *no_arg_command_hv = (HV *) SvRV (*no_arg_command_sv);
+          for (k = 0; k < max_context; k++)
+            {
+              if (conversion_contexts[k])
+                {
+                  HTML_COMMAND_CONVERSION *no_arg_cmd_context
+                      = conversion_contexts[k];
+
+                  char *context_name = html_conversion_context_type_names[k];
+                  SV **context_sv = hv_fetch (no_arg_command_hv,
+                                     context_name, strlen (context_name), 0);
+                  HV *context_hv = (HV *) SvRV (*context_sv);
+
+ #define REPLACE_STR(key) \
+                  if (no_arg_cmd_context->key) \
+                    {               \
+                      hv_store (context_hv, #key, strlen (#key), \
+                                newSVpv_utf8 (no_arg_cmd_context->key, 0), 0); \
+                    }   \
+                  else if (hv_exists (context_hv, #key, strlen (#key))) \
+                    hv_delete (context_hv, #key, strlen (#key), G_DISCARD);
+
+                  REPLACE_STR(text)
+                  REPLACE_STR(translated_converted)
+                  REPLACE_STR(translated_to_convert)
+ #undef REPLACE_STR
+
+                  if (no_arg_cmd_context->tree)
+                    {
+                      if (!no_arg_cmd_context->tree->hv)
+                        element_to_perl_hash (no_arg_cmd_context->tree);
+                      hv_store (context_hv, "tree", strlen ("tree"),
+                              newRV_inc ((SV *) no_arg_cmd_context->tree->hv), 0);
+                    }
+                  else if (hv_exists (context_hv, "tree", strlen ("tree")))
+                    hv_delete (context_hv, "tree", strlen ("tree"), G_DISCARD);
+                }
+            }
+        }
+
+      memset (converter->no_arg_formatted_cmd_translated.list, 0,
+              converter->no_arg_formatted_cmd_translated.number
+                   * sizeof (enum command_id));
+      converter->no_arg_formatted_cmd_translated.number = 0;
+    }
+
+#undef FETCH
+
+}
+
+void
 build_html_formatting_context_ctx (HV *hv,
                                    HTML_FORMATTING_CONTEXT *formatting_context)
 {
@@ -2231,6 +2377,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   */
 
 #undef STORE
+
+  if (flags & HMSF_translations)
+    build_html_translated_names (hv, converter);
 
   return newRV_noinc ((SV *) hv);
 }

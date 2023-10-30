@@ -98,6 +98,18 @@ const char *html_argument_formatting_type_names[] = {
    #undef html_aft_type
 };
 
+const char *special_unit_info_type_names[SUI_type_heading + 1] =
+{
+  #define sui_type(name) #name,
+    SUI_TYPES_LIST
+  #undef sui_type
+};
+
+TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
+  {SUIT_type_heading, SUI_type_heading},
+  {-1, -1},
+};
+
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
 ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 

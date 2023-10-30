@@ -147,13 +147,13 @@ typedef struct {
 
 typedef struct {
     COMMAND_OR_TYPE *stack;
-    size_t top;   /* One above last pushed command. */
+    size_t top;   /* One above last pushed. */
     size_t space;
 } COMMAND_OR_TYPE_STACK;
 
 typedef struct {
     char **stack;
-    size_t top;   /* One above last pushed command. */
+    size_t top;   /* One above last pushed. */
     size_t space;
 } STRING_STACK;
 
@@ -378,7 +378,7 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
     char **directions_strings[TDS_type_rel+1];
     HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
-    COMMAND_ID_LIST *no_arg_formatted_cmd;
+    COMMAND_ID_LIST no_arg_formatted_cmd;
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
     FORMATTING_REFERENCE
@@ -395,6 +395,10 @@ typedef struct CONVERTER {
     unsigned long modified_state; /* to determine if perl data should be rebuilt */
     ELEMENT *tree_to_build; /* C tree that needs to be built to perl before
                                calling perl functions on it */
+    COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that were
+                                translated that need to be passed back to perl */
+    ELEMENT_LIST reset_target_commands; /* element targets that should have their texts
+                                           reset after language change */
 
 
     /* state common with perl converter */

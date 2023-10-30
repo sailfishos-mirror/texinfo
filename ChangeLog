@@ -1,3 +1,45 @@
+2023-10-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.h (TRANSLATED_SUI_ASSOCIATION),
+	tp/Texinfo/XS/convert/convert_html.c: move TRANSLATED_SUI_ASSOCIATION
+	from convert_html.c to utils.h.
+
+	* tp/Texinfo/XS/main/utils.c (special_unit_info_type_names)
+	(translated_special_unit_info), tp/Texinfo/XS/main/get_perl_info.c: move
+	special_unit_info_type_names and translated_special_unit_info from
+	get_perl_info.c to utils.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_pop_document_context):
+	free preformatted_classes.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
+	tp/Texinfo/XS/main/get_perl_info.c (html_converter_initialize_sv):
+	call html_converter_initialize at the end of
+	html_converter_initialize_sv and move code initializing
+	global_units_directions to html_converter_initialize.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(reset_unset_no_arg_commands_formatting_context): free and strdup
+	no_arg_command_context->text).  Correctly set self->modified_state
+	with flags.
+
+	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): have
+	no_arg_formatted_cmd directly in converter, not a pointer to it.
+	Update code referring to no_arg_formatted_cmd.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_translate_names), tp/Texinfo/XS/main/build_perl_info.c
+	(build_html_translated_names, build_html_formatting_state),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): in
+	html_translate_names, collect information on commands that will need
+	to be reset or that are translated to pass to perl, and mark that
+	formatting state translations have to be set for perl. Reset perl
+	converter data and pass translated data in
+	build_html_translated_names.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	call destroy_args_formatted to free args_formatted.
+
 2023-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* po_document/no.po, po_document/nb.po:

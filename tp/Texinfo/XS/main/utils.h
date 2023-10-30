@@ -165,9 +165,18 @@ enum conversion_context {
 #define HMSF_current_filename        0x0800
 #define HMSF_converter_state         0x1000
 #define HMSF_multiple_pass           0x2000
+#define HMSF_translations            0x4000
 
 /* down here because it requires error data from before */
 #include "document.h"
+
+typedef struct TRANSLATED_SUI_ASSOCIATION {
+    int tree_type;
+    int string_type;
+} TRANSLATED_SUI_ASSOCIATION;
+
+extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
+extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 
 typedef struct TARGET_FILENAME {
     char *target;

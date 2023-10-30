@@ -325,14 +325,6 @@ get_sv_converter (SV *sv_in, char *warn_string)
   return converter;
 }
 
-static char *special_unit_info_type_names[SUI_type_heading + 1] =
-{
-  /* #define sui_type(name) [SUI_type_ ## name] = #name, */
-  #define sui_type(name) #name,
-    SUI_TYPES_LIST
-  #undef sui_type
-};
-
 int
 compare_ints (const void *a, const void *b)
 {
@@ -480,7 +472,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
   DOCUMENT *document;
-  int nr_special_units = 0;
 
   dTHX;
 
@@ -513,8 +504,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   get_expanded_formats (hv_in, &converter->expanded_formats);
 
   /* HTML specific */
-
-  html_converter_initialize (converter);
 
   FETCH(formatting_function);
 
@@ -663,8 +652,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
       add_svav_to_string_list (sorted_special_unit_varieties_sv,
                                special_unit_varieties, 0);
 
-      nr_special_units = special_unit_varieties->number;
-
       /* allocate space for translated tree types, but do not
          get from perl, it will be created for the conversion */
       for (j = 0; j < SUIT_type_heading+1; j++)
@@ -685,7 +672,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
       for (j = 0; j < SUI_type_heading+1; j++)
         {
           SV **special_unit_info_type_sv;
-          char *sui_type = special_unit_info_type_names[j];
+          const char *sui_type = special_unit_info_type_names[j];
           special_unit_info_type_sv = hv_fetch (special_unit_info_hv,
                                                 sui_type, strlen (sui_type), 0);
           if (special_unit_info_type_sv)
@@ -745,12 +732,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         }
       converter->varieties_direction_index[j] = 0;
     }
-
-  converter->global_units_directions
-    = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
-                               * sizeof (OUTPUT_UNIT));
-  memset (converter->global_units_directions, 0,
-    (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
   FETCH(code_types)
 
@@ -843,7 +824,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
     }
 
 
-
   FETCH(no_arg_commands_formatting)
 
   if (no_arg_commands_formatting_sv)
@@ -857,11 +837,9 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
 
       hv_number = hv_iterinit (no_arg_commands_formatting_hv);
 
-      converter->no_arg_formatted_cmd = (COMMAND_ID_LIST *)
-        malloc (sizeof (COMMAND_ID_LIST));
-      converter->no_arg_formatted_cmd->list = (enum command_id *)
+      converter->no_arg_formatted_cmd.list = (enum command_id *)
         malloc (hv_number * sizeof (enum command_id));
-      converter->no_arg_formatted_cmd->number = hv_number;
+      converter->no_arg_formatted_cmd.number = hv_number;
 
       for (i = 0; i < hv_number; i++)
         {
@@ -874,7 +852,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
               HV *context_hv = (HV *)SvRV (context_sv);
               enum command_id cmd = lookup_builtin_command (cmdname);
 
-              converter->no_arg_formatted_cmd->list[i] = cmd;
+              converter->no_arg_formatted_cmd.list[i] = cmd;
 
               if (!cmd)
                 fprintf (stderr, "ERROR: %s: no no arg command\n", cmdname);
@@ -971,7 +949,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                 }
             }
         }
-      qsort (converter->no_arg_formatted_cmd->list, hv_number,
+      qsort (converter->no_arg_formatted_cmd.list, hv_number,
              sizeof (enum command_id), compare_ints);
     }
 
@@ -1075,6 +1053,8 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
     }
 
 #undef FETCH
+
+  html_converter_initialize (converter);
 
   converter_descriptor = register_converter (converter);
   /* a fresh converter, registered */

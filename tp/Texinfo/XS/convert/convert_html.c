@@ -239,16 +239,6 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
     }
 }
 
-typedef struct TRANSLATED_SUI_ASSOCIATION {
-    int tree_type;
-    int string_type;
-} TRANSLATED_SUI_ASSOCIATION;
-
-static TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
-  {SUIT_type_heading, SUI_type_heading},
-  {-1, -1},
-};
-
 HTML_TARGET *
 find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
 {
@@ -2161,6 +2151,7 @@ html_pop_document_context (CONVERTER *self)
   free (document_ctx->context);
   free (document_ctx->monospace.stack);
   free (document_ctx->composition_context.stack);
+  free (document_ctx->preformatted_classes.stack);
   if (document_ctx->block_commands.top > 0)
     pop_command (&document_ctx->block_commands);
   free (document_ctx->block_commands.stack);
@@ -2178,14 +2169,20 @@ html_pop_document_context (CONVERTER *self)
 
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
-   from perl is done here */
+   from perl is done here.  This is called after information from perl
+   has been gathered  */
 void
 html_converter_initialize (CONVERTER *self)
 {
   int i;
+  int nr_special_units;
   int nr_default_commands
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
+
+  /* first set information thta is fully independent from information
+     coming from perl */
+
   for (i = 0; i < nr_default_commands; i++)
     {
       /* we file the status for specified commands, to distinguish them
@@ -2244,6 +2241,27 @@ html_converter_initialize (CONVERTER *self)
   html_commands_data[CM_sc].flags |= HF_upper_case;
 
   html_new_document_context (self, "_toplevel_context", 0, 0);
+
+  /* initialization needing some information from perl */
+
+  nr_special_units = self->special_unit_varieties->number;
+
+  self->global_units_directions
+    = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
+                               * sizeof (OUTPUT_UNIT));
+  memset (self->global_units_directions, 0,
+    (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
+
+  /* note that we allocate the same size as no_arg_formatted_cmd
+     even though in general there are much less translated commands,
+     for simplicity */
+  if (self->no_arg_formatted_cmd.number)
+    {
+      self->no_arg_formatted_cmd_translated.list = (enum command_id *)
+       malloc (self->no_arg_formatted_cmd.number * sizeof (enum command_id));
+      memset (self->no_arg_formatted_cmd_translated.list, 0,
+              self->no_arg_formatted_cmd.number * sizeof (enum command_id));
+    }
 }
 
 void
@@ -2364,7 +2382,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           /* TODO memory leaks possible for the other char * fields */
 
           if (no_arg_ref->text)
-            no_arg_command_context->text = no_arg_ref->text;
+            {
+              free (no_arg_command_context->text);
+              no_arg_command_context->text = strdup (no_arg_ref->text);
+            }
           if (no_arg_ref->tree)
             no_arg_command_context->tree = no_arg_ref->tree;
           if (no_arg_ref->translated_converted)
@@ -2417,7 +2438,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       /* should not be needed for at commands no brace translation strings */
           push_string_stack_string (&top_document_ctx->preformatted_classes,
                               html_commands_data[preformated_cmd].pre_class);
-          self->modified_state++;
+          self->modified_state |= HMSF_document_context;
 
           xasprintf (&explanation, "no arg %s translated",
                      builtin_command_data[cmd].cmdname);
@@ -2427,7 +2448,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           pop_command_or_type (&top_document_ctx->composition_context);
           pop_string_stack (&top_document_ctx->preformatted_classes);
           html_pop_document_context (self);
-          self->modified_state++;
+          self->modified_state |= HMSF_document_context;
         }
       else if (reset_context == HCC_type_string)
         {
@@ -2441,12 +2462,12 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           top_document_ctx = top_document_context (self);
           top_document_ctx->string_ctx++;
 
-          self->modified_state++;
+          self->modified_state |= HMSF_document_context;
           translation_result = convert_tree (self, translated_tree,
                                              context_name);
           free (context_name);
           html_pop_document_context (self);
-          self->modified_state++;
+          self->modified_state |= HMSF_document_context;
         }
       else if (reset_context == HCC_type_css_string)
         {
@@ -2481,6 +2502,7 @@ html_translate_names (CONVERTER *self)
 {
   int j;
   STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+
   if (self->conf->DEBUG > 0)
     {
       fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: "
@@ -2502,6 +2524,7 @@ html_translate_names (CONVERTER *self)
 
   /* delete the tree and formatted results for special elements
      such that they are redone with the new tree when needed. */
+  self->reset_target_commands.number = 0;
   for (j = 0; j < special_unit_varieties->number; j++)
     {
       char *special_unit_variety = special_unit_varieties->list[j];
@@ -2523,25 +2546,29 @@ html_translate_names (CONVERTER *self)
                        target->tree = 0;
                        target->string = 0;
                        target->text = 0;
+                       /* gather elements to pass information to perl */
+                       add_to_element_list (&self->reset_target_commands,
+                                            command);
                      }
                  }
              }
         }
     }
 
-  if (self->no_arg_formatted_cmd)
+  /* self->no_arg_formatted_cmd_translated is used here to hold the translated
+     commands, and the information is kept as it is also used to pass
+     translated commands results to perl */
+  if (self->no_arg_formatted_cmd.number)
     {
       int translated_nr = 0;
-      /* this is overkill, but simpler */
-      enum command_id *translated_cmds = (enum command_id *)
-        malloc ((self->no_arg_formatted_cmd->number +1)
-                * sizeof (enum command_id));
-      memset (translated_cmds, 0, (self->no_arg_formatted_cmd->number +1)
+      COMMAND_ID_LIST *translated_cmds = &self->no_arg_formatted_cmd_translated;
+      if (translated_cmds->number)
+        memset (translated_cmds->list, 0, translated_cmds->number
                 * sizeof (enum command_id));
 
-      for (j = 0; j < self->no_arg_formatted_cmd->number; j++)
+      for (j = 0; j < self->no_arg_formatted_cmd.number; j++)
         {
-          enum command_id cmd = self->no_arg_formatted_cmd->list[j];
+          enum command_id cmd = self->no_arg_formatted_cmd.list[j];
           int i;
           int add_cmd = 0;
           for (i = 0; i < HCC_type_css_string+1; i++)
@@ -2578,22 +2605,23 @@ html_translate_names (CONVERTER *self)
             }
           if (add_cmd)
             {
-              translated_cmds[translated_nr] = cmd;
+              translated_cmds->list[translated_nr] = cmd;
               translated_nr++;
             }
         }
 
+      translated_cmds->number = translated_nr;
       for (j = 0; j < translated_nr; j++)
         {
-          enum command_id cmd = translated_cmds[j];
+          enum command_id cmd = translated_cmds->list[j];
           complete_no_arg_commands_formatting (self, cmd, 1);
         }
-
-      free (translated_cmds);
     }
 
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "END TRANSLATE_NAMES\n\n");
+
+  self->modified_state |= HMSF_translations;
 }
 
 
@@ -3184,6 +3212,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           else if (args_formatted)
             fprintf (stderr, "No command_conversion for %s\n",
                              command_name);
+          if (args_formatted)
+            destroy_args_formatted (args_formatted);
 
           if (cmd == CM_documentlanguage)
             html_translate_names (self);

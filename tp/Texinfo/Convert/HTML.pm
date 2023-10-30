@@ -8420,6 +8420,7 @@ sub converter_initialize($)
 
   if ($self->{'document_descriptor'}) {
     my $encoded_converter = $self->encode_converter_document();
+    #print STDERR "AAA ".\%default_formatting_references." ".\%default_css_string_formatting_references." ".\%default_commands_open." ". \%default_commands_conversion." ".\%default_types_open." ".\%default_types_conversion." ".\%default_output_units_conversion."\n";
     _XS_converter_initialize($encoded_converter,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
