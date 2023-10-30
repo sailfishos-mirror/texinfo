@@ -127,6 +127,9 @@ sub import {
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_convert",
       "Texinfo::Convert::ConvertXS::html_convert_convert");
+      #Texinfo::XSLoader::override(
+      #"Texinfo::Convert::HTML::_XS_html_convert_tree",
+      #"Texinfo::Convert::ConvertXS::html_convert_tree");
     }
 
     $module_loaded = 1;
@@ -8434,12 +8437,22 @@ sub converter_initialize($)
   return $self;
 }
 
+sub _XS_html_convert_tree($$;$)
+{
+  return undef;
+}
+
 # the entry point for _convert
 sub convert_tree($$;$)
 {
   my $self = shift;
   my $tree = shift;
   my $explanation = shift;
+
+  # No XS, convert_tree is not called on trees registered in XS
+  #my $XS_result = _XS_html_convert_tree($self, $tree,
+  #     (defined($explanation) ? Encode::encode('UTf-8', $explanation) : ''));
+  #return $XS_result if (defined($XS_result));
 
   # when formatting accents, goes through xml_accent without
   # explanation, as explanation is not in the standard API, but

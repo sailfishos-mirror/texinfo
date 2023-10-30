@@ -1,5 +1,15 @@
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_convert_tree): rename
+	convert_tree as html_convert_tree.
+
+	* tp/Texinfo/Convert/HTML.pm (_XS_html_convert_tree),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_tree):
+	immplementation of html_convert_tree XS interface, not used as
+	convert_tree is not called on trees registered in XS.
+
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: do not rebuild the perl document/tree before calling
 	convert_to_texinfo for MACRO_EXPAND if TEXINFO_XS_CONVERT is set.
 

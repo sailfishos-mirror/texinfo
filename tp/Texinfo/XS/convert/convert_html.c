@@ -2287,7 +2287,7 @@ html_initialize_output_state (CONVERTER *self)
 }
 
 char *
-convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation)
+html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation)
 {
   TEXT result;
   text_init (&result);
@@ -2333,7 +2333,7 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
                                            multiple_pass_str);
 
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str.text);
-  result = convert_tree (self, tree, explanation);
+  result = html_convert_tree (self, tree, explanation);
 
   free (explanation);
   free (context_string_str.text);
@@ -2418,7 +2418,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           char *explanation;
           xasprintf (&explanation, "no arg %s translated",
                      builtin_command_data[cmd].cmdname);
-          translation_result = convert_tree (self, translated_tree, explanation);
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  explanation);
           free (explanation);
         }
       else if (reset_context == HCC_type_preformatted)
@@ -2444,8 +2445,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
 
           xasprintf (&explanation, "no arg %s translated",
                      builtin_command_data[cmd].cmdname);
-          translation_result = convert_tree (self, translated_tree,
-                                             explanation);
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  explanation);
           free (explanation);
           pop_command_or_type (&top_document_ctx->composition_context);
           pop_string_stack (&top_document_ctx->preformatted_classes);
@@ -2465,8 +2466,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           top_document_ctx->string_ctx++;
 
           self->modified_state |= HMSF_document_context;
-          translation_result = convert_tree (self, translated_tree,
-                                             context_name);
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  context_name);
           free (context_name);
           html_pop_document_context (self);
           self->modified_state |= HMSF_document_context;

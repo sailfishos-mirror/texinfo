@@ -37,5 +37,6 @@ void html_convert_init (CONVERTER *self);
 char *html_convert_convert (CONVERTER *self, ELEMENT *root,
                             int output_units_descriptor,
                             int special_units_descriptor);
+char *html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation);
 
 #endif

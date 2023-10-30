@@ -370,3 +370,31 @@ html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *sp
     OUTPUT:
         RETVAL
 
+# currently not used, convert_tree is not called on trees registered in XS
+SV *
+html_convert_tree (SV *converter_in, SV *tree_in, explanation)
+        char *explanation = (char *)SvPVbyte_nolen($arg);
+  PROTOTYPE: $$;$
+  PREINIT:
+        CONVERTER *self = 0;
+        DOCUMENT *document = 0;
+        SV *result_sv = 0;
+     CODE:
+        self = get_sv_converter (converter_in, 0);
+        if (self)
+          {
+            document = get_sv_tree_document (tree_in, 0);
+            if (document)
+              {
+                char *result = html_convert_tree(self, document->tree,
+                                                 explanation);
+                result_sv = newSVpv_utf8 (result, 0);
+                free (result);
+              }
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
