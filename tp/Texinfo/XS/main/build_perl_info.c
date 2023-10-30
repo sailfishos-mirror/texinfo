@@ -2150,6 +2150,8 @@ build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context)
 
   hv = newHV ();
 
+  build_html_document_context_ctx (hv, document_context);
+
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
   STORE ("context", newSVpv_utf8 (document_context->context, 0));

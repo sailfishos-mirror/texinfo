@@ -311,22 +311,26 @@ check_node_same_texinfo_code (ELEMENT *reference_node, ELEMENT *node_content)
 char *
 root_heading_command_to_texinfo (ELEMENT *element)
 {
-  ELEMENT *tree;
+  ELEMENT *tree = 0;
   TEXT text;
 
   if (element->cmd)
-    if ((element->cmd == CM_node
-         || (builtin_command_flags (element) & CF_sectioning_heading))
-        && element->args.number > 0)
-      tree = element->args.list[0];
+    {
+      if ((element->cmd == CM_node
+           || (builtin_command_flags (element) & CF_sectioning_heading))
+          && element->args.number > 0)
+        tree = element->args.list[0];
+    }
   else
     return strdup("Not a command");
 
   text_init (&text);
   if (tree)
     {
+      char *tree_txi = convert_contents_to_texinfo (tree);
       text_printf (&text, "@%s %s", builtin_command_name (element->cmd),
-                                   convert_contents_to_texinfo (tree));
+                                    tree_txi);
+      free (tree_txi);
     }
   else
    text_printf (&text, "@%s", builtin_command_name (element->cmd));

@@ -9290,13 +9290,6 @@ sub _prepare_conversion_units($$$)
 
   my ($output_units, $special_units, $associated_special_units);
 
-  # the presence of contents elements in the document is used in diverse
-  # places, set it once for all here
-  my @contents_elements_options
-                  = grep {Texinfo::Common::valid_customization_option($_)}
-                        sort(keys(%contents_command_special_unit_variety));
-  $self->set_global_document_commands('last', \@contents_elements_options);
-
   if ($self->{'converter_descriptor'}) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
@@ -11061,6 +11054,13 @@ sub convert($$)
   # needed for CSS rules gathering
   $self->{'current_filename'} = '';
 
+  # the presence of contents elements in the document is used in diverse
+  # places, set it once for all here
+  my @contents_elements_options
+                  = grep {Texinfo::Common::valid_customization_option($_)}
+                        sort(keys(%contents_command_special_unit_variety));
+  $self->set_global_document_commands('last', \@contents_elements_options);
+
   # call before _prepare_conversion_units.
   # Some information is not available yet.
   $self->_reset_info();
@@ -11168,6 +11168,11 @@ sub convert_output_unit($$;$)
     return '';
   }
 
+  if ($debug) {
+    print STDERR "UNIT($explanation) -> ou: $unit_type_name '"
+        .Texinfo::Structuring::output_unit_texi($output_unit)."'\n";
+  }
+
   $self->{'current_output_unit'} = $output_unit;
 
   my $content_formatted = '';
@@ -11192,7 +11197,7 @@ sub convert_output_unit($$;$)
 
   delete $self->{'current_output_unit'};
 
-  print STDERR "UNIT ($unit_type_name) => `$result'\n" if $debug;
+  print STDERR "DOUNIT ($unit_type_name) => `$result'\n" if $debug;
 
   return $result;
 }
@@ -11415,6 +11420,13 @@ sub output($$)
   $self->set_conf('BODYTEXT',
                   'lang="' . $structure_preamble_document_language . '"');
   $self->set_global_document_commands('before', ['documentlanguage']);
+
+  # the presence of contents elements in the document is used in diverse
+  # places, set it once for all here
+  my @contents_elements_options
+                  = grep {Texinfo::Common::valid_customization_option($_)}
+                        sort(keys(%contents_command_special_unit_variety));
+  $self->set_global_document_commands('last', \@contents_elements_options);
 
   $self->{'jslicenses'} = {};
   if ($self->get_conf('HTML_MATH')

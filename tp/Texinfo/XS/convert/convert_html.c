@@ -1275,8 +1275,10 @@ prepare_footnotes_targets (CONVERTER *self)
 
           if (self->conf->DEBUG > 0)
             {
+              char *footnote_txi = convert_to_texinfo (footnote);
               fprintf (stderr, "Enter footnote: target %s, nr %d\n%s\n",
-                       footid.text, nr, convert_to_texinfo (footnote));
+                       footid.text, nr, footnote_txi);
+              free (footnote_txi);
             }
         }
     }
@@ -2505,8 +2507,9 @@ html_translate_names (CONVERTER *self)
 
   if (self->conf->DEBUG > 0)
     {
-      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: "
-               " documentlanguage: %s\n", self->conf->documentlanguage);
+      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: %s"
+               " documentlanguage: %s\n",
+               self->conf->OUTPUT_ENCODING_NAME, self->conf->documentlanguage);
     }
 
   /* reset strings such that they are translated when needed. */
@@ -2689,8 +2692,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             text_append (&contexts_str, "UNDEF");
 
         }
-      text_printf (&debug_str, "XS|ELEMENT(%s) %p (%s), ->", explanation,
-                                        &self->commands_conversion,
+      text_printf (&debug_str, "XS|ELEMENT(%s) (%s), ->", explanation,
                                                        contexts_str.text);
       free (contexts_str.text);
       if (command_name)
@@ -2757,7 +2759,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
       if (self->conf->DEBUG > 0)
         {
-          fprintf (stderr, "DO TEXT => `%s'\n", text_result.text);
+          fprintf (stderr, "XS|DO TEXT => `%s'\n", text_result.text);
         }
 
       ADD(text_result.text);
@@ -3017,15 +3019,19 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                                                      0, 0);
                           string_document_ctx = top_document_context (self);
                           string_document_ctx->string_ctx++;
+
                           self->modified_state |= HMSF_document_context;
+
                           xasprintf (&explanation, "%s A[%d]string",
                                                    command_type.text, arg_idx);
                           convert_to_html_internal (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
+
                           html_pop_document_context (self);
                           self->modified_state |= HMSF_document_context;
+
                           arg_formatted->formatted[AFT_type_string]
                            = strdup (formatted_arg.text);
                         }
@@ -3358,7 +3364,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
       if (self->conf->DEBUG > 0)
         {
-          fprintf (stderr, "DO type (%s) => `%s'\n", type_name,
+          fprintf (stderr, "XS|DO type (%s) => `%s'\n", type_name,
                            type_result.text);
         }
       ADD(type_result.text);
@@ -3448,6 +3454,15 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
       return strdup ("");
     }
 
+  if (self->conf->DEBUG > 0)
+    {
+      char *output_unit_txi = output_unit_texi(output_unit);
+      fprintf (stderr, "XS|UNIT(%s) -> ou: %s '%s'\n", explanation,
+                  output_unit_type_names[unit_type],
+                  output_unit_txi);
+      free (output_unit_txi);
+    }
+
   self->current_output_unit = output_unit;
   self->modified_state |= HMSF_current_output_unit;
 
@@ -3488,7 +3503,7 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
   self->modified_state |= HMSF_current_output_unit;
 
   if (self->conf->DEBUG > 0)
-    fprintf (stderr, "UNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
+    fprintf (stderr, "DOUNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
                      result);
 
   return result;
@@ -3552,11 +3567,11 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
         }
       if (special_units && special_units->number)
         {
-          for (i = 0; i < output_units->number; i++)
+          for (i = 0; i < special_units->number; i++)
             {
-              OUTPUT_UNIT *output_unit = output_units->list[i];
+              OUTPUT_UNIT *special_unit = special_units->list[i];
               convert_convert_output_unit_internal (self, &result,
-                                              output_unit, unit_nr);
+                                              special_unit, unit_nr);
               unit_nr++;
             }
         }

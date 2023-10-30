@@ -188,7 +188,7 @@ set_global_document_commands (CONVERTER *converter,
           enum command_id cmd = cmd_list[i];
           if (converter->conf->DEBUG > 0)
             {
-              fprintf (stderr, "SET_global(%s) %s\n",
+              fprintf (stderr, "XS|SET_global(%s) %s\n",
                        command_location_names[location],
                        builtin_command_data[cmd].cmdname);
             }

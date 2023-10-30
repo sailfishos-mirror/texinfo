@@ -1,3 +1,33 @@
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units, convert)
+	(output): set contents and shortcontents early in convert and
+	output, where other configurations options are set, and not in
+	_prepare_conversion_units.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_convert_convert): convert
+	special units instead of output units twice...
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_html_document_context):
+	add missing call of build_html_document_context_ctx.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c
+	(root_heading_command_to_texinfo): initialize tree, fix nesting of
+	if, free text representation of command.
+
+	* tp/Texinfo/Convert/Texinfo.pm (root_heading_command_to_texinfo):
+	reorganize code, no functional change.
+
+	* tp/Texinfo/Convert/HTML.pm (convert_output_unit),
+	tp/Texinfo/XS/convert/convert_html.c (convert_output_unit): better debug
+	for output units conversion.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_footnotes_targets):
+	free footnote texinfo content in debug message.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_names):
+	add encoding_name in debug message.
+
 2023-10-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.h (TRANSLATED_SUI_ASSOCIATION),

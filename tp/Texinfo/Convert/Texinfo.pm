@@ -159,9 +159,12 @@ sub root_heading_command_to_texinfo($)
   } else {
     return "Not a command";
   }
-  return '@'.$element->{'cmdname'}.' '.convert_to_texinfo({'contents' => $tree})
-          if ($tree);
-  return '@'.$element->{'cmdname'};
+  if ($tree) {
+    return '@'.$element->{'cmdname'}.' '
+                .convert_to_texinfo({'contents' => $tree});
+  } else {
+    return '@'.$element->{'cmdname'};
+  }
 }
 
 # Following subroutines deal with transforming a texinfo tree into texinfo
