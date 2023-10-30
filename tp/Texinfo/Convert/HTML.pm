@@ -11348,6 +11348,71 @@ sub _reset_info()
   }
 }
 
+sub _do_js_files($$)
+{
+  my $self = shift;
+  my $destination_directory = shift;
+
+  if ($self->get_conf('INFO_JS_DIR')) {
+    my $info_js_dir = $self->get_conf('INFO_JS_DIR');
+    my $jsdir;
+    if ($destination_directory ne '') {
+      $jsdir = File::Spec->catdir($destination_directory, $info_js_dir);
+    } else {
+      $jsdir = $info_js_dir;
+    }
+    if (!-d $jsdir) {
+      if (-f $jsdir) {
+        $self->document_error($self,
+          sprintf(__("%s already exists but is not a directory"), $jsdir));
+      } else {
+        mkdir $jsdir;
+      }
+    }
+    # Copy JS files.
+    if (-d $jsdir) {
+      if (!$self->get_conf('TEST')) {
+        my $jssrcdir;
+        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
+          $jssrcdir = File::Spec->catdir(
+            $Texinfo::ModulePath::pkgdatadir, 'js');
+        } else {
+          $jssrcdir = File::Spec->catdir(
+            $Texinfo::ModulePath::top_srcdir, 'js');
+        }
+        for my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $from = File::Spec->catfile($jssrcdir, $f);
+
+          if (!copy($from, $jsdir)) {
+            $self->document_error($self,
+              sprintf(__("error on copying %s into %s"), $from, $jsdir));
+          }
+        }
+      } else {
+      # create empty files for tests to keep results stable.
+        for my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $filename = File::Spec->catfile($jsdir, $f);
+          if (!open (FH, '>', $filename)) {
+            $self->document_error($self,
+              sprintf(__("error on creating empty %s: %s"),
+                      $filename, $!));
+          }
+          if (!close(FH)) {
+            $self->document_error($self,
+              sprintf(__("error on closing empty %s: %s"),
+                      $filename, $!));
+          }
+        }
+      }
+    }
+  }
+
+  my $jslicenses = $self->get_info('jslicenses');
+  if ($jslicenses and scalar(%$jslicenses)) {
+    $self->_do_jslicenses_file($destination_directory);
+  }
+}
+
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the Texinfo parsed document from the parser.
@@ -11472,8 +11537,9 @@ sub output($$)
   }
   $self->_prepare_css();
 
-  # this sets OUTFILE, to be used if not split, but also
-  # 'destination_directory' and 'output_filename' that are useful when split.
+  # this sets OUTFILE, to be used if not split, but also 'output_filename'
+  # that is useful when split, 'destination_directory' that is mainly useful
+  # when split and 'document_name' that is generally useful.
   my ($output_file, $destination_directory, $output_filename,
               $document_name) = $self->determine_files_and_directory();
   my ($encoded_destination_directory, $dir_encoding)
@@ -11626,9 +11692,11 @@ sub output($$)
   if (!$output_units
       or !defined($output_units->[0]->{'unit_filename'})) {
     # no page
-    # NOTE there are always output units, and there is always a file
-    # associated, so this situation cannot happen.
+    # NOTE there are always output units.  There is always a file if files
+    # are setup, so this situation can only arise with output_file equal to ''
+    # as in that case files are not setup at all.
     if ($output_file ne '') {
+      # This should not be possible.
       my $no_page_output_filename;
       if ($self->get_conf('SPLIT')) {
         $no_page_output_filename = $self->top_node_filename($document_name);
@@ -11656,13 +11724,12 @@ sub output($$)
 
   if (!$output_units
       or !defined($output_units->[0]->{'unit_filename'})) {
-    # NOTE there are always output units, and there is always a file
-    # associated, so this situation cannot happen.
-    # A lot of unreachable code here...
     my $output = '';
     my $fh;
     my $encoded_no_page_out_filepath;
     my $no_page_out_filepath;
+    # current_filename eq '' and no output files should be the only
+    # possibility, see comment above.
     if ($self->{'current_filename'} ne ''
         and $self->{'out_filepaths'}
         and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
@@ -11723,7 +11790,15 @@ sub output($$)
       }
     }
     $self->{'current_filename'} = undef;
-    return $output if ($output_file eq '');
+    # $output_file eq '' should always be true, see comment above.
+    if ($output_file eq '') {
+      if (!$self->get_conf('TEST')) {
+        # This case is unlikely to happen, as there is no output file
+        # only if formatting is called as convert, which only happens in tests.
+        $self->_do_js_files($destination_directory);
+      }
+      return $output;
+    }
   } else {
     # output with pages
     print STDERR "DO Units with filenames\n"
@@ -11759,9 +11834,9 @@ sub output($$)
                                            "output unit $unit_nr");
       }
 
-      # register the element but do not print anything. Printing
+      # register the output but do not print anything. Printing
       # only when file_counters reach 0, to be sure that all the
-      # elements have been converted.
+      # elements have been converted before headers are done.
       if (!exists($files{$output_unit_filename})) {
         $files{$output_unit_filename} = {'first_unit' => $output_unit,
                                          'body' => ''};
@@ -11810,64 +11885,7 @@ sub output($$)
     delete $self->{'current_filename'};
   }
 
-  if ($self->get_conf('INFO_JS_DIR')) {
-    my $info_js_dir = $self->get_conf('INFO_JS_DIR');
-    my $jsdir;
-    if ($destination_directory ne '') {
-      $jsdir = File::Spec->catdir($destination_directory, $info_js_dir);
-    } else {
-      $jsdir = $info_js_dir;
-    }
-    if (!-d $jsdir) {
-      if (-f $jsdir) {
-        $self->document_error($self,
-          sprintf(__("%s already exists but is not a directory"), $jsdir));
-      } else {
-        mkdir $jsdir;
-      }
-    }
-    # Copy JS files.
-    if (-d $jsdir) {
-     if (!$self->get_conf('TEST')) {
-        my $jssrcdir;
-        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::pkgdatadir, 'js');
-        } else {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::top_srcdir, 'js');
-        }
-        for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $from = File::Spec->catfile($jssrcdir, $f);
-
-          if (!copy($from, $jsdir)) {
-            $self->document_error($self,
-              sprintf(__("error on copying %s into %s"), $from, $jsdir));
-          }
-        }
-      } else {
-      # create empty files for tests to keep results stable.
-        for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $filename = File::Spec->catfile($jsdir, $f);
-          if (!open (FH, '>', $filename)) {
-            $self->document_error($self,
-              sprintf(__("error on creating empty %s: %s"),
-                      $filename, $!));
-          }
-          if (!close(FH)) {
-            $self->document_error($self,
-              sprintf(__("error on closing empty %s: %s"),
-                      $filename, $!));
-          }
-        }
-      }
-    }
-  }
-
-  my $jslicenses = $self->get_info('jslicenses');
-  if ($jslicenses and scalar(%$jslicenses)) {
-    $self->_do_jslicenses_file($destination_directory);
-  }
+  $self->_do_js_files($destination_directory);
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
   return undef unless ($finish_status < $handler_fatal_error_level

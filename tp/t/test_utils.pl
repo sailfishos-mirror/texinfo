@@ -217,6 +217,9 @@ sub protect_perl_string($)
   return $string;
 }
 
+# not that subdirectories are not compared, so subdirectories generated
+# by INFO_JS_DIR, if different, will not trigger an error in test, but
+# will lead to different directories and files for diffs..
 sub compare_dirs_files($$;$)
 {
   my $dir1 = shift;

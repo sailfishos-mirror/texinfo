@@ -1,5 +1,24 @@
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_do_js_files, output): move code related
+	to js files, both for INFO_JS_DIR and for js license file also for
+	mathjax to the _do_js_files function.  Call _do_js_files also if there
+	is no output file, but only if TEST is not set, a combination which is
+	very unlikely.
+	
+	* tp/Texinfo/Convert/HTML.pm (output), tp/t/test_utils.pl: update
+	comments, in particular in output on unreachable code, as code that is
+	unreachable corresponds to the case output_file ne '' and no pages.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (info_js_dir_html)
+	(info_js_dir_html_text, mathjax_with_texinfo_html_file)
+	(info_js_dir_html_file): more tests to test INFO_JS_DIR and check when
+	associated files are created.
+
+	* Changelog: remove some spaces.
+
+2023-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (output): move js files copying code out
 	of output units formatting loop.
 
@@ -1068,7 +1087,7 @@
 2023-10-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.h (FILE_SOURCE_INFO,
-	FILE_SOURCE_INFO_LIST), tp/Texinfo/XS/convert/convert_html.h: move to 
+	FILE_SOURCE_INFO_LIST), tp/Texinfo/XS/convert/convert_html.h: move to
 	utils.h from convert_html.h.
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files),
@@ -1277,7 +1296,7 @@
 2023-10-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.h,
-	tp/Texinfo/XS/convert/indices_in_conversion.h, 
+	tp/Texinfo/XS/convert/indices_in_conversion.h,
 	tp/Texinfo/XS/main/utils.h (html_conversion_context_type_names)
 	(KEY_ALPHA, SORTABLE_ENTRY, INDEX_SORTABLE_ENTRIES):  move definitions
 	to utils.h.
@@ -1345,9 +1364,9 @@
 	tp/t/languages.t: always use a string for SPLIT customization
 	variable, so replace 0 by ''.
 
-	* tp/Texinfo/Structuring.pm (import, clear_document_errors), 
+	* tp/Texinfo/Structuring.pm (import, clear_document_errors),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
-	(clear_document_errors), tp/t/test_utils.pl (test), tp/texi2any.pl: 
+	(clear_document_errors), tp/t/test_utils.pl (test), tp/texi2any.pl:
 	add an XS interface to clear_document_errors in Texinfo/Structuring.pm
 	and use it in test_utils.pl and texi2any.pl after passing document
 	errors.
@@ -2232,7 +2251,7 @@
 
 	* tp/Texinfo/Structuring.pm (import, _XS_split_by_node)
 	(split_by_node), tp/Texinfo/XS/main/build_perl_info.c
-	(output_unit_to_perl_hash, build_output_units_list), 
+	(output_unit_to_perl_hash, build_output_units_list),
 	tp/Texinfo/XS/main/tree_types.h (enum output_unit_type, OUTPUT_UNIT)
 	(OUTPUT_UNIT_LIST), tp/Texinfo/XS/main/utils.c
 	(output_unit_type_names),
@@ -2723,7 +2742,7 @@
 	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/floats.c
 	(add_to_float_record_list, find_float_type)
 	(float_list_to_listoffloats_list, destroy_listoffloats_list)
-	(parse_float_type), tp/Texinfo/XS/parsetexi/api.c (store_document), 
+	(parse_float_type), tp/Texinfo/XS/parsetexi/api.c (store_document),
 	tp/Texinfo/XS/parsetexi/end_line.c (float_records): move floats
 	related function to a new main/floats.c file.  Use a FLOAT_RECORD_LIST
 	as global float_records structure.
@@ -3196,7 +3215,7 @@
 	(text_accents, text_heading, convert_to_text_internal)
 	(convert_to_text), tp/Texinfo/XS/main/get_perl_info.c
 	(copy_sv_options_for_convert_text): rename TEXT_OPTIONS options as
-	text_options. 
+	text_options.
 
 2023-09-14  Patrice Dumas  <pertusus@free.fr>
 
@@ -3851,7 +3870,7 @@
 	tp/Texinfo/XS/main/utils.h (ENCODING_CONVERSION)
 	(ENCODING_CONVERSION_LIST), tp/Texinfo/XS/parsetexi/api.c
 	(reset_parser_except_conf), tp/Texinfo/XS/parsetexi/input.c
-	(input_conversions, set_input_encoding, parser_reset_encoding_list):  
+	(input_conversions, set_input_encoding, parser_reset_encoding_list):
 	move code related to setting up conversions from set_input_encoding in
 	parsetexi/input.c to main/utils.c, move reset_encoding_list,
 	text_buffer_iconv and encode_with_iconv.  Use an
@@ -4339,7 +4358,7 @@
 
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/t/test_utils.pl (test), tp/texi2any.pl b/tp/texi2any.pl, 
+	* tp/t/test_utils.pl (test), tp/texi2any.pl b/tp/texi2any.pl,
 	tp/Texinfo/Convert/Info.pm (output): determine top node with
 	identifiers_target instead of {'structuring'}->{'top_node'}
 	in Info.pm.  Remove now unused {'structuring'}->{'top_node'}.
@@ -4376,7 +4395,7 @@
 	(directions_length): setup extern structures related to directions in
 	utils.c.
 
-	* tp/Texinfo/Structuring.pm (import, _XS_nodes_tree, nodes_tree), 
+	* tp/Texinfo/Structuring.pm (import, _XS_nodes_tree, nodes_tree),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs (nodes_tree),
 	tp/Texinfo/XS/structuring_transfo/structuring.c
 	(section_direction_associated_node, nodes_tree): implement nodes_tree
@@ -4707,7 +4726,7 @@
 2023-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (split_pages),
-	tp/Texinfo/Convert/Converter.pm (_set_tree_units_files), 
+	tp/Texinfo/Convert/Converter.pm (_set_tree_units_files),
 	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): put
 	'first_in_page' directly in tree unit.
 
@@ -5829,7 +5848,7 @@
 2023-08-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (delete_global_info),
-	tp/Texinfo/XS/parsetexi/parser.c (wipe_parser_global_info): 
+	tp/Texinfo/XS/parsetexi/parser.c (wipe_parser_global_info):
 	rename wipe_global_info as wipe_parser_global_info.  Split
 	code that free GLOBAL_INFO structure out of wipe_parser_global_info to
 	utils.c, renaming it delete_global_info, and call delete_global_info
@@ -5874,7 +5893,7 @@
 	tp/Texinfo/XS/parsetexi/build_perl_info.c (build_texinfo_tree)
 	(build_target_elements_list, build_identifiers_target)
 	(build_internal_xref_list, build_float_list, build_index_data)
-	(build_global_info, build_global_info2, build_document): 
+	(build_global_info, build_global_info2, build_document):
 	do not expose to perl code and add arguments for build_texinfo_tree,
 	build_target_elements_list, build_identifiers_target,
 	build_internal_xref_list, build_float_list, build_index_data and
@@ -6409,7 +6428,7 @@
 	set_nodes_list_labels.
 
 	* tp/Texinfo/XS/parsetexi/node_name_normalization.c
-	(convert_to_normalized_internal): fix ref* conversion, fix 
+	(convert_to_normalized_internal): fix ref* conversion, fix
 	check of empty ref argument.
 	(protect_unicode_char): avoid spurious error with empty next.
 	(unicode_to_protected): initialize to an empty line.

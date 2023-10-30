@@ -632,6 +632,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/image_link_prefix.pl \
   t/results/html_tests/index_and_node_same_name.pl \
   t/results/html_tests/index_below.pl \
+  t/results/html_tests/info_js_dir_html.pl \
+  t/results/html_tests/info_js_dir_html_file.pl \
+  t/results/html_tests/info_js_dir_html_file/res_html \
+  t/results/html_tests/info_js_dir_html_text.pl \
   t/results/html_tests/itemize_arguments.pl \
   t/results/html_tests/itemize_arguments/res_html \
   t/results/html_tests/itemize_arguments_enable_encoding.pl \
@@ -639,6 +643,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/mathjax_with_texinfo.pl \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding.pl \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding/res_latex \
+  t/results/html_tests/mathjax_with_texinfo_html_file.pl \
+  t/results/html_tests/mathjax_with_texinfo_html_file/res_html \
   t/results/html_tests/mathjax_with_texinfo_html_text.pl \
   t/results/html_tests/mathjax_with_texinfo_no_convert_to_latex.pl \
   t/results/html_tests/menu.pl \

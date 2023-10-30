@@ -146,6 +146,15 @@ a@sup{b - \frac{\xi}{phi @copyright{}}} @dotless{i}
 Some @math{a @minus{} b @geq{} @AA{} @^e}.
 ';
 
+# nothing special, just a way to have the same for all the
+# info_js_dir tests
+my $info_js_dir_test = '@node top
+@top top
+
+@node chap
+@chapter Chapter
+';
+
 my $check_htmlxref_text = '
 @node Top, (../there/no_existing_no_manual_direction), first, (dir)
 @top top
@@ -649,6 +658,8 @@ $mathjax_with_texinfo, {'test_formats' => ['latex_text', 'file_latex'],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
                             'CONVERT_TO_LATEX_IN_MATH' => 0}],
+['info_js_dir_html',
+$info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
 ['empty_lines_at_beginning_no_setfilename',
 undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename.texi'}
 ],
@@ -772,6 +783,8 @@ node name}
 '],
 ['mathjax_with_texinfo_html_text',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+['info_js_dir_html_text',
+$info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
 ['split_html_text',
 '@node Top
 @top top
@@ -1246,6 +1259,10 @@ $check_htmlxref_text
   {'contents' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
+['mathjax_with_texinfo_html_file',
+$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+['info_js_dir_html_file',
+$info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
 );
 
 
