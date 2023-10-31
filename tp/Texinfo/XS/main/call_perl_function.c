@@ -531,6 +531,192 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
 }
 
 char *
+call_formatting_function_format_footnotes_segment (CONVERTER *self)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference
+    = self->formatting_references[FR_format_footnotes_segment].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_footnotes_segment should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_formatting_function_format_end_file (CONVERTER *self, char *filename,
+                                          OUTPUT_UNIT *output_unit)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+  SV *output_unit_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference
+    = self->formatting_references[FR_format_end_file].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  if (output_unit)
+    output_unit_sv = newRV_inc (output_unit->hv);
+  else
+    output_unit_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+  PUSHs(sv_2mortal (output_unit_sv));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_end_file should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
+                                          OUTPUT_UNIT *output_unit)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference;
+  SV *output_unit_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference
+    = self->formatting_references[FR_format_begin_file].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  if (output_unit)
+    output_unit_sv = newRV_inc (output_unit->hv);
+  else
+    output_unit_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+  PUSHs(sv_2mortal (output_unit_sv));
+  PUTBACK;
+
+  count = call_sv (formatting_reference,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_begin_file should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
 call_types_conversion (CONVERTER *self, enum element_type type,
                        ELEMENT *element, char *content)
 {

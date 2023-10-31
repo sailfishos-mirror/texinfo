@@ -2242,6 +2242,7 @@ html_converter_initialize (CONVERTER *self)
 
   html_commands_data[CM_sc].flags |= HF_upper_case;
 
+  /* FIXME need to call html_pop_document_context to free memory */
   html_new_document_context (self, "_toplevel_context", 0, 0);
 
   /* initialization needing some information from perl */
@@ -3426,6 +3427,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
  out:
   free (command_type.text);
 }
+#undef ADD
 
 static char *
 output_unit_conversion (CONVERTER *self, enum output_unit_type unit_type,
@@ -3513,15 +3515,16 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
 /* wrapper to avoid code repetition and use similar functions as in perl */
 void
 convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
-                                      OUTPUT_UNIT *output_unit, int unit_nr)
+                                   OUTPUT_UNIT *output_unit, int unit_nr,
+                                   char *debug_str, char *explanation_str)
 {
   char *explanation;
   char *output_unit_text;
 
   if (self->conf->DEBUG > 0)
-    fprintf (stderr, "\nC UNIT %d\n", unit_nr);
+    fprintf (stderr, "\n%s %d\n", debug_str, unit_nr);
 
-  xasprintf (&explanation, "convert unit %d", unit_nr);
+  xasprintf (&explanation, "%s %d", explanation_str, unit_nr);
   output_unit_text = convert_output_unit (self, output_unit,
                                           explanation);
   text_append (result, output_unit_text);
@@ -3545,15 +3548,20 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
 
   if (!output_units || !output_units->number)
     {
-
+      char *footnotes_segment;
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "\nC NO UNIT\n");
 
       convert_to_html_internal (self, root, &result,
                                 "convert no unit");
-      /*
- $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
-       */
+
+      footnotes_segment
+        = call_formatting_function_format_footnotes_segment (self);
+      if (footnotes_segment)
+        {
+          text_append (&result, footnotes_segment);
+          free (footnotes_segment);
+        }
     }
   else
     {
@@ -3562,8 +3570,8 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
       for (i = 0; i < output_units->number; i++)
         {
           OUTPUT_UNIT *output_unit = output_units->list[i];
-          convert_convert_output_unit_internal (self, &result,
-                                          output_unit, unit_nr);
+          convert_convert_output_unit_internal (self, &result, output_unit,
+                                unit_nr, "C UNIT", "convert unit");
           unit_nr++;
         }
       if (special_units && special_units->number)
@@ -3572,14 +3580,224 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
             {
               OUTPUT_UNIT *special_unit = special_units->list[i];
               convert_convert_output_unit_internal (self, &result,
-                                              special_unit, unit_nr);
+                        special_unit, unit_nr, "C UNIT", "convert unit");
               unit_nr++;
             }
         }
     }
-  html_pop_document_context (self);
   return result.text;
 }
 
-#undef ADD
+void
+convert_output_output_unit_internal (CONVERTER *self, TEXT *result,
+                                     OUTPUT_UNIT *output_unit, int unit_nr)
+{
+  TEXT body;
+  char *output_unit_filename = output_unit->unit_filename;
 
+  self->current_filename = output_unit_filename;
+  self->modified_state |= HMSF_current_filename;
+
+  text_init (&body);
+  text_append (&body, "");
+
+  if (output_unit->unit_type == OU_special_unit)
+    {
+      char *debug_str;
+      char *special_unit_variety = output_unit->special_unit_variety;
+      xasprintf (&debug_str, "UNIT SPECIAL %s", special_unit_variety);
+      convert_convert_output_unit_internal (self, &body,
+                    output_unit, unit_nr, debug_str, "output s-unit");
+      free (debug_str);
+
+      if (!strcmp (body.text, ""))
+        {
+         /*
+                   $self->{'file_counters'}->{$output_unit_filename}--;
+          */
+          return;
+        }
+    }
+  else
+    {
+      convert_convert_output_unit_internal (self, &body, output_unit,
+                                            unit_nr, "UNIT", "output unit");
+    }
+
+      /* register the output but do not print anything. Printing
+         only when file_counters reach 0, to be sure that all the
+         elements have been converted before headers are done. */
+
+  /* */
+
+
+  self->current_filename = 0;
+  self->modified_state |= HMSF_current_filename;
+}
+
+char *
+html_convert_output (CONVERTER *self, ELEMENT *root,
+                     int output_units_descriptor,
+                     int special_units_descriptor,
+                     char *output_file, char *destination_directory,
+                     char *output_filename, char *document_name)
+{
+  TEXT result;
+  char *title_titlepage;
+
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT_LIST *special_units
+    = retrieve_output_units (special_units_descriptor);
+
+  text_init (&result);
+
+  text_append (&result, "");
+
+  /* determine first file name */
+  if (!output_units || !output_units->number
+      || !output_units->list[0]->unit_filename)
+    {
+     /* no page */
+  /* NOTE there are always output units.  There is always a file if files
+     are setup, so this situation can only arise with output_file equal to ''
+     as in that case files are not setup at all. */
+      if (strlen (output_file))
+        {
+          /* This should not be possible. */
+          char *no_page_output_filename = 0;
+          int filename_to_be_freed = 0;
+          if (self->conf->SPLIT && strlen (self->conf->SPLIT))
+            {
+              no_page_output_filename = top_node_filename (self, document_name);
+              filename_to_be_freed = 1;
+              set_file_path (self, no_page_output_filename, 0,
+                             destination_directory);
+            }
+          else
+            {
+              no_page_output_filename = output_filename;
+              set_file_path (self, no_page_output_filename, output_file,
+                             destination_directory);
+            }
+          self->current_filename = no_page_output_filename;
+
+          if (filename_to_be_freed)
+            free (no_page_output_filename);
+        }
+      else
+        self->current_filename = output_filename;
+    }
+  else
+    self->current_filename = output_units->list[0]->unit_filename;
+
+  self->modified_state |= HMSF_current_filename;
+
+  title_titlepage
+    = call_formatting_function_format_title_titlepage (self);
+  self->title_titlepage = title_titlepage;
+
+  if (!output_units || !output_units->number
+      || !output_units->list[0]->unit_filename)
+    {
+      TEXT body;
+      char *footer;
+      char *header;
+
+      text_init (&body);
+      text_append (&body, "");
+
+      /* in perl there is code for a case that should not be possible,
+         with current_filename ne '' here.  This code is no present here */
+      if (output_units && output_units->number)
+        {
+          int unit_nr = 0;
+          int i;
+          for (i = 0; i < output_units->number; i++)
+            {
+              OUTPUT_UNIT *output_unit = output_units->list[i];
+              convert_convert_output_unit_internal (self, &body, output_unit,
+                             unit_nr, "UNIT NO-PAGE", "no-page output unit");
+              unit_nr++;
+            }
+      /* TODO there is no rule before the footnotes special element in
+         case of separate footnotes in the default formatting style.
+         Not sure if it is an issue. */
+          if (special_units && special_units->number)
+            {
+              for (i = 0; i < special_units->number; i++)
+                {
+                  OUTPUT_UNIT *special_unit = special_units->list[i];
+                  convert_convert_output_unit_internal (self, &body,
+                                 special_unit, unit_nr, "UNIT NO-PAGE",
+                                 "no-page output unit");
+                  unit_nr++;
+                }
+            }
+        }
+      else
+        {
+          char *footnotes_segment;
+          if (self->conf->DEBUG > 0)
+            fprintf (stderr, "\nNO UNIT NO PAGE\n");
+
+          text_append (&body, self->title_titlepage);
+          convert_to_html_internal (self, root, &body,
+                                     "no-page output no unit");
+          footnotes_segment
+            = call_formatting_function_format_footnotes_segment (self);
+          if (footnotes_segment)
+            {
+              text_append (&body, footnotes_segment);
+              free (footnotes_segment);
+            }
+        }
+
+      /* do end file first, in case it needs some CSS */
+      footer = call_formatting_function_format_end_file (self,
+                                                     output_filename, 0);
+      header = call_formatting_function_format_begin_file (self,
+                                                     output_filename, 0);
+      if (footer)
+        {
+          text_append (&result, footer);
+          free (footer);
+        }
+      text_append (&result, body.text);
+      free (body.text);
+      if (header)
+        {
+          text_append (&result, header);
+          free (header);
+        }
+      self->current_filename = 0;
+      self->modified_state |= HMSF_current_filename;
+    }
+  else
+    {
+      int unit_nr = 0;
+      int i;
+
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "DO Units with filenames\n");
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          convert_output_output_unit_internal (self, &result, output_unit,
+                                               unit_nr);
+          unit_nr++;
+        }
+      if (special_units && special_units->number)
+        {
+          for (i = 0; i < special_units->number; i++)
+            {
+              OUTPUT_UNIT *special_unit = special_units->list[i];
+              convert_output_output_unit_internal (self, &result, special_unit,
+                                                   unit_nr);
+              unit_nr++;
+            }
+        }
+    }
+  return result.text;
+}

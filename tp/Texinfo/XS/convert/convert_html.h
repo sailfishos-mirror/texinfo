@@ -39,4 +39,9 @@ char *html_convert_convert (CONVERTER *self, ELEMENT *root,
                             int special_units_descriptor);
 char *html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation);
 
+char *html_convert_output (CONVERTER *self, ELEMENT *root,
+                           int output_units_descriptor,
+                           int special_units_descriptor,
+                           char *output_file, char *destination_directory,
+                           char *output_filename, char *document_name);
 #endif

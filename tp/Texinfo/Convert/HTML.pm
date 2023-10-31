@@ -84,6 +84,10 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '7.1';
 
+my $XS_convert = 0;
+$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
@@ -94,8 +98,7 @@ sub import {
       "Texinfo::Convert::HTML::_entity_text",
       "Texinfo::MiscXS::entity_text");
 
-    if (defined $ENV{TEXINFO_XS_CONVERT}
-        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    if ($XS_convert) {
 
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_converter_initialize",
@@ -127,6 +130,9 @@ sub import {
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_convert",
       "Texinfo::Convert::ConvertXS::html_convert_convert");
+      Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_html_convert_output",
+      "Texinfo::Convert::ConvertXS::html_convert_output");
       #Texinfo::XSLoader::override(
       #"Texinfo::Convert::HTML::_XS_html_convert_tree",
       #"Texinfo::Convert::ConvertXS::html_convert_tree");
@@ -2328,7 +2334,7 @@ sub _translate_names($;$)
   my $self = shift;
   my $do_XS = shift;
 
-  if ($do_XS and $self->{'converter_descriptor'}) {
+  if ($do_XS and $self->{'converter_descriptor'} and $XS_convert) {
     my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
     my $encoded_converter
              = {'converter_descriptor' => $self->{'converter_descriptor'},
@@ -9303,7 +9309,7 @@ sub _prepare_conversion_units($$$)
 
   my ($output_units, $special_units, $associated_special_units);
 
-  if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     my ($targets, $special_targets, $seen_ids);
@@ -9376,7 +9382,7 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
-  if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     my $encoded_output_file = Encode::encode('UTF-8', $output_file);
@@ -9840,7 +9846,7 @@ sub _sort_index_entries($)
     $self->{'index_entries'} = $merged_index_entries;
 
     # pass sorted index entries to XS for a reproducible sorting.
-    if ($self->{'converter_descriptor'}) {
+    if ($self->{'converter_descriptor'} and $XS_convert) {
       # encode. Also setup list of lists for easier import of data in C.
       my $encoded_index_entries_by_letter = [];
       if ($self->{'index_entries_by_letter'}) {
@@ -11091,7 +11097,7 @@ sub convert($$)
   # global targets when called as convert, but the Top global
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
-  if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     # Do it preferentially in XS, and import to perl, to have data
     # setup in C for XS too.
     $encoded_converter = $self->encode_converter_for_output();
@@ -11125,7 +11131,7 @@ sub convert($$)
   # title.  Not often set in the default case, as convert() is only
   # used in the *.t tests, and a title requires both simpletitle_tree
   # and SHOW_TITLE set, with the default formatting function.
-  if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     # FIXME distinguish failure and no title?  Could actually use
     # undef for failure, as without title, return an empty string.
     my $title_titlepage =
@@ -11139,7 +11145,7 @@ sub convert($$)
   # complete information should be available.
   $self->_reset_info();
 
-  if ($self->{'converter_descriptor'}) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     my $XS_result = _XS_html_convert_convert ($encoded_converter, $root,
                                               $output_units, $special_units);
     return $XS_result;
@@ -11411,6 +11417,221 @@ sub _do_js_files($$)
   if ($jslicenses and scalar(%$jslicenses)) {
     $self->_do_jslicenses_file($destination_directory);
   }
+}
+
+sub _XS_html_convert_output($$$$$$$$)
+{
+}
+
+# units or root conversion
+sub _html_convert_output($$$$$$$$)
+{
+  my ($self, $root, $output_units, $special_units, $output_file,
+      $destination_directory, $output_filename, $document_name) = @_;
+
+  if (0 and $self->{'converter_descriptor'} and $XS_convert) {
+    my $encoded_converter = $self->encode_converter_for_output();
+    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
+    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
+    my $encoded_destination_directory
+         = Encode::encode('UTF-8', $destination_directory);
+    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
+
+    my $XS_result = _XS_html_convert_output ($encoded_converter,
+                     $root, $output_units, $special_units, $encoded_output_file,
+                     $encoded_destination_directory, $encoded_output_filename,
+                     $encoded_document_name);
+    return $XS_result;
+  }
+
+  my $text_output = '';
+
+  # determine first file name
+  if (!$output_units
+      or !defined($output_units->[0]->{'unit_filename'})) {
+    # no page
+    # NOTE there are always output units.  There is always a file if files
+    # are setup, so this situation can only arise with output_file equal to ''
+    # as in that case files are not setup at all.
+    if ($output_file ne '') {
+      # This should not be possible.
+      my $no_page_output_filename;
+      if ($self->get_conf('SPLIT')) {
+        $no_page_output_filename = $self->top_node_filename($document_name);
+        $self->set_file_path($no_page_output_filename, $destination_directory);
+      } else {
+        $no_page_output_filename = $output_filename;
+        $self->set_file_path($no_page_output_filename, undef, $output_file);
+      }
+
+      $self->{'current_filename'} = $no_page_output_filename;
+    } else {
+      $self->{'current_filename'} = $output_filename;
+    }
+  } else {
+    $self->{'current_filename'}
+      = $output_units->[0]->{'unit_filename'};
+  }
+  # title
+  $self->{'title_titlepage'}
+    = &{$self->formatting_function('format_title_titlepage')}($self);
+
+  # complete information should be available.
+  $self->_reset_info();
+
+  if (!$output_units
+      or !defined($output_units->[0]->{'unit_filename'})) {
+    my $fh;
+    my $encoded_no_page_out_filepath;
+    my $no_page_out_filepath;
+    # current_filename eq '' and no output files should be the only
+    # possibility, see comment above.
+    if ($self->{'current_filename'} ne ''
+        and $self->{'out_filepaths'}
+        and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
+      my $path_encoding;
+      $no_page_out_filepath
+         = $self->{'out_filepaths'}->{$self->{'current_filename'}};
+      ($encoded_no_page_out_filepath, $path_encoding)
+        = $self->encoded_output_file_name($no_page_out_filepath);
+      my $error_message;
+      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                                 $self->output_files_information(), $self,
+                                 $encoded_no_page_out_filepath);
+      if (!$fh) {
+        $self->document_error($self,
+              sprintf(__("could not open %s for writing: %s"),
+                                      $no_page_out_filepath, $error_message));
+        return undef;
+      }
+    }
+    my $body = '';
+    if ($output_units and @$output_units) {
+      my $unit_nr = 0;
+      # TODO there is no rule before the footnotes special element in
+      # case of separate footnotes in the default formatting style.
+      # Not sure if it is an issue.
+      foreach my $output_unit (@$output_units, @$special_units) {
+        print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
+        my $output_unit_text
+          = $self->convert_output_unit($output_unit,
+                                       "no-page output unit $unit_nr");
+        $body .= $output_unit_text;
+        $unit_nr++;
+      }
+    } else {
+      $body .= $self->get_info('title_titlepage');
+      print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
+      $body .= $self->_convert($root, 'no-page output no unit');
+      $body .= &{$self->formatting_function('format_footnotes_segment')}($self);
+    }
+
+    # do end file first, in case it needs some CSS
+    my $footer = &{$self->formatting_function('format_end_file')}($self,
+                                                  $output_filename, undef);
+    my $header = &{$self->formatting_function('format_begin_file')}($self,
+                                                  $output_filename, undef);
+    $text_output .= $self->write_or_return($header, $fh);
+    $text_output .= $self->write_or_return($body, $fh);
+    $text_output .= $self->write_or_return($footer, $fh);
+
+    # NOTE do not close STDOUT now to avoid a perl warning.
+    if ($fh and $no_page_out_filepath ne '-') {
+      Texinfo::Common::output_files_register_closed(
+            $self->output_files_information(), $encoded_no_page_out_filepath);
+      if (!close($fh)) {
+        $self->document_error($self,
+              sprintf(__("error on closing %s: %s"),
+                                      $no_page_out_filepath, $!));
+      }
+    }
+    $self->{'current_filename'} = undef;
+  } else {
+    # output with pages
+    print STDERR "DO Units with filenames\n"
+      if ($self->get_conf('DEBUG'));
+    my %files;
+
+    my $unit_nr = -1;
+    # Now do the output, converting each output units and special output units
+    # in turn
+    $special_units = [] if (!defined($special_units));
+    foreach my $output_unit (@$output_units, @$special_units) {
+      $unit_nr++;
+
+      my $output_unit_filename = $output_unit->{'unit_filename'};
+      $self->{'current_filename'} = $output_unit_filename;
+
+
+      # convert body before header in case this affects the header
+      # and, for special output unit, to avoid outputting anything if empty.
+      my $body;
+      if ($output_unit->{'unit_type'} eq 'special_unit') {
+        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
+           if ($self->get_conf('DEBUG'));
+        $body = $self->convert_output_unit($output_unit,
+                                           "output s-unit $unit_nr");
+        if ($body eq '') {
+          $self->{'file_counters'}->{$output_unit_filename}--;
+          next;
+        }
+      } else {
+        print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+        $body = $self->convert_output_unit($output_unit,
+                                           "output unit $unit_nr");
+      }
+
+      # register the output but do not print anything. Printing
+      # only when file_counters reach 0, to be sure that all the
+      # elements have been converted before headers are done.
+      if (!exists($files{$output_unit_filename})) {
+        $files{$output_unit_filename} = {'first_unit' => $output_unit,
+                                         'body' => ''};
+      }
+      $files{$output_unit_filename}->{'body'} .= $body;
+      $self->{'file_counters'}->{$output_unit_filename}--;
+
+      if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
+        my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
+        my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
+        my ($encoded_out_filepath, $path_encoding)
+          = $self->encoded_output_file_name($out_filepath);
+        my ($file_fh, $error_message)
+                = Texinfo::Common::output_files_open_out(
+                         $self->output_files_information(), $self,
+                         $encoded_out_filepath);
+        if (!$file_fh) {
+          $self->document_error($self,
+               sprintf(__("could not open %s for writing: %s"),
+                                    $out_filepath, $error_message));
+          return undef;
+        }
+        # do end file first in case it requires some CSS
+        my $end_file = &{$self->formatting_function('format_end_file')}($self,
+                                                           $output_unit_filename,
+                                                           $output_unit);
+        print $file_fh "".&{$self->formatting_function('format_begin_file')}(
+                                       $self, $output_unit_filename, $file_output_unit);
+        print $file_fh "".$files{$output_unit_filename}->{'body'};
+        # end file
+        print $file_fh "". $end_file;
+
+        # NOTE do not close STDOUT here to avoid a perl warning
+        if ($out_filepath ne '-') {
+          Texinfo::Common::output_files_register_closed(
+             $self->output_files_information(), $encoded_out_filepath);
+          if (!close($file_fh)) {
+            $self->document_error($self,
+                       sprintf(__("error on closing %s: %s"),
+                                  $out_filepath, $!));
+            return undef;
+          }
+        }
+      }
+    }
+    delete $self->{'current_filename'};
+  }
+  return $text_output;
 }
 
 # Main function for outputting a manual in HTML.
@@ -11688,195 +11909,14 @@ sub output($$)
   return undef unless ($init_status < $handler_fatal_error_level
                        and $init_status > -$handler_fatal_error_level);
 
-  # determine first file name
-  if (!$output_units
-      or !defined($output_units->[0]->{'unit_filename'})) {
-    # no page
-    # NOTE there are always output units.  There is always a file if files
-    # are setup, so this situation can only arise with output_file equal to ''
-    # as in that case files are not setup at all.
-    if ($output_file ne '') {
-      # This should not be possible.
-      my $no_page_output_filename;
-      if ($self->get_conf('SPLIT')) {
-        $no_page_output_filename = $self->top_node_filename($document_name);
-        $self->set_file_path($no_page_output_filename, $destination_directory);
-      } else {
-        $no_page_output_filename = $output_filename;
-        $self->set_file_path($no_page_output_filename, undef, $output_file);
-      }
+  # conversion
+  my $text_output = $self->_html_convert_output($root, $output_units,
+                       $special_units, $output_file, $destination_directory,
+                       $output_filename, $document_name);
 
-      $self->{'current_filename'} = $no_page_output_filename;
-    } else {
-      $self->{'current_filename'} = $output_filename;
-    }
-  } else {
-    $self->{'current_filename'}
-      = $output_units->[0]->{'unit_filename'};
-  }
-  # title
-  $self->{'title_titlepage'}
-    = &{$self->formatting_function('format_title_titlepage')}($self);
+  return undef if (!defined($text_output));
 
-  # complete information should be available.
-  $self->_reset_info();
-
-  my $text_output;
-  if (!$output_units
-      or !defined($output_units->[0]->{'unit_filename'})) {
-    $text_output = '';
-    my $fh;
-    my $encoded_no_page_out_filepath;
-    my $no_page_out_filepath;
-    # current_filename eq '' and no output files should be the only
-    # possibility, see comment above.
-    if ($self->{'current_filename'} ne ''
-        and $self->{'out_filepaths'}
-        and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
-      my $path_encoding;
-      $no_page_out_filepath
-         = $self->{'out_filepaths'}->{$self->{'current_filename'}};
-      ($encoded_no_page_out_filepath, $path_encoding)
-        = $self->encoded_output_file_name($no_page_out_filepath);
-      my $error_message;
-      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                                 $self->output_files_information(), $self,
-                                 $encoded_no_page_out_filepath);
-      if (!$fh) {
-        $self->document_error($self,
-              sprintf(__("could not open %s for writing: %s"),
-                                      $no_page_out_filepath, $error_message));
-        return undef;
-      }
-    }
-    my $body = '';
-    if ($output_units and @$output_units) {
-      my $unit_nr = 0;
-      # TODO there is no rule before the footnotes special element in
-      # case of separate footnotes in the default formatting style.
-      # Not sure if it is an issue.
-      foreach my $output_unit (@$output_units, @$special_units) {
-        print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
-        my $output_unit_text
-          = $self->convert_output_unit($output_unit,
-                                       "no-page output unit $unit_nr");
-        $body .= $output_unit_text;
-        $unit_nr++;
-      }
-    } else {
-      $body .= $self->get_info('title_titlepage');
-      print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
-      $body .= $self->_convert($root, 'no-page output no unit');
-      $body .= &{$self->formatting_function('format_footnotes_segment')}($self);
-    }
-
-    # do end file first, in case it needs some CSS
-    my $footer = &{$self->formatting_function('format_end_file')}($self,
-                                                  $output_filename, undef);
-    my $header = &{$self->formatting_function('format_begin_file')}($self,
-                                                  $output_filename, undef);
-    $text_output .= $self->write_or_return($header, $fh);
-    $text_output .= $self->write_or_return($body, $fh);
-    $text_output .= $self->write_or_return($footer, $fh);
-
-    # NOTE do not close STDOUT now to avoid a perl warning.
-    if ($fh and $no_page_out_filepath ne '-') {
-      Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $encoded_no_page_out_filepath);
-      if (!close($fh)) {
-        $self->document_error($self,
-              sprintf(__("error on closing %s: %s"),
-                                      $no_page_out_filepath, $!));
-      }
-    }
-    $self->{'current_filename'} = undef;
-  } else {
-    # output with pages
-    print STDERR "DO Units with filenames\n"
-      if ($self->get_conf('DEBUG'));
-    my %files;
-
-    my $unit_nr = -1;
-    # Now do the output, converting each output units and special output units
-    # in turn
-    $special_units = [] if (!defined($special_units));
-    foreach my $output_unit (@$output_units, @$special_units) {
-      $unit_nr++;
-
-      my $output_unit_filename = $output_unit->{'unit_filename'};
-      $self->{'current_filename'} = $output_unit_filename;
-
-
-      # convert body before header in case this affects the header
-      # and, for special output unit, to avoid outputting anything if empty.
-      my $body;
-      if ($output_unit->{'unit_type'} eq 'special_unit') {
-        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
-           if ($self->get_conf('DEBUG'));
-        $body = $self->convert_output_unit($output_unit,
-                                           "output s-unit $unit_nr");
-        if ($body eq '') {
-          $self->{'file_counters'}->{$output_unit_filename}--;
-          next;
-        }
-      } else {
-        print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
-        $body = $self->convert_output_unit($output_unit,
-                                           "output unit $unit_nr");
-      }
-
-      # register the output but do not print anything. Printing
-      # only when file_counters reach 0, to be sure that all the
-      # elements have been converted before headers are done.
-      if (!exists($files{$output_unit_filename})) {
-        $files{$output_unit_filename} = {'first_unit' => $output_unit,
-                                         'body' => ''};
-      }
-      $files{$output_unit_filename}->{'body'} .= $body;
-      $self->{'file_counters'}->{$output_unit_filename}--;
-
-      if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
-        my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
-        my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
-        my ($encoded_out_filepath, $path_encoding)
-          = $self->encoded_output_file_name($out_filepath);
-        my ($file_fh, $error_message)
-                = Texinfo::Common::output_files_open_out(
-                         $self->output_files_information(), $self,
-                         $encoded_out_filepath);
-        if (!$file_fh) {
-          $self->document_error($self,
-               sprintf(__("could not open %s for writing: %s"),
-                                    $out_filepath, $error_message));
-          return undef;
-        }
-        # do end file first in case it requires some CSS
-        my $end_file = &{$self->formatting_function('format_end_file')}($self,
-                                                           $output_unit_filename,
-                                                           $output_unit);
-        print $file_fh "".&{$self->formatting_function('format_begin_file')}(
-                                       $self, $output_unit_filename, $file_output_unit);
-        print $file_fh "".$files{$output_unit_filename}->{'body'};
-        # end file
-        print $file_fh "". $end_file;
-
-        # NOTE do not close STDOUT here to avoid a perl warning
-        if ($out_filepath ne '-') {
-          Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $encoded_out_filepath);
-          if (!close($file_fh)) {
-            $self->document_error($self,
-                       sprintf(__("error on closing %s: %s"),
-                                  $out_filepath, $!));
-            return undef;
-          }
-        }
-      }
-    }
-    delete $self->{'current_filename'};
-  }
-
-  if (defined($text_output) and $output_file eq '') {
+  if ($text_output ne '' and $output_file eq '') {
     # $output_file eq '' should always be true, see comment above.
     if (!$self->get_conf('TEST')) {
       # This case is unlikely to happen, as there is no output file

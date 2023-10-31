@@ -398,3 +398,55 @@ html_convert_tree (SV *converter_in, SV *tree_in, explanation)
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in, output_file, destination_directory, output_filename, document_name)
+         char *output_file = (char *)SvPVbyte_nolen($arg);
+         char *destination_directory = (char *)SvPVbyte_nolen($arg);
+         char *output_filename = (char *)SvPVbyte_nolen($arg);
+         char *document_name = (char *)SvPVbyte_nolen($arg);
+  PREINIT:
+         CONVERTER *self = 0;
+         DOCUMENT *document = 0;
+         int output_units_descriptor = 0;
+         int special_units_descriptor = 0;
+         SV *result_sv = 0;
+   CODE:
+         /* add warn string? */
+         self = get_sv_converter (converter_in, 0);
+         document = get_sv_tree_document (tree_in, 0);
+         if (SvOK (output_units_in))
+           output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in,
+                         "html_convert_output output units");
+         if (SvOK (special_units_in))
+           special_units_descriptor
+             = get_sv_output_units_descriptor (special_units_in,
+                        "html_convert_output special units");
+
+         if (self && document)
+           {
+             char *result = html_convert_output (self, document->tree,
+                        output_units_descriptor, special_units_descriptor,
+                        output_file, destination_directory, output_filename,
+                        document_name);
+
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+
+             if (result)
+               {
+                 result_sv = newSVpv_utf8 (result, 0);
+                 free (result);
+               }
+           }
+
+         if (result_sv)
+           RETVAL = result_sv;
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL

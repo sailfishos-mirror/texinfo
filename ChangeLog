@@ -1,3 +1,23 @@
+2023-10-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm ($XS_convert): add a variable, set to 1
+	if $ENV{TEXINFO_XS_CONVERT} is 1 to run perl codes calling XS codes
+	only if set.
+
+	* tp/Texinfo/Convert/HTML.pm (import, _XS_html_convert_output)
+	(_html_convert_output), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_convert_output), tp/Texinfo/XS/convert/convert_html.c
+	(html_convert_output, convert_convert_output_unit_internal)
+	(convert_output_output_unit_internal),
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_formatting_function_format_footnotes_segment)
+	(call_formatting_function_format_end_file)
+	(call_formatting_function_format_begin_file): add a separate function,
+	_html_convert_output, for the main conversion code.  A return of undef
+	from that function means failure now, and not no text to output. Setup
+	an XS interface to replace this code, with html_convert_output.
+	Partial implementation in C code.
+
 2023-10-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output): rename $output for the no page

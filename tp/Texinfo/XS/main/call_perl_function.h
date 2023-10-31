@@ -23,7 +23,15 @@ TARGET_CONTENTS_FILENAME * call_file_id_setting_sectioning_command_target_name
 FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
                                                      OUTPUT_UNIT *output_unit,
                                                char *filename, char *filepath);
+
 char *call_formatting_function_format_title_titlepage (CONVERTER *self);
+char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
+char *call_formatting_function_format_end_file (CONVERTER *self,
+                                                char *filename,
+                                              OUTPUT_UNIT *output_unit);
+char *call_formatting_function_format_begin_file (CONVERTER *self,
+                                                 char *filename,
+                                              OUTPUT_UNIT *output_unit);
 
 char *call_types_conversion (CONVERTER *self, enum element_type type,
                              ELEMENT *element, char *content);
