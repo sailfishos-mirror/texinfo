@@ -24,6 +24,7 @@
 #include "element_types.h"
 #include "options_types.h"
 #include "tree_types.h"
+#include "converter_types.h"
 #include "tree.h"
 #include "extra.h"
 #include "errors.h"
@@ -37,10 +38,8 @@
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"
-#include "document.h"
 #include "transformations.h"
 #include "translations.h"
-#include "output_unit.h"
 #include "structuring.h"
 
 void

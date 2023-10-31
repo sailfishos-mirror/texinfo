@@ -3,7 +3,19 @@
 #define CALL_PERL_FUNCTION_H
 
 #include "tree_types.h"
-#include "utils.h"
+#include "converter_types.h"
+
+typedef struct FILE_NAME_PATH {
+    char *filename;
+    char *filepath;
+} FILE_NAME_PATH;
+
+typedef struct TARGET_CONTENTS_FILENAME {
+    char *target;
+    char *filename;
+    char *target_contents;
+    char *target_shortcontents;
+} TARGET_CONTENTS_FILENAME;
 
 char *call_nodenamenormalization_unicode_to_transliterate (char *text);
 

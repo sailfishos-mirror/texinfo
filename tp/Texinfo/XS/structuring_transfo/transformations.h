@@ -3,7 +3,7 @@
 #define TRANSFORMATIONS_H
 
 #include "tree_types.h"
-#include "document.h"
+#include "converter_types.h"
 
 ELEMENT *fill_gaps_in_sectioning (ELEMENT *root);
 void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,

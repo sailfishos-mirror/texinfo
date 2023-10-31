@@ -2,7 +2,7 @@
 #ifndef CONVERT_PLAIN_TEXINFO_H
 #define CONVERT_PLAIN_TEXINFO_H
 
-#include "document.h"
+#include "converter_types.h"
 
 char *plain_texinfo_convert (DOCUMENT *document);
 

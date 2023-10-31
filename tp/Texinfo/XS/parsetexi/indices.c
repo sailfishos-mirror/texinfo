@@ -18,11 +18,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "parser.h"
 #include "options_types.h"
+#include "converter_types.h"
 #include "tree_types.h"
-#include "tree.h"
 #include "command_ids.h"
+#include "tree.h"
 /* for xasprintf and other */
 #include "errors.h"
 #include "debug.h"
@@ -40,6 +40,7 @@
 /*
 #include "convert_to_texinfo.h"
 */
+#include "parser.h"
 #include "indices.h"
 
 INDEX **index_names = 0;

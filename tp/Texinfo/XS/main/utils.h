@@ -167,9 +167,6 @@ enum conversion_context {
 #define HMSF_multiple_pass           0x2000
 #define HMSF_translations            0x4000
 
-/* down here because it requires error data from before */
-#include "document.h"
-
 typedef struct TRANSLATED_SUI_ASSOCIATION {
     int tree_type;
     int string_type;
@@ -182,13 +179,6 @@ typedef struct TARGET_FILENAME {
     char *target;
     char *filename;
 } TARGET_FILENAME;
-
-typedef struct TARGET_CONTENTS_FILENAME {
-    char *target;
-    char *filename;
-    char *target_contents;
-    char *target_shortcontents;
-} TARGET_CONTENTS_FILENAME;
 
 typedef struct FILE_SOURCE_INFO {
     char *filename;

@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "tree_types.h"
+#include "converter_types.h"
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"

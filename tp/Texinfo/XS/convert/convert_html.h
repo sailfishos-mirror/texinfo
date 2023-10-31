@@ -2,6 +2,8 @@
 #ifndef CONVERT_HTML_H
 #define CONVERT_HTML_H
 
+#include "converter_types.h"
+/* for FILE_SOURCE_INFO_LIST */
 #include "utils.h"
 
 void html_converter_initialize (CONVERTER *self);

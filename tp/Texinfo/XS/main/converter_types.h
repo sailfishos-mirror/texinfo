@@ -275,11 +275,6 @@ typedef struct TRANSLATED_COMMAND {
     char *translation;
 } TRANSLATED_COMMAND;
 
-typedef struct FILE_NAME_PATH {
-    char *filename;
-    char *filepath;
-} FILE_NAME_PATH;
-
 typedef struct FILE_NAME_PATH_COUNTER {
     char *filename;
     char *normalized_filename;

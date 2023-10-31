@@ -17,8 +17,8 @@
 
 #include <string.h>
 
+#include "converter_types.h"
 #include "convert_to_text.h"
-#include "document.h"
 #include "convert_text.h"
 
 char *

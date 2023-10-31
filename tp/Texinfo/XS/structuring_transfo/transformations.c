@@ -29,6 +29,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
+#include "converter_types.h"
 #include "text.h"
 #include "tree.h"
 #include "builtin_commands.h"
@@ -41,7 +42,6 @@
 #include "structuring.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"
-#include "document.h"
 #include "node_name_normalization.h"
 #include "transformations.h"
 

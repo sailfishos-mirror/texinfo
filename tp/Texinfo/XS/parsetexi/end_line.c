@@ -28,7 +28,7 @@
 #include "debug.h"
 #include "errors.h"
 /* for isascii_alnum whitespace_chars read_flag_name
-   indices_info_index_by_name ultimate_index */
+   indices_info_index_by_name ultimate_index fatal */
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"

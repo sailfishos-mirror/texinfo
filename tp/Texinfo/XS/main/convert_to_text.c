@@ -24,8 +24,10 @@
 #include <stdio.h>
 
 #include "tree_types.h"
-#include "tree.h"
 #include "command_ids.h"
+#include "options_types.h"
+#include "converter_types.h"
+#include "tree.h"
 #include "text.h"
 #include "utils.h"
 #include "convert_utils.h"

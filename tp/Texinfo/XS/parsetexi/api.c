@@ -40,7 +40,6 @@
 /* forget_indices init_index_commands */
 #include "indices.h"
 #include "errors.h"
-#include "document.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "command_stack.h"

@@ -3,7 +3,7 @@
 #define INDICES_IN_CONVERSION_H
 
 #include "tree_types.h"
-#include "utils.h"
+#include "indices_in_conversion.h"
 
 typedef struct LETTER_SORTABLE_ENTRIES {
     char *letter;

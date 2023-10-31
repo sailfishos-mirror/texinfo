@@ -6,6 +6,8 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
+#include "converter_types.h"
+/* for FILE_SOURCE_INFO_LIST and HTML_ARGS_FORMATTED */
 #include "utils.h"
 
 int init (int texinfo_uninstalled, char *srcdir_in);

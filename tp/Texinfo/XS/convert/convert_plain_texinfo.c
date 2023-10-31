@@ -17,8 +17,8 @@
 
 #include <string.h>
 
+#include "converter_types.h"
 #include "convert_to_texinfo.h"
-#include "document.h"
 #include "convert_plain_texinfo.h"
 
 char *

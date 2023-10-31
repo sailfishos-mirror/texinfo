@@ -7,10 +7,8 @@
 #include "options_types.h"
 #include "global_commands_types.h"
 #include "tree_types.h"
-/* for ERROR_MESSAGE_LIST */
+/* for DOCUMENT ERROR_MESSAGE_LIST GLOBAL_INFO */
 #include "converter_types.h"
-/* for GLOBAL_INFO */
-#include "utils.h"
 
 typedef struct TREE_AND_STRINGS {
     ELEMENT *tree;

@@ -18,8 +18,9 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "parser.h"
 #include "tree_types.h"
+#include "element_types.h"
+#include "command_ids.h"
 #include "tree.h"
 #include "text.h"
 #include "counter.h"
@@ -38,7 +39,10 @@
 #include "commands.h"
 #include "extra.h"
 #include "input.h"
+/* for fatal */
+#include "utils.h"
 #include "convert_to_texinfo.h"
+#include "parser.h"
 
 ELEMENT *
 handle_open_brace (ELEMENT *current, char **line_inout)

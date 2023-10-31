@@ -5,8 +5,10 @@
 #include <stddef.h>
 
 #include "tree_types.h"
-#include "utils.h"
 #include "command_ids.h"
+#include "converter_types.h"
+/* for TARGET_FILENAME */
+#include "utils.h"
 
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t register_converter (CONVERTER *converter);

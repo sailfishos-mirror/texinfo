@@ -26,10 +26,14 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "tree_types.h"
+#include "converter_types.h"
 /* also for xvasprintf */
 #include "text.h"
+/* for debug_output */
 #include "debug.h"
-#include "converter_types.h"
+/* for fatal */
+#include "utils.h"
 #include "errors.h"
 
 
