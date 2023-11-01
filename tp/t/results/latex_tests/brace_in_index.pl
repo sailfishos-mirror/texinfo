@@ -292,7 +292,11 @@ $result_trees{'brace_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

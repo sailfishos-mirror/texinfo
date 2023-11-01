@@ -268,7 +268,11 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -379,7 +383,11 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

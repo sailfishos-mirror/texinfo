@@ -83,7 +83,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'extra' => {
+                                    'translation_context' => 'category of functions for @defun'
+                                  },
+                                  'text' => 'Function',
+                                  'type' => 'untranslated'
                                 }
                               ],
                               'extra' => {
@@ -151,7 +155,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'extra' => {
+                                    'translation_context' => 'category of functions for @defun'
+                                  },
+                                  'text' => 'Function',
+                                  'type' => 'untranslated'
                                 }
                               ],
                               'extra' => {

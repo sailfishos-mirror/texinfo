@@ -1,5 +1,13 @@
 2023-11-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_def),
+	tp/Texinfo/XS/parsetexi/def.c (parse_def): set type untranslated and
+	associate translation context even if @documentlanguage is not set at
+	the time of parsing.  @documentlanguage may indeed be set when
+	converting.  Report from Gavin.
+
+2023-11-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_convert_output): if a special
 	element body is empty, do not return immediately but check if there is
 	already a body registered with the file, as in that case, the body

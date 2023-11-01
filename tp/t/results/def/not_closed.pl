@@ -154,7 +154,11 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Variable'
+                                  'extra' => {
+                                    'translation_context' => 'category of variables for @defvar'
+                                  },
+                                  'text' => 'Variable',
+                                  'type' => 'untranslated'
                                 }
                               ],
                               'extra' => {

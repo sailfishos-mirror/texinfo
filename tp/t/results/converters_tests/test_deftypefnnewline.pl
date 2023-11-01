@@ -225,7 +225,11 @@ $result_trees{'test_deftypefnnewline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @deftypefun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1398,7 +1402,11 @@ $result_trees{'test_deftypefnnewline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @deftypefun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

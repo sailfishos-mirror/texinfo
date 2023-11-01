@@ -343,7 +343,11 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'extra' => {
+                            'translation_context' => 'category of variables for @defvar'
+                          },
+                          'text' => 'Variable',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

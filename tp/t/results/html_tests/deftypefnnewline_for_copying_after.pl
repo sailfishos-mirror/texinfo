@@ -33,7 +33,11 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'extra' => {
+                                'translation_context' => 'category of functions for @deftypefun'
+                              },
+                              'text' => 'Function',
+                              'type' => 'untranslated'
                             }
                           ],
                           'extra' => {
@@ -428,7 +432,11 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @deftypefun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

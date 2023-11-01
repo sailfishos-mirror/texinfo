@@ -170,7 +170,11 @@ $result_trees{'complex_nestings'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'extra' => {
+                                'translation_context' => 'category of functions for @defun'
+                              },
+                              'text' => 'Function',
+                              'type' => 'untranslated'
                             }
                           ],
                           'extra' => {
@@ -299,7 +303,11 @@ $result_trees{'complex_nestings'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'extra' => {
+                                'translation_context' => 'category of functions for @defun'
+                              },
+                              'text' => 'Function',
+                              'type' => 'untranslated'
                             }
                           ],
                           'extra' => {
@@ -528,7 +536,11 @@ $result_trees{'complex_nestings'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'text' => 'Variable'
+                                              'extra' => {
+                                                'translation_context' => 'category of variables for @defvar'
+                                              },
+                                              'text' => 'Variable',
+                                              'type' => 'untranslated'
                                             }
                                           ],
                                           'extra' => {
@@ -621,7 +633,11 @@ $result_trees{'complex_nestings'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'text' => 'Variable'
+                                              'extra' => {
+                                                'translation_context' => 'category of variables for @defvar'
+                                              },
+                                              'text' => 'Variable',
+                                              'type' => 'untranslated'
                                             }
                                           ],
                                           'extra' => {

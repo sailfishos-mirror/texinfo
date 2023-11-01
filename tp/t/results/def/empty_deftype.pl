@@ -19,7 +19,11 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @deftypefun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -210,7 +214,11 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -383,7 +391,11 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'extra' => {
+                            'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
+                          },
+                          'text' => 'Method',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -624,7 +636,11 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'extra' => {
+                            'translation_context' => 'category of methods in object-oriented programming for @defmethod'
+                          },
+                          'text' => 'Method',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {

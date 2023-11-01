@@ -794,7 +794,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -956,7 +957,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1159,7 +1161,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1362,7 +1365,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1565,7 +1569,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1768,7 +1773,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -1971,7 +1977,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -2219,7 +2226,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -2467,7 +2475,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -2715,7 +2724,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -2963,7 +2973,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -3211,7 +3222,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -3459,7 +3471,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -3707,7 +3720,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -3955,7 +3969,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4269,7 +4284,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4350,7 +4366,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4452,7 +4469,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4554,7 +4572,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4656,7 +4675,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4758,7 +4778,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4860,7 +4881,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -4977,7 +4999,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5094,7 +5117,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5211,7 +5235,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5328,7 +5353,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5445,7 +5471,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5562,7 +5589,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5679,7 +5707,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -5796,7 +5825,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -6880,7 +6910,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -7874,7 +7905,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'text' => 'Special Form',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -9645,7 +9677,11 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
@@ -9865,7 +9901,11 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'extra' => {
+                            'translation_context' => 'category of functions for @defun'
+                          },
+                          'text' => 'Function',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
