@@ -904,7 +904,7 @@ top section
 1 chap
 ******
 
- -- Instanzvariable von c: BBB CCC
+ -- Instanzvariable of c: BBB CCC
      error→
 ';
 
@@ -932,7 +932,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Instanzvariable von c: BBB CCC
+ -- Instanzvariable of c: BBB CCC
      error→
 
 

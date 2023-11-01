@@ -1190,7 +1190,7 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
  -- Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instanzvariable von copying: a b
+ -- Instanzvariable of copying: a b
      error→
 
  -- Primjerak varijable od hr: BBB CCC
@@ -1232,7 +1232,7 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
  -- Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instanzvariable von copying: a b
+ -- Instanzvariable of copying: a b
      error→
 
  -- Primjerak varijable od hr: BBB CCC

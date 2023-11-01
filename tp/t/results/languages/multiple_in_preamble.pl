@@ -1070,7 +1070,7 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
  -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instanzvariable von de: FFF GGG
+ -- Instanzvariable of de: FFF GGG
 ';
 
 
@@ -1098,7 +1098,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
  -- Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Instanzvariable von de: FFF GGG
+ -- Instanzvariable of de: FFF GGG
 
 
 Tag Table:
