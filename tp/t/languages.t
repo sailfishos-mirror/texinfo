@@ -15,6 +15,24 @@ my @test_cases = (
 @defivar AAA BBB CCC
 @end defivar
 '],
+['no_documentlanguage_before_copying',
+'@copying
+@defivar copying a b
+@error{}
+@end defivar
+@end copying
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@documentlanguage de
+
+@insertcopying
+
+'],
 # REMARK it is worth noting that the
 # @defivar in @insertcopying after @documentlanguage de appears
 # in german in the document, (and after @documentlanguage pt at

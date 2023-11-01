@@ -1,5 +1,12 @@
 2023-11-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/languages.t
+	(no_documentlanguage_before_copying): test without @documentlanguage
+	before @copying but a @documentlanguage before @insertcopying.  From
+	Gavin.
+
+2023-11-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_def),
 	tp/Texinfo/XS/parsetexi/def.c (parse_def): set type untranslated and
 	associate translation context even if @documentlanguage is not set at
