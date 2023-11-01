@@ -1,3 +1,67 @@
+2023-11-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_html_convert_output): if a special
+	element body is empty, do not return immediately but check if there is
+	already a body registered with the file, as in that case, the body
+	would need to be output.
+
+	* tp/Texinfo/Common.pm (output_files_open_out): warn if an unclosed
+	file has already been registered.
+
+	* tp/Texinfo/XS/main/utils.c (add_include_directory): simplify, set
+	string argument const.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_convert_output),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_output): rename $footer
+	as $file_end and $header as $file_beginning.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/converter.c (initialize_output_units_files),
+	tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files),
+	tp/Texinfo/XS/convert/converter.c (find_output_unit_file)
+	(add_output_units_file, set_output_unit_file)
+	(register_normalize_case_filename, set_file_path),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): put
+	output_unit_files directly in CONVERTER. Start indices of found files
+	in output_unit_files list at 0. have set_output_unit_file and
+	functions called by set_output_unit_file return indices in
+	output_unit_files list. Setup converter output_unit_file_indices and
+	special_unit_file_indices with each output unit output_unit_files file
+	index.
+
+	* tp/Texinfo/XS/convert/convert_html.c (unique_target),
+	tp/Texinfo/XS/main/utils.c (find_string): add
+	find_string function.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (newSVpv_byte): add
+	newSVpv_byte.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_convert_output),
+	tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_output_unit_internal, html_convert_output),
+	tp/Texinfo/XS/main/build_perl_info.c (build_html_formatting_state),
+	tp/Texinfo/XS/main/convert_utils.c (encoded_output_file_name),
+	(register_unclosed_file, output_files_open_out)
+	(output_files_register_closed), tp/Texinfo/XS/main/converter_types.h
+	(ARRAY_INDEX_LIST, FILE_NAME_PATH_COUNTER, FILE_STREAM)
+	(FILE_STREAM_LIST, OUTPUT_FILES_INFORMATION):
+	finish C html_convert_output output implementation. Pass file counters
+	back to perl. Add Texinfo::Common output_files_information API to C to
+	open and register files.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_output),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(build_output_files_unclosed_files, build_output_files_opened_files)
+	(build_output_files_information): build perl converter
+	output_files_information.
+
+	* tp/texi2any.pl (%main_unclosed_files): rename %unclosed_files as
+	%main_unclosed_files.
+
 2023-10-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/call_perl_function.h (FILE_NAME_PATH)

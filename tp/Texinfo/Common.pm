@@ -609,7 +609,17 @@ sub output_files_open_out($$$;$$)
     binmode($filehandle, ":encoding($encoding)");
   }
   if ($self) {
-    push @{$self->{'opened_files'}}, $file_path;
+    if ($self->{'unclosed_files'}->{$file_path}) {
+      warn "BUG: already open: $file_path\n";
+    } else {
+      # FIXME check that this file has not already been registered
+      # as opened_file?  If not, it will be unlink'ed twice if the
+      # main program aborts.  It is not possible to use the file name
+      # twice except with user customization file name set to a file
+      # name also used for a specific purpose such as MACRO_EXPAND
+      # or the like, as output units files are never opened twice.
+      push @{$self->{'opened_files'}}, $file_path;
+    }
     $self->{'unclosed_files'}->{$file_path} = $filehandle;
   }
   return $filehandle, undef;
@@ -625,7 +635,7 @@ sub output_files_register_closed($$)
   if ($self->{'unclosed_files'}->{$file_path}) {
     delete $self->{'unclosed_files'}->{$file_path};
   } else {
-    cluck "$file_path not opened\n";
+    cluck "BUG: $file_path not opened\n";
   }
 }
 

@@ -31,8 +31,7 @@ char *top_node_filename (CONVERTER *self, char *document_name);
 
 
 void initialize_output_units_files (CONVERTER *self);
-FILE_NAME_PATH_COUNTER *set_output_unit_file (CONVERTER *self,
-                                          OUTPUT_UNIT *output_unit,
+size_t set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
                                     char *filename, int set_counter);
 void set_file_path (CONVERTER *self, char *filename, char *filepath,
                     char *destination_directory);

@@ -1400,7 +1400,7 @@ my $with_XS = ((not defined($ENV{TEXINFO_XS})
 
 my $file_number = -1;
 my @opened_files = ();
-my %unclosed_files;
+my %main_unclosed_files;
 my $error_count = 0;
 # main processing
 while(@input_files) {
@@ -1697,7 +1697,7 @@ while(@input_files) {
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       if ($unclosed_file eq '-') {
-        $unclosed_files{$unclosed_file}
+        $main_unclosed_files{$unclosed_file}
           = $converter_unclosed_files->{$unclosed_file};
       } else {
         if (!close($converter_unclosed_files->{$unclosed_file})) {
@@ -1827,8 +1827,8 @@ while(@input_files) {
   Texinfo::Document::remove_document($document);
 }
 
-foreach my $unclosed_file (keys(%unclosed_files)) {
-  if (!close($unclosed_files{$unclosed_file})) {
+foreach my $unclosed_file (keys(%main_unclosed_files)) {
+  if (!close($main_unclosed_files{$unclosed_file})) {
     warn(sprintf(__("%s: error on closing %s: %s\n"),
                      $real_command_name, $unclosed_file, $!));
     $error_count++;

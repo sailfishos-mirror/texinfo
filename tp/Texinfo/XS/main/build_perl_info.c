@@ -211,6 +211,18 @@ newSVpv_utf8 (const char *str, STRLEN len)
   return sv;
 }
 
+/* Used to create a string considered as bytes by perl */
+SV *
+newSVpv_byte (const char *str, STRLEN len)
+{
+  SV *sv;
+  dTHX;
+
+  sv = newSVpv (str, len);
+  SvUTF8_off (sv);
+  return sv;
+}
+
 static void
 store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
 {
@@ -2191,6 +2203,8 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   AV *document_context_av;
   SV **multiple_pass_sv;
   AV *multiple_pass_av;
+  SV **file_counters_sv;
+  HV *file_counters_hv;
   /*
   SV **files_information_sv;
   HV *files_information_hv;
@@ -2204,6 +2218,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   hv = converter->hv;
 
+#define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
   if (flags & HMSF_converter_state)
@@ -2251,8 +2266,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_document_context)
     {
-      document_context_sv = hv_fetch (hv, "document_context",
-                                      strlen ("document_context"), 0);
+      FETCH(document_context);
 
       if (!document_context_sv)
         {
@@ -2341,8 +2355,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_multiple_pass)
     {
-      multiple_pass_sv = hv_fetch (hv, "multiple_pass",
-                                   strlen ("multiple_pass"), 0);
+      FETCH(multiple_pass);
 
       if (!multiple_pass_sv)
         {
@@ -2360,6 +2373,31 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           char *multiple_pass_str = converter->multiple_pass.stack[i];
           av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
         }
+    }
+
+  if (converter->file_changed_counter.number)
+    {
+      FETCH(file_counters);
+      file_counters_hv = (HV *) SvRV (*file_counters_sv);
+
+      int j;
+      for (j = 0; j < converter->file_changed_counter.number; j++)
+        {
+          size_t file_idx = converter->file_changed_counter.list[j];
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &converter->output_unit_files.list[file_idx];
+          char *filename = output_unit_file->filename;
+
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
+
+          hv_store_ent (file_counters_hv, filename_sv,
+                        newSViv (output_unit_file->counter), 0);
+
+          output_unit_file->counter_changed = 0;
+        }
+      memset (converter->file_changed_counter.list, 0,
+              converter->file_changed_counter.number * sizeof (size_t));
+      converter->file_changed_counter.number = 0;
     }
 
   /*
@@ -2384,6 +2422,127 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
     build_html_translated_names (hv, converter);
 
   return newRV_noinc ((SV *) hv);
+}
+
+/* Texinfo::Common output_files_information API */
+void
+build_output_files_unclosed_files (HV *hv,
+                    OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **unclosed_files_sv;
+  HV *unclosed_files_hv;
+
+  FILE_STREAM_LIST *unclosed_files;
+  int i;
+
+  dTHX;
+
+  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
+                                strlen ("unclosed_files"), 0);
+
+  if (!unclosed_files_sv)
+    {
+      unclosed_files_hv = newHV ();
+      hv_store (hv, "unclosed_files", strlen ("unclosed_files"),
+                newRV_noinc ((SV *) unclosed_files_hv), 0);
+    }
+  else
+    {
+      unclosed_files_hv = (HV *)SvRV (*unclosed_files_sv);
+    }
+
+  unclosed_files = &output_files_information->unclosed_files;
+  if (unclosed_files->number > 0)
+    {
+      for (i = 0; i < unclosed_files->number; i++)
+        {
+          FILE_STREAM *file_stream = &unclosed_files->list[i];
+          char *file_path = file_stream->file_path;
+          /* FIXME no way to pass back the FILE *stream see comments in
+             converter_types.h.  So for now we close here.
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          hv_store_ent (unclosed_files_hv, file_path_sv, newSV (0), 0);
+           */
+          if (strcmp (file_path, "-"))
+            {
+              fclose (file_stream->stream);
+            }
+        }
+    }
+}
+
+/* input hv should be an output_files hv, in general setup by
+ $converter->{'output_files'} = Texinfo::Common::output_files_initialize(); */
+void
+build_output_files_opened_files (HV *hv,
+                    OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **opened_files_sv;
+  AV *opened_files_av;
+
+  STRING_LIST *opened_files;
+  int i;
+
+  dTHX;
+
+  opened_files_sv = hv_fetch (hv, "opened_files", strlen ("opened_files"), 0);
+
+  if (!opened_files_sv)
+    {
+      opened_files_av = newAV ();
+      hv_store (hv, "opened_files", strlen ("opened_files"),
+                newRV_noinc ((SV *) opened_files_av), 0);
+    }
+  else
+    {
+      opened_files_av = (AV *)SvRV (*opened_files_sv);
+    }
+
+  opened_files = &output_files_information->opened_files;
+  if (opened_files->number > 0)
+    {
+      for (i = 0; i < opened_files->number; i++)
+        {
+          char *file_path = opened_files->list[i];
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          av_push (opened_files_av, file_path_sv);
+        }
+    }
+}
+
+/* for the perl converter associated to CONVERTER */
+void
+build_output_files_information (CONVERTER *converter)
+{
+  HV *hv;
+  SV **output_files_sv;
+  HV *output_files_hv;
+
+  dTHX;
+
+  if (!converter->hv)
+    return;
+
+  hv = converter->hv;
+
+  output_files_sv = hv_fetch (hv, "output_files",
+                                strlen ("output_files"), 0);
+
+  if (!output_files_sv)
+    {
+      output_files_hv = newHV ();
+      hv_store (hv, "output_files", strlen ("output_files"),
+                newRV_noinc ((SV *) output_files_hv), 0);
+    }
+  else
+    {
+      output_files_hv = (HV *)SvRV (*output_files_sv);
+    }
+
+  build_output_files_opened_files (output_files_hv,
+                                   &converter->output_files_information);
+  build_output_files_unclosed_files (output_files_hv,
+                                   &converter->output_files_information);
 }
 
 SV *

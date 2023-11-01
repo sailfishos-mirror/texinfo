@@ -233,12 +233,12 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
            = build_html_global_units_directions (self->global_units_directions,
                                           self->special_units_direction_name);
          elements_in_file_count_sv
-           = build_html_elements_in_file_count (self->output_unit_files);
+           = build_html_elements_in_file_count (&self->output_unit_files);
 
          /* file names API */
-         filenames_sv = build_filenames (self->output_unit_files);
-         file_counters_sv = build_file_counters (self->output_unit_files);
-         out_filepaths_sv = build_out_filepaths (self->output_unit_files);
+         filenames_sv = build_filenames (&self->output_unit_files);
+         file_counters_sv = build_file_counters (&self->output_unit_files);
+         out_filepaths_sv = build_out_filepaths (&self->output_unit_files);
 
          EXTEND(SP, 6);
          PUSHs(sv_2mortal(files_source_info_sv));
@@ -442,6 +442,8 @@ html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *spe
                  result_sv = newSVpv_utf8 (result, 0);
                  free (result);
                }
+
+             build_output_files_information (self);
            }
 
          if (result_sv)

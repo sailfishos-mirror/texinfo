@@ -54,5 +54,7 @@ SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 SV *build_html_formatting_state (CONVERTER *converter, unsigned long flags);
 
+void build_output_files_information (CONVERTER *converter);
+
 SV *build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted);
 #endif

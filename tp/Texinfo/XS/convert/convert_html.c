@@ -17,6 +17,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <errno.h>
 
 #include "global_commands_types.h"
 #include "tree_types.h"
@@ -879,17 +880,7 @@ unique_target (CONVERTER *self, char *target_base)
   char *target = strdup (target_base);
   while (1)
     {
-      int j;
-      int non_unique = 0;
-      for (j = 0; j < self->seen_ids->number; j++)
-        {
-          if (!strcmp (target, self->seen_ids->list[j]))
-            {
-              non_unique = 1;
-              break;
-            }
-        }
-      if (non_unique)
+      if (find_string (self->seen_ids, target))
         {
           free (target);
           xasprintf (&target, "%s-%d", target_base, nr);
@@ -1802,8 +1793,13 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         }
     }
 
+  self->output_unit_file_indices = (size_t *)
+    malloc (output_units->number * sizeof (size_t));
+
+  memset (self->output_unit_file_indices, 0, output_units->number);
   for (i = 0; i < output_units->number; i++)
     {
+      size_t output_unit_file_idx = 0;
       FILE_NAME_PATH_COUNTER *output_unit_file;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       char *output_unit_file_name = unit_file_name_paths[i];
@@ -1847,7 +1843,10 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
             }
           free (file_name_path);
         }
-      output_unit_file = set_output_unit_file (self, output_unit, filename, 1);
+      output_unit_file_idx
+        = set_output_unit_file (self, output_unit, filename, 1);
+      self->output_unit_file_indices[i] = output_unit_file_idx;
+      output_unit_file = &self->output_unit_files.list[output_unit_file_idx];
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "Page %s: %s(%d)\n",
                  output_unit_texi (output_unit),
@@ -1857,9 +1856,14 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
 
   if (special_units && special_units->number)
     {
+      self->special_unit_file_indices = (size_t *)
+        malloc (special_units->number * sizeof (size_t));
+      memset (self->special_unit_file_indices, 0,
+                       special_units->number);
       int i;
       for (i = 0; i < special_units->number; i++)
         {
+          size_t special_unit_file_idx = 0;
           FILE_NAME_PATH_COUNTER *special_unit_file;
           OUTPUT_UNIT *special_unit = special_units->list[i];
           ELEMENT *unit_command = special_unit->unit_command;
@@ -1892,8 +1896,11 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                 add_to_files_source_info (files_source_info, filename,
                                           "special_unit", 0, unit_command, 0);
             }
-          special_unit_file
+          special_unit_file_idx
             = set_output_unit_file (self, special_unit, filename, 1);
+          self->special_unit_file_indices[i] = special_unit_file_idx;
+          special_unit_file
+             = &self->output_unit_files.list[special_unit_file_idx];
           if (self->conf->DEBUG > 0)
             fprintf (stderr, "Special page: %s(%d)\n", filename,
                              special_unit_file->counter);
@@ -2000,12 +2007,12 @@ html_prepare_units_directions_files (CONVERTER *self,
 
  /* elements_in_file_count is only set in HTML, not in
     Texinfo::Convert::Converter */
-  if (self->output_unit_files)
+  if (self->output_unit_files.number)
     {
-      for (i = 0; i < self->output_unit_files->number; i++)
+      for (i = 0; i < self->output_unit_files.number; i++)
         {
           FILE_NAME_PATH_COUNTER *file_counter
-            = &self->output_unit_files->list[i];
+            = &self->output_unit_files.list[i];
 
           /* counter is dynamic, decreased when the element is encountered
              elements_in_file_count is not modified afterwards */
@@ -2265,6 +2272,11 @@ html_converter_initialize (CONVERTER *self)
       memset (self->no_arg_formatted_cmd_translated.list, 0,
               self->no_arg_formatted_cmd.number * sizeof (enum command_id));
     }
+
+  self->file_changed_counter.list = (size_t *)
+      malloc (self->output_unit_files.number * sizeof (size_t));
+  memset (self->file_changed_counter.list, 0,
+          self->output_unit_files.number * sizeof (size_t));
 }
 
 void
@@ -3588,51 +3600,150 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
   return result.text;
 }
 
-void
-convert_output_output_unit_internal (CONVERTER *self, TEXT *result,
+int
+convert_output_output_unit_internal (CONVERTER *self,
+                                     ENCODING_CONVERSION *conversion,
+                                     TEXT *text,
                                      OUTPUT_UNIT *output_unit, int unit_nr)
 {
-  TEXT body;
+  FILE_NAME_PATH_COUNTER *unit_file = 0;
+  size_t file_index;
+  int empty_body = 0; /* set if body is empty and it is a special unit */
   char *output_unit_filename = output_unit->unit_filename;
 
   self->current_filename = output_unit_filename;
   self->modified_state |= HMSF_current_filename;
 
-  text_init (&body);
-  text_append (&body, "");
+  text_reset (text);
+  text_append (text, "");
 
   if (output_unit->unit_type == OU_special_unit)
     {
       char *debug_str;
       char *special_unit_variety = output_unit->special_unit_variety;
+
+      file_index = self->special_unit_file_indices[output_unit->index];
+      unit_file = &self->output_unit_files.list[file_index];
+
       xasprintf (&debug_str, "UNIT SPECIAL %s", special_unit_variety);
-      convert_convert_output_unit_internal (self, &body,
+      convert_convert_output_unit_internal (self, text,
                     output_unit, unit_nr, debug_str, "output s-unit");
       free (debug_str);
 
-      if (!strcmp (body.text, ""))
-        {
-         /*
-                   $self->{'file_counters'}->{$output_unit_filename}--;
-          */
-          return;
-        }
+      if (!strcmp (text->text, ""))
+        empty_body = 1;
     }
   else
     {
-      convert_convert_output_unit_internal (self, &body, output_unit,
+      file_index = self->output_unit_file_indices[output_unit->index];
+      unit_file = &self->output_unit_files.list[file_index];
+
+      convert_convert_output_unit_internal (self, text, output_unit,
                                             unit_nr, "UNIT", "output unit");
+    }
+
+  unit_file->counter--;
+  if (!unit_file->counter_changed)
+    {
+      self->file_changed_counter.list[self->file_changed_counter.number]
+        = file_index;
+      self->file_changed_counter.number++;
+      unit_file->counter_changed = 1;
     }
 
       /* register the output but do not print anything. Printing
          only when file_counters reach 0, to be sure that all the
          elements have been converted before headers are done. */
 
-  /* */
+  if (!empty_body)
+    {
+      if (!unit_file->first_unit)
+        {
+          unit_file->first_unit = output_unit;
+          text_init (&unit_file->body);
+        }
+      text_append (&unit_file->body, text->text);
+    }
+  else
+    {
+      if (!unit_file->first_unit
+          || unit_file->body.end == 0)
+        {
+          return 1;
+        }
+    }
 
+  if (unit_file->counter == 0)
+    {
+      OUTPUT_UNIT *file_output_unit = unit_file->first_unit;
+      char *file_end;
+      char *file_beginning;
+      char *out_filepath = unit_file->filepath;
+      char *path_encoding;
+      char *open_error_message;
 
-  self->current_filename = 0;
-  self->modified_state |= HMSF_current_filename;
+      char *encoded_out_filepath = encoded_output_file_name (self->conf,
+                               self->document->global_info, out_filepath,
+                                                       &path_encoding, 0);
+      FILE *file_fh = output_files_open_out (&self->output_files_information,
+                               encoded_out_filepath, &open_error_message, 0);
+      if (!file_fh)
+        {
+          message_list_document_error (self->error_messages, self->conf,
+                             "could not open %s for writing: %s",
+                             out_filepath, open_error_message);
+          return 0;
+        }
+
+      /* do end file first in case it requires some CSS */
+      file_end = call_formatting_function_format_end_file (self,
+                                              out_filepath, output_unit);
+      file_beginning = call_formatting_function_format_begin_file (self,
+                                           out_filepath, file_output_unit);
+      text_reset (text);
+      if (file_beginning)
+        {
+          text_append (text, file_beginning);
+          free (file_beginning);
+        }
+      if (unit_file->body.end)
+        {
+          text_append (text, unit_file->body.text);
+        }
+      if (file_end)
+        {
+          text_append (text, file_end);
+          free (file_end);
+        }
+      if (text->end)
+        {
+          char *result = encode_with_iconv (conversion->iconv, text->text, 0);
+          size_t res_len = strlen (result)+1;
+          size_t write_len = fwrite (result, sizeof (char), res_len,
+                                     file_fh);
+          free (result);
+          if (write_len != res_len)
+            { /* register error message instead? */
+              fprintf (stderr, "write to %s failed (%zu/%zu)\n",
+                       encoded_out_filepath, write_len, res_len);
+              return 0;
+            }
+        }
+      /* NOTE do not close STDOUT here to be in line with perl code */
+      if (strcmp (out_filepath, "-"))
+        {
+          output_files_register_closed (&self->output_files_information,
+                                        encoded_out_filepath);
+          if (!fclose (file_fh))
+            {
+              message_list_document_error (self->error_messages, self->conf,
+                             "error on closing %s: %s",
+                             out_filepath, strerror (errno));
+              return 0;
+            }
+        }
+    }
+  return 1;
 }
 
 char *
@@ -3642,7 +3753,9 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
                      char *output_file, char *destination_directory,
                      char *output_filename, char *document_name)
 {
+  int status = 1;
   TEXT result;
+  TEXT text; /* reused for all the output units */
   char *title_titlepage;
 
   OUTPUT_UNIT_LIST *output_units
@@ -3651,6 +3764,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
     = retrieve_output_units (special_units_descriptor);
 
   text_init (&result);
+  text_init (&text);
 
   text_append (&result, "");
 
@@ -3700,12 +3814,10 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
   if (!output_units || !output_units->number
       || !output_units->list[0]->unit_filename)
     {
-      TEXT body;
-      char *footer;
-      char *header;
+      char *file_end;
+      char *file_beginning;
 
-      text_init (&body);
-      text_append (&body, "");
+      text_append (&text, "");
 
       /* in perl there is code for a case that should not be possible,
          with current_filename ne '' here.  This code is no present here */
@@ -3716,7 +3828,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
           for (i = 0; i < output_units->number; i++)
             {
               OUTPUT_UNIT *output_unit = output_units->list[i];
-              convert_convert_output_unit_internal (self, &body, output_unit,
+              convert_convert_output_unit_internal (self, &text, output_unit,
                              unit_nr, "UNIT NO-PAGE", "no-page output unit");
               unit_nr++;
             }
@@ -3728,7 +3840,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
               for (i = 0; i < special_units->number; i++)
                 {
                   OUTPUT_UNIT *special_unit = special_units->list[i];
-                  convert_convert_output_unit_internal (self, &body,
+                  convert_convert_output_unit_internal (self, &text,
                                  special_unit, unit_nr, "UNIT NO-PAGE",
                                  "no-page output unit");
                   unit_nr++;
@@ -3741,34 +3853,33 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
           if (self->conf->DEBUG > 0)
             fprintf (stderr, "\nNO UNIT NO PAGE\n");
 
-          text_append (&body, self->title_titlepage);
-          convert_to_html_internal (self, root, &body,
+          text_append (&text, self->title_titlepage);
+          convert_to_html_internal (self, root, &text,
                                      "no-page output no unit");
           footnotes_segment
             = call_formatting_function_format_footnotes_segment (self);
           if (footnotes_segment)
             {
-              text_append (&body, footnotes_segment);
+              text_append (&text, footnotes_segment);
               free (footnotes_segment);
             }
         }
 
       /* do end file first, in case it needs some CSS */
-      footer = call_formatting_function_format_end_file (self,
+      file_end = call_formatting_function_format_end_file (self,
                                                      output_filename, 0);
-      header = call_formatting_function_format_begin_file (self,
+      file_beginning = call_formatting_function_format_begin_file (self,
                                                      output_filename, 0);
-      if (footer)
+      if (file_beginning)
         {
-          text_append (&result, footer);
-          free (footer);
+          text_append (&result, file_beginning);
+          free (file_beginning);
         }
-      text_append (&result, body.text);
-      free (body.text);
-      if (header)
+      text_append (&result, text.text);
+      if (file_end)
         {
-          text_append (&result, header);
-          free (header);
+          text_append (&result, file_end);
+          free (file_end);
         }
       self->current_filename = 0;
       self->modified_state |= HMSF_current_filename;
@@ -3777,6 +3888,11 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
     {
       int unit_nr = 0;
       int i;
+      ENCODING_CONVERSION *conversion = 0;
+
+      if (self->conf->OUTPUT_ENCODING_NAME)
+        conversion = get_encoding_conversion (self->conf->OUTPUT_ENCODING_NAME,
+                                              &output_conversions);
 
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "DO Units with filenames\n");
@@ -3784,8 +3900,10 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
       for (i = 0; i < output_units->number; i++)
         {
           OUTPUT_UNIT *output_unit = output_units->list[i];
-          convert_output_output_unit_internal (self, &result, output_unit,
-                                               unit_nr);
+          status = convert_output_output_unit_internal (self, conversion,
+                                               &text, output_unit, unit_nr);
+          if (!status)
+            goto out;
           unit_nr++;
         }
       if (special_units && special_units->number)
@@ -3793,11 +3911,25 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
           for (i = 0; i < special_units->number; i++)
             {
               OUTPUT_UNIT *special_unit = special_units->list[i];
-              convert_output_output_unit_internal (self, &result, special_unit,
-                                                   unit_nr);
+              status = convert_output_output_unit_internal (self, conversion,
+                                                &text, special_unit, unit_nr);
+              if (!status)
+                goto out;
               unit_nr++;
             }
         }
+      self->current_filename = 0;
+      self->modified_state |= HMSF_current_filename;
     }
-  return result.text;
+
+ out:
+  free (text.text);
+
+  if (status)
+    return result.text;
+  else
+    {
+      free (result.text);
+      return 0;
+    }
 }

@@ -276,8 +276,9 @@ int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 void clear_strings_list (STRING_LIST *include_dirs_list);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
-void add_string (char *string, STRING_LIST *strings_list);
+void add_string (const char *string, STRING_LIST *strings_list);
 void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
+size_t find_string (STRING_LIST *strings_list, const char *string);
 
 void wipe_index (INDEX *idx);
 void wipe_index_names (INDEX **index_names);

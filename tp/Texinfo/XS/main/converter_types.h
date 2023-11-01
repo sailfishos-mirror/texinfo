@@ -18,6 +18,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 #include "element_types.h"
@@ -270,6 +271,11 @@ typedef struct COMMAND_ID_LIST {
     enum command_id *list;
 } COMMAND_ID_LIST;
 
+typedef struct ARRAY_INDEX_LIST {
+    size_t number;
+    size_t *list;
+} ARRAY_INDEX_LIST;
+
 typedef struct TRANSLATED_COMMAND {
     enum command_id cmd;
     char *translation;
@@ -282,6 +288,10 @@ typedef struct FILE_NAME_PATH_COUNTER {
     int counter;
     int elements_in_file_count; /* only used in HTML, corresponds to
                                    'elements_in_file_count' */
+    TEXT body;           /* file body output, used for HTML */
+    OUTPUT_UNIT *first_unit;
+    int counter_changed;  /* indicator to determine if the file has already
+                             been setup for change in counter passed to perl */
 } FILE_NAME_PATH_COUNTER;
 
 typedef struct FILE_NAME_PATH_COUNTER_LIST {
@@ -289,6 +299,34 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
     size_t space;
     FILE_NAME_PATH_COUNTER *list;
 } FILE_NAME_PATH_COUNTER_LIST;
+
+typedef struct FILE_STREAM {
+    char *file_path;
+    /* TODO see https://perldoc.perl.org/perlapio to pass to perl
+       PerlIO_importFILE. This creates a perl io object.
+       PerlIO *   PerlIO_importFILE  (FILE *stdio, const char *mode)
+       A SV is IO *, created by newIO
+        IO *  newIO()
+       the output perolIO of an IO is obtained by:
+        PerlIO *IoOFP(IO *io);
+       FIXME no way to set the PerlIO associated to an IO corresponding
+       to IoOFP?
+   From perlguts
+  All of these accessors macros are lvalues, there are no distinct _set() macros to modify the members of the IO object.
+       */
+    FILE *stream;
+} FILE_STREAM;
+
+typedef struct FILE_STREAM_LIST {
+    size_t number;
+    size_t space;
+    FILE_STREAM *list;
+} FILE_STREAM_LIST;
+
+typedef struct OUTPUT_FILES_INFORMATION {
+    STRING_LIST opened_files;
+    FILE_STREAM_LIST unclosed_files;
+} OUTPUT_FILES_INFORMATION;
 
 typedef struct SPECIAL_UNIT_DIRECTION {
     OUTPUT_UNIT *output_unit;
@@ -352,7 +390,10 @@ typedef struct CONVERTER {
     EXPANDED_FORMAT *expanded_formats;
 
   /* output unit files API */
-    FILE_NAME_PATH_COUNTER_LIST *output_unit_files;
+    FILE_NAME_PATH_COUNTER_LIST output_unit_files;
+
+  /* API to open, set encoding and register files */
+    OUTPUT_FILES_INFORMATION output_files_information;
 
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
@@ -387,14 +428,19 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
 
     /* state only in C converter */
-    unsigned long modified_state; /* to determine if perl data should be rebuilt */
+    unsigned long modified_state; /* specifies which perl state to rebuild */
     ELEMENT *tree_to_build; /* C tree that needs to be built to perl before
                                calling perl functions on it */
-    COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that were
-                                translated that need to be passed back to perl */
-    ELEMENT_LIST reset_target_commands; /* element targets that should have their texts
-                                           reset after language change */
-
+    COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that
+                         were translated and need to be passed back to perl */
+    ELEMENT_LIST reset_target_commands; /* element targets that should have
+                                           their texts reset after language
+                                           change */
+    ARRAY_INDEX_LIST file_changed_counter;  /* index of files in
+                                 output_unit_files with changed counter */
+    size_t *output_unit_file_indices;   /* array of indices in output_unit_files
+              each position corresponding to an output unit. */
+    size_t *special_unit_file_indices;  /* same for special output units */
 
     /* state common with perl converter */
     int document_global_context;

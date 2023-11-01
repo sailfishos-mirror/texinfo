@@ -11429,7 +11429,7 @@ sub _html_convert_output($$$$$$$$)
   my ($self, $root, $output_units, $special_units, $output_file,
       $destination_directory, $output_filename, $document_name) = @_;
 
-  if (0 and $self->{'converter_descriptor'} and $XS_convert) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     my $encoded_converter = $self->encode_converter_for_output();
     my $encoded_document_name = Encode::encode('UTF-8', $document_name);
     my $encoded_output_file = Encode::encode('UTF-8', $output_file);
@@ -11437,7 +11437,8 @@ sub _html_convert_output($$$$$$$$)
          = Encode::encode('UTF-8', $destination_directory);
     my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
 
-    my $XS_result = _XS_html_convert_output ($encoded_converter,
+    my $XS_result
+           = _XS_html_convert_output ($encoded_converter,
                      $root, $output_units, $special_units, $encoded_output_file,
                      $encoded_destination_directory, $encoded_output_filename,
                      $encoded_document_name);
@@ -11527,13 +11528,14 @@ sub _html_convert_output($$$$$$$$)
     }
 
     # do end file first, in case it needs some CSS
-    my $footer = &{$self->formatting_function('format_end_file')}($self,
+    my $file_end = &{$self->formatting_function('format_end_file')}($self,
                                                   $output_filename, undef);
-    my $header = &{$self->formatting_function('format_begin_file')}($self,
+    my $file_beginning
+        = &{$self->formatting_function('format_begin_file')}($self,
                                                   $output_filename, undef);
-    $text_output .= $self->write_or_return($header, $fh);
+    $text_output .= $self->write_or_return($file_beginning, $fh);
     $text_output .= $self->write_or_return($body, $fh);
-    $text_output .= $self->write_or_return($footer, $fh);
+    $text_output .= $self->write_or_return($file_end, $fh);
 
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $no_page_out_filepath ne '-') {
@@ -11572,8 +11574,7 @@ sub _html_convert_output($$$$$$$$)
         $body = $self->convert_output_unit($output_unit,
                                            "output s-unit $unit_nr");
         if ($body eq '') {
-          $self->{'file_counters'}->{$output_unit_filename}--;
-          next;
+          $body = undef;
         }
       } else {
         print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
@@ -11581,15 +11582,21 @@ sub _html_convert_output($$$$$$$$)
                                            "output unit $unit_nr");
       }
 
+      $self->{'file_counters'}->{$output_unit_filename}--;
+
       # register the output but do not print anything. Printing
       # only when file_counters reach 0, to be sure that all the
       # elements have been converted before headers are done.
-      if (!exists($files{$output_unit_filename})) {
-        $files{$output_unit_filename} = {'first_unit' => $output_unit,
-                                         'body' => ''};
+      if (defined($body)) {
+        if (!exists($files{$output_unit_filename})) {
+          $files{$output_unit_filename} = {'first_unit' => $output_unit,
+                                           'body' => ''};
+        }
+        $files{$output_unit_filename}->{'body'} .= $body;
+      } else {
+        next if (!exists($files{$output_unit_filename})
+                 or $files{$output_unit_filename}->{'body'} eq '');
       }
-      $files{$output_unit_filename}->{'body'} .= $body;
-      $self->{'file_counters'}->{$output_unit_filename}--;
 
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
         my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};

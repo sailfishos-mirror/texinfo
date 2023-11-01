@@ -360,33 +360,37 @@ top_node_filename (CONVERTER *self, char *document_name)
 void
 initialize_output_units_files (CONVERTER *self)
 {
-  self->output_unit_files = (FILE_NAME_PATH_COUNTER_LIST *)
-    malloc (sizeof (FILE_NAME_PATH_COUNTER_LIST));
-  memset (self->output_unit_files, 0,
-    sizeof (FILE_NAME_PATH_COUNTER_LIST));
+  /* nothing to do, should have been initialized during converter
+     initialization */
 }
 
-static FILE_NAME_PATH_COUNTER *
-find_output_unit_file (CONVERTER *self, char *filename)
+static size_t
+find_output_unit_file (CONVERTER *self, char *filename, int *status)
 {
   FILE_NAME_PATH_COUNTER_LIST *output_unit_files
-    = self->output_unit_files;
+    = &self->output_unit_files;
   int i;
+  *status = 0;
+
   for (i = 0; i < output_unit_files->number; i++)
     {
       if (!strcmp (output_unit_files->list[i].normalized_filename, filename))
-        return &output_unit_files->list[i];
+        {
+          *status = 1;
+          return i;
+        }
     }
   return 0;
 }
 
-static FILE_NAME_PATH_COUNTER *
+static size_t
 add_output_units_file (CONVERTER *self, char *filename,
                        char *normalized_filename)
 {
+  size_t file_index;
   FILE_NAME_PATH_COUNTER *new_output_unit_file;
   FILE_NAME_PATH_COUNTER_LIST *output_unit_files
-    = self->output_unit_files;
+    = &self->output_unit_files;
 
   if (output_unit_files->number == output_unit_files->space)
     {
@@ -396,7 +400,8 @@ add_output_units_file (CONVERTER *self, char *filename,
         fatal ("realloc failed");
     }
 
-  new_output_unit_file = &output_unit_files->list[output_unit_files->number];
+  file_index = output_unit_files->number;
+  new_output_unit_file = &output_unit_files->list[file_index];
   memset (new_output_unit_file, 0, sizeof (FILE_NAME_PATH_COUNTER));
   new_output_unit_file->filename = strdup (filename);
   if (normalized_filename)
@@ -406,72 +411,84 @@ add_output_units_file (CONVERTER *self, char *filename,
 
   output_unit_files->number++;
 
-  return new_output_unit_file;
+  return file_index;
 }
 
 /*
   If CASE_INSENSITIVE_FILENAMES is set, reuse the first
   filename with the same name insensitive to the case.
  */
-static FILE_NAME_PATH_COUNTER *
+static size_t
 register_normalize_case_filename (CONVERTER *self, char *filename)
 {
-  FILE_NAME_PATH_COUNTER *output_unit_file;
+  size_t output_unit_file_idx;
   if (self->conf->CASE_INSENSITIVE_FILENAMES > 0)
     {
       char *lc_filename = to_upper_or_lower_multibyte (filename, -1);
-      output_unit_file = find_output_unit_file (self, lc_filename);
-      if (output_unit_file)
+      int status;
+      output_unit_file_idx = find_output_unit_file (self, lc_filename, &status);
+      if (status)
         {
           if (self->conf->DEBUG > 0)
             {
-              fprintf (stderr, "Reusing case-insensitive %s for %s\n",
-                       output_unit_file->filename, filename);
+              FILE_NAME_PATH_COUNTER *output_unit_file
+                = &self->output_unit_files.list[output_unit_file_idx];
+              fprintf (stderr, "Reusing case-insensitive %s(%zu) for %s\n",
+                       output_unit_file->filename, output_unit_file_idx,
+                       filename);
             }
           free (lc_filename);
         }
       else
         {
-          output_unit_file = add_output_units_file (self, filename,
-                                                    lc_filename);
+          output_unit_file_idx = add_output_units_file (self, filename,
+                                                        lc_filename);
           free (lc_filename);
         }
     }
   else
     {
-      output_unit_file = find_output_unit_file (self, filename);
-      if (output_unit_file)
+      int status;
+      output_unit_file_idx = find_output_unit_file (self, filename, &status);
+      if (status)
         {
           if (self->conf->DEBUG > 0)
             {
-              fprintf (stderr, "Reusing %s for %s\n",
-                       output_unit_file->filename, filename);
+              FILE_NAME_PATH_COUNTER *output_unit_file
+                = &self->output_unit_files.list[output_unit_file_idx];
+              fprintf (stderr, "Reusing %s(%zu) for %s\n",
+                       output_unit_file->filename, output_unit_file_idx,
+                       filename);
             }
         }
       else
-        output_unit_file = add_output_units_file (self, filename, 0);
+        output_unit_file_idx = add_output_units_file (self, filename, 0);
     }
-  return output_unit_file;
+  return output_unit_file_idx;
 }
 
-FILE_NAME_PATH_COUNTER *
+size_t
 set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
                       char *filename, int set_counter)
 {
+  size_t output_unit_file_idx
+     = register_normalize_case_filename (self, filename);
   FILE_NAME_PATH_COUNTER *output_unit_file
-    = register_normalize_case_filename (self, filename);
+    = &self->output_unit_files.list[output_unit_file_idx];
   if (set_counter)
     output_unit_file->counter++;
   output_unit->unit_filename = output_unit_file->filename;
-  return output_unit_file;
+  return output_unit_file_idx;
 }
 
 void
 set_file_path (CONVERTER *self, char *filename, char *filepath,
                char *destination_directory)
 {
+  size_t output_unit_file_idx
+      = register_normalize_case_filename (self, filename);
   FILE_NAME_PATH_COUNTER *output_unit_file
-    = register_normalize_case_filename (self, filename);
+    = &self->output_unit_files.list[output_unit_file_idx];
   char *filepath_str;
   int free_filepath = 0;
 

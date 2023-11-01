@@ -2,6 +2,8 @@
 #ifndef CONVERT_UTILS_H
 #define CONVERT_UTILS_H
 
+#include <stdio.h>
+
 #include "options_types.h"
 #include "tree_types.h"
 #include "converter_types.h"
@@ -38,4 +40,15 @@ void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (OPTIONS *options, ELEMENT *current);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
+
+char *encoded_output_file_name (OPTIONS *options,
+                                GLOBAL_INFO *global_information,
+                                char *file_name, char **file_name_encoding,
+                                SOURCE_INFO *source_info);
+
+FILE *output_files_open_out (OUTPUT_FILES_INFORMATION *self,
+                             const char *file_path,
+                             char **error_message, int binary);
+void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
+                                   const char *file_path);
 #endif

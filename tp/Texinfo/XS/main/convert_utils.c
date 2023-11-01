@@ -220,6 +220,35 @@ encoded_input_file_name (OPTIONS *options,
   return result;
 }
 
+char *
+encoded_output_file_name (OPTIONS *options, GLOBAL_INFO *global_information,
+                          char *file_name, char **file_name_encoding,
+                          SOURCE_INFO *source_info)
+{
+  char *result;
+  char *encoding = 0;
+  int status;
+
+  if (options && options->OUTPUT_FILE_NAME_ENCODING)
+    encoding = options->OUTPUT_FILE_NAME_ENCODING;
+  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME != 0
+           || (!options))
+    {
+      if (global_information && global_information->input_encoding_name)
+        encoding = global_information->input_encoding_name;
+    }
+  else if (options)
+    encoding = options->LOCALE_ENCODING;
+
+  result = encode_string (file_name, encoding, &status, source_info);
+
+  if (status)
+    *file_name_encoding = strdup(encoding);
+   else
+    *file_name_encoding = 0;
+  return result;
+}
+
 ELEMENT *
 expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,
@@ -525,4 +554,131 @@ translated_command_tree (CONVERTER *self, enum command_id cmd)
         }
     }
   return 0;
+}
+
+/*
+  API to open, set encoding and register files.
+*/
+
+/* in Texinfo::Common (because it is also used by main program) */
+
+/* in contrast with perl, we do not handle conversion to output encoding
+   in output_files_open_out, but in the caller program */
+
+static void
+register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
+                        FILE *stream)
+{
+  FILE_STREAM *file_stream;
+  int slot_found = 0;
+  size_t file_stream_index;
+  if (self->unclosed_files.number)
+    {
+      size_t i;
+      for (i = 0; i < self->unclosed_files.number; i++)
+        {
+          file_stream = &self->unclosed_files.list[i];
+          if (file_stream->file_path)
+            {
+              fprintf (stderr, "RUF:%zu: %s\n", i, file_stream->file_path);
+              if (!strcmp (file_path, file_stream->file_path))
+                {
+                  fprintf (stderr, "BUG: RUF: already open %zu: %s\n",
+                           i, file_path);
+                  file_stream->stream = stream;
+                  return;
+                }
+            }
+          else if (!slot_found)
+            {
+              file_stream_index = i;
+              slot_found = 1;
+            }
+        }
+    }
+
+  if (!slot_found)
+    {
+      if (self->unclosed_files.number == self->unclosed_files.space)
+        {
+          self->unclosed_files.list = realloc (self->unclosed_files.list,
+             (self->unclosed_files.space += 5) * sizeof (FILE_STREAM));
+        }
+      file_stream_index = self->unclosed_files.number;
+      self->unclosed_files.number++;
+    }
+
+  file_stream = &self->unclosed_files.list[file_stream_index];
+
+  file_stream->file_path = strdup (file_path);
+  file_stream->stream = stream;
+
+  return;
+}
+
+
+/*
+ FILE_PATH is the file path, it should be a binary string.
+ If BINARY is set, set binary mode.
+ Returns
+  - as return value, the opened filehandle, or 0 if opening failed,
+  - in *error_message, the errno message or 0 if opening succeeded.
+*/
+FILE *
+output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
+                       char **error_message, int binary)
+{
+  FILE *stream_handle;
+  *error_message = 0;
+  if (!strcmp (file_path, "-"))
+    {
+      register_unclosed_file (self, file_path, stdout);
+      return stdout;
+    }
+  if (binary)
+    stream_handle = fopen (file_path, "wb");
+  else
+    stream_handle = fopen (file_path, "w");
+  if (!stream_handle)
+    {
+      *error_message = strdup (strerror (errno));
+      return 0;
+    }
+  else
+    {
+      register_unclosed_file (self, file_path, stream_handle);
+      add_string (file_path, &self->opened_files);
+    }
+  return stream_handle;
+}
+
+void
+output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
+                              const char *file_path)
+{
+  size_t unclosed_files_nr = self->unclosed_files.number;
+  if (unclosed_files_nr)
+    {
+      size_t j;
+      for (j = unclosed_files_nr -1; j >= 0; j--)
+        {
+          FILE_STREAM *file_stream = &self->unclosed_files.list[j];
+          if (file_stream->file_path)
+            {
+              if (!strcmp (file_path, file_stream->file_path))
+                {
+                  free (file_stream->file_path);
+                  file_stream->file_path = 0;
+                  if (j == unclosed_files_nr -1)
+                    {
+                      self->unclosed_files.number--;
+                    }
+                  return;
+                }
+            }
+          else
+            fprintf (stderr, "REMARK: no unclosed file at %zu\n", j);
+        }
+    }
+  fprintf (stderr, "BUG: %s not opened\n", file_path);
 }

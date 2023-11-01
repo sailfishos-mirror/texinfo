@@ -755,15 +755,14 @@ add_include_directory (char *input_filename, STRING_LIST *include_dirs_list)
 }
 
 void
-add_string (char *string, STRING_LIST *strings_list)
+add_string (const char *string, STRING_LIST *strings_list)
 {
   if (strings_list->number == strings_list->space)
     {
       strings_list->list = realloc (strings_list->list,
                    sizeof (char *) * (strings_list->space += 5));
     }
-  string = strdup (string);
-  strings_list->list[strings_list->number++] = string;
+  strings_list->list[strings_list->number++] = strdup (string);
 }
 
 void
@@ -781,6 +780,21 @@ merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings)
       strings_list->list[strings_list->number +i] = merged_strings->list[i];
     }
   strings_list->number += merged_strings->number;
+}
+
+/* return the index +1, to return 0 if not found */
+size_t
+find_string (STRING_LIST *strings_list, const char *target)
+{
+  size_t j;
+  for (j = 0; j < strings_list->number; j++)
+    {
+      if (!strcmp (target, strings_list->list[j]))
+        {
+          return j+1;
+        }
+    }
+  return 0;
 }
 
 /* Return value to be freed by caller. */
