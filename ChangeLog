@@ -1,3 +1,8 @@
+2023-11-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac, js/info.js, util/texi2dvi, util/texi2pdf:
+	Bump version to 7.1dev.
+
 2023-11-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/get_perl_info.c (add_svav_to_string_list): use a

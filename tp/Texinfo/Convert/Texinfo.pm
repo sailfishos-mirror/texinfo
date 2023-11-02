@@ -51,7 +51,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 our $module_loaded = 0;
 sub import {

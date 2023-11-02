@@ -33,7 +33,7 @@ use Texinfo::Convert::Converter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 our $module_loaded = 0;
 sub import {

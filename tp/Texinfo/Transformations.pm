@@ -49,7 +49,7 @@ reference_to_arg_in_tree
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 our $module_loaded = 0;
 sub import {

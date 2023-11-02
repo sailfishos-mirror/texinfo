@@ -20,7 +20,7 @@ package Texinfo::Translations;
 use strict;
 use warnings;
 
-our $VERSION = '7.1';
+our $VERSION = '7.1dev';
 
 use Texinfo::XSLoader;
 

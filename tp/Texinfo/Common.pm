@@ -76,7 +76,7 @@ valid_tree_transformation
 __ __p
 );
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 our $module_loaded = 0;
 sub import {

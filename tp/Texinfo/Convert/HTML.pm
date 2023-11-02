@@ -82,7 +82,7 @@ require Exporter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 my $XS_convert = 0;
 $XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}

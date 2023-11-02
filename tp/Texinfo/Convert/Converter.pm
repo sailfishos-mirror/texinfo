@@ -65,7 +65,7 @@ xml_accents
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.1';
+$VERSION = '7.1dev';
 
 my $XS_convert = 0;
 $XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
