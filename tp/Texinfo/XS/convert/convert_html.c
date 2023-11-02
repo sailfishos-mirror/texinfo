@@ -2023,15 +2023,6 @@ html_prepare_units_directions_files (CONVERTER *self,
   return files_source_info;
 }
 
-/* init phase for conversion for convert() */
-void
-html_convert_init (CONVERTER *self)
-{
-  char *title_titlepage
-    = call_formatting_function_format_title_titlepage (self);
-  self->title_titlepage = title_titlepage;
-}
-
 static char *
 command_conversion (CONVERTER *self, enum command_id cmd,
                     ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
@@ -3746,6 +3737,28 @@ convert_output_output_unit_internal (CONVERTER *self,
   return 1;
 }
 
+void
+html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
+                              char *output_file, char *output_filename)
+{
+  char *title_titlepage;
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+
+  if (strlen (output_file))
+    self->current_filename = output_units->list[0]->unit_filename;
+  else
+    self->current_filename = output_filename;
+
+  self->modified_state |= HMSF_current_filename;
+
+  title_titlepage
+    = call_formatting_function_format_title_titlepage (self);
+  self->title_titlepage = title_titlepage;
+  self->current_filename = 0;
+  self->modified_state |= HMSF_current_filename;
+}
+
 char *
 html_convert_output (CONVERTER *self, ELEMENT *root,
                      int output_units_descriptor,
@@ -3756,7 +3769,6 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
   int status = 1;
   TEXT result;
   TEXT text; /* reused for all the output units */
-  char *title_titlepage;
 
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
@@ -3768,59 +3780,17 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
 
   text_append (&result, "");
 
-  /* determine first file name */
-  if (!output_units || !output_units->number
-      || !output_units->list[0]->unit_filename)
-    {
-     /* no page */
-  /* NOTE there are always output units.  There is always a file if files
-     are setup, so this situation can only arise with output_file equal to ''
-     as in that case files are not setup at all. */
-      if (strlen (output_file))
-        {
-          /* This should not be possible. */
-          char *no_page_output_filename = 0;
-          int filename_to_be_freed = 0;
-          if (self->conf->SPLIT && strlen (self->conf->SPLIT))
-            {
-              no_page_output_filename = top_node_filename (self, document_name);
-              filename_to_be_freed = 1;
-              set_file_path (self, no_page_output_filename, 0,
-                             destination_directory);
-            }
-          else
-            {
-              no_page_output_filename = output_filename;
-              set_file_path (self, no_page_output_filename, output_file,
-                             destination_directory);
-            }
-          self->current_filename = no_page_output_filename;
 
-          if (filename_to_be_freed)
-            free (no_page_output_filename);
-        }
-      else
-        self->current_filename = output_filename;
-    }
-  else
-    self->current_filename = output_units->list[0]->unit_filename;
-
-  self->modified_state |= HMSF_current_filename;
-
-  title_titlepage
-    = call_formatting_function_format_title_titlepage (self);
-  self->title_titlepage = title_titlepage;
-
-  if (!output_units || !output_units->number
-      || !output_units->list[0]->unit_filename)
+  if (!strlen (output_file))
     {
       char *file_end;
       char *file_beginning;
 
+      self->current_filename = output_filename;
+      self->modified_state |= HMSF_current_filename;
+
       text_append (&text, "");
 
-      /* in perl there is code for a case that should not be possible,
-         with current_filename ne '' here.  This code is no present here */
       if (output_units && output_units->number)
         {
           int unit_nr = 0;

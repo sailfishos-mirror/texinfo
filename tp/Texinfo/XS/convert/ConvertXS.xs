@@ -320,21 +320,40 @@ html_translate_names (SV *converter_in)
            }
 
 
-SV *
-html_convert_init (SV *converter_in)
+void
+html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file, output_filename)
+         char *output_file = (char *)SvPVbyte_nolen($arg);
+         char *output_filename = (char *)SvPVbyte_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
+         int output_units_descriptor = 0;
      CODE:
-         /* TODO error?  Return undef if not found? */
+         /* TODO error? */
          self = get_sv_converter (converter_in, 0);
-         html_convert_init (self);
-         if (self->title_titlepage)
-           RETVAL = newSVpv_utf8 (self->title_titlepage, 0);
-         else
- /* should never happen as a string is always returned, possibly empty */
-           RETVAL = newSV(0);
-    OUTPUT:
-        RETVAL
+         if (SvOK (output_units_in))
+           output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in,
+                         "html_prepare_title_titlepage output units");
+
+         if (self)
+           {
+             html_prepare_title_titlepage (self, output_units_descriptor,
+                                           output_file, output_filename);
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+ /* should always happen as a string is always returned, possibly empty */
+             if (self->title_titlepage)
+               {
+                 HV *converter_hv = (HV *) SvRV (converter_in);
+                 SV *title_titlepage_sv
+                     = newSVpv_utf8 (self->title_titlepage, 0);
+                 hv_store (converter_hv, "title_titlepage",
+                           strlen ("title_titlepage"), title_titlepage_sv, 0);
+               }
+           }
 
 SV *
 html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in)

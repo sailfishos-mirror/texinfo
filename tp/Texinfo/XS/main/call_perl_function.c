@@ -498,6 +498,12 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
   formatting_reference
     = self->formatting_references[FR_format_title_titlepage].sv_reference;
 
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
   dSP;
 
   ENTER;

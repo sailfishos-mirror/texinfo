@@ -125,8 +125,8 @@ sub import {
       "Texinfo::Convert::HTML::_XS_translate_names",
       "Texinfo::Convert::ConvertXS::html_translate_names");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_html_convert_init",
-      "Texinfo::Convert::ConvertXS::html_convert_init");
+      "Texinfo::Convert::HTML::_XS_html_prepare_title_titlepage",
+      "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage");
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_html_convert_convert",
       "Texinfo::Convert::ConvertXS::html_convert_convert");
@@ -11062,6 +11062,41 @@ sub _XS_html_convert_convert($$$$)
 {
 }
 
+sub _XS_html_prepare_title_titlepage($$$$)
+{
+}
+
+sub _prepare_title_titlepage($$$$)
+{
+  my $self = shift;
+  my $output_units = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+
+  if ($self->{'converter_descriptor'} and $XS_convert) {
+    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
+    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
+    _XS_html_prepare_title_titlepage($self, $output_units,
+                       $encoded_output_file, $encoded_output_filename);
+    return;
+  }
+
+  # set file name to be the first file name for formatting of title page.
+  # The title page prepared here is thus only fit to be used in the first
+  # output unit.
+  if ($output_file ne '') {
+    $self->{'current_filename'}
+      = $output_units->[0]->{'unit_filename'};
+  } else {
+    $self->{'current_filename'} = $output_filename;
+  }
+
+  # title
+  $self->{'title_titlepage'}
+    = &{$self->formatting_function('format_title_titlepage')}($self);
+  $self->{'current_filename'} = undef;
+}
+
 sub convert($$)
 {
   my $self = shift;
@@ -11073,9 +11108,6 @@ sub convert($$)
   my $result = '';
 
   $self->_initialize_output_state();
-
-  # needed for CSS rules gathering
-  $self->{'current_filename'} = '';
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -11131,16 +11163,7 @@ sub convert($$)
   # title.  Not often set in the default case, as convert() is only
   # used in the *.t tests, and a title requires both simpletitle_tree
   # and SHOW_TITLE set, with the default formatting function.
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    # FIXME distinguish failure and no title?  Could actually use
-    # undef for failure, as without title, return an empty string.
-    my $title_titlepage =
-      _XS_html_convert_init($encoded_converter);
-    $self->{'title_titlepage'} = $title_titlepage;
-  } else {
-    $self->{'title_titlepage'}
-     = &{$self->formatting_function('format_title_titlepage')}($self);
-  }
+  $self->_prepare_title_titlepage($output_units, '', '');
 
   # complete information should be available.
   $self->_reset_info();
@@ -11150,6 +11173,8 @@ sub convert($$)
                                               $output_units, $special_units);
     return $XS_result;
   }
+
+  $self->{'current_filename'} = '';
 
   if (!defined($output_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
@@ -11168,6 +11193,7 @@ sub convert($$)
       $unit_nr++;
     }
   }
+  $self->{'current_filename'} = undef;
 
   return $result;
 }
@@ -11437,75 +11463,17 @@ sub _html_convert_output($$$$$$$$)
          = Encode::encode('UTF-8', $destination_directory);
     my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
 
-    my $XS_result
+    my $XS_text_output
            = _XS_html_convert_output ($encoded_converter,
                      $root, $output_units, $special_units, $encoded_output_file,
                      $encoded_destination_directory, $encoded_output_filename,
                      $encoded_document_name);
-    return $XS_result;
+    return $XS_text_output;
   }
 
   my $text_output = '';
-
-  # determine first file name
-  if (!$output_units
-      or !defined($output_units->[0]->{'unit_filename'})) {
-    # no page
-    # NOTE there are always output units.  There is always a file if files
-    # are setup, so this situation can only arise with output_file equal to ''
-    # as in that case files are not setup at all.
-    if ($output_file ne '') {
-      # This should not be possible.
-      my $no_page_output_filename;
-      if ($self->get_conf('SPLIT')) {
-        $no_page_output_filename = $self->top_node_filename($document_name);
-        $self->set_file_path($no_page_output_filename, $destination_directory);
-      } else {
-        $no_page_output_filename = $output_filename;
-        $self->set_file_path($no_page_output_filename, undef, $output_file);
-      }
-
-      $self->{'current_filename'} = $no_page_output_filename;
-    } else {
-      $self->{'current_filename'} = $output_filename;
-    }
-  } else {
-    $self->{'current_filename'}
-      = $output_units->[0]->{'unit_filename'};
-  }
-  # title
-  $self->{'title_titlepage'}
-    = &{$self->formatting_function('format_title_titlepage')}($self);
-
-  # complete information should be available.
-  $self->_reset_info();
-
-  if (!$output_units
-      or !defined($output_units->[0]->{'unit_filename'})) {
-    my $fh;
-    my $encoded_no_page_out_filepath;
-    my $no_page_out_filepath;
-    # current_filename eq '' and no output files should be the only
-    # possibility, see comment above.
-    if ($self->{'current_filename'} ne ''
-        and $self->{'out_filepaths'}
-        and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
-      my $path_encoding;
-      $no_page_out_filepath
-         = $self->{'out_filepaths'}->{$self->{'current_filename'}};
-      ($encoded_no_page_out_filepath, $path_encoding)
-        = $self->encoded_output_file_name($no_page_out_filepath);
-      my $error_message;
-      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                                 $self->output_files_information(), $self,
-                                 $encoded_no_page_out_filepath);
-      if (!$fh) {
-        $self->document_error($self,
-              sprintf(__("could not open %s for writing: %s"),
-                                      $no_page_out_filepath, $error_message));
-        return undef;
-      }
-    }
+  if ($output_file eq '') {
+    $self->{'current_filename'} = $output_filename;
     my $body = '';
     if ($output_units and @$output_units) {
       my $unit_nr = 0;
@@ -11533,20 +11501,10 @@ sub _html_convert_output($$$$$$$$)
     my $file_beginning
         = &{$self->formatting_function('format_begin_file')}($self,
                                                   $output_filename, undef);
-    $text_output .= $self->write_or_return($file_beginning, $fh);
-    $text_output .= $self->write_or_return($body, $fh);
-    $text_output .= $self->write_or_return($file_end, $fh);
+    $text_output .= $file_beginning;
+    $text_output .= $body;
+    $text_output .= $file_end;
 
-    # NOTE do not close STDOUT now to avoid a perl warning.
-    if ($fh and $no_page_out_filepath ne '-') {
-      Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $encoded_no_page_out_filepath);
-      if (!close($fh)) {
-        $self->document_error($self,
-              sprintf(__("error on closing %s: %s"),
-                                      $no_page_out_filepath, $!));
-      }
-    }
     $self->{'current_filename'} = undef;
   } else {
     # output with pages
@@ -11912,9 +11870,17 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
+
   my $init_status = $self->run_stage_handlers($root, 'init');
   return undef unless ($init_status < $handler_fatal_error_level
                        and $init_status > -$handler_fatal_error_level);
+
+
+  $self->_prepare_title_titlepage($output_units, $output_file,
+                                  $output_filename);
+
+  # complete information should be available.
+  $self->_reset_info();
 
   # conversion
   my $text_output = $self->_html_convert_output($root, $output_units,
