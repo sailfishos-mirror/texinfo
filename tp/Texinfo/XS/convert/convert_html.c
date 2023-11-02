@@ -2204,7 +2204,8 @@ html_converter_initialize (CONVERTER *self)
     {
       enum command_id small_cmd = small_block_associated_command[i][0];
       enum command_id cmd = small_block_associated_command[i][1];
-      register_pre_class_command (small_cmd, cmd);
+      if (builtin_command_data[cmd].flags & CF_preformatted)
+        register_pre_class_command (small_cmd, cmd);
     }
 
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
@@ -3365,7 +3366,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
         {
           pop_string_stack (&top_document_ctx->preformatted_classes);
           pop_command_or_type (&top_document_ctx->composition_context);
-          self->modified_state |= HMSF_composition_context;
+          self->modified_state |= HMSF_preformatted_classes
+                                  | HMSF_composition_context;
         }
 
       if (self->conf->DEBUG > 0)
@@ -3689,9 +3691,9 @@ convert_output_output_unit_internal (CONVERTER *self,
 
       /* do end file first in case it requires some CSS */
       file_end = call_formatting_function_format_end_file (self,
-                                              out_filepath, output_unit);
+                                             output_unit_filename, output_unit);
       file_beginning = call_formatting_function_format_begin_file (self,
-                                           out_filepath, file_output_unit);
+                                        output_unit_filename, file_output_unit);
       text_reset (text);
       if (file_beginning)
         {
@@ -3717,7 +3719,7 @@ convert_output_output_unit_internal (CONVERTER *self,
             result = encode_with_iconv (conversion->iconv, text->text, 0);
           else
             result = text->text;
-          res_len = strlen (result)+1;
+          res_len = strlen (result);
           write_len = fwrite (result, sizeof (char), res_len,
                                      file_fh);
           if (conversion)

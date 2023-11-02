@@ -58,7 +58,7 @@ const size_t directions_length = sizeof (direction_names) / sizeof (direction_na
 
 const enum command_id small_block_associated_command[][2] = {
   #define smbc_command_name(name) {CM_small##name, CM_##name},
-   SMALL_BLOC_COMMANDS_LIST
+   SMALL_BLOCK_COMMANDS_LIST
   #undef smbc_command_name
    {0, 0},
 };

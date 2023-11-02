@@ -94,7 +94,7 @@ typedef struct COMMAND_OPTION_VALUE {
     };
 } COMMAND_OPTION_VALUE;
 
-#define SMALL_BLOC_COMMANDS_LIST \
+#define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\
     smbc_command_name(display) \
     smbc_command_name(format) \
