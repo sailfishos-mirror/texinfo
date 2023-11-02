@@ -2363,8 +2363,8 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
 
 static void
 reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
-                   enum command_id cmd, int reset_context, int ref_context,
-                   int translate)
+               enum command_id cmd, enum conversion_context reset_context,
+               enum conversion_context ref_context, int translate)
 {
   HTML_COMMAND_CONVERSION *no_arg_command_context;
   HTML_COMMAND_CONVERSION **conversion_contexts
@@ -2422,8 +2422,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       if (reset_context == HCC_type_normal)
         {
           char *explanation;
-          xasprintf (&explanation, "no arg %s translated",
-                     builtin_command_data[cmd].cmdname);
+          xasprintf (&explanation, "no arg %s translated for",
+                     builtin_command_data[cmd].cmdname,
+                     html_conversion_context_type_names[reset_context]);
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
           free (explanation);
@@ -2434,8 +2435,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           enum command_id preformated_cmd = CM_example;
           HTML_DOCUMENT_CONTEXT *top_document_ctx;
           char *explanation;
-          xasprintf (&context_name, "Translate %s",
-                     builtin_command_data[cmd].cmdname);
+          xasprintf (&context_name, "Translate %s for %s",
+                     builtin_command_data[cmd].cmdname,
+                     html_conversion_context_type_names[reset_context]);
           html_new_document_context (self, context_name, 0, 0);
           free (context_name);
 
@@ -2449,8 +2451,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                               html_commands_data[preformated_cmd].pre_class);
           self->modified_state |= HMSF_document_context;
 
-          xasprintf (&explanation, "no arg %s translated",
-                     builtin_command_data[cmd].cmdname);
+          xasprintf (&explanation, "no arg %s translated for %s",
+                     builtin_command_data[cmd].cmdname,
+                     html_conversion_context_type_names[reset_context]);
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
           free (explanation);
@@ -2464,7 +2467,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           char *context_name;
           HTML_DOCUMENT_CONTEXT *top_document_ctx;
 
-          xasprintf (&context_name, "string no arg %s translated",
+          xasprintf (&context_name, "string no arg %s translated for %s",
+                     html_conversion_context_type_names[reset_context],
                      builtin_command_data[cmd].cmdname);
           html_new_document_context (self, context_name, 0, 0);
 
@@ -2481,6 +2485,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       else if (reset_context == HCC_type_css_string)
         {
            /*
+          fprintf (stderr, "TODO ccs_string %s\n", builtin_command_data[cmd].cmdname);
           translation_result = html_convert_css_string (self, translated_tree);
             */
         }
@@ -2514,7 +2519,7 @@ html_translate_names (CONVERTER *self)
 
   if (self->conf->DEBUG > 0)
     {
-      fprintf (stderr, "\nTRANSLATE_NAMES encoding_name: %s"
+      fprintf (stderr, "\nXS|TRANSLATE_NAMES encoding_name: %s"
                " documentlanguage: %s\n",
                self->conf->OUTPUT_ENCODING_NAME, self->conf->documentlanguage);
     }
@@ -3229,7 +3234,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             destroy_args_formatted (args_formatted);
 
           if (cmd == CM_documentlanguage)
-            html_translate_names (self);
+            {
+              html_translate_names (self);
+            }
 
           free (content_formatted.text);
 

@@ -2329,12 +2329,11 @@ sub _XS_translate_names($)
 {
 }
 
-sub _translate_names($;$)
+sub _translate_names($)
 {
   my $self = shift;
-  my $do_XS = shift;
 
-  if ($do_XS and $self->{'converter_descriptor'} and $XS_convert) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
     my $encoded_converter
              = {'converter_descriptor' => $self->{'converter_descriptor'},
@@ -7655,25 +7654,28 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
     my $translation_result;
     if ($reset_context eq 'normal') {
       $translation_result
-        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
+        = $self->convert_tree($translated_tree,
+               "no arg $cmdname translated for $reset_context");
     } elsif ($reset_context eq 'preformatted') {
       # there does not seems to be anything simpler...
       my $preformatted_command_name = 'example';
-      $self->_new_document_context("Translate $cmdname");
+      $self->_new_document_context("Translate $cmdname for $reset_context");
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
           $preformatted_command_name;
       # should not be needed for at commands no brace translation strings
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
           $pre_class_commands{$preformatted_command_name};
       $translation_result
-        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
+        = $self->convert_tree($translated_tree,
+                              "no arg $cmdname translated for $reset_context");
       # only pop the main context
       $self->_pop_document_context();
     } elsif ($reset_context eq 'string') {
       $translation_result
         = $self->convert_tree_new_formatting_context({'type' => '_string',
                                           'contents' => [$translated_tree]},
-                     'translated_string', "string no arg $cmdname translated");
+                                         'translated_string',
+                    "string no arg $cmdname translated for $reset_context");
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree);
     }
@@ -11140,7 +11142,7 @@ sub convert($$)
   }
 
   # setup untranslated strings
-  $self->_translate_names(1);
+  $self->_translate_names();
 
   # FIXME duplicate of code in output()
   foreach my $simpletitle_command ('settitle', 'shorttitlepage') {

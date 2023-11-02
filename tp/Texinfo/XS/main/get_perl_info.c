@@ -165,33 +165,55 @@ get_sv_output_units (SV *output_units_in, char *warn_string)
 }
 
 void
-add_svav_to_string_list (SV **sv, STRING_LIST *string_list, int dir_strings)
+add_svav_to_string_list (SV *sv, STRING_LIST *string_list, int dir_strings)
 {
+  int i;
+  SSize_t strings_nr;
+
   dTHX;
 
-  if (sv)
+  AV *av = (AV *)SvRV (sv);
+  strings_nr = av_top_index (av) +1;
+  for (i = 0; i < strings_nr; i++)
     {
-      int i;
-      SSize_t strings_nr;
-      AV *av = (AV *)SvRV (*sv);
-      strings_nr = av_top_index (av) +1;
-      for (i = 0; i < strings_nr; i++)
+      SV** string_sv = av_fetch (av, i, 0);
+      if (string_sv)
         {
-          SV** string_sv = av_fetch (av, i, 0);
-          if (string_sv)
-            {
-              char *string = SvPVbyte_nolen (*string_sv);
-              if (dir_strings)
-                add_include_directory (string, string_list);
-              else
-                add_string (string, string_list);
-            }
+          char *string = SvPVbyte_nolen (*string_sv);
+          if (dir_strings)
+            add_include_directory (string, string_list);
+          else
+            add_string (string, string_list);
         }
     }
 }
 
-/* contains get_sv_options (), automatically generated from options_data.txt */
+/* contains get_sv_option (), automatically generated from options_data.txt */
 #include "options_get_perl.c"
+
+void
+get_sv_options (SV *sv, OPTIONS *options)
+{
+  I32 hv_number;
+  I32 i;
+  HV *hv;
+
+  dTHX;
+
+  hv = (HV *)SvRV (sv);
+  hv_number = hv_iterinit (hv);
+  for (i = 0; i < hv_number; i++)
+    {
+      char *key;
+      I32 retlen;
+      SV *value = hv_iternextsv(hv, &key, &retlen);
+      if (value && SvOK (value))
+        {
+          get_sv_option (options, key, value);
+        }
+    }
+}
+
 
 OPTIONS *
 copy_sv_options (SV *sv_in)
@@ -268,8 +290,9 @@ copy_sv_options_for_convert_text (SV *sv_in)
   include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
                                      strlen ("INCLUDE_DIRECTORIES"), 0);
 
-  add_svav_to_string_list (include_directories_sv,
-                           &text_options->include_directories, 1);
+  if (include_directories_sv)
+    add_svav_to_string_list (*include_directories_sv,
+                             &text_options->include_directories, 1);
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
 
@@ -649,8 +672,9 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
       STRING_LIST *special_unit_varieties
        = (STRING_LIST *) malloc (sizeof (STRING_LIST));
       memset (special_unit_varieties, 0, sizeof (STRING_LIST));
-      add_svav_to_string_list (sorted_special_unit_varieties_sv,
-                               special_unit_varieties, 0);
+      if (sorted_special_unit_varieties_sv)
+        add_svav_to_string_list (*sorted_special_unit_varieties_sv,
+                                 special_unit_varieties, 0);
 
       /* allocate space for translated tree types, but do not
          get from perl, it will be created for the conversion */
@@ -1489,4 +1513,15 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
             }
         }
     }
+}
+
+void
+set_conf (CONVERTER *converter, const char *conf, SV *value)
+{
+  if (converter->conf)
+    get_sv_option (converter->conf, conf, value);
+   /* Too early to have aoptions set
+  else
+    fprintf (stderr, "HHH no converter conf %s\n", conf);
+    */
 }

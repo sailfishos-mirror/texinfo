@@ -36,6 +36,8 @@ use Storable;
 
 use Carp qw(cluck confess);
 
+use Texinfo::Convert::ConvertXS;
+
 use Texinfo::Options;
 use Texinfo::Common;
 
@@ -64,6 +66,25 @@ xml_accents
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 $VERSION = '7.1';
+
+my $XS_convert = 0;
+$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    if ($XS_convert) {
+      Texinfo::XSLoader::override(
+       "Texinfo::Convert::Converter::_XS_set_conf",
+       "Texinfo::Convert::ConvertXS::set_conf");
+    }
+
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 my %defaults = (
   'documentlanguage'     => undef,
@@ -565,6 +586,10 @@ sub get_conf($$)
   return $self->{'conf'}->{$conf};
 }
 
+sub _XS_set_conf($$$)
+{
+}
+
 sub set_conf($$$)
 {
   my $self = shift;
@@ -577,6 +602,14 @@ sub set_conf($$$)
   if ($self->{'set'}->{$conf}) {
     return 0;
   } else {
+    if ($self->{'converter_descriptor'} and $XS_convert) {
+      if (ref($value) eq ''
+       and not $Texinfo::Common::non_decoded_customization_variables{$conf}) {
+        _XS_set_conf($self, $conf, Encode::encode("UTF-8", $value));
+      } else {
+        _XS_set_conf($self, $conf, $value);
+      }
+    }
     $self->{'conf'}->{$conf} = $value;
     return 1;
   }
@@ -590,6 +623,14 @@ sub force_conf($$$)
   if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BUG: force_conf: unknown option $conf\n";
     return undef;
+  }
+  if ($self->{'converter_descriptor'} and $XS_convert) {
+    if (ref($value) eq ''
+     and not $Texinfo::Common::non_decoded_customization_variables{$conf}) {
+      _XS_set_conf($self, $conf, Encode::encode("UTF-8", $value));
+    } else {
+      _XS_set_conf($self, $conf, $value);
+    }
   }
   $self->{'conf'}->{$conf} = $value;
   return 1;

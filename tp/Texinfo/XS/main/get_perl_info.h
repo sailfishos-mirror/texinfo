@@ -16,6 +16,7 @@ OUTPUT_UNIT_LIST *get_sv_output_units (SV *output_units_in, char *warn_string);
 int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 
 OPTIONS *copy_sv_options (SV *sv_in);
+void set_conf (CONVERTER *converter, const char *conf, SV *value);
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 int html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
