@@ -3715,7 +3715,7 @@ convert_output_output_unit_internal (CONVERTER *self,
           free (result);
           if (write_len != res_len)
             { /* register error message instead? */
-              fprintf (stderr, "write to %s failed (%zu/%zu)\n",
+              fprintf (stderr, "ERROR: write to %s failed (%zu/%zu)\n",
                        encoded_out_filepath, write_len, res_len);
               return 0;
             }
@@ -3725,7 +3725,7 @@ convert_output_output_unit_internal (CONVERTER *self,
         {
           output_files_register_closed (&self->output_files_information,
                                         encoded_out_filepath);
-          if (!fclose (file_fh))
+          if (fclose (file_fh))
             {
               message_list_document_error (self->error_messages, self->conf,
                              "error on closing %s: %s",
@@ -3873,7 +3873,13 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
           status = convert_output_output_unit_internal (self, conversion,
                                                &text, output_unit, unit_nr);
           if (!status)
-            goto out;
+            {
+              /*
+              fprintf (stderr, "   FAILED U(%d %d): %s\n", i, unit_nr,
+                       output_unit_texi (output_unit));
+               */
+              goto out;
+            }
           unit_nr++;
         }
       if (special_units && special_units->number)

@@ -379,7 +379,7 @@ replace_substrings (char *string,
   TEXT substituted;
 
   if (!replaced_substrings)
-    return string;
+    return strdup (string);
 
   text_init (&substituted);
   text_append (&substituted, "");  

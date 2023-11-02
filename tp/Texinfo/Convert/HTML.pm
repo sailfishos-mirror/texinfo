@@ -8429,7 +8429,7 @@ sub converter_initialize($)
 
   if ($self->{'document_descriptor'}) {
     my $encoded_converter = $self->encode_converter_document();
-    #print STDERR "AAA ".\%default_formatting_references." ".\%default_css_string_formatting_references." ".\%default_commands_open." ". \%default_commands_conversion." ".\%default_types_open." ".\%default_types_conversion." ".\%default_output_units_conversion."\n";
+    #print STDERR "CCI ".\%default_formatting_references." ".\%default_css_string_formatting_references." ".\%default_commands_open." ". \%default_commands_conversion." ".\%default_types_open." ".\%default_types_conversion." ".\%default_output_units_conversion."\n";
     _XS_converter_initialize($encoded_converter,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
@@ -11050,18 +11050,6 @@ sub _initialize_output_state($)
 }
 
 
-sub _XS_prepare_output_units_global_targets($$$$)
-{
-}
-
-sub _XS_html_convert_init($)
-{
-}
-
-sub _XS_html_convert_convert($$$$)
-{
-}
-
 sub _XS_html_prepare_title_titlepage($$$$)
 {
 }
@@ -11095,6 +11083,14 @@ sub _prepare_title_titlepage($$$$)
   $self->{'title_titlepage'}
     = &{$self->formatting_function('format_title_titlepage')}($self);
   $self->{'current_filename'} = undef;
+}
+
+sub _XS_prepare_output_units_global_targets($$$$)
+{
+}
+
+sub _XS_html_convert_convert($$$$)
+{
 }
 
 sub convert($$)
