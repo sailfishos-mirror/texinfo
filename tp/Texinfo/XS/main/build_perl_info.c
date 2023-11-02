@@ -41,7 +41,7 @@
 /* for GLOBAL_INFO ERROR_MESSAGE CONVERTER */
 #include "converter_types.h"
 #include "tree.h"
-/* for fatal output_unit_type_names
+/* for output_conversions fatal output_unit_type_names
    HMSF_* */
 #include "utils.h"
 /* for debugging */
@@ -75,11 +75,11 @@
      free below is redirected to Perl's implementation.  This could
      cause crashes if the two malloc/free implementations were different.  */
 
-#ifdef ENABLE_NLS
-
 int
 init (int texinfo_uninstalled, char *builddir)
 {
+#ifdef ENABLE_NLS
+
   setlocale (LC_ALL, "");
 
   /* Note: this uses the installed translations even when running an
@@ -87,19 +87,17 @@ init (int texinfo_uninstalled, char *builddir)
   bindtextdomain (PACKAGE, LOCALEDIR);
 
   textdomain (PACKAGE);
-
-  return 1;
-}
-
 #else
 
-int
-init (int texinfo_uninstalled, char *builddir)
-{
+#endif
+
+  /* do that before any other call to get_encoding_conversion with
+     &output_conversions. */
+  get_encoding_conversion ("utf-8", &output_conversions);
+
   return 1;
 }
 
-#endif
 
 static void element_to_perl_hash (ELEMENT *e);
 

@@ -238,7 +238,8 @@ width_multibyte (const char *text)
 
 
 /* encoding and decoding. Use iconv. */
-/* ENCODING should always be lower cased */
+/* conversion to or from utf-8 should always be set before other
+   conversion */
 ENCODING_CONVERSION *
 get_encoding_conversion (char *encoding,
                          ENCODING_CONVERSION_LIST *encodings_list)
@@ -251,10 +252,10 @@ get_encoding_conversion (char *encoding,
      Thoughts on this mapping are available near
      Texinfo::Common::encoding_name_conversion_map definition
   */
-  if (!strcmp (encoding, "us-ascii"))
+  if (!strcasecmp (encoding, "us-ascii"))
     conversion_encoding = "iso-8859-1";
 
-  if (!strcmp (encoding, "utf-8"))
+  if (!strcasecmp (encoding, "utf-8"))
     {
       if (encodings_list->number > 0)
         encoding_index = 0;
@@ -266,8 +267,8 @@ get_encoding_conversion (char *encoding,
       int i;
       for (i = 1; i < encodings_list->number; i++)
         {
-          if (!strcmp (conversion_encoding,
-                       encodings_list->list[i].encoding_name))
+          if (!strcasecmp (conversion_encoding,
+                           encodings_list->list[i].encoding_name))
             {
               encoding_index = i;
               break;

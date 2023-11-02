@@ -1949,6 +1949,12 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         }
     }
 
+  /* initialize data that requires output_unit_files number */
+  self->file_changed_counter.list = (size_t *)
+      malloc (self->output_unit_files.number * sizeof (size_t));
+  memset (self->file_changed_counter.list, 0,
+          self->output_unit_files.number * sizeof (size_t));
+
   return files_source_info;
 }
 
@@ -2263,11 +2269,6 @@ html_converter_initialize (CONVERTER *self)
       memset (self->no_arg_formatted_cmd_translated.list, 0,
               self->no_arg_formatted_cmd.number * sizeof (enum command_id));
     }
-
-  self->file_changed_counter.list = (size_t *)
-      malloc (self->output_unit_files.number * sizeof (size_t));
-  memset (self->file_changed_counter.list, 0,
-          self->output_unit_files.number * sizeof (size_t));
 }
 
 void
@@ -3708,11 +3709,19 @@ convert_output_output_unit_internal (CONVERTER *self,
         }
       if (text->end)
         {
-          char *result = encode_with_iconv (conversion->iconv, text->text, 0);
-          size_t res_len = strlen (result)+1;
-          size_t write_len = fwrite (result, sizeof (char), res_len,
+          char *result;
+          size_t res_len;
+          size_t write_len;
+
+          if (conversion)
+            result = encode_with_iconv (conversion->iconv, text->text, 0);
+          else
+            result = text->text;
+          res_len = strlen (result)+1;
+          write_len = fwrite (result, sizeof (char), res_len,
                                      file_fh);
-          free (result);
+          if (conversion)
+            free (result);
           if (write_len != res_len)
             { /* register error message instead? */
               fprintf (stderr, "ERROR: write to %s failed (%zu/%zu)\n",
@@ -3861,8 +3870,11 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
       ENCODING_CONVERSION *conversion = 0;
 
       if (self->conf->OUTPUT_ENCODING_NAME)
-        conversion = get_encoding_conversion (self->conf->OUTPUT_ENCODING_NAME,
+        {
+          conversion
+             = get_encoding_conversion (self->conf->OUTPUT_ENCODING_NAME,
                                               &output_conversions);
+        }
 
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "DO Units with filenames\n");
