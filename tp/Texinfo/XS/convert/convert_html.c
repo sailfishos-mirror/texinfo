@@ -47,6 +47,19 @@ typedef struct ROOT_AND_UNIT {
     ELEMENT *root;
 } ROOT_AND_UNIT;
 
+typedef struct CMD_VARIETY {
+    enum command_id cmd;
+    char *variety;
+} CMD_VARIETY;
+
+CMD_VARIETY command_special_unit_variety[] = {
+                                {CM_contents, "contents"},
+                                {CM_shortcontents, "shortcontents"},
+                                {CM_summarycontents, "shortcontents"},
+                                {CM_footnote, "footnotes"},
+                                {0, 0},
+};
+
 /* unused */
 #define F_AFT_none              0x0001
 
@@ -65,6 +78,7 @@ typedef struct ROOT_AND_UNIT {
 #define HF_pre_class            0x0008
 #define HF_upper_case           0x0010
 #define HF_HTML_align           0x0020
+#define HF_special_variety      0x0040
 
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
@@ -141,6 +155,24 @@ get_top_unit (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units)
   return 0;
 }
 
+int
+special_unit_variety_direction_index (CONVERTER *self,
+                                      char *special_unit_variety)
+{
+  int i;
+  VARIETY_DIRECTION_INDEX **varieties_direction_index
+    = self->varieties_direction_index;
+  for (i = 0; varieties_direction_index[i] != 0; i++)
+    {
+      VARIETY_DIRECTION_INDEX *variety_direction_index
+        = varieties_direction_index[i];
+      if (!strcmp (variety_direction_index->special_unit_variety,
+                   special_unit_variety))
+        return variety_direction_index->direction_index;
+    }
+  return -1;
+}
+
 /*
   If FIND_CONTAINER is set, the element that holds the command output
   is found, otherwise the element that holds the command is found.  This is
@@ -206,17 +238,34 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
           memset (result, 0, sizeof (ROOT_AND_UNIT));
           return result;
         }
-      else if (find_container)
+      else if (find_container
+               && html_commands_data[current->cmd].flags & HF_special_variety)
         {
+          int j;
+          for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
+            {
      /* @footnote and possibly @*contents when a separate element is set */
-             /* TODO
-                  my ($special_unit_variety, $special_unit, $class_base,
-            $special_unit_direction)
-         = $self->command_name_special_unit_information($current->{'cmdname'});
-        if ($special_unit) {
-          return ($special_unit, undef);
-             */
-
+              COMMAND_ID_INDEX cmd_variety_index
+                = self->command_special_variety_name_index[j];
+              if (cmd_variety_index.cmd == current->cmd)
+                {
+                  char *special_unit_variety
+                = self->special_unit_varieties->list[cmd_variety_index.index];
+                  int special_unit_direction_index
+                    = special_unit_variety_direction_index (self,
+                                                special_unit_variety);
+                  OUTPUT_UNIT *special_unit
+                = self->global_units_directions[special_unit_direction_index];
+                  if (special_unit)
+                    {
+                      ROOT_AND_UNIT *result = malloc (sizeof (ROOT_AND_UNIT));
+                      result->output_unit = special_unit;
+                      result->root = 0;
+                      return result;
+                    }
+                  break;
+                }
+            }
         }
 
       if (current->associated_unit)
@@ -257,48 +306,17 @@ find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
   return 0;
 }
 
-int
-special_unit_variety_direction_index (CONVERTER *self,
-                                      char *special_unit_variety)
-{
-  int i;
-  VARIETY_DIRECTION_INDEX **varieties_direction_index
-    = self->varieties_direction_index;
-  for (i = 0; varieties_direction_index[i] != 0; i++)
-    {
-      VARIETY_DIRECTION_INDEX *variety_direction_index
-        = varieties_direction_index[i];
-      if (!strcmp (variety_direction_index->special_unit_variety,
-                   special_unit_variety))
-        return variety_direction_index->direction_index;
-    }
-  return -1;
-}
 
-typedef struct CMD_VARIETY {
-    enum command_id cmd;
-    char *variety;
-} CMD_VARIETY;
-
-CMD_VARIETY contents_command_special_unit_variety[] = {
-                                {CM_contents, "contents"},
-                                {CM_shortcontents, "shortcontents"},
-                                {CM_summarycontents, "shortcontents"},
-                                {0, 0},
-};
 
 ELEMENT *
 special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
                         char *special_unit_variety)
 {
-  int i;
+  /* number is index +1 */
+  size_t number = find_string (self->special_unit_varieties,
+                               special_unit_variety);
   int j;
-  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
-  for (i = 0; i < special_unit_varieties->number; i++)
-    {
-      if (!strcmp (special_unit_varieties->list[i], special_unit_variety))
-        break;
-    }
+  int i = number -1;
 
   if (self->special_unit_info_tree[type][i])
     return self->special_unit_info_tree[type][i];
@@ -327,13 +345,10 @@ char *
 special_unit_info (CONVERTER *self, enum special_unit_info_type type,
                    char *special_unit_variety)
 {
-  int i;
-  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
-  for (i = 0; i < special_unit_varieties->number; i++)
-    {
-      if (!strcmp (special_unit_varieties->list[i], special_unit_variety))
-        break;
-    }
+  /* number is index +1 */
+  size_t number = find_string (self->special_unit_varieties,
+                               special_unit_variety);
+  int i = number -1;
 
   return self->special_unit_info[type][i];
 }
@@ -420,11 +435,14 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
               char *special_unit_variety = 0;
               char *contents_location = self->conf->CONTENTS_OUTPUT_LOCATION;
 
-              for (j = 0; contents_command_special_unit_variety[j].cmd; j++)
+              for (j = 0; command_special_unit_variety[j].cmd; j++)
                 {
-                  if (contents_command_special_unit_variety[j].cmd == cmd)
-                    special_unit_variety
-                      = contents_command_special_unit_variety[j].variety;
+                  if (command_special_unit_variety[j].cmd == cmd)
+                    {
+                      special_unit_variety
+                        = command_special_unit_variety[j].variety;
+                      break;
+                    }
                 }
               if (!strcmp (contents_location, "separate_element"))
                 add_string (special_unit_variety, do_special);
@@ -520,16 +538,10 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
     {
       /* take the string from special_unit_varieties */
       char *special_unit_variety;
-      int special_unit_varieties_idx = -1;
-      int j;
-
-      for (j = 0; j < special_unit_varieties->number; j++)
-        if (!strcmp (special_unit_varieties->list[j],
-                     special_units_order[i].variety))
-          {
-            special_unit_varieties_idx = j;
-            break;
-          }
+      /* number is index +1 */
+      size_t number = find_string (special_unit_varieties,
+                                   special_units_order[i].variety);
+      int special_unit_varieties_idx = number -1;
       if (special_unit_varieties_idx < 0)
         {
           char *msg;
@@ -538,7 +550,8 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
           bug (msg);
         }
 
-      special_unit_variety = special_unit_varieties->list[j];
+      special_unit_variety
+        = special_unit_varieties->list[special_unit_varieties_idx];
       OUTPUT_UNIT *special_output_unit
                     = register_special_unit (self, special_unit_variety);
       add_to_output_unit_list (special_units,
@@ -2195,7 +2208,7 @@ html_converter_initialize (CONVERTER *self)
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
 
-  /* first set information thta is fully independent from information
+  /* first set information that is fully independent from information
      coming from perl */
 
   for (i = 0; i < nr_default_commands; i++)
@@ -2278,6 +2291,17 @@ html_converter_initialize (CONVERTER *self)
        malloc (self->no_arg_formatted_cmd.number * sizeof (enum command_id));
       memset (self->no_arg_formatted_cmd_translated.list, 0,
               self->no_arg_formatted_cmd.number * sizeof (enum command_id));
+    }
+  for (i = 0; command_special_unit_variety[i].cmd; i++)
+    {
+      char *special_unit_variety = command_special_unit_variety[i].variety;
+      /* number is index +1 */
+      size_t number = find_string (self->special_unit_varieties,
+                                   special_unit_variety);
+      enum command_id cmd = command_special_unit_variety[i].cmd;
+      html_commands_data[cmd].flags |= HF_special_variety;
+      self->command_special_variety_name_index[i].cmd = cmd;
+      self->command_special_variety_name_index[i].index = number - 1;
     }
 }
 

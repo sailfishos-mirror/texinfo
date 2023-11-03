@@ -1,5 +1,24 @@
 2023-11-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (command_special_unit_variety)
+	(prepare_special_units): rename command_special_unit_variety from
+	contents_command_special_unit_variety and add footnotes.
+
+	* tp/Texinfo/XS/convert/convert_html.c (special_unit_info_tree)
+	(special_unit_info, prepare_special_units): use find_string.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
+	tp/Texinfo/XS/main/converter_types.h (COMMAND_ID_INDEX, CONVERTER):
+	add command_special_variety_name_index to converter that associate
+	command names with indices in special_unit_varieties and the
+	HF_special_variety flag for those commands.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_get_tree_root_element):
+	if find_container is set, return the output unit associated to
+	commands that are associated with an output unit.
+
+2023-11-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c, tp/Texinfo/XS/main/errors.c:
 	add "%s" format for fprintf instead of using a string as format.
 	Report from Gavin.

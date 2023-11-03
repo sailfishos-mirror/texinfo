@@ -276,6 +276,11 @@ typedef struct ARRAY_INDEX_LIST {
     size_t *list;
 } ARRAY_INDEX_LIST;
 
+typedef struct COMMAND_ID_INDEX {
+    enum command_id cmd;
+    size_t index;
+} COMMAND_ID_INDEX;
+
 typedef struct TRANSLATED_COMMAND {
     enum command_id cmd;
     char *translation;
@@ -428,6 +433,9 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE css_string_types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
+    /* associate cmd and index in special_unit_varieties STRING_LIST */
+    /* number in sync with command_special_unit_variety, +1 for trailing 0 */
+    COMMAND_ID_INDEX command_special_variety_name_index[4+1];
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
