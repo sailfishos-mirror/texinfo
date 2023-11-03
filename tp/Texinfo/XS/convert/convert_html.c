@@ -2768,7 +2768,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             free (text);
         }
       text_append (&debug_str, "\n");
-      fprintf (stderr, debug_str.text);
+      fprintf (stderr, "%s", debug_str.text);
       free (debug_str.text);
     }
 

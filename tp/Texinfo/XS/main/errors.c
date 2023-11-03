@@ -214,7 +214,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
   error_message->error_line = error_line.text;
 
   if (conf && conf->DEBUG > 0)
-    fprintf (stderr, error_message->error_line);
+    fprintf (stderr, "%s", error_message->error_line);
 }
 
 static void

@@ -1,5 +1,11 @@
 2023-11-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c, tp/Texinfo/XS/main/errors.c:
+	add "%s" format for fprintf instead of using a string as format.
+	Report from Gavin.
+
+2023-11-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
 	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
 	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
