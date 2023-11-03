@@ -11609,6 +11609,8 @@ sub output($$)
 
   my $root = $document->tree();
 
+  # set here early even though actual values are only set later on.  It is
+  # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
 
   $self->_initialize_output_state();

@@ -1,5 +1,14 @@
 2023-11-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_html_formatting_state):
+	current_filename is found by get_info, therefore in converter_info
+	there is a reference on the value in the converter hash.  The
+	associated SV should not be replaced such that its reference stays the
+	same.  Therefore for current_filename use sv_setpv to modify the
+	value but not the SV to pass to perl.
+
+2023-11-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (command_special_unit_variety)
 	(prepare_special_units): rename command_special_unit_variety from
 	contents_command_special_unit_variety and add footnotes.

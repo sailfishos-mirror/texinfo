@@ -2245,6 +2245,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         STORE("current_node",
            newRV_inc ((SV *) converter->current_node->hv));
     }
+
   if (flags & HMSF_current_output_unit)
     {
       if (!converter->current_output_unit)
@@ -2253,13 +2254,21 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         STORE("current_output_unit",
            newRV_inc ((SV *) converter->current_output_unit->hv));
     }
+
+  /* for scalars corresponding to value that can be found in get_info
+     the value associated to the key in the 'converter_info' hash is
+     a reference to the value in the converter, such as
+     \$converter->{"current_filename"}.
+     *current_filename_sv corresponds to $converter->{"current_filename"},
+     the value should be changed, but the SV should not be replaced */
   if (flags & HMSF_current_filename)
     {
-      if (!converter->current_filename)
-        STORE("current_filename", newSV (0));
-      else
-        STORE("current_filename",
-          newSVpv_utf8 (converter->current_filename, 0));
+      SV **current_filename_sv;
+      current_filename_sv = hv_fetch (hv, "current_filename",
+                                      strlen ("current_filename"), 1);
+      sv_setpv (*current_filename_sv, converter->current_filename);
+      if (converter->current_filename)
+        SvUTF8_on (*current_filename_sv);
     }
 
   if (flags & HMSF_document_context)
