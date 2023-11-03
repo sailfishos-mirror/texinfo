@@ -7980,7 +7980,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($$$$$$$$)
+sub _XS_converter_initialize($$$$$$$$$$)
 {
 }
 
@@ -8437,8 +8437,10 @@ sub converter_initialize($)
                              \%default_css_string_formatting_references,
                              \%default_commands_open,
                              \%default_commands_conversion,
+                             \%default_css_string_commands_conversion,
                              \%default_types_open,
                              \%default_types_conversion,
+                             \%default_css_string_types_conversion,
                              \%default_output_units_conversion);
   }
 

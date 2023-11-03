@@ -2042,9 +2042,13 @@ command_conversion (CONVERTER *self, enum command_id cmd,
     fprintf (stderr, "DEBUG: command conversion %s '%s'\n",
              builtin_command_data[cmd].cmdname, content);
    */
-  if (self->commands_conversion[cmd].status > 0)
-    return call_commands_conversion (self, cmd, element,
-                                     args_formatted, content);
+
+  FORMATTING_REFERENCE *formatting_reference
+    = &self->current_commands_conversion[cmd];
+
+  if (formatting_reference->status > 0)
+    return call_commands_conversion (self, cmd, formatting_reference,
+                                     element, args_formatted, content);
   return 0;
 }
 
@@ -2064,8 +2068,13 @@ type_conversion (CONVERTER *self, enum element_type type,
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
-  if (self->types_conversion[type].status > 0)
-    return call_types_conversion (self, type, element, content);
+
+  FORMATTING_REFERENCE *formatting_reference
+    = &self->current_types_conversion[type];
+
+  if (formatting_reference->status > 0)
+    return call_types_conversion (self, type, formatting_reference,
+                                  element, content);
   return 0;
 }
 
@@ -2290,6 +2299,10 @@ html_initialize_output_state (CONVERTER *self)
         = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
       memset (self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
     }
+
+  self->current_formatting_references = &self->formatting_references[0];
+  self->current_commands_conversion = &self->commands_conversion[0];
+  self->current_types_conversion = &self->types_conversion[0];
 }
 
 char *
@@ -2360,6 +2373,42 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
   return result;
 }
 
+char *
+html_convert_css_string (CONVERTER *self, ELEMENT *element, char *explanation)
+{
+  char *result;
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+
+  FORMATTING_REFERENCE *saved_formatting_references
+     = self->current_formatting_references;
+  FORMATTING_REFERENCE *saved_commands_conversion
+     = self->current_commands_conversion;
+  FORMATTING_REFERENCE *saved_types_conversion
+     = self->current_types_conversion;
+
+  self->current_formatting_references
+    = &self->css_string_formatting_references[0];
+  self->current_commands_conversion
+    = &self->css_string_commands_conversion[0];
+  self->current_types_conversion
+    = &self->css_string_types_conversion[0];
+
+  html_new_document_context (self, "css_string", 0, 0);
+  top_document_ctx = top_document_context (self);
+  self->modified_state |= HMSF_document_context;
+  top_document_ctx->string_ctx++;
+
+  result = html_convert_tree (self, element, explanation);
+
+  html_pop_document_context (self);
+  self->modified_state |= HMSF_document_context;
+
+  self->current_formatting_references = saved_formatting_references;
+  self->current_commands_conversion = saved_commands_conversion;
+  self->current_types_conversion = saved_types_conversion;
+
+  return result;
+}
 
 static void
 reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
@@ -2484,10 +2533,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         }
       else if (reset_context == HCC_type_css_string)
         {
-           /*
-          fprintf (stderr, "TODO ccs_string %s\n", builtin_command_data[cmd].cmdname);
-          translation_result = html_convert_css_string (self, translated_tree);
-            */
+          translation_result = html_convert_css_string (self, translated_tree,
+                                                        0);
         }
       if (no_arg_command_context->text)
         free (no_arg_command_context->text);
@@ -3101,8 +3148,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                       if (arg_flags & F_AFT_url)
                         {
                           char *text;
-              /* set the encoding to UTF-8 to always have a string that is suitable
-                 for percent encoding. */
+           /* set the encoding to UTF-8 to always have a string that is suitable
+              for percent encoding. */
                           TEXT_OPTIONS *text_conv_options
                             = copy_options_for_convert_text (self, 1);
                           text_conv_options->code_state = 1;

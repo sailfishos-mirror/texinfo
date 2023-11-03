@@ -46,10 +46,12 @@ char *call_formatting_function_format_begin_file (CONVERTER *self,
                                               OUTPUT_UNIT *output_unit);
 
 char *call_types_conversion (CONVERTER *self, enum element_type type,
-                             ELEMENT *element, char *content);
+                       FORMATTING_REFERENCE *formatting_reference,
+                       ELEMENT *element, char *content);
 char *call_types_open (CONVERTER *self, enum element_type type,
                        ELEMENT *element);
 char *call_commands_conversion (CONVERTER *self, enum command_id cmd,
+                          FORMATTING_REFERENCE *formatting_reference,
                           ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
                           const char *content);
 char *call_commands_open (CONVERTER *self, enum command_id cmd,

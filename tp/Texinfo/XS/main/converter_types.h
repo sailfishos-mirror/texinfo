@@ -418,13 +418,15 @@ typedef struct CONVERTER {
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
     FORMATTING_REFERENCE
-           formatting_references[FR_format_translate_message_string+1];
+       formatting_references[FR_format_translate_message_string+1];
     FORMATTING_REFERENCE
-           css_string_formatting_references[CSSFR_format_protect_text+1];
+       css_string_formatting_references[FR_format_translate_message_string+1];
     FORMATTING_REFERENCE commands_open[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
+    FORMATTING_REFERENCE css_string_commands_conversion[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
+    FORMATTING_REFERENCE css_string_types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
 
     /* state only in C converter */
@@ -441,6 +443,11 @@ typedef struct CONVERTER {
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
+    /* next three allow to switch from normal HTML formatting to css strings
+       formatting */
+    FORMATTING_REFERENCE *current_formatting_references;
+    FORMATTING_REFERENCE *current_commands_conversion;
+    FORMATTING_REFERENCE *current_types_conversion;
 
     /* state common with perl converter */
     int document_global_context;

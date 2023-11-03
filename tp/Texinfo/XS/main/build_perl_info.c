@@ -1921,7 +1921,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
     {
-      int max_context = HCC_type_css_string;
+      int max_context = HCC_type_css_string +1;
       int j;
       HV *no_arg_commands_formatting_hv;
       FETCH(no_arg_commands_formatting);

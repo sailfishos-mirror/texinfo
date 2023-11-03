@@ -488,14 +488,14 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  formatting_reference
+  formatting_reference_sv
     = self->formatting_references[FR_format_title_titlepage].sv_reference;
 
   if (self->modified_state)
@@ -515,7 +515,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -544,14 +544,14 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  formatting_reference
+  formatting_reference_sv
     = self->formatting_references[FR_format_footnotes_segment].sv_reference;
 
   if (self->modified_state)
@@ -571,7 +571,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -601,7 +601,7 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
   SV *output_unit_sv;
 
   dTHX;
@@ -609,7 +609,7 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
   if (!self->hv)
     return 0;
 
-  formatting_reference
+  formatting_reference_sv
     = self->formatting_references[FR_format_end_file].sv_reference;
 
   if (self->modified_state)
@@ -636,7 +636,7 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
   PUSHs(sv_2mortal (output_unit_sv));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -666,7 +666,7 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
   SV *output_unit_sv;
 
   dTHX;
@@ -674,7 +674,7 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
   if (!self->hv)
     return 0;
 
-  formatting_reference
+  formatting_reference_sv
     = self->formatting_references[FR_format_begin_file].sv_reference;
 
   if (self->modified_state)
@@ -701,7 +701,7 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
   PUSHs(sv_2mortal (output_unit_sv));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -724,6 +724,7 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
 
 char *
 call_types_conversion (CONVERTER *self, enum element_type type,
+                       FORMATTING_REFERENCE *formatting_reference,
                        ELEMENT *element, char *content)
 {
   int count;
@@ -731,7 +732,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
 
   dTHX;
 
@@ -744,7 +745,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
       self->tree_to_build = 0;
     }
 
-  formatting_reference = self->types_conversion[type].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -768,7 +769,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -800,7 +801,7 @@ call_types_open (CONVERTER *self, enum element_type type,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
 
   dTHX;
 
@@ -813,7 +814,7 @@ call_types_open (CONVERTER *self, enum element_type type,
   if (!self->hv)
     return 0;
 
-  formatting_reference = self->types_open[type].sv_reference;
+  formatting_reference_sv = self->types_open[type].sv_reference;
 
   if (self->modified_state)
     {
@@ -834,7 +835,7 @@ call_types_open (CONVERTER *self, enum element_type type,
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -859,6 +860,7 @@ call_types_open (CONVERTER *self, enum element_type type,
 
 char *
 call_commands_conversion (CONVERTER *self, enum command_id cmd,
+                          FORMATTING_REFERENCE *formatting_reference,
                           ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
                           const char *content)
 {
@@ -867,7 +869,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
   SV *args_formatted_sv;
   char *command_name;
 
@@ -885,7 +887,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
   /* could also be builtin_command_data[cmd].cmdname) */
   command_name = element_command_name (element);
 
-  formatting_reference = self->commands_conversion[cmd].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -912,7 +914,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -944,7 +946,7 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
   char *command_name;
 
   dTHX;
@@ -958,7 +960,7 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
       self->tree_to_build = 0;
     }
 
-  formatting_reference = self->commands_open[cmd].sv_reference;
+  formatting_reference_sv = self->commands_open[cmd].sv_reference;
 
   /* could also be builtin_command_data[cmd].cmdname) */
   command_name = element_command_name (element);
@@ -982,7 +984,7 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;
@@ -1015,7 +1017,7 @@ call_output_units_conversion (CONVERTER *self,
   char *result_ret;
   STRLEN len;
   SV *result_sv;
-  SV *formatting_reference;
+  SV *formatting_reference_sv;
 
   dTHX;
 
@@ -1028,7 +1030,7 @@ call_output_units_conversion (CONVERTER *self,
       self->tree_to_build = 0;
     }
 
-  formatting_reference
+  formatting_reference_sv
      = self->output_units_conversion[unit_type].sv_reference;
 
   if (self->modified_state)
@@ -1053,7 +1055,7 @@ call_output_units_conversion (CONVERTER *self,
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 
-  count = call_sv (formatting_reference,
+  count = call_sv (formatting_reference_sv,
                    G_SCALAR);
 
   SPAGAIN;

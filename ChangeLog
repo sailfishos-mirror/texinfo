@@ -1,3 +1,31 @@
+2023-11-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(register_formatting_reference_default)
+	(register_formatting_reference_with_default)
+	(html_converter_initialize_sv): pass css strings commands and types
+	conversion to C. To setup css strings formatting references, copy the
+	formatting references and replace with specific css functions
+	references. Do that for formatting functions, commands and types
+	conversion.
+
+	* tp/Texinfo/XS/convert/convert_html.c (command_conversion)
+	(type_conversion, html_initialize_output_state),
+	tp/Texinfo/XS/main/call_perl_function.c (call_types_conversion)
+	(call_commands_conversion), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add current_formatting_references,
+	current_commands_conversion and current_types_conversion in converter
+	to be able to change formatting functions references lists as a whole.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_convert_css_string)
+	(reset_unset_no_arg_commands_formatting_context),
+	tp/Texinfo/XS/main/build_perl_info.c (build_html_translated_names):
+	implement css string conversion and pass translated css strings no arg
+	commands back to perl.
+
 2023-11-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac, js/info.js, util/texi2dvi, util/texi2pdf:

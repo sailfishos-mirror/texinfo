@@ -411,6 +411,32 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
+static SV **
+register_formatting_reference_default (char *type_string,
+                FORMATTING_REFERENCE *formatting_reference,
+                const char *ref_name, HV *default_hv)
+{
+  SV **default_formatting_reference_sv;
+
+  dTHX;
+
+  default_formatting_reference_sv
+   = hv_fetch (default_hv, ref_name, strlen (ref_name), 0);
+
+  if (default_formatting_reference_sv)
+    {
+      if (SvOK (*default_formatting_reference_sv))
+        {
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          /* will be replaced by customization if there are not only defaults */
+          formatting_reference->sv_reference = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
+        }
+      else
+        formatting_reference->status = FRS_status_ignored;
+    }
+  return default_formatting_reference_sv;
+}
 
 static void
 register_formatting_reference_with_default (char *type_string,
@@ -422,20 +448,11 @@ register_formatting_reference_with_default (char *type_string,
 
   dTHX;
 
-  default_formatting_reference_sv
-   = hv_fetch (default_hv, ref_name, strlen (ref_name), 0);
+  default_formatting_reference_sv = register_formatting_reference_default(
+                 type_string, formatting_reference, ref_name, default_hv);
+
   formatting_reference_sv
     = hv_fetch (customized_hv, ref_name, strlen (ref_name), 0);
-  if (default_formatting_reference_sv)
-    {
-      if (SvOK (*default_formatting_reference_sv))
-        {
-          formatting_reference->sv_default = *default_formatting_reference_sv;
-          formatting_reference->status = FRS_status_default_set;
-        }
-      else
-        formatting_reference->status = FRS_status_ignored;
-    }
   if (formatting_reference_sv)
     {
       if SvOK (*formatting_reference_sv)
@@ -460,8 +477,10 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                               SV *default_css_string_formatting_references,
                               SV *default_commands_open,
                               SV *default_commands_conversion,
+                              SV *default_css_string_commands_conversion,
                               SV *default_types_open,
                               SV *default_types_conversion,
+                              SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion)
 {
   int i;
@@ -470,8 +489,10 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   HV *default_css_string_formatting_references_hv;
   HV *default_commands_open_hv;
   HV *default_commands_conversion_hv;
+  HV *default_css_string_commands_conversion_hv;
   HV *default_types_open_hv;
   HV *default_types_conversion_hv;
+  HV *default_css_string_types_conversion_hv;
   HV *default_output_units_conversion_hv;
   SV **converter_init_conf_sv;
   SV **converter_sv;
@@ -543,7 +564,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                     strlen (ref_name), 0);
       SV **formatting_reference_sv
         = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
-      /* no check, all should exist */
+      /* no check for existence, all should exist */
       if (SvOK (*default_formatting_reference_sv))
         {
           formatting_reference->sv_default = *default_formatting_reference_sv;
@@ -563,11 +584,16 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         fprintf (stderr, "BUG: formatting reference %s not found\n",
                          ref_name);
     }
-  for (i = 0; i < CSSFR_format_protect_text+1; i++)
+
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_formatting_references,
+          &converter->formatting_references,
+      (FR_format_translate_message_string+1) * sizeof (FORMATTING_REFERENCE));
+
+  for (i = 0; i < FR_format_translate_message_string+1; i++)
     {
-      char *ref_name = html_css_string_formatting_reference_names[i];
-      FORMATTING_REFERENCE *formatting_reference
-        = &converter->css_string_formatting_references[i];
+      char *ref_name = html_formatting_reference_names[i];
       SV **default_formatting_reference_sv
         = hv_fetch (default_css_string_formatting_references_hv, ref_name,
                     strlen (ref_name), 0);
@@ -576,14 +602,13 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
       if (default_formatting_reference_sv
           && SvOK (*default_formatting_reference_sv))
         {
+          FORMATTING_REFERENCE *formatting_reference
+            = &converter->css_string_formatting_references[i];
           formatting_reference->sv_default = *default_formatting_reference_sv;
           formatting_reference->sv_reference = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
         }
-      else
-        fprintf (stderr, "BUG: css formatting reference %s not found\n",
-                         ref_name);
     }
-
 
   FETCH(commands_open)
   commands_open_hv = (HV *)SvRV (*commands_open_sv);
@@ -612,6 +637,30 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         conversion_formatting_reference, ref_name,
         default_commands_conversion_hv,
         commands_conversion_hv);
+    }
+
+  default_css_string_commands_conversion_hv
+    = (HV *)SvRV (default_css_string_commands_conversion);
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_commands_conversion,
+          &converter->commands_conversion,
+      (BUILTIN_CMD_NUMBER) * sizeof (FORMATTING_REFERENCE));
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = builtin_command_data[i].cmdname;
+
+     FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->css_string_commands_conversion[i];
+
+     register_formatting_reference_default ("css_command_conversion",
+        conversion_formatting_reference, ref_name,
+        default_css_string_commands_conversion_hv);
     }
 
 
@@ -643,6 +692,29 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
         default_types_conversion_hv,
         types_conversion_hv);
     }
+
+  default_css_string_types_conversion_hv
+     = (HV *)SvRV (default_css_string_types_conversion);
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_types_conversion,
+          &converter->types_conversion,
+      (ET_special_unit_element+1) * sizeof (FORMATTING_REFERENCE));
+  for (i = 0; i < ET_special_unit_element+1; i++)
+    {
+      char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = element_type_names[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->css_string_types_conversion[i];
+
+      register_formatting_reference_default ("css_type_conversion",
+        conversion_formatting_reference, ref_name,
+        default_css_string_types_conversion_hv);
+    }
+
 
   FETCH(output_units_conversion)
   output_units_conversion_hv = (HV *)SvRV (*output_units_conversion_sv);
