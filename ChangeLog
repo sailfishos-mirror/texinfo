@@ -1,5 +1,11 @@
 2023-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Structuring.pm (import),
+	* tp/Texinfo/Transformations.pm (import):
+	List overrided perl subroutines in a hash for more concise code.
+
+2023-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (import): List overrided perl subroutines
 	in a hash for more concise code.
 

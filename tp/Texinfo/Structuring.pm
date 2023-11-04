@@ -82,71 +82,53 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1dev';
 
+our %XS_overrides = (
+  "Texinfo::Structuring::rebuild_document"
+    => "Texinfo::StructTransf::rebuild_document",
+  "Texinfo::Structuring::rebuild_tree"
+    => "Texinfo::StructTransf::rebuild_tree",
+  "Texinfo::Structuring::clear_document_errors"
+    => "Texinfo::StructTransf::clear_document_errors",
+  "Texinfo::Structuring::associate_internal_references"
+    => "Texinfo::StructTransf::associate_internal_references",
+  "Texinfo::Structuring::sectioning_structure"
+    => "Texinfo::StructTransf::sectioning_structure",
+  "Texinfo::Structuring::warn_non_empty_parts"
+    => "Texinfo::StructTransf::warn_non_empty_parts",
+  "Texinfo::Structuring::nodes_tree"
+    => "Texinfo::StructTransf::nodes_tree",
+  "Texinfo::Structuring::set_menus_node_directions"
+    => "Texinfo::StructTransf::set_menus_node_directions",
+  "Texinfo::Structuring::complete_node_tree_with_menus"
+    => "Texinfo::StructTransf::complete_node_tree_with_menus",
+  "Texinfo::Structuring::check_nodes_are_referenced"
+    => "Texinfo::StructTransf::check_nodes_are_referenced",
+  "Texinfo::Structuring::number_floats"
+    => "Texinfo::StructTransf::number_floats",
+  "Texinfo::Structuring::rebuild_output_units"
+    => "Texinfo::StructTransf::rebuild_output_units",
+  "Texinfo::Structuring::_XS_unsplit"
+    => "Texinfo::StructTransf::unsplit",
+
+  # Not useful for HTML as functions, as the calling functions are
+  # already overriden
+  # Could be readded when other converters than HTML are done in C
+  #  "Texinfo::Structuring::split_by_node"
+  #    => "Texinfo::StructTransf::split_by_node");
+  #  "Texinfo::Structuring::split_by_section"
+  #    => "Texinfo::StructTransf::split_by_section");
+  #  "Texinfo::Structuring::split_pages"
+  #    => "Texinfo::StructTransf::split_pages"
+);
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} ne '0') {
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::rebuild_document",
-        "Texinfo::StructTransf::rebuild_document");
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::rebuild_tree",
-        "Texinfo::StructTransf::rebuild_tree");
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::clear_document_errors",
-        "Texinfo::StructTransf::clear_document_errors");
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::associate_internal_references",
-        "Texinfo::StructTransf::associate_internal_references"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::sectioning_structure",
-        "Texinfo::StructTransf::sectioning_structure"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::warn_non_empty_parts",
-        "Texinfo::StructTransf::warn_non_empty_parts"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::nodes_tree",
-        "Texinfo::StructTransf::nodes_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::set_menus_node_directions",
-        "Texinfo::StructTransf::set_menus_node_directions"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::complete_node_tree_with_menus",
-        "Texinfo::StructTransf::complete_node_tree_with_menus"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::check_nodes_are_referenced",
-        "Texinfo::StructTransf::check_nodes_are_referenced"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::number_floats",
-        "Texinfo::StructTransf::number_floats"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::rebuild_output_units",
-        "Texinfo::StructTransf::rebuild_output_units");
-      Texinfo::XSLoader::override(
-        "Texinfo::Structuring::_XS_unsplit",
-        "Texinfo::StructTransf::unsplit");
-      # Not useful for HTML as functions, as the calling functions are
-      # already overriden
-      # Could be readded when other converters than HTML are done in C
-      #Texinfo::XSLoader::override(
-      #  "Texinfo::Structuring::split_by_node",
-      #  "Texinfo::StructTransf::split_by_node");
-      #Texinfo::XSLoader::override(
-      #  "Texinfo::Structuring::split_by_section",
-      #  "Texinfo::StructTransf::split_by_section");
-      #Texinfo::XSLoader::override(
-      #  "Texinfo::Structuring::split_pages",
-      #  "Texinfo::StructTransf::split_pages"
-      #);
+      for my $sub (keys %XS_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      }
     }
     $module_loaded = 1;
   }

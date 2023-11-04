@@ -98,8 +98,7 @@ our %XS_overrides = (
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!defined $ENV{TEXINFO_XS_PARSER}
-        or $ENV{TEXINFO_XS_PARSER} eq '1') {
+    if (!defined $ENV{TEXINFO_XS_PARSER} or $ENV{TEXINFO_XS_PARSER} eq '1') {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }
