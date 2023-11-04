@@ -1,3 +1,10 @@
+2023-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/scan.c (write_tag_contents): Check if added text is of
+	zero length in order to avoid subsequently calling memcpy with
+	a null source argument.  Report with -fsanitize=undefined on amd64
+	from Sam James <sam@gentoo.org>.
+
 2023-10-25  Eli Zaretskii <eliz@gnu.org>
 
 	* tp/Texinfo/XS/xspara.c (xspara__add_next): Do not pass
