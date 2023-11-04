@@ -78,37 +78,31 @@ __ __p
 
 $VERSION = '7.1dev';
 
+our %XS_overrides = (
+  "Texinfo::Common::set_document_options"
+    => "Texinfo::StructTransf::set_document_options",
+  "Texinfo::Common::copy_tree"
+    => "Texinfo::StructTransf::copy_tree",
+  "Texinfo::Common::relate_index_entries_to_table_items_in_tree"
+    => "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree",
+  "Texinfo::Common::move_index_entries_after_items_in_tree"
+    => "Texinfo::StructTransf::move_index_entries_after_items_in_tree",
+  "Texinfo::Common::protect_colon_in_tree"
+    => "Texinfo::StructTransf::protect_colon_in_tree",
+  "Texinfo::Common::protect_comma_in_tree"
+    => "Texinfo::StructTransf::protect_comma_in_tree",
+  "Texinfo::Common::protect_node_after_label_in_tree"
+    => "Texinfo::StructTransf::protect_node_after_label_in_tree"
+);
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if (!defined $ENV{TEXINFO_XS_PARSER}
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::set_document_options",
-        "Texinfo::StructTransf::set_document_options");
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::copy_tree",
-        "Texinfo::StructTransf::copy_tree");
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::relate_index_entries_to_table_items_in_tree",
-        "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::move_index_entries_after_items_in_tree",
-        "Texinfo::StructTransf::move_index_entries_after_items_in_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::protect_colon_in_tree",
-        "Texinfo::StructTransf::protect_colon_in_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::protect_comma_in_tree",
-        "Texinfo::StructTransf::protect_comma_in_tree"
-      );
-      Texinfo::XSLoader::override(
-        "Texinfo::Common::protect_node_after_label_in_tree",
-        "Texinfo::StructTransf::protect_node_after_label_in_tree"
-      );
+      for my $sub (keys %XS_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      }
     }
     $module_loaded = 1;
   }
