@@ -44,7 +44,6 @@ extern char *html_conversion_context_type_names[];
 extern char *html_global_unit_direction_names[];
 
 extern char *html_formatting_reference_names[];
-extern char *html_css_string_formatting_reference_names[];
 
 typedef struct {
     char *encoding_name;

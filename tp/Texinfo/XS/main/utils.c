@@ -86,12 +86,6 @@ char *html_formatting_reference_names[] = {
   #undef html_fr_reference
 };
 
-char *html_css_string_formatting_reference_names[] = {
-  #define html_fr_reference(name) #name,
-   HTML_CSS_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
-};
-
 const char *html_argument_formatting_type_names[] = {
    #define html_aft_type(name) #name,
     HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE

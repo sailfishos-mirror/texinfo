@@ -322,8 +322,8 @@ sub replace_substrings($$;$)
   my $translation_result = $translated_string;
 
   if (defined($replaced_substrings) and ref($replaced_substrings)) {
-      my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
-      # next line taken from libintl perl, copyright Guido. sub __expand
+    my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
+    # next line taken from libintl perl, copyright Guido. sub __expand
     $translation_result
   =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
   }
@@ -391,6 +391,10 @@ sub replace_convert_substrings($$;$)
     }
   }
   $tree = _substitute($tree, $replaced_substrings);
+  if ($customization_information->get_conf('DEBUG')) {
+    print STDERR "RESULT GDT: '".
+       Texinfo::Convert::Texinfo::convert_to_texinfo($tree)."'\n";
+  }
   return $tree;
 }
 

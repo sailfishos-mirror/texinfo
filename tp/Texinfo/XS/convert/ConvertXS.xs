@@ -35,7 +35,9 @@
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
+#include "builtin_commands.h"
 #include "indices_in_conversion.h"
+#include "command_stack.h"
 #include "convert_html.h"
 #include "document.h"
 
@@ -105,13 +107,108 @@ void set_conf(SV *converter_in, conf, SV *value)
            set_conf (self, conf, value);
 
 void
-html_initialize_output_state (SV *converter_in)
+html_initialize_output_state (SV *converter_in, char *context)
       PREINIT:
          CONVERTER *self;
       CODE:
          self = get_sv_converter (converter_in, "html_initialize_output_state");
          if (self)
-           html_initialize_output_state (self);
+           html_initialize_output_state (self, context);
+
+void
+html_finalize_output_state (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, "html_finalize_output_state");
+         if (self)
+           {
+             html_finalize_output_state (self);
+
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+           }
+
+void
+html_new_document_context (SV *converter_in, char *context_name, ...)
+      PROTOTYPE: $$;$$
+      PREINIT:
+         CONVERTER *self;
+         char *document_global_context = 0;
+         char *block_command_name = 0;
+         enum command_id block_command = 0;
+      CODE:
+         self = get_sv_converter (converter_in, "html_new_document_context");
+         if (items > 2 && SvOK(ST(2)))
+           document_global_context = SvPVutf8_nolen (ST(2));
+         if (items > 3 && SvOK(ST(3)))
+           block_command_name = SvPVutf8_nolen (ST(3));
+         if (block_command_name)
+           block_command = lookup_builtin_command (block_command_name);
+
+         if (self)
+           {
+             HV *document_context_hv;
+             HTML_DOCUMENT_CONTEXT *document_context;
+             HV *converter_hv = (HV *) SvRV (converter_in); 
+             SV **document_context_sv = hv_fetch (converter_hv,
+                   "document_context", strlen("document_context"), 0);
+             AV *document_context_av = (AV *) SvRV (*document_context_sv);
+             /* should not be needed as we are calling from perl 
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+              */
+             html_new_document_context (self, context_name,
+                                        document_global_context, block_command);
+             /* reset to ignore the HMSF_formatting_context flag just set */
+             self->modified_state = 0;
+             document_context = html_top_document_context (self);
+             document_context_hv = build_html_document_context
+                                                      (document_context);
+             av_push (document_context_av,
+                      newRV_noinc ((SV *) document_context_hv));
+             self->document_context_change--;
+             hv_store (converter_hv, "document_global_context",
+                       strlen ("document_global_context"),
+                       newSViv (self->document_global_context), 0);
+           }
+
+
+void
+html_pop_document_context (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, "html_new_document_context");
+         if (self)
+           {
+             HV *converter_hv = (HV *) SvRV (converter_in); 
+             SV **document_context_sv = hv_fetch (converter_hv,
+                   "document_context", strlen("document_context"), 0);
+             AV *document_context_av = (AV *) SvRV (*document_context_sv);
+             /* should not be needed as we are calling from perl 
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+              */
+             html_pop_document_context (self);
+             av_pop (document_context_av);
+             hv_store (converter_hv, "document_global_context",
+                       strlen ("document_global_context"),
+                       newSViv (self->document_global_context), 0);
+             /* reset to ignore the HMSF_formatting_context flag just set */
+             self->modified_state = 0;
+             self->document_context_change++;
+           }
+
 
 # unfinished, see sort_indices_by_letter comment
 void
@@ -156,9 +253,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *special_targets_sv;
          SV *seen_ids_sv;
       PPCODE:
-         if (items > 1)
-           if (SvOK(ST(1)))
-             document_name = SvPVbyte_nolen (ST(1));
+         if (items > 1 && SvOK(ST(1)))
+           document_name = SvPVbyte_nolen (ST(1));
 
          /* add warn string? */
          self = set_output_converter_sv (converter_in, 0);

@@ -72,6 +72,7 @@ CMD_VARIETY command_special_unit_variety[] = {
 #define F_AFT_url               0x0080
 #define F_AFT_raw               0x0100
 
+/* HTML command data flags */
 #define HF_composition_context  0x0001
 #define HF_format_context       0x0002
 #define HF_format_raw           0x0004
@@ -306,6 +307,58 @@ find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
   return 0;
 }
 
+ELEMENT *
+html_gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
+               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               const char *translation_context,
+               const char *in_lang)
+{
+  return gdt_tree (string, document, options, replaced_substrings,
+                   translation_context, in_lang);
+}
+
+
+char *
+html_gdt_string (const char *string, CONVERTER *self,
+                 NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                 const char *translation_context, const char *in_lang)
+{
+  FORMATTING_REFERENCE *formatting_reference
+    = &self->formatting_references[FR_format_translate_message_string];
+
+  /* there is no place where FRS_status_ignore could be set, but
+     it does not hurt to consider it possible */
+  if (formatting_reference->status
+      && formatting_reference->status != FRS_status_ignored
+      && formatting_reference->sv_reference)
+    {
+      const char *lang = in_lang;
+      char *translated_string;
+
+      if (!lang && self->conf->documentlanguage)
+        lang = self->conf->documentlanguage;
+
+      translated_string
+       = call_formatting_function_format_translate_message_string(
+          self, string, lang, replaced_substrings, translation_context);
+
+      if (translated_string)
+        return translated_string;
+    }
+
+  return gdt_string (string, self->conf, replaced_substrings,
+                     translation_context, in_lang);
+}
+
+ELEMENT *
+html_pgdt_tree (const char *translation_context, const char *string,
+                DOCUMENT *document, OPTIONS *options,
+                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                const char *in_lang)
+{
+  return html_gdt_tree (string, document, options, replaced_substrings,
+                        translation_context, in_lang);
+}
 
 
 ELEMENT *
@@ -332,8 +385,8 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
           xasprintf (&translation_context, "%s section heading",
                      special_unit_variety);
           self->special_unit_info_tree[type][i]
-            = pgdt_tree (translation_context, special_unit_info_string,
-                         self->document, self->conf, 0, 0);
+            = html_pgdt_tree (translation_context, special_unit_info_string,
+                              self->document, self->conf, 0, 0);
           free (translation_context);
           return self->special_unit_info_tree[type][i];
         }
@@ -2130,12 +2183,17 @@ pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
   stack->top--;
 }
 
-static void
+void
 html_new_document_context (CONVERTER *self,
         char *context_name, char *document_global_context,
         enum command_id block_command)
 {
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+  HTML_DOCUMENT_CONTEXT *doc_context;
+
+  self->modified_state |= HMSF_document_context;
+  self->document_context_change++;
+
   if (stack->top >= stack->space)
     {
       stack->stack
@@ -2143,15 +2201,15 @@ html_new_document_context (CONVERTER *self,
                    (stack->space += 5) * sizeof (HTML_DOCUMENT_CONTEXT));
     }
 
-  memset (&stack->stack[stack->top], 0, sizeof (HTML_DOCUMENT_CONTEXT));
-  stack->stack[stack->top].context = strdup (context_name);
-  stack->stack[stack->top].document_global_context = document_global_context;
+  doc_context = &stack->stack[stack->top];
+  memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
+  doc_context->context = strdup (context_name);
+  doc_context->document_global_context = document_global_context;
 
-  push_style_no_code (&stack->stack[stack->top].monospace);
-  push_command_or_type (&stack->stack[stack->top].composition_context,
-                        0, 0);
+  push_style_no_code (&doc_context->monospace);
+  push_command_or_type (&doc_context->composition_context, 0, 0);
   if (block_command)
-    push_command (&stack->stack[stack->top].block_commands, block_command);
+    push_command (&doc_context->block_commands, block_command);
 
   if (document_global_context)
     {
@@ -2159,13 +2217,13 @@ html_new_document_context (CONVERTER *self,
       self->modified_state |= HMSF_converter_state;
     }
 
-  push_html_formatting_context (&stack->stack[stack->top].formatting_context,
-                                context_name);
+  push_html_formatting_context (&doc_context->formatting_context,
+                                "_format");
 
   stack->top++;
 }
 
-static void
+void
 html_pop_document_context (CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
@@ -2173,6 +2231,13 @@ html_pop_document_context (CONVERTER *self)
 
   if (stack->top == 0)
     fatal ("HTML document context stack empty for pop");
+
+  self->modified_state |= HMSF_document_context;
+  self->document_context_change--;
+  /* set document_contexts_to_pop to the lowest level below last sync with
+     perl reached */
+  if (-self->document_context_change > self->document_contexts_to_pop)
+    self->document_contexts_to_pop = -self->document_context_change;
 
   document_ctx = &stack->stack[stack->top -1];
 
@@ -2269,9 +2334,6 @@ html_converter_initialize (CONVERTER *self)
 
   html_commands_data[CM_sc].flags |= HF_upper_case;
 
-  /* FIXME need to call html_pop_document_context to free memory */
-  html_new_document_context (self, "_toplevel_context", 0, 0);
-
   /* initialization needing some information from perl */
 
   nr_special_units = self->special_unit_varieties->number;
@@ -2306,7 +2368,7 @@ html_converter_initialize (CONVERTER *self)
 }
 
 void
-html_initialize_output_state (CONVERTER *self)
+html_initialize_output_state (CONVERTER *self, char *context)
 {
   int i;
   /* targets and directions */
@@ -2327,6 +2389,17 @@ html_initialize_output_state (CONVERTER *self)
   self->current_formatting_references = &self->formatting_references[0];
   self->current_commands_conversion = &self->commands_conversion[0];
   self->current_types_conversion = &self->types_conversion[0];
+
+  /* FIXME now done through HTML _initialize_output_state, would need
+     to readd when the HTML function is overriden
+  html_new_document_context (self, context, 0, 0);
+   */
+}
+
+void
+html_finalize_output_state (CONVERTER *self)
+{
+  html_pop_document_context (self);
 }
 
 char *
@@ -2360,7 +2433,6 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
       html_new_document_context (self, context_string,
                                  document_global_context, block_cmd);
       text_printf (&context_string_str, "C(%s)", context_string);
-      self->modified_state |= HMSF_document_context;
     }
 
   if (multiple_pass)
@@ -2384,7 +2456,6 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
   if (context_string)
     {
       html_pop_document_context (self);
-      self->modified_state |= HMSF_document_context;
     }
 
   if (multiple_pass)
@@ -2418,14 +2489,12 @@ html_convert_css_string (CONVERTER *self, ELEMENT *element, char *explanation)
     = &self->css_string_types_conversion[0];
 
   html_new_document_context (self, "css_string", 0, 0);
-  top_document_ctx = top_document_context (self);
-  self->modified_state |= HMSF_document_context;
+  top_document_ctx = html_top_document_context (self);
   top_document_ctx->string_ctx++;
 
   result = html_convert_tree (self, element, explanation);
 
   html_pop_document_context (self);
-  self->modified_state |= HMSF_document_context;
 
   self->current_formatting_references = saved_formatting_references;
   self->current_commands_conversion = saved_commands_conversion;
@@ -2476,8 +2545,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                 = strdup (no_arg_ref->translated_converted);
             }
           if (no_arg_ref->translated_to_convert)
-            no_arg_command_context->translated_to_convert
-              = no_arg_ref->translated_to_convert;
+            {
+              no_arg_command_context->translated_to_convert
+                = no_arg_ref->translated_to_convert;
+            }
         }
     }
 
@@ -2486,35 +2557,32 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       && !no_arg_command_context->translated_converted)
     {
       char *translation_result = 0;
+      char *explanation;
+      char *context;
       ELEMENT *translated_tree = no_arg_command_context->tree;
       if (!translated_tree->hv)
         {/* FIXME Should be done differently if it is possible
            it be possible to recursively call html_translate_names. */
           self->tree_to_build = translated_tree;
         }
+      xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
+                 builtin_command_data[cmd].cmdname,
+                 html_conversion_context_type_names[reset_context]);
+      xasprintf (&context, "Tr %s ctx %s",
+                 builtin_command_data[cmd].cmdname,
+                 html_conversion_context_type_names[reset_context]);
       if (reset_context == HCC_type_normal)
         {
-          char *explanation;
-          xasprintf (&explanation, "no arg %s translated for",
-                     builtin_command_data[cmd].cmdname,
-                     html_conversion_context_type_names[reset_context]);
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
-          free (explanation);
         }
       else if (reset_context == HCC_type_preformatted)
         {
-          char *context_name;
           enum command_id preformated_cmd = CM_example;
           HTML_DOCUMENT_CONTEXT *top_document_ctx;
-          char *explanation;
-          xasprintf (&context_name, "Translate %s for %s",
-                     builtin_command_data[cmd].cmdname,
-                     html_conversion_context_type_names[reset_context]);
-          html_new_document_context (self, context_name, 0, 0);
-          free (context_name);
+          html_new_document_context (self, context, 0, 0);
 
-          top_document_ctx = top_document_context (self);
+          top_document_ctx = html_top_document_context (self);
 
           /* there does not seems to be anything simpler... */
           push_command_or_type (&top_document_ctx->composition_context,
@@ -2522,44 +2590,33 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       /* should not be needed for at commands no brace translation strings */
           push_string_stack_string (&top_document_ctx->preformatted_classes,
                               html_commands_data[preformated_cmd].pre_class);
-          self->modified_state |= HMSF_document_context;
 
-          xasprintf (&explanation, "no arg %s translated for %s",
-                     builtin_command_data[cmd].cmdname,
-                     html_conversion_context_type_names[reset_context]);
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
-          free (explanation);
           pop_command_or_type (&top_document_ctx->composition_context);
           pop_string_stack (&top_document_ctx->preformatted_classes);
           html_pop_document_context (self);
-          self->modified_state |= HMSF_document_context;
         }
       else if (reset_context == HCC_type_string)
         {
-          char *context_name;
           HTML_DOCUMENT_CONTEXT *top_document_ctx;
 
-          xasprintf (&context_name, "string no arg %s translated for %s",
-                     html_conversion_context_type_names[reset_context],
-                     builtin_command_data[cmd].cmdname);
-          html_new_document_context (self, context_name, 0, 0);
+          html_new_document_context (self, context, 0, 0);
 
-          top_document_ctx = top_document_context (self);
+          top_document_ctx = html_top_document_context (self);
           top_document_ctx->string_ctx++;
 
-          self->modified_state |= HMSF_document_context;
           translation_result = html_convert_tree (self, translated_tree,
-                                                  context_name);
-          free (context_name);
+                                                  explanation);
           html_pop_document_context (self);
-          self->modified_state |= HMSF_document_context;
         }
       else if (reset_context == HCC_type_css_string)
         {
           translation_result = html_convert_css_string (self, translated_tree,
                                                         0);
         }
+      free (explanation);
+      free (context);
       if (no_arg_command_context->text)
         free (no_arg_command_context->text);
       no_arg_command_context->text = translation_result;
@@ -2666,7 +2723,7 @@ html_translate_names (CONVERTER *self)
                 {
                   add_cmd = 1;
                   format_spec->text
-                   = gdt_string (format_spec->translated_converted, self->conf,
+                   = html_gdt_string (format_spec->translated_converted, self,
                                  0, 0, 0);
                 }
               else if (i == HCC_type_normal)
@@ -2675,7 +2732,7 @@ html_translate_names (CONVERTER *self)
                   if (format_spec->translated_to_convert)
                     {/* FIXME use document associated to converter? */
                       translated_tree =
-                         gdt_tree (format_spec->translated_to_convert,
+                        html_gdt_tree (format_spec->translated_to_convert,
                                    0, self->conf, 0, 0, 0);
                     }
                   else
@@ -2759,9 +2816,26 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       TEXT contexts_str;
       text_init (&debug_str);
       text_init (&contexts_str);
-      HTML_DOCUMENT_CONTEXT *top_document_ctx = top_document_context (self);
+      text_append (&contexts_str, "[");
+      HTML_DOCUMENT_CONTEXT_STACK *document_context_stack
+        = &self->html_document_context;
+      HTML_DOCUMENT_CONTEXT *top_document_ctx
+        = html_top_document_context (self);
       HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
         = &top_document_ctx->formatting_context;
+
+      for (i = 0; i < document_context_stack->top; i++)
+        {
+          HTML_DOCUMENT_CONTEXT *document_context
+            = &document_context_stack->stack[i];
+          if (i != 0)
+            text_append (&contexts_str, "|");
+          if (document_context->context)
+            text_append (&contexts_str, document_context->context);
+          else
+            text_append (&contexts_str, "UNDEF");
+        }
+      text_append (&contexts_str, "](");
 
       for (i = 0; i < formatting_context_stack->top; i++)
         {
@@ -2775,7 +2849,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             text_append (&contexts_str, "UNDEF");
 
         }
-      text_printf (&debug_str, "XS|ELEMENT(%s) (%s), ->", explanation,
+      text_append (&contexts_str, ")");
+      text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation,
                                                        contexts_str.text);
       free (contexts_str.text);
       if (command_name)
@@ -2823,7 +2898,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
         {
           char *translation_context
             = lookup_extra_string (element, "translation_context");
-          ELEMENT *translated = gdt_tree (element->text.text, self->document,
+          ELEMENT *translated = html_gdt_tree (element->text.text, self->document,
                                     self->conf, 0, translation_context, 0);
 
           convert_to_html_internal (self, translated, &text_result,
@@ -2884,10 +2959,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             {
               html_new_document_context (self,
                                builtin_command_data[data_cmd].cmdname, 0, 0);
-              self->modified_state |= HMSF_document_context;
 
             }
-          top_document_ctx = top_document_context (self);
+          top_document_ctx = html_top_document_context (self);
 
           if (html_commands_data[data_cmd].flags & HF_format_context)
             {
@@ -2898,7 +2972,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
             }
 
           top_formating_ctx
-            = top_html_formatting_context (&top_document_ctx->formatting_context);
+            = html_top_formatting_context (&top_document_ctx->formatting_context);
 
           if (builtin_command_data[data_cmd].flags & CF_block)
             {
@@ -3100,10 +3174,8 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           text_reset (&formatted_arg);
                           html_new_document_context (self, command_type.text,
                                                      0, 0);
-                          string_document_ctx = top_document_context (self);
+                          string_document_ctx = html_top_document_context (self);
                           string_document_ctx->string_ctx++;
-
-                          self->modified_state |= HMSF_document_context;
 
                           xasprintf (&explanation, "%s A[%d]string",
                                                    command_type.text, arg_idx);
@@ -3113,7 +3185,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           free (explanation);
 
                           html_pop_document_context (self);
-                          self->modified_state |= HMSF_document_context;
 
                           arg_formatted->formatted[AFT_type_string]
                            = strdup (formatted_arg.text);
@@ -3124,10 +3195,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           text_reset (&formatted_arg);
                           html_new_document_context (self, command_type.text,
                                                      0, 0);
-                          string_document_ctx = top_document_context (self);
+                          string_document_ctx = html_top_document_context (self);
                           string_document_ctx->string_ctx++;
                           push_monospace (&string_document_ctx->monospace);
-                          self->modified_state |= HMSF_document_context;
                           xasprintf (&explanation, "%s A[%d]monospacestring",
                                                    command_type.text, arg_idx);
                           convert_to_html_internal (self, arg, &formatted_arg,
@@ -3137,7 +3207,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
                           pop_monospace_context
                               (&string_document_ctx->monospace);
                           html_pop_document_context (self);
-                          self->modified_state |= HMSF_document_context;
                           arg_formatted->formatted[AFT_type_monospacestring]
                            = strdup (formatted_arg.text);
                         }
@@ -3277,7 +3346,6 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
               && builtin_command_data[data_cmd].data == BRACE_context)
             {
               html_pop_document_context (self);
-              self->modified_state |= HMSF_document_context;
             }
 
           if (element->cmd == CM_node)
@@ -3338,9 +3406,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
       char *type_name = element_type_names[type];
       TEXT type_result;
       TEXT content_formatted;
-      HTML_DOCUMENT_CONTEXT *top_document_ctx = top_document_context (self);
+      HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
       HTML_FORMATTING_CONTEXT *top_formating_ctx
-        = top_html_formatting_context (&top_document_ctx->formatting_context);
+        = html_top_formatting_context (&top_document_ctx->formatting_context);
 
       text_init (&type_result);
       text_append (&type_result, "");

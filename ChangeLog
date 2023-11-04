@@ -1,3 +1,83 @@
+2023-11-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/converter_types.h:
+	remove HTML_CSS_FORMATTING_REFERENCES_LIST.
+
+	* tp/Texinfo/Convert/HTML.pm (command_text): handle 'cmdname' not set
+	to set context string by using the type.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert, _convert_style_command)
+	(_convert_w_command, _convert_email_command)
+	(_convert_explained_command, _convert_uref_command)
+	(_convert_image_command, _convert_math_command)
+	(_convert_indicateurl_command, _convert_titlefont_command)
+	(_convert_U_command), tp/init/html32.pm,
+	tp/init/documentation_examples.pm: if there are no arguments for a
+	command, pass undef as args.  Update converting functions to account
+	for that change.
+
+	* tp/Texinfo/Convert/Text.pm (encode_text_options),
+	tp/Texinfo/XS/main/get_perl_info.c (get_expanded_formats): pass
+	expanded_formats as a hash, never as an array.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_before_item_type): handle undef
+	$contents.
+
+	* tp/Texinfo/Convert/HTML.pm (_new_document_context)
+	(_reset_unset_no_arg_commands_formatting_context),
+	tp/Texinfo/XS/convert/convert_html.c (html_new_document_context)
+	(reset_unset_no_arg_commands_formatting_context): change in contexts
+	names.
+
+	* tp/Texinfo/Convert/HTML.pm (convert): set 'current_filename' earlier
+	such that it is available in perl codes called by XS.
+
+	* tp/Texinfo/Convert/HTML.pm (import, converter_initialize, convert)
+	(_finalize_output_state, output), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_initialize_output_state, html_finalize_output_state)
+	(html_new_document_context, html_pop_document_context),
+	tp/Texinfo/XS/convert/convert_html.c (html_new_document_context)
+	(html_pop_document_context, html_converter_initialize)
+	(html_finalize_output_state), tp/Texinfo/XS/main/build_perl_info.c
+	(build_html_formatting_state), tp/Texinfo/XS/main/command_stack.c
+	(html_top_document_context, html_top_formatting_context): add XS
+	overrides for _new_document_context.  push the first document context
+	in _initialize_output_state, not in converter_initialize, add an
+	argument for _initialize_output_state for the context name.  Add
+	_finalize_output_state to be called at the end of output, and add an
+	XS override to pop the last document context.  Add
+	document_contexts_to_pop and document_context_change states to change
+	only the document contexts that need to be when passing to perl.
+	rename top_document_context as html_top_document_context and 
+	top_html_formatting_context as html_top_formatting_context.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_gdt_string, html_gdt_tree)
+	(html_pgdt_tree): prepend html_ to the function names.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_gdt_string)
+	tp/Texinfo/XS/main/build_perl_info.c (build_replaced_substrings),
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_formatting_function_format_translate_message_string): add
+	strings customization support.
+
+	* tp/Texinfo/XS/main/translations.c (translate_string): free langs
+	pointers.
+
+	* tp/Texinfo/XS/main/translations.c: use const for messages, contexts
+	and language aruments.
+
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
+	tp/t/accents.t (test_enable_encoding): add document_descriptor as
+	an option in Texinfo::Convert::Converter to retrieve a document even
+	if only the descriptor is known, for instance if only the tree is
+	available.  Setup state and an XS converter by passing
+	tree_document_descriptor as document_descriptor in option in
+	accents.t, and by calling _initialize_output_state.
+
+	* tp/Texinfo/Convert/HTML.pm (register_file_information)
+	(get_file_information, _initialize_output_state): rename
+	files_information state as html_files_information.
+
 2023-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Structuring.pm (import),
@@ -20,6 +100,7 @@
 
 	* tp/Texinfo/XS/Makefile.am: Make files depend on
 	maintain/regenerate_C_options_info.pl if built by that script.
+
 
 2023-11-03  Patrice Dumas  <pertusus@free.fr>
 

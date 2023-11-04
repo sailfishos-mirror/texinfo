@@ -432,9 +432,11 @@ sub encode_text_options($)
   }
 
   if (defined($options->{'expanded_formats'})) {
-    my $expanded_formats = [];
+    # FIXME may not need to encode, as the formats are ascii strings
+    my $expanded_formats = {};
     foreach my $format (keys(%{$options->{'expanded_formats'}})) {
-      push @$expanded_formats, Encode::encode("UTF-8", $format);
+      my $encoded_format = Encode::encode("UTF-8", $format);
+      $expanded_formats->{$encoded_format} = 1;
     }
     $encoded_options->{'expanded_formats'} = $expanded_formats;
   }

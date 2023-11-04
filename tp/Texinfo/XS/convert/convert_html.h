@@ -8,7 +8,13 @@
 
 void html_converter_initialize (CONVERTER *self);
 
-void html_initialize_output_state (CONVERTER *self);
+void html_initialize_output_state (CONVERTER *self, char *context);
+void html_finalize_output_state (CONVERTER *self);
+
+void html_new_document_context (CONVERTER *self,
+        char *context_name, char *document_global_context,
+        enum command_id block_command);
+void html_pop_document_context (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,
                                     int *output_units_descriptor_ref,

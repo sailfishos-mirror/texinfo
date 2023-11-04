@@ -82,7 +82,10 @@ sub my_email_formatting_function {
   my $command = shift;
   my $args = shift;
 
-  my $args_nr = scalar(@$args);
+  my $args_nr = 0;
+  if ($args) {
+    $args_nr = scalar(@$args);
+  }
 
   my $mail = '';
   my $mail_string = '';

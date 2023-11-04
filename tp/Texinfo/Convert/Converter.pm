@@ -111,6 +111,9 @@ my %common_converters_defaults = (
   # Not set in the main program
   'translated_commands'  => {'error' => 'error@arrow{}',},
 
+  # used in tests to have XS data passed to converter
+  'document_descriptor' => undef,
+
 # This is the default, mainly for tests; the caller should set them.  These
 # values are what is used in tests of the Converters.  These variables are
 # customization options, set in the main program when a converter is

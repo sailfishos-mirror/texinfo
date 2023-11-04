@@ -55,6 +55,7 @@
 /* for wipe_error_message_list */
 #include "errors.h"
 #include "command_stack.h"
+#include "translations.h"
 #include "build_perl_info.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -2271,36 +2272,64 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         SvUTF8_on (*current_filename_sv);
     }
 
-  if (flags & HMSF_document_context)
+  if (flags & HMSF_document_context
+      && (converter->document_context_change
+          || converter->document_contexts_to_pop))
     {
+      SSize_t top_document_context_idx;
       FETCH(document_context);
 
       if (!document_context_sv)
         {
           document_context_av = newAV ();
+          fprintf (stderr, "BUG: no document context\n");
           STORE("document_context", newRV_noinc ((SV *) document_context_av));
+          top_document_context_idx = -1;
         }
-       else
+      else
         {
+          int doc_top_target;
           document_context_av = (AV *) SvRV (*document_context_sv);
-          av_clear (document_context_av);
+          /* check consistentcy of C and perl document context stack levels */
+          top_document_context_idx = av_top_index (document_context_av);
+          doc_top_target = top_document_context_idx+1
+                               + converter->document_context_change;
+          if (doc_top_target != converter->html_document_context.top)
+            {
+              fprintf (stderr,
+          "BUG: top and document context level change mismatch %zu %d (%zu)\n",
+                  converter->html_document_context.top, doc_top_target,
+                  top_document_context_idx+1);
+            }
+
+          /* remove obsolete document contexts in perl */
+          while (converter->document_contexts_to_pop)
+            {
+              converter->document_contexts_to_pop--;
+              top_document_context_idx--;
+              av_pop (document_context_av);
+            }
         }
 
-      for (i = 0; i < converter->html_document_context.top; i++)
+      /* add the modified contexts */
+      for (i = top_document_context_idx +1;
+           i < converter->html_document_context.top; i++)
         {
           HTML_DOCUMENT_CONTEXT *document_context
             = &converter->html_document_context.stack[i];
           HV *document_context_hv = build_html_document_context (document_context);
           av_push (document_context_av, newRV_noinc ((SV *) document_context_hv));
         }
+      converter->document_context_change = 0;
     }
-  else if (flags & (HMSF_formatting_context | HMSF_composition_context
+
+  if (flags & (HMSF_formatting_context | HMSF_composition_context
                     | HMSF_preformatted_classes | HMSF_block_commands
                     | HMSF_monospace | HMSF_top_document_ctx
                     | HMSF_top_formatting_context))
     {
       HTML_DOCUMENT_CONTEXT *top_document_ctx
-         = top_document_context (converter);
+         = html_top_document_context (converter);
       SSize_t top_document_context_idx;
       SV **top_document_context_sv;
       HV *top_document_context_hv;
@@ -2312,8 +2341,19 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
       document_context_sv = hv_fetch (hv, "document_context",
                                       strlen ("document_context"), 0);
+      if (!document_context_sv)
+        {
+          fprintf (stderr,
+                   "BUG: no document context but formatting F: %#8lx\n", flags);
+          abort();
+        }
       document_context_av = (AV *) SvRV (*document_context_sv);
       top_document_context_idx = av_top_index (document_context_av);
+      if (top_document_context_idx < 0)
+        {
+          fprintf (stderr,
+               "BUG: empty document_context but formatting F: %#8lx\n", flags);
+        }
       top_document_context_sv = av_fetch (document_context_av,
                                           top_document_context_idx, 0);
 
@@ -2342,7 +2382,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           && flags & HMSF_top_formatting_context)
         {
           HTML_FORMATTING_CONTEXT *top_formatting_ctx
-         = top_html_formatting_context (&top_document_ctx->formatting_context);
+         = html_top_formatting_context (&top_document_ctx->formatting_context);
           SSize_t top_formatting_context_idx;
           SV **top_formatting_context_sv;
           HV *top_formatting_context_hv;
@@ -2593,4 +2633,35 @@ build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted)
     }
 
   return newRV_noinc ((SV *) av);
+}
+
+SV *
+build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+{
+  HV *hv;
+  int i;
+
+  dTHX;
+
+  if (!replaced_substrings)
+    return newSV (0);
+
+  hv = newHV ();
+
+  for (i = 0; i < replaced_substrings->number; i++)
+    {
+      NAMED_STRING_ELEMENT *named_string_elt = &replaced_substrings->list[i];
+      SV *name_sv = newSVpv_utf8 (named_string_elt->name, 0);
+      SV *value_sv = 0;
+
+      if (named_string_elt->element)
+        value_sv = newRV_inc ((SV *) named_string_elt->element->hv);
+      else if (named_string_elt->string)
+        value_sv = newSVpv_utf8 (named_string_elt->string, 0);
+
+      if (value_sv)
+        hv_store_ent (hv, name_sv, value_sv, 0);
+    }
+
+  return newRV_noinc ((SV *) hv);
 }

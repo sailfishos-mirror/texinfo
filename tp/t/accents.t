@@ -102,7 +102,13 @@ sub test_enable_encoding ($)
                                                  $commands_stack, 'iso-8859-1',
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
-  my $html_converter = Texinfo::Convert::HTML->converter();
+  my $options = {};
+  if ($root->{'tree_document_descriptor'}) {
+    $options->{'document_descriptor'} = $root->{'tree_document_descriptor'};
+  }
+  my $html_converter = Texinfo::Convert::HTML->converter($options);
+  # NOTE we use a converter outside of output/convert
+  $html_converter->_initialize_output_state('_test_accents');
   my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter,
                                                             $accent_tree);
   $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 1;

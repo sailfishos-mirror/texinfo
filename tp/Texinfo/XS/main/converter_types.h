@@ -90,8 +90,7 @@ enum direction_string {
   #undef tds_type
 };
 
-/* %default_formatting_references + %default_css_string_formatting_references
-   in Texinfo::HTML */
+/* %default_formatting_references in Texinfo::HTML */
 #define HTML_FORMATTING_REFERENCES_LIST \
   html_fr_reference(format_begin_file) \
   html_fr_reference(format_button) \
@@ -116,18 +115,9 @@ enum direction_string {
   html_fr_reference(format_translate_message_tree) \
   html_fr_reference(format_translate_message_string) \
 
-#define HTML_CSS_FORMATTING_REFERENCES_LIST \
-  html_fr_reference(format_protect_text)
-
 enum html_formatting_reference {
   #define html_fr_reference(name) FR_## name,
    HTML_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
-};
-
-enum html_css_string_formatting_reference {
-  #define html_fr_reference(name) CSSFR_## name,
-   HTML_CSS_FORMATTING_REFERENCES_LIST
   #undef html_fr_reference
 };
 
@@ -448,6 +438,10 @@ typedef struct CONVERTER {
                                            change */
     ARRAY_INDEX_LIST file_changed_counter;  /* index of files in
                                  output_unit_files with changed counter */
+    int document_context_change; /* change of document context top that may need
+                                    to be brought to perl */
+    int document_contexts_to_pop;  /* number of contexts to pop in perl before
+                                      readding the new contexts */
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */

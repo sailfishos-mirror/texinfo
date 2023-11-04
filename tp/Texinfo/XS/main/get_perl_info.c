@@ -234,22 +234,24 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
                                   strlen ("expanded_formats"), 0);
   if (expanded_formats_sv)
     {
-      int i;
-      SSize_t formats_nr;
+      I32 i;
+      I32 formats_nr;
 
       if (!*expanded_formats)
         *expanded_formats = new_expanded_formats (0);
 
-      AV *av = (AV *)SvRV (*expanded_formats_sv);
+      HV *expanded_formats_hv = (HV *)SvRV (*expanded_formats_sv);
 
-      formats_nr = av_top_index (av) +1;
+      formats_nr = hv_iterinit (expanded_formats_hv);
+
       for (i = 0; i < formats_nr; i++)
         {
-          SV** string_sv = av_fetch (av, i, 0);
-          if (string_sv)
+          char *format;
+          I32 retlen;
+          SV *value_sv = hv_iternextsv (expanded_formats_hv, &format, &retlen);
+          if (SvTRUE (value_sv))
             {
-              char *string = SvPVbyte_nolen (*string_sv);
-              add_expanded_format (*expanded_formats, string);
+              add_expanded_format (*expanded_formats, format);
             }
         }
     }

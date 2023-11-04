@@ -723,6 +723,80 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
 }
 
 char *
+call_formatting_function_format_translate_message_string (CONVERTER *self,
+                                  const char *message, const char *lang,
+                         NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                                  const char *message_context)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+  SV *replaced_substrings_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_translate_message_string].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  if (replaced_substrings)
+    replaced_substrings_sv = build_replaced_substrings (replaced_substrings);
+  else
+    replaced_substrings_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 5);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
+  PUSHs(sv_2mortal (newSVpv (lang, 0)));
+  PUSHs(sv_2mortal (replaced_substrings_sv));
+  PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_translate_message_string should return 1 item\n");
+
+  result_sv = POPs;
+  if (SvOK (result_sv))
+    {
+      result_ret = SvPVutf8 (result_sv, len);
+      result = strdup (result_ret);
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+
+
+char *
 call_types_conversion (CONVERTER *self, enum element_type type,
                        FORMATTING_REFERENCE *formatting_reference,
                        ELEMENT *element, char *content)

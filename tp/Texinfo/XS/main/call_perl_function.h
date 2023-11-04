@@ -4,6 +4,7 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
+#include "translations.h"
 
 typedef struct FILE_NAME_PATH {
     char *filename;
@@ -59,5 +60,9 @@ char *call_commands_open (CONVERTER *self, enum command_id cmd,
 char *call_output_units_conversion (CONVERTER *self,
                                     enum output_unit_type unit_type,
                                 OUTPUT_UNIT *output_unit, const char *content);
+char *call_formatting_function_format_translate_message_string (CONVERTER *self,
+                                  const char *message, const char *lang,
+                         NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                                  const char *message_context);
 
 #endif

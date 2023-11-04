@@ -41,8 +41,8 @@ void push_style_no_code (MONOSPACE_CONTEXT_STACK *stack);
 enum monospace_context pop_monospace_context (MONOSPACE_CONTEXT_STACK *stack);
 enum monospace_context top_monospace_context (MONOSPACE_CONTEXT_STACK *stack);
 
-HTML_DOCUMENT_CONTEXT *top_document_context (CONVERTER *self);
+HTML_DOCUMENT_CONTEXT *html_top_document_context (CONVERTER *self);
 
-HTML_FORMATTING_CONTEXT *top_html_formatting_context
+HTML_FORMATTING_CONTEXT *html_top_formatting_context
                          (HTML_FORMATTING_CONTEXT_STACK *stack);
 #endif

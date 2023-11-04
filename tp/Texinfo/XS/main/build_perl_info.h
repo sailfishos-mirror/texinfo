@@ -9,6 +9,8 @@
 #include "converter_types.h"
 /* for FILE_SOURCE_INFO_LIST and HTML_ARGS_FORMATTED */
 #include "utils.h"
+/* for NAMED_STRING_ELEMENT_LIST */
+#include "translations.h"
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
@@ -52,9 +54,12 @@ SV *build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
+HV *build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context);
+
 SV *build_html_formatting_state (CONVERTER *converter, unsigned long flags);
 
 void build_output_files_information (CONVERTER *converter);
 
 SV *build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted);
+SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 #endif

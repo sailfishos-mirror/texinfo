@@ -49,6 +49,8 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
+# for abort
+#use POSIX;
 
 use File::Copy qw(copy);
 
@@ -106,6 +108,15 @@ sub import {
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_initialize_output_state",
       "Texinfo::Convert::ConvertXS::html_initialize_output_state");
+      Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_finalize_output_state",
+      "Texinfo::Convert::ConvertXS::html_finalize_output_state");
+      Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_new_document_context",
+      "Texinfo::Convert::ConvertXS::html_new_document_context");
+      Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_pop_document_context",
+      "Texinfo::Convert::ConvertXS::html_pop_document_context");
       Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_sort_sortable_index_entries_by_letter",
       "Texinfo::Convert::ConvertXS::sort_sortable_index_entries_by_letter");
@@ -1161,7 +1172,9 @@ sub command_text($$;$)
                                           and $target->{'tree_nonumber'});
     return $tree if ($type eq 'tree' or $type eq 'tree_nonumber');
 
-    $self->_new_document_context($command->{'cmdname'}, $explanation);
+    my $context_name = $command->{'cmdname'};
+    $context_name = $command->{'type'} if (!defined($context_name));
+    $self->_new_document_context($context_name, $explanation);
 
     if ($type eq 'string') {
       $tree = {'type' => '_string',
@@ -1533,11 +1546,13 @@ sub direction_string($$$;$)
       } else {
         $converted_tree = $translated_tree;
       }
+      my $context_str = "DIRECTION $direction ($string_type/$context)";
       # FIXME calling convert_tree_new_formatting_context may remove
       # $self->{'directions_strings'}->{$string_type}->{$direction}, that was
       # set above if not already existing.
-      my $result_string = $self->convert_tree_new_formatting_context($converted_tree,
-                             "direction $direction", undef, "direction $direction");
+      my $result_string
+         = $self->convert_tree_new_formatting_context($converted_tree,
+                 $context_str, undef, $context_str);
       $self->{'directions_strings'}->{$string_type}->{$direction} = {}
           if (not $self->{'directions_strings'}->{$string_type}->{$direction});
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
@@ -1835,9 +1850,14 @@ sub register_file_information($$;$)
   my $key = shift;
   my $value = shift;
 
-  $self->{'files_information'}->{$self->{'current_filename'}} = {}
-    if (!$self->{'files_information'}->{$self->{'current_filename'}});
-  $self->{'files_information'}->{$self->{'current_filename'}}->{$key} = $value;
+  if (!defined ($self->{'current_filename'})) {
+    cluck();
+  }
+
+  $self->{'html_files_information'}->{$self->{'current_filename'}} = {}
+    if (!$self->{'html_files_information'}->{$self->{'current_filename'}});
+  $self->{'html_files_information'}->{$self->{'current_filename'}}->{$key}
+    = $value;
 }
 
 sub get_file_information($$;$)
@@ -1850,12 +1870,12 @@ sub get_file_information($$;$)
     $filename = $self->{'current_filename'};
   }
   if (not defined($filename)
-      or not $self->{'files_information'}
-      or not $self->{'files_information'}->{$filename}
-      or not exists($self->{'files_information'}->{$filename}->{$key})) {
+      or not $self->{'html_files_information'}
+      or not $self->{'html_files_information'}->{$filename}
+      or not exists($self->{'html_files_information'}->{$filename}->{$key})) {
     return (0, undef);
   }
-  return (1, $self->{'files_information'}->{$filename}->{$key})
+  return (1, $self->{'html_files_information'}->{$filename}->{$key})
 }
 
 # information from converter available 'read-only', in general set up before
@@ -2999,10 +3019,10 @@ sub _convert_style_command($$$$)
   my $args = shift;
 
   my $text;
-  $text = $args->[0]->{'normal'} if ($args->[0]);
-  if (!defined($text)) {
+  if ($args and $args->[0]) {
+    $text = $args->[0]->{'normal'};
+  } else {
     # happens with bogus @-commands without argument, like @strong something
-    #cluck "text not defined in _convert_style_command";
     return '';
   }
 
@@ -3057,9 +3077,9 @@ sub _convert_w_command($$$$)
   my $args = shift;
 
   my $text;
-  $text = $args->[0]->{'normal'} if ($args->[0]);
-
-  if (!defined($text)) {
+  if ($args and $args->[0]) {
+    $text = $args->[0]->{'normal'};
+  } else {
     $text = '';
   }
   if ($self->in_string()) {
@@ -3090,7 +3110,10 @@ sub _convert_email_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $args_nr = scalar(@$args);
+  my $args_nr = 0;
+  if ($args) {
+    $args_nr = scalar(@$args);
+  }
 
   my $mail = '';
   my $mail_string = '';
@@ -3142,7 +3165,7 @@ sub _convert_explained_command($$$$)
   $explained_commands->{$cmdname} = {} if (!$explained_commands->{$cmdname});
   my $element_explanation_contents
     = $self->shared_conversion_state('element_explanation_contents', {});
-  if ($args->[1] and defined($args->[1]->{'string'})
+  if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
     $explanation_string = $args->[1]->{'string'};
@@ -3188,7 +3211,7 @@ sub _convert_explained_command($$$$)
     $element_explanation_contents->{$command} = [];
   }
   my $result = '';
-  if (defined($args->[0])) {
+  if ($args and defined($args->[0])) {
     $result = $args->[0]->{'normal'};
   }
   if (!$self->in_string()) {
@@ -3321,7 +3344,11 @@ sub _convert_uref_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $args_nr = scalar(@$args);
+  my $args_nr = 0;
+
+  if ($args) {
+    $args_nr = scalar(@$args);
+  }
 
   my $text = '';
   my $url = '';
@@ -3360,7 +3387,7 @@ sub _convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0])
+  if ($args and defined($args->[0])
       and defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
     my $basefile_string = '';
@@ -3401,7 +3428,12 @@ sub _convert_math_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $arg = $args->[0]->{'normal'};
+  my $arg;
+  if ($args and $args->[0]) {
+    $arg = $args->[0]->{'normal'};
+  } else {
+    return '';
+  }
 
   my $math_type = $self->get_conf('HTML_MATH');
   if ($math_type and $math_type eq 'mathjax') {
@@ -3565,7 +3597,13 @@ sub _convert_indicateurl_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $text = $args->[0]->{'normal'};
+  my $text;
+  if ($args and $args->[0]) {
+    $text = $args->[0]->{'normal'};
+  } else {
+    return '';
+  }
+
   if (!defined($text)) {
     # happens with bogus @-commands without argument, like @strong something
     return '';
@@ -3590,14 +3628,14 @@ sub _convert_titlefont_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  my $text;
+  if ($args and $args->[0]) {
+    $text = $args->[0]->{'normal'};
+  } else {
   # happens with empty command
-  return '' if (!$args->[0]);
-
-  my $text = $args->[0]->{'normal'};
-  if (!defined($text)) {
-    # happens with bogus @-commands without argument, like @strong something
     return '';
   }
+
   return &{$self->formatting_function('format_heading_text')}($self, $cmdname,
                                                          [$cmdname], $text, 0);
 }
@@ -3610,16 +3648,14 @@ sub _convert_U_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $arg;
-  $arg = $args->[0]->{'normal'} if ($args->[0]);
-  my $res;
-  if (defined($arg) and $arg ne '') {
-    # checks on the value already done in Parser, just output it here.
-    $res = "&#x$arg;";
-  } else {
-    $res = '';
+  if ($args and $args->[0]) {
+    my $arg = $args->[0]->{'normal'};
+    if ($arg ne '') {
+      # checks on the value already done in Parser, just output it here.
+      return "&#x$arg;";
+    }
   }
-  return $res;
+  return '';
 }
 $default_commands_conversion{'U'} = \&_convert_U_command;
 
@@ -6951,7 +6987,7 @@ sub _convert_before_item_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  return '' if ($content !~ /\S/);
+  return '' if (!defined ($content) or $content !~ /\S/);
   return $content if ($self->in_string());
   my $top_block_command = $self->top_block_command();
   if ($top_block_command eq 'itemize' or $top_block_command eq 'enumerate') {
@@ -7538,7 +7574,7 @@ sub _default_format_element_footer($$$$;$)
 # is not done within the document formatting flow, but the formatted
 # output may still end up in the document.  In particular for
 # command_text() which caches its computations.
-sub _new_document_context($;$$$)
+sub _new_document_context($$;$$)
 {
   my $self = shift;
   my $context = shift;
@@ -7547,7 +7583,7 @@ sub _new_document_context($;$$$)
 
   push @{$self->{'document_context'}},
           {'context' => $context,
-           'formatting_context' => [{'context_name' => $context}],
+           'formatting_context' => [{'context_name' => '_format'}],
            'composition_context' => [''],
            'monospace' => [0],
            'document_global_context' => $document_global_context,
@@ -7652,30 +7688,29 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
     my $translated_tree
       = $no_arg_command_context->{'tree'};
     my $translation_result;
+    my $explanation
+       = "Translated NO ARG \@$cmdname ctx $reset_context";
+    my $context_str = "Tr $cmdname ctx $reset_context";
     if ($reset_context eq 'normal') {
       $translation_result
-        = $self->convert_tree($translated_tree,
-               "no arg $cmdname translated for $reset_context");
+        = $self->convert_tree($translated_tree, $explanation);
     } elsif ($reset_context eq 'preformatted') {
       # there does not seems to be anything simpler...
       my $preformatted_command_name = 'example';
-      $self->_new_document_context("Translate $cmdname for $reset_context");
+      $self->_new_document_context($context_str);
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
           $preformatted_command_name;
       # should not be needed for at commands no brace translation strings
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
           $pre_class_commands{$preformatted_command_name};
       $translation_result
-        = $self->convert_tree($translated_tree,
-                              "no arg $cmdname translated for $reset_context");
-      # only pop the main context
+        = $self->convert_tree($translated_tree, $explanation);
       $self->_pop_document_context();
     } elsif ($reset_context eq 'string') {
       $translation_result
         = $self->convert_tree_new_formatting_context({'type' => '_string',
                                           'contents' => [$translated_tree]},
-                                         'translated_string',
-                    "string no arg $cmdname translated for $reset_context");
+                                              $context_str);
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree);
     }
@@ -8419,7 +8454,6 @@ sub converter_initialize($)
   $self->{'document_context'} = [];
   $self->{'multiple_pass'} = [];
   $self->{'pending_closes'} = [];
-  $self->_new_document_context('_toplevel_context');
 
   # TODO warn if the split specification is not one known?  The main
   # program warns if the specific command line option value is not known.
@@ -10996,7 +11030,7 @@ sub _has_contents_or_shortcontents($)
   return 0;
 }
 
-sub _XS_initialize_output_state($)
+sub _XS_initialize_output_state($$)
 {
 }
 
@@ -11004,11 +11038,14 @@ sub _XS_initialize_output_state($)
 # NOTE not called directly by convert_tree, which means that convert_tree
 # needs to be called from a converter which would have had this function
 # called already.
-sub _initialize_output_state($)
+sub _initialize_output_state($$)
 {
   my $self = shift;
+  my $context = shift;
 
-  _XS_initialize_output_state($self);
+  # TODO override the whole function and add a C build_ function to setup
+  # the perl state similarly with what is done in that function.
+  _XS_initialize_output_state($self, $context.'C');
 
   # for diverse API used in conversion
   $self->{'shared_conversion_state'} = {};
@@ -11016,7 +11053,7 @@ sub _initialize_output_state($)
   $self->{'associated_inline_content'} = {};
 
   # even if there is no actual file, this is needed if the API is used.
-  $self->{'files_information'} = {};
+  $self->{'html_files_information'} = {};
 
   # Needed for CSS gathering, even if nothing related to CSS is output
   $self->{'document_global_context_css'} = {};
@@ -11035,10 +11072,6 @@ sub _initialize_output_state($)
   $self->{'targets'} = {};
   $self->{'seen_ids'} = {};
 
-  # to avoid infinite recursions when a section refers to itself, possibly
-  # indirectly
-  $self->{'referred_command_stack'} = [];
-
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
@@ -11049,8 +11082,20 @@ sub _initialize_output_state($)
   # other
   $self->{'pending_footnotes'} = [];
 
+  # to avoid infinite recursions when a section refers to itself, possibly
+  # indirectly
+  $self->{'referred_command_stack'} = [];
+
   $self->{'check_htmlxref_already_warned'} = {}
     if ($self->get_conf('CHECK_HTMLXREF'));
+
+  $self->_new_document_context($context);
+}
+
+sub _finalize_output_state($)
+{
+  my $self = shift;
+  $self->_pop_document_context();
 }
 
 
@@ -11107,7 +11152,7 @@ sub convert($$)
 
   my $result = '';
 
-  $self->_initialize_output_state();
+  $self->_initialize_output_state('_convert');
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -11168,13 +11213,14 @@ sub convert($$)
   # complete information should be available.
   $self->_reset_info();
 
+  $self->{'current_filename'} = '';
+
   if ($self->{'converter_descriptor'} and $XS_convert) {
     my $XS_result = _XS_html_convert_convert ($encoded_converter, $root,
                                               $output_units, $special_units);
+    $self->_finalize_output_state();
     return $XS_result;
   }
-
-  $self->{'current_filename'} = '';
 
   if (!defined($output_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
@@ -11195,6 +11241,7 @@ sub convert($$)
   }
   $self->{'current_filename'} = undef;
 
+  $self->_finalize_output_state();
   return $result;
 }
 
@@ -11613,7 +11660,7 @@ sub output($$)
   # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
 
-  $self->_initialize_output_state();
+  $self->_initialize_output_state('_output');
 
   # no splitting when writing to the null device or to stdout or returning
   # a string
@@ -11676,8 +11723,11 @@ sub output($$)
   $self->_reset_info();
 
   my $setup_status = $self->run_stage_handlers($root, 'setup');
-  return undef unless ($setup_status < $handler_fatal_error_level
-                       and $setup_status > -$handler_fatal_error_level);
+  unless ($setup_status < $handler_fatal_error_level
+          and $setup_status > -$handler_fatal_error_level) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
   # the configuration has potentially been modified for
   # this output file especially.  Set a corresponding initial
@@ -11735,7 +11785,10 @@ sub output($$)
   my $succeeded
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
-  return undef unless $succeeded;
+  unless ($succeeded) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
   # set for init files
   $self->{'document_name'} = $document_name;
@@ -11767,8 +11820,11 @@ sub output($$)
   $self->_reset_info();
 
   my $structure_status = $self->run_stage_handlers($root, 'structure');
-  return undef unless ($structure_status < $handler_fatal_error_level
-                       and $structure_status > -$handler_fatal_error_level);
+  unless ($structure_status < $handler_fatal_error_level
+          and $structure_status > -$handler_fatal_error_level) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
   my $default_document_language = $self->get_conf('documentlanguage');
 
@@ -11874,8 +11930,11 @@ sub output($$)
 
 
   my $init_status = $self->run_stage_handlers($root, 'init');
-  return undef unless ($init_status < $handler_fatal_error_level
-                       and $init_status > -$handler_fatal_error_level);
+  unless ($init_status < $handler_fatal_error_level
+          and $init_status > -$handler_fatal_error_level) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
 
   $self->_prepare_title_titlepage($output_units, $output_file,
@@ -11889,7 +11948,10 @@ sub output($$)
                        $special_units, $output_file, $destination_directory,
                        $output_filename, $document_name);
 
-  return undef if (!defined($text_output));
+  if (!defined($text_output)) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
   if ($text_output ne '' and $output_file eq '') {
     # $output_file eq '' should always be true, see comment above.
@@ -11898,14 +11960,18 @@ sub output($$)
       # only if formatting is called as convert, which only happens in tests.
       $self->_do_js_files($destination_directory);
     }
+    $self->_finalize_output_state();
     return $text_output;
   }
 
   $self->_do_js_files($destination_directory);
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
-  return undef unless ($finish_status < $handler_fatal_error_level
-                       and $finish_status > -$handler_fatal_error_level);
+  unless ($finish_status < $handler_fatal_error_level
+          and $finish_status > -$handler_fatal_error_level) {
+    $self->_finalize_output_state();
+    return undef;
+  }
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')
@@ -12052,12 +12118,14 @@ sub output($$)
             $self->document_error($self, sprintf(__(
                              "error on closing redirection node file %s: %s"),
                                     $out_filename, $!));
+            $self->_finalize_output_state();
             return undef;
           }
         }
       }
     }
   }
+  $self->_finalize_output_state();
   return undef;
 }
 
@@ -12103,10 +12171,14 @@ sub _convert($$;$)
 
   if ($debug) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
+    my @document_contexts = map {defined($_->{'context'})
+                                       ? $_->{'context'}: 'UNDEF'}
+                                  @{$self->{'document_context'}};
     my @contexts_names = map {defined($_->{'context_name'})
                                  ? $_->{'context_name'}: 'UNDEF'}
          @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-    print STDERR "ELEMENT($explanation) (".join('|',@contexts_names)."), ->";
+    print STDERR "ELEMENT($explanation) [".join('|',@document_contexts)
+                                   ."](".join('|',@contexts_names)."), ->";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
     print STDERR " type: $element->{'type'}" if ($element->{'type'});
     my $text = $element->{'text'};
@@ -12254,8 +12326,8 @@ sub _convert($$;$)
               or $command_name eq 'smallquotation')
           or $command_name eq 'float'
           or $command_name eq 'cartouche') {
-        $args_formatted = [];
         if ($element->{'args'}) {
+          $args_formatted = [];
           my @args_specification;
           @args_specification = @{$default_commands_args{$command_name}}
             if (defined($default_commands_args{$command_name}));
