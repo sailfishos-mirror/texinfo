@@ -1,5 +1,16 @@
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (import, _sort_index_entries),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(sort_sortable_index_entries_by_letter),
+	tp/Texinfo/XS/convert/indices_in_conversion.c
+	(sort_indices_by_letter): remove code related to sorting in C based on
+	sortable entries from perl, as it is unfinished because it requires
+	a collation function in C, and the passing of data from perl need to
+	be redone, it would be better to restart from scratch.
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter_options_for_output):
 	rename encode_converter_for_output as converter_options_for_output.
 	Update callers.

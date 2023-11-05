@@ -210,21 +210,6 @@ html_pop_document_context (SV *converter_in)
            }
 
 
-# unfinished, see sort_indices_by_letter comment
-void
-sort_sortable_index_entries_by_letter (SV *converter_in, SV *sortable_entries_in)
-      PREINIT:
-         CONVERTER *self;
-         INDEX_SORTABLE_ENTRIES **sortable_entries = 0;
-         INDEX_SORTED_BY_LETTER **indices_sorted_by_letter = 0;
-      CODE:
-         /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
-         sortable_entries = get_sv_sortable_entries (sortable_entries_in);
-         indices_sorted_by_letter = sort_indices_by_letter (self,
-                                                      sortable_entries);
-         self->index_entries_by_letter = indices_sorted_by_letter;
-
 void
 get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
       PREINIT:

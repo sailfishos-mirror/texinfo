@@ -120,9 +120,6 @@ sub import {
       "Texinfo::Convert::HTML::_pop_document_context",
       "Texinfo::Convert::ConvertXS::html_pop_document_context");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_sort_sortable_index_entries_by_letter",
-      "Texinfo::Convert::ConvertXS::sort_sortable_index_entries_by_letter");
-      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
       "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
       Texinfo::XSLoader::override(
@@ -9845,10 +9842,6 @@ sub _prepare_output_units_global_targets($$$$)
   }
 }
 
-sub _XS_sort_sortable_index_entries_by_letter($$)
-{
-}
-
 sub _XS_get_index_entries_sorted_by_letter($$)
 {
 }
@@ -9863,42 +9856,6 @@ sub _sort_index_entries($)
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
-
-    ## see TODO in convert/indices_in_conversion.c sort_indices_by_letter,
-    ## sorting letters requires a collation in C, so this cannot be done,
-    ## even when starting from index_sortable_index_entries
-    #if ($self->{'converter_descriptor'}) {
-    #  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
-    #   = Texinfo::Structuring::setup_sortable_index_entries ($self, $self,
-    #                        $merged_index_entries, $indices_information, 1, 1);
-    #  if ($index_sortable_index_entries) {
-    #    # encode and pass as arrays only, in reproducible order
-    #    my $index_encoded_sortable_entries = [];
-    #    foreach my $index_name (sort(keys(%$index_sortable_index_entries))) {
-    #      my $encoded_index_name = Encode::encode('UTF-8', $index_name);
-    #      my $encoded_sortable_entries = [];
-    #      foreach my $sortable_entry
-    #          (@{$index_sortable_index_entries->{$index_name}}) {
-    #        my $encoded_sortable_entry = {
-    #          'keys' => $sortable_entry->{'keys'},
-    #          'index_name'
-    #            => Encode::encode('UTF-8', $sortable_entry->{'index_name'}),
-    #          'number' => $sortable_entry->{'number'},
-    #          'entry_keys' => [],
-    #        };
-    #        foreach my $entry_key (@{$sortable_entry->{'entry_keys'}}) {
-    #          push @{$encoded_sortable_entry->{'entry_keys'}},
-    #            Encode::encode('UTF-8', $entry_key);
-    #        }
-    #        push @$encoded_sortable_entries, $encoded_sortable_entry;
-    #      }
-    #      push @{$index_encoded_sortable_entries},
-    #       [$encoded_index_name, $encoded_sortable_entries],
-    #    }
-    #    _XS_sort_sortable_index_entries_by_letter($self,
-    #                                $index_encoded_sortable_entries);
-    #  }
-    #}
 
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
             = Texinfo::Structuring::sort_indices_by_letter($self,
