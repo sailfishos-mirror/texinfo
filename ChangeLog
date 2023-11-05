@@ -2,6 +2,13 @@
 
 	* tp/Texinfo/Convert/HTML.pm (_sort_index_entries),
 	tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): pass index entries by letter
+	directly as a hash.
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_sort_index_entries),
+	tp/Texinfo/XS/main/get_perl_info.c
 	(get_sv_index_entries_sorted_by_letter): encode strings in
 	get_sv_index_entries_sorted_by_letter by using SvPVutf8 instead of
 	doing it in perl.

@@ -1511,9 +1511,12 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
               int k;
               SSize_t entries_nr;
               AV *entries_av;
-              AV *letter_entries_av = (AV *) SvRV (*letter_entries_sv);
-              SV **letter_sv = av_fetch (letter_entries_av, 0, 0);
-              SV **entries_sv = av_fetch (letter_entries_av, 1, 0);
+
+              HV *letter_entries_hv = (HV *) SvRV (*letter_entries_sv);
+              SV **letter_sv = hv_fetch (letter_entries_hv, "letter",
+                                         strlen ("letter"), 0);
+              SV **entries_sv = hv_fetch (letter_entries_hv, "entries",
+                                         strlen ("entries"), 0);
               if (!letter_sv || !entries_sv)
                 {
                   char *msg;
