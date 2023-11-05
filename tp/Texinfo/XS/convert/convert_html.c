@@ -2410,6 +2410,28 @@ html_converter_initialize (CONVERTER *self)
   memset (self->global_units_directions, 0,
     (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
+  /* prepare mapping of variety names to index in global_units_directions */
+  self->varieties_direction_index = (VARIETY_DIRECTION_INDEX **)
+        malloc (sizeof (VARIETY_DIRECTION_INDEX *) * (nr_special_units +1));
+  if (nr_special_units)
+    {
+      STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
+
+      for (i = 0; i < special_unit_varieties->number; i++)
+        {
+          VARIETY_DIRECTION_INDEX *variety_direction_index
+            = (VARIETY_DIRECTION_INDEX *)
+                 malloc (sizeof (VARIETY_DIRECTION_INDEX));
+          self->varieties_direction_index[i] = variety_direction_index;
+          variety_direction_index->special_unit_variety
+            = special_unit_varieties->list[i];
+          variety_direction_index->direction_index
+            = D_Last +1 +i;
+        }
+      self->varieties_direction_index[i] = 0;
+   }
+
+
   /* note that we allocate the same size as no_arg_formatted_cmd
      even though in general there are much less translated commands,
      for simplicity */

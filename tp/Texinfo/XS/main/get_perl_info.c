@@ -523,7 +523,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion)
 {
   int i;
-  HV *hv_in;
+  HV *converter_hv;
   HV *default_formatting_references_hv;
   HV *default_css_string_formatting_references_hv;
   HV *default_commands_open_hv;
@@ -557,14 +557,14 @@ html_converter_initialize_sv (SV *converter_sv,
 
   converter = converter_initialize (converter_sv);
 
-  hv_in = (HV *)SvRV (converter_sv);
+  converter_hv = (HV *)SvRV (converter_sv);
 
   default_formatting_references_hv
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
 
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen(#key), 0);
   FETCH(formatting_function);
 
   /* no need to check if it exists */
@@ -813,21 +813,6 @@ html_converter_initialize_sv (SV *converter_sv,
                 }
             }
         }
-      /* prepare mapping of variety names to index in global_units_directions */
-      converter->varieties_direction_index = (VARIETY_DIRECTION_INDEX **)
-              malloc (sizeof (VARIETY_DIRECTION_INDEX *)
-                      * (special_unit_varieties->number +1));
-      for (j = 0; j < special_unit_varieties->number; j++)
-        {
-          VARIETY_DIRECTION_INDEX *variety_direction_index
-            = (VARIETY_DIRECTION_INDEX *) malloc (sizeof (VARIETY_DIRECTION_INDEX));
-          converter->varieties_direction_index[j] = variety_direction_index;
-          variety_direction_index->special_unit_variety
-            = special_unit_varieties->list[j];
-          variety_direction_index->direction_index
-            = D_Last +1 +j;
-        }
-      converter->varieties_direction_index[j] = 0;
     }
 
   FETCH(code_types)
@@ -1136,7 +1121,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               if (!strcmp (key, "element"))
                                 {
                                   char *tmp_spec
-                                    = (char *) SvPVbyte_nolen (spec_sv);
+                                    = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->element = strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "quote"))
@@ -1153,16 +1138,14 @@ html_converter_initialize_sv (SV *converter_sv,
 
   html_converter_initialize (converter);
 
+  converter->hv = converter_hv;
+
   converter_descriptor = register_converter (converter);
-  /* a fresh converter, registered */
-  converter = retrieve_converter (converter_descriptor);
 
   /* store converter_descriptor in perl converter */
-  HV *converter_hv = (HV *)SvRV(converter_sv);
   hv_store (converter_hv, "converter_descriptor",
             strlen("converter_descriptor"),
             newSViv (converter_descriptor), 0);
-  converter->hv = converter_hv;
 
   return converter_descriptor;
 }
