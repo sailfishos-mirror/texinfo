@@ -33,11 +33,7 @@ $result_trees{'def_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'extra' => {
-                                'translation_context' => 'category of functions for @defun'
-                              },
-                              'text' => 'Function',
-                              'type' => 'untranslated'
+                              'text' => 'Function'
                             }
                           ],
                           'extra' => {

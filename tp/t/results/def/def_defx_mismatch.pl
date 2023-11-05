@@ -19,11 +19,7 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of functions for @defun'
-                          },
-                          'text' => 'Function',
-                          'type' => 'untranslated'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {

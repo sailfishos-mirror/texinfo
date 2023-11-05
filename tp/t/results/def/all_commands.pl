@@ -2252,11 +2252,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of functions for @defun'
-                          },
-                          'text' => 'Function',
-                          'type' => 'untranslated'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
@@ -2389,8 +2385,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Macro',
-                          'type' => 'untranslated'
+                          'text' => 'Macro'
                         }
                       ],
                       'extra' => {
@@ -2523,8 +2518,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form',
-                          'type' => 'untranslated'
+                          'text' => 'Special Form'
                         }
                       ],
                       'extra' => {
@@ -2657,11 +2651,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of variables for @defvar'
-                          },
-                          'text' => 'Variable',
-                          'type' => 'untranslated'
+                          'text' => 'Variable'
                         }
                       ],
                       'extra' => {
@@ -2781,11 +2771,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of variables for @defvar'
-                          },
-                          'text' => 'Variable',
-                          'type' => 'untranslated'
+                          'text' => 'Variable'
                         }
                       ],
                       'extra' => {
@@ -2931,8 +2917,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'User Option',
-                          'type' => 'untranslated'
+                          'text' => 'User Option'
                         }
                       ],
                       'extra' => {
@@ -3052,11 +3037,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of functions for @deftypefun'
-                          },
-                          'text' => 'Function',
-                          'type' => 'untranslated'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
@@ -3202,11 +3183,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of variables in typed languages for @deftypevar'
-                          },
-                          'text' => 'Variable',
-                          'type' => 'untranslated'
+                          'text' => 'Variable'
                         }
                       ],
                       'extra' => {
@@ -3339,11 +3316,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'text' => 'Instance Variable'
                         }
                       ],
                       'extra' => {
@@ -3513,11 +3486,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of instance variables with data type in object-oriented programming for @deftypeivar'
-                          },
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'text' => 'Instance Variable'
                         }
                       ],
                       'extra' => {
@@ -3700,11 +3669,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of methods in object-oriented programming for @defmethod'
-                          },
-                          'text' => 'Method',
-                          'type' => 'untranslated'
+                          'text' => 'Method'
                         }
                       ],
                       'extra' => {
@@ -3887,11 +3852,7 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
-                          },
-                          'text' => 'Method',
-                          'type' => 'untranslated'
+                          'text' => 'Method'
                         }
                       ],
                       'extra' => {

@@ -375,15 +375,14 @@ parse_def (enum command_id command, ELEMENT *current)
       e1 = new_element (ET_NONE);
       text_append_n (&e1->text, category, strlen (category));
       add_to_element_contents (e, e1);
-
-      e1->type = ET_untranslated;
-      if (def_aliases[i].translation_context)
-         add_extra_string_dup (e1, "translation_context",
-                               def_aliases[i].translation_context);
       if (global_documentlanguage && *global_documentlanguage)
         {
+          e1->type = ET_untranslated;
           add_extra_string_dup (e1, "documentlanguage",
                                 global_documentlanguage);
+          if (def_aliases[i].translation_context)
+            add_extra_string_dup (e1, "translation_context",
+                                  def_aliases[i].translation_context);
         }
 
       e = new_element (ET_spaces_inserted);
