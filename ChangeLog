@@ -1,5 +1,8 @@
 2023-11-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* contrib/texifont: Remove subdirectory.  It has been untouched
+	for over 10 years and has no prospect of further development.
+
 2023-11-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Revert documentlanguage fix
