@@ -30,13 +30,15 @@ use strict;
 
 use Carp qw(cluck);
 
+use Texinfo::StructTransf;
+
+use Texinfo::XSLoader;
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Translations;
 use Texinfo::Structuring;
 use Texinfo::Document;
-
-use Texinfo::StructTransf;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -50,6 +52,14 @@ reference_to_arg_in_tree
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 $VERSION = '7.1dev';
+
+# XS parser and not explicitely unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
 our %XS_overrides = (
   "Texinfo::Transformations::fill_gaps_in_sectioning"
@@ -73,7 +83,7 @@ our %XS_overrides = (
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!defined $ENV{TEXINFO_XS_PARSER} or $ENV{TEXINFO_XS_PARSER} eq '1') {
+    if ($XS_structuring) {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }

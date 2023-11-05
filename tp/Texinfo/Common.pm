@@ -43,13 +43,15 @@ use Carp qw(cluck confess);
 
 use Locale::Messages;
 
-use Texinfo::Documentlanguages;
-use Texinfo::Commands;
-use Texinfo::Options;
-
 # FIXME do we really want XS in that file?  Move to
 # Structuring.pm?
 use Texinfo::StructTransf;
+
+use Texinfo::XSLoader;
+
+use Texinfo::Documentlanguages;
+use Texinfo::Commands;
+use Texinfo::Options;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
@@ -78,6 +80,14 @@ __ __p
 
 $VERSION = '7.1dev';
 
+# XS parser and not explicitely unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+
 our %XS_overrides = (
   "Texinfo::Common::set_document_options"
     => "Texinfo::StructTransf::set_document_options",
@@ -92,13 +102,13 @@ our %XS_overrides = (
   "Texinfo::Common::protect_comma_in_tree"
     => "Texinfo::StructTransf::protect_comma_in_tree",
   "Texinfo::Common::protect_node_after_label_in_tree"
-    => "Texinfo::StructTransf::protect_node_after_label_in_tree"
+    => "Texinfo::StructTransf::protect_node_after_label_in_tree",
 );
 
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!defined $ENV{TEXINFO_XS_PARSER} or $ENV{TEXINFO_XS_PARSER} eq '1') {
+    if ($XS_structuring) {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }

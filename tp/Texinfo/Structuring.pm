@@ -39,6 +39,10 @@ use Carp qw(cluck confess);
 
 use Unicode::Normalize;
 
+use Texinfo::StructTransf;
+
+use Texinfo::XSLoader;
+
 # for %root_commands
 use Texinfo::Commands;
 use Texinfo::Common;
@@ -52,8 +56,6 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 # for new_master_menu translations
 use Texinfo::Translations;
-
-use Texinfo::StructTransf;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -81,6 +83,14 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 $VERSION = '7.1dev';
+
+# XS parser and not explicitely unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
 our %XS_overrides = (
   "Texinfo::Structuring::rebuild_document"
@@ -124,8 +134,7 @@ our %XS_overrides = (
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!defined $ENV{TEXINFO_XS_PARSER}
-        or $ENV{TEXINFO_XS_PARSER} ne '0') {
+    if ($XS_structuring) {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }

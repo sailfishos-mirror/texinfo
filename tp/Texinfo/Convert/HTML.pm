@@ -61,6 +61,8 @@ use charnames ();
 
 use Texinfo::Convert::ConvertXS;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Config;

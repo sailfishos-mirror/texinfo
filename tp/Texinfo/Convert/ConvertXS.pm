@@ -27,15 +27,21 @@ our $VERSION = '7.1dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  Texinfo::XSLoader::init (
-    "Texinfo::Convert::ConvertXS",
-    "Texinfo::Convert::ConvertXS",
-    "ConvertXS",
-    undef,
-    0,
-    undef,
-    undef,
-  );
+  my $XS_convert = 0;
+  $XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
+  if ($XS_convert) {
+    Texinfo::XSLoader::init (
+      "Texinfo::Convert::ConvertXS",
+      "Texinfo::Convert::ConvertXS",
+      "ConvertXS",
+      undef,
+      0,
+      undef,
+      undef,
+    );
+  }
 }
 
 # NB Don't add more functions down here, because this can cause an error

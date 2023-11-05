@@ -1393,10 +1393,13 @@ die _encode_message(
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name))
      unless (scalar(@input_files) >= 1);
 
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+# XS parser and not explicitely unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
 my $file_number = -1;
 my @opened_files = ();
@@ -1449,7 +1452,7 @@ while(@input_files) {
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
-  my $document = $parser->parse_texi_file($input_file_name, $with_XS);
+  my $document = $parser->parse_texi_file($input_file_name, $XS_structuring);
   my $tree;
   if (defined($document)) {
     $tree = $document->tree();
@@ -1638,7 +1641,7 @@ while(@input_files) {
 
   $document = Texinfo::Structuring::rebuild_document($document);
 
-  if ($with_XS) {
+  if ($XS_structuring) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }

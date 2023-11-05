@@ -27,6 +27,8 @@ use strict;
 
 use Texinfo::Convert::ConvertXS;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Convert::Texinfo qw(convert_to_texinfo);
 use Texinfo::Convert::Converter;
 
@@ -35,11 +37,14 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '7.1dev';
 
+my $XS_convert = 0;
+$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (defined $ENV{TEXINFO_XS_CONVERT}
-        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    if ($XS_convert) {
       # We do not simply override, we must check at runtime
       # that the document tree was stored by the XS parser.
       Texinfo::XSLoader::override(
@@ -66,13 +71,8 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-# This is used if the document is available for XS, but XS is not
-# used (most likely $TEXINFO_XS_CONVERT is 0).
 sub _convert_tree_with_XS($)
 {
-  my $root = shift;
-
-  return convert_to_texinfo($root);
 }
 
 sub convert_tree($$)
@@ -80,7 +80,7 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  if (defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
     return _convert_tree_with_XS($root);
   }
 
@@ -102,7 +102,7 @@ sub convert($$)
 
   my $root = $document->tree();
 
-  if (defined($document->document_descriptor())) {
+  if ($XS_convert and defined($document->document_descriptor())) {
     return _convert_tree_with_XS($root);
   }
 

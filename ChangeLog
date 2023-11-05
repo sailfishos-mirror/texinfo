@@ -1,3 +1,32 @@
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/PlainTexinfo.pm, tp/Texinfo/Convert/Text.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm: always use
+	main XS file first, and add use Texinfo::XSLoader if used in the
+	module.
+
+	* tp/Texinfo/Convert/ConvertXS.pm: only load if TEXINFO_XS_CONVERT is
+	set. From Gavin.
+
+	* tp/Texinfo/StructTransf.pm: only load if TEXINFO_XS_PARSER is not
+	unset and TEXINFO_XS_STRUCTURE is not set to 0. From Gavin.
+
+	* tp/Texinfo/Common.pm ($XS_structuring, import),
+	tp/Texinfo/Structuring.pm ($XS_structuring, import),
+	tp/Texinfo/Transformations.pm ($XS_structuring, import): load modules
+	only if TEXINFO_XS_PARSER is not unset and TEXINFO_XS_STRUCTURE is not
+	set to 0. From Gavin.
+
+	* tp/t/test_utils.pl ($XS_structuring, test), tp/texi2any.pl: set
+	no_build argument to parse_texi_* and consider that error messages are
+	done in XS if TEXINFO_XS_PARSER is not unset and TEXINFO_XS_STRUCTURE
+	is not set to 0. Based on Gavin idea.
+
+	* tp/Texinfo/Convert/Text.pm ($XS_convert, _convert_tree_with_XS)
+	(convert_to_text, output): call perl code preparing for XS call and
+	calling XS functions only if TEXINFO_XS_CONVERT is set.
+
 2023-11-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/converter_types.h:

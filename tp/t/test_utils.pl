@@ -109,6 +109,14 @@ Texinfo::Translations::configure($localesdir);
 
 Locale::Messages::bindtextdomain('texinfo', $localesdir);
 
+# XS parser and not explicitely unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+
 my $generated_texis_dir = 't_texis';
 
 my $input_files_dir = $srcdir."t/input_files/";
@@ -745,11 +753,6 @@ sub output_preamble_postamble_latex($$)
   }
 }
 
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
-
 my %tested_transformations;
 
 # Run a single test case.  Each test case is an array
@@ -958,10 +961,10 @@ sub test($$)
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_text($test_text, undef, $with_XS);
+      $document = $parser->parse_texi_text($test_text, undef, $XS_structuring);
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_piece($test_text, undef, $with_XS);
+      $document = $parser->parse_texi_piece($test_text, undef, $XS_structuring);
       if (defined($test_input_file_name)) {
         warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
       }
@@ -975,7 +978,7 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    $document = $parser->parse_texi_file($test_file, $with_XS);
+    $document = $parser->parse_texi_file($test_file, $XS_structuring);
   }
   my $tree = $document->tree();
   my $registrar = $parser->registered_errors();
@@ -1080,12 +1083,13 @@ sub test($$)
       }
     }
   }
-
+  # could be in a if !$XS_structuring, but the function should not be
+  # overriden already in that case
   $document = Texinfo::Structuring::rebuild_document($document);
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
-  if ($with_XS) {
+  if ($XS_structuring) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }

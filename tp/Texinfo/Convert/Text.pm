@@ -33,6 +33,8 @@ use Encode qw(decode);
 
 use Texinfo::Convert::ConvertXS;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
@@ -55,11 +57,14 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1dev';
 
+my $XS_convert = 0;
+$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (defined $ENV{TEXINFO_XS_CONVERT}
-        and $ENV{TEXINFO_XS_CONVERT} eq '1') {
+    if ($XS_convert) {
       # We do not simply override, we must check at runtime
       # that the document tree was stored by the XS parser.
       Texinfo::XSLoader::override(
@@ -460,11 +465,6 @@ sub encode_text_options($)
 # used (most likely $TEXINFO_XS_CONVERT is 0).
 sub _convert_tree_with_XS($$;$)
 {
-  my $encoded_options = shift;
-  my $root = shift;
-  my $options = shift;
-
-  return _convert($root, $options);
 }
 
 sub convert_to_text($;$)
@@ -492,7 +492,7 @@ sub convert_to_text($;$)
   }
 
   # Interface with XS converter.
-  if (defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($options);
     my $XS_result = _convert_tree_with_XS($encoded_options, $root, $options);
     if (defined ($XS_result)) {
@@ -1001,7 +1001,7 @@ sub output($$)
 
   my $result;
   # Interface with XS converter.
-  if (defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
     my $encoded_options = encode_text_options($self);
     my $XS_result = _convert_tree_with_XS($encoded_options, $root, $self);
     if (defined ($XS_result)) {

@@ -27,15 +27,21 @@ our $VERSION = '7.1dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  Texinfo::XSLoader::init (
-    "Texinfo::StructTransf",
-    "Texinfo::StructTransf",
-    "StructuringTransfo",
-    undef,
-    0,
-    undef,
-    undef,
-  );
+  my $XS_structuring = ((not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+  if ($XS_structuring) {
+    Texinfo::XSLoader::init (
+      "Texinfo::StructTransf",
+      "Texinfo::StructTransf",
+      "StructuringTransfo",
+      undef,
+      0,
+      undef,
+      undef,
+    );
+  }
 }
 
 # NB Don't add more functions down here, because this can cause an error
