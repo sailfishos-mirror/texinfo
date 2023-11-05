@@ -1,5 +1,11 @@
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (encode_converter_document),
+	tp/Texinfo/XS/main/get_perl_info.c (set_translated_commands)
+	(html_converter_initialize_sv): encode strings in XS, not in perl.
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c, tp/Texinfo/XS/main/utils.h:
 	remove more code related to sorting in C based on sortable entries
 	from perl, get_sv_sortable_entries, KEY_ALPHA, SORTABLE_ENTRY and

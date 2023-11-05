@@ -455,7 +455,7 @@ sub output($$)
 
 ###############################################################
 # XS Interface for a document to be converted.
-# Select and encode to UTF-8 to pass to the XS code
+# Select to pass to the XS code
 # TODO document?
 # To be called for initialization
 sub encode_converter_document($)
@@ -469,80 +469,40 @@ sub encode_converter_document($)
      'formatting_function',
      'types_open', 'types_conversion', 'commands_open', 'commands_conversion',
      'output_units_conversion', 'code_types', 'pre_class_types',
-     'converter_init_conf') {
+     'converter_init_conf', 'translated_commands',
+     'no_arg_commands_formatting') {
     if ($self->{$variable}) {
       $result->{$variable} = $self->{$variable};
     }
   }
 
-  if ($self->{'translated_commands'}) {
-    my $encoded_translated_commands = {};
-    foreach my $cmdname (keys(%{$self->{'translated_commands'}})) {
-      $encoded_translated_commands->{$cmdname}
-        = Encode::encode('UTF-8', $self->{'translated_commands'}->{$cmdname});
-    }
-    $result->{'translated_commands'} = $encoded_translated_commands;
-  }
-
-  # HTML specific
   if ($self->{'special_unit_info'}) {
+    # information that does not need to be translated
+    $result->{'special_unit_info'} = Storable::dclone($self->{'special_unit_info'});
+    # information needing translation, simplify the structure to
+    # be more like non-translated special_unit_info information
+    if ($self->{'translated_special_unit_info'}) {
+      foreach my $tree_type (keys(%{$self->{'translated_special_unit_info'}})) {
+        my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
+        my $variety_strings
+          = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
+        # we do not need both tree type and string type to pass to XS,
+        # pass only the string type $type and associated varieties information
+        $result->{'special_unit_info'}->{$type} = $variety_strings;
+      }
+    }
+
     # to help the XS code to set arrays of C structures, already prepare
     # a list of special units varieties.
     my %all_special_unit_varieties;
-    # only ascii, no need for encoding
-    $result->{'special_unit_info'} = Storable::dclone($self->{'special_unit_info'});
     foreach my $type (keys(%{$result->{'special_unit_info'}})) {
       foreach my $special_unit_variety
             (keys (%{$result->{'special_unit_info'}->{$type}})) {
         $all_special_unit_varieties{$special_unit_variety} = 1;
       }
     }
-
-    if ($self->{'translated_special_unit_info'}) {
-      # could have encoded characters from user init files
-      foreach my $tree_type (keys(%{$self->{'translated_special_unit_info'}})) {
-        my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
-        my $variety_strings
-          = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
-        # simplify the structure, as we do not need both tree and
-        # string to pass to XS
-        $result->{'special_unit_info'}->{$type} = {};
-        foreach my $special_unit_variety (keys (%$variety_strings)) {
-          $all_special_unit_varieties{$special_unit_variety} = 1;
-          $result->{'special_unit_info'}->{$type}
-             ->{$special_unit_variety} = Encode::encode('UTF-8',
-                                   $variety_strings->{$special_unit_variety});
-        }
-      }
-    }
     $result->{'sorted_special_unit_varieties'}
       = [sort(keys(%all_special_unit_varieties))];
-  }
-  if ($self->{'no_arg_commands_formatting'}) {
-    my $encoded_no_arg_commands_formatting = {};
-    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
-      $encoded_no_arg_commands_formatting->{$cmdname} = {};
-      my $format_contexts = $self->{'no_arg_commands_formatting'}->{$cmdname};
-      foreach my $context (keys(%$format_contexts)) {
-        my $spec = $format_contexts->{$context};
-        $encoded_no_arg_commands_formatting->{$cmdname}->{$context} = {};
-        my $encoded_spec
-            = $encoded_no_arg_commands_formatting->{$cmdname}->{$context};
-        foreach my $key ('element', 'unset') {
-          if (exists($spec->{$key})) {
-            $encoded_spec->{$key} = $spec->{$key};
-          }
-        }
-        foreach my $key ('text', 'translated_converted',
-                         'translated_to_convert') {
-          if (exists($spec->{$key})) {
-            $encoded_spec->{$key} = Encode::encode('UTF-8', $spec->{$key});
-          }
-        }
-      }
-    }
-    $result->{'no_arg_commands_formatting'}
-      = $encoded_no_arg_commands_formatting;
   }
 
   return $result;

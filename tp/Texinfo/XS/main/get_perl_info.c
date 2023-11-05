@@ -398,7 +398,7 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
                 fprintf (stderr, "ERROR: %s: no translated command\n", cmdname);
               else
                 {
-                  char *tmp_spec = (char *) SvPVbyte_nolen (translation_sv);
+                  char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
                   TRANSLATED_COMMAND *translated_command;
 
                   converter->translated_commands[i] = (TRANSLATED_COMMAND *)
@@ -805,7 +805,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                       if (SvOK (*info_type_variety_sv))
                         {
                           char *value
-                            = (char *) SvPVbyte_nolen (*info_type_variety_sv);
+                            = (char *) SvPVutf8_nolen (*info_type_variety_sv);
                           converter->special_unit_info[j][k] = strdup (value);
                         }
                       else
@@ -1016,7 +1016,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                               if (!strcmp (key, "element"))
                                 {
                                   char *tmp_spec
-                                    = (char *) SvPVbyte_nolen (spec_sv);
+                                    = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->element = strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "unset"))
@@ -1024,20 +1024,20 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
                               else if (!strcmp (key, "text"))
                                 {
                                   char *tmp_spec
-                                    = (char *) SvPVbyte_nolen (spec_sv);
+                                    = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->text = strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "translated_converted"))
                                 {
                                   char *tmp_spec
-                                    = (char *) SvPVbyte_nolen (spec_sv);
+                                    = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->translated_converted
                                     = strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "translated_to_convert"))
                                 {
                                   char *tmp_spec
-                                    = (char *) SvPVbyte_nolen (spec_sv);
+                                    = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->translated_to_convert
                                     = strdup (tmp_spec);
                                 }
