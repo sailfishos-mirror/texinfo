@@ -401,7 +401,7 @@ typedef struct CONVERTER {
     SPECIAL_UNIT_DIRECTION **special_units_direction_name;
     char **special_unit_info[SUI_type_heading+1];
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
-    STRING_LIST *special_unit_varieties;
+    STRING_LIST special_unit_varieties;
     VARIETY_DIRECTION_INDEX **varieties_direction_index;
     STRING_LIST *seen_ids;
     HTML_TARGET_LIST *html_targets;

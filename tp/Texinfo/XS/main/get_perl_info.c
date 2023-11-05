@@ -757,25 +757,10 @@ html_converter_initialize_sv (SV *converter_sv,
       SV **special_unit_info_sv;
       HV *special_unit_info_hv;
 
-      STRING_LIST *special_unit_varieties
-       = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (special_unit_varieties, 0, sizeof (STRING_LIST));
+      STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
       if (sorted_special_unit_varieties_sv)
         add_svav_to_string_list (*sorted_special_unit_varieties_sv,
                                  special_unit_varieties, 0);
-
-      /* allocate space for translated tree types, but do not
-         get from perl, it will be created for the conversion */
-      for (j = 0; j < SUIT_type_heading+1; j++)
-        {
-          converter->special_unit_info_tree[j]
-           = (ELEMENT **)
-            malloc ((special_unit_varieties->number +1) * sizeof (ELEMENT *));
-          memset (converter->special_unit_info_tree[j], 0,
-                   (special_unit_varieties->number +1) * sizeof (ELEMENT *));
-        }
-
-      converter->special_unit_varieties = special_unit_varieties;
 
       FETCH(special_unit_info);
 

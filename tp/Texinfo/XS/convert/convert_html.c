@@ -253,7 +253,7 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
               if (cmd_variety_index.cmd == current->cmd)
                 {
                   char *special_unit_variety
-                = self->special_unit_varieties->list[cmd_variety_index.index];
+                = self->special_unit_varieties.list[cmd_variety_index.index];
                   int special_unit_direction_index
                     = special_unit_variety_direction_index (self,
                                                 special_unit_variety);
@@ -422,7 +422,7 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
                         char *special_unit_variety)
 {
   /* number is index +1 */
-  size_t number = find_string (self->special_unit_varieties,
+  size_t number = find_string (&self->special_unit_varieties,
                                special_unit_variety);
   int j;
   int i = number -1;
@@ -455,7 +455,7 @@ special_unit_info (CONVERTER *self, enum special_unit_info_type type,
                    char *special_unit_variety)
 {
   /* number is index +1 */
-  size_t number = find_string (self->special_unit_varieties,
+  size_t number = find_string (&self->special_unit_varieties,
                                special_unit_variety);
   int i = number -1;
 
@@ -498,7 +498,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                                int *associated_special_units_descriptor_ref)
 {
   int i;
-  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
   SPECIAL_UNIT_ORDER *special_units_order;
   OUTPUT_UNIT *previous_output_unit = 0;
 
@@ -2392,7 +2392,17 @@ html_converter_initialize (CONVERTER *self)
 
   /* initialization needing some information from perl */
 
-  nr_special_units = self->special_unit_varieties->number;
+  nr_special_units = self->special_unit_varieties.number;
+
+  /* allocate space for translated tree types, they will be created
+     on-demand during the conversion */
+  for (i = 0; i < SUIT_type_heading+1; i++)
+    {
+      self->special_unit_info_tree[i] = (ELEMENT **)
+        malloc ((nr_special_units +1) * sizeof (ELEMENT *));
+      memset (self->special_unit_info_tree[i], 0,
+               (nr_special_units +1) * sizeof (ELEMENT *));
+    }
 
   self->global_units_directions
     = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
@@ -2414,7 +2424,7 @@ html_converter_initialize (CONVERTER *self)
     {
       char *special_unit_variety = command_special_unit_variety[i].variety;
       /* number is index +1 */
-      size_t number = find_string (self->special_unit_varieties,
+      size_t number = find_string (&self->special_unit_varieties,
                                    special_unit_variety);
       enum command_id cmd = command_special_unit_variety[i].cmd;
       html_commands_data[cmd].flags |= HF_special_variety;
@@ -2699,7 +2709,7 @@ void
 html_translate_names (CONVERTER *self)
 {
   int j;
-  STRING_LIST *special_unit_varieties = self->special_unit_varieties;
+  STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
 
   if (self->conf->DEBUG > 0)
     {
