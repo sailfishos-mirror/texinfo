@@ -468,16 +468,11 @@ sub encode_converter_document($)
   foreach my $variable ('expanded_formats', 'style_commands_formatting',
      'formatting_function',
      'types_open', 'types_conversion', 'commands_open', 'commands_conversion',
-     'output_units_conversion', 'code_types', 'pre_class_types') {
+     'output_units_conversion', 'code_types', 'pre_class_types',
+     'converter_init_conf') {
     if ($self->{$variable}) {
       $result->{$variable} = $self->{$variable};
     }
-  }
-
-  if (defined($self->{'converter_init_conf'})) {
-    my $encoded_converter_init_conf
-      = Texinfo::Common::encode_options($self->{'converter_init_conf'});
-    $result->{'converter_init_conf'} = $encoded_converter_init_conf;
   }
 
   if ($self->{'translated_commands'}) {
@@ -558,16 +553,13 @@ sub encode_converter_document($)
 sub encode_converter_for_output($)
 {
   my $self = shift;
-  my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
 
   my $result = {'converter_descriptor' => $self->{'converter_descriptor'},
-                'conf' => $encoded_conf,
+                'conf' => $self->{'conf'},
                };
 
   if (defined($self->{'output_init_conf'})) {
-    my $encoded_init_conf
-      = Texinfo::Common::encode_options($self->{'output_init_conf'});
-    $result->{'output_init_conf'} = $encoded_init_conf;
+    $result->{'output_init_conf'} = $self->{'output_init_conf'};
   }
 
   return $result;

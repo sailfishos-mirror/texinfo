@@ -449,14 +449,11 @@ sub encode_text_options($)
   # called through convert_to_text with a converter in text options
   if ($options->{'converter'}
       and $options->{'converter'}->{'conf'}) {
-    my $encoded_converter_options
-     = Texinfo::Common::encode_options($options->{'converter'}->{'conf'});
-    $encoded_options->{'other_converter_options'} = $encoded_converter_options;
+    $encoded_options->{'other_converter_options'}
+       = $options->{'converter'}->{'conf'};
   }
 
-  my $encoded_converter_options
-    = Texinfo::Common::encode_options($options);
-  $encoded_options->{'self_converter_options'} = $encoded_converter_options;
+  $encoded_options->{'self_converter_options'} = $options;
 
   return $encoded_options;
 }

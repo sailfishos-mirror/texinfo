@@ -63,45 +63,39 @@ gettree (char *string, ...)
         int gdt_document_descriptor;
         DOCUMENT *gdt_document;
       CODE:
-        if ( items > 4 )
-           if (SvOK(ST(4)))
-             in_lang = (char *)SvPVbyte_nolen(ST(4));
-        if ( items > 3 )
-           if (SvOK(ST(3)))
-             translation_context = (char *)SvPVbyte_nolen(ST(3));
-        if ( items > 2 )
+        if (items > 4 && SvOK(ST(4)))
+           in_lang = (char *)SvPVbyte_nolen(ST(4));
+        if (items > 3 && SvOK(ST(3)))
+           translation_context = (char *)SvPVbyte_nolen(ST(3));
+        if (items > 2 && SvOK(ST(2)))
            {
              /* TODO put in get_perl_info.h */
-             if (SvOK(ST(2)))
-               {
-                 I32 hv_number;
-                 I32 i;
-                 hv_replaced_substrings = (HV *)SvRV (ST(1));
-                 hv_number = hv_iterinit (hv_replaced_substrings);
-                 if (hv_number > 0)
-                   replaced_substrings = new_named_string_element_list ();
-                   for (i = 0; i < hv_number; i++)
-                     {
-                       char *key;
-                       I32 retlen;
-                       SV *value = hv_iternextsv(hv_replaced_substrings,
-                                                 &key, &retlen);
-                       DOCUMENT *document = get_sv_tree_document (value, 0);
-                       /* TODO should warn/error if not found or return 
-                          a list of missing string identifiers?  Or check
-                          in caller?  In any case, it cannot be good to
-                          ignore a replaced substring */
-                       if (document && document->tree)
-                         add_element_to_named_string_element_list (
-                           replaced_substrings, key, document->tree);
-                     }
+             I32 hv_number;
+             I32 i;
+             hv_replaced_substrings = (HV *)SvRV (ST(1));
+             hv_number = hv_iterinit (hv_replaced_substrings);
+             if (hv_number > 0)
+               replaced_substrings = new_named_string_element_list ();
+               for (i = 0; i < hv_number; i++)
+                 {
+                   char *key;
+                   I32 retlen;
+                   SV *value = hv_iternextsv(hv_replaced_substrings,
+                                             &key, &retlen);
+                   DOCUMENT *document = get_sv_tree_document (value, 0);
+                   /* TODO should warn/error if not found or return 
+                      a list of missing string identifiers?  Or check
+                      in caller?  In any case, it cannot be good to
+                      ignore a replaced substring */
+                   if (document && document->tree)
+                     add_element_to_named_string_element_list (
+                       replaced_substrings, key, document->tree);
                }
            }
-         if ( items > 1 )
-           if (SvOK(ST(1)))
-             {
-               options = copy_sv_options (ST(1));
-             }
+         if (items > 1 && SvOK(ST(1)))
+           {
+             options = copy_sv_options (ST(1));
+           }
 
          gdt_document_descriptor
                      = gdt (string, options, replaced_substrings,

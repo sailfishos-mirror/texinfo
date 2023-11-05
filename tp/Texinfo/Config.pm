@@ -896,8 +896,7 @@ sub register_XS_document_main_configuration($$)
     #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
     $options = \%options;
   }
-  my $encoded_options = Texinfo::Common::encode_options($options);
-  Texinfo::Common::set_document_options($encoded_options, $document);
+  Texinfo::Common::set_document_options($options, $document);
 }
 
 1;

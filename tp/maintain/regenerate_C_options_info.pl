@@ -261,6 +261,14 @@ get_sv_option (OPTIONS *options, const char *key, SV *value)
   if (0) {}
 ';
 
+#my %non_decoded_customization_variables
+#   = %Texinfo::Common::non_decoded_customization_variables;
+
+# duplicated from Texinfo::Common to avoid depending on Texinfo::Common
+my %non_decoded_customization_variables;
+foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
+  $non_decoded_customization_variables{$variable_name} = 1;
+}
 
 foreach my $category (sort(keys(%option_categories))) {
   print GET "\n/* ${category} */\n\n";
@@ -268,9 +276,13 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     print GET "  else if (!strcmp (key, \"$option\"))\n";
     if ($type eq 'char *') {
+      my $SV_function_type = 'utf8';
+      if ($non_decoded_customization_variables{$option}) {
+        $SV_function_type = 'byte';
+      }
       print GET "    {
       free (options->$option);
-      options->$option = strdup (SvPVbyte_nolen (value));
+      options->$option = strdup (SvPV${SV_function_type}_nolen (value));
     }\n";
     } elsif ($type eq 'int') {
       print GET "    options->$option = SvIV (value);\n";

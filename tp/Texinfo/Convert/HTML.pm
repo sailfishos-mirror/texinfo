@@ -2356,12 +2356,11 @@ sub _translate_names($)
   my $self = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $encoded_conf = Texinfo::Common::encode_options($self->{'conf'});
-    my $encoded_converter
+    my $selected_info
              = {'converter_descriptor' => $self->{'converter_descriptor'},
-                'conf' => $encoded_conf,
+                'conf' => $self->{'conf'},
                };
-    _XS_translate_names($encoded_converter);
+    _XS_translate_names($selected_info);
     return;
   }
 

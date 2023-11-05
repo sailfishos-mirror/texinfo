@@ -478,10 +478,8 @@ sub _XS_gdt($$;$$$)
   my $encoded_lang;
   $encoded_lang = Encode::encode('utf-8', $lang)
     if (defined($lang));
-  my $encoded_customization_information
-    = Texinfo::Common::encode_options ($customization_information);
 
-  my $tree = _XS_gettree ($encoded_string, $encoded_customization_information,
+  my $tree = _XS_gettree ($encoded_string, $customization_information,
                           $replaced_substrings,
                           $encoded_translation_context, $encoded_lang);
 

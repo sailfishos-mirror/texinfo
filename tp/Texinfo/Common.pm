@@ -2547,24 +2547,6 @@ sub get_label_element($)
   return undef;
 }
 
-sub encode_options($)
-{
-  my $options = shift;
-  my $encoded_options = {};
-  foreach my $option (keys(%$options)) {
-    next unless ($valid_customization_options{$option});
-    if (defined($options->{$option})
-        and ref($options->{$option}) eq ''
-        and not $non_decoded_customization_variables{$option}) {
-      $encoded_options->{$option}
-        = Encode::encode("UTF-8", $options->{$option});
-    } else {
-      $encoded_options->{$option} = $options->{$option};
-    }
-  }
-  return $encoded_options;
-}
-
 # non-XS does nothing and should not even be called as the caller verifies
 # that there is a document descriptor; XS version registers options in XS
 # document.  It would have been more logical for this function to be in
