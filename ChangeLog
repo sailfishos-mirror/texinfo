@@ -16,6 +16,15 @@
 
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm, tp/ext/highlight_syntax.pm,
+	tp/init/documentation_examples.pm, tp/init/html32.pm,
+	tp/t/init/ignore_and_comments_output.init,
+	tp/t/init/mini_ker_t2h.init, tp/t/init/t2h_singular.init: handle undef
+	contents for all commands and types conversion functions (and undef
+	args).
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
 	Change customization of translations to target only translated string
 
 	* tp/Texinfo/Translations.pm (translate_string): rename _gdt as

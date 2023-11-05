@@ -120,6 +120,8 @@ sub my_convert_paragraph_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($converter->in_string());
 
   my @contents = @{$element->{'contents'}};

@@ -4037,8 +4037,9 @@ formats the footer and navigation panel of a output unit.
     @var{$content}, @var{$command})
 @var{\%output_unit} is the output unit in which the
 navigation footer is formatted.  @var{$tree_unit_type} is the associated type.
-@var{$content} is the formatted element content.  @var{$command} is an optional
-argument, the @@-command associated with the @var{\%output_unit}.
+@var{$content} is the formatted element content.  @var{$content} can be
+@code{undef}. @var{$command} is an optional argument, the @@-command
+associated with the @var{\%output_unit}.
 
 Returns the formatted navigation footer and panel.
 

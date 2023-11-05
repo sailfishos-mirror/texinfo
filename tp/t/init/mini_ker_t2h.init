@@ -8,6 +8,7 @@ sub mini_ker_element_type($$$$)
   my $content = shift;
 
   if ($self->unit_is_top_output_unit($element)) {
+    $content = '' if (!defined($content));
     my $result = '';
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
           $self->get_conf('MISC_BUTTONS'), $type, $element)

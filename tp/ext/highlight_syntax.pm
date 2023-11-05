@@ -604,6 +604,7 @@ sub highlight_preformatted_command($$$$$)
         $commands{$cmdname}->{'output_languages_counters'}->{$language}++;
 
         if ($self->in_string()) {
+          $content = '' if (!defined($content));
           return $content;
         }
 

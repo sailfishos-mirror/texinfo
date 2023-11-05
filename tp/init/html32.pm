@@ -211,6 +211,8 @@ sub html32_convert_multitable_head_type($$$$) {
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
     return $content . "\n";
@@ -225,6 +227,8 @@ sub html32_convert_multitable_body_type($$$$) {
   my $type = shift;
   my $element = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
@@ -242,6 +246,8 @@ sub html32_convert_itemize_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -262,6 +268,8 @@ sub html32_convert_tab_command($$$$$)
 
   my $row = $command->{'parent'};
   my $row_cmdname = $row->{'contents'}->[0]->{'cmdname'};
+
+  $content = '' if (!defined($content));
 
   # FIXME is it right?
   $content =~ s/^\s*//;
@@ -286,6 +294,8 @@ sub html32_convert_item_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -360,6 +370,8 @@ sub html32_convert_paragraph_type($$$$)
   my $type = shift;
   my $element = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   $content = $self->get_associated_formatted_inline_content($element).$content;
 

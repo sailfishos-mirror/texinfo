@@ -298,6 +298,8 @@ sub t2h_sing_menu($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($content =~ /\S/) {
     return "<blockquote><table class=\"menu\" border=\"0\" cellspacing=\"0\">\n" . $content. "</table></blockquote>\n";
   }

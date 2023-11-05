@@ -4518,6 +4518,8 @@ sub _convert_raw_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($cmdname eq 'html') {
     return $content;
   }
@@ -4597,6 +4599,8 @@ sub _convert_preformatted_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   my @classes;
 
   # this is mainly for classes as there are purprosely no classes
@@ -4654,6 +4658,8 @@ sub _convert_indented_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   my @classes;
 
   my $main_cmdname;
@@ -4686,6 +4692,8 @@ sub _convert_verbatim_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if (!$self->in_string()) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'
           .$content . '</pre>';
@@ -4703,6 +4711,8 @@ sub _convert_displaymath_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -4751,6 +4761,8 @@ sub _convert_command_simple_block($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   return $self->html_attribute_class('div', [$cmdname]).'>'
         .$content.'</div>';
@@ -4835,7 +4847,7 @@ sub _convert_author_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return '' if (!$args->[0] or !$command->{'extra'}
+  return '' if (!$args or !$args->[0] or !$command->{'extra'}
                 or !$command->{'extra'}->{'titlepage'});
   if (!$self->in_string()) {
     return $self->html_attribute_class('strong', [$cmdname])
@@ -4854,7 +4866,7 @@ sub _convert_title_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
-  return '' if (!$args->[0]);
+  return '' if (!$args or !$args->[0]);
   if (!$self->in_string()) {
     return $self->html_attribute_class('h1', [$cmdname])
                             .">$args->[0]->{'normal'}</h1>\n";
@@ -4871,7 +4883,7 @@ sub _convert_subtitle_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return '' if (!$args->[0]);
+  return '' if (!$args or !$args->[0]);
   if (!$self->in_string()) {
     return $self->html_attribute_class('h3', [$cmdname])
                             .">$args->[0]->{'normal'}</h3>\n";
@@ -4973,6 +4985,8 @@ sub _convert_menu_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($cmdname eq 'detailmenu');
 
   my $html_menu_entry_index
@@ -5009,6 +5023,8 @@ sub _convert_float_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   my ($caption, $prepended)
      = Texinfo::Convert::Converter::float_name_caption($self, $command);
@@ -5093,6 +5109,8 @@ sub _convert_quotation_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   $self->cancel_pending_formatted_inline_content($cmdname);
 
   my @classes;
@@ -5140,10 +5158,12 @@ sub _convert_cartouche_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
 
   my $title_content = '';
-  if ($args->[0] and $args->[0]->{'normal'} ne '') {
+  if ($args and $args->[0] and $args->[0]->{'normal'} ne '') {
     $title_content = "<tr><th>\n". $args->[0]->{'normal'} ."</th></tr>";
   }
   my $cartouche_content = '';
@@ -5167,6 +5187,8 @@ sub _convert_itemize_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -5225,12 +5247,12 @@ sub _convert_enumerate_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  if ($self->in_string()) {
+  if (!defined($content) or $content eq '') {
+    return '';
+  } elsif ($self->in_string()) {
     return $content;
   }
-  if ($content eq '') {
-    return '';
-  }
+
   my $type_attribute = '';
   my $start_attribute = '';
   my $specification = $command->{'extra'}->{'enumerate_specification'};
@@ -5262,6 +5284,8 @@ sub _convert_multitable_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($self->in_string()) {
     return $content;
   }
@@ -5282,6 +5306,8 @@ sub _convert_xtable_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -5304,6 +5330,8 @@ sub _convert_item_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
@@ -5393,6 +5421,8 @@ sub _convert_tab_command($$$$$)
       $fractions = " width=\"$fraction%\"";
     }
   }
+
+  $content = '' if (!defined($content));
 
   $content =~ s/^\s*//;
   $content =~ s/\s*$//;
@@ -6339,6 +6369,8 @@ sub _convert_paragraph_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   $content = $self->get_associated_formatted_inline_content($element).$content;
 
   if ($self->paragraph_number() == 1) {
@@ -6414,10 +6446,7 @@ sub _convert_preformatted_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  if (!defined($content)) {
-    cluck "content undef in _convert_preformatted_type "
-       .Texinfo::Common::debug_print_element($element, 1);
-  }
+  $content = '' if (!defined($content));
 
   $content = $self->get_associated_formatted_inline_content($element).$content;
 
@@ -6471,6 +6500,8 @@ sub _convert_balanced_braces_type($$$$) {
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content;
 }
 
@@ -6504,6 +6535,8 @@ sub _convert_definfoenclose_type($$$$) {
   my $type = shift;
   my $element = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   # FIXME add a span to mark the original command as a class?
   return &{$self->formatting_function('format_protect_text')}($self,
@@ -6664,7 +6697,10 @@ sub _convert_row_type($$$$) {
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
+
   if ($content =~ /\S/) {
     my $result = '<tr>' . $content . '</tr>';
     if ($element->{'contents'}
@@ -6686,7 +6722,10 @@ sub _convert_multitable_head_type($$$$) {
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
+
   if ($content =~ /\S/) {
     return '<thead>' . $content . '</thead>' . "\n";
   } else {
@@ -6950,6 +6989,8 @@ sub _convert_menu_comment_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($self->_in_preformatted_in_menu() or $self->in_string()) {
     return $content;
   } else {
@@ -6991,6 +7032,8 @@ sub _convert_table_term_type($$$$)
   my $type = shift;
   my $element = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   return '<dt>'.$content;
 }
@@ -7187,7 +7230,10 @@ sub _convert_def_item_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
+
   if ($content =~ /\S/) {
     if (! $self->get_conf('DEF_TABLE')) {
       return '<dd>' . $content . '</dd>';
@@ -7206,6 +7252,8 @@ sub _convert_def_command($$$$$) {
   my $command = shift;
   my $args = shift;
   my $content = shift;
+
+  $content = '' if (!defined($content));
 
   return $content if ($self->in_string());
 
@@ -7239,7 +7287,10 @@ sub _convert_table_definition_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   return $content if ($self->in_string());
+
   if ($content =~ /\S/) {
     return '<dd>' . $content . '</dd>'."\n";
   }
@@ -7333,6 +7384,8 @@ sub _convert_special_unit_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($self->in_string()) {
     return '';
   }
@@ -7398,12 +7451,10 @@ sub _convert_unit_type($$$$)
   my $element = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
   if ($self->in_string()) {
-    if (defined($content)) {
-      return $content;
-    } else {
-      return '';
-    }
+    return $content;
   }
   my $result = '';
   my $output_unit = $element;
@@ -7503,6 +7554,7 @@ sub _default_format_element_footer($$$$;$)
       if ($self->get_conf('HEADERS')) {
         my $no_footer_word_count;
         if ($self->get_conf('WORDS_IN_PAGE')) {
+          $content = '' if (!defined($content));
           # FIXME it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
           # not be in \h and \v in some case, but not sure which case it is
           my @cnt = split(/\P{Word}*[\h\v]+\P{Word}*/, $content);
