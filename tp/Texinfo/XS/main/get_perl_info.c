@@ -474,6 +474,42 @@ register_formatting_reference_with_default (char *type_string,
     */
 }
 
+CONVERTER *
+converter_initialize (SV *converter_sv)
+{
+  HV *hv_in;
+  SV **converter_init_conf_sv;
+  CONVERTER *converter = new_converter ();
+  DOCUMENT *document;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (converter_sv);
+
+  document = get_sv_document_document (converter_sv, 0);
+  converter->document = document;
+
+  converter_init_conf_sv
+    = hv_fetch (hv_in, "converter_init_conf",
+                strlen ("converter_init_conf"), 0);
+
+  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
+    {
+      converter->init_conf
+         = copy_sv_options (*converter_init_conf_sv);
+    }
+
+  converter->error_messages
+    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
+  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+
+  set_translated_commands (converter, hv_in);
+
+  get_expanded_formats (hv_in, &converter->expanded_formats);
+
+  return converter;
+}
+
 int
 html_converter_initialize_sv (SV *converter_sv,
                               SV *default_formatting_references,
@@ -497,7 +533,6 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *default_types_conversion_hv;
   HV *default_css_string_types_conversion_hv;
   HV *default_output_units_conversion_hv;
-  SV **converter_init_conf_sv;
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
@@ -515,42 +550,21 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *types_open_hv;
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
-  CONVERTER *converter = new_converter ();
   int converter_descriptor = 0;
-  DOCUMENT *document;
+  CONVERTER *converter;
 
   dTHX;
 
+  converter = converter_initialize (converter_sv);
+
   hv_in = (HV *)SvRV (converter_sv);
+
   default_formatting_references_hv
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
 
-  /* generic */
-
-  document = get_sv_document_document (converter_sv, 0);
-  converter->document = document;
-
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
-  FETCH(converter_init_conf);
-
-  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
-    {
-      converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv);
-    }
-
-  converter->error_messages
-    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
-  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-
-  set_translated_commands (converter, hv_in);
-
-  get_expanded_formats (hv_in, &converter->expanded_formats);
-
-  /* HTML specific */
-
   FETCH(formatting_function);
 
   /* no need to check if it exists */
