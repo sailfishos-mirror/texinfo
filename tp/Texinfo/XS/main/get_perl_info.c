@@ -1452,13 +1452,13 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
       int i;
       char *idx_name = 0;
       SSize_t letter_entries_nr;
-      AV *index_encoded_sorted_by_letter_av;
+      AV *index_sorted_by_letter_av;
       SV **idx_name_sv;
-      SV **encoded_sorted_by_letter_sv;
+      SV **sorted_by_letter_sv;
       AV *av;
 
-      SV **index_encoded_sorted_by_letter_sv = av_fetch (av_in, j, 0);
-      if (!index_encoded_sorted_by_letter_sv)
+      SV **index_sorted_by_letter_sv = av_fetch (av_in, j, 0);
+      if (!index_sorted_by_letter_sv)
         {
           char *msg;
           xasprintf (&msg,
@@ -1466,10 +1466,10 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
           fatal (msg);
         }
 
-      index_encoded_sorted_by_letter_av
-        = (AV *)SvRV (*index_encoded_sorted_by_letter_sv);
+      index_sorted_by_letter_av
+        = (AV *)SvRV (*index_sorted_by_letter_sv);
 
-      idx_name_sv = av_fetch (index_encoded_sorted_by_letter_av, 0, 0);
+      idx_name_sv = av_fetch (index_sorted_by_letter_av, 0, 0);
       if (!idx_name_sv)
         {
           char *msg;
@@ -1477,11 +1477,11 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
             "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
           fatal (msg);
         }
-      idx_name = (char *) SvPVbyte_nolen (*idx_name_sv);
+      idx_name = (char *) SvPVutf8_nolen (*idx_name_sv);
 
-      encoded_sorted_by_letter_sv
-        = av_fetch (index_encoded_sorted_by_letter_av, 1, 0);
-      if (!encoded_sorted_by_letter_sv)
+      sorted_by_letter_sv
+        = av_fetch (index_sorted_by_letter_av, 1, 0);
+      if (!sorted_by_letter_sv)
         {
           char *msg;
           xasprintf (&msg,
@@ -1494,7 +1494,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                                  malloc (sizeof (INDEX_SORTED_BY_LETTER));
       converter->index_entries_by_letter[j]->name = strdup (idx_name);
 
-      av = (AV *)SvRV (*encoded_sorted_by_letter_sv);
+      av = (AV *)SvRV (*sorted_by_letter_sv);
 
       letter_entries_nr = av_top_index (av) +1;
       converter->index_entries_by_letter[j]->number = letter_entries_nr;
@@ -1512,9 +1512,9 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
               SSize_t entries_nr;
               AV *entries_av;
               AV *letter_entries_av = (AV *) SvRV (*letter_entries_sv);
-              SV **encoded_letter_sv = av_fetch (letter_entries_av, 0, 0);
+              SV **letter_sv = av_fetch (letter_entries_av, 0, 0);
               SV **entries_sv = av_fetch (letter_entries_av, 1, 0);
-              if (!encoded_letter_sv || !entries_sv)
+              if (!letter_sv || !entries_sv)
                 {
                   char *msg;
                   xasprintf (&msg,
@@ -1523,7 +1523,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                   fatal (msg);
                 }
               letter_entries->letter
-                = (char *) SvPVbyte_nolen (*encoded_letter_sv);
+                = (char *) SvPVutf8_nolen (*letter_sv);
 
               entries_av = (AV *) SvRV (*entries_sv);
               entries_nr = av_top_index (entries_av) +1;
@@ -1562,8 +1562,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                              idx_name, i, letter_entries->letter, k);
                       fatal (msg);
                     }
-                  /* FIXME probably not SvPVbyte_nolen as entered as newSVpv_utf8 */
-                  entry_index_name = (char *) SvPVbyte_nolen (*index_name_sv);
+                  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
                   entry_number = SvIV (*entry_number_sv);
 
                   for (n = index_names; (idx = *n); n++)
