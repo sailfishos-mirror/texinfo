@@ -723,9 +723,8 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
 }
 
 char *
-call_formatting_function_format_translate_message_string (CONVERTER *self,
+call_formatting_function_format_translate_message (CONVERTER *self,
                                   const char *message, const char *lang,
-                         NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                                   const char *message_context)
 {
   int count;
@@ -734,7 +733,6 @@ call_formatting_function_format_translate_message_string (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  SV *replaced_substrings_sv;
 
   dTHX;
 
@@ -743,7 +741,7 @@ call_formatting_function_format_translate_message_string (CONVERTER *self,
 
   formatting_reference_sv
     = self->formatting_references[
-         FR_format_translate_message_string].sv_reference;
+         FR_format_translate_message].sv_reference;
 
   if (self->modified_state)
     {
@@ -751,23 +749,17 @@ call_formatting_function_format_translate_message_string (CONVERTER *self,
       self->modified_state = 0;
     }
 
-  if (replaced_substrings)
-    replaced_substrings_sv = build_replaced_substrings (replaced_substrings);
-  else
-    replaced_substrings_sv = newSV (0);
-
   dSP;
 
   ENTER;
   SAVETMPS;
 
   PUSHMARK(SP);
-  EXTEND(SP, 5);
+  EXTEND(SP, 4);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
   PUSHs(sv_2mortal (newSVpv (lang, 0)));
-  PUSHs(sv_2mortal (replaced_substrings_sv));
   PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
   PUTBACK;
 
@@ -777,7 +769,7 @@ call_formatting_function_format_translate_message_string (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_translate_message_string should return 1 item\n");
+    croak("format_translate_message should return 1 item\n");
 
   result_sv = POPs;
   if (SvOK (result_sv))

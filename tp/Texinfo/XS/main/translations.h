@@ -21,6 +21,13 @@ typedef struct NAMED_STRING_ELEMENT_LIST {
     NAMED_STRING_ELEMENT *list;
 } NAMED_STRING_ELEMENT_LIST;
 
+char *translate_string (OPTIONS *options, const char * string,
+                  const char *translation_context, const char *in_lang);
+int replace_convert_substrings (char *translated_string,
+                           NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+char *replace_substrings (char *string,
+                    NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+
 int gdt (const char * string, OPTIONS *options,
          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
          const char *translation_context,

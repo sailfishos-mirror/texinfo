@@ -39,6 +39,8 @@
 #include "translations.h"
 #include "convert_utils.h"
 #include "call_perl_function.h"
+/* for TREE_AND_STRINGS */
+#include "document.h"
 #include "convert_html.h"
 
 
@@ -307,24 +309,13 @@ find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
   return 0;
 }
 
-ELEMENT *
-html_gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
-               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-               const char *translation_context,
-               const char *in_lang)
-{
-  return gdt_tree (string, document, options, replaced_substrings,
-                   translation_context, in_lang);
-}
-
 
 char *
-html_gdt_string (const char *string, CONVERTER *self,
-                 NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                 const char *translation_context, const char *in_lang)
+html_translate_string (CONVERTER *self, const char *string,
+                   const char *translation_context, const char *in_lang)
 {
   FORMATTING_REFERENCE *formatting_reference
-    = &self->formatting_references[FR_format_translate_message_string];
+    = &self->formatting_references[FR_format_translate_message];
 
   /* there is no place where FRS_status_ignore could be set, but
      it does not hurt to consider it possible */
@@ -339,24 +330,89 @@ html_gdt_string (const char *string, CONVERTER *self,
         lang = self->conf->documentlanguage;
 
       translated_string
-       = call_formatting_function_format_translate_message_string(
-          self, string, lang, replaced_substrings, translation_context);
+       = call_formatting_function_format_translate_message(
+                            self, string, lang, translation_context);
 
       if (translated_string)
         return translated_string;
     }
 
-  return gdt_string (string, self->conf, replaced_substrings,
-                     translation_context, in_lang);
+  return translate_string (self->conf, string, translation_context,
+                           in_lang);
+}
+
+/* returns a document descriptor. */
+int
+html_gdt (const char *string, CONVERTER *self,
+     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+     const char *translation_context, const char *in_lang)
+{
+  char *translated_string = html_translate_string (self, string,
+                                              translation_context,
+                                              in_lang);
+
+  int document_descriptor
+    = replace_convert_substrings (translated_string, replaced_substrings);
+  free (translated_string);
+  return document_descriptor;
+}
+
+/* a copy and paste of translations.c gdt_tree with html_gdt instead of gdt */
+ELEMENT *
+html_gdt_tree (const char *string, DOCUMENT *document, CONVERTER *self,
+               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               const char *translation_context,
+               const char *in_lang)
+{
+  ELEMENT *tree;
+  int gdt_document_descriptor = html_gdt (string, self, replaced_substrings,
+                                     translation_context, in_lang);
+  TREE_AND_STRINGS *tree_and_strings
+     = unregister_document_descriptor_tree (gdt_document_descriptor);
+
+  tree = tree_and_strings->tree;
+
+  if (tree_and_strings->small_strings)
+    {
+      /* this is very unlikely, as small strings correspond to file names and
+         macro names, while we are parsing a simple string */
+      if (tree_and_strings->small_strings->number)
+        {
+          if (document)
+            merge_strings (document->small_strings,
+                           tree_and_strings->small_strings);
+          else
+            fatal ("html_gdt_tree no document but small_strings");
+        }
+      free (tree_and_strings->small_strings->list);
+      free (tree_and_strings->small_strings);
+    }
+  free (tree_and_strings);
+
+  return tree;
+}
+
+char *
+html_gdt_string (const char *string, CONVERTER *self,
+                 NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                 const char *translation_context, const char *in_lang)
+{
+  /* FIXME */
+  char *translated_string = html_translate_string (self, string,
+                                      translation_context, in_lang);
+
+  char *result = replace_substrings (translated_string, replaced_substrings);
+  free (translated_string);
+  return result;
 }
 
 ELEMENT *
 html_pgdt_tree (const char *translation_context, const char *string,
-                DOCUMENT *document, OPTIONS *options,
+                DOCUMENT *document, CONVERTER *self,
                 NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                 const char *in_lang)
 {
-  return html_gdt_tree (string, document, options, replaced_substrings,
+  return html_gdt_tree (string, document, self, replaced_substrings,
                         translation_context, in_lang);
 }
 
@@ -386,7 +442,7 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
                      special_unit_variety);
           self->special_unit_info_tree[type][i]
             = html_pgdt_tree (translation_context, special_unit_info_string,
-                              self->document, self->conf, 0, 0);
+                              self->document, self, 0, 0);
           free (translation_context);
           return self->special_unit_info_tree[type][i];
         }
@@ -2733,7 +2789,7 @@ html_translate_names (CONVERTER *self)
                     {/* FIXME use document associated to converter? */
                       translated_tree =
                         html_gdt_tree (format_spec->translated_to_convert,
-                                   0, self->conf, 0, 0, 0);
+                                   0, self, 0, 0, 0);
                     }
                   else
                     translated_tree = translated_command_tree (self, cmd);
@@ -2899,7 +2955,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
           char *translation_context
             = lookup_extra_string (element, "translation_context");
           ELEMENT *translated = html_gdt_tree (element->text.text, self->document,
-                                    self->conf, 0, translation_context, 0);
+                                    self, 0, translation_context, 0);
 
           convert_to_html_internal (self, translated, &text_result,
                                     "translated TEXT");

@@ -2439,46 +2439,24 @@ sub _translate_names($)
 
 # redefined functions
 #
-# Texinfo::Translations::gdt redefined to call user defined function.
-sub gdt($$;$$$)
+# Texinfo::Translations::translate_string redefined to call user defined function.
+sub translate_string($$;$$)
 {
-  my ($self, $message, $replaced_substrings, $message_context, $lang) = @_;
-  if (defined($self->{'formatting_function'}->{'format_translate_message_tree'})) {
-    my $format_lang = $lang;
-    $format_lang = $self->get_conf('documentlanguage')
-                           if ($self and !defined($format_lang));
-    my $result_tree
-      = &{$self->{'formatting_function'}->{'format_translate_message_tree'}}($self,
-                                 $message, $format_lang, $replaced_substrings,
-                                 $message_context);
-    if (defined($result_tree)) {
-      return $result_tree;
-    }
-  }
-  return $self->SUPER::gdt($message, $replaced_substrings, $message_context,
-                           $lang);
-}
-
-# Texinfo::Translations::gdt_string redefined to call user defined function.
-sub gdt_string($$;$$$)
-{
-  my ($self, $message, $replaced_substrings, $message_context, $lang) = @_;
-  if (defined($self->{'formatting_function'}->{'format_translate_message_string'})) {
+  my ($self, $string, $translation_context, $lang) = @_;
+  if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
     my $format_lang = $lang;
     $format_lang = $self->get_conf('documentlanguage')
                            if ($self and !defined($format_lang));
     my $translated_string
-      = &{$self->{'formatting_function'}->{'format_translate_message_string'}}($self,
-                                 $message, $format_lang, $replaced_substrings,
-                                 $message_context);
+      = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
+                                 $string, $format_lang, $translation_context);
     if (defined($translated_string)) {
       return $translated_string;
     }
   }
-  return $self->SUPER::gdt_string($message, $replaced_substrings, $message_context,
-                                  $lang);
-}
 
+  return $self->SUPER::translate_string($string, $translation_context, $lang);
+}
 
 sub converter_defaults($$)
 {
@@ -7643,8 +7621,7 @@ foreach my $customized_reference ('external_target_split_name',
      'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_titlepage' => \&_default_format_titlepage,
      'format_title_titlepage' => \&_default_format_title_titlepage,
-     'format_translate_message_tree' => undef,
-     'format_translate_message_string' => undef,
+     'format_translate_message' => undef,
 );
 
 # not up for customization

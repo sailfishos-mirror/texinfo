@@ -3167,49 +3167,31 @@ translation context associated.
 @node Translated Strings Customization
 @section Translated Strings Customization
 
-To customize strings translations, register the
-@code{format_translate_message_tree} and/or
-@code{format_translate_message_string} function references:
+To customize strings translations, register the @code{format_translate_message}
+function reference:
 
-@deftypefn {Function Reference} @var{$translated_tree} format_translate_message_tree @
-  (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
-  @var{$translation_context})
-@deftypefnx {Function Reference} @var{$translated_string} format_translate_message_string @
-  (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
-  @var{$translation_context})
+@deftypefn {Function Reference} @var{$translated_string} format_translate_message @
+  (@var{$converter}, @var{$string}, @var{$lang}, @var{$translation_context})
 @var{$string} is the string to be translated, @var{$lang} is the language.
 @var{$translation_context} is an optional translation context.
 
-The result returned should be a perl Texinfo tree for
-@code{format_translate_message_tree} (replacing @code{gdt} and
-@code{pgdt}), and a string for @code{format_translate_message_string}
-(replacing @code{gdt_string}).  The result returned may also be @samp{undef},
-in which case the translation is done as if the function reference had not been
-defined.
+The result returned should be the translated string. The result returned may
+also be @samp{undef}, in which case the translation is done as if the function
+reference had not been defined.
 
 @xref{Internationalization of Strings Function} for more information on
 strings translations function arguments.
-
-The @code{replace_convert_substrings} method of @code{Texinfo::Translations}
-can be used to substitute @var{\%variables_hash} and return a Texinfo tree
-based on a translated string
-(@pxref{Texinfo@asis{::}Translations $tree = $object->replace_convert_substrings($translated_string@comma{} $replaced_substrings),,
-Texinfo@asis{::}Translations replace_convert_substrings, texi2any_internals}).
-The @code{replace_substrings} method of @code{Texinfo::Translations}
-can be used to substitute @var{\%variables_hash} and return a string
-based on a translated string
-(@pxref{Texinfo@asis{::}Translations $string = $object->replace_substrings($translated_string@comma{} $replaced_substrings),,
-Texinfo@asis{::}Translations replace_substrings, texi2any_internals}).
 @end deftypefn
 
 This function reference is not set in the default case, in the default case
-the @code{gdt} and @code{gdt_string} methods from the
-@code{Texinfo::Translations} module are called (@pxref{Internationalization of
-Strings Function}).  @xref{Specific formating Functions} for information on how
-to register and get the function reference.
+@code{translate_string} from the @code{Texinfo::Translations} module is
+called (@pxref{Internationalization of Strings Function}).
+@xref{Specific formating Functions} for information on how to register and get
+the function reference.
 
+@anchor{New translated strings example}
 Here is an example with new translated strings added and definition
-of @code{format_translate_message_string} to translate the strings:
+of @code{format_translate_message} to translate the strings:
 
 @example
 texinfo_register_no_arg_command_formatting('error', undef, undef,
@@ -3226,10 +3208,9 @@ my %translations = (
  # @dots{}
 );
 
-sub my_format_translate_message_string($$$;$$)
+sub my_format_translate_message($$$;$)
 @{
-  my ($self, $string, $lang, $replaced_substrings,
-                              $translation_context) = @@_;
+  my ($self, $string, $lang, $translation_context) = @@_;
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations@{$lang@})
       and exists($translations@{$lang@}->@{$string@})
@@ -3237,14 +3218,13 @@ sub my_format_translate_message_string($$$;$$)
                                   ->@{$translation_context@})) @{
     my $translation = $translations@{$lang@}->@{$string@}
                                       ->@{$translation_context@};
-    return $self->replace_substrings($translation,
-                                     $replaced_substrings);
+    return $translation;
   @}
   return undef;
 @}
 
-texinfo_register_formatting_function('format_translate_message_string',
-                                  \&my_format_translate_message_string);
+texinfo_register_formatting_function('format_translate_message',
+                                  \&my_format_translate_message);
 
 @end example
 
@@ -3287,8 +3267,8 @@ Units Varieties}).  For example, the @code{footnotes} special output unit
 variety heading translation context is @samp{footnotes section heading}.
 
 Here is an example, which could be used with a similar
-function registered as in the example above, but using
-@code{format_translate_message_tree}:
+function registered as in the example above
+(@pxref{New translated strings example}):
 
 @example
 texinfo_register_direction_string_info('Forward', 'text', undef,

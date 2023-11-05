@@ -34,22 +34,21 @@ my %translations = (
 );
 
 
-sub _texi2any_tests_special_unit_translate_message_tree($$$;$$)
+sub _texi2any_tests_special_unit_translate_message($$$;$)
 {
-  my ($self, $string, $lang, $replaced_substrings,
-                              $translation_context) = @_;
+  my ($self, $string, $lang, $translation_context) = @_;
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})
       and exists($translations{$lang}->{$string}->{$translation_context})) {
     my $translation = $translations{$lang}->{$string}->{$translation_context};
-    return $self->replace_convert_substrings($translation, $replaced_substrings);
+    return $translation;
   }
   return undef;
 }
 
-texinfo_register_formatting_function('format_translate_message_tree',
-                      \&_texi2any_tests_special_unit_translate_message_tree);
+texinfo_register_formatting_function('format_translate_message',
+                      \&_texi2any_tests_special_unit_translate_message);
 
 # avoid doing twice if there are more than one manual processed
 my $button_added;

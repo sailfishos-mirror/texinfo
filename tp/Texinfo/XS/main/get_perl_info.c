@@ -556,7 +556,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   /* no need to check if it exists */
   formatting_function_hv = (HV *)SvRV (*formatting_function_sv);
 
-  for (i = 0; i < FR_format_translate_message_string+1; i++)
+  for (i = 0; i < FR_format_translate_message+1; i++)
     {
       char *ref_name = html_formatting_reference_names[i];
       FORMATTING_REFERENCE *formatting_reference
@@ -591,9 +591,9 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
      specific references */
   memcpy (&converter->css_string_formatting_references,
           &converter->formatting_references,
-      (FR_format_translate_message_string+1) * sizeof (FORMATTING_REFERENCE));
+      (FR_format_translate_message+1) * sizeof (FORMATTING_REFERENCE));
 
-  for (i = 0; i < FR_format_translate_message_string+1; i++)
+  for (i = 0; i < FR_format_translate_message+1; i++)
     {
       char *ref_name = html_formatting_reference_names[i];
       SV **default_formatting_reference_sv

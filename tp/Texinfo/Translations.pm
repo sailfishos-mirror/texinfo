@@ -149,7 +149,7 @@ sub _switch_messages_locale
 #    is encountered.  Some set some default based on @documentlanguage if in
 #    the preamble, some set some default language (in general en) in any
 #    case.
-sub _gdt($$;$$)
+sub translate_string($$;$$)
 {
   my ($customization_information, $string, $translation_context, $lang) = @_;
   if (ref($customization_information) eq 'Texinfo::Document') {
@@ -290,8 +290,15 @@ sub gdt($$;$$$)
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
 
-  my $translated_string = _gdt($customization_information, $string,
-                               $translation_context, $lang);
+  # allows to redefine translate_string, as done in the HTML converter.  Cannot
+  # directly call translate_string on $customization_information, as it may not
+  # provide the method if it does not inherit from Texinfo::Translations, as is
+  # the case for Texinfo::Parser.
+  my $translate_string_method
+     = $customization_information->can('translate_string');
+  $translate_string_method = \&translate_string if (!$translate_string_method);
+  my $translated_string = &$translate_string_method($customization_information,
+                                       $string, $translation_context, $lang);
 
   my $result_tree = replace_convert_substrings($customization_information,
                                     $translated_string,
@@ -306,8 +313,15 @@ sub gdt_string($$;$$$)
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
 
-  my $translated_string = _gdt($customization_information, $string,
-                               $translation_context, $lang);
+  # allows to redefine translate_string, as done in the HTML converter.  Cannot
+  # directly call translate_string on $customization_information, as it may not
+  # provide the method if it does not inherit from Texinfo::Translations, as is
+  # the case for Texinfo::Parser.
+  my $translate_string_method
+     = $customization_information->can('translate_string');
+  $translate_string_method = \&translate_string if (!$translate_string_method);
+  my $translated_string = &$translate_string_method($customization_information,
+                                       $string, $translation_context, $lang);
 
   return replace_substrings ($customization_information, $translated_string,
                              $replaced_substrings);

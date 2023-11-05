@@ -1,5 +1,29 @@
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
+	Change customization of translations to target only translated string
+
+	* tp/Texinfo/Translations.pm (translate_string): rename _gdt as
+	translate_string.  Update callers.
+
+	* doc/texi2any_api.texi (Translated Strings Customization)
+	(Translation Contexts), tp/Texinfo/Convert/HTML.pm (translate_string),
+	(%default_formatting_references), tp/Texinfo/Translations.pm (gdt)
+	(gdt_string), tp/Texinfo/XS/convert/convert_html.c
+	(html_translate_string, html_gdt, html_gdt_tree, html_pgdt_tree)
+	(special_unit_info_tree, html_translate_names)
+	(convert_to_html_internal), tp/Texinfo/XS/main/call_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tp/Texinfo/XS/main/get_perl_info.c, tp/init/documentation_examples.pm,
+	tp/t/init/special_element_customization.pm,
+	tp/t/init/translated_strings_customization.pm,
+	tp/t/init/translation_in_parser_in_translation.pm: remove the
+	possibility to customize the output of gdt or gdt_string, instead
+	replace translate_string by the format_translate_message formatting
+	function output. format_translate_message replaces
+	format_translate_message_tree and format_translate_message_string.
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/Texinfo/Convert/PlainTexinfo.pm, tp/Texinfo/Convert/Text.pm,
 	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm: always use

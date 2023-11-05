@@ -112,8 +112,7 @@ enum direction_string {
   html_fr_reference(format_separate_anchor) \
   html_fr_reference(format_titlepage) \
   html_fr_reference(format_title_titlepage) \
-  html_fr_reference(format_translate_message_tree) \
-  html_fr_reference(format_translate_message_string) \
+  html_fr_reference(format_translate_message)
 
 enum html_formatting_reference {
   #define html_fr_reference(name) FR_## name,
@@ -413,9 +412,9 @@ typedef struct CONVERTER {
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
     FORMATTING_REFERENCE
-       formatting_references[FR_format_translate_message_string+1];
+       formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE
-       css_string_formatting_references[FR_format_translate_message_string+1];
+       css_string_formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE commands_open[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE css_string_commands_conversion[BUILTIN_CMD_NUMBER];

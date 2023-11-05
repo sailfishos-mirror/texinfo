@@ -155,39 +155,20 @@ sub my_label_target_name($$$$) {
 texinfo_register_file_id_setting_function('label_target_name',
                                           \&my_label_target_name);
 
-sub my_format_translate_message_tree($$$;$$)
+sub my_format_translate_message($$$;$)
 {
-  my ($self, $string, $lang, $replaced_substrings,
-                             $translation_context) = @_;
+  my ($self, $string, $lang, $translation_context) = @_;
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})
       and exists($translations{$lang}->{$string}->{$translation_context})) {
     my $translation = $translations{$lang}->{$string}->{$translation_context};
-    return $self->replace_convert_substrings($translation,
-                                                 $replaced_substrings);
+    return $translation;
   }
   return undef;
 }
 
-texinfo_register_formatting_function('format_translate_message_tree',
-                                          \&my_format_translate_message_tree);
+texinfo_register_formatting_function('format_translate_message',
+                                          \&my_format_translate_message);
 
-sub my_format_translate_message_string($$$;$$)
-{
-  my ($self, $string, $lang, $replaced_substrings,
-                             $translation_context) = @_;
-  $translation_context = '' if (!defined($translation_context));
-  if (exists($translations{$lang})
-      and exists($translations{$lang}->{$string})
-      and exists($translations{$lang}->{$string}->{$translation_context})) {
-    my $translation = $translations{$lang}->{$string}->{$translation_context};
-    return $self->replace_substrings($translation,
-                                     $replaced_substrings);
-  }
-  return undef;
-}
-
-texinfo_register_formatting_function('format_translate_message_string',
-                                          \&my_format_translate_message_string);
 1;
