@@ -1,5 +1,7 @@
 2023-11-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+2023-11-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revert documentlanguage fix
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_def),
@@ -7,7 +9,7 @@
 	untranslated if @documentlanguage is not set at the time of parsing.
 	* tp/t/languages.t (no_documentlanguage_before_copying): Skip test.
 
-	This reverses change on 2023-01-11.  Although it is correct,
+	This reverses change on 2023-11-01.  Although it is correct,
 	it slows the program down a lot when a lot of @def* are used
 	and there is no @documentlanguage.
 
