@@ -17,7 +17,8 @@ OPTIONS *copy_sv_options (SV *sv_in);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
-int html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
+int html_converter_initialize_sv (SV *converter_sv,
+                                  SV *default_formatting_references,
                                   SV *default_css_string_formatting_references,
                                   SV *default_commands_open,
                                   SV *default_commands_conversion,

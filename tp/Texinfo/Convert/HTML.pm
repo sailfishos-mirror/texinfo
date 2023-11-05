@@ -8490,10 +8490,40 @@ sub converter_initialize($)
     $self->force_conf('SPLIT', 'node');
   }
 
-  if ($self->{'document_descriptor'}) {
-    my $encoded_converter = $self->encode_converter_document();
-    #print STDERR "CCI ".\%default_formatting_references." ".\%default_css_string_formatting_references." ".\%default_commands_open." ". \%default_commands_conversion." ".\%default_types_open." ".\%default_types_conversion." ".\%default_output_units_conversion."\n";
-    _XS_converter_initialize($encoded_converter,
+  # XS parser initialization
+  if ($self->{'document_descriptor'} and $XS_convert) {
+    # reformat special_unit_info information passed to XS to simplify
+    # XS code
+    if ($self->{'special_unit_info'}) {
+      # information that does not need to be translated
+      $self->{'simplified_special_unit_info'}
+         = Storable::dclone($self->{'special_unit_info'});
+      # information needing translation, simplify the structure to
+      # be more like non-translated special_unit_info information
+      if ($self->{'translated_special_unit_info'}) {
+        foreach my $tree_type (keys(%{$self->{'translated_special_unit_info'}})) {
+          my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
+          my $variety_strings
+            = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
+          # we do not need both tree type and string type to pass to XS,
+          # pass only the string type $type and associated varieties information
+          $self->{'simplified_special_unit_info'}->{$type} = $variety_strings;
+        }
+      }
+
+      # to help the XS code to set arrays of C structures, already prepare
+      # a list of special units varieties.
+      my %all_special_unit_varieties;
+      foreach my $type (keys(%{$self->{'simplified_special_unit_info'}})) {
+        foreach my $special_unit_variety
+              (keys (%{$self->{'simplified_special_unit_info'}->{$type}})) {
+          $all_special_unit_varieties{$special_unit_variety} = 1;
+        }
+      }
+      $self->{'sorted_special_unit_varieties'}
+        = [sort(keys(%all_special_unit_varieties))];
+    }
+    _XS_converter_initialize($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
                              \%default_commands_open,
@@ -8503,6 +8533,8 @@ sub converter_initialize($)
                              \%default_types_conversion,
                              \%default_css_string_types_conversion,
                              \%default_output_units_conversion);
+    delete $self->{'sorted_special_unit_varieties'};
+    delete $self->{'simplified_special_unit_info'};
   }
 
   return $self;

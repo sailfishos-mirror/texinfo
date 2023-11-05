@@ -475,7 +475,8 @@ register_formatting_reference_with_default (char *type_string,
 }
 
 int
-html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
+html_converter_initialize_sv (SV *converter_sv,
+                              SV *default_formatting_references,
                               SV *default_css_string_formatting_references,
                               SV *default_commands_open,
                               SV *default_commands_conversion,
@@ -497,7 +498,6 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   HV *default_css_string_types_conversion_hv;
   HV *default_output_units_conversion_hv;
   SV **converter_init_conf_sv;
-  SV **converter_sv;
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
@@ -521,7 +521,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
 
   dTHX;
 
-  hv_in = (HV *)SvRV (sv_in);
+  hv_in = (HV *)SvRV (converter_sv);
   default_formatting_references_hv
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
@@ -529,7 +529,7 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
 
   /* generic */
 
-  document = get_sv_document_document (sv_in, 0);
+  document = get_sv_document_document (converter_sv, 0);
   converter->document = document;
 
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
@@ -1159,16 +1159,11 @@ html_converter_initialize_sv (SV *sv_in, SV *default_formatting_references,
   converter = retrieve_converter (converter_descriptor);
 
   /* store converter_descriptor in perl converter */
-  converter_sv = hv_fetch (hv_in, "converter",
-                                   strlen ("converter"), 0);
-  if (converter_sv && SvOK(*converter_sv))
-    {
-      HV *converter_hv = (HV *)SvRV(*converter_sv);
-      hv_store (converter_hv, "converter_descriptor",
-                strlen("converter_descriptor"),
-                newSViv (converter_descriptor), 0);
-      converter->hv = converter_hv;
-    }
+  HV *converter_hv = (HV *)SvRV(converter_sv);
+  hv_store (converter_hv, "converter_descriptor",
+            strlen("converter_descriptor"),
+            newSViv (converter_descriptor), 0);
+  converter->hv = converter_hv;
 
   return converter_descriptor;
 }

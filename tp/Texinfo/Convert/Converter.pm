@@ -453,61 +453,6 @@ sub output($$)
   return undef;
 }
 
-###############################################################
-# XS Interface for a document to be converted.
-# Select to pass to the XS code
-# TODO document?
-# To be called for initialization
-sub encode_converter_document($)
-{
-  my $self = shift;
-  my $result = {'converter' => $self, # pass full converter to be able to modify
-                                      # and set converter_descriptor
-                'document_descriptor' => $self->{'document_descriptor'}};
-
-  foreach my $variable ('expanded_formats', 'style_commands_formatting',
-     'formatting_function',
-     'types_open', 'types_conversion', 'commands_open', 'commands_conversion',
-     'output_units_conversion', 'code_types', 'pre_class_types',
-     'converter_init_conf', 'translated_commands',
-     'no_arg_commands_formatting') {
-    if ($self->{$variable}) {
-      $result->{$variable} = $self->{$variable};
-    }
-  }
-
-  if ($self->{'special_unit_info'}) {
-    # information that does not need to be translated
-    $result->{'special_unit_info'} = Storable::dclone($self->{'special_unit_info'});
-    # information needing translation, simplify the structure to
-    # be more like non-translated special_unit_info information
-    if ($self->{'translated_special_unit_info'}) {
-      foreach my $tree_type (keys(%{$self->{'translated_special_unit_info'}})) {
-        my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
-        my $variety_strings
-          = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
-        # we do not need both tree type and string type to pass to XS,
-        # pass only the string type $type and associated varieties information
-        $result->{'special_unit_info'}->{$type} = $variety_strings;
-      }
-    }
-
-    # to help the XS code to set arrays of C structures, already prepare
-    # a list of special units varieties.
-    my %all_special_unit_varieties;
-    foreach my $type (keys(%{$result->{'special_unit_info'}})) {
-      foreach my $special_unit_variety
-            (keys (%{$result->{'special_unit_info'}->{$type}})) {
-        $all_special_unit_varieties{$special_unit_variety} = 1;
-      }
-    }
-    $result->{'sorted_special_unit_varieties'}
-      = [sort(keys(%all_special_unit_varieties))];
-  }
-
-  return $result;
-}
-
 # FIXME remove, do in XS
 sub converter_options_for_output($)
 {
