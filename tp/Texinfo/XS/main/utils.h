@@ -193,27 +193,6 @@ typedef struct FILE_SOURCE_INFO_LIST {
     FILE_SOURCE_INFO *list;
 } FILE_SOURCE_INFO_LIST;
 
-/* used in get_perl_info and indices_in_conversion, in unfinished code */
-/* TODO remove? */
-typedef struct KEY_ALPHA {
-    char *key;
-    int alpha;
-} KEY_ALPHA;
-
-typedef struct SORTABLE_ENTRY {
-    char *index_name;
-    size_t keys_number;
-    KEY_ALPHA *keys;
-    char **entry_keys;
-    int number;
-} SORTABLE_ENTRY;
-
-typedef struct INDEX_SORTABLE_ENTRIES {
-    char *name;
-    size_t number;
-    SORTABLE_ENTRY *sortable_entries;
-} INDEX_SORTABLE_ENTRIES;
-
 #define HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE \
   html_aft_type(none) \
   html_aft_type(normal) \
