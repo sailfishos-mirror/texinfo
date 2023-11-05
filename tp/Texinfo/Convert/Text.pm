@@ -412,50 +412,32 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
-# encode to UTF-8 bytes before passing to XS code.  Specific
-# text options are in general ASCII strings, but this is still
-# cleaner.  Also encode and select converter options passed.
-sub encode_text_options($)
+# select converter options passed.
+sub select_text_options($)
 {
   my $options = shift;
-  my $encoded_options = {};
-
-  foreach my $option ('enabled_encoding') {
-    if (defined($options->{$option})) {
-      $encoded_options->{$option}
-        = Encode::encode("UTF-8", $options->{$option});
-    }
-  }
+  my $selected_options = {};
 
   foreach my $option (@text_indicator_converter_options,
                       'INCLUDE_DIRECTORIES',
+                      'expanded_formats',
                       # non-converter indicator options
-                      'sc', 'code', 'sort_string') {
+       'enabled_encoding', 'sc', 'code', 'sort_string') {
     if (defined($options->{$option})) {
-      $encoded_options->{$option} = $options->{$option};
+      $selected_options->{$option} = $options->{$option};
     }
-  }
-
-  if (defined($options->{'expanded_formats'})) {
-    # FIXME may not need to encode, as the formats are ascii strings
-    my $expanded_formats = {};
-    foreach my $format (keys(%{$options->{'expanded_formats'}})) {
-      my $encoded_format = Encode::encode("UTF-8", $format);
-      $expanded_formats->{$encoded_format} = 1;
-    }
-    $encoded_options->{'expanded_formats'} = $expanded_formats;
   }
 
   # called through convert_to_text with a converter in text options
   if ($options->{'converter'}
       and $options->{'converter'}->{'conf'}) {
-    $encoded_options->{'other_converter_options'}
+    $selected_options->{'other_converter_options'}
        = $options->{'converter'}->{'conf'};
   }
 
-  $encoded_options->{'self_converter_options'} = $options;
+  $selected_options->{'self_converter_options'} = $options;
 
-  return $encoded_options;
+  return $selected_options;
 }
 
 # This is used if the document is available for XS, but XS is not
@@ -490,8 +472,8 @@ sub convert_to_text($;$)
 
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
-    my $encoded_options = encode_text_options($options);
-    my $XS_result = _convert_tree_with_XS($encoded_options, $root, $options);
+    my $selected_options = select_text_options($options);
+    my $XS_result = _convert_tree_with_XS($selected_options, $root, $options);
     if (defined ($XS_result)) {
       return $XS_result;
     } else {
@@ -999,8 +981,8 @@ sub output($$)
   my $result;
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
-    my $encoded_options = encode_text_options($self);
-    my $XS_result = _convert_tree_with_XS($encoded_options, $root, $self);
+    my $selected_options = select_text_options($self);
+    my $XS_result = _convert_tree_with_XS($selected_options, $root, $self);
     if (defined ($XS_result)) {
       $result = $XS_result;
     } else {

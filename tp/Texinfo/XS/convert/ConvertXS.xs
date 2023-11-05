@@ -254,7 +254,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *seen_ids_sv;
       PPCODE:
          if (items > 1 && SvOK(ST(1)))
-           document_name = SvPVbyte_nolen (ST(1));
+           document_name = SvPVutf8_nolen (ST(1));
 
          /* add warn string? */
          self = set_output_converter_sv (converter_in, 0);
@@ -290,10 +290,10 @@ html_prepare_conversion_units (SV *converter_in, ...)
 
 void
 html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
-         char *output_file = (char *)SvPVbyte_nolen($arg);
-         char *destination_directory = (char *)SvPVbyte_nolen($arg);
-         char *output_filename = (char *)SvPVbyte_nolen($arg);
-         char *document_name = (char *)SvPVbyte_nolen($arg);
+         char *output_file = (char *)SvPVutf8_nolen($arg);
+         char *destination_directory = (char *)SvPVutf8_nolen($arg);
+         char *output_filename = (char *)SvPVutf8_nolen($arg);
+         char *document_name = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
          int output_units_descriptor = 0;
@@ -428,8 +428,8 @@ html_translate_names (SV *converter_in)
 
 void
 html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file, output_filename)
-         char *output_file = (char *)SvPVbyte_nolen($arg);
-         char *output_filename = (char *)SvPVbyte_nolen($arg);
+         char *output_file = (char *)SvPVutf8_nolen($arg);
+         char *output_filename = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
          int output_units_descriptor = 0;
@@ -526,10 +526,10 @@ html_convert_tree (SV *converter_in, SV *tree_in, explanation)
 
 SV *
 html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in, output_file, destination_directory, output_filename, document_name)
-         char *output_file = (char *)SvPVbyte_nolen($arg);
-         char *destination_directory = (char *)SvPVbyte_nolen($arg);
-         char *output_filename = (char *)SvPVbyte_nolen($arg);
-         char *document_name = (char *)SvPVbyte_nolen($arg);
+         char *output_file = (char *)SvPVutf8_nolen($arg);
+         char *destination_directory = (char *)SvPVutf8_nolen($arg);
+         char *output_filename = (char *)SvPVutf8_nolen($arg);
+         char *document_name = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
          DOCUMENT *document = 0;

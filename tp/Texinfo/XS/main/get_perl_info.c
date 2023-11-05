@@ -287,7 +287,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   enabled_encoding_sv = hv_fetch (hv_in, "enabled_encoding",
                                   strlen ("enabled_encoding"), 0);
   if (enabled_encoding_sv)
-    text_options->encoding = strdup (SvPVbyte_nolen (*enabled_encoding_sv));
+    text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
 
   include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
                                      strlen ("INCLUDE_DIRECTORIES"), 0);
@@ -1594,7 +1594,7 @@ set_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
     get_sv_option (converter->conf, conf, value);
-   /* Too early to have aoptions set
+   /* Too early to have options set
   else
     fprintf (stderr, "HHH no converter conf %s\n", conf);
     */

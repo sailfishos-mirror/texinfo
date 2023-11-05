@@ -52,10 +52,13 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Translations::_XS_configure",
       "Texinfo::TranslationsXS::configure");
-    # not loaded because it is not usable.  See comments near _XS_gettree
+    # Example of how gdt could be overriden.  Not used because
+    # the approach is flawed as there won't be any substitution if the trees in
+    # $replaced_substrings are not registered in C data, as is the case in
+    # general.
     #Texinfo::XSLoader::override(
-    #  "Texinfo::Translations::_XS_gettree",
-    #  "Texinfo::TranslationsXS::gettree");
+    #  "Texinfo::Translations::gdt",
+    #  "Texinfo::TranslationsXS::gdt");
     $module_loaded = 1;
   }
   # The usual import method
@@ -456,36 +459,6 @@ sub pgdt($$$;$$)
   return $customization_information->gdt($string, $replaced_substrings,
                                          $translation_context, $lang);
 }
-
-
-sub _XS_gettree($;$$$$)
-{
-}
-
-# Example of what a wrapper around XS gdt code could be.  Not used because
-# the approach is flawed as there won't be any substitution if the trees in
-# $replaced_substrings are not registered in C data, as is the case in general.
-# The code is fine, though.
-sub _XS_gdt($$;$$$)
-{
-  my ($customization_information, $string, $replaced_substrings,
-      $translation_context, $lang) = @_;
-
-  my $encoded_string = Encode::encode('utf-8', $string);
-  my $encoded_translation_context;
-  $encoded_translation_context = Encode::encode('utf-8', $translation_context)
-    if (defined($translation_context));
-  my $encoded_lang;
-  $encoded_lang = Encode::encode('utf-8', $lang)
-    if (defined($lang));
-
-  my $tree = _XS_gettree ($encoded_string, $customization_information,
-                          $replaced_substrings,
-                          $encoded_translation_context, $encoded_lang);
-
-  return $tree;
-}
-
 
 if (0) {
   # it is needed to mark the translation as gdt is called like

@@ -1,5 +1,28 @@
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (converter_options_for_output):
+	rename encode_converter_for_output as converter_options_for_output.
+	Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
+	(_prepare_units_directions_files, _prepare_title_titlepage)
+	(_html_convert_output), tp/Texinfo/Convert/Text.pm
+	(select_text_options), tp/Texinfo/Translations.pm (_XS_gdt),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units)
+	(html_prepare_units_directions_files)
+	(html_prepare_title_titlepage, html_convert_output),
+	tp/Texinfo/XS/main/TranslationsXS.xs (gettree),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	do not convert strings to UTF-8 in perl but in XS.  Rename
+	encode_text_options as select_text_options in Texinfo::Convert::Text.
+
+	* tp/Texinfo/Translations.pm (import),
+	tp/Texinfo/XS/main/TranslationsXS.xs (gdt): remove _XS_gettree, have a
+	direct override of gdt (in comments, as it does not work).  In XS,
+	rename gettree as gdt and adapt call to match gdt call in perl.
+
+2023-11-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Config.pm
 	(register_XS_document_main_configuration),
 	tp/Texinfo/Convert/Converter.pm (encode_converter_document),

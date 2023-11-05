@@ -8524,8 +8524,7 @@ sub convert_tree($$;$)
   my $explanation = shift;
 
   # No XS, convert_tree is not called on trees registered in XS
-  #my $XS_result = _XS_html_convert_tree($self, $tree,
-  #     (defined($explanation) ? Encode::encode('UTf-8', $explanation) : ''));
+  #my $XS_result = _XS_html_convert_tree($self, $tree, $explanation);
   #return $XS_result if (defined($XS_result));
 
   # when formatting accents, goes through xml_accent without
@@ -9378,13 +9377,12 @@ sub _prepare_conversion_units($$$)
   my ($output_units, $special_units, $associated_special_units);
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $encoded_converter = $self->encode_converter_for_output();
-    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
+    my $converter_info = $self->converter_options_for_output();
     my ($targets, $special_targets, $seen_ids);
     ($output_units, $special_units, $associated_special_units,
      $targets, $special_targets, $seen_ids)
-      = _XS_prepare_conversion_units($encoded_converter,
-                                     $encoded_document_name);
+      = _XS_prepare_conversion_units($converter_info,
+                                     $document_name);
     $self->{'targets'} = $targets;
     $self->{'special_targets'} = $special_targets;
     $self->{'seen_ids'} = $seen_ids;
@@ -9451,20 +9449,15 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $encoded_converter = $self->encode_converter_for_output();
-    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
-    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
-    my $encoded_destination_directory
-         = Encode::encode('UTF-8', $destination_directory);
-    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
+    my $converter_info = $self->converter_options_for_output();
 
     my ($XS_files_source_info, $global_units_directions,
         $elements_in_file_count, $filenames,
         $file_counters, $out_filepaths)
-      = _XS_prepare_units_directions_files($encoded_converter,
+      = _XS_prepare_units_directions_files($converter_info,
            $output_units, $special_units, $associated_special_units,
-           $encoded_output_file, $encoded_destination_directory,
-           $encoded_output_filename, $encoded_document_name);
+           $output_file, $destination_directory,
+           $output_filename, $document_name);
     $self->{'global_units_directions'} = $global_units_directions;
     $self->{'elements_in_file_count'} = $elements_in_file_count;
 
@@ -11141,10 +11134,8 @@ sub _prepare_title_titlepage($$$$)
   my $output_filename = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
-    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
     _XS_html_prepare_title_titlepage($self, $output_units,
-                       $encoded_output_file, $encoded_output_filename);
+                            $output_file, $output_filename);
     return;
   }
 
@@ -11177,7 +11168,7 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  my $encoded_converter;
+  my $converter_info;
   my $root = $document->tree();
 
   my $result = '';
@@ -11207,9 +11198,9 @@ sub convert($$)
   if ($self->{'converter_descriptor'} and $XS_convert) {
     # Do it preferentially in XS, and import to perl, to have data
     # setup in C for XS too.
-    $encoded_converter = $self->encode_converter_for_output();
+    $converter_info = $self->converter_options_for_output();
     my $global_units_directions =
-      _XS_prepare_output_units_global_targets($encoded_converter,
+      _XS_prepare_output_units_global_targets($converter_info,
            $output_units, $special_units, $associated_special_units);
     $self->{'global_units_directions'} = $global_units_directions;
   } else {
@@ -11246,7 +11237,7 @@ sub convert($$)
   $self->{'current_filename'} = '';
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $XS_result = _XS_html_convert_convert ($encoded_converter, $root,
+    my $XS_result = _XS_html_convert_convert ($converter_info, $root,
                                               $output_units, $special_units);
     $self->_finalize_output_state();
     return $XS_result;
@@ -11533,18 +11524,13 @@ sub _html_convert_output($$$$$$$$)
       $destination_directory, $output_filename, $document_name) = @_;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $encoded_converter = $self->encode_converter_for_output();
-    my $encoded_document_name = Encode::encode('UTF-8', $document_name);
-    my $encoded_output_file = Encode::encode('UTF-8', $output_file);
-    my $encoded_destination_directory
-         = Encode::encode('UTF-8', $destination_directory);
-    my $encoded_output_filename = Encode::encode('UTF-8', $output_filename);
+    my $converter_info = $self->converter_options_for_output();
 
     my $XS_text_output
-           = _XS_html_convert_output ($encoded_converter,
-                     $root, $output_units, $special_units, $encoded_output_file,
-                     $encoded_destination_directory, $encoded_output_filename,
-                     $encoded_document_name);
+           = _XS_html_convert_output ($converter_info,
+                     $root, $output_units, $special_units, $output_file,
+                     $destination_directory, $output_filename,
+                     $document_name);
     return $XS_text_output;
   }
 

@@ -48,11 +48,17 @@ configure (localesdir, strings_textdomain="texinfo_document")
        configure (localesdir, strings_textdomain);
 
 
+# TODO not sure that the options_in argument is good to be
+# copy_sv_options argument, may need to retrieve a converter
+# first or Parser configuration.  Does not matter much as
+# the approach does not work because replaced_substrings
+# perl element tree cannot be retrieved in C stored documents.
 # optional:
-# options, replaced_substrings, translation_context, lang
+# replaced_substrings, translation_context, lang
 SV *
-gettree (char *string, ...)
-      PROTOTYPE: $;$$$$
+gdt (SV *options_in, string, ...)
+        char *string = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$;$$$
       PREINIT:
         char *translation_context = 0;
         char *in_lang = 0;
@@ -63,10 +69,14 @@ gettree (char *string, ...)
         int gdt_document_descriptor;
         DOCUMENT *gdt_document;
       CODE:
+         if (SvOK(options_in))
+           {
+             options = copy_sv_options (options_in);
+           }
         if (items > 4 && SvOK(ST(4)))
-           in_lang = (char *)SvPVbyte_nolen(ST(4));
+           in_lang = (char *)SvPVutf8_nolen(ST(4));
         if (items > 3 && SvOK(ST(3)))
-           translation_context = (char *)SvPVbyte_nolen(ST(3));
+           translation_context = (char *)SvPVutf8_nolen(ST(3));
         if (items > 2 && SvOK(ST(2)))
            {
              /* TODO put in get_perl_info.h */
@@ -91,10 +101,6 @@ gettree (char *string, ...)
                      add_element_to_named_string_element_list (
                        replaced_substrings, key, document->tree);
                }
-           }
-         if (items > 1 && SvOK(ST(1)))
-           {
-             options = copy_sv_options (ST(1));
            }
 
          gdt_document_descriptor

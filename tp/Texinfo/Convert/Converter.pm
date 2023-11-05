@@ -548,9 +548,8 @@ sub encode_converter_document($)
   return $result;
 }
 
-# to be used before output
-# TODO document?
-sub encode_converter_for_output($)
+# FIXME remove, do in XS
+sub converter_options_for_output($)
 {
   my $self = shift;
 
