@@ -1,3 +1,10 @@
+2023-11-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* contrib/tex3patch: Remove.  The message in texinfo.tex that
+	recommended this script was removed on 2003-07-27.  It was
+	said to work around a bug in "Unix TeX 3.0".  It currently
+	has no effect when running on texinfo.tex.
+
 2023-11-05  Patrice Dumas  <pertusus@free.fr>
 
 	* NEWS: mention that PACKAGE* customization variables became
