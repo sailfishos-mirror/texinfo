@@ -216,15 +216,16 @@ get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_b
          CONVERTER *self;
       CODE:
          /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
+         self = get_sv_converter (converter_in,
+                                  "get_index_entries_sorted_by_letter");
          get_sv_index_entries_sorted_by_letter (self,
                                            index_entries_sorted_by_letter);
 
-#    ($output_units, $special_units, $associated_special_units)
-#      = _XS_prepare_conversion_units($encoded_options, $document_name);
+#  my ($output_units, $special_units, $associated_special_units)
+#    = $self->_prepare_conversion_units($root, $document_name);
 void
 html_prepare_conversion_units (SV *converter_in, ...)
-      PROTOTYPE: $;$
+      PROTOTYPE: $$$
       PREINIT:
          HV *converter_hv;
          char *document_name = 0;
@@ -237,8 +238,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *associated_special_units_sv;
          HV *output_units_hv;
       PPCODE:
-         if (items > 1 && SvOK(ST(1)))
-           document_name = SvPVutf8_nolen (ST(1));
+         if (items > 2 && SvOK(ST(2)))
+           document_name = SvPVutf8_nolen (ST(2));
 
          self = set_output_converter_sv (converter_in,
                                          "html_prepare_conversion_units");

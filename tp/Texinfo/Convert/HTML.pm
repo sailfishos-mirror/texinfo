@@ -123,25 +123,25 @@ sub import {
       "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
       "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_prepare_conversion_units",
+      "Texinfo::Convert::HTML::_prepare_conversion_units",
       "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_prepare_units_directions_files",
+      "Texinfo::Convert::HTML::_prepare_units_directions_files",
       "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_prepare_output_units_global_targets",
+      "Texinfo::Convert::HTML::_prepare_output_units_global_targets",
       "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_translate_names",
+      "Texinfo::Convert::HTML::_translate_names",
       "Texinfo::Convert::ConvertXS::html_translate_names");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_html_prepare_title_titlepage",
+      "Texinfo::Convert::HTML::_prepare_title_titlepage",
       "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_html_convert_convert",
+      "Texinfo::Convert::HTML::_html_convert_convert",
       "Texinfo::Convert::ConvertXS::html_convert_convert");
       Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_html_convert_output",
+      "Texinfo::Convert::HTML::_html_convert_output",
       "Texinfo::Convert::ConvertXS::html_convert_output");
       #Texinfo::XSLoader::override(
       #"Texinfo::Convert::HTML::_XS_html_convert_tree",
@@ -2344,18 +2344,9 @@ my %default_translated_directions_strings = (
   }
 );
 
-sub _XS_translate_names($)
-{
-}
-
 sub _translate_names($)
 {
   my $self = shift;
-
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    _XS_translate_names($self);
-    return;
-  }
 
   print STDERR "\nTRANSLATE_NAMES encoding_name: "
     .$self->get_conf('OUTPUT_ENCODING_NAME')
@@ -9383,11 +9374,6 @@ sub _html_set_pages_files($$$$$$$$$)
   return \%files_source_info;
 }
 
-sub _XS_prepare_conversion_units($;$)
-{
-  return 1;
-}
-
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
@@ -9400,13 +9386,6 @@ sub _prepare_conversion_units($$$)
   my $document_name = shift;
 
   my ($output_units, $special_units, $associated_special_units);
-
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    ($output_units, $special_units, $associated_special_units)
-      = _XS_prepare_conversion_units($self,
-                                     $document_name);
-    return ($output_units, $special_units, $associated_special_units);
-  }
 
   if ($self->get_conf('USE_NODES')) {
     $output_units = Texinfo::Structuring::split_by_node($root);
@@ -9451,10 +9430,6 @@ sub _prepare_conversion_units($$$)
   return ($output_units, $special_units, $associated_special_units);
 }
 
-sub _XS_prepare_units_directions_files($$$$$$$$)
-{
-}
-
 sub _prepare_units_directions_files($$$$$$$$)
 {
   my $self = shift;
@@ -9465,15 +9440,6 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $destination_directory = shift;
   my $output_filename = shift;
   my $document_name = shift;
-
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $XS_files_source_info
-      = _XS_prepare_units_directions_files($self,
-           $output_units, $special_units, $associated_special_units,
-           $output_file, $destination_directory,
-           $output_filename, $document_name);
-    return $XS_files_source_info;
-  }
 
   $self->_prepare_output_units_global_targets($output_units, $special_units,
                                               $associated_special_units);
@@ -9874,9 +9840,8 @@ sub _sort_index_entries($)
     $self->{'index_entries'} = $merged_index_entries;
 
     # pass sorted index entries to XS for a reproducible sorting.
-    # TODO is a reproducible sorting useful?
     if ($self->{'converter_descriptor'} and $XS_convert) {
-      # Setup list of lists for easier import of data in C.
+      # Setup a list for easier import of data in C.
       my $index_entries_by_letter = [];
       if ($self->{'index_entries_by_letter'}) {
         foreach my $index_name
@@ -11081,22 +11046,12 @@ sub _finalize_output_state($)
 }
 
 
-sub _XS_html_prepare_title_titlepage($$$$)
-{
-}
-
 sub _prepare_title_titlepage($$$$)
 {
   my $self = shift;
   my $output_units = shift;
   my $output_file = shift;
   my $output_filename = shift;
-
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    _XS_html_prepare_title_titlepage($self, $output_units,
-                            $output_file, $output_filename);
-    return;
-  }
 
   # set file name to be the first file name for formatting of title page.
   # The title page prepared here is thus only fit to be used in the first
@@ -11114,12 +11069,33 @@ sub _prepare_title_titlepage($$$$)
   $self->{'current_filename'} = undef;
 }
 
-sub _XS_prepare_output_units_global_targets($$$$)
+sub _html_convert_convert($$$$)
 {
-}
+  my $self = shift;
+  my $root = shift;
+  my $output_units = shift;
+  my $special_units = shift;
 
-sub _XS_html_convert_convert($$$$)
-{
+  my $result = '';
+
+  if (!defined($output_units)) {
+    print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
+    $result = $self->_convert($root, 'convert no unit');
+    $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
+  } else {
+    my $unit_nr = 0;
+    # TODO there is no rule before the footnotes special element in
+    # case of separate footnotes in the default formatting style.
+    # Not sure if it is an issue.
+    foreach my $output_unit (@$output_units, @$special_units) {
+      print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+      my $output_unit_text = $self->convert_output_unit($output_unit,
+                                                 "convert unit $unit_nr");
+      $result .= $output_unit_text;
+      $unit_nr++;
+    }
+  }
+  return $result;
 }
 
 sub convert($$)
@@ -11129,8 +11105,6 @@ sub convert($$)
 
   my $converter_info;
   my $root = $document->tree();
-
-  my $result = '';
 
   $self->_initialize_output_state('_convert');
 
@@ -11154,16 +11128,9 @@ sub convert($$)
   # global targets when called as convert, but the Top global
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    # Do it preferentially in XS, and import to perl, to have data
-    # setup in C for XS too.
-    _XS_prepare_output_units_global_targets($self,
-           $output_units, $special_units, $associated_special_units);
-  } else {
-    $self->_prepare_output_units_global_targets($output_units,
-                                                $special_units,
-                                                $associated_special_units);
-  }
+  $self->_prepare_output_units_global_targets($output_units,
+                                              $special_units,
+                                              $associated_special_units);
 
   # setup untranslated strings
   $self->_translate_names();
@@ -11192,30 +11159,9 @@ sub convert($$)
 
   $self->{'current_filename'} = '';
 
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $XS_result = _XS_html_convert_convert ($self, $root,
-                                              $output_units, $special_units);
-    $self->_finalize_output_state();
-    return $XS_result;
-  }
-
-  if (!defined($output_units)) {
-    print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
-    $result = $self->_convert($root, 'convert no unit');
-    $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
-  } else {
-    my $unit_nr = 0;
-    # TODO there is no rule before the footnotes special element in
-    # case of separate footnotes in the default formatting style.
-    # Not sure if it is an issue.
-    foreach my $output_unit (@$output_units, @$special_units) {
-      print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
-      my $output_unit_text = $self->convert_output_unit($output_unit,
-                                                 "convert unit $unit_nr");
-      $result .= $output_unit_text;
-      $unit_nr++;
-    }
-  }
+  # main conversion here
+  my $result = $self->_html_convert_convert ($root, $output_units,
+                                             $special_units);
   $self->{'current_filename'} = undef;
 
   $self->_finalize_output_state();
@@ -11469,24 +11415,11 @@ sub _do_js_files($$)
   }
 }
 
-sub _XS_html_convert_output($$$$$$$$)
-{
-}
-
 # units or root conversion
 sub _html_convert_output($$$$$$$$)
 {
   my ($self, $root, $output_units, $special_units, $output_file,
       $destination_directory, $output_filename, $document_name) = @_;
-
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $XS_text_output
-           = _XS_html_convert_output ($self,
-                     $root, $output_units, $special_units, $output_file,
-                     $destination_directory, $output_filename,
-                     $document_name);
-    return $XS_text_output;
-  }
 
   my $text_output = '';
   if ($output_file eq '') {
