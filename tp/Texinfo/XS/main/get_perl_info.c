@@ -350,15 +350,6 @@ get_sv_converter (SV *sv_in, char *warn_string)
   return converter;
 }
 
-int
-compare_ints (const void *a, const void *b)
-{
-  const enum command_id *int_a = (const enum command_id *) a;
-  const enum command_id *int_b = (const enum command_id *) b;
-
-  return (*int_a > *int_b) - (*int_a < *int_b);
-}
-
 void
 set_translated_commands (CONVERTER *converter, HV *hv_in)
 {
@@ -413,6 +404,308 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
+CONVERTER *
+converter_initialize (SV *converter_sv)
+{
+  HV *hv_in;
+  SV **converter_init_conf_sv;
+  CONVERTER *converter = new_converter ();
+  DOCUMENT *document;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (converter_sv);
+
+  document = get_sv_document_document (converter_sv, 0);
+  converter->document = document;
+
+  converter_init_conf_sv
+    = hv_fetch (hv_in, "converter_init_conf",
+                strlen ("converter_init_conf"), 0);
+
+  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
+    {
+      converter->init_conf
+         = copy_sv_options (*converter_init_conf_sv);
+    }
+
+  converter->error_messages
+    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
+  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+
+  set_translated_commands (converter, hv_in);
+
+  get_expanded_formats (hv_in, &converter->expanded_formats);
+
+  return converter;
+}
+
+/* initialize an XS converter from a perl converter right before conversion */
+CONVERTER *
+set_output_converter_sv (SV *sv_in, char *warn_string)
+{
+  HV *hv_in;
+  SV **converter_options_sv;
+  SV **converter_init_conf_sv;
+  CONVERTER *converter = 0;
+
+  dTHX;
+
+  converter = get_sv_converter (sv_in, warn_string);
+
+  hv_in = (HV *)SvRV (sv_in);
+  converter_options_sv = hv_fetch (hv_in, "conf",
+                                   strlen ("conf"), 0);
+
+  if (converter_options_sv)
+    {
+      converter->conf
+         = copy_sv_options (*converter_options_sv);
+    }
+
+  converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
+                                   strlen ("output_init_conf"), 0);
+
+  if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
+    {
+      if (converter->init_conf)
+        free_options (converter->init_conf);
+      free (converter->init_conf);
+
+      converter->init_conf
+         = copy_sv_options (*converter_init_conf_sv);
+    }
+
+  return converter;
+}
+
+/* code in comments allow to sort the index names to have a fixed order
+   in the data structure.  Not clear that it is useful or not, not enabled
+   for now */
+void
+get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
+                                       SV *index_entries_sorted_by_letter)
+{
+  HV *hv_in;
+  /* for sorted index names
+  AV *index_names_av;
+  SV **index_names_av_array;
+  SV **sorted_index_names_av_array;
+  I32 i;
+   */
+  I32 index_names_nr;
+
+  SSize_t j;
+  INDEX **index_names = converter->document->index_names;
+
+  dTHX;
+
+  if (!SvOK (index_entries_sorted_by_letter))
+    return;
+
+  hv_in = (HV *)SvRV (index_entries_sorted_by_letter);
+
+  index_names_nr = hv_iterinit (hv_in);
+
+  /* when there is a memcpy just below, a condition that avoids negative
+     index_names_nr is important to avoid a gcc warning */
+  if (index_names_nr <= 0)
+    return;
+
+  /* doing an AV with the keys (first step of sorting)
+  index_names_av = newAV ();
+
+  for (i = 0; i < index_names_nr; i++)
+    {
+      HE *next = hv_iternext (hv_in);
+      SV *index_name_sv = hv_iterkeysv(next);
+      av_push (index_names_av, index_name_sv);
+    }
+   */
+  /* copy and sort
+  index_names_av_array = AvARRAY(index_names_av);
+  sorted_index_names_av_array
+       = (SV **) malloc (sizeof (SV *) * index_names_nr);
+  memcpy (sorted_index_names_av_array, index_names_av_array,
+          sizeof (SV *) * index_names_nr);
+  sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
+   */
+
+  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
+    malloc (index_names_nr * sizeof (INDEX_SORTED_BY_LETTER *));
+
+  for (j = 0; j < index_names_nr; j++)
+    {
+      int i;
+      char *idx_name = 0;
+      SSize_t letter_entries_nr;
+      HE *sorted_by_letter_he;
+      SV *idx_name_sv;
+      SV *sorted_by_letter_sv;
+      AV *av;
+
+      /* unsorted AV (to compare unsorted/sorted for debug)
+      SV **idx_name_sv_ref = av_fetch (index_names_av, j, 0);
+      if (!idx_name_sv_ref)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
+          fatal (msg);
+        }
+      idx_name_sv = *idx_name_sv_ref;
+       */
+       /* sorted SV**
+      idx_name_sv = sorted_index_names_av_array[j];
+       */
+      /* unsorted HV
+       */
+      HE *next = hv_iternext (hv_in);
+      idx_name_sv = hv_iterkeysv (next);
+      /* code common to all the cases above */
+      if (!idx_name_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
+          fatal (msg);
+        }
+      idx_name = (char *) SvPVutf8_nolen (idx_name_sv);
+
+      sorted_by_letter_he = hv_fetch_ent (hv_in, idx_name_sv, 0, 0);
+      if (!sorted_by_letter_he)
+        {
+          char *msg;
+          xasprintf (&msg,
+           "get_sv_index_entries_sorted_by_letter: %d: %s: cannot find index\n",
+                     j, idx_name);
+          fatal (msg);
+        }
+
+      sorted_by_letter_sv = HeVAL(sorted_by_letter_he);
+      if (!sorted_by_letter_sv)
+        {
+          char *msg;
+          xasprintf (&msg,
+            "get_sv_index_entries_sorted_by_letter: %d: %s: no letter entries\n",
+                     j, idx_name);
+          fatal (msg);
+        }
+
+      converter->index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
+                                 malloc (sizeof (INDEX_SORTED_BY_LETTER));
+      converter->index_entries_by_letter[j]->name = strdup (idx_name);
+
+      av = (AV *)SvRV (sorted_by_letter_sv);
+
+      letter_entries_nr = av_top_index (av) +1;
+      converter->index_entries_by_letter[j]->number = letter_entries_nr;
+      converter->index_entries_by_letter[j]->letter_entries
+        = (LETTER_INDEX_ENTRIES *)
+         malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
+      for (i = 0; i < letter_entries_nr; i++)
+        {
+          SV** letter_entries_sv = av_fetch (av, i, 0);
+          LETTER_INDEX_ENTRIES *letter_entries
+            = &converter->index_entries_by_letter[j]->letter_entries[i];
+          if (letter_entries_sv)
+            {
+              int k;
+              SSize_t entries_nr;
+              AV *entries_av;
+
+              HV *letter_entries_hv = (HV *) SvRV (*letter_entries_sv);
+              SV **letter_sv = hv_fetch (letter_entries_hv, "letter",
+                                         strlen ("letter"), 0);
+              SV **entries_sv = hv_fetch (letter_entries_hv, "entries",
+                                         strlen ("entries"), 0);
+              if (!letter_sv || !entries_sv)
+                {
+                  char *msg;
+                  xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: no letter and entries\n",
+                             idx_name, i);
+                  fatal (msg);
+                }
+              letter_entries->letter
+                = (char *) SvPVutf8_nolen (*letter_sv);
+
+              entries_av = (AV *) SvRV (*entries_sv);
+              entries_nr = av_top_index (entries_av) +1;
+              letter_entries->number = entries_nr;
+              letter_entries->entries =
+                (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
+              for (k = 0; k < entries_nr; k++)
+                {
+                  SV** index_entry_sv = av_fetch (entries_av, k, 0);
+                  HV *index_entry_hv;
+                  SV** index_name_sv;
+                  SV** entry_number_sv;
+                  INDEX *idx;
+                  INDEX **n;
+                  char *entry_index_name;
+                  int entry_number;
+
+                  if (!index_entry_sv)
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry\n",
+                             idx_name, i, letter_entries->letter, k);
+                      fatal (msg);
+                    }
+                  index_entry_hv = (HV *) SvRV (*index_entry_sv);
+                  index_name_sv = hv_fetch (index_entry_hv, "index_name",
+                                            strlen ("index_name"), 0);
+                  entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
+                                              strlen ("entry_number"), 0);
+                  if (!index_entry_hv || !entry_number_sv)
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry info\n",
+                             idx_name, i, letter_entries->letter, k);
+                      fatal (msg);
+                    }
+                  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
+                  entry_number = SvIV (*entry_number_sv);
+
+                  for (n = index_names; (idx = *n); n++)
+                    {
+                      if (!strcmp (idx->name, entry_index_name))
+                        {
+                          letter_entries->entries[k]
+                            = &idx->index_entries[entry_number];
+                          break;
+                        }
+                    }
+                }
+            }
+          else
+            {
+              char *msg;
+              xasprintf (&msg,
+    "get_sv_index_entries_sorted_by_letter: %s: %d: no letter entries\n",
+                         idx_name, i);
+              fatal (msg);
+            }
+        }
+    }
+}
+
+void
+set_conf (CONVERTER *converter, const char *conf, SV *value)
+{
+  if (converter->conf)
+    get_sv_option (converter->conf, conf, value);
+   /* Too early to have options set
+  else
+    fprintf (stderr, "HHH no converter conf %s\n", conf);
+    */
+}
+
+
+/* Following is HTML specific */
 static SV **
 register_formatting_reference_default (char *type_string,
                 FORMATTING_REFERENCE *formatting_reference,
@@ -474,40 +767,13 @@ register_formatting_reference_with_default (char *type_string,
     */
 }
 
-CONVERTER *
-converter_initialize (SV *converter_sv)
+int
+compare_ints (const void *a, const void *b)
 {
-  HV *hv_in;
-  SV **converter_init_conf_sv;
-  CONVERTER *converter = new_converter ();
-  DOCUMENT *document;
+  const enum command_id *int_a = (const enum command_id *) a;
+  const enum command_id *int_b = (const enum command_id *) b;
 
-  dTHX;
-
-  hv_in = (HV *)SvRV (converter_sv);
-
-  document = get_sv_document_document (converter_sv, 0);
-  converter->document = document;
-
-  converter_init_conf_sv
-    = hv_fetch (hv_in, "converter_init_conf",
-                strlen ("converter_init_conf"), 0);
-
-  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
-    {
-      converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv);
-    }
-
-  converter->error_messages
-    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
-  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-
-  set_translated_commands (converter, hv_in);
-
-  get_expanded_formats (hv_in, &converter->expanded_formats);
-
-  return converter;
+  return (*int_a > *int_b) - (*int_a < *int_b);
 }
 
 int
@@ -1151,265 +1417,3 @@ html_converter_initialize_sv (SV *converter_sv,
 }
 
 
-CONVERTER *
-set_output_converter_sv (SV *sv_in, char *warn_string)
-{
-  HV *hv_in;
-  SV **converter_options_sv;
-  SV **converter_init_conf_sv;
-  CONVERTER *converter = 0;
-
-  dTHX;
-
-  converter = get_sv_converter (sv_in, warn_string);
-
-  hv_in = (HV *)SvRV (sv_in);
-  converter_options_sv = hv_fetch (hv_in, "conf",
-                                   strlen ("conf"), 0);
-
-  if (converter_options_sv)
-    {
-      converter->conf
-         = copy_sv_options (*converter_options_sv);
-    }
-
-  converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
-                                   strlen ("output_init_conf"), 0);
-
-  if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
-    {
-      if (converter->init_conf)
-        free_options (converter->init_conf);
-      free (converter->init_conf);
-
-      converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv);
-    }
-
-  return converter;
-}
-
-/* code in comments allow to sort the index names to have a fixed order
-   in the data structure.  Not clear that it is useful or not, not enabled
-   for now */
-void
-get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
-                                       SV *index_entries_sorted_by_letter)
-{
-  HV *hv_in;
-  /* for sorted index names
-  AV *index_names_av;
-  SV **index_names_av_array;
-  SV **sorted_index_names_av_array;
-  I32 i;
-   */
-  I32 index_names_nr;
-
-  SSize_t j;
-  INDEX **index_names = converter->document->index_names;
-
-  dTHX;
-
-  if (!SvOK (index_entries_sorted_by_letter))
-    return;
-
-  hv_in = (HV *)SvRV (index_entries_sorted_by_letter);
-
-  index_names_nr = hv_iterinit (hv_in);
-
-  /* when there is a memcpy just below, a condition that avoids negative
-     index_names_nr is important to avoid a gcc warning */
-  if (index_names_nr <= 0)
-    return;
-
-  /* doing an AV with the keys (first step of sorting)
-  index_names_av = newAV ();
-
-  for (i = 0; i < index_names_nr; i++)
-    {
-      HE *next = hv_iternext (hv_in);
-      SV *index_name_sv = hv_iterkeysv(next);
-      av_push (index_names_av, index_name_sv);
-    }
-   */
-  /* copy and sort
-  index_names_av_array = AvARRAY(index_names_av);
-  sorted_index_names_av_array
-       = (SV **) malloc (sizeof (SV *) * index_names_nr);
-  memcpy (sorted_index_names_av_array, index_names_av_array,
-          sizeof (SV *) * index_names_nr);
-  sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
-   */
-
-  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
-    malloc (index_names_nr * sizeof (INDEX_SORTED_BY_LETTER *));
-
-  for (j = 0; j < index_names_nr; j++)
-    {
-      int i;
-      char *idx_name = 0;
-      SSize_t letter_entries_nr;
-      HE *sorted_by_letter_he;
-      SV *idx_name_sv;
-      SV *sorted_by_letter_sv;
-      AV *av;
-
-      /* unsorted AV (to compare unsorted/sorted for debug)
-      SV **idx_name_sv_ref = av_fetch (index_names_av, j, 0);
-      if (!idx_name_sv_ref)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
-          fatal (msg);
-        }
-      idx_name_sv = *idx_name_sv_ref;
-       */
-       /* sorted SV**
-      idx_name_sv = sorted_index_names_av_array[j];
-       */
-      /* unsorted HV
-       */
-      HE *next = hv_iternext (hv_in);
-      idx_name_sv = hv_iterkeysv (next);
-      /* code common to all the cases above */
-      if (!idx_name_sv)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
-          fatal (msg);
-        }
-      idx_name = (char *) SvPVutf8_nolen (idx_name_sv);
-
-      sorted_by_letter_he = hv_fetch_ent (hv_in, idx_name_sv, 0, 0);
-      if (!sorted_by_letter_he)
-        {
-          char *msg;
-          xasprintf (&msg,
-           "get_sv_index_entries_sorted_by_letter: %d: %s: cannot find index\n",
-                     j, idx_name);
-          fatal (msg);
-        }
-
-      sorted_by_letter_sv = HeVAL(sorted_by_letter_he);
-      if (!sorted_by_letter_sv)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: %s: no letter entries\n",
-                     j, idx_name);
-          fatal (msg);
-        }
-
-      converter->index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
-                                 malloc (sizeof (INDEX_SORTED_BY_LETTER));
-      converter->index_entries_by_letter[j]->name = strdup (idx_name);
-
-      av = (AV *)SvRV (sorted_by_letter_sv);
-
-      letter_entries_nr = av_top_index (av) +1;
-      converter->index_entries_by_letter[j]->number = letter_entries_nr;
-      converter->index_entries_by_letter[j]->letter_entries
-        = (LETTER_INDEX_ENTRIES *)
-         malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
-      for (i = 0; i < letter_entries_nr; i++)
-        {
-          SV** letter_entries_sv = av_fetch (av, i, 0);
-          LETTER_INDEX_ENTRIES *letter_entries
-            = &converter->index_entries_by_letter[j]->letter_entries[i];
-          if (letter_entries_sv)
-            {
-              int k;
-              SSize_t entries_nr;
-              AV *entries_av;
-
-              HV *letter_entries_hv = (HV *) SvRV (*letter_entries_sv);
-              SV **letter_sv = hv_fetch (letter_entries_hv, "letter",
-                                         strlen ("letter"), 0);
-              SV **entries_sv = hv_fetch (letter_entries_hv, "entries",
-                                         strlen ("entries"), 0);
-              if (!letter_sv || !entries_sv)
-                {
-                  char *msg;
-                  xasprintf (&msg,
-  "get_sv_index_entries_sorted_by_letter: %s: %d: no letter and entries\n",
-                             idx_name, i);
-                  fatal (msg);
-                }
-              letter_entries->letter
-                = (char *) SvPVutf8_nolen (*letter_sv);
-
-              entries_av = (AV *) SvRV (*entries_sv);
-              entries_nr = av_top_index (entries_av) +1;
-              letter_entries->number = entries_nr;
-              letter_entries->entries =
-                (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
-              for (k = 0; k < entries_nr; k++)
-                {
-                  SV** index_entry_sv = av_fetch (entries_av, k, 0);
-                  HV *index_entry_hv;
-                  SV** index_name_sv;
-                  SV** entry_number_sv;
-                  INDEX *idx;
-                  INDEX **n;
-                  char *entry_index_name;
-                  int entry_number;
-
-                  if (!index_entry_sv)
-                    {
-                      char *msg;
-                      xasprintf (&msg,
-  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry\n",
-                             idx_name, i, letter_entries->letter, k);
-                      fatal (msg);
-                    }
-                  index_entry_hv = (HV *) SvRV (*index_entry_sv);
-                  index_name_sv = hv_fetch (index_entry_hv, "index_name",
-                                            strlen ("index_name"), 0);
-                  entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
-                                              strlen ("entry_number"), 0);
-                  if (!index_entry_hv || !entry_number_sv)
-                    {
-                      char *msg;
-                      xasprintf (&msg,
-  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry info\n",
-                             idx_name, i, letter_entries->letter, k);
-                      fatal (msg);
-                    }
-                  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
-                  entry_number = SvIV (*entry_number_sv);
-
-                  for (n = index_names; (idx = *n); n++)
-                    {
-                      if (!strcmp (idx->name, entry_index_name))
-                        {
-                          letter_entries->entries[k]
-                            = &idx->index_entries[entry_number];
-                          break;
-                        }
-                    }
-                }
-            }
-          else
-            {
-              char *msg;
-              xasprintf (&msg,
-    "get_sv_index_entries_sorted_by_letter: %s: %d: no letter entries\n",
-                         idx_name, i);
-              fatal (msg);
-            }
-        }
-    }
-}
-
-void
-set_conf (CONVERTER *converter, const char *conf, SV *value)
-{
-  if (converter->conf)
-    get_sv_option (converter->conf, conf, value);
-   /* Too early to have options set
-  else
-    fprintf (stderr, "HHH no converter conf %s\n", conf);
-    */
-}

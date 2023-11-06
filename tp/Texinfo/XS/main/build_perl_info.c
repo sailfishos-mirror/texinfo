@@ -1090,7 +1090,7 @@ get_errors (ERROR_MESSAGE* error_list, size_t error_number)
 
 
 /* build a minimal document, without tree/global commands/indices, only
-   with the document descriptor information, errors and information that does
+   with the document descriptor information, errors and information that do
    not refer directly to tree elements */
 SV *
 get_document (size_t document_descriptor)
@@ -1462,6 +1462,326 @@ build_output_units_list (size_t output_units_descriptor)
   return newRV_noinc ((SV *) av_output_units);
 }
 
+/* implements Texinfo::Report::add_formatted_message */
+void
+pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
+                       HV *converter_hv)
+{
+  int i;
+  SV **errors_warnings_sv;
+  SV **error_nrs_sv;
+
+  dTHX;
+
+  if (!error_messages)
+    {
+      fprintf (stderr, "pass_converter_errors: NOTE: no error_messages\n");
+      return;
+    }
+
+  if (!converter_hv)
+    {
+      fprintf (stderr, "pass_converter_errors: BUG: no perl converter\n");
+      return;
+    }
+
+  errors_warnings_sv = hv_fetch (converter_hv, "errors_warnings",
+                                      strlen ("errors_warnings"), 0);
+
+  error_nrs_sv = hv_fetch (converter_hv, "error_nrs",
+                                      strlen ("error_nrs"), 0);
+
+  if (errors_warnings_sv && SvOK(*errors_warnings_sv))
+    {
+      AV *av = (AV *)SvRV (*errors_warnings_sv);
+      int error_nrs = 0;
+      if (error_nrs_sv)
+        error_nrs = SvIV (*error_nrs_sv);
+
+      for (i = 0; i < error_messages->number; i++)
+        {
+          ERROR_MESSAGE error_msg = error_messages->list[i];
+          SV *sv = convert_error (error_msg);
+
+          if (error_msg.type == MSG_error && !error_msg.continuation)
+            error_nrs++;
+          av_push (av, sv);
+        }
+      if (error_nrs)
+        hv_store (converter_hv, "error_nrs",
+                  strlen ("error_nrs"), newSViv (error_nrs), 0);
+    }
+
+  wipe_error_message_list (error_messages);
+}
+
+void
+rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
+{
+  AV *av_output_units;
+  int status;
+
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (output_units_descriptor);
+
+  dTHX;
+
+  if (! SvOK (output_units_sv))
+    {
+      if (output_units && output_units->number)
+        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
+                 output_units->number, output_units_descriptor);
+      return;
+    }
+
+  av_output_units = (AV *) SvRV (output_units_sv);
+  av_clear (av_output_units);
+
+  /* TODO cannot associate output_units_descriptor. A problem? */
+  if (!output_units || !output_units->number)
+    return;
+
+  status = fill_output_units (av_output_units, output_units);
+
+  /* warn? */
+  if (!status)
+    return;
+
+  /* store in the first perl output unit of the list */
+  hv_store (output_units->list[0]->hv, "output_units_descriptor",
+            strlen ("output_units_descriptor"),
+            newSViv (output_units_descriptor), 0);
+}
+
+SV *
+build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *normalized_filename = output_unit_file->normalized_filename;
+          SV *normalized_filename_sv = newSVpv_utf8 (normalized_filename, 0);
+
+          hv_store_ent (hv, normalized_filename_sv,
+                    newSVpv_utf8 (output_unit_file->filename, 0), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
+
+          hv_store_ent (hv, filename_sv, newSViv (output_unit_file->counter), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
+
+          hv_store_ent (hv, filename_sv,
+                        newSVpv_utf8 (output_unit_file->filepath, 0), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+void
+pass_output_unit_files (SV *converter_sv,
+                        FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  SV *filenames_sv;
+  SV *file_counters_sv;
+  SV *out_filepaths_sv;
+
+  dTHX;
+
+  HV *converter_hv = (HV *) SvRV (converter_sv);
+
+
+  filenames_sv = build_filenames (output_unit_files);
+  file_counters_sv = build_file_counters (output_unit_files);
+  out_filepaths_sv = build_out_filepaths (output_unit_files);
+
+#define STORE(key) \
+  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
+  SvREFCNT_inc (key##_sv);
+  STORE(filenames);
+  STORE (file_counters);
+  STORE (out_filepaths);
+#undef STORE
+}
+
+/* Texinfo::Common output_files_information API */
+void
+build_output_files_unclosed_files (HV *hv,
+                    OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **unclosed_files_sv;
+  HV *unclosed_files_hv;
+
+  FILE_STREAM_LIST *unclosed_files;
+  int i;
+
+  dTHX;
+
+  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
+                                strlen ("unclosed_files"), 0);
+
+  if (!unclosed_files_sv)
+    {
+      unclosed_files_hv = newHV ();
+      hv_store (hv, "unclosed_files", strlen ("unclosed_files"),
+                newRV_noinc ((SV *) unclosed_files_hv), 0);
+    }
+  else
+    {
+      unclosed_files_hv = (HV *)SvRV (*unclosed_files_sv);
+    }
+
+  unclosed_files = &output_files_information->unclosed_files;
+  if (unclosed_files->number > 0)
+    {
+      for (i = 0; i < unclosed_files->number; i++)
+        {
+          FILE_STREAM *file_stream = &unclosed_files->list[i];
+          char *file_path = file_stream->file_path;
+          /* FIXME no way to pass back the FILE *stream see comments in
+             converter_types.h.  So for now we close here.
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          hv_store_ent (unclosed_files_hv, file_path_sv, newSV (0), 0);
+           */
+          if (strcmp (file_path, "-"))
+            {
+              fclose (file_stream->stream);
+            }
+        }
+    }
+}
+
+/* input hv should be an output_files hv, in general setup by
+ $converter->{'output_files'} = Texinfo::Common::output_files_initialize(); */
+void
+build_output_files_opened_files (HV *hv,
+                    OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **opened_files_sv;
+  AV *opened_files_av;
+
+  STRING_LIST *opened_files;
+  int i;
+
+  dTHX;
+
+  opened_files_sv = hv_fetch (hv, "opened_files", strlen ("opened_files"), 0);
+
+  if (!opened_files_sv)
+    {
+      opened_files_av = newAV ();
+      hv_store (hv, "opened_files", strlen ("opened_files"),
+                newRV_noinc ((SV *) opened_files_av), 0);
+    }
+  else
+    {
+      opened_files_av = (AV *)SvRV (*opened_files_sv);
+    }
+
+  opened_files = &output_files_information->opened_files;
+  if (opened_files->number > 0)
+    {
+      for (i = 0; i < opened_files->number; i++)
+        {
+          char *file_path = opened_files->list[i];
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          av_push (opened_files_av, file_path_sv);
+        }
+    }
+}
+
+/* for the perl converter associated to CONVERTER */
+void
+build_output_files_information (CONVERTER *converter)
+{
+  HV *hv;
+  SV **output_files_sv;
+  HV *output_files_hv;
+
+  dTHX;
+
+  if (!converter->hv)
+    return;
+
+  hv = converter->hv;
+
+  output_files_sv = hv_fetch (hv, "output_files",
+                                strlen ("output_files"), 0);
+
+  if (!output_files_sv)
+    {
+      output_files_hv = newHV ();
+      hv_store (hv, "output_files", strlen ("output_files"),
+                newRV_noinc ((SV *) output_files_hv), 0);
+    }
+  else
+    {
+      output_files_hv = (HV *)SvRV (*output_files_sv);
+    }
+
+  build_output_files_opened_files (output_files_hv,
+                                   &converter->output_files_information);
+  build_output_files_unclosed_files (output_files_hv,
+                                   &converter->output_files_information);
+}
+
+
+/* HTML specific */
 HV *
 build_html_element_targets (HTML_TARGET_LIST *html_targets)
 {
@@ -1608,97 +1928,6 @@ pass_html_seen_ids (SV *converter_sv, STRING_LIST *seen_ids)
 
   hv_store (hv, "seen_ids", strlen ("seen_ids"),
             newRV_noinc ((SV *) seen_ids_hv), 0);
-}
-
-/* implements Texinfo::Report::add_formatted_message */
-void
-pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
-                       HV *converter_hv)
-{
-  int i;
-  SV **errors_warnings_sv;
-  SV **error_nrs_sv;
-
-  dTHX;
-
-  if (!error_messages)
-    {
-      fprintf (stderr, "pass_converter_errors: NOTE: no error_messages\n");
-      return;
-    }
-
-  if (!converter_hv)
-    {
-      fprintf (stderr, "pass_converter_errors: BUG: no perl converter\n");
-      return;
-    }
-
-  errors_warnings_sv = hv_fetch (converter_hv, "errors_warnings",
-                                      strlen ("errors_warnings"), 0);
-
-  error_nrs_sv = hv_fetch (converter_hv, "error_nrs",
-                                      strlen ("error_nrs"), 0);
-
-  if (errors_warnings_sv && SvOK(*errors_warnings_sv))
-    {
-      AV *av = (AV *)SvRV (*errors_warnings_sv);
-      int error_nrs = 0;
-      if (error_nrs_sv)
-        error_nrs = SvIV (*error_nrs_sv);
-
-      for (i = 0; i < error_messages->number; i++)
-        {
-          ERROR_MESSAGE error_msg = error_messages->list[i];
-          SV *sv = convert_error (error_msg);
-
-          if (error_msg.type == MSG_error && !error_msg.continuation)
-            error_nrs++;
-          av_push (av, sv);
-        }
-      if (error_nrs)
-        hv_store (converter_hv, "error_nrs",
-                  strlen ("error_nrs"), newSViv (error_nrs), 0);
-    }
-
-  wipe_error_message_list (error_messages);
-}
-
-void
-rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
-{
-  AV *av_output_units;
-  int status;
-
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
-
-  dTHX;
-
-  if (! SvOK (output_units_sv))
-    {
-      if (output_units && output_units->number)
-        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
-                 output_units->number, output_units_descriptor);
-      return;
-    }
-
-  av_output_units = (AV *) SvRV (output_units_sv);
-  av_clear (av_output_units);
-
-  /* TODO cannot associate output_units_descriptor. A problem? */
-  if (!output_units || !output_units->number)
-    return;
-
-  status = fill_output_units (av_output_units, output_units);
-
-  /* warn? */
-  if (!status)
-    return;
-
-  /* store in the first perl output unit of the list */
-  hv_store (output_units->list[0]->hv, "output_units_descriptor",
-            strlen ("output_units_descriptor"),
-            newSViv (output_units_descriptor), 0);
 }
 
 SV *
@@ -1855,112 +2084,6 @@ pass_html_elements_in_file_count (SV *converter_sv,
   hv_store (converter_hv, "elements_in_file_count",
             strlen ("elements_in_file_count"),
             newRV_noinc ((SV *) elements_in_file_count_hv), 0);
-}
-
-SV *
-build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          char *normalized_filename = output_unit_file->normalized_filename;
-          SV *normalized_filename_sv = newSVpv_utf8 (normalized_filename, 0);
-
-          hv_store_ent (hv, normalized_filename_sv,
-                    newSVpv_utf8 (output_unit_file->filename, 0), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-SV *
-build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          char *filename = output_unit_file->filename;
-          SV *filename_sv = newSVpv_utf8 (filename, 0);
-
-          hv_store_ent (hv, filename_sv, newSViv (output_unit_file->counter), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-SV *
-build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          char *filename = output_unit_file->filename;
-          SV *filename_sv = newSVpv_utf8 (filename, 0);
-
-          hv_store_ent (hv, filename_sv,
-                        newSVpv_utf8 (output_unit_file->filepath, 0), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-void
-pass_output_unit_files (SV *converter_sv,
-                        FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  SV *filenames_sv;
-  SV *file_counters_sv;
-  SV *out_filepaths_sv;
-
-  dTHX;
-
-  HV *converter_hv = (HV *) SvRV (converter_sv);
-
-
-  filenames_sv = build_filenames (output_unit_files);
-  file_counters_sv = build_file_counters (output_unit_files);
-  out_filepaths_sv = build_out_filepaths (output_unit_files);
-
-#define STORE(key) \
-  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
-  SvREFCNT_inc (key##_sv);
-  STORE(filenames);
-  STORE (file_counters);
-  STORE (out_filepaths);
-#undef STORE
 }
 
 void
@@ -2591,127 +2714,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   return newRV_noinc ((SV *) hv);
 }
 
-/* Texinfo::Common output_files_information API */
-void
-build_output_files_unclosed_files (HV *hv,
-                    OUTPUT_FILES_INFORMATION *output_files_information)
-{
-  SV **unclosed_files_sv;
-  HV *unclosed_files_hv;
-
-  FILE_STREAM_LIST *unclosed_files;
-  int i;
-
-  dTHX;
-
-  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
-                                strlen ("unclosed_files"), 0);
-
-  if (!unclosed_files_sv)
-    {
-      unclosed_files_hv = newHV ();
-      hv_store (hv, "unclosed_files", strlen ("unclosed_files"),
-                newRV_noinc ((SV *) unclosed_files_hv), 0);
-    }
-  else
-    {
-      unclosed_files_hv = (HV *)SvRV (*unclosed_files_sv);
-    }
-
-  unclosed_files = &output_files_information->unclosed_files;
-  if (unclosed_files->number > 0)
-    {
-      for (i = 0; i < unclosed_files->number; i++)
-        {
-          FILE_STREAM *file_stream = &unclosed_files->list[i];
-          char *file_path = file_stream->file_path;
-          /* FIXME no way to pass back the FILE *stream see comments in
-             converter_types.h.  So for now we close here.
-          SV *file_path_sv = newSVpv_byte (file_path, 0);
-          hv_store_ent (unclosed_files_hv, file_path_sv, newSV (0), 0);
-           */
-          if (strcmp (file_path, "-"))
-            {
-              fclose (file_stream->stream);
-            }
-        }
-    }
-}
-
-/* input hv should be an output_files hv, in general setup by
- $converter->{'output_files'} = Texinfo::Common::output_files_initialize(); */
-void
-build_output_files_opened_files (HV *hv,
-                    OUTPUT_FILES_INFORMATION *output_files_information)
-{
-  SV **opened_files_sv;
-  AV *opened_files_av;
-
-  STRING_LIST *opened_files;
-  int i;
-
-  dTHX;
-
-  opened_files_sv = hv_fetch (hv, "opened_files", strlen ("opened_files"), 0);
-
-  if (!opened_files_sv)
-    {
-      opened_files_av = newAV ();
-      hv_store (hv, "opened_files", strlen ("opened_files"),
-                newRV_noinc ((SV *) opened_files_av), 0);
-    }
-  else
-    {
-      opened_files_av = (AV *)SvRV (*opened_files_sv);
-    }
-
-  opened_files = &output_files_information->opened_files;
-  if (opened_files->number > 0)
-    {
-      for (i = 0; i < opened_files->number; i++)
-        {
-          char *file_path = opened_files->list[i];
-          SV *file_path_sv = newSVpv_byte (file_path, 0);
-          av_push (opened_files_av, file_path_sv);
-        }
-    }
-}
-
-/* for the perl converter associated to CONVERTER */
-void
-build_output_files_information (CONVERTER *converter)
-{
-  HV *hv;
-  SV **output_files_sv;
-  HV *output_files_hv;
-
-  dTHX;
-
-  if (!converter->hv)
-    return;
-
-  hv = converter->hv;
-
-  output_files_sv = hv_fetch (hv, "output_files",
-                                strlen ("output_files"), 0);
-
-  if (!output_files_sv)
-    {
-      output_files_hv = newHV ();
-      hv_store (hv, "output_files", strlen ("output_files"),
-                newRV_noinc ((SV *) output_files_hv), 0);
-    }
-  else
-    {
-      output_files_hv = (HV *)SvRV (*output_files_sv);
-    }
-
-  build_output_files_opened_files (output_files_hv,
-                                   &converter->output_files_information);
-  build_output_files_unclosed_files (output_files_hv,
-                                   &converter->output_files_information);
-}
-
 SV *
 build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted)
 {
@@ -2785,3 +2787,4 @@ build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 
   return newRV_noinc ((SV *) hv);
 }
+
