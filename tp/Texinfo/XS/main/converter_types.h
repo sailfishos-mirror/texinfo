@@ -296,18 +296,6 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
 
 typedef struct FILE_STREAM {
     char *file_path;
-    /* TODO see https://perldoc.perl.org/perlapio to pass to perl
-       PerlIO_importFILE. This creates a perl io object.
-       PerlIO *   PerlIO_importFILE  (FILE *stdio, const char *mode)
-       A SV is IO *, created by newIO
-        IO *  newIO()
-       the output perolIO of an IO is obtained by:
-        PerlIO *IoOFP(IO *io);
-       FIXME no way to set the PerlIO associated to an IO corresponding
-       to IoOFP?
-   From perlguts
-  All of these accessors macros are lvalues, there are no distinct _set() macros to modify the members of the IO object.
-       */
     FILE *stream;
 } FILE_STREAM;
 

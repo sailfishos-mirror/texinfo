@@ -18,6 +18,8 @@
 /* Avoid namespace conflicts. */
 #define context perl_context
 
+#define PERLIO_NOT_STDIO 0
+
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
@@ -47,9 +49,62 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
+void set_conf(SV *converter_in, conf, SV *value)
+         char *conf = (char *)SvPVbyte_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         /* warn? */
+         self = get_sv_converter (converter_in, 0);
+         if (self)
+           set_conf (self, conf, value);
+
+void
+get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in,
+                                  "get_index_entries_sorted_by_letter");
+         get_sv_index_entries_sorted_by_letter (self,
+                                           index_entries_sorted_by_letter);
+
+# pass the stream of an unclosed file path.
+# tried with OutputStream instead of FILE, but it did not work, there
+# was an error with a missing type.
+FILE *
+get_unclosed_stream (SV *converter_in, file_path)
+        char *file_path = (char *)SvPVbyte_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+         OUTPUT_FILES_INFORMATION *output_files_information;
+         FILE_STREAM_LIST *unclosed_files;
+         FILE *result = 0;
+      CODE:
+         self = get_sv_converter (converter_in,
+                                  "get_unclosed_stream");
+         output_files_information = &self->output_files_information;
+         unclosed_files = &output_files_information->unclosed_files;
+         if (unclosed_files->number > 0)
+           {
+             int i;
+             for (i = 0; i < unclosed_files->number; i++)
+               {
+                 FILE_STREAM *file_stream = &unclosed_files->list[i];
+                 if (!strcmp (file_path, file_stream->file_path))
+                   {
+                     result = file_stream->stream;
+                     break;
+                   }
+               }
+           }
+         RETVAL = result;
+    OUTPUT:
+         RETVAL
+
+
 SV *
-plain_texinfo_convert_tree (tree_in)
-        SV *tree_in
+plain_texinfo_convert_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -68,9 +123,7 @@ plain_texinfo_convert_tree (tree_in)
 
 # unused argument is used in the overriden function if XS is not used
 SV *
-text_convert_tree (text_options_in, tree_in, unused=0)
-        SV *text_options_in
-        SV *tree_in
+text_convert_tree (SV *text_options_in, SV *tree_in, unused=0)
     PREINIT:
         DOCUMENT *document = 0;
         TEXT_OPTIONS *text_options = 0;
@@ -95,16 +148,6 @@ text_convert_tree (text_options_in, tree_in, unused=0)
 
 int
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion)
-
-void set_conf(SV *converter_in, conf, SV *value)
-         char *conf = (char *)SvPVbyte_nolen($arg);
-      PREINIT:
-         CONVERTER *self;
-      CODE:
-         /* warn? */
-         self = get_sv_converter (converter_in, 0);
-         if (self)
-           set_conf (self, conf, value);
 
 void
 html_initialize_output_state (SV *converter_in, char *context)
@@ -209,17 +252,6 @@ html_pop_document_context (SV *converter_in)
              self->document_context_change++;
            }
 
-
-void
-get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
-      PREINIT:
-         CONVERTER *self;
-      CODE:
-         /* add warn string? */
-         self = get_sv_converter (converter_in,
-                                  "get_index_entries_sorted_by_letter");
-         get_sv_index_entries_sorted_by_letter (self,
-                                           index_entries_sorted_by_letter);
 
 #  my ($output_units, $special_units, $associated_special_units)
 #    = $self->_prepare_conversion_units($root, $document_name);

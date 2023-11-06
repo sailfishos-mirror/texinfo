@@ -38,6 +38,8 @@ use Carp qw(cluck confess);
 
 use Texinfo::Convert::ConvertXS;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Options;
 use Texinfo::Common;
 
@@ -78,6 +80,9 @@ sub import {
       Texinfo::XSLoader::override(
        "Texinfo::Convert::Converter::_XS_set_conf",
        "Texinfo::Convert::ConvertXS::set_conf");
+      Texinfo::XSLoader::override(
+       "Texinfo::Convert::Converter::_XS_get_unclosed_stream",
+       "Texinfo::Convert::ConvertXS::get_unclosed_stream");
     }
 
     $module_loaded = 1;
@@ -1518,6 +1523,37 @@ sub sort_element_counts($$;$$)
                         $sorted_count->[0]);
   }
   return (\@sorted_name_counts_array, $result);
+}
+
+sub _XS_get_unclosed_stream($$)
+{
+  return undef;
+}
+
+# this method retrieves the file streams of all the unclosed file paths
+# that came from XS (normally through build_output_files_unclosed_files)
+# but are not associated to a stream yet, as they can't be directly
+# associated to a stream in C code, but the stream can be returned through
+# an XS interface, here Texinfo::Convert::ConvertXS::get_unclosed_stream.
+sub get_output_files_XS_unclosed_streams($)
+{
+  my $self = shift;
+
+  my $converter_unclosed_files
+       = Texinfo::Common::output_files_unclosed_files(
+                               $self->output_files_information());
+  if ($converter_unclosed_files) {
+    foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
+      if (!defined($converter_unclosed_files->{$unclosed_file})) {
+        my $fh = _XS_get_unclosed_stream($self, $unclosed_file);
+        if (defined($fh)) {
+          $converter_unclosed_files->{$unclosed_file} = $fh;
+        } else {
+          delete $converter_unclosed_files->{$unclosed_file};
+        }
+      }
+    }
+  }
 }
 
 
