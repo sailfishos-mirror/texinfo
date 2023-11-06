@@ -1954,7 +1954,9 @@ pass_output_unit_files (SV *converter_sv,
   file_counters_sv = build_file_counters (output_unit_files);
   out_filepaths_sv = build_out_filepaths (output_unit_files);
 
-#define STORE(key) hv_store (converter_hv, #key, strlen (#key), key##_sv, 0)
+#define STORE(key) \
+  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
+  SvREFCNT_inc (key##_sv);
   STORE(filenames);
   STORE (file_counters);
   STORE (out_filepaths);

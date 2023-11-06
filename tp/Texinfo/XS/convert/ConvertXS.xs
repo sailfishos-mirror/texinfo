@@ -240,8 +240,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
          if (items > 1 && SvOK(ST(1)))
            document_name = SvPVutf8_nolen (ST(1));
 
-         /* add warn string? */
-         self = set_output_converter_sv (converter_in, 0);
+         self = set_output_converter_sv (converter_in,
+                                         "html_prepare_conversion_units");
          html_prepare_conversion_units (self,
               &output_units_descriptor, &special_units_descriptor,
               &associated_special_units_descriptor);
@@ -287,8 +287,8 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          FILE_SOURCE_INFO_LIST *files_source_info = 0;
          SV *files_source_info_sv;
      CODE:
-         /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
+         self = get_sv_converter (converter_in,
+                                  "html_prepare_units_directions_files");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,
@@ -335,8 +335,8 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
          int special_units_descriptor = 0;
          int associated_special_units_descriptor = 0;
      CODE:
-         /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
+         self = get_sv_converter (converter_in,
+                                  "html_prepare_output_units_global_targets");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,
@@ -371,7 +371,7 @@ html_translate_names (SV *converter_in)
          HV *hv_in;
          SV **converter_options_sv;
      CODE:
-         self = get_sv_converter (converter_in, 0);
+         self = get_sv_converter (converter_in, "html_translate_names");
          /* that kind of code could be in get_perl_info too */
          hv_in = (HV *)SvRV (converter_in);
          converter_options_sv = hv_fetch (hv_in, "conf",
@@ -404,8 +404,7 @@ html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file
          CONVERTER *self = 0;
          int output_units_descriptor = 0;
      CODE:
-         /* TODO error? */
-         self = get_sv_converter (converter_in, 0);
+         self = get_sv_converter (converter_in, "html_prepare_title_titlepage");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,
@@ -508,8 +507,8 @@ html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *spe
          SV *result_sv = 0;
    CODE:
          /* add warn string? */
-         self = get_sv_converter (converter_in, 0);
-         document = get_sv_tree_document (tree_in, 0);
+         self = get_sv_converter (converter_in, "html_convert_output");
+         document = get_sv_tree_document (tree_in, "html_convert_output");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,
