@@ -1,5 +1,13 @@
 2023-11-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_sort_index_entries),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): pass directly indices sorted
+	by letter hash to XS.  There is code to sort index names in XS, but it
+	is commentted out as it is not clear that it is useful.
+
+2023-11-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (import, _translate_names)
 	(_prepare_conversion_units, _prepare_units_directions_files)
 	(_prepare_title_titlepage, _html_convert_convert, convert)

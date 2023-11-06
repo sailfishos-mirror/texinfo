@@ -1189,12 +1189,22 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
   return converter;
 }
 
+/* code in comments allow to sort the index names to have a fixed order
+   in the data structure.  Not clear that it is useful or not, not enabled
+   for now */
 void
 get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                                        SV *index_entries_sorted_by_letter)
 {
-  AV *av_in;
-  SSize_t av_number;
+  HV *hv_in;
+  /* for sorted index names
+  AV *index_names_av;
+  SV **index_names_av_array;
+  SV **sorted_index_names_av_array;
+  I32 i;
+   */
+  I32 index_names_nr;
+
   SSize_t j;
   INDEX **index_names = converter->document->index_names;
 
@@ -1203,39 +1213,66 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
   if (!SvOK (index_entries_sorted_by_letter))
     return;
 
-  av_in = (AV *)SvRV (index_entries_sorted_by_letter);
+  hv_in = (HV *)SvRV (index_entries_sorted_by_letter);
 
-  av_number = av_top_index (av_in) +1;
+  index_names_nr = hv_iterinit (hv_in);
 
-  if (!av_number)
+  /* when there is a memcpy just below, a condition that avoids negative
+     index_names_nr is important to avoid a gcc warning */
+  if (index_names_nr <= 0)
     return;
 
-  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
-    malloc (av_number * sizeof (INDEX_SORTED_BY_LETTER *));
+  /* doing an AV with the keys (first step of sorting)
+  index_names_av = newAV ();
 
-  for (j = 0; j < av_number; j++)
+  for (i = 0; i < index_names_nr; i++)
+    {
+      HE *next = hv_iternext (hv_in);
+      SV *index_name_sv = hv_iterkeysv(next);
+      av_push (index_names_av, index_name_sv);
+    }
+   */
+  /* copy and sort
+  index_names_av_array = AvARRAY(index_names_av);
+  sorted_index_names_av_array
+       = (SV **) malloc (sizeof (SV *) * index_names_nr);
+  memcpy (sorted_index_names_av_array, index_names_av_array,
+          sizeof (SV *) * index_names_nr);
+  sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
+   */
+
+  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
+    malloc (index_names_nr * sizeof (INDEX_SORTED_BY_LETTER *));
+
+  for (j = 0; j < index_names_nr; j++)
     {
       int i;
       char *idx_name = 0;
       SSize_t letter_entries_nr;
-      AV *index_sorted_by_letter_av;
-      SV **idx_name_sv;
-      SV **sorted_by_letter_sv;
+      HE *sorted_by_letter_he;
+      SV *idx_name_sv;
+      SV *sorted_by_letter_sv;
       AV *av;
 
-      SV **index_sorted_by_letter_sv = av_fetch (av_in, j, 0);
-      if (!index_sorted_by_letter_sv)
+      /* unsorted AV (to compare unsorted/sorted for debug)
+      SV **idx_name_sv_ref = av_fetch (index_names_av, j, 0);
+      if (!idx_name_sv_ref)
         {
           char *msg;
           xasprintf (&msg,
-      "get_sv_index_entries_sorted_by_letter: %d: no index sorted entries\n", j);
+            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
           fatal (msg);
         }
-
-      index_sorted_by_letter_av
-        = (AV *)SvRV (*index_sorted_by_letter_sv);
-
-      idx_name_sv = av_fetch (index_sorted_by_letter_av, 0, 0);
+      idx_name_sv = *idx_name_sv_ref;
+       */
+       /* sorted SV**
+      idx_name_sv = sorted_index_names_av_array[j];
+       */
+      /* unsorted HV
+       */
+      HE *next = hv_iternext (hv_in);
+      idx_name_sv = hv_iterkeysv (next);
+      /* code common to all the cases above */
       if (!idx_name_sv)
         {
           char *msg;
@@ -1243,10 +1280,19 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
             "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
           fatal (msg);
         }
-      idx_name = (char *) SvPVutf8_nolen (*idx_name_sv);
+      idx_name = (char *) SvPVutf8_nolen (idx_name_sv);
 
-      sorted_by_letter_sv
-        = av_fetch (index_sorted_by_letter_av, 1, 0);
+      sorted_by_letter_he = hv_fetch_ent (hv_in, idx_name_sv, 0, 0);
+      if (!sorted_by_letter_he)
+        {
+          char *msg;
+          xasprintf (&msg,
+           "get_sv_index_entries_sorted_by_letter: %d: %s: cannot find index\n",
+                     j, idx_name);
+          fatal (msg);
+        }
+
+      sorted_by_letter_sv = HeVAL(sorted_by_letter_he);
       if (!sorted_by_letter_sv)
         {
           char *msg;
@@ -1260,7 +1306,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                                  malloc (sizeof (INDEX_SORTED_BY_LETTER));
       converter->index_entries_by_letter[j]->name = strdup (idx_name);
 
-      av = (AV *)SvRV (*sorted_by_letter_sv);
+      av = (AV *)SvRV (sorted_by_letter_sv);
 
       letter_entries_nr = av_top_index (av) +1;
       converter->index_entries_by_letter[j]->number = letter_entries_nr;

@@ -9841,17 +9841,8 @@ sub _sort_index_entries($)
 
     # pass sorted index entries to XS for a reproducible sorting.
     if ($self->{'converter_descriptor'} and $XS_convert) {
-      # Setup a list for easier import of data in C.
-      my $index_entries_by_letter = [];
-      if ($self->{'index_entries_by_letter'}) {
-        foreach my $index_name
-            (sort(keys(%{$self->{'index_entries_by_letter'}}))) {
-          push @$index_entries_by_letter,
-            [$index_name, $self->{'index_entries_by_letter'}->{$index_name}];
-        }
-      }
       _XS_get_index_entries_sorted_by_letter($self,
-                                 $index_entries_by_letter);
+                                 $self->{'index_entries_by_letter'});
     }
   }
 }
