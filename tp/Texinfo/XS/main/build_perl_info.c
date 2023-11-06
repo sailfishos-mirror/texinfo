@@ -1791,10 +1791,11 @@ pass_html_global_units_directions (SV *converter_sv,
 {
   HV *global_units_directions_hv;
   SV *global_units_directions_sv;
+  HV *converter_hv;
 
   dTHX;
 
-  HV *converter_hv = (HV *) SvRV (converter_sv);
+  converter_hv = (HV *) SvRV (converter_sv);
 
   global_units_directions_hv
     = build_html_global_units_directions (global_units_directions,
@@ -1809,7 +1810,7 @@ pass_html_global_units_directions (SV *converter_sv,
             strlen ("global_units_directions"), global_units_directions_sv, 0);
 }
 
-SV *
+HV *
 build_html_elements_in_file_count (
                  FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
@@ -1834,7 +1835,26 @@ build_html_elements_in_file_count (
         }
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
+}
+
+void
+pass_html_elements_in_file_count (SV *converter_sv,
+                   FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  HV *elements_in_file_count_hv;
+  HV *converter_hv;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+
+  elements_in_file_count_hv
+   = build_html_elements_in_file_count (output_unit_files);
+
+  hv_store (converter_hv, "elements_in_file_count",
+            strlen ("elements_in_file_count"),
+            newRV_noinc ((SV *) elements_in_file_count_hv), 0);
 }
 
 SV *
@@ -1915,6 +1935,30 @@ build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
     }
 
   return newRV_noinc ((SV *) hv);
+}
+
+void
+pass_output_unit_files (SV *converter_sv,
+                        FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  SV *filenames_sv;
+  SV *file_counters_sv;
+  SV *out_filepaths_sv;
+
+  dTHX;
+
+  HV *converter_hv = (HV *) SvRV (converter_sv);
+
+
+  filenames_sv = build_filenames (output_unit_files);
+  file_counters_sv = build_file_counters (output_unit_files);
+  out_filepaths_sv = build_out_filepaths (output_unit_files);
+
+#define STORE(key) hv_store (converter_hv, #key, strlen (#key), key##_sv, 0)
+  STORE(filenames);
+  STORE (file_counters);
+  STORE (out_filepaths);
+#undef STORE
 }
 
 void

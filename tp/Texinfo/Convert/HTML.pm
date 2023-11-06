@@ -9380,7 +9380,7 @@ sub _html_set_pages_files($$$$$$$$$)
     }
   }
 
-  return %files_source_info;
+  return \%files_source_info;
 }
 
 sub _XS_prepare_conversion_units($;$)
@@ -9467,20 +9467,12 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my ($XS_files_source_info,
-        $elements_in_file_count, $filenames,
-        $file_counters, $out_filepaths)
+    my $XS_files_source_info
       = _XS_prepare_units_directions_files($self,
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory,
            $output_filename, $document_name);
-    $self->{'elements_in_file_count'} = $elements_in_file_count;
-
-    $self->{'filenames'} = $filenames;
-    $self->{'file_counters'} = $file_counters;
-    $self->{'out_filepaths'} = $out_filepaths;
-
-    return %$XS_files_source_info;
+    return $XS_files_source_info;
   }
 
   $self->_prepare_output_units_global_targets($output_units, $special_units,
@@ -9490,9 +9482,9 @@ sub _prepare_units_directions_files($$$$$$$$)
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
-  my %files_source_info;
+  my $files_source_info;
   if ($output_file ne '') {
-    %files_source_info =
+    $files_source_info =
       $self->_html_set_pages_files($output_units, $special_units,
                     $associated_special_units, $output_file,
                     $destination_directory, $output_filename, $document_name);
@@ -9521,7 +9513,7 @@ sub _prepare_units_directions_files($$$$$$$$)
     }
   }
 
-  return %files_source_info;
+  return $files_source_info;
 }
 
 sub _register_special_unit($$)
@@ -11787,7 +11779,7 @@ sub output($$)
   # setup untranslated strings
   $self->_translate_names();
 
-  my %files_source_info
+  my $files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,
                 $associated_special_units,
                 $output_file, $destination_directory, $output_filename,
@@ -11995,7 +11987,7 @@ sub output($$)
                                                    => $label_contents}),
                $redirection_filename),
             $target_element->{'source_info'});
-          my $file_source = $files_source_info{$redirection_filename};
+          my $file_source = $files_source_info->{$redirection_filename};
           my $file_info_type = $file_source->{'file_info_type'};
           if ($file_info_type eq 'special_file'
               or $file_info_type eq 'stand_in_file') {
@@ -12063,7 +12055,7 @@ sub output($$)
           next;
         }
         $redirection_filenames{$redirection_filename} = $target_element;
-        $files_source_info{$redirection_filename}
+        $files_source_info->{$redirection_filename}
           = {'file_info_type' => 'redirection',
              'file_info_element' => $target_element,
              'file_info_path' => undef,

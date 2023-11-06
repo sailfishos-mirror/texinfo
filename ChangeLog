@@ -1,5 +1,20 @@
 2023-11-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files)
+	(output, _html_set_pages_files): return files_source_info as a
+	reference on a hash instead of a hash.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(build_html_elements_in_file_count, pass_html_elements_in_file_count)
+	(pass_output_unit_files): set elements_in_file_count, filenames,
+	file_counters and out_filepaths on pperl converter from C/XS in
+	_prepare_units_directions_files.
+
+2023-11-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c
 	(pass_html_global_units_directions): rename from
 	set_html_global_units_directions.  Update callers.

@@ -37,6 +37,9 @@ SV *build_output_units_list (size_t output_units_descriptor);
 void rebuild_output_units_list (SV *output_units_sv,
                                 size_t output_units_descriptor);
 
+void pass_output_unit_files (SV *converter_sv,
+                        FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+
 void pass_html_element_targets (SV *converter_sv,
                                 HTML_TARGET_LIST *html_targets);
 void pass_html_special_targets (SV *converter_sv,
@@ -50,12 +53,8 @@ SV *build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 void pass_html_global_units_directions (SV *converter_sv,
                        OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION **special_units_direction_name);
-SV *build_html_elements_in_file_count (
+void pass_html_elements_in_file_count (SV *converter_sv,
                    FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
-
-SV *build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
-SV *build_file_counters (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
-SV *build_out_filepaths (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 HV *build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context);
 
