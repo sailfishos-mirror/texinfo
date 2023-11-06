@@ -9402,15 +9402,9 @@ sub _prepare_conversion_units($$$)
   my ($output_units, $special_units, $associated_special_units);
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my ($targets, $special_targets, $seen_ids);
-    ($output_units, $special_units, $associated_special_units,
-     $targets, $special_targets, $seen_ids)
+    ($output_units, $special_units, $associated_special_units)
       = _XS_prepare_conversion_units($self,
                                      $document_name);
-    $self->{'targets'} = $targets;
-    $self->{'special_targets'} = $special_targets;
-    $self->{'seen_ids'} = $seen_ids;
-    $self->{'document_units'} = $output_units;
     return ($output_units, $special_units, $associated_special_units);
   }
 

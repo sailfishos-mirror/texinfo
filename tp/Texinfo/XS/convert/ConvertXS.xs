@@ -153,11 +153,11 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
            {
              HV *document_context_hv;
              HTML_DOCUMENT_CONTEXT *document_context;
-             HV *converter_hv = (HV *) SvRV (converter_in); 
+             HV *converter_hv = (HV *) SvRV (converter_in);
              SV **document_context_sv = hv_fetch (converter_hv,
                    "document_context", strlen("document_context"), 0);
              AV *document_context_av = (AV *) SvRV (*document_context_sv);
-             /* should not be needed as we are calling from perl 
+             /* should not be needed as we are calling from perl
              if (self->modified_state)
                {
                  build_html_formatting_state (self, self->modified_state);
@@ -188,11 +188,11 @@ html_pop_document_context (SV *converter_in)
          self = get_sv_converter (converter_in, "html_new_document_context");
          if (self)
            {
-             HV *converter_hv = (HV *) SvRV (converter_in); 
+             HV *converter_hv = (HV *) SvRV (converter_in);
              SV **document_context_sv = hv_fetch (converter_hv,
                    "document_context", strlen("document_context"), 0);
              AV *document_context_av = (AV *) SvRV (*document_context_sv);
-             /* should not be needed as we are calling from perl 
+             /* should not be needed as we are calling from perl
              if (self->modified_state)
                {
                  build_html_formatting_state (self, self->modified_state);
@@ -226,6 +226,7 @@ void
 html_prepare_conversion_units (SV *converter_in, ...)
       PROTOTYPE: $;$
       PREINIT:
+         HV *converter_hv;
          char *document_name = 0;
          CONVERTER *self;
          int output_units_descriptor = 0;
@@ -234,9 +235,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *output_units_sv;
          SV *special_units_sv;
          SV *associated_special_units_sv;
-         SV *targets_sv;
-         SV *special_targets_sv;
-         SV *seen_ids_sv;
+         HV *output_units_hv;
       PPCODE:
          if (items > 1 && SvOK(ST(1)))
            document_name = SvPVutf8_nolen (ST(1));
@@ -252,26 +251,27 @@ html_prepare_conversion_units (SV *converter_in, ...)
          associated_special_units_sv
            = build_output_units_list (associated_special_units_descriptor);
 
+         converter_hv = (HV *) SvRV (converter_in);
+         output_units_hv = (HV *) SvRV (output_units_sv);
+         hv_store (converter_hv, "document_units", strlen ("document_units"),
+                   newRV_inc ((SV *) output_units_hv), 0);
+
          /* calls perl customization functions, so need to be done after
             build_output_units_list calls to be able to retrieve perl units */
          html_prepare_conversion_units_targets (self, document_name,
               output_units_descriptor, special_units_descriptor,
               associated_special_units_descriptor);
 
-         targets_sv = build_html_element_targets (self->html_targets);
-         special_targets_sv
-           = build_html_special_targets (self->html_special_targets);
-         seen_ids_sv = build_html_seen_ids (self->seen_ids);
+         pass_html_element_targets (converter_in, self->html_targets);
+         pass_html_special_targets (converter_in, self->html_special_targets);
+         pass_html_seen_ids (converter_in, self->seen_ids);
 
          pass_converter_errors (self->error_messages, self->hv);
 
-         EXTEND(SP, 6);
+         EXTEND(SP, 3);
          PUSHs(sv_2mortal(output_units_sv));
          PUSHs(sv_2mortal(special_units_sv));
          PUSHs(sv_2mortal(associated_special_units_sv));
-         PUSHs(sv_2mortal(targets_sv));
-         PUSHs(sv_2mortal(special_targets_sv));
-         PUSHs(sv_2mortal(seen_ids_sv));
 
 void
 html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
@@ -319,9 +319,9 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
 
          files_source_info_sv
            = build_html_files_source_info (files_source_info);
-         set_html_global_units_directions (converter_in,
-                                           self->global_units_directions,
-                                           self->special_units_direction_name);
+         pass_html_global_units_directions (converter_in,
+                                            self->global_units_directions,
+                                            self->special_units_direction_name);
          elements_in_file_count_sv
            = build_html_elements_in_file_count (&self->output_unit_files);
 
@@ -370,9 +370,9 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
          rebuild_output_units_list (associated_special_units_in,
                                     associated_special_units_descriptor);
 
-         set_html_global_units_directions (converter_in,
-                                           self->global_units_directions,
-                                           self->special_units_direction_name);
+         pass_html_global_units_directions (converter_in,
+                                            self->global_units_directions,
+                                            self->special_units_direction_name);
 
 
 void

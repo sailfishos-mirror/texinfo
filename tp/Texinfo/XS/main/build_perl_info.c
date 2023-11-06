@@ -1462,7 +1462,7 @@ build_output_units_list (size_t output_units_descriptor)
   return newRV_noinc ((SV *) av_output_units);
 }
 
-SV *
+HV *
 build_html_element_targets (HTML_TARGET_LIST *html_targets)
 {
   HV *hv;
@@ -1473,7 +1473,7 @@ build_html_element_targets (HTML_TARGET_LIST *html_targets)
   hv = newHV ();
 
   if (!html_targets || html_targets->number <= 0)
-    return newRV_noinc ((SV *) hv);
+    return hv;
 
 #define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
   for (i = 0; i < html_targets->number; i++)
@@ -1487,7 +1487,7 @@ build_html_element_targets (HTML_TARGET_LIST *html_targets)
       if (!html_target->element->hv)
         {
           fprintf (stderr, "BUG: No hv for target '%s'\n", html_target->target);
-          return newSV(0);
+          fatal ("No hv for target");
         }
 
       element_sv = newRV_inc ((SV *) html_target->element->hv);
@@ -1514,14 +1514,30 @@ build_html_element_targets (HTML_TARGET_LIST *html_targets)
               newSVpv_utf8 (html_target->shortcontents_target, 0));
     }
 #undef STORE
-  return newRV_noinc ((SV *) hv);
+  return hv;
 }
 
-SV *
+void
+pass_html_element_targets (SV *converter_sv, HTML_TARGET_LIST *html_targets)
+{
+  HV *targets_hv;
+  HV *hv;
+
+  dTHX;
+
+  hv = (HV *) SvRV (converter_sv);
+
+  targets_hv = build_html_element_targets (html_targets);
+
+  hv_store (hv, "targets", strlen ("targets"),
+            newRV_noinc ((SV *) targets_hv), 0);
+}
+
+HV *
 build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
 {
   HV *hv;
-  SV *html_special_target_sv;
+  HV *html_special_target_hv;
 
   dTHX;
 
@@ -1530,15 +1546,32 @@ build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
   /* could be generalized if needed */
 
   HTML_TARGET_LIST *html_special_target = html_special_targets[ST_footnote_location];
-  html_special_target_sv = build_html_element_targets (html_special_target);
+  html_special_target_hv = build_html_element_targets (html_special_target);
 
   hv_store (hv, "footnote_location", strlen ("footnote_location"),
-            html_special_target_sv, 0);
+            newRV_noinc ((SV *) html_special_target_hv), 0);
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
 }
 
-SV *
+void
+pass_html_special_targets (SV *converter_sv,
+                          HTML_TARGET_LIST **html_special_targets)
+{
+  HV *special_targets_hv;
+  HV *hv;
+
+  dTHX;
+
+  hv = (HV *) SvRV (converter_sv);
+
+  special_targets_hv = build_html_special_targets (html_special_targets);
+
+  hv_store (hv, "special_targets", strlen ("special_targets"),
+            newRV_noinc ((SV *) special_targets_hv), 0);
+}
+
+HV *
 build_html_seen_ids (STRING_LIST *seen_ids)
 {
   HV *hv;
@@ -1558,7 +1591,23 @@ build_html_seen_ids (STRING_LIST *seen_ids)
         }
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
+}
+
+void
+pass_html_seen_ids (SV *converter_sv, STRING_LIST *seen_ids)
+{
+  HV *seen_ids_hv;
+  HV *hv;
+
+  dTHX;
+
+  hv = (HV *) SvRV (converter_sv);
+
+  seen_ids_hv = build_html_seen_ids (seen_ids);
+
+  hv_store (hv, "seen_ids", strlen ("seen_ids"),
+            newRV_noinc ((SV *) seen_ids_hv), 0);
 }
 
 /* implements Texinfo::Report::add_formatted_message */
@@ -1736,7 +1785,7 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
 }
 
 void
-set_html_global_units_directions (SV *converter_sv,
+pass_html_global_units_directions (SV *converter_sv,
                        OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION **special_units_direction_name)
 {
