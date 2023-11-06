@@ -1698,7 +1698,7 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
   return newRV_noinc ((SV *) hv);
 }
 
-SV *
+HV *
 build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION **special_units_direction_name)
 {
@@ -1710,7 +1710,7 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
   dTHX;
 
   if (!global_units_directions)
-    return newSV(0);
+    return 0;
 
   hv = newHV ();
 
@@ -1732,7 +1732,32 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
                   newRV_inc ((SV *) output_unit->hv), 0);
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
+}
+
+void
+set_html_global_units_directions (SV *converter_sv,
+                       OUTPUT_UNIT **global_units_directions,
+                       SPECIAL_UNIT_DIRECTION **special_units_direction_name)
+{
+  HV *global_units_directions_hv;
+  SV *global_units_directions_sv;
+
+  dTHX;
+
+  HV *converter_hv = (HV *) SvRV (converter_sv);
+
+  global_units_directions_hv
+    = build_html_global_units_directions (global_units_directions,
+                                        special_units_direction_name);
+  if (global_units_directions_hv)
+    global_units_directions_sv
+     = newRV_noinc ((SV *) global_units_directions_hv);
+  else
+    global_units_directions_sv = newSV (0);
+
+  hv_store (converter_hv, "global_units_directions",
+            strlen ("global_units_directions"), global_units_directions_sv, 0);
 }
 
 SV *

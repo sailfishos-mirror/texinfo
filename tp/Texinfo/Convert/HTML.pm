@@ -9473,14 +9473,13 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my ($XS_files_source_info, $global_units_directions,
+    my ($XS_files_source_info,
         $elements_in_file_count, $filenames,
         $file_counters, $out_filepaths)
       = _XS_prepare_units_directions_files($self,
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory,
            $output_filename, $document_name);
-    $self->{'global_units_directions'} = $global_units_directions;
     $self->{'elements_in_file_count'} = $elements_in_file_count;
 
     $self->{'filenames'} = $filenames;
@@ -11172,10 +11171,8 @@ sub convert($$)
   if ($self->{'converter_descriptor'} and $XS_convert) {
     # Do it preferentially in XS, and import to perl, to have data
     # setup in C for XS too.
-    my $global_units_directions =
-      _XS_prepare_output_units_global_targets($self,
+    _XS_prepare_output_units_global_targets($self,
            $output_units, $special_units, $associated_special_units);
-    $self->{'global_units_directions'} = $global_units_directions;
   } else {
     $self->_prepare_output_units_global_targets($output_units,
                                                 $special_units,
