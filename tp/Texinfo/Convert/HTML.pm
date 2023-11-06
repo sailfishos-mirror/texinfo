@@ -2353,11 +2353,7 @@ sub _translate_names($)
   my $self = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $selected_info
-             = {'converter_descriptor' => $self->{'converter_descriptor'},
-                'conf' => $self->{'conf'},
-               };
-    _XS_translate_names($selected_info);
+    _XS_translate_names($self);
     return;
   }
 
@@ -9406,11 +9402,10 @@ sub _prepare_conversion_units($$$)
   my ($output_units, $special_units, $associated_special_units);
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $converter_info = $self->converter_options_for_output();
     my ($targets, $special_targets, $seen_ids);
     ($output_units, $special_units, $associated_special_units,
      $targets, $special_targets, $seen_ids)
-      = _XS_prepare_conversion_units($converter_info,
+      = _XS_prepare_conversion_units($self,
                                      $document_name);
     $self->{'targets'} = $targets;
     $self->{'special_targets'} = $special_targets;
@@ -9478,12 +9473,10 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $converter_info = $self->converter_options_for_output();
-
     my ($XS_files_source_info, $global_units_directions,
         $elements_in_file_count, $filenames,
         $file_counters, $out_filepaths)
-      = _XS_prepare_units_directions_files($converter_info,
+      = _XS_prepare_units_directions_files($self,
            $output_units, $special_units, $associated_special_units,
            $output_file, $destination_directory,
            $output_filename, $document_name);
@@ -11179,9 +11172,8 @@ sub convert($$)
   if ($self->{'converter_descriptor'} and $XS_convert) {
     # Do it preferentially in XS, and import to perl, to have data
     # setup in C for XS too.
-    $converter_info = $self->converter_options_for_output();
     my $global_units_directions =
-      _XS_prepare_output_units_global_targets($converter_info,
+      _XS_prepare_output_units_global_targets($self,
            $output_units, $special_units, $associated_special_units);
     $self->{'global_units_directions'} = $global_units_directions;
   } else {
@@ -11218,7 +11210,7 @@ sub convert($$)
   $self->{'current_filename'} = '';
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $XS_result = _XS_html_convert_convert ($converter_info, $root,
+    my $XS_result = _XS_html_convert_convert ($self, $root,
                                               $output_units, $special_units);
     $self->_finalize_output_state();
     return $XS_result;
@@ -11505,10 +11497,8 @@ sub _html_convert_output($$$$$$$$)
       $destination_directory, $output_filename, $document_name) = @_;
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    my $converter_info = $self->converter_options_for_output();
-
     my $XS_text_output
-           = _XS_html_convert_output ($converter_info,
+           = _XS_html_convert_output ($self,
                      $root, $output_units, $special_units, $output_file,
                      $destination_directory, $output_filename,
                      $document_name);

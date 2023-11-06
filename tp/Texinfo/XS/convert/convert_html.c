@@ -2431,7 +2431,6 @@ html_converter_initialize (CONVERTER *self)
       self->varieties_direction_index[i] = 0;
    }
 
-
   /* note that we allocate the same size as no_arg_formatted_cmd
      even though in general there are much less translated commands,
      for simplicity */

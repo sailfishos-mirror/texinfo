@@ -453,23 +453,6 @@ sub output($$)
   return undef;
 }
 
-# FIXME remove, do in XS
-sub converter_options_for_output($)
-{
-  my $self = shift;
-
-  my $result = {'converter_descriptor' => $self->{'converter_descriptor'},
-                'conf' => $self->{'conf'},
-               };
-
-  if (defined($self->{'output_init_conf'})) {
-    $result->{'output_init_conf'} = $self->{'output_init_conf'};
-  }
-
-  return $result;
-}
-
-
 ###############################################################
 # Implementation of the customization API that is used in many
 # Texinfo modules
