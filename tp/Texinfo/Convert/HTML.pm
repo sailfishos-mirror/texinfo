@@ -11842,7 +11842,7 @@ sub output($$)
                        $special_units, $output_file, $destination_directory,
                        $output_filename, $document_name);
 
-  $self->get_XS_unclosed_streams();
+  $self->get_output_files_XS_unclosed_streams();
 
   if (!defined($text_output)) {
     $self->_finalize_output_state();
