@@ -104,10 +104,8 @@ EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
 ########################## shared common library and parser library
 
-# FIXME this is an internal library.  Do not put it in lib?
-# it still needs to be found by the linker.
 if HAVE_ICONV
-lib_LTLIBRARIES = libtexinfo.la
+xs_LTLIBRARIES += libtexinfo.la
 endif
 
 # The files in the main directory correspond to code used both
@@ -276,10 +274,8 @@ $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main
 # and flags; it depends on perl and not on gnulib.  Both libraries
 # are used by following XS.
 
-# FIXME this is an internal library.  Do not put it in lib?
-# it still needs to be found by the linker.
 if HAVE_ICONV
-lib_LTLIBRARIES += libtexinfoxs.la
+xs_LTLIBRARIES += libtexinfoxs.la
 endif
 
 libtexinfoxs_la_SOURCES= \
@@ -297,6 +293,10 @@ libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
+
+# FIXME libtexinfo.so.* and libtexinfoxs.so.* are sought in system
+# directories first (${libdir}) before the correct installed location, so
+# there is potential for the wrong library file to be dynamically loaded.
 
 
 ########################## Parsetexi XS parser
