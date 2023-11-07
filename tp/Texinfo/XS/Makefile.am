@@ -364,6 +364,10 @@ endif
 
 ConvertXS_la_SOURCES = \
                        convert/ConvertXS.c \
+                       convert/build_html_perl_state.h \
+                       convert/build_html_perl_state.c \
+                       convert/call_html_perl_function.h \
+                       convert/call_html_perl_function.c \
                        convert/convert_plain_texinfo.h \
                        convert/convert_plain_texinfo.c \
                        convert/convert_text.h \

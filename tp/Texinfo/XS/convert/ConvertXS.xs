@@ -34,6 +34,7 @@
 
 #include "get_perl_info.h"
 #include "build_perl_info.h"
+#include "build_html_perl_state.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
