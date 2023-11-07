@@ -65,11 +65,15 @@ void
 get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
       PREINIT:
          CONVERTER *self;
+         INDEX_SORTED_BY_LETTER **index_entries_by_letter;
       CODE:
          self = get_sv_converter (converter_in,
                                   "get_index_entries_sorted_by_letter");
-         get_sv_index_entries_sorted_by_letter (self,
+         index_entries_by_letter
+            = get_sv_index_entries_sorted_by_letter
+                                          (self->document->index_names,
                                            index_entries_sorted_by_letter);
+         self->index_entries_by_letter = index_entries_by_letter;
 
 # pass the stream of an unclosed file path.
 # tried with OutputStream instead of FILE, but it did not work, there

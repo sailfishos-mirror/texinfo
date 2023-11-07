@@ -419,10 +419,13 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
 /* code in comments allow to sort the index names to have a fixed order
    in the data structure.  Not clear that it is useful or not, not enabled
    for now */
-void
-get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
+/* return value to be freed by caller */
+INDEX_SORTED_BY_LETTER **
+get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                                        SV *index_entries_sorted_by_letter)
 {
+  INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+
   HV *hv_in;
   /* for sorted index names
   AV *index_names_av;
@@ -433,12 +436,11 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
   I32 index_names_nr;
 
   SSize_t j;
-  INDEX **index_names = converter->document->index_names;
 
   dTHX;
 
   if (!SvOK (index_entries_sorted_by_letter))
-    return;
+    return 0;
 
   hv_in = (HV *)SvRV (index_entries_sorted_by_letter);
 
@@ -447,7 +449,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
   /* when there is a memcpy just below, a condition that avoids negative
      index_names_nr is important to avoid a gcc warning */
   if (index_names_nr <= 0)
-    return;
+    return 0;
 
   /* doing an AV with the keys (first step of sorting)
   index_names_av = newAV ();
@@ -468,7 +470,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
   sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
    */
 
-  converter->index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
+  index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
     malloc (index_names_nr * sizeof (INDEX_SORTED_BY_LETTER *));
 
   for (j = 0; j < index_names_nr; j++)
@@ -529,22 +531,22 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
           fatal (msg);
         }
 
-      converter->index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
+      index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
                                  malloc (sizeof (INDEX_SORTED_BY_LETTER));
-      converter->index_entries_by_letter[j]->name = strdup (idx_name);
+      index_entries_by_letter[j]->name = strdup (idx_name);
 
       av = (AV *)SvRV (sorted_by_letter_sv);
 
       letter_entries_nr = av_top_index (av) +1;
-      converter->index_entries_by_letter[j]->number = letter_entries_nr;
-      converter->index_entries_by_letter[j]->letter_entries
+      index_entries_by_letter[j]->number = letter_entries_nr;
+      index_entries_by_letter[j]->letter_entries
         = (LETTER_INDEX_ENTRIES *)
          malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
       for (i = 0; i < letter_entries_nr; i++)
         {
           SV** letter_entries_sv = av_fetch (av, i, 0);
           LETTER_INDEX_ENTRIES *letter_entries
-            = &converter->index_entries_by_letter[j]->letter_entries[i];
+            = &index_entries_by_letter[j]->letter_entries[i];
           if (letter_entries_sv)
             {
               int k;
@@ -628,6 +630,7 @@ get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
             }
         }
     }
+  return index_entries_by_letter;
 }
 
 void
