@@ -2,6 +2,9 @@
 #ifndef GET_PERL_INFO_H
 #define GET_PERL_INFO_H
 
+#include "EXTERN.h"
+#include "perl.h"
+
 #include "options_types.h"
 #include "tree_types.h"
 #include "converter_types.h"
@@ -13,24 +16,19 @@ DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 OUTPUT_UNIT_LIST *get_sv_output_units (SV *output_units_in, char *warn_string);
 int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 
+void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
+                              int dir_strings);
+
 OPTIONS *copy_sv_options (SV *sv_in);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
-TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
-
-int html_converter_initialize_sv (SV *converter_sv,
-                                  SV *default_formatting_references,
-                                  SV *default_css_string_formatting_references,
-                                  SV *default_commands_open,
-                                  SV *default_commands_conversion,
-                                  SV *default_css_string_commands_conversion,
-                                  SV *default_types_open,
-                                  SV *default_types_conversion,
-                                  SV *default_css_string_types_conversion,
-                                  SV *default_output_units_conversion);
 
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 
+CONVERTER *converter_initialize (SV *converter_sv);
+
 void get_sv_index_entries_sorted_by_letter (CONVERTER *converter,
                                             SV *index_entries_sorted_by_letter);
+
+TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 #endif

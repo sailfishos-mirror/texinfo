@@ -42,6 +42,7 @@
 #include "indices_in_conversion.h"
 #include "command_stack.h"
 #include "convert_html.h"
+#include "get_html_perl_info.h"
 #include "document.h"
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
