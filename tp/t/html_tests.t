@@ -5,6 +5,10 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+my $XS_convert = 0;
+$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
 my $itemize_arguments_text = '
 @itemize ---
 @item item ---
@@ -649,11 +653,14 @@ in html
 @section Sec after
 ', {'FORMAT_MENU' => 'menu'}, {'FORMAT_MENU' => 'menu'},],
 ['mathjax_with_texinfo',
-$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+$mathjax_with_texinfo,
+{'skip' => $XS_convert ? 'No conversion to LaTeX in HTML XS' : undef, },
+{'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
 $mathjax_with_texinfo, {'test_formats' => ['latex_text', 'file_latex'],
                         'full_document' => 1,
-       'test_input_file_name' => 'mathjax_with_texinfo_enable_encoding.texi'},
+       'test_input_file_name' => 'mathjax_with_texinfo_enable_encoding.texi',
+      'skip' => $XS_convert ? 'No conversion to LaTeX in HTML XS' : undef,},
 {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
@@ -1260,7 +1267,9 @@ $check_htmlxref_text
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['mathjax_with_texinfo_html_file',
-$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+$mathjax_with_texinfo,
+{'skip' => $XS_convert ? 'No conversion to LaTeX in HTML XS' : undef, },
+{'HTML_MATH' => 'mathjax'}],
 ['info_js_dir_html_file',
 $info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
 );
