@@ -447,14 +447,14 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
     {
       if (arg_category)
         {
-          ELEMENT *category_copy = copy_tree (arg_category, 0);
+          ELEMENT *category_copy = copy_tree (arg_category);
           return category_copy;
         }
       else
        return 0;
     }
 
-  class_copy = copy_tree (arg_class, 0);
+  class_copy = copy_tree (arg_class);
 
   if (!options)
     {
@@ -473,7 +473,7 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
       || !strcmp(def_command, "defmethod")
       || !strcmp(def_command, "deftypemethod"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      ELEMENT *category_copy = copy_tree (arg_category);
       if (options)
         {
           NAMED_STRING_ELEMENT_LIST *substrings
@@ -505,7 +505,7 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
       || !strcmp(def_command, "defcv")
       || !strcmp(def_command, "deftypecv"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      ELEMENT *category_copy = copy_tree (arg_category);
       if (options)
         {
           NAMED_STRING_ELEMENT_LIST *substrings

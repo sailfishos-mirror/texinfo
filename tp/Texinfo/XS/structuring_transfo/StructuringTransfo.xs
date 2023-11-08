@@ -32,10 +32,10 @@
 
 #include "options_types.h"
 #include "tree_types.h"
+#include "converter_types.h"
 #include "tree.h"
 #include "utils.h"
 #include "manipulate_tree.h"
-/* for copy_tree */
 #include "document.h"
 #include "transformations.h"
 #include "structuring.h"
@@ -188,16 +188,15 @@ fill_gaps_in_sectioning (SV *tree_in)
             destroy_element (added_sections);
           }
 
-# FIXME what to do with the parent argument?
 SV *
-copy_tree (SV *tree_in, SV *parent_in=0)
+copy_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
         document = get_sv_tree_document (tree_in, "copy_tree");
         if (document)
           {
-            ELEMENT *result = copy_tree (document->tree, 0);
+            ELEMENT *result = copy_tree (document->tree);
             /* FIXME have a similar system but for trees only? */
             int copy_document_descriptor = register_document (result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);

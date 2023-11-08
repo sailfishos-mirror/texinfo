@@ -1837,7 +1837,7 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
           ELEMENT *entry = menu->contents.list[j];
           if (entry->type == ET_menu_entry)
             {
-              ELEMENT *entry_copy = copy_tree (entry, 0);
+              ELEMENT *entry_copy = copy_tree (entry);
               ELEMENT *node;
               add_to_contents_as_array (master_menu_contents, entry_copy);
               /* gather node children to recursively print their menus */

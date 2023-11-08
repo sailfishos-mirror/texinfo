@@ -448,10 +448,10 @@ complete_indices (int document_descriptor)
                                                        "documentlanguage");
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-                      ELEMENT *name_copy = copy_tree (name, 0);
-                      ELEMENT *class_copy = copy_tree (class, 0);
-                      ELEMENT *ref_name_copy = copy_tree (name, 0);
-                      ELEMENT *ref_class_copy = copy_tree (class, 0);
+                      ELEMENT *name_copy = copy_tree (name);
+                      ELEMENT *class_copy = copy_tree (class);
+                      ELEMENT *ref_name_copy = copy_tree (name);
+                      ELEMENT *ref_class_copy = copy_tree (class);
 
                       add_element_to_named_string_element_list (substrings,
                                                            "name", name_copy);

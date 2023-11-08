@@ -21,7 +21,7 @@
 
 #include "tree_types.h"
 
-ELEMENT *copy_tree (ELEMENT *current, ELEMENT *parent);
+ELEMENT *copy_tree (ELEMENT *current);
 ELEMENT *copy_contents (ELEMENT *element, enum element_type type);
 
 

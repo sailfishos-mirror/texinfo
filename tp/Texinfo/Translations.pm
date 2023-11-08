@@ -508,10 +508,10 @@ sub complete_indices($$)
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
-          my $class_copy = Texinfo::Common::copy_treeNonXS($class, undef);
-          my $name_copy = Texinfo::Common::copy_treeNonXS($name, undef);
-          my $ref_class_copy = Texinfo::Common::copy_treeNonXS($class, undef);
-          my $ref_name_copy = Texinfo::Common::copy_treeNonXS($name, undef);
+          my $class_copy = Texinfo::Common::copy_treeNonXS($class);
+          my $name_copy = Texinfo::Common::copy_treeNonXS($name);
+          my $ref_class_copy = Texinfo::Common::copy_treeNonXS($class);
+          my $ref_name_copy = Texinfo::Common::copy_treeNonXS($name);
 
           # Use the document language that was current when the command was
           # used for getting the translation.

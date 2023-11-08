@@ -311,9 +311,9 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
 }
 
 ELEMENT *
-copy_tree (ELEMENT *current, ELEMENT *parent)
+copy_tree (ELEMENT *current)
 {
-  ELEMENT *copy = copy_tree_internal (current, parent);
+  ELEMENT *copy = copy_tree_internal (current, 0);
   copy_extra_info (current, copy);
   return copy;
 }
@@ -325,7 +325,7 @@ copy_contents (ELEMENT *element, enum element_type type)
   ELEMENT *result;
   tmp->contents = element->contents;
 
-  result = copy_tree (tmp, 0);
+  result = copy_tree (tmp);
 
   tmp->contents.list = 0;
   destroy_element (tmp);

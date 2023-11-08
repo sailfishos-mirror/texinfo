@@ -2064,21 +2064,19 @@ sub _copy_extra_info($$;$)
   }
 }
 
-sub copy_tree($;$)
+sub copy_tree($)
 {
   my $current = shift;
-  my $parent = shift;
-  my $copy = _copy_tree($current, $parent);
+  my $copy = _copy_tree($current, undef);
   _copy_extra_info($current, $copy);
   return $copy;
 }
 
 # Never overriden by XS version
-sub copy_treeNonXS($;$)
+sub copy_treeNonXS($)
 {
   my $current = shift;
-  my $parent = shift;
-  my $copy = _copy_tree($current, $parent);
+  my $copy = _copy_tree($current, undef);
   _copy_extra_info($current, $copy);
   return $copy;
 }
