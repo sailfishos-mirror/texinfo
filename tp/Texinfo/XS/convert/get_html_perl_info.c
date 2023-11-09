@@ -359,7 +359,7 @@ html_converter_initialize_sv (SV *converter_sv,
 
   if (sorted_special_unit_varieties_sv)
     {
-      int j;
+      enum special_unit_info_type j;
       SV **special_unit_info_sv;
       HV *special_unit_info_hv;
 
@@ -559,7 +559,7 @@ html_converter_initialize_sv (SV *converter_sv,
                     {
                       char *context_name;
                       I32 retlen;
-                      int k;
+                      enum conversion_context k;
                       int context_idx = -1;
                       SV *format_spec_sv = hv_iternextsv (context_hv,
                                                  &context_name, &retlen);

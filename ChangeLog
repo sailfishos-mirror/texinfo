@@ -1,5 +1,10 @@
 2023-11-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): use enum as type.
+
+2023-11-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (add_element_target_to_list)
 	(set_special_units_targets_files)
 	(prepare_associated_special_units_targets)
