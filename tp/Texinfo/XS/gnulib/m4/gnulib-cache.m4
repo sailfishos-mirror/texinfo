@@ -37,6 +37,8 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
+#  c32isupper \
+#  c32width \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -57,6 +59,7 @@
 #  uninorm/u8-normalize \
 #  unistr/u32-next \
 #  unistr/u8-mbsnlen \
+#  unistr/u8-mbtouc \
 #  unistr/u8-next \
 #  unistr/u8-strlen \
 #  unistr/u8-uctomb \
@@ -69,6 +72,8 @@
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
 gl_MODULES([
+  c32isupper
+  c32width
   getline
   iconv
   libunistring
@@ -89,6 +94,7 @@ gl_MODULES([
   uninorm/u8-normalize
   unistr/u32-next
   unistr/u8-mbsnlen
+  unistr/u8-mbtouc
   unistr/u8-next
   unistr/u8-strlen
   unistr/u8-uctomb

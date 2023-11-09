@@ -1,3 +1,8 @@
+2023-11-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS:
+	Run "gnulib-tool --add-import c32isupper c32width unistr/u8-mbtouc".
+
 2023-11-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs

@@ -50,7 +50,7 @@ AC_DEFUN_ONCE([gl_MATH_H],
      modf modff modfl powf
      remainder remainderf remainderl
      rint rintf rintl round roundf roundl sinf sinl sinhf sqrtf sqrtl
-     tanf tanl tanhf totalorder totalorderf totalorderl trunc truncf truncl])
+     tanf tanl tanhf trunc truncf truncl])
 ])
 
 # gl_MATH_MODULE_INDICATOR([modulename])
@@ -165,9 +165,6 @@ AC_DEFUN([gl_MATH_H_REQUIRE_DEFAULTS],
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TANF])
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TANL])
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TANHF])
-    gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TOTALORDER])
-    gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TOTALORDERF])
-    gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TOTALORDERL])
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TRUNC])
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TRUNCF])
     gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_TRUNCL])
@@ -246,9 +243,6 @@ AC_DEFUN([gl_MATH_H_DEFAULTS],
   HAVE_TANF=1;                      AC_SUBST([HAVE_TANF])
   HAVE_TANL=1;                      AC_SUBST([HAVE_TANL])
   HAVE_TANHF=1;                     AC_SUBST([HAVE_TANHF])
-  HAVE_TOTALORDER=1;                AC_SUBST([HAVE_TOTALORDER])
-  HAVE_TOTALORDERF=1;               AC_SUBST([HAVE_TOTALORDERF])
-  HAVE_TOTALORDERL=1;               AC_SUBST([HAVE_TOTALORDERL])
   HAVE_DECL_ACOSL=1;                AC_SUBST([HAVE_DECL_ACOSL])
   HAVE_DECL_ASINL=1;                AC_SUBST([HAVE_DECL_ASINL])
   HAVE_DECL_ATANL=1;                AC_SUBST([HAVE_DECL_ATANL])
@@ -362,9 +356,6 @@ AC_DEFUN([gl_MATH_H_DEFAULTS],
   REPLACE_SQRTL=0;                  AC_SUBST([REPLACE_SQRTL])
   REPLACE_TANF=0;                   AC_SUBST([REPLACE_TANF])
   REPLACE_TANHF=0;                  AC_SUBST([REPLACE_TANHF])
-  REPLACE_TOTALORDER=0;             AC_SUBST([REPLACE_TOTALORDER])
-  REPLACE_TOTALORDERF=0;            AC_SUBST([REPLACE_TOTALORDERF])
-  REPLACE_TOTALORDERL=0;            AC_SUBST([REPLACE_TOTALORDERL])
   REPLACE_TRUNC=0;                  AC_SUBST([REPLACE_TRUNC])
   REPLACE_TRUNCF=0;                 AC_SUBST([REPLACE_TRUNCF])
   REPLACE_TRUNCL=0;                 AC_SUBST([REPLACE_TRUNCL])
@@ -375,7 +366,7 @@ AC_DEFUN([gl_MATH_H_DEFAULTS],
 # Sets variable HAVE_SAME_LONG_DOUBLE_AS_DOUBLE to 0 or 1, and defines
 # HAVE_SAME_LONG_DOUBLE_AS_DOUBLE accordingly.
 # The currently known platforms where this is the case are:
-# Linux/HPPA, NetBSD/sparc32, Minix 3.1.8, AIX 5, AIX 6 and 7 with xlc, MSVC 9.
+# Linux/HPPA, Minix 3.1.8, AIX 5, AIX 6 and 7 with xlc, MSVC 9.
 AC_DEFUN([gl_LONG_DOUBLE_VS_DOUBLE],
 [
   AC_CACHE_CHECK([whether long double and double are the same],

@@ -1,4 +1,4 @@
-# gnulib-common.m4 serial 89
+# gnulib-common.m4 serial 88
 dnl Copyright (C) 2007-2023 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
@@ -114,14 +114,10 @@ AC_DEFUN([gl_COMMON_BODY], [
 # define _GL_ATTR_warn_unused_result _GL_GNUC_PREREQ (3, 4)
 #endif
 
-/* Use __has_c_attribute if available.  However, do not use with
-   pre-C23 GCC, which can issue false positives if -Wpedantic.  */
-#if (defined __has_c_attribute \
-     && ! (_GL_GNUC_PREREQ (4, 6) \
-           && (defined __STDC_VERSION__ ? __STDC_VERSION__ : 0) <= 201710))
-# define _GL_HAVE___HAS_C_ATTRIBUTE 1
-#else
-# define _GL_HAVE___HAS_C_ATTRIBUTE 0
+/* Disable GCC -Wpedantic if using __has_c_attribute and this is not C23+.  */
+#if (defined __has_c_attribute && _GL_GNUC_PREREQ (4, 6) \
+     && (defined __STDC_VERSION__ ? __STDC_VERSION__ : 0) <= 201710)
+# pragma GCC diagnostic ignored "-Wpedantic"
 #endif
 
 /* Define if, in a function declaration, the attributes in bracket syntax
@@ -246,7 +242,7 @@ AC_DEFUN([gl_COMMON_BODY], [
    in C++ also: namespace, class, template specialization.  */
 #ifndef _GL_ATTRIBUTE_DEPRECATED
 # ifndef _GL_BRACKET_BEFORE_ATTRIBUTE
-#  if _GL_HAVE___HAS_C_ATTRIBUTE
+#  ifdef __has_c_attribute
 #   if __has_c_attribute (__deprecated__)
 #    define _GL_ATTRIBUTE_DEPRECATED [[__deprecated__]]
 #   endif
@@ -295,7 +291,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 /* Applies to: Empty statement (;), inside a 'switch' statement.  */
 /* Always expands to something.  */
 #ifndef _GL_ATTRIBUTE_FALLTHROUGH
-# if _GL_HAVE___HAS_C_ATTRIBUTE
+# ifdef __has_c_attribute
 #  if __has_c_attribute (__fallthrough__)
 #   define _GL_ATTRIBUTE_FALLTHROUGH [[__fallthrough__]]
 #  endif
@@ -384,7 +380,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 #   if !defined __apple_build_version__ && __clang_major__ >= 10
 #    define _GL_ATTRIBUTE_MAYBE_UNUSED [[__maybe_unused__]]
 #   endif
-#  elif _GL_HAVE___HAS_C_ATTRIBUTE
+#  elif defined __has_c_attribute
 #   if __has_c_attribute (__maybe_unused__)
 #    define _GL_ATTRIBUTE_MAYBE_UNUSED [[__maybe_unused__]]
 #   endif
@@ -415,7 +411,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 #   if __clang_major__ >= 1000
 #    define _GL_ATTRIBUTE_NODISCARD [[__nodiscard__]]
 #   endif
-#  elif _GL_HAVE___HAS_C_ATTRIBUTE
+#  elif defined __has_c_attribute
 #   if __has_c_attribute (__nodiscard__)
 #    define _GL_ATTRIBUTE_NODISCARD [[__nodiscard__]]
 #   endif
