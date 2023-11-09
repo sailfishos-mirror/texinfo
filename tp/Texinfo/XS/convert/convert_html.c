@@ -727,7 +727,8 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
   element_target = &targets->list[targets->number];
   memset (element_target, 0, sizeof (HTML_TARGET));
   element_target->element = element;
-  element_target->target = target;
+  if (target)
+    element_target->target = strdup (target);
 
   targets->number++;
   return element_target;
@@ -815,7 +816,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
       OUTPUT_UNIT *special_unit = special_units->list[i];
       char *special_unit_variety = special_unit->special_unit_variety;
 
-      /* FIXME not to be freed separately from self->special_unit_info */
+      /* not to be freed, refers to self->special_unit_info */
       char *target = special_unit_info (self, SUI_type_target,
                                         special_unit_variety);
 
@@ -848,7 +849,6 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
       if (target_filename)
         {
           if (target_filename->target)
-            /* FIXME to be freed, contrary to obtained from special_unit_info */
             target = target_filename->target;
           if (target_filename->filename)
             {
@@ -858,7 +858,6 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
           else
             filename = default_filename;
 
-          free (target_filename);
         }
       else
         filename = default_filename;
@@ -876,6 +875,14 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
         = add_element_target (self, special_unit->unit_command, target);
       element_target->special_unit_filename = filename;
       add_string (target, self->seen_ids);
+
+      if (target_filename)
+        {
+          if (target_filename->target)
+            free (target_filename->target);
+
+          free (target_filename);
+        }
     }
 }
 
@@ -906,12 +913,9 @@ prepare_associated_special_units_targets (CONVERTER *self,
           if (target_filename)
             {
               if (target_filename->target)
-         /* FIXME to be freed, contrary to obtained from special_unit_info */
                 target = target_filename->target;
               if (target_filename->filename)
                 filename = target_filename->filename;
-
-              free (target_filename);
             }
 
           if (self->conf->DEBUG > 0)
@@ -936,6 +940,14 @@ prepare_associated_special_units_targets (CONVERTER *self,
             add_string (target, self->seen_ids);
           if (filename)
             element_target->special_unit_filename = filename;
+
+          if (target_filename)
+            {
+              if (target_filename->target)
+                free (target_filename->target);
+
+              free (target_filename);
+            }
         }
     }
 }
@@ -1094,6 +1106,8 @@ new_sectioning_command_target (CONVERTER *self, ELEMENT *command)
   element_target->section_filename = filename;
   add_string (target, self->seen_ids);
 
+  free (target);
+
   if (target_contents)
     element_target->contents_target = target_contents;
   else
@@ -1192,6 +1206,8 @@ set_root_commands_targets_node_files (CONVERTER *self)
             = add_element_target (self, target_element, target);
           element_target->node_filename = node_filename;
           add_string (target, self->seen_ids);
+
+          free (target);
         }
     }
 
@@ -1324,6 +1340,8 @@ prepare_index_entries_targets (CONVERTER *self)
 
                   add_element_target (self, target_element, target);
                   add_string (target, self->seen_ids);
+
+                  free (target);
                 }
             }
         }
@@ -1393,6 +1411,8 @@ prepare_footnotes_targets (CONVERTER *self)
                        footid.text, nr, footnote_txi);
               free (footnote_txi);
             }
+          free (footid.text);
+          free (docid.text);
         }
     }
 }
@@ -2799,12 +2819,12 @@ html_translate_names (CONVERTER *self)
       for (j = 0; j < self->no_arg_formatted_cmd.number; j++)
         {
           enum command_id cmd = self->no_arg_formatted_cmd.list[j];
-          int i;
+          enum conversion_context cctx;
           int add_cmd = 0;
-          for (i = 0; i < HCC_type_css_string+1; i++)
+          for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
             {
               HTML_COMMAND_CONVERSION *format_spec
-                = self->html_command_conversion[cmd][i];
+                = self->html_command_conversion[cmd][cctx];
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {
@@ -2813,7 +2833,7 @@ html_translate_names (CONVERTER *self)
                    = html_gdt_string (format_spec->translated_converted, self,
                                  0, 0, 0);
                 }
-              else if (i == HCC_type_normal)
+              else if (cctx == HCC_type_normal)
                 {
                   ELEMENT *translated_tree = 0;
                   if (format_spec->translated_to_convert)

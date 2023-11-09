@@ -1,3 +1,16 @@
+2023-11-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (add_element_target_to_list)
+	(set_special_units_targets_files)
+	(prepare_associated_special_units_targets)
+	(new_sectioning_command_target, prepare_index_entries_targets)
+	(prepare_footnotes_targets):
+	strdup target in add_element_target_to_list.  Free strings used in
+	input.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_names): change
+	variable name, use enum when possible.
+
 2023-11-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (copy_tree),
