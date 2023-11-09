@@ -86,8 +86,10 @@ tp/Texinfo/XS/gnulib/lib/stdlib.h
 tp/Texinfo/XS/gnulib/lib/unistd.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
+tp/Texinfo/XS/gnulib/lib/uchar.h
 tp/Texinfo/XS/gnulib/lib/uniconv.h
 tp/Texinfo/XS/gnulib/lib/unistr.h
+
 
 gnulib/lib/**/.dirstamp
 
