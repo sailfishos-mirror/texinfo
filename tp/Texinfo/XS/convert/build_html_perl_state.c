@@ -134,7 +134,7 @@ pass_html_element_targets (SV *converter_sv, HTML_TARGET_LIST *html_targets)
 }
 
 HV *
-build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
+build_html_special_targets (HTML_TARGET_LIST *html_special_targets)
 {
   HV *hv;
   HV *html_special_target_hv;
@@ -145,7 +145,7 @@ build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
 
   /* could be generalized if needed */
 
-  HTML_TARGET_LIST *html_special_target = html_special_targets[ST_footnote_location];
+  HTML_TARGET_LIST *html_special_target = &html_special_targets[ST_footnote_location];
   html_special_target_hv = build_html_element_targets (html_special_target);
 
   hv_store (hv, "footnote_location", strlen ("footnote_location"),
@@ -156,7 +156,7 @@ build_html_special_targets (HTML_TARGET_LIST **html_special_targets)
 
 void
 pass_html_special_targets (SV *converter_sv,
-                          HTML_TARGET_LIST **html_special_targets)
+                          HTML_TARGET_LIST *html_special_targets)
 {
   HV *special_targets_hv;
   HV *hv;

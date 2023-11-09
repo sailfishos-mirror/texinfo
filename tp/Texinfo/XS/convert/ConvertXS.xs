@@ -152,6 +152,8 @@ text_convert_tree (SV *text_options_in, SV *tree_in, unused=0)
     OUTPUT:
         RETVAL
 
+# HTML
+
 int
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion)
 
@@ -301,9 +303,9 @@ html_prepare_conversion_units (SV *converter_in, ...)
               output_units_descriptor, special_units_descriptor,
               associated_special_units_descriptor);
 
-         pass_html_element_targets (converter_in, self->html_targets);
+         pass_html_element_targets (converter_in, &self->html_targets);
          pass_html_special_targets (converter_in, self->html_special_targets);
-         pass_html_seen_ids (converter_in, self->seen_ids);
+         pass_html_seen_ids (converter_in, &self->seen_ids);
 
          pass_converter_errors (self->error_messages, self->hv);
 

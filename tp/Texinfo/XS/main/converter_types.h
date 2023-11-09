@@ -385,17 +385,7 @@ typedef struct CONVERTER {
     char *title_titlepage;
 
   /* HTML specific */
-    OUTPUT_UNIT **global_units_directions;
-    SPECIAL_UNIT_DIRECTION **special_units_direction_name;
-    char **special_unit_info[SUI_type_heading+1];
-    ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
-    STRING_LIST special_unit_varieties;
-    VARIETY_DIRECTION_INDEX **varieties_direction_index;
-    STRING_LIST *seen_ids;
-    HTML_TARGET_LIST *html_targets;
-    HTML_TARGET_LIST *html_special_targets[ST_footnote_location+1];
-    char **directions_strings[TDS_type_rel+1];
-    HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
+    /* set for a converter */
     COMMAND_ID_LIST no_arg_formatted_cmd;
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
@@ -410,9 +400,27 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE css_string_types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
+    char **special_unit_info[SUI_type_heading+1];
+
+    /* set for a converter, modified in a document */
+    HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
+
+    /* set for a document */
+    OUTPUT_UNIT **global_units_directions;
+    SPECIAL_UNIT_DIRECTION **special_units_direction_name;
+    ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
+    STRING_LIST special_unit_varieties;
+    VARIETY_DIRECTION_INDEX **varieties_direction_index;
+    STRING_LIST seen_ids;
+    HTML_TARGET_LIST html_targets;
+    HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
+    char **directions_strings[TDS_type_rel+1];
     /* associate cmd and index in special_unit_varieties STRING_LIST */
     /* number in sync with command_special_unit_variety, +1 for trailing 0 */
     COMMAND_ID_INDEX command_special_variety_name_index[4+1];
+    size_t *output_unit_file_indices;   /* array of indices in output_unit_files
+              each position corresponding to an output unit. */
+    size_t *special_unit_file_indices;  /* same for special output units */
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
@@ -429,9 +437,6 @@ typedef struct CONVERTER {
                                     to be brought to perl */
     int document_contexts_to_pop;  /* number of contexts to pop in perl before
                                       readding the new contexts */
-    size_t *output_unit_file_indices;   /* array of indices in output_unit_files
-              each position corresponding to an output unit. */
-    size_t *special_unit_file_indices;  /* same for special output units */
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;

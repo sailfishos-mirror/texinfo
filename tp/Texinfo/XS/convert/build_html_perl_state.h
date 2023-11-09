@@ -15,7 +15,7 @@
 void pass_html_element_targets (SV *converter_sv,
                                 HTML_TARGET_LIST *html_targets);
 void pass_html_special_targets (SV *converter_sv,
-                                HTML_TARGET_LIST **html_special_targets);
+                                HTML_TARGET_LIST *html_special_targets);
 void pass_html_seen_ids (SV *converter_sv, STRING_LIST *seen_ids);
 
 void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,

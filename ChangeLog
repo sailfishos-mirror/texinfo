@@ -1,5 +1,24 @@
 2023-11-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	(tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_special_targets, pass_html_special_targets),
+	tp/Texinfo/XS/convert/convert_html.c (add_element_target)
+	(add_special_target, set_special_units_targets_files)
+	(prepare_associated_special_units_targets, unique_target)
+	(new_sectioning_command_target, prepare_index_entries_targets)
+	(prepare_footnotes_targets, html_set_pages_files)
+	(html_initialize_output_state, html_translate_names),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): put
+	html_special_targets, html_targets and seen_ids directly in CONVERTER,
+	not as pointers.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_initialize_output_state): initialize converter
+	global_units_directions in html_initialize_output_state.
+
+2023-11-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): use enum as type.
 

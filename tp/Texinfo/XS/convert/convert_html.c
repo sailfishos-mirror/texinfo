@@ -737,7 +737,7 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
 static HTML_TARGET *
 add_element_target (CONVERTER *self, ELEMENT *element, char *target)
 {
-  HTML_TARGET_LIST *targets = self->html_targets;
+  HTML_TARGET_LIST *targets = &self->html_targets;
   return add_element_target_to_list (targets, element, target);
 }
 
@@ -745,7 +745,7 @@ static HTML_TARGET *
 add_special_target (CONVERTER *self, enum special_target_type type,
                     ELEMENT *element, char *target)
 {
-  HTML_TARGET_LIST *targets = self->html_special_targets[type];
+  HTML_TARGET_LIST *targets = &self->html_special_targets[type];
   return add_element_target_to_list (targets, element, target);
 }
 
@@ -874,7 +874,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
       HTML_TARGET *element_target
         = add_element_target (self, special_unit->unit_command, target);
       element_target->special_unit_filename = filename;
-      add_string (target, self->seen_ids);
+      add_string (target, &self->seen_ids);
 
       if (target_filename)
         {
@@ -937,7 +937,7 @@ prepare_associated_special_units_targets (CONVERTER *self,
           element_target
            = add_element_target (self, special_unit->unit_command, target);
           if (target)
-            add_string (target, self->seen_ids);
+            add_string (target, &self->seen_ids);
           if (filename)
             element_target->special_unit_filename = filename;
 
@@ -1014,7 +1014,7 @@ unique_target (CONVERTER *self, char *target_base)
   char *target = strdup (target_base);
   while (1)
     {
-      if (find_string (self->seen_ids, target))
+      if (find_string (&self->seen_ids, target))
         {
           free (target);
           xasprintf (&target, "%s-%d", target_base, nr);
@@ -1104,7 +1104,7 @@ new_sectioning_command_target (CONVERTER *self, ELEMENT *command)
   HTML_TARGET *element_target
     = add_element_target (self, command, target);
   element_target->section_filename = filename;
-  add_string (target, self->seen_ids);
+  add_string (target, &self->seen_ids);
 
   free (target);
 
@@ -1205,7 +1205,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
           HTML_TARGET *element_target
             = add_element_target (self, target_element, target);
           element_target->node_filename = node_filename;
-          add_string (target, self->seen_ids);
+          add_string (target, &self->seen_ids);
 
           free (target);
         }
@@ -1339,7 +1339,7 @@ prepare_index_entries_targets (CONVERTER *self)
                     target_element = main_entry_element;
 
                   add_element_target (self, target_element, target);
-                  add_string (target, self->seen_ids);
+                  add_string (target, &self->seen_ids);
 
                   free (target);
                 }
@@ -1375,10 +1375,10 @@ prepare_footnotes_targets (CONVERTER *self)
             {
               int j;
               int non_unique = 0;
-              for (j = 0; j < self->seen_ids->number; j++)
+              for (j = 0; j < self->seen_ids.number; j++)
                 {
-                  if (!strcmp (footid.text, self->seen_ids->list[j])
-                      || !strcmp (docid.text, self->seen_ids->list[j]))
+                  if (!strcmp (footid.text, self->seen_ids.list[j])
+                      || !strcmp (docid.text, self->seen_ids.list[j]))
                     {
                       non_unique = 1;
                       break;
@@ -1398,8 +1398,8 @@ prepare_footnotes_targets (CONVERTER *self)
               else
                 break;
             }
-          add_string (footid.text, self->seen_ids);
-          add_string (docid.text, self->seen_ids);
+          add_string (footid.text, &self->seen_ids);
+          add_string (docid.text, &self->seen_ids);
           add_element_target (self, footnote, footid.text);
           add_special_target (self, ST_footnote_location, footnote,
                               docid.text);
@@ -1781,7 +1781,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
             'identifiers_target', and thus in targets.  It is a bug otherwise. */
                           FILE_SOURCE_INFO *file_source_info = 0;
                           HTML_TARGET *node_target
-                            = find_element_target (self->html_targets,
+                            = find_element_target (&self->html_targets,
                                                    root_command);
                           node_filename = node_target->node_filename;
 
@@ -1845,7 +1845,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                       else
                         {
                           HTML_TARGET *section_target
-                            = find_element_target (self->html_targets,
+                            = find_element_target (&self->html_targets,
                                                    command);
                           char *section_filename
                             = section_target->section_filename;
@@ -2010,7 +2010,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           OUTPUT_UNIT *special_unit = special_units->list[i];
           ELEMENT *unit_command = special_unit->unit_command;
           HTML_TARGET *special_unit_target
-            = find_element_target (self->html_targets, unit_command);
+            = find_element_target (&self->html_targets, unit_command);
           char *filename = special_unit_target->special_unit_filename;
 
         /* Associate the special elements that have no page with the main page.
@@ -2073,7 +2073,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
             = special_unit->associated_document_unit;
           ELEMENT *unit_command = special_unit->unit_command;
           HTML_TARGET *element_target
-            = find_element_target (self->html_targets, unit_command);
+            = find_element_target (&self->html_targets, unit_command);
 
           if (element_target->special_unit_filename)
             filename = element_target->special_unit_filename;
@@ -2427,8 +2427,6 @@ html_converter_initialize (CONVERTER *self)
   self->global_units_directions
     = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
                                * sizeof (OUTPUT_UNIT));
-  memset (self->global_units_directions, 0,
-    (D_Last + nr_special_units+1) * sizeof (OUTPUT_UNIT));
 
   /* prepare mapping of variety names to index in global_units_directions */
   self->varieties_direction_index = (VARIETY_DIRECTION_INDEX **)
@@ -2461,6 +2459,7 @@ html_converter_initialize (CONVERTER *self)
       memset (self->no_arg_formatted_cmd_translated.list, 0,
               self->no_arg_formatted_cmd.number * sizeof (enum command_id));
     }
+
   for (i = 0; command_special_unit_variety[i].cmd; i++)
     {
       char *special_unit_variety = command_special_unit_variety[i].variety;
@@ -2472,6 +2471,8 @@ html_converter_initialize (CONVERTER *self)
       self->command_special_variety_name_index[i].cmd = cmd;
       self->command_special_variety_name_index[i].index = number - 1;
     }
+
+
 }
 
 void
@@ -2482,15 +2483,14 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
   /* used for diverse elements: tree units, indices, footnotes, special
     elements, contents elements... */
-  self->html_targets = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
-  self->seen_ids = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (self->html_targets, 0, sizeof (HTML_TARGET_LIST));
-  memset (self->seen_ids, 0, sizeof (STRING_LIST));
+  memset (&self->html_targets, 0, sizeof (HTML_TARGET_LIST));
+  memset (&self->seen_ids, 0, sizeof (STRING_LIST));
+  memset (self->global_units_directions, 0,
+    (D_Last + self->special_unit_varieties.number+1) * sizeof (OUTPUT_UNIT));
+
   for (i = 0; i < ST_footnote_location+1; i++)
     {
-      self->html_special_targets[i]
-        = (HTML_TARGET_LIST *) malloc (sizeof (HTML_TARGET_LIST));
-      memset (self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
+      memset (&self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
     }
 
   self->current_formatting_references = &self->formatting_references[0];
@@ -2790,7 +2790,7 @@ html_translate_names (CONVERTER *self)
                if (command)
                  {
                    HTML_TARGET *target
-                     = find_element_target (self->html_targets, command);
+                     = find_element_target (&self->html_targets, command);
                    if (target)
                      {
                        target->tree = 0;
@@ -2812,9 +2812,13 @@ html_translate_names (CONVERTER *self)
     {
       int translated_nr = 0;
       COMMAND_ID_LIST *translated_cmds = &self->no_arg_formatted_cmd_translated;
+      /* in general this is done in build_html_translated_names.  Still need
+         to do it here if build_html_translated_names is never called */
       if (translated_cmds->number)
-        memset (translated_cmds->list, 0, translated_cmds->number
+        {
+          memset (translated_cmds->list, 0, translated_cmds->number
                 * sizeof (enum command_id));
+        }
 
       for (j = 0; j < self->no_arg_formatted_cmd.number; j++)
         {
