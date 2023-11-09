@@ -1,5 +1,22 @@
 2023-11-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Locale-independent XS paragraph formatting
+
+	* tp/Texinfo/XS/xspara.c (PARAGRAPH) <last_letter>:
+	Declare as char32_t instead of wchar_t.
+
+	(xspara_add_text, xspara__add_next): Use gnulib/libunstring
+	function u8_mbtouc instead of mbrtowc or btowc, c32width instead
+	of wcwidth, and c32isupper instead of iswupper.
+
+	(xspara_init): Eliminate lengthy code attempting to switch to
+	a locale with UTF-8 encoding.
+
+	* tp/Texinfo/XS/Makefile.am (XSParagraph_la_LDFLAGS):
+	Link with $(LTLIBC32CONV), set from gnulib.
+
+2023-11-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS:
 	Run "gnulib-tool --add-import c32isupper c32width unistr/u8-mbtouc".
 

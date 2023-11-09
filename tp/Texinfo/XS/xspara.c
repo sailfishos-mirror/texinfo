@@ -29,8 +29,9 @@
    perl.h includes ctype.h.  */
 #include <ctype.h>
 #endif
-#include <wchar.h>
-#include <wctype.h>
+
+#include <unistr.h>
+#include <uchar.h>
 
 /* See "How do I use all this in extensions" in 'man perlguts'. */
 #define PERL_NO_GET_CONTEXT
@@ -84,7 +85,7 @@ typedef struct {
     int end_line_count; /* Number of newlines so far in an output unit, i.e.
                            with add_text or add_next. */
 
-    wint_t last_letter; /* Last letter in word, used to decide if we're
+    char32_t last_letter; /* Last letter in word, used to decide if we're
                             at the end of a sentence. */
 
     /* Options set with set_space_protection. */
@@ -269,101 +270,7 @@ xspara__print_escaped_spaces (char *string, size_t len)
 int
 xspara_init (int unused, char *unused2)
 {
-  char *utf8_locale = 0;
-  int len;
-  char *cur;
-  char *dot;
-
-  dTHX;
-
-#if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
-  /* needed due to thread-safe locale handling in newer perls */
-  switch_to_global_locale();
-#endif
-
-  if (setlocale (LC_CTYPE, "en_US.UTF-8")
-      || setlocale (LC_CTYPE, "en_US.utf8"))
-    goto success;
-
-  cur = setlocale (LC_CTYPE, 0); /* Name of current locale. */
-  if (!cur)
-    goto failure;
-  len = strlen (cur);
-  if ((len >= 6 && !memcmp (".UTF-8", cur + len - 6, 6))
-      || (len >= 5 && !memcmp (".utf8", cur + len - 5, 5))
-      || (len >= 6 && !memcmp (".utf-8", cur + len - 6, 6))
-      || (len >= 5 && !memcmp (".UTF8", cur + len - 5, 5)))
-    {
-      setlocale (LC_CTYPE, ""); /* Use the locale from the environment. */
-      goto success;
-    }
-
-  /* Otherwise try altering the current locale name. */
-  dot = strchr (cur, '.');
-  if (!dot)
-    dot = cur + len;
-  utf8_locale = malloc (len + 6 + 1); /* enough to add ".UTF-8" to end */
-  memcpy (utf8_locale, cur, dot - cur);
-  dot = utf8_locale + (dot - cur);
-  memcpy (dot, ".UTF-8", 7);
-  if (setlocale (LC_CTYPE, utf8_locale))
-    goto success;
-
-  memcpy (dot, ".utf8", 6);
-  if (setlocale (LC_CTYPE, utf8_locale))
-    goto success;
-
-  /* Otherwise, look for any UTF-8 locale in the output of "locale -a". */
-  {
-  FILE *p;
-  char *line = 0;
-  size_t n = 0;
-  ssize_t ret;
-  p = popen ("locale -a", "r");
-  if (!p)
-    goto failure;
-  while (1)
-    {
-      ret = getline (&line, &n, p);
-      if (ret == (ssize_t) -1)
-        {
-          free (line);
-          pclose (p);
-          goto failure;
-        }
-      if (strstr (line, "UTF-8") || strstr (line, "utf8"))
-        {
-          line[ret - 1] = '\0';   /* Remove trailing newline. */
-          if (setlocale (LC_CTYPE, line))
-            {
-              free (line);
-              pclose (p);
-              goto success;
-            }
-        }
-    }
-  }
-      
-  if (1)
-    {
-failure:
-      return 0; /* failure */
-    }
-  else
-    {
-success: ;
-      free (utf8_locale);
-#if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
-      /* needed due to thread-safe locale handling in newer perls */
-      sync_locale();
-#endif
-      /*
-      fprintf (stderr, "tried to set LC_CTYPE to UTF-8.\n");
-      fprintf (stderr, "character encoding is: %s\n",
-               nl_langinfo (CODESET));
-       */
-      return 1; /* success */
-    }
+  return 1;
 }
 
 /* Array for storing paragraph states which aren't in use. */
@@ -423,7 +330,7 @@ xspara_new (HV *conf)
   state.max = 72;
   state.indent_length_next = -1; /* Special value meaning undefined. */
   state.end_sentence = eos_undef;
-  state.last_letter = L'\0';
+  state.last_letter = U'\0';
 
   if (conf)
     xspara_init_state (conf);
@@ -541,7 +448,7 @@ xspara__end_line (void)
   state.lines_counter++;
   state.end_line_count++;
   /* could be set to other values, anything that is not upper case. */
-  state.last_letter = L'\n';
+  state.last_letter = U'\n';
 }
 
 char *
@@ -656,7 +563,7 @@ xspara_end (void)
     fprintf (stderr, "PARA END\n");
 
   /* probably not really useful, but cleaner */
-  state.last_letter = L'\0';
+  state.last_letter = U'\0';
 
   xspara__add_pending_word (&ret, state.add_final_space);
   if (!state.no_final_newline && state.counter != 0)
@@ -723,18 +630,10 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           if (!strchr (end_sentence_characters
                        after_punctuation_characters, *p))
             {
-              if (!PRINTABLE_ASCII(*p))
-                {
-                  wchar_t wc = L'\0';
-                  mbrtowc (&wc, p, len, NULL);
-                  state.last_letter = wc;
-                  break;
-                }
-              else
-                {
-                  state.last_letter = btowc (*p);
-                  break;
-                }
+              char32_t wc;
+              u8_mbtouc (&wc, p, len);
+              state.last_letter = wc;
+              break;
             }
         }
     }
@@ -751,7 +650,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
       /* Calculate length of multibyte string in characters. */
       int len = 0;
       int left = word_len;
-      wchar_t w;
+      char32_t w;
       char *p = word;
 
       while (left > 0)
@@ -765,7 +664,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
               continue;
             }
 
-          char_len = mbrtowc (&w, p, left, NULL);
+          char_len = u8_mbtouc (&w, p, left);
           if (char_len == (size_t) -2) {
             /* unfinished multibyte character */
             char_len = left;
@@ -779,7 +678,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           }
           left -= char_len;
 
-          columns = wcwidth (w);
+          columns = c32width (w);
           if (columns > 0)
             len += columns;
 
@@ -833,7 +732,7 @@ xspara_add_end_sentence (int value)
 void
 xspara_allow_end_sentence (void)
 {
-  state.last_letter = L'a'; /* A lower-case letter. */
+  state.last_letter = U'a'; /* A lower-case letter. */
 }
 
 /* -1 in a parameter means leave that value as it is. */
@@ -882,14 +781,12 @@ enum text_class { type_NULL, type_spaces, type_regular,
                  type_double_width, type_EOS, type_finished,
                  type_unknown };
 
-/* Return string to be added to paragraph contents, wrapping text. This 
-   function relies on there being a UTF-8 locale in LC_CTYPE for mbrtowc to
-   work correctly. */
+/* Return string to be added to paragraph contents, wrapping text. */
 TEXT
 xspara_add_text (char *text, int len)
 {
   char *p = text, *q = 0;
-  wchar_t wc, wc_fw;
+  char32_t wc, wc_fw;
   size_t next_len = 0;
   int width;
   static TEXT result;
@@ -946,18 +843,7 @@ xspara_add_text (char *text, int len)
             }
           else
             {
-              /* Set wc and next_len */
-              if (!PRINTABLE_ASCII(*q))
-                {
-                  next_len = mbrtowc (&wc, q, len, NULL);
-                }
-              else
-                {
-                  /* Functionally the same as mbrtowc but (tested) slightly
-                     quicker. */
-                  next_len = 1;
-                  wc = btowc (*q);
-                }
+              next_len = u8_mbtouc (&wc, q, len);
 
               if ((long) next_len == 0)
                 break; /* Null character. Shouldn't happen. */
@@ -970,7 +856,7 @@ xspara_add_text (char *text, int len)
              /* Note: width == 0 includes accent characters which should not
                 properly increase the column count.  This is not what the pure
                 Perl code does, though. */
-              width = wcwidth (wc);
+              width = c32width (wc);
               if (width == 1 || width == 0)
                 next_type = type_regular;
               else if (width == 2)
@@ -1091,7 +977,7 @@ xspara_add_text (char *text, int len)
               xspara__end_line ();
               text_append (&result, "\n");
             }
-          state.last_letter = ' ';
+          state.last_letter = U' ';
         }
 
       /*************** Double width character. *********************/
@@ -1143,7 +1029,7 @@ xspara_add_text (char *text, int len)
               if (strchr (end_sentence_characters, *q2) && !state.unfilled)
                 {
                   /* Doesn't count if preceded by an upper-case letter. */
-                  if (!iswupper (state.last_letter))
+                  if (!c32isupper (state.last_letter))
                     {
                       if (state.french_spacing)
                         state.end_sentence = eos_present_frenchspacing;
