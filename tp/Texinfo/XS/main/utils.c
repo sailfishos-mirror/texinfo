@@ -101,7 +101,7 @@ const char *special_unit_info_type_names[SUI_type_heading + 1] =
 
 TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
   {SUIT_type_heading, SUI_type_heading},
-  {-1, -1},
+  {SUIT_type_none, SUI_type_none},
 };
 
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};

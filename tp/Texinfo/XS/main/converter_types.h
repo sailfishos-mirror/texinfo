@@ -59,6 +59,7 @@ enum monospace_context {
   sui_type(heading)
 
 enum special_unit_info_type {
+   SUI_type_none = -1,
   #define sui_type(name) SUI_type_ ## name,
    SUI_TYPES_LIST
   #undef sui_type
@@ -66,6 +67,8 @@ enum special_unit_info_type {
 
 /* translated from corresponding SUI_type* */
 enum special_unit_info_tree {
+   SUIT_type_none = -1,
+
    SUIT_type_heading,
 };
 

@@ -430,11 +430,12 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
   if (self->special_unit_info_tree[type][i])
     return self->special_unit_info_tree[type][i];
 
-  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+  for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
     {
       if (translated_special_unit_info[j].tree_type == type)
         {
-          int string_type = translated_special_unit_info[j].string_type;
+          enum special_unit_info_type string_type
+            = translated_special_unit_info[j].string_type;
           char *special_unit_info_string
             = self->special_unit_info[string_type][i];
           char *translation_context;
@@ -2336,6 +2337,26 @@ html_pop_document_context (CONVERTER *self)
   stack->top--;
 }
 
+void
+reset_translated_special_unit_info_tree (CONVERTER *self)
+{
+  STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
+  int j;
+  for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
+    {
+      int i;
+      enum special_unit_info_tree tree_type
+        = translated_special_unit_info[j].tree_type;
+      for (i = 0; i < special_unit_varieties->number; i++)
+        {
+          if (self->special_unit_info_tree[tree_type][i])
+            destroy_element_and_children (
+              self->special_unit_info_tree[tree_type][i]);
+          self->special_unit_info_tree[tree_type][i] = 0;
+        }
+    }
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    from perl is done here.  This is called after information from perl
@@ -2506,6 +2527,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
 void
 html_finalize_output_state (CONVERTER *self)
 {
+  reset_translated_special_unit_info_tree (self);
   html_pop_document_context (self);
 }
 
@@ -2764,13 +2786,9 @@ html_translate_names (CONVERTER *self)
    TDS_TRANSLATED_TYPES_LIST
   #undef tds_type
 
-  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
-    {
-      int i;
-      int tree_type = translated_special_unit_info[j].tree_type;
-      for (i = 0; i < special_unit_varieties->number; i++)
-        self->special_unit_info_tree[tree_type][i] = 0;
-    }
+  /* reset trees such that they are created based on Texinfo code string
+     translation on-demand */
+  reset_translated_special_unit_info_tree (self);
 
   /* delete the tree and formatted results for special elements
      such that they are redone with the new tree when needed. */

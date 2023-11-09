@@ -167,8 +167,8 @@ enum conversion_context {
 #define HMSF_translations            0x4000
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
-    int tree_type;
-    int string_type;
+    enum special_unit_info_tree tree_type;
+    enum special_unit_info_type string_type;
 } TRANSLATED_SUI_ASSOCIATION;
 
 extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
