@@ -558,8 +558,6 @@ destdir ()
 # or an auxiliary file with the same base name.
 move_to_dest ()
 {
-#  echo "move_to_dest $*, tidy=$tidy, oname=$oname"
-
   # If we built in place and have no output name, there is nothing to
   # do, so just return.
   case $tidy:$oname in
@@ -595,7 +593,7 @@ move_to_dest ()
   then
     verbose "Moving $1 to $mtd_destfile"
     rm -f "$mtd_destfile"
-    mv "$file" "$mtd_destfile"
+    mv "$1" "$mtd_destfile"
   fi
 }
 
