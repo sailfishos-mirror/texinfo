@@ -412,11 +412,11 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
    in the data structure.  Not clear that it is useful or not, not enabled
    for now */
 /* return value to be freed by caller */
-INDEX_SORTED_BY_LETTER **
+INDEX_SORTED_BY_LETTER *
 get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                                        SV *index_entries_sorted_by_letter)
 {
-  INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+  INDEX_SORTED_BY_LETTER *indices_entries_by_letter;
 
   HV *hv_in;
   /* for sorted index names
@@ -462,12 +462,16 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
   sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
    */
 
-  index_entries_by_letter = (INDEX_SORTED_BY_LETTER **)
-    malloc (index_names_nr * sizeof (INDEX_SORTED_BY_LETTER *));
+  indices_entries_by_letter = (INDEX_SORTED_BY_LETTER *)
+    malloc ((index_names_nr +1) * sizeof (INDEX_SORTED_BY_LETTER));
+  /* zeroed entry to mark the end of the array */
+  memset (&indices_entries_by_letter[index_names_nr], 0,
+          sizeof (INDEX_SORTED_BY_LETTER));
 
   for (j = 0; j < index_names_nr; j++)
     {
       int i;
+      INDEX_SORTED_BY_LETTER *index_index_letters;
       char *idx_name = 0;
       SSize_t letter_entries_nr;
       HE *sorted_by_letter_he;
@@ -522,26 +526,24 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                      j, idx_name);
           fatal (msg);
         }
-
-      index_entries_by_letter[j] = (INDEX_SORTED_BY_LETTER *)
-                                 malloc (sizeof (INDEX_SORTED_BY_LETTER));
-      index_entries_by_letter[j]->name = strdup (idx_name);
-
       av = (AV *)SvRV (sorted_by_letter_sv);
-
       letter_entries_nr = av_top_index (av) +1;
-      index_entries_by_letter[j]->number = letter_entries_nr;
-      index_entries_by_letter[j]->letter_entries
+
+      index_index_letters = &indices_entries_by_letter[j];
+      index_index_letters->name = strdup (idx_name);
+      index_index_letters->number = letter_entries_nr;
+      index_index_letters->letter_entries
         = (LETTER_INDEX_ENTRIES *)
          malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
       for (i = 0; i < letter_entries_nr; i++)
         {
           SV** letter_entries_sv = av_fetch (av, i, 0);
           LETTER_INDEX_ENTRIES *letter_entries
-            = &index_entries_by_letter[j]->letter_entries[i];
+            = &index_index_letters->letter_entries[i];
           if (letter_entries_sv)
             {
               int k;
+              char *letter_string;
               SSize_t entries_nr;
               AV *entries_av;
 
@@ -558,8 +560,8 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                              idx_name, i);
                   fatal (msg);
                 }
-              letter_entries->letter
-                = (char *) SvPVutf8_nolen (*letter_sv);
+              letter_string = (char *) SvPVutf8_nolen (*letter_sv);
+              letter_entries->letter = strdup (letter_string);
 
               entries_av = (AV *) SvRV (*entries_sv);
               entries_nr = av_top_index (entries_av) +1;
@@ -576,6 +578,9 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                   INDEX **n;
                   char *entry_index_name;
                   int entry_number;
+                  int entry_idx_in_index;
+
+                  letter_entries->entries[k] = 0;
 
                   if (!index_entry_sv)
                     {
@@ -590,7 +595,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                                             strlen ("index_name"), 0);
                   entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
                                               strlen ("entry_number"), 0);
-                  if (!index_entry_hv || !entry_number_sv)
+                  if (!index_name_sv || !entry_number_sv)
                     {
                       char *msg;
                       xasprintf (&msg,
@@ -600,15 +605,25 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                     }
                   entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
                   entry_number = SvIV (*entry_number_sv);
+                  entry_idx_in_index = entry_number - 1;
 
                   for (n = index_names; (idx = *n); n++)
                     {
                       if (!strcmp (idx->name, entry_index_name))
                         {
-                          letter_entries->entries[k]
-                            = &idx->index_entries[entry_number];
+                          if (entry_idx_in_index < idx->index_number)
+                            letter_entries->entries[k]
+                              = &idx->index_entries[entry_number];
                           break;
                         }
+                    }
+                  if (!letter_entries->entries[k])
+                    {
+                      char *msg;
+                      xasprintf (&msg,
+          "BUG: index %s letter %s position %d: %s entry %d not found\n",
+                                 idx_name, letter_string, k,
+                                 entry_index_name, entry_number);
                     }
                 }
             }
@@ -622,7 +637,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
             }
         }
     }
-  return index_entries_by_letter;
+  return indices_entries_by_letter;
 }
 
 void

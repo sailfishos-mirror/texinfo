@@ -65,7 +65,7 @@ void
 get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
       PREINIT:
          CONVERTER *self;
-         INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+         INDEX_SORTED_BY_LETTER *index_entries_by_letter;
       CODE:
          self = get_sv_converter (converter_in,
                                   "get_index_entries_sorted_by_letter");

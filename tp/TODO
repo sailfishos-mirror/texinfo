@@ -65,6 +65,8 @@ expanded_formats
 error_messages: with a check that it is empty?
 conf
 init_conf
+index_entries
+index_entries_by_letter (letter string, letter entries...)
 
 
 Bugs

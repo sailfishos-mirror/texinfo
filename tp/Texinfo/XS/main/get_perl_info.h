@@ -27,7 +27,7 @@ CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 
 CONVERTER *converter_initialize (SV *converter_sv);
 
-INDEX_SORTED_BY_LETTER **get_sv_index_entries_sorted_by_letter
+INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);
 
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);

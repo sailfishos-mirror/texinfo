@@ -1,5 +1,22 @@
 2023-11-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_index_entries_sorted_by_letter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): set index_entries_by_letter
+	as a pointer on INDEX_SORTED_BY_LETTER, not a pointer on pointer.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): add a zeroed entry to mark
+	the end of the array. strdup letter string. Check that index entry
+	index name is set in perl. When finding the index entry in C index
+	data, verify that the index number from perl leads to an index
+	consistent with index size. Debug message if the index entry is not
+	found.
+
+2023-11-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/indices_in_conversion.c (merge_indices): add a
 	trailing zeroed merged index index entry.
 

@@ -377,7 +377,7 @@ typedef struct CONVERTER {
 
     ERROR_MESSAGE_LIST error_messages;
     MERGED_INDEX *index_entries;
-    INDEX_SORTED_BY_LETTER **index_entries_by_letter;
+    INDEX_SORTED_BY_LETTER *index_entries_by_letter;
     TRANSLATED_COMMAND *translated_commands;
     EXPANDED_FORMAT *expanded_formats;
 
