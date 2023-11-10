@@ -549,7 +549,7 @@ destdir ()
 }
 
 
-# move_to_dest FILE... - Move FILE(s) to the place where the user expects.
+# move_to_dest FILE - Move FILE to the place where the user expects.
 # Truly move it, that is, it must not remain in its build location
 # unless that is also the output location.  (Otherwise it might appear
 # as an extra file in make distcheck.)
@@ -566,40 +566,37 @@ move_to_dest ()
     false:) return;;
   esac
 
-  for file
-  do
-    test -f "$file" \
-    || error 1 "no such file or directory: $file"
-    case $tidy:$oname in
-      true:)  mtd_destdir=$orig_pwd
-              mtd_destfile=$mtd_destdir/$file;;
-      true:*) mtd_destfile=`output_base_name "$file"`
-              mtd_destdir=`dirname "$mtd_destfile"`;;
-      false:*) mtd_destfile=$oname
-               mtd_destdir=`dirname "$mtd_destfile"`;;
-    esac
+  test -f "$1" \
+  || error 1 "no such file or directory: $1"
+  case $tidy:$oname in
+    true:)  mtd_destdir=$orig_pwd
+            mtd_destfile=$mtd_destdir/$1;;
+    true:*) mtd_destfile=`output_base_name "$1"`
+            mtd_destdir=`dirname "$mtd_destfile"`;;
+    false:*) mtd_destfile=$oname
+             mtd_destdir=`dirname "$mtd_destfile"`;;
+  esac
  
-    # We want to compare the source location and the output location,
-    # and if they are different, do the move.  But if they are the
-    # same, we must preserve the source.  Since we can't assume
-    # stat(1) or test -ef is available, resort to comparing the
-    # directory names, canonicalized with pwd.  We can't use cmp -s
-    # since the output file might not actually change from run to run;
-    # e.g., TeX DVI output is timestamped to only the nearest minute.
-    mtd_destdir=`cd "$mtd_destdir" && pwd`
-    mtd_destbase=`basename "$mtd_destfile"`
+  # We want to compare the source location and the output location,
+  # and if they are different, do the move.  But if they are the
+  # same, we must preserve the source.  Since we can't assume
+  # stat(1) or test -ef is available, resort to comparing the
+  # directory names, canonicalized with pwd.  We can't use cmp -s
+  # since the output file might not actually change from run to run;
+  # e.g., TeX DVI output is timestamped to only the nearest minute.
+  mtd_destdir=`cd "$mtd_destdir" && pwd`
+  mtd_destbase=`basename "$mtd_destfile"`
 
-    mtd_sourcedir=`dirname "$file"`
-    mtd_sourcedir=`cd "$mtd_sourcedir" && pwd`
-    mtd_sourcebase=`basename "$file"`
+  mtd_sourcedir=`dirname "$1"`
+  mtd_sourcedir=`cd "$mtd_sourcedir" && pwd`
+  mtd_sourcebase=`basename "$1"`
 
-    if test "$mtd_sourcedir/$mtd_sourcebase" != "$mtd_destdir/$mtd_destbase"
-    then
-      verbose "Moving $file to $mtd_destfile"
-      rm -f "$mtd_destfile"
-      mv "$file" "$mtd_destfile"
-    fi
-  done
+  if test "$mtd_sourcedir/$mtd_sourcebase" != "$mtd_destdir/$mtd_destbase"
+  then
+    verbose "Moving $1 to $mtd_destfile"
+    rm -f "$mtd_destfile"
+    mv "$file" "$mtd_destfile"
+  fi
 }
 
 
@@ -1319,7 +1316,9 @@ run_hevea ()
     case $1 in
     html|text) move_to_dest "$out_base";;
     info) # There can be foo.info-1, foo.info-2 etc.
-               move_to_dest "$out_base"*;;
+      for file in "$out_base"* ; do
+        move_to_dest "$file"
+      done ;;
     esac
   else
     error 1 "$run_hevea_name exited with bad status, quitting."

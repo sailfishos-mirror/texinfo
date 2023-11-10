@@ -1,3 +1,12 @@
+2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/texi2dvi (move_to_dest): Only take a single argument,
+	as it is only called with multiple arguments when outputing
+	to Info with hevea, which is an extremely niche use case.  In
+	fact, running with hevea (--html or --info on a LaTeX source)
+	appears to be broken.  (Loop introduced on 2006-06-27.)
+	(run_hevea): Put the loop here.  Code not tested.
+
 2023-11-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): strdup
