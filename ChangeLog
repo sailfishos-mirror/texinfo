@@ -1,5 +1,15 @@
 2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/texi2dvi (move_to_dest): When --output is given, report
+	that a file was moved successfully.  Error out if the file could
+	not be moved.
+
+	Jonathan Dushoff <dushoff@mcmaster.ca> reported that the output
+	with the --output option was confusing, as TeX would not print
+	the name of the final location.
+
+2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/texi2dvi (move_to_dest): Rearrange code slightly
 	for simplicity and change a variable name.  No functional
 	changes intended.
