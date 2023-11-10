@@ -107,7 +107,7 @@ new_text_options (void)
 {
   TEXT_OPTIONS *options = malloc (sizeof (TEXT_OPTIONS));
   memset (options, 0, sizeof (TEXT_OPTIONS));
-  options->expanded_formats = new_expanded_formats (0);
+  options->expanded_formats = new_expanded_formats ();
   options->NUMBER_SECTIONS = -1;
   memset (&options->include_directories, 0, sizeof (STRING_LIST));
   return options;

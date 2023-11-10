@@ -123,6 +123,9 @@ sub import {
       "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
       "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
       Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_XS_html_merge_index_entries",
+      "Texinfo::Convert::ConvertXS::html_merge_index_entries");
+      Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_prepare_conversion_units",
       "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
       Texinfo::XSLoader::override(
@@ -9822,6 +9825,10 @@ sub _XS_get_index_entries_sorted_by_letter($$)
 {
 }
 
+sub _XS_html_merge_index_entries($)
+{
+}
+
 sub _sort_index_entries($)
 {
   my $self = shift;
@@ -9843,6 +9850,7 @@ sub _sort_index_entries($)
     if ($self->{'converter_descriptor'} and $XS_convert) {
       _XS_get_index_entries_sorted_by_letter($self,
                                  $self->{'index_entries_by_letter'});
+      _XS_html_merge_index_entries($self);
     }
   }
 }

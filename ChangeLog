@@ -25,6 +25,41 @@
 
 2023-11-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (import, _XS_html_merge_index_entries)
+	(_sort_index_entries), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_merge_index_entries), tp/Texinfo/XS/convert/convert_html.c
+	(html_merge_index_entries): rename sort_index_entries as
+	html_merge_index_entries, add an XS override and call it.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_merge_index_entries),
+	tp/Texinfo/XS/convert/indices_in_conversion.c (merge_indices),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): set index_entries as
+	a pointer on MERGED_INDEX, not a pointer on pointer.
+
+	* tp/Texinfo/XS/convert/indices_in_conversion.c (merge_indices):
+	update and fix code, in particular to store index without another
+	index merged in.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	tp/Texinfo/XS/convert/convert_html.c
+	(set_root_commands_targets_node_files, html_set_pages_files)
+	(convert_output_output_unit_internal),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_initialize): put
+	error_messages directly in converter, not as a pointer.
+
+	* tp/Texinfo/XS/main/errors.c (wipe_error_messages)
+	(wipe_error_message_list, clear_error_message_list),
+	tp/Texinfo/XS/main/build_perl_info.c (pass_converter_errors): add
+	clear_error_message_list that clears messages but does not deallocate
+	the list memory.  Use clear_error_message_list instead of
+	wipe_error_message_list to reuse memory in converter.
+
+	* tp/Texinfo/XS/main/utils.c (new_expanded_formats): remove format
+	argument. Update callers.
+
+2023-11-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): strdup
 	on the special_unit_filename for associated output units.
 

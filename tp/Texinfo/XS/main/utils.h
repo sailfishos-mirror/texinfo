@@ -278,7 +278,7 @@ char *decode_string (char *input_string, char *encoding, int *status,
 char *encode_string (char *input_string, char *encoding, int *status,
                      SOURCE_INFO *source_info);
 
-EXPANDED_FORMAT *new_expanded_formats (char *format);
+EXPANDED_FORMAT *new_expanded_formats (void);
 void clear_expanded_formats (EXPANDED_FORMAT *formats);
 void add_expanded_format (EXPANDED_FORMAT *formats, char *format);
 int format_expanded_p (EXPANDED_FORMAT *formats, char *format);

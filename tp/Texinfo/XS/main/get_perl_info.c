@@ -237,7 +237,7 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
       I32 formats_nr;
 
       if (!*expanded_formats)
-        *expanded_formats = new_expanded_formats (0);
+        *expanded_formats = new_expanded_formats ();
 
       HV *expanded_formats_hv = (HV *)SvRV (*expanded_formats_sv);
 
@@ -361,10 +361,6 @@ converter_initialize (SV *converter_sv)
       converter->init_conf
          = copy_sv_options (*converter_init_conf_sv);
     }
-
-  converter->error_messages
-    = (ERROR_MESSAGE_LIST *) malloc (sizeof (ERROR_MESSAGE_LIST));
-  memset (converter->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 
   set_translated_commands (converter, hv_in);
 

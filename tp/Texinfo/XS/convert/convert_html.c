@@ -1181,7 +1181,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
             {
               if (self->conf->VERBOSE > 0)
                 {
-                  message_list_document_warn (self->error_messages, self->conf,
+                  message_list_document_warn (&self->error_messages, self->conf,
                              "user-defined node file name not set for `%s'",
                              node_filename);
                 }
@@ -1222,12 +1222,12 @@ set_root_commands_targets_node_files (CONVERTER *self)
 }
 
 void
-sort_index_entries (CONVERTER *self)
+html_merge_index_entries (CONVERTER *self)
 {
   if (self->document->index_names)
     {
       INDEX **index_names = self->document->index_names;
-      MERGED_INDEX **merged_index_entries = merge_indices (index_names);
+      MERGED_INDEX *merged_index_entries = merge_indices (index_names);
       self->index_entries = merged_index_entries;
     }
 }
@@ -1961,7 +1961,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                       && strcmp (file_source_info->path,
                                  file_name_path->filepath))
                     {
-                      message_list_document_warn (self->error_messages,
+                      message_list_document_warn (&self->error_messages,
                                                   self->conf,
                                      "resetting %s file path %s to %s",
                                            file_name_path->filename,
@@ -3964,7 +3964,7 @@ convert_output_output_unit_internal (CONVERTER *self,
                                encoded_out_filepath, &open_error_message, 0);
       if (!file_fh)
         {
-          message_list_document_error (self->error_messages, self->conf,
+          message_list_document_error (&self->error_messages, self->conf,
                              "could not open %s for writing: %s",
                              out_filepath, open_error_message);
           return 0;
@@ -4019,7 +4019,7 @@ convert_output_output_unit_internal (CONVERTER *self,
                                         encoded_out_filepath);
           if (fclose (file_fh))
             {
-              message_list_document_error (self->error_messages, self->conf,
+              message_list_document_error (&self->error_messages, self->conf,
                              "error on closing %s: %s",
                              out_filepath, strerror (errno));
               return 0;

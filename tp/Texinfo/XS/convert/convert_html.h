@@ -16,6 +16,8 @@ void html_new_document_context (CONVERTER *self,
         enum command_id block_command);
 void html_pop_document_context (CONVERTER *self);
 
+void html_merge_index_entries (CONVERTER *self);
+
 void html_prepare_conversion_units (CONVERTER *self,
                                     int *output_units_descriptor_ref,
                                     int *special_units_descriptor_ref,

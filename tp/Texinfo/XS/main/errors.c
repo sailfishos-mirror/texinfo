@@ -323,8 +323,8 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                         format, v);
 }
 
-void
-wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+static void
+wipe_error_messages (ERROR_MESSAGE_LIST *error_messages)
 {
   int j;
   for (j = 0; j < error_messages->number; j++)
@@ -332,8 +332,21 @@ wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
       free (error_messages->list[j].message);
       free (error_messages->list[j].error_line);
     }
+}
+
+void
+wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  wipe_error_messages (error_messages);
   free (error_messages->list);
   memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+}
+
+void
+clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  wipe_error_messages (error_messages);
+  error_messages->number = 0;
 }
 
 /* not used */

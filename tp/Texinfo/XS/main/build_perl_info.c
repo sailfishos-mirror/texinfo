@@ -51,7 +51,7 @@
 #include "builtin_commands.h"
 #include "document.h"
 #include "output_unit.h"
-/* for wipe_error_message_list */
+/* for clear_error_message_list */
 #include "errors.h"
 #include "build_perl_info.h"
 
@@ -1509,7 +1509,7 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
                   strlen ("error_nrs"), newSViv (error_nrs), 0);
     }
 
-  wipe_error_message_list (error_messages);
+  clear_error_message_list (error_messages);
 }
 
 void

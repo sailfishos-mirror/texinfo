@@ -61,6 +61,10 @@ special_unit_info_tree
 special_unit_varieties
 pre_class_types
 translated_commands translated_command->translation:strdup
+expanded_formats
+error_messages: with a check that it is empty?
+conf
+init_conf
 
 
 Bugs

@@ -261,6 +261,16 @@ html_pop_document_context (SV *converter_in)
            }
 
 
+void
+html_merge_index_entries (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_merge_index_entries");
+         if (self)
+           html_merge_index_entries (self);
+
 #  my ($output_units, $special_units, $associated_special_units)
 #    = $self->_prepare_conversion_units($root, $document_name);
 void
@@ -307,7 +317,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          pass_html_special_targets (converter_in, self->html_special_targets);
          pass_html_seen_ids (converter_in, &self->seen_ids);
 
-         pass_converter_errors (self->error_messages, self->hv);
+         pass_converter_errors (&self->error_messages, self->hv);
 
          EXTEND(SP, 3);
          PUSHs(sv_2mortal(output_units_sv));

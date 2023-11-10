@@ -482,18 +482,12 @@ add_expanded_format (EXPANDED_FORMAT *formats, char *format)
     add_expanded_format (formats, "info");
 }
 
-/* FORMAT is an optional argument, to set a format at the expanded_format
-   structure creation */
 EXPANDED_FORMAT *
-new_expanded_formats (char *format)
+new_expanded_formats ()
 {
-  EXPANDED_FORMAT *formats;
-
-  formats = malloc (sizeof (expanded_formats));
+  EXPANDED_FORMAT *formats
+     = (EXPANDED_FORMAT *) malloc (sizeof (expanded_formats));
   memcpy (formats, expanded_formats, sizeof (expanded_formats));
-
-  if (format)
-    add_expanded_format (formats, format);
 
   return formats;
 }
