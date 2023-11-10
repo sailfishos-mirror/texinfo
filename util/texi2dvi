@@ -564,15 +564,11 @@ move_to_dest ()
     false:) return;;
   esac
 
-  test -f "$1" \
-  || error 1 "no such file or directory: $1"
+  test -f "$1" || error 1 "no such file or directory: $1"
   case $tidy:$oname in
-    true:)  mtd_destdir=$orig_pwd
-            mtd_destfile=$mtd_destdir/$1;;
-    true:*) mtd_destfile=`output_base_name "$1"`
-            mtd_destdir=`dirname "$mtd_destfile"`;;
-    false:*) mtd_destfile=$oname
-             mtd_destdir=`dirname "$mtd_destfile"`;;
+    true:)  dest=$orig_pwd/$1 ;;
+    true:*) dest=`output_base_name "$1"` ;;
+    false:*) dest=$oname ;;
   esac
  
   # We want to compare the source location and the output location,
@@ -582,8 +578,9 @@ move_to_dest ()
   # directory names, canonicalized with pwd.  We can't use cmp -s
   # since the output file might not actually change from run to run;
   # e.g., TeX DVI output is timestamped to only the nearest minute.
+  mtd_destdir=`dirname "$dest"`
   mtd_destdir=`cd "$mtd_destdir" && pwd`
-  mtd_destbase=`basename "$mtd_destfile"`
+  mtd_destbase=`basename "$dest"`
 
   mtd_sourcedir=`dirname "$1"`
   mtd_sourcedir=`cd "$mtd_sourcedir" && pwd`
@@ -591,9 +588,9 @@ move_to_dest ()
 
   if test "$mtd_sourcedir/$mtd_sourcebase" != "$mtd_destdir/$mtd_destbase"
   then
-    verbose "Moving $1 to $mtd_destfile"
-    rm -f "$mtd_destfile"
-    mv "$1" "$mtd_destfile"
+    verbose "Moving $1 to $dest"
+    rm -f "$dest"
+    mv "$1" "$dest"
   fi
 }
 

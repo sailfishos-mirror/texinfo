@@ -1,5 +1,11 @@
 2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/texi2dvi (move_to_dest): Rearrange code slightly
+	for simplicity and change a variable name.  No functional
+	changes intended.
+
+2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/texi2dvi (move_to_dest): Only take a single argument,
 	as it is only called with multiple arguments when outputing
 	to Info with hevea, which is an extremely niche use case.  In
