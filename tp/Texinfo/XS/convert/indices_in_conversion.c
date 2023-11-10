@@ -63,7 +63,7 @@ merge_indices (INDEX **index_names)
                 }
             }
           if (!merged_idx)
-            /* main index (possibly itself) not already setup, do it */
+            /* main index (possibly idx) not already setup, do it */
             {
               if (merged_indices_number == merged_indices_space)
                 {
@@ -94,9 +94,10 @@ merge_indices (INDEX **index_names)
             }
         }
     }
-  /* shrink memory to used memory, up to merged_indices_number */
+  /* set to the final size, including a trailing MERGED_INDEX filled with 0 */
   merged_indices = realloc (merged_indices,
-                            merged_indices_number * sizeof (MERGED_INDEX));
+                            (merged_indices_number +1) * sizeof (MERGED_INDEX));
+  memset (&merged_indices[merged_indices_number], 0, sizeof (MERGED_INDEX));
   return merged_indices;
 }
 

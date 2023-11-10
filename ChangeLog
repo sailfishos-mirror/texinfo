@@ -1,3 +1,8 @@
+2023-11-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/indices_in_conversion.c (merge_indices): add a
+	trailing zeroed merged index index entry.
+
 2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/texi2dvi (move_to_dest): When --output is given, report
