@@ -101,6 +101,7 @@ const char *special_unit_info_type_names[SUI_type_heading + 1] =
 
 TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
   {SUIT_type_heading, SUI_type_heading},
+  /* these special types end the list */
   {SUIT_type_none, SUI_type_none},
 };
 

@@ -62,6 +62,9 @@
      free below is redirected to Perl's implementation.  This could
      cause crashes if the two malloc/free implementations were different.  */
 
+/* this function is used to set the initial targets information. */
+/* Dynamical changes are done in other functions, build_html_translated_names
+   .... */
 HV *
 build_html_element_targets (HTML_TARGET_LIST *html_targets)
 {
@@ -258,11 +261,9 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 
 HV *
 build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
-                       SPECIAL_UNIT_DIRECTION **special_units_direction_name)
+                       SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   int i;
-  SPECIAL_UNIT_DIRECTION **s;
-  SPECIAL_UNIT_DIRECTION *special_unit_direction;
   HV *hv;
 
   dTHX;
@@ -282,8 +283,12 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
         }
     }
 
-  for (s = special_units_direction_name; (special_unit_direction = *s) ; s++)
+  /* html_prepare_units_directions_files is allocated because
+     html_prepare_units_directions_files was called before */
+  for (i = 0; special_units_direction_name[i].output_unit; i++)
     {
+      SPECIAL_UNIT_DIRECTION *special_unit_direction
+       = &special_units_direction_name[i];
       char *direction_name = special_unit_direction->direction;
       OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
       hv_store (hv, direction_name, strlen (direction_name),
@@ -296,7 +301,7 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
 void
 pass_html_global_units_directions (SV *converter_sv,
                        OUTPUT_UNIT **global_units_directions,
-                       SPECIAL_UNIT_DIRECTION **special_units_direction_name)
+                       SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   HV *global_units_directions_hv;
   SV *global_units_directions_sv;
@@ -395,10 +400,11 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);
 
   /* reset with empty hash */
-  for (j = 0; translated_special_unit_info[j].tree_type >= 0; j++)
+  for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
     {
-      int tree_type = translated_special_unit_info[j].string_type;
-      const char *type_name = special_unit_info_type_names[tree_type];
+      enum special_unit_info_type string_type
+        = translated_special_unit_info[j].string_type;
+      const char *type_name = special_unit_info_type_names[string_type];
       char *key;
       HV *special_unit_hv = newHV ();
       xasprintf (&key, "%s_tree", type_name);

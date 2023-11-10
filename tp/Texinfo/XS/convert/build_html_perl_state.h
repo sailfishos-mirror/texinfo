@@ -24,7 +24,7 @@ void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
 SV *build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 void pass_html_global_units_directions (SV *converter_sv,
                        OUTPUT_UNIT **global_units_directions,
-                       SPECIAL_UNIT_DIRECTION **special_units_direction_name);
+                       SPECIAL_UNIT_DIRECTION *special_units_direction_name);
 void pass_html_elements_in_file_count (SV *converter_sv,
                    FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 

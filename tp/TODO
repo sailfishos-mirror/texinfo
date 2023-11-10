@@ -36,6 +36,33 @@ TEXINFO_XS_CONVERT=only         => try to run only XS code
 It is not clear that it is useful, though, 0 and 1 corresponding to
 omit and only could be sufficient.
 
+Nothing to do:
+command_special_variety_name_index
+
+converter todo get from perl, code in html converter
+directions_strings
+
+converter output state reset
+global_units_directions html_initialize_output_state
+special_unit_info_tree html_finalize_output_state
+html_targets html_finalize_output_state
+seen_ids html_finalize_output_state
+html_special_targets html_finalize_output_state
+
+converter free
+special_units_direction_name html_finalize_output_state
+output_unit_file_indices html_finalize_output_state
+special_unit_file_indices html_finalize_output_state
+global_units_directions
+html_targets
+seen_ids
+html_special_targets
+special_unit_info_tree
+special_unit_varieties
+pre_class_types
+translated_commands translated_command->translation:strdup
+
+
 Bugs
 ====
 

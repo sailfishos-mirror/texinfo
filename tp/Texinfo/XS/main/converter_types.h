@@ -218,9 +218,16 @@ typedef struct HTML_TARGET {
     char *shortcontents_target;
 
     char *text;
+    char *text_nonumber;
     ELEMENT *tree;
     ELEMENT *tree_nonumber;
     char *string;
+    char *string_nonumber;
+    char *filename;
+    /*
+    ELEMENT *node_command;
+    ELEMENT *root_element_command;
+    */
 } HTML_TARGET;
 
 typedef struct HTML_TARGET_LIST {
@@ -371,7 +378,7 @@ typedef struct CONVERTER {
     ERROR_MESSAGE_LIST *error_messages;
     MERGED_INDEX **index_entries;
     INDEX_SORTED_BY_LETTER **index_entries_by_letter;
-    TRANSLATED_COMMAND **translated_commands;
+    TRANSLATED_COMMAND *translated_commands;
     EXPANDED_FORMAT *expanded_formats;
 
   /* output unit files API */
@@ -403,6 +410,7 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE css_string_types_conversion[ET_special_unit_element+1];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
+    STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
 
     /* set for a converter, modified in a document */
@@ -410,10 +418,8 @@ typedef struct CONVERTER {
 
     /* set for a document */
     OUTPUT_UNIT **global_units_directions;
-    SPECIAL_UNIT_DIRECTION **special_units_direction_name;
+    SPECIAL_UNIT_DIRECTION *special_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
-    STRING_LIST special_unit_varieties;
-    VARIETY_DIRECTION_INDEX **varieties_direction_index;
     STRING_LIST seen_ids;
     HTML_TARGET_LIST html_targets;
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];

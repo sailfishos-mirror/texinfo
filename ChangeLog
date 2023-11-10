@@ -1,3 +1,46 @@
+2023-11-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): strdup
+	on the special_unit_filename for associated output units.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(special_unit_variety_direction_index, html_converter_initialize),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER):
+	remove varieties_direction_index, do the index computation in
+	special_unit_variety_direction_index.
+
+	* tp/Texinfo/XS/convert/convert_html.c (reset_html_targets)
+	(html_initialize_output_state, html_finalize_output_state): add
+	reset_html_targets to free targets contents, called in
+	html_finalize_output_state both for html_targets and
+	html_special_targets.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state):
+	clear seen_ids, free special_units_direction_name,
+	output_unit_file_indices and special_unit_file_indices.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_global_units_directions)
+	(pass_html_global_units_directions),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_output_units_global_targets),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): change
+	special_units_direction_name to be a list of SPECIAL_UNIT_DIRECTION,
+	not a list of pointers.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (set_translated_commands),
+	tp/Texinfo/XS/main/convert_utils.c (translated_command_tree),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): change
+	translated_commands to be a list of TRANSLATED_COMMAND, not a list of
+	pointers.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): no
+	memset for special_unit_file_indices and output_unit_file_indices as
+	they are filled anyway.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_translated_names): use enum and SUIT_type_none.
+
 2023-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Revert change on 2023-11-09 "Locale-independent XS paragraph

@@ -162,17 +162,12 @@ int
 special_unit_variety_direction_index (CONVERTER *self,
                                       char *special_unit_variety)
 {
-  int i;
-  VARIETY_DIRECTION_INDEX **varieties_direction_index
-    = self->varieties_direction_index;
-  for (i = 0; varieties_direction_index[i] != 0; i++)
-    {
-      VARIETY_DIRECTION_INDEX *variety_direction_index
-        = varieties_direction_index[i];
-      if (!strcmp (variety_direction_index->special_unit_variety,
-                   special_unit_variety))
-        return variety_direction_index->direction_index;
-    }
+  /* number is index +1 */
+  size_t number = find_string (&self->special_unit_varieties,
+                               special_unit_variety);
+  int i = number -1;
+  if (i >= 0)
+    return D_Last +1 +i;
   return -1;
 }
 
@@ -714,6 +709,8 @@ void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
   html_commands_data[cmd].flags |= HF_pre_class;
 }
 
+/* used for diverse elements: tree units, indices, footnotes, special
+  elements, contents elements... */
 static HTML_TARGET *
 add_element_target_to_list (HTML_TARGET_LIST *targets,
                             ELEMENT *element, char *target)
@@ -1453,7 +1450,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
 {
   int i;
   int all_special_units_nr = 0;
-  int s = 0;
+  int s;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
 
@@ -1550,19 +1547,20 @@ html_prepare_output_units_global_targets (CONVERTER *self,
         all_special_units_nr += units_list->number;
     }
 
-  self->special_units_direction_name = (SPECIAL_UNIT_DIRECTION **)
-   malloc (sizeof (SPECIAL_UNIT_DIRECTION *) * (all_special_units_nr+1));
+  self->special_units_direction_name = (SPECIAL_UNIT_DIRECTION *)
+   malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
   memset (self->special_units_direction_name, 0,
-          sizeof (SPECIAL_UNIT_DIRECTION *) * (all_special_units_nr+1));
+          sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
 
+  s = 0;
   for (i = 0; i < 2; i++)
     {
-      int j;
       int special_units_descriptor = special_output_units_lists[i];
       OUTPUT_UNIT_LIST *units_list
        = retrieve_output_units (special_units_descriptor);
       if (units_list && units_list->number)
         {
+          int j;
           for (j = 0; j < units_list->number; j++)
             {
               OUTPUT_UNIT *special_unit = units_list->list[j];
@@ -1573,11 +1571,8 @@ html_prepare_output_units_global_targets (CONVERTER *self,
               self->global_units_directions[special_unit_direction_index]
                 = special_unit;
 
-              self->special_units_direction_name[s] =
-               (SPECIAL_UNIT_DIRECTION *)
-                malloc (sizeof (SPECIAL_UNIT_DIRECTION));
-              self->special_units_direction_name[s]->output_unit = special_unit;
-              self->special_units_direction_name[s]->direction
+              self->special_units_direction_name[s].output_unit = special_unit;
+              self->special_units_direction_name[s].direction
                 = special_unit_info (self, SUI_type_direction,
                                            special_unit_variety);
               s++;
@@ -1939,7 +1934,6 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   self->output_unit_file_indices = (size_t *)
     malloc (output_units->number * sizeof (size_t));
 
-  memset (self->output_unit_file_indices, 0, output_units->number);
   for (i = 0; i < output_units->number; i++)
     {
       size_t output_unit_file_idx = 0;
@@ -1999,11 +1993,9 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
 
   if (special_units && special_units->number)
     {
+      int i;
       self->special_unit_file_indices = (size_t *)
         malloc (special_units->number * sizeof (size_t));
-      memset (self->special_unit_file_indices, 0,
-                       special_units->number);
-      int i;
       for (i = 0; i < special_units->number; i++)
         {
           size_t special_unit_file_idx = 0;
@@ -2081,7 +2073,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           else
             {
               if (associated_output_unit)
-                filename = associated_output_unit->unit_filename;
+                filename = strdup (associated_output_unit->unit_filename);
               element_target->special_unit_filename = filename;
             }
 
@@ -2449,27 +2441,6 @@ html_converter_initialize (CONVERTER *self)
     = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
                                * sizeof (OUTPUT_UNIT));
 
-  /* prepare mapping of variety names to index in global_units_directions */
-  self->varieties_direction_index = (VARIETY_DIRECTION_INDEX **)
-        malloc (sizeof (VARIETY_DIRECTION_INDEX *) * (nr_special_units +1));
-  if (nr_special_units)
-    {
-      STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
-
-      for (i = 0; i < special_unit_varieties->number; i++)
-        {
-          VARIETY_DIRECTION_INDEX *variety_direction_index
-            = (VARIETY_DIRECTION_INDEX *)
-                 malloc (sizeof (VARIETY_DIRECTION_INDEX));
-          self->varieties_direction_index[i] = variety_direction_index;
-          variety_direction_index->special_unit_variety
-            = special_unit_varieties->list[i];
-          variety_direction_index->direction_index
-            = D_Last +1 +i;
-        }
-      self->varieties_direction_index[i] = 0;
-   }
-
   /* note that we allocate the same size as no_arg_formatted_cmd
      even though in general there are much less translated commands,
      for simplicity */
@@ -2497,22 +2468,38 @@ html_converter_initialize (CONVERTER *self)
 }
 
 void
+reset_html_targets (HTML_TARGET_LIST *targets)
+{
+  size_t i;
+
+  if (targets->number)
+    {
+      for (i = 0; i < targets->number; i++)
+        {
+          HTML_TARGET *html_target = &targets->list[i];
+          /* setup before conversion */
+          free (html_target->target);
+          free (html_target->special_unit_filename);
+          free (html_target->node_filename);
+          free (html_target->section_filename);
+          free (html_target->contents_target);
+          free (html_target->shortcontents_target);
+
+          /* TODO free fields changed during conversion */
+        }
+      memset (targets->list, 0,
+              sizeof (HTML_TARGET) * targets->number);
+      targets->number = 0;
+    }
+}
+
+void
 html_initialize_output_state (CONVERTER *self, char *context)
 {
-  int i;
-  /* targets and directions */
-
-  /* used for diverse elements: tree units, indices, footnotes, special
-    elements, contents elements... */
-  memset (&self->html_targets, 0, sizeof (HTML_TARGET_LIST));
-  memset (&self->seen_ids, 0, sizeof (STRING_LIST));
+  /* directions */
   memset (self->global_units_directions, 0,
     (D_Last + self->special_unit_varieties.number+1) * sizeof (OUTPUT_UNIT));
 
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      memset (&self->html_special_targets[i], 0, sizeof (HTML_TARGET_LIST));
-    }
 
   self->current_formatting_references = &self->formatting_references[0];
   self->current_commands_conversion = &self->commands_conversion[0];
@@ -2527,7 +2514,21 @@ html_initialize_output_state (CONVERTER *self, char *context)
 void
 html_finalize_output_state (CONVERTER *self)
 {
+  int i;
   reset_translated_special_unit_info_tree (self);
+  /* targets */
+  reset_html_targets (&self->html_targets);
+  clear_strings_list (&self->seen_ids);
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      reset_html_targets (&self->html_special_targets[i]);
+    }
+  free (self->special_units_direction_name);
+  self->special_units_direction_name = 0;
+  free (self->output_unit_file_indices);
+  self->output_unit_file_indices = 0;
+  free (self->special_unit_file_indices);
+  self->special_unit_file_indices = 0;
   html_pop_document_context (self);
 }
 
@@ -2811,7 +2812,12 @@ html_translate_names (CONVERTER *self)
                      = find_element_target (&self->html_targets, command);
                    if (target)
                      {
+       /* the tree is a reference to special_unit_info_tree, so it should
+          not be freed, but need to be reset to trigger the creation of the
+          special_unit_info_tree tree when needed */
                        target->tree = 0;
+       /* TODO check if there is a need to free when the code setting
+               those fields is done */
                        target->string = 0;
                        target->text = 0;
                        /* gather elements to pass information to perl */

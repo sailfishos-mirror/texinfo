@@ -307,10 +307,10 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
 
       hv_number = hv_iterinit (translated_commands_hv);
 
-      converter->translated_commands = (TRANSLATED_COMMAND **)
-        malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND *));
+      converter->translated_commands = (TRANSLATED_COMMAND *)
+        malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
       memset (converter->translated_commands, 0,
-              (hv_number +1) * sizeof (TRANSLATED_COMMAND *));
+              (hv_number +1) * sizeof (TRANSLATED_COMMAND));
 
       for (i = 0; i < hv_number; i++)
         {
@@ -327,12 +327,8 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
               else
                 {
                   char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
-                  TRANSLATED_COMMAND *translated_command;
-
-                  converter->translated_commands[i] = (TRANSLATED_COMMAND *)
-                    malloc (sizeof (TRANSLATED_COMMAND));
-                  translated_command = converter->translated_commands[i];
-
+                  TRANSLATED_COMMAND *translated_command
+                    = &converter->translated_commands[i];
                   translated_command->translation = strdup (tmp_spec);
                   translated_command->cmd = cmd;
                 }

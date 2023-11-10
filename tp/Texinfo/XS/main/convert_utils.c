@@ -539,18 +539,17 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
 ELEMENT *
 translated_command_tree (CONVERTER *self, enum command_id cmd)
 {
-  if (self->translated_commands)
+  size_t i;
+  for (i = 0; self->translated_commands[i].cmd; i++)
     {
-      TRANSLATED_COMMAND **i;
-      TRANSLATED_COMMAND *tc;
-      for (i = self->translated_commands; (tc = *i); i++)
+      TRANSLATED_COMMAND *translated_command
+        = &self->translated_commands[i];
+      if (translated_command->cmd == cmd
+          && translated_command->translation)
         {
-          if (tc->cmd == cmd && tc->translation)
-            {
-              ELEMENT *result = gdt_tree (tc->translation, 0, self->conf,
-                                          0, 0, 0);
-              return result;
-            }
+          ELEMENT *result = gdt_tree (translated_command->translation, 0,
+                                      self->conf, 0, 0, 0);
+          return result;
         }
     }
   return 0;
