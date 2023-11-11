@@ -1637,6 +1637,18 @@ find_file_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
   return 0;
 }
 
+void
+html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+{
+  int i;
+  for (i = 0; i < files_source_info->number; i++)
+    {
+      free (files_source_info->list[i].filename);
+    }
+  free (files_source_info->list);
+  free (files_source_info);
+}
+
 static char *
 add_to_unit_file_name_paths (char **unit_file_name_paths,
                              char *filename, OUTPUT_UNIT *output_unit)
@@ -1933,6 +1945,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                                          output_unit_file_name,
                                          output_unit);
         }
+      free (top_node_filename_str);
     }
 
   self->output_unit_file_indices = (size_t *)
@@ -1944,7 +1957,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       FILE_NAME_PATH_COUNTER *output_unit_file;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       char *output_unit_file_name = unit_file_name_paths[i];
-      char *filename = output_unit_file_name;
+      char *filename = strdup (output_unit_file_name);
       FILE_SOURCE_INFO *file_source_info
         = find_file_source_info (files_source_info, output_unit_file_name);
       char *filepath = file_source_info->path;
@@ -1980,6 +1993,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                                           file_name_path->filename,
                                           "special_file", "user_defined",
                                            0, file_name_path->filepath);
+              free (filename);
               filename = file_name_path->filename;
             }
           free (file_name_path);
@@ -1992,8 +2006,11 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         fprintf (stderr, "Page %s: %s(%d)\n",
                  output_unit_texi (output_unit),
                  output_unit->unit_filename, output_unit_file->counter);
-
+      free (filename);
+      free (output_unit_file_name);
     }
+
+  free (unit_file_name_paths);
 
   if (special_units && special_units->number)
     {
@@ -2943,6 +2960,7 @@ html_translate_names (CONVERTER *self)
                   && !format_spec->unset)
                 {
                   add_cmd = 1;
+                  free (format_spec->text);
                   format_spec->text
                    = html_gdt_string (format_spec->translated_converted, self,
                                  0, 0, 0);
@@ -2962,6 +2980,8 @@ html_translate_names (CONVERTER *self)
                   if (translated_tree)
                     {
                       add_cmd = 1;
+                      if (format_spec->tree)
+                        destroy_element_and_children (format_spec->tree);
 
                       format_spec->tree = translated_tree;
                     }
@@ -4053,6 +4073,7 @@ convert_output_output_unit_internal (CONVERTER *self,
           message_list_document_error (&self->error_messages, self->conf,
                              "could not open %s for writing: %s",
                              out_filepath, open_error_message);
+          free (encoded_out_filepath);
           return 0;
         }
 
@@ -4095,6 +4116,7 @@ convert_output_output_unit_internal (CONVERTER *self,
             { /* register error message instead? */
               fprintf (stderr, "ERROR: write to %s failed (%zu/%zu)\n",
                        encoded_out_filepath, write_len, res_len);
+              free (encoded_out_filepath);
               return 0;
             }
         }
@@ -4108,9 +4130,11 @@ convert_output_output_unit_internal (CONVERTER *self,
               message_list_document_error (&self->error_messages, self->conf,
                              "error on closing %s: %s",
                              out_filepath, strerror (errno));
+              free (encoded_out_filepath);
               return 0;
             }
         }
+      free (encoded_out_filepath);
     }
   return 1;
 }

@@ -1,5 +1,28 @@
 2023-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/convert_html.c (html_destroy_files_source_info):
+	free files_source_info.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): free
+	top_node_filename_str, filename and output_unit_file_name file names
+	setting loop, and unit_file_name_paths.
+	
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_names):
+	free/destroy text or tree before replacing.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_output_unit_internal): free encoded_out_filepath.
+
+	* tp/Texinfo/XS/main/output_unit.c (units_directions): use an
+	ELEMENT_LIST for up_list instead of an ELEMENT, and free.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): free
+	convert_to_texinfo debug string.
+
+2023-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/converter_types.h (HCC_CONTEXT_TYPES_LIST),
 	tp/Texinfo/XS/main/utils.h: move definition of HCC_CONTEXT_TYPES_LIST
 	to main/converter_types.h.

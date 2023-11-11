@@ -55,6 +55,8 @@ char *html_convert_output (CONVERTER *self, ELEMENT *root,
                            int special_units_descriptor,
                            char *output_file, char *destination_directory,
                            char *output_filename, char *document_name);
+
 void html_check_transfer_state_finalization (CONVERTER *self);
 void html_destroy (CONVERTER *self);
+void html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 #endif

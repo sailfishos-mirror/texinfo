@@ -559,15 +559,16 @@ units_directions (OPTIONS *customization_information,
               else if (node_directions && node_directions->contents.list[D_up])
                 {
                   ELEMENT *up = node_directions->contents.list[D_up];
-                  ELEMENT *up_list = new_element (ET_NONE);
-                  add_to_contents_as_array (up_list, node);
+                  ELEMENT_LIST up_list;
+                  memset (&up_list, 0, sizeof (ELEMENT_LIST));
+                  add_to_element_list (&up_list, node);
                   while (1)
                     {
                       ELEMENT *up_node_directions;
                       int i;
                       int in_up = 0;
-                      for (i = 0; i < up_list->contents.number; i++)
-                        if (up == up_list->contents.list[i])
+                      for (i = 0; i < up_list.number; i++)
+                        if (up == up_list.list[i])
                           {
                             in_up = 1;
                             break;
@@ -585,13 +586,14 @@ units_directions (OPTIONS *customization_information,
                               up_node_directions->contents.list[D_next]);
                            break;
                         }
-                      add_to_contents_as_array (up_list, up);
+                      add_to_element_list (&up_list, up);
                       if (up_node_directions
                           && up_node_directions->contents.list[D_up])
                         up = up_node_directions->contents.list[D_up];
                       else
                         break;
                     }
+                  free (up_list.list);
                 }
             }
           if (directions[RUD_type_NodeForward]

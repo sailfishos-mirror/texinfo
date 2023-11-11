@@ -564,8 +564,11 @@ replace_convert_substrings (char *translated_string,
     }
 
 
-  debug("XS|RESULT GDT %d: '%s'\n", document_descriptor,
-                                          convert_to_texinfo (document->tree));
+  {
+    char *result_texi = convert_to_texinfo (document->tree);
+    debug("XS|RESULT GDT %d: '%s'\n", document_descriptor, result_texi);
+    free (result_texi);
+  }
 /*
 */
 
