@@ -548,11 +548,6 @@ html_converter_initialize_sv (SV *converter_sv,
                 {
                   I32 context_nr;
                   I32 j;
-                  converter->html_command_conversion[cmd] =
-                   (HTML_COMMAND_CONVERSION **) malloc ((max_context +1) *
-                     sizeof (HTML_COMMAND_CONVERSION *));
-                  memset (converter->html_command_conversion[cmd], 0,
-                     (max_context +1) * sizeof (HTML_COMMAND_CONVERSION *));
 
                   context_nr = hv_iterinit (context_hv);
                   for (j = 0; j < context_nr; j++)
@@ -587,14 +582,9 @@ html_converter_initialize_sv (SV *converter_sv,
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
-                          converter->html_command_conversion[cmd][context_idx]
-                           = (HTML_COMMAND_CONVERSION *)
-                               malloc (sizeof (HTML_COMMAND_CONVERSION));
                           format_spec
-                            = converter
+                            = &converter
                                ->html_command_conversion[cmd][context_idx];
-                          memset (format_spec, 0,
-                                  sizeof (HTML_COMMAND_CONVERSION));
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)
@@ -669,11 +659,6 @@ html_converter_initialize_sv (SV *converter_sv,
                 {
                   I32 context_nr;
                   I32 j;
-                  converter->html_command_conversion[cmd] =
-                   (HTML_COMMAND_CONVERSION **) malloc ((max_context +1) *
-                     sizeof (HTML_COMMAND_CONVERSION *));
-                  memset (converter->html_command_conversion[cmd], 0,
-                     (max_context +1) * sizeof (HTML_COMMAND_CONVERSION *));
 
                   context_nr = hv_iterinit (context_hv);
                   for (j = 0; j < context_nr; j++)
@@ -708,14 +693,9 @@ html_converter_initialize_sv (SV *converter_sv,
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
-                          converter->html_command_conversion[cmd][context_idx]
-                           = (HTML_COMMAND_CONVERSION *)
-                               malloc (sizeof (HTML_COMMAND_CONVERSION));
                           format_spec
-                            = converter
+                            = &converter
                                ->html_command_conversion[cmd][context_idx];
-                          memset (format_spec, 0,
-                                  sizeof (HTML_COMMAND_CONVERSION));
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)

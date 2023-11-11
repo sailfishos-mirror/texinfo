@@ -462,7 +462,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
           int k;
           enum command_id cmd
             = converter->no_arg_formatted_cmd_translated.list[j];
-          HTML_COMMAND_CONVERSION **conversion_contexts
+          HTML_COMMAND_CONVERSION *conversion_contexts
                 = converter->html_command_conversion[cmd];
           char *cmdname = builtin_command_data[cmd].cmdname;
           SV **no_arg_command_sv
@@ -471,40 +471,37 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
           HV *no_arg_command_hv = (HV *) SvRV (*no_arg_command_sv);
           for (k = 0; k < max_context; k++)
             {
-              if (conversion_contexts[k])
-                {
-                  HTML_COMMAND_CONVERSION *no_arg_cmd_context
-                      = conversion_contexts[k];
+              HTML_COMMAND_CONVERSION *no_arg_cmd_context
+                  = &conversion_contexts[k];
 
-                  char *context_name = html_conversion_context_type_names[k];
-                  SV **context_sv = hv_fetch (no_arg_command_hv,
-                                     context_name, strlen (context_name), 0);
-                  HV *context_hv = (HV *) SvRV (*context_sv);
+              char *context_name = html_conversion_context_type_names[k];
+              SV **context_sv = hv_fetch (no_arg_command_hv,
+                                 context_name, strlen (context_name), 0);
+              HV *context_hv = (HV *) SvRV (*context_sv);
 
  #define REPLACE_STR(key) \
-                  if (no_arg_cmd_context->key) \
-                    {               \
-                      hv_store (context_hv, #key, strlen (#key), \
-                                newSVpv_utf8 (no_arg_cmd_context->key, 0), 0); \
-                    }   \
-                  else if (hv_exists (context_hv, #key, strlen (#key))) \
-                    hv_delete (context_hv, #key, strlen (#key), G_DISCARD);
+              if (no_arg_cmd_context->key) \
+                {               \
+                  hv_store (context_hv, #key, strlen (#key), \
+                            newSVpv_utf8 (no_arg_cmd_context->key, 0), 0); \
+                }   \
+              else if (hv_exists (context_hv, #key, strlen (#key))) \
+                hv_delete (context_hv, #key, strlen (#key), G_DISCARD);
 
-                  REPLACE_STR(text)
-                  REPLACE_STR(translated_converted)
-                  REPLACE_STR(translated_to_convert)
+              REPLACE_STR(text)
+              REPLACE_STR(translated_converted)
+              REPLACE_STR(translated_to_convert)
  #undef REPLACE_STR
 
-                  if (no_arg_cmd_context->tree)
-                    {
-                      if (!no_arg_cmd_context->tree->hv)
-                        element_to_perl_hash (no_arg_cmd_context->tree);
-                      hv_store (context_hv, "tree", strlen ("tree"),
-                              newRV_inc ((SV *) no_arg_cmd_context->tree->hv), 0);
-                    }
-                  else if (hv_exists (context_hv, "tree", strlen ("tree")))
-                    hv_delete (context_hv, "tree", strlen ("tree"), G_DISCARD);
+              if (no_arg_cmd_context->tree)
+                {
+                  if (!no_arg_cmd_context->tree->hv)
+                    element_to_perl_hash (no_arg_cmd_context->tree);
+                  hv_store (context_hv, "tree", strlen ("tree"),
+                          newRV_inc ((SV *) no_arg_cmd_context->tree->hv), 0);
                 }
+              else if (hv_exists (context_hv, "tree", strlen ("tree")))
+                hv_delete (context_hv, "tree", strlen ("tree"), G_DISCARD);
             }
         }
 

@@ -2732,25 +2732,15 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                enum conversion_context ref_context, int translate)
 {
   HTML_COMMAND_CONVERSION *no_arg_command_context;
-  HTML_COMMAND_CONVERSION **conversion_contexts
+  HTML_COMMAND_CONVERSION *conversion_contexts
     = self->html_command_conversion[cmd];
-  /* should never happen as unset is set at configuration */
-  if (!conversion_contexts[reset_context])
-    {
-      conversion_contexts[reset_context] =
-        (HTML_COMMAND_CONVERSION *) malloc (sizeof (HTML_COMMAND_CONVERSION));
-      memset (conversion_contexts[reset_context], 0,
-              sizeof (HTML_COMMAND_CONVERSION));
-
-      conversion_contexts[reset_context]->unset = 1;
-    }
-  no_arg_command_context = conversion_contexts[reset_context];
+  no_arg_command_context = &conversion_contexts[reset_context];
   if (ref_context >= 0)
     {
       if (no_arg_command_context->unset)
         {
           HTML_COMMAND_CONVERSION *no_arg_ref
-            = conversion_contexts[ref_context];
+            = &conversion_contexts[ref_context];
 
           /* TODO memory leaks possible for the other char * fields */
 
@@ -2948,7 +2938,7 @@ html_translate_names (CONVERTER *self)
           for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
             {
               HTML_COMMAND_CONVERSION *format_spec
-                = self->html_command_conversion[cmd][cctx];
+                = &self->html_command_conversion[cmd][cctx];
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {

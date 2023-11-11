@@ -50,6 +50,20 @@ enum monospace_context {
    MONO_ctx_on,
 };
 
+#define HCC_CONTEXT_TYPES_LIST \
+  cctx_type(normal) \
+  cctx_type(preformatted) \
+  cctx_type(string) \
+  cctx_type(css_string) \
+  cctx_type(code) \
+  cctx_type(math)
+
+enum conversion_context {
+  #define cctx_type(name) HCC_type_## name,
+   HCC_CONTEXT_TYPES_LIST
+  #undef cctx_type
+};
+
 #define SUI_TYPES_LIST \
   sui_type(class) \
   sui_type(direction) \
@@ -415,7 +429,7 @@ typedef struct CONVERTER {
     char **special_unit_info[SUI_type_heading+1];
 
     /* set for a converter, modified in a document */
-    HTML_COMMAND_CONVERSION **html_command_conversion[BUILTIN_CMD_NUMBER];
+    HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
     /* set for a document */
     OUTPUT_UNIT **global_units_directions;

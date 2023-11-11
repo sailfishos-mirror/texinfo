@@ -134,20 +134,6 @@ enum command_location {
    CL_preamble_or_first,
 };
 
-#define HCC_CONTEXT_TYPES_LIST \
-  cctx_type(normal) \
-  cctx_type(preformatted) \
-  cctx_type(string) \
-  cctx_type(css_string) \
-  cctx_type(code) \
-  cctx_type(math)
-
-enum conversion_context {
-  #define cctx_type(name) HCC_type_## name,
-   HCC_CONTEXT_TYPES_LIST
-  #undef cctx_type
-};
-
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
 #define HMSF_document_context        0x0002
