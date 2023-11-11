@@ -2566,6 +2566,7 @@ html_finalize_output_state (CONVERTER *self)
     }
 
   clear_output_files_information (&self->output_files_information);
+  clear_output_unit_files (&self->output_unit_files);
 
   html_pop_document_context (self);
 

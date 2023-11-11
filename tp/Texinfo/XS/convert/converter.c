@@ -510,6 +510,35 @@ set_file_path (CONVERTER *self, char *filename, char *filepath,
     free (filepath_str);
 }
 
+static void
+free_output_unit_files_file (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  for (i = 0; i < output_unit_files->number; i++)
+    {
+      FILE_NAME_PATH_COUNTER *output_unit_file = &output_unit_files->list[i];
+      free (output_unit_file->filename);
+      free (output_unit_file->normalized_filename);
+      free (output_unit_file->filepath);
+      if (output_unit_file->body.space)
+        free (output_unit_file->body.text);
+    }
+}
+
+void
+clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  free_output_unit_files_file (output_unit_files);
+  output_unit_files->number = 0;
+}
+
+void
+free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  free_output_unit_files_file (output_unit_files);
+  free (output_unit_files->list);
+}
+
 void
 free_generic_converter (CONVERTER *self)
 {
@@ -529,4 +558,5 @@ free_generic_converter (CONVERTER *self)
   free (self->conf);
 
   free_output_files_information (&self->output_files_information);
+  free_output_unit_files (&self->output_unit_files);
 }

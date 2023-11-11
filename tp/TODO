@@ -51,7 +51,7 @@ html_special_targets html_finalize_output_state
 index_entries html_finalize_output_state/destroy_merged_indices
 index_entries_by_letter (letter string, letter entries...) html_finalize_output_state/destroy_indices_sorted_by_letter
 title_titlepage html_finalize_output_state
-output_unit_files
+output_unit_files html_finalize_output_state
 output_files_information html_finalize_output_state
 
 converter free
@@ -74,7 +74,7 @@ html_command_conversion html_destroy
 no_arg_formatted_cmd_translated html_destroy
 reset_target_commands html_destroy
 file_changed_counter html_destroy
-output_unit_files
+output_unit_files free_generic_converter
 output_files_information free_generic_converter
 
 error_messages: with a check that it is empty?
