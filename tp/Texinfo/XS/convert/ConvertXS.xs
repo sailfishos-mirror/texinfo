@@ -181,6 +181,7 @@ html_finalize_output_state (SV *converter_in)
                  build_html_formatting_state (self, self->modified_state);
                  self->modified_state = 0;
                }
+             html_check_transfer_state_finalization (self);
            }
 
 void

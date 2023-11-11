@@ -2549,6 +2549,48 @@ html_finalize_output_state (CONVERTER *self)
     }
 
   html_pop_document_context (self);
+
+  /* could change to 0 in releases? */
+  if (1)
+    {
+      if (self->html_document_context.top > 0)
+        fprintf (stderr, "BUG: document context top > 0: %zu\n",
+                         self->html_document_context.top);
+      if (self->document_global_context)
+        fprintf (stderr, "BUG: document_global_context: %d\n",
+                         self->document_global_context);
+      if (self->ignore_notice)
+        fprintf (stderr, "BUG: ignore_notice: %d\n",
+                         self->ignore_notice);
+
+    }
+}
+
+void
+html_check_transfer_state_finalization (CONVERTER *self)
+{
+  /* could change to 0 in releases? */
+  if (1)
+    {
+      /* check that all the state change have been transmitted */
+      if (self->tree_to_build)
+        fprintf (stderr, "BUG: tree_to_build set\n");
+      if (self->document_context_change)
+        fprintf (stderr, "BUG: document_context_change: %d\n",
+                         self->document_context_change);
+      if (self->document_contexts_to_pop)
+        fprintf (stderr, "BUG: document_contexts_to_pop: %d\n",
+                         self->document_contexts_to_pop);
+      if (self->no_arg_formatted_cmd_translated.number)
+        fprintf (stderr, "BUG: no_arg_formatted_cmd_translated: %zu\n",
+                         self->no_arg_formatted_cmd_translated.number);
+      if (self->reset_target_commands.number)
+        fprintf (stderr, "BUG: reset_target_commands: %zu\n",
+                         self->reset_target_commands.number);
+      if (self->file_changed_counter.number)
+        fprintf (stderr, "BUG: file_changed_counter: %zu\n",
+                         self->file_changed_counter.number);
+    }
 }
 
 char *
@@ -2812,6 +2854,9 @@ html_translate_names (CONVERTER *self)
 
   /* delete the tree and formatted results for special elements
      such that they are redone with the new tree when needed. */
+  /* if reset_target_commands was still set, we will fill with the
+     same elements again, but it is not a big deal as we need to go
+     through the loop anyway and the memory will be reused */
   self->reset_target_commands.number = 0;
   for (j = 0; j < special_unit_varieties->number; j++)
     {

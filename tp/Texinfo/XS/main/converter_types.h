@@ -370,26 +370,27 @@ typedef struct HTML_DOCUMENT_CONTEXT_STACK {
 
 typedef struct CONVERTER {
     int converter_descriptor;
+  /* perl converter. This should be HV *hv,
+     but we don't want to include the Perl headers everywhere; */
+    void *hv;
+
     OPTIONS *conf;
     OPTIONS *init_conf;
-    struct DOCUMENT *document;
-    int document_units_descriptor;
+    EXPANDED_FORMAT *expanded_formats;
+    TRANSLATED_COMMAND *translated_commands;
 
     ERROR_MESSAGE_LIST error_messages;
+
+    struct DOCUMENT *document;
     MERGED_INDEX *index_entries;
     INDEX_SORTED_BY_LETTER *index_entries_by_letter;
-    TRANSLATED_COMMAND *translated_commands;
-    EXPANDED_FORMAT *expanded_formats;
+    int document_units_descriptor;
 
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
 
   /* API to open, set encoding and register files */
     OUTPUT_FILES_INFORMATION output_files_information;
-
-  /* perl converter. This should be HV *hv,
-     but we don't want to include the Perl headers everywhere; */
-    void *hv;
 
   /* maybe HTML specific */
     char *title_titlepage;

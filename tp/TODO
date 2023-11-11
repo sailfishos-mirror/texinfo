@@ -70,19 +70,9 @@ no_arg_formatted_cmd
 pre_class_types
 special_unit_varieties
 html_command_conversion
-no_arg_formatted_cmd_translated + check
-reset_target_commands + check
-file_changed_counter + check
-
-to check as it should be reset as the HTML state is always synced
-tree_to_build
-document_context_change
-document_contexts_to_pop
-
-to check
-document_global_context
-ignore_notice
-+ html_document_context
+no_arg_formatted_cmd_translated
+reset_target_commands
+file_changed_counter
 
 
 Bugs
