@@ -531,7 +531,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
 
       index_index_letters = &indices_entries_by_letter[j];
       index_index_letters->name = strdup (idx_name);
-      index_index_letters->number = letter_entries_nr;
+      index_index_letters->letter_number = letter_entries_nr;
       index_index_letters->letter_entries
         = (LETTER_INDEX_ENTRIES *)
          malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
@@ -565,7 +565,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
 
               entries_av = (AV *) SvRV (*entries_sv);
               entries_nr = av_top_index (entries_av) +1;
-              letter_entries->number = entries_nr;
+              letter_entries->entries_number = entries_nr;
               letter_entries->entries =
                 (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
               for (k = 0; k < entries_nr; k++)
@@ -611,7 +611,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                     {
                       if (!strcmp (idx->name, entry_index_name))
                         {
-                          if (entry_idx_in_index < idx->index_number)
+                          if (entry_idx_in_index < idx->entries_number)
                             letter_entries->entries[k]
                               = &idx->index_entries[entry_number];
                           break;

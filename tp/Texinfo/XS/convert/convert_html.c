@@ -570,7 +570,8 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                              = self->document->global_commands->top;
 
                           if (section_top->associated_unit)
-                            associated_output_unit = section_top->associated_unit;
+                            associated_output_unit
+                                 = section_top->associated_unit;
                         }
                       if (!associated_output_unit)
                         continue;
@@ -578,7 +579,8 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                   else if (!strcmp (contents_location, "inline"))
                     {
                       ELEMENT *global_command
-                       = get_cmd_global_command (self->document->global_commands, cmd);
+                       = get_cmd_global_command (
+                                      self->document->global_commands, cmd);
                       if (global_command->contents.number > 0)
                         {
                           int i;
@@ -1266,10 +1268,10 @@ prepare_index_entries_targets (CONVERTER *self)
 
       for (i = sorted_index_names; (idx = *i); i++)
         {
-          if (idx->index_number > 0)
+          if (idx->entries_number > 0)
             {
               int j;
-              for (j = 0; j < idx->index_number; j++)
+              for (j = 0; j < idx->entries_number; j++)
                 {
                   INDEX_ENTRY *index_entry;
                   ELEMENT *main_entry_element;
@@ -1286,10 +1288,12 @@ prepare_index_entries_targets (CONVERTER *self)
 
                   index_entry = &idx->index_entries[j];
                   main_entry_element = index_entry->entry_element;
-                  seeentry = lookup_extra_element (main_entry_element, "seeentry");
+                  seeentry = lookup_extra_element (main_entry_element,
+                                                   "seeentry");
                   if (seeentry)
                     continue;
-                  seealso = lookup_extra_element (main_entry_element, "seealso");
+                  seealso = lookup_extra_element (main_entry_element,
+                                                  "seealso");
                   if (seealso)
                     continue;
 
@@ -1308,9 +1312,9 @@ prepare_index_entries_targets (CONVERTER *self)
                   if (subentries_tree)
                     {
                       insert_slice_into_contents (normalize_index_element,
-                                        normalize_index_element->contents.number,
-                                        subentries_tree, 0,
-                                        subentries_tree->contents.number);
+                                       normalize_index_element->contents.number,
+                                       subentries_tree, 0,
+                                       subentries_tree->contents.number);
                     }
                   normalized_index
                     = normalize_transliterate_texinfo (normalize_index_element,

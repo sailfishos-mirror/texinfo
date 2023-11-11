@@ -230,8 +230,8 @@ typedef struct INDEX {
     struct INDEX *merged_in; /* Index this index is merged into, if any. */
 
     INDEX_ENTRY *index_entries;
-    size_t index_number;
-    size_t index_space;
+    size_t entries_number;
+    size_t entries_space;
 } INDEX;
 
 /* not used in parser */

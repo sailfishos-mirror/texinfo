@@ -179,7 +179,7 @@ init_index_commands (void)
       },
 
       "vr",
-     
+
       {X(defvr),
        X(deftypevr),
        X(defcv),
@@ -192,7 +192,7 @@ init_index_commands (void)
       },
 
       "tp",
-     
+
       {X(deftp),}
     };
 #undef X
@@ -251,19 +251,19 @@ enter_index_entry (enum command_id index_type_cmd,
   TEXT ignored_chars;
 
   idx = index_of_command (index_type_cmd);
-  if (idx->index_number == idx->index_space)
+  if (idx->entries_number == idx->entries_space)
     {
       idx->index_entries = realloc (idx->index_entries,
-                             sizeof (INDEX_ENTRY) * (idx->index_space += 20));
+                     sizeof (INDEX_ENTRY) * (idx->entries_space += 20));
       if (!idx->index_entries)
         fatal ("realloc failed");
     }
-  entry = &idx->index_entries[idx->index_number++];
+  entry = &idx->index_entries[idx->entries_number++];
   memset (entry, 0, sizeof (INDEX_ENTRY));
 
   entry->index_name = idx->name;
   /* not needed, the position in the index is directly used
-  entry->number = idx->index_number;
+  entry->number = idx->entries_number;
   */
   entry->entry_element = element;
 
@@ -291,7 +291,7 @@ enter_index_entry (enum command_id index_type_cmd,
     text_append (&e->text, idx->name);
     add_to_element_contents (index_entry, e);
     e = new_element (ET_NONE);
-    add_extra_integer (e, "integer", idx->index_number);
+    add_extra_integer (e, "integer", idx->entries_number);
     add_to_element_contents (index_entry, e);
     add_extra_misc_args (element, "index_entry", index_entry);
   }
@@ -390,10 +390,10 @@ complete_indices (int document_descriptor)
 
   for (i = index_names; (idx = *i); i++)
     {
-      if (idx->index_number > 0)
+      if (idx->entries_number > 0)
         {
           int j;
-          for (j = 0; j < idx->index_number; j++)
+          for (j = 0; j < idx->entries_number; j++)
             {
               INDEX_ENTRY *entry;
               ELEMENT *main_entry_element;

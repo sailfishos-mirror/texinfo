@@ -1,3 +1,16 @@
+2023-11-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/tree_types.h (INDEX),
+	tp/Texinfo/XS/main/converter_types.h (MERGED_INDEX)
+	(LETTER_INDEX_ENTRIES, INDEX_SORTED_BY_LETTER): rename structure
+	fields related to index numberof entries or space for entries and
+	letter number.  Update code using those structures.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_single_index_data):
+	rename i as index.
+
+	* tp/Texinfo/XS/convert/convert_html.c: reindent.
+
 2023-11-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs

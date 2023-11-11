@@ -40,7 +40,7 @@ merge_indices (INDEX **index_names)
 
   for (i = index_names; (idx = *i); i++)
     {
-      if (idx->index_entries && idx->index_number)
+      if (idx->index_entries && idx->entries_number)
         {
           size_t j;
           INDEX *ultimate_idx;
@@ -74,23 +74,23 @@ merge_indices (INDEX **index_names)
                 }
               merged_idx = &merged_indices[merged_indices_number];
               merged_idx->name = in_idx_name;
-              merged_idx->index_number = ultimate_idx->index_number;
+              merged_idx->entries_number = ultimate_idx->entries_number;
               merged_idx->index_entries
-                = malloc (sizeof (INDEX_ENTRY) * merged_idx->index_number);
+                = malloc (sizeof (INDEX_ENTRY) * merged_idx->entries_number);
               memcpy (merged_idx->index_entries, ultimate_idx->index_entries,
-                         ultimate_idx->index_number * sizeof (INDEX_ENTRY));
+                        ultimate_idx->entries_number * sizeof (INDEX_ENTRY));
               merged_indices_number++;
             }
 
           if (idx->merged_in)
             {
               merged_idx->index_entries = realloc (merged_idx->index_entries,
-                       (idx->index_number + merged_idx->index_number) *
+                       (idx->entries_number + merged_idx->entries_number) *
                          sizeof (INDEX_ENTRY));
-              memcpy (merged_idx->index_entries + merged_idx->index_number,
+              memcpy (merged_idx->index_entries + merged_idx->entries_number,
                       idx->index_entries,
-                                 idx->index_number * sizeof (INDEX_ENTRY));
-              merged_idx->index_number += idx->index_number;
+                            idx->entries_number * sizeof (INDEX_ENTRY));
+              merged_idx->entries_number += idx->entries_number;
             }
         }
     }

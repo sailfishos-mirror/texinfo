@@ -769,7 +769,7 @@ build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
 /* returns a hash for a single entry in $self->{'index_names'}, containing
    information about a single index. */
 static HV *
-build_single_index_data (INDEX *i)
+build_single_index_data (INDEX *index)
 {
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
@@ -782,32 +782,32 @@ build_single_index_data (INDEX *i)
 
   hv = newHV ();
 
-  STORE("name", newSVpv_utf8 (i->name, 0));
-  STORE("in_code", i->in_code ? newSViv(1) : newSViv(0));
+  STORE("name", newSVpv_utf8 (index->name, 0));
+  STORE("in_code", index->in_code ? newSViv(1) : newSViv(0));
 
-  if (i->merged_in)
+  if (index->merged_in)
     {
-      STORE("merged_in", newSVpv_utf8 (i->merged_in->name, 0));
+      STORE("merged_in", newSVpv_utf8 (index->merged_in->name, 0));
     }
 
-  if (i->index_number > 0)
+  if (index->entries_number > 0)
     {
       entries = newAV ();
-      av_unshift (entries, i->index_number);
+      av_unshift (entries, index->entries_number);
       STORE("index_entries", newRV_noinc ((SV *) entries));
 #undef STORE
 
       entry_number = 1;
-      for (j = 0; j < i->index_number; j++)
+      for (j = 0; j < index->entries_number; j++)
         {
 #define STORE2(key, value) hv_store (entry, key, strlen (key), value, 0)
           HV *entry;
           INDEX_ENTRY *e;
 
-          e = &i->index_entries[j];
+          e = &index->index_entries[j];
           entry = newHV ();
 
-          STORE2("index_name", newSVpv_utf8 (i->name, 0));
+          STORE2("index_name", newSVpv_utf8 (index->name, 0));
           STORE2("entry_element",
                  newRV_inc ((SV *)e->entry_element->hv));
           if (e->entry_associated_element)

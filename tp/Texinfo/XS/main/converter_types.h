@@ -239,19 +239,19 @@ typedef struct HTML_TARGET_LIST {
 typedef struct MERGED_INDEX {
     char *name;
     INDEX_ENTRY *index_entries;
-    size_t index_number;
+    size_t entries_number;
 } MERGED_INDEX;
 
 typedef struct LETTER_INDEX_ENTRIES {
     char *letter;
     INDEX_ENTRY **entries;
-    size_t number;
+    size_t entries_number;
 } LETTER_INDEX_ENTRIES;
 
 typedef struct INDEX_SORTED_BY_LETTER {
     char *name;
     LETTER_INDEX_ENTRIES *letter_entries;
-    size_t number;
+    size_t letter_number;
 } INDEX_SORTED_BY_LETTER;
 
 typedef struct HTML_COMMAND_CONVERSION {

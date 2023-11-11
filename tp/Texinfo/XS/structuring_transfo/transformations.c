@@ -65,7 +65,7 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
   result = malloc (sizeof (INDEX_ENTRY_AND_INDEX));
   result->index = index_info;
   result->index_entry = 0;
-  if (index_info->index_number && entry_number <= index_info->index_number)
+  if (index_info->entries_number && entry_number <= index_info->entries_number)
     {
       result->index_entry = &index_info->index_entries[entry_number -1];
     }
