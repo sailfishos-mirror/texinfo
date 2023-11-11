@@ -1,5 +1,18 @@
 2023-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_destroy),
+	tp/Texinfo/XS/convert/convert_html.c
+	(reset_unset_no_arg_commands_formatting_context): free
+	html_command_conversion strings and trees for no args commands, free
+	no_arg_formatted_cmd, free translated_to_convert when replacing it in
+	reset_unset_no_arg_commands_formatting_context.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): comment out allocating memory for
+	style converting, as it is not used/tested/freed for now.
+
+2023-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_prepare_units_directions_files),
 	tp/Texinfo/XS/convert/convert_html.c (html_destroy_files_source_info):

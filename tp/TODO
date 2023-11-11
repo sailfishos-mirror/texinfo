@@ -65,13 +65,15 @@ translated_commands translated_command->translation:strdup free_generic_converte
 expanded_formats free_generic_converter
 conf free_generic_converter
 init_conf free_generic_converter
-no_arg_formatted_cmd
+no_arg_formatted_cmd html_destroy
 pre_class_types html_destroy
 special_unit_varieties html_destroy
-html_command_conversion
+html_command_conversion html_destroy
 no_arg_formatted_cmd_translated html_destroy
 reset_target_commands html_destroy
 file_changed_counter html_destroy
+output_unit_files
+output_files_information
 
 error_messages: with a check that it is empty?
 

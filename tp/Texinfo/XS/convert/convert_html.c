@@ -2635,6 +2635,25 @@ html_destroy (CONVERTER *self)
       free (self->pre_class_types[i]);
     }
 
+  for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = self->no_arg_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+        {
+          HTML_COMMAND_CONVERSION *format_spec
+                = &self->html_command_conversion[cmd][cctx];
+          if (cctx == HCC_type_normal && format_spec->tree)
+            destroy_element_and_children (format_spec->tree);
+          free (format_spec->element);
+          free (format_spec->text);
+          free (format_spec->translated_converted);
+          free (format_spec->translated_to_convert);
+        }
+    }
+
+  free (self->no_arg_formatted_cmd.list);
+
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
   free (self->file_changed_counter.list);
@@ -2759,8 +2778,6 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           HTML_COMMAND_CONVERSION *no_arg_ref
             = &conversion_contexts[ref_context];
 
-          /* TODO memory leaks possible for the other char * fields */
-
           if (no_arg_ref->text)
             {
               free (no_arg_command_context->text);
@@ -2776,8 +2793,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
             }
           if (no_arg_ref->translated_to_convert)
             {
+              free (no_arg_command_context->translated_to_convert);
               no_arg_command_context->translated_to_convert
-                = no_arg_ref->translated_to_convert;
+                = strdup (no_arg_ref->translated_to_convert);
             }
         }
     }

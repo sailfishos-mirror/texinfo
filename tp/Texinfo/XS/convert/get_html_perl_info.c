@@ -706,9 +706,11 @@ html_converter_initialize_sv (SV *converter_sv,
                                                            &key, &retlen);
                               if (!strcmp (key, "element"))
                                 {
+                                   /* TODO add when it is used, and free
                                   char *tmp_spec
                                     = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->element = strdup (tmp_spec);
+                                    */
                                 }
                               else if (!strcmp (key, "quote"))
                                 format_spec->quote = SvIV (spec_sv);
