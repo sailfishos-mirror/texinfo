@@ -527,4 +527,6 @@ free_generic_converter (CONVERTER *self)
   if (self->conf)
     free_options (self->conf);
   free (self->conf);
+
+  free_output_files_information (&self->output_files_information);
 }

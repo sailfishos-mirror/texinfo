@@ -2565,6 +2565,8 @@ html_finalize_output_state (CONVERTER *self)
       self->index_entries_by_letter = 0;
     }
 
+  clear_output_files_information (&self->output_files_information);
+
   html_pop_document_context (self);
 
   /* could change to 0 in releases? */
