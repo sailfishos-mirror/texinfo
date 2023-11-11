@@ -2593,6 +2593,38 @@ html_check_transfer_state_finalization (CONVERTER *self)
     }
 }
 
+void
+html_destroy (CONVERTER *self)
+{
+  int i;
+
+  free_generic_converter (self);
+
+  free (self->global_units_directions);
+  free (self->html_targets.list);
+  free_strings_list (&self->seen_ids);
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      free (self->html_special_targets[i].list);
+    }
+  for (i = 0; i < SUIT_type_heading+1; i++)
+    {/* we assume that reset_translated_special_unit_info_tree
+        has already been called */
+      free (self->special_unit_info_tree[i]);
+    }
+
+  for (i = 1; i < ET_special_unit_element+1; i++)
+    {
+      free (self->pre_class_types[i]);
+    }
+
+  free (self->no_arg_formatted_cmd_translated.list);
+  free (self->reset_target_commands.list);
+  free (self->file_changed_counter.list);
+
+  free_strings_list (&self->special_unit_varieties);
+}
+
 char *
 html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation)
 {

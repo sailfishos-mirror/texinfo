@@ -40,6 +40,7 @@ void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (OPTIONS *options, ELEMENT *current);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
+void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);
 
 char *encoded_output_file_name (OPTIONS *options,
                                 GLOBAL_INFO *global_information,

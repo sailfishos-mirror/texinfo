@@ -1828,6 +1828,7 @@ while(@input_files) {
   }
 
   Texinfo::Document::remove_document($document);
+  $converter->destroy();
 }
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {

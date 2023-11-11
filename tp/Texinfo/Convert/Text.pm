@@ -69,8 +69,10 @@ sub import {
       # that the document tree was stored by the XS parser.
       Texinfo::XSLoader::override(
         "Texinfo::Convert::Text::_convert_tree_with_XS",
-        "Texinfo::Convert::ConvertXS::text_convert_tree"
-      );
+        "Texinfo::Convert::ConvertXS::text_convert_tree");
+      Texinfo::XSLoader::override(
+       "Texinfo::Convert::Text::destroy",
+       "Texinfo::Convert::ConvertXS::destroy");
     }
     $module_loaded = 1;
   }
@@ -1001,6 +1003,11 @@ sub output($$)
     $result = '';
   }
   return $result;
+}
+
+# Nothing to do in perl.  XS function frees memory
+sub destroy($)
+{
 }
 
 sub get_conf($$)

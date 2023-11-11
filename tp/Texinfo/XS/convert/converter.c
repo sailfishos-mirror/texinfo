@@ -28,6 +28,7 @@
 #include "utils.h"
 #include "builtin_commands.h"
 #include "node_name_normalization.h"
+#include "convert_utils.h"
 #include "converter.h"
 
 static CONVERTER *converter_list;
@@ -507,4 +508,23 @@ set_file_path (CONVERTER *self, char *filename, char *filepath,
   output_unit_file->filepath = strdup (filepath_str);
   if (free_filepath)
     free (filepath_str);
+}
+
+void
+free_generic_converter (CONVERTER *self)
+{
+  if (self->translated_commands)
+    {
+      destroy_translated_commands (self->translated_commands);
+    }
+
+  free (self->expanded_formats);
+
+  if (self->init_conf)
+    free_options (self->init_conf);
+  free (self->init_conf);
+
+  if (self->conf)
+    free_options (self->conf);
+  free (self->conf);
 }

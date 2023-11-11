@@ -25,6 +25,18 @@
 
 2023-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (destroy),
+	tp/Texinfo/Convert/Converter.pm (import, destroy),
+	tp/Texinfo/Convert/Text.pm(import, destroy),
+	tp/Texinfo/XS/convert/convert_html.c (html_destroy),
+	tp/Texinfo/XS/convert/converter.c (free_generic_converter),
+	tp/Texinfo/XS/main/convert_utils.c (destroy_translated_commands),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: add function, XS interface
+	and C code to destroy a converter, to free its memory, called both in
+	texi2any.pl and test_utils.pl.
+
+2023-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_finalize_output_state),
 	tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state)
 	(html_check_transfer_state_finalization): add checks on final

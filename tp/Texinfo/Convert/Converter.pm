@@ -83,6 +83,9 @@ sub import {
       Texinfo::XSLoader::override(
        "Texinfo::Convert::Converter::_XS_get_unclosed_stream",
        "Texinfo::Convert::ConvertXS::get_unclosed_stream");
+      Texinfo::XSLoader::override(
+       "Texinfo::Convert::Converter::destroy",
+       "Texinfo::Convert::ConvertXS::destroy");
     }
 
     $module_loaded = 1;
@@ -456,6 +459,11 @@ sub output($$)
     }
   }
   return undef;
+}
+
+# Nothing to do in perl.  XS function frees memory
+sub destroy($)
+{
 }
 
 ###############################################################

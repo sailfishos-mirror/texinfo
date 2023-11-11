@@ -108,6 +108,27 @@ get_unclosed_stream (SV *converter_in, file_path)
     OUTPUT:
          RETVAL
 
+void
+destroy (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+         HV *stash;
+         char *name;
+      CODE:
+         stash = SvSTASH (SvRV (converter_in));
+         name = HvNAME (stash);
+         if (!strcmp (name, "Texinfo::Convert::HTML"))
+           {
+             self = get_sv_converter (converter_in, "destroy html");
+             html_destroy (self);
+           }
+          /*
+         else if (!strcmp (name, "Texinfo::Convert::Text"))
+           {
+             self = get_sv_converter (converter_in, "destroy text");
+             text_destroy (self);
+           }
+           */
 
 SV *
 plain_texinfo_convert_tree (SV *tree_in)

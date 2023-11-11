@@ -56,24 +56,24 @@ converter free
 special_units_direction_name html_finalize_output_state
 output_unit_file_indices html_finalize_output_state
 special_unit_file_indices html_finalize_output_state
-global_units_directions
-html_targets
-seen_ids
-html_special_targets
-special_unit_info_tree
-translated_commands translated_command->translation:strdup
-expanded_formats
-error_messages: with a check that it is empty?
-conf
-init_conf
+global_units_directions html_destroy
+html_targets html_destroy
+seen_ids html_destroy
+html_special_targets html_destroy
+special_unit_info_tree html_destroy
+translated_commands translated_command->translation:strdup free_generic_converter
+expanded_formats free_generic_converter
+conf free_generic_converter
+init_conf free_generic_converter
 no_arg_formatted_cmd
-pre_class_types
-special_unit_varieties
+pre_class_types html_destroy
+special_unit_varieties html_destroy
 html_command_conversion
-no_arg_formatted_cmd_translated
-reset_target_commands
-file_changed_counter
+no_arg_formatted_cmd_translated html_destroy
+reset_target_commands html_destroy
+file_changed_counter html_destroy
 
+error_messages: with a check that it is empty?
 
 Bugs
 ====

@@ -1287,6 +1287,7 @@ sub test($$)
           }
         }
       }
+      $converter->destroy();
     }
   }
   my $directions_text;

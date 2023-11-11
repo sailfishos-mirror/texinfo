@@ -35,4 +35,6 @@ size_t set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
                                     char *filename, int set_counter);
 void set_file_path (CONVERTER *self, char *filename, char *filepath,
                     char *destination_directory);
+
+void free_generic_converter (CONVERTER *self);
 #endif
