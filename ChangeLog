@@ -1,5 +1,13 @@
 2023-11-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Update required gnulib modules for XS
+
+	* tp/Texinfo/XS:
+	Run "gnulib-tool --remove-import wcwidth c32width c32isupper", and
+	"gnulib-tool --import unictype/ctype-upper".
+
+2023-11-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revised locale-independent paragraph formatting.
 
 	* tp/Texinfo/XS/xspara.c (PARAGRAPH) <last_letter>:

@@ -32,8 +32,6 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
-#  c32isupper \
-#  c32width \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -49,6 +47,7 @@
 #  unictype/category-L \
 #  unictype/category-Mn \
 #  unictype/category-test \
+#  unictype/ctype-upper \
 #  uninorm/nfc \
 #  uninorm/nfkd \
 #  uninorm/u8-normalize \
@@ -61,8 +60,7 @@
 #  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
 #  unsetenv \
-#  vasprintf \
-#  wcwidth
+#  vasprintf
 
 AUTOMAKE_OPTIONS = 1.14 gnits subdir-objects
 
@@ -92,7 +90,6 @@ libgnu_la_DEPENDENCIES = $(gl_LTLIBOBJS)
 EXTRA_libgnu_la_SOURCES =
 libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 libgnu_la_LDFLAGS += -no-undefined
-libgnu_la_LDFLAGS += $(LTLIBC32CONV)
 libgnu_la_LDFLAGS += $(LTLIBICONV)
 libgnu_la_LDFLAGS += $(LTLIBINTL)
 libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
@@ -198,20 +195,6 @@ libgnu_la_SOURCES += c-strcase.h c-strcasecmp.c c-strncasecmp.c
 EXTRA_DIST += c-strcaseeq.h
 
 ## end   gnulib module c-strcaseeq
-
-## begin gnulib module c32isupper
-
-libgnu_la_SOURCES += c32isupper.c
-
-EXTRA_DIST += c32is-impl.h
-
-## end   gnulib module c32isupper
-
-## begin gnulib module c32width
-
-libgnu_la_SOURCES += c32width.c
-
-## end   gnulib module c32width
 
 ## begin gnulib module errno
 
@@ -503,14 +486,6 @@ MOSTLYCLEANFILES += limits.h limits.h-t
 EXTRA_DIST += limits.in.h
 
 ## end   gnulib module limits-h
-
-## begin gnulib module localcharset
-
-libgnu_la_SOURCES += localcharset.c
-
-EXTRA_DIST += localcharset.h
-
-## end   gnulib module localcharset
 
 ## begin gnulib module malloca
 
@@ -1221,86 +1196,6 @@ MOSTLYCLEANFILES += sys/types.h sys/types.h-t
 EXTRA_DIST += sys_types.in.h
 
 ## end   gnulib module sys_types
-
-## begin gnulib module uchar
-
-BUILT_SOURCES += uchar.h
-
-uchar.h: uchar.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's/@''HAVE_UCHAR_H''@/$(HAVE_UCHAR_H)/g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_UCHAR_H''@|$(NEXT_UCHAR_H)|g' \
-	      -e 's|@''CXX_HAS_CHAR8_TYPE''@|$(CXX_HAS_CHAR8_TYPE)|g' \
-	      -e 's|@''CXX_HAS_UCHAR_TYPES''@|$(CXX_HAS_UCHAR_TYPES)|g' \
-	      -e 's|@''SMALL_WCHAR_T''@|$(SMALL_WCHAR_T)|g' \
-	      -e 's|@''GNULIBHEADERS_OVERRIDE_CHAR8_T''@|$(GNULIBHEADERS_OVERRIDE_CHAR8_T)|g' \
-	      -e 's|@''GNULIBHEADERS_OVERRIDE_CHAR16_T''@|$(GNULIBHEADERS_OVERRIDE_CHAR16_T)|g' \
-	      -e 's|@''GNULIBHEADERS_OVERRIDE_CHAR32_T''@|$(GNULIBHEADERS_OVERRIDE_CHAR32_T)|g' \
-	      -e 's/@''GNULIB_BTOC32''@/$(GL_GNULIB_BTOC32)/g' \
-	      -e 's/@''GNULIB_BTOWC''@/$(GL_GNULIB_BTOWC)/g' \
-	      -e 's/@''GNULIB_C32ISALNUM''@/$(GL_GNULIB_C32ISALNUM)/g' \
-	      -e 's/@''GNULIB_C32ISALPHA''@/$(GL_GNULIB_C32ISALPHA)/g' \
-	      -e 's/@''GNULIB_C32ISBLANK''@/$(GL_GNULIB_C32ISBLANK)/g' \
-	      -e 's/@''GNULIB_C32ISCNTRL''@/$(GL_GNULIB_C32ISCNTRL)/g' \
-	      -e 's/@''GNULIB_C32ISDIGIT''@/$(GL_GNULIB_C32ISDIGIT)/g' \
-	      -e 's/@''GNULIB_C32ISGRAPH''@/$(GL_GNULIB_C32ISGRAPH)/g' \
-	      -e 's/@''GNULIB_C32ISLOWER''@/$(GL_GNULIB_C32ISLOWER)/g' \
-	      -e 's/@''GNULIB_C32ISPRINT''@/$(GL_GNULIB_C32ISPRINT)/g' \
-	      -e 's/@''GNULIB_C32ISPUNCT''@/$(GL_GNULIB_C32ISPUNCT)/g' \
-	      -e 's/@''GNULIB_C32ISSPACE''@/$(GL_GNULIB_C32ISSPACE)/g' \
-	      -e 's/@''GNULIB_C32ISUPPER''@/$(GL_GNULIB_C32ISUPPER)/g' \
-	      -e 's/@''GNULIB_C32ISXDIGIT''@/$(GL_GNULIB_C32ISXDIGIT)/g' \
-	      -e 's/@''GNULIB_C32TOLOWER''@/$(GL_GNULIB_C32TOLOWER)/g' \
-	      -e 's/@''GNULIB_C32TOUPPER''@/$(GL_GNULIB_C32TOUPPER)/g' \
-	      -e 's/@''GNULIB_C32WIDTH''@/$(GL_GNULIB_C32WIDTH)/g' \
-	      -e 's/@''GNULIB_C32RTOMB''@/$(GL_GNULIB_C32RTOMB)/g' \
-	      -e 's/@''GNULIB_C32SNRTOMBS''@/$(GL_GNULIB_C32SNRTOMBS)/g' \
-	      -e 's/@''GNULIB_C32SRTOMBS''@/$(GL_GNULIB_C32SRTOMBS)/g' \
-	      -e 's/@''GNULIB_C32STOMBS''@/$(GL_GNULIB_C32STOMBS)/g' \
-	      -e 's/@''GNULIB_C32SWIDTH''@/$(GL_GNULIB_C32SWIDTH)/g' \
-	      -e 's/@''GNULIB_C32TOB''@/$(GL_GNULIB_C32TOB)/g' \
-	      -e 's/@''GNULIB_C32_APPLY_MAPPING''@/$(GL_GNULIB_C32_APPLY_MAPPING)/g' \
-	      -e 's/@''GNULIB_C32_APPLY_TYPE_TEST''@/$(GL_GNULIB_C32_APPLY_TYPE_TEST)/g' \
-	      -e 's/@''GNULIB_C32_GET_MAPPING''@/$(GL_GNULIB_C32_GET_MAPPING)/g' \
-	      -e 's/@''GNULIB_C32_GET_TYPE_TEST''@/$(GL_GNULIB_C32_GET_TYPE_TEST)/g' \
-	      -e 's/@''GNULIB_ISWCTYPE''@/$(GL_GNULIB_ISWCTYPE)/g' \
-	      -e 's/@''GNULIB_ISWDIGIT''@/$(GL_GNULIB_ISWDIGIT)/g' \
-	      -e 's/@''GNULIB_ISWXDIGIT''@/$(GL_GNULIB_ISWXDIGIT)/g' \
-	      -e 's/@''GNULIB_MBRTOC16''@/$(GL_GNULIB_MBRTOC16)/g' \
-	      -e 's/@''GNULIB_MBRTOC32''@/$(GL_GNULIB_MBRTOC32)/g' \
-	      -e 's/@''GNULIB_MBSNRTOC32S''@/$(GL_GNULIB_MBSNRTOC32S)/g' \
-	      -e 's/@''GNULIB_MBSNRTOWCS''@/$(GL_GNULIB_MBSNRTOWCS)/g' \
-	      -e 's/@''GNULIB_MBSRTOC32S''@/$(GL_GNULIB_MBSRTOC32S)/g' \
-	      -e 's/@''GNULIB_MBSRTOWCS''@/$(GL_GNULIB_MBSRTOWCS)/g' \
-	      -e 's/@''GNULIB_MBSTOC32S''@/$(GL_GNULIB_MBSTOC32S)/g' \
-	      -e 's/@''GNULIB_TOWCTRANS''@/$(GL_GNULIB_TOWCTRANS)/g' \
-	      -e 's/@''GNULIB_WCSNRTOMBS''@/$(GL_GNULIB_WCSNRTOMBS)/g' \
-	      -e 's/@''GNULIB_WCSRTOMBS''@/$(GL_GNULIB_WCSRTOMBS)/g' \
-	      -e 's/@''GNULIB_WCSWIDTH''@/$(GL_GNULIB_WCSWIDTH)/g' \
-	      -e 's/@''GNULIB_WCTOB''@/$(GL_GNULIB_WCTOB)/g' \
-	      -e 's/@''GNULIB_WCTRANS''@/$(GL_GNULIB_WCTRANS)/g' \
-	      -e 's/@''GNULIB_WCTYPE''@/$(GL_GNULIB_WCTYPE)/g' \
-	      -e 's/@''GNULIB_WCWIDTH''@/$(GL_GNULIB_WCWIDTH)/g' \
-	      -e 's|@''HAVE_C32RTOMB''@|$(HAVE_C32RTOMB)|g' \
-	      -e 's|@''HAVE_MBRTOC16''@|$(HAVE_MBRTOC16)|g' \
-	      -e 's|@''HAVE_MBRTOC32''@|$(HAVE_MBRTOC32)|g' \
-	      -e 's|@''REPLACE_C32RTOMB''@|$(REPLACE_C32RTOMB)|g' \
-	      -e 's|@''REPLACE_MBRTOC16''@|$(REPLACE_MBRTOC16)|g' \
-	      -e 's|@''REPLACE_MBRTOC32''@|$(REPLACE_MBRTOC32)|g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/uchar.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += uchar.h uchar.h-t
-
-EXTRA_DIST += uchar.in.h
-
-## end   gnulib module uchar
 
 ## begin gnulib module unicase/base
 
@@ -2400,63 +2295,6 @@ MOSTLYCLEANFILES += wchar.h wchar.h-t1 wchar.h-t2 wchar.h-t3
 EXTRA_DIST += wchar.in.h
 
 ## end   gnulib module wchar
-
-## begin gnulib module wctype-h
-
-BUILT_SOURCES += wctype.h
-libgnu_la_SOURCES += wctype-h.c
-
-# We need the following in order to create <wctype.h> when the system
-# doesn't have one that works with the given compiler.
-wctype.h: wctype.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's/@''HAVE_WCTYPE_H''@/$(HAVE_WCTYPE_H)/g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_WCTYPE_H''@|$(NEXT_WCTYPE_H)|g' \
-	      -e 's/@''HAVE_CRTDEFS_H''@/$(HAVE_CRTDEFS_H)/g' \
-	      -e 's/@''GNULIBHEADERS_OVERRIDE_WINT_T''@/$(GNULIBHEADERS_OVERRIDE_WINT_T)/g' \
-	      -e 's/@''GNULIB_ISWBLANK''@/$(GL_GNULIB_ISWBLANK)/g' \
-	      -e 's/@''GNULIB_ISWDIGIT''@/$(GL_GNULIB_ISWDIGIT)/g' \
-	      -e 's/@''GNULIB_ISWPUNCT''@/$(GL_GNULIB_ISWPUNCT)/g' \
-	      -e 's/@''GNULIB_ISWXDIGIT''@/$(GL_GNULIB_ISWXDIGIT)/g' \
-	      -e 's/@''GNULIB_WCTYPE''@/$(GL_GNULIB_WCTYPE)/g' \
-	      -e 's/@''GNULIB_ISWCTYPE''@/$(GL_GNULIB_ISWCTYPE)/g' \
-	      -e 's/@''GNULIB_WCTRANS''@/$(GL_GNULIB_WCTRANS)/g' \
-	      -e 's/@''GNULIB_TOWCTRANS''@/$(GL_GNULIB_TOWCTRANS)/g' \
-	      -e 's/@''HAVE_ISWBLANK''@/$(HAVE_ISWBLANK)/g' \
-	      -e 's/@''HAVE_ISWCNTRL''@/$(HAVE_ISWCNTRL)/g' \
-	      -e 's/@''HAVE_WCTYPE_T''@/$(HAVE_WCTYPE_T)/g' \
-	      -e 's/@''HAVE_WCTRANS_T''@/$(HAVE_WCTRANS_T)/g' \
-	      -e 's/@''HAVE_WINT_T''@/$(HAVE_WINT_T)/g' \
-	      -e 's/@''REPLACE_ISWBLANK''@/$(REPLACE_ISWBLANK)/g' \
-	      -e 's/@''REPLACE_ISWDIGIT''@/$(REPLACE_ISWDIGIT)/g' \
-	      -e 's/@''REPLACE_ISWPUNCT''@/$(REPLACE_ISWPUNCT)/g' \
-	      -e 's/@''REPLACE_ISWXDIGIT''@/$(REPLACE_ISWXDIGIT)/g' \
-	      -e 's/@''REPLACE_ISWCNTRL''@/$(REPLACE_ISWCNTRL)/g' \
-	      -e 's/@''REPLACE_TOWLOWER''@/$(REPLACE_TOWLOWER)/g' \
-	      -e 's/@''REPLACE_WCTRANS''@/$(REPLACE_WCTRANS)/g' \
-	      -e 's/@''REPLACE_WCTYPE''@/$(REPLACE_WCTYPE)/g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/wctype.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += wctype.h wctype.h-t
-
-EXTRA_DIST += wctype.in.h
-
-## end   gnulib module wctype-h
-
-## begin gnulib module wcwidth
-
-if GL_COND_OBJ_WCWIDTH
-libgnu_la_SOURCES += wcwidth.c
-endif
-
-## end   gnulib module wcwidth
 
 ## begin gnulib module xalloc-oversized
 

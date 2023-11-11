@@ -86,7 +86,6 @@ tp/Texinfo/XS/gnulib/lib/stdlib.h
 tp/Texinfo/XS/gnulib/lib/unistd.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
-tp/Texinfo/XS/gnulib/lib/uchar.h
 tp/Texinfo/XS/gnulib/lib/uniconv.h
 tp/Texinfo/XS/gnulib/lib/unistr.h
 
@@ -309,7 +308,6 @@ tp/Texinfo/XS/gnulib/lib/uninorm.h
 tp/Texinfo/XS/gnulib/lib/unitypes.h
 tp/Texinfo/XS/gnulib/lib/uniwidth.h
 tp/Texinfo/XS/gnulib/lib/wchar.h
-tp/Texinfo/XS/gnulib/lib/wctype.h
 tp/Texinfo/XS/gnulib/lib/sys/types.h
 
 tp/Texinfo/XS/gnulib/m4/libtool.m4
