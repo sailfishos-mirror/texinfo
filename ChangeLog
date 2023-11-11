@@ -1,3 +1,24 @@
+2023-11-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revised locale-independent paragraph formatting.
+
+	* tp/Texinfo/XS/xspara.c (PARAGRAPH) <last_letter>:
+	Declare as char32_t instead of wchar_t.
+
+	(xspara_add_text, xspara__add_next): Use gnulib/libunstring
+	function u8_mbtouc instead of mbrtowc or btowc, uc_width instead
+	of wcwidth, and uc_is_upper instead of iswupper.
+
+	(xspara_init): Eliminate lengthy code attempting to switch to
+	a locale with UTF-8 encoding.
+
+	* tp/Texinfo/XS/Makefile.am (XSParagraph_la_LDFLAGS):
+	Link with $(LTLIBC32CONV), set from gnulib.
+
+	Patch originally applied 2023-11-09 and reverted 2023-11-10.
+	Advice to use uc_width instead of c32width from Bruno Haible.
+	c32width does not work for non-ASCII characters in the C locale.
+
 2023-11-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_destroy),
