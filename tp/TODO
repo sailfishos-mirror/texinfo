@@ -42,12 +42,15 @@ command_special_variety_name_index
 converter todo get from perl, code in html converter
 directions_strings
 
-converter output state reset
+converter output state/document reset
 global_units_directions html_initialize_output_state
 special_unit_info_tree html_finalize_output_state
 html_targets html_finalize_output_state
 seen_ids html_finalize_output_state
 html_special_targets html_finalize_output_state
+index_entries html_finalize_output_state/destroy_merged_indices
+index_entries_by_letter (letter string, letter entries...) html_finalize_output_state/destroy_indices_sorted_by_letter
+title_titlepage html_finalize_output_state
 
 converter free
 special_units_direction_name html_finalize_output_state
@@ -58,15 +61,28 @@ html_targets
 seen_ids
 html_special_targets
 special_unit_info_tree
-special_unit_varieties
-pre_class_types
 translated_commands translated_command->translation:strdup
 expanded_formats
 error_messages: with a check that it is empty?
 conf
 init_conf
-index_entries
-index_entries_by_letter (letter string, letter entries...)
+no_arg_formatted_cmd
+pre_class_types
+special_unit_varieties
+html_command_conversion
+no_arg_formatted_cmd_translated + check
+reset_target_commands + check
+file_changed_counter + check
+
+to check as it should be reset as the HTML state is always synced
+tree_to_build
+document_context_change
+document_contexts_to_pop
+
+to check
+document_global_context
+ignore_notice
++ html_document_context
 
 
 Bugs

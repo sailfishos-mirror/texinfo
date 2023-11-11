@@ -2527,12 +2527,27 @@ html_finalize_output_state (CONVERTER *self)
     {
       reset_html_targets (&self->html_special_targets[i]);
     }
+
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;
   free (self->output_unit_file_indices);
   self->output_unit_file_indices = 0;
   free (self->special_unit_file_indices);
   self->special_unit_file_indices = 0;
+  free (self->title_titlepage);
+  self->title_titlepage = 0;
+
+  if (self->index_entries)
+    {
+      destroy_merged_indices (self->index_entries);
+      self->index_entries = 0;
+    }
+  if (self->index_entries_by_letter)
+    {
+      destroy_indices_sorted_by_letter (self->index_entries_by_letter);
+      self->index_entries_by_letter = 0;
+    }
+
   html_pop_document_context (self);
 }
 

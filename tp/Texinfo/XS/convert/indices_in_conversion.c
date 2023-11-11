@@ -101,6 +101,39 @@ merge_indices (INDEX **index_names)
   return merged_indices;
 }
 
+void
+destroy_merged_indices (MERGED_INDEX *merged_indices)
+{
+  MERGED_INDEX *index;
+
+  for (index = merged_indices; index->name; index++)
+    {
+      free (index->index_entries);
+    }
+  free (merged_indices);
+}
+
+void
+destroy_indices_sorted_by_letter (
+         INDEX_SORTED_BY_LETTER *indices_entries_by_letter)
+{
+  INDEX_SORTED_BY_LETTER *index;
+
+  for (index = indices_entries_by_letter; index->name; index++)
+    {
+      int i;
+      free (index->name);
+      for (i = 0; i < index->letter_number; i++)
+        {
+          LETTER_INDEX_ENTRIES *letter_entries = &index->letter_entries[i];
+          free (letter_entries->letter);
+          free (letter_entries->entries);
+        }
+      free (index->letter_entries);
+    }
+  free (indices_entries_by_letter);
+}
+
 /* corresponding perl code in Texinfo::Common */
 
 ELEMENT *
