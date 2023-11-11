@@ -1,3 +1,28 @@
+2023-11-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove hevea support from texi2dvi
+
+	* util/texi2dvi (run_hevea, run_tex4ht): Remove.
+	(run_tex_suite): Call run_tex directly instead of run_core_conversion.
+	(run_core_conversion): Remove.
+
+	(top level): Remove options --info, --html, --text, --tex4ht.
+	(out_lang_set, out_lang_ext, out_lang_tex):
+	Do not recognize "html", "info" or "text".
+	(usage): Update usage message.
+
+	(latex2html): Remove variable.
+	(index_file_p, make_tex_cmd, run_index, run_tex_suite):
+	Do not check value of $latex2html.
+
+	It did not work at all due to calls to make_tex_cmd in
+	run_tex_suite (added 2019-04-08) and in make_openout_text, called
+	via decide_aux_files_method (added 2015-09-02).  Even when I
+	disabled those calls, there were other errors.	Since nobody
+	has complained in 8 years, it is probably not important, and
+	it complicates the script significantly anyway, integrated into
+	many parts of the code for a very rare if non-existent use case.
+
 2023-11-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_finalize_output_state),
