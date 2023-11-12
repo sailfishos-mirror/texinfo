@@ -1588,10 +1588,10 @@ number_floats (DOCUMENT *document)
       int nr_in_chapter = 0;
       ELEMENT *current_chapter = 0;
       size_t j;
-      for (j = 0; j < listoffloats->float_list->contents.number; j++)
+      for (j = 0; j < listoffloats->float_list.number; j++)
         {
           static TEXT number;
-          ELEMENT *float_elt = listoffloats->float_list->contents.list[j];
+          ELEMENT *float_elt = listoffloats->float_list.list[j];
           char *normalized = lookup_extra_string (float_elt, "normalized");
           ELEMENT *up;
 

@@ -266,7 +266,7 @@ typedef struct {
 
 typedef struct {
     char *type;
-    ELEMENT *float_list;
+    ELEMENT_LIST float_list;
 } LISTOFFLOATS_TYPE;
 
 typedef struct {

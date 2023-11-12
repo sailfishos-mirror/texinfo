@@ -50,22 +50,7 @@ add_to_float_record_list (FLOAT_RECORD_LIST *float_records, char *type,
   float_records->number++;
 }
 
-void
-add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type,
-                          ELEMENT *element)
-{
-  if (listoffloats_list->number == listoffloats_list->space)
-    {
-      listoffloats_list->float_types
-               = realloc (listoffloats_list->float_types,
-                  (listoffloats_list->space += 5) * sizeof (LISTOFFLOATS_TYPE));
-    }
-  listoffloats_list->float_types[listoffloats_list->number].type = strdup (type);
-  listoffloats_list->float_types[listoffloats_list->number].float_list = element;
-  listoffloats_list->number++;
-}
-
-LISTOFFLOATS_TYPE *
+static LISTOFFLOATS_TYPE *
 find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *float_type)
 {
   size_t i;
@@ -76,6 +61,30 @@ find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *float_type)
         return listoffloats;
     }
   return 0;
+}
+
+static LISTOFFLOATS_TYPE *
+add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type)
+{
+  LISTOFFLOATS_TYPE * result = find_float_type (listoffloats_list, type);
+
+  if (result)
+    return result;
+
+  if (listoffloats_list->number == listoffloats_list->space)
+    {
+      listoffloats_list->float_types
+               = realloc (listoffloats_list->float_types,
+                  (listoffloats_list->space += 5) * sizeof (LISTOFFLOATS_TYPE));
+    }
+
+  result = &listoffloats_list->float_types[listoffloats_list->number];
+  memset (result, 0, sizeof (LISTOFFLOATS_TYPE));
+  result->type = strdup (type);
+
+  listoffloats_list->number++;
+
+  return result;
 }
 
 LISTOFFLOATS_TYPE_LIST *
@@ -96,22 +105,12 @@ float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list)
         {
           FLOAT_RECORD *float_record = &floats_list->list[i];
           char *float_type = float_record->type;
-          ELEMENT *listoffloats_floats;
 
-          LISTOFFLOATS_TYPE *listoffloats_type_record = find_float_type (result,
-                                                                    float_type);
-          /* add a new container of floats by float_type */
-          if (!listoffloats_type_record)
-            {
-              listoffloats_floats = new_element (ET_NONE);
-              add_to_listoffloats_list (result, float_type,
-                                        listoffloats_floats);
-            }
-          else
-            listoffloats_floats = listoffloats_type_record->float_list;
+          LISTOFFLOATS_TYPE *listoffloats_type
+            = add_to_listoffloats_list (result, float_type);
 
-          add_to_contents_as_array (listoffloats_floats,
-                                   float_record->element);
+          add_to_element_list (&listoffloats_type->float_list,
+                               float_record->element);
         }
     }
   return result;
@@ -123,8 +122,10 @@ destroy_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
   size_t i;
   for (i = 0; i < listoffloats_list->number; i++)
     {
-      free (listoffloats_list->float_types[i].type);
-      destroy_element (listoffloats_list->float_types[i].float_list);
+      LISTOFFLOATS_TYPE *listoffloats_type
+         = &listoffloats_list->float_types[i];
+      free (listoffloats_type->type);
+      free (listoffloats_type->float_list.list);
     }
   free (listoffloats_list->float_types);
   free (listoffloats_list);

@@ -1,5 +1,15 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/floats.c (add_to_listoffloats_list)
+	(float_list_to_listoffloats_list, destroy_listoffloats_list),
+	tp/Texinfo/XS/main/tree_types.h (LISTOFFLOATS_TYPE),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (number_floats):
+	use ELEMENT_LIST for float_list in listoffloats data, directly and not
+	as a pointer.  Change add_to_listoffloats_list to return the
+	listoffloats type if found, and create a new one otherwise.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	Separate types for list of floats and list of listoffloats
 
 	* tp/Texinfo/XS/main/build_perl_info.c (build_document),
