@@ -874,8 +874,9 @@ sub set_file_path($$$;$)
       $filepath = $filename;
     }
   }
-  # should not happen, the file path should be set only once
-  # per file name.
+  # the file path should be set only once per file name.  With
+  # CASE_INSENSITIVE_FILENAMES the same file path can appear more
+  # than once when files differ in case.
   if (defined($self->{'out_filepaths'}->{$filename})) {
     if ($self->{'out_filepaths'}->{$filename} eq $filepath) {
       print STDERR "set_file_path: filepath set: $filepath\n"

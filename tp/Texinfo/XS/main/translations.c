@@ -174,11 +174,17 @@ translate_string (OPTIONS *options, const char * string,
       lang = "en";
     }
 
+
+  /*
+  return strdup (string);
+   */
+
   #ifndef ENABLE_NLS
   
   translated_string = strdup (string);
 
   #else
+  /* with the following code valgrind reports issues in perl memory */
 
   /* if a code calls setlocale and accesses global locale while perl
      uses per thread locale, the result is unpredictable.  So we switch to
@@ -564,12 +570,12 @@ replace_convert_substrings (char *translated_string,
     }
 
 
+/*
   {
     char *result_texi = convert_to_texinfo (document->tree);
     debug("XS|RESULT GDT %d: '%s'\n", document_descriptor, result_texi);
     free (result_texi);
   }
-/*
 */
 
   return document_descriptor;

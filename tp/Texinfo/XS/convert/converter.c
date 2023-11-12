@@ -505,7 +505,25 @@ set_file_path (CONVERTER *self, char *filename, char *filepath,
   else
     filepath_str = filepath;
 
-  output_unit_file->filepath = strdup (filepath_str);
+  if (output_unit_file->filepath)
+    {
+      if (!strcmp (output_unit_file->filepath, filepath_str))
+        {
+          if (self->conf->DEBUG > 0)
+            fprintf (stderr, "set_file_path: filepath set: %s\n",
+                             filepath_str);
+        }
+      else
+        {
+          if (self->conf->DEBUG > 0)
+            fprintf (stderr, "set_file_path: filepath reset: %s, %s\n",
+                             output_unit_file->filepath, filepath_str);
+          free (output_unit_file->filepath);
+          output_unit_file->filepath = strdup (filepath_str);
+        }
+    }
+  else
+    output_unit_file->filepath = strdup (filepath_str);
   if (free_filepath)
     free (filepath_str);
 }

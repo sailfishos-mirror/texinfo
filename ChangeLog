@@ -1,3 +1,13 @@
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (HTML_COMMAND_STRUCT)
+	(register_format_context_command, convert_to_html_internal): set
+	context command context string dynamically.
+
+	* tp/Texinfo/XS/convert/converter.c (set_file_path): add more messages
+	for file paths already set/reset, as in perl, and handle memory
+	correctly in that case.
+
 2023-11-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (xspara__add_next, xspara_add_next):

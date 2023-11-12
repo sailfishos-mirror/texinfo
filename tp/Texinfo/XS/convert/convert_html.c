@@ -86,7 +86,6 @@ CMD_VARIETY command_special_unit_variety[] = {
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
     char *pre_class;
-    char *format_context;
 } HTML_COMMAND_STRUCT;
 
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
@@ -690,11 +689,6 @@ static enum command_id HTML_align_cmd[] = {
 void
 register_format_context_command (enum command_id cmd)
 {
-  char *context_str;
-
-  xasprintf (&context_str, "@%s", builtin_command_data[cmd].cmdname);
-
-  html_commands_data[cmd].format_context = context_str;
   html_commands_data[cmd].flags |= HF_format_context;
 }
 
@@ -3227,9 +3221,13 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
           if (html_commands_data[data_cmd].flags & HF_format_context)
             {
+              char *context_str;
+              xasprintf (&context_str, "@%s",
+                         builtin_command_data[data_cmd].cmdname);
               push_html_formatting_context (
                          &top_document_ctx->formatting_context,
-                         html_commands_data[cmd].format_context);
+                         context_str);
+              free (context_str);
               self->modified_state |= HMSF_formatting_context;
             }
 
