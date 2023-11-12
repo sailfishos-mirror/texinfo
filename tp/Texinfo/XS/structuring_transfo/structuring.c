@@ -1575,7 +1575,7 @@ associate_internal_references (DOCUMENT *document)
 void
 number_floats (DOCUMENT *document)
 {
-  FLOAT_RECORD_LIST *listoffloats_list = document->listoffloats;
+  LISTOFFLOATS_TYPE_LIST *listoffloats_list = document->listoffloats;
   size_t i;
 
   if (!listoffloats_list)
@@ -1583,15 +1583,15 @@ number_floats (DOCUMENT *document)
 
   for (i = 0; i < listoffloats_list->number; i++)
     {
-      FLOAT_RECORD *listoffloats = &listoffloats_list->float_types[i];
+      LISTOFFLOATS_TYPE *listoffloats = &listoffloats_list->float_types[i];
       int float_index = 0;
       int nr_in_chapter = 0;
       ELEMENT *current_chapter = 0;
       size_t j;
-      for (j = 0; j < listoffloats->element->contents.number; j++)
+      for (j = 0; j < listoffloats->float_list->contents.number; j++)
         {
           static TEXT number;
-          ELEMENT *float_elt = listoffloats->element->contents.list[j];
+          ELEMENT *float_elt = listoffloats->float_list->contents.list[j];
           char *normalized = lookup_extra_string (float_elt, "normalized");
           ELEMENT *up;
 

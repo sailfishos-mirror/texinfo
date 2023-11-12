@@ -1,5 +1,29 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	Separate types for list of floats and list of listoffloats
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_document),
+	tp/Texinfo/XS/main/converter_types.h (DOCUMENT),
+	tp/Texinfo/XS/main/document.c
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/floats.c (add_to_float_record_list)
+	(add_to_listoffloats_list, find_float_type)
+	(float_list_to_listoffloats_list, destroy_listoffloats_list),
+	tp/Texinfo/XS/main/tree_types.h (LISTOFFLOATS_TYPE)
+	(LISTOFFLOATS_TYPE_LIST, FLOAT_RECORD_LIST),
+	tp/Texinfo/XS/parsetexi/parser.c (store_document),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (number_floats):
+	add new types for listoffloats lists LISTOFFLOATS_TYPE_LIST instead of
+	using the same as for floats lists. Rename a field of floats lists
+	structure. Add add_to_listoffloats_list as a distinct function to add
+	to LISTOFFLOATS_TYPE_LIST. Update DOCUMENT and functions to use the
+	relevant types.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): no
+	initialization of float_type, it is not used and is confusing.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.h (parser_float_list),
 	tp/Texinfo/XS/parsetexi/parser.c (store_document),
 	tp/Texinfo/XS/parsetexi/end_line.c (parser_float_list)

@@ -1176,7 +1176,7 @@ build_document (size_t document_descriptor, int no_store)
      for example build_listoffloats_list that would create the
      hv_listoffloats_list based on document->listoffloats. */
   hv_listoffloats_list
-         = build_float_types_list (document->floats->float_types,
+         = build_float_types_list (document->floats->list,
                                    document->floats->number);
 
   av_internal_xref = build_internal_xref_list (

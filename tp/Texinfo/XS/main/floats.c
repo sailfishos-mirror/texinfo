@@ -1,5 +1,5 @@
 /* Copyright 2010-2023 Free Software Foundation, Inc.
-  
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -24,11 +24,11 @@
 
 char *
 parse_float_type (ELEMENT *current)
-{   
+{
   char *normalized;
   if (current->args.number > 0)
     normalized = convert_to_normalized (current->args.list[0]);
-  else  
+  else
     normalized = strdup ("");
   add_extra_string (current, "float_type", normalized);
   return normalized;
@@ -40,33 +40,49 @@ add_to_float_record_list (FLOAT_RECORD_LIST *float_records, char *type,
 {
   if (float_records->number == float_records->space)
     {
-      float_records->float_types
-               = realloc (float_records->float_types,
+      float_records->list
+               = realloc (float_records->list,
                           (float_records->space += 5) * sizeof (FLOAT_RECORD));
     }
-  float_records->float_types[float_records->number].type = type;
-  float_records->float_types[float_records->number].element = element;
+  /* string stored in element extra */
+  float_records->list[float_records->number].type = type;
+  float_records->list[float_records->number].element = element;
   float_records->number++;
 }
 
-FLOAT_RECORD *
-find_float_type (FLOAT_RECORD_LIST *float_records, char *float_type)
+void
+add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type,
+                          ELEMENT *element)
+{
+  if (listoffloats_list->number == listoffloats_list->space)
+    {
+      listoffloats_list->float_types
+               = realloc (listoffloats_list->float_types,
+                  (listoffloats_list->space += 5) * sizeof (LISTOFFLOATS_TYPE));
+    }
+  listoffloats_list->float_types[listoffloats_list->number].type = strdup (type);
+  listoffloats_list->float_types[listoffloats_list->number].float_list = element;
+  listoffloats_list->number++;
+}
+
+LISTOFFLOATS_TYPE *
+find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *float_type)
 {
   size_t i;
-  for (i = 0; i < float_records->number; i++)
+  for (i = 0; i < listoffloats_list->number; i++)
     {
-      FLOAT_RECORD *record = &float_records->float_types[i];
-      if (!strcmp (record->type, float_type))
-        return record;
+      LISTOFFLOATS_TYPE *listoffloats = &listoffloats_list->float_types[i];
+      if (!strcmp (listoffloats->type, float_type))
+        return listoffloats;
     }
   return 0;
 }
 
-FLOAT_RECORD_LIST *
+LISTOFFLOATS_TYPE_LIST *
 float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list)
 {
-  FLOAT_RECORD_LIST *result = malloc (sizeof (FLOAT_RECORD_LIST));
-  memset (result, 0, sizeof (FLOAT_RECORD_LIST));
+  LISTOFFLOATS_TYPE_LIST *result = malloc (sizeof (LISTOFFLOATS_TYPE_LIST));
+  memset (result, 0, sizeof (LISTOFFLOATS_TYPE_LIST));
 
   /* a zero floats_list is unusual, it cannot happen when a document
      comes from parsing of Texinfo, but it may happen with a document
@@ -78,23 +94,23 @@ float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list)
 
       for (i = 0; i < floats_list->number; i++)
         {
-          FLOAT_RECORD *float_record = &floats_list->float_types[i];
+          FLOAT_RECORD *float_record = &floats_list->list[i];
           char *float_type = float_record->type;
-          ELEMENT *listoffloats_element;
+          ELEMENT *listoffloats_floats;
 
-          FLOAT_RECORD *listoffloats_type_record = find_float_type (result,
-                                                                 float_type);
+          LISTOFFLOATS_TYPE *listoffloats_type_record = find_float_type (result,
+                                                                    float_type);
           /* add a new container of floats by float_type */
           if (!listoffloats_type_record)
             {
-              listoffloats_element = new_element (ET_NONE);
-              add_to_float_record_list (result, strdup (float_type),
-                                        listoffloats_element);
+              listoffloats_floats = new_element (ET_NONE);
+              add_to_listoffloats_list (result, float_type,
+                                        listoffloats_floats);
             }
           else
-            listoffloats_element = listoffloats_type_record->element;
+            listoffloats_floats = listoffloats_type_record->float_list;
 
-          add_to_contents_as_array (listoffloats_element,
+          add_to_contents_as_array (listoffloats_floats,
                                    float_record->element);
         }
     }
@@ -102,15 +118,16 @@ float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list)
 }
 
 void
-destroy_listoffloats_list (FLOAT_RECORD_LIST *listoffloats_list)
+destroy_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
 {
   size_t i;
   for (i = 0; i < listoffloats_list->number; i++)
     {
       free (listoffloats_list->float_types[i].type);
-      destroy_element (listoffloats_list->float_types[i].element);
+      destroy_element (listoffloats_list->float_types[i].float_list);
     }
   free (listoffloats_list->float_types);
   free (listoffloats_list);
 }
+
 

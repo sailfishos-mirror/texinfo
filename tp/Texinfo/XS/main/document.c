@@ -139,7 +139,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->global_commands);
       free (document->internal_references->list);
       free (document->internal_references);
-      free (document->floats->float_types);
+      free (document->floats->list);
       free (document->floats);
       destroy_listoffloats_list (document->listoffloats);
       free (document->labels_list->list);

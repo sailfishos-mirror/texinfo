@@ -836,7 +836,7 @@ end_line_starting_block (ELEMENT *current)
 
   if (command == CM_float)
     {
-      char *float_type = "";
+      char *float_type;
       ELEMENT *float_label_element = 0;
       current->source_info = current_source_info;
       if (current->args.number >= 2)

@@ -199,7 +199,7 @@ typedef struct DOCUMENT {
     ELEMENT *tree;
     INDEX **index_names;
     FLOAT_RECORD_LIST *floats;
-    FLOAT_RECORD_LIST *listoffloats;
+    LISTOFFLOATS_TYPE_LIST *listoffloats;
     ELEMENT_LIST *internal_references;
     LABEL_LIST *labels_list;
     LABEL_LIST *identifiers_target;

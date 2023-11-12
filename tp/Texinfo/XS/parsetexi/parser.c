@@ -2510,10 +2510,10 @@ store_document (ELEMENT *root)
   labels->space = labels_number;
 
   floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  parser_float_list.float_types = realloc (parser_float_list.float_types,
+  parser_float_list.list = realloc (parser_float_list.list,
         parser_float_list.number * sizeof (FLOAT_RECORD));
 
-  floats->float_types = parser_float_list.float_types;
+  floats->list = parser_float_list.list;
   floats->number = parser_float_list.number;
   floats->space = parser_float_list.number;
 

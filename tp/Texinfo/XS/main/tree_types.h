@@ -266,13 +266,24 @@ typedef struct {
 
 typedef struct {
     char *type;
+    ELEMENT *float_list;
+} LISTOFFLOATS_TYPE;
+
+typedef struct {
+    size_t number;
+    size_t space;
+    LISTOFFLOATS_TYPE *float_types;
+} LISTOFFLOATS_TYPE_LIST;
+
+typedef struct {
+    char *type;
     ELEMENT *element;
 } FLOAT_RECORD;
 
 typedef struct {
     size_t number;
     size_t space;
-    FLOAT_RECORD *float_types;
+    FLOAT_RECORD *list;
 } FLOAT_RECORD_LIST;
 
 typedef struct STRING_LIST {
