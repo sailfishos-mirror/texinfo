@@ -308,42 +308,51 @@ insert_into_args (ELEMENT *parent, ELEMENT *e, int where)
   e->parent = parent;
 }
 
-/* Insert elements to the contents of TO at position WHERE from FROM
+/* Insert elements to TO at position WHERE from FROM from START inclusive
+   to END exclusive. */
+void
+insert_list_slice_into_list (ELEMENT_LIST *to, int where, ELEMENT_LIST *from,
+                             int start, int end)
+{
+  int num = end - start;
+  reallocate_list_for (num, to);
+
+  memmove (&to->list[where + num],
+           &to->list[where],
+           (to->number - where) * sizeof (ELEMENT *));
+  memmove (&to->list[where],
+           &from->list[start],
+           num * sizeof (ELEMENT *));
+
+  to->number += num;
+}
+
+/* Insert elements to the contents of TO at position WHERE from FROM contents
    from START inclusive to END exclusive.  Do not set the parent fields. */
 void
 insert_slice_into_contents (ELEMENT *to, int where, ELEMENT *from,
                             int start, int end)
 {
-  int num = end - start;
-  reallocate_list_for (num, &to->contents);
-
-  memmove (&to->contents.list[where + num],
-           &to->contents.list[where],
-           (to->contents.number - where) * sizeof (ELEMENT *));
-  memmove (&to->contents.list[where],
-           &from->contents.list[start],
-           num * sizeof (ELEMENT *));
-
-  to->contents.number += num;
+  insert_list_slice_into_list (&to->contents, where, &from->contents,
+                               start, end);
 }
 
-/* Insert elements to the args of TO at position WHERE from FROM contents
-   from START inclusive to END exclusive.  Do not set the parent fields. */
+/* Insert elements to the args of TO at position WHERE from FROM
+   from START inclusive to END exclusive. */
 void
-insert_contents_slice_into_args (ELEMENT *to, int where, ELEMENT *from,
+insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
+                             int start, int end)
+{
+  insert_list_slice_into_list (&to->args, where, from, start, end);
+}
+
+/* Insert elements to the contents of TO at position WHERE from FROM
+   from START inclusive to END exclusive. */
+void
+insert_list_slice_into_contents (ELEMENT *to, int where, ELEMENT_LIST *from,
                                  int start, int end)
 {
-  int num = end - start;
-  reallocate_list_for (num, &to->args);
-
-  memmove (&to->args.list[where + num],
-           &to->args.list[where],
-           (to->args.number - where) * sizeof (ELEMENT *));
-  memmove (&to->args.list[where],
-           &from->contents.list[start],
-           num * sizeof (ELEMENT *));
-
-  to->args.number += num;
+  insert_list_slice_into_list (&to->contents, where, from, start, end);
 }
 
 /* ensure that there are n slots, and void them */

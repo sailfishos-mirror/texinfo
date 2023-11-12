@@ -171,7 +171,7 @@ protect_first_parenthesis (ELEMENT *element)
 /* in Common.pm */
 ELEMENT *
 modify_tree (ELEMENT *tree,
-             ELEMENT *(*operation)(const char *type, ELEMENT *element, void* argument),
+             ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
              void *argument)
 {
   if (tree->args.number > 0)
@@ -179,19 +179,18 @@ modify_tree (ELEMENT *tree,
       int i;
       for (i = 0; i < tree->args.number; i++)
         {
-          ELEMENT *new_args;
+          ELEMENT_LIST *new_args;
           new_args = (*operation) ("arg", tree->args.list[i], argument);
           if (new_args)
             {
               /* *operation should take care of destroying removed element */
-              /* NOTE even when we replace the args, we use the contents of the
-                 temporary container element returned by (*operation). */
               remove_from_args (tree, i);
-              insert_contents_slice_into_args (tree, i,
-                                               new_args, 0,
-                                               new_args->contents.number);
-              i += new_args->contents.number -1;
-              destroy_element (new_args);
+              insert_list_slice_into_args (tree, i,
+                                           new_args, 0,
+                                           new_args->number);
+              i += new_args->number -1;
+              free (new_args->list);
+              free (new_args);
             }
           else
             modify_tree (tree->args.list[i], operation, argument);
@@ -202,18 +201,19 @@ modify_tree (ELEMENT *tree,
       int i;
       for (i = 0; i < tree->contents.number; i++)
         {
-          ELEMENT *new_contents;
+          ELEMENT_LIST *new_contents;
           new_contents = (*operation) ("content", tree->contents.list[i],
                                        argument);
           if (new_contents)
             {
               /* *operation should take care of destroying removed element */
               remove_from_contents (tree, i);
-              insert_slice_into_contents (tree, i,
-                                          new_contents, 0,
-                                          new_contents->contents.number);
-              i += new_contents->contents.number -1;
-              destroy_element (new_contents);
+              insert_list_slice_into_contents (tree, i,
+                                              new_contents, 0,
+                                              new_contents->number);
+              i += new_contents->number -1;
+              free (new_contents->list);
+              free (new_contents);
             }
           else
             modify_tree (tree->contents.list[i], operation, argument);
@@ -226,7 +226,7 @@ modify_tree (ELEMENT *tree,
         {
           if (tree->source_mark_list.list[i]->element)
             {
-              ELEMENT *new_element;
+              ELEMENT_LIST *new_element;
               new_element = (*operation) ("source_mark",
                                      tree->source_mark_list.list[i]->element,
                                           argument);
@@ -234,7 +234,10 @@ modify_tree (ELEMENT *tree,
                 {
                   /* FIXME destroy previous element? or let (*operation)
                      do it? */
-                  tree->source_mark_list.list[i]->element = new_element;
+                  tree->source_mark_list.list[i]->element
+                      = new_element->list[0];
+                  free (new_element->list);
+                  free (new_element);
                 }
             }
         }
@@ -483,7 +486,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
     }
 }
 
-ELEMENT *
+ELEMENT_LIST *
 relate_index_entries_to_table_items_internal (const char *type,
                                               ELEMENT *current,
                                               void *argument)
@@ -582,7 +585,7 @@ move_index_entries_after_items (ELEMENT *current)
     }
 }
 
-ELEMENT *
+ELEMENT_LIST *
 move_index_entries_after_items_internal (const char *type,
                                          ELEMENT *current,
                                          void *argument)
@@ -735,7 +738,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
   return node;
 }
 
-ELEMENT *
+ELEMENT_LIST *
 reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 {
   ELEMENT *new_previous = (ELEMENT *) argument;
@@ -884,7 +887,7 @@ int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
  reference @-command while there could be some in the tree used in
  input for the node name tree.
  */
-ELEMENT *
+ELEMENT_LIST *
 reference_to_arg_internal (const char *type,
                            ELEMENT *e,
                            void *argument)
@@ -896,10 +899,11 @@ reference_to_arg_internal (const char *type,
       int *arguments_order = ref_5_args_order;
       /* container for the new elements to insert, will be destroyed
          by the caller */
-      ELEMENT *container = new_element (ET_NONE);
+      ELEMENT_LIST *container = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
+      memset (container, 0, sizeof (ELEMENT_LIST));
       ELEMENT *new = new_element (ET_NONE);
       new->parent = e->parent;
-      add_to_contents_as_array (container, new);
+      add_to_element_list (container, new);
       if (e->cmd == CM_inforef || e->cmd == CM_link)
         arguments_order = ref_3_args_order;
       while (arguments_order[index] >= 0)
@@ -1299,14 +1303,16 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   return 1;
 }
 
-ELEMENT *
+ELEMENT_LIST *
 protect_text (ELEMENT *current, char *to_protect)
 {
   if (current->text.end > 0 && !(current->type == ET_raw
                                  || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))
     {
-      ELEMENT *container = new_element (ET_NONE);
+      ELEMENT_LIST *container
+          = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
+      memset (container, 0, sizeof (ELEMENT_LIST));
       char *p = current->text.text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       size_t current_position = 0;
@@ -1347,7 +1353,7 @@ protect_text (ELEMENT *current, char *to_protect)
                                      current_position, u8_len);
 
           if (leading_nr || text_elt->source_mark_list.number)
-            add_to_contents_as_array (container, text_elt);
+            add_to_element_list (container, text_elt);
           else
             destroy_element (text_elt);
 
@@ -1365,7 +1371,7 @@ protect_text (ELEMENT *current, char *to_protect)
                       comma->cmd = CM_comma;
                       comma->parent = current->parent;
                       add_to_element_args (comma, brace_command_arg);
-                      add_to_contents_as_array (container, comma);
+                      add_to_element_list (container, comma);
                       if (u8_text)
                         {
                           u8_len = u8_mbsnlen (u8_p, 1);
@@ -1386,7 +1392,7 @@ protect_text (ELEMENT *current, char *to_protect)
                   p[to_protect_nr] = '\0';
                   new_command = new_asis_command_with_text(p, current->parent,
                                                            current->type);
-                  add_to_contents_as_array (container, new_command);
+                  add_to_element_list (container, new_command);
                   if (u8_text)
                     {
                       u8_len = u8_mbsnlen (u8_p, to_protect_nr);
@@ -1409,7 +1415,7 @@ protect_text (ELEMENT *current, char *to_protect)
     return 0;
 }
 
-ELEMENT *
+ELEMENT_LIST *
 protect_colon (const char *type, ELEMENT *current, void *argument)
 {
   return protect_text(current, ":");
@@ -1421,7 +1427,7 @@ protect_colon_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_colon, 0);
 }
 
-ELEMENT *
+ELEMENT_LIST *
 protect_comma (const char *type, ELEMENT *current, void *argument)
 {
   return protect_text(current, ",");
@@ -1433,7 +1439,7 @@ protect_comma_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_comma, 0);
 }
 
-ELEMENT *
+ELEMENT_LIST *
 protect_node_after_label (const char *type, ELEMENT *current, void *argument)
 {
   return protect_text(current, ".\t,");
@@ -1446,7 +1452,7 @@ protect_node_after_label_in_tree (ELEMENT *tree)
 }
 
 /* $customization_information in argument in perl */
-ELEMENT *
+ELEMENT_LIST *
 protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,
                                              void *argument)
@@ -1514,7 +1520,9 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                         }
                       else
                         {
-                          ELEMENT *container = new_element (ET_NONE);
+                          ELEMENT_LIST *container = (ELEMENT_LIST *)
+                            malloc (sizeof (ELEMENT_LIST));
+                          memset (container, 0, sizeof (ELEMENT_LIST));
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
                           int leading_spaces_nr;
@@ -1563,8 +1571,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
 
                           if (leading_spaces_nr
                               || leading_spaces->source_mark_list.number)
-                            add_to_contents_as_array (container,
-                                                      leading_spaces);
+                            add_to_element_list (container, leading_spaces);
                           else
                             destroy_element (leading_spaces);
 
@@ -1574,7 +1581,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           hashchar->cmd = CM_hashchar;
                           hashchar->parent = parent;
                           add_to_element_args (hashchar, arg);
-                          add_to_contents_as_array (container, hashchar);
+                          add_to_element_list (container, hashchar);
 
                           if (u8_text)
                             {
@@ -1602,7 +1609,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           free (source_mark_list.list);
                           free (u8_text);
 
-                          add_to_contents_as_array (container, current);
+                          add_to_element_list (container, current);
                           return container;
                         }
                     }
@@ -1622,7 +1629,7 @@ protect_hashchar_at_line_beginning (DOCUMENT *document)
                       (void *) document);
 }
 
-ELEMENT *
+ELEMENT_LIST *
 protect_first_parenthesis_in_targets_internal (const char *type,
                                                ELEMENT *current,
                                                void *argument)
