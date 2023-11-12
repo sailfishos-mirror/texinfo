@@ -79,16 +79,11 @@ sub _texi2any_tests_def_line_show_id($$$$)
   my $entry_reference_content_element
         = Texinfo::Common::index_content_element($element);
 
-  # note that in case of definition line, the translated element
-  # put in extra as index entry element has no associated spaces.
-  my $trimmed_element
-   = Texinfo::Common::trim_spaces_comment_from_content(
-                                $entry_reference_content_element);
   my $normalized_index = '';
-  if ($trimmed_element) {
+  if ($entry_reference_content_element) {
     $normalized_index =
      Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-        $trimmed_element, $no_unidecode);
+        $entry_reference_content_element, $no_unidecode);
   }
   my $target_base = "index-" . $region .$normalized_index;
 

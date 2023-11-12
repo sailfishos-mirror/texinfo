@@ -269,8 +269,6 @@ void clear_expanded_formats (EXPANDED_FORMAT *formats);
 void add_expanded_format (EXPANDED_FORMAT *formats, char *format);
 int format_expanded_p (EXPANDED_FORMAT *formats, char *format);
 
-ELEMENT *trim_spaces_comment_from_content (ELEMENT *element);
-
 char *enumerate_item_representation (char *specification, int number);
 
 CONVERTER *new_converter (void);

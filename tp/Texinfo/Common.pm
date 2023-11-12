@@ -1386,63 +1386,6 @@ sub section_level($)
   return $level;
 }
 
-# NOTE this code does nothing with the current tree, as comments
-# are in 'info' 'comment_at_end', ignorable_spaces_after_command only appear
-# in specific situations, spaces_after_close_brace are only after some
-# commands and not first in contents, while spaces_at_end are before commands
-# and not at the end of contents. Spaces will also be in 'info'
-# if at the end of contents/line.
-# Also this code is not often called, likely because it is not useful with
-# the current tree.
-# In 2023, nothing was trimmed in the test suite.
-sub trim_spaces_comment_from_content($)
-{
-  my $element = shift;
-
-  return undef if (!$element->{'contents'});
-
-  my $contents_nr = scalar(@{$element->{'contents'}});
-
-  if ($contents_nr) {
-    # index to start from, from the beginning
-    my $i = 0;
-    for ( ; $i < $contents_nr; $i++) {
-      my $content = $element->{'contents'}->[$i];
-      if (not defined ($content->{'type'})
-          or ($content->{'type'} ne 'ignorable_spaces_after_command'
-              and $content->{'type'} ne 'spaces_after_close_brace')) {
-        last;
-      #} else {
-      #  print STDERR "TRIMMED b\n";
-      }
-    }
-
-    # index to end at, from the end
-    my $j = $contents_nr - 1;
-    for ( ; $j >= 0; $j--) {
-      my $content = $element->{'contents'}->[$j];
-
-      if (($content->{'cmdname'}
-          and ($content->{'cmdname'} eq 'c'
-               or $content->{'cmdname'} eq 'comment'))
-          or ($content->{'type'}
-              and $content->{'type'} eq 'spaces_at_end')) {
-        # nothing to do
-        #print STDERR "TRIMMED l\n";
-      } else {
-        last;
-      }
-    }
-
-    if ($j < $i) {
-      return undef;
-    } else {
-      return {'contents' => [@{$element->{'contents'}}[$i..$j]]};
-    }
-  }
-  return undef;
-}
-
 # decompose a decimal number on a given base.  It is not the
 # decomposition used for counting as we start at 0, not 1 for all
 # the factors.  This is in order to get aa and not ba in calling
@@ -1650,11 +1593,7 @@ sub split_custom_heading_command_contents($)
 
   my $nr_split_contents = 0;
 
-  my $trimmed_element = trim_spaces_comment_from_content($element);
-
-  return $result if (!$trimmed_element);
-
-  my $contents_nr = scalar(@{$trimmed_element->{'contents'}});
+  my $contents_nr = scalar(@{$element->{'contents'}});
 
   if (!$contents_nr) {
     return $result;
@@ -1665,7 +1604,7 @@ sub split_custom_heading_command_contents($)
   push @{$result->{'contents'}}, $heading_element;
 
   for (my $i = 0; $i < $contents_nr; $i++) {
-    my $current_content = $trimmed_element->{'contents'}->[$i];
+    my $current_content = $element->{'contents'}->[$i];
     #print STDERR "$nr_split_contents : "
     #          .debug_print_element($current_content)."\n";
     if (defined($current_content->{'cmdname'})
@@ -3073,13 +3012,6 @@ Return an element containing the split parts in contents, or C<undef> if
 the I<$element> has no useful content.  The input I<$element>
 is supposed to be C<< $element->{'args'}->[0] >>
 of C<%Texinfo::Commands::heading_spec_commands> commands such as C<@everyheading>.
-
-=item $trimmed_element = trim_spaces_comment_from_content($element)
-X<C<trim_spaces_comment_from_content>>
-
-Return an element with contents from I<$element>, with empty spaces after
-commands or braces at begin and spaces and comments at end removed.  Return
-C<undef> if there are no remaining contents.
 
 =item $status = valid_customization_option($name)
 X<C<valid_option>>

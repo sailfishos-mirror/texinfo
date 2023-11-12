@@ -1191,59 +1191,6 @@ is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
 }
 
 /*
-  NOTE this code does nothing with the current tree, as comments
-  are in 'info' 'comment_at_end', ignorable_spaces_after_command only appear
-  in specific situations, spaces_after_close_brace are only after some
-  commands and not first in contents, while spaces_at_end are before commands
-  and not at the end of contents. Spaces will also be in 'info'
-  if at the end of contents/line.
-  Also this code is not often called, likely because it is not useful with
-  the current tree.
-  In 2023, nothing was trimmed in the test suite.
- */
-ELEMENT *
-trim_spaces_comment_from_content (ELEMENT *element)
-{
-  if (element->contents.number <= 0)
-    return 0;
-
-  if (element->contents.number > 0)
-    {
-      int i, j;
-
-      /* index to start from, from the beginning */
-      for (i = 0; i < element->contents.number; i++)
-        {
-          ELEMENT *content = element->contents.list[i];
-          if (!content->type
-              || (content->type != ET_ignorable_spaces_after_command
-                  && content->type != ET_spaces_after_close_brace))
-            break;
-        }
-
-      for (j = element->contents.number -1; j >= 0; j--)
-        {
-          ELEMENT *content = element->contents.list[j];
-          if ((content->cmd == CM_c || content->cmd == CM_comment)
-              || content->type == ET_spaces_at_end)
-            {}
-          else
-            break;
-        }
-
-      if (j < i)
-        return 0;
-      else
-        {
-          ELEMENT *result = new_element (ET_NONE);
-          insert_slice_into_contents (result, 0, element, i, j);
-          return result;
-        }
-    }
-  return 0;
-}
-
-/*
   decompose a decimal number on a given base.  It is not the
   decomposition used for counting as we start at 0, not 1 for all
   the factors.  This is in order to get aa and not ba in calling
