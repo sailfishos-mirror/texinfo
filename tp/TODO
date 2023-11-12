@@ -36,48 +36,12 @@ TEXINFO_XS_CONVERT=only         => try to run only XS code
 It is not clear that it is useful, though, 0 and 1 corresponding to
 omit and only could be sufficient.
 
-Nothing to do:
-command_special_variety_name_index
+Use a union for extra/info information instead of coercing a pointer?
 
-converter todo get from perl, code in html converter
-directions_strings
+Use ELEMENT_LIST for extra_contents extra_directions?
 
-converter output state/document reset
-global_units_directions html_initialize_output_state
-special_unit_info_tree html_finalize_output_state
-html_targets html_finalize_output_state
-seen_ids html_finalize_output_state
-html_special_targets html_finalize_output_state
-index_entries html_finalize_output_state/destroy_merged_indices
-index_entries_by_letter (letter string, letter entries...) html_finalize_output_state/destroy_indices_sorted_by_letter
-title_titlepage html_finalize_output_state
-output_unit_files html_finalize_output_state
-output_files_information html_finalize_output_state
-
-converter free
-special_units_direction_name html_finalize_output_state
-output_unit_file_indices html_finalize_output_state
-special_unit_file_indices html_finalize_output_state
-global_units_directions html_destroy
-html_targets html_destroy
-seen_ids html_destroy
-html_special_targets html_destroy
-special_unit_info_tree html_destroy
-translated_commands translated_command->translation:strdup free_generic_converter
-expanded_formats free_generic_converter
-conf free_generic_converter
-init_conf free_generic_converter
-no_arg_formatted_cmd html_destroy
-pre_class_types html_destroy
-special_unit_varieties html_destroy
-html_command_conversion html_destroy
-no_arg_formatted_cmd_translated html_destroy
-reset_target_commands html_destroy
-file_changed_counter html_destroy
-output_unit_files free_generic_converter
-output_files_information free_generic_converter
-
-error_messages: with a check that it is empty?
+error_messages: add a check that it is empty in
+html_destroy?
 
 Bugs
 ====
