@@ -13,7 +13,7 @@
 extern char *convert_utils_month_name[12];
 
 typedef struct ACCENTS_STACK {
-    ELEMENT_LIST *stack;
+    ELEMENT_LIST stack;
     ELEMENT *argument;
 } ACCENTS_STACK;
 

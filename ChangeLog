@@ -1,5 +1,13 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (text_accents),
+	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
+	(destroy_accent_stack), tp/Texinfo/XS/main/convert_utils.h
+	(ACCENTS_STACK): put the stack in ACCENTS_STACK directly, not as a
+	pointer.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accent)
 	(ascii_accents_internal), tp/Texinfo/XS/main/unicode.c
 	(unicode_accent, format_eight_bit_accents_stack)

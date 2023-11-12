@@ -191,11 +191,11 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
   else
     text = strdup ("");
 
-  result = encoded_accents (text, accent_stack->stack, encoding,
+  result = encoded_accents (text, &accent_stack->stack, encoding,
                             ascii_accent, set_case);
 
   if (!result)
-    result = ascii_accents_internal (text, accent_stack->stack, set_case);
+    result = ascii_accents_internal (text, &accent_stack->stack, set_case);
   free (text);
   destroy_accent_stack (accent_stack);
   destroy_text_options (text_options);
