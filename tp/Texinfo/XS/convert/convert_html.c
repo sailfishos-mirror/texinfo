@@ -1274,7 +1274,7 @@ prepare_index_entries_targets (CONVERTER *self)
                   ELEMENT *seealso;
                   ELEMENT *entry_reference_content_element;
                   ELEMENT *normalize_index_element;
-                  ELEMENT *subentries_tree;
+                  ELEMENT_LIST *subentries_tree;
                   ELEMENT *target_element;
                   TEXT target_base;
                   char *normalized_index;
@@ -1306,10 +1306,10 @@ prepare_index_entries_targets (CONVERTER *self)
                    = comma_index_subentries_tree (main_entry_element, " ");
                   if (subentries_tree)
                     {
-                      insert_slice_into_contents (normalize_index_element,
+                      insert_list_slice_into_contents (normalize_index_element,
                                        normalize_index_element->contents.number,
                                        subentries_tree, 0,
-                                       subentries_tree->contents.number);
+                                       subentries_tree->number);
                     }
                   normalized_index
                     = normalize_transliterate_texinfo (normalize_index_element,

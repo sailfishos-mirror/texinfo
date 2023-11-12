@@ -141,7 +141,7 @@ split_by_node (ELEMENT *root)
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
-  ELEMENT *pending_parts = new_element (ET_NONE);
+  ELEMENT_LIST *pending_parts = new_list ();
   int i;
 
   add_to_output_unit_list (output_units, current);
@@ -151,7 +151,7 @@ split_by_node (ELEMENT *root)
       ELEMENT *content = root->contents.list[i];
       if (content->cmd == CM_part)
         {
-          add_to_contents_as_array (pending_parts, content);
+          add_to_element_list (pending_parts, content);
           continue;
         }
       if (content->cmd == CM_node)
@@ -168,34 +168,34 @@ split_by_node (ELEMENT *root)
               add_to_output_unit_list (output_units, current);
             }
         }
-      if (pending_parts->contents.number > 0)
+      if (pending_parts->number > 0)
         {
           int j;
-          for (j = 0; j < pending_parts->contents.number; j++)
+          for (j = 0; j < pending_parts->number; j++)
             {
-              ELEMENT *part = pending_parts->contents.list[j];
+              ELEMENT *part = pending_parts->list[j];
               add_to_element_list (&current->unit_contents, part);
               part->associated_unit = current;
             }
-          pending_parts->contents.number = 0;
+          pending_parts->number = 0;
         }
       add_to_element_list (&current->unit_contents, content);
       content->associated_unit = current;
     }
 
-  if (pending_parts->contents.number > 0)
+  if (pending_parts->number > 0)
     {
       int j;
-      for (j = 0; j < pending_parts->contents.number; j++)
+      for (j = 0; j < pending_parts->number; j++)
         {
-          ELEMENT *part = pending_parts->contents.list[j];
+          ELEMENT *part = pending_parts->list[j];
           add_to_element_list (&current->unit_contents, part);
           part->associated_unit = current;
         }
-      pending_parts->contents.number = 0;
+      pending_parts->number = 0;
     }
 
-  destroy_element (pending_parts);
+  destroy_list (pending_parts);
 
   return output_units_descriptor;
 }

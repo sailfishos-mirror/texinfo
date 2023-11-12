@@ -287,11 +287,11 @@ node_information_filename (CONVERTER *self, char *normalized,
   return filename;
 }
 
-ELEMENT *
+ELEMENT_LIST *
 comma_index_subentries_tree (ELEMENT *current_entry,
                              char *separator)
 {
-  ELEMENT *result = new_element (ET_NONE);
+  ELEMENT_LIST *result = new_list ();
   char *subentry_separator = separator;
   if (!separator)
     subentry_separator = ", ";
@@ -304,33 +304,33 @@ comma_index_subentries_tree (ELEMENT *current_entry,
           ELEMENT *separator = new_element (ET_NONE);
           text_append (&separator->text, subentry_separator);
           current_entry = subentry;
-          add_to_contents_as_array (result, separator);
-          add_to_contents_as_array (result, current_entry->args.list[0]);
+          add_to_element_list (result, separator);
+          add_to_element_list (result, current_entry->args.list[0]);
         }
       else
         break;
     }
-  if (result->contents.number > 0)
+  if (result->number > 0)
     return result;
   else
     {
-      destroy_element (result);
+      destroy_list (result);
       return 0;
     }
 }
 
 void
-free_comma_index_subentries_tree (ELEMENT *element)
+free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 {
   /* destroy separator elements */
   int i;
-  for (i = 0; i < element->contents.number; i++)
+  for (i = 0; i < element_list->number; i++)
     {
-      ELEMENT *content = element->contents.list[i];
+      ELEMENT *content = element_list->list[i];
       if (content->type == ET_NONE)
         destroy_element (content);
     }
-  destroy_element (element);
+  destroy_list (element_list);
 }
 
 /* to be freed by caller */

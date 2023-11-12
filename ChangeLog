@@ -1,5 +1,18 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(prepare_index_entries_targets), tp/Texinfo/XS/convert/converter.c
+	(comma_index_subentries_tree, free_comma_index_subentries_tree): have
+	comma_index_subentries_tree return an ELEMENT_LIST.
+
+	* tp/Texinfo/XS/main/output_unit.c (split_by_node): set pending_parts
+	to be an ELEMENT_LIST.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (rearrange_tree_beginning): use an
+	ELEMENT_LIST for first_types.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (text_accents),
 	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
 	(destroy_accent_stack), tp/Texinfo/XS/main/convert_utils.h

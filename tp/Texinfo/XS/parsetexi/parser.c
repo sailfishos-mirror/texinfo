@@ -457,7 +457,7 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
 {
   ELEMENT *informational_preamble;
   /* temporary placeholder */
-  ELEMENT *first_types = new_element (ET_NONE);
+  ELEMENT_LIST *first_types = new_list ();
 
   /* Put everything before @setfilename in a special type.  This allows to
      ignore everything before @setfilename. */
@@ -489,7 +489,7 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
           ELEMENT *next_content = before_node_section->contents.list[0];
           if (next_content->type == ET_preamble_before_beginning
               || next_content->type == ET_preamble_before_setfilename)
-            add_to_element_contents (first_types,
+            add_to_element_list (first_types,
                             remove_from_contents (before_node_section, 0));
           else if (next_content->type == ET_paragraph
                    || (next_content->cmd
@@ -503,13 +503,19 @@ rearrange_tree_beginning (ELEMENT *before_node_section)
             }
         }
     }
-  add_to_element_contents (first_types, informational_preamble);
-  while (first_types->contents.number > 0)
+  add_to_element_list (first_types, informational_preamble);
+  /* use insert_into_contents and not insert_list_slice_into_contents
+     to have parent set */
+  if (first_types->number > 0)
     {
-      ELEMENT *e = pop_element_from_contents (first_types);
-      insert_into_contents (before_node_section, e, 0);
+      int j;
+      for (j = first_types->number -1; j >= 0; j--)
+        {
+          ELEMENT *e = first_types->list[j];
+          insert_into_contents (before_node_section, e, 0);
+        }
     }
-  destroy_element (first_types);
+  destroy_list (first_types);
 }
 
 
