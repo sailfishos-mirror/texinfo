@@ -25,7 +25,7 @@ char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
 char *unicode_accent (const char *text, ELEMENT *e);
 
-char *encoded_accents (char *text, ELEMENT *stack, char *encoding,
+char *encoded_accents (char *text, ELEMENT_LIST *stack, char *encoding,
   char *(*format_accent)(char *text, ELEMENT *element, int set_case),
   int set_case);
 char *unicode_brace_no_arg_command (enum command_id cmd, char *encoding);

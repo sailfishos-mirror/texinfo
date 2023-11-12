@@ -1,5 +1,21 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accent)
+	(ascii_accents_internal): call encoded_accents with ascii_accent as
+	argument, not ascii_accents_internal.  Add an unused set_case argument
+	to ascii_accent to have a prototype matching with the prototype used
+	by encoded_accents.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accents_internal),
+	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
+	(destroy_accent_stack), tp/Texinfo/XS/main/convert_utils.h
+	(ACCENTS_STACK), tp/Texinfo/XS/main/unicode.c
+	(format_eight_bit_accents_stack, encoded_accents)
+	(format_unicode_accents_stack_internal): use an ELEMENT_LIST for the
+	ACCENTS_STACK stack.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units)
 	(set_root_commands_targets_node_files),
 	tp/Texinfo/XS/main/build_perl_info.c (build_elements_list)

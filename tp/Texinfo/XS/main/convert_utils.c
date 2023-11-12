@@ -56,9 +56,10 @@ find_innermost_accent_contents (ELEMENT *element)
 {
   ELEMENT *current = element;
   ELEMENT *argument = 0;
-  ACCENTS_STACK *accent_stack = malloc (sizeof (ACCENTS_STACK));
+  ACCENTS_STACK *accent_stack = (ACCENTS_STACK *)
+         malloc (sizeof (ACCENTS_STACK));
 
-  accent_stack->stack = new_element (ET_NONE);
+  accent_stack->stack = new_list ();
   accent_stack->argument = 0;
 
   while (1)
@@ -69,7 +70,7 @@ find_innermost_accent_contents (ELEMENT *element)
       /* the following can happen if called with a bad tree */
       if (!current->cmd || !(builtin_command_flags(current) & CF_accent))
         return accent_stack;
-      add_to_contents_as_array (accent_stack->stack, current);
+      add_to_element_list (accent_stack->stack, current);
       /* A bogus accent, that may happen */
       if (current->args.number <= 0)
         return accent_stack;
@@ -112,7 +113,7 @@ find_innermost_accent_contents (ELEMENT *element)
 void
 destroy_accent_stack (ACCENTS_STACK *accent_stack)
 {
-  destroy_element (accent_stack->stack);
+  destroy_list (accent_stack->stack);
   if (accent_stack->argument)
     destroy_element (accent_stack->argument);
   free (accent_stack);

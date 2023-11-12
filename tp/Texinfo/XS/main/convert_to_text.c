@@ -43,7 +43,7 @@
 #include "cmd_text.c"
 
 char *
-ascii_accent (char *text, ELEMENT *command)
+ascii_accent (char *text, ELEMENT *command, int set_case)
 {
   enum command_id cmd = command->cmd;
   TEXT accent_text;
@@ -81,7 +81,7 @@ ascii_accent (char *text, ELEMENT *command)
 }
 
 char *
-ascii_accents_internal (char *text, ELEMENT *stack, int set_case)
+ascii_accents_internal (char *text, ELEMENT_LIST *stack, int set_case)
 {
   char *result;
   int i;
@@ -91,10 +91,10 @@ ascii_accents_internal (char *text, ELEMENT *stack, int set_case)
   else
     result = strdup (text);
 
-  for (i = stack->contents.number - 1; i >= 0; i--)
+  for (i = stack->number - 1; i >= 0; i--)
     {
-      ELEMENT *accent_command = stack->contents.list[i];
-      char *formatted_accent = ascii_accent (result, accent_command);
+      ELEMENT *accent_command = stack->list[i];
+      char *formatted_accent = ascii_accent (result, accent_command, set_case);
       free (result);
       result = formatted_accent;
     }
@@ -191,7 +191,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
     text = strdup ("");
 
   result = encoded_accents (text, accent_stack->stack, encoding,
-                            ascii_accents_internal, set_case);
+                            ascii_accent, set_case);
 
   if (!result)
     result = ascii_accents_internal (text, accent_stack->stack, set_case);
