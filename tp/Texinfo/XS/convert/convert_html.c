@@ -4087,6 +4087,7 @@ convert_output_output_unit_internal (CONVERTER *self,
                                                        &path_encoding, 0);
       FILE *file_fh = output_files_open_out (&self->output_files_information,
                                encoded_out_filepath, &open_error_message, 0);
+      free (path_encoding);
       if (!file_fh)
         {
           message_list_document_error (&self->error_messages, self->conf,

@@ -10,6 +10,13 @@
 
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_output_unit_internal): free path_encoding.
+
+	* tp/Texinfo/XS/main/convert_utils.c: change in spacing.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (HTML_COMMAND_STRUCT)
 	(register_format_context_command, convert_to_html_internal): set
 	context command context string dynamically.

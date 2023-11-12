@@ -214,7 +214,7 @@ encoded_input_file_name (OPTIONS *options,
   result = encode_string (file_name, encoding, &status, source_info);
 
   if (status)
-    *file_name_encoding = strdup(encoding);
+    *file_name_encoding = strdup (encoding);
    else
     *file_name_encoding = 0;
   return result;
@@ -243,7 +243,7 @@ encoded_output_file_name (OPTIONS *options, GLOBAL_INFO *global_information,
   result = encode_string (file_name, encoding, &status, source_info);
 
   if (status)
-    *file_name_encoding = strdup(encoding);
+    *file_name_encoding = strdup (encoding);
    else
     *file_name_encoding = 0;
   return result;
