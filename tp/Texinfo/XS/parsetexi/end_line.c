@@ -632,7 +632,7 @@ parse_line_command_args (ELEMENT *line_command)
 }
 
 /* Array of recorded @float's. */
-FLOAT_RECORD_LIST float_records = {0, 0, 0};
+FLOAT_RECORD_LIST parser_float_list = {0, 0, 0};
 
 
 ELEMENT *
@@ -847,7 +847,7 @@ end_line_starting_block (ELEMENT *current)
       float_type = parse_float_type (current);
 
       /* add to global 'floats' array */
-      add_to_float_record_list (&float_records, float_type, current);
+      add_to_float_record_list (&parser_float_list, float_type, current);
 
       if (current_section)
         add_extra_element (current, "float_section", current_section);

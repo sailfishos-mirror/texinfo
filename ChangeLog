@@ -1,5 +1,13 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.h (parser_float_list),
+	tp/Texinfo/XS/parsetexi/parser.c (store_document),
+	tp/Texinfo/XS/parsetexi/end_line.c (parser_float_list)
+	(end_line_starting_block): rename global float_records as
+	parser_float_list.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(prepare_index_entries_targets), tp/Texinfo/XS/convert/converter.c
 	(comma_index_subentries_tree, free_comma_index_subentries_tree): have

@@ -2510,12 +2510,12 @@ store_document (ELEMENT *root)
   labels->space = labels_number;
 
   floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  float_records.float_types = realloc (float_records.float_types,
-                    float_records.number * sizeof (FLOAT_RECORD));
+  parser_float_list.float_types = realloc (parser_float_list.float_types,
+        parser_float_list.number * sizeof (FLOAT_RECORD));
 
-  floats->float_types = float_records.float_types;
-  floats->number = float_records.number;
-  floats->space = float_records.number;
+  floats->float_types = parser_float_list.float_types;
+  floats->number = parser_float_list.number;
+  floats->space = parser_float_list.number;
 
   internal_references = malloc (sizeof (ELEMENT_LIST));
 
@@ -2584,7 +2584,7 @@ store_document (ELEMENT *root)
   forget_indices ();
   forget_labels ();
 
-  memset (&float_records, 0, sizeof (FLOAT_RECORD_LIST));
+  memset (&parser_float_list, 0, sizeof (FLOAT_RECORD_LIST));
 
   forget_internal_xrefs ();
   forget_small_strings ();

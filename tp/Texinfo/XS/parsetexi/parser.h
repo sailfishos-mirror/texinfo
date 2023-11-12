@@ -58,7 +58,7 @@ ELEMENT *end_line (ELEMENT *current);
 ELEMENT *end_line_misc_line (ELEMENT *current);
 ELEMENT *end_line_starting_block (ELEMENT *current);
 
-extern FLOAT_RECORD_LIST float_records;
+extern FLOAT_RECORD_LIST parser_float_list;
 
 /* In labels.c */
 extern LABEL *labels_list;
