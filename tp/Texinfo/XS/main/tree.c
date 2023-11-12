@@ -117,6 +117,21 @@ new_element (enum element_type type)
   return e;
 }
 
+ELEMENT_LIST *
+new_list ()
+{
+  ELEMENT_LIST *list = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
+  memset (list, 0, sizeof (ELEMENT_LIST));
+  return list;
+}
+
+void
+destroy_list (ELEMENT_LIST * list)
+{
+  free (list->list);
+  free (list);
+}
+
 void
 destroy_associated_info (ASSOCIATED_INFO *a)
 {

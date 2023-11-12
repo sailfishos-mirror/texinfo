@@ -8,6 +8,7 @@ void reset_obstacks (void);
 
 ASSOCIATED_INFO *new_associated_info (void);
 ELEMENT *new_element (enum element_type type);
+ELEMENT_LIST *new_list (void);
 void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
@@ -33,6 +34,7 @@ ELEMENT *pop_element_from_args (ELEMENT *parent);
 ELEMENT *pop_element_from_contents (ELEMENT *parent);
 ELEMENT *contents_child_by_index (ELEMENT *e, int index);
 ELEMENT *args_child_by_index (ELEMENT *e, int index);
+void destroy_list (ELEMENT_LIST * list);
 void destroy_element (ELEMENT *e);
 void destroy_element_and_children (ELEMENT *e);
 int replace_element_in_contents (ELEMENT *parent, ELEMENT *removed,

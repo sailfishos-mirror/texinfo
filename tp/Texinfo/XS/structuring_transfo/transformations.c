@@ -189,8 +189,7 @@ modify_tree (ELEMENT *tree,
                                            new_args, 0,
                                            new_args->number);
               i += new_args->number -1;
-              free (new_args->list);
-              free (new_args);
+              destroy_list (new_args);
             }
           else
             modify_tree (tree->args.list[i], operation, argument);
@@ -212,8 +211,7 @@ modify_tree (ELEMENT *tree,
                                               new_contents, 0,
                                               new_contents->number);
               i += new_contents->number -1;
-              free (new_contents->list);
-              free (new_contents);
+              destroy_list (new_contents);
             }
           else
             modify_tree (tree->contents.list[i], operation, argument);
@@ -236,8 +234,7 @@ modify_tree (ELEMENT *tree,
                      do it? */
                   tree->source_mark_list.list[i]->element
                       = new_element->list[0];
-                  free (new_element->list);
-                  free (new_element);
+                  destroy_list (new_element);
                 }
             }
         }
@@ -899,8 +896,7 @@ reference_to_arg_internal (const char *type,
       int *arguments_order = ref_5_args_order;
       /* container for the new elements to insert, will be destroyed
          by the caller */
-      ELEMENT_LIST *container = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
-      memset (container, 0, sizeof (ELEMENT_LIST));
+      ELEMENT_LIST *container = new_list ();
       ELEMENT *new = new_element (ET_NONE);
       new->parent = e->parent;
       add_to_element_list (container, new);
@@ -1109,7 +1105,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
   destroy_element (node_childs);
 }
 
-ELEMENT *
+static ELEMENT *
 get_non_automatic_nodes_with_sections (ELEMENT *root)
 {
   ELEMENT *non_automatic_nodes = new_element (ET_NONE);
@@ -1310,9 +1306,7 @@ protect_text (ELEMENT *current, char *to_protect)
                                  || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))
     {
-      ELEMENT_LIST *container
-          = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
-      memset (container, 0, sizeof (ELEMENT_LIST));
+      ELEMENT_LIST *container = new_list();
       char *p = current->text.text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       size_t current_position = 0;
@@ -1520,9 +1514,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                         }
                       else
                         {
-                          ELEMENT_LIST *container = (ELEMENT_LIST *)
-                            malloc (sizeof (ELEMENT_LIST));
-                          memset (container, 0, sizeof (ELEMENT_LIST));
+                          ELEMENT_LIST *container = new_list ();
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
                           int leading_spaces_nr;
