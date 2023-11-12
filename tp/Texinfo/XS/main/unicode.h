@@ -23,10 +23,11 @@ extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 
 char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
-char *unicode_accent (const char *text, ELEMENT *e);
+char *unicode_accent (const char *text, const ELEMENT *e);
 
-char *encoded_accents (char *text, ELEMENT_LIST *stack, char *encoding,
-  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+char *encoded_accents (const char *text, const ELEMENT_LIST *stack,
+  const char *encoding,
+  char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case);
 char *unicode_brace_no_arg_command (enum command_id cmd, char *encoding);
 

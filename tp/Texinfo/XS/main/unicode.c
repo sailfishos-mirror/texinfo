@@ -76,7 +76,7 @@ normalize_NFKD (const char *text)
 }
 
 char *
-unicode_accent (const char *text, ELEMENT *e)
+unicode_accent (const char *text, const ELEMENT *e)
 {
   char *result = 0;
 
@@ -172,16 +172,16 @@ compare_strings (const void *a, const void *b)
 }
 
 char *
-format_eight_bit_accents_stack (char *text, ELEMENT_LIST *stack,
+format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
   int encoding_index,
-  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+  char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)
 {
   int i, j, k;
   char *result = strdup (text);
   char *prev_eight_bit;
   char *new_eight_bit;
-  int stack_nr = stack->number;
+  int const stack_nr = stack->number;
   char **results_stack
      = malloc ((stack_nr +1) * sizeof (char *));
 
@@ -191,7 +191,7 @@ format_eight_bit_accents_stack (char *text, ELEMENT_LIST *stack,
 
   for (i = stack_nr -1; i >= 0; i--)
     {
-      ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->list[i];
       results_stack[i] = unicode_accent (results_stack[i+1],
                                          accent_command);
       if (!results_stack[i])
@@ -308,8 +308,9 @@ format_eight_bit_accents_stack (char *text, ELEMENT_LIST *stack,
 
 /* FIXME converter in perl for (*format_accent), see encoded_accents comment*/
 char *
-format_unicode_accents_stack_internal (char *text, ELEMENT_LIST *stack,
-  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+format_unicode_accents_stack_internal (const char *text,
+  const ELEMENT_LIST *stack,
+  char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)
 {
   int i;
@@ -317,7 +318,7 @@ format_unicode_accents_stack_internal (char *text, ELEMENT_LIST *stack,
 
   for (i = stack->number - 1; i >= 0; i--)
     {
-      ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_result = unicode_accent (result, accent_command);
       if (formatted_result)
         {
@@ -337,7 +338,7 @@ format_unicode_accents_stack_internal (char *text, ELEMENT_LIST *stack,
 
   for (; i >= 0; i--)
     {
-      ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_result
           = (*format_accent) (result, accent_command, set_case);
       free (result);
@@ -350,8 +351,9 @@ format_unicode_accents_stack_internal (char *text, ELEMENT_LIST *stack,
    directly and through functions.  It is not clear whether it is
    actually used in perl, nor if it could be useful in C */
 char *
-encoded_accents (char *text, ELEMENT_LIST *stack, char *encoding,
-  char *(*format_accent)(char *text, ELEMENT *element, int set_case),
+encoded_accents (const char *text, const ELEMENT_LIST *stack,
+  const char *encoding,
+  char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)
 {
   if (encoding)

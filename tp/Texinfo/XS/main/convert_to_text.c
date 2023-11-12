@@ -43,9 +43,9 @@
 #include "cmd_text.c"
 
 char *
-ascii_accent (char *text, ELEMENT *command, int set_case)
+ascii_accent (const char *text, const ELEMENT *command, int set_case)
 {
-  enum command_id cmd = command->cmd;
+  const enum command_id cmd = command->cmd;
   TEXT accent_text;
 
   text_init (&accent_text);
@@ -81,7 +81,8 @@ ascii_accent (char *text, ELEMENT *command, int set_case)
 }
 
 char *
-ascii_accents_internal (char *text, ELEMENT_LIST *stack, int set_case)
+ascii_accents_internal (const char *text, const ELEMENT_LIST *stack,
+                        int set_case)
 {
   char *result;
   int i;
@@ -93,7 +94,7 @@ ascii_accents_internal (char *text, ELEMENT_LIST *stack, int set_case)
 
   for (i = stack->number - 1; i >= 0; i--)
     {
-      ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_accent = ascii_accent (result, accent_command, set_case);
       free (result);
       result = formatted_accent;

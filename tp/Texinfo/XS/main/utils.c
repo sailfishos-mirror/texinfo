@@ -676,9 +676,9 @@ parse_line_directive (char *line, int *retval, int *out_line_no)
 
 /* return should be freed by the caller */
 char *
-normalize_encoding_name (char *text, int *possible_encoding)
+normalize_encoding_name (const char *text, int *possible_encoding)
 {
-  char *p;
+  const char *p;
   char *normalized_text = strdup (text);
   char *q = normalized_text;
   *possible_encoding = 0;
