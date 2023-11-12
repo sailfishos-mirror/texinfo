@@ -601,9 +601,11 @@ xspara_end (void)
 /* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end 
    of the line start a new one.  TRANSPARENT means that the letters in WORD
    are ignored for the purpose of deciding whether a full stop ends a sentence
-   or not. */
+   or not.  If COL_COUNT is non-negative, it is the number of screen columns
+   taken up by the word. */
 void
-xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
+xspara__add_next (TEXT *result, char *word, int word_len,
+                  int transparent, int col_count)
 {
   dTHX;
 
@@ -650,45 +652,50 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
     }
   else
     {
-      /* Calculate length of multibyte string in characters. */
-      int len = 0;
-      int left = word_len;
-      char32_t w;
-      char *p = word;
-
-      while (left > 0)
+     if (col_count >= 0)
+        state.word_counter += col_count;
+      else
         {
-          int columns;
-          int char_len;
+          /* Calculate length of multibyte string in characters. */
+          int len = 0;
+          int left = word_len;
+          char32_t w;
+          char *p = word;
 
-          if (PRINTABLE_ASCII(*p))
+          while (left > 0)
             {
-              len++; p++; left--;
-              continue;
+              int columns;
+              int char_len;
+
+              if (PRINTABLE_ASCII(*p))
+                {
+                  len++; p++; left--;
+                  continue;
+                }
+
+              char_len = u8_mbtouc (&w, p, left);
+              if (char_len == (size_t) -2) {
+                /* unfinished multibyte character */
+                char_len = left;
+              } else if (char_len == (size_t) -1) {
+                /* invalid character */
+                char_len = 1;
+              } else if (char_len == 0) {
+                /* not sure what this means but we must avoid an infinite loop.
+                   Possibly only happens with invalid strings */
+                char_len = 1;
+              }
+              left -= char_len;
+
+              columns = uc_width (w, "UTF-8");
+              if (columns > 0)
+                len += columns;
+
+              p += char_len;
             }
+          state.word_counter += len;
+       }
 
-          char_len = u8_mbtouc (&w, p, left);
-          if (char_len == (size_t) -2) {
-            /* unfinished multibyte character */
-            char_len = left;
-          } else if (char_len == (size_t) -1) {
-            /* invalid character */
-            char_len = 1;
-          } else if (char_len == 0) {
-            /* not sure what this means but we must avoid an infinite loop.
-               Possibly only happens with invalid strings */
-            char_len = 1;
-          }
-          left -= char_len;
-
-          columns = uc_width (w, "UTF-8");
-          if (columns > 0)
-            len += columns;
-
-          p += char_len;
-        }
-
-      state.word_counter += len;
 
       if (state.counter != 0
           && state.counter + state.word_counter + state.space_counter
@@ -715,7 +722,7 @@ xspara_add_next (char *text, int text_len, int transparent)
 
   text_reset (&t);
   state.end_line_count = 0;
-  xspara__add_next (&t, text, text_len, transparent);
+  xspara__add_next (&t, text, text_len, transparent, -1);
 
   return t;
 }
@@ -795,6 +802,12 @@ xspara_add_text (char *text, int len)
   static TEXT result;
   enum text_class type = type_NULL, next_type = type_NULL;
 
+  /* Column count of next type_regular block, either for type or
+     next_type.  We do not have two type_regular blocks in a row so there
+     is no chance of this being overwritten before it is used.  It is
+     zeroed when the block is output. */
+  int regular_col_count = 0;
+
   dTHX;
 
   text_reset (&result);
@@ -856,12 +869,13 @@ xspara_add_text (char *text, int len)
                   continue;
                 }
 
-             /* Note: width == 0 includes accent characters which should not
-                properly increase the column count.  This is not what the pure
-                Perl code does, though. */
+             /* Note: width == 0 includes accent characters. */
               width = uc_width (wc, "UTF-8");
               if (width == 1 || width == 0)
-                next_type = type_regular;
+                {
+                  regular_col_count += width;
+                  next_type = type_regular;
+                }
               else if (width == 2)
                 {
                   next_type = type_double_width;
@@ -1020,7 +1034,8 @@ xspara_add_text (char *text, int len)
       /*************** Word character ******************************/
       else if (type == type_regular)
         {
-          xspara__add_next (&result, p, q - p, 0);
+          xspara__add_next (&result, p, q - p, 0, regular_col_count);
+          regular_col_count = 0;
 
           /* Now check for an end of sentence.  We can iterate backwards
              by bytes as all the end-sentence characters or punctuation are
