@@ -681,7 +681,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           }
           left -= char_len;
 
-          columns = uc_width ((ucs4_t) w, "UTF-8");
+          columns = uc_width (w, "UTF-8");
           if (columns > 0)
             len += columns;
 
@@ -859,7 +859,7 @@ xspara_add_text (char *text, int len)
              /* Note: width == 0 includes accent characters which should not
                 properly increase the column count.  This is not what the pure
                 Perl code does, though. */
-              width = uc_width ((ucs4_t) wc, "UTF-8");
+              width = uc_width (wc, "UTF-8");
               if (width == 1 || width == 0)
                 next_type = type_regular;
               else if (width == 2)
