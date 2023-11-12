@@ -42,6 +42,7 @@
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
+#include "convert_html.h"
 #include "build_html_perl_state.h"
 
 #define LOCALEDIR DATADIR "/locale"

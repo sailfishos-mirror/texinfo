@@ -81,8 +81,6 @@ register_converter (CONVERTER *converter)
                        converter, registered_converter, converter->document);
    */
 
-  free (converter);
-
   registered_converter->converter_descriptor = converter_index +1;
 
   return converter_index +1;
@@ -193,7 +191,10 @@ set_global_document_commands (CONVERTER *converter,
                        command_location_names[location],
                        builtin_command_data[cmd].cmdname);
             }
-          element = set_global_document_command (converter, cmd, location);
+          element
+            = set_global_document_command (converter->document->global_commands,
+                                           converter->conf,
+                                           cmd, location);
           if (!element)
             {
               COMMAND_OPTION_VALUE *option_value = command_init (cmd,

@@ -38,6 +38,7 @@
 #include "convert_to_texinfo.h"
 #include "translations.h"
 #include "convert_utils.h"
+#include "convert_to_text.h"
 #include "call_html_perl_function.h"
 /* for TREE_AND_STRINGS */
 #include "document.h"
@@ -53,6 +54,43 @@ typedef struct CMD_VARIETY {
     enum command_id cmd;
     char *variety;
 } CMD_VARIETY;
+
+char *html_global_unit_direction_names[] = {
+  #define hgdt_name(name) #name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+};
+
+char *html_conversion_context_type_names[] = {
+  #define cctx_type(name) #name,
+    HCC_CONTEXT_TYPES_LIST
+  #undef cctx_type
+};
+
+char *html_formatting_reference_names[] = {
+  #define html_fr_reference(name) #name,
+   HTML_FORMATTING_REFERENCES_LIST
+  #undef html_fr_reference
+};
+
+const char *html_argument_formatting_type_names[] = {
+   #define html_aft_type(name) #name,
+    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
+   #undef html_aft_type
+};
+
+const char *special_unit_info_type_names[SUI_type_heading + 1] =
+{
+  #define sui_type(name) #name,
+    SUI_TYPES_LIST
+  #undef sui_type
+};
+
+TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
+  {SUIT_type_heading, SUI_type_heading},
+  /* these special types end the list */
+  {SUIT_type_none, SUI_type_none},
+};
 
 CMD_VARIETY command_special_unit_variety[] = {
                                 {CM_contents, "contents"},

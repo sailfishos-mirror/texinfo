@@ -615,7 +615,8 @@ html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *spe
                  free (result);
                }
 
-             build_output_files_information (self);
+             build_output_files_information (converter_in,
+                                             &self->output_files_information);
            }
 
          if (result_sv)

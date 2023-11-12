@@ -4,7 +4,7 @@
 
 #include "options_types.h"
 #include "tree_types.h"
-#include "converter_types.h"
+#include "document_types.h"
 
 void associate_internal_references (DOCUMENT *document);
 ELEMENT_LIST *sectioning_structure (DOCUMENT *document);

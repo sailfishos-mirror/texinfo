@@ -6,7 +6,7 @@
 
 #include "options_types.h"
 #include "tree_types.h"
-#include "converter_types.h"
+#include "document_types.h"
 
 /* element or string may not always be present */
 typedef struct NAMED_STRING_ELEMENT {

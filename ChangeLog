@@ -1,5 +1,43 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (register_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/get_perl_info.c
+	(converter_initialize), tp/Texinfo/XS/main/utils.c: use a local
+	variable as initial converter before calling register_converter. Pass
+	converter to converter_initialize. Remove new_converter function.
+
+	* tp/Texinfo/XS/convert/converter.c (set_global_document_commands),
+	tp/Texinfo/XS/main/utils.c (set_informative_command_value)
+	(set_global_document_command): pass options and global commands to
+	set_informative_command_value and set_global_document_command, not
+	converters.
+
+	* tp/Texinfo/XS/main/converter_types.h (TRANSLATED_SUI_ASSOCIATION),
+	tp/Texinfo/XS/main/utils.c: move TRANSLATED_SUI_ASSOCIATION to
+	converter_types.h.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_output),
+	tp/Texinfo/XS/main/build_perl_info.c (build_output_files_information):
+	pass converter SV to build_output_files_information and pass directly
+	OUTPUT_FILES_INFORMATION.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/converter_types.h,
+	tp/Texinfo/XS/main/document_types.h (enum error_type, ERROR_MESSAGE)
+	(ERROR_MESSAGE_LIST, GLOBAL_INFO, DOCUMENT, EXPANDED_FORMAT): move
+	parsed document types to a new file, document_types.h. Update includes
+	for all the files.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_global_unit_direction_names, html_conversion_context_type_names)
+	(html_formatting_reference_names, html_argument_formatting_type_names)
+	(special_unit_info_type_names, translated_special_unit_info),
+	tp/Texinfo/XS/main/utils.c: move code used in HTML conversion to
+	convert_html.c.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (split_custom_heading_command_contents),
 	tp/t/init/translation_in_parser_in_translation.pm,
 	tp/Texinfo/XS/main/utils.c: do not use

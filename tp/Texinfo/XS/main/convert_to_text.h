@@ -4,6 +4,7 @@
 
 #include "options_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 
 typedef struct TEXT_OPTIONS {

@@ -114,6 +114,7 @@ endif
 # in main but not the other way around.
 libtexinfo_la_SOURCES= \
 		      main/tree_types.h \
+		      main/document_types.h \
 		      main/tree.c \
 		      main/tree.h \
 		      main/text.c \

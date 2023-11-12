@@ -29,13 +29,6 @@ does not work perfectly with XS.  See FIXME in the code.  Tested in
 ./manual_tests/manual_sectioning_gap_test.sh
 Not a priority.
 
-If needed, could change TEXINFO_XS_CONVERT to have 3 possibilities
-TEXINFO_XS_CONVERT=omit         => use perl as much as possible
-TEXINFO_XS_CONVERT=both         => try to run both perl and XS when possible
-TEXINFO_XS_CONVERT=only         => try to run only XS code
-It is not clear that it is useful, though, 0 and 1 corresponding to
-omit and only could be sufficient.
-
 Use a union for extra/info information instead of coercing a pointer?
 
 Use ELEMENT_LIST for extra_contents extra_directions?

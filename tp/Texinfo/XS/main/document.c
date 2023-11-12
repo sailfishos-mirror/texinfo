@@ -23,6 +23,7 @@
 #include "global_commands_types.h"
 #include "options_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "tree.h"
 #include "floats.h"
 #include "errors.h"

@@ -68,43 +68,6 @@ const char *output_unit_type_names[] = {"unit",
                                   "external_node_unit",
                                   "special_unit"};
 
-char *html_global_unit_direction_names[] = {
-  #define hgdt_name(name) #name,
-   HTML_GLOBAL_DIRECTIONS_LIST
-  #undef hgdt_name
-};
-
-char *html_conversion_context_type_names[] = {
-  #define cctx_type(name) #name,
-    HCC_CONTEXT_TYPES_LIST
-  #undef cctx_type
-};
-
-char *html_formatting_reference_names[] = {
-  #define html_fr_reference(name) #name,
-   HTML_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
-};
-
-const char *html_argument_formatting_type_names[] = {
-   #define html_aft_type(name) #name,
-    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
-   #undef html_aft_type
-};
-
-const char *special_unit_info_type_names[SUI_type_heading + 1] =
-{
-  #define sui_type(name) #name,
-    SUI_TYPES_LIST
-  #undef sui_type
-};
-
-TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
-  {SUIT_type_heading, SUI_type_heading},
-  /* these special types end the list */
-  {SUIT_type_none, SUI_type_none},
-};
-
 ENCODING_CONVERSION_LIST output_conversions = {0, 0, 0, -1};
 ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 
@@ -970,8 +933,8 @@ informative_command_value (ELEMENT *element)
   return 0;
 }
 
-void
-set_informative_command_value (CONVERTER *self, ELEMENT *element)
+static void
+set_informative_command_value (OPTIONS *options, ELEMENT *element)
 {
   char *value = 0;
   enum command_id cmd = element_builtin_cmd (element);
@@ -982,7 +945,7 @@ set_informative_command_value (CONVERTER *self, ELEMENT *element)
 
   if (value)
     {
-      COMMAND_OPTION_REF *option_ref = get_command_option (self->conf, cmd);
+      COMMAND_OPTION_REF *option_ref = get_command_option (options, cmd);
       if (option_ref)
         {
           if (option_ref->type == GO_int)
@@ -1078,14 +1041,15 @@ get_global_document_command (GLOBAL_COMMANDS *global_commands,
   and associated customization variables are not set/reset either.
  */
 ELEMENT *
-set_global_document_command (CONVERTER *self, enum command_id cmd,
+set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
+                             enum command_id cmd,
                              enum command_location command_location)
 {
   ELEMENT *element
-     = get_global_document_command (self->document->global_commands, cmd,
+     = get_global_document_command (global_commands, cmd,
                                     command_location);
   if (element)
-    set_informative_command_value (self, element);
+    set_informative_command_value (options, element);
   return element;
 }
 
@@ -1097,15 +1061,6 @@ new_options (void)
   OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
   initialize_options (options);
   return options;
-}
-
-CONVERTER *
-new_converter (void)
-{
-  CONVERTER *converter
-   = (CONVERTER *) malloc (sizeof (CONVERTER));
-  memset (converter, 0, sizeof (CONVERTER));
-  return converter;
 }
 
 

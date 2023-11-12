@@ -5,7 +5,8 @@
 #include <stdarg.h>
 
 #include "tree_types.h"
-#include "converter_types.h"
+#include "options_types.h"
+#include "document_types.h"
 
 void line_error (char *format, ...);
 void line_warn (char *format, ...);

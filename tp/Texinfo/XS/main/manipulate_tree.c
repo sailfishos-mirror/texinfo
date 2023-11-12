@@ -28,6 +28,7 @@
 #include "debug.h"
 #include "targets.h"
 #include "utils.h"
+#include "manipulate_tree.h"
 
 /* copy_tree from Texinfo::Common */
 

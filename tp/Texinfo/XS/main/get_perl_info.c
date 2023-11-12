@@ -337,12 +337,11 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
-CONVERTER *
-converter_initialize (SV *converter_sv)
+void
+converter_initialize (SV *converter_sv, CONVERTER *converter)
 {
   HV *hv_in;
   SV **converter_init_conf_sv;
-  CONVERTER *converter = new_converter ();
   DOCUMENT *document;
 
   dTHX;
@@ -365,8 +364,6 @@ converter_initialize (SV *converter_sv)
   set_translated_commands (converter, hv_in);
 
   get_expanded_formats (hv_in, &converter->expanded_formats);
-
-  return converter;
 }
 
 /* initialize an XS converter from a perl converter right before conversion */

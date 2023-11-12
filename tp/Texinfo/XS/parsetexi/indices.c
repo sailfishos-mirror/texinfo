@@ -18,19 +18,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "options_types.h"
-#include "converter_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
+/* document and options used in complete_indices */
+#include "options_types.h"
+#include "document_types.h"
 #include "tree.h"
-/* for xasprintf and other */
 #include "errors.h"
 #include "debug.h"
 #include "command_stack.h"
 #include "context_stack.h"
 #include "builtin_commands.h"
 #include "extra.h"
-/* for ultimate_index */
+/* for ultimate_index xasprintf */
 #include "utils.h"
 /* for copy_tree */
 #include "manipulate_tree.h"

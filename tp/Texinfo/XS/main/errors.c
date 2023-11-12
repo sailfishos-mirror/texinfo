@@ -27,7 +27,7 @@
 #include <string.h>
 
 #include "tree_types.h"
-#include "converter_types.h"
+#include "document_types.h"
 /* also for xvasprintf */
 #include "text.h"
 /* for debug_output */

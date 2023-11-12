@@ -7,6 +7,7 @@
 
 #include "options_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 #include "convert_to_text.h"
 
@@ -25,7 +26,7 @@ void set_conf (CONVERTER *converter, const char *conf, SV *value);
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 
-CONVERTER *converter_initialize (SV *converter_sv);
+void converter_initialize (SV *converter_sv, CONVERTER *converter);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);

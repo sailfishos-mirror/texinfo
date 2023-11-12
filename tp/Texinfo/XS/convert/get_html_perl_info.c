@@ -157,11 +157,15 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
   int converter_descriptor = 0;
+  CONVERTER initial_converter;
   CONVERTER *converter;
 
   dTHX;
 
-  converter = converter_initialize (converter_sv);
+  converter = &initial_converter;
+  memset (converter, 0, sizeof (CONVERTER));
+
+  converter_initialize (converter_sv, converter);
 
   converter_hv = (HV *)SvRV (converter_sv);
 

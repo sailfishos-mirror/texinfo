@@ -1757,9 +1757,9 @@ build_output_files_opened_files (HV *hv,
     }
 }
 
-/* for the perl converter associated to CONVERTER */
 void
-build_output_files_information (CONVERTER *converter)
+build_output_files_information (SV *converter_sv,
+                   OUTPUT_FILES_INFORMATION *output_files_information)
 {
   HV *hv;
   SV **output_files_sv;
@@ -1767,10 +1767,7 @@ build_output_files_information (CONVERTER *converter)
 
   dTHX;
 
-  if (!converter->hv)
-    return;
-
-  hv = converter->hv;
+  hv = (HV *) SvRV (converter_sv);
 
   output_files_sv = hv_fetch (hv, "output_files",
                                 strlen ("output_files"), 0);
@@ -1787,8 +1784,8 @@ build_output_files_information (CONVERTER *converter)
     }
 
   build_output_files_opened_files (output_files_hv,
-                                   &converter->output_files_information);
+                                   output_files_information);
   build_output_files_unclosed_files (output_files_hv,
-                                   &converter->output_files_information);
+                                     output_files_information);
 }
 

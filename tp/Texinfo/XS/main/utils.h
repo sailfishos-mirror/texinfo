@@ -24,7 +24,7 @@
 #include "global_commands_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
-#include "converter_types.h"
+#include "document_types.h"
 #include "builtin_commands.h"
 
 extern const char *whitespace_chars;
@@ -39,11 +39,6 @@ extern const size_t directions_length;
 extern const char *output_unit_type_names[];
 
 extern const char *command_location_names[];
-
-extern char *html_conversion_context_type_names[];
-extern char *html_global_unit_direction_names[];
-
-extern char *html_formatting_reference_names[];
 
 typedef struct {
     char *encoding_name;
@@ -151,14 +146,6 @@ enum command_location {
 #define HMSF_converter_state         0x1000
 #define HMSF_multiple_pass           0x2000
 #define HMSF_translations            0x4000
-
-typedef struct TRANSLATED_SUI_ASSOCIATION {
-    enum special_unit_info_tree tree_type;
-    enum special_unit_info_type string_type;
-} TRANSLATED_SUI_ASSOCIATION;
-
-extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
-extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 
 typedef struct TARGET_FILENAME {
     char *target;
@@ -271,14 +258,13 @@ int format_expanded_p (EXPANDED_FORMAT *formats, char *format);
 
 char *enumerate_item_representation (char *specification, int number);
 
-CONVERTER *new_converter (void);
-
 ELEMENT *get_global_document_command (GLOBAL_COMMANDS *global_commands,
                                       enum command_id cmd,
                                       enum command_location command_location);
 char *informative_command_value (ELEMENT *element);
-ELEMENT *set_global_document_command (CONVERTER *self, enum command_id cmd,
-                                      enum command_location command_location);
+ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
+                             OPTIONS *options, enum command_id cmd,
+                             enum command_location command_location);
 ELEMENT *get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
                                  enum command_id cmd);
 #endif

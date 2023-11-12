@@ -22,6 +22,7 @@
 #include "unistr.h"
 
 #include "tree_types.h"
+#include "converter_types.h"
 #include "utils.h"
 #include "extra.h"
 #include "unicode.h"

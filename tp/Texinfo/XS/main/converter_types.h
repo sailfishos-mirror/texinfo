@@ -23,10 +23,7 @@
 #include "tree_types.h"
 #include "element_types.h"
 #include "options_types.h"
-#include "global_commands_types.h"
-
-enum error_type { MSG_error, MSG_warning,
-                  MSG_document_error, MSG_document_warning };
+#include "document_types.h"
 
 enum formatting_reference_status {
    FRS_status_none,
@@ -169,53 +166,6 @@ typedef struct {
     size_t top;   /* One above last pushed. */
     size_t space;
 } MONOSPACE_CONTEXT_STACK;
-
-typedef struct {
-    char *message;
-    char *error_line;
-    enum error_type type;
-    int continuation;
-    SOURCE_INFO source_info;
-} ERROR_MESSAGE;
-
-typedef struct {
-    ERROR_MESSAGE *list;
-    size_t number;
-    size_t space;
-} ERROR_MESSAGE_LIST;
-
-typedef struct GLOBAL_INFO {
-    char *input_file_name;
-    char *input_directory;
-    char *input_encoding_name;
-    int sections_level_modifier;
-    ELEMENT dircategory_direntry; /* an array of elements */
-    /* Ignored characters for index sort key */
-    IGNORED_CHARS ignored_chars;
-} GLOBAL_INFO;
-
-typedef struct DOCUMENT {
-    int descriptor;
-    ELEMENT *tree;
-    INDEX **index_names;
-    FLOAT_RECORD_LIST *floats;
-    LISTOFFLOATS_TYPE_LIST *listoffloats;
-    ELEMENT_LIST *internal_references;
-    LABEL_LIST *labels_list;
-    LABEL_LIST *identifiers_target;
-    GLOBAL_INFO *global_info;
-    GLOBAL_COMMANDS *global_commands;
-    STRING_LIST *small_strings;
-    ELEMENT_LIST *nodes_list;
-    ELEMENT_LIST *sections_list;
-    ERROR_MESSAGE_LIST *error_messages;
-    OPTIONS *options; /* for options used in structuring */
-} DOCUMENT;
-
-typedef struct expanded_format {
-    char *format;
-    int expandedp;
-} EXPANDED_FORMAT;
 
 typedef struct VARIETY_DIRECTION_INDEX {
     char *special_unit_variety;
@@ -477,5 +427,10 @@ typedef struct CONVERTER {
     STRING_STACK multiple_pass;
     char *current_filename;
 } CONVERTER;
+
+typedef struct TRANSLATED_SUI_ASSOCIATION {
+    enum special_unit_info_tree tree_type;
+    enum special_unit_info_type string_type;
+} TRANSLATED_SUI_ASSOCIATION;
 
 #endif
