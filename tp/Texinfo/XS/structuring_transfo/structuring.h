@@ -7,9 +7,9 @@
 #include "converter_types.h"
 
 void associate_internal_references (DOCUMENT *document);
-ELEMENT *sectioning_structure (DOCUMENT *document);
-ELEMENT *nodes_tree (DOCUMENT *document);
-ELEMENT *get_node_node_childs_from_sectioning (ELEMENT *node);
+ELEMENT_LIST *sectioning_structure (DOCUMENT *document);
+ELEMENT_LIST *nodes_tree (DOCUMENT *document);
+ELEMENT_LIST *get_node_node_childs_from_sectioning (ELEMENT *node);
 char *normalized_menu_entry_internal_node (ELEMENT *entry);
 void warn_non_empty_parts (DOCUMENT *document);
 void set_menus_node_directions (DOCUMENT *document);

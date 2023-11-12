@@ -110,13 +110,14 @@ register_document (ELEMENT *root, INDEX **index_names,
 }
 
 void
-register_document_nodes_list (DOCUMENT *document, ELEMENT *nodes_list)
+register_document_nodes_list (DOCUMENT *document, ELEMENT_LIST *nodes_list)
 {
   document->nodes_list = nodes_list;
 }
 
 void
-register_document_sections_list (DOCUMENT *document, ELEMENT *sections_list)
+register_document_sections_list (DOCUMENT *document,
+                                 ELEMENT_LIST *sections_list)
 {
   document->sections_list = sections_list;
 }
@@ -149,9 +150,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
       if (document->nodes_list)
-        destroy_element (document->nodes_list);
+        destroy_list (document->nodes_list);
       if (document->sections_list)
-        destroy_element (document->sections_list);
+        destroy_list (document->sections_list);
       if (document->options)
         {
           free_options (document->options);

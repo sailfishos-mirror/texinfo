@@ -75,7 +75,7 @@ new_block_command (ELEMENT *element, enum command_id cmd)
   add_to_element_contents (element, end);
 }
 
-ELEMENT *
+ELEMENT_LIST *
 sectioning_structure (DOCUMENT *document)
 {
   ELEMENT *root = document->tree;
@@ -87,7 +87,7 @@ sectioning_structure (DOCUMENT *document)
   int in_appendix = 0;
   /* lowest level with a number.  This is the lowest level above 0. */
   int number_top_level = 0;
-  ELEMENT *sections_list = new_element (ET_NONE);;
+  ELEMENT_LIST *sections_list = new_list ();
   ELEMENT *section_top = 0;
   int i;
 
@@ -106,7 +106,7 @@ sectioning_structure (DOCUMENT *document)
           || content->cmd == CM_bye)
         continue;
 
-      add_to_contents_as_array (sections_list, content);
+      add_to_element_list (sections_list, content);
 
       if (content->cmd == CM_top && !section_top)
         section_top = content;
@@ -382,9 +382,9 @@ sectioning_structure (DOCUMENT *document)
         }
     }
 
-  if (sections_list->contents.number == 0)
+  if (sections_list->number == 0)
     {
-      destroy_element (sections_list);
+      destroy_list (sections_list);
       return 0;
     }
   return sections_list;
@@ -446,10 +446,10 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
     }
 }
 
-ELEMENT *
+ELEMENT_LIST *
 get_node_node_childs_from_sectioning (ELEMENT *node)
 {
-  ELEMENT *node_childs = new_element (ET_NONE);
+  ELEMENT_LIST *node_childs = new_list ();
 
   ELEMENT *associated_section = lookup_extra_element (node, "associated_section");
   if (associated_section)
@@ -465,7 +465,7 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
               ELEMENT *associated_node = lookup_extra_element (child,
                                                              "associated_node");
               if (associated_node)
-                add_to_contents_as_array (node_childs, associated_node);
+                add_to_element_list (node_childs, associated_node);
             }
         }
        /* Special case for @top.  Gather all the children of the @part following
@@ -495,8 +495,8 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
                                    = lookup_extra_element (child,
                                                            "associated_node");
                               if (associated_node)
-                                add_to_contents_as_array (node_childs,
-                                                          associated_node);
+                                add_to_element_list (node_childs,
+                                                     associated_node);
                             }
                         }
                     }
@@ -509,7 +509,7 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
                     not below @top
                        */
                       if (associated_node)
-                        add_to_contents_as_array (node_childs, associated_node);
+                        add_to_element_list (node_childs, associated_node);
                     }
                 }
               else
@@ -562,7 +562,7 @@ compare_strings (const void *a, const void *b)
 void
 check_nodes_are_referenced (DOCUMENT *document)
 {
-  ELEMENT *nodes_list = document->nodes_list;
+  ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = document->identifiers_target;
   ELEMENT_LIST *refs = document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
@@ -576,10 +576,10 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   ELEMENT *top_node;
 
-  if (!nodes_list || nodes_list->contents.number <= 0)
+  if (!nodes_list || nodes_list->number <= 0)
     return;
 
-  referenced_identifier_space = nodes_list->contents.number * 2;
+  referenced_identifier_space = nodes_list->number * 2;
   referenced_identifiers
     = malloc (referenced_identifier_space * sizeof (char *));
 
@@ -587,7 +587,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                                      "Top");
   if (!top_node)
     {
-      top_node = nodes_list->contents.list[0];
+      top_node = nodes_list->list[0];
       char *normalized = lookup_extra_string (top_node, "normalized");
       if (normalized)
         referenced_identifiers[0] = normalized;
@@ -597,10 +597,10 @@ check_nodes_are_referenced (DOCUMENT *document)
   else
     referenced_identifiers[0] = "Top";
 
-  for (i = 0; i < nodes_list->contents.number; i++)
+  for (i = 0; i < nodes_list->number; i++)
     {
       int status;
-      ELEMENT *node = nodes_list->contents.list[i];
+      ELEMENT *node = nodes_list->list[i];
       int is_target = lookup_extra_integer (node, "is_target", &status);
       ELEMENT *node_directions = lookup_extra_element (node,
                                                     "node_directions");
@@ -657,19 +657,19 @@ check_nodes_are_referenced (DOCUMENT *document)
           int automatic_directions = (node->args.number <= 1);
           if (automatic_directions)
             {
-              ELEMENT *node_childs
+              ELEMENT_LIST *node_childs
                 = get_node_node_childs_from_sectioning (node);
               int j;
-              for (j = 0; j < node_childs->contents.number; j++)
+              for (j = 0; j < node_childs->number; j++)
                 {
                   referenced_identifiers =
-                   register_referenced_node (node_childs->contents.list[j],
+                   register_referenced_node (node_childs->list[j],
                                              referenced_identifiers,
                                              &referenced_identifier_space,
                                              &referenced_identifier_number);
 
                 }
-              destroy_element (node_childs);
+              destroy_list (node_childs);
             }
         }
     }
@@ -756,10 +756,10 @@ check_nodes_are_referenced (DOCUMENT *document)
      }
    */
 
-  for (i = 0; i < nodes_list->contents.number; i++)
+  for (i = 0; i < nodes_list->number; i++)
     {
       int status;
-      ELEMENT *node = nodes_list->contents.list[i];
+      ELEMENT *node = nodes_list->list[i];
       int is_target = lookup_extra_integer (node, "is_target", &status);
 
       if (is_target)
@@ -793,7 +793,7 @@ void
 set_menus_node_directions (DOCUMENT *document)
 {
   GLOBAL_COMMANDS *global_commands = document->global_commands;
-  ELEMENT *nodes_list = document->nodes_list;
+  ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
@@ -801,7 +801,7 @@ set_menus_node_directions (DOCUMENT *document)
   int check_menu_entries = 1;
   int i;
 
-  if (!nodes_list || nodes_list->contents.number <= 0)
+  if (!nodes_list || nodes_list->number <= 0)
     return;
 
   if (options && (options->novalidate > 0
@@ -817,10 +817,10 @@ set_menus_node_directions (DOCUMENT *document)
   differently; at least, there are no error messages for them.
    */
 
-  for (i = 0; i < nodes_list->contents.number; i++)
+  for (i = 0; i < nodes_list->number; i++)
     {
       int j;
-      ELEMENT *node = nodes_list->contents.list[i];
+      ELEMENT *node = nodes_list->list[i];
       ELEMENT *menus = lookup_extra_element (node, "menus");
 
       if (!menus)
@@ -987,21 +987,21 @@ section_direction_associated_node (ELEMENT *section, enum directions direction)
 void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
-  ELEMENT *nodes_list = document->nodes_list;
+  ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
   int i;
 
-  if (!nodes_list || nodes_list->contents.number <= 0)
+  if (!nodes_list || nodes_list->number <= 0)
     return;
 
   /* Go through all the nodes */
 
-  for (i = 0; i < nodes_list->contents.number; i++)
+  for (i = 0; i < nodes_list->number; i++)
     {
-      ELEMENT *node = nodes_list->contents.list[i];
+      ELEMENT *node = nodes_list->list[i];
       char *normalized = lookup_extra_string (node, "normalized");
       ELEMENT *menu_directions = lookup_extra_element (node,
                                                       "menu_directions");
@@ -1150,10 +1150,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
                 {
                   /* use the first non top node as next for Top */
                   int j;
-                  for (j = 0; j < nodes_list->contents.number; j++)
+                  for (j = 0; j < nodes_list->number; j++)
                     {
                       ELEMENT *first_non_top_node
-                        = nodes_list->contents.list[j];
+                        = nodes_list->list[j];
                       if (first_non_top_node != node)
                         {
                           node_directions = lookup_extra_directions (node,
@@ -1283,7 +1283,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 }
 
 /* set node directions based on sectioning and @node explicit directions */
-ELEMENT *
+ELEMENT_LIST *
 nodes_tree (DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = document->identifiers_target;
@@ -1292,7 +1292,7 @@ nodes_tree (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   ELEMENT *top_node = 0;
-  ELEMENT *nodes_list = new_element (ET_NONE);
+  ELEMENT_LIST *nodes_list = new_list ();
 
   int i;
 
@@ -1311,7 +1311,7 @@ nodes_tree (DOCUMENT *document)
       if (!normalized)
         continue;
 
-      add_to_contents_as_array (nodes_list, node);
+      add_to_element_list (nodes_list, node);
       is_target = lookup_extra_integer (node, "is_target", &status);
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;
@@ -1767,14 +1767,14 @@ new_node_menu_entry (ELEMENT *node, int use_sections)
 ELEMENT *
 new_complete_node_menu (ELEMENT *node, int use_sections)
 {
-  ELEMENT *node_childs = get_node_node_childs_from_sectioning (node);
+  ELEMENT_LIST *node_childs = get_node_node_childs_from_sectioning (node);
   ELEMENT *section;
   ELEMENT *new_menu;
   int i;
 
-  if (node_childs->contents.number <= 0)
+  if (node_childs->number <= 0)
     {
-      destroy_element (node_childs);
+      destroy_list (node_childs);
       return 0;
     }
 
@@ -1785,30 +1785,30 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
   new_menu = new_element (ET_NONE);
   new_menu->parent = section;
 
-  for (i = 0; i < node_childs->contents.number; i++)
+  for (i = 0; i < node_childs->number; i++)
     {
-      ELEMENT *child = node_childs->contents.list[i];
+      ELEMENT *child = node_childs->list[i];
       ELEMENT *entry = new_node_menu_entry (child, use_sections);
       if (entry)
         {
           add_to_element_contents (new_menu, entry);
         }
     }
-  destroy_element (node_childs);
+  destroy_list (node_childs);
 
   new_block_command (new_menu, CM_menu);
 
   return (new_menu);
 }
 
-ELEMENT *
+ELEMENT_LIST *
 print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
                  int use_sections)
 {
-  ELEMENT *master_menu_contents = new_element (ET_NONE);
+  ELEMENT_LIST *master_menu_contents = new_list ();
   ELEMENT *menus;
   ELEMENT *node_menus = lookup_extra_element (node, "menus");
-  ELEMENT *node_children;
+  ELEMENT_LIST *node_children;
   int i;
 
   if (node_menus && node_menus->contents.number > 0)
@@ -1826,7 +1826,7 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
         return master_menu_contents;
     }
 
-  node_children = new_element (ET_NONE);
+  node_children = new_list ();
 
   for (i = 0; i < menus->contents.number; i++)
     {
@@ -1839,17 +1839,17 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
             {
               ELEMENT *entry_copy = copy_tree (entry);
               ELEMENT *node;
-              add_to_contents_as_array (master_menu_contents, entry_copy);
+              add_to_element_list (master_menu_contents, entry_copy);
               /* gather node children to recursively print their menus */
               node = normalized_entry_associated_internal_node (entry,
                                                         identifiers_target);
               if (node)
-                add_to_contents_as_array (node_children, node);
+                add_to_element_list (node_children, node);
             }
         }
     }
 
-  if (master_menu_contents->contents.number > 0)
+  if (master_menu_contents->number > 0)
     {
       ELEMENT *node_name_element;
       ELEMENT *node_title_copy;
@@ -1883,24 +1883,23 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
       add_to_element_contents (preformatted, empty_line_first_after);
       add_to_element_contents (preformatted, empty_line_second_after);
 
-      insert_into_contents (master_menu_contents, menu_comment, 0);
-      menu_comment->parent = 0;
+      insert_into_element_list (master_menu_contents, menu_comment, 0);
 
       /* now recurse in the children */
-      for (i = 0; i < node_children->contents.number; i++)
+      for (i = 0; i < node_children->number; i++)
         {
-          ELEMENT *child = node_children->contents.list[i];
-          ELEMENT *child_menu_content
+          ELEMENT *child = node_children->list[i];
+          ELEMENT_LIST *child_menu_content
            = print_down_menus (child, identifiers_target, use_sections);
-          insert_slice_into_contents (master_menu_contents,
-                                      master_menu_contents->contents.number,
-                                      child_menu_content, 0,
-                                      child_menu_content->contents.number);
-          destroy_element (child_menu_content);
+          insert_list_slice_into_list (master_menu_contents,
+                                       master_menu_contents->number,
+                                       child_menu_content, 0,
+                                       child_menu_content->number);
+          destroy_list (child_menu_content);
         }
     }
 
-  destroy_element (node_children);
+  destroy_list (node_children);
 
   if (!node_menus)
     destroy_element (menus);
@@ -1933,18 +1932,18 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
                                                   identifiers_target);
                   if (menu_node)
                     {
-                      ELEMENT *down_menus = print_down_menus(menu_node,
-                                       identifiers_target, use_sections);
+                      ELEMENT_LIST *down_menus = print_down_menus(menu_node,
+                                          identifiers_target, use_sections);
                       if (down_menus)
                         {
                           int k;
-                          for (k = 0; k < down_menus->contents.number; k++)
-                            down_menus->contents.list[k]->parent = master_menu;
-                          insert_slice_into_contents (master_menu,
+                          for (k = 0; k < down_menus->number; k++)
+                            down_menus->list[k]->parent = master_menu;
+                          insert_list_slice_into_contents (master_menu,
                                                  master_menu->contents.number,
                                                  down_menus, 0,
-                                                 down_menus->contents.number);
-                          destroy_element (down_menus);
+                                                 down_menus->number);
+                          destroy_list (down_menus);
                         }
                     }
                 }

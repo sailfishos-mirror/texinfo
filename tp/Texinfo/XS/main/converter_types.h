@@ -206,8 +206,8 @@ typedef struct DOCUMENT {
     GLOBAL_INFO *global_info;
     GLOBAL_COMMANDS *global_commands;
     STRING_LIST *small_strings;
-    ELEMENT *nodes_list; /* nodes in contents of this element */
-    ELEMENT *sections_list; /* sections in contents of this element */
+    ELEMENT_LIST *nodes_list;
+    ELEMENT_LIST *sections_list;
     ERROR_MESSAGE_LIST *error_messages;
     OPTIONS *options; /* for options used in structuring */
 } DOCUMENT;

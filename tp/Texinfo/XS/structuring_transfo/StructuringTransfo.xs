@@ -176,7 +176,7 @@ set_document_options (SV *sv_options_in, SV *document_in)
 void
 fill_gaps_in_sectioning (SV *tree_in)
     PREINIT:
-        ELEMENT *added_sections;
+        ELEMENT_LIST *added_sections;
         DOCUMENT *document;
      CODE:
         document = get_sv_tree_document (tree_in, "fill_gaps_in_sectioning");
@@ -185,7 +185,7 @@ fill_gaps_in_sectioning (SV *tree_in)
             added_sections = fill_gaps_in_sectioning (document->tree);
             /* cannot easily be used as it does not match with perl tree.
                Also the return would not be usable as error status */
-            destroy_element (added_sections);
+            destroy_list (added_sections);
           }
 
 SV *
@@ -279,7 +279,7 @@ sectioning_structure (SV *tree_in, ...)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           {
-            ELEMENT *sections_list = sectioning_structure (document);
+            ELEMENT_LIST *sections_list = sectioning_structure (document);
             register_document_sections_list (document, sections_list);
           }
 
@@ -396,9 +396,9 @@ insert_nodes_for_sectioning_commands (SV *document_in, ...)
                                "insert_nodes_for_sectioning_commands");
         if (document)
           {
-            ELEMENT *added_nodes
+            ELEMENT_LIST *added_nodes
               = insert_nodes_for_sectioning_commands (document);
-            destroy_element (added_nodes);
+            destroy_list (added_nodes);
           }
 
 # The perl function returns a list of nodes, but it is only used
@@ -413,7 +413,7 @@ nodes_tree (SV *document_in, ...)
         document = get_sv_document_document (document_in, "nodes_tree");
         if (document)
           {
-            ELEMENT *nodes_list = nodes_tree (document);
+            ELEMENT_LIST *nodes_list = nodes_tree (document);
             register_document_nodes_list (document, nodes_list);
           }
 

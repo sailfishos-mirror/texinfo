@@ -520,7 +520,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
      = associated_special_units_descriptor;
 
   if (self->document->sections_list
-      && self->document->sections_list->contents.number > 0)
+      && self->document->sections_list->number > 0)
     {
       enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
       int i;
@@ -1205,13 +1205,14 @@ set_root_commands_targets_node_files (CONVERTER *self)
         }
     }
 
-  if (self->document->sections_list)
+  if (self->document->sections_list
+      && self->document->sections_list->number >= 0)
     {
-      ELEMENT *sections_list = self->document->sections_list;
+      ELEMENT_LIST *sections_list = self->document->sections_list;
       int i;
-      for (i = 0; i < sections_list->contents.number; i++)
+      for (i = 0; i < sections_list->number; i++)
         {
-          ELEMENT *root_element = sections_list->contents.list[i];
+          ELEMENT *root_element = sections_list->list[i];
           new_sectioning_command_target (self, root_element);
         }
     }

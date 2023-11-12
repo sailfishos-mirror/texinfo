@@ -1,5 +1,38 @@
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units)
+	(set_root_commands_targets_node_files),
+	tp/Texinfo/XS/main/build_perl_info.c (build_elements_list)
+	(build_document), tp/Texinfo/XS/main/converter_types.h (DOCUMENT),
+	tp/Texinfo/XS/main/document.c (register_document_nodes_list)
+	(register_document_sections_list)
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(sectioning_structure, nodes_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (sectioning_structure)
+	(nodes_tree, check_nodes_are_referenced, set_menus_node_directions)
+	(complete_node_tree_with_menus): use ELEMENT_LIST for nodes_list and
+	sections_list.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfo.xs
+	(fill_gaps_in_sectioning),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning, new_complete_node_menu)
+	(print_down_menus, new_master_menu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning, insert_nodes_for_sectioning_commands)
+	(complete_node_menu, get_non_automatic_nodes_with_sections)
+	(complete_tree_nodes_menus, complete_tree_nodes_missing_menu): use
+	ELEMENT_LIST for fill_gaps_in_sectioning,
+	get_node_node_childs_from_sectioning, print_down_menus and
+	get_non_automatic_nodes_with_sections.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reassociate_to_node, insert_nodes_for_sectioning_commands): use
+	ELEMENT_LIST for new_previous.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (new_list, destroy_list),
 	tp/Texinfo/XS/structuring_transfo/transformations.c (modify_tree)
 	(protect_text, protect_hashchar_at_line_beginning_internal)

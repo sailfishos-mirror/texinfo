@@ -701,7 +701,7 @@ build_internal_xref_list (ELEMENT **internal_xref_list,
 }
 
 AV *
-build_elements_contents_list (ELEMENT *element)
+build_elements_list (ELEMENT_LIST *list)
 {
   AV *list_av;
   SV *sv;
@@ -711,11 +711,11 @@ build_elements_contents_list (ELEMENT *element)
 
   list_av = newAV ();
 
-  av_unshift (list_av, element->contents.number);
+  av_unshift (list_av, list->number);
 
-  for (i = 0; i < element->contents.number; i++)
+  for (i = 0; i < list->number; i++)
     {
-      sv = newRV_inc (element->contents.list[i]->hv);
+      sv = newRV_inc (list->list[i]->hv);
       av_store (list_av, i, sv);
     }
 
@@ -1192,10 +1192,10 @@ build_document (size_t document_descriptor, int no_store)
                                document->error_messages->number);
 
   if (document->nodes_list)
-    av_nodes_list = build_elements_contents_list (document->nodes_list);
+    av_nodes_list = build_elements_list (document->nodes_list);
 
   if (document->sections_list)
-    av_sections_list = build_elements_contents_list (document->sections_list);
+    av_sections_list = build_elements_list (document->sections_list);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 

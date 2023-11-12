@@ -280,10 +280,10 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
     }
 }
 
-ELEMENT *
+ELEMENT_LIST *
 fill_gaps_in_sectioning (ELEMENT *root)
 {
-  ELEMENT *added_sections = new_element (ET_NONE);
+  ELEMENT_LIST *added_sections = new_list ();
   int idx_current_section = -1;
   int idx_next_section = -1;
   size_t idx = 0;
@@ -320,7 +320,7 @@ fill_gaps_in_sectioning (ELEMENT *root)
 
       if (next_section_level - current_section_level > 1)
         {
-          ELEMENT *new_sections = new_element (ET_NONE);
+          ELEMENT_LIST *new_sections = new_list ();
           correct_level (next_section, current_section, 1);
           while (next_section_level - current_section_level > 1)
             {
@@ -353,19 +353,19 @@ fill_gaps_in_sectioning (ELEMENT *root)
               text_append (&empty_line->text, "\n");
               add_to_element_contents (new_section, empty_line);
 
-              add_to_contents_as_array (new_sections, new_section);
+              add_to_element_list (new_sections, new_section);
             }
-          insert_slice_into_contents (root, idx_current_section+1,
+          insert_list_slice_into_contents (root, idx_current_section+1,
+                                          new_sections, 0,
+                                          new_sections->number);
+          idx_next_section += new_sections->number;
+          insert_list_slice_into_list (added_sections,
+                                      added_sections->number,
                                       new_sections, 0,
-                                      new_sections->contents.number);
-          idx_next_section += new_sections->contents.number;
-          insert_slice_into_contents (added_sections,
-                                      added_sections->contents.number,
-                                      new_sections, 0,
-                                      new_sections->contents.number);
-          correct_level (next_section, last_contents_child (new_sections),
-                         -1);
-          destroy_element (new_sections);
+                                      new_sections->number);
+          correct_level (next_section,
+                         new_sections->list[new_sections->number -1], -1);
+          destroy_list (new_sections);
         }
       idx_current_section = idx_next_section;
 
@@ -738,9 +738,9 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
 ELEMENT_LIST *
 reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 {
-  ELEMENT *new_previous = (ELEMENT *) argument;
-  ELEMENT *added_node = new_previous->contents.list[0];
-  ELEMENT *previous_node = new_previous->contents.list[1];
+  ELEMENT_LIST *new_previous = (ELEMENT_LIST *) argument;
+  ELEMENT *added_node = new_previous->list[0];
+  ELEMENT *previous_node = new_previous->list[1];
 
   if (current->cmd == CM_menu)
     {
@@ -808,11 +808,11 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 
 /* in perl registrar and configuration, but they are not useful,
    see comment before new_node */
-ELEMENT *
+ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
   ELEMENT *root = document->tree;
-  ELEMENT *added_nodes = new_element (ET_NONE);
+  ELEMENT_LIST *added_nodes = new_list ();
   int idx;
   ELEMENT *previous_node = 0;
 
@@ -845,20 +845,20 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
               destroy_element (new_node_tree);
               if (added_node)
                 {
-                  ELEMENT *new_previous = new_element (ET_NONE);
+                  ELEMENT_LIST *new_previous = new_list ();
                   insert_into_contents (root, added_node, idx);
                   idx++;
-                  add_to_contents_as_array (added_nodes, added_node);
+                  add_to_element_list (added_nodes, added_node);
                   add_extra_element (added_node, "associated_section",
                                      content);
                   add_extra_element (content, "associated_node", added_node);
                   added_node->parent = content->parent;
                   /* reassociate index entries and menus */
-                  add_to_contents_as_array (new_previous, added_node);
-                  add_to_contents_as_array (new_previous, previous_node);
+                  add_to_element_list (new_previous, added_node);
+                  add_to_element_list (new_previous, previous_node);
                   modify_tree (content, &reassociate_to_node,
                                (void *)new_previous);
-                  destroy_element (new_previous);
+                  destroy_list (new_previous);
                 }
             }
         }
@@ -969,15 +969,15 @@ typedef struct EXISTING_ENTRY {
 void
 complete_node_menu (ELEMENT *node, int use_sections)
 {
-  ELEMENT *node_childs = get_node_node_childs_from_sectioning (node);
+  ELEMENT_LIST *node_childs = get_node_node_childs_from_sectioning (node);
 
-  if (node_childs->contents.number)
+  if (node_childs->number)
     {
       int existing_entries_nr = 0;
       int existing_entries_space = 5;
       EXISTING_ENTRY *existing_entries = 0;
 
-      ELEMENT *pending = new_element (ET_NONE);
+      ELEMENT_LIST *pending = new_list ();
       ELEMENT *current_menu = 0;
 
       int i;
@@ -1018,9 +1018,9 @@ complete_node_menu (ELEMENT *node, int use_sections)
             }
         }
 
-      for (i = 0; i < node_childs->contents.number; i++)
+      for (i = 0; i < node_childs->number; i++)
         {
-          ELEMENT *node_entry = node_childs->contents.list[i];
+          ELEMENT *node_entry = node_childs->list[i];
           KEY_PAIR *k_normalized = lookup_extra (node_entry, "normalized");
           if (k_normalized && k_normalized->value)
             {
@@ -1039,19 +1039,19 @@ complete_node_menu (ELEMENT *node, int use_sections)
                 }
               if (entry)
                 {
-                  if (pending->contents.number)
+                  if (pending->number)
                     {
                       int k;
                       for (j = 0; j < current_menu->contents.number; j++)
                       if (current_menu->contents.list[j] == entry)
                         break;
-                      insert_slice_into_contents (current_menu, j,
-                                                  pending, 0,
-                                                  pending->contents.number);
-                      for (k = 0; k < pending->contents.number; k++)
-                        pending->contents.list[k]->parent = current_menu;
+                      insert_list_slice_into_contents (current_menu, j,
+                                                       pending, 0,
+                                                       pending->number);
+                      for (k = 0; k < pending->number; k++)
+                        pending->list[k]->parent = current_menu;
 
-                      pending->contents.number = 0;
+                      pending->number = 0;
                     }
                 }
               else
@@ -1062,19 +1062,22 @@ complete_node_menu (ELEMENT *node, int use_sections)
               we try, in general, to be silent in the transformations.
               */
                   if (entry)
-                    add_to_contents_as_array (pending, entry);
+                    add_to_element_list (pending, entry);
                 }
             }
         }
 
-      if (pending->contents.number)
+      if (pending->number)
         {
           int j;
           if (!current_menu)
             {
               ELEMENT *section = lookup_extra_element (node,
                                                        "associated_section");
-              current_menu = pending;
+              current_menu = new_element (ET_NONE);
+              insert_list_slice_into_contents (current_menu, 0,
+                                               pending, 0,
+                                               pending->number);
               current_menu->parent = section;
               new_block_command (current_menu, CM_menu);
               prepend_new_menu_in_node_section (node, section,
@@ -1087,28 +1090,26 @@ complete_node_menu (ELEMENT *node, int use_sections)
 
               if (last_menu_content->cmd != CM_end)
                 offset_at_end = 0;
-              insert_slice_into_contents (current_menu,
+              insert_list_slice_into_contents (current_menu,
                                 current_menu->contents.number + offset_at_end,
-                                        pending, 0, pending->contents.number);
+                                        pending, 0, pending->number);
             }
-          for (j = 0; j < pending->contents.number; j++)
-            pending->contents.list[j]->parent = current_menu;
+          for (j = 0; j < pending->number; j++)
+            pending->list[j]->parent = current_menu;
 
-          if (current_menu != pending)
-            destroy_element (pending);
         }
-      else
-        destroy_element (pending);
+
+      destroy_list (pending);
 
       free (existing_entries);
     }
-  destroy_element (node_childs);
+  destroy_list (node_childs);
 }
 
-static ELEMENT *
+static ELEMENT_LIST *
 get_non_automatic_nodes_with_sections (ELEMENT *root)
 {
-  ELEMENT *non_automatic_nodes = new_element (ET_NONE);
+  ELEMENT_LIST *non_automatic_nodes = new_list ();
   int i;
 
   for (i = 0; i < root->contents.number; i++)
@@ -1120,7 +1121,7 @@ get_non_automatic_nodes_with_sections (ELEMENT *root)
           ELEMENT *associated_section
             = lookup_extra_element (content, "associated_section");
           if (associated_section)
-            add_to_contents_as_array (non_automatic_nodes, content);
+            add_to_element_list (non_automatic_nodes, content);
         }
     }
   return non_automatic_nodes;
@@ -1130,26 +1131,26 @@ get_non_automatic_nodes_with_sections (ELEMENT *root)
 void
 complete_tree_nodes_menus (ELEMENT *root, int use_sections)
 {
-  ELEMENT *non_automatic_nodes
+  ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
   int i;
-  for (i = 0; i < non_automatic_nodes->contents.number; i++)
+  for (i = 0; i < non_automatic_nodes->number; i++)
     {
-      ELEMENT *node = non_automatic_nodes->contents.list[i];
+      ELEMENT *node = non_automatic_nodes->list[i];
       complete_node_menu (node, use_sections);
     }
-  destroy_element (non_automatic_nodes);
+  destroy_list (non_automatic_nodes);
 }
 
 void
 complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
 {
-  ELEMENT *non_automatic_nodes
+  ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
   int i;
-  for (i = 0; i < non_automatic_nodes->contents.number; i++)
+  for (i = 0; i < non_automatic_nodes->number; i++)
     {
-      ELEMENT *node = non_automatic_nodes->contents.list[i];
+      ELEMENT *node = non_automatic_nodes->list[i];
       ELEMENT *menus = lookup_extra_element (node, "menus");
       if (!(menus && menus->contents.number > 0))
         {
@@ -1159,7 +1160,7 @@ complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
             prepend_new_menu_in_node_section (node, section, current_menu);
         }
     }
-  destroy_element (non_automatic_nodes);
+  destroy_list (non_automatic_nodes);
 }
 
 /* NOTE in perl there is a customization_information argument:
