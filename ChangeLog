@@ -10,6 +10,13 @@
 
 2023-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): use
+	indices_info_index_by_name.  Use entry_idx_in_index for index in
+	index_entries.
+
+2023-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(convert_output_output_unit_internal): free path_encoding.
 

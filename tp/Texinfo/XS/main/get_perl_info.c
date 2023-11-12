@@ -575,7 +575,6 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                   SV** index_name_sv;
                   SV** entry_number_sv;
                   INDEX *idx;
-                  INDEX **n;
                   char *entry_index_name;
                   int entry_number;
                   int entry_idx_in_index;
@@ -607,15 +606,14 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                   entry_number = SvIV (*entry_number_sv);
                   entry_idx_in_index = entry_number - 1;
 
-                  for (n = index_names; (idx = *n); n++)
+                  idx = indices_info_index_by_name (index_names,
+                                                    entry_index_name);
+
+                  if (idx)
                     {
-                      if (!strcmp (idx->name, entry_index_name))
-                        {
-                          if (entry_idx_in_index < idx->entries_number)
-                            letter_entries->entries[k]
-                              = &idx->index_entries[entry_number];
-                          break;
-                        }
+                      if (entry_idx_in_index < idx->entries_number)
+                        letter_entries->entries[k]
+                          = &idx->index_entries[entry_idx_in_index];
                     }
                   if (!letter_entries->entries[k])
                     {
