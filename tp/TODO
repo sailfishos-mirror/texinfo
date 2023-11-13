@@ -33,9 +33,6 @@ Use a union for extra/info information instead of coercing a pointer?
 
 Use ELEMENT_LIST for extra_contents extra_directions?
 
-error_messages: add a check that it is empty in
-html_destroy?
-
 Bugs
 ====
 

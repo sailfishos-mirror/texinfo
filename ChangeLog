@@ -1,5 +1,11 @@
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_destroy): output a debug
+	message if the html converter is destroyed while there are error messages
+	that have not been registered.
+
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (replace_element_in_list): add.
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_get_tree_root_element)

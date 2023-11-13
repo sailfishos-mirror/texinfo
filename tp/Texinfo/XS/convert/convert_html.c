@@ -2652,6 +2652,12 @@ html_destroy (CONVERTER *self)
 {
   int i;
 
+  if (self->error_messages.number)
+    {
+      fprintf (stderr, "BUG: %zu ignored messages in HTML conversion\n",
+                       self->error_messages.number);
+    }
+
   free_generic_converter (self);
 
   free (self->global_units_directions);
