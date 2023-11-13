@@ -480,7 +480,7 @@ last_args_child (ELEMENT *current)
 }
 
 ELEMENT *
-last_contents_child (ELEMENT *current)
+last_contents_child (const ELEMENT *current)
 {
   if (current->contents.number == 0)
     return 0;

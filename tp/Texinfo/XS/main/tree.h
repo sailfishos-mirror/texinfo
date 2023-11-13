@@ -31,7 +31,7 @@ ELEMENT *remove_from_contents (ELEMENT *parent, int where);
 ELEMENT *remove_from_args (ELEMENT *parent, int where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);
 ELEMENT *last_args_child (ELEMENT *current);
-ELEMENT *last_contents_child (ELEMENT *current);
+ELEMENT *last_contents_child (const ELEMENT *current);
 ELEMENT *pop_element_from_args (ELEMENT *parent);
 ELEMENT *pop_element_from_contents (ELEMENT *parent);
 ELEMENT *contents_child_by_index (ELEMENT *e, int index);

@@ -125,7 +125,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
   return result;
 }
 
-char *print_associate_info_debug (ASSOCIATED_INFO *info)
+char *print_associate_info_debug (const ASSOCIATED_INFO *info)
 {
   TEXT text;
   char *result;
@@ -137,7 +137,7 @@ char *print_associate_info_debug (ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       char *key = info->info[i].key;
-      ELEMENT *f = (ELEMENT *) info->info[i].value;
+      const ELEMENT *f = (ELEMENT *) info->info[i].value;
       text_printf (&text, "  %s|", key);
       switch (info->info[i].type)
         {
@@ -180,7 +180,7 @@ char *print_associate_info_debug (ASSOCIATED_INFO *info)
             text_append (&text, "contents: ");
             for (j = 0; j < f->contents.number; j++)
               {
-                ELEMENT *e = f->contents.list[j];
+                const ELEMENT *e = f->contents.list[j];
                 char *element_str = print_element_debug (e, 0);
                 text_printf (&text, "%p;%s|", e, element_str);
                 free (element_str);
@@ -200,7 +200,7 @@ char *print_associate_info_debug (ASSOCIATED_INFO *info)
 }
 
 char *
-print_element_debug_details (ELEMENT *e, int print_parent)
+print_element_debug_details (const ELEMENT *e, int print_parent)
 {
   char *string = print_element_debug (e, print_parent);
   TEXT text;

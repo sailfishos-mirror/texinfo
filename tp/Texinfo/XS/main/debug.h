@@ -14,7 +14,7 @@ void debug_nonl (char *s, ...);
 void set_debug_output (int value);
 void debug_print_element (const ELEMENT *e, int print_parent);
 char *print_element_debug (const ELEMENT *e, int print_parent);
-char *print_element_debug_details (ELEMENT *e, int print_parent);
+char *print_element_debug_details (const ELEMENT *e, int print_parent);
 void debug_print_protected_string (char *input_string);
 char *debug_protect_eol (char *input_string, int *allocated);
 
