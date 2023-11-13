@@ -184,7 +184,7 @@ convert_to_normalized (ELEMENT *e)
 }
 
 void
-protect_unicode_char (char *text, TEXT *result)
+protect_unicode_char (const char *text, TEXT *result)
 {
   uint8_t *encoded_u8;
   const uint8_t *next;
@@ -213,10 +213,11 @@ protect_unicode_char (char *text, TEXT *result)
   free (str);
 }
 
-char *unicode_to_protected (char *text)
+/* to be freed by caller */
+char *unicode_to_protected (const char *text)
 {
   TEXT result;
-  char *p = text;
+  const char *p = text;
 
   text_init (&result);
   text_append (&result, "");
@@ -256,28 +257,35 @@ char *unicode_to_protected (char *text)
   return (result.text);
 }
 
-/* frees input if another string is returned */
-char *normalize_top_name (char *text)
+/* to be freed by caller */
+char *normalize_top_name (const char *text)
 {
-  char *result = text;
-  if (strlen(text) == 3)
+  if (strlen (text) == 3)
     {
       char *normalized = strdup (text);
       char *p;
 
       for (p = normalized; *p; p++)
-        if (isascii_alnum(*p))
-          *p = tolower (*p);
+        if (isascii_alnum (*p))
+          {
+            *p = tolower (*p);
+          }
+        else
+          {
+            free (normalized);
+            return strdup (text);
+          }
 
       if (!strcmp (normalized, "top"))
         {
-          result = strdup ("Top");
-          free (text);
+          free (normalized);
+          return strdup ("Top");
         }
 
       free (normalized);
+      return strdup (text);
     }
-  return result;
+  return strdup (text);
 }
 
 char *
@@ -288,6 +296,7 @@ convert_to_identifier (ELEMENT *root)
   char *protected = unicode_to_protected (normalized_name);
   char *result = normalize_top_name (protected);
 
+  free (protected);
   free (converted_name);
   free (normalized_name);
   return result;

@@ -1,5 +1,15 @@
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/node_name_normalization.c (normalize_top_name)
+	(convert_to_identifier): never free input of normalize_top_name,
+	result always need to be freed.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c (normalize_top_name)
+	(unicode_to_protected, protect_unicode_char): set input text to be
+	const.
+
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/def.c (split_delimiters, split_def_args),
 	tp/Texinfo/XS/structuring_transfo/transformations.c
 	(protect_first_parenthesis, protect_text)
