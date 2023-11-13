@@ -104,6 +104,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module strndup:
   # Code from module strnlen:
   # Code from module sys_types:
+  # Code from module uchar:
   # Code from module unicase/base:
   # Code from module unicase/cased:
   # Code from module unicase/empty-prefix-context:
@@ -168,6 +169,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module vasnprintf:
   # Code from module vasprintf:
   # Code from module wchar:
+  # Code from module wctype-h:
   # Code from module xalloc-oversized:
   # Code from module xsize:
 ])
@@ -352,6 +354,9 @@ AC_DEFUN([gl_INIT],
   gl_SYS_TYPES_H
   gl_SYS_TYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_UCHAR_H
+  gl_UCHAR_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
   gl_LIBUNISTRING_LIBHEADER([1.2], [unicase.h])
   gl_UNICASE_H
   gl_UNICASE_H_REQUIRE_DEFAULTS
@@ -471,6 +476,9 @@ AC_DEFUN([gl_INIT],
      AM_][XGETTEXT_OPTION([--flag=vasprintf:2:c-format])])
   gl_WCHAR_H
   gl_WCHAR_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_WCTYPE_H
+  gl_WCTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
   gl_XSIZE
   # End of code from modules
@@ -719,6 +727,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/strndup.c
   lib/strnlen.c
   lib/sys_types.in.h
+  lib/uchar.in.h
   lib/unicase.in.h
   lib/unicase/cased.c
   lib/unicase/cased.h
@@ -820,6 +829,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/verify.h
   lib/warn-on-use.h
   lib/wchar.in.h
+  lib/wctype-h.c
+  lib/wctype.in.h
   lib/xalloc-oversized.h
   lib/xsize.c
   lib/xsize.h
@@ -886,6 +897,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/strndup.m4
   m4/strnlen.m4
   m4/sys_types_h.m4
+  m4/uchar_h.m4
   m4/unicase_h.m4
   m4/unictype_h.m4
   m4/uninorm_h.m4
@@ -896,6 +908,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/warn-on-use.m4
   m4/wchar_h.m4
   m4/wchar_t.m4
+  m4/wctype_h.m4
   m4/wint_t.m4
   m4/xsize.m4
   m4/zzgnulib.m4

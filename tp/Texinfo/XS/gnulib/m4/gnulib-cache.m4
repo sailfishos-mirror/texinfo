@@ -44,6 +44,7 @@
 #  setenv \
 #  strchrnul \
 #  strndup \
+#  uchar \
 #  unicase/u8-tolower \
 #  unicase/u8-toupper \
 #  uniconv/u32-strconv-from-enc \
@@ -77,6 +78,7 @@ gl_MODULES([
   setenv
   strchrnul
   strndup
+  uchar
   unicase/u8-tolower
   unicase/u8-toupper
   uniconv/u32-strconv-from-enc
