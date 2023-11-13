@@ -326,7 +326,7 @@ insert_into_args (ELEMENT *parent, ELEMENT *e, int where)
 /* Insert elements to TO at position WHERE from FROM from START inclusive
    to END exclusive. */
 void
-insert_list_slice_into_list (ELEMENT_LIST *to, int where, ELEMENT_LIST *from,
+insert_list_slice_into_list (ELEMENT_LIST *to, int where, const ELEMENT_LIST *from,
                              int start, int end)
 {
   int num = end - start;
@@ -345,7 +345,7 @@ insert_list_slice_into_list (ELEMENT_LIST *to, int where, ELEMENT_LIST *from,
 /* Insert elements to the contents of TO at position WHERE from FROM contents
    from START inclusive to END exclusive.  Do not set the parent fields. */
 void
-insert_slice_into_contents (ELEMENT *to, int where, ELEMENT *from,
+insert_slice_into_contents (ELEMENT *to, int where, const ELEMENT *from,
                             int start, int end)
 {
   insert_list_slice_into_list (&to->contents, where, &from->contents,

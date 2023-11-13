@@ -45,7 +45,7 @@ char *convert_utils_month_name[12] = {
 
 /* in Texinfo::Common */
 char *
-element_associated_processing_encoding (ELEMENT *element)
+element_associated_processing_encoding (const ELEMENT *element)
 {
   char *input_encoding = lookup_extra_string (element, "input_encoding_name");
   return input_encoding;
@@ -62,7 +62,7 @@ find_innermost_accent_contents (ELEMENT *element)
 
   while (1)
     {
-      ELEMENT *arg;
+      const ELEMENT *arg;
       int i;
 
       /* the following can happen if called with a bad tree */
@@ -124,7 +124,7 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
 */
 /* caller should free return */
 char *
-add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
+add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                     int numbered)
 {
   TEXT result;
@@ -173,7 +173,7 @@ add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
 
 static char *
 convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion,
-                 SOURCE_INFO *source_info)
+                 const SOURCE_INFO *source_info)
 {
   char *result;
   if (!conversion)
@@ -191,7 +191,8 @@ char *
 encoded_input_file_name (OPTIONS *options,
                          GLOBAL_INFO *global_information,
                          char *file_name, char *input_file_encoding,
-                         char **file_name_encoding, SOURCE_INFO *source_info)
+                         char **file_name_encoding,
+                         const SOURCE_INFO *source_info)
 {
   char *result;
   char *encoding = 0;
@@ -251,7 +252,7 @@ encoded_output_file_name (OPTIONS *options, GLOBAL_INFO *global_information,
 ELEMENT *
 expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,
-                        ELEMENT *current)
+                        const ELEMENT *current)
 {
   ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
@@ -361,14 +362,14 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 }
 
 PARSED_DEF *
-definition_arguments_content (ELEMENT *element)
+definition_arguments_content (const ELEMENT *element)
 {
   PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
   memset (result, 0, sizeof (PARSED_DEF));
   if (element->args.number >= 0)
     {
       int i;
-      ELEMENT *def_line = element->args.list[0];
+      const ELEMENT *def_line = element->args.list[0];
       if (def_line->contents.number > 0)
         {
           for (i = 0; i < def_line->contents.number; i++)
@@ -413,7 +414,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 }
 
 ELEMENT *
-definition_category_tree (OPTIONS * options, ELEMENT *current)
+definition_category_tree (OPTIONS * options, const ELEMENT *current)
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
@@ -425,7 +426,7 @@ definition_category_tree (OPTIONS * options, ELEMENT *current)
   if (current->args.number >= 0)
     {
       int i;
-      ELEMENT *def_line = current->args.list[0];
+      const ELEMENT *def_line = current->args.list[0];
       for (i = 0; i < def_line->contents.number; i++)
         {
           ELEMENT *arg = def_line->contents.list[i];

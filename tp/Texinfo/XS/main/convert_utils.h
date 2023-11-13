@@ -27,16 +27,16 @@ typedef struct PARSED_DEF {
 ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
-char *add_heading_number (OPTIONS *options, ELEMENT *current, char *text,
+char *add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                           int numbered);
 
 ELEMENT *expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,
-                        ELEMENT *current);
+                        const ELEMENT *current);
 
-PARSED_DEF *definition_arguments_content (ELEMENT *element);
+PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (OPTIONS *options, ELEMENT *current);
+ELEMENT *definition_category_tree (OPTIONS *options, const ELEMENT *current);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
 void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);

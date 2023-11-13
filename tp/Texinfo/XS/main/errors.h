@@ -22,7 +22,7 @@ char *prepare_error_line_message (ERROR_MESSAGE *error_message);
 void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void clear_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                                 ELEMENT *e, char *format, ...);
+                                 const ELEMENT *e, char *format, ...);
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                                 ELEMENT *e, char *format, ...);
 

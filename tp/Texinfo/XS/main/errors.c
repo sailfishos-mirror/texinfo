@@ -62,7 +62,7 @@ reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
 static void
 message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
                                   enum error_type type, int continuation,
-                                  SOURCE_INFO *cmd_source_info,
+                                  const SOURCE_INFO *cmd_source_info,
                                   char *format, va_list v)
 {
   char *message;
@@ -287,7 +287,7 @@ command_error (ELEMENT *e, char *format, ...)
 
 void
 message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                            ELEMENT *e, char *format, ...)
+                            const ELEMENT *e, char *format, ...)
 {
   va_list v;
 

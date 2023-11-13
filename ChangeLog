@@ -7,6 +7,23 @@
 
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (brace_no_arg_command)
+	(text_heading), tp/Texinfo/XS/main/convert_utils.c
+	(element_associated_processing_encoding, add_heading_number)
+	(find_innermost_accent_contents, convert_to_utf8)
+	(encoded_input_file_name, expand_verbatiminclude)
+	(definition_arguments_content, definition_category_tree),
+	tp/Texinfo/XS/main/errors.c (message_list_line_error_internal)
+	(message_list_command_error), tp/Texinfo/XS/main/tree.c
+	(insert_list_slice_into_list, insert_slice_into_contents),
+	tp/Texinfo/XS/main/utils.c (encode_with_iconv, decode_string)
+	(encode_string, section_level): add const for source info and elements
+	in argument for function that should not modify the argument they point
+	to.  Not much successful in making sure that the Texinfo tree is not
+	modified, though.
+
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c,
 	tp/Texinfo/XS/convert/call_html_perl_function.c,
 	tp/Texinfo/XS/convert/convert_html.c,

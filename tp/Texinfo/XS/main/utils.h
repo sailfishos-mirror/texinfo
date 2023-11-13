@@ -219,7 +219,7 @@ ELEMENT *get_label_element (const ELEMENT *e);
 INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 INDEX *ultimate_index (INDEX *index);
 char *read_flag_name (char **ptr);
-int section_level (ELEMENT *section);
+int section_level (const ELEMENT *section);
 char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
@@ -244,12 +244,13 @@ char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
 
 ENCODING_CONVERSION *get_encoding_conversion (char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);
-char *encode_with_iconv (iconv_t our_iconv,  char *s, SOURCE_INFO *source_info);
+char *encode_with_iconv (iconv_t our_iconv,  char *s,
+                         const SOURCE_INFO *source_info);
 void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
 char *decode_string (char *input_string, char *encoding, int *status,
-                     SOURCE_INFO *source_info);
+                     const SOURCE_INFO *source_info);
 char *encode_string (char *input_string, char *encoding, int *status,
-                     SOURCE_INFO *source_info);
+                     const SOURCE_INFO *source_info);
 
 EXPANDED_FORMAT *new_expanded_formats (void);
 void clear_expanded_formats (EXPANDED_FORMAT *formats);

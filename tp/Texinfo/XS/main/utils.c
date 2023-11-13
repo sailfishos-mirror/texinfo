@@ -317,7 +317,7 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 char *
-encode_with_iconv (iconv_t our_iconv, char *s, SOURCE_INFO *source_info)
+encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
@@ -370,7 +370,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, SOURCE_INFO *source_info)
 
 char *
 decode_string (char *input_string, char *encoding, int *status,
-               SOURCE_INFO *source_info)
+               const SOURCE_INFO *source_info)
 {
   char *result;
   *status = 0;
@@ -392,7 +392,7 @@ decode_string (char *input_string, char *encoding, int *status,
 
 char *
 encode_string (char *input_string, char *encoding, int *status,
-               SOURCE_INFO *source_info)
+               const SOURCE_INFO *source_info)
 {
   char *result;
   *status = 0;
@@ -1070,7 +1070,7 @@ new_options (void)
 /* the returned level will be < 0 if the command is not supposed
    to be associated to a level. */
 int
-section_level (ELEMENT *section)
+section_level (const ELEMENT *section)
 {
   int level = command_structuring_level[section->cmd];
   KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");

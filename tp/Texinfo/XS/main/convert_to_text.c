@@ -204,7 +204,7 @@ text_accents (ELEMENT *accent, char *encoding, int set_case)
 
 /* result to be freed by caller */
 char *
-brace_no_arg_command (ELEMENT *e, TEXT_OPTIONS *options)
+brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 {
   char *result = 0;
   enum command_id cmd = e->cmd;
@@ -270,7 +270,7 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 /* Return the text of an underlined heading, possibly indented. */
 /* return to be freed by caller */
 char *
-text_heading (ELEMENT *current, char *text, OPTIONS *options,
+text_heading (const ELEMENT *current, char *text, OPTIONS *options,
               int numbered, int indent_length)
 {
   int i;
