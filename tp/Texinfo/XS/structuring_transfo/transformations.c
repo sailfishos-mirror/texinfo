@@ -109,27 +109,27 @@ protect_first_parenthesis (ELEMENT *element)
            = new_asis_command_with_text ("(", content->parent, content->type);
           ELEMENT *removed = 0;
           /* count UTF-8 encoded Unicode characters for source marks locations */
-          size_t current_position = 0;
           uint8_t *u8_text = 0;
-          uint8_t *u8_p = 0;
-          size_t u8_len = 0;
+          size_t current_position;
+          uint8_t *u8_p;
+          size_t u8_len;
 
           if (content->source_mark_list.number)
             {
               u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                                iconveh_question_mark);
               u8_p = u8_text;
-            }
 
-          if (u8_text)
-            {
+              current_position = 0;
+
               u8_len = u8_mbsnlen (u8_p, 1);
               u8_p += u8_len;
-            }
-          current_position
-            = relocate_source_marks (&(content->source_mark_list),
+
+              current_position
+                = relocate_source_marks (&(content->source_mark_list),
                               new_command->args.list[0]->contents.list[0],
                                      current_position, u8_len);
+            }
 
           if (!*(p+1))
             /* should be the same as content */
@@ -137,25 +137,24 @@ protect_first_parenthesis (ELEMENT *element)
           else
             {
               /* remove leading open brace */
-              char *new_text = strdup (p+1);
-              SOURCE_MARK_LIST source_mark_list = content->source_mark_list;
-              memset (&(content->source_mark_list), 0,
-                      sizeof (SOURCE_MARK_LIST));
-
               text_reset (&content->text);
-              text_append (&content->text, new_text);
-              free (new_text);
+              text_append (&content->text, p+1);
 
-              /* relocate all the remaining source marks */
               if (u8_text)
                 {
+                  /* relocate all the remaining source marks */
+                  SOURCE_MARK_LIST source_mark_list = content->source_mark_list;
+                  memset (&(content->source_mark_list), 0,
+                      sizeof (SOURCE_MARK_LIST));
+
                   u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
                   u8_p += u8_len;
-                }
-              current_position
-                = relocate_source_marks (&source_mark_list,
-                   content, current_position, u8_len);
-              free (source_mark_list.list);
+
+                  current_position
+                    = relocate_source_marks (&source_mark_list,
+                       content, current_position, u8_len);
+                  free (source_mark_list.list);
+               }
             }
           insert_into_contents (element, new_command, i);
           free (u8_text);
@@ -1310,20 +1309,22 @@ protect_text (ELEMENT *current, char *to_protect)
       ELEMENT_LIST *container = new_list();
       char *p = current->text.text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
-      size_t current_position = 0;
       uint8_t *u8_text = 0;
+      size_t current_position;
       uint8_t *u8_p = 0;
+      size_t u8_len;
 
       if (current->source_mark_list.number)
         {
           u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                             iconveh_question_mark);
           u8_p = u8_text;
+
+          current_position = 0;
         }
 
       while (*p)
         {
-          size_t u8_len = 0;
           int leading_nr = strcspn (p, to_protect);
           ELEMENT *text_elt = new_element (current->type);
           text_elt->parent = current->parent;
@@ -1341,11 +1342,12 @@ protect_text (ELEMENT *current, char *to_protect)
             {
               u8_len = u8_mbsnlen (u8_p, leading_nr);
               u8_p += u8_len;
+
+              current_position
+                = relocate_source_marks (&(current->source_mark_list),
+                                        text_elt,
+                                        current_position, u8_len);
             }
-          current_position
-            = relocate_source_marks (&(current->source_mark_list),
-                                     text_elt,
-                                     current_position, u8_len);
 
           if (leading_nr || text_elt->source_mark_list.number)
             add_to_element_list (container, text_elt);
@@ -1371,12 +1373,12 @@ protect_text (ELEMENT *current, char *to_protect)
                         {
                           u8_len = u8_mbsnlen (u8_p, 1);
                           u8_p += u8_len;
-                        }
-                      current_position
-                       = relocate_source_marks (&(current->source_mark_list),
-                                                comma,
-                                                current_position, u8_len);
 
+                        current_position
+                          = relocate_source_marks (&(current->source_mark_list),
+                                                   comma,
+                                                   current_position, u8_len);
+                        }
                     }
                   p += to_protect_nr;
                 }
@@ -1392,11 +1394,12 @@ protect_text (ELEMENT *current, char *to_protect)
                     {
                       u8_len = u8_mbsnlen (u8_p, to_protect_nr);
                       u8_p += u8_len;
-                    }
-                  current_position
-                     = relocate_source_marks (&(current->source_mark_list),
+
+                      current_position
+                       = relocate_source_marks (&(current->source_mark_list),
                                 new_command->args.list[0]->contents.list[0],
                                               current_position, u8_len);
+                    }
                   p += to_protect_nr;
                   *p = saved;
                 }
@@ -1524,20 +1527,23 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           ELEMENT *arg = new_element (ET_brace_command_arg);
                           /* count UTF-8 encoded Unicode characters for
                              source marks locations */
-                          size_t current_position = 0;
                           uint8_t *u8_text = 0;
-                          uint8_t *u8_p = 0;
-                          size_t u8_len = 0;
-                          SOURCE_MARK_LIST source_mark_list
-                             = current->source_mark_list;
-                          memset (&(current->source_mark_list), 0,
+                          size_t current_position;
+                          uint8_t *u8_p;
+                          size_t u8_len;
+                          SOURCE_MARK_LIST source_mark_list;
+
+                          if (current->source_mark_list.number)
+                            {
+                              source_mark_list = current->source_mark_list;
+                              memset (&(current->source_mark_list), 0,
                                   sizeof (SOURCE_MARK_LIST));
 
-                          if (source_mark_list.number)
-                            {
                               u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                               iconveh_question_mark);
                               u8_p = u8_text;
+
+                              current_position = 0;
                             }
 
                           /* NOTE not exactly the perl code, but use similar
@@ -1556,11 +1562,12 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                             {
                               u8_len = u8_mbsnlen (u8_p, leading_spaces_nr);
                               u8_p += u8_len;
-                            }
-                          current_position
-                            = relocate_source_marks (&source_mark_list,
-                                                     leading_spaces,
+
+                              current_position
+                                = relocate_source_marks (&source_mark_list,
+                                                         leading_spaces,
                                                      current_position, u8_len);
+                            }
 
                           if (leading_spaces_nr
                               || leading_spaces->source_mark_list.number)
@@ -1580,27 +1587,30 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                             {
                               u8_len = u8_mbsnlen (u8_p, 1);
                               u8_p += u8_len;
-                            }
-                          current_position
-                            = relocate_source_marks (&source_mark_list,
-                                                     hashchar,
+
+                              current_position
+                                = relocate_source_marks (&source_mark_list,
+                                                         hashchar,
                                                      current_position, u8_len);
+                            }
 
                           text_reset (&current->text);
                           text_append (&current->text, p);
                           free (current_text);
 
-                          /* relocate all the remaining source marks */
                           if (u8_text)
                             {
+                              /* relocate all the remaining source marks */
                               u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
                               u8_p += u8_len;
+
+                              current_position
+                                = relocate_source_marks (&source_mark_list,
+                                          current, current_position, u8_len);
+
+                              free (source_mark_list.list);
+                              free (u8_text);
                             }
-                          current_position
-                            = relocate_source_marks (&source_mark_list,
-                                      current, current_position, u8_len);
-                          free (source_mark_list.list);
-                          free (u8_text);
 
                           add_to_element_list (container, current);
                           return container;

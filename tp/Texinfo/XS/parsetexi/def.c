@@ -214,9 +214,10 @@ split_delimiters (ELEMENT *current, int starting_idx)
       ELEMENT *new;
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
-      size_t current_position = 0;
       uint8_t *u8_text = 0;
+      size_t current_position;
       uint8_t *u8_p;
+      size_t u8_len;
 
       if (e->type != ET_NONE
           || e->text.end == 0)
@@ -224,13 +225,16 @@ split_delimiters (ELEMENT *current, int starting_idx)
       p = e->text.text;
 
       if (e->source_mark_list.number)
-        u8_text = u8_strconv_from_encoding (p, "UTF-8",
+        {
+          u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                             iconveh_question_mark);
-      u8_p = u8_text;
+          u8_p = u8_text;
+
+          current_position = 0;
+        }
 
       while (1)
         {
-          size_t u8_len = 0;
           if (strchr (chars, *p))
             {
               new = new_element (ET_delimiter);
@@ -240,9 +244,11 @@ split_delimiters (ELEMENT *current, int starting_idx)
                 {
                   u8_len = u8_mbsnlen (u8_p, 1);
                   u8_p += u8_len;
-                }
-              current_position = relocate_source_marks (&(e->source_mark_list), new,
+
+                  current_position
+                   = relocate_source_marks (&(e->source_mark_list), new,
                                                  current_position, u8_len);
+                }
 
               insert_into_contents (current, new, i++);
               add_extra_string_dup (new, "def_role", "delimiter");
@@ -259,9 +265,11 @@ split_delimiters (ELEMENT *current, int starting_idx)
             {
               u8_len = u8_mbsnlen (u8_p, len);
               u8_p += u8_len;
-            }
-          current_position = relocate_source_marks (&(e->source_mark_list), new,
+
+             current_position
+               = relocate_source_marks (&(e->source_mark_list), new,
                                           current_position, u8_len);
+            }
 
           insert_into_contents (current, new, i++);
           if (!*(p += len))
@@ -286,9 +294,10 @@ split_def_args (ELEMENT *current, int starting_idx)
       ELEMENT *new;
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
-      size_t current_position = 0;
       uint8_t *u8_text = 0;
+      size_t current_position;
       uint8_t *u8_p;
+      size_t u8_len;
 
       if (e->type == ET_bracketed_arg)
         {
@@ -302,13 +311,16 @@ split_def_args (ELEMENT *current, int starting_idx)
       p = e->text.text;
 
       if (e->source_mark_list.number)
-        u8_text = u8_strconv_from_encoding (p, "UTF-8",
-                                            iconveh_question_mark);
-      u8_p = u8_text;
+        {
+          u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                              iconveh_question_mark);
+          u8_p = u8_text;
+
+          current_position = 0;
+        }
 
       while (1)
         {
-          size_t u8_len = 0;
           len = strspn (p, whitespace_chars);
           if (len)
             {
@@ -320,15 +332,18 @@ split_def_args (ELEMENT *current, int starting_idx)
               len = strcspn (p, whitespace_chars);
               new = new_element (ET_NONE);
             }
+
+          text_append_n (&new->text, p, len);
+
           if (u8_text)
             {
               u8_len = u8_mbsnlen (u8_p, len);
               u8_p += u8_len;
-            }
 
-          text_append_n (&new->text, p, len);
-          current_position = relocate_source_marks (&(e->source_mark_list), new,
-                                current_position, u8_len);
+              current_position
+                = relocate_source_marks (&(e->source_mark_list), new,
+                                         current_position, u8_len);
+            }
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;
