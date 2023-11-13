@@ -257,7 +257,7 @@ typedef struct FILE_NAME_PATH_COUNTER {
     int elements_in_file_count; /* only used in HTML, corresponds to
                                    'elements_in_file_count' */
     TEXT body;           /* file body output, used for HTML */
-    OUTPUT_UNIT *first_unit;
+    const OUTPUT_UNIT *first_unit;
     int counter_changed;  /* indicator to determine if the file has already
                              been setup for change in counter passed to perl */
 } FILE_NAME_PATH_COUNTER;
@@ -285,7 +285,7 @@ typedef struct OUTPUT_FILES_INFORMATION {
 } OUTPUT_FILES_INFORMATION;
 
 typedef struct SPECIAL_UNIT_DIRECTION {
-    OUTPUT_UNIT *output_unit;
+    const OUTPUT_UNIT *output_unit;
     char *direction;
 } SPECIAL_UNIT_DIRECTION;
 
@@ -382,7 +382,7 @@ typedef struct CONVERTER {
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
     /* set for a document */
-    OUTPUT_UNIT **global_units_directions;
+    const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     STRING_LIST seen_ids;
@@ -398,8 +398,8 @@ typedef struct CONVERTER {
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
-    ELEMENT *tree_to_build; /* C tree that needs to be built to perl before
-                               calling perl functions on it */
+    ELEMENT *tree_to_build; /* C tree that needs to be built to perl
+                               before calling perl functions on it */
     COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that
                          were translated and need to be passed back to perl */
     ELEMENT_LIST reset_target_commands; /* element targets that should have
@@ -420,9 +420,9 @@ typedef struct CONVERTER {
     /* state common with perl converter */
     int document_global_context;
     int ignore_notice;
-    ELEMENT *current_root_command;
-    ELEMENT *current_node;
-    OUTPUT_UNIT *current_output_unit;
+    const ELEMENT *current_root_command;
+    const ELEMENT *current_node;
+    const OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
     char *current_filename;

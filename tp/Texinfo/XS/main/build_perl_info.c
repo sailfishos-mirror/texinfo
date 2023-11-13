@@ -220,7 +220,7 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 static void
-store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
+store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
 {
   dTHX;
 

@@ -38,7 +38,7 @@ extern COMMAND builtin_command_data[];
 enum command_id lookup_builtin_command (char *cmdname);
 char *element_command_name (const ELEMENT *e);
 enum command_id element_builtin_cmd (const ELEMENT *e);
-enum command_id element_builtin_data_cmd (ELEMENT *e);
+enum command_id element_builtin_data_cmd (const ELEMENT *e);
 
 /* Base command flags, .flags in COMMAND */
 

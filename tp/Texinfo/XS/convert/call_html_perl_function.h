@@ -41,25 +41,26 @@ char *call_formatting_function_format_title_titlepage (CONVERTER *self);
 char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
 char *call_formatting_function_format_end_file (CONVERTER *self,
                                                 char *filename,
-                                              OUTPUT_UNIT *output_unit);
+                                         const OUTPUT_UNIT *output_unit);
 char *call_formatting_function_format_begin_file (CONVERTER *self,
                                                  char *filename,
-                                              OUTPUT_UNIT *output_unit);
+                                         const OUTPUT_UNIT *output_unit);
 
 char *call_types_conversion (CONVERTER *self, enum element_type type,
                        FORMATTING_REFERENCE *formatting_reference,
-                       ELEMENT *element, char *content);
+                       const ELEMENT *element, char *content);
 char *call_types_open (CONVERTER *self, enum element_type type,
-                       ELEMENT *element);
+                       const ELEMENT *element);
 char *call_commands_conversion (CONVERTER *self, enum command_id cmd,
                           FORMATTING_REFERENCE *formatting_reference,
-                          ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                          const ELEMENT *element,
+                          const HTML_ARGS_FORMATTED *args_formatted,
                           const char *content);
 char *call_commands_open (CONVERTER *self, enum command_id cmd,
-                          ELEMENT *element);
+                          const ELEMENT *element);
 char *call_output_units_conversion (CONVERTER *self,
                                     enum output_unit_type unit_type,
-                                OUTPUT_UNIT *output_unit, const char *content);
+                        const OUTPUT_UNIT *output_unit, const char *content);
 char *call_formatting_function_format_translate_message (CONVERTER *self,
                                   const char *message, const char *lang,
                                   const char *message_context);

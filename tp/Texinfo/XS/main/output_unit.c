@@ -397,7 +397,7 @@ split_pages (OUTPUT_UNIT_LIST *output_units, char *split)
 
 /* return to be freed by the caller */
 char *
-output_unit_texi (OUTPUT_UNIT *output_unit)
+output_unit_texi (const OUTPUT_UNIT *output_unit)
 {
   ELEMENT *unit_command;
 

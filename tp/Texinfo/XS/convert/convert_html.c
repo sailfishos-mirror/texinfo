@@ -46,8 +46,8 @@
 
 
 typedef struct ROOT_AND_UNIT {
-    OUTPUT_UNIT *output_unit;
-    ELEMENT *root;
+    const OUTPUT_UNIT *output_unit;
+    const ELEMENT *root;
 } ROOT_AND_UNIT;
 
 typedef struct CMD_VARIETY {
@@ -171,7 +171,7 @@ static COMMAND_ARGS_SPECIFICATION command_args_flags[BUILTIN_CMD_NUMBER];
 
 
 
-static void convert_to_html_internal (CONVERTER *self, ELEMENT *e,
+static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
                                       TEXT *result, char *explanation);
 
 /*
@@ -179,11 +179,11 @@ static void convert_to_html_internal (CONVERTER *self, ELEMENT *e,
  top output unit is not found.
  */
 static OUTPUT_UNIT *
-get_top_unit (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units)
+get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
 {
-  ELEMENT *node_top = find_identifier_target
+  const ELEMENT *node_top = find_identifier_target
                           (document->identifiers_target, "Top");
-  ELEMENT *section_top = document->global_commands->top;
+  const ELEMENT *section_top = document->global_commands->top;
 
   if (section_top)
     return section_top->associated_unit;
@@ -216,12 +216,12 @@ special_unit_variety_direction_index (CONVERTER *self,
   and not set to the element at the tree root
  */
 static ROOT_AND_UNIT *
-html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
+html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                             int find_container)
 {
-  ELEMENT *current = command;
-  OUTPUT_UNIT *output_unit = 0;
-  ELEMENT *root_command = 0;
+  const ELEMENT *current = command;
+  const OUTPUT_UNIT *output_unit = 0;
+  const ELEMENT *root_command = 0;
 
   while (1)
     {
@@ -238,18 +238,18 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
       else if (current->cmd && (builtin_command_flags(current) & CF_block)
                && builtin_command_data[current->cmd].data == BLOCK_region)
         {
-          OUTPUT_UNIT_LIST *output_units
+          const OUTPUT_UNIT_LIST *output_units
              = retrieve_output_units (self->document_units_descriptor);
           if (current->cmd == CM_copying
               && self->document->global_commands
                       ->insertcopying.contents.number > 0)
             {
-              ELEMENT global_insertcopying
+              const ELEMENT global_insertcopying
                 = self->document->global_commands->insertcopying;
               int i;
               for (i = 0; i < global_insertcopying.contents.number; i++)
                 {
-                  ELEMENT *insertcopying
+                  const ELEMENT *insertcopying
                       = global_insertcopying.contents.list[i];
                   ROOT_AND_UNIT *cur_result = html_get_tree_root_element (self,
                                                 insertcopying, find_container);
@@ -289,7 +289,7 @@ html_get_tree_root_element (CONVERTER *self, ELEMENT *command,
                   int special_unit_direction_index
                     = special_unit_variety_direction_index (self,
                                                 special_unit_variety);
-                  OUTPUT_UNIT *special_unit
+                  const OUTPUT_UNIT *special_unit
                 = self->global_units_directions[special_unit_direction_index];
                   if (special_unit)
                     {
@@ -591,7 +591,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
               else
                 {
                   OUTPUT_UNIT *special_output_unit = 0;
-                  OUTPUT_UNIT *associated_output_unit = 0;
+                  const OUTPUT_UNIT *associated_output_unit = 0;
                   if (!strcmp (contents_location, "after_title"))
                     {
                       if (output_units->number > 0)
@@ -623,7 +623,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                           int i;
                           for (i = 0; i < global_command->contents.number; i++)
                             {
-                              ELEMENT *command = global_command->contents.list[i];
+                              const ELEMENT *command = global_command->contents.list[i];
                               ROOT_AND_UNIT *root_unit
                                = html_get_tree_root_element (self, command, 0);
                               if (root_unit->output_unit)
@@ -1488,10 +1488,11 @@ html_prepare_output_units_global_targets (CONVERTER *self,
   int i;
   int all_special_units_nr = 0;
   int s;
-  OUTPUT_UNIT_LIST *output_units
+  const OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
 
-  OUTPUT_UNIT *top_output_unit = get_top_unit (self->document, output_units);
+  const OUTPUT_UNIT *top_output_unit = get_top_unit (self->document,
+                                                     output_units);
 
   int special_output_units_lists[2] = {special_units_descriptor,
                                        associated_special_units_descriptor};
@@ -1507,17 +1508,17 @@ html_prepare_output_units_global_targets (CONVERTER *self,
    */
   if (self->document->global_commands->printindex.contents.number > 0)
     {
-      ELEMENT *printindex
+      const ELEMENT *printindex
         = self->document->global_commands->printindex.contents.list[0];
       ROOT_AND_UNIT *root_unit
         = html_get_tree_root_element (self, printindex, 0);
       if (root_unit->output_unit)
         {
-          OUTPUT_UNIT *document_unit = root_unit->output_unit;
-          ELEMENT *root_command = root_unit->root;
+          const OUTPUT_UNIT *document_unit = root_unit->output_unit;
+          const ELEMENT *root_command = root_unit->root;
           if (root_command && root_command->cmd == CM_node)
             {
-              ELEMENT *associated_section
+              const ELEMENT *associated_section
                 = lookup_extra_element (root_command, "associated_section");
               if (associated_section)
                 root_command = associated_section;
@@ -1535,7 +1536,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
                   if (!status && section_level <= 1)
                     break;
 
-                  ELEMENT *up_section_directions
+                  const ELEMENT *up_section_directions
                     = lookup_extra_element (root_command, "section_directions");
                   if (up_section_directions
                       && up_section_directions->contents.list[D_up]
@@ -1562,7 +1563,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
         {
           if (self->global_units_directions[i])
             {
-              OUTPUT_UNIT *global_unit = self->global_units_directions[i];
+              const OUTPUT_UNIT *global_unit = self->global_units_directions[i];
               char *unit_texi = output_unit_texi (global_unit);
               fprintf (stderr, " %s: %s\n", html_global_unit_direction_names[i],
                                             unit_texi);
@@ -1578,7 +1579,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
   for (i = 0; i < 2; i++)
     {
       int special_units_descriptor = special_output_units_lists[i];
-      OUTPUT_UNIT_LIST *units_list
+      const OUTPUT_UNIT_LIST *units_list
        = retrieve_output_units (special_units_descriptor);
       if (units_list && units_list->number)
         all_special_units_nr += units_list->number;
@@ -1600,7 +1601,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
           int j;
           for (j = 0; j < units_list->number; j++)
             {
-              OUTPUT_UNIT *special_unit = units_list->list[j];
+              const OUTPUT_UNIT *special_unit = units_list->list[j];
               char *special_unit_variety = special_unit->special_unit_variety;
               int special_unit_direction_index
                 = special_unit_variety_direction_index (self,
@@ -1621,7 +1622,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
 static void
 set_file_source_info (FILE_SOURCE_INFO *file_source_info,
                           char *file_info_type, char *file_info_name,
-                          ELEMENT *file_info_element, char *filepath)
+                          const ELEMENT *file_info_element, char *filepath)
 {
   file_source_info->type = file_info_type;
   file_source_info->name = file_info_name;
@@ -1633,7 +1634,7 @@ static FILE_SOURCE_INFO *
 add_to_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
                           char *filename,
                           char *file_info_type, char *file_info_name,
-                          ELEMENT *file_info_element, char *filepath)
+                          const ELEMENT *file_info_element, char *filepath)
 {
   FILE_SOURCE_INFO *new_file_source_info;
   if (files_source_info->number == files_source_info->space)
@@ -2116,7 +2117,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         {
           char *filename = 0;
           OUTPUT_UNIT *special_unit = associated_special_units->list[i];
-          OUTPUT_UNIT *associated_output_unit
+          const OUTPUT_UNIT *associated_output_unit
             = special_unit->associated_document_unit;
           ELEMENT *unit_command = special_unit->unit_command;
           HTML_TARGET *element_target
@@ -2220,7 +2221,7 @@ html_prepare_units_directions_files (CONVERTER *self,
 
 static char *
 command_conversion (CONVERTER *self, enum command_id cmd,
-                    ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                    const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
                     char *content)
 {
   /* TODO call a C function if status is FRS_status_default_set
@@ -2242,7 +2243,7 @@ command_conversion (CONVERTER *self, enum command_id cmd,
 }
 
 static char *
-command_open (CONVERTER *self, enum command_id cmd, ELEMENT *element)
+command_open (CONVERTER *self, enum command_id cmd, const ELEMENT *element)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
@@ -2253,7 +2254,7 @@ command_open (CONVERTER *self, enum command_id cmd, ELEMENT *element)
 
 static char *
 type_conversion (CONVERTER *self, enum element_type type,
-                 ELEMENT *element, char *content)
+                 const ELEMENT *element, char *content)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
@@ -2268,7 +2269,7 @@ type_conversion (CONVERTER *self, enum element_type type,
 }
 
 static char *
-type_open (CONVERTER *self, enum element_type type, ELEMENT *element)
+type_open (CONVERTER *self, enum element_type type, const ELEMENT *element)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
@@ -2492,7 +2493,7 @@ html_converter_initialize (CONVERTER *self)
     }
 
   self->global_units_directions
-    = (OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
+    = (const OUTPUT_UNIT **) malloc ((D_Last + nr_special_units+1)
                                * sizeof (OUTPUT_UNIT));
 
   /* note that we allocate the same size as no_arg_formatted_cmd
@@ -2698,7 +2699,7 @@ html_destroy (CONVERTER *self)
 }
 
 char *
-html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation)
+html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
 {
   TEXT result;
   text_init (&result);
@@ -2958,7 +2959,7 @@ html_translate_names (CONVERTER *self)
        = special_unit_variety_direction_index (self, special_unit_variety);
       if (special_unit_direction_index >= 0)
         {
-          OUTPUT_UNIT *special_unit
+          const OUTPUT_UNIT *special_unit
            = self->global_units_directions[special_unit_direction_index];
           if (special_unit)
              {
@@ -3088,7 +3089,7 @@ destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
 
 /* EXPLANATION is used for debugging */
 void
-convert_to_html_internal (CONVERTER *self, ELEMENT *element,
+convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                           TEXT *result, char *explanation)
 {
   /* for debugging, for explanations */
@@ -3193,8 +3194,9 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
         {
           char *translation_context
             = lookup_extra_string (element, "translation_context");
-          ELEMENT *translated = html_gdt_tree (element->text.text, self->document,
-                                    self, 0, translation_context, 0);
+          const ELEMENT *translated = html_gdt_tree (element->text.text,
+                                      self->document,
+                                      self, 0, translation_context, 0);
 
           convert_to_html_internal (self, translated, &text_result,
                                     "translated TEXT");
@@ -3882,7 +3884,7 @@ convert_to_html_internal (CONVERTER *self, ELEMENT *element,
 
 static char *
 output_unit_conversion (CONVERTER *self, enum output_unit_type unit_type,
-                        OUTPUT_UNIT *output_unit, const char *content)
+                        const OUTPUT_UNIT *output_unit, const char *content)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
@@ -3892,7 +3894,7 @@ output_unit_conversion (CONVERTER *self, enum output_unit_type unit_type,
 }
 
 char *
-convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
+convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
                      char *explanation)
 {
   char *result = 0;
@@ -3910,7 +3912,7 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
 
   if (self->conf->DEBUG > 0)
     {
-      char *output_unit_txi = output_unit_texi(output_unit);
+      char *output_unit_txi = output_unit_texi (output_unit);
       fprintf (stderr, "XS|UNIT(%s) -> ou: %s '%s'\n", explanation,
                   output_unit_type_names[unit_type],
                   output_unit_txi);
@@ -3966,7 +3968,7 @@ convert_output_unit (CONVERTER *self, OUTPUT_UNIT *output_unit,
 /* wrapper to avoid code repetition and use similar functions as in perl */
 void
 convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
-                                   OUTPUT_UNIT *output_unit, int unit_nr,
+                                   const OUTPUT_UNIT *output_unit, int unit_nr,
                                    char *debug_str, char *explanation_str)
 {
   char *explanation;
@@ -3984,15 +3986,15 @@ convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
 }
 
 char *
-html_convert_convert (CONVERTER *self, ELEMENT *root,
+html_convert_convert (CONVERTER *self, const ELEMENT *root,
                       int output_units_descriptor,
                       int special_units_descriptor)
 {
   TEXT result;
 
-  OUTPUT_UNIT_LIST *output_units
+  const OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
-  OUTPUT_UNIT_LIST *special_units
+  const OUTPUT_UNIT_LIST *special_units
     = retrieve_output_units (special_units_descriptor);
 
   text_init (&result);
@@ -4020,7 +4022,7 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
       int i;
       for (i = 0; i < output_units->number; i++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
           convert_convert_output_unit_internal (self, &result, output_unit,
                                 unit_nr, "C UNIT", "convert unit");
           unit_nr++;
@@ -4029,7 +4031,7 @@ html_convert_convert (CONVERTER *self, ELEMENT *root,
         {
           for (i = 0; i < special_units->number; i++)
             {
-              OUTPUT_UNIT *special_unit = special_units->list[i];
+              const OUTPUT_UNIT *special_unit = special_units->list[i];
               convert_convert_output_unit_internal (self, &result,
                         special_unit, unit_nr, "C UNIT", "convert unit");
               unit_nr++;
@@ -4043,7 +4045,8 @@ int
 convert_output_output_unit_internal (CONVERTER *self,
                                      ENCODING_CONVERSION *conversion,
                                      TEXT *text,
-                                     OUTPUT_UNIT *output_unit, int unit_nr)
+                                     const OUTPUT_UNIT *output_unit,
+                                     int unit_nr)
 {
   FILE_NAME_PATH_COUNTER *unit_file = 0;
   size_t file_index;
@@ -4114,7 +4117,7 @@ convert_output_output_unit_internal (CONVERTER *self,
 
   if (unit_file->counter == 0)
     {
-      OUTPUT_UNIT *file_output_unit = unit_file->first_unit;
+      const OUTPUT_UNIT *file_output_unit = unit_file->first_unit;
       char *file_end;
       char *file_beginning;
       char *out_filepath = unit_file->filepath;
@@ -4221,7 +4224,7 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
 }
 
 char *
-html_convert_output (CONVERTER *self, ELEMENT *root,
+html_convert_output (CONVERTER *self, const ELEMENT *root,
                      int output_units_descriptor,
                      int special_units_descriptor,
                      char *output_file, char *destination_directory,
@@ -4231,9 +4234,9 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
   TEXT result;
   TEXT text; /* reused for all the output units */
 
-  OUTPUT_UNIT_LIST *output_units
+  const OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
-  OUTPUT_UNIT_LIST *special_units
+  const OUTPUT_UNIT_LIST *special_units
     = retrieve_output_units (special_units_descriptor);
 
   text_init (&result);
@@ -4258,7 +4261,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
           int i;
           for (i = 0; i < output_units->number; i++)
             {
-              OUTPUT_UNIT *output_unit = output_units->list[i];
+              const OUTPUT_UNIT *output_unit = output_units->list[i];
               convert_convert_output_unit_internal (self, &text, output_unit,
                              unit_nr, "UNIT NO-PAGE", "no-page output unit");
               unit_nr++;
@@ -4270,7 +4273,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
             {
               for (i = 0; i < special_units->number; i++)
                 {
-                  OUTPUT_UNIT *special_unit = special_units->list[i];
+                  const OUTPUT_UNIT *special_unit = special_units->list[i];
                   convert_convert_output_unit_internal (self, &text,
                                  special_unit, unit_nr, "UNIT NO-PAGE",
                                  "no-page output unit");
@@ -4333,7 +4336,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
 
       for (i = 0; i < output_units->number; i++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
           status = convert_output_output_unit_internal (self, conversion,
                                                &text, output_unit, unit_nr);
           if (!status)
@@ -4350,7 +4353,7 @@ html_convert_output (CONVERTER *self, ELEMENT *root,
         {
           for (i = 0; i < special_units->number; i++)
             {
-              OUTPUT_UNIT *special_unit = special_units->list[i];
+              const OUTPUT_UNIT *special_unit = special_units->list[i];
               status = convert_output_output_unit_internal (self, conversion,
                                                 &text, special_unit, unit_nr);
               if (!status)

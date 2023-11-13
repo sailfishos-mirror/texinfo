@@ -18,7 +18,7 @@ OUTPUT_UNIT *new_output_unit (enum output_unit_type unit_type);
 void add_to_output_unit_list (OUTPUT_UNIT_LIST *list,
                               OUTPUT_UNIT *output_unit);
 
-char *output_unit_texi (OUTPUT_UNIT *output_unit);
+char *output_unit_texi (const OUTPUT_UNIT *output_unit);
 
 void units_directions (OPTIONS *customization_information,
                        LABEL_LIST *identifiers_target,

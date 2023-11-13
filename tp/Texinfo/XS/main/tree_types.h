@@ -176,7 +176,7 @@ typedef struct OUTPUT_UNIT {
        but lets keep it an option */
     char *special_unit_variety;
     /* for special units associated to a document output unit */
-    struct OUTPUT_UNIT *associated_document_unit;
+    const struct OUTPUT_UNIT *associated_document_unit;
 } OUTPUT_UNIT;
 
 /* Could be elsewhere, but it is practical to have it here as it is used

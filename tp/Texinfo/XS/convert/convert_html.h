@@ -53,12 +53,13 @@ void html_translate_names (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
                                    char *output_file, char *output_filename);
 
-char *html_convert_convert (CONVERTER *self, ELEMENT *root,
+char *html_convert_convert (CONVERTER *self, const ELEMENT *root,
                             int output_units_descriptor,
                             int special_units_descriptor);
-char *html_convert_tree (CONVERTER *self, ELEMENT *tree, char *explanation);
+char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
+                         char *explanation);
 
-char *html_convert_output (CONVERTER *self, ELEMENT *root,
+char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            int output_units_descriptor,
                            int special_units_descriptor,
                            char *output_file, char *destination_directory,

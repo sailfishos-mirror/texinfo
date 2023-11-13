@@ -110,7 +110,7 @@ element_builtin_cmd (const ELEMENT *e)
 /* map user-defined element commands to internal commands with the right
    flags associated */
 enum command_id
-element_builtin_data_cmd (ELEMENT *e)
+element_builtin_data_cmd (const ELEMENT *e)
 {
   if (e->cmd == CM_item
       && e->parent->type == ET_table_term)

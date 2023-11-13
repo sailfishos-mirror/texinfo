@@ -156,7 +156,7 @@ typedef struct FILE_SOURCE_INFO {
     char *filename;
     char *type;
     char *name;
-    ELEMENT *element;
+    const ELEMENT *element;
     char *path;
 } FILE_SOURCE_INFO;
 

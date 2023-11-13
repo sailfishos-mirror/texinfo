@@ -261,7 +261,7 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 }
 
 HV *
-build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
+build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   int i;
@@ -291,7 +291,7 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
       SPECIAL_UNIT_DIRECTION *special_unit_direction
        = &special_units_direction_name[i];
       char *direction_name = special_unit_direction->direction;
-      OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
+      const OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
       hv_store (hv, direction_name, strlen (direction_name),
                   newRV_inc ((SV *) output_unit->hv), 0);
     }
@@ -301,7 +301,7 @@ build_html_global_units_directions (OUTPUT_UNIT **global_units_directions,
 
 void
 pass_html_global_units_directions (SV *converter_sv,
-                       OUTPUT_UNIT **global_units_directions,
+                       const OUTPUT_UNIT **global_units_directions,
                        SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   HV *global_units_directions_hv;
@@ -999,7 +999,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 }
 
 SV *
-build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted)
+build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
 {
   AV *av;
   int i;
@@ -1013,7 +1013,7 @@ build_html_command_formatted_args (HTML_ARGS_FORMATTED *args_formatted)
 
   for (i = 0; i < args_formatted->number; i++)
     {
-      HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
+      const HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
       if (arg_formatted->tree)
         {
           int j;

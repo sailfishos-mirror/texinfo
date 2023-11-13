@@ -552,7 +552,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
 
 char *
 call_formatting_function_format_end_file (CONVERTER *self, char *filename,
-                                          OUTPUT_UNIT *output_unit)
+                                          const OUTPUT_UNIT *output_unit)
 {
   int count;
   char *result;
@@ -617,7 +617,7 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
 
 char *
 call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
-                                          OUTPUT_UNIT *output_unit)
+                                            const OUTPUT_UNIT *output_unit)
 {
   int count;
   char *result;
@@ -749,7 +749,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 char *
 call_types_conversion (CONVERTER *self, enum element_type type,
                        FORMATTING_REFERENCE *formatting_reference,
-                       ELEMENT *element, char *content)
+                       const ELEMENT *element, char *content)
 {
   int count;
   char *result;
@@ -818,7 +818,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
 
 char *
 call_types_open (CONVERTER *self, enum element_type type,
-                 ELEMENT *element)
+                 const ELEMENT *element)
 {
   int count;
   char *result;
@@ -885,7 +885,8 @@ call_types_open (CONVERTER *self, enum element_type type,
 char *
 call_commands_conversion (CONVERTER *self, enum command_id cmd,
                           FORMATTING_REFERENCE *formatting_reference,
-                          ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                          const ELEMENT *element,
+                          const HTML_ARGS_FORMATTED *args_formatted,
                           const char *content)
 {
   int count;
@@ -963,7 +964,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
 
 char *
 call_commands_open (CONVERTER *self, enum command_id cmd,
-                    ELEMENT *element)
+                    const ELEMENT *element)
 {
   int count;
   char *result;
@@ -1033,8 +1034,9 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
 
 char *
 call_output_units_conversion (CONVERTER *self,
-                               enum output_unit_type unit_type,
-                               OUTPUT_UNIT *output_unit, const char *content)
+                              enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content)
 {
   int count;
   char *result;
