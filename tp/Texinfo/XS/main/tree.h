@@ -41,6 +41,8 @@ void destroy_element (ELEMENT *e);
 void destroy_element_and_children (ELEMENT *e);
 int replace_element_in_contents (ELEMENT *parent, ELEMENT *removed,
                                  ELEMENT *added);
+int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
+                             ELEMENT *added);
 void destroy_node_spec (NODE_SPEC_EXTRA *nse);
 
 #define element_contents_number(e) ((e)->contents.number)

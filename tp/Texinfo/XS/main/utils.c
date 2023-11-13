@@ -826,7 +826,7 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
 {
   GLOBAL_INFO global_info = *global_info_ref;
 
-  free (global_info.dircategory_direntry.contents.list);
+  free (global_info.dircategory_direntry.list);
 
   free (global_info.input_encoding_name);
   free (global_info.input_file_name);
@@ -839,7 +839,7 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
   GLOBAL_COMMANDS global_commands = *global_commands_ref;
 
 #define GLOBAL_CASE(cmx) \
-  free (global_commands.cmx.contents.list)
+  free (global_commands.cmx.list)
 
   GLOBAL_CASE(floats);
   GLOBAL_CASE(footnotes);
@@ -849,15 +849,15 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 #undef GLOBAL_CASE
 }
 
-ELEMENT *
-get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
-                        enum command_id cmd)
+ELEMENT_LIST *
+get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
+                              enum command_id cmd)
 {
 
   switch (cmd)
     {
 #define GLOBAL_CASE(cmx) \
-     case CM_##cmx:   \
+     case CM_##cmx: \
        return &global_commands_ref->cmx;
 
      case CM_footnote:
@@ -869,7 +869,18 @@ get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
 #include "global_multi_commands_case.c"
 
 #undef GLOBAL_CASE
+     default:
+       return 0;
+   }
+}
 
+ELEMENT *
+get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
+                             enum command_id cmd)
+{
+
+  switch (cmd)
+    {
 #define GLOBAL_UNIQUE_CASE(cmd) \
      case CM_##cmd: \
        return global_commands_ref->cmd;
@@ -994,29 +1005,29 @@ get_global_document_command (GLOBAL_COMMANDS *global_commands,
     fprintf (stderr, "BUG: get_global_document_command: unknown CL: %d\n",
                      command_location);
 
-  ELEMENT *command
-     = get_cmd_global_command (global_commands, cmd);
+  ELEMENT_LIST *command_list
+     = get_cmd_global_multi_command (global_commands, cmd);
   if (builtin_command_data[cmd].flags & CF_global)
     {
-      if (command->contents.number)
+      if (command_list->number)
         {
           if (command_location == CL_last)
             {
-              element = command->contents.list[command->contents.number -1];
+              element = command_list->list[command_list->number -1];
             }
           else
             {
               if (command_location == CL_preamble_or_first
-                   && !in_preamble (command->contents.list[0]))
+                   && !in_preamble (command_list->list[0]))
                 {
-                  element = command->contents.list[0];
+                  element = command_list->list[0];
                 }
               else
                 {
                   int i;
-                  for (i = 0; i < command->contents.number; i++)
+                  for (i = 0; i < command_list->number; i++)
                     {
-                      ELEMENT *command_element = command->contents.list[i];
+                      ELEMENT *command_element = command_list->list[i];
                       if (in_preamble (command_element))
                         {
                           element = command_element;
@@ -1028,9 +1039,12 @@ get_global_document_command (GLOBAL_COMMANDS *global_commands,
             }
         }
     }
-  else if (command)
+  else
     {
-      element = command;
+      ELEMENT *command
+        = get_cmd_global_uniq_command (global_commands, cmd);
+      if (command)
+        element = command;
     }
   return element;
 }

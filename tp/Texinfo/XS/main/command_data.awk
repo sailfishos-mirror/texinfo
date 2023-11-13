@@ -179,7 +179,7 @@ END {
                   if (c != "float" && c != "footnote") {
                     print "GLOBAL_CASE(" c ");" > GMC
                     tmp_str = global_multi_commands_struct_str
-                    global_multi_commands_struct_str = tmp_str "   ELEMENT " c ";\n"
+                    global_multi_commands_struct_str = tmp_str "   ELEMENT_LIST " c ";\n"
                   }
                 } else if (flags_array[flag_idx] == "global_unique") {
                   # setfilename is special, it can also happen in @include
@@ -267,8 +267,8 @@ END {
 
     print global_unique_commands_struct_str   > GCT
     print "   /* Arrays of elements */"       > GCT
-    print "   ELEMENT floats;"                > GCT
-    print "   ELEMENT footnotes;\n"           > GCT
+    print "   ELEMENT_LIST floats;"                > GCT
+    print "   ELEMENT_LIST footnotes;\n"           > GCT
     print global_multi_commands_struct_str    > GCT
     print "} GLOBAL_COMMANDS;\n"              > GCT
     print "#endif"                            > GCT

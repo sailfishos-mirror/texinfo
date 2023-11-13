@@ -397,9 +397,9 @@ warn_non_empty_parts (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   int i;
 
-  for (i = 0; i < global_commands->part.contents.number; i++)
+  for (i = 0; i < global_commands->part.number; i++)
     {
-      ELEMENT *part = global_commands->part.contents.list[i];
+      ELEMENT *part = global_commands->part.list[i];
       if (!is_content_empty (part, 0))
         message_list_command_warn (error_messages, part,
                       "@%s not empty", builtin_command_name (part->cmd));
@@ -920,12 +920,12 @@ set_menus_node_directions (DOCUMENT *document)
     }
 
   /* Check @detailmenu */
-  if (check_menu_entries && global_commands->detailmenu.contents.number > 0)
+  if (check_menu_entries && global_commands->detailmenu.number > 0)
     {
       int i;
-      for (i = 0; i < global_commands->detailmenu.contents.number; i++)
+      for (i = 0; i < global_commands->detailmenu.number; i++)
         {
-          ELEMENT *detailmenu = global_commands->detailmenu.contents.list[i];
+          ELEMENT *detailmenu = global_commands->detailmenu.list[i];
           int k;
           for (k = 0; k < detailmenu->contents.number; k++)
             {

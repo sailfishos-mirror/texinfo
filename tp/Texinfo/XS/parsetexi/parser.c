@@ -357,15 +357,15 @@ register_global_command (ELEMENT *current)
         {
 #define GLOBAL_CASE(cmx) \
         case CM_##cmx:   \
-          add_to_contents_as_array (&global_commands.cmx, current); \
+          add_to_element_list (&global_commands.cmx, current); \
           break
 
         case CM_footnote:
-          add_to_contents_as_array (&global_commands.footnotes, current);
+          add_to_element_list (&global_commands.footnotes, current);
           break;
 
         case CM_float:
-          add_to_contents_as_array (&global_commands.floats, current);
+          add_to_element_list (&global_commands.floats, current);
           break;
 
 #include "global_multi_commands_case.c"
@@ -2536,16 +2536,17 @@ store_document (ELEMENT *root)
   if (global_info.input_directory)
     doc_global_info->input_directory
       = strdup (global_info.input_directory);
+
   #define COPY_GLOBAL_ARRAY(type,cmd) \
-   doc_global_##type->cmd.contents.list = 0;                            \
-   doc_global_##type->cmd.contents.number = 0;                          \
-   doc_global_##type->cmd.contents.space = 0;                           \
-   if (global_##type.cmd.contents.number > 0)                           \
+   doc_global_##type->cmd.list = 0;                            \
+   doc_global_##type->cmd.number = 0;                          \
+   doc_global_##type->cmd.space = 0;                           \
+   if (global_##type.cmd.number > 0)                           \
     {                                                                   \
-      for (i = 0; i < global_##type.cmd.contents.number; i++)           \
+      for (i = 0; i < global_##type.cmd.number; i++)           \
         {                                                               \
-          ELEMENT *e = contents_child_by_index (&global_##type.cmd, i); \
-          add_to_contents_as_array (&doc_global_##type->cmd, e);        \
+          ELEMENT *e = global_##type.cmd.list[i]; \
+          add_to_element_list (&doc_global_##type->cmd, e);        \
         }                                                               \
     }
   COPY_GLOBAL_ARRAY(info,dircategory_direntry);

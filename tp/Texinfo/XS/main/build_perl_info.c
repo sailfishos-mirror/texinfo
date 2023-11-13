@@ -900,14 +900,14 @@ build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref)
 
   dTHX;
 
-  if (global_info.dircategory_direntry.contents.number > 0)
+  if (global_info.dircategory_direntry.number > 0)
     {
       AV *av = newAV ();
       hv_store (hv, "dircategory_direntry", strlen ("dircategory_direntry"),
                 newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_info.dircategory_direntry.contents.number; i++)
+      for (i = 0; i < global_info.dircategory_direntry.number; i++)
         {
-          e = contents_child_by_index (&global_info.dircategory_direntry, i);
+          e = global_info.dircategory_direntry.list[i];
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -946,42 +946,42 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 
   /* The following are arrays of elements. */
 
-  if (global_commands.footnotes.contents.number > 0)
+  if (global_commands.footnotes.number > 0)
     {
       av = newAV ();
       hv_store (hv, "footnote", strlen ("footnote"),
                 newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_commands.footnotes.contents.number; i++)
+      for (i = 0; i < global_commands.footnotes.number; i++)
         {
-          e = contents_child_by_index (&global_commands.footnotes, i);
+          e = global_commands.footnotes.list[i];
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
     }
 
   /* float is a type, it does not work there, use floats instead */
-  if (global_commands.floats.contents.number > 0)
+  if (global_commands.floats.number > 0)
     {
       av = newAV ();
       hv_store (hv, "float", strlen ("float"),
                 newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_commands.floats.contents.number; i++)
+      for (i = 0; i < global_commands.floats.number; i++)
         {
-          e = contents_child_by_index (&global_commands.floats, i);
+          e = global_commands.floats.list[i];
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
     }
 
 #define GLOBAL_CASE(cmd) \
-  if (global_commands.cmd.contents.number > 0)                              \
+  if (global_commands.cmd.number > 0)                              \
     {                                                                   \
       av = newAV ();                                                    \
       hv_store (hv, #cmd, strlen (#cmd),                                \
                 newRV_noinc ((SV *) av), 0);                              \
-      for (i = 0; i < global_commands.cmd.contents.number; i++)             \
+      for (i = 0; i < global_commands.cmd.number; i++)             \
         {                                                               \
-          e = contents_child_by_index (&global_commands.cmd, i);            \
+          e = global_commands.cmd.list[i];            \
           if (e->hv)                                                    \
             av_push (av, newRV_inc ((SV *) e->hv));                     \
         }                                                               \

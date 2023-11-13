@@ -1208,7 +1208,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
             {
               int j;
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
-              replace_element_in_contents (
+              replace_element_in_list (
                  &document->global_commands->detailmenu, removed, master_menu);
               /* FIXME are the new entries added to internal refs?
                  Note that if they are not, it is possible that this has
@@ -1294,8 +1294,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     }
   /* insert master menu */
   insert_into_contents (last_menu, master_menu, index);
-  add_to_contents_as_array (&document->global_commands->detailmenu,
-                            master_menu);
+  add_to_element_list (&document->global_commands->detailmenu, master_menu);
   return 1;
 }
 

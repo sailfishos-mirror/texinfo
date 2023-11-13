@@ -966,7 +966,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
   if (command_e)
     register_global_command (command_e);
   if (cmd == CM_dircategory)
-    add_to_contents_as_array (&global_info.dircategory_direntry, command_e);
+    add_to_element_list (&global_info.dircategory_direntry, command_e);
 
 funexit:
   *line_inout = line;
@@ -1066,7 +1066,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
           add_to_element_contents (current, def_line);
           current = def_line;
           add_extra_string_dup (current, "def_command", command_name(cmd));
-          add_extra_string_dup (current, "original_def_cmdname", 
+          add_extra_string_dup (current, "original_def_cmdname",
                                 command_name(cmd));
           /* Check txidefnamenospace flag */
           val = fetch_value ("txidefnamenospace");
@@ -1101,8 +1101,8 @@ handle_block_command (ELEMENT *current, char **line_inout,
           push_context (ct_preformatted, cmd);
 
           if (cmd == CM_direntry)
-            add_to_contents_as_array (&global_info.dircategory_direntry, 
-                                      block);
+            add_to_element_list (&global_info.dircategory_direntry,
+                                 block);
 
           if (current_node)
             {

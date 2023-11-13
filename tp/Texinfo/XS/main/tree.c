@@ -512,25 +512,31 @@ args_child_by_index (ELEMENT *e, int index)
   return e->args.list[index];
 }
 
-/* do not set parent as it can be used to replace in a container element */
-int
-replace_element_in_contents (ELEMENT *parent, ELEMENT *removed, ELEMENT *added)
+int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
+                             ELEMENT *added)
 {
   int i;
 
-  if (!parent || !parent->contents.number)
+  if (!list || !list->number)
     return 0;
 
-  for (i = 0; i < parent->contents.number; i++)
+  for (i = 0; i < list->number; i++)
     {
-      ELEMENT *content = parent->contents.list[i];
+      ELEMENT *content = list->list[i];
       if (content == removed)
         {
-          parent->contents.list[i] = added;
+          list->list[i] = added;
           return 1;
         }
     }
   return 0;
+}
+
+/* do not set parent as it can be used to replace in a container element */
+int
+replace_element_in_contents (ELEMENT *parent, ELEMENT *removed, ELEMENT *added)
+{
+  return replace_element_in_list (&parent->contents, removed, added);
 }
 
 /* should only be used if the nse->manual_content

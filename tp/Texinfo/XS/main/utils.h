@@ -281,6 +281,6 @@ char *informative_command_value (ELEMENT *element);
 ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              OPTIONS *options, enum command_id cmd,
                              enum command_location command_location);
-ELEMENT *get_cmd_global_command (GLOBAL_COMMANDS *global_commands_ref,
-                                 enum command_id cmd);
+ELEMENT_LIST *get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
+                                      enum command_id cmd);
 #endif

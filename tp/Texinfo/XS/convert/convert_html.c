@@ -241,16 +241,15 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
           const OUTPUT_UNIT_LIST *output_units
              = retrieve_output_units (self->document_units_descriptor);
           if (current->cmd == CM_copying
-              && self->document->global_commands
-                      ->insertcopying.contents.number > 0)
+              && self->document->global_commands->insertcopying.number > 0)
             {
-              const ELEMENT global_insertcopying
+              const ELEMENT_LIST global_insertcopying
                 = self->document->global_commands->insertcopying;
               int i;
-              for (i = 0; i < global_insertcopying.contents.number; i++)
+              for (i = 0; i < global_insertcopying.number; i++)
                 {
                   const ELEMENT *insertcopying
-                      = global_insertcopying.contents.list[i];
+                      = global_insertcopying.list[i];
                   ROOT_AND_UNIT *cur_result = html_get_tree_root_element (self,
                                                 insertcopying, find_container);
                   if (cur_result->output_unit || cur_result->root)
@@ -615,15 +614,15 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                     }
                   else if (!strcmp (contents_location, "inline"))
                     {
-                      const ELEMENT *global_command
-                       = get_cmd_global_command (
+                      const ELEMENT_LIST *global_command
+                       = get_cmd_global_multi_command (
                                       self->document->global_commands, cmd);
-                      if (global_command->contents.number > 0)
+                      if (global_command->number > 0)
                         {
                           int i;
-                          for (i = 0; i < global_command->contents.number; i++)
+                          for (i = 0; i < global_command->number; i++)
                             {
-                              const ELEMENT *command = global_command->contents.list[i];
+                              const ELEMENT *command = global_command->list[i];
                               ROOT_AND_UNIT *root_unit
                                = html_get_tree_root_element (self, command, 0);
                               if (root_unit->output_unit)
@@ -650,7 +649,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
         }
     }
 
-  if (self->document->global_commands->footnotes.contents.number > 0
+  if (self->document->global_commands->footnotes.number > 0
       && !strcmp(self->conf->footnotestyle, "separate")
       && output_units && output_units->number > 1)
     add_string ("footnotes", do_special);
@@ -1390,13 +1389,13 @@ static const char *docid_base = "DOCF";
 static void
 prepare_footnotes_targets (CONVERTER *self)
 {
-  const ELEMENT *global_footnotes = &self->document->global_commands->footnotes;
-  if (global_footnotes->contents.number > 0)
+  const ELEMENT_LIST *global_footnotes = &self->document->global_commands->footnotes;
+  if (global_footnotes->number > 0)
     {
       int i;
-      for (i = 0; i < global_footnotes->contents.number; i++)
+      for (i = 0; i < global_footnotes->number; i++)
         {
-          const ELEMENT *footnote = global_footnotes->contents.list[i];
+          const ELEMENT *footnote = global_footnotes->list[i];
           TEXT footid;
           TEXT docid;
           int nr = i+1;
@@ -1506,10 +1505,10 @@ html_prepare_output_units_global_targets (CONVERTER *self,
   /* It is always the first printindex, even if it is not output (for example
      it is in @copying and @titlepage, which are certainly wrong constructs).
    */
-  if (self->document->global_commands->printindex.contents.number > 0)
+  if (self->document->global_commands->printindex.number > 0)
     {
       const ELEMENT *printindex
-        = self->document->global_commands->printindex.contents.list[0];
+        = self->document->global_commands->printindex.list[0];
       ROOT_AND_UNIT *root_unit
         = html_get_tree_root_element (self, printindex, 0);
       if (root_unit->output_unit)
